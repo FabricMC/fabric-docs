@@ -13,6 +13,7 @@
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^1.0.0-rc.33",
+    "vitepress-versioning-plugin": "^0.9.0",
     "vue": "^3.4.0"
   }
 }
