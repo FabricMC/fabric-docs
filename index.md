@@ -1,4 +1,4 @@
-# Fabric Documentation
+# Fabric Documentation (test)
 
 ::: warning
 This site is still work in progress. If you find any issues, please report them on [GitHub](https://github.com/FabricMC/fabric-docs)
