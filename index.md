@@ -28,15 +28,15 @@ features:
 <div class="vp-doc homepage-container">
 
 ::: tip Version Notice
-These pages are written with Minecraft `1.20.4` in mind, unless otherwise stated. If you are using a different version, you should use the version switcher in the navigation panel to ensure you are viewing the correct documentation.
+These pages are written with Minecraft `1.20.4` in mind, unless otherwise stated.
 :::
 
 This documentation website is dedicated to providing comprehensive documentation for Fabric, the Minecraft modding toolchain. It is a complimentary resource to the [Fabric Wiki](https://fabricmc.net/wiki).
 
 ## Frequently Asked Questions
 
-- [For Players and Server Admins](/players/faq.md)
-- [For Mod Developers](/develop/faq.md)
-- [For Experts](/technical/faq.md)
+- [Players and Server Admin FAQs](/players/faq.md)
+- [Mod Developer FAQs](/develop/faq.md)
+- [Technical FAQs](/technical/faq.md)
 
 </div>
