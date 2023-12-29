@@ -32,7 +32,8 @@ export default defineVersionedConfig(__dirname, {
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: 'https://fabricmc.net/' }
+      { text: 'Home', link: 'https://fabricmc.net/' },
+      { text: 'Download', link: 'https://fabricmc.net/use' }
     ],
 
     search: {
@@ -46,6 +47,8 @@ export default defineVersionedConfig(__dirname, {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/FabricMC/fabric-docs' },
       { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
-    ]
+    ],
+
+    logo: "https://fabricmc.net/assets/logo.png"
   }
 })
