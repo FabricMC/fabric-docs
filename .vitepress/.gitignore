@@ -1,0 +1,8 @@
+# Ignore everything
+/*
+
+# Folders
+
+# Files
+!/.gitignore
+!/config.mts

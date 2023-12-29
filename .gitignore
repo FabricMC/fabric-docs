@@ -1,0 +1,15 @@
+# Ignore everything
+/*
+
+# Folders
+!/.vitepress
+!/develop
+
+# Files
+!/.gitignore
+!/.nvmrc
+!/package-lock.json
+!/package.json
+!/README.md
+
+!*.md
