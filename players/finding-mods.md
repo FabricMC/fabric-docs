@@ -1,9 +1,9 @@
 ---
-title: Finding Mods
+title: Finding Trustworthy Mods
 description: A guide on how to find Fabric mods using trustworthy sources.
 ---
 
-# Finding Mods
+# Finding Trustworthy Mods
 
 Firstly, trust is subjective, and you should always use your own judgement when downloading mods. However, there are some things you can do to help you find trustworthy mods.
 
