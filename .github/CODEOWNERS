@@ -1,3 +1,5 @@
+* @FabricMC/documentation
+
 .github/ @FabricMC/developers
 .vitepress/ @FabricMC/developers
 package-lock.json @FabricMC/developers
