@@ -3,7 +3,16 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Fabric Documentation",
-  description: "Fabric docs site",
+  description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
+  cleanUrls: true,
+  srcExclude: [
+    "README.md",
+    "LICENSE.md",
+  ],
+  markdown: {
+    lineNumbers: true,
+    math: true
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
