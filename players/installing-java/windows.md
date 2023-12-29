@@ -17,7 +17,7 @@ You can do this by pressing <kbd>Win</kbd> + <kbd>R</kbd> and typing `cmd.exe` i
 
 Once you have opened the command prompt, type `java -version` and press <kbd>Enter</kbd>.
 
-If the command runs successfully, you will see something like this:
+If the command runs successfully, you will see something like this. If the command failed, proceed to the next step.
 
 ![Command prompt with "java -version" typed in.](/assets/players/installing-java/windows-java-version.png)
 
