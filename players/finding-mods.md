@@ -21,13 +21,13 @@ If in doubt, you are welcome to ask in the [Fabric Discord](https://discord.gg/v
 
 ## 3. Avoid common malware sites!
 
+::: info
+Malware sites may not be obvious to everyone, so if you are unsure, you should ask for opinions from others or avoid the site altogether and rely only on trusted sources, such as Modrinth and CurseForge.
+:::
+
 There are a lot of sites out there that claim to have mods for Minecraft, but are actually just malware sites. You should avoid these sites at all costs.
 
-Some examples of sites that are known to contain malware are:
+If you are unsure if a site is trustworthy, you can use a decent antivirus software, such as [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to ensure that the site is not trying to download anything malicious onto your computer.
 
-- `9minecraft.net`
-- `10minecraft.ru`
-- `creeper.gg`
-
-A full comprehensive list of these sites can be found [here, courtesy of Stop Mod Reposts](https://stopmodreposts.org/).
+Again, if in doubt, you are welcome to ask for opinions in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
 
