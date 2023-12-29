@@ -23,6 +23,8 @@ export default defineConfig({
       provider: 'local'
     },
 
+    outline: "deep",
+
     sidebar: [
       {
         text: 'Examples',

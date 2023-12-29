@@ -9,3 +9,6 @@
 # Alternative Package Locks
 pnpm-lock.yaml
 yarn.lock
+
+# LanguageTool Dictionaries
+.vscode/*.dictionary.*.txt
