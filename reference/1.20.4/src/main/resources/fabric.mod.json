@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "fabric-docs-reference",
+	"version": "1.0.0",
+	"name": "Fabric docs reference",
+	"icon": "assets/fabric-docs-reference/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.docs.FabricDocsReference"
+		],
+		"client": [
+			"com.example.docs.FabricDocsReferenceClient"
+		],
+		"fabric-datagen": [
+			"com.example.docs.FabricDocsReferenceDataGenerator"
+		]
+	},
+	"mixins": [
+		"fabric-docs-reference.mixins.json",
+		{
+			"config": "fabric-docs-reference.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
