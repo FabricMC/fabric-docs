@@ -5,3 +5,7 @@
 
 # Files
 .DS_Store
+
+# Alternative Package Locks
+pnpm-lock.yaml
+yarn.lock

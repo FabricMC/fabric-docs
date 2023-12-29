@@ -4,14 +4,24 @@ layout: home
 
 hero:
   name: "Fabric Documentation"
-  tagline: My great project tagline
+  tagline: "Comprehensive documentation for Fabric, the Minecraft modding toolchain."
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Player Guides
+    icon: 💻
+    details: Various guides for players and server administrators on installing and using Fabric.
+    link: /players/
+  - title: Developer Guides
+    icon: 🛠
+    details: Learn how to create your own mods for Fabric.
+    link: /develop/
+  - title: Modpack Developer Guides
+    icon: 📦
+    details: Learn how to create your own modpacks for Fabric.
+    link: /modpack/
+  - title: Specifications and Technical Information
+    icon: 📖
+    details: Learn about the various technical details of Fabric and its toolchain.
+    link: /technical/
 ---
 
