@@ -28,7 +28,8 @@
             },
             {
               "text": "MacOS",
-              "link": "/players/installing-java/mac"
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac",
+              "process": false
             },
             {
               "text": "Linux",
