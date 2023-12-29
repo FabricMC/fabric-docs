@@ -37,3 +37,25 @@ You should choose `x86` if you have a 32-bit operating system, or `x64` if you h
 
 The majority of modern computers will have a 64-bit operating system, but if you're unsure, you can go back to the command prompt and type `wmic os get osarchitecture` to find out.
 
+## 3. Run the installer!
+
+Follow the steps in the installer to install Java 17, when you reach this page, you should set the following features to “Entire feature will be installed on local hard drive”:
+
+- `Set JAVA_HOME variable`
+- `JavaSoft (Oracle) registry keys`
+
+![Java 17 installer with "Set JAVA_HOME variable" and "JavaSoft (Oracle) registry keys" highlighted.](/assets/players/installing-java/windows-wizard-screenshot.png)
+
+Once you've done that, you can click `Next` and continue with the installation.
+
+## 4. Verify that Java 17 is installed.
+
+Once the installation is complete, you can verify that Java 17 is installed by opening the command prompt again and typing `java -version`.
+
+If the command runs successfully, you will see something like shown before, where the java version is displayed:
+
+![Command prompt with "java -version" typed in.](/assets/players/installing-java/windows-java-version.png)
+
+---
+
+If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
