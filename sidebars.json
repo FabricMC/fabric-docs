@@ -9,5 +9,34 @@
         }
       ]
     }
+  ],
+  "/players/": [
+    {
+      "text": "Player Guides",
+      "link": "/players/",
+      "items": [
+        {
+          "text": "Frequently Asked Questions",
+          "link": "/players/faq"
+        },
+        {
+          "text": "Installing Java",
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/players/installing-java/windows"
+            },
+            {
+              "text": "MacOS",
+              "link": "/players/installing-java/mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/players/installing-java/linux"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

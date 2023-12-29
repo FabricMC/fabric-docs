@@ -35,8 +35,9 @@ This documentation website is dedicated to providing comprehensive documentation
 
 ## Frequently Asked Questions
 
-- [Players and Server Admin FAQs](/players/faq.md)
-- [Mod Developer FAQs](/develop/faq.md)
-- [Technical FAQs](/technical/faq.md)
+- [Player and Server Admin FAQs](/players/faq.md)
+<!-- Uncomment when ready. -->
+<!-- - [Mod Developer FAQs](/develop/faq.md)
+- [Technical FAQs](/technical/faq.md) -->
 
 </div>
