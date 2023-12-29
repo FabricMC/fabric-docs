@@ -19,6 +19,10 @@ export default defineConfig({
       { text: 'Home', link: 'https://fabricmc.net/' }
     ],
 
+    search: {
+      provider: 'local'
+    },
+
     sidebar: [
       {
         text: 'Examples',
