@@ -5,7 +5,9 @@ description: A step by step guide on how to install Java on Windows.
 
 # Installing Java on Windows
 
-Java is required to run Minecraft and the majority of third party launchers. This guide will show you how to install Java on Windows.
+This guide will walk you through installing Java 17 on Windows.
+
+The Minecraft Launcher comes with its own java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
 
 ## 1. Verify if Java is already installed.
 

@@ -27,7 +27,7 @@ Malware sites may not be obvious to everyone, so if you are unsure, you should a
 
 There are a lot of sites out there that claim to have mods for Minecraft, but are actually just malware sites. You should avoid these sites at all costs.
 
-If you are unsure if a site is trustworthy, you can use a decent antivirus software, such as [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to ensure that the site is not trying to download anything malicious onto your computer.
+If you are unsure if a site is trustworthy, you can use a decent antivirus software, such as [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to ensure that the site is not trying to trick you into downloading anything malicious onto your computer.
 
 Again, if in doubt, you are welcome to ask for opinions in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
 

@@ -69,6 +69,14 @@ In this case, the mod that caused the crash is `snownee`, as it is the first mod
 
 However, with the amount of mods mentioned, it could mean there are some compatibility issues between the mods, and the mod that caused the crash may not be the mod that is at fault. In this case, it is best to report the crash to the mod author, and let them investigate the crash.
 
+::: warning
+Sometimes, there may be no mods mentioned in the stack trace, this doesn't mean that the crash is not caused by a mod! It may mean that a mod's mixin has crashed. 
+
+In this case, you should see if you can find any mods that have mixins in classes mentioned in the crash report, and report the crash to the mod author.
+:::
+
+If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
+
 ## What to do with Crash Reports
 
 The best thing to do with crash reports is to upload them to a paste site, and then share the link with the mod author, either on their issue trackers or through some form of communication (Discord etc.).
