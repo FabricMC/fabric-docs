@@ -18,6 +18,10 @@ export default defineVersionedConfig(__dirname, {
   description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', sizes: '32x32', href: '/favicon.png' }],
+  ],
+
   srcExclude: [
     "README.md",
     "LICENSE.md",
@@ -25,6 +29,10 @@ export default defineVersionedConfig(__dirname, {
 
   transformPageData(pageData: PageData, ctx: TransformPageContext) {
     applySEO(pageData)
+  },
+
+  sitemap: {
+    hostname: "https://docs.fabricmc.net"
   },
 
   markdown: {
@@ -55,6 +63,6 @@ export default defineVersionedConfig(__dirname, {
       { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
     ],
 
-    logo: "/assets/logo.png"
+    logo: "/logo.png"
   }
 })
