@@ -23,6 +23,15 @@ For macOS and Linux, you should download the `.jar` version. Sometimes, you need
 Close Minecraft and the Minecraft Launcher first before installing.
 :::
 
+::: details Information for MacOS users
+
+On macOS, you may need to right click the `.jar` file in your downloads directory and click `Open` to run it.
+
+![Fabric Installer with "Install" highlighted.](/assets/players/installing-fabric/macos-downloads.png)
+
+When asked "Are you sure you want to open it?", click `Open` again.
+:::
+
 Once you've opened the installer, you should see a screen like this:
 
 ![Fabric Installer with "Install" highlighted.](/assets/players/installing-fabric/installer-screen.png)
