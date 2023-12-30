@@ -39,6 +39,14 @@
           ]
         },
         {
+          "text": "Installing Fabric",
+          "link": "/players/installing-fabric"
+        },
+        {
+          "text": "Finding Trustworthy Mods",
+          "link": "/players/finding-mods"
+        },
+        {
           "text": "Troubleshooting",
           "items": [
             {
@@ -50,10 +58,6 @@
               "link": "/players/troubleshooting/crash-reports"
             }
           ]
-        },
-        {
-          "text": "Finding Trustworthy Mods",
-          "link": "/players/finding-mods"
         }
       ]
     }
