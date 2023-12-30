@@ -15,7 +15,7 @@ Some common pages that players may find useful are listed below, but you should 
 
 - [Installing Fabric](./players/installing-fabric.md)
 - [Finding Mods](./players/finding-mods.md)
-- [Uploading your Logs](./players/uploading-logs.md)
+- [Uploading your Logs](./players/troubleshooting/uploading-logs.md)
 
 If you require support for Fabric you can visit the [Fabric Discord](https://discord.gg/v6v4pMv) or [Github Discussions](https://github.com/orgs/FabricMC/discussions).
 
