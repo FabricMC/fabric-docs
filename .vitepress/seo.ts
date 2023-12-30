@@ -23,7 +23,7 @@ export function applySEO(pageData: PageData) {
   addTag(pageData, "og:type", "website");
   addTag(pageData, "og:url", `https://docs.fabricmc.net/${pageData.relativePath}`);
   addTag(pageData, "og:description", pageData.description);
-  addTag(pageData, "og:image", "/assets/logo.png");
+  addTag(pageData, "og:image", "/logo.png");
 
   addTag(pageData, "twitter:card", "summary");
 
