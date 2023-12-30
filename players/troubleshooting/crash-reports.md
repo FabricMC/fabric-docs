@@ -39,7 +39,7 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using the [following crash report as an example.](https://gist.github.com/IMB11/8fb305a98212bcad2d60f8bd4b041f76)
+For this guide, we will be using the [following crash report as an example.](https://github.com/FabricMC/fabric-docs/blob/main/assets/players/crash-report-example.txt)
 
 ### Crash Report Sections
 
@@ -74,8 +74,6 @@ In this case, the mod that caused the crash is `snownee`, as it is the first mod
 However, with the amount of mods mentioned, it could mean there are some compatibility issues between the mods, and the mod that caused the crash may not be the mod that is at fault. In this case, it is best to report the crash to the mod author, and let them investigate the crash.
 
 ## Mixin Crashes
-
-Sometimes, it may not be clear that a mod has caused the crash, and the stack trace may not mention any mods at all. This is usually the case when a mixin has crashed.
 
 ::: info
 Mixins are a way for mods to modify the game without having to modify the game's source code. They are used by many mods, and are a very powerful tool for mod developers.

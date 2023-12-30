@@ -9,9 +9,9 @@ Firstly, trust is subjective, and you should always use your own judgement when 
 
 ## 1. Use a source that is known to be trustworthy.
 
-The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortType=1&class=mc-mods&gameFlavorsIds=4), however some may choose to upload it on their personal websites, or on other platforms, such as a GitHub repository.
+The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortType=1&class=mc-mods&gameFlavorsIds=4).
 
-These platforms have moderation teams in place that check that mods are what they say they are, and that they do not contain any malicious code. They also have a reporting system in place, so that if you do find a malicious mod, you can report it to the moderation team, and they will take action relatively quickly.
+These websites check that the mods are what they say they are, and that they do not contain malicious code. You can also report malicious mods on those websites, and they will take action relatively quickly.
 
 ## 2. Check with others!
 
@@ -22,12 +22,12 @@ If in doubt, you are welcome to ask in the [Fabric Discord](https://discord.gg/v
 ## 3. Avoid common malware sites!
 
 ::: info
-Malware sites may not be obvious to everyone, so if you are unsure, you should ask for opinions from others or avoid the site altogether and rely only on trusted sources, such as Modrinth and CurseForge.
+Malware sites may not be obvious to everyone. If you are unsure, you should ask for opinions from others or avoid the site altogether and rely only on trusted sources, such as Modrinth and CurseForge.
 :::
 
-There are a lot of sites out there that claim to have mods for Minecraft, but are actually just malware sites. You should avoid these sites at all costs.
+There are a lot of websites that claim to have mods for Minecraft, but are actually just malware sites. You should avoid these sites at all costs.
 
-If you are unsure if a site is trustworthy, you can use a decent antivirus software, such as [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to ensure that the site is not trying to trick you into downloading anything malicious onto your computer.
+You can use antivirus software and websites like [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to check the downloaded mods. However, do not rely entirely on those methods, because they can be sometimes incorrect.
 
 Again, if in doubt, you are welcome to ask for opinions in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
 

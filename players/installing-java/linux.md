@@ -7,13 +7,11 @@ description: A step by step guide on how to install Java on Linux.
 
 This guide will walk you through installing Java 17 on Linux.
 
-The Minecraft Launcher comes with its own java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
-
 ## 1. Verify if Java is already installed.
 
 Open a terminal and type `java -version` and press <kbd>Enter</kbd>.
 
-If the command runs successfully, you will see something like this. If the command failed, proceed to the next step.
+Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
 ![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)
 
@@ -22,6 +20,8 @@ To use the majority of modern Minecraft versions, you'll need at least Java 17 i
 :::
 
 ## 2. Downloading and Installing Java 17
+
+We recommend using OpenJDK 17, which is available for most Linux distributions.
 
 ### Arch Linux
 
@@ -50,13 +50,6 @@ sudo pacman -S jdk-openjdk
 ### Debian/Ubuntu
 
 You can install java 17 using `apt` with the following commands:
-
-```bash
-sudo apt update
-sudo apt install openjdk-17-jre
-```
-
-If you plan to develop mods, you'll need the JDK instead:
 
 ```bash
 sudo apt update

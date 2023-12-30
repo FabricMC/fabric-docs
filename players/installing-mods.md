@@ -12,20 +12,22 @@ For third party launchers, you should consult their documentation.
 ## 1. Download the Mod
 
 ::: warning
-You should only download mods from sources you trust, for more information on finding mods, see the [Finding Mods](./finding-mods.md) guide.
+You should only download mods from sources you trust. For more information on finding mods, see the [Finding Mods](./finding-mods.md) guide.
 :::
 
-The majority of mods require [Fabric API](https://modrinth.com/mod/fabric-api) as well, so you should download that too.
+The majority of mods require Fabric API as well, which can be downloaded from [Modrinth](https://modrinth.com/mod/fabric-api) or [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
 
 When downloading mods, ensure that:
 
-- They work on the version of Minecraft you want to play on.
-- They are for Fabric, not NeoForge, Rift, or any other mod loader.
+- They work on the version of Minecraft you want to play on. A mod that works on version 1.20, for example, might not work on version 1.20.2.
+- They are for Fabric and not another mod loader.
 - Furthermore, they are for the correct edition of Minecraft (Java Edition).
 
 ## 2. Move the mod to the `mods` folder.
 
-The mods folder can be found in the following locations for each operating system:
+The mods folder can be found in the following locations for each operating system.
+
+You can usually paste these paths into the address bar of your file explorer to quickly navigate to the folder.
 
 ::: code-group
 

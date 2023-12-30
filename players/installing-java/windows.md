@@ -7,7 +7,7 @@ description: A step by step guide on how to install Java on Windows.
 
 This guide will walk you through installing Java 17 on Windows.
 
-The Minecraft Launcher comes with its own java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
+The Minecraft Launcher comes with its own Java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
 
 ## 1. Verify if Java is already installed.
 
@@ -29,21 +29,21 @@ To use the majority of modern Minecraft versions, you'll need at least Java 17 i
 
 ## 2. Download the Java 17 installer.
 
-To install Java 17, you'll need to download the installer from [AdoptOpenJDK](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
+To install Java 17, you'll need to download the installer from [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
 
 You'll want to download the `Windows Installer (.msi)` version:
 
-![AdoptOpenJDK download page with Windows Installer (.msi) highlighted.](/assets/players/installing-java/windows-download-java.png)
+![Adoptium download page with Windows Installer (.msi) highlighted.](/assets/players/installing-java/windows-download-java.png)
 
 You should choose `x86` if you have a 32-bit operating system, or `x64` if you have a 64-bit operating system.
 
-The majority of modern computers will have a 64-bit operating system, but if you're unsure, you can go back to the command prompt and type `wmic os get osarchitecture` to find out.
+The majority of modern computers will have a 64-bit operating system. If you are unsure, try using the 64-bit download.
 
 ## 3. Run the installer!
 
-Follow the steps in the installer to install Java 17, when you reach this page, you should set the following features to “Entire feature will be installed on local hard drive”:
+Follow the steps in the installer to install Java 17. When you reach this page, you should set the following features to “Entire feature will be installed on local hard drive”:
 
-- `Set JAVA_HOME variable`
+- `Set JAVA_HOME environment variable` - This will be added to your PATH.
 - `JavaSoft (Oracle) registry keys`
 
 ![Java 17 installer with "Set JAVA_HOME variable" and "JavaSoft (Oracle) registry keys" highlighted.](/assets/players/installing-java/windows-wizard-screenshot.png)
