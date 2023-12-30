@@ -1,7 +1,11 @@
+import { PageData, TransformPageContext } from 'vitepress'
+
 import defineVersionedConfig from 'vitepress-versioning-plugin'
 
 import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
+
+import { applySEO } from './seo'
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -18,6 +22,10 @@ export default defineVersionedConfig(__dirname, {
     "README.md",
     "LICENSE.md",
   ],
+
+  transformPageData(pageData: PageData, ctx: TransformPageContext) {
+    applySEO(pageData)
+  },
 
   markdown: {
     lineNumbers: true,
@@ -47,6 +55,6 @@ export default defineVersionedConfig(__dirname, {
       { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
     ],
 
-    logo: "https://fabricmc.net/assets/logo.png"
+    logo: "/assets/logo.png"
   }
 })
