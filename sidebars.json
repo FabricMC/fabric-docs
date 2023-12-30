@@ -21,6 +21,7 @@
         },
         {
           "text": "Installing Java",
+          "collapsed": true,
           "items": [
             {
               "text": "Windows",
@@ -34,6 +35,19 @@
             {
               "text": "Linux",
               "link": "/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Troubleshooting",
+          "items": [
+            {
+              "text": "Uploading Your Logs",
+              "link": "/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/players/troubleshooting/crash-reports"
             }
           ]
         },
