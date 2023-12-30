@@ -5,6 +5,10 @@ description: Learn what to do with crash reports, and how to read them.
 
 # Crash Reports
 
+::: tip
+If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
+:::
+
 Crash reports are a very important part of troubleshooting issues with your game or server. They contain a lot of information about the crash, and can help you find the cause of the crash.
 
 ## Finding Crash Reports
@@ -69,13 +73,23 @@ In this case, the mod that caused the crash is `snownee`, as it is the first mod
 
 However, with the amount of mods mentioned, it could mean there are some compatibility issues between the mods, and the mod that caused the crash may not be the mod that is at fault. In this case, it is best to report the crash to the mod author, and let them investigate the crash.
 
-::: warning
-Sometimes, there may be no mods mentioned in the stack trace, this doesn't mean that the crash is not caused by a mod! It may mean that a mod's mixin has crashed. 
+## Mixin Crashes
 
-In this case, you should see if you can find any mods that have mixins in classes mentioned in the crash report, and report the crash to the mod author.
+Sometimes, it may not be clear that a mod has caused the crash, and the stack trace may not mention any mods at all. This is usually the case when a mixin has crashed.
+
+::: info
+Mixins are a way for mods to modify the game without having to modify the game's source code. They are used by many mods, and are a very powerful tool for mod developers.
 :::
 
-If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
+When a mixin crashes, it will usually mention the mixin in the stack trace, and the class that the mixin is modifying.
+
+Method mixins will contain `modid$handlerName` in the stack trace, where `modid` is the mod's ID, and `handlerName` is the name of the mixin handler.
+
+```:no-line-numbers
+... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+```
+
+You can use this information to find the mod that caused the crash, and report the crash to the mod author.
 
 ## What to do with Crash Reports
 
