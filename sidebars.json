@@ -47,6 +47,10 @@
           "link": "/players/finding-mods"
         },
         {
+          "text": "Installing Mods",
+          "link": "/players/installing-mods"
+        },
+        {
           "text": "Troubleshooting",
           "items": [
             {
