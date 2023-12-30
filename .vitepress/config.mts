@@ -1,12 +1,7 @@
-import { DefaultTheme } from 'vitepress'
-import fs from 'node:fs'
 import defineVersionedConfig from 'vitepress-versioning-plugin'
-import path from 'node:path'
 
-function loadSidebar(): DefaultTheme.SidebarMulti {
-  const sidebarContent = fs.readFileSync(path.resolve(__dirname, "..", "sidebars.json"), "utf-8");
-  return JSON.parse(sidebarContent);
-}
+import RootSidebar from './sidebars/root'
+import PlayersSidebar from './sidebars/players'
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -42,7 +37,10 @@ export default defineVersionedConfig(__dirname, {
 
     outline: "deep",
 
-    sidebar: loadSidebar(),
+    sidebar: {
+      '/': RootSidebar,
+      '/players/': PlayersSidebar
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/FabricMC/fabric-docs' },
