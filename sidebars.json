@@ -62,6 +62,10 @@
               "link": "/players/troubleshooting/crash-reports"
             }
           ]
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/players/updating-fabric"
         }
       ]
     }

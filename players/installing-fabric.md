@@ -22,7 +22,7 @@ For macOS and Linux, you should download the `.jar` version, this may mean you n
 ::: warning
 Before running the installer, you must close the Minecraft Launcher if it is running, along with any other Minecraft instances that are currently running.
 
-**You must also ensure that you have played the version of Minecraft you want to install Fabric for at least once, otherwise the installer will not be able to find the version's files.**
+**You must also ensure that you have played the version of Minecraft you want to use Fabric for at least once, otherwise the installer will not be able to find the version's files.**
 :::
 
 Once you've opened the installer, you should see a screen like this:
