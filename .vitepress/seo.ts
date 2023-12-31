@@ -1,3 +1,4 @@
+import { SiteConfig } from "vitepress";
 import { PageData } from "vitepress";
 
 function addTag(pageData: PageData, name: string, content: string) {
@@ -28,4 +29,23 @@ export function applySEO(pageData: PageData) {
   addTag(pageData, "twitter:card", "summary");
 
   addTag(pageData, "theme-color", "#2275da");
+}
+
+export function removeVersionedItems(items: any[]): any[] {
+  const config = globalThis.VITEPRESS_CONFIG as SiteConfig;
+  const inverseRewrites = config.rewrites.inv;
+
+  const itemsCopy = [...items];
+  for (const item of items) {
+    const path = item.url.replace("https://docs.fabricmc.net/", "") + ".md";
+
+    // Remove the item if it's a versioned item
+    if (inverseRewrites[path]?.includes("versions")) {
+      itemsCopy.splice(itemsCopy.indexOf(item), 1);
+    }
+  }
+
+
+
+  return itemsCopy;
 }
