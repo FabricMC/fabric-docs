@@ -6,6 +6,7 @@ import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
 
 import { applySEO } from './seo'
+import { removeVersionedItems } from "./seo"
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -32,7 +33,8 @@ export default defineVersionedConfig(__dirname, {
   },
 
   sitemap: {
-    hostname: "https://docs.fabricmc.net"
+    hostname: "https://docs.fabricmc.net/",
+    transformItems: items => removeVersionedItems(items)
   },
 
   markdown: {
