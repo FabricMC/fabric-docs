@@ -1,12 +1,12 @@
-import { DefaultTheme } from 'vitepress'
-import fs from 'node:fs'
-import defineVersionedConfig from 'vitepress-versioning-plugin'
-import path from 'node:path'
+import { PageData, TransformPageContext } from 'vitepress'
 
-function loadSidebar(): DefaultTheme.SidebarMulti {
-  const sidebarContent = fs.readFileSync(path.resolve(__dirname, "..", "sidebars.json"), "utf-8");
-  return JSON.parse(sidebarContent);
-}
+import defineVersionedConfig from 'vitepress-versioning-plugin'
+
+import RootSidebar from './sidebars/root'
+import PlayersSidebar from './sidebars/players'
+
+import { applySEO } from './seo'
+import { removeVersionedItems } from "./seo"
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -19,10 +19,23 @@ export default defineVersionedConfig(__dirname, {
   description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', sizes: '32x32', href: '/favicon.png' }],
+  ],
+
   srcExclude: [
     "README.md",
     "LICENSE.md",
   ],
+
+  transformPageData(pageData: PageData, ctx: TransformPageContext) {
+    applySEO(pageData)
+  },
+
+  sitemap: {
+    hostname: "https://docs.fabricmc.net/",
+    transformItems: items => removeVersionedItems(items)
+  },
 
   markdown: {
     lineNumbers: true,
@@ -42,13 +55,16 @@ export default defineVersionedConfig(__dirname, {
 
     outline: "deep",
 
-    sidebar: loadSidebar(),
+    sidebar: {
+      '/': RootSidebar,
+      '/players/': PlayersSidebar
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/FabricMC/fabric-docs' },
       { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
     ],
 
-    logo: "https://fabricmc.net/assets/logo.png"
+    logo: "/logo.png"
   }
 })
