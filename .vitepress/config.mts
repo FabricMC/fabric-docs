@@ -1,4 +1,4 @@
-import { DefaultTheme, defineConfig } from 'vitepress'
+import { DefaultTheme } from 'vitepress'
 import fs from 'node:fs'
 import defineVersionedConfig from 'vitepress-versioning-plugin'
 import path from 'node:path'
@@ -39,6 +39,8 @@ export default defineVersionedConfig(__dirname, {
     search: {
       provider: 'local'
     },
+
+    outline: "deep",
 
     sidebar: loadSidebar(),
 
