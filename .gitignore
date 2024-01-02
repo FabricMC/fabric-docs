@@ -10,7 +10,6 @@
 pnpm-lock.yaml
 yarn.lock
 
-# LanguageTool Dictionaries and Reports
-/.vscode/ltex.dictionary.*.txt
-/.vscode/ltex.report.*.txt
-/.vscode/ltex.hiddenFalsePositives.*.txt
+# LanguageTool Dictionaries and False Positives
+.vscode/*.dictionary.*.txt
+.vscode/*.hiddenFalsePositives.*.txt

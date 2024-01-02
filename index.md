@@ -14,11 +14,19 @@ This site is still work in progress. If you find any issues, please report them 
 
 This website contains official comprehensive documentation for Fabric, a modding toolchain for Minecraft.
 
-### For Players
+## For Players
 
-If you are a player, you can find information on how to install Fabric and mods on the [downloads](https://fabricmc.net/use) page. If you require support for Fabric you can visit the [Fabric Discord server.](https://discord.gg/v6v4pMv) or [Github Discussions](https://github.com/orgs/FabricMC/discussions).
+You should view the [Player Guides](./players/index.md) section for more information.
 
-### For Developers
+Some common pages that players may find useful are listed below, but you should view the section for a full list of pages.
+
+- [Installing Fabric](./players/installing-fabric.md)
+- [Finding Mods](./players/finding-mods.md)
+- [Uploading your Logs](./players/troubleshooting/uploading-logs.md)
+
+If you require support for Fabric you can visit the [Fabric Discord](https://discord.gg/v6v4pMv) or [Github Discussions](https://github.com/orgs/FabricMC/discussions).
+
+## For Developers
 
 As a developer, there are a range of resources you can take advantage of when developing your mod.
 

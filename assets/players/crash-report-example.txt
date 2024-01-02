@@ -1,0 +1,401 @@
+---- Minecraft Crash Report ----
+// There are four lights!
+
+Time: 2023-12-28 13:21:22
+Description: Tessellating block in world - Indium Renderer
+
+java.lang.RuntimeException: java.lang.ClassCastException: class net.minecraft.class_3924 cannot be cast to class snownee.snow.block.entity.SnowCoveredBlockEntity (net.minecraft.class_3924 and snownee.snow.block.entity.SnowCoveredBlockEntity are in unnamed module of loader net.fabricmc.loader.impl.launch.knot.KnotClassLoader @57d5872c)
+	at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
+	at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26)
+	at net.minecraft.class_4970.method_25959(class_4970.java:295)
+	at net.minecraft.class_4970$class_4971.method_26222(class_4970.java:1047)
+	at net.minecraft.class_5431$1.method_30367(class_5431.java:15)
+	at net.minecraft.class_4970$class_4971.method_30368(class_4970.java:1241)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
+	at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
+	at link.infra.indium.renderer.render.BlockRenderInfo.shouldDrawFace(BlockRenderInfo.java:115)
+	at link.infra.indium.renderer.render.AbstractBlockRenderContext.isFaceCulled(AbstractBlockRenderContext.java:97)
+	at net.fabricmc.fabric.impl.renderer.VanillaModelEncoder.emitBlockQuads(VanillaModelEncoder.java:54)
+	at net.minecraft.class_1087.emitBlockQuads(class_1087.java:1039)
+	at net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel.emitBlockQuads(ForwardingBakedModel.java:51)
+	at dev.lambdaurora.lambdabettergrass.model.LBGLayerBakedModel.emitBlockQuads(LBGLayerBakedModel.java:79)
+	at link.infra.indium.renderer.render.TerrainRenderContext.tessellateBlock(TerrainRenderContext.java:131)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.redirect$cji000$indium$onRenderBlock(ChunkBuilderMeshingTask.java:543)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:103)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:39)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkJobTyped.execute(ChunkJobTyped.java:44)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder$WorkerRunnable.run(ChunkBuilder.java:186)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.ClassCastException: class net.minecraft.class_3924 cannot be cast to class snownee.snow.block.entity.SnowCoveredBlockEntity (net.minecraft.class_3924 and snownee.snow.block.entity.SnowCoveredBlockEntity are in unnamed module of loader net.fabricmc.loader.impl.launch.knot.KnotClassLoader @57d5872c)
+	at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:40)
+	... 20 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
+	at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26)
+	at net.minecraft.class_4970.method_25959(class_4970.java:295)
+	at net.minecraft.class_4970$class_4971.method_26222(class_4970.java:1047)
+	at net.minecraft.class_5431$1.method_30367(class_5431.java:15)
+	at net.minecraft.class_4970$class_4971.method_30368(class_4970.java:1241)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
+	at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
+	at link.infra.indium.renderer.render.BlockRenderInfo.shouldDrawFace(BlockRenderInfo.java:115)
+	at link.infra.indium.renderer.render.AbstractBlockRenderContext.isFaceCulled(AbstractBlockRenderContext.java:97)
+	at net.fabricmc.fabric.impl.renderer.VanillaModelEncoder.emitBlockQuads(VanillaModelEncoder.java:54)
+	at net.minecraft.class_1087.emitBlockQuads(class_1087.java:1039)
+	at net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel.emitBlockQuads(ForwardingBakedModel.java:51)
+	at dev.lambdaurora.lambdabettergrass.model.LBGLayerBakedModel.emitBlockQuads(LBGLayerBakedModel.java:79)
+
+-- Block being tessellated --
+Details:
+	Block: Block{minecraft:soul_campfire}[facing=north,lit=true,signal_fire=false,waterlogged=false]
+	Block location: World: (1063,80,-481), Section: (at 7,0,15 in 66,5,-31; chunk contains blocks 1056,-64,-496 to 1071,319,-481), Region: (2,-1; contains chunks 64,-32 to 95,-1, blocks 1024,-64,-512 to 1535,319,-1)
+Stacktrace:
+	at link.infra.indium.renderer.render.TerrainRenderContext.tessellateBlock(TerrainRenderContext.java:131)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.redirect$cji000$indium$onRenderBlock(ChunkBuilderMeshingTask.java:543)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:103)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:39)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkJobTyped.execute(ChunkJobTyped.java:44)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder$WorkerRunnable.run(ChunkBuilder.java:186)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+-- Block being rendered --
+Details:
+	Block: Block{minecraft:soul_campfire}[facing=north,lit=true,signal_fire=false,waterlogged=false]
+	Block location: World: (1063,80,-481), Section: (at 7,0,15 in 66,5,-31; chunk contains blocks 1056,-64,-496 to 1071,319,-481), Region: (2,-1; contains chunks 64,-32 to 95,-1, blocks 1024,-64,-512 to 1535,319,-1)
+	Chunk section: RenderSection at chunk (66, 5, -31) from (1056, 80, -496) to (1071, 95, -481)
+	Render context volume: class_3341{minX=1054, minY=78, minZ=-498, maxX=1073, maxY=97, maxZ=-479}
+Stacktrace:
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:103)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask.execute(ChunkBuilderMeshingTask.java:39)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkJobTyped.execute(ChunkJobTyped.java:44)
+	at me.jellysquid.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder$WorkerRunnable.run(ChunkBuilder.java:186)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+-- Affected level --
+Details:
+	All players: 1 total; [class_746['Ryanor'/210, l='ClientLevel', x=1033.68, y=74.06, z=-488.74]]
+	Chunk stats: 4096, 1021
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (1036,74,-489), Section: (at 12,10,7 in 64,4,-31; chunk contains blocks 1024,-64,-496 to 1039,319,-481), Region: (2,-1; contains chunks 64,-32 to 95,-1, blocks 1024,-64,-512 to 1535,319,-1)
+	Level time: 1850677 game time, 2388214 day time
+	Server brand: fabric
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.class_638.method_8538(class_638.java:458)
+	at net.minecraft.class_310.method_1587(class_310.java:2406)
+	at net.minecraft.class_310.method_1514(class_310.java:821)
+	at net.minecraft.client.main.Main.main(Main.java:250)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, fabric, high_contrast, seasons:seasonal_lush_caves, minecraft:supporteatinganimation, minecraft:physicsmod, visualoverhaul:rounddiscs, diagonalblocks:default_block_models, replaymod_lang
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.8, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 844781088 bytes (805 MiB) / 2113929216 bytes (2016 MiB) up to 12884901888 bytes (12288 MiB)
+	CPUs: 24
+	Processor Vendor: GenuineIntel
+	Processor Name: 13th Gen Intel(R) Core(TM) i7-13700K
+	Identifier: Intel64 Family 6 Model 183 Stepping 1
+	Microarchitecture: unknown
+	Frequency (GHz): 3.42
+	Number of physical packages: 1
+	Number of physical CPUs: 16
+	Number of logical CPUs: 24
+	Graphics card #0 name: NVIDIA GeForce RTX 4070 Ti
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x2782
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.4629
+	Graphics card #1 name: Intel(R) UHD Graphics 770
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0xa780
+	Graphics card #1 versionInfo: DriverVersion=31.0.101.4577
+	Memory slot #0 capacity (MB): 16384.00
+	Memory slot #0 clockSpeed (GHz): 6.00
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 16384.00
+	Memory slot #1 clockSpeed (GHz): 6.00
+	Memory slot #1 type: Unknown
+	Virtual memory max (MB): 37402.21
+	Virtual memory used (MB): 13021.13
+	Swap memory total (MB): 4864.00
+	Swap memory used (MB): 0.00
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx12G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Fabric Mods: 
+		additionz: AdditionZ 1.2.0
+		advancementplaques: Advancement Plaques 1.4.11
+		adventurez: AdventureZ 1.4.18
+		ambientsounds: AmbientSounds 5.2.20
+		animatica: Animatica 0.6+1.20
+		appleskin: AppleSkin 2.5.0+mc1.20
+		architectury: Architectury 9.1.12
+		areas: Areas 5.2
+		auditory: Auditory 0.0.6-1.20.1
+		autohud: Auto HUD 6.3.2+1.20.1
+			yaclx: YetAnotherConfigLibExtensions 1.6+1.20
+		autotag-convention: AutoTag Convention 2.0.2+1.20
+			autotag: AutoTag 2.0.2+1.20
+		betteradvancements: Better Advancements 0.3.2.161
+		betterdeserttemples: YUNG's Better Desert Temples 1.20-Fabric-3.0.3
+			org_reflections_reflections: reflections 0.10.2
+		betterdungeons: YUNG's Better Dungeons 1.20-Fabric-4.0.3
+		betterf3: BetterF3 7.0.2
+		bettermineshafts: YUNG's Better Mineshafts 1.20-Fabric-4.0.4
+		betteroceanmonuments: YUNG's Better Ocean Monuments 1.20-Fabric-3.0.4
+		betterstrongholds: YUNG's Better Strongholds 1.20-Fabric-4.0.3
+		betterthirdperson: Better Third Person 1.9.0
+		bigendcitiesmod: Bigger Better End Cities 1.20.1-1.0.4
+		blur: Blur (Fabric) 3.1.0
+			midnightlib: MidnightLib 1.4.1
+			satin: Satin 1.13.0
+		bookshelf: Bookshelf 20.1.8
+		cameraoverhaul: Camera Overhaul 1.4.0-fabric-universal
+		camerautils: Camera Utils 1.20.1-1.0.4
+			fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.36+fb8d95da82
+		cavedust: Cave Dust 1.4.1
+			kirin: Kirin UI 1.15.0
+		cherishedworlds: Cherished Worlds 6.1.0+1.20.1
+		chunksfadein: Chunks Fade In 1.0.4-1.20.1
+			com_moandjiezana_toml_toml4j: toml4j 0.7.2
+			crowdin-translate: CrowdinTranslate 1.4+1.19.3
+		chunky: Chunky 1.3.92
+		clean_tooltips: Clean Tooltips 1.0
+		cloth-config: Cloth Config v11 11.1.106
+			cloth-basic-math: cloth-basic-math 0.6.1
+		clumps: Clumps 12.0.0.3
+		collective: Collective 7.26
+		comforts: Comforts 6.3.4+1.20.1
+			cardinal-components-base: Cardinal Components API (base) 5.2.1
+			cardinal-components-entity: Cardinal Components API (entities) 5.2.1
+			spectrelib: SpectreLib 0.13.14+1.20.1
+				com_electronwill_night-config_core: core 3.6.5
+				com_electronwill_night-config_toml: toml 3.6.5
+		continuity: Continuity 3.0.0-beta.2+1.20
+		creativecore: CreativeCore 2.10.24
+			net_minecraftforge_eventbus: eventbus 6.0.3
+		cristellib: Cristel Lib 1.1.5
+			blue_endless_jankson: jankson 1.2.3
+		cullleaves: Cull Leaves 3.2.0
+		cupboard: cupboard 1.20.1-2.1
+		dashloader: DashLoader 5.0.0-beta.2+1.20.0
+			com_github_luben_zstd-jni: zstd-jni 1.5.2-2
+			dev_notalpha_taski: Taski 2.1.0
+			dev_quantumfusion_hyphen: Hyphen 0.4.0-rc.3
+		detailab: Detail Armor Bar 2.6.3+1.20.1-fabric
+		diagonalfences: Diagonal Fences 8.1.3
+			diagonalblocks: Diagonal Blocks 8.0.2
+		disable_custom_worlds_advice: Disable Custom Worlds Advice 4.1
+		easyanvils: Easy Anvils 8.0.1
+		easymagic: Easy Magic 8.0.1
+		eatinganimationid: Eating Animation 1.9.4+1.20
+		enchdesc: EnchantmentDescriptions 17.0.11
+		endrem: End Remastered 5.2.4
+		enhancedvisuals: EnhancedVisuals 1.6.7
+		entity_model_features: Entity Model Features 0.2.13
+		entity_texture_features: Entity Texture Features 4.4.4
+			org_apache_httpcomponents_httpmime: httpmime 4.5.10
+		entityculling: EntityCulling-Fabric 1.6.2-mc1.20
+		extrasounds: ExtraSounds 2.3.1+1.20.1~lonefelidae16-build.1
+			advanced_runtime_resource_pack: Runtime Resource Pack 0.6.7
+			soundcategories: Sound Categories 1.2.4+1.20~lonefelidae16-build.1
+		fabric-api: Fabric API 0.91.0+1.20.1
+			fabric-api-base: Fabric API Base 0.4.30+7abfd51577
+			fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.35+4d8536c977
+			fabric-biome-api-v1: Fabric Biome API (v1) 13.0.12+215bbe9677
+			fabric-block-api-v1: Fabric Block API (v1) 1.0.10+92a0d36777
+			fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.0+92a0d36777
+			fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.40+b3afc78b77
+			fabric-client-tags-api-v1: Fabric Client Tags 1.1.1+97bb207577
+			fabric-command-api-v1: Fabric Command API (v1) 1.2.33+f71b366f77
+			fabric-command-api-v2: Fabric Command API (v2) 2.2.12+b3afc78b77
+			fabric-commands-v0: Fabric Commands (v0) 0.2.50+df3654b377
+			fabric-containers-v0: Fabric Containers (v0) 0.1.63+df3654b377
+			fabric-content-registries-v0: Fabric Content Registries (v0) 4.0.10+57aed33f77
+			fabric-convention-tags-v1: Fabric Convention Tags 1.5.4+a1a980da77
+			fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.18+aeb40ebe77
+			fabric-data-generation-api-v1: Fabric Data Generation API (v1) 12.3.3+d7b148e077
+			fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.53+8536527b77
+			fabric-entity-events-v1: Fabric Entity Events (v1) 1.5.22+b3afc78b77
+			fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.6.1+e91849a877
+			fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.62+df3654b377
+			fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.39+ae9f657a77
+			fabric-item-api-v1: Fabric Item API (v1) 2.1.27+b3afc78b77
+			fabric-item-group-api-v1: Fabric Item Group API (v1) 4.0.11+d7b148e077
+			fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.34+df3654b377
+			fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.2.21+b3afc78b77
+			fabric-loot-api-v2: Fabric Loot API (v2) 1.2.0+96dfa95977
+			fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.1.44+9e7660c677
+			fabric-message-api-v1: Fabric Message API (v1) 5.1.8+d7b148e077
+			fabric-mining-level-api-v1: Fabric Mining Level API (v1) 2.1.49+b3afc78b77
+			fabric-model-loading-api-v1: Fabric Model Loading API (v1) 1.0.2+709a987177
+			fabric-models-v0: Fabric Models (v0) 0.4.1+9386d8a777
+			fabric-networking-api-v1: Fabric Networking API (v1) 1.3.10+eeb8eb3677
+			fabric-networking-v0: Fabric Networking (v0) 0.3.50+df3654b377
+			fabric-object-builder-api-v1: Fabric Object Builder API (v1) 11.1.2+4ee0bc6077
+			fabric-particles-v1: Fabric Particles (v1) 1.1.1+201a23a077
+			fabric-recipe-api-v1: Fabric Recipe API (v1) 1.0.20+b3afc78b77
+			fabric-registry-sync-v0: Fabric Registry Sync (v0) 2.3.2+4df89eb277
+			fabric-renderer-api-v1: Fabric Renderer API (v1) 3.2.0+39a511ba77
+			fabric-renderer-indigo: Fabric Renderer - Indigo 1.5.0+39a511ba77
+			fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.45+df3654b377
+			fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.36+92a0d36777
+			fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.0.27+b3afc78b77
+			fabric-rendering-v0: Fabric Rendering (v0) 1.1.48+df3654b377
+			fabric-rendering-v1: Fabric Rendering (v1) 3.0.7+b3afc78b77
+			fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 2.3.7+29de845d77
+			fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.11.9+132c48c177
+			fabric-screen-api-v1: Fabric Screen API (v1) 2.0.7+b3afc78b77
+			fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.29+b3afc78b77
+			fabric-sound-api-v1: Fabric Sound API (v1) 1.0.12+b3afc78b77
+			fabric-transfer-api-v1: Fabric Transfer API (v1) 3.3.3+c81d263177
+			fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 4.3.0+6c31357e77
+		fabricloader: Fabric Loader 0.15.1
+			mixinextras: MixinExtras 0.3.1
+		fallingleaves: Falling Leaves 1.15.4
+		forgeconfigapiport: Forge Config API Port 8.0.0
+		guiclock: GUI Clock 4.4
+		guicompass: GUI Compass 4.4
+		herdspanic: Herds Panic 1.0.7
+		highlighter: Highlighter 1.1.9
+		iceberg: Iceberg 1.1.18
+		immediatelyfast: ImmediatelyFast 1.2.8+1.20.4
+			net_lenni0451_reflect: Reflect 1.3.1
+		indium: Indium 1.0.27+mc1.20.1
+		infwithmend: Infinity with Mending 1.0.2
+		inmis: Inmis 2.7.2-1.20.1
+			omega-config: OmegaConfig 1.2.3-1.18.1
+		inmisaddon: InmisAddon 1.0.4
+		interactic: Interactic 0.2.0+1.20
+		invmove: InvMove 0.8.4
+		iris: Iris 1.6.11
+			io_github_douira_glsl-transformer: glsl-transformer 2.0.0-pre13
+			org_anarres_jcpp: jcpp 1.4.14
+			org_antlr_antlr4-runtime: antlr4-runtime 4.11.1
+		itemborders: Item Borders 1.2.1
+		jamlib: JamLib 0.6.0+1.20
+		java: OpenJDK 64-Bit Server VM 17
+		kiwi: Kiwi Library 11.3.0
+		lambdabettergrass: SuperBetterGrass 1.5.2+1.20.1
+		lazydfu: LazyDFU 0.1.3
+		leavemybarsalone: Leave My Bars Alone 8.0.0
+		leavesbegone: Leaves Be Gone 8.0.0
+		legendarytooltips: Legendary Tooltips 1.4.4
+		libz: LibZ 1.0.3
+			com_fasterxml_jackson_core_jackson-annotations: jackson-annotations 2.15.2
+			com_fasterxml_jackson_core_jackson-core: jackson-core 2.15.2
+			com_fasterxml_jackson_core_jackson-databind: jackson-databind 2.15.2
+		lithium: Lithium 0.11.2
+		make_bubbles_pop: Make Bubbles Pop Mod 0.2.0-fabric
+		memoryleakfix: Memory Leak Fix 1.1.2
+		minecraft: Minecraft 1.20.1
+		modernfix: ModernFix 5.10.1+mc1.20.1
+		modifiers: Modifiers 0.1.2
+		modmenu: Mod Menu 7.1.0
+		morebannerfeatures: More Banner Features 1.2.0
+		moremobvariants: More Mob Variants 1.2.2
+		mousewheelie: Mouse Wheelie 1.13.0+mc1.20.1
+			amecsapi: Amecs API 1.5.1+mc1.20-pre1
+			coat: Coat 1.0.0-beta.20+mc1.20-pre1
+			tweed4_annotated: tweed4_annotated 1.3.1+mc1.20-pre1
+			tweed4_base: tweed4_base 1.7.1+mc1.20-pre1
+			tweed4_data: tweed4_data 1.2.1+mc1.20-pre1
+			tweed4_data_hjson: tweed4_data_hjson 1.1.1+mc1.20-pre1
+			tweed4_tailor_coat: tweed4_tailor_coat 1.1.3+mc1.20-pre1
+			tweed4_tailor_lang_json_descriptions: tweed4_tailor_lang_json_descriptions 1.1.0+mc1.20-pre1
+			tweed4_tailor_screen: tweed4_tailor_screen 1.1.4+mc1.20-pre1
+		mr_banner_flags: Banner Flags 2.1
+		mr_vanilla_refresh: Vanilla Refresh 1.4.19a
+		music_control: Music Control 1.6.3+1.20.1
+			libgui: LibGui 8.0.0+1.20
+				jankson: Jankson 5.0.1+j1.2.2
+				libninepatch: LibNinePatch 1.2.0
+		notenoughanimations: NotEnoughAnimations 1.6.4
+		nyfsspiders: Nyf's Spiders 2.1.1
+		owo: oωo 0.11.0+1.20
+		particlerain: Particle Rain 2.0.6
+		paxi: Paxi 1.20-Fabric-4.0
+		physicsmod: Physics Mod 3.0.10
+		player-animator: Player Animator 1.0.2-rc1+1.20
+		presencefootsteps: Presence Footsteps 1.9.0
+		prism: Prism 1.0.5
+		puzzleslib: Puzzles Lib 8.1.11
+			puzzlesaccessapi: Puzzles Access Api 8.0.7
+		replaymod: Replay Mod 1.20.1-2.6.13
+		repurposed_structures: Repurposed Structures 7.1.11+1.20.1-fabric
+		rightclickharvest: Right Click Harvest 3.2.3+1.19.x-1.20.1-fabric
+		roughlyenoughitems: Roughly Enough Items 12.0.684
+			error_notifier: Error Notifier 1.0.9
+		seasons: Fabric Seasons 2.3+1.20
+		shulkerboxtooltip: Shulker Box Tooltip 4.0.4+1.20.1
+		sit: Sit 1.20-24
+		skinlayers: 3d Skin Layers 1.5.4-mc1.20.1
+		smoothswapping: Smooth Swapping 0.9.3.1
+		snowrealmagic: Snow! Real Magic! 9.1.2
+		sodium: Sodium 0.5.3
+		sound_physics_remastered: Sound Physics Remastered 1.20.1-1.1.2
+		starlight: Starlight 1.1.2+fabric.dbc156f
+		status-effect-bars: Status Effect Bars 1.0.3
+		t_and_t: Towns and Towers 1.12
+		terralith: Terralith 2.4.11
+		tooltiprareness: Tooltip Rareness 1.0.9
+		trinkets: Trinkets 3.7.1
+		vanillatweaks: VanillaTweaks 1.5.69
+		villagernames: Villager Names 7.1
+		visuality: Visuality 0.7.0+1.20
+		visualoverhaul: VisualOverhaul 5.0.1
+		visualworkbench: Visual Workbench 8.0.0
+		wakes: Wakes 0.1.6
+		weaponmaster: YDM's Weapon Master 3.0.5
+		whats_that_slot: What's That Slot? 1.3.4+1.20.1
+		wi_zoom: WI Zoom 1.5-MC1.20.1
+		yet_another_config_lib_v3: YetAnotherConfigLib 3.2.1+1.20
+			com_twelvemonkeys_common_common-image: common-image 3.10.0-SNAPSHOT
+			com_twelvemonkeys_common_common-io: common-io 3.10.0-SNAPSHOT
+			com_twelvemonkeys_common_common-lang: common-lang 3.10.0-SNAPSHOT
+			com_twelvemonkeys_imageio_imageio-core: imageio-core 3.10.0-SNAPSHOT
+			com_twelvemonkeys_imageio_imageio-metadata: imageio-metadata 3.10.0-SNAPSHOT
+			com_twelvemonkeys_imageio_imageio-webp: imageio-webp 3.10.0-SNAPSHOT
+			org_quiltmc_parsers_gson: gson 0.2.1
+			org_quiltmc_parsers_json: json 0.2.1
+		yungsapi: YUNG's API 1.20-Fabric-4.0.2
+			org_javassist_javassist: javassist 3.29.2-GA
+		yungsextras: YUNG's Extras 1.20-Fabric-4.0.3
+	Loaded Shaderpack: (off)
+	Launched Version: fabric-loader-0.15.1-1.20.1
+	Backend library: LWJGL version 3.3.1 SNAPSHOT
+	Backend API: NVIDIA GeForce RTX 4070 Ti/PCIe/SSE2 GL version 3.2.0 NVIDIA 546.29, NVIDIA Corporation
+	Window size: 2560x1440
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla, fabric, high_contrast, seasons:seasonal_lush_caves, minecraft:supporteatinganimation
+	Current Language: en_us
+	CPU: 24x 13th Gen Intel(R) Core(TM) i7-13700K
+	Server Running: true
+	Player Count: 1 / 8; [class_3222['Ryanor'/210, l='ServerLevel[Ryanor's Minecraft Dream]', x=1033.68, y=74.06, z=-488.74]]
+	Data Packs: vanilla, fabric, armor statues v2.8.11 (MC 1.20-1.20.4).zip, armored elytra v1.0.9 (MC 1.20-1.20.4).zip, classic fishing loot v1.1.6 (MC 1.20-1.20.4).zip, easy_ores, timber v2.1.8 (MC 1.20-1.20.4).zip
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Experimental
