@@ -9,3 +9,7 @@
 # Alternative Package Locks
 pnpm-lock.yaml
 yarn.lock
+
+# LanguageTool Dictionaries and False Positives
+.vscode/*.dictionary.*.txt
+.vscode/*.hiddenFalsePositives.*.txt
