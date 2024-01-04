@@ -15,6 +15,11 @@ export default defineVersionedConfig(__dirname, {
     latestVersion: '1.20.4'
   },
 
+  rewrites: {
+    // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
+    'CONTRIBUTING.md': 'contributing.md',
+  },
+
   title: "Fabric Documentation",
   description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
   cleanUrls: true,
@@ -46,7 +51,20 @@ export default defineVersionedConfig(__dirname, {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: 'https://fabricmc.net/' },
-      { text: 'Download', link: 'https://fabricmc.net/use' }
+      { text: 'Download', link: 'https://fabricmc.net/use' },
+      {
+        text: 'Contribute', items: [
+          // Expand on this later, with guidelines for loader+loom potentially?
+          {
+            text: 'Fabric Documentation',
+            link: '/contributing'
+          },
+          {
+            text: 'Fabric API',
+            link: 'https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md'
+          }
+        ]
+      },
     ],
 
     search: {
