@@ -52,7 +52,19 @@ export default defineVersionedConfig(__dirname, {
     nav: [
       { text: 'Home', link: 'https://fabricmc.net/' },
       { text: 'Download', link: 'https://fabricmc.net/use' },
-      { text: 'Contribute', link: '/contributing' },
+      {
+        text: 'Contribute', items: [
+          // Expand on this later, with guidelines for loader+loom potentially?
+          {
+            text: 'Fabric Documentation',
+            link: '/contributing'
+          },
+          {
+            text: 'Fabric API',
+            link: 'https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md'
+          }
+        ]
+      },
     ],
 
     search: {
