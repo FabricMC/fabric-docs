@@ -51,7 +51,8 @@ export default defineVersionedConfig(__dirname, {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: 'https://fabricmc.net/' },
-      { text: 'Download', link: 'https://fabricmc.net/use' }
+      { text: 'Download', link: 'https://fabricmc.net/use' },
+      { text: 'Contribute', link: '/contributing' },
     ],
 
     search: {
