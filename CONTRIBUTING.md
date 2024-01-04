@@ -11,6 +11,7 @@ This website uses [VitePress](https://vitepress.vuejs.org/) to generate static H
     - [Style Guidelines](#style-guidelines)
     - [Guidance for Expansion](#guidance-for-expansion)
     - [Content Verification](#content-verification)
+    - [Cleanup](#cleanup)
 
 ## How To Contribute
 
