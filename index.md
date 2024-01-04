@@ -34,3 +34,7 @@ As a developer, there are a range of resources you can take advantage of when de
 - The Fabric [develop webpage](https://fabricmc.net/develop)
 - The official [Fabric Wiki](https://fabricmc.net/wiki)
 - The Fabric [Discord](https://discord.gg/v6v4pMv) server
+
+## Want to Contribute?
+
+If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)

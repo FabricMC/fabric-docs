@@ -15,6 +15,11 @@ export default defineVersionedConfig(__dirname, {
     latestVersion: '1.20.4'
   },
 
+  rewrites: {
+    // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
+    'CONTRIBUTING.md': 'contributing.md',
+  },
+
   title: "Fabric Documentation",
   description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
   cleanUrls: true,
