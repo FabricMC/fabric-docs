@@ -4,6 +4,7 @@ import defineVersionedConfig from 'vitepress-versioning-plugin'
 
 import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
+import TechnicalSidebar from './sidebars/technical'
 
 import { applySEO } from './seo'
 import { removeVersionedItems } from "./seo"
@@ -57,7 +58,8 @@ export default defineVersionedConfig(__dirname, {
 
     sidebar: {
       '/': RootSidebar,
-      '/players/': PlayersSidebar
+      '/players/': PlayersSidebar,
+      '/technical/': TechnicalSidebar
     },
 
     socialLinks: [
