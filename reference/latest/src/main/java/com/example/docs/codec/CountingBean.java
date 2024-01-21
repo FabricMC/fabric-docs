@@ -13,13 +13,14 @@ public class CountingBean implements Bean {
 	private int countingNumber;
 	// :::
 
-    public CountingBean(int countingNumber) {
-        this.countingNumber = countingNumber;
-    }
+	public CountingBean(int countingNumber) {
+		this.countingNumber = countingNumber;
+	}
 
 	public int getCountingNumber() {
 		return countingNumber;
 	}
+
 	// :::
 
 	@Override

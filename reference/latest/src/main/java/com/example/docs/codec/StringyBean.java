@@ -20,6 +20,7 @@ public class StringyBean implements Bean {
 	public String getStringyString() {
 		return stringyString;
 	}
+
 	// :::
 
 	// It is important to be able to retrieve the

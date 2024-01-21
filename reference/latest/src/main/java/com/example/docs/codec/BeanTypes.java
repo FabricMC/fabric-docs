@@ -2,6 +2,7 @@ package com.example.docs.codec;
 
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
 // :::
 // An empty class to hold static references to all BeanTypes
 public class BeanTypes {
