@@ -10,9 +10,9 @@ public class FabricDocsReferenceClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 
-// #particle_register_client
-    // For this example, we will use the end rod particle behaviour.
-    ParticleFactoryRegistry.getInstance().register(FabricDocsReference.MY_PARTICLE, EndRodParticle.Factory::new);
-// #particle_register_client
+		// #particle_register_client
+		// For this example, we will use the end rod particle behaviour.
+		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.MY_PARTICLE, EndRodParticle.Factory::new);
+		// #particle_register_client
 	}
 }

@@ -2,7 +2,6 @@
 title: Creating Custom Particles
 description: Learn how to create a custom particle using Fabric API.
 authors:
-  - IMB11
   - Superkat32
 ---
 
