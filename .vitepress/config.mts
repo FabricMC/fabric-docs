@@ -1,6 +1,7 @@
 import { PageData, TransformPageContext } from 'vitepress'
 
 import defineVersionedConfig from 'vitepress-versioning-plugin'
+import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
 
 import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
@@ -44,7 +45,10 @@ export default defineVersionedConfig(__dirname, {
 
   markdown: {
     lineNumbers: true,
-    math: true
+    math: true,
+    config(md) {
+      md.use(snippetPlugin);
+    }
   },
 
   themeConfig: {
