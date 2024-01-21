@@ -13,16 +13,25 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vitepress';
+import { useData, useRouter } from 'vitepress';
 import { ref } from 'vue';
 
 const authors = ref([]);
+const router = useRouter();
 
-const pageData = useData();
+function refreshData() {
+  authors.value = [];
+  const pageData = useData();
 
-if (pageData.frontmatter.value["authors"]) {
-  authors.value = pageData.frontmatter.value["authors"];
+  if (pageData.frontmatter.value["authors"]) {
+    authors.value = pageData.frontmatter.value["authors"];
+  }
 }
+
+router.onAfterRouteChanged = (to: string) => {
+  refreshData();
+  return;
+};
 </script>
 
 <style scoped>
