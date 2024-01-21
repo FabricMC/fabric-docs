@@ -1,6 +1,8 @@
 ---
 title: Installing Java on Linux
 description: A step by step guide on how to install Java on Linux.
+authors:
+  - IMB11
 ---
 
 # Installing Java on Linux
