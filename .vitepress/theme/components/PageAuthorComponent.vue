@@ -1,5 +1,5 @@
 <template>
-  <div class="authors-section">
+  <div v-if="authors.length > 0" class="authors-section">
     <h2>Page Authors</h2>
     <div class="page-authors">
       <div v-for="author in authors" :key="author">
