@@ -29,4 +29,3 @@ public class CountingBean implements Bean {
 	}
 }
 // :::
-
