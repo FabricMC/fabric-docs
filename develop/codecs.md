@@ -198,6 +198,9 @@ MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPo
 Do note that optional fields will silently ignore any errors that may occur during deserialization. This means that if
 the field is present, but the value is invalid, the field will always be deserialized as the default value.
 
+**Since 1.20.2**, Minecraft itself (not DFU!) does however provide `Codecs#createStrictOptionalFieldCodec`, 
+which fails to deserialize at all if the field value is invalid.
+
 ### Constants, Constraints, and Composition
 
 #### Unit
@@ -231,14 +234,14 @@ For example, running this code:
 
 ```java
 // Create two seperate boxed codecs
-MapCodec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
-MapCodec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
+Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
+Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
 
 // Merge them into a pair codec
 Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
 
 // Use it to serialize data
-DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true)).
+DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
 ```
 
 Will output this json:
@@ -373,51 +376,24 @@ these with a registry dispatch, we'll need a few things:
 
 With all of this, we can create a registry dispatch codec for beans:
 
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+
 ```java
-interface Bean {
-    BeanType<?> getType();
-}
+// Now we can create a codec for bean types 
+// based on the previously created registry
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 
-record BeanType<T extends Bean>(Codec<T> codec) {
-}
-
-class StringyBean implements Bean {
-    public static final Codec<StringyBean> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-        Codec.STRING.fieldOf("stringy_string").forGetter(StringyBean::getStringyString)
-    ).apply(instance, StringyBean::new));
-
-    public final String stringyString;
-
-    // ...
-}
-
-class CountingBean implements Bean {
-    public static final Codec<CountingBean> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-        Codec.INT.fieldOf("counting_number").forGetter(CountingBean::getCountingNumber)
-    ).apply(instance, CountingBean::new));
-
-    public final int countingNumber;
-
-    // ...
-}
-
-// Create a registry to map identifiers to bean types
-Registry<BeanType<?>> beanTypeRegistry = new SimpleRegistry<>(new Identifier("example", "bean_types"), Lifecycle.stable());
-
-// Register the bean types, dont forget to store these in a 
-// static constant and return them for `getType` in their respective subclasses.
-beanTypeRegistry.register(new Identifier("example", "stringy_bean"), new BeanType<>(StringyBean.CODEC));
-beanTypeRegistry.register(new Identifier("example", "counting_bean"), new BeanType<>(CountingBean.CODEC));
-
-// Create a codec for bean types
-Codec<BeanType<?>> beanTypeCodec = beanTypeRegistry.getCodec();
-
-// And here's our registry dispatch codec for beans! 
-// The first argument is the field name for the bean type
+// And based on that, here's our registry dispatch codec for beans! 
+// The first argument is the field name for the bean type.
+// When left out, it will default to "type".
 Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
 ```
 
-This will serialize beans to json like this, grabbing only fields that are relevant to its type:
+Our new codec will serialize beans to json like this, grabbing only fields that are relevant to their specific type:
 
 ```json
 {
