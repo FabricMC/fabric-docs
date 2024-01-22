@@ -12,9 +12,10 @@ authors:
   - Juuxel
   - YanisBft
   - liach
+  - natanfudge
 ---
 
-<!-- Couldn't find GitHub usernames for: fudge, stormyfabric -->
+<!-- Couldn't find GitHub usernames for: stormyfabric -->
 
 # Events
 
@@ -97,7 +98,7 @@ We'll look at creating an event that is triggered when sheep are sheared. The pr
 
 The callback interface describes what must be implemented by event listeners that will listen to your event. The callback interface also describes how the event will be called from our mixin. It is conventional to place an `Event` object as a field in the callback interface, which will identify our actual event.
 
-For our Event implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event. 
+For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event. 
 
 Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say “*cancel this*”, “*approve this*” or “*don't care, leave it to the next event listener*” using its return value. 
 
