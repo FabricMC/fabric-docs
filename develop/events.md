@@ -42,7 +42,7 @@ All event callback interfaces provided by Fabric API can be found in the `net.fa
 
 This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don’t drop an item when hand-mined.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/Events.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ### Adding Items to Existing Loot Tables
 
@@ -81,7 +81,7 @@ LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder,
 
 Our pool doesn’t have any items yet, so we’ll make an item entry using `ItemEntry#builder` and add it to the pool.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/Events.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ## Custom Events
 
@@ -155,6 +155,6 @@ We now have the basic event skeleton, but we need to trigger it. Because we want
 
 Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. Here's an example that drops a diamond instead of wool at the sheep's feet:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/Events.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 If you enter into your game and shear a sheep, a diamond should drop instead of wool.

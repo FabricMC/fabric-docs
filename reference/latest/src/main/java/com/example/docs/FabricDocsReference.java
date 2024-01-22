@@ -11,8 +11,6 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
-import com.example.docs.event.Events;
-
 public class FabricDocsReference implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -38,8 +36,5 @@ public class FabricDocsReference implements ModInitializer {
 		// Register our custom particle type in the mod initializer.
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "my_particle"), MY_PARTICLE);
 		//#particle_register_main
-
-		// Register mod events
-		Events.registerModEvents();
 	}
 }

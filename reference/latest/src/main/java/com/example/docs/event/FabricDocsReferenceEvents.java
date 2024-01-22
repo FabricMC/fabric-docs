@@ -1,5 +1,7 @@
 package com.example.docs.event;
 
+import net.fabricmc.api.ModInitializer;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
@@ -14,11 +16,11 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 
 // Class to contain all mod events.
-public class Events {
+public class FabricDocsReferenceEvents implements ModInitializer {
 	private static final Identifier COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableId();
 
-	// Call this method in your initializer.
-	public static void registerModEvents() {
+	@Override
+	public void onInitialize() {
 		// :::1
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
 			BlockState state = world.getBlockState(pos);
