@@ -3,7 +3,18 @@ title: Events
 description: A guide for using events provided by the Fabric API.
 authors:
   - dicedpixels
+  - mkpoli
+  - daomephsta
+  - solidblock
+  - draylar
+  - jamieswhiteshirt
+  - PhoenixVX
+  - Juuxel
+  - YanisBft
+  - liach
 ---
+
+<!-- Couldn't find GitHub usernames for: fudge, stormyfabric -->
 
 # Events
 
