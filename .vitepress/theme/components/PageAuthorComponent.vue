@@ -30,11 +30,6 @@ function refreshData() {
 onContentUpdated(() => {
   refreshData();
 });
-
-// router.onAfterRouteChanged = () => {
-//     refreshData();
-//     return;
-//   };
 </script>
 
 <style scoped>
