@@ -1,6 +1,8 @@
 ---
 title: Crash Reports
 description: Learn what to do with crash reports, and how to read them.
+authors:
+  - IMB11
 ---
 
 # Crash Reports

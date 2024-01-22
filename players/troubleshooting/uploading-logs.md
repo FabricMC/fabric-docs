@@ -1,6 +1,8 @@
 ---
 title: Uploading Logs
 description: How to upload logs for troubleshooting.
+authors:
+  - IMB11
 ---
 
 # Uploading Logs
