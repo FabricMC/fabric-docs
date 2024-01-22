@@ -36,6 +36,8 @@ public class FabricDocsReferenceEvents implements ModInitializer {
 
 		// :::2
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+			// Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
+			// We also check that the loot table ID is equal to the ID we want.
 			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(id)) {
 				// We make the pool and add an item
 				LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(Items.EGG));

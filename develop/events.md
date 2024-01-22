@@ -57,32 +57,17 @@ We’ll be adding eggs to the coal ore loot table.
 
 Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your mod initializer. Let’s also check that the current loot table is the coal ore loot table.
 
-```java
-LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-    // Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
-    // We also check that the loot table ID is equal to the ID we want.
-    if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(id)) {
-        // Our code will go here
-    }
-});
-```
+@[code lang=java transclude={38-38}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Adding Items to the Loot Table
 
-In loot tables, items are stored in *loot pool entries*, and entries are stored in *loot pools*. To add an item, we’ll need to add a pool with an item entry to the loot table. We can make a pool with `LootPool#builder`, and add it to the loot table.
+In loot tables, items are stored in *loot pool entries*, and entries are stored in *loot pools*. To add an item, we’ll need to add a pool with an item entry to the loot table.
 
-```java
-LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-    if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(id)) {
-        LootPool.Builder poolBuilder = LootPool.builder();
-        tableBuilder.pool(poolBuilder);
-    }
-});
-```
+We can make a pool with `LootPool#builder`, and add it to the loot table.
 
-Our pool doesn’t have any items yet, so we’ll make an item entry using `ItemEntry#builder` and add it to the pool.
+Our pool doesn’t have any items either, so we’ll make an item entry using `ItemEntry#builder` and add it to the pool.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ## Custom Events
 
@@ -110,41 +95,19 @@ You'll need to create an interface that has an `Event` instance and method for r
 
 Let's look at this more in-depth. When the invoker is called, we iterate over all listeners:
 
-```java
-(listeners) -> (player, sheep) -> {
-    for (SheepShearCallback listener : listeners) {
-```
+@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 We then call our method (in this case, `interact`) on the listener to get its response:
 
-```java
-ActionResult result = listener.interact(player, sheep);
-```
+@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 If the listener says we have to cancel (`ActionResult.FAIL`) or fully finish (`ActionResult.SUCCESS`), the callback returns the result and finishes the loop. `ActionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
 
-```java
-...
-    if(result != ActionResult.PASS) {
-        return result;
-    }
-}
- 
-return ActionResult.PASS;
-```
+@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 We can Javadoc comments to the top of callback classes to document what each `ActionResult` does. In our case, it might be:
 
-```java
-/**
- * Callback for shearing a sheep.
- * Called before the sheep is sheared, items are dropped, and items are damaged.
- * Upon return:
- * - SUCCESS cancels further processing and continues with normal shearing behavior.
- * - PASS falls back to further processing and defaults to SUCCESS if no other listeners are available.
- * - FAIL cancels further processing and does not shear the sheep.
- */
-```
+@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 ### Triggering the Event From a Mixin
 
