@@ -71,12 +71,14 @@ The style guide is as follows:
     ---
     title: This is the title of the page
     description: This is the description of the page
+    authors:
+      - GitHubUsernameHere
     ---
     
     # ...
     ```
 
-2. If you create or modify pages containing code, place the code in an appropriate location within the reference mod (located in the `/reference` folder of the repository). Then, use the [code snippet feature offered by VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) to embed the code.
+2. If you create or modify pages containing code, place the code in an appropriate location within the reference mod (located in the `/reference` folder of the repository). Then, use the [code snippet feature offered by VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) to embed the code, or if you need a greater span of control, you can use the [transclude feature from `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
 
     **Example:**
 
@@ -99,6 +101,33 @@ The style guide is as follows:
       }
     ```
 
+    **Transclude Example:**
+
+    ```md
+    @[code transcludeWith=#test_transclude](@/reference/.../blah.java)
+    ```
+
+    This will embed the sections of `blah.java` that are marked with the `#test_transclude` tag.
+
+    For example:
+
+    ```java
+    public final String test = "Bye World!"
+
+    // #test_transclude
+    public void test() {
+      System.out.println("Hello World!");
+    }
+    // #test_transclude
+    ```
+
+    Only the code between the `#test_transclude` tags will be embedded.
+
+    ```java
+    public void test() {
+      System.out.println("Hello World!");
+    }
+    ```
 
 3. We follow American English grammar rules. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
 
