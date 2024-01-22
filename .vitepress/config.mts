@@ -87,7 +87,8 @@ export default defineVersionedConfig(__dirname, {
     editLink: {
       pattern: ({ filePath }) => {
         return `https://github.com/FabricMC/fabric-docs/edit/main/${filePath}`
-      }
+      },
+      text: 'Edit this page on GitHub'
     },
 
     socialLinks: [
