@@ -43,6 +43,8 @@ export default defineVersionedConfig(__dirname, {
     transformItems: items => removeVersionedItems(items)
   },
 
+  lastUpdated: true,
+
   markdown: {
     lineNumbers: true,
     math: true,
@@ -80,6 +82,13 @@ export default defineVersionedConfig(__dirname, {
     sidebar: {
       '/': RootSidebar,
       '/players/': PlayersSidebar
+    },
+
+    editLink: {
+      pattern: ({ filePath }) => {
+        return `https://github.com/FabricMC/fabric-docs/edit/main/${filePath}`
+      },
+      text: 'Edit this page on GitHub'
     },
 
     socialLinks: [
