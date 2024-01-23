@@ -1,7 +1,5 @@
 package com.example.docs.event;
 
-import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
@@ -12,6 +10,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 
