@@ -2,12 +2,12 @@
   <div v-if="authors.length > 0" class="authors-section">
     <h2>Page Authors</h2>
     <div class="page-authors">
-      <div v-for="author in authors" :key="author">
-        <a :href="`https://github.com/${author}`" target="_blank" class="author-link">
-          <img class="author-avatar" :src="`https://github.com/${author}.png`" :alt="author" />
-          <small>{{ author }}</small>
-        </a>
-      </div>
+      <a v-for="author in authors" :href="`https://github.com/${author}`" target="_blank" class="author-link"
+        :title="author">
+        <img loading="lazy" class="author-avatar"
+          :src="`https://wsrv.nl/?url=${encodeURIComponent(`https://github.com/${author}.png?size=32`)}&af`"
+          :alt="author" />
+      </a>
     </div>
   </div>
 </template>
@@ -43,46 +43,24 @@ onContentUpdated(() => {
   font-size: 14px;
 }
 
-.author-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  transition: filter 0.5s;
-}
-
-.author-link {
+.page-authors {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  margin-top: 8px;
   gap: 8px;
 }
 
-.author-link:hover>.author-avatar {
+.page-authors>a>img {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+
+  transition: filter 0.2s ease-in-out;
+}
+
+.page-authors>a:hover>img {
   filter: brightness(1.2);
-}
-
-.author-link>small {
-  transition: color 0.25s;
-}
-
-.author-link:hover>small {
-  color: var(--vp-c-brand-1);
-}
-
-.author-avatar:hover {
-  opacity: 0.8;
-}
-
-.page-authors {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 8px;
-  align-items: center;
-}
-
-.page-authors>div {
-  margin-right: auto;
-  display: block;
 }
 </style>
