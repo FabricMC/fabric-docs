@@ -10,7 +10,8 @@
 			"com.example.docs.FabricDocsReference"
 		],
 		"client": [
-			"com.example.docs.FabricDocsReferenceClient"
+			"com.example.docs.FabricDocsReferenceClient",
+			"com.example.docs.rendering.RenderingConceptsEntrypoint"
 		],
 		"fabric-datagen": [
 			"com.example.docs.FabricDocsReferenceDataGenerator"
