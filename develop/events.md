@@ -57,7 +57,7 @@ We’ll be adding eggs to the coal ore loot table.
 
 Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your mod initializer. Let’s also check that the current loot table is the coal ore loot table.
 
-@[code lang=java transclude={38-38}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Adding Items to the Loot Table
 
