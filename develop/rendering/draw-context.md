@@ -59,4 +59,36 @@ As you can see, even though we tell the game to render the gradient across the e
 
 ## Drawing Textures
 
-[tbd]
+There is no one "correct" way to draw textures onto a screen, as the `drawTexture(...)` method has many different overloads. This section will go over the most common use cases.
+
+### Drawing an Entire Texture
+
+Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `DrawContext` class will assume these values if you don't provide them, which can sometimes be wrong.
+
+@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+
+![Drawing whole texture example.](../../assets/develop/rendering/draw-context-whole-texture.png)
+
+### Drawing a Portion of a Texture
+
+This is where `u` and `v` come in. These parameters specify the top-left corner of the texture to draw, and the `regionWidth` and `regionHeight` parameters specify the size of the portion of the texture to draw.
+
+Let's take this texture as an example.
+
+![Recipe Book Texture](../../assets/develop/rendering/draw-context-recipe-book-background.png)
+
+If we want to only draw a region that contains the magnifying glass, we can use the following `u`, `v`, `regionWidth` and `regionHeight` values:
+
+@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+
+![Region Texture](../../assets/develop/rendering/draw-context-region-texture.png)
+
+## Drawing Text
+
+The `DrawContext` class has various self-explanatory text rendering methods - for the sake of brevity, they will not be covered here.
+
+Let's say we want to draw "Hello World" onto the screen. We can use the `DrawContext.drawText(...)` method to do this.
+
+@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+
+![Drawing text](../../assets/develop/rendering/draw-context-text.png)

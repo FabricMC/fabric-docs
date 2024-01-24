@@ -3,6 +3,7 @@ package com.example.docs.rendering;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 public class DrawContextExampleScreen extends Screen {
 	public DrawContextExampleScreen() {
@@ -52,5 +53,23 @@ public class DrawContextExampleScreen extends Screen {
 		// Disable the scissor region.
 		context.disableScissor();
 		// :::4
+
+		// :::5
+		Identifier texture = new Identifier("minecraft", "textures/block/deepslate.png");
+		// texture, x, y, u, v, width, height, textureWidth, textureHeight
+		context.drawTexture(texture, 90, 90, 0, 0, 16, 16, 16, 16);
+		// :::5
+
+		// :::6
+		Identifier texture2 = new Identifier("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
+		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
+		// texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
+		context.drawTexture(texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);
+		// :::6
+
+		// :::7
+		// TextRenderer, text (string, or Text object), x, y, color, shadow
+		context.drawText(client.textRenderer, "Hello, world!", 10, 200, 0xFFFFFFFF, false);
+		// :::7
 	}
 }
