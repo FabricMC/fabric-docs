@@ -138,7 +138,7 @@ type `/argtater` without arguments, the command cannot be correctly parsed.
 
 Then we add an optional second argument:
 
-@[code lang=java highlight={3,8} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Now you can type one or two integers. If you give one integer, a feedback text with a single value is printed. If you
 provide two integers, a feedback text with two values will be printed.
@@ -146,19 +146,19 @@ provide two integers, a feedback text with two values will be printed.
 You may find it unnecessary to specify similar executions twice. Therefore, we can create a method that will be used in
 both executions.
 
-@[code lang=java highlight={3,4,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 #### Sub Commands
 
 To add a sub command, you register the first literal node of the command normally. To have a sub command, you to append
 the next literal node to the existing node.
 
-@[code lang=java highlight={2} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Similar to arguments, sub command nodes can also be set optional. In the following case, both `/subtater`
 and `/subtater subcommand` will be valid.
 
-@[code lang=java highlight={2,5} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Client Commands
 
