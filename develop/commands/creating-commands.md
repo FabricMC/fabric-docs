@@ -33,7 +33,7 @@ build a tree of commands and arguments. Brigadier is open source: https://github
 `CommandSyntaxException` in certain cases. It has a generic type `S`, which defines the type of the _command source_.
 The command
 source provides some context in which a command was run. In Minecraft, the command source is typically a
-`ServerCommandSource` which can represent a server, a command block, remote connection (RCON), a player or an entity.
+`ServerCommandSource` which can represent a server, a command block, a remote connection (RCON), a player or an entity.
 
 The single method in `Command`, `run(CommandContext<S>)` takes a `CommandContext<S>` as the sole parameter and returns
 an integer. The command context holds your command source of `S` and allows you to obtain arguments, look at the parsed
@@ -49,7 +49,7 @@ Command<ServerCommandSource> command = context -> {
 
 The integer can be considered the result of the command. Typically negative values mean a command has failed and will do
 nothing. A result of `0` means the command has passed. Positive values mean the command was successful and did
-something.
+something. Brigadier provides a constant to indicate success; `Command#SINGLE_SUCCESS`.
 
 #### What Can the `ServerCommandSource` Do?
 
@@ -72,7 +72,7 @@ Command<ServerCommandSource> command = context -> {
 Commands are registered within the `CommandRegistrationCallback` provided by the Fabric API.
 
 ::: info
-For information on registering callbacks, please see the Events guide.
+For information on registering callbacks, please see the [Events](../events.md) guide.
 :::
 
 The event should be registered in your mod's initializer.
@@ -81,7 +81,7 @@ The callback has three parameters:
 
 * `CommandDispatcher<ServerCommandSource> dispatcher` - Used to register, parse and execute commands. `S`  is the type
   of command source the command dispatcher supports.
-* `CommandRegistryAccess registryAccess` - Provides an abstraction to registries which may be passed to certain command
+* `CommandRegistryAccess registryAccess` - Provides an abstraction to registries that may be passed to certain command
   argument methods
 * `CommandManager.RegistrationEnvironment environment` - Identifies the type of server the commands are being registered
   on.
@@ -95,10 +95,14 @@ instantiating Text objects when not needed.
 
 The second parameter determines whether to broadcast the feedback to other
 operators. Generally, if the command is to query something without actually affecting the world, such as query the
-current time or some player's score, it should be `false`. If the command actually does something, such as changing the
+current time or some player's score, it should be `false`. If the command does something, such as changing the
 time or modifying someone's score, it should be `true`.
 
-If the command fails, instead of calling `sendFeedback()`, you may directly throw a `CommandSyntaxException`.
+If the command fails, instead of calling `sendFeedback()`, you may directly throw any exception and the server or client
+will handle it appropriately.
+
+`CommandSyntaxException` is generally thrown to indicate syntax errors in commands or arguments. You can also implement 
+your own exception.
 
 To execute this command, you must type `/foo`, which is case-sensitive.
 
@@ -150,8 +154,7 @@ both executions.
 
 #### Sub Commands
 
-To add a sub command, you register the first literal node of the command normally. To have a sub command, you to append
-the next literal node to the existing node.
+To add a sub command, you register the first literal node of the command normally. To have a sub command, you have to append the next literal node to the existing node.
 
 @[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -162,8 +165,7 @@ and `/subtater subcommand` will be valid.
 
 ### Client Commands
 
-Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.command.v2` package that can be used to
-register client side commands. The code should exist only in client-side code.
+Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.command.v2` package that can be used to register client-side commands. The code should exist only in client-side code.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
@@ -182,23 +184,22 @@ register client side commands. The code should exist only in client-side code.
   or `CommandManager.argument` instead of `LiteralArgumentBuilder.literal` or `RequiredArgumentBuilder.argument`.
 
 * Check `sendFeedback()` method - You may have forgotten to provide a boolean as the second argument. Also remember
-  that,
-  since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Text`.
+  that, since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Text`.
 
-* Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
+* A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
   which is usually a lambda. The lambda should return an integer, instead of other types.
 
 ###### Can I register commands in runtime?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
-you wish to it's `CommandDispatcher`.
+you wish to its `CommandDispatcher`.
 
 After that, you need to send the command tree to every player again
 using `CommandManager.sendCommandTree(ServerPlayerEntity)`.
 
 This is required because the client locally caches the command tree it receives during login (or when operator packets
-are sent) for local completions rich error messages.
+are sent) for local completions-rich error messages.
 :::
 
 ###### Can I unregister commands in runtime?
