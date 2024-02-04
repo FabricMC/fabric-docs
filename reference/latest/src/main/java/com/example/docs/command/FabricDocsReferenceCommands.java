@@ -3,12 +3,17 @@ package com.example.docs.command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 
+import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
+
 import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
 import net.minecraft.command.suggestion.SuggestionProviders;
 import net.minecraft.entity.EntityType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -17,6 +22,14 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 public class FabricDocsReferenceCommands implements ModInitializer {
 	@Override
 	public void onInitialize() {
+		// :::11
+		ArgumentTypeRegistry.registerArgumentType(
+				new Identifier("fabric-docs", "block_pos"),
+				BlockPosArgumentType.class,
+				ConstantArgumentSerializer.of(BlockPosArgumentType::new)
+		);
+		// :::11
+
 		// :::1
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("tater").executes(context -> {
@@ -155,6 +168,22 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 			));
 		});
 		// :::9
+
+		// :::10
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("parse_pos").then(
+					CommandManager.argument("pos", new BlockPosArgumentType())
+							.executes(context -> {
+								BlockPos arg = context.getArgument("pos", BlockPos.class);
+								context.getSource().sendFeedback(
+										() -> Text.literal("Called /parse_pos with BlockPos: ")
+												.append(Text.of(arg.toString())),
+										false);
+								return 1;
+							})
+			));
+		});
+		// :::10
 	}
 
 	// :::6

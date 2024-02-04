@@ -127,35 +127,6 @@ blocks. Otherwise, the command is not registered.
 This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
 also why you cannot tab-complete most commands when you do not enable cheats.
 
-#### Command Arguments
-
-::: info
-For a more in-depth guide on arguments, see the command arguments guide.
-:::
-
-Arguments are used in most of the commands. Sometimes they can be optional, which means if you do not provide that
-argument,
-the command will also run. One node may have multiple argument types, but be aware that there is a possibility of
-ambiguity, which should be avoided.
-
-@[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-
-In this case, after the command text `/argtater`, you should type an integer. For example, if you
-run `/argtater 3`, you will get the feedback message `Called /argtater with value = 3`. If you
-type `/argtater` without arguments, the command cannot be correctly parsed.
-
-Then we add an optional second argument:
-
-@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-
-Now you can type one or two integers. If you give one integer, a feedback text with a single value is printed. If you
-provide two integers, a feedback text with two values will be printed.
-
-You may find it unnecessary to specify similar executions twice. Therefore, we can create a method that will be used in
-both executions.
-
-@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-
 #### Sub Commands
 
 To add a sub command, you register the first literal node of the command normally. To have a sub command, you have to append the next literal node to the existing node.
