@@ -6,13 +6,13 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.minecraft.util.math.BlockPos;
 
-
 // :::1
 public class BlockPosArgumentType implements ArgumentType<BlockPos> {
-
+	/**
+	 * Parse the BlockPos from the reader in the {x, y, z} format.
+	 */
 	@Override
 	public BlockPos parse(StringReader reader) throws CommandSyntaxException {
-		// Parse the BlockPos from the reader in the {x, y, z} format.
 		try {
 			// This requires the argument to be surrounded by quotation marks.
 			// eg: "{1, 2, 3}"
