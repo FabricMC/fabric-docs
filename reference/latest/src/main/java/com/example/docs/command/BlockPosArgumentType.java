@@ -6,7 +6,6 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.minecraft.util.math.BlockPos;
 
-import java.util.Arrays;
 
 // :::1
 public class BlockPosArgumentType implements ArgumentType<BlockPos> {
