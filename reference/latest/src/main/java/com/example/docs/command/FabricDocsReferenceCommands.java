@@ -21,6 +21,15 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 public class FabricDocsReferenceCommands implements ModInitializer {
 	@Override
 	public void onInitialize() {
+		// :::_1
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("tater").executes(context -> {
+				context.getSource().sendFeedback(() -> Text.literal("Called /tater with no arguments."), false);
+				return 1;
+			}));
+		});
+		// :::_1
+
 		// :::11
 		ArgumentTypeRegistry.registerArgumentType(
 				new Identifier("fabric-docs", "block_pos"),
@@ -28,15 +37,6 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 				ConstantArgumentSerializer.of(BlockPosArgumentType::new)
 		);
 		// :::11
-
-		// :::1
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("tater").executes(context -> {
-				context.getSource().sendFeedback(() -> Text.literal("Called /tater with no arguments."), false);
-				return 1;
-			}));
-		});
-		// :::1
 
 		// :::2
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
@@ -183,6 +183,17 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 			));
 		});
 		// :::10
+
+		// :::12
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			final var taterCommandNode = dispatcher.register(CommandManager.literal("tater4").executes(context -> {
+				context.getSource().sendFeedback(() -> Text.literal("Called /tater4 with no arguments."), false);
+				return 1;
+			}));
+			dispatcher.register(CommandManager.literal("redirect_potato").redirect(taterCommandNode));
+		});
+		// :::12
+
 	}
 
 	// :::6

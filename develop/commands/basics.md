@@ -88,7 +88,7 @@ The callback has three parameters:
 
 In the mod initializer, we just register a simple command:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 In the `sendFeedback()` method, the first parameter is the text to be sent, which is a `Supplier<Text>` to avoid
 instantiating Text objects when not needed.
@@ -143,6 +143,12 @@ and `/subtater subcommand` will be valid.
 Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.command.v2` package that can be used to register client-side commands. The code should exist only in client-side code.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+
+### Command Redirects
+
+Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
+
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ### FAQ
 
