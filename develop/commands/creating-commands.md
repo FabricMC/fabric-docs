@@ -127,7 +127,11 @@ blocks. Otherwise, the command is not registered.
 This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
 also why you cannot tab-complete most commands when you do not enable cheats.
 
-#### Arguments
+#### Command Arguments
+
+::: info
+For a more in-depth guide on arguments, see the command arguments guide.
+:::
 
 Arguments are used in most of the commands. Sometimes they can be optional, which means if you do not provide that
 argument,

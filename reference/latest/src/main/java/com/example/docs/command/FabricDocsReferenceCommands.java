@@ -3,6 +3,9 @@ package com.example.docs.command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 
+import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.suggestion.SuggestionProviders;
+import net.minecraft.entity.EntityType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -133,6 +136,25 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 					})));
 		});
 		// :::8
+
+		// :::9
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("entity_name").then(
+					CommandManager.argument("entity", EntityArgumentType.entity())
+							.suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
+							.executes(context -> {
+								EntityType<?> entityType = EntityArgumentType.getEntity(context, "entity").getType();
+								context.getSource().sendFeedback(
+										() -> Text.literal("Called /subtater2 with entity: ")
+												.append(
+														Text.translatable(entityType.getTranslationKey())
+												),
+										false);
+								return 1;
+							})
+			));
+		});
+		// :::9
 	}
 
 	// :::6
