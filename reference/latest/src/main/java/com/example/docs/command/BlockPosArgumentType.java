@@ -19,14 +19,11 @@ public class BlockPosArgumentType implements ArgumentType<BlockPos> {
 			// eg: "{1, 2, 3}"
 			String string = reader.readString();
 
-			System.out.println(string);
-
 			// Remove the { and } from the string using regex.
 			string = string.replace("{", "").replace("}", "");
 
 			// Split the string into the x, y, and z values.
 			String[] split = string.split(",");
-			System.out.println("split: " + Arrays.toString(split));
 
 			// Parse the x, y, and z values from the split string.
 			int x = Integer.parseInt(split[0].trim());
@@ -37,8 +34,6 @@ public class BlockPosArgumentType implements ArgumentType<BlockPos> {
 			return new BlockPos(x, y, z);
 		} catch (Exception e) {
 			// Throw an exception if anything fails inside the try block.
-
-			System.out.println(e);
 			throw CommandSyntaxException.BUILT_IN_EXCEPTIONS.dispatcherParseException().create("Invalid BlockPos format. Expected {x, y, z}");
 		}
 	}
