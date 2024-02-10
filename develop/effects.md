@@ -1,6 +1,6 @@
 ---
 title: Effects
-description: Adding a custom effect.
+description: Learn how to add custom status effects.
 authors:
   - dicedpixels
   - YanisBft
