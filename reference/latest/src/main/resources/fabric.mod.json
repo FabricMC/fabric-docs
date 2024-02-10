@@ -9,7 +9,9 @@
 		"main": [
 			"com.example.docs.FabricDocsReference",
 			"com.example.docs.event.FabricDocsReferenceEvents",
-			"com.example.docs.command.FabricDocsReferenceCommands"
+			"com.example.docs.command.FabricDocsReferenceCommands",
+			"com.example.docs.effect.FabricDocsReferenceEffects",
+			"com.example.docs.potion.FabricDocsReferencePotions"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
