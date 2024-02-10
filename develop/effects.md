@@ -55,6 +55,7 @@ Like any other translation, you can add an entry with ID format `"effect.<mod-id
 language file.
 
 ::: code-group
+
 ```json[assets/fabric-docs-reference/lang/en_us.json]
 {
   "effect.fabric-docs-reference.tater": "Tater"
@@ -65,3 +66,7 @@ language file.
 
 Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect. Use `/effect clear`
 to remove the effect.
+
+::: info
+To create a potion that uses this effect, please see the [Potions](./potions.md) guide.
+:::

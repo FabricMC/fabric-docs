@@ -19,18 +19,7 @@ calling `BrewingRecipeRegistry.registerPotionRecipe`.
 
 ::: info
 When Fabric API is present, `BrewingRecipeRegistry.registerPotionRecipe` is made accessible through an Access Widener.
-
-You can directly call `BrewingRecipeRegistry.registerPotionRecipe` without using a mixin.
 :::
-
-Let's assume you don't have Fabric API and instead rely on a mixin invoker to access
-`BrewingRecipeRegistry.registerPotionRecipe`.
-
-### Mixin Invoker for `BrewingRecipeRegistry.registerPotionRecipe`
-
-In your mixin package, create the following mixin invoker. Make sure to add it to your mixin config as well.
-
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
 
 ### Creating the Potion
 
@@ -46,11 +35,15 @@ We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 * `int duration` - Duration of the effect in game ticks.
 * `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
+::: info
+To create your own effect, please see the [Effects](./effects.md) guide.
+:::
+
 ### Registering the Potion
 
-In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe` using our mixin invoker.
+In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={35-35}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={31-31}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` takes 3 parameters:
 
@@ -75,3 +68,10 @@ Once registered, you can brew a Tater potion using a potato.
 With the help of Fabric API, it's possible to register a potion using an `Ingredient` instead of an `Item` using `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
+
+### Registering the Potion without Fabric API
+
+Without Fabric API, `BrewingRecipeRegistry.registerPotionRecipe` will be private. In order to access this method, use
+the following mixin invoker or use an Access Widener.
+
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
