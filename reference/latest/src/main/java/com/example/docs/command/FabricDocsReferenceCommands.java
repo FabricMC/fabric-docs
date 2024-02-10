@@ -193,7 +193,6 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 			dispatcher.register(CommandManager.literal("redirect_potato").redirect(taterCommandNode));
 		});
 		// :::12
-
 	}
 
 	// :::6
