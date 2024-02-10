@@ -1,6 +1,6 @@
 ---
 title: Potions
-description: Adding a custom potion.
+description: Learn how to add a custom potion for various status effects.
 authors:
   - dicedpixels
   - PandoricaVi
