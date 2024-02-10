@@ -47,7 +47,7 @@ The status effect icon is a 18x18 PNG. Place your custom icon in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Effect in player inventory](../../assets/develop/tater-effect.png)
+![Effect in player inventory](../assets/develop/tater-effect.png)
 
 **Translations**
 

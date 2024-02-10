@@ -67,7 +67,7 @@ The full example:
 
 Once registered, you can brew a Tater potion using a potato.
 
-![Effect in player inventory](../../assets/develop/tater-potion.png)
+![Effect in player inventory](../assets/develop/tater-potion.png)
 
 ::: info
 **Registering Potions Using an `Ingredient`**
