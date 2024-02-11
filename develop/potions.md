@@ -26,7 +26,7 @@ When Fabric API is present, `BrewingRecipeRegistry.registerPotionRecipe` is made
 Let's start by declaring a field to store your `Potion` instance. We will be directly using the initializer class to
 hold this.
 
-@[code lang=java transclude={20-28}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 
@@ -43,7 +43,7 @@ To create your own effect, please see the [Effects](./effects.md) guide.
 
 In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` takes 3 parameters:
 
