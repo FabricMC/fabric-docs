@@ -24,6 +24,10 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 		// :::1
 		HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
 			// :::1
+			if(true) {
+				return;
+			}
+
 			// :::2
 			MatrixStack matrices = drawContext.getMatrices();
 
