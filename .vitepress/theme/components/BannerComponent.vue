@@ -85,8 +85,6 @@ html {
   padding: 8px;
   text-align: center;
 
-  transition: transform 0.3s ease;
-
   background: rgb(207, 114, 21);
   color: #fff;
 
