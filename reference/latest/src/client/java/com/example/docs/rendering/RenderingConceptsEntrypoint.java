@@ -24,7 +24,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 		// :::1
 		HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
 			// :::1
-			if(true) {
+			if (true) {
 				return;
 			}
 
