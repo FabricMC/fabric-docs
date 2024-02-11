@@ -1,6 +1,8 @@
 ---
 title: Rendering In The Hud
 description: Learn how to use the HudRenderCallback event to render to the hud.
+authors:
+  - IMB11
 ---
 
 # Rendering In The Hud

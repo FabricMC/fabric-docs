@@ -1,6 +1,8 @@
 ---
 title: Custom Screens
 description: Learn how to create custom screens for your mod.
+authors:
+  - IMB11
 ---
 
 # Custom Screens
@@ -9,7 +11,9 @@ description: Learn how to create custom screens for your mod.
 This page refers to normal screens, not handled ones - these screens are the ones that are opened by the player on the client, not the ones that are handled by the server.
 :::
 
-In this page, we'll learn how to create custom screens for your mod - including how to create a screen and how to add widgets to it.
+Screens are essentially the GUIs that the player interacts with, such as the title screen, pause screen etc. 
+
+You can create your own screens to display custom content, a custom settings menu, or more.
 
 ## Creating A Screen
 

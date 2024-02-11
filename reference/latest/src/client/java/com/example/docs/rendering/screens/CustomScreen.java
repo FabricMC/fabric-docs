@@ -40,6 +40,15 @@ public class CustomScreen extends Screen {
 
 		// Register the button widget.
 		this.addDrawableChild(buttonWidget);
+
+		// :::1
+		// :::3
+		// Add a custom widget to the screen.
+		// x, y, width, height
+		CustomWidget customWidget = new CustomWidget(40, 80, 120, 20);
+		this.addDrawableChild(customWidget);
+		// :::3
+		// :::1
 	}
 
 	@Override
