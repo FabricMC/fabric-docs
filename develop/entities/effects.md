@@ -1,5 +1,5 @@
 ---
-title: Effects
+title: Status Effects
 description: Learn how to add custom status effects.
 authors:
   - dicedpixels
@@ -11,14 +11,14 @@ authors:
 
 <!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
-# Effects
+# Status Effects
 
-Effects are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
+Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
 applies these effects in various ways such as food, potions etc.
 
 The `/effect` command can be used to apply effects on an entity.
 
-## Custom Effects
+## Custom Status Effects
 
 In this tutorial we'll add a new custom effect called _Tater_ which gives you one experience point every game tick.
 
@@ -47,7 +47,7 @@ The status effect icon is a 18x18 PNG. Place your custom icon in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Effect in player inventory](../assets/develop/tater-effect.png)
+![Effect in player inventory](../../assets/develop/tater-effect.png)
 
 **Translations**
 
@@ -68,5 +68,5 @@ Use the command `/effect give @p fabric-docs-reference:tater` to give the player
 to remove the effect.
 
 ::: info
-To create a potion that uses this effect, please see the [Potions](./potions.md) guide.
+To create a potion that uses this effect, please see the [Potions](../items/potions.md) guide.
 :::

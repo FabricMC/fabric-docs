@@ -36,7 +36,7 @@ We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 * `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
 ::: info
-To create your own effect, please see the [Effects](./effects.md) guide.
+To create your own effect, please see the [Effects](../entities/effects.md) guide.
 :::
 
 ### Registering the Potion
@@ -60,7 +60,7 @@ The full example:
 
 Once registered, you can brew a Tater potion using a potato.
 
-![Effect in player inventory](../assets/develop/tater-potion.png)
+![Effect in player inventory](../../assets/develop/tater-potion.png)
 
 ::: info
 **Registering Potions Using an `Ingredient`**
