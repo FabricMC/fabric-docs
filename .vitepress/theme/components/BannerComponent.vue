@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core';
+import { useElementSize, useStorage } from '@vueuse/core';
 import { onBeforeMount, onMounted, ref, watchEffect } from 'vue';
 
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
+const storage = useStorage("banner-state", -1);
 
 watchEffect(() => {
   if (height.value) {
@@ -15,19 +16,15 @@ watchEffect(() => {
 });
 
 const dismiss = () => {
-  localStorage.setItem(
-    'dismissBanner',
-    (Date.now() + 8.64e7 * 1).toString() // current time + 1 day
-  );
+  // Add 1 day to the current time
+  storage.value = Date.now() + 1000 * 60 * 60 * 24;
   document.documentElement.classList.add('banner-dismissed');
 };
 
 onBeforeMount(() => {
-  if (localStorage.getItem('dismissBanner') !== null) {
-    var date = parseInt(localStorage.getItem('dismissBanner')!);
-    if (Date.now() > date) {
-      dismiss();
-    }
+  var date = storage.value;
+  if (date > Date.now()) {
+    document.documentElement.classList.add('banner-dismissed');
   }
 });
 </script>
