@@ -1,5 +1,0 @@
-files:
-  - source: /**/*.md
-    ignore:
-      - /versions/**/*
-    translation: /%two_letters_code%/%original_path%
