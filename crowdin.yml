@@ -1,0 +1,7 @@
+files:
+  - source: /**/*.md
+    ignore:
+      - /versions/**/*
+      - LICENSE.md
+      - README.md
+    translation: /%two_letters_code%/%original_path%
