@@ -4,4 +4,4 @@ files:
       - /versions/**/*
       - LICENSE.md
       - README.md
-    translation: /%two_letters_code%/%original_path%
+    translation: /%two_letters_code%/%original_path%/%original_file_name%
