@@ -28,11 +28,27 @@
   );
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-elv);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-bg-alt);
+}
+
 .homepage-container {
   margin: auto;
   width: 100%;
   max-width: 1280px;
   padding: 0 24px;
+}
+
+.VPHome {
+  padding-bottom: 0px !important;
 }
 
 @media (min-width: 640px) {

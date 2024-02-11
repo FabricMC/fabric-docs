@@ -5,6 +5,9 @@ import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
 
 import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
+import DevelopSidebar from "./sidebars/develop"
+import SpanishRootSidebar from './sidebars/es/root'
+import SpanishPlayersSidebar from './sidebars/es/players'
 
 import { applySEO } from './seo'
 import { removeVersionedItems } from "./seo"
@@ -28,6 +31,19 @@ export default defineVersionedConfig(__dirname, {
   head: [
     ['link', { rel: 'icon', sizes: '32x32', href: '/favicon.png' }],
   ],
+
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en'
+    },
+
+    es: {
+      label: 'Español',
+      lang: 'es',
+      link: '/es/'
+    }
+  },
 
   srcExclude: [
     "README.md",
@@ -81,7 +97,10 @@ export default defineVersionedConfig(__dirname, {
 
     sidebar: {
       '/': RootSidebar,
-      '/players/': PlayersSidebar
+      '/players/': PlayersSidebar,
+      "/develop/": DevelopSidebar,
+      '/es/': SpanishRootSidebar,
+      '/es/players/': SpanishPlayersSidebar,
     },
 
     editLink: {
