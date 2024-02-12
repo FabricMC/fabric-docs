@@ -22,6 +22,7 @@ export default defineVersionedConfig(__dirname, {
   rewrites: {
     // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
     'CONTRIBUTING.md': 'contributing.md',
+    'translated/:lang/(.*)': ':lang/(.*)'
   },
 
   title: "Fabric Documentation",
