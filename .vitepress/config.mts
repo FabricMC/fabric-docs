@@ -3,14 +3,12 @@ import { PageData, TransformPageContext } from 'vitepress'
 import defineVersionedConfig from 'vitepress-versioning-plugin'
 import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
 
-import RootSidebar from './sidebars/root'
 import PlayersSidebar from './sidebars/players'
 import DevelopSidebar from "./sidebars/develop"
-import SpanishRootSidebar from './sidebars/es/root'
-import SpanishPlayersSidebar from './sidebars/es/players'
 
 import { applySEO } from './seo'
 import { removeVersionedItems } from "./seo"
+import { loadLocales, generateTranslatedSidebars } from './i18n'
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -42,11 +40,7 @@ export default defineVersionedConfig(__dirname, {
       lang: 'en'
     },
 
-    es: {
-      label: 'Español',
-      lang: 'es',
-      link: '/es/'
-    }
+    ...loadLocales(__dirname)
   },
 
   srcExclude: [
@@ -55,7 +49,7 @@ export default defineVersionedConfig(__dirname, {
   ],
 
   transformPageData(pageData: PageData, ctx: TransformPageContext) {
-    applySEO(pageData)
+    applySEO(pageData);
   },
 
   sitemap: {
@@ -99,13 +93,10 @@ export default defineVersionedConfig(__dirname, {
 
     outline: "deep",
 
-    sidebar: {
-      '/': RootSidebar,
+    sidebar: generateTranslatedSidebars(__dirname, {
       '/players/': PlayersSidebar,
-      "/develop/": DevelopSidebar,
-      '/es/': SpanishRootSidebar,
-      '/es/players/': SpanishPlayersSidebar,
-    },
+      '/develop/': DevelopSidebar,
+    }),
 
     editLink: {
       pattern: ({ filePath }) => {
