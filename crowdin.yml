@@ -1,5 +1,5 @@
 files:
-  - source: /**/*.md
+  - source: /**/@(*.md|sidebar_translations.json)
     ignore:
       - /versions/**/*
       - /translated/**/*

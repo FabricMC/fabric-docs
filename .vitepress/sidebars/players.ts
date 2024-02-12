@@ -1,63 +1,63 @@
-import { DefaultTheme } from "vitepress";
+import { ExtendedSidebarItem } from "./utils";
 
 export default [
   {
-    text: "Player Guides",
+    text: "players.title",
     link: "/players/",
     items: [
       {
-        text: "Frequently Asked Questions",
+        text: "players.faq",
         link: "/players/faq"
       },
       {
-        text: "Installing Java",
+        text: "players.installingJava",
         collapsed: true,
         items: [
           {
-            text: "Windows",
+            text: "players.installingJava.windows",
             link: "/players/installing-java/windows"
           },
           {
-            text: "MacOS",
+            text: "players.installingJava.macOS",
             link: "https://fabricmc.net/wiki/player:tutorials:java:mac",
             // @ts-ignore
             process: false
           },
           {
-            text: "Linux",
+            text: "players.installingJava.linux",
             link: "/players/installing-java/linux"
           }
         ]
       },
       {
-        text: "Installing Fabric",
+        text: "players.installingFabric",
         link: "/players/installing-fabric"
       },
       {
-        text: "Finding Trustworthy Mods",
+        text: "players.findingMods",
         link: "/players/finding-mods"
       },
       {
-        text: "Installing Mods",
+        text: "players.installingMods",
         link: "/players/installing-mods"
       },
       {
-        text: "Troubleshooting",
+        text: "players.troubleshooting",
         items: [
           {
-            text: "Uploading Your Logs",
+            text: "players.troubleshooting.uploadingLogs",
             link: "/players/troubleshooting/uploading-logs"
           },
           {
-            text: "Crash Reports",
+            text: "players.troubleshooting.crashReports",
             link: "/players/troubleshooting/crash-reports"
           }
         ]
       },
       {
-        text: "Updating Fabric",
+        text: "players.updatingFabric",
         link: "/players/updating-fabric"
       }
     ]
   }
-] as DefaultTheme.SidebarItem[];
+] as ExtendedSidebarItem[];
