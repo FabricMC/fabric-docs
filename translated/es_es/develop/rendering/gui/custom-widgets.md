@@ -26,7 +26,7 @@ Like all widgets, you need to add it to the screen using the `addDrawableChild` 
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
-![Custom widget on screen.](../../../assets/develop/rendering/gui/custom-widget-example.png)
+![Custom widget on screen.](/assets/develop/rendering/gui/custom-widget-example.png)
 
 ## Widget Events
 
@@ -36,4 +36,4 @@ For example, you can make the widget change color when it's hovered over by usin
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-![Hover Event Example](../../../assets/develop/rendering/gui/custom-widget-events.webp)
+![Hover Event Example](/assets/develop/rendering/gui/custom-widget-events.webp)
