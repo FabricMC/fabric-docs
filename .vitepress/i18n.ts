@@ -83,7 +83,5 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
     }
   }
 
-  console.log(locales);
-
   return locales;
 }
