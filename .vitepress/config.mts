@@ -16,12 +16,16 @@ import { removeVersionedItems } from "./seo"
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(__dirname, {
   versioning: {
-    latestVersion: '1.20.4'
+    latestVersion: '1.20.4',
+    rewrites: {
+      localePrefix: 'translated'
+    }
   },
 
   rewrites: {
     // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
     'CONTRIBUTING.md': 'contributing.md',
+    'translated/:lang/(.*)': ':lang/(.*)'
   },
 
   title: "Fabric Documentation",
