@@ -2,6 +2,7 @@ files:
   - source: /**/*.md
     ignore:
       - /versions/**/*
+      - /translated/**/*
       - LICENSE.md
       - README.md
-    translation: /%two_letters_code%/%original_path%/%original_file_name%
+    translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
