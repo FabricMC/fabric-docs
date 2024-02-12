@@ -29,4 +29,4 @@ Let's say you want to lerp a color over time. You can use the `deltaTick` parame
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
-![](../../assets/develop/rendering/hud-rendering-deltatick.webp)
+![](/assets/develop/rendering/hud-rendering-deltatick.webp)
