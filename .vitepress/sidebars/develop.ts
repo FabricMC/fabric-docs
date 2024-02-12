@@ -1,97 +1,100 @@
-import { DefaultTheme } from "vitepress";
+import { ExtendedSidebarItem } from "./utils";
 
 export default [
   {
-    text: "Developer Guides",
+    text: "develop.title",
     link: "/develop/",
     collapsed: false,
     items: [
       {
         text: "Fabric API GitHub",
+        disableTranslation: true,
         link: "https://github.com/FabricMC/fabric"
       },
       {
         text: "Yarn GitHub",
+        disableTranslation: true,
         link: "https://github.com/FabricMC/yarn"
       },
       {
         text: "Loom GitHub",
+        disableTranslation: true,
         link: "https://github.com/FabricMC/fabric-loom"
       }
     ]
   },
   {
-    text: "Items",
+    text: "develop.items",
     collapsed: true,
     items: [
       {
-        text: "Potions",
+        text: "develop.items.potions",
         link: "/develop/items/potions",
       }
     ]
   },
   {
-    text: "Entities",
+    text: "develop.entities",
     collapsed: true,
     items: [
       {
-        text: "Status Effects",
+        text: "develop.entities.effects",
         link: "/develop/entities/effects"
       }
     ]
   },
   {
-    text: "Commands",
+    text: "develop.commands",
     collapsed: true,
     items: [
       {
-        text: "Creating Commands",
+        text: "develop.commands.basics",
         link: "/develop/commands/basics"
       },
       {
-        text: "Arguments",
+        text: "develop.commands.arguments",
         link: "/develop/commands/arguments"
       },
       {
-        text: "Suggestions",
+        text: "develop.commands.suggestions",
         link: "/develop/commands/suggestions"
       }
     ]
   },
   {
-    text: "Rendering",
+    text: "develop.rendering",
     collapsed: true,
     items: [
       {
-        text: "Basic Rendering Concepts",
+        text: "develop.rendering.basicConcepts",
         link: "/develop/rendering/basic-concepts"
       },
       {
-        text: "Using The Drawing Context",
+        text: "develop.rendering.drawContext",
         link: "/develop/rendering/draw-context"
       },
       {
-        text: "Rendering In The Hud",
+        text: "develop.rendering.hud",
         link: "/develop/rendering/hud"
       },
       {
-        text: "GUIs and Screens",
+        text: "develop.rendering.gui",
         items: [
           {
-            text: "Custom Screens",
+            text: "develop.rendering.gui.customScreens",
             link: "/develop/rendering/gui/custom-screens"
           },
           {
-            text: "Custom Widgets",
+            text: "develop.rendering.gui.customWidgets",
             link: "/develop/rendering/gui/custom-widgets"
           }
         ]
       },
       {
-        text: "Particles",
+        text: "develop.rendering.particles",
         items: [
           {
-            text: "Creating Custom Particles",
+            text: "develop.rendering.particles.creatingParticles",
             link: "/develop/rendering/particles/creating-particles"
           }
         ]
@@ -99,17 +102,17 @@ export default [
     ]
   },
   {
-    text: "Miscelaneous Pages",
+    text: "develop.misc",
     collapsed: true,
     items: [
       {
-        text: "Codecs",
+        text: "develop.misc.codecs",
         link: "/develop/codecs"
       },
       {
-        text: "Events",
+        text: "develop.misc.events",
         link: "/develop/events"
       }
     ]
   }
-] as DefaultTheme.SidebarItem[];
+] as ExtendedSidebarItem[];
