@@ -16,7 +16,10 @@ import { removeVersionedItems } from "./seo"
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(__dirname, {
   versioning: {
-    latestVersion: '1.20.4'
+    latestVersion: '1.20.4',
+    rewrites: {
+      localePrefix: 'translated'
+    }
   },
 
   rewrites: {
