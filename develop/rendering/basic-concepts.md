@@ -107,7 +107,7 @@ We're going to draw vertices at the following points on the HUD (in order):
 
 This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` draw mode, the renderer will perform the following steps:
 
-![Four steps that show the placement of the vertices on the screen to form two triangles.](../../assets/develop/rendering/concepts-practical-example-draw-process.png)
+![Four steps that show the placement of the vertices on the screen to form two triangles.](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
 
@@ -115,7 +115,7 @@ Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback
 
 This results in the following being drawn on the HUD:
 
-![Final Result](../../assets/develop/rendering/concepts-practical-example-final-result.png)
+![Final Result](/assets/develop/rendering/concepts-practical-example-final-result.png)
 
 ::: tip
 Try mess around with the colors and positions of the vertices to see what happens! You can also try using different draw modes and vertex formats.
@@ -145,7 +145,7 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![A video showing the diamond scaling up and down.](../../assets/develop/rendering/concepts-matrix-stack.webp)
+![A video showing the diamond scaling up and down.](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternions (Rotating Things)
 
@@ -159,4 +159,4 @@ Let's say we want to rotate our diamond around the z-axis. We can do this by usi
 
 The result of this is the following:
 
-![A video showing the diamond rotating around the z-axis.](../../assets/develop/rendering/concepts-quaternions.webp)
+![A video showing the diamond rotating around the z-axis.](/assets/develop/rendering/concepts-quaternions.webp)

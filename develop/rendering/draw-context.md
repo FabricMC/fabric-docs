@@ -21,7 +21,7 @@ You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![A rectangle.](../../assets/develop/rendering/draw-context-rectangle.png)
+![A rectangle.](/assets/develop/rendering/draw-context-rectangle.png)
 
 ### Drawing Outlines/Borders
 
@@ -29,7 +29,7 @@ Let's say we want to outline the rectangle we just drew. We can use the `DrawCon
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Rectangle with border.](../../assets/develop/rendering/draw-context-rectangle-border.png)
+![Rectangle with border.](/assets/develop/rendering/draw-context-rectangle-border.png)
 
 ### Drawing Individual Lines
 
@@ -37,7 +37,7 @@ We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVertic
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Lines](../../assets/develop/rendering/draw-context-lines.png)
+![Lines](/assets/develop/rendering/draw-context-lines.png)
 
 ## The Scissor Manager
 
@@ -53,7 +53,7 @@ To enable the scissor manager, simply use the `DrawContext.enableScissor(...)` m
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Scissor region in action.](../../assets/develop/rendering/draw-context-scissor.png)
+![Scissor region in action.](/assets/develop/rendering/draw-context-scissor.png)
 
 As you can see, even though we tell the game to render the gradient across the entire screen, it only renders within the scissor region.
 
@@ -67,7 +67,7 @@ Generally, it's recommended that you use the overload that specifies the `textur
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Drawing whole texture example.](../../assets/develop/rendering/draw-context-whole-texture.png)
+![Drawing whole texture example.](/assets/develop/rendering/draw-context-whole-texture.png)
 
 ### Drawing a Portion of a Texture
 
@@ -75,13 +75,13 @@ This is where `u` and `v` come in. These parameters specify the top-left corner 
 
 Let's take this texture as an example.
 
-![Recipe Book Texture](../../assets/develop/rendering/draw-context-recipe-book-background.png)
+![Recipe Book Texture](/assets/develop/rendering/draw-context-recipe-book-background.png)
 
 If we want to only draw a region that contains the magnifying glass, we can use the following `u`, `v`, `regionWidth` and `regionHeight` values:
 
 @[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Region Texture](../../assets/develop/rendering/draw-context-region-texture.png)
+![Region Texture](/assets/develop/rendering/draw-context-region-texture.png)
 
 ## Drawing Text
 
@@ -91,4 +91,4 @@ Let's say we want to draw "Hello World" onto the screen. We can use the `DrawCon
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Drawing text](../../assets/develop/rendering/draw-context-text.png)
+![Drawing text](/assets/develop/rendering/draw-context-text.png)
