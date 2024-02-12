@@ -2,7 +2,7 @@ files:
   - source: /**/@(*.md|sidebar_translations.json)
     ignore:
       - /versions/**/*
-      - /translated/{,**/!(sidebar_translations.json)}
+      - /translated/**/*
       - LICENSE.md
       - README.md
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%

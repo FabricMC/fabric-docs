@@ -4,18 +4,22 @@ import { ExtendedSidebarItem } from "./sidebars/utils";
 import { DefaultTheme, LocaleConfig, LocaleSpecificConfig } from "vitepress";
 import inter from "inter";
 
-export function applyTranslations(translationSource: { [key: string]: string; }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
+export function applyTranslations(translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
   const sidebarCopy = JSON.parse(JSON.stringify(sidebar));
 
   for (const item of sidebarCopy) {
     if (item.disableTranslation) continue;
 
-    if (translationSource[item.text]) {
+    if (!translationSource[item.text]) {
+      if (fallbackSource[item.text]) {
+        item.text = fallbackSource[item.text];
+      }
+    } else {
       item.text = translationSource[item.text];
     }
 
     if (item.items) {
-      item.items = applyTranslations(translationSource, item.items);
+      item.items = applyTranslations(translationSource, fallbackSource, item.items);
     }
   }
 
@@ -23,8 +27,15 @@ export function applyTranslations(translationSource: { [key: string]: string; },
 }
 
 export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: string]: ExtendedSidebarItem[]; }): { [localeUrl: string]: ExtendedSidebarItem[]; } {
-  // For all translations in path.resolve(_rootDir, .., translated, locale_code, sidebar_translations.json) - load the translations and apply them.
   const sidebarResult = {};
+
+  const englishFallbacks = JSON.parse(readFileSync(resolve(_rootDir, "..", "sidebar_translations.json"), "utf-8"));
+
+  // Create the default english sidebar.
+  for (const sidebarPair of Object.entries(sidebars)) {
+    const [url, sidebar] = sidebarPair;
+    sidebarResult[url] = applyTranslations(englishFallbacks, englishFallbacks, sidebar);
+  }
 
   const translatedFolder = resolve(_rootDir, "..", "translated");
 
@@ -39,11 +50,7 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
     for (const sidebarPair of Object.entries(sidebars)) {
       const [url, sidebar] = sidebarPair;
 
-      if (folder == "en_us") {
-        sidebarResult[url] = applyTranslations(translations, sidebar);
-      } else {
-        sidebarResult[`/${folder}${url}`] = applyTranslations(translations, sidebar);
-      }
+      sidebarResult[`/${folder}${url}`] = applyTranslations(translations, englishFallbacks, sidebar);
     }
   }
 
