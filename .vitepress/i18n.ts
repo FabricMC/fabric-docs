@@ -65,9 +65,6 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
 
-  // Remove the en_us folder
-  translatedFolders.splice(translatedFolders.indexOf("en_us"), 1);
-
   const locales: LocaleConfig<DefaultTheme.Config> = {};
 
   for (const folder of translatedFolders) {
