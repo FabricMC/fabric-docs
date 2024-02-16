@@ -1,4 +1,8 @@
 {
+  "block.fabric-docs-reference.border": "Border",
+  "block.fabric-docs-reference.machine_prototype": "Machine Prototype",
   "effect.fabric-docs-reference.tater": "Tater",
+  "item.fabric-docs-reference.border": "Border",
+  "item.fabric-docs-reference.machine_prototype": "Machine Prototype",
   "item.minecraft.potion.effect.tater": "Tater Potion"
 }

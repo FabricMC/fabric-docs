@@ -13,6 +13,8 @@
   "players.troubleshooting.crashReports": "Crash Reports",
   "players.updatingFabric": "Updating Fabric",
   "develop.title": "Developer Guides",
+  "develop.blocks": "Blocks",
+  "develop.blocks.basics": "Creating Blocks",
   "develop.items": "Items",
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",

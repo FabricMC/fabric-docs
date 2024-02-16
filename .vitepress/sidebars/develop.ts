@@ -23,6 +23,16 @@ export default [
       }
     ]
   },
+    {
+    text: "develop.blocks",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.blocks.basics",
+        link: "/develop/blocks/basics"
+      }
+    ]
+  },
   {
     text: "develop.items",
     collapsed: true,
