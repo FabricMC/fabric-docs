@@ -80,7 +80,7 @@ mod's `en_us.json` file.
 
 Upon death from our damage type, you'll see the following death message:
 
-![Effect in player inventory](../../assets/develop/tater-damage-death.png)
+![Effect in player inventory](/assets/develop/tater-damage-death.png)
 
 ### Damage Type Tags
 
