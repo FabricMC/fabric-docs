@@ -52,7 +52,7 @@ To demonstrate the use of custom damage types, we will use a custom block called
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
 
 ::: info
-To create a custom block, please see the [Blocks](../blocks/basics.md) guide.
+To create a custom block, please see the Blocks guide.
 :::
 
 You can override `onSteppedOn` to inflict this damage.
