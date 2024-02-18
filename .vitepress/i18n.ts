@@ -50,6 +50,11 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
 
   for (const folder of translatedFolders) {
     const sidebarPath = resolve(translatedFolder, folder, "sidebar_translations.json")
+    const indexPath = resolve(translatedFolder, folder, "index.md")
+
+    if (!existsSync(indexPath)) {
+      continue;
+    }
 
     // If sidebar translations dont exist, use english fallback.
     if (!existsSync(sidebarPath)) {
@@ -84,6 +89,13 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
   const locales: LocaleConfig<DefaultTheme.Config> = {};
 
   for (const folder of translatedFolders) {
+    const indexPath = resolve(translatedFolder, folder, "index.md")
+
+    // Dont add language if index.md does not exist
+    if (!existsSync(indexPath)) {
+      continue;
+    }
+
     let firstHalf: string = folder.slice(0, 2);
     let secondHalf: string = folder.slice(3, 5);
 
