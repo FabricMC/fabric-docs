@@ -83,10 +83,13 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
     let secondHalf: string = folder.slice(3, 5);
 
     let locale = new Intl.DisplayNames([`${firstHalf}-${secondHalf.toUpperCase()}`], { type: 'language' });
-    let localeName = locale?.of(`${firstHalf}-${secondHalf.toUpperCase()}`);
+    let localeName = locale?.of(`${firstHalf}-${secondHalf.toUpperCase()}`)!;
+
+    // Capitalize the first letter of the locale name
+    localeName = localeName.charAt(0).toUpperCase() + localeName.slice(1);
 
     locales[folder] = {
-      label: localeName!,
+      label: localeName,
       link: `/${folder}/`,
       lang: folder,
     }
