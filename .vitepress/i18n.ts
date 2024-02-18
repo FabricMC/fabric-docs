@@ -1,8 +1,7 @@
-import { readdirSync, readFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync } from "fs";
 import { resolve } from "path/posix";
 import { ExtendedSidebarItem } from "./sidebars/utils";
-import { DefaultTheme, LocaleConfig, LocaleSpecificConfig } from "vitepress";
-import inter from "inter";
+import { DefaultTheme, LocaleConfig } from "vitepress";
 
 export function applyTranslations(translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
   const sidebarCopy = JSON.parse(JSON.stringify(sidebar));
@@ -45,7 +44,19 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
     .map(dirent => dirent.name);
 
   for (const folder of translatedFolders) {
-    const translations: { [key: string]: string; } = JSON.parse(readFileSync(resolve(translatedFolder, folder, "sidebar_translations.json"), "utf-8"));
+    const sidebarPath = resolve(translatedFolder, folder, "sidebar_translations.json")
+
+    // If sidebar translations dont exist, use english fallback.
+    if (!existsSync(sidebarPath)) {
+      for (const sidebarPair of Object.entries(sidebars)) {
+        const [url, sidebar] = sidebarPair;
+        sidebarResult[`/${folder}${url}`] = sidebarResult[url];
+      }
+
+      continue;
+    }
+
+    const translations: { [key: string]: string; } = JSON.parse(readFileSync(sidebarPath, "utf-8"));
 
     for (const sidebarPair of Object.entries(sidebars)) {
       const [url, sidebar] = sidebarPair;
@@ -68,23 +79,20 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
   const locales: LocaleConfig<DefaultTheme.Config> = {};
 
   for (const folder of translatedFolders) {
+    console.log(folder);
     let firstHalf: string = folder.slice(0, 2);
     let secondHalf: string = folder.slice(3, 5);
 
-    let localeName: string = "";
-    if (firstHalf == secondHalf) {
-      localeName = inter.load(folder).getLanguage(folder.slice(0, 2)).displayName;
-    } else {
-      localeName = inter.load(folder).getLanguage(folder).displayName;
-    }
-
-    localeName = localeName.charAt(0).toUpperCase() + localeName.slice(1);
+    let locale = new Intl.DisplayNames([`${firstHalf}-${secondHalf.toUpperCase()}`], { type: 'language' });
+    let localeName = locale?.of(`${firstHalf}-${secondHalf.toUpperCase()}`);
 
     locales[folder] = {
-      label: localeName,
+      label: localeName!,
       link: `/${folder}/`,
       lang: folder,
     }
+
+    console.log(locales);
   }
 
   return locales;
