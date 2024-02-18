@@ -12,11 +12,11 @@
     "@rollup/rollup-linux-x64-gnu": "4.6.1"
   },
   "dependencies": {
+    "inter": "^2.1.0",
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "patch-package": "^8.0.0",
     "vitepress": "^1.0.0-rc.43",
-    "vitepress-versioning-plugin": "^0.9.0",
-    "vue": "^3.4.0"
+    "vitepress-versioning-plugin": "^0.10.0"
   }
 }

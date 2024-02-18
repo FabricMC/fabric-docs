@@ -30,7 +30,7 @@ As an example, we can create a simple screen that has a button and a label above
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
-![Custom Screen 1](../../../assets/develop/rendering/gui/custom-1-example.png)
+![Custom Screen 1](/assets/develop/rendering/gui/custom-1-example.png)
 
 ## Opening The Screen
 
