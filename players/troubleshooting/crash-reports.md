@@ -41,7 +41,7 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using the [following crash report as an example.](https://github.com/FabricMC/fabric-docs/blob/main/assets/players/crash-report-example.txt)
+For this guide, we will be using the [following crash report as an example.](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt)
 
 ### Crash Report Sections
 
