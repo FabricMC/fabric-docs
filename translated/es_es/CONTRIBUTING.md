@@ -23,7 +23,7 @@ Antes de correr cualquiera de estos comandos, asegúrate de correr `npm install`
 
 **Ejecutar el servidor de desarrollo:**
 
-Esto te permitirá ver una vista previa de tus cambios localmente en `localhost:3000`. La página se autorrefrescará cada vez que realizes cambios.
+Esto te permitirá ver una vista previa de tus cambios localmente en `localhost:3000`.
 
 ```bash
 npm run dev
@@ -47,7 +47,7 @@ npm run preview
 
 ## Estructura de Contribuciones
 
-La estructura o "Framework" se refiere a la estructura interna de la página web. Cualquier solicitud de extracción que modifique la estructura interna de la página web debe ser etiquetada con la etiqueta `framework`.
+Cualquier solicitud de extracción que modifique la estructura interna de la página web debe ser etiquetada con la etiqueta `framework`.
 
 En realidad solo deberías realizar solicitudes de extracción para la estructura después de consultar con el equipo de documentación en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv) o mediante una propuesta.
 
@@ -169,7 +169,7 @@ Si no quieres expandir tu solicitud de extracción, pero quisieras que otra pers
 
 ### Verificación de Contenido
 
-Todas las solicitudes de extracción pasan por verificación de contenido. Esta etapa es la más importante, ya que asegura que el contenido es correcto y sigue las Pautas de Estilo de Documentación de Fabric.
+Esta etapa es la más importante, ya que asegura que el contenido es correcto y sigue las Pautas de Estilo de Documentación de Fabric.
 
 ### Limpieza
 
