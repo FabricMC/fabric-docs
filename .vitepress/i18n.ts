@@ -3,7 +3,7 @@ import { resolve } from "path/posix";
 import { ExtendedSidebarItem } from "./sidebars/utils";
 import { DefaultTheme, LocaleConfig } from "vitepress";
 
-export function applyTranslations(translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
+export function applyTranslations(locale: string, translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
   const sidebarCopy = JSON.parse(JSON.stringify(sidebar));
 
   for (const item of sidebarCopy) {
@@ -17,8 +17,13 @@ export function applyTranslations(translationSource: { [key: string]: string; },
       item.text = translationSource[item.text];
     }
 
+    if (item.link && locale !== "en_us") {
+      // Prefix the link with the locale
+      item.link = `/${locale}${item.link}`;
+    }
+
     if (item.items) {
-      item.items = applyTranslations(translationSource, fallbackSource, item.items);
+      item.items = applyTranslations(locale, translationSource, fallbackSource, item.items);
     }
   }
 
@@ -33,7 +38,7 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
   // Create the default english sidebar.
   for (const sidebarPair of Object.entries(sidebars)) {
     const [url, sidebar] = sidebarPair;
-    sidebarResult[url] = applyTranslations(englishFallbacks, englishFallbacks, sidebar);
+    sidebarResult[url] = applyTranslations("en_us", englishFallbacks, englishFallbacks, sidebar);
   }
 
   const translatedFolder = resolve(_rootDir, "..", "translated");
@@ -61,7 +66,7 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
     for (const sidebarPair of Object.entries(sidebars)) {
       const [url, sidebar] = sidebarPair;
 
-      sidebarResult[`/${folder}${url}`] = applyTranslations(translations, englishFallbacks, sidebar);
+      sidebarResult[`/${folder}${url}`] = applyTranslations(folder, translations, englishFallbacks, sidebar);
     }
   }
 
