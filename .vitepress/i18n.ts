@@ -79,7 +79,6 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
   const locales: LocaleConfig<DefaultTheme.Config> = {};
 
   for (const folder of translatedFolders) {
-    console.log(folder);
     let firstHalf: string = folder.slice(0, 2);
     let secondHalf: string = folder.slice(3, 5);
 
@@ -91,8 +90,6 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
       link: `/${folder}/`,
       lang: folder,
     }
-
-    console.log(locales);
   }
 
   return locales;
