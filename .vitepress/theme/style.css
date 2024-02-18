@@ -105,3 +105,8 @@ kbd {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Decrease the tab size for code blocks. */
+.vp-doc code {
+  tab-size: 2 !important;
+}
