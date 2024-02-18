@@ -43,6 +43,9 @@ export default defineVersionedConfig(__dirname, {
     ...loadLocales(__dirname)
   },
 
+  // Prevent dead links from being reported as errors - allows partially translated pages to be built.
+  ignoreDeadLinks: true,
+
   srcExclude: [
     "README.md",
     "LICENSE.md",
