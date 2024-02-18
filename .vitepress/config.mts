@@ -20,6 +20,8 @@ export default defineVersionedConfig(__dirname, {
     }
   },
 
+  ignoreDeadLinks: true,
+
   rewrites: {
     // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
     'CONTRIBUTING.md': 'contributing.md',
@@ -37,7 +39,8 @@ export default defineVersionedConfig(__dirname, {
   locales: {
     root: {
       label: 'English',
-      lang: 'en'
+      lang: 'en',
+      useAsFallback: true
     },
 
     ...loadLocales(__dirname)

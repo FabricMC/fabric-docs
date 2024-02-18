@@ -16,6 +16,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "patch-package": "^8.0.0",
+    "universalify": "^2.0.1",
     "vitepress": "^1.0.0-rc.43",
     "vitepress-versioning-plugin": "^0.10.0"
   }
