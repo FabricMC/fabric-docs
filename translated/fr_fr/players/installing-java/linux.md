@@ -78,7 +78,7 @@ sudo dnf install java-17-openjdk-devel
 
 ### Autres distributions Linux
 
-Si votre distribution n'est pas listée au dessus, vous pouvez télécharger le dernier JRE sur [AdoptOpenJDK/Adoptium](https://adoptium.net/en-GB/temurin.html)
+Si votre distribution n'est pas listée au dessus, vous pouvez télécharger le dernier JRE sur [AdoptOpenJDK/Adoptium](https://adoptium.net/fr/temurin/)
 
 Il est recommandé de se référer à un guide alternatif pour votre distribution si vous souhaitez développer des mods.
 
