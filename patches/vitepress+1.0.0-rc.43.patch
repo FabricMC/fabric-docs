@@ -1,0 +1,107 @@
+diff --git a/node_modules/vitepress/dist/client/app/router.js b/node_modules/vitepress/dist/client/app/router.js
+index e1f068e..0ad3bb0 100644
+--- a/node_modules/vitepress/dist/client/app/router.js
++++ b/node_modules/vitepress/dist/client/app/router.js
+@@ -26,7 +26,8 @@ export function createRouter(loadPageModule, fallbackComponent) {
+         await router.onAfterRouteChanged?.(href);
+     }
+     let latestPendingPath = null;
+-    async function loadPage(href, scrollPosition = 0, isRetry = false) {
++    async function loadPage(href, scrollPosition = 0, isRetry = false, alreadyTriedLoadingRootFallback = false) {
++        let fallbackLoaded = false;
+         if ((await router.onBeforePageLoad?.(href)) === false)
+             return;
+         const targetLoc = new URL(href, fakeHost);
+@@ -94,13 +95,73 @@ export function createRouter(loadPageModule, fallbackComponent) {
+                 }
+                 catch (e) { }
+             }
+-            if (latestPendingPath === pendingPath) {
++            if (!alreadyTriedLoadingRootFallback) {
++                fallbackLoaded = await loadPageFallback();
++            }
++            if (!fallbackLoaded && latestPendingPath === pendingPath) {
+                 latestPendingPath = null;
+                 route.path = inBrowser ? pendingPath : withBase(pendingPath);
+                 route.component = fallbackComponent ? markRaw(fallbackComponent) : null;
+                 route.data = notFoundPageData;
+             }
+         }
++        // If failed to find the page, maybe it's not translated yet! if so, please fallback :)
++        async function loadPageFallback() {
++            const locales = siteDataRef.value.locales;
++            if (!locales)
++                return fallbackLoaded;
++            const namedLocales = Object.fromEntries(Object.entries(siteDataRef.value.locales).filter(([name]) => name !== 'root'));
++            if (!Object.entries(namedLocales).length)
++                return fallbackLoaded;
++            const langNames = Object.keys(namedLocales);
++            const failedLang = langNames.find((lang) => pendingPath === `/${lang}` || pendingPath.startsWith(`/${lang}/`));
++            if (failedLang) {
++                const fallbackLang = getFailedLangFallbackLang() ?? getCustomFallbackLang();
++                if (fallbackLang) {
++                    await loadPage(pendingPath.replace(`/${failedLang}`, `/${fallbackLang}`));
++                    return fallbackLoaded;
++                }
++                else {
++                    await loadPage(pendingPath.replace(`/${failedLang}`, ''));
++                    return fallbackLoaded;
++                }
++            }
++            else {
++                const rootRouteFallbackPath = getRootRouteFallbackPath();
++                if (rootRouteFallbackPath) {
++                    await loadPage(rootRouteFallbackPath, 0, true, true);
++                }
++                return fallbackLoaded;
++            }
++            function getFailedLangFallbackLang() {
++                const failedLangFallbackLang = locales[failedLang]?.fallback;
++                if (!failedLangFallbackLang)
++                    return;
++                if (!langNames.includes(failedLangFallbackLang)) {
++                    console.warn(`Invalid value received in "VitePress Config" > "locales.${failedLang}.fallback". "${failedLangFallbackLang}" is not a valid value.`);
++                    return;
++                }
++                return failedLangFallbackLang;
++            }
++            function getCustomFallbackLang() {
++                const customFallbackLang = Object.entries(namedLocales).filter(([_, values]) => values.useAsFallback)?.[0]?.[0];
++                if (customFallbackLang && customFallbackLang !== failedLang) {
++                    return customFallbackLang;
++                }
++            }
++            function getRootRouteFallbackPath() {
++                const fallbackLang = locales['root']?.fallback;
++                if (!fallbackLang)
++                    return;
++                if (!langNames.includes(fallbackLang)) {
++                    console.warn(`Invalid value received in "VitePress Config" > "locales.root.fallback". "${fallbackLang}" is not a valid value.`);
++                    return;
++                }
++                return pendingPath === '/'
++                    ? `/${fallbackLang}`
++                    : `/${fallbackLang}${pendingPath.startsWith('/') ? pendingPath : `/${pendingPath}`}`;
++            }
++        }
+     }
+     if (inBrowser) {
+         window.addEventListener('click', (e) => {
+diff --git a/node_modules/vitepress/types/shared.d.ts b/node_modules/vitepress/types/shared.d.ts
+index 6fdf919..d350f5e 100644
+--- a/node_modules/vitepress/types/shared.d.ts
++++ b/node_modules/vitepress/types/shared.d.ts
+@@ -156,7 +156,12 @@ export interface LocaleSpecificConfig<ThemeConfig = any> {
+ 
+ export type LocaleConfig<ThemeConfig = any> = Record<
+   string,
+-  LocaleSpecificConfig<ThemeConfig> & { label: string; link?: string }
++  LocaleSpecificConfig<ThemeConfig> & {
++    label: string
++    link?: string
++    fallback?: string
++    useAsFallback?: boolean
++  }
+ >
+ 
+ // Manually declaring all properties as rollup-plugin-dts
