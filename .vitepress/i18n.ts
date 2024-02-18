@@ -4,7 +4,7 @@ import { ExtendedSidebarItem } from "./sidebars/utils";
 import { DefaultTheme, LocaleConfig, LocaleSpecificConfig } from "vitepress";
 import inter from "inter";
 
-export function applyTranslations(translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
+export function applyTranslations(translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[], locale: string): ExtendedSidebarItem[] {
   const sidebarCopy = JSON.parse(JSON.stringify(sidebar));
 
   for (const item of sidebarCopy) {
@@ -18,8 +18,13 @@ export function applyTranslations(translationSource: { [key: string]: string; },
       item.text = translationSource[item.text];
     }
 
+    // prefix link with locale
+    if (item.link && !locale.includes("en")) {
+      item.link = `/${locale}${item.link}`;
+    }
+
     if (item.items) {
-      item.items = applyTranslations(translationSource, fallbackSource, item.items);
+      item.items = applyTranslations(translationSource, fallbackSource, item.items, locale);
     }
   }
 
@@ -34,7 +39,7 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
   // Create the default english sidebar.
   for (const sidebarPair of Object.entries(sidebars)) {
     const [url, sidebar] = sidebarPair;
-    sidebarResult[url] = applyTranslations(englishFallbacks, englishFallbacks, sidebar);
+    sidebarResult[url] = applyTranslations(englishFallbacks, englishFallbacks, sidebar, "en");
   }
 
   const translatedFolder = resolve(_rootDir, "..", "translated");
@@ -50,7 +55,7 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
     for (const sidebarPair of Object.entries(sidebars)) {
       const [url, sidebar] = sidebarPair;
 
-      sidebarResult[`/${folder}${url}`] = applyTranslations(translations, englishFallbacks, sidebar);
+      sidebarResult[`/${folder}${url}`] = applyTranslations(translations, englishFallbacks, sidebar, folder);
     }
   }
 
