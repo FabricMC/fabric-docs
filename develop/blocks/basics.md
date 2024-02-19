@@ -30,9 +30,9 @@ Note that the item for your block is registered separately. Some blocks (like fi
 ## Block models and textures
 A block has a model, which describes the shape and textures of the rendered block. (This is different from the shape used for checking collision.) A block can have multiple models depending on the block state; the model is picked according to the "blockstate file". Items, including block-placing items, have separate models.
 
-Let's give the border block a texture with white background and black borders, like this. Most block textures are 16-by-16 square. This is placed at `/textures/block/border.png`, inside the mod resource pack (`/assets/(mod id)/` in the `resources` directory).
+Let's give the border block a texture with white background and black borders, like this. Most block textures are 16-by-16 square. This is placed at `/textures/block/border.png`, inside the mod resource pack (`/assets/(mod id)/` in the `src/client/resources` directory).
 
-![](/reference/latest/src/main/resources/assets/fabric-docs-reference/textures/block/border.png)
+![](/assets/develop/blocks/border.png)
 
 This texture is then referenced by a model file named `border.json`, placed under `/models/block` directory inside the mod resource pack. Since the block has the same texture on all six sides, we use `cube_all` as the parent model.
 
@@ -84,7 +84,7 @@ Why are they marked as deprecated, then? Here, it is how Mojang marks methods th
 ## Modeling with multiple states
 The machine prototype block also needs a texture. Because the block is directional, however, the block texture should ideally indicate the direction. We reuse the texture for the border, except for the front face, which uses this texture:
 
-![](/reference/latest/src/main/resources/assets/fabric-docs-reference/textures/block/machine_prototype.png)
+![](/assets/develop/blocks/machine_prototype.png)
 
 The model, this time, is inherited from `orientable`. `orientable` can be used to specify different textures for the front, top, and sides. This time, though, the top and side textures are the same.
 

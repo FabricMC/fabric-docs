@@ -29,6 +29,5 @@ public class FabricDocsReferenceBlocks implements ModInitializer {
 
 		Registry.register(Registries.BLOCK, new Identifier("fabric-docs-reference", "machine_prototype"), MACHINE_PROTOTYPE_BLOCK);
 		Registry.register(Registries.ITEM, new Identifier("fabric-docs-reference", "machine_prototype"), new BlockItem(MACHINE_PROTOTYPE_BLOCK, new Item.Settings()));
-
 	}
 }
