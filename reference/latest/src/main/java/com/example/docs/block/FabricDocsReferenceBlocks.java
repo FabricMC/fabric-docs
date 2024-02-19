@@ -15,7 +15,7 @@ public class FabricDocsReferenceBlocks implements ModInitializer {
 	public static final Block BORDER_BLOCK = new Block(AbstractBlock.Settings.create().strength(1.5f));
 	// :::1
 	// :::4
-	public static final Block MACHINE_PROTOTYPE_BLOCK = new MachinePrototypeBlock(AbstractBlock.Settings.create().strength(1.5f));
+	public static final Block MACHINE_PROTOTYPE_BLOCK = new MachinePrototypeBlock(AbstractBlock.Settings.create().strength(1.5f).requiresTool());
 	// :::4
 
 	@Override

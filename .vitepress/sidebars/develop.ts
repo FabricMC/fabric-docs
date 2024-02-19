@@ -23,13 +23,17 @@ export default [
       }
     ]
   },
-    {
+  {
     text: "develop.blocks",
     collapsed: true,
     items: [
       {
         text: "develop.blocks.basics",
         link: "/develop/blocks/basics"
+      },
+      {
+        text: "develop.blocks.loot",
+        link: "/develop/blocks/loot"
       }
     ]
   },
@@ -39,7 +43,7 @@ export default [
     items: [
       {
         text: "develop.items.potions",
-        link: "/develop/items/potions",
+        link: "/develop/items/potions"
       }
     ]
   },
@@ -108,7 +112,7 @@ export default [
             link: "/develop/rendering/particles/creating-particles"
           }
         ]
-      },
+      }
     ]
   },
   {

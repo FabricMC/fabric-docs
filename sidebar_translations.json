@@ -15,6 +15,7 @@
   "develop.title": "Developer Guides",
   "develop.blocks": "Blocks",
   "develop.blocks.basics": "Creating Blocks",
+  "develop.blocks.loot": "Changing Block Drops",
   "develop.items": "Items",
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",

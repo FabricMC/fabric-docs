@@ -30,7 +30,7 @@ Note that the item for your block is registered separately. Some blocks (like fi
 ## Block models and textures
 A block has a model, which describes the shape and textures of the rendered block. (This is different from the shape used for checking collision.) A block can have multiple models depending on the block state; the model is picked according to the "blockstate file". Items, including block-placing items, have separate models.
 
-Let's give the border block a texture with white background and black borders, like this. Most block textures are 16-by-16 square. This is placed at `/textures/block/border.png`, inside the mod resource pack (`/assets/(mod id)/`).
+Let's give the border block a texture with white background and black borders, like this. Most block textures are 16-by-16 square. This is placed at `/textures/block/border.png`, inside the mod resource pack (`/assets/(mod id)/` in the `resources` directory).
 
 ![](/reference/latest/src/main/resources/assets/fabric-docs-reference/textures/block/border.png)
 
@@ -48,7 +48,7 @@ The model for the item must be provided separately under `/models/item/border.js
 
 Here are the border blocks, in-game:
 
-![Hey, a fountain!](/public/assets/develop/blocks/border-block-fountain.png)
+![Hey, a fountain!](/assets/develop/blocks/border-block-fountain.png)
 
 ## Multiple block states
 Let's add a block that can be rotated horizontally, like a carved pumpkin. The block has a button texture on one side - let's call it "machine prototype". This requires making a custom class for your block. The class name should end with "Block", like `MachinePrototypeBlock`.
