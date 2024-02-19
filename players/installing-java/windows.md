@@ -43,7 +43,7 @@ The majority of modern computers will have a 64-bit operating system. If you are
 
 ## 3. Run the installer!
 
-Follow the steps in the installer to install Java 17. When you reach this page, you should set the following features to “Entire feature will be installed on local hard drive”:
+Follow the steps in the installer to install Java 17. When you reach this page, you should set the following features to "Entire feature will be installed on local hard drive":
 
 - `Set JAVA_HOME environment variable` - This will be added to your PATH.
 - `JavaSoft (Oracle) registry keys`

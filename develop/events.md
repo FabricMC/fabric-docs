@@ -85,7 +85,7 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event. 
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say “*cancel this*”, “*approve this*” or “*don't care, leave it to the next event listener*” using its return value. 
+Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "*cancel this*", "*approve this*" or "*don't care, leave it to the next event listener*" using its return value. 
 
 Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 
