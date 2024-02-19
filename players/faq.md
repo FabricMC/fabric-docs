@@ -5,7 +5,7 @@ description: Frequently asked questions for players and server administrators re
 
 # Frequently Asked Questions
 
-There are a lot of questions that are asked frequently, so we’ve compiled a list of them here.
+There are a lot of questions that are asked frequently, so we've compiled a list of them here.
 
 ## General Questions
 
