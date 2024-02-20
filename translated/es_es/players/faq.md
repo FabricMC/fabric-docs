@@ -5,7 +5,7 @@ description: Preguntas frecuentes para jugadores y administradores de servidores
 
 # Preguntas Frecuentes
 
-Hay varias preguntas que se hacen con frecuencia, así que hemos compilado una lista de ellas aquí.
+Hay varias preguntas que se hacen con frecuencia, por lo que hemos compilado una lista de ellas aquí.
 
 ## Preguntas Generales
 
