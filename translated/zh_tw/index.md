@@ -9,7 +9,7 @@ hero:
 features:
   - title: Developer Guides
     icon: 🛠️
-    details: 我們的精選開發人員指南，由社群撰寫，涵蓋了從建立開發環境到更進階的主題，如繪製和網路等廣泛範疇的議題。
+    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
     link: /zh_tw/develop/
     linkText: 開始使用
   - title: 玩家指南
