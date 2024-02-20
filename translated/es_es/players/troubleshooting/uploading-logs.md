@@ -25,7 +25,7 @@ Para más información sobre los reportes de crasheo, visita [Reportes de Crashe
 
 Esta guía cubre el launcher oficial de Minecraft (comúnmente referido como el "launcher vanilla") - para launchers de terceros, puedes consultar su documentación.
 
-Los logs se encuentran en el folder de `logs` en el folder del juego. El folder del juego puede ser encontrado en los siguientes lugares dependiendo de tu sistema operativo:
+El folder del juego puede ser encontrado en los siguientes lugares dependiendo de tu sistema operativo:
 
 ::: code-group
 
