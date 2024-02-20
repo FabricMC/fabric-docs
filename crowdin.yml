@@ -5,7 +5,8 @@ files:
       - /translated/**/*
       - LICENSE.md
       - README.md
-      - /translated/*
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
   - source: sidebar_translations.json
+    ignore:
+      - /translated/**/*
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
