@@ -63,7 +63,7 @@ You can see if everything has worked by typing the following command:
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 
-![Showcase of the sparkle pat](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
+![Showcase of the particle](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
 ::: info
 The particle will spawn inside the player with this command. You will likely need to walk backwards to actually see it.
