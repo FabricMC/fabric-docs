@@ -11,11 +11,13 @@ Particles are a powerful tool. They can add ambience to a beautiful scene, or ad
 
 ## Register a custom particle
 
-To add a custom particle, we'll first need to register a `ParticleType` in your mod initializer class using your mod id.
+We'll be adding a new sparkle particle which will mimic the movement of an end rod particle.
+
+We first need to register a `ParticleType` in your mod initializer class using your mod id.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
-The "my_particle" in lowercase letters is the JSON path for the particle's texture. You will be creating a new JSON file with that exact name later.
+The "sparkle_particle" in lowercase letters is the JSON path for the particle's texture. You will be creating a new JSON file with that exact name later.
 
 ## Client-side registration
 
@@ -23,32 +25,48 @@ After you have registered the particle in the `ModInitializer` entrypoint, you w
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
-In this example, we are registering our particle on the client-side. We are then giving the particle some movement using the end rod particle's factory.
+In this example, we are registering our particle on the client-side. We are then giving the particle some movement using the end rod particle's factory. This means our particle will move exactly like an end rod particle.
 
-You can replace the factory with another particle's factory, or even your own.
+::: tip
+You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
+
+IntelliJ's hotkey: Ctrl+Alt+B  
+Visual Studio Code's hotkey: Ctrl+F12
+:::
 
 ## Creating a JSON file and adding textures
 
-You will need to create 3 folders in your `resources` folder.
+You will need to create 2 folders in your `resources/assets/<mod id here>/` folder.
 
-Let's begin with creating the folders necessary for the particle's texture(s). Add the new `resources/assets/<mod id here>/textures/particle` folders to your directory. Place the particle's textures that you want to use in the `particle` folder.
+| Folder Path          | Explanation                                                                          |
+|----------------------|--------------------------------------------------------------------------------------|
+| `/textures/particle` | The `particle` folder will contain all the textures for all of your particles.       |
+| `/particles`         | The `particles` folder will contain all of the json files for all of your particles. |
 
-For this example, we will only be adding one texture, named "myparticletexture.png".
+For this example, we will have only one texture in `textures/particle` called "sparkle_particle_texture.png".
 
-Then create the `particles` folder in  `resources/assets/<mod id here>/particles` folder, and create a new json file named `my_particle.json` - this file will let Minecraft know which textures your particle should use.
+Next, create a new JSON file in `particles` with the same name as the JSON path that you used when registering your ParticleType. For this example, we will need to create `sparkle_particle.json`. This file is important because it lets Minecraft know which textures our particle should use.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/my_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
+::: tip
 You can add more textures to the `textures` array to create a particle animation. The particle will cycle through the textures in the array, starting with the first texture.
+:::
 
 ## Testing the new particle
 
-Once you have completed the json file and saved your work, you are good to load up Minecraft and test everything out.
+Once you have completed the JSON file and saved your work, you are good to load up Minecraft and test everything out!
 
 You can see if everything has worked by typing the following command:
 
 ```
-/particle <mod id here>:my_particle ~ ~1 ~
+/particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 
-The particle will spawn inside the player with this command, so you may need to walk backwards to actually see it. You can also use a command block to summon the particle with the exact same command.
+![Showcase of the sparkle pat](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
+
+::: info
+The particle will spawn inside the player with this command. You will likely need to walk backwards to actually see it.
+:::
+
+Alternatively, you can also use a command block to summon the particle with the exact same command.
