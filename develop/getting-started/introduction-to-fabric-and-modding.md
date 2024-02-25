@@ -16,13 +16,25 @@ If you are unfamiliar with these concepts, you may want to look into some tutori
 - [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
 - [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
 
+### Terminology
+
+Before we start, let's go over some of the terms that you will encounter when modding with Fabric:
+
+- **Mod**: A modification to the game, adding new features or changing existing ones.
+- **Mod Loader**: A tool that loads mods into the game, such as Fabric Loader.
+- **Mixin**: A tool for modifying the game's code at runtime - see [Mixin Introduction](https://fabricmc.net/wiki/tutorial:mixin_introduction) for more information.
+- **Gradle**: A build automation tool used to build and compile mods, used by Fabric to build mods.
+- **Mappings**: A set of mappings that map obfuscated code to human-readable code.
+- **Obfuscation**: The process of making code difficult to understand, used by Mojang to protect Minecraft's code.
+- **Remapping**: The process of mapping obfuscated code to human-readable code.
+
 ## What Is Fabric?
 
 Fabric is a lightweight modding toolchain for Minecraft: Java Edition. 
 
-It is designed to be a simple and easy-to-use modding platform that is compatible with other modding tools and libraries. 
+It is designed to be a simple and easy-to-use modding platform. Fabric is a community-driven project, and it is open-source, meaning that anyone can contribute to the project.
 
-For developers, you should be aware of these four main components:
+You should be aware of the four main components of Fabric:
 
 - **Fabric Loader**: A flexible platform-independent mod loader designed for Minecraft and other games and applications.
 - **Fabric Loom**: A Gradle plugin enabling developers to easily develop and debug mods.
@@ -33,16 +45,16 @@ For developers, you should be aware of these four main components:
 
 > Modding is the process of modifying a game in order to change its behavior or add new features - in the case of Minecraft, this can be anything from adding new items, blocks, or entities, to changing the game's mechanics or adding new game modes.
 
-Minecraft: Java Edition is obfuscated by Mojang, making modification alone difficult. However, with the help of modding tools like Fabric, modding becomes much easier - this is where Yarn, or other mapping projects, come in. 
+Minecraft: Java Edition is obfuscated by Mojang, making modification alone difficult. However, with the help of modding tools like Fabric, modding becomes much easier - this is where Yarn comes in. 
 
-Yarn maps the obfuscated code to a human-readable format, making it easier for modders to understand and modify the game's code - it's crucial for modding to be possible.
+Yarn remaps the obfuscated code to a human-readable format, making it easier for modders to understand and modify the game's code - it's crucial for modding to be possible.
 
+Loom allows you to easily develop and compile mods against the remapped code, and Fabric Loader allows you to load these mods into the game.
 
+## What does Fabric API provide, and why is it needed?
 
+> Fabric API is a set of APIs and tools for mod developers to use when creating mods.
 
+Fabric API provides a wide set of APIs that build on top of Minecraft's existing functionality - for example, providing new hooks and events for modders to use, or providing new utilities and tools to make modding easier - such as transitive access wideners and the ability to access internal registries, such as the compostable items registry.
 
-
-
-
-
-
+While Fabric API offers powerful features, some tasks, like basic block registration, can be accomplished without it using the vanilla APIs.

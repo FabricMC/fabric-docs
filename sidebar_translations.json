@@ -17,6 +17,7 @@
   "develop.gettingStarted.introduction": "Introduction To Fabric And Modding",
   "develop.gettingStarted.devEnvSetup": "Setting Up Your Development Environment",
   "develop.gettingStarted.creatingProject": "Creating A Project",
+  "develop.gettingStarted.projectStructure": "Project Structure",
   "develop.gettingStarted.launchGame": "Launching Your Game",
   "develop.items": "Items",
   "develop.items.potions": "Potions",

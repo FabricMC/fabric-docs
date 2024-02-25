@@ -40,6 +40,10 @@ export default [
         link: "/develop/getting-started/creating-a-project"
       },
       {
+        text: "develop.gettingStarted.projectStructure",
+        link: "/develop/getting-started/project-structure"
+      },
+      {
         text: "develop.gettingStarted.launchGame",
         link: "/develop/getting-started/launching-the-game"
       }
