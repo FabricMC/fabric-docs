@@ -49,7 +49,7 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu
 
-You can install java 17 using `apt` with the following commands:
+You can install Java 17 using `apt` with the following commands:
 
 ```bash
 sudo apt update
