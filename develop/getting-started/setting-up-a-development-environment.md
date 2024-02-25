@@ -1,7 +1,22 @@
 ---
 title: Setting Up A Development Environment
 description: A step-by-step guide on how to set up a development environment to create mods using Fabric.
+authors:
+  - IMB11
+  - andrew6rant 
+  - SolidBlock-cn
+  - modmuss50
+  - daomephsta
+  - liach
+  - telepathicgrunt
+  - 2xsaiko
+  - natanfudge
+  - mkpoli
+  - falseresync
+  - asiekierka
 ---
+
+<!-- No GitHub profiles for: siglong -->
 
 # Setting Up A Development Environment
 
