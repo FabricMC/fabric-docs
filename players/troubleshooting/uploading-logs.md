@@ -43,7 +43,7 @@ Logs are located in the `logs` folder in the game directory, the game directory 
 
 :::
 
-The latest log is called `latest.log`, and previous logs use the naming pattern `yyy-mm-dd_number.log.gz`.
+The latest log is called `latest.log`, and previous logs use the naming pattern `yyyy-mm-dd_number.log.gz`.
 
 ## Uploading Logs
 

@@ -49,7 +49,7 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu
 
-You can install java 17 using `apt` with the following commands:
+You can install Java 17 using `apt` with the following commands:
 
 ```bash
 sudo apt update
@@ -58,7 +58,7 @@ sudo apt install openjdk-17-jdk
 
 ### Fedora
 
-You can install java 17 using `dnf` with the following commands:
+You can install Java 17 using `dnf` with the following commands:
 
 ```bash
 sudo dnf install java-17-openjdk
