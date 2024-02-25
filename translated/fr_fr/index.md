@@ -9,7 +9,7 @@ hero:
 features:
   - title: Developer Guides
     icon: 🛠️
-    details: Nos guides pour développeur, écris par la communauté, couvrir un large éventail de sujets de la mise en place de l'environnement de développement à des sujets plus avancés, tels que le rendu graphique et le réseautage.
+    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
     link: /fr_fr/develop/
     linkText: Commencer
   - title: Guides des joueurs
