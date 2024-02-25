@@ -11,8 +11,6 @@ This guide will walk you through installing Java 17 on Linux.
 
 ## 1. Verify if Java is already installed.
 
-Open a terminal and type `java -version` and press <kbd>Enter</kbd>.
-
 Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
 ![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)
@@ -51,7 +49,7 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu
 
-You can install java 17 using `apt` with the following commands:
+You can install Java 17 using `apt` with the following commands:
 
 ```bash
 sudo apt update
@@ -60,7 +58,7 @@ sudo apt install openjdk-17-jdk
 
 ### Fedora
 
-You can install java 17 using `dnf` with the following commands:
+You can install Java 17 using `dnf` with the following commands:
 
 ```bash
 sudo dnf install java-17-openjdk

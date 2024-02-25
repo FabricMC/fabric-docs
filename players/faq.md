@@ -5,7 +5,7 @@ description: Frequently asked questions for players and server administrators re
 
 # Frequently Asked Questions
 
-There are a lot of questions that are asked frequently, so we’ve compiled a list of them here.
+There are a lot of questions that are asked frequently, so we've compiled a list of them here.
 
 ## General Questions
 
@@ -19,7 +19,7 @@ Officially, Fabric supports all versions of Minecraft starting from snapshots `1
 You should always check if mods are from a trustworthy source. Check out the [Finding Mods](./finding-mods.md) guide for more information.
 :::
 
-The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortType=1&class=mc-mods&gameFlavorsIds=4), however some may choose to upload it on their personal websites, or on other platforms, such as a GitHub repository.
+The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortType=1&class=mc-mods&gameFlavorsIds=4), however some may choose to upload them on their personal websites, or on other platforms, such as a GitHub repository.
 
 ### Where can I find premade Fabric modpacks?
 
