@@ -21,7 +21,7 @@ Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想�
 
 開啟命令提示字元後，輸入 `java -version` 並按下 <kbd>Enter</kbd> 鍵。
 
-如果命令成功執行，你會看到類似這樣的內容。 如果命令失敗，請繼續進行下一步。
+如果命令成功執行，你會看到類似這樣的內容。 如果命令失敗，請繼續進行下一步。 如果命令失敗，請繼續進行下一步。
 
 ![命令提示字元中輸入了「java -version」。](/assets/players/installing-java/windows-java-version.png)
 
@@ -39,11 +39,11 @@ To use the majority of modern Minecraft versions, you'll need at least Java 17 i
 
 如果你有 32 位元作業系統，應該選擇 `x86`；如果你有 64 位元作業系統，則應該選擇 `x64`。
 
-現代大多數電腦都執行 64 位元作業系統。 如果你不確定，請嘗試使用 64 位元的下載。
+現代大多數電腦都執行 64 位元作業系統。 如果你不確定，請嘗試使用 64 位元的下載。 要檢查 Java 是否已安裝，你首先必須開啟命令提示字元。
 
 ## 3. 執行安裝程式！
 
-依照安裝程式中的步驟安裝 Java 17。 當你到達這個頁面時，你應該將以下功能設定為「整個功能將安裝在本機硬碟上」：
+依照安裝程式中的步驟安裝 Java 17。 當你到達這個頁面時，你應該將以下功能設定為「整個功能將安裝在本機硬碟上」： 當你到達這個頁面時，你應該將以下功能設定為「整個功能將安裝在本機硬碟上」：
 
 - `Set JAVA_HOME environment variable` - 這將加入到你的 PATH 中。
 - `JavaSoft (Oracle) registry keys`
