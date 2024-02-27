@@ -1,6 +1,6 @@
 # Richtlinien zur Beitragserstellung für die Fabric-Dokumentation
 
-Diese Website verwendet [VitePress](https://vitepress.vuejs.org/), um statisches HTML aus den verschiedenen Markdown-Dateien zu generieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die von VitePress unterstützt werden. Hier ist der Link dazu: [Hier.](https://vitepress.vuejs.org/guide/markdown.html#features)
+Diese Website verwendet [VitePress](https://vitepress.vuejs.org/), um statisches HTML aus den verschiedenen Markdown-Dateien zu generieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die von VitePress unterstützt werden.
 
 ## Inhaltsverzeichnis
 
@@ -47,7 +47,7 @@ npm run preview
 
 ## Zum Framework beitragen
 
-Das Framework bezieht sich auf die interne Struktur der Website. Alle Pull-Requests, die das Framework der Website verändern, sollten mit dem Label `framework` gekennzeichnet werden.
+Alle Pull-Requests, die das Framework der Website verändern, sollten mit dem Label `framework` gekennzeichnet werden.
 
 Du solltest wirklich nur Pull-Requests für das Framework eröffnen, nachdem du dich mit dem Dokumentationsteam im [Fabric Discord](https://discord.gg/v6v4pMv) oder über ein Issue beraten hast.
 
@@ -169,7 +169,7 @@ Wenn du deinen Pull-Request nicht erweitern willst, aber gerne möchtest, dass j
 
 ### Überprüfung des Inhalts
 
-Alle Pull-Requests, die Inhalte hinzufügen, werden einer Inhaltsprüfung unterzogen. Dies ist die wichtigste Phase, da sie sicherstellt, dass der Inhalt korrekt ist und den Fabric Stilrichtlinien der Dokumentation entspricht.
+Dies ist die wichtigste Phase, da sie sicherstellt, dass der Inhalt korrekt ist und den Fabric Stilrichtlinien der Dokumentation entspricht.
 
 ### Aufräumen
 
