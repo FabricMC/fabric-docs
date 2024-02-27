@@ -7,7 +7,7 @@ authors:
 
 # Codecs
 
-Les codecs sont un système de sérialisation facile d'objets Java, et est inclus dans la librairie DataFixerUpper (DFU) de Mojang, qui vient avec Minecraft. Dans la création de mods, ils peuvent être utilisés comme une alternative à GSON et Jankson pour lire des fichiers JSON personnalisés. Cependant, ils ne cessent de prendre de l'importance, car Mojang réécrit beaucoup de code plus ancien avec des codecs.
+Les codecs sont un système de sérialisation facile d'objets Java, et est inclus dans la librairie DataFixerUpper (DFU) de Mojang, qui vient avec Minecraft. Dans la création de mods, ils peuvent être utilisés comme une alternative à GSON et Jankson pour lire des fichiers JSON personnalisés.
 
 Les codecs sont utilisés en tandem avec une autre API de DFU, `DynamicOps`. Un codec définit la structure d'un objet, et les `DynamicOps` (litt. 'opérations dynamiques') définissent un format de (dé)sérialisation, comme JSON ou NBT. Cela signifie que n'importe quel codec peut être utilisé avec n'importe quelles `DynamicOps`, et vice versa, pour une flexibilité accrue.
 
@@ -52,7 +52,7 @@ LOGGER.info("BlockPos désérialisée : {}", pos);
 
 ### Codecs intégrés
 
-Comme mentionné ci-dessus, Mojang a déjà défini des codecs pour plusieurs classes vanilla et Java standard, y compris, sans s'y limiter, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` et les `Pattern`s regex. Les codecs pour les classes de Mojang sont souvent des champs statiques nommés `CODEC` dans la classe-même, les autres se situant plutôt dans la classe `Codecs`. À noter que tous les registres vanilla ont une méthode `getCodec()`. Par exemple, on peut utiliser `Registries.BLOCK.getCodec()` pour obtenir un `Codec<Block>` qui sérialise l'identifiant du bloc et inversement.
+Comme mentionné ci-dessus, Mojang a déjà défini des codecs pour plusieurs classes vanilla et Java standard, y compris, sans s'y limiter, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` et les `Pattern`s regex. Les codecs pour les classes de Mojang sont souvent des champs statiques nommés `CODEC` dans la classe-même, les autres se situant plutôt dans la classe `Codecs`. Par exemple, on peut utiliser `Registries.BLOCK.getCodec()` pour obtenir un `Codec<Block>` qui sérialise l'identifiant du bloc et inversement.
 
 L'API des codecs contient déjà des codecs pour des types primitifs, comme `Codec.INT` et `Codec.STRING`. Ceux-ci sont disponibles statiquement dans la classe `Codec`, et servent souvent de briques pour des codecs plus avancés, comme expliqué ci-dessous.
 
@@ -143,7 +143,7 @@ Mais quand transformé en `MapCodec<BlockPos>` via `BlockPos.CODEC.fieldOf("pos"
 }
 ```
 
-Les codecs map servent principalement à être assemblés afin de construire un codec pour une classe avec plusieurs champs, comme expliqué dans la section [Fusion de codecs pour les classes similaires à des records](#merging-codecs-for-record-like-classes) ci-dessus. Néanmoins, ils peuvent également être retransformés en codec normaux en utilisant `MapCodec#codec`, qui ne change pas l'encapsulation effectuée par un codec map.
+Les codecs map servent principalement à être assemblés afin de construire un codec pour une classe avec plusieurs champs, comme expliqué dans la section [Fusion de codecs pour les classes similaires à des records](#merging-codecs-for-record-like-classes) ci-dessus.
 
 #### Champs facultatifs
 
@@ -267,7 +267,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` et `flatXMap` ressemblent à `xmap`, mais permettent à l'une ou aux deux fonctions de conversions de renvoyer un `DataResult`. C'est utile en pratique car il n'est pas forcément toujours possible de convertir une instance donnée d'un objet.
 
-Prenons par exemple les `Identifier`s vanilla. Bien que tout identifiant peut-être transformé en texte, tout texte n'est pas un identifiant valable. Utiliser `xmap` dans ce cas nécessiterait des exceptions inélégantes si la conversion échouait.
+Prenons par exemple les `Identifier`s vanilla. Utiliser `xmap` dans ce cas nécessiterait des exceptions inélégantes si la conversion échouait.
 Par conséquent, son codec intégré est en réalité un `comapFlatMap` sur `Codec.STRING`, ce qui illustre bien son utilisation :
 
 ```java
