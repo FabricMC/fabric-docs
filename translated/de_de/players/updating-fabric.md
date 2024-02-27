@@ -38,4 +38,4 @@ Ersetze die Version mit der neuen Version des Fabric-Loaders, die gerade install
 
 Wenn du mit allen Schritten fertig bist, kannst du zurück zum `Spielen`-Tab navigieren, das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
-If you encounter any issues whilst following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+Fall dir beim Folgen dieser Anleitungen irgendwelche Fehler auftreten, kannst du nach Hilfe im [Fabric-Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` fragen.
