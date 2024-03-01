@@ -12,6 +12,7 @@ This website uses [VitePress](https://vitepress.vuejs.org/) to generate static H
     - [Guidance for Expansion](#guidance-for-expansion)
     - [Content Verification](#content-verification)
     - [Cleanup](#cleanup)
+  - [Translating Documentation](#translating-documentation)
 
 ## How To Contribute
 
@@ -129,7 +130,7 @@ The style guide is as follows:
     }
     ```
 
-3. All documentation is written in English, following the American rules of grammar. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
+3. All original documentation is written in English, following the American rules of grammar. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
 
 4. If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `config.mts` file. If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#docs` channel.
 
@@ -174,3 +175,7 @@ All pull requests adding content undergo content verification, this is the most 
 ### Cleanup
 
 This stage is where the documentation team will fix any grammar issues and make any other changes they deem necessary before merging the pull request!
+
+## Translating Documentation
+
+If you want to translate the documentation into your language, you can do this on the [Fabric Crowdin page](https://crowdin.com/project/fabricmc).
