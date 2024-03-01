@@ -150,7 +150,7 @@ The style guide is as follows:
     You should **NOT** do the following:
 
     ```md
-    [This is a link to another page](/player/installing-fabric)
+    [This is a link to another page](/player/installing-fabric.md)
     ```
 
 All content contributions go through three stages:
