@@ -129,11 +129,11 @@ The style guide is as follows:
     }
     ```
 
-3. We follow American English grammar rules. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
+3. All documentation is written in English, following the American rules of grammar. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
 
-4. If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `config.mts` file. If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#wiki` channel.
+4. If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `config.mts` file. If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#docs` channel.
 
-5. When creating a new page, you should add it to the relevant sidebar in the `.vitepress/sidebars` folder. Again, if you need assistance, ask in the Fabric Discord in the `#wiki` channel.
+5. When creating a new page, you should add it to the relevant sidebar in the `.vitepress/sidebars` folder. Again, if you need assistance, ask in the Fabric Discord in the `#docs` channel.
 
 6. Any images should be placed in a suitable place in the `/assets` folder.
 
@@ -141,7 +141,7 @@ The style guide is as follows:
     
     This is because of the versioning system in place, which will process the links to add the version beforehand. If you use absolute links, the version number will not be added to the link.
 
-    For example, for a page in the `/players` folder,to link to the `installing-fabric` page found in `/players/installing-fabric.md`, you would have to do the following:
+    For example, for a page in the `/players` folder, to link to the `installing-fabric` page found in `/players/installing-fabric.md`, you would have to do the following:
 
     ```md
     [This is a link to another page](./installing-fabric.md)
