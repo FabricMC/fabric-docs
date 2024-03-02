@@ -7,7 +7,7 @@ authors:
 
 # 在 Windows 安裝 Java
 
-這個指南將引導您在 Windows 上安裝 Java 17。
+這個指南將引導你在 Windows 上安裝 Java 17。
 
 Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想使用 Fabric 的 `.jar` 安裝程式，或者你想使用 Minecraft 伺服器的 `.jar` 時相關。
 
@@ -21,7 +21,7 @@ Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想�
 
 開啟命令提示字元後，輸入 `java -version` 並按下 <kbd>Enter</kbd> 鍵。
 
-如果命令成功執行，你會看到類似這樣的內容。 如果命令失敗，請繼續進行下一步。 如果命令失敗，請繼續進行下一步。 如果命令失敗，請繼續進行下一步。
+如果命令成功執行，你會看到類似這樣的內容。如果命令失敗，請繼續進行下一步。 如果命令失敗，請繼續進行下一步。
 
 ![命令提示字元中輸入了「java -version」。](/assets/players/installing-java/windows-java-version.png)
 
@@ -48,13 +48,13 @@ To use the majority of modern Minecraft versions, you'll need at least Java 17 i
 - `Set JAVA_HOME environment variable` - 這將加入到你的 PATH 中。
 - `JavaSoft (Oracle) registry keys`
 
-![Java 17 安裝程式，突顯了「Set JAVA\_HOME variable」和「JavaSoft (Oracle) registry keys」。](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 17 安裝程式，凸顯了「Set JAVA\_HOME variable」和「JavaSoft (Oracle) registry keys」。](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 完成後，你可以按 `下一步` 繼續安裝。
 
 ## 4. Verify that Java 17 is installed.
 
-安裝完成後，您可以再次開啟命令提示字元，並輸入 `java -version` 來驗證 Java 17 是否已安裝。
+安裝完成後，你可以再次開啟命令提示字元，並輸入 `java -version` 來驗證 Java 17 是否已安裝。
 
 If the command runs successfully, you will see something like shown before, where the java version is displayed:
 
