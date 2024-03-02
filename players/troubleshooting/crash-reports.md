@@ -101,4 +101,4 @@ Common paste sites that are used frequently for crash reports are:
 
 - [GitHub Gist](https://gist.github.com/)
 - [Pastebin](https://pastebin.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)
