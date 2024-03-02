@@ -101,4 +101,4 @@ Algunos sitios comunes para pegar texto de reportes de crasheo son:
 
 - [GitHub Gist](https://gist.github.com/)
 - [Pastebin](https://pastebin.com/)
-- [mclo.gs](https://mclo.gs/)
+- [MCLogs](https://mclo.gs/)

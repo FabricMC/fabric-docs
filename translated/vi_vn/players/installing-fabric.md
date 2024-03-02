@@ -25,7 +25,7 @@ Nếu bạn sử dụng Windows, hãy tải phiên bản có đuôi `.exe` (`Dow
 Hãy đóng Minecraft và trình Launcher của Minecraft trước khi cài đặt.
 :::
 
-:::details Thông tin cho người dùng macOS
+:::details Thông tin cho người dùng MacOS
 
 Trên macOS, bạn có thể cần bấm chuột phải vào tập tin `.jar` trong thư mục tải xuống của mình và bấm `Open` để chạy nó.
 
@@ -50,6 +50,6 @@ Sau khi trình cài đặt hoàn tất, bạn có thể mở trình Launcher Min
 
 ## Bước Tiếp Theo
 
-Bây giờ bạn đã hoàn tất việc cài Fabric, bạn có thể thêm mod vào trong trò chơi! Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
+Bây giờ bạn đã hoàn tất việc cài Fabric, bạn có thể thêm mod vào trong trò chơi! Check out the [Finding Mods](./finding-mods.md) guide for more information.
 
 Nếu bạn gặp bất cứ vấn đề nào khi đang làm theo bài hướng dẫn này, bạn có thể xin sự trợ giúp từ kênh `#player-support` trong [Discord Fabric](https://discord.gg/v6v4pMv).

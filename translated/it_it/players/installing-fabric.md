@@ -25,7 +25,7 @@ Per macOS e Linux, dovresti scaricare la versione `.jar`. A volte, dovrai instal
 Chiudi Minecraft e il launcher di Minecraft prima di iniziare l'installazione.
 :::
 
-:::details Informazioni per gli utenti macOS
+:::details Informazioni per gli utenti MacOS
 
 Su macOS, potrebbe dover fare click destro sul file `.jar` nella tua cartella download e clicca `Apri` per avviarlo.
 
