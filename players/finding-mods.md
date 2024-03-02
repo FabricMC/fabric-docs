@@ -11,7 +11,7 @@ Firstly, trust is subjective, and you should always use your own judgement when 
 
 ## 1. Use a source that is known to be trustworthy.
 
-The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortBy=relevancy&class=mc-mods&gameVersionTypeId=4).
+The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?&class=mc-mods&gameVersionTypeId=4).
 
 These websites check that the mods are what they say they are, and that they do not contain malicious code. You can also report malicious mods on those websites, and they will take action relatively quickly.
 
