@@ -50,6 +50,6 @@ Para instalar Fabric, simplemente escoge tu versión del juego desde el menú de
 
 ## Siguientes Pasos
 
-¡Ahora que has instalado Fabric, puedes agregar mods a tu juego! Hecha un vistazo a la guía para [Encontrar Mods](./finding-mods.md) para más información.
+¡Ahora que has instalado Fabric, puedes agregar mods a tu juego! Visita la guía de [Encontrar Mods Confiables](./finding-mods.md) para mayor información.
 
 Si encuentras problemas tratando de seguir esta guía, puedes solicitar ayuda en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv), en el canal de `#player-support`.
