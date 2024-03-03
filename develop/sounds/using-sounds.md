@@ -13,11 +13,11 @@ Make sure to execute the `playSound()` method on the logical server side when us
 
 In this example, the `useOnEntity()` and `useOnBlock()` method for a custom interactive item is used to play a "placing copper block" and a pillager sound.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomItem.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
 The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()`  method from the world instance to have a higher level of control.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomItem.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
 ### SoundEvent and SoundCategory
 
