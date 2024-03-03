@@ -24,7 +24,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 It has the following structure:
 
-@[code lang=json](@/reference/latest/src/main/resources/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -106,6 +106,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 With the following content:
 
-@[code lang=json](@/reference/latest/src/main/resources/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Ensure your tag does not replace the existing tag by setting the `replace` key to `false`.
