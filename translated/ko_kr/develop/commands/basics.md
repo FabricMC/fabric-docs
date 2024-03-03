@@ -26,7 +26,7 @@ Brigadier는 Mojang이 만든 Minecraft의 명령어 파서 및 디스패처로,
 
 ### \`Command" 인터페이스
 
-`com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다. 제네릭 타입이 올바른지 확인해보세요 - 가끔 제네릭 타입에 문제가 있을 수도 있습니다.
+`com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다. 인수 처럼, 하위 명령어 노드도 필수적이진 않습니다.
 명령어 소스는 명령어를 실행한 대상자를 의미합니다. 마인크래프트에서, 명령어 소스는 서버를 의미하는 `ServerCommandSource`, 명령 블록, 원격 연결 (RCON), 그리고 플레이어와 엔티티가 있습니다.
 
 `Command`의 `run(CommandContext<S>)` 메소드는 `CommandContext<S>`를 인수로 받아 정수를 반환합니다. 명령어 컨텍스트에선 명령어 소스 `S`와, 인수, 분석된 명령어 노드 또는 명령어의 입력을 받아올 수 있습니다.
