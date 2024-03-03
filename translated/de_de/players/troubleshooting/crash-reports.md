@@ -93,7 +93,7 @@ Du kannst diese Information nutzen, um die Mod zu finden, die den Absturz verurs
 
 ## Was macht man mit Absturzberichten
 
-Das Beste, was man mit Absturzberichten machen kann, ist sie auf eine Paste-Seite hochzuladen und einen Link mit dem Mod-Autor entweder über den Issue-Tracker oder durch eine andere Art der Kommunikation (Discord etc.)
+Das Beste, was man mit Absturzberichten machen kann, ist sie auf eine Paste-Seite hochzuladen und einen Link mit dem Mod-Autor entweder über den Issue-Tracker oder durch eine andere Art der Kommunikation (Discord etc.) zu teilen.
 
 Das ermöglicht es dem Mod-Autor den Absturz zu untersuchen, potenziell zu reproduzieren und das Problem zu lösen, das den Absturz verursacht hat.
 
