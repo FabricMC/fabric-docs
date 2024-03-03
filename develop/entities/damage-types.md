@@ -51,10 +51,6 @@ The `RegistryKey` can be obtained as follows:
 To demonstrate the use of custom damage types, we will use a custom block called _Tater Block_. Let's make is so that
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
 
-::: info
-To create a custom block, please see the Blocks guide.
-:::
-
 You can override `onSteppedOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
