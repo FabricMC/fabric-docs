@@ -13,17 +13,17 @@ Your audio files need to be formatted in a specific way. OGG Vorbis is an open c
 
 Many modern DAWs (Digital Audio Workstation) software can import and export using this file format. In the following example the free and open-source software "[Audacity](https://www.audacityteam.org/)" will be used to bring the audio file into the right shape, however any other DAW should suffice as well.
 
-![unprepared audio file in Audacity](../../assets/develop/sounds/custom_sounds_0.png)
+![unprepared audio file in Audacity](/assets/develop/sounds/custom_sounds_0.png)
 
 In this example, a sound of a [whistle](https://freesound.org/people/strongbot/sounds/568995/) is imported into Audacity. It currently is saved as a `.wav` file and has two audio channels (Stereo). Edit the sound to your liking and make sure to delete one of the channels using the drop-down element at the top of the "track head".
 
-![splitting Stereo track](../../assets/develop/sounds/custom_sounds_1.png)
+![splitting Stereo track](/assets/develop/sounds/custom_sounds_1.png)
 
-![deleting one of the channels](../../assets/develop/sounds/custom_sounds_2.png)
+![deleting one of the channels](/assets/develop/sounds/custom_sounds_2.png)
 
 When exporting or rendering the audio file, make sure to choose the OGG file format. Some DAWs, like REAPER, might support multiple OGG audio layer formats. In this case OGG Vorbis should work just fine.
 
-![exporting as OGG file](../../assets/develop/sounds/custom_sounds_3.png)
+![exporting as OGG file](/assets/develop/sounds/custom_sounds_3.png)
 
 Also keep in mind that audio files can increase the file size of your mod drastically. If needed, compress the audio when editing and exporting the file to keep the file size of your finished product to a minimum.
 
