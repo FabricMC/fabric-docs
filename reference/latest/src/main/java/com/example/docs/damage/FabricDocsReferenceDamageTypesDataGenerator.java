@@ -3,6 +3,7 @@ package com.example.docs.damage;
 import java.util.concurrent.CompletableFuture;
 
 import com.google.gson.JsonObject;
+
 import net.minecraft.data.DataOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataWriter;
@@ -18,7 +19,6 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-
 
 public class FabricDocsReferenceDamageTypesDataGenerator implements DataGeneratorEntrypoint {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
@@ -39,7 +39,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 	}
 
 	private static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
-		public TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+		TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
 			super(output, RegistryKeys.DAMAGE_TYPE, registriesFuture);
 		}
 
@@ -52,7 +52,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 	private static class TaterDamageTypesGenerator implements DataProvider {
 		private final DataOutput.PathResolver path;
 
-		public TaterDamageTypesGenerator(FabricDataOutput fabricDataOutput) {
+		TaterDamageTypesGenerator(FabricDataOutput fabricDataOutput) {
 			path = fabricDataOutput.getResolver(DataOutput.OutputType.DATA_PACK, "damage_type/");
 		}
 
