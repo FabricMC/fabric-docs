@@ -41,7 +41,7 @@ All event callback interfaces provided by Fabric API can be found in the `net.fa
 
 ### A Simple Example
 
-This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don’t drop an item when hand-mined.
+This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don't drop an item when hand-mined.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
@@ -49,23 +49,23 @@ This example registers an `AttackBlockCallback` to damage the player when they h
 
 Sometimes you may want to add items to loot tables. For example, adding your drops to a vanilla block or entity.
 
-The simplest solution, replacing the loot table file, can break other mods. What if they want to change them as well? We’ll take a look at how you can add items to loot tables without overriding the table.
+The simplest solution, replacing the loot table file, can break other mods. What if they want to change them as well? We'll take a look at how you can add items to loot tables without overriding the table.
 
-We’ll be adding eggs to the coal ore loot table.
+We'll be adding eggs to the coal ore loot table.
 
 #### Listening to Loot Table Loading
 
-Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your mod initializer. Let’s also check that the current loot table is the coal ore loot table.
+Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your mod initializer. Let's also check that the current loot table is the coal ore loot table.
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Adding Items to the Loot Table
 
-In loot tables, items are stored in *loot pool entries*, and entries are stored in *loot pools*. To add an item, we’ll need to add a pool with an item entry to the loot table.
+In loot tables, items are stored in *loot pool entries*, and entries are stored in *loot pools*. To add an item, we'll need to add a pool with an item entry to the loot table.
 
 We can make a pool with `LootPool#builder`, and add it to the loot table.
 
-Our pool doesn’t have any items either, so we’ll make an item entry using `ItemEntry#builder` and add it to the pool.
+Our pool doesn't have any items either, so we'll make an item entry using `ItemEntry#builder` and add it to the pool.
 
 @[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
@@ -85,7 +85,7 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event. 
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say “*cancel this*”, “*approve this*” or “*don't care, leave it to the next event listener*” using its return value. 
+Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "*cancel this*", "*approve this*" or "*don't care, leave it to the next event listener*" using its return value. 
 
 Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 

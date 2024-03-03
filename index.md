@@ -13,7 +13,7 @@ hero:
 features:
   - title: Developer Guides
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to mroe advanced topics, such as rendering and networking.
+    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
     link: /develop/
     linkText: Get Started
   - title: Player Guides
