@@ -44,6 +44,20 @@ export default [
     ]
   },
   {
+    text: "develop.sounds",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.sounds.using-sounds",
+        link: "/develop/sounds/using-sounds"
+      },
+      {
+        text: "develop.sounds.custom",
+        link: "/develop/sounds/custom"
+      }
+    ]
+  },
+  {
     text: "develop.commands",
     collapsed: true,
     items: [

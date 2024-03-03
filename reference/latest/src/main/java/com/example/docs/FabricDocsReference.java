@@ -3,6 +3,8 @@ package com.example.docs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.example.docs.item.FabricDocsReferenceItems;
+
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,11 +20,12 @@ public class FabricDocsReference implements ModInitializer {
 	public static final String MOD_ID = "fabric-docs-reference";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	//#particle_register_main
-	// This DefaultParticleType gets called when you want to use your particle in code
+	// #particle_register_main
+	// This DefaultParticleType gets called when you want to use your particle in
+	// code
 	public static final DefaultParticleType MY_PARTICLE = FabricParticleTypes.simple();
 
-	//#particle_register_main
+	// #particle_register_main
 
 	@Override
 	public void onInitialize() {
@@ -32,9 +35,11 @@ public class FabricDocsReference implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
-		//#particle_register_main
+		// #particle_register_main
 		// Register our custom particle type in the mod initializer.
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "my_particle"), MY_PARTICLE);
-		//#particle_register_main
+		// #particle_register_main
+
+		FabricDocsReferenceItems.initialize();
 	}
 }

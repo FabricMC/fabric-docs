@@ -32,5 +32,8 @@
   "develop.rendering.particles.creatingParticles": "Creating Custom Particles",
   "develop.misc": "Miscelaneous Pages",
   "develop.misc.codecs": "Codecs",
-  "develop.misc.events": "Events"
+  "develop.misc.events": "Events",
+  "develop.sounds": "Sounds",
+  "develop.sounds.using-sounds": "Playing SoundEvents",
+  "develop.sounds.custom": "Create Custom Sounds"
 }

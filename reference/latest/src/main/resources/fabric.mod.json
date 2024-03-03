@@ -11,7 +11,8 @@
 			"com.example.docs.event.FabricDocsReferenceEvents",
 			"com.example.docs.command.FabricDocsReferenceCommands",
 			"com.example.docs.effect.FabricDocsReferenceEffects",
-			"com.example.docs.potion.FabricDocsReferencePotions"
+			"com.example.docs.potion.FabricDocsReferencePotions",
+			"com.example.docs.sound.FabricDocsReferenceSounds"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
