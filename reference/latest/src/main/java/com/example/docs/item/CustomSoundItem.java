@@ -12,35 +12,35 @@ import net.minecraft.util.Hand;
 
 public class CustomSoundItem extends Item {
 
-    public CustomSoundItem(Settings settings) {
-        super(settings);
-    }
+	public CustomSoundItem(Settings settings) {
+		super(settings);
+	}
 
-    // :::1
-    @Override
-    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        // As stated above, don't use the playSound() mothod on the client side
-        // ... it wont work!
-        if (!entity.getWorld().isClient()) {
-            // Play the sound as if it was coming from the entity.
-            entity.playSound(SoundEvents.ENTITY_PILLAGER_AMBIENT, 2f, 0.7f);
-        }
-        return super.useOnEntity(stack, user, entity, hand);
-    }
-    // :::1
+	// :::1
+	@Override
+	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+		// As stated above, don't use the playSound() method on the client side
+		// ... it wont work!
+		if (!entity.getWorld().isClient()) {
+			// Play the sound as if it was coming from the entity.
+			entity.playSound(SoundEvents.ENTITY_PILLAGER_AMBIENT, 2f, 0.7f);
+		}
+		return super.useOnEntity(stack, user, entity, hand);
+	}
+	// :::1
 
-    // :::2
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        // Tipp of the day: Check out "Guard Clauses" to keep your code clean.
-        if (!context.getWorld().isClient()) {
-            // Play the sound and specify location, category and who made the sound.
-            // No entity made the sound, so we specify null.
-            context.getWorld().playSound(null, context.getBlockPos(),
-                    SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.PLAYERS,
-                    1f, 1f);
-        }
-        return super.useOnBlock(context);
-    }
-    // :::2
+	// :::2
+	@Override
+	public ActionResult useOnBlock(ItemUsageContext context) {
+		// Tip of the day: Check out "Guard Clauses" to keep your code clean.
+		if (!context.getWorld().isClient()) {
+			// Play the sound and specify location, category and who made the sound.
+			// No entity made the sound, so we specify null.
+			context.getWorld().playSound(null, context.getBlockPos(),
+					SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.PLAYERS,
+					1f, 1f);
+		}
+		return super.useOnBlock(context);
+	}
+	// :::2
 }
