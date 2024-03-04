@@ -19,9 +19,8 @@ public class FabricDocsReference implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	// #particle_register_main
-	// This DefaultParticleType gets called when you want to use your particle in
-	// code
-	public static final DefaultParticleType MY_PARTICLE = FabricParticleTypes.simple();
+	// This DefaultParticleType gets called when you want to use your particle in code.
+	public static final DefaultParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
 	// #particle_register_main
 
