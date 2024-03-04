@@ -1,12 +1,14 @@
 package com.example.docs.sound;
 
+import org.slf4j.Logger;
+
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
 
 import net.fabricmc.api.ModInitializer;
+
 import com.example.docs.FabricDocsReference;
 import com.example.docs.item.FabricDocsReferenceItems;
 
