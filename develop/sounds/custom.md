@@ -1,5 +1,5 @@
 ---
-title: Create Custom Sounds
+title: Creating Custom Sounds
 description: Learn how to add and use a new sound with the registry.
 authors:
   - JR1811
@@ -9,9 +9,9 @@ authors:
 
 ## Preparing the audio file
 
-Your audio files need to be formatted in a specific way. OGG Vorbis is an open container format for multimedia data, such as audio, and is used in case of Minecraft's sound files. To avoid problems with how Minecraft handles distance of sound the audio data needs to have only a single channel (Mono).
+Your audio files need to be formatted in a specific way. OGG Vorbis is an open container format for multimedia data, such as audio, and is used in case of Minecraft's sound files. To avoid problems with how Minecraft handles distancing, your audio needs to have only a single channel (Mono).
 
-Many modern DAWs (Digital Audio Workstation) software can import and export using this file format. In the following example the free and open-source software "[Audacity](https://www.audacityteam.org/)" will be used to bring the audio file into the right shape, however any other DAW should suffice as well.
+Many modern DAWs (Digital Audio Workstation) software can import and export using this file format. In the following example the free and open-source software "[Audacity](https://www.audacityteam.org/)" will be used to bring the audio file into the right format, however any other DAW should suffice as well.
 
 ![unprepared audio file in Audacity](/assets/develop/sounds/custom_sounds_0.png)
 
@@ -27,7 +27,7 @@ When exporting or rendering the audio file, make sure to choose the OGG file for
 
 Also keep in mind that audio files can increase the file size of your mod drastically. If needed, compress the audio when editing and exporting the file to keep the file size of your finished product to a minimum.
 
-## Adding the audio file to the mod
+## Loading The Audio File
 
 Add the new `resources/assets/<mod id here>/sounds` directory for the sounds in your mod, and put the exported audio file `metal_whistle.ogg` in there.
 
@@ -37,7 +37,7 @@ Continue with creating the `resources/assets/<mod id here>/sounds.json` file if 
 
 The subtitle entry provides more context for the player. The subtitle name is used in the language files in the `resources/assets/<mod id here>/lang` directory and will be displayed if the in-game subtitle setting is turned on and this custom sound is being played.
 
-## Register the custom sound
+## Registering The Custom Sound
 
 To add the custom sound to the mod, register a SoundEvent in the class which implements the `ModInitializer` entrypoint.
 
@@ -46,7 +46,7 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
         SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
 ```
 
-## Cleaning up the mess
+## Cleaning Up The Mess
 
 Depending on how many Registry entries there are, this can get messy quickly. To avoid that, we can make use of a new helper class.
 
@@ -58,6 +58,6 @@ This way, the `ModInitializer` implementing entrypoint class needs to only imple
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
-## Using the custom SoundEvent
+## Using The Custom SoundEvent
 
 Use the helper class to access the custom SoundEvent. Checkout the [Playing SoundEvents](/develop/sounds/using-sounds) page to learn how to play sounds.
