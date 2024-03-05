@@ -11,7 +11,7 @@ authors:
 
 Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想使用 Fabric 的 `.jar` 安裝程式，或者你想使用 Minecraft 伺服器的 `.jar` 時相關。
 
-## 1. Verify if Java is already installed.
+## 1. 驗證 Java 是否安裝。
 
 要檢查 Java 是否已安裝，你首先必須開啟命令提示字元。
 
