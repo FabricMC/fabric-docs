@@ -42,7 +42,7 @@ Ngay khi bạn mở trình cài đặt, bạn sẽ thấy màn hình như thế 
 
 **Hãy đảm bảo đã chọn 'Create Profile'.**
 
-## 3. Bạn đã hoàn tất!
+## 3. Hoàn tất!
 
 Sau khi trình cài đặt hoàn tất, bạn có thể mở trình Launcher Minecraft và chọn hồ sơ Fabric từ danh sách thả xuống ở góc trái bên dưới và bấm nút Chơi!
 

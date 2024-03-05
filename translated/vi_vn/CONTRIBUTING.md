@@ -4,14 +4,14 @@ Trang này sử dụng [VitePress](https://vitepress.vuejs.org/) để tạo vă
 
 ## Mục Lục
 
-- [Tài Liệu Hướng Dẫn Cách Đóng Góp Fabric](#fabric-documentation-contribution-guidelines)
-  - [Cách Đóng Góp](#how-to-contribute)
-  - [Đóng Góp Vào Bộ khung](#contributing-framework)
-  - [Đóng Góp Nội Dung](#contributing-content)
-    - [Phong Cách Ghi Hướng Dẫn](#style-guidelines)
-    - [Hướng Dẫn Mở Rộng](#guidance-for-expansion)
-    - [Xác Minh Nội Dung](#content-verification)
-    - [Làm Gọn](#cleanup)
+- [Tài Liệu Hướng Dẫn Cách Đóng Góp Fabric](#tài-liệu-hướng-dẫn-cách-đóng-góp-fabric)
+  - [Cách Đóng Góp](#cách-đóng-góp)
+  - [Đóng Góp Framework](#đóng-góp-framework)
+  - [Đóng Góp Nội Dung](#đóng-góp-nội-dung)
+    - [Phong Cách Ghi Tài Liệu](#phong-cách-ghi-tài-liệu)
+    - [Hướng Dẫn Mở Rộng](#hướng-dẫn-mở-rộng)
+    - [Xác Minh Nội Dung](#xác-minh-nội-dung)
+    - [Làm Gọn](#làm-gọn)
 
 ## Cách Đóng Góp
 
@@ -51,7 +51,7 @@ Framework ám chỉ cấu trúc bên trong của một trang web, bất kì pull
 
 Bạn thật sự chỉ nên tạo các pull request về framework sau khi tham khảo ý kiến của đội ngũ biên soạn tài liệu trong [Discord Fabric](https://discord.gg/v6v4pMv) hoặc thông qua trang issue.
 
-**Chú ý: Việc chỉnh sửa các tập tin thanh bên và thanh định hướng không được tính là một pull request của bộ khung.**
+**Chú ý: Việc chỉnh sửa các tập tin thanh bên và thanh định hướng không được tính là một pull request của framework.**
 
 ## Đóng Góp Nội Dung
 

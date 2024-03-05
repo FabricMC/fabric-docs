@@ -21,12 +21,12 @@ authors:
 "명령어 만들기"에서는 모드 개발자가 명령어를 통한 기능을 추가하는 방법에 대해 설명합니다. 이 튜토리얼에서는 Brigadier의 일반적인 명령어 구조는 무엇이며, 어떻게 명령어를 등록하는지 알아볼 것입니다.
 
 :::info
-Brigadier는 Mojang이 만든 Minecraft의 명령어 파서 및 디스패처로, 명령어 및 인수의 트리를 만드는 트리 기반의 명령어 라이브러리 입니다. Brigadier는 오픈 소스로, 원본 소스 코드는 여기에서 확인할 수 있습니다: https\://github.com/Mojang/brigadier
+Brigadier는 Mojang이 만든 Minecraft의 명령어 파서 및 디스패처로, 명령어 및 인수의 트리를 만드는 트리 기반의 명령어 라이브러리 입니다. 인수 처럼, 하위 명령어 노드도 필수적이진 않습니다. Brigadier는 오픈 소스로, 원본 소스 코드는 여기에서 확인할 수 있습니다: https\://github.com/Mojang/brigadier
 :::
 
 ### \`Command" 인터페이스
 
-`com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다.
+`com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다. 제네릭 타입이 올바른지 확인해보세요 - 가끔 제네릭 타입에 문제가 있을 수도 있습니다.
 명령어 소스는 명령어를 실행한 대상자를 의미합니다. 마인크래프트에서, 명령어 소스는 서버를 의미하는 `ServerCommandSource`, 명령 블록, 원격 연결 (RCON), 그리고 플레이어와 엔티티가 있습니다.
 
 `Command`의 `run(CommandContext<S>)` 메소드는 `CommandContext<S>`를 인수로 받아 정수를 반환합니다. 명령어 컨텍스트에선 명령어 소스 `S`와, 인수, 분석된 명령어 노드 또는 명령어의 입력을 받아올 수 있습니다.
@@ -39,11 +39,11 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-반환되는 정수는 명령어의 결과를 의미합니다. 일반적으로 음수 값은 명령어를 실행하는데 실패했고, 아무것도 실행되지 않았음을 의미합니다. `0`은 명령어가 성공적으로 처리되었음을 의미하고, 양수 값은 명령어가 성공적으로 작동했으며 어떠한 작업이 실행되었음을 의미합니다. Brigadier는 성공을 나타내는 상수 `Command#SINGLE_SUCCESS` 를 제공하고 있습니다.
+치트를 켜지 않으면 대부분의 명령어를 탭 자동 완성에서 볼 수 없는 이유이기도 합니다. 일반적으로 음수 값은 명령어를 실행하는데 실패했고, 아무것도 실행되지 않았음을 의미합니다. 반환되는 정수는 명령어의 결과를 의미합니다. `0`은 명령어가 성공적으로 처리되었음을 의미하고, 양수 값은 명령어가 성공적으로 작동했으며 어떠한 작업이 실행되었음을 의미합니다. Brigadier는 성공을 나타내는 상수 `Command#SINGLE_SUCCESS` 를 제공하고 있습니다.
 
 #### `ServerCommandSource`의 역할
 
-`ServerCommandSource`는 명령어를 실행한 엔티티, 명령어가 실행된 세계 또는 서버 등 명령어가 실행될 때 추가적인 컨텍스트를 제공합니다.
+예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다. `ServerCommandSource`는 명령어를 실행한 엔티티, 명령어가 실행된 세계 또는 서버 등 명령어가 실행될 때 추가적인 컨텍스트를 제공합니다.
 
 `CommandContext` 인스턴스에서 `getSource()` 메소드를 호출해 명령어 컨텍스트에서 명령어 소스에 접근할 수도 있습니다.
 
@@ -78,7 +78,7 @@ Command<ServerCommandSource> command = context -> {
 
 두 번째 인수는 다른 관리자에게 피드백을 전송할지 결정합니다. 일반적으로, 세계 시간이나 플레이어의 점수를 출력하는 등 세계에 영향을 주지 않는 명령어라면 `false` 로 설정됩니다. 반대로 시간이나 플레이어의 점수를 변경하는 등 명령어가 세계에 영향을 준다면 `true` 가 되게 됩니다.
 
-만약 명령어를 처리하는 데 실패한다면, `sendFeedback()`을 호출하는 대신에 바로 예외를 던질 수 있습니다. 던져진 예외는 서버 또는 클라이언트에서 적절하게 처리될 것입니다.
+만약 명령어를 처리하는 데 실패한다면, `sendFeedback()`을 호출하는 대신에 바로 예외를 던질 수 있습니다.
 
 `CommandSyntaxException`은 일반적으로 명령어나 인수의 구문 오류를 나타낼 때 던져집니다. 원한다면 자신만의 예외도 던질 수 있습니다.
 
@@ -86,7 +86,7 @@ Command<ServerCommandSource> command = context -> {
 
 #### 등록 환경
 
-원하는 경우 명령어가 특정한 상황에만 등록되도록 할 수도 있습니다. 예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다.
+원하는 경우 명령어가 특정한 상황에만 등록되도록 할 수도 있습니다.
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
