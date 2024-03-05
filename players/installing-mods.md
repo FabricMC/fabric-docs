@@ -17,7 +17,7 @@ For third party launchers, you should consult their documentation.
 You should only download mods from sources you trust. For more information on finding mods, see the [Finding Trustworthy Mods](./finding-mods.md) guide.
 :::
 
-The majority of mods require Fabric API as well, which can be downloaded from [Modrinth](https://modrinth.com/mod/fabric-api) or [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
+The majority of mods require Fabric API as well, which can be downloaded from [Modrinth](https://modrinth.com/mod/fabric-api) or [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
 When downloading mods, ensure that:
 
