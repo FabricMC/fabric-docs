@@ -7,9 +7,9 @@ hero:
   name: Fabric 문서
   tagline: 마인크래프트용 모딩 툴체인 Fabric의 엄선된 공식 문서입니다.
 features:
-  - title: Developer Guides
+  - title: 개발자 가이드
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: "커뮤니티에서 작성한 엄선된 개발자 가이드는 개발 환경 설정부터 렌더링 및 네트워킹과 같은 고급 주제까지 광범위한 주제를 다루고 있습니다. "
     link: /develop/
     linkText: 시작하기
   - title: 플레이어 가이드
@@ -23,6 +23,6 @@ features:
 
 ## 이 프로젝트에 기여하고 싶으신가요?
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
+Fabric 문서에 기여하고 싶다면, [GitHub](https://github.com/FabricMC/fabric-docs)에서 원본 코드를 볼 수 있으며, 기여시에는 [기여 가이드라인](/contributing)을 준수하시기 바랍니다.
 
 </div>
