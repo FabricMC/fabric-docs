@@ -1,6 +1,6 @@
 # Fabric 文件貢獻指南
 
-這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
+這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
 
 ## 目錄
 
@@ -61,7 +61,7 @@ npm run preview
 
 ### 風格指南
 
-所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
+所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
 
 風格指南如下：
 
@@ -127,9 +127,9 @@ npm run preview
    }
    ```
 
-3. 我們遵循美式英語的文法規則。 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
+3. 我們遵循美式英語的文法規則。 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
 
-4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 所有新增內容的合併請求都經過內容驗證，這是最重要的階段，因為它確保內容準確無誤並符合 Fabric 文件的風格指南。
+4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 所有新增內容的合併請求都經過內容驗證，這是最重要的階段，因為它確保內容準確無誤並符合 Fabric 文件的風格指南。
 
 5. 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 同樣，如果需要幫助，請在 Fabric Discord 的 `#wiki` 頻道中提問。
 
