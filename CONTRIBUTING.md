@@ -1,6 +1,6 @@
 # Fabric Documentation Contribution Guidelines
 
-This website uses [VitePress](https://vitepress.vuejs.org/) to generate static HTML from the various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here.](https://vitepress.vuejs.org/guide/markdown.html#features)
+This website uses [VitePress](https://vitepress.dev/) to generate static HTML from the various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here.](https://vitepress.dev/guide/markdown.html#features)
 
 ## Table Of Contents
 
