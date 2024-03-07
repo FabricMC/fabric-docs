@@ -14,6 +14,7 @@
   "players.updatingFabric": "Updating Fabric",
   "develop.title": "Developer Guides",
   "develop.items": "Items",
+  "develop.items.items": "Items",
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",

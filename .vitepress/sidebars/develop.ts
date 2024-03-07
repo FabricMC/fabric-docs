@@ -28,6 +28,10 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.items.items",
+        link: "/develop/items/items"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }
