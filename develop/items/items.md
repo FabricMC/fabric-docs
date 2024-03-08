@@ -35,7 +35,7 @@ You can then use the vanilla registry system to register the item. Items are reg
 You can simplify the item creation and registration as follows:
 
 ```java
-public static final Item COOL_TATER_ITEM = s
+public static final Item COOL_TATER_ITEM = 
     Registry.register(
         Registries.ITEM, 
         new Identifier("fabric-docs-reference", "cool_tater"), 
