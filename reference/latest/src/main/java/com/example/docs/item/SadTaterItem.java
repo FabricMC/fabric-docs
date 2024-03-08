@@ -40,4 +40,3 @@ public class SadTaterItem extends Item {
 
 	// :::3
 }
-
