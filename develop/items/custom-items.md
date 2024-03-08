@@ -23,4 +23,4 @@ Finally, we register our custom item.
 
 @[code lang=java transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
-
+Now when you left-click to use your item, it will play a villager hurt sound.
