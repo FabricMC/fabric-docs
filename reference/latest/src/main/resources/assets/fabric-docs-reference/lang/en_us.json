@@ -1,5 +1,6 @@
 {
   "effect.fabric-docs-reference.tater": "Tater",
   "item.minecraft.potion.effect.tater": "Tater Potion",
-  "item.fabric-docs-reference.cool_tater": "Cool Tater"
+  "item.fabric-docs-reference.cool_tater": "Cool Tater",
+  "itemGroup.fabric-docs-reference.cool_tater": "Cool Tater Item Group"
 }
