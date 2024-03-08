@@ -30,6 +30,14 @@ public class FabricDocsReferenceItems implements ModInitializer {
 			).build();
 	// :::4
 
+	// :::6
+	public static final Item SAD_TATER_ITEM = Registry.register(
+			Registries.ITEM,
+			new Identifier("fabric-docs-reference", "sad_tater"),
+			new SadTaterItem(
+					new FabricItemSettings()));
+	// :::6
+
 	@Override
 	public void onInitialize() {
 		// :::2
