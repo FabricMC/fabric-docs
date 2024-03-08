@@ -59,7 +59,7 @@ I seguenti elementi `VertexFormat` sono disponibili:
 
 La modalità di disegno definisce come sono disegnati i dati. Sono disponibili le seguenti modalità di disegno:
 
-| Draw Mode                   | Description                                                                                                                        |
+| Draw Mode                   | Descrizione                                                                                                                        |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `DrawMode.LINES`            | Ogni elemento è fatto da 2 vertici ed è rappresentato da una singola linea.                                                        |
 | `DrawMode.LINE_STRIP`       | Il primo elemento richiede 2 vertici. Elementi addizionali vengono disegnati con solo un nuovo vertice creando una linea continua. |
