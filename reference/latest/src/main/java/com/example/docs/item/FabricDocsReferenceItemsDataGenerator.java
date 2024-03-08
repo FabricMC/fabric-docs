@@ -28,6 +28,7 @@ public class FabricDocsReferenceItemsDataGenerator implements DataGeneratorEntry
 		@Override
 		public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 			itemModelGenerator.register(FabricDocsReferenceItems.COOL_TATER_ITEM, Models.GENERATED);
+			itemModelGenerator.register(FabricDocsReferenceItems.SAD_TATER_ITEM, Models.GENERATED);
 		}
 	}
 }
