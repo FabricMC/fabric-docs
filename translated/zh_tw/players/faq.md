@@ -16,7 +16,7 @@ description: 關於 Fabric 的玩家和伺服器管理員常見問題解答手�
 ### 我可以在哪裡發布 Fabric 模組？
 
 :::info
-你都應該檢查模組是否來自可信賴的來源。 如需詳細資訊，請參閱[尋找可信賴的模組].(/finding-mods.md)指南。
+你都應該檢查模組是否來自可信賴的來源。 請參閱[尋找可信賴的模組](./finding-mods.md)指南以獲得更多資訊。
 :::
 
 大多數作者會將他們的模組發布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4)，但有些可能選擇將它們上傳到他們的個人網站，或者其他平台，如 GitHub 存儲庫。

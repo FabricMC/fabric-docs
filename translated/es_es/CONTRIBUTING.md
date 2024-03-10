@@ -12,6 +12,7 @@ Esta página web utiliza [VitePress](https://vitepress.vuejs.org/) para generar 
     - [Guias para Expansiones](#guidance-for-expansion)
     - [Verificación de Contenido](#content-verification)
     - [Limpieza](#cleanup)
+  - [Traducir la Documentación](#translating-documentation)
 
 ## Como Contribuir
 
@@ -78,7 +79,7 @@ La guía de estilo es la siguiente:
    # ...
    ```
 
-2. Si quieres crear o modificar páginas que contengan código, debes coloar el código en un lugar apropiado dentro del mod de referencia (localizado en el folder `/reference` del repositorio). Luego, utiliza la [funcionalidad de fragmentos de código ofrecida por VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) para adjuntar el código, o si necesitas mayor control, puedes usar la [funcionalidad de transcluir de `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
+2. Si quieres crear o modificar páginas que contengan código, debes colocar el código en un lugar apropiado dentro del mod de referencia (localizado en el folder `/reference` del repositorio). Luego, utiliza la [funcionalidad de fragmentos de código ofrecida por VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) para adjuntar el código, o si necesitas mayor control, puedes usar la [funcionalidad de transcluir de `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
 
    **Por ejemplo:**
 
@@ -129,11 +130,11 @@ La guía de estilo es la siguiente:
    }
    ```
 
-3. Seguimos las reglas gramáticas del Inglés Estadounidense. Aunque puedes usar [LanguageTool](https://languagetool.org/) para verificar tu gramática mientras que escribes, no te estreses mucho por ello. Nuestro equipo de documentación verificará y corregirá la gramática durante la etapa de limpieza. Sin embargo, puedes ahorrarnos tiempo tomando esfuerzo en escribir bien.
+3. Toda la documentación original está escrita en Inglés, usando las reglas gramáticas del dialecto Estadounidense. Aunque puedes usar [LanguageTool](https://languagetool.org/) para verificar tu gramática mientras que escribes, no te estreses mucho por ello. Nuestro equipo de documentación verificará y corregirá la gramática durante la etapa de limpieza. Sin embargo, puedes ahorrarnos tiempo tomando esfuerzo en escribir bien.
 
-4. Si estás creando una nueva sección, debes crear una nueva barra lateral en el folder de `.vitepress/sidebars` y agregarla en el archivo `config.mts`. Si necesitas ayuda con esto, puedes preguntar en el canal de `#wiki` en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv).
+4. Si estás creando una nueva sección, debes crear una nueva barra lateral en el folder de `.vitepress/sidebars` y agregarla en el archivo `config.mts`. Si necesitas ayuda con esto, puedes preguntar en el canal de `#docs` en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv).
 
-5. Cuando crees una nueva página, debes agregarla a la barra lateral correspondiente en el folder de `.vitepress/sidebars`. De nuevo, si necesitas ayuda, pregunta en el servidor de Discord de Fabric, en el canal de `#wiki`.
+5. Cuando crees una nueva página, debes agregarla a la barra lateral correspondiente en el folder de `.vitepress/sidebars`. De nuevo, si necesitas ayuda, pregunta en el servidor de Discord de Fabric, en el canal de `#docs`.
 
 6. Cualquier imagen debe ser colocada en un lugar apropiado en el folder de `/assets`.
 
@@ -150,7 +151,7 @@ La guía de estilo es la siguiente:
    **NO** hagas lo siguiente:
 
    ```md
-   [Esto es un link a otra página](/player/installing-fabric)
+   [Esto es un link a otra página](/player/installing-fabric.md)
    ```
 
 Todas las contribuciones de contenido pasa por tres etapas:
@@ -174,3 +175,7 @@ Esta etapa es la más importante, ya que asegura que el contenido es correcto y 
 ### Limpieza
 
 ¡En esta etapa, el equipo de documentación arreglará problemas con la gramática y hará cualquier otros cambios lingüísticos necesarios antes de aceptar la solicitud de extracción!
+
+## Traducir la Documentación
+
+Si quieres traducir esta documentación a tu idioma, puedes hacer esto en la [página de Crowdin de Fabric](https://crowdin.com/project/fabricmc).
