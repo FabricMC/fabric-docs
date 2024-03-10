@@ -17,7 +17,7 @@ authors:
 
 ## 화면 만들기
 
-화면을 만드려면, 먼저 `Screen` 클래스를 확장하는(Extend) 클래스를 만들고, `init` 메소드를 덮어 써야(Override) 합니다. 또는 `render` 메소드를 덮어쓸 수도 있지만, 이렇게 할 경우 `super` 메소드를 호출해야 합니다. 그렇지 않으면 백그라운드, 위젯 등이 렌더링되지 않을 것입니다.
+화면을 만드려면, 먼저 `Screen` 클래스를 확장하는(Extend) 클래스를 만들고, `init` 메소드를 덮어 써야(Override) 합니다.
 
 사용자 정의 화면을 제작할 때 다음 사항에 유의해야 합니다.
 
@@ -34,7 +34,7 @@ authors:
 
 ## 화면 열기
 
-화면은 `MinecraftClient`의 `setScreen` 메소드를 통해 열 수 있습니다. 이 메소드는 조작 설정, 명령어, 클라이언트 패킷 처리기 등 여러 위치에서 사용될 수 있습니다.
+화면은 `MinecraftClient`의 `setScreen` 메소드를 통해 열 수 있습니다.
 
 ```java
 MinecraftClient.getInstance().setScreen(

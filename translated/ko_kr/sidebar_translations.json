@@ -29,7 +29,7 @@
   "develop.rendering.gui.customScreens": "사용자 정의 화면",
   "develop.rendering.gui.customWidgets": "사용자 정의 위젯",
   "develop.rendering.particles": "입자",
-  "develop.rendering.particles.creatingParticles": "사용자 지정 입자 만들기",
+  "develop.rendering.particles.creatingParticles": "사용자 정의 입자 만들기",
   "develop.misc": "기타",
   "develop.misc.codecs": "코덱",
   "develop.misc.events": "이벤트"
