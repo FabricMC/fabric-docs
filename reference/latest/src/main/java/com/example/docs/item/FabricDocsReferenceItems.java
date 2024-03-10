@@ -6,6 +6,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+
 import com.example.docs.FabricDocsReference;
 
 public class FabricDocsReferenceItems {

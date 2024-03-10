@@ -11,7 +11,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 
 public class CustomSoundItem extends Item {
-
 	public CustomSoundItem(Settings settings) {
 		super(settings);
 	}
@@ -25,10 +24,11 @@ public class CustomSoundItem extends Item {
 			// Play the sound as if it was coming from the entity.
 			entity.playSound(SoundEvents.ENTITY_PILLAGER_AMBIENT, 2f, 0.7f);
 		}
+
 		return super.useOnEntity(stack, user, entity, hand);
 	}
-	// :::1
 
+	// :::1
 	// :::2
 	@Override
 	public ActionResult useOnBlock(ItemUsageContext context) {
@@ -40,7 +40,9 @@ public class CustomSoundItem extends Item {
 					SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.PLAYERS,
 					1f, 1f);
 		}
+
 		return super.useOnBlock(context);
 	}
+
 	// :::2
 }
