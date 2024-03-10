@@ -43,7 +43,7 @@ El folder del juego puede ser encontrado en los siguientes lugares dependiendo d
 
 :::
 
-Los logs más recientes se encuentran en el archivo `latest.log`, y los logs anteriores usan el siguiente patrón de nombramiento `aaa-mm-dd_numero.log.gz`.
+El log más recient se llama `latest.log`, mientras que logs anteriores utilizan un patrón de nombramiento como este: `aaaa-mm-dd_numero.log.gz`.
 
 ## Subir Logs
 
@@ -51,4 +51,4 @@ Los logs pueden ser subidos en una variedad de servicios, como:
 
 - [Pastebin](https://pastebin.com/)
 - [GitHub Gist](https://gist.github.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

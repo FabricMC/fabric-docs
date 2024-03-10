@@ -9,7 +9,7 @@ authors:
 
 Этот гайд расскажет, как установить Java 17 на Windows.
 
-У официального лаунчера Minecraft есть собственная Java. Этот гайд понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
+Этот гайд понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
 
 ## 1. Проверьте, установлена ли уже Java.
 
@@ -52,11 +52,11 @@ authors:
 
 После этого нажмите на `Next` и продолжите установку.
 
-## 4. Verify that Java 17 is installed.
+## 4. Убедитесь, что Java 17 установлена.
 
 После того как установка закончится, вы можете проверить, что Java 17 установлена, открыв командную строку и вписав `java -version`.
 
-If the command runs successfully, you will see something like shown before, where the java version is displayed:
+Если команда будет выполнена успешно, вы увидите что-то вроде показанного ранее, где отображается версия java:
 
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
 

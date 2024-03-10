@@ -1,6 +1,6 @@
 # Fabric Documentation Contribution Guidelines
 
-This website uses [VitePress](https://vitepress.vuejs.org/) to generate static HTML from the various markdown files. You should familiarize yourself with the markdown extensions that VitePress supports [here.](https://vitepress.vuejs.org/guide/markdown.html#features)
+This website uses [VitePress](https://vitepress.dev/) to generate static HTML from the various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here.](https://vitepress.dev/guide/markdown.html#features)
 
 ## Table Of Contents
 
@@ -12,6 +12,7 @@ This website uses [VitePress](https://vitepress.vuejs.org/) to generate static H
     - [Guidance for Expansion](#guidance-for-expansion)
     - [Content Verification](#content-verification)
     - [Cleanup](#cleanup)
+  - [Translating Documentation](#translating-documentation)
 
 ## How To Contribute
 
@@ -31,7 +32,7 @@ npm run dev
 
 **Building the website:**
 
-This will compile all markdown files into static HTML files and place them in `.vitepress/dist`
+This will compile all Markdown files into static HTML files and place them in `.vitepress/dist`
 
 ```bash
 npm run build
@@ -129,11 +130,11 @@ The style guide is as follows:
     }
     ```
 
-3. We follow American English grammar rules. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
+3. All original documentation is written in English, following the American rules of grammar. While you can use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
 
-4. If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `config.mts` file. If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#wiki` channel.
+4. If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `config.mts` file. If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#docs` channel.
 
-5. When creating a new page, you should add it to the relevant sidebar in the `.vitepress/sidebars` folder. Again, if you need assistance, ask in the Fabric Discord in the `#wiki` channel.
+5. When creating a new page, you should add it to the relevant sidebar in the `.vitepress/sidebars` folder. Again, if you need assistance, ask in the Fabric Discord in the `#docs` channel.
 
 6. Any images should be placed in a suitable place in the `/assets` folder.
 
@@ -141,7 +142,7 @@ The style guide is as follows:
     
     This is because of the versioning system in place, which will process the links to add the version beforehand. If you use absolute links, the version number will not be added to the link.
 
-    For example, for a page in the `/players` folder,to link to the `installing-fabric` page found in `/players/installing-fabric.md`, you would have to do the following:
+    For example, for a page in the `/players` folder, to link to the `installing-fabric` page found in `/players/installing-fabric.md`, you would have to do the following:
 
     ```md
     [This is a link to another page](./installing-fabric.md)
@@ -150,7 +151,7 @@ The style guide is as follows:
     You should **NOT** do the following:
 
     ```md
-    [This is a link to another page](/player/installing-fabric)
+    [This is a link to another page](/player/installing-fabric.md)
     ```
 
 All content contributions go through three stages:
@@ -174,3 +175,7 @@ All pull requests adding content undergo content verification, this is the most 
 ### Cleanup
 
 This stage is where the documentation team will fix any grammar issues and make any other changes they deem necessary before merging the pull request!
+
+## Translating Documentation
+
+If you want to translate the documentation into your language, you can do this on the [Fabric Crowdin page](https://crowdin.com/project/fabricmc).

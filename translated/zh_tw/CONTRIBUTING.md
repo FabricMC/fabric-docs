@@ -1,6 +1,6 @@
 # Fabric 文件貢獻指南
 
-這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
+這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
 
 ## 目錄
 
@@ -61,7 +61,7 @@ npm run preview
 
 ### 風格指南
 
-所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
+所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
 
 風格指南如下：
 
@@ -76,7 +76,7 @@ npm run preview
    ---
    ```
 
-2. 如果你建立或修改包含程式碼的頁面，請將程式碼放置在參考模組的適當位置（位於儲存庫的 `/reference` 資料夾中）。 接著，使用 VitePress 提供的 [程式碼片段功能](https://vitepress.dev/guide/markdown#import-code-snippets) 嵌入程式碼，或者如果你需要更大的控制範圍，可以使用 `markdown-it-vuepress-code-snippet-enhanced` 的 [轉入功能](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)。
+2. 如果你建立或修改包含程式碼的頁面，請將程式碼放置在參考模組的適當位置（位於儲存庫的 `/reference` 資料夾中）。 如果你建立或修改包含程式碼的頁面，請將程式碼放置在參考模組的適當位置（位於儲存庫的 `/reference` 資料夾中）。 接著，使用 VitePress 提供的 [程式碼片段功能](https://vitepress.dev/guide/markdown#import-code-snippets) 嵌入程式碼，或者如果你需要更大的控制範圍，可以使用 `markdown-it-vuepress-code-snippet-enhanced` 的 [轉入功能](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)。
 
    **範例：**
 
@@ -127,17 +127,17 @@ npm run preview
    }
    ```
 
-3. 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
+3. 我們遵循美式英語的文法規則。 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
 
-4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。
+4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 所有新增內容的合併請求都經過內容驗證，這是最重要的階段，因為它確保內容準確無誤並符合 Fabric 文件的風格指南。
 
-5. 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 同樣，如果需要幫助，請在 Fabric Discord 的 `#wiki` 頻道中提問。
+5. 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 同樣，如果需要幫助，請在 Fabric Discord 的 `#wiki` 頻道中提問。
 
 6. 任何影像應該放置在 `/assets` 資料夾中的適當位置。
 
 7. ⚠️ **連結其他頁面時，請使用相對連結。** ⚠️
 
-   這是因為系統中存在的版本控制系統，該系統將處理連結以在前面新增版本號。 如果你使用絕對連結，則不會將版本號新增到連結中。
+   這是因為系統中存在的版本控制系統，該系統將處理連結以在前面新增版本號。 如果你使用絕對連結，則不會將版本號新增到連結中。 如果你使用絕對連結，則不會將版本號新增到連結中。
 
    例如，對於位於 `/players` 資料夾中的頁面，要連結到 `/players/installing-fabric.md` 中的 `installing-fabric` 頁面，你應該執行以下動作：
 
