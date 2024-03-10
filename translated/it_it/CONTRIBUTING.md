@@ -12,6 +12,7 @@ Questo sito usa [VitePress](https://vitepress.vuejs.org/) per generare HTML stat
     - [Guida per l'Espansione](#guida-per-l-espansione)
     - [Verifica dei Contenuti](#verifica-dei-contenuti)
     - [Pulizia](#pulizia)
+  - [Tradurre la Documentazione](#translating-documentation)
 
 ## Come Contribuire
 
@@ -129,11 +130,11 @@ La guida per lo stile è la seguente:
    }
    ```
 
-3. Seguiamo le regole della grammatica inglese americana. Anche se potresti usare [LanguageTool](https://languagetool.org/) per controllare la tua grammatica mentre scrivi, non preoccupartene troppo. Il nostro team di documentazione revisionerà e correggerà la grammatica durante la fase di pulizia. Ciononostante, fare uno sforzo perché sia giusta già dall'inizio può farci risparmiare del tempo.
+3. Tutti i documenti orginali sono scrtitti in Inglese, seguendo le regole grammaticali Americane. Anche se potresti usare [LanguageTool](https://languagetool.org/) per controllare la tua grammatica mentre scrivi, non preoccupartene troppo. Il nostro team di documentazione revisionerà e correggerà la grammatica durante la fase di pulizia. Ciononostante, fare uno sforzo perché sia giusta già dall'inizio può farci risparmiare del tempo.
 
-4. Se stai creando una nuova sezione, dovresti creare una nuova barra laterale nella cartella `.vitepress/sidebars` e aggiungerla al file `config.mts`. Se hai bisogno di assistenza con questo, per favore chiedi nel canale `#wiki` del [Discord di Fabric](https://discord.gg/v6v4pMv).
+4. Se stai creando una nuova sezione, dovresti creare una nuova barra laterale nella cartella `.vitepress/sidebars` e aggiungerla al file `config.mts`. Se hai bisogno di assistenza con questo, per favore chiedi nel canale `#docs` del [Discord di Fabric](https://discord.gg/v6v4pMv).
 
-5. Quando crei una nuova pagina, dovresti aggiungerla alla sidebar appropriata nella cartella `.vitepress/sidebars`. Di nuoco, se hai bisogno di assistenza, chiedi nel canale `#wiki` del Discord di Fabric.
+5. Quando crei una nuova pagina, dovresti aggiungerla alla sidebar appropriata nella cartella `.vitepress/sidebars`. Di nuovo, se hai bisogno di assistenza, chiedi nel canale `#docs` del Discord di Fabric.
 
 6. Ogni immagine dovrebbe essere messa in una posizione appropriata nella cartella `/assets`.
 
@@ -150,7 +151,7 @@ La guida per lo stile è la seguente:
    **NON** dovresti fare il seguente:
 
    ```md
-   [Questo è un link ad un'altra pagina](/player/installing-fabric)
+   [Questo è un link ad un'altra pagina](/player/installing-fabric.md)
    ```
 
 Tutti i contributi al contenuto passano per tre fasi:
@@ -174,3 +175,7 @@ Tutte le pull request che aggiungono contenuti sono sottoposte a verifica dei co
 ### Pulizia
 
 Questa fase è quella dove il team della documentazione correggerà ogni errore grammaticale e farà altre modifiche che crede siano necessarie prima di unire la pull request!
+
+## Tradurre la Documentazione
+
+Se vuoi tradurre la documentazione nella tua lingua, puoi farlo nella [Pagina Crowdin di Fabric](https://crowdin.com/project/fabricmc).

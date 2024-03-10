@@ -51,4 +51,4 @@ authors:
 
 - [Pastebin](https://pastebin.com/)
 - [GitHub Gist](https://gist.github.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

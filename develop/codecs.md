@@ -7,10 +7,10 @@ authors:
 
 # Codecs
 
-Codec is a system for easily serializing java objects, and is included in Mojang's DataFixerUpper (DFU)
+Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative 
 to GSON and Jankson when reading and writing custom json files, though they're starting to become 
-more and more relevant, as mojang is rewriting a lot of old code to use Codecs.
+more and more relevant, as Mojang is rewriting a lot of old code to use Codecs.
 
 Codecs are used in conjunction with another API from DFU, `DynamicOps`. A codec defines the structure of an object, while
 dynamic ops are used to define a format to be serialized to and from, such as json or NBT. This means any codec can be
@@ -47,7 +47,7 @@ So let's grab our serialized value and turn it back into a `BlockPos`:
 // When actually writing a mod, you'll want to properly handle empty Optionals of course
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// Here we have our json value, which should correspond to `[1, 2, 3]`, 
+// Here we have our json value, which should correspond to `[1, 2, 3]`,
 // as that's the format used by the BlockPos codec.
 LOGGER.info("Serialized BlockPos: {}", json);
 
@@ -69,7 +69,7 @@ classes are usually found as static fields named `CODEC` on the class itself, wh
 class. It should also be noted that all vanilla registries contain a `getCodec()` method, for example, you
 can use `Registries.BLOCK.getCodec()` to get a `Codec<Block>` which serializes to the block id and back.
 
-The codec api itself also contains some codecs for primitive types, such as `Codec.INT` and `Codec.STRING`. These are
+The Codec API itself also contains some codecs for primitive types, such as `Codec.INT` and `Codec.STRING`. These are
 available as statics on the `Codec` class, and are usually used as the base for more complex codecs, as explained below.
 
 ## Building Codecs
@@ -233,7 +233,7 @@ The resulting codec will serialize to a map combining the fields of both codecs 
 For example, running this code:
 
 ```java
-// Create two seperate boxed codecs
+// Create two separate boxed codecs
 Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
 Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
 
@@ -411,8 +411,8 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 
 ## References
 
-- A much more comprehensive documentation of codecs and related APIs can be found at the
+- A much more comprehensive documentation of Codecs and related APIs can be found at the
   [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
 - The general structure of this guide was heavily inspired by the
-  [Forge Community Wiki's page on codecs](https://forge.gemwire.uk/wiki/Codecs), a more Forge-specific take on the same
+  [Forge Community Wiki's page on Codecs](https://forge.gemwire.uk/wiki/Codecs), a more Forge-specific take on the same
   topic.
