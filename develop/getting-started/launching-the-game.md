@@ -1,6 +1,8 @@
 ---
 title: Launching The Game
 description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment.
+authors:
+  - IMB11
 ---
 
 # Launching The Game
