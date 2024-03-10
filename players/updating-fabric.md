@@ -23,7 +23,7 @@ Newer mods may require a newer version of Fabric Loader to work, so it's importa
 
 To update Fabric, simply ensure the game version and loader version is correct then click `Install`.
 
-**Make sure to uncheck 'Create Profile' when running the installer, otherwise it will create a new profile, which in this case, we don't need.**
+**Make sure to uncheck 'Create Profile' when running the installer, otherwise it will create a new profile, which in this case we don't need.**
 
 ## 3. Open the Profile in the Minecraft Launcher
 
