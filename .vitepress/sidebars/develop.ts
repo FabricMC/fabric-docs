@@ -40,7 +40,11 @@ export default [
       {
         text: "develop.entities.effects",
         link: "/develop/entities/effects"
-      }
+      },
+      {
+        text: "develop.entities.damage-types",
+        link: "/develop/entities/damage-types"
+      },
     ]
   },
   {
