@@ -17,6 +17,7 @@
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
+  "develop.entities.damage-types": "Damage Types",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
   "develop.commands.arguments": "Arguments",

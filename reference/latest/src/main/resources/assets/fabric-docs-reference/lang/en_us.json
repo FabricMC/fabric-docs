@@ -1,4 +1,5 @@
 {
   "effect.fabric-docs-reference.tater": "Tater",
-  "item.minecraft.potion.effect.tater": "Tater Potion"
+  "item.minecraft.potion.effect.tater": "Tater Potion",
+  "death.attack.tater": "%1$s died from Tater damage!"
 }
