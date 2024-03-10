@@ -28,6 +28,20 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.items.items",
+        link: "/develop/items/items.md",
+        items: [
+          {
+            text: "develop.items.item-groups",
+            link: "/develop/items/item-groups.md"
+          },
+          {
+            text: "develop.items.custom-items",
+            link: "/develop/items/custom-items.md"
+          },
+        ]
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }
