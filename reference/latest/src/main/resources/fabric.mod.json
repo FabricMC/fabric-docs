@@ -12,6 +12,7 @@
 			"com.example.docs.command.FabricDocsReferenceCommands",
 			"com.example.docs.effect.FabricDocsReferenceEffects",
 			"com.example.docs.potion.FabricDocsReferencePotions",
+			"com.example.docs.sound.FabricDocsReferenceSounds",
 			"com.example.docs.damage.FabricDocsReferenceDamageTypes"
 		],
 		"client": [
