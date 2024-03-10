@@ -29,7 +29,7 @@ Malware sites may not be obvious to everyone. If you are unsure, you should ask 
 
 There are a lot of websites that claim to have mods for Minecraft, but are actually just malware sites. You should avoid these sites at all costs.
 
-You can use antivirus software and websites like [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) or [VirusTotal](https://www.virustotal.com/) to check the downloaded mods. However, do not rely entirely on those methods, because they can be sometimes incorrect.
+You can use antivirus software and websites like [Windows Defender](https://www.microsoft.com/en-us/windows/comprehensive-security) or [VirusTotal](https://www.virustotal.com/) to check the downloaded mods. However, do not rely entirely on those methods, because they can be sometimes incorrect.
 
 Again, if in doubt, you are welcome to ask for opinions in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
 

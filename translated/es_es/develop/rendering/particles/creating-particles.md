@@ -11,11 +11,13 @@ Las partículas son una poderosa herramienta. Pueden agregar atmósfera a una he
 
 ## Registrar una partícula personalizada
 
-Para agregar una partícula personalizada, primero necesitaremos registrar un `ParticleType` (Tipo de Partícula) en tu inicializador de mod usando tu Id de mod.
+Agregaremos una nueva partícula brillante cuyo movimiento se asemejara al de la partícula de una vara del end.
+
+Primero tenemos que registrar un `ParticleType` (Tipo de Partícula) en nuestra clase inicializadora de mod usando nuestro _mod id_.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
-El texto "my_particle" en letras minúsculas es el JSON path (dirección JSON) para la textura de la partícula. Crearás un archivo JSON con ese mismo nombre más adelante.
+El "sparkle_particle" en letras minúsculas es la dirección JSON para la textura de la partícula. Crearás un archivo JSON con ese mismo nombre más adelante.
 
 ## Registración en el Cliente
 
@@ -23,32 +25,48 @@ Después de registrar la partícula en la entrada de `ModInitializer`, también 
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
-En este ejemplo, estamos registrando nuestra partícula en el lado del cliente. Después estamos dándole movimiento usando la fábrica de partículas de la vara del end.
+En este ejemplo, estamos registrando nuestra partícula en el lado del cliente. Después estamos dándole movimiento usando la fábrica de partículas de la vara del end. Esto significa que nuestra partícula se moverá exactamente como una partícula de vara del end.
 
-Puedes reemplazar la fábrica con otra fábrica de otra partícula, o si quieres, tu propia fábrica.
+::: tip
+You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
+
+Tecla de acceso rápido de IntelliJ: Ctrl+Alt+B\
+Tecla de acceso rápido de Visual Studio Code: Ctrl+F12
+:::
 
 ## Crear el archivo JSON y añadir texturas
 
-Necesitarás crear 3 folders en tu folder de `resources` (recursos).
+Tienes que crear 2 folders in tu folder de `resources/assets/<mod id here>/`.
 
-Empecemos creando los folders necesarios para la(s) texturas de la partícula. Agrega los nuevos folders `resources/assets/<mod id here>/textures/particle` en tu directorio. Coloca las texturas de la partícula que quieres usar en el folder de `particle`.
+| Dirección del Folder | Explicación                                                                                                         |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `/textures/particle` | El folder de `particle` (partícula) contendrá todas las texturas para todas tus partículas.      |
+| `/particles`         | El folder de `particles` (partículas) contendrá todos los archivos json de todas tus partículas. |
 
-Para este ejemplo, solo pondremos una textura, llamada "myparticletexture.png".
+Para este ejemplo, solo tendremos una textura en `textures/particle` llamada "sparkle_particle_texture.png".
 
-Después, crea el folder `particles` en el folder `resources/assets/<mod id here>/particles`, y crea un archivo json llamado `my_particle.json` - este archivo le hará saber a Minecraft que texturas tu partícula debería usar.
+Después, creamos un nuevo archivo JSON en `particles` con el mismo nombre que la dirección JSON que usaste para registrar tu `ParticleType`. Para este ejemplo, tendremos que crear `sparkle_particle.json`. Este archivo es importante, ya que le hace saber a Minecraft que texturas debería usar para nuestra partícula.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/my_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
+:::tip
 Puedes agregar más texturas al array de `texturas` para crear una animación de partícula. La partícula rotará las texturas en el array, empezando con la primera textura.
+:::
 
 ## Probando la nueva partícula
 
-Una vez completado el archivo json y guardado tu trabajo, ya puedes cargar Minecraft y probar que todo esté bien.
+¡Una vez que termines tu archivo JSON y hayas guardado tu trabajo, ya puedes iniciar Minecraft y probar que todo esté bien!
 
 Puedes ver si todo ha funcionado correctamente con el siguiente comando:
 
 ```
-/particle <mod id here>:my_particle ~ ~1 ~
+/particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 
-Esta partícula se generará en la cabeza del jugador con este comando, asique puede que tengas que caminar hacia atrás para verla. También puedes usar un bloque de comandos para convocar la partícula con el mismo comando.
+![La partícula siendo mostrada](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
+
+:::info
+La partícula aparecerá dentro de la cabeza del jugador con este comando. Probablemente tengas que caminar para atrás para poder verla.
+:::
+
+También puedes usar un bloque de comandos para invocar la partícula con el mismo comando.

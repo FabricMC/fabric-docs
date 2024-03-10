@@ -16,7 +16,7 @@ authors:
 - `Drawable` - 렌더링 - `addDrawableChild` 메소드를 통해 화면에 위젯을 등록하려면 필수적인 인터페이스입니다.
 - `Element` - 이벤트 - 마우스 클릭, 키 입력 등과 같은 이벤트를 처리하려면 필수적입니다.
 - `Narratable` - 접근성 - 스크린 리더 등 여러 접근성 도구가 사용자 정의 위젯에 접근하려면 필수적입니다.
-- `Selectable` - 탭 선택 - 위젯이 <kbd>탭</kbd> 키를 통해 선택 가능하게 하려면 필수적입니다. 이는 접근성에도 도움이 됩니다.
+- `Selectable` - 탭 선택 - 위젯이 <kbd>탭</kbd> 키를 통해 선택 가능하게 하려면 필수적입니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 

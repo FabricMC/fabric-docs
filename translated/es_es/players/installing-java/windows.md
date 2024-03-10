@@ -17,7 +17,7 @@ Para comprobar si Java ya está instalado, primero debes abrir la línea de coma
 
 Puedes abrirla presionando <kbd>Win</kbd> + <kbd>R</kbd> y escribiendo `cmd.exe` en la caja de texto que aparece.
 
-![Diálogo de Ejecución de Windows con "comd.exe" en la barra de ejecución](/assets/players/installing-java/windows-run-dialog.png)
+![Diálogo de Ejecución de Windows con "cmd.exe" en la barra de ejecución](/assets/players/installing-java/windows-run-dialog.png)
 
 Una vez abierta la línea de comandos, escribe `java -version` y presiona <kbd>Enter</kbd>.
 

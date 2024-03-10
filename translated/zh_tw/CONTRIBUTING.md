@@ -1,6 +1,6 @@
 # Fabric 文件貢獻指南
 
-這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
+這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
 
 ## 目錄
 
@@ -61,7 +61,7 @@ npm run preview
 
 ### 風格指南
 
-所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
+所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。 所有 Fabric 文件網站上的頁面都應遵循風格指南。 如果你對任何事情感到不確定，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub 討論中提問。
 
 風格指南如下：
 

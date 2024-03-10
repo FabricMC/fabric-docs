@@ -25,7 +25,7 @@ Per macOS e Linux, dovresti scaricare la versione `.jar`. A volte, dovrai instal
 Chiudi Minecraft e il launcher di Minecraft prima di iniziare l'installazione.
 :::
 
-:::details Informazioni per gli utenti MacOS
+:::details Inormazioni per utenti macOS
 
 Su macOS, potrebbe dover fare click destro sul file `.jar` nella tua cartella download e clicca `Apri` per avviarlo.
 
@@ -50,6 +50,6 @@ Una volta che l'installer ha finito, puoi aprire il launcher di Minecraft e sele
 
 ## Prossimi Passi
 
-Ora che hai installato Fabric, puoi aggiungere le mod al tuo gioco! Controlla la guida [Trovare Mod](./finding-mods.md) per maggiori informazioni.
+Ora che hai installato Fabric, puoi aggiungere le mod al tuo gioco! Dai un occhiata alla guida [Trovare Mod affidabili](./finding-mods.md) per più informazioni.
 
 Se incontri dei problemi seguendo questa guida, puoi chiedere aiuto nel [Fabric Discord](https://discord.gg/v6v4pMv) nel canale `#player-support`.

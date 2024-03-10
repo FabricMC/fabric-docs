@@ -16,16 +16,16 @@ description: Поширені запитання для гравців і адм
 ### Де я можу завантажити моди для Fabric?
 
 :::info
-Ви завжди маєте перевіряти чи моди з надійного джерела. Щоб дізнатися більше, перегляньте інструкцію [Пошук модів](./finding-mods.md).
+Ви завжди маєте перевіряти чи моди з надійного джерела. Щоб дізнатися більше, перегляньте інструкцію [Пошук надійних модів](./finding-mods.md).
 :::
 
-Більшість авторів публікують свої моди на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) та [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4), але деякі автори викладають їх на свої веб-сайти або інші платформи, такі як репозиторії GitHub.
+Більшість авторів публікують свої моди на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) та [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4), але деякі автори викладають їх на свої веб-сайти або інші платформи, такі як репозиторії GitHub.
 
 ### Де я можу знайти готові модпаки для Fabric?
 
 Ви можете знайти готові мод-паки для Fabric на платформах, таких як:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
-- [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=modpacks\&gameFlavorsIds=4)
+- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\&gameVersionTypeId=4)
 - [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
 - [Technic](https://www.technicpack.net/modpacks)
