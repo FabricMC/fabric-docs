@@ -2,4 +2,5 @@
   "effect.fabric-docs-reference.tater": "Tater",
   "sound.fabric-docs-reference.metal_whistle": "Metal Whistle",
   "item.minecraft.potion.effect.tater": "Tater Potion"
+  "death.attack.tater": "%1$s died from Tater damage!"
 }
