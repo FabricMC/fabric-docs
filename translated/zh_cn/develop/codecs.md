@@ -1,13 +1,13 @@
 ---
 title: Codecs
-description: 一份全面的指南，用于理解和使用Mojang的 codec 系统，以便序列化和反序列化对象。
+description: 一份全面的指南，用于理解和使用 Mojang 的 codec 系统，以便序列化和反序列化对象。
 authors:
   - enjarai
 ---
 
 # Codecs
 
-Codec 是一个为了简单地解析 Java 对象的系统，它被包含在 Mojang 的 DataFixerUpper (DFU) 库中，DFU 被包含在 Minecraft 中。 在模组开发的上下文中，它们可以作为 GSON 和 Jankson 的替代品，用于读写自定义 json 文件。但因为Mojang正在重写许多旧代码以使用 Codec，它们开始变得和模组开发越来越相关。
+Codec 是一个为了轻松序列化 Java 对象的系统，它被包含在 Mojang 的 DataFixerUpper (DFU) 库中，并且 DFU 被包含在 Minecraft 中。 在模组开发的上下文中，它们可以作为用于读写自定义 json 文件的 GSON 和 Jankson 的替代品。但因为 Mojang 正在重写许多旧代码以使用 Codec，它们和模组开发越来越息息相关。
 
 Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 Codec 定义一个对象的结构，而 dynamic ops 用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样就允许了极大的灵活性。
 
@@ -17,7 +17,7 @@ Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 Codec 定义�
 
 Codec 的基本用法是将对象序列化为特定格式或反序列化为特定格式。
 
-一些原版的类已经定义了 codec，因此我们将以这些为例。 Mojang 默认提供了两个动态操作类 `JsonOps` 和 `NbtOps`，它们可以涵盖大部分的使用场景。
+一些原版的类已经定义了 codec，我们可以把这些作为例子。 Mojang 默认提供了两个动态操作类 `JsonOps` 和 `NbtOps`，它们可以涵盖大部分的使用场景。
 
 假设现在我们要把一个 `BlockPos` 对象序列化成 json 再反序列化回对象。 我们可以分别使用 `BlockPos.CODEC` 中的静态方法 `Codec#encodeStart` 和 `Codec#parse`。
 
