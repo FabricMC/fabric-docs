@@ -1,6 +1,6 @@
 # Fabric 文档贡献指南
 
-本网站使用 [VitePress](https://vitepress.dev/zh/) 来从各种 Markdown 文件中生成静态 HTML 文件。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
 
 ## 目录
 
@@ -9,7 +9,7 @@
   - [贡献网页框架](#contributing-framework)
   - [贡献内容](#contributing-content)
     - [风格指南](#style-guidelines)
-    - [扩充指南](#guidance-for-expansion)
+    - [扩展指南](#guidance-for-expansion)
     - [内容验证](#content-verification)
     - [清理](#cleanup)
   - [翻译文档](#translating-documentation)
@@ -138,7 +138,7 @@ npm run preview
 
 6. 任何图片都应该放在 `/assets` 文件夹中的适当位置。
 
-7. ⚠️ **当链接其他页面，使用相对链接。** ⚠️
+7. ⚠️ **当链接其他页面时，使用相对链接。** ⚠️
 
    这是因为现有的版本控制系统会预处理链接，以便事先添加版本号。 如果您使用绝对链接，版本号将不会被添加到链接中。
 
@@ -154,11 +154,11 @@ npm run preview
    [这是一个其他页面的链接](/player/installing-fabric.md)
    ```
 
-所有内容贡献会进行三个阶段：
+所有内容贡献都会经历三个阶段：
 
 1. 扩展指南（如果可能）
 2. 内容验证
-3. 清理（比如语法）
+3. 清理（语法等）
 
 ### 扩展指南
 
