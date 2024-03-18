@@ -32,7 +32,7 @@
   "develop.rendering.particles": "粒子",
   "develop.rendering.particles.creatingParticles": "创建自定义的粒子",
   "develop.misc": "杂项",
-  "develop.misc.codecs": "编解码器",
+  "develop.misc.codecs": "Codecs",
   "develop.misc.events": "事件",
   "develop.sounds": "声音",
   "develop.sounds.using-sounds": "播放 SoundEvent",
