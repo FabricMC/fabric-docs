@@ -35,6 +35,6 @@
   "develop.misc.codecs": "Codecs",
   "develop.misc.events": "事件",
   "develop.sounds": "声音",
-  "develop.sounds.using-sounds": "播放 SoundEvent",
+  "develop.sounds.using-sounds": "播放声音事件",
   "develop.sounds.custom": "创建自定义声音"
 }
