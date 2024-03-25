@@ -11,7 +11,7 @@ Zu Beginn, Vertrauen ist subjektiv, du solltest beim Herunterladen von Mods imme
 
 ## 1. Nutze eine Quelle, die bekanntermaßen vertrauenswürdig ist.
 
-Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4).
+Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4).
 
 Diese Webseiten prüfen, dass die Mods tun, was sie versprechen und, dass sie keinen bösartigen Code enthalten. Du kannst auf diesen Webseiten auch bösartige Mods melden, und sie werden ziemlich schnell Maßnahmen ergreifen.
 
@@ -29,6 +29,6 @@ Schadware-Seiten sind nicht für jeden offensichtlich. Falls du dir unsicher bis
 
 Es gibt viele Webseiten, die behaupten, sie hätten Mods für Minecraft, obwohl sie in Wirklichkeit nur Schadware-Seiten sind. Diese Seiten solltest du in jedem Fall vermeiden.
 
-Du kannst Antiviren-Software und Websites wie [Windows Defender](https://www.microsoft.com/en-us/windows/comprehensive-security) oder [VirusTotal](https://www.virustotal.com/) verwenden, um die heruntergeladenen Mods zu überprüfen. Verlass dich aber nicht vollständig auf diese Methoden, da sie manchmal falsche Ergebnisse liefern.
+Du kannst Antiviren-Software und Webseiten wie [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) oder [VirusTotal](https://www.virustotal.com/) nutzen, um heruntergeladene Mods zu überprüfen. Verlass dich aber nicht vollständig auf diese Methoden, da sie manchmal falsche Ergebnisse liefern.
 
 Nochmal, frag im Zweifel gerne im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` nach der Meinung Anderer.
