@@ -17,6 +17,7 @@
   "develop.items.potions": "药水",
   "develop.entities": "实体",
   "develop.entities.effects": "状态效果",
+  "develop.entities.damage-types": "伤害类型",
   "develop.commands": "命令",
   "develop.commands.basics": "创建命令",
   "develop.commands.arguments": "参数",
@@ -31,6 +32,9 @@
   "develop.rendering.particles": "粒子",
   "develop.rendering.particles.creatingParticles": "创建自定义的粒子",
   "develop.misc": "杂项",
-  "develop.misc.codecs": "编解码器",
-  "develop.misc.events": "事件"
+  "develop.misc.codecs": "Codecs",
+  "develop.misc.events": "事件",
+  "develop.sounds": "声音",
+  "develop.sounds.using-sounds": "播放声音事件",
+  "develop.sounds.custom": "创建自定义声音"
 }
