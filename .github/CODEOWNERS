@@ -1,7 +1,10 @@
 * @FabricMC/documentation
 
 .github/ @FabricMC/developers
-.vitepress/ @FabricMC/developers
+.vitepress/theme/ @FabricMC/developers
+.vitepress/config.mts @FabricMC/developers
+.vitepress/i18n.ts @FabricMC/developers
+.vitepress/seo.ts @FabricMC/developers
 package-lock.json @FabricMC/developers
 package.json @FabricMC/developers
 LICENSE.md @FabricMC/developers
