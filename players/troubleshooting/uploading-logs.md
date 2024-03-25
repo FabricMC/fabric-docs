@@ -43,7 +43,7 @@ Logs are located in the `logs` folder in the game directory, the game directory 
 
 :::
 
-The latest log is called `latest.log`, and previous logs use the naming pattern `yyy-mm-dd_number.log.gz`.
+The latest log is called `latest.log`, and previous logs use the naming pattern `yyyy-mm-dd_number.log.gz`.
 
 ## Uploading Logs
 
@@ -51,4 +51,4 @@ Logs can be uploaded to a variety of services, such as:
 
 - [Pastebin](https://pastebin.com/)
 - [GitHub Gist](https://gist.github.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

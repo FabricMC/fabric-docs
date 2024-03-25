@@ -12,7 +12,7 @@ public class FabricDocsReferenceClient implements ClientModInitializer {
 
 		// #particle_register_client
 		// For this example, we will use the end rod particle behaviour.
-		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.MY_PARTICLE, EndRodParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.SPARKLE_PARTICLE, EndRodParticle.Factory::new);
 		// #particle_register_client
 	}
 }

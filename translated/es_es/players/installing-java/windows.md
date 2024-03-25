@@ -17,7 +17,7 @@ Para comprobar si Java ya está instalado, primero debes abrir la línea de coma
 
 Puedes abrirla presionando <kbd>Win</kbd> + <kbd>R</kbd> y escribiendo `cmd.exe` en la caja de texto que aparece.
 
-![Diálogo de Ejecución de Windows con "comd.exe" en la barra de ejecución](/assets/players/installing-java/windows-run-dialog.png)
+![Diálogo de Ejecución de Windows con "cmd.exe" en la barra de ejecución](/assets/players/installing-java/windows-run-dialog.png)
 
 Una vez abierta la línea de comandos, escribe `java -version` y presiona <kbd>Enter</kbd>.
 
@@ -43,7 +43,7 @@ La mayoría de las computadoras modernas tienen un sistema operativo de 64 bits.
 
 ## 3. ¡Corre el instalador!
 
-Sigue los pasos del instalador para instalar Java 17. Cuando llegues a esta página, debes configurar las siguientes opciones a "Entire feature will be installed on local hard drive":
+Sigue los pasos del instalador para instalar Java 17. Cuando llegues a esta página, debes elegir la opción de "La funcionalidad entera será instalada en el disco duro local" para las siguientes funcionalidades:
 
 - `Set JAVA_HOME environment variable` - Esto será agregado a tu PATH.
 - `JavaSoft (Oracle) registry keys`
