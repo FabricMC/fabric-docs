@@ -7,22 +7,22 @@ files:
       - README.md
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
     excluded_target_languages:
-      - es_CL # Spanish, Chile
-      - fr_CA # French, Canada
-      - es_VE # Spanish, Venezuela
-      - es_UY # Spanish, Uruguay
-      - es_EC # Spanish, Ecuador
-      - es_AR # Spanish, Argentina
-      - es_MX # Spanish, Mexico
+      - es-CL # Spanish, Chile
+      - fr-CA # French, Canada
+      - es-VE # Spanish, Venezuela
+      - es-UY # Spanish, Uruguay
+      - es-EC # Spanish, Ecuador
+      - es-AR # Spanish, Argentina
+      - es-MX # Spanish, Mexico
   - source: sidebar_translations.json
     ignore:
       - /translated/**/*
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
     excluded_target_languages:
-      - es_CL
-      - fr_CA
-      - es_VE
-      - es_UY
-      - es_EC
-      - es_AR
-      - es_MX
+      - es-CL
+      - fr-CA
+      - es-VE
+      - es-UY
+      - es-EC
+      - es-AR
+      - es-MX
