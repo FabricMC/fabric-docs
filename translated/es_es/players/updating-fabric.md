@@ -24,7 +24,7 @@ Mods más recientes pueden requerir una versión del Lanzador de Fabric más rec
 
 Para actualizar Fabric, simplemente asegurate que la versión del juego y la versión del lanzador de Fabric sean las correctas, y haz click en `Instalar`.
 
-**Asegurate de no seleccionar la opción de 'Crear Perfil' al correr el instalador, de otro modo creará un nuevo perfil, cosa que no necesitamos en este caso.**
+**Asegurate de no tener la opción `Crear Perfil` seleccionada en el instalador, de otro modo, se creará un nuevo perfil, cosa que no necesitamos en este caso.**
 
 ## 3. Abre el Perfil en el Launcher de Minecraft
 
