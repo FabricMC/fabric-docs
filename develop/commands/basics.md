@@ -48,7 +48,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-The integer can be considered the result of the command. Typically nonpositive values mean a command has failed and will
+The integer can be considered the result of the command. Typically values less than or equal to zero mean a command has failed and will
 do nothing. Positive values mean the command was successful and did something. Brigadier provides a constant to indicate
 success; `Command#SINGLE_SUCCESS`.
 
