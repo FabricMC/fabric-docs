@@ -7,9 +7,9 @@ hero:
   name: Fabric Dokumentation
   tagline: Die offizielle kuratierte Dokumentation für Fabric, einer Modding-Toolchain für Minecraft.
 features:
-  - title: Developer Guides
+  - title: Leitfäden für Entwickler
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: Unsere kuratierten, von der Community verfassten Entwicklerleitfäden decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
     link: /de_de/develop/
     linkText: Loslegen
   - title: Leitfäden für Spieler
