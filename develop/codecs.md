@@ -3,6 +3,7 @@ title: Codecs
 description: A comprehensive guide for understanding and using Mojang's codec system for serializing and deserializing objects.
 authors:
   - enjarai
+  - Syst3ms
 ---
 
 # Codecs
@@ -406,6 +407,49 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 {
   "type": "example:counting_bean",
   "counting_number": 42
+}
+```
+
+### Recursive Codecs
+
+Sometimes it is useful to have a codec that uses *itself* to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
+
+For example, let's try to serialize a simply-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
+
+```java
+public record ListNode(int value, ListNode next) {}
+```
+
+We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codecs#createRecursive` lets us achieve that using a magic-looking lambda:
+
+```java
+Codec<ListNode> codec = Codecs.createRecursive(
+  "ListNode", // a name for the codec
+  selfCodec -> {
+    // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
+    // This lambda should return the codec we wanted to use from the start,
+    // that refers to itself through `selfCodec`
+    return RecordCodecBuilder.create(instance ->
+      instance.group(
+        Codec.INT.fieldOf("value").forGetter(ListNode::value),
+         // the `next` field will be handled recursively with the self-codec
+        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
+      ).apply(instance, ListNode::new)
+    );
+  }
+);
+```
+
+A serialized `ListNode` may then look like this:
+```json
+{
+  "value": 2,
+  "next": {
+    "value": 3,
+    "next" : {
+      "value": 5
+    }
+  }
 }
 ```
 
