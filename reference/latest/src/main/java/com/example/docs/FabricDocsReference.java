@@ -19,13 +19,13 @@ public class FabricDocsReference implements ModInitializer {
 	public static final String MOD_ID = "fabric-docs-reference";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-  //#entrypoint
+	//#entrypoint
 	//#particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
 	public static final DefaultParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
 	//#particle_register_main
-  //#entrypoint
+	//#entrypoint
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -33,12 +33,12 @@ public class FabricDocsReference implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-    //#entrypoint
-    
+		//#entrypoint
+
 		//#particle_register_main
 		// Register our custom particle type in the mod initializer.
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
-    //#entrypoint
+		//#entrypoint
 	}
 }
