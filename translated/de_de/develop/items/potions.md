@@ -1,6 +1,6 @@
 ---
 title: Tränke
-description: Kreiere neue Tränke für verschiedenste Status-Effekte.
+description: Erstelle neue Tränke für verschiedenste Status-Effekte.
 authors:
   - dicedpixels
   - PandoricaVi

@@ -12,6 +12,7 @@ Diese Website verwendet [VitePress](https://vitepress.vuejs.org/), um statisches
     - [Anleitung zur Erweiterung](#guidance-for-expansion)
     - [Überprüfung des Inhalts](#content-verification)
     - [Aufräumen](#cleanup)
+  - [Übersetzen der Dokumentation](#translating-documentation)
 
 ## Wie man beiträgt
 
@@ -129,7 +130,7 @@ Die Stilrichtlinien lauten wie folgt:
    }
    ```
 
-3. Wir halten uns an die Grammatikregeln des amerikanischen Englisch. Du kannst zwar [LanguageTool](https://languagetool.org/) verwenden, um deine Grammatik während der Eingabe zu überprüfen, aber mache dir nicht zu viele Gedanken darüber. Unser Dokumentationsteam überprüft und korrigiert die Grammatik während der Bereinigungsphase. Wenn man sich jedoch von Anfang an bemüht, es richtig zu machen, können wir Zeit sparen.
+3. Die ganze originale Dokumentation ist in englischer Sprache verfasst und folgt den amerikanischen Grammatikregeln. Du kannst zwar [LanguageTool](https://languagetool.org/) verwenden, um deine Grammatik während der Eingabe zu überprüfen, aber mache dir nicht zu viele Gedanken darüber. Unser Dokumentationsteam überprüft und korrigiert die Grammatik während der Bereinigungsphase. Wenn man sich jedoch von Anfang an bemüht, es richtig zu machen, können wir Zeit sparen.
 
 4. Wenn du einen neuen Abschnitt erstellst, solltest du eine neue Seitenleiste im Ordner `.vitepress/sidebars` anlegen und sie zur Datei `config.mts` hinzufügen. Wenn du dabei Hilfe benötigst, frage bitte auf dem [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#wiki` nach.
 
@@ -174,3 +175,7 @@ Dies ist die wichtigste Phase, da sie sicherstellt, dass der Inhalt korrekt ist 
 ### Aufräumen
 
 In dieser Phase behebt das Dokumentationsteam Grammatikfehler und nimmt andere Änderungen vor, die es für notwendig hält, bevor es den Pull-Request mergt!
+
+## Übersetzen der Dokumentation
+
+Falls du die Dokumentation in deine Sprache übersetzen möchtest, kannst du dies auf der [Fabric Crowdin-Seite](https://crowdin.com/project/fabricmc) tun.
