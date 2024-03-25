@@ -24,6 +24,32 @@ export default [
     ]
   },
   {
+    text: "develop.gettingStarted",
+    collapsed: false,
+    items: [
+      {
+        text: "develop.gettingStarted.introduction",
+        link: "/develop/getting-started/introduction-to-fabric-and-modding"
+      },
+      {
+        text: "develop.gettingStarted.devEnvSetup",
+        link: "/develop/getting-started/setting-up-a-development-environment"
+      },
+      {
+        text: "develop.gettingStarted.creatingProject",
+        link: "/develop/getting-started/creating-a-project"
+      },
+      {
+        text: "develop.gettingStarted.projectStructure",
+        link: "/develop/getting-started/project-structure"
+      },
+      {
+        text: "develop.gettingStarted.launchGame",
+        link: "/develop/getting-started/launching-the-game"
+      }
+    ]
+  },
+  {
     text: "develop.items",
     collapsed: true,
     items: [
