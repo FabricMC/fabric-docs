@@ -17,6 +17,7 @@
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
+  "develop.entities.damage-types": "Damage Types",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
   "develop.commands.arguments": "Arguments",
@@ -32,5 +33,8 @@
   "develop.rendering.particles.creatingParticles": "Creating Custom Particles",
   "develop.misc": "Miscellaneous Pages",
   "develop.misc.codecs": "Codecs",
-  "develop.misc.events": "Events"
+  "develop.misc.events": "Events",
+  "develop.sounds": "Sounds",
+  "develop.sounds.using-sounds": "Playing SoundEvents",
+  "develop.sounds.custom": "Creating Custom Sounds"
 }
