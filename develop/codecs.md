@@ -409,7 +409,7 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 }
 ```
 
-### Recursive codecs
+### Recursive Codecs
 
 Sometimes it is useful to have a codec that uses *itself* to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
 
