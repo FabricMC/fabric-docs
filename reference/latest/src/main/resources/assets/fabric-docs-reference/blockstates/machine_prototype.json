@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "fabric-docs-reference:block/machine_prototype",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "fabric-docs-reference:block/machine_prototype"
+    },
+    "facing=south": {
+      "model": "fabric-docs-reference:block/machine_prototype",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fabric-docs-reference:block/machine_prototype",
+      "y": 270
+    }
+  }
+}
