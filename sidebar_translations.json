@@ -3,7 +3,7 @@
   "players.faq": "Frequently Asked Questions",
   "players.installingJava": "Installing Java",
   "players.installingJava.windows": "Windows",
-  "players.installingJava.macOS": "MacOS",
+  "players.installingJava.macOS": "macOS",
   "players.installingJava.linux": "Linux",
   "players.installingFabric": "Installing Fabric",
   "players.findingMods": "Finding Trustworthy Mods",
@@ -20,6 +20,7 @@
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
+  "develop.entities.damage-types": "Damage Types",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
   "develop.commands.arguments": "Arguments",
@@ -33,7 +34,10 @@
   "develop.rendering.gui.customWidgets": "Custom Widgets",
   "develop.rendering.particles": "Particles",
   "develop.rendering.particles.creatingParticles": "Creating Custom Particles",
-  "develop.misc": "Miscelaneous Pages",
+  "develop.misc": "Miscellaneous Pages",
   "develop.misc.codecs": "Codecs",
-  "develop.misc.events": "Events"
+  "develop.misc.events": "Events",
+  "develop.sounds": "Sounds",
+  "develop.sounds.using-sounds": "Playing SoundEvents",
+  "develop.sounds.custom": "Creating Custom Sounds"
 }

@@ -13,6 +13,8 @@
 			"com.example.docs.effect.FabricDocsReferenceEffects",
 			"com.example.docs.potion.FabricDocsReferencePotions",
 			"com.example.docs.block.FabricDocsReferenceBlocks"
+			"com.example.docs.sound.FabricDocsReferenceSounds",
+			"com.example.docs.damage.FabricDocsReferenceDamageTypes"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
@@ -21,7 +23,8 @@
 			"com.example.docs.client.command.FabricDocsReferenceClientCommands"
 		],
 		"fabric-datagen": [
-			"com.example.docs.FabricDocsReferenceDataGenerator"
+			"com.example.docs.FabricDocsReferenceDataGenerator",
+			"com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator"
 		]
 	},
 	"mixins": [

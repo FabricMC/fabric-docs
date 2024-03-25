@@ -14,6 +14,7 @@ authors:
   - haykam
   - mschae23
   - treeways
+  - xpple
 ---
 
 # Creating Commands
@@ -47,9 +48,9 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-The integer can be considered the result of the command. Typically negative values mean a command has failed and will do
-nothing. A result of `0` means the command has passed. Positive values mean the command was successful and did
-something. Brigadier provides a constant to indicate success; `Command#SINGLE_SUCCESS`.
+The integer can be considered the result of the command. Typically values less than or equal to zero mean a command has failed and will
+do nothing. Positive values mean the command was successful and did something. Brigadier provides a constant to indicate
+success; `Command#SINGLE_SUCCESS`.
 
 #### What Can the `ServerCommandSource` Do?
 

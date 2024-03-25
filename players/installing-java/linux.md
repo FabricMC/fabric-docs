@@ -49,7 +49,7 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu
 
-You can install java 17 using `apt` with the following commands:
+You can install Java 17 using `apt` with the following commands:
 
 ```bash
 sudo apt update
@@ -58,7 +58,7 @@ sudo apt install openjdk-17-jdk
 
 ### Fedora
 
-You can install java 17 using `dnf` with the following commands:
+You can install Java 17 using `dnf` with the following commands:
 
 ```bash
 sudo dnf install java-17-openjdk
@@ -78,7 +78,7 @@ sudo dnf install java-17-openjdk-devel
 
 ### Other Linux Distributions
 
-If your distribution isn't listed above, you can download the latest JRE from [AdoptOpenJDK](https://adoptium.net/en-GB/temurin.html)
+If your distribution isn't listed above, you can download the latest JRE from [Adoptium](https://adoptium.net/temurin/)
 
 You should refer to an alternative guide for your distribution if you plan to develop mods.
 

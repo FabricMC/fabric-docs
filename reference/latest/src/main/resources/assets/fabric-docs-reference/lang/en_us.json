@@ -5,4 +5,6 @@
   "item.fabric-docs-reference.border": "Border",
   "item.fabric-docs-reference.machine_prototype": "Machine Prototype",
   "item.minecraft.potion.effect.tater": "Tater Potion"
+  "sound.fabric-docs-reference.metal_whistle": "Metal Whistle",
+  "death.attack.tater": "%1$s died from Tater damage!"
 }

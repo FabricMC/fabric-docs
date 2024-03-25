@@ -14,7 +14,7 @@ Para launchers o lanzadores de terceros, consulta su documentación.
 ## 1. Descarga el Mod
 
 :::warning
-Solo deberías descargar mods desde fuentes en las que confíes. Para más información sobre como encontrar mods, visita la guía sobre [Encontrar Mods](./finding-mods.md).
+Solo deberías descargar mods desde fuentes en las que confíes. Para mayor información sobre como encontrar mods, visita la guía sobre [Encontrar Mods Confiables](./finding-mods.md).
 :::
 
 La mayoría de los mods requieren Fabric API, el cual puede ser descargado desde [Modrinth](https://modrinth.com/mod/fabric-api) o [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
