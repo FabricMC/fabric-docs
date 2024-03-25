@@ -1,6 +1,6 @@
 # Richtlinien zur Beitragserstellung für die Fabric-Dokumentation
 
-Diese Website nutzt [VitePress](https://vitepress.dev/) um statisches HTML von den verschiedenen Markdown-Dateien zu generrieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die VitePress [hier](https://vitepress.dev/guide/markdown.html#features) unterstützt.
+Diese Website verwendet [VitePress](https://vitepress.vuejs.org/), um statisches HTML aus den verschiedenen Markdown-Dateien zu generieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die von VitePress unterstützt werden.
 
 ## Inhaltsverzeichnis
 
@@ -32,7 +32,7 @@ npm run dev
 
 **Erstellung der Website:**
 
-Dies wird alle Markdown-Dateien in statische HTML-Dateien kompilieren und diese in `.vitepress/dist` ablegen
+Dies wird alle Markdown-Dateien in statische HTML-Dateien kompilieren und in `.vitepress/dist` ablegen
 
 ```bash
 npm run build
@@ -132,9 +132,9 @@ Die Stilrichtlinien lauten wie folgt:
 
 3. Die ganze originale Dokumentation ist in englischer Sprache verfasst und folgt den amerikanischen Grammatikregeln. Du kannst zwar [LanguageTool](https://languagetool.org/) verwenden, um deine Grammatik während der Eingabe zu überprüfen, aber mache dir nicht zu viele Gedanken darüber. Unser Dokumentationsteam überprüft und korrigiert die Grammatik während der Bereinigungsphase. Wenn man sich jedoch von Anfang an bemüht, es richtig zu machen, können wir Zeit sparen.
 
-4. Wenn du einen neuen Abschnitt erstellst, solltest du eine neue Seitenleiste im Ordner `.vitepress/sidebars` anlegen und sie zur Datei `config.mts` hinzufügen. Wenn du dabei Hilfe benötigst, frage bitte auf dem [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#docs` nach.
+4. Wenn du einen neuen Abschnitt erstellst, solltest du eine neue Seitenleiste im Ordner `.vitepress/sidebars` anlegen und sie zur Datei `config.mts` hinzufügen. Wenn du dabei Hilfe benötigst, frage bitte auf dem [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#wiki` nach.
 
-5. Wenn du eine neue Seite erstellst, solltest du sie der entsprechenden Seitenleiste im Ordner `.vitepress/sidebars` hinzufügen. Auch hier gilt: Wenn du Hilfe benötigst, frage auf dem Fabric Discord im Kanal `#docs` nach.
+5. Wenn du eine neue Seite erstellst, solltest du sie der entsprechenden Seitenleiste im Ordner `.vitepress/sidebars` hinzufügen. Auch hier gilt: Wenn du Hilfe benötigst, frage auf dem Fabric Discord im Kanal `#wiki` nach.
 
 6. Alle Bilder sollten an einem geeigneten Ort im Ordner `/assets` abgelegt werden.
 
@@ -142,7 +142,7 @@ Die Stilrichtlinien lauten wie folgt:
 
    Der Grund dafür ist das vorhandene Versionssystem, das die Links verarbeitet, um die Version vorher hinzuzufügen. Wenn du absolute Links verwendest, wird die Versionsnummer nicht zum Link hinzugefügt.
 
-   Um z. B. eine Seite im Ordner `/players` mit der Seite `installing-fabric` aus `/players/installing-fabric.md` zu verknüpfen, musst du Folgendes tun:
+   Um zum Beispiel eine Seite im Ordner `/players` mit der Seite `installing-fabric` aus `/players/installing-fabric.md` zu verknüpfen, musst du Folgendes tun:
 
    ```md
    [Dies ist ein Link zu einer anderen Seite](./installing-fabric.md)
@@ -151,7 +151,7 @@ Die Stilrichtlinien lauten wie folgt:
    Du solltest **NICHT** Folgendes tun:
 
    ```md
-   [Dies ist ein Link zu einer anderen Seite](/player/installing-fabric.md)
+   [Dies ist ein Link zu einer anderen Seite](/player/installing-fabric)
    ```
 
 Alle inhaltlichen Beiträge durchlaufen drei Stufen:
