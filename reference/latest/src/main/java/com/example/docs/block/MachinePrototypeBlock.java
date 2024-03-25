@@ -31,8 +31,8 @@ public class MachinePrototypeBlock extends Block {
 		// :::3
 		// :::1
 	}
-	// :::1
 
+	// :::1
 	// :::2
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -40,8 +40,8 @@ public class MachinePrototypeBlock extends Block {
 		// Add the horizontal "facing" state.
 		builder.add(Properties.HORIZONTAL_FACING);
 	}
-	// :::2
 
+	// :::2
 	// :::4
 	@Nullable
 	@Override
@@ -63,6 +63,7 @@ public class MachinePrototypeBlock extends Block {
 		// To get a property's value, use BlockState#get.
 		return state.rotate(mirror.getRotation(state.get(Properties.HORIZONTAL_FACING)));
 	}
+
 	// :::4
 	// :::5
 	@Override
@@ -79,6 +80,7 @@ public class MachinePrototypeBlock extends Block {
 		// For example, if no hand animation is desired, you can use CONSUME here instead.
 		return ActionResult.SUCCESS;
 	}
+
 	// :::5
 	// :::1
 }

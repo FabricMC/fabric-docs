@@ -3,16 +3,21 @@ title: Creating Blocks
 description: A guide for creating simple blocks.
 authors:
   - apple502j
+  - IMB11
 ---
 
 # Creating Blocks
+
 One of the most common things to do in your mod is adding custom blocks.
 
-A block, at its simplest form, has no functionality and only one "block state". A block state is a combination of properties, or variations, for the same block - things like rotations, crop age, or redstone activation state. For example, chains have 6 block states; 3 for the `axis` property, times 2 for the `waterlogged` property. A block can have only finite number of pre-defined block states. A block that needs more storage and functionality must have an associated "block entity". A block entity can store infinite, customizable data and perform logics every tick.
+Blocks in their most basic form are static objects with a single appearance. To gain variations (like rotation, growth stage, or activation state), a block uses "block states". 
+
+A block can only have a limited number of these predefined states. If a block needs more complex data storage or the ability to perform actions, it requires an associated "block entity", which offers customizable storage and the capacity to run logic each tick.
 
 This tutorial explains the basics: a cubic block with no associated block entity.
 
-## Simple blocks
+## Simple Blocks
+
 Let's add a block with no functionality, named "border". To do so, first create a `Block` instance and store it in a `static final` field in your class (usually your `ModInitializer`):
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
@@ -27,8 +32,11 @@ Note that the item for your block is registered separately. Some blocks (like fi
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
 
-## Block models and textures
-A block has a model, which describes the shape and textures of the rendered block. (This is different from the shape used for checking collision.) A block can have multiple models depending on the block state; the model is picked according to the "blockstate file". Items, including block-placing items, have separate models.
+## Block Models and Textures
+
+A block uses a model to show its shape and textures. This model is only for how the block looks, not for how it interacts with things like collisions. 
+
+Depending on the block's state, it can switch between different models. The choice of model is guided by a "blockstate file". Items, even those that place blocks, use their own separate models.
 
 Let's give the border block a texture with white background and black borders, like this. Most block textures are 16-by-16 square. This is placed at `/textures/block/border.png`, inside the mod resource pack (`/assets/(mod id)/` in the `src/client/resources` directory).
 
@@ -50,7 +58,8 @@ Here are the border blocks, in-game:
 
 ![Hey, a fountain!](/assets/develop/blocks/border-block-fountain.png)
 
-## Multiple block states
+## Multiple Block States
+
 Let's add a block that can be rotated horizontally, like a carved pumpkin. The block has a button texture on one side - let's call it "machine prototype". This requires making a custom class for your block. The class name should end with "Block", like `MachinePrototypeBlock`.
 
 All blocks inherit from `Block`. Right now, it only has a constructor (which is the same as the `Block` one).
@@ -75,13 +84,16 @@ That said, adding a property is usually not enough. There needs to be some logic
 
 Here, we use another, very important method: `BlockState#get`, which returns the value for the property.
 
+<!-- TODO: Remove tip in 1.20.5 -->
+
 ::: tip
 Your code editor or compiler might output a "deprecation warning". These can be ignored - in reality, nothing is deprecated here.
 
 Why are they marked as deprecated, then? Here, it is how Mojang marks methods that are "override-only". Those methods should not be called by modded code (except in `super` call).
 :::
 
-## Modeling with multiple states
+## Modeling with Multiple States
+
 The machine prototype block also needs a texture. Because the block is directional, however, the block texture should ideally indicate the direction. We reuse the texture for the border, except for the front face, which uses this texture:
 
 ![](/assets/develop/blocks/machine_prototype.png)
@@ -96,7 +108,8 @@ The blockstate file looks like this. Notice how it specifies the block states us
 
 As always, the machine prototype item needs a separate model. This is basically the same as the border one (with the ID replaced), so it is omitted.
 
-## Adding functionality
+## Adding Functionality
+
 Although many blocks in the game are purely decorational, some are functional as well. Block functions range from player interactions to random ticks (like crop growth) or redstone functions. Because the machine prototype remains a prototype, why not make it produce a sound when used - an explosion sound?
 
 When a block is "used" - or, interacted with, the game calls the block's `onUse` method. The method gets some arguments, like the block state, position, and most importantly the player. It returns `ActionResult`, which indicates the result of the interaction:
