@@ -3,6 +3,7 @@ title: Codecs
 description: Un guide complet pour comprendre et utiliser le système de codecs de Mojang pour la sérialisation et désérialisation d'objets.
 authors:
   - enjarai
+  - Syst3ms
 ---
 
 # Codecs
@@ -343,6 +344,50 @@ Notre nouveau codec sérialisera les beans en JSON ainsi, en n'utilisant que les
 {
   "type": "example:counting_bean",
   "counting_number": 42
+}
+```
+
+### Codecs récursifs
+
+Il est parfois utile d'avoir un codec qui s'utilise _soi-même_ pour décoder certains champs, par exemple avec certaines structures de données récursives. Le code vanilla en fait usage pour les objets `Text`, qui peuvent stocker d'autres `Text`s en tant qu'enfants. Un tel codec peut être construit grâce à `Codecs#createRecursive`.
+
+À titre d'exemple, essayons de sérialiser une liste simplement chaînée. Cette manière de représenter une liste consiste en des nœuds qui contiennent et une valeur, et une référence au prochain nœud de la liste. La liste est alors représentée par son premier nœud, et pour la parcourir, il suffit de continuer à regarder le nœud suivant juste qu'à ce qu'il n'en existe plus. Voici une implémentation simple de nœuds qui stockent des entiers.
+
+```java
+public record ListNode(int value, ListNode next) {}
+```
+
+Il est impossible de construire un codec comme d'habitude, puisque quel codec utiliserait-on pour le champ `next` ? Il faudrait un `Codec<ListNode>`, ce qui est précisément ce qu'on veut obtenir ! `Codecs#createRecursive` permet de le faire au moyen d'un lambda magique en apparence :
+
+```java
+Codec<ListNode> codec = Codecs.createRecursive(
+  "ListNode", // un nom pour le codec
+  selfCodec -> {
+    // Ici, `selfCodec` représente le `Codec<ListNode>`, comme s'il était déjà construit
+    // Ce lambda doit renvoyer le codec qu'on aurait voulu utiliser depuis le départ,
+    // qui se réfère à lui-même via `selfCodec`
+    return RecordCodecBuilder.create(instance ->
+      instance.group(
+        Codec.INT.fieldOf("value").forGetter(ListNode::value),
+         // le champ `next` sera récursivement traité grâce à l'auto-codec
+        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
+      ).apply(instance, ListNode::new)
+    );
+  }
+);
+```
+
+Un `ListNode` sérialisé pourrait alors ressembler à ceci :
+
+```json
+{
+  "value": 2,
+  "next": {
+    "value": 3,
+    "next" : {
+      "value": 5
+    }
+  }
 }
 ```
 
