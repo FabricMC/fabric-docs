@@ -12,6 +12,7 @@ Esse site usa [VitePress](https://vitepress.vuejs.org/) para gerar HTML estátic
     - [Instruções para Expandir](#guidance-for-expansion)
     - [Verificação De Conteúdo](#content-verification)
     - [Apuração](#cleanup)
+  - Verificação
 
 ## Como Contribuir
 
@@ -174,3 +175,7 @@ Todas as "Pull Requests" que adicionam conteúdo passam por verificação de con
 ### Verificação
 
 Esta etapa é onde a equipe de documentação corrigirá quaisquer problemas gramaticais e fará quaisquer outras alterações que julgar necessárias antes de mesclar o "Pull Request"!
+
+## Traduzindo a Documentação
+
+Se você desejar traduzir a documentação para a sua linguagem, você pode fazer isso na [pagina do Crowdin do Fabric](https://crowdin.com/project/fabricmc).
