@@ -11,11 +11,11 @@ authors:
 
 `DrawContext` 是控制渲染的核心类。 它提供了诸多渲染图形、文字、纹理的方法，此外还用来操纵 `MatrixStack` 和 `BufferBuilder`。
 
-## 绘制图形
+## 绘制矩形
 
-使用 `DrawContext` 绘制**矩形**十分容易。 如果您想绘制三角形或其他不规则图形，您需要使用 `BufferBuilder` 手动添加图形顶点信息。
+使用 `DrawContext` 绘制**矩形**十分容易。 使用 `DrawContext` 绘制**矩形**十分容易。 如果您想绘制三角形或其他不规则图形，您需要使用 `BufferBuilder` 手动添加图形顶点信息。
 
-### 绘制矩形
+### 绘制边框
 
 您可以使用 `DrawContext#fill` 方法来绘制一个实心矩形。
 
@@ -23,9 +23,9 @@ authors:
 
 ![矩形](/assets/develop/rendering/draw-context-rectangle.png)
 
-### 绘制边框
+### 绘制图形
 
-假设我们想勾勒出我们刚才绘制的矩形的轮廓。 我们可以使用 `DrawContext#drawBorder` 方法来绘制轮廓。
+假设我们想勾勒出我们刚才绘制的矩形的轮廓。 假设我们想勾勒出我们刚才绘制的矩形的轮廓。 我们可以使用 `DrawContext#drawBorder` 方法来绘制轮廓。
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -49,7 +49,7 @@ authors:
 裁剪区域可以内嵌！ 但是请一定配对 `enableScissor` 和 `disableScissor`，否则错误的裁剪区域将影响到其他界面元素。
 :::
 
-要启用裁剪功能，只需调用 `DrawContext#enableScissor` 方法。 同样地，调用 `DrawContext#disableScissor` 方法以禁用裁剪功能。
+`DrawContext` 有一套内建的裁剪功能。 它可以用来裁剪渲染区域。 这个功能在绘制某些元素时十分有用，比如悬浮提示，或者其他不应该超出指定渲染区域的界面元素。 要启用裁剪功能，只需调用 `DrawContext#enableScissor` 方法。 同样地，调用 `DrawContext#disableScissor` 方法以禁用裁剪功能。
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -59,7 +59,7 @@ authors:
 
 ## 绘制纹理
 
-注意，不存在唯一“正确”的绘制纹理的方法，因为 `drawTexture` 有很多重载。 本节内容只会涵盖最常用的方法。
+注意，不存在唯一“正确”的绘制纹理的方法，因为 `drawTexture` 有很多重载。 本节内容只会涵盖最常用的方法。 本节内容只会涵盖最常用的方法。
 
 ### 绘制整个纹理
 
@@ -87,7 +87,7 @@ authors:
 
 `DrawContext` 提供了许多不言自明的渲染文字的方法，您可以自行尝试，此处不再赘述。
 
-假设我们想在界面上绘制 `Hello World`。 我们可以使用 `DrawContext#drawText` 方法来完成。
+假设我们想在界面上绘制 `Hello World`。 我们可以使用 `DrawContext#drawText` 方法来完成。 `DrawContext` 是控制渲染的核心类。 它提供了诸多渲染图形、文字、纹理的方法，此外还用来操纵 `MatrixStack` 和 `BufferBuilder`。
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

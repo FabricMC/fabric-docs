@@ -7,15 +7,15 @@ authors:
 
 # 命令提示
 
-Minecraft 有一个使用在了很多地方的十分强大的命令建议系统，比如说 `/give` 命令。 该系统允许您向用户提示命令参数的值，然后他们可以从中选择 —— 这是使您的命令更加用户友好且符合人体工学的好办法。
+Minecraft 有一个使用在了很多地方的十分强大的命令建议系统，比如说 `/give` 命令。 该系统允许您向用户提示命令参数的值，然后他们可以从中选择 —— 这是使您的命令更加用户友好且符合人体工学的好办法。 该系统允许您向用户提示命令参数的值，然后他们可以从中选择 —— 这是使您的命令更加用户友好且符合人体工学的好办法。
 
 ## 提示提供器
 
-`SuggestionProvider` 用于创建发送给客户端的提示列表。 提示提供器是一个函数式接口，它使用 `CommandContext` 和 `SuggestionBuilder` 并返回 `Suggestions`。 `SuggestionProvider` 返回 `CompletableFuture` 因为提示可能不会立即可用。
+提示所有可用的战利品表。 `SuggestionProvider` 用于创建发送给客户端的提示列表。 提示提供器是一个函数式接口，它使用 `CommandContext` 和 `SuggestionBuilder` 并返回 `Suggestions`。 `SuggestionProvider` 返回 `CompletableFuture` 因为提示可能不会立即可用。 `SuggestionProvider` 返回 `CompletableFuture` 因为提示可能不会立即可用。
 
 ## 使用提示提供器
 
-要使用提示提供器，您可以在参数构造器上调用 `suggests` 方法。 该方法使用 `SuggestionProvider` 并返回一个附加了提示提供器的新的参数构造器。
+要使用提示提供器，您可以在参数构造器上调用 `suggests` 方法。 要使用提示提供器，您可以在参数构造器上调用 `suggests` 方法。 该方法使用 `SuggestionProvider` 并返回一个附加了提示提供器的新的参数构造器。
 
 @[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -32,7 +32,7 @@ Minecraft 有一个使用在了很多地方的十分强大的命令建议系统�
 
 ## 创建一个自定义的提示提供器
 
-如果内建的提供器无法满足您的需要，您可以创建您自己的提示提供器。 为此，您需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。
+如果内建的提供器无法满足您的需要，您可以创建您自己的提示提供器。 为此，您需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。 为此，您需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。
 
 对此示例，我们需要制作一个提示提供器提示所有在服务器上的玩家的名称。
 

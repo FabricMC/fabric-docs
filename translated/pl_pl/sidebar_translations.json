@@ -17,6 +17,7 @@
   "develop.items.potions": "Mikstury",
   "develop.entities": "Byty",
   "develop.entities.effects": "Efekty",
+  "develop.entities.damage-types": "Typy Obrażeń",
   "develop.commands": "Polecenia",
   "develop.commands.basics": "Tworzenie poleceń",
   "develop.commands.arguments": "Argumenty",
@@ -32,5 +33,8 @@
   "develop.rendering.particles.creatingParticles": "Tworzenie niestandardowych cząsteczek",
   "develop.misc": "Różne strony",
   "develop.misc.codecs": "Kodeki",
-  "develop.misc.events": "Zdarzenia"
+  "develop.misc.events": "Zdarzenia",
+  "develop.sounds": "Dźwięki",
+  "develop.sounds.using-sounds": "Odtwarzanie WydarzeńDźwięku",
+  "develop.sounds.custom": "Tworzenie Niestandardowych Dźwięków"
 }

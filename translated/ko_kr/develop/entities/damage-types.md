@@ -19,7 +19,7 @@ _Tater_ 라는 이름의 사용자 정의 피해 유형을 추가해 봅시다. 
 resources/data/fabric-docs-reference/damage_type/tater.json
 ```
 
-파일은 다음과 같은 구조를 가지게 됩니다.
+파일은 다음과 같은 구조를 가집니다.
 
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 

@@ -14,7 +14,7 @@ features:
     linkText: 快速上手
   - title: 玩家指南
     icon: 📚
-    details: 您在考虑使用 Fabric 模组吗？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
+    details: 您在考虑使用 Fabric 模组吗？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
     link: /zh_cn/players/
     linkText: 详情
 ---

@@ -22,7 +22,7 @@ authors:
 
 ## 将组件添加至界面
 
-如同其他组件，您需要使用 `Screen#addDrawableChild` 来将组件添加到界面中。 请确保这一步在 `Screen#init` 方法中完成。
+如同其他组件，您需要使用 `Screen#addDrawableChild` 来将组件添加到界面中。 请确保这一步在 `Screen#init` 方法中完成。 请确保这一步在 `Screen#init` 方法中完成。
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
