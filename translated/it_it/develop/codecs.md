@@ -3,6 +3,7 @@ title: Codec
 description: Una guida esaustiva per la comprensione e l'utilizzo del sistema di codec di Mojang per serializzare e deserializzare gli oggetti.
 authors:
   - enjarai
+  - Syst3ms
 ---
 
 # Codec
@@ -344,6 +345,50 @@ Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attribu
 {
   "type": "example:counting_bean",
   "counting_number": 42
+}
+```
+
+### Codec Ricorsivi
+
+A volte è utile avere un codec che utilizza _sé stesso_ per decodificare attributi specifici, per esempio quando si gestiscono certe strutture dati ricorsive. Nel codice vanilla, questo è utilizzato per gli oggetti `Text`, che potrebbero contenere altri `Text` come figli. Un codec del genere può essere costruito utilizzando `Codecs#createRecursive`.
+
+Per esempio, proviamo a serializzare una lista concatenata singolarmente. Questo metodo di rappresentare le liste consiste di una serie di nodi che contengono sia un valore sia un riferimento al nodo successivo nella lista. La lista è poi rappresentata dal suo primo nodo, e per attraversare la lista si segue il prossimo nodo finché non ce ne sono più. Ecco una semplice implementazione di nodi che contengono interi.
+
+```java
+public record ListNode(int value, ListNode next) {}
+```
+
+Non possiamo costruire un codec per questo come si fa di solito, quale codec utilizzeremmo per l'attributo `next`? Avremmo bisogno di un `Codec<ListNode>`, che è ciò che stiamo costruendo proprio ora! `Codecs#createRecursive` ci permette di fare ciò utilizzando una lambda che sembra magia:
+
+```java
+Codec<ListNode> codec = Codecs.createRecursive(
+  "ListNode", // un nome per il codec
+  selfCodec -> {
+    // Qui, `selfCodec` rappresenta il `Codec<ListNode>`, come se fosse già costruito
+    // Questa lambda dovrebbe restituire il coded che volevamo utilizzare dall'inizio,
+    // che punta a sé stesso attraverso `selfCodec`
+    return RecordCodecBuilder.create(instance ->
+      instance.group(
+        Codec.INT.fieldOf("value").forGetter(ListNode::value),
+         // l'attributo `next` sarà gestito ricorsivamente con il self-codec
+        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
+      ).apply(instance, ListNode::new)
+    );
+  }
+);
+```
+
+Un `ListNode` serializzato potrebbe avere questo aspetto:
+
+```json
+{
+  "value": 2,
+  "next": {
+    "value": 3,
+    "next" : {
+      "value": 5
+    }
+  }
 }
 ```
 
