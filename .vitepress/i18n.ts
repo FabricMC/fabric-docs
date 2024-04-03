@@ -17,7 +17,7 @@ export function applyTranslations(locale: string, translationSource: { [key: str
       item.text = translationSource[item.text];
     }
 
-    if (item.link && locale !== "en_us") {
+    if (item.link && locale !== "en_us" && item.process !== false) {
       // Prefix the link with the locale
       item.link = `/${locale}${item.link}`;
     }
