@@ -15,9 +15,10 @@ authors:
 
 您可以从 [Fabric Website](https://fabricmc.net/use/) 下载 Fabric 的安装程序。
 
-如果您使用 Windows，下载 `.exe` 版本 （`Download For Windows`），因为它不需要您的系统已安装 Java。 相反，它使用官方启动器附带的 Java。 相反，它使用官方启动器附带的 Java。
+如果您使用 Windows，下载 `.exe` 版本 （`Download For Windows`），因为它不需要您的系统已安装 Java。 相反，它使用官方启动器附带的 Java。 相反，它使用官方启动器附带的 Java。 搞定！
 
 对于 macOS 和 Linux，您应该下载 `.jar` 版本。 有时，您需要在此步骤之前安装 Java。 的时候，再次点击 `Open`。
+::: 的时候，再次点击 `Open`。
 :::
 
 ## 2. 运行 Fabric 安装程序
