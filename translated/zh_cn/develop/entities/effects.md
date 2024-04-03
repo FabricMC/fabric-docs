@@ -29,7 +29,7 @@ authors:
 
 ### 注册你的自定义状态效果
 
-与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的模组入口点内完成。
+与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的模组入口点内完成。 这可以在我们的模组入口点内完成。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
@@ -39,7 +39,7 @@ authors:
 
 **纹理**
 
-状态效果图标是 18x18 的 PNG。 将您的自定义图标放在：
+状态效果图标是 18x18 的 PNG。 将您的自定义图标放在： 将您的自定义图标放在：
 
 ```:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
@@ -61,8 +61,9 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### 测试
 
-使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。 使用 `/effect clear` 移除该效果。
+使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。 使用 `/effect clear` 移除该效果。 状态效果，又称效果，是一种可以影响实体的条件。 它们的性质可以是正面的，负面的或者中性的。 游戏本体通过许多不同的方式应用这些效果，如食物和药水等等。
 
 ::: info
 要创建使用此效果的药水，请参阅[药水](../items/potions.md)指南。
+:::
 :::
