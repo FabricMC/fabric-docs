@@ -24,9 +24,7 @@ To start developing mods with Fabric, you will need to set up a development envi
 
 ## Installing JDK 17
 
-Minecraft 1.20.4 requires Java 17 to run, so you will need to install it if you do not have it installed already.
-
-You can download the latest version of Java 17 from the [official website](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) - follow the installation steps for your operating system.
+To develop mods for Minecraft 1.20.4, you will need JDK 17.
 
 If you need help installing Java, you can refer to the various Java installation guides in the [player guides section.](../../players/index.md)
 
