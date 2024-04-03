@@ -28,7 +28,7 @@ authors:
 
 ## 3. 在 Minecraft 启动其中打开配置
 
-在安装器结束时，您可以打开 Minecraft 启动器并前往 `Installations` 选项。 您应当前往您的 Fabric 配置并打开编辑界面。 您应当前往您的 Fabric 配置并打开编辑界面。
+在安装器结束时，您可以打开 Minecraft 启动器并前往 `Installations` 选项。 您应当前往您的 Fabric 配置并打开编辑界面。 您应当前往您的 Fabric 配置并打开编辑界面。 您应当前往您的 Fabric 配置并打开编辑界面。
 
 替换版本为您刚才安装的 Fabric 加载器版本并点击 `保存`。
 
