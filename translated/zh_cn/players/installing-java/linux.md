@@ -16,7 +16,7 @@ authors:
 ![输入 "java -version" 的终端。](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
-要使用大多数现代 Minecraft 版本，您至少需要安装 Java 17。 如果此命令显示版本低于 17，您需要更新您的现有 Java。 如果此命令显示版本低于 17，您需要更新您的现有 Java。
+要使用大多数现代 Minecraft 版本，您至少需要安装 Java 17。 如果此命令显示版本低于 17，您需要更新您的现有 Java。 如果此命令显示版本低于 17，您需要更新您的现有 Java。 如果此命令显示版本低于 17，您需要更新您的现有 Java。
 :::
 
 ## 2. 下载并安装 Java 17
