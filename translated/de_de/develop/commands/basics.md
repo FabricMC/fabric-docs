@@ -79,7 +79,7 @@ Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
-Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. Wenn der Befehl etwas macht, wie z. B. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
+Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
 
 Wenn der Befehl fehlschlägt, kannst du, anstatt `sendFeedback()` aufzurufen, direkt eine beliebige Ausnahme auslösen, die vom Server oder Client entsprechend behandelt wird.
 
