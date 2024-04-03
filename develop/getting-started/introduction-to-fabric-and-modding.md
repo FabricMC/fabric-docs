@@ -52,7 +52,7 @@ You should be aware of the four main components of Fabric:
 
 Minecraft: Java Edition is obfuscated by Mojang, making modification alone difficult. However, with the help of modding tools like Fabric, modding becomes much easier. There are several mapping systems that can assist in this process.
 
-Mappings remap the obfuscated code to a human-readable format, making it easier for modders to understand and modify the game's code. Yarn is a popular and excellent choice for this, but other options exist as well. Each mapping system may have its own strengths or focus.
+Loom remaps the obfuscated code to a human-readable format using these mappings, making it easier for modders to understand and modify the game's code. Yarn is a popular and excellent mappings choice for this, but other options exist as well. Each mapping project may have its own strengths or focus.
 
 Loom allows you to easily develop and compile mods against remapped code, and Fabric Loader allows you to load these mods into the game.
 
