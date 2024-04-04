@@ -16,16 +16,16 @@ Offiziell unterstützt Fabric alle Minecraft-Versionen, beginnend mit Snapshot `
 ### Wo kann ich veröffentlichte Mods für Fabric herunterladen?
 
 :::info
-Du solltest immer prüfen, ob Mods aus einer vertrauenswürdigen Quelle stammen. Für weitere Informationen, siehe die Anleitung [Mods finden](./finding-mods.md).
+Du solltest immer prüfen, ob Mods aus einer vertrauenswürdigen Quelle stammen. Weitere Informationen zum Finden von Mods findest du in dem Leitfaden [Vertrauenswürdige Mods finden](./finding-mods.md).
 :::
 
-Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4), allerdings veröffentlichen manche Autoren ihre Mods auf ihren persönlichen Webseiten oder anderen Plattformen, wie einer GitHub-Repository.
+Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4), manche laden sie jedoch auch auf ihre persönliche Website oder auf andere Plattformen wie GitHub hoch.
 
 ### Wo kann ich vorgefertigte Modpacks finden?
 
 Du kannst vorgefertigte Fabric-Modpacks auf einer Vielzahl von Plattformen finden, beispielsweise:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
-- [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=modpacks\&gameFlavorsIds=4)
+- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\&gameVersionTypeId=4)
 - [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
 - [Technic](https://www.technicpack.net/modpacks)
