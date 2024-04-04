@@ -29,6 +29,6 @@ Identificar páginas web con malware no es algo obvio para todos. Si no estás s
 
 Hay muchas páginas web que dicen tener mods para Minecraft, pero en realidad solo contienen malware. Debes evitar estos sitios a toda costa.
 
-Puedes usar software de antivirus y sitios web como [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) o [VirusTotal](https://www.virustotal.com/) para verificar los mods descargados. Sin embargo, no te bases completamente en esos métodos, ya que pueden producir resultados incorrectos.
+Puedes usar software de antivirus y páginas web como [Windows Defender](https://www.microsoft.com/en-us/windows/comprehensive-security) o [VirusTotal](https://www.virustotal.com/) para verificar los mods descargados. Sin embargo, no te bases completamente en esos métodos, ya que pueden producir resultados incorrectos.
 
 Para reiterar, eres bienvenido a consultar en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv), en el canal de `#player-support`.
