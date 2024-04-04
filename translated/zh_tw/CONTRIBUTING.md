@@ -1,6 +1,6 @@
 # Fabric 文件貢獻指南
 
-這個網站使用 [VitePress](https://vitepress.dev/) 來將各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.dev/) 來將各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
+這個網站使用 [VitePress](https://vitepress.dev/) 來將各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
 
 ## 目錄
 
@@ -128,9 +128,9 @@ npm run preview
    }
    ```
 
-3. 所有的原始文件都會以英語撰寫，並遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
+3. 所有的原始文件都會以英語撰寫，並遵循美式英語的文法規則。 你可以使用 [LanguageTool](https://languagetool.org/) 在輸入時檢查你的語法，但不要太擔心。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。 我們的文件團隊將在清理階段審查並更正文法錯誤。 然而，一開始就努力做到正確可以節省我們的時間。
 
-4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 同上，如果你需要幫助，請在Fabric Discord上的`#docs`頻道中提問。
+4. 如果你正在建立新章節，你應該在 `.vitepress/sidebars` 資料夾中建立一個新的側邊欄，並將其新增到 `config.mts` 檔案中。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#wiki` 頻道中提問。 如果你需要幫助，請在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#docs` 頻道中提問。
 
 5. 當建立新頁面時，你應將其新增到 `.vitepress/sidebars` 資料夾中相關的側邊欄中。 同上，如果你需要幫助，請在Fabric Discord上的`#docs`頻道中提問。
 
