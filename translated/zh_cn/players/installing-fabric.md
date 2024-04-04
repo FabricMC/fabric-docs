@@ -15,11 +15,9 @@ authors:
 
 您可以从 [Fabric Website](https://fabricmc.net/use/) 下载 Fabric 的安装程序。
 
-如果您使用 Windows，下载 `.exe` 版本 （`Download For Windows`），因为它不需要您的系统已安装 Java。 相反，它使用官方启动器附带的 Java。 相反，它使用官方启动器附带的 Java。 搞定！
+如果您使用 Windows，下载 `.exe` 版本 （`Download For Windows`），因为它不需要您的系统已安装 Java。 相反，它使用官方启动器附带的 Java。
 
-对于 macOS 和 Linux，您应该下载 `.jar` 版本。 有时，您需要在此步骤之前安装 Java。 的时候，再次点击 `Open`。
-::: 的时候，再次点击 `Open`。
-:::
+对于 macOS 和 Linux，您应该下载 `.jar` 版本。 有时，您需要在此步骤之前安装 Java。
 
 ## 2. 运行 Fabric 安装程序
 
@@ -33,7 +31,7 @@ authors:
 
 ![高亮 "Install"  的 Fabric 安装程序](/assets/players/installing-fabric/macos-downloads.png)
 
-当询问您 "Are you sure you want to open it?"
+当询问您 "Are you sure you want to open it?" 的时候，再次点击 `Open`。
 :::
 
 当您打开安装器的时候，您将会看到像是这样的屏幕：
@@ -52,6 +50,6 @@ authors:
 
 ## 下一步
 
-现在您已经安装了 Fabric，您可以向您的游戏添加模组了！ Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information. Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
+现在您已经安装了 Fabric，您可以向您的游戏添加模组了！ Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
 
 如果您在遵循本指南时遇到任何问题，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道中寻求帮助。
