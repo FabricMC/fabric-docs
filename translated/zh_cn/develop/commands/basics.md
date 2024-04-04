@@ -14,6 +14,7 @@ authors:
   - haykam
   - mschae23
   - treeways
+  - xpple
 ---
 
 # 创建命令
@@ -39,7 +40,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-该整型数字可以被认为是命令的执行结果。 一般来讲负值意味着命令执行失败并且不会做任何事情。 结果是`0`意味着命令通过（正确但不做任何事情）。 正数意味着命令成功执行并且做了些事情。 Brigadier 提供了一个常量来指示成功： `Command#SINGLE_SUCCESS`。
+该整型数字可以被认为是命令的执行结果。 通常，小于或等于零的值表示命令失败并将继续执行并且什么也不做。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。
 
 #### `ServerCommandSource` 可以做什么？
 
