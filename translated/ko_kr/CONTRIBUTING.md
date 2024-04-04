@@ -79,7 +79,7 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
    # ...
    ```
 
-2. 페이지에 코드를 추가하는 경우, 코드를 리퍼런스 모드의 소스 코드에 기입해야 합니다. (모드는 `/reference` 폴더에 있습니다) (모드는 `/reference` 폴더에 있습니다) 만약 span을 더 복잡하게 제어해야 하는 경우, [`markdown-it-vuepress-code-snippet-enhanced` 의 트랜스클루전 기능](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)을 이용할 수 있습니다.
+2. 페이지에 코드를 추가하는 경우, 코드를 리퍼런스 모드의 소스 코드에 기입해야 합니다. (모드는 `/reference` 폴더에 있습니다) 그리고, [VitePress의 코드 스니펫 기능](https://vitepress.dev/guide/markdown#import-code-snippets)을 이용하여 코드를 임베드합니다. 만약 span을 더 복잡하게 제어해야 하는 경우, [`markdown-it-vuepress-code-snippet-enhanced` 의 트랜스클루전 기능](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)을 이용할 수 있습니다.
 
    **예시:**
 
@@ -170,7 +170,7 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
 
 ### 내용 검증
 
-이는 내용이 정확하고 Fabric 문서 스타일 가이드를 준수하는지 확인하는 단계이므로 가장 중요합니다.
+모든 끌어오기 요청은 내용 검증을 거쳐야 합니다. 이는 내용이 정확하고 Fabric 문서 스타일 가이드를 준수하는지 확인하는 단계이므로 가장 중요합니다.
 
 ### 정리
 
