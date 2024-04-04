@@ -16,7 +16,7 @@
 
 ## 如何贡献
 
-建议您在存储库的分支上为您发出的每个拉取请求创建一个新分支。 这样一次性管理多个拉取请求将更简单。 这样一次性管理多个拉取请求将更简单。
+建议您在存储库的分支上为您发出的每个拉取请求创建一个新分支。 这样一次性管理多个拉取请求将更简单。
 
 **如果您需要本地预览您的更改，您需要安装 [Node.js 18+](https://nodejs.org/en/)**
 
@@ -62,7 +62,7 @@ npm run preview
 
 ### 风格指南
 
-在 Fabric 文档网站中的所有页面都应该遵循风格指南。 如果你有任何疑问，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub Discussions 中提出。 如果你有任何疑问，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub Discussions 中提出。 如果您正在创建新的部分，您应当在 `.vitepress/sidebars` 文件夹中创建新的侧边栏，并将它添加到 `config.mts` 文件中。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的` #docs` 频道提问。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的` #docs` 频道提问。
+在 Fabric 文档网站中的所有页面都应该遵循风格指南。 如果你有任何疑问，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 或 GitHub Discussions 中提出。
 
 风格指南如下：
 
@@ -79,7 +79,7 @@ npm run preview
    # ...
    ```
 
-2. 如果您创建或修改了包含代码的页面，请将代码放置在参考模组内的适当位置（位于存储库的 `/reference` 文件夹中）。 如果您创建或修改了包含代码的页面，请将代码放置在参考模组内的适当位置（位于存储库的 `/reference` 文件夹中）。 如果您创建或修改了包含代码的页面，请将代码放置在参考模组内的适当位置（位于存储库的 `/reference` 文件夹中）。 然后，使用 [VitePress 的代码导入功能](https://vitepress.dev/zh/guide/markdown#import-code-snippets) 来嵌入代码。如果你需要一个更大的区域，请使用, [`markdown-it-vuepress-code-snippet-enhanced` 的嵌入功能](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)。
+2. 如果您创建或修改了包含代码的页面，请将代码放置在参考模组内的适当位置（位于存储库的 `/reference` 文件夹中）。 然后使用 [VuePress 提供的代码片段功能](https://vitepress.dev/zh/guide/markdown#import-code-snippets) 来嵌入代码。如果您需要更大范围的控制，可以使用 [来自 `markdown-it-vuepress-code-snippet-enhanced` 的 transclude 功能](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced)。
 
    **例如：**
 
@@ -130,17 +130,17 @@ npm run preview
    }
    ```
 
-3. 所有原始文档都使用英文书写，跟随美国的语法规则。 虽然你可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，但不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。 虽然你可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，但不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。 虽然你可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，但不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。
+3. 所有原始文档都使用英文书写，跟随美国的语法规则。 虽然你可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，但不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。
 
-4. 如果您正在创建新的部分，您应当在 `.vitepress/sidebars` 文件夹中创建新的侧边栏，并将它添加到 `config.mts` 文件中。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的` #docs` 频道提问。 目录 创建新页面时，您应当将其添加到 `.vitepress/sidebars` 文件夹中相关的侧边栏中。 重复，如果您需要帮助，请在 Fabric Discord 的` #docs` 频道提问。
+4. 如果您正在创建新的部分，您应当在 `.vitepress/sidebars` 文件夹中创建新的侧边栏，并将它添加到 `config.mts` 文件中。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的` #docs` 频道提问。
 
-5. 目录 创建新页面时，您应当将其添加到 `.vitepress/sidebars` 文件夹中相关的侧边栏中。 重复，如果您需要帮助，请在 Fabric Discord 的` #docs` 频道提问。
+5. 创建新页面时，您应当将其添加到 `.vitepress/sidebars` 文件夹中相关的侧边栏中。 重复，如果您需要帮助，请在 Fabric Discord 的` #docs` 频道提问。
 
 6. 任何图片都应该放在 `/assets` 文件夹中的适当位置。
 
 7. ⚠️ **当链接其他页面时，使用相对链接。** ⚠️
 
-   建议您在存储库的分支上为您发出的每个拉取请求创建一个新分支。 这样一次性管理多个拉取请求将更简单。 这样一次性管理多个拉取请求将更简单。 如果您使用绝对链接，版本号将不会被添加到链接中。
+   这是因为现有的版本控制系统会预处理链接，以便事先添加版本号。 如果您使用绝对链接，版本号将不会添加到链接中。
 
    例如，对于 `/players` 文件夹中的页面，要链接到位于 `/players/installing-fabric.md` 的 `installing-fabric` 页面，您需要进行以下操作：
 
@@ -162,7 +162,7 @@ npm run preview
 
 ### 扩展指南
 
-如果文档团队认为您需要拓展您的拉去请求，团队成员将添加 `expansion` 标签到您的拉去请求，并附上一条评论解释为什么他认为可以拓展。 如果你同意这条建议，你可以拓展你的拉取请求。 如果你同意这条建议，你可以拓展你的拉取请求。 如果你同意这条建议，你可以拓展你的拉取请求。
+如果文档团队认为您需要拓展您的拉去请求，团队成员将添加 `expansion` 标签到您的拉去请求，并附上一条评论解释为什么他认为可以拓展。 如果你同意这条建议，你可以拓展你的拉取请求。
 
 **不要对拓展拉取请求感到有压力。** 如果您不想拓展您的拉取请求，您可以简单地请求移除 `expansion` 标签。
 
