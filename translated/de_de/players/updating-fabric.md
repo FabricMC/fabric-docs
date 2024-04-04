@@ -24,7 +24,7 @@ Neuere Mods können eine neuere Version des Fabric-Loaders benötigen, um zu fun
 
 Um Fabric zu aktualisieren, stelle sicher, dass die Spielversion und die Loader-Version korrekt sind und klicke auf `Installieren`.
 
-**Deaktivieren die Option 'Profil erstellen' bei Ausführung des Installationsprogramms, oder ein neues Profil würde erzeugt werden, welches wir in diesem Fall nicht benötigen.**
+**Stelle sicherm dass die Option 'Profil erstellen'' deaktiviert ist, wenn du den Installer ausführst, da sonst ein neues Profil erstellt wird, das in diesem Fall nicht benötigt wird.**
 
 ## 3. Öffne das Profil im Minecraft-Launcher
 
