@@ -30,7 +30,7 @@ Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft en
 `com.mojang.brigadier.Command` ist ein funktionales Interface, das einen bestimmten Code ausführt und in bestimmten Fällen eine `CommandSyntaxException` auslöst. Er hat einen generischen Typ `S`, der den Typ der _Befehlsquelle_ definiert.
 Die Befehlsquelle liefert einen Kontext, in dem ein Befehl ausgeführt wurde. In Minecraft ist die Befehlsquelle normalerweise ein `ServerCommandSource`, die einen Server, einen Befehlsblock, eine Remote-Verbindung (RCON), einen Spieler oder eine Entität darstellen kann.
 
-Die einzige Methode in `Command`, `run(CommandContext<S>)` nimmt einen `CommandContext<S>` als einzigen Parameter und gibt eine ganze Zahl zurück. Der Befehlskontext enthält die Befehlsquelle von `S` und ermöglicht es dir, Argumente zu erhalten, die geparsten Befehlsknoten zu betrachten und die in diesem Befehl verwendete Eingabe zu sehen.
+Die einzige Methode in `Command`, `run(CommandContext<S>)`, nimmt einen `CommandContext<S>` als einzigen Parameter und gibt eine ganze Zahl zurück. Der Befehlskontext enthält die Befehlsquelle von `S` und ermöglicht es dir, Argumente zu erhalten, die geparsten Befehlsknoten zu betrachten und die in diesem Befehl verwendete Eingabe zu sehen.
 
 Wie andere funktionale Interfaces wird es in der Regel als Lambda oder als Methodenreferenz verwendet:
 
@@ -79,7 +79,7 @@ Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
-Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
+Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. Wenn der Befehl etwas macht, wie z. B. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
 
 Wenn der Befehl fehlschlägt, kannst du, anstatt `sendFeedback()` aufzurufen, direkt eine beliebige Ausnahme auslösen, die vom Server oder Client entsprechend behandelt wird.
 
