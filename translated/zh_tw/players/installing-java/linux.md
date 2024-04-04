@@ -16,7 +16,7 @@ authors:
 ![終端機中輸入了「java -version」。](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
-要使用大多數現代的 Minecraft，你需要至少安裝 Java 17。 如果這個命令顯示低於 17 的任何版本，你需要更新現有的 Java 安裝。 如果你打算開發模組，你應參考另一個指南。 如果你打算開發模組，你應參考另一個指南。 如果你打算開發模組，你應參考另一個指南。
+要使用大多數現代的 Minecraft，你需要至少安裝 Java 17。 如果這個命令顯示低於 17 的任何版本，你需要更新現有的 Java 安裝。 如果你打算開發模組，你應參考另一個指南。
 :::
 
 ## 2. 下載並安裝 Java 17
