@@ -27,8 +27,8 @@ authors:
 惡意軟體網站對於每個人來說可能不是很明顯。 如果您不確定，你應該向他人尋求意見，或者完全避免該網站，僅依賴於可信任的來源，例如 Modrinth 和 CurseForge。
 :::
 
-有許多聲稱提供 Minecraft 模組的網站，實際上只是惡意軟體網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。
+有許多聲稱提供 Minecraft 模組的網站，實際上只是惡意軟體網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。 你應該盡量避免這些網站。
 
-你可以使用防病毒軟體和像 [Windows Defender](https://www.microsoft.com/zh-tw/windows/comprehensive-security) 或 [VirusTotal](https://www.virustotal.com/) 這樣的網站來檢查下載的模組。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。
+你可以使用防病毒軟體和像 [Windows Defender](https://www.microsoft.com/zh-tw/windows/comprehensive-security) 或 [VirusTotal](https://www.virustotal.com/) 這樣的網站來檢查下載的模組。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。 但是，不要完全依賴這些方法，因為有時候它們可能不準確。
 
 同樣地，如果你有疑問，歡迎在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 頻道中尋求意見。
