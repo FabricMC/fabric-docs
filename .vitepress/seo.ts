@@ -1,5 +1,6 @@
 import { SiteConfig } from "vitepress";
 import { PageData } from "vitepress";
+import { VersionedConfig } from "vitepress-versioning-plugin";
 
 function addTag(pageData: PageData, name: string, content: string) {
   pageData.frontmatter.head ??= [];
@@ -29,6 +30,13 @@ export function applySEO(pageData: PageData) {
   addTag(pageData, "twitter:card", "summary");
 
   addTag(pageData, "theme-color", "#2275da");
+
+  // Dont index the page if it's a versioned page.
+  const path = pageData.filePath;
+  if (path.includes("versions")) {
+    addTag(pageData, "robots", "noindex");
+  }
+  
 }
 
 export function removeVersionedItems(items: any[]): any[] {
