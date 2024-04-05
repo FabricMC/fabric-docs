@@ -105,7 +105,7 @@ Se il listener dice che dobbiamo cancellare (`ActionResult.FAIL`), oppure finire
 
 @[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa ogni \`ActionResult fa. Nel nostro caso, potrebbe essere:
+Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa ogni \\`ActionResult fa. Nel nostro caso, potrebbe essere:
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
