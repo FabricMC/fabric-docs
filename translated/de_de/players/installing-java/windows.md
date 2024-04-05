@@ -31,7 +31,7 @@ Um den Großteil der modernen Minecraft-Versionen nutzen zu können, musst du Ja
 
 ## 2. Herunterladen des Java 17 Installer.
 
-Um Java 17 zu installieren, laden Sie bitte den Installer von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=17) herunter.
+Um Java 17 zu installieren, laden Sie bitte den Installer von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=17) herunter.
 
 Sie müssen die Version "Windows Installer (.msi)" herunterladen:
 
@@ -48,7 +48,7 @@ Folgen Sie den Schritten des Installationsprogramms, um Java 17 zu installieren.
 - `JAVA_HOME Umgebungsvariable setzen` - Diese wird zu Ihrem PATH hinzugefügt.
 - JavaSoft (Oracle)-Registrierungsschlüssel
 
-![Java 17-Installationsprogramm mit "JAVA\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 17-Installationsprogramm mit "JAVA\\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Wenn Sie das getan haben, können Sie `Weiter` klicken und mit der Installation fortfahren.
 
@@ -60,6 +60,6 @@ Wenn der Befehl erfolgreich ausgeführt wird, wird die Java-Version wie zuvor ge
 
 ![Kommandozeile mit "java -version"](/assets/players/installing-java/windows-java-version.png)
 
-***
+---
 
 Sollten Sie auf Probleme stoßen, können Sie im [Fabric Discord] (https\://discord.gg/v6v4pMv) im Channel `#player-support` um Hilfe bitten.

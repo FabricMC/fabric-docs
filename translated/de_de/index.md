@@ -9,7 +9,7 @@ hero:
 features:
   - title: Leitfäden für Entwickler
     icon: 🛠️
-    details: Unsere kuratierten, von der Community verfassten Entwicklerleitfäden decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
+    details: Unsere kuratierten, von der Community verfassten Leitfäden für Entwickler decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
     link: /de_de/develop/
     linkText: Loslegen
   - title: Leitfäden für Spieler
@@ -23,6 +23,6 @@ features:
 
 ## Möchtest du einen Beitrag leisten?
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
+Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](/contributing).
 
 </div>

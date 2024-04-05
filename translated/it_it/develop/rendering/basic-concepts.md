@@ -59,16 +59,16 @@ I seguenti elementi `VertexFormat` sono disponibili:
 
 La modalità di disegno definisce come sono disegnati i dati. Sono disponibili le seguenti modalità di disegno:
 
-| Draw Mode                   | Descrizione                                                                                                                        |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `DrawMode.LINES`            | Ogni elemento è fatto da 2 vertici ed è rappresentato da una singola linea.                                                        |
+| Draw Mode                   | Descrizione                                                                                                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `DrawMode.LINES`            | Ogni elemento è fatto da 2 vertici ed è rappresentato da una singola linea.                                                                        |
 | `DrawMode.LINE_STRIP`       | Il primo elemento richiede 2 vertici. Elementi addizionali vengono disegnati con solo un nuovo vertice creando una linea continua. |
-| `DrawMode.DEBUG_LINES`      | Simile a `DrawMode.LINES`, ma la linea è sempre esattamente larga un pixel sullo schermo.                                          |
-| `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                               |
-| `DrawMode.TRIANGLES`        | Ogni elemento è farro da 3 vertici, formando un triangolo.                                                                         |
+| `DrawMode.DEBUG_LINES`      | Simile a `DrawMode.LINES`, ma la linea è sempre esattamente larga un pixel sullo schermo.                                                          |
+| `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                                               |
+| `DrawMode.TRIANGLES`        | Ogni elemento è farro da 3 vertici, formando un triangolo.                                                                                         |
 | `DrawMode.TRIANGLE_STRIP`   | Inizia con 3 vertici per il primo triangolo. Ogni vertex addizionale forma un nuovo triangolo con gli ultimi due vertici.          |
 | `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertex addizionale forma un triangolo con il primo e l'ultimo vertice.           |
-| `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertice, formando un quadrilatero.                                                                      |
+| `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertice, formando un quadrilatero.                                                                                      |
 
 ### Scrivere al `BufferBuilder`
 
@@ -94,7 +94,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 #### Un Esempio Pratico: Renderizzare una striscia di Triangoli
 
-Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratico. Diciamo che vogliamo renderizzare qualcosa usando la modalità di disegno `DrawMode.TRIANGLE_STRIP` e il formato vertex \`POSITION_COLOR.
+Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratico. Diciamo che vogliamo renderizzare qualcosa usando la modalità di disegno `DrawMode.TRIANGLE_STRIP` e il formato vertex \\`POSITION_COLOR.
 
 Disegneremo vertici ai seguenti punti nella HUD (in ordine):
 

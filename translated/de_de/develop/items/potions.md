@@ -1,6 +1,6 @@
 ---
 title: Tränke
-description: Erstelle neue Tränke für verschiedenste Status-Effekte.
+description: Lerne, wie man neue Tränke für verschiedene Statuseffekte hinzufügt.
 authors:
   - dicedpixels
   - PandoricaVi
@@ -9,11 +9,11 @@ authors:
 
 # Tränke
 
-Tränke sind Verbrauchsmaterialien, die Wesen (Entities) Status-Effekte geben können. Spieler können Tränke erlangen, indem sie diese mit einem Braustand brauen oder sie durch andere Spielmechaniken erhalten.
+Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. Spieler können Tränke erlangen, indem sie diese mit einem Braustand brauen oder sie durch andere Spielmechaniken erhalten.
 
 ## Benutzerdefinierte Tränke
 
-Das Hinzufügen eines Trankes ist vergleichbar mit dem Hinzufügen eines Items. Erstelle eine Instanz des Trankes und registriere es mit `BrewingRecipeRegistry.registerPotionRecipe`.
+Das Hinzufügen eines Trankes ist vergleichbar mit dem Hinzufügen eines Items. Erstelle eine Instanz des Trankes und registriere ihn mit `BrewingRecipeRegistry.registerPotionRecipe`.
 
 :::info
 Falls die Fabric API vorhanden ist, kann auf `BrewingRecipeRegistry.registerPotionRecipe` durch einen "Access Widener" zugegriffen werden.
@@ -27,19 +27,19 @@ Als Erstes wird die `Potion` Instanz in einer Variable deklariert. Dabei wird di
 
 Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besitzt:
 
-- `StatusEffect type` - Ein Effekttyp. Hier wird der benutzerdefinierter Effekttyp benutzt. Ansonsten können auch schon existierende Typen, mit `net.minecraft.entity.effect.StatusEffects`, verwendet werden.
-- `int duration` - Länge des Effekts in Spiel-Ticks.
-- `int amplifier` - Die Stärke des Effekts. Beispielsweise entspricht Eile II dem `amplifier`-Wert 1.
+- `StatusEffect type` - Ein Effekttyp. Hier verwenden wir unseren benutzerdefinierten Effekt. Alternativ kannst du auf Vanilla-Effekte über `net.minecraft.entity.effect.StatusEffects` zugreifen.
+- `int duration` - Länge des Effekts in Spielticks.
+- `int amplifier` - Die Stärke des Effekts. Zum Beispiel hätte Eile II einen Verstärker-Wert von 1.
 
 :::info
-Das Erstellen eines neuen Effekts kann im Beitrag über [Status-Effekte](../entities/effects.md) nachgelesen werden.
+Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](../entities/effects.md).
 :::
 
 ### Registrieren des Tranks
 
 In unsere Klasse, die für das Initialisieren zuständig ist, wird dann die `BrewingRecipeRegistry.registerPotionRecipe` Methode aufgerufen.
 
-
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 
@@ -47,24 +47,25 @@ Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 - `Item item` - Der Gegenstand, der die Hauptzutat bildet.
 - `Potion output` - Der fertiggestellte Trank.
 
-Wenn die Fabric API benutzt wird, wird der Mixin Invoker nicht gebraucht und die `BrewingRecipeRegistry.registerPotionRecipe` Methode kann direkt aufgerufen werden.
+Wenn die Fabric API benutzt wird, wird der Mixin Invoker nicht benötigt und die `BrewingRecipeRegistry.registerPotionRecipe` Methode kann direkt aufgerufen werden.
 
 Das vollständige Beispiel:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-Sobald der Trank registriert wurde, kann der Tater Trank mit Kartoffeln gebraut werden.
+Sobald der Trank registriert wurde, kannst du den Tater-Trank mit einer Kartoffel brauen.
 
-
+![Effekt im Inventar eines Spielers](/assets/develop/tater-potion.png)
 
 ::: info
 **Registering Potions Using an `Ingredient`**
 
-Mit der Hilfe der Fabric API kann bei dem Erstellen des Rezepts `Ingredient` statt `Item`, mithilfe der `
+Mit der Hilfe der Fabric API kann beim Erstellen des Rezepts `Ingredient` statt `Item`, mithilfe der `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` Methode, benutzt werden.
 :::
 
 ### Registrieren des Tranks ohne der Fabric API
 
-Ohne der Fabric API ist der Zugriff auf die `BrewingRecipeRegistry.registerPotionRecipe` Methode privat. Um dennoch Zugriff auf die Methode zu gewehren, muss der folgende Mixin Invoker oder ein "Access Widener" benutzt werden.
+Ohne de Fabric API ist die Methode `BrewingRecipeRegistry.registerPotionRecipe` privat. Um auf diese Methode zuzugreifen, verwende den folgenden Mixin Invoker oder verwende einen "Access Widener".
 
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)

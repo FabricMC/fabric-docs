@@ -38,8 +38,8 @@ Tecla de acceso rápido de Visual Studio Code: Ctrl+F12
 
 Tienes que crear 2 folders in tu folder de `resources/assets/<mod id here>/`.
 
-| Dirección del Folder | Explicación                                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Dirección del Folder | Explicación                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `/textures/particle` | El folder de `particle` (partícula) contendrá todas las texturas para todas tus partículas.      |
 | `/particles`         | El folder de `particles` (partículas) contendrá todos los archivos json de todas tus partículas. |
 
