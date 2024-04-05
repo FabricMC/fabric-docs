@@ -1,6 +1,5 @@
 import { SiteConfig } from "vitepress";
 import { PageData } from "vitepress";
-import { VersionedConfig } from "vitepress-versioning-plugin";
 
 function addTag(pageData: PageData, name: string, content: string) {
   pageData.frontmatter.head ??= [];
