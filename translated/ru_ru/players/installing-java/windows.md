@@ -31,7 +31,7 @@ authors:
 
 ## 2. Скачивание установщика Java 17
 
-Чтобы установить Java 17, вам нужно скачать установщик с [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=17).
+Чтобы установить Java 17, вам нужно скачать установщик с [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=17).
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 
@@ -48,7 +48,7 @@ authors:
 - `Set JAVA_HOME environment variable` - будет добавлено в PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Установщик Java 17 c выделенными "Set JAVA\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Установщик Java 17 c выделенными "Set JAVA\\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 После этого нажмите на `Next` и продолжите установку.
 
@@ -60,6 +60,6 @@ authors:
 
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
 
-***
+---
 
 Если вы столкнулись с какими-либо проблемами, попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в канале `#player-support`.
