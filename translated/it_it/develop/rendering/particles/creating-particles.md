@@ -38,8 +38,8 @@ Hotkey per Visual Studio Code's: Ctrl+F12
 
 Dovrai creare 2 cartelle all'interno della cartella `resources/assets/<mod id here>/`.
 
-| Percorso della Cartella | Spiegazione                                                                     |
-| ----------------------- | ------------------------------------------------------------------------------- |
+| Percorso della Cartella | Spiegazione                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
 | `/textures/particle`    | La cartella `particle` conterrà tutte le texture per tutte le tue particelle.   |
 | `/particles`            | La cartella `particles` conterrà tutti i file json per tutte le tue particelle. |
 
