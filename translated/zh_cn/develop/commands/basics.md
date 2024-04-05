@@ -22,7 +22,7 @@ authors:
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和Brigadier的一般命令结构。
 
 :::info
-Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https\://github.com/Mojang/brigadier
+Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https://github.com/Mojang/brigadier
 :::
 
 ### `Command` 接口
@@ -49,6 +49,10 @@ Command<ServerCommandSource> command = context -> {
 您可以通过在 `CommandContext` 实例上调用 `getSource()` 方法来获得命令上下文中的命令源。
 
 ```java
+Command<ServerCommandSource> command = context -> {
+    ServerCommandSource source = context.getSource(); 
+    return 0;
+};
 ```
 
 ### 注册一个基本命令
