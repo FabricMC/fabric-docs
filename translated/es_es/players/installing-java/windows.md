@@ -60,6 +60,6 @@ Si el comando corre exitosamente, verás algo similar a lo mostrado antes, donde
 
 ![Línea de comandos con "java -version" escrito.](/assets/players/installing-java/windows-java-version.png)
 
-***
+---
 
 Si encuentras problemas, puedes pedir ayuda en el canal de `#player-support` en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv).
