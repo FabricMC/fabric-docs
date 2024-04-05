@@ -298,7 +298,7 @@ Diese Methoden sind zwar sehr hilfreich, aber ihre Namen sind etwas verwirrend, 
 | Methode                 | A -> B immer gültig? | B -> A immer gültig? |
 | ----------------------- | -------------------- | -------------------- |
 | `Codec<A>#xmap`         | Ja                   | Ja                   |
-| Codec<A>#comapFlatMap\` | Nein                 | Ja                   |
+| `Codec<A>#comapFlatMap` | Nein                 | Ja                   |
 | `Codec<A>#flatComapMap` | Ja                   | Nein                 |
 | `Codec<A>#flatXMap`     | Nein                 | Nein                 |
 
