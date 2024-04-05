@@ -11,7 +11,7 @@ En primer lugar, el término "confiable" es subjetivo, así que siempre usa tu p
 
 ## 1. Usa una fuente conocida por su confiabilidad y seguridad.
 
-La mayoría de desarrolladores publican sus mods en [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) y [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4).
+La mayoría de desarrolladores publican sus mods en [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) y [CurseForge](https://www.curseforge.com/minecraft/search?page=1\\&pageSize=20\\&sortType=1\\&class=mc-mods\\&gameFlavorsIds=4).
 
 Estas páginas web verifican los mods hacen lo que dicen hacer, y que no contengan código malicioso. También puedes reportar mods maliciosos en esas páginas web, y tomarán acción relativamente rápida.
 

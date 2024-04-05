@@ -16,7 +16,7 @@ authors:
 - `Drawable` 用于指定渲染逻辑。当一个组件实现此接口时，您可以通过 `Screen#addDrawableChild` 将组件对象添加至界面中。
 - `Element` 用于接收用户输入事件，比如鼠标点击、键盘输入等。
 - `Narratable` 用于提供无障碍信息，无障碍功能（如复述）通过此接口访问组件内容。
-- `Selectable` 用于聚焦组件，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也是一种无障碍功能。
+- `Selectable` 用于聚焦组件，实现此接口后组件可以由 `Tab` 键选中，这也是一种无障碍功能。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 

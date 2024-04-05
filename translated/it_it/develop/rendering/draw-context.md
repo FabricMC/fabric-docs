@@ -17,7 +17,7 @@ La classe `DrawContext` può essere usata per disegnare facilmente **forme retta
 
 ### Disegnare Rettangoli
 
-Puoi usare il metodo DrawContext.fill(...)\` per disegnare un rettango pieno.
+Puoi usare il metodo DrawContext.fill(...)\\` per disegnare un rettango pieno.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

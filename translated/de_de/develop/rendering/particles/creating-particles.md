@@ -38,8 +38,8 @@ Visual Studio Codes Hotkey: Strg+F12
 
 Du musst 2 Ordner in deinem `resources/assets/<mod id here>/` Ordner erstellen.
 
-| Ordnerpfad           | Erklärung                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------ |
+| Ordnerpfad           | Erklärung                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
 | `/textures/particle` | Der Ordner `particle` wird jegliche Texturen für alle deine Partikel enthalten.      |
 | `/particles`         | Der Ordner `particles` wird jegliche JSON-Dateien für alle deine Partikel enthalten. |
 

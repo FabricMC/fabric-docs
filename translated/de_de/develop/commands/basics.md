@@ -22,7 +22,7 @@ authors:
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 :::info
-Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https\://github.com/Mojang/brigadier
+Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https://github.com/Mojang/brigadier
 :::
 
 ### Das Interface `Command`

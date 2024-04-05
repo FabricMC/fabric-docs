@@ -11,7 +11,7 @@ authors:
 
 ## 1. 验证 Java 是否已经安装。
 
-打开终端输入 `java -version` 并按下 <kbd>回车</kbd>。
+打开终端输入 `java -version` 并按下 `回车`。
 
 ![输入 "java -version" 的终端。](/assets/players/installing-java/linux-java-version.png)
 

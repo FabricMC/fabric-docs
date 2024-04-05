@@ -127,7 +127,7 @@ Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Me
 
 Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#Optionale-Attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&lt;Map&gt;
+### MapCodec, nicht zu verwechseln mit Codec&amp;lt;Map&amp;gt;
 
 Der Aufruf von `Codec#fieldOf` wandelt einen `Codec<T>` in einen `MapCodec<T>` um, der eine Variante, aber keine direkte
 Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
