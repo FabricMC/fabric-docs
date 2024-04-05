@@ -14,6 +14,7 @@ authors:
   - haykam
   - mschae23
   - treeways
+  - xpple
 ---
 
 # Crear Comandos
@@ -39,7 +40,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-El número entero retornado puede ser considerado el resultado del comando. Típicamente un valor negativo indica que el comando ha fallado y no hará nada. Un resultado de `0` significa que el comando ha corrido, no necesariamente realizando alguna acción en el proceso. Valores positivos indican que el comando fue exitoso e hizo algo. Brigadier provee una constante para indicar éxito; `Command#SINGLE_SUCCESS` (Éxito Único).
+El número entero retornado puede ser considerado el resultado del comando. Los valores iguales o menores a 0 típicamente significan que el comando ha fallado y no hará nada. Valores positivos indican que el comando fue exitoso e hizo algo. Brigadier provee una constante para indicar éxito; `Command#SINGLE_SUCCESS` (Éxito Único).
 
 #### ¿Qué puede hacer el `ServerCommandSource`?
 
