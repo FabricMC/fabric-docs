@@ -59,16 +59,16 @@ Die folgenden `VertexFormat` Elemente sind verfügbar:
 
 Der Zeichenmodus legt fest, wie die Daten gezeichnet werden. Die folgenden Zeichenmodi sind verfügbar:
 
-| Zeichenmodus                | Beschreibung                                                                                                                                           |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `DrawMode.LINES`            | Jedes Element besteht aus 2 Eckpunkten und wird als eine einzige Linie dargestellt.                                                                    |
+| Zeichenmodus                | Beschreibung                                                                                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DrawMode.LINES`            | Jedes Element besteht aus 2 Eckpunkten und wird als eine einzige Linie dargestellt.                                                                                    |
 | `DrawMode.LINE_STRIP`       | Das erste Element benötigt 2 Eckpunkte. Zusätzliche Elemente werden nur mit einem neuen Eckpunkt gezeichnet, wodurch eine durchgehende Linie entsteht. |
-| `DrawMode.DEBUG_LINES`      | Ähnlich wie `DrawMode.LINES`, aber die Linie ist immer genau ein Pixel breit auf dem Bildschirm.                                                       |
-| `DrawMode.DEBUG_LINE_STRIP` | Wie `DrawMode.LINE_STRIP`, aber die Linien sind immer ein Pixel breit.                                                                                 |
-| `DrawMode.TRIANGLES`        | Jedes Element besteht aus 3 Eckpunkten, die ein Dreieck bilden.                                                                                        |
+| `DrawMode.DEBUG_LINES`      | Ähnlich wie `DrawMode.LINES`, aber die Linie ist immer genau ein Pixel breit auf dem Bildschirm.                                                                       |
+| `DrawMode.DEBUG_LINE_STRIP` | Wie `DrawMode.LINE_STRIP`, aber die Linien sind immer ein Pixel breit.                                                                                                 |
+| `DrawMode.TRIANGLES`        | Jedes Element besteht aus 3 Eckpunkten, die ein Dreieck bilden.                                                                                                        |
 | `DrawMode.TRIANGLE_STRIP`   | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Eckpunkt bildet ein neues Dreieck mit den letzten beiden Eckpunkten.                     |
 | `DrawMode.TRIANGLE_FAN`     | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Scheitelpunkt bildet ein neues Dreieck mit dem ersten und dem letzten Scheitelpunkt.     |
-| `DrawMode.QUADS`            | Jedes Element besteht aus 4 Scheitelpunkten, die ein Viereck bilden.                                                                                   |
+| `DrawMode.QUADS`            | Jedes Element besteht aus 4 Scheitelpunkten, die ein Viereck bilden.                                                                                                   |
 
 ### In den `BufferBuilder` schreiben
 
