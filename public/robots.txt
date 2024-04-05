@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /$
 Disallow: /
 
 Sitemap: https://docs.fabricmc.net/sitemap.xml 
