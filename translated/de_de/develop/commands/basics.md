@@ -22,7 +22,7 @@ authors:
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 :::info
-Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https\://github.com/Mojang/brigadier
+Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https://github.com/Mojang/brigadier
 :::
 
 ### Das Interface `Command`
@@ -30,7 +30,7 @@ Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft en
 `com.mojang.brigadier.Command` ist ein funktionales Interface, das einen bestimmten Code ausführt und in bestimmten Fällen eine `CommandSyntaxException` auslöst. Er hat einen generischen Typ `S`, der den Typ der _Befehlsquelle_ definiert.
 Die Befehlsquelle liefert einen Kontext, in dem ein Befehl ausgeführt wurde. In Minecraft ist die Befehlsquelle normalerweise ein `ServerCommandSource`, die einen Server, einen Befehlsblock, eine Remote-Verbindung (RCON), einen Spieler oder eine Entität darstellen kann.
 
-Die einzige Methode in `Command`, `run(CommandContext<S>)` nimmt einen `CommandContext<S>` als einzigen Parameter und gibt eine ganze Zahl zurück. Der Befehlskontext enthält die Befehlsquelle von `S` und ermöglicht es dir, Argumente zu erhalten, die geparsten Befehlsknoten zu betrachten und die in diesem Befehl verwendete Eingabe zu sehen.
+Die einzige Methode in `Command`, `run(CommandContext<S>)`, nimmt einen `CommandContext<S>` als einzigen Parameter und gibt eine ganze Zahl zurück. Der Befehlskontext enthält die Befehlsquelle von `S` und ermöglicht es dir, Argumente zu erhalten, die geparsten Befehlsknoten zu betrachten und die in diesem Befehl verwendete Eingabe zu sehen.
 
 Wie andere funktionale Interfaces wird es in der Regel als Lambda oder als Methodenreferenz verwendet:
 

@@ -14,10 +14,10 @@ Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
 ## 1. Herunterladen der Mod
 
 :::warning
-Du solltest Mods nur aus Quellen herunterladen, denen du vertraust. Für weitere Informationen über das Finden von Mods, siehe die Anleitung [Mods finden](./finding-mods.md).
+Du solltest Mods nur aus Quellen herunterladen, denen du vertraust. Weitere Informationen zum Finden von Mods findest du iim Leitfaden [Vertrauenswürdige Mods finden](./finding-mods.md).
 :::
 
-Der Großteil der Mods benötigt ebenfalls die Fabric API, die von [Modrinth](https://modrinth.com/mod/fabric-api) oder [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api) heruntergeladen werden kann
+Die meisten Mods benötigen auch die Fabric API, die von [Modrinth](https://modrinth.com/mod/fabric-api) oder [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api) heruntergeladen werden kann.
 
 Stelle beim Herunterladen von Mods sicher, dass:
 

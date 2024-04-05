@@ -1,15 +1,15 @@
 ---
-title: Erstelle eigene Partikel
-description: Lerne, wie man eigene Partikel mit der Fabric API erstellt.
+title: Benutzerdefinierte Partikel erstellen
+description: Lerne, wie man benutzerdefinierte Partikel mit der Fabric API erstellt.
 authors:
   - Superkat32
 ---
 
-# Erstelle eigene Partikel
+# Benutzerdefinierte Partikel erstellen
 
-Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosphäre verleihen oder einem spannenden Kampf gegen einen Endgegner mehr Spannung verleihen. Lasst uns einen hinzufügen!
+Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosphäre oder einem spannenden Kampf gegen einen Endgegner mehr Spannung verleihen. Lasst uns einen hinzufügen!
 
-## Einen eigenen Partikel registrieren
+## Einen benutzerdefinierten Partikel registrieren
 
 Wir werden einen neuen Glitzerpartikel hinzufügen, der die Bewegung eines Partikels des Endstabs nachahmt.
 
@@ -25,7 +25,7 @@ Nachdem du den Partikel im `ModInitializer` Einstiegspunkt registriert hast, mus
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
-In diesem Beispiel registrieren wir unseren Partikel auf der Client-seitig. Dann geben wir dem Partikel ein wenig Bewegung, indem wir die Factory des Endstabpartikels benutzen. Das bedeutet, dass sich unser Partikel genau wie ein Partikel eines Endstabs bewegt.
+In diesem Beispiel registrieren wir unseren Partikel Client-seitig. Dann geben wir dem Partikel ein wenig Bewegung, indem wir die Factory des Endstabpartikels benutzen. Das bedeutet, dass sich unser Partikel genau wie ein Partikel eines Endstabs bewegt.
 
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
@@ -38,10 +38,10 @@ Visual Studio Codes Hotkey: Strg+F12
 
 Du musst 2 Ordner in deinem `resources/assets/<mod id here>/` Ordner erstellen.
 
-| Ordnerpfad           | Erklärung                                                                        |
-| -------------------- | -------------------------------------------------------------------------------- |
-| `/textures/particle` | Der Ordner `particle` wird alle Texturen für alle deine Partikel enthalten.      |
-| `/particles`         | Der Ordner `particles` wird alle JSON-Dateien für alle deine Partikel enthalten. |
+| Ordnerpfad           | Erklärung                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| `/textures/particle` | Der Ordner `particle` wird jegliche Texturen für alle deine Partikel enthalten.      |
+| `/particles`         | Der Ordner `particles` wird jegliche JSON-Dateien für alle deine Partikel enthalten. |
 
 Für dieses Beispiel werden wir nur eine Textur in `textures/particle` haben, die "sparkle_particle_texture.png" heißt.
 
@@ -66,7 +66,7 @@ Du kannst überprüfen, ob alles funktioniert hat, indem du den folgenden Befehl
 ![Vorführung des Partikels](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
 :::info
-Mit diesem Befehl wird der Partikel im Spieler spawnen. Du wirst möglicherweise rückwärts gehen müssen, um ihn zu sehen.
+Mit diesem Befehl wird der Partikel im Spieler erzeugt. Du wirst möglicherweise rückwärts gehen müssen, um ihn zu sehen.
 :::
 
-Alternativ kannst du auch einen Befehlsblock verwenden, um den Partikel mit genau demselben Befehl zu erschaffen.
+Alternativ kannst du auch einen Befehlsblock verwenden, um den Partikel mit genau demselben Befehl zu erzeugen.

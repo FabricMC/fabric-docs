@@ -59,16 +59,16 @@ Los siguientes elementos de `VertexFormat` están disponibles:
 
 El modo de dibujado define como son dibujados los datos. Los siguientes modos de dibujado están disponibles:
 
-| Modo de Dibujado            | Descripción                                                                                                                                |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `DrawMode.LINES`            | Cada elemento está compuesto de 2 vértices y es representado como una sola línea.                                                          |
+| Modo de Dibujado            | Descripción                                                                                                                                                                |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DrawMode.LINES`            | Cada elemento está compuesto de 2 vértices y es representado como una sola línea.                                                                          |
 | `DrawMode.LINE_STRIP`       | El primer elemento requiere 2 vértices. Elementos adicionales son dibujados con un solo nuevo vértice, creando una línea continua.         |
-| `DrawMode.DEBUG_LINES`      | Similar a `DrawMode.LINES`, pero la línea es siempre exactamente un pixel de ancho en la pantalla.                                         |
-| `DrawMode.DEBUG_LINE_STRIP` | Similar a `DrawMode.LINE_STRIP`, pero las líneas son siempre un pixel de ancho.                                                            |
-| `DrawMode.TRIANGLES`        | Cada elemento está compuesto de 3 vértices, formando un triángulo.                                                                         |
+| `DrawMode.DEBUG_LINES`      | Similar a `DrawMode.LINES`, pero la línea es siempre exactamente un pixel de ancho en la pantalla.                                                         |
+| `DrawMode.DEBUG_LINE_STRIP` | Similar a `DrawMode.LINE_STRIP`, pero las líneas son siempre un pixel de ancho.                                                                            |
+| `DrawMode.TRIANGLES`        | Cada elemento está compuesto de 3 vértices, formando un triángulo.                                                                                         |
 | `DrawMode.TRIANGLE_STRIP`   | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo usando los dos últimos vértices. |
 | `DrawMode.TRIANGLE_FAN`     | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo con el primer y último vértice.  |
-| `DrawMode.QUADS`            | Cada elemento está formado de 4 vértices, formando un cuadrilátero.                                                                        |
+| `DrawMode.QUADS`            | Cada elemento está formado de 4 vértices, formando un cuadrilátero.                                                                                        |
 
 ### Escribir datos para el `BufferBuilder`
 

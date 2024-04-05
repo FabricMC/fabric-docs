@@ -3,11 +3,12 @@ title: Codecs
 description: Una guía completa para entender y usar el sistema de codecs de Mojang para la serialización y deserialización de objetos.
 authors:
   - enjarai
+  - Syst3ms
 ---
 
 # Codecs
 
-Los Codecs es un sistema para la facil serialización de objetos de Java, el cual viene incluido en la librería de DataFixerUpper (DFU) de Mojang, el cual es incluido en Minecraft. En el contexto de desarrollo de mods, pueden ser usados como una alternativa a GSON y Jankson a la hora de leer y escribir archivos json, aunque se están haciendo cada vez más y más relevantes, a medida que Mojang reescribe bastante código viejo para que use Codecs.
+Los Codecs es un sistema para la fácil serialización de objetos de Java, el cual viene incluido en la librería de DataFixerUpper (DFU) de Mojang, el cual es incluido en Minecraft. En el contexto de desarrollo de mods, pueden ser usados como una alternativa a GSON y Jankson a la hora de leer y escribir archivos json, aunque se están haciendo cada vez más y más relevantes, a medida que Mojang reescribe bastante código viejo para que use Codecs.
 
 Los codecs son usandos en conjunto con otro API de DFU, llamado `DynamicOps` (Operaciones Dinámicas). Un codec define la estructura de un objeto, mientras que un "dynamic ops" es usado para definir un formato con el cual (de) serializar, como json o NBT. Esto quiere decir que un codec puede user usado con cualquier "dynamic ops" y vice versa, permitiendo mayor flexibilidad.
 
@@ -54,7 +55,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 Como hemos mencionado anterioramente, Mojang ya tiene definido varios codecs para varias clases vanila y clases de Java estándares, como por ejemplo, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text`, y regex `Pattern`s (patrones regex). Los Codecs para las clases propias de Mojang usualmente se pueden encontrar como miembros estáticos con el nombre de `CODEC` en la clase misma, mientras que la mayoría de los demás se encuentran en la clase `Codecs`. Es importante saber que todos los registros vanila tienen un método `getCodec()`, por ejemplo, puedes usar `Registries.BLOCK.getCodec()` para tener un `Codec<Block>` el cual (de)serializa IDs de bloques.
 
-El api de Codec también tiene codecs para tipos primitivos, como `Codec.INT` y `Codec.STRING`. Estos se pueden encontrar como miembros estáticos en la clase `Codec`, y usualmente son la base de Codecs más complejos, como explicado a continuación.
+La API de Codec también tiene codecs para tipos de variable primitivos, como `Codec.INT` y `Codec.STRING`. Estos se pueden encontrar como miembros estáticos en la clase `Codec`, y usualmente son la base de Codecs más complejos, como explicado a continuación.
 
 ## Construyendo Codecs
 
@@ -125,7 +126,7 @@ Cada línea en el grupo especifica un codec, un nombre para el miembro, y el mé
 
 También puedes usar `Codec#optionalFieldOf` en este contexto para hacer un miembro opcional, como explicado en la sección de [Miembros Opcionales](#optional-fields).
 
-### MapCodec, sin ser confundido con Codec&lt;Map&gt;
+### MapCodec, sin ser confundido con Codec&amp;lt;Map&amp;gt;
 
 Llamar `Codec#fieldOf` convertirá un `Codec<T>` a un `MapCodec<T>`, el cual es una implementación variante, pero no directa de `Codec<T>`. Como su nombre lo indica, los `MapCodec`s garantizan la serialización a una asociación (map) llave a valor, o su equivalente en el `DynamicOps` usado. Algunas funciones pueden requerir una, en vez de un codec regular.
 
@@ -344,6 +345,50 @@ Nuestro nuevo codec serializará beans a json de esta manera, usando solo los ca
 {
   "type": "example:counting_bean",
   "counting_number": 42
+}
+```
+
+### Codecs Recursivos
+
+A veces es útil tener un codec que se use a _sí mismo_ para decodificar ciertos miembros, por ejemplo cuando estamos lidiando con ciertas estructuras de datos recursivas. En el código vanilla, esto es usado para objetos `Text` (Texto), los cuales tienen otros objetos `Text` como hijos. Tal codec puede ser construido usando `Codecs#createRecursive`.
+
+Por ejemplo, tratemos de serializar una lista enlazada. Esta manera de representar listas consiste en varios nodos que contienen un valor y una referencia al siguiente nodo en la lista. La lista es entonces representada mediante el primer nodo, y para caminar por la lista se sigue el siguiente nodo hasta que no quede ninguno. Aquí está una implementación simple de los nodos que guardan números enteros.
+
+```java
+public record ListNode(int value, ListNode next) {}
+```
+
+No podemos construir un codec para esto mediante métodos ordinarios, porque ¿qué codec usaríamos para el miembro de `next`? ¡Tendríamos que usar un `Codec<ListNode>`, que es lo que estamos construyendo actualmente! `Codecs#createRecursive` nos permite lograr eso con una expresión lambda mágica:
+
+```java
+Codec<ListNode> codec = Codecs.createRecursive(
+  "ListNode", // a name for the codec
+  selfCodec -> {
+    // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
+    // This lambda should return the codec we wanted to use from the start,
+    // that refers to itself through `selfCodec`
+    return RecordCodecBuilder.create(instance ->
+      instance.group(
+        Codec.INT.fieldOf("value").forGetter(ListNode::value),
+         // the `next` field will be handled recursively with the self-codec
+        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
+      ).apply(instance, ListNode::new)
+    );
+  }
+);
+```
+
+Un `ListNode` serializado se podría ver algo así:
+
+```json
+{
+  "value": 2,
+  "next": {
+    "value": 3,
+    "next" : {
+      "value": 5
+    }
+  }
 }
 ```
 

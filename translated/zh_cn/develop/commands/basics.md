@@ -14,6 +14,7 @@ authors:
   - haykam
   - mschae23
   - treeways
+  - xpple
 ---
 
 # 创建命令
@@ -21,7 +22,7 @@ authors:
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和Brigadier的一般命令结构。
 
 :::info
-Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https\://github.com/Mojang/brigadier
+Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https://github.com/Mojang/brigadier
 :::
 
 ### `Command` 接口
@@ -39,7 +40,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-该整型数字可以被认为是命令的执行结果。 一般来讲负值意味着命令执行失败并且不会做任何事情。 结果是`0`意味着命令通过（正确但不做任何事情）。 正数意味着命令成功执行并且做了些事情。 Brigadier 提供了一个常量来指示成功： `Command#SINGLE_SUCCESS`。
+该整型数字可以被认为是命令的执行结果。 通常，小于或等于零的值表示命令失败并将继续执行并且什么也不做。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。
 
 #### `ServerCommandSource` 可以做什么？
 
@@ -48,6 +49,10 @@ Command<ServerCommandSource> command = context -> {
 您可以通过在 `CommandContext` 实例上调用 `getSource()` 方法来获得命令上下文中的命令源。
 
 ```java
+Command<ServerCommandSource> command = context -> {
+    ServerCommandSource source = context.getSource(); 
+    return 0;
+};
 ```
 
 ### 注册一个基本命令
