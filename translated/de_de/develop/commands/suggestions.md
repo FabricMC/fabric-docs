@@ -15,7 +15,7 @@ Ein `SuggestionProvider` wird verwendet, um eine Liste von Vorschlägen zu erste
 
 ## Verwenden von Vorschlaganbietern
 
-Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` entgegen und gibt einen neuen Argument Builder mit dem angehängten Vorschlaganbieter zurück.
+Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` und gibt den geänderten Argument Builder mit dem angehängten Suggestion Provider zurück.
 
 @[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -23,8 +23,8 @@ Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem
 
 Es gibt einige eingebaute Vorschlaganbieter, du verwenden kannst:
 
-| Vorschlaganbieter                         | Beschreibung                                              |
-| ----------------------------------------- | --------------------------------------------------------- |
+| Vorschlaganbieter                         | Beschreibung                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------- |
 | `SuggestionProviders.SUMMONABLE_ENTITIES` | Schläft alle Entitäten vor, die beschworen werden können. |
 | `SuggestionProviders.AVAILABLE_SOUNDS`    | Schlägt alle Klänge vor, die abgespielt werden können.    |
 | `LootCommand.SUGGESTION_PROVIDER`         | Zeigt alle verfügbaren Loottabellen an.                   |
