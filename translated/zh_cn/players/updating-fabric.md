@@ -38,4 +38,4 @@ authors:
 
 完成这些步骤后，您可以回到 `Play` 选项，从左下角的下拉菜单中选择 Fabric 配置文件，然后按下启动按钮！
 
-If you encounter any issues whilst following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+如果您在遵循本指南时遇到任何问题，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道中寻求帮助。

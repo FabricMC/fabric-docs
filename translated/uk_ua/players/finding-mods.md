@@ -29,6 +29,6 @@ authors:
 
 Існує багато веб-сайтів, які стверджують, що мають моди для Minecraft, але насправді це лише сайти з вірусами. Вам слід оминати подібні сайти.
 
-Ви можете використовувати антивіруси або веб-сайти, такі як [Windows Defender](https://www.microsoft.com/en-us/windows/windows-defender) або [VirusTotal](https://www.virustotal.com/) щоб перевіряти завантажені моди. Але не покладайтеся повністю на них, тому що вони не завжди коректні.
+Ви можете використовувати антивіруси або вебсайти, такі як [Windows Defender](https://www.microsoft.com/en-us/windows/comprehensive-security) або [VirusTotal](https://www.virustotal.com/) щоб перевіряти завантажені моди. Але не покладайтеся повністю на них, тому що вони не завжди коректні.
 
 Знову ж таки, якщо ви сумніваєтеся, ви можете запитати в [Діскорд сервері Fabric](https://discord.gg/v6v4pMv) в каналі `#player-support`.

@@ -24,7 +24,7 @@ Mod più nuove potrebbero richiedere una versione più recente del Loader di Fab
 
 Per aggiornare Fabric, assicurati semplicemente che la versione del gioco e quella del loader siano corrette poi clicca `Install`.
 
-**Assicurati di deselezionare 'Crea Profilo' quando esegui l'installer, altrimenti creerà un nuovo profilo che, in questo caso, non ci serve.**
+**Assicurati di deselezionare 'Crea Profilo' quando esegui l'installer, altrimenti creerà un nuovo profilo, che in questo caso non ci serve.**
 
 ## 3. Apri il Profilo nel Minecraft Launcher
 
