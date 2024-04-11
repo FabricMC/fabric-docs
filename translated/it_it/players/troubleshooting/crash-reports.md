@@ -41,7 +41,7 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella lettura. Tuttavia, contengono tante informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
-Per questa guida, useremo la [segnalazione di crash seguente come esempio.](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt)
+Per questa guida, utilizzeremo [questo crash report come esempio](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
 ### Sezioni della Segnalazione di Crash
 

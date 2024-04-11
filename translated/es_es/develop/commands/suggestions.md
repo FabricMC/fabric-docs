@@ -23,8 +23,8 @@ Para usar un proveedor de sugerencias, tienes que llamar el método `suggests` e
 
 Hay algunos proveedores de sugerencias incluidos que puedes usar:
 
-| Proveedor de Sugerencias                  | Descripción                                                                              |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Proveedor de Sugerencias                  | Descripción                                                                                              |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `SuggestionProviders.SUMMONABLE_ENTITIES` | Sugiere todas las entidades que pueden ser convocadas.                                   |
 | `SuggestionProviders.AVAILABLE_SOUNDS`    | Sugiere todos los efectos de sonido que pueden ser reproducidos.                         |
 | `LootCommand.SUGGESTION_PROVIDER`         | Sugiere todas las loot tables (tablas de loot) que están disponibles. |

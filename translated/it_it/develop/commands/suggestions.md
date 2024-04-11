@@ -15,7 +15,7 @@ Un `SuggestionProvider` viene usato per fare una lista di suggerimenti che verr�
 
 ## Usare i Suggestion Providers
 
-Per usare un suggestion provider, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo prende un `SuggestionProvider` e restituisce un nuovo costruttore di comandi con il suggestion provider aggiunto.
+Per usare un suggestion provider, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo prende un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
 @[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -23,8 +23,8 @@ Per usare un suggestion provider, devi chiamare il metodo `suggests` nel costrut
 
 Ci sono alcuni suggestion providers già disponibili (built-in) che puoi usare:
 
-| Suggestion Provider                       | Descrizione                                             |
-| ----------------------------------------- | ------------------------------------------------------- |
+| Suggestion Provider                       | Descrizione                                                             |
+| ----------------------------------------- | ----------------------------------------------------------------------- |
 | `SuggestionProviders.SUMMONABLE_ENTITIES` | Suggerisce tutte le entità che possono essere evocate.  |
 | `SuggestionProviders.AVAILABLE_SOUNDS`    | Suggerisce tutti i suoni che possono essere riprodotti. |
 | `LootCommand.SUGGESTION_PROVIDER`         | Suggerisce tutto le loot table che sono disponibili.    |

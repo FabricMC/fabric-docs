@@ -8,7 +8,7 @@ authors:
 
 # Codec
 
-Un codec è un sistema per serializzare gli oggetti java facilmente, ed è incluso nella libreria DataFixerUpper (DFU) di Mojang, che è inclusa con Minecraft. Nel contesto del modding essi possono essere utilizzati come un'alternativa a GSON e Jankson quando si leggono e si scrivono file json personalizzati, anche se hanno cominciato a diventare sempre più rilevanti, visto che Mojang sta riscrivendo molto suo codice in modo che utilizzi i Codec.
+Un codec è un sistema per serializzare facilmente oggetti Java, ed è incluso nella libreria DataFixerUpper (DFU) di Mojang, che è inclusa in Minecraft. Nel contesto del modding essi possono essere utilizzati come un'alternativa a GSON e Jankson quando si leggono e si scrivono file json personalizzati, anche se hanno cominciato a diventare sempre più rilevanti, visto che Mojang sta riscrivendo molto suo codice in modo che utilizzi i Codec.
 
 I Codec vengono usati assieme ad un'altra API da DFU, `DynamicOps`. Un codec definisce la struttura di un oggetto, mentre i dynamic ops vengono usati per definire un formato da cui e a cui essere serializzato, come json o NBT. Questo significa che qualsiasi codec può essere utilizzato con qualsiasi dynamic ops, e viceversa, permettendo una grande flessibilità.
 
@@ -38,7 +38,7 @@ Quindi prendiamo il nostro valore serializzato e ritrasformiamolo nuovamente in 
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
 // Qui abbiamo il nostro valore json, che dovrebbe corrispondere a `[1, 2, 3]`,
-// poiché quello è il formato usato dal codec di BlockPos.
+// poiché quello è il formato utilizzato dal codec di BlockPos.
 LOGGER.info("BlockPos serializzato: {}", json);
 
 // Ora deserializzeremo nuovamente il JsonElement in un BlockPos
@@ -47,7 +47,7 @@ DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 // Ancora, prenderemo soltanto il nostro valore dal risultato
 BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// E possiamo vedere che abbiamo serializzato e deserializzato il nostro BlockPos con successo!
+// E possiamo notare che abbiamo serializzato e deserializzato il nostro BlockPos con successo!
 LOGGER.info("BlockPos deserializzato: {}", pos);
 ```
 
@@ -55,7 +55,7 @@ LOGGER.info("BlockPos deserializzato: {}", pos);
 
 Come menzionato in precedenza, Mojang ha già definito codec per tante classi Java vanilla e standard, incluse, ma non solo, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text`, e `Pattern` regex. I Codec per le classi di Mojang si trovano solitamente come attributi static chiamati `CODEC` della classe stessa, mentre molte altre sono mantenute nella classe `Codecs`. Bisogna anche sottolineare che tutte le registries vanilla contengono un metodo `getCodec()`, per esempio, puoi usare `Registries.BLOCK.getCodec()` per ottenere un `Codec<Block>` che serializza all'id del blocco e viceversa.
 
-L'API stessa dei codec contiene anche alcuni codec per tipi primitivi, come `Codec.INT` e `Codec.STRING`. Queste sono disponibili come statici nella classe `Codec`, e sono solitamente usate come base per codec più complessi, come spiegato sotto.
+L'API stessa dei Codec contiene anche alcuni codec per tipi primitivi, come `Codec.INT` e `Codec.STRING`. Queste sono disponibili come statici nella classe `Codec`, e sono solitamente usate come base per codec più complessi, come spiegato sotto.
 
 ## Costruire Codec
 
@@ -126,7 +126,7 @@ Ogni linea nel gruppo specifica un codec, il nome di un attributo, ed un metodo 
 
 Puoi anche utilizzare `Codec#optionalFieldOf` in questo contesto per rendere un attributo opzionale, come spiegato nella sezione [Attributi Opzionali](#attributi-opzionali).
 
-### MapCodec, da non confondere con Codec&lt;Map&gt;
+### MapCodec, da non confondere con Codec&amp;lt;Map&amp;gt;
 
 La chiamata a `Codec#fieldOf` convertirà un `Codec<T>` in un `MapCodec<T>`, che è una variante, ma non una diretta implementazione di `Codec<T>`. I `MapCodec`, come suggerisce il loro nome garantiscono la serializzazione ad una mappa chiave-valore, o al suo equivalente nella `DynamicOps` utilizzata. Alcune funzioni ne potrebbero richiedere uno invece di un codec normale.
 
@@ -136,7 +136,7 @@ Questo modo particolare di creare un `MapCodec` racchiude sostanzialmente il val
 [1, 2, 3]
 ```
 
-Ma se viene convertito in un `MapCodec<BlockPos>` utilizzando \`BlockPos.CODEC.fieldOf("pos"), avrebbe il seguente aspetto:
+Ma se viene convertito in un `MapCodec<BlockPos>` utilizzando \\`BlockPos.CODEC.fieldOf("pos"), avrebbe il seguente aspetto:
 
 ```json
 {
@@ -181,7 +181,7 @@ Codec<Integer> theMeaningOfCodec = Codec.unit(42);
 Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 ```
 
-#### Pair
+#### Coppia
 
 `Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano ad un attributo specifico, come [MapCodec convertiti](#mapcodec-da-non-confondere-con-codecltmapgt) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
 Il codec risultante serializzerà ad una mappa contenente gli attributi di entrambi i codec utilizzati.
@@ -193,7 +193,7 @@ Per esempio, eseguire questo codice:
 Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
 Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
 
-// Uniscili in un pair codec
+// Uniscili in un codec coppia
 Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
 
 // Utilizzalo per serializzare i dati
@@ -394,5 +394,5 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
 
 ## Riferimenti
 
-- Una documentazione molto più dettagliata dei codec e delle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU (in inglese)](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
-- La struttura generale di questa guida è stata fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina orientata più verso Forge sullo stesso argomento.
+- Una documentazione molto più dettagliata sui codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU (in inglese)](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.

@@ -17,7 +17,7 @@ Per launcher di terze parti, dovresti consultare la loro documentazione.
 Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod](./finding-mods.md).
 :::
 
-La maggior parte delle mod richiede anche l'API di Fabric, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
+La maggior parte delle mod richiede anche Fabric API, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
 Quando scarichi delle mod, assicurati che:
 
