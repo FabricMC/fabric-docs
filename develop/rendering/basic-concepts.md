@@ -138,7 +138,7 @@ You can also multiply the top matrix on the stack using quaternions, which we wi
 Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the time that has passed since the last frame.
 
 ::: warning
-You must push and pop the matrix stack when you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 Make sure to push the matrix stack before you get a transformation matrix!
 :::
