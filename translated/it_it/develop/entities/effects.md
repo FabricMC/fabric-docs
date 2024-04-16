@@ -23,7 +23,7 @@ In questo tutorial aggiungeremo un nuovo effetto custom chiamto _Tater_ che dar�
 
 ### Estendere `StatusEffect`
 
-Creiamo una classe per il nostro effetto custom estendedo `StatusEffect`, che è la classe base per tutt gli effetti.
+Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect`, che è la classe base per tutti gli effetti.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
