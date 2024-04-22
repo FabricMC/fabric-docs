@@ -27,9 +27,9 @@ Inziamo dichiarando un attributo per conservare la tua istanza `Pozione`. Utiliz
 
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
-- `StatusEffect type` - Un effetto. Qui usiamo il nostro effetto custom. In alternativa puoi accedere agli effetti vanilla attraverso `net.minecraft.entity.effect.StatusEffects`.
+- `StatusEffect type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso `net.minecraft.entity.effect.StatusEffects`.
 - `int duration` - La durata dell'effetto espressa in game ticks.
-- `int amplifier` - Un amplificatore per l'effetto. Ad sempio, Sollecitudine II (Haste II) avrebbe un amplificatore di 1.
+- `int amplifier` - Un amplificatore per l'effetto. Ad sempio, Sollecitudine II avrebbe un amplificatore di 1.
 
 :::info
 Per creare il tuo effetto personalizzato, per favore guarda la guida [Effetti](../entities/effects.md).
@@ -43,7 +43,7 @@ Nel nostro initializer, chiamiamo `BrewingRecipeRegistry.registerPotionRecipe`.
 
 `registerPotionRecipe` prende 3 parametri:
 
-- `Potion input` - La pozione iniziale. Solitamente questo può essere una Ampolla d'Acqua (Water Bottle) o una Pozione Strana (Akward Potion).
+- `Potion input` - La pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
 - `Potion output` - La pozione risultante.
 
