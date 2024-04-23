@@ -11,7 +11,7 @@ Questa guida ti spiegherà come installare Java 17 su Windows.
 
 Il launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il Minecraft Server `.jar`.
 
-## 1. Controlla se Java sia già installato.
+## 1. Controlla se Java è già installato.
 
 Per controllare se Java è già installato devi prima aprire il prompt dei comandi.
 
@@ -26,7 +26,7 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se il comando di prima mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
+Per utilizzare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
 ## 2. Scarica l'installer per Java 17.
