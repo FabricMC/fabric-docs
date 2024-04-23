@@ -138,7 +138,7 @@ Puoi anche moltiplicare la matrice in cima allo stack usando i quaternioni, che 
 Usando l'esempio di prima, possiamo scalare il nostro diamante su e giù usando la `MatrixStack` e il `tickDelta` - che è il tempo passato dall'ultimo frame.
 
 ::: warning
-You must push and pop the matrix stack when you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 Assicurati di pushare la stack di matrci prima di prendere una matrice di trasformazione!
 :::
