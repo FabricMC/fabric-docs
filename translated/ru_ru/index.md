@@ -7,9 +7,9 @@ hero:
   name: Документация Fabric
   tagline: Официальная поддерживаемая документация для Fabric - инструментарий моддинга для Minecraft.
 features:
-  - title: Developer Guides
+  - title: Гайды для разработчиков
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: Наши подготовленные сообществом гайды для разработчиков охватывают широкий спектр тем - от настройки среды разработки до более сложных тем, таких как рендеринг и сетевое взаимодействие.
     link: /ru_ru/develop/
     linkText: Начать
   - title: Гайды для игроков
@@ -23,6 +23,6 @@ features:
 
 ## Хотите помочь?
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
+Если вы хотите внести свой вклад в документацию Fabric, вы можете найти исходный код на [GitHub](https://github.com/FabricMC/fabric-docs) и соответствующие [рекомендации по помощи.](/contributing)
 
 </div>
