@@ -64,64 +64,63 @@ I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito 
 Per informazioni su come registrare i callback, vedi per favore la guida [Eventi](../events.md).
 :::
 
-L'evento dovrebbe essere registrato nel tuo mod initializer.
+L'evento dovrebbe essere registrato nell'initializer della tua mod.
 
 La callback ha tre parametri:
 
 - `CommandDispatcher<ServerCommandSource> dispatcher` - Usato per registrare, analizzare, ed eseguire comandi. `S` è il tipo di fonte di comando (command source) che il dispatcher supporta.
-- `CommandRegistryAccess registryAccess` - Fornice un'astrazione per i registri che potrebbero essere passati ad alcuni argomenti di metodi di comandi
-- `CommandManager.RegistrationEnvironment environment` - Identifica il tipo di server su cui i comandi verrano registrati.
+- `CommandRegistryAccess registryAccess` - Fornisce un'astrazione per le registry che potrebbero essere passate ad alcuni argomenti di metodi di comandi
+- `CommandManager.RegistrationEnvironment environment` - Identifica il tipo di server su cui i comandi vengono registrati.
 
-Nel mod initializer, registriamo un semplice comando:
+Nell'initializer della mod, registriamo un semplice comando:
 
 @[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-Nel metodo `sendFeedback()` il primo parametro è il testo che viene mandato, che è un `Supplier<Text>` per evitare di instanziare oggetti Text quando non è necessario.
+Nel metodo `sendFeedback()` il primo parametro è il testo che viene mandato, che è un `Supplier<Text>` per evitare di istanziare oggetti Text quando non è necessario.
 
-Il secondo parametro determina se fare un broadcast del feedback agli altri operatori. Generalmente, se il comando deve ottenere informazioni senza modificare il mondo, come l'ottenere il tempo di gioco, o una statistica di un giocatore, dovrebbe essere `false`. Se il comando fa qualcosa, come cambiare il tempo o modica il punteggio di qualcuno, dovrebbe essere `true`.
+Il secondo parametro determina se fare un broadcast del feedback agli altri operatori. Generalmente, se il comando deve ottenere informazioni senza modificare il mondo, come l'ottenere il tempo di gioco, o una statistica di un giocatore, dovrebbe essere `false`. Se il comando fa qualcosa, come cambiare il tempo o modificare il punteggio di qualcuno, dovrebbe essere `true`.
 
-Se il comando fallisce, anziché chiamare `sendFeedback()`, puoi direttamente fare un throw di un exception e il server o il client la gestiranno in modo appropriato.
+Se il comando fallisce, anziché chiamare `sendFeedback()`, puoi direttamente lanciare qualsiasi eccezione e il server o il client la gestiranno in modo appropriato.
 
-`CommandSyntaxException` generalmente viene restituita per indicare errori di sintassi nel comando o negli argomenti. Puoi anche implementare la tua exception personalizzata.
+`CommandSyntaxException` generalmente viene restituita per indicare errori di sintassi nel comando o negli argomenti. Puoi anche implementare la tua eccezione personalizzata.
 
-Per eseguire questo comando, devi scrivere `/foo`, che è case-sensitive.
+Per eseguire questo comando, devi scrivere `/foo`, tutto minuscolo.
 
 #### Ambiente di Registrazione
 
-Se vuoi, puoi anche assicuratrti che un comando venga registrato sotto circostanze specifiche, per esempio solo nell'ambiente del server dedicato:
+Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circostanze specifiche, per esempio, solo nell'ambiente dedicato:
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 #### Requisiti dei Comandi
 
-Diciamo che hai un comando, e vuoi sia disponibile solo agli operatori. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento di un `Predicate<S>` che fornirà un `ServerCommandSource` da testare e determinare se il `CommandSource` può eseguire il comando.
+Diciamo che hai un comando, e vuoi sia disponibile solo agli operatori. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `ServerCommandSource` con cui testare e determinare se la `CommandSource` può eseguire il comando.
 
 @[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-Questo comando verrà eseguito solo se la sua fonte è un operatore di livello 2 come minimo, command block inclusi. Altrimenti, il comando non è registrato.
+Questo comando verrà eseguito solo se la fonte del comando è un operatore di livello 2 almeno, inclusi i blocchi comandi. Altrimenti, il comando non è registrato.
 
-Questo ha l'effetto collaterale di non far vedere il comando nella completazione tab a nessuno che non sia un operatore di livello 2. Inoltre è il motivo per cui non puoi tab-completare molti dei comandi senza abilitare i trucchi.
+Questo ha l'effetto collaterale di non mostrare il comando se si completa con tab a nessuno eccetto operatori di livello 2. Inoltre è il motivo per cui non puoi completare molti dei comandi con tab senza abilitare i cheats.
 
 #### Sotto Comandi
 
-Per aggiungere un sotto comando, devi registrare prima un nodo literal del comando normalmente. Per avere un sotto coamndo, devi aggiungere il prossimo nodo literal al nodo esistente.
+Per aggiungere un sotto comando, devi registrare il primo nodo letterale del comando normalmente. Per avere un sotto comando, devi aggiungere il nodo letterale successivo al nodo esistente.
 
 @[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-Similarmente agli argomenti, i nodi dei sottocomandi posso anch'essi essere opzionali. Nel caso seguente, sia `/subtater`
-che `/subtater subcommand` saranno validi.
+Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere opzionali. Nel caso seguente, sia `/subtater` che `/subtater subcommand` saranno validi.
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Comandi lato Client
+### Comandi Lato Client
 
-Fabric API ha una classe `ClientCommandManager` nel package `net.fabricmc.fabric.api.client.command.v2` che può essere usata per registrare comandi lato client. Il codice dovrebbe esistere solo nel codice lato client.
+Fabric API ha un `ClientCommandManager` nel package `net.fabricmc.fabric.api.client.command.v2` che può essere usato per registrare comandi lato client. Il codice dovrebbe esistere solo nel codice lato client.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ### Reindirizzare Comandi
 
-Reindirizzazio di Comandi - conosciuti anche come alias - sono un modo per reindirizzare la funzionalità di un comando ad un altro. Questo è utile quando vuoi cambiare il nome di un comando, ma vuoi comunque supportare il vecchio nome.
+La reinderizzazione dei comandi - anche nota come alias - è un modo di reindirizzare la funzionalità di un comando ad un altro. Questo è utile quando vuoi cambiare il nome di un comando, ma vuoi comunque supportare il vecchio nome.
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
@@ -131,10 +130,10 @@ Reindirizzazio di Comandi - conosciuti anche come alias - sono un modo per reind
 
 ###### Perché il mio codice non viene compilato?
 
-- Fare un catch o un throw di `CommandSyntaxException` - `CommandSyntaxException` non è una `RuntimeException`. Se fai un throw di questa exception, dovresti farlo in metodi che fanno un throw di `CommandSyntaxException`, oppure dovresti fare un catch della stessa.
-  Brigadier gestierà le exception controllate e manderà il messaggio d'errore effettivo nel gioco per te.
+- Catturare o lanciare una `CommandSyntaxException` - `CommandSyntaxException` non è una `RuntimeException`. Se la lanci, dovresti farlo in metodi che lanciano una `CommandSyntaxException` nelle firme dei metodi, oppure dovresti catturarla.
+  Brigadier gestirà le eccezioni controllate e ti inoltrerà il messaggio d'errore effettivo nel gioco.
 
-- Problemi con i generic - Potresti avere un problem con i generics una volta ogni tanto. Se stai registrando comandi sul server (ovvero nella maggior parte dei casi), assicurati di star usando `CommandManager.literal`
+- Problemi con i generics - Potresti avere un problema con i generics una volta ogni tanto. Se stai registrando comandi sul server (ovvero nella maggior parte dei casi), assicurati di star usando `CommandManager.literal`
   o `CommandManager.argument` anzichè `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
 - Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore boolean come secondo argomento. Ricordanti anche che, da minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Text`.
@@ -149,7 +148,7 @@ you wish to its `CommandDispatcher`.
 
 Dopo averlo fatto, devi mandare l'albero di comandi ad ogni giocatore nuovamente usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
 
-Questo è necessario perché il client tiene delle cache locali dell'albero di comando che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per messaggi di errori ricchi e completi.
+Questo è necessario perché il client tiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
 
 ###### Posso de-registrare comandi al runtime?
@@ -158,7 +157,7 @@ Questo è necessario perché il client tiene delle cache locali dell'albero di c
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuove nodi. Dopodiché, devi mandare l'albero di comandi ad ogni player di nuovo usando `sendCommandTree(ServerPlayerEntity)`.
+Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuovere nodi. Dopodiché, devi mandare nuovamente l'albero di comandi ad ogni giocatore usando `sendCommandTree(ServerPlayerEntity)`.
 
-Se non mandi l'albero di comandi aggiornato, il client potrebbe pensare che il comando esiste ancora, anche se il server fallisce l'esecuzione.
+Se non mandi l'albero di comandi aggiornato, il client potrebbe credere che il comando esista ancora, anche se fallirà l'esecuzione sul server.
 :::
