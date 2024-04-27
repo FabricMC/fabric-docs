@@ -28,8 +28,8 @@ Inziamo dichiarando un attributo per conservare la tua istanza `Pozione`. Utiliz
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
 - `StatusEffect type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso `net.minecraft.entity.effect.StatusEffects`.
-- `int duration` - La durata dell'effetto espressa in game ticks.
-- `int amplifier` - Un amplificatore per l'effetto. Ad sempio, Sollecitudine II avrebbe un amplificatore di 1.
+- `int duration` - Durata dell'effetto espressa in tick di gioco.
+- `int amplifier` - Un amplificatore per l'effetto. Per esempio, Sollecitudine II avrebbe un amplificatore di 1.
 
 :::info
 Per creare il tuo effetto personalizzato, per favore guarda la guida [Effetti](../entities/effects.md).
@@ -47,25 +47,25 @@ Nel nostro initializer, chiamiamo `BrewingRecipeRegistry.registerPotionRecipe`.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
 - `Potion output` - La pozione risultante.
 
-Se utilizzi Fabric API, il mixin invoker non è necessario, ed una chiamata diretta a `BrewingRecipeRegistry.registerPotionRecipe` può essere fatta.
+Se utilizzi l'API di Fabric, l'invoker mixin non è necessario e si può effettuare una chiamata diretta a `BrewingRecipeRegistry.registerPotionRecipe`.
 
 L'esempio per intero:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-Una volta registrato, puoi distillare una pozione di Tater usando una patata.
+Una volta registrato, puoi distillare una pozione Tater usando una patata.
 
 ![Effetto nell'inventario del giocatore](/assets/develop/tater-potion.png)
 
 ::: info
 **Registering Potions Using an `Ingredient`**
 
-Con l'aiuto di Fabric API, è possibile registrare una pozione usando un `Ingrediente` anziché un `Item` (oggetto) usando `
+Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingrediente` anziché un `Item` usando `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 
-### Registrare la Pozione senza Fabric API
+### Registrare la Pozione senza l'API di Fabric
 
-Senza Fabric API, `BrewingRecipeRegistry.registerPotionRecipe` sarà privato. Per accedere a questo metodo usa il seguente mixin invoker o un Access Widener.
+Senza l'API di Fabric, `BrewingRecipeRegistry.registerPotionRecipe` sarà privato. Per accedere a questo metodo usa il seguente invoker mixin o usa un Access Widener.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
