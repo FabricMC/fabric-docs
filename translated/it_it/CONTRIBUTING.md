@@ -12,7 +12,7 @@ Questo sito usa [VitePress](https://vitepress.vuejs.org/) per generare HTML stat
     - [Guida per l'Espansione](#guida-per-l-espansione)
     - [Verifica dei Contenuti](#verifica-dei-contenuti)
     - [Pulizia](#pulizia)
-  - [Tradurre la Documentazione](#translating-documentation)
+  - [Tradurre la Documentazione](#tradurre-la-documentazione)
 
 ## Come Contribuire
 
@@ -178,4 +178,4 @@ Questa fase è quella dove il team della documentazione correggerà ogni errore 
 
 ## Tradurre la Documentazione
 
-Se vuoi tradurre la documentazione nella tua lingua, puoi farlo nella [Pagina Crowdin di Fabric](https://crowdin.com/project/fabricmc).
+Se vuoi tradurre la documentazione nella tua lingua, puoi farlo nella [pagina Crowdin di Fabric](https://crowdin.com/project/fabricmc).
