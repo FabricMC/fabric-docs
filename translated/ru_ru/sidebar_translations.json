@@ -1,5 +1,5 @@
 {
-  "players.title": "Гайды для игроков",
+  "players.title": "Руководства для игроков",
   "players.faq": "Часто задаваемые вопросы",
   "players.installingJava": "Установка Java",
   "players.installingJava.windows": "Windows",
@@ -12,7 +12,7 @@
   "players.troubleshooting.uploadingLogs": "Загрузка логов",
   "players.troubleshooting.crashReports": "Краш-репорты",
   "players.updatingFabric": "Обновление Fabric",
-  "develop.title": "Гайды для разработчиков",
+  "develop.title": "Руководства для разработчиков",
   "develop.gettingStarted": "Начало работы",
   "develop.gettingStarted.introduction": "Начало работы с Fabric и создание модификаций",
   "develop.gettingStarted.devEnvSetup": "Настройка среды разработки",
