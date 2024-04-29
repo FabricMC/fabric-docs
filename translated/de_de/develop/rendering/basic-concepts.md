@@ -138,7 +138,7 @@ Du kannst auch die oberste Matrix auf dem Stapel mit Quaternionen multiplizieren
 Ausgehend von unserem obigen Beispiel können wir unseren Diamanten nach oben und unten skalieren, indem wir `MatrixStack` und `tickDelta` verwenden - das ist die Zeit, die seit dem letzten Frame vergangen ist.
 
 ::: warning
-You must push and pop the matrix stack when you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformationsmatrix erhältst!
 :::
