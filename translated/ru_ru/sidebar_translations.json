@@ -28,7 +28,7 @@
   "develop.commands.basics": "Создание команд",
   "develop.commands.arguments": "Аргументы",
   "develop.commands.suggestions": "Подсказки",
-  "develop.rendering": "Рендер",
+  "develop.rendering": "Отрисовка",
   "develop.rendering.basicConcepts": "Основные концепции рендера",
   "develop.rendering.drawContext": "Использование DrawContext",
   "develop.rendering.hud": "Рендер на экране",
@@ -39,7 +39,7 @@
   "develop.rendering.particles.creatingParticles": "Создание своих частиц",
   "develop.misc": "Прочие страницы",
   "develop.misc.codecs": "Кодеки",
-  "develop.misc.events": "Ивенты",
+  "develop.misc.events": "События",
   "develop.sounds": "Звуки",
   "develop.sounds.using-sounds": "Воспроизведение SoundEvents",
   "develop.sounds.custom": "Создание своих звуков"
