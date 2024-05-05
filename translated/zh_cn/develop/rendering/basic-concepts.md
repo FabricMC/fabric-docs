@@ -138,7 +138,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 从我们上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让我们的菱形放大和缩小。
 
 ::: warning
-You must push and pop the matrix stack when you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 在您获取变换矩阵前请确保向矩阵栈压入一个新的矩阵！
 :::
