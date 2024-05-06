@@ -11,7 +11,7 @@ authors:
 
 Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想使用 Fabric 的 `.jar` 安装程序，或者你想使用 Minecraft 服务器的 `.jar` 时有关。
 
-## 1. 验证 Java 是否已经安装。
+## 1. 检查 Java 是否已被安装。
 
 要检查 Java 是否已安装，你首先必须打开命令提示符。
 
@@ -26,7 +26,7 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 ![命令提示符中输入了「java -version」。](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-要使用大多数现代 Minecraft 版本，您至少需要安装 Java 17。 如果此命令显示版本低于 17，您需要更新您的现有 Java。
+要使用较新的 Minecraft (1.19.x 及以上) 版本，你至少需要安装版本 ≥ 17 的 Java。 如果运行该命令后显示 Java 版本低于 17，你需要更新设备上现有 Java。
 :::
 
 ## 2. 下载 Java 17 安装程序。
@@ -52,11 +52,11 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 完成后，你可以按 `下一步` 继续安装。
 
-## 4. 验证是否已安装 Java 17。
+## 4. 检查 Java 17 是否已被正确安装。
 
 安装完成后，您可以打开终端并输入 `java -version` 来验证 Java 17 是否已安装。
 
-如果指令成功执行，您可以看到类似前文所示的内容，java 版本被展示出来：
+如果命令成功执行，你可以看到类似前文所示的内容，Java 版本被显示出来：
 
 ![命令提示符中输入了「java -version」。](/assets/players/installing-java/windows-java-version.png)
 
