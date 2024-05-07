@@ -13,7 +13,7 @@ Le pozioni sono oggetti consumabili che conferiscono un effetto ad un'entità. U
 
 ## Pozioni Personalizzate
 
-Aggiungere una pozione è simile al metodo per aggiungere un oggetto. Dovrai creare un'istanza della tua pozione e registrarla chiamando `BrewingRecipeRegistry.registerPotionRecipe`.
+Aggiungere una pozione segue un percorso simile a quello per aggiungere un oggetto. Dovrai creare un'istanza della tua pozione e registrarla chiamando `BrewingRecipeRegistry.registerPotionRecipe`.
 
 :::info
 Quando Fabric API è presente, `BrewingRecipeRegistry.registerPotionRecipe` è reso disponibile attraverso un Access Widener.
@@ -21,7 +21,7 @@ Quando Fabric API è presente, `BrewingRecipeRegistry.registerPotionRecipe` è r
 
 ### Creare la Pozione
 
-Inziamo dichiarando un attributo per conservare la tua istanza `Pozione`. Utilizzeremo direttamente la classe dell'initializer per conservarla.
+Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Utilizzeremo direttamente la classe dell'initializer per conservarla.
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
