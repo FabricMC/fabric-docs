@@ -22,7 +22,7 @@ authors:
 Creare comandi può permettere ad uno sviluppatore di mod di aggiungere funzionalità che può essere utilizzata attraverso un comando. Questo tutorial ti insegnerà come registrare comandi e qual è la struttura generale dei comandi di Brigadier.
 
 :::info
-Brigadier è un parser ed un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un'albero di comandi e parametri. Brigadier è open source: https\://github.com/Mojang/brigadier
+Brigadier è un parser ed un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un'albero di comandi e parametri. Brigadier è open source: https://github.com/Mojang/brigadier
 :::
 
 ### L'interface `Command`
@@ -66,9 +66,9 @@ Per informazioni su come registrare i callback, vedi per favore la guida [Eventi
 
 L'evento dovrebbe essere registrato nell'initializer della tua mod.
 
-La callback ha tre parametri:
+Il callback ha tre parametri:
 
-- `CommandDispatcher<ServerCommandSource> dispatcher` - Usato per registrare, analizzare, ed eseguire comandi. `S` è il tipo di fonte di comando (command source) che il dispatcher supporta.
+- `CommandDispatcher<ServerCommandSource> dispatcher` - Usato per registrare, analizzare, ed eseguire comandi. `S` è il tipo di fonte di comando che il dispatcher supporta.
 - `CommandRegistryAccess registryAccess` - Fornisce un'astrazione per le registry che potrebbero essere passate ad alcuni argomenti di metodi di comandi
 - `CommandManager.RegistrationEnvironment environment` - Identifica il tipo di server su cui i comandi vengono registrati.
 
@@ -78,11 +78,11 @@ Nell'initializer della mod, registriamo un semplice comando:
 
 Nel metodo `sendFeedback()` il primo parametro è il testo che viene mandato, che è un `Supplier<Text>` per evitare di istanziare oggetti Text quando non è necessario.
 
-Il secondo parametro determina se fare un broadcast del feedback agli altri operatori. Generalmente, se il comando deve ottenere informazioni senza modificare il mondo, come l'ottenere il tempo di gioco, o una statistica di un giocatore, dovrebbe essere `false`. Se il comando fa qualcosa, come cambiare il tempo o modificare il punteggio di qualcuno, dovrebbe essere `true`.
+Il secondo parametro determina se trasmettere il feedback agli altri operatori. In generale, se il comando deve ottenere informazioni senza effettivamente modificare il mondo, come l'ottenere il tempo corrente o una statistica di un giocatore, dovrebbe essere `false`. Se il comando fa qualcosa, come cambiare il tempo o modificare il punteggio di qualcuno, dovrebbe essere `true`.
 
 Se il comando fallisce, anziché chiamare `sendFeedback()`, puoi direttamente lanciare qualsiasi eccezione e il server o il client la gestiranno in modo appropriato.
 
-`CommandSyntaxException` generalmente viene restituita per indicare errori di sintassi nel comando o negli argomenti. Puoi anche implementare la tua eccezione personalizzata.
+`CommandSyntaxException` generalmente viene lanciata per indicare errori di sintassi nel comando o negli argomenti. Puoi anche implementare la tua eccezione personalizzata.
 
 Per eseguire questo comando, devi scrivere `/foo`, tutto minuscolo.
 
@@ -94,7 +94,7 @@ Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circo
 
 #### Requisiti dei Comandi
 
-Diciamo che hai un comando, e vuoi sia disponibile solo agli operatori. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `ServerCommandSource` con cui testare e determinare se la `CommandSource` può eseguire il comando.
+Immagina di avere un comando e vuoi che solo gli operatori lo possano eseguire. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `ServerCommandSource` con cui testare e determinare se la `CommandSource` può eseguire il comando.
 
 @[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -124,7 +124,7 @@ La reinderizzazione dei comandi - anche nota come alias - è un modo di reindiri
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### FAQ (Domande Frequenti)
+### Domande Frequenti (FAQ)
 
 <br>
 
@@ -136,9 +136,9 @@ La reinderizzazione dei comandi - anche nota come alias - è un modo di reindiri
 - Problemi con i generics - Potresti avere un problema con i generics una volta ogni tanto. Se stai registrando comandi sul server (ovvero nella maggior parte dei casi), assicurati di star usando `CommandManager.literal`
   o `CommandManager.argument` anzichè `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
-- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore boolean come secondo argomento. Ricordanti anche che, da minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Text`.
+- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore booleano come secondo argomento. Ricordati anche che, da Minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Text`.
 
-- Un comando dovrebbe restituire un integer - Quando registri un comando, il metodo `executes()` accetta un oggetto `Command` che è solitamente una lambda. La lambda dovrebbe restituire un integer, anziché altri tipi.
+- Un Command dovrebbe restituire un intero - Quando registri comandi, il metodo `executes()` accetta un oggetto `Command`, che è solitamente una lambda. La lambda dovrebbe restituire un intero, anziché altri tipi.
 
 ###### Posso registrare comandi al runtime?
 
@@ -146,9 +146,9 @@ La reinderizzazione dei comandi - anche nota come alias - è un modo di reindiri
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Dopo averlo fatto, devi mandare l'albero di comandi ad ogni giocatore nuovamente usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+Dopo averlo fatto, devi nuovamente inviare l'albero di comandi ad ogni giocatore usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
 
-Questo è necessario perché il client tiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
+Questo è necessario perché il client mantiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
 
 ###### Posso de-registrare comandi al runtime?
