@@ -42,4 +42,4 @@ Per usare questo provider di suggerimenti, passeresti semplicemente una sua ista
 
 Ovviamente, i provider di suggerimenti possono essere più complessi, siccome possono anche leggere il contesto dei comandi per fornire suggerimenti basati sullo stato del comando - per esempio quali argomenti sono già stati forniti.
 
-Ciò potrebbe essere nella forma di leggere l'inventario del giocatore e suggerire oggetti, o entità che sono vicine al giocatore.
+Ciò potrebbe essere ad esempio leggere l'inventario del giocatore e suggerire oggetti, o entità che sono vicine al giocatore.
