@@ -25,7 +25,7 @@ Gli eventi sono agganci che soddisfano usi comuni e/o permettono compatibilità 
 
 L'API di Fabric fornisce eventi per aree importanti nel codice base di Minecraft ai quali molti modder potrebbero voler agganciarsi.
 
-Gli eventi sono rappresentati da istanze di `net.fabricmc.fabric.api.event.Event` che memorizza e chiama le _callback_. Spesso c'è una singola istanza di un evento per una callback, che è conservata in un attributo statico `EVENT` dell'interfaccia callback, ma ci sono anche altre organizzazioni. Per esempio, `ClientTickEvents` raggruppa vari eventi di tipi simili insieme.
+Gli eventi sono rappresentati da istanze di `net.fabricmc.fabric.api.event.Event` che memorizza e chiama le _callback_. Spesso c'è una singola istanza di un evento per una callback, che è conservata in un attributo statico `EVENT` dell'interfaccia callback, ma ci sono anche altre organizzazioni. Per esempio, `ClientTickEvents` raggruppa vari eventi legati insieme.
 
 ## Callback
 
@@ -33,7 +33,7 @@ I callback sono una parte di codice che viene passata come argomento a un evento
 
 ### Interfacce di Callback
 
-Ad ogni evento corrisponde un'interfaccia di callback, convenzionalmente chiamata `<EventName>Callback`. I callback sono registrati chiamando il metodo `register()` su un'istanza di un evento, con un'istanza dell'interfaccia callback come argomento.
+A ogni evento corrisponde un'interfaccia di callback, convenzionalmente chiamata `<EventName>Callback`. I callback sono registrati chiamando il metodo `register()` su un'istanza di un evento, con un'istanza dell'interfaccia callback come argomento.
 
 Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono essere trovate nel package `net.fabricmc.fabric.api.event`.
 
