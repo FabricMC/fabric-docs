@@ -16,7 +16,7 @@ Apri un terminale, e scrivi `java -version` e premi <kbd>Invio</kbd>.
 ![Terminale con scritto "java -version"](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
-Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se il comando di prima mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
+Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
 ## 2. Scaricare ed Installare Java 17

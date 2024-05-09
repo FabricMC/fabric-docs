@@ -1,5 +1,5 @@
 ---
-title: Einrichten einer Entwicklungsumgebung
+title: Entwicklungsumgebung einrichten
 description: Ein Schritt-für-Schritt-Leitfaden, wie man eine Entwicklungsumgebung für die Erstellung von Mods mit Fabric einrichtet.
 authors:
   - IMB11
@@ -18,7 +18,7 @@ authors:
 
 <!-- No GitHub profiles for: siglong -->
 
-# Einrichten einer Entwicklungsumgebung
+# Entwicklungsumgebung einrichten
 
 Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklungsumgebung mit IntelliJ IDEA einrichten.
 

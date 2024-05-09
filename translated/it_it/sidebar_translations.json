@@ -29,7 +29,7 @@
   "develop.commands.arguments": "Argomenti",
   "develop.commands.suggestions": "Suggerimenti",
   "develop.rendering": "Rendering",
-  "develop.rendering.basicConcepts": "Concetti di Rendering di base",
+  "develop.rendering.basicConcepts": "Concetti Base del Rendering",
   "develop.rendering.drawContext": "Usare il Drawing Context",
   "develop.rendering.hud": "Rendering nella Hud",
   "develop.rendering.gui": "GUI e Screens",

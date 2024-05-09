@@ -51,4 +51,4 @@ Logs können bei einer Vielzahl von Diensten hochgeladen werden, zum Beispiel:
 
 - [Pastebin](https://pastebin.com/)
 - [GitHub Gist](https://gist.github.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

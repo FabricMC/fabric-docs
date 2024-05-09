@@ -9,7 +9,7 @@ hero:
 features:
   - title: Guide per Sviluppatori
     icon: 🛠️
-    details: Le nostre guide, scritte dalla community, coprono un ampio range di argomenti, dal setup di ambimente di sviluppo, ad argomenti più avanzati, come il rendering ed il networking.
+    details: Le nostre guide, scritte dalla community, coprono una vasta gamma di argomenti, dal setup di un ambiente di sviluppo ad argomenti più avanzati, come il rendering ed il networking.
     link: /it_it/develop/
     linkText: Per Iniziare
   - title: Guide per i Giocatori
