@@ -26,7 +26,7 @@ authors:
 ### Arch Linux
 
 :::info
-Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\(Русский\)).
+Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\\(Русский\\)).
 :::
 
 Вы можете установить последнюю версию JRE из официальных репозиториев:
@@ -78,7 +78,7 @@ sudo dnf install java-17-openjdk-devel
 
 ### Другие дистрибутивы Linux
 
-Если вашего дистрибутива нет в списке выше, вы можете загрузить последнюю версию JRE с [AdoptOpenJDK](https://adoptium.net/en-GB/temurin.html)
+Если вашего дистрибутива нет в списке выше, вы можете загрузить последнюю версию JRE с [Adoptium](https://adoptium.net/temurin/)
 
 Вам следует обратиться к альтернативному гайду для вашего дистрибутива, если вы планируете разрабатывать моды.
 

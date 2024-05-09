@@ -101,4 +101,4 @@ at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(
 
 - [GitHub Gist](https://gist.github.com/)
 - [Pastebin](https://pastebin.com/)
-- [MCLogs](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

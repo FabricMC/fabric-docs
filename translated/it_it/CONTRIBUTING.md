@@ -12,7 +12,7 @@ Questo sito usa [VitePress](https://vitepress.vuejs.org/) per generare HTML stat
     - [Guida per l'Espansione](#guida-per-l-espansione)
     - [Verifica dei Contenuti](#verifica-dei-contenuti)
     - [Pulizia](#pulizia)
-  - [Tradurre la Documentazione](#translating-documentation)
+  - [Tradurre la Documentazione](#tradurre-la-documentazione)
 
 ## Come Contribuire
 
@@ -79,7 +79,7 @@ La guida per lo stile è la seguente:
    # ...
    ```
 
-2. Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata all'interno della mod reference (posizionata nella cartella `/reference` della repository). Dopo di che, utilizza la [funzione code snippet offerta da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice, o se ti serve un controllo più raffinato, puoi usare la [funziona transclude da `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
+2. Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata all'interno della mod reference (posizionata nella cartella `/reference` della repository). Dopo di che, utilizza la [funzione code snippet offerta da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice, o se ti serve un controllo più raffinato, puoi usare la [funzione transclude da `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
 
    **Esempio:**
 
@@ -130,11 +130,11 @@ La guida per lo stile è la seguente:
    }
    ```
 
-3. Tutti i documenti orginali sono scrtitti in Inglese, seguendo le regole grammaticali Americane. Anche se potresti usare [LanguageTool](https://languagetool.org/) per controllare la tua grammatica mentre scrivi, non preoccupartene troppo. Il nostro team di documentazione revisionerà e correggerà la grammatica durante la fase di pulizia. Ciononostante, fare uno sforzo perché sia giusta già dall'inizio può farci risparmiare del tempo.
+3. Tutta la documentazione originale è scritta in inglese, seguendo le regole grammaticali americane. Anche se potresti usare [LanguageTool](https://languagetool.org/) per controllare la tua grammatica mentre scrivi, non preoccupartene troppo. Il nostro team di documentazione revisionerà e correggerà la grammatica durante la fase di pulizia. Ciononostante, fare uno sforzo perché sia giusta già dall'inizio può farci risparmiare del tempo.
 
 4. Se stai creando una nuova sezione, dovresti creare una nuova barra laterale nella cartella `.vitepress/sidebars` e aggiungerla al file `config.mts`. Se hai bisogno di assistenza con questo, per favore chiedi nel canale `#docs` del [Discord di Fabric](https://discord.gg/v6v4pMv).
 
-5. Quando crei una nuova pagina, dovresti aggiungerla alla sidebar appropriata nella cartella `.vitepress/sidebars`. Di nuovo, se hai bisogno di assistenza, chiedi nel canale `#docs` del Discord di Fabric.
+5. Quando crei una nuova pagina, dovresti aggiungerla alla barra laterale appropriata nella cartella `.vitepress/sidebars`. Di nuovo, se hai bisogno di assistenza, chiedi nel canale `#docs` del Discord di Fabric.
 
 6. Ogni immagine dovrebbe essere messa in una posizione appropriata nella cartella `/assets`.
 
@@ -154,7 +154,7 @@ La guida per lo stile è la seguente:
    [Questo è un link ad un'altra pagina](/player/installing-fabric.md)
    ```
 
-Tutti i contributi al contenuto passano per tre fasi:
+Tutti i contributi di contenuto passano per tre fasi:
 
 1. Guida per l'espansione (se possibile)
 2. Verifica dei Contenuti
@@ -166,7 +166,7 @@ Se il team della documentazione crede che tu possa espandere la tua pull request
 
 **Non sentirti obbligato ad espandere la tua pull request.** Se non vuoi espandere la tua pull request, puoi semplicemente chiedere che l'etichetta `expansion` venga rimossa.
 
-Se non vuoi espandere la tua pull request, ma sei contento se qualcun altro lo facesse successivamente, sarebbe meglio creare un'issue sulla [pagina Issues](https://github.com/FabricMC/fabric-docs/issues) e spiegare cosa tu creda che si debba espandere.
+Se non vuoi espandere la tua pull request, ma ti va bene che qualcun altro lo faccia successivamente, sarebbe meglio creare un'issue sulla [pagina Issues](https://github.com/FabricMC/fabric-docs/issues) e spiegare cosa credi che si possa espandere.
 
 ### Verifica dei Contenuti
 
@@ -178,4 +178,4 @@ Questa fase è quella dove il team della documentazione correggerà ogni errore 
 
 ## Tradurre la Documentazione
 
-Se vuoi tradurre la documentazione nella tua lingua, puoi farlo nella [Pagina Crowdin di Fabric](https://crowdin.com/project/fabricmc).
+Se vuoi tradurre la documentazione nella tua lingua, puoi farlo nella [pagina Crowdin di Fabric](https://crowdin.com/project/fabricmc).

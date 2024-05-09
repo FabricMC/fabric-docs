@@ -138,7 +138,7 @@ También puedes multiplicar la matriz en el tope de la pila usando cuaterniones,
 Tomando el ejemplo de arriba, podemos hacer que nuestro diamante aumente o disminuya su tamaño usando el `MatrixStack` y el `tickDelta` - el cual es el tiempo que ha pasado desde el último frame.
 
 ::: warning
-You must push and pop the matrix stack when you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 ¡Asegúrate de empujar la pila de matrices antes de tener una matriz de transformación!
 :::

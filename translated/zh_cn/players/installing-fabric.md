@@ -50,6 +50,6 @@ authors:
 
 ## 下一步
 
-现在您已经安装了 Fabric，您可以向您的游戏添加模组了！ 如果你想要获取更多信息，请查看 [寻找可受信的模组](./finding-mods.md) 指南。
+现在您已经安装了 Fabric，您可以向您的游戏添加模组了！ 您可参见 [如何寻找可信的模组](./finding-mods.md) 指南获取更多信息。
 
 如果您在遵循本指南时遇到任何问题，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道中寻求帮助。

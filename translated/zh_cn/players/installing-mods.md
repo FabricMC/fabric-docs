@@ -9,7 +9,7 @@ authors:
 
 这个指南将引导你使用 Minecraft 启动器安装 Fabric 模组。
 
-对于第三方启动器，您应该查阅它们的文档。
+如您使用第三方启动器，您应参见它们的使用说明。
 
 ## 1. 下载模组
 
@@ -51,11 +51,11 @@ authors:
 
 ![已在模组文件夹中安装模组](/assets/players/installing-mods.png)
 
-## 3. 搞定！
+## 3. 大功告成！
 
 将模组移入 `mods` 文件夹后，你可以打开 Minecraft 启动器，从左下角的下拉菜单中选择 Fabric 配置文件，然后按下 `Play`！
 
-![选中了 Fabric 配置的 Minecraft Launcher](/assets/players/installing-fabric/launcher-screen.png)
+![选择了 Fabric 配置的官方启动器](/assets/players/installing-fabric/launcher-screen.png)
 
 ## 疑难解答
 

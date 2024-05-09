@@ -1,11 +1,11 @@
 ---
-title: Schermate personizzate
+title: Schermate Personalizzate
 description: Impara come creare schermate personalizzate per la tua mod.
 authors:
   - IMB11
 ---
 
-# Schermate personizzate
+# Schermate Personalizzate
 
 :::info
 Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gesitite dal server.
@@ -17,7 +17,7 @@ Puoi creare le tue schermate per mostrare contenuti personalizzati, un menu dell
 
 ## Creare una Schermata
 
-Per creare una schermata, devi estendere la classe `Screen` e sovrascrivere il metodo `init` - puoi opzionalmente sovrascrive anche il metodo `render` - ma assicurati di chiamate il suo metodo super altrimenti non renderizzerà il background, i widget, ecc.
+Per creare una schermata, devi estendere la classe `Screen` e fare override del metodo `init` - puoi anche eventualmente fare override del metodo `render` - ma assicurati di chiamare il suo metodo super altrimenti non renderizzerà lo sfondo, i widget ecc.
 
 Dovresti prendere nota del fatto che:
 

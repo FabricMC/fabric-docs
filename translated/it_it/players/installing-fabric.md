@@ -50,6 +50,6 @@ Una volta che l'installer ha finito, puoi aprire il launcher di Minecraft e sele
 
 ## Prossimi Passi
 
-Ora che hai installato Fabric, puoi aggiungere le mod al tuo gioco! Dai un occhiata alla guida [Trovare Mod affidabili](./finding-mods.md) per più informazioni.
+Ora che hai installato Fabric, puoi aggiungere le mod al tuo gioco! Dai un occhiata alla guida [Trovare Mod Affidabili](./finding-mods.md) per più informazioni.
 
 Se incontri dei problemi seguendo questa guida, puoi chiedere aiuto nel [Fabric Discord](https://discord.gg/v6v4pMv) nel canale `#player-support`.

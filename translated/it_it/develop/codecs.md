@@ -136,7 +136,7 @@ Questo modo particolare di creare un `MapCodec` racchiude sostanzialmente il val
 [1, 2, 3]
 ```
 
-Ma se viene convertito in un `MapCodec<BlockPos>` utilizzando \\`BlockPos.CODEC.fieldOf("pos"), avrebbe il seguente aspetto:
+Ma se viene convertito in un `MapCodec<BlockPos>` utilizzando `BlockPos.CODEC.fieldOf("pos")`, avrebbe il seguente aspetto:
 
 ```json
 {
