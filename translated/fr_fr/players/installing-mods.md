@@ -9,7 +9,7 @@ authors:
 
 Ce guide explique en détail le processus d'installation de mods pour Fabric avec le launcher Minecraft officiel.
 
-Pour les launchers tiers, vous devriez consulter leur documentation.
+Pour les lanceurs tiers, vous devriez consulter leur documentation.
 
 ## 1. Télécharger le mod
 
@@ -17,7 +17,7 @@ Pour les launchers tiers, vous devriez consulter leur documentation.
 Ne téléchargez que des mods provenant de sources dignes de confiance. Pour plus d'informations sur comment trouver des mods, voir le guide [Trouver des mods fiables](./finding-mods.md).
 :::
 
-La majorité des mods requiert également l'API Fabric, qui peut être téléchargée depuis [Modrinth](https://modrinth.com/mod/fabric-api) ou [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
+La majorité des mods requiert également Fabric API, qui peut être téléchargée depuis [Modrinth](https://modrinth.com/mod/fabric-api) ou [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
 Lorsque vous téléchargez des mods, assurez-vous :
 
@@ -51,11 +51,11 @@ Une fois le dossier `mods` trouvé, vous pouvez y déplacer les fichiers `.jar` 
 
 ![Mods installés dans le dossier mods.](/assets/players/installing-mods.png)
 
-## 3. You're done!
+## 3. Et voilà !
 
 Après avoir déplacé les mods dans le dossier `mods`, vous pouvez ouvrir le launcher Minecraft et sélectionner le profil Fabric depuis le menu déroulant en bas à gauche, puis appuyer sur Jouer.
 
-![Minecraft Launcher with Fabric profile selected.](/assets/players/installing-fabric/launcher-screen.png)
+![Le lanceur Minecraft avec le profil Fabric sélectionné.](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Résolution de problèmes
 
