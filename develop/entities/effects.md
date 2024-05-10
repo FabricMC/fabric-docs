@@ -64,8 +64,8 @@ language file.
 
 ### Testing
 
-Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect. Use `/effect clear`
-to remove the effect.
+Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect.
+Use `/effect clear @p fabric-docs-reference:tater` to remove the effect.
 
 ::: info
 To create a potion that uses this effect, please see the [Potions](../items/potions.md) guide.
