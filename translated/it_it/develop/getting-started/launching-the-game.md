@@ -1,13 +1,13 @@
 ---
 title: Lanciare Il Gioco
-description: Impara come utilizzare i vari profili di lancio per avviare e debuggare le tue mod in un ambiente di gioco live.
+description: Impara come utilizzare i vari profili di lancio per avviare ed effettuare debug delle tue mod in un ambiente di gioco dal vivo.
 authors:
   - IMB11
 ---
 
 # Lanciare Il Gioco
 
-Loom di Fabric fornisce una varietà di profili di lancio che ti aiutano ad avviare e debuggare le tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili di lancio e di come utilizzarli per debuggare e testare le tue mod nel gioco.
+Loom di Fabric fornisce una varietà di profili di lancio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili di lancio e di come utilizzarli per effettuare debug e per testare le tue mod nel gioco.
 
 ## Profili di Lancio
 
@@ -24,11 +24,11 @@ Se stai utilizzando la linea di comando, puoi utilizzare i comandi Gradle seguen
 - `./gradlew runClient` - Avvia il gioco in modalità client.
 - `./gradlew runServer` - Avvia il gioco in modalità server.
 
-L'unico problema con questo approccio è che non puoi debuggare facilmente il tuo codice. Se vuoi debuggare il tuo codice, avrai bisogno di utilizzare i profili di lancio in IntelliJ IDEA o tramite l'integrazione Gradle del tuo IDE.
+L'unico problema con questo approccio è che non puoi facilmente effettuare il debug del tuo codice. Se vuoi effettuare debug del tuo codice, avrai bisogno di utilizzare i profili di lancio in IntelliJ IDEA o tramite l'integrazione Gradle del tuo IDE.
 
 ## Hotswapping delle Classi
 
-Quando esegui il gioco in modalità debug, puoi fare hotswap ("scambiare a caldo") delle tue classe senza riavviare il gioco. Questo è utile per testare cambiamenti al tuo codice velocemente.
+Quando esegui il gioco in modalità debug, puoi fare hotswap ("scambio a caldo") delle tue classe senza riavviare il gioco. Questo è utile per testare cambiamenti al tuo codice velocemente.
 
 Tuttavia ci sono alcune limitazioni:
 
@@ -40,7 +40,7 @@ Tuttavia ci sono alcune limitazioni:
 
 Se stai utilizzando i Mixin, puoi fare hotswap delle tue classi Mixin senza riavviare il gioco. Questo è utile per testare cambiamenti ai tuoi Mixin velocemente.
 
-Avrai bisogno di installare l'agent java Mixin perché questo funzioni.
+Avrai bisogno d'installare l'agent java Mixin perché questo funzioni.
 
 ### 1. Trova il Jar della Libreria Mixin
 
