@@ -25,7 +25,7 @@ Gli eventi sono agganci che soddisfano usi comuni e/o permettono compatibilità 
 
 L'API di Fabric fornisce eventi per aree importanti nel codice base di Minecraft ai quali molti modder potrebbero voler agganciarsi.
 
-Gli eventi sono rappresentati da istanze di `net.fabricmc.fabric.api.event.Event` che memorizza e chiama le _callback_. Spesso c'è una singola istanza di un evento per una callback, che è conservata in un attributo statico `EVENT` dell'interfaccia callback, ma ci sono anche altre organizzazioni. Per esempio, `ClientTickEvents` raggruppa vari eventi legati insieme.
+Gli eventi sono rappresentati da istanze di `net.fabricmc.fabric.api.event.Event` che memorizza e chiama i _callback_. Spesso c'è una singola istanza di un evento per un callback, che è conservata in un attributo statico `EVENT` dell'interfaccia callback, ma ci sono anche altre organizzazioni. Per esempio, `ClientTickEvents` raggruppa vari eventi legati insieme.
 
 ## Callback
 
@@ -83,7 +83,7 @@ Vedremo come creare un evento che viene innescato quando una pecora viene tosata
 
 L'interfaccia callback descrive cosa deve essere implementato dai listener di eventi che ascolteranno il tuo evento. L'interfaccia callback descrive anche come l'evento verrà chiamato dal tuo mixin. È convenzione posizionare un oggetto `Event` come attributo nell'interfaccia callback, che identificherà effettivamente il nostro evento.
 
-Per la nostra implementazione di `Event`, sceglieremo di usare un evento basato su array. L'array conterrà tutti i listener agli eventi che stanno ascoltando l'evento.
+Per la nostra implementazione di `Event`, sceglieremo di usare un evento basato su un vettore. Il vettore conterrà tutti i listener agli eventi che stanno ascoltando l'evento.
 
 La nostra implementazione chiamerà i listener di eventi in ordine finché uno di essi non restituisce `ActionResult.PASS`. Questo significa che con il valore restituito un listener può dire "_annulla questo_", "_approva questo_" o "_non m'interessa, lascialo al prossimo listener_".
 
