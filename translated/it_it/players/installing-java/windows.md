@@ -1,6 +1,6 @@
 ---
 title: Installare Java su Windows
-description: Una guida passo passo su come installare Java su Windows.
+description: Una guida passo per passo su come installare Java su Windows.
 authors:
   - IMB11
 ---
@@ -9,7 +9,7 @@ authors:
 
 Questa guida ti spiegherà come installare Java 17 su Windows.
 
-Il launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il Minecraft Server `.jar`.
+Il Launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante solo se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il `.jar` del Server di Minecraft.
 
 ## 1. Controlla se Java è già installato.
 
@@ -17,11 +17,11 @@ Per controllare se Java è già installato devi prima aprire il prompt dei coman
 
 Puoi farlo premendo <kbd>Win</kbd> + <kbd>R</kbd> e scrivendo `cmd.exe` nel riquadro che appare.
 
-![Il dialogo che mostra Windows con "cmd.exe" scritto nella run bar](/assets/players/installing-java/windows-run-dialog.png)
+![Dialogo Esegui su Windows che mostra "cmd.exe" scritto nella barra](/assets/players/installing-java/windows-run-dialog.png)
 
-Una volta aperto il command prompt, scrivi `java -version` e premi <kbd>Invio</kbd>.
+Una volta aperto il prompt dei comandi, scrivi `java -version` e premi <kbd>Invio</kbd>.
 
-Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando ha fallito, procedi con il prossimo step.
+Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando ha fallito, procedi con il prossimo passaggio.
 
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
@@ -39,13 +39,13 @@ Dovrai scaricare la versione `Windows Installer (.msi)`:
 
 Dovresti scegliere `x86` se il tuo sistema operativo è a 32-bit, oppure `x64` se tuo sistema operativo è a 64-bit.
 
-La maggior parte dei computer moderni ha un sistema operativo a 64-bit. Se non sei sicuro, prova ad usare il download 64-bit.
+La maggior parte dei computer moderni ha un sistema operativo a 64-bit. Se non sei sicuro, prova a usare il download 64-bit.
 
 ## 3. Esegui l'installer!
 
-Segui gli step per installare Java 17. Quando arrivi a questa pagina, dovresti impostare le seguenti feature su "Tutta la feature sarà installata sul disco locale":
+Segui le istruzioni per installare Java 17. Quando arrivi a questa pagina, dovresti selezionare "L'intera funzionalità verrà installata sul disco rigido locale" per le seguenti funzionalità:
 
-- `Imposta JAVA_HOME come variabile d'ambiente` -Questo verrà aggiunto al tuo PATH.
+- `Imposta JAVA_HOME come variabile d'ambiente` - Questo verrà aggiunto al tuo PATH.
 - `JavaSoft (Oracle) registry keys`
 
 ![Installer Java 17 con "Set JAVA\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati.](/assets/players/installing-java/windows-wizard-screenshot.png)
