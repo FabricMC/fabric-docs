@@ -12,9 +12,9 @@ authors:
 
 ## Prerequisiti
 
-Prima di iniziare, dovresti avere una comprensione basilare dello sviluppo con Java, e una comprensione della Programmazione Orientata agli Oggetti (OOP).
+Prima d'iniziare, dovresti avere una comprensione basilare dello sviluppo con Java, e una comprensione della Programmazione Orientata agli Oggetti (OOP).
 
-Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a moddare, ecco alcune risorse che puoi utilizzare per imparare Java e OOP:
+Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a fare modding, ecco alcune risorse che puoi utilizzare per imparare Java e OOP:
 
 - [W3: Java Tutorials (in inglese)](https://www.w3schools.com/java/)
 - [Codecademy: Learn Java (in inglese)](https://www.codecademy.com/learn/learn-java)
@@ -26,7 +26,7 @@ Se questi concetti non ti sono familiari, potresti voler cercare qualche tutoria
 Prima di cominciare, chiariamo alcuni termini che incontrerai nel moddare con Fabric:
 
 - **Mod**: Una modifica al gioco, che aggiunge nuove funzionalità oppure ne modifica di esistenti.
-- **Mod Loader**: Uno strumento che carica le mod nel gioco, per esempio il Loader di Fabric.
+- **Loader di Mod**: Uno strumento che carica le mod nel gioco, per esempio il Loader di Fabric.
 - **Mixin**: Uno strumento per modificare il codice del gioco al runtime - vedi [Mixin Introduction (in inglese)](https://fabricmc.net/wiki/tutorial:mixin_introduction) per maggiori informazioni.
 - **Gradle**: Uno strumento per l'automatizzazione del build utilizzato per costruire e compilare mod, utilizzato da Fabric per costruire le mod.
 - **Mapping**: Un insieme di mapping che mappano codice offuscato a codice leggibile.
@@ -37,22 +37,22 @@ Prima di cominciare, chiariamo alcuni termini che incontrerai nel moddare con Fa
 
 Fabric è una toolchain di modding leggera per Minecraft: Java Edition.
 
-È progettato per essere una piattaforma per modding semplice e facile da utilizzare. Fabric è un progetto guidato dalla comunità, ed è open source, per cui chiunque può contribuire al progetto.
+È progettato per essere una piattaforma per modding semplice e facile da utilizzare. Fabric è un progetto guidato dalla comunità, ed è open-source, per cui chiunque può contribuire al progetto.
 
 Dovresti conoscere le quattro componenti principali di Fabric:
 
 - **Loader di Fabric**: Un loader di mod flessibile indipendente dalla piattaforma progettato per Minecraft e per altri giochi e applicazioni.
-- **Loom di Fabric**: Un plugin Gradle che permette agli sviluppatori di sviluppare e debuggare mod facilmente.
+- **Loom di Fabric**: Un plugin Gradle che permette agli sviluppatori di sviluppare ed effettuare debug delle mod facilmente.
 - **API di Fabric**: Un insieme di API e di strumenti per sviluppatori di mod da utilizzare quando si creano mod.
 - **Yarn**: Un insieme di mapping Minecraft aperti, gratuiti per tutti da utilizzare sotto la licenza Creative Commons Zero.
 
 ## Perché è necessario Fabric per moddare Minecraft?
 
-> Moddare è il processo di modifica del gioco per cambiarne il comportamento o per aggiungere nuove funzionalità - nel caso di Minecraft, questo può essere qualsiasi cosa dall'aggiungere nuovi oggetti, blocchi, o entità, al cambiare le meccaniche del gioco o aggiungere nuove modalità di gioco.
+> Il modding è il processo di modifica del gioco per cambiarne il comportamento o per aggiungere nuove funzionalità - nel caso di Minecraft, questo può essere qualsiasi cosa dall'aggiungere nuovi oggetti, blocchi, o entità, al cambiare le meccaniche del gioco o aggiungere nuove modalità di gioco.
 
 Minecraft: Java Edition è offuscato da Mojang, il che rende la pura modifica difficile. Tuttavia, aiutandosi con strumenti di modding come Fabric, il modding diventa molto più facile. Ci sono vari sistemi di mapping che possono aiutare in questo processo.
 
-Loom rimappa il codice offuscato ad un formato leggibile utilizzando questi mapping, rendendo la comprensione e la modifica del codice del gioco più semplice per i modder. Yarn è una scelta popolare ed eccellente di mapping per questo, ma esistono anche altre opzioni. Ogni progetto di mapping potrebbe avere il suo punto forte o la sua focalizzazione.
+Loom rimappa il codice offuscato a un formato leggibile utilizzando questi mapping, rendendo la comprensione e la modifica del codice del gioco più semplice per i modder. Yarn è una scelta popolare ed eccellente di mapping per questo, ma esistono anche altre opzioni. Ogni progetto di mapping potrebbe avere il suo punto forte o la sua focalizzazione.
 
 Loom ti permette di sviluppare e compilare mod facilmente in riferimento a codice rimappato, e il Loader di Fabric ti permette di caricare queste mod nel gioco.
 
