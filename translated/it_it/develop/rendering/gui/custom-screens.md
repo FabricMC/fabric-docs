@@ -8,10 +8,10 @@ authors:
 # Schermate Personalizzate
 
 :::info
-Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gesitite dal server.
+Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gestite dal server.
 :::
 
-Le schermate sono essenzialmente le GUI con cui il giocatore interagisce, come lo schermo del titolo, la schermata di pausa ecc.
+Le schermate sono essenzialmente le GUI con cui il giocatore interagisce, come la schermata del titolo, la schermata di pausa ecc.
 
 Puoi creare le tue schermate per mostrare contenuti personalizzati, un menu delle impostazioni personalizzato, e altro.
 
@@ -21,12 +21,12 @@ Per creare una schermata, devi estendere la classe `Screen` e fare override del 
 
 Dovresti prendere nota del fatto che:
 
-- I Widget non vengono creati nel constructor perché la schermata non è stata ancora inizializzata a quel punto - e alcune variabili, come `width` e `height`, non sono ancora disponibili o non ancora accurate.
-- Il metodo `init` viene chiamata quando lo schermo viene inizializzato, e questo è il posto migliore per create i widget.
-  - Aggiungi i widget usando il metodo `addDrawableChild`, che accetta qualsiasi widget disegnabile.
-- Il metodo `render` viene chiamato ogni frame - puoi accedere al contesto di disegno (draw context), e alla posizione del mouse da questo metodo.
+- I Widget non vengono creati nel costruttore perché la schermata non è stata ancora inizializzata a quel punto - e alcune variabili, come `width` e `height`, non sono ancora disponibili o non sono ancora accurate.
+- Il metodo `init` viene chiamato quando lo schermo viene inizializzato, e questo è il posto migliore per creare i widget.
+  - Si aggiungono widget usando il metodo `addDrawableChild`, che accetta qualsiasi widget disegnabile.
+- Il metodo `render` viene chiamato ogni frame - puoi accedere al contesto di disegno, e alla posizione del mouse da questo metodo.
 
-Ad esempio, possiamo creare una semplice schermata che ha un bottone e un'etichetta al di sopra.
+Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etichetta al di sopra.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
@@ -34,7 +34,7 @@ Ad esempio, possiamo creare una semplice schermata che ha un bottone e un'etiche
 
 ## Aprire la Schermata
 
-Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puoi farlo da vari posti, come un'associazione ad un tasto, un comando, o un gestore dei pacchetti del client.
+Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puoi farlo da vari posti, come un'associazione a un tasto, un comando, o un gestore dei pacchetti del client.
 
 ```java
 MinecraftClient.getInstance().setScreen(
@@ -44,13 +44,13 @@ MinecraftClient.getInstance().setScreen(
 
 ## Chiudere la Schermata
 
-Se vuoi chiudere lo schermo, semplicemente imposta la schermada su `null`:
+Se vuoi chiudere lo schermo, semplicemente imposta la schermata a `null`:
 
 ```java
 MinecraftClient.getInstance().setScreen(null);
 ```
 
-Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la schermata corrente nel costruttore `CustomScreen` e conservalo in una variabile, per poi tornare alla schermata precedente usando il metodo `close`.
+Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la schermata corrente nel costruttore `CustomScreen` e conservala in una variabile, per poi tornare alla schermata precedente usando il metodo `close`.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
