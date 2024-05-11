@@ -11,7 +11,7 @@ Minecraft ha un potente sistema di suggerimento comandi che viene usato in molti
 
 ## Provider di Suggerimenti
 
-Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che verrà mandata al client. Un suggestion provider è un'interfaccia funzionale che prende un `CommandContext` ed un `SuggestionBuilder` e restituisce alcune `Suggestions`. Il `SuggestionProvider` restituisce un `CompletableFuture` siccome i suggerimenti potrebbero non essere disponibili immediatamente.
+Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che verrà mandata al client. Un provider di suggerimenti è un'interfaccia funzionale che prende un `CommandContext` e un `SuggestionBuilder` e restituisce alcune `Suggestions`. Il `SuggestionProvider` restituisce un `CompletableFuture` siccome i suggerimenti potrebbero non essere disponibili immediatamente.
 
 ## Usare i Provider di Suggerimenti
 
