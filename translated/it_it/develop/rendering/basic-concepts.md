@@ -59,22 +59,22 @@ I seguenti elementi `VertexFormat` sono disponibili:
 
 La modalità di disegno definisce come sono disegnati i dati. Sono disponibili le seguenti modalità di disegno:
 
-| Modalità di Disegno         | Descrizione                                                                                                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `DrawMode.LINES`            | Ogni elemento è fatto da 2 vertici ed è rappresentato da una singola linea.                                                                        |
-| `DrawMode.LINE_STRIP`       | Il primo elemento richiede 2 vertici. Elementi addizionali vengono disegnati con solo un nuovo vertice creando una linea continua. |
-| `DrawMode.DEBUG_LINES`      | Simile a `DrawMode.LINES`, ma la linea è sempre esattamente larga un pixel sullo schermo.                                                          |
-| `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                                               |
-| `DrawMode.TRIANGLES`        | Ogni elemento è farro da 3 vertici, formando un triangolo.                                                                                         |
-| `DrawMode.TRIANGLE_STRIP`   | Inizia con 3 vertici per il primo triangolo. Ogni vertex addizionale forma un nuovo triangolo con gli ultimi due vertici.          |
-| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertex addizionale forma un triangolo con il primo e l'ultimo vertice.           |
-| `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertice, formando un quadrilatero.                                                                                      |
+| Modalità di Disegno         | Descrizione                                                                                                                                                         |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DrawMode.LINES`            | Ogni elemento è fatto da 2 vertici ed è rappresentato come una linea singola.                                                                       |
+| `DrawMode.LINE_STRIP`       | Il primo elemento richiede 2 vertici. Elementi addizionali vengono disegnati con un solo nuovo vertice, creando una linea continua. |
+| `DrawMode.DEBUG_LINES`      | Simile a `DrawMode.LINES`, ma la linea è sempre esattamente larga un pixel sullo schermo.                                                           |
+| `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                                                |
+| `DrawMode.TRIANGLES`        | Ogni elemento è fatto da 3 vertici, formando un triangolo.                                                                                          |
+| `DrawMode.TRIANGLE_STRIP`   | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un nuovo triangolo con gli ultimi due vertici.           |
+| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un triangolo con il primo e l'ultimo vertice.            |
+| `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertici, formando un quadrilatero.                                                                                       |
 
 ### Scrivere al `BufferBuilder`
 
 Una volta che il `BufferBuilder` è inizializzato, puoi scriverci dei dati.
 
-Il `BufferBuilder` permette di costruire il nostro buffer, vertex per vertex. Per aggiungere un vertex, usiamo il metodo `buffer.vertex(matrix, float, float, float)`. Il parametro `matrix` è la matrice di trasformazione, che discuteremo più dettagliatamente in seguito. I tre parametri float rappresentano le coordinate (x, y, z) della posizione del vertice.
+Il `BufferBuilder` permette di costruire il nostro buffer, un vertice dopo l'altro. Per aggiungere un vertice, usiamo il metodo `buffer.vertex(matrix, float, float, float)`. Il parametro `matrix` è la matrice di trasformazione, che discuteremo più dettagliatamente in seguito. I tre parametri float rappresentano le coordinate (x, y, z) della posizione del vertice.
 
 Questo metodo restituisce un costruttore di vertice, che possiamo usare per specificare informazioni addizionali per il vertice. È cruciale seguire l'ordine del nostro `VertexFormat` definito quando aggiungiamo questa informazione. Se non lo facciamo, OpenGL potrebbe non interpretare i nostri dati correttamente. Dopo aver finito la costruzione di un vertice, chiamiamo il metodo `.next()`. Questo finalizza il vertice corrente e prepara il costruttore per il prossimo.
 
@@ -82,7 +82,7 @@ Importante è anche capire il concetto di culling. Il culling è il processo con
 
 #### Cos'è una Matrice di Trasformazione?
 
-Una matrice di trasformazione è una matrice 4x4 che viene usata per trasformare un vettore. In Minecraft, la matrice di trasformazione sta solo trasformando le coordinate che diamo nella chiamata del vertice. Le trasformazione possono scalare il nostro modello, muoverlo in giro e ruotarlo.
+Una matrice di trasformazione è una matrice 4x4 che viene usata per trasformare un vettore. In Minecraft, la matrice di trasformazione sta solo trasformando le coordinate che diamo nella chiamata del vertice. Le trasformazioni possono scalare il nostro modello, muoverlo e ruotarlo.
 
 A volte viene chiamata anche matrice di posizione, o matrice modello.
 
@@ -92,11 +92,11 @@ Solitamente è ottenuta dalla classe `MatrixStack`, che può essere ottenuta att
 drawContext.getMatrices().peek().getPositionMatrix();
 ```
 
-#### Un Esempio Pratico: Renderizzare una striscia di Triangoli
+#### Un Esempio Pratico: Renderizzare una Striscia di Triangoli
 
-Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratico. Diciamo che vogliamo renderizzare qualcosa usando la modalità di disegno `DrawMode.TRIANGLE_STRIP` e il formato vertice `POSITION_COLOR`.
+Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratico. Immaginiamo di voler renderizzare qualcosa usando la modalità di disegno `DrawMode.TRIANGLE_STRIP` e il formato vertice `POSITION_COLOR`.
 
-Disegneremo vertici ai seguenti punti nella HUD (in ordine):
+Disegneremo vertici nelle seguenti posizioni sul HUD (in ordine):
 
 ```txt
 (20, 20)
@@ -113,39 +113,39 @@ Siccome stiamo disegnando sulla HUD in questo esempio, useremo l'evento `HudRend
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-Questo risulta nel disegno della cosa seguente nella HUD:
+Questo risulta nel seguente disegno sul HUD:
 
 ![Risultato Finale](/assets/develop/rendering/concepts-practical-example-final-result.png)
 
 :::tip
-Prova a giocare coi colori e le posizione dei vertici per vedere che succede! Puoi anche provare a usare modalità di disegno e formati vertice differenti.
+Prova a giocare coi colori e le posizioni dei vertici per vedere che succede! Puoi anche provare a usare modalità di disegno e formati vertice differenti.
 :::
 
 ## La `MatrixStack`
 
-Dopo aver imparato come scrivere al `BufferBuilder`, ti potresti chiedere come trasformare il tuo modello - anche animarlo magari. Qui è dove entra in gioco la classe `MatrixStack`.
+Dopo aver imparato come scrivere al `BufferBuilder`, ti starai chiedendo come trasformare il tuo modello - anche animarlo magari. Qui è dove entra in gioco la classe `MatrixStack`.
 
 La classe `MatrixStack` ha i seguenti metodi:
 
 - `push()` - Spinge una nuova matrice sullo stack.
 - `pop()` - Elimina la matrice in cima allo stack.
-- `peek()` - Restutuisce la matrice in cima allo stack.
+- `peek()` - Restituisce la matrice in cima allo stack.
 - `translate(x, y, z)` - Trasla la matrice in cima allo stack.
 - `scale(x, y, z)` - Scala la matrice in cima allo stack.
 
 Puoi anche moltiplicare la matrice in cima allo stack usando i quaternioni, che tratteremo nella prossima sezione.
 
-Usando l'esempio di prima, possiamo scalare il nostro diamante su e giù usando la `MatrixStack` e il `tickDelta` - che è il tempo passato dall'ultimo frame.
+Usando l'esempio di prima, possiamo ingrandire e rimpicciolire il nostro diamante usando la `MatrixStack` e il `tickDelta` - che è il tempo passato dall'ultimo frame.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
-Assicurati di spingere la stack di matrici prima di prendere una matrice di trasformazione!
+Assicurati di spingere lo stack di matrici prima di prendere una matrice di trasformazione!
 :::
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Un video che mostra il diamante scalato su e giù.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Un video che mostra il diamante ingrandito e rimpicciolito.](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternioni (Cose che Ruotano)
 
@@ -153,10 +153,10 @@ I quaternioni sono un modo di rappresentare rotazioni in uno spazio 3D. Vengono 
 
 Difficilmente dovrai usare una classe Quaternion direttamente, siccome Minecraft fornisce varie istanze Quaternion pre-costruite nella sua classe di utilità `RotationAxis`.
 
-Diciamo che vogliamo ruotare il nostro diamante attorno all'asse z. Possiamo farlo usando il `MatrixStack` e il metodo `multiply(Quaternion, x, y, z)`.
+Immaginiamo di voler ruotare il nostro diamante attorno all'asse z. Possiamo farlo usando il `MatrixStack` e il metodo `multiply(Quaternion, x, y, z)`.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Il risultato è il seguente:
 
-![Un video che mostra il diamante ruotare attorno all'asse z.](/assets/develop/rendering/concepts-quaternions.webp)
+![Un video che mostra il diamante che ruota attorno all'asse z.](/assets/develop/rendering/concepts-quaternions.webp)
