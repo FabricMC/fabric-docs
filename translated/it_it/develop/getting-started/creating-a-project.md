@@ -21,7 +21,7 @@ Se vuoi utilizzare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionar
 
 Una volta che hai compilato i campi richiesti, premi il pulsante `Generate`, e il generatore creerà un nuovo progetto per te da utilizzare sotto forma di file zip.
 
-Dovresti estrarre questo file zip ad una posizione che scegli tu, e poi aprire la cartella estratta in IntelliJ IDEA:
+Dovresti estrarre questo file zip a una posizione che scegli tu, e poi aprire la cartella estratta in IntelliJ IDEA:
 
 ![Prompt Apri Progetto](/assets/develop/getting-started/open-project.png)
 
@@ -29,7 +29,7 @@ Dovresti estrarre questo file zip ad una posizione che scegli tu, e poi aprire l
 
 Non appena hai aperto il progetto in IntelliJ IDEA, l'ambiente di sviluppo dovrebbe automaticamente caricare la configurazione Gradle del progetto ed effettuare le operazioni di setup necessarie.
 
-Se ricevi una notifica riguardo ad uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`:
+Se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`:
 
 ![Prompt di Gradle](/assets/develop/getting-started/gradle-prompt.png)
 
@@ -55,7 +55,7 @@ Dovresti poi eliminare la cartella `.git` dalla repository clonata, e poi aprire
 
 Quando avrai aperto il progetto in IntelliJ IDEA, esso dovrebbe automaticamente caricare la configurazione Gradle del progetto ed effettuare le operazioni di setup necessarie.
 
-Di nuovo, come già detto in precedenza, se ricevi una notifica riguardo ad uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
+Di nuovo, come già detto in precedenza, se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
 
 ### Modificare Il Template
 
