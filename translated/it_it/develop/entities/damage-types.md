@@ -83,7 +83,7 @@ Affidati alla [Minecraft Wiki (in inglese)](https://minecraft.wiki/w/Tag#Damage_
 
 Aggiungiamo il nostro tipo di danno Tater al tag `bypasses_armor` dei tipi di danno.
 
-Per aggiungere il nostro tipo di danno ad uno di questi tag, creeremo un file JSON nel namespace `minecraft`.
+Per aggiungere il nostro tipo di danno a uno di questi tag, creeremo un file JSON nel namespace `minecraft`.
 
 ```:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
