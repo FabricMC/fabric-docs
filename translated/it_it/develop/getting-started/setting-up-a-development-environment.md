@@ -20,7 +20,7 @@ authors:
 
 # Impostare un Ambiente di Sviluppo
 
-Per iniziare a sviluppare mod con Fabric, avrai bisogno di impostare un ambiente di sviluppo utilizzando IntelliJ IDEA.
+Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo utilizzando IntelliJ IDEA.
 
 ## Installare JDK 17
 
@@ -36,11 +36,11 @@ Ovviamente puoi utilizzare altri IDE, come Eclipse o Visual Studio Code, ma la m
 
 Se non hai IntelliJ IDEA installato, puoi scaricarlo dal [sito ufficiale](https://www.jetbrains.com/idea/download/) - segui i passaggi per l'installazione sul tuo sistema operativo.
 
-L'edizione Community di IntelliJ IDEA è gratuita e open source, ed è la versione consigliata per moddare con Fabric.
+L'edizione Community di IntelliJ IDEA è gratuita e open-source, ed è la versione consigliata per il modding con Fabric.
 
 Potresti dover scorrere giù per trovare il link per scaricare l'edizione Community - ha il seguente aspetto:
 
-![Prompt per Scaricare l'Edizione Communiti di IDEA](/assets/develop/getting-started/idea-community.png)
+![Prompt per Scaricare l'Edizione Community di IDEA](/assets/develop/getting-started/idea-community.png)
 
 ## Installare Plugin IDEA
 
