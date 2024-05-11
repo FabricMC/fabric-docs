@@ -1,6 +1,6 @@
 ---
 title: Usare il Contesto di Disegno
-description: Impara ad usare la classe DrawContext per renderizzere varie forme, testi e texture.
+description: Impara a usare la classe DrawContext per renderizzare varie forme, testi e texture.
 authors:
   - IMB11
 ---
@@ -25,13 +25,13 @@ Puoi usare il metodo `DrawContext.fill(...)` per disegnare un rettangolo pieno.
 
 ### Disegnare Contorni/Bordi
 
-Diciamo che vogliamo fare un contorno al rettangolo che abbiamo disegnato. Possiamo usare il metodo `DrawContext.drawBorder(...)` per disegnare un contorno.
+Immaginiamo di voler aggiungere un contorno al rettangolo che abbiamo disegnato. Possiamo usare il metodo `DrawContext.drawBorder(...)` per disegnare un contorno.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Rettangolo con bordo.](/assets/develop/rendering/draw-context-rectangle-border.png)
 
-### Disegnare Singole Linee
+### Disegnare Linee Singole
 
 Possiamo usare i metodi `DrawContext.drawHorizontalLine(...)` e `DrawContext.drawVerticalLine(...)` per disegnare linee.
 
@@ -41,29 +41,29 @@ Possiamo usare i metodi `DrawContext.drawHorizontalLine(...)` e `DrawContext.dra
 
 ## Il Gestore di Tagli
 
-La classe `DrawContext` ha un gestore di tagli predefinito. Questo ti permette di ritagliare il rendering a un'area specifica. Questo è utile per renderizzare cose come consigli, i altri elementi che non dovrebbero essere renderizzati al di fuori di un'area specifica.
+La classe `DrawContext` ha un gestore di tagli predefinito. Questo ti permette di ritagliare il rendering a un'area specifica. Questo è utile per renderizzare cose come consigli, o altri elementi che non dovrebbero essere renderizzati al di fuori di un'area specifica.
 
 ### Usare il Gestore di Tagli
 
 :::tip
-Le regioni Scrissor posso assets annotate l'una dentro l'altra! Ma assicurati di disabilitare lo scrissor manager lo stesso numero di volte che lo abiliti.
+Le regioni di taglio possono essere annidate! Ma assicurati di disabilitare il gestore di tagli tante volte quante lo abiliti.
 :::
 
-Per abilitare lo scrissor manager, semplicemente usa il metodo `DrawContext.enableScissor(...)`. Similarmente per disabilitarlo usa il metodo `DrawContext.disableScissor()`.
+Per abilitare il gestore di tagli, semplicemente usa il metodo `DrawContext.enableScissor(...)`. Similarmente per disabilitarlo usa il metodo `DrawContext.disableScissor()`.
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Regione Scissor in azione.](/assets/develop/rendering/draw-context-scissor.png)
+![Regione di taglio in azione.](/assets/develop/rendering/draw-context-scissor.png)
 
-Come puoi vedere, anche se diciamo al gioco di renderizzare il gradiente attraverso tutto lo schermo, lo renderizza solo nella regione scrissor.
+Come puoi vedere, anche se diciamo al gioco di renderizzare il gradiente attraverso tutto lo schermo, lo renderizza solo nella regione del taglio.
 
 ## Disegnare Texture
 
-Non c'è un modo "corretto" per disegnare texture su uno schermo, siccome il metodo `drawTexture(...)` ha tanti diversi overload. Questa sezione coprirà gli usi più comuni.
+Non c'è un solo modo "corretto" per disegnare texture su uno schermo, siccome il metodo `drawTexture(...)` ha tanti overload diversi. Questa sezione coprirà gli usi più comuni.
 
 ### Disegnare una Texture Intera
 
-Generalmente, è raccomandato usare l'overload che specifica i parametri `textureWidth` e `textureHeight`. Questo perché la classe `DrawContext` assumerà questi valori se non li specifici, che può essere sbagliato a volte.
+Generalmente, è raccomandato usare l'overload che specifica i parametri `textureWidth` e `textureHeight`. Questo perché la classe `DrawContext` assumerà questi valori se non li specifichi, e a volte potrebbe sbagliare.
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -87,7 +87,7 @@ Se vogliamo solo disegnare una regione che contiene la lente, possiamo usare i s
 
 La classe `DrawContext` ha vari metodi autoesplicativi per renderizzare testo - per brevità, non verranno trattati qui.
 
-Diciamo che vogliamo disegnare "Hello World" sullo schermo. Possiamo usare il metodo `DrawContext.drawText(...)` per farlo.
+Immaginiamo di voler disegnare "Hello World" sullo schermo. Possiamo usare il metodo `DrawContext.drawText(...)` per farlo.
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
