@@ -7,9 +7,9 @@ layout: home
 titleTemplate: Fabric Documentation
 
 hero:
-  name: "Fabric Documentation"
-  tagline: "The official curated documentation for Fabric, a modding toolchain for Minecraft."
-      
+  name: Fabric Documentation
+  tagline: The official curated documentation for Fabric, a modding toolchain for Minecraft.
+
 features:
   - title: Developer Guides
     icon: 🛠️
@@ -27,6 +27,6 @@ features:
 
 ## Want to Contribute?
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
+If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](./CONTRIBUTING.md)
 
 </div>

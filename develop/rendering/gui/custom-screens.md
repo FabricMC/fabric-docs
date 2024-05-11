@@ -11,11 +11,11 @@ authors:
 This page refers to normal screens, not handled ones - these screens are the ones that are opened by the player on the client, not the ones that are handled by the server.
 :::
 
-Screens are essentially the GUIs that the player interacts with, such as the title screen, pause screen etc. 
+Screens are essentially the GUIs that the player interacts with, such as the title screen, pause screen etc.
 
 You can create your own screens to display custom content, a custom settings menu, or more.
 
-## Creating A Screen
+## Creating a Screen
 
 To create a screen, you need to extend the `Screen` class and override the `init` method - you may optionally override the `render` method as well - but make sure to call it's super method or it wont render the background, widgets etc.
 
@@ -32,7 +32,7 @@ As an example, we can create a simple screen that has a button and a label above
 
 ![Custom Screen 1](/assets/develop/rendering/gui/custom-1-example.png)
 
-## Opening The Screen
+## Opening the Screen
 
 You can open the screen using the `MinecraftClient`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## Closing The Screen
+## Closing the Screen
 
 If you want to close the screen, simply set the screen to `null`:
 

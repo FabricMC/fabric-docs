@@ -7,7 +7,7 @@ authors:
 
 # Uploading Logs
 
-When troubleshooting issues, it is often necessary to provide logs to help identify the cause of the issue. 
+When troubleshooting issues, it is often necessary to provide logs to help identify the cause of the issue.
 
 ## Why should I upload logs?
 

@@ -30,7 +30,7 @@ both executions.
 
 ## Custom Argument Types
 
-If vanilla does not have the argument type you need, you can create your own. To do this, you need to create a class that inherits the `ArgumentType<T>` interface where `T` is the type of the argument. 
+If vanilla does not have the argument type you need, you can create your own. To do this, you need to create a class that inherits the `ArgumentType<T>` interface where `T` is the type of the argument.
 
 You will need to implement the `parse` method, which will parse the input string into the desired type.
 

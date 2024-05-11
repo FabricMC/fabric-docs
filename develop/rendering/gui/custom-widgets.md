@@ -9,7 +9,7 @@ authors:
 
 Widgets are essentially containerized rendering components that can be added to a screen, and can be interacted with by the player through various events such as mouse clicks, key presses, and more.
 
-## Creating A Widget
+## Creating a Widget
 
 There are multiple ways to create a widget class, such as extending `ClickableWidget`. This class provides a lot of useful utilities, such as managing width, height, position, and handling events - it implements the `Drawable`, `Element`, `Narratable`, and `Selectable` interfaces:
 
@@ -20,7 +20,7 @@ There are multiple ways to create a widget class, such as extending `ClickableWi
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-## Adding The Widget To The Screen
+## Adding the Widget to the Screen
 
 Like all widgets, you need to add it to the screen using the `addDrawableChild` method, which is provided by the `Screen` class. Make sure you do this in the `init` method.
 
