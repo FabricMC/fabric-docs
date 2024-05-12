@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   markdownlint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - id: checkout
@@ -41,7 +41,7 @@ jobs:
 
       - id: titlecase
         if: steps.node.outcome == 'success'
-        run: npm install markdownlint-rule-titlecase
+        run: npm install markdownlint-rule-titlecase@v0.1.0
 
       - id: lint
         if: steps.changes.outputs.any_changed == 'true'
