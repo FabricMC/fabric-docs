@@ -162,9 +162,9 @@ All content contributions go through three stages:
 
 ### Guidance for Expansion
 
-If the documentation team thinks that you could expand upon your pull request, a member of the team will add the `expansion` label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request. 
+If the documentation team thinks that you could expand upon your pull request, a member of the team will add the `can-expand` label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request. 
 
-**Don't feel pressured to expand upon your pull request.** If you don't want to expand upon your pull request, you can simply ask for the `expansion` label to be removed.
+**Don't feel pressured to expand upon your pull request.** If you don't want to expand upon your pull request, you can simply ask for the `can-expand` label to be removed.
 
 If you do not want to expand upon your pull request, but you are happy for someone else to expand upon it at a later date, it's best to create an issue on the [Issues page](https://github.com/FabricMC/fabric-docs/issues) and explain what you think could be expanded upon.
 
