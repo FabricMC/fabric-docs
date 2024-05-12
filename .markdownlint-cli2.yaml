@@ -1,0 +1,44 @@
+# Available configuration options: <https://github.com/DavidAnson/markdownlint#rules--aliases>
+config:
+  MD003:
+    style: atx
+  MD004:
+    style: dash
+  MD007:
+    indent: 2
+  MD009:
+    br_spaces: 0
+  MD013: false
+  MD024:
+    siblings_only: true
+  MD025:
+    front_matter_title: ""
+  MD026:
+    punctuation: ".,;:。，；："
+  MD029:
+    style: ordered
+  MD035:
+    style: ---
+  MD044:
+    names:
+      - CurseForge
+      - Fabric
+      - GitHub
+      - Java
+      - Minecraft
+      - Modrinth
+      - Mojang
+    code_blocks: false
+  MD046:
+    style: fenced
+  MD048:
+    style: backtick
+  MD049:
+    style: underscore
+  MD050:
+    style: asterisk
+  MD053: false
+  MD055:
+    style: leading_and_trailing
+customRules:
+  - markdownlint-rule-titlecase

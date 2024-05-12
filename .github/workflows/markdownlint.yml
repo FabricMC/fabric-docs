@@ -1,0 +1,51 @@
+name: Run markdownlint
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '!translated/**'
+      - '!versions/**'
+  workflow_dispatch: # Manual run
+
+concurrency:
+  group: markdownlint-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: changes
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            **/*.md
+            !translated/**
+            !versions/**
+
+      - id: node
+        if: steps.changes.outputs.any_changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+        continue-on-error: true  # lint even without `titlecase`
+
+      - id: titlecase
+        if: steps.node.outcome == 'success'
+        run: npm install markdownlint-rule-titlecase
+
+      - id: lint
+        if: steps.changes.outputs.any_changed == 'true'
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          config: .markdownlint-cli2.yaml
+          globs: ${{ steps.changes.outputs.all_changed_files }}
