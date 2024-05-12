@@ -1,4 +1,4 @@
-# Available configuration options: <https://github.com/DavidAnson/markdownlint#rules--aliases>
+# Available configuration options: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 config:
   MD003:
     style: atx
@@ -14,6 +14,7 @@ config:
   MD025:
     front_matter_title: ""
   MD026:
+    # Allow headings to end with `!`
     punctuation: ".,;:。，；："
   MD029:
     style: ordered
@@ -38,6 +39,12 @@ config:
   MD050:
     style: asterisk
   MD053: false
+  MD054:
+    # these link styles are not easily localizable
+    collapsed: false  # A link to [keyword][].
+    shortcut: false   # A link to [keyword].
+                      # [keyword]: <https://example.com>
+    url_inline: false
   MD055:
     style: leading_and_trailing
 customRules:
