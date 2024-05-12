@@ -60,7 +60,7 @@ Una volta registrato, puoi distillare una pozione Tater usando una patata.
 ::: info
 **Registering Potions Using an `Ingredient`**
 
-Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingrediente` anziché un `Item` usando `
+Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingredient` anziché un `Item` usando `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 
