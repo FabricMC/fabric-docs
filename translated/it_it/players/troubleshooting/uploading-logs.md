@@ -49,6 +49,6 @@ Il log più recente si chiama `latest.log`, e log precedenti usano lo schema di 
 
 I log possono essere caricati su vari servizi, come:
 
-- [Pastebin (in inglese)](https://pastebin.com/)
-- [Gist GitHub (in inglese)](https://gist.github.com/)
-- [mclo.gs (in inglese)](https://mclo.gs/)
+- [Pastebin](https://pastebin.com/)
+- [Gist di GitHub](https://gist.github.com/)
+- [mclo.gs](https://mclo.gs/)
