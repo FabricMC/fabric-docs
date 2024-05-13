@@ -14,12 +14,12 @@ authors:
 
 Prima d'iniziare, dovresti avere una comprensione basilare dello sviluppo con Java, e una comprensione della Programmazione Orientata agli Oggetti (OOP).
 
-Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a fare modding, ecco alcune risorse che puoi utilizzare per imparare Java e OOP:
+Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a fare modding, ecco alcune risorse in inglese che puoi utilizzare per imparare Java e OOP:
 
-- [W3: Java Tutorials (in inglese)](https://www.w3schools.com/java/)
-- [Codecademy: Learn Java (in inglese)](https://www.codecademy.com/learn/learn-java)
-- [W3: Java OOP (in inglese)](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Introduction to OOP (in inglese)](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+- [W3: Java Tutorials](https://www.w3schools.com/java/)
+- [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
+- [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
+- [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
 
 ### Terminologia
 
@@ -27,7 +27,7 @@ Prima di cominciare, chiariamo alcuni termini che incontrerai nel moddare con Fa
 
 - **Mod**: Una modifica al gioco, che aggiunge nuove funzionalità oppure ne modifica di esistenti.
 - **Loader di Mod**: Uno strumento che carica le mod nel gioco, per esempio il Loader di Fabric.
-- **Mixin**: Uno strumento per modificare il codice del gioco al runtime - vedi [Mixin Introduction (in inglese)](https://fabricmc.net/wiki/tutorial:mixin_introduction) per maggiori informazioni.
+- **Mixin**: Uno strumento per modificare il codice del gioco al runtime - vedi [Mixin Introduction](https://fabricmc.net/wiki/tutorial:mixin_introduction) per maggiori informazioni.
 - **Gradle**: Uno strumento per l'automatizzazione del build utilizzato per costruire e compilare mod, utilizzato da Fabric per costruire le mod.
 - **Mapping**: Un insieme di mapping che mappano codice offuscato a codice leggibile.
 - **Offuscamento**: Il processo di rendere il codice difficile da comprendere, utilizzato da Mojang per proteggere il codice di Minecraft.
