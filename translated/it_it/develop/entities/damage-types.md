@@ -27,7 +27,7 @@ Questo tipo di danno personalizzato causa un aumento di 0.1 nel livello di esaur
 
 ::: info
 
-Affidati alla [Minecraft Wiki (in inglese)](https://minecraft.wiki/w/Damage_type#JSON_format) per tutte le possibili chiavi e valori.
+Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format) per tutte le possibili chiavi e valori.
 
 :::
 
@@ -77,7 +77,7 @@ Puoi trovare tipi di danno già esistenti in `data/minecraft/tags/damage_type`.
 
 ::: info
 
-Affidati alla [Minecraft Wiki (in inglese)](https://minecraft.wiki/w/Tag#Damage_types) per una lista completa dei tag dei tipi di danno.
+Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Tag#Damage_types) per una lista completa dei tag dei tipi di danno.
 
 :::
 
