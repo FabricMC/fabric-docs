@@ -11,7 +11,7 @@ Minecraft has a big selection of sounds which you can choose from. Check out the
 
 Make sure to execute the `playSound()` method on the logical server side when using sounds!
 
-In this example, the `useOnEntity()` and `useOnBlock()` method for a custom interactive item is used to play a "placing copper block" and a pillager sound.
+In this example, the `useOnEntity()` and `useOnBlock()` methods for a custom interactive item are used to play a "placing copper block" and a pillager sound.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 

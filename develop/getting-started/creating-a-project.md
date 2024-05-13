@@ -28,7 +28,7 @@ You should extract this zip file to a location of your choice, and then open the
 
 ## Importing The Project
 
-Once you've opened the project in IntelliJ IDEA, the IDEA should automatically load the project's Gradle configuration and perform the necessary setup tasks.
+Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.
 
 If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button:
 
