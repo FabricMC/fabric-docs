@@ -11,7 +11,7 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 ## Generare Un Progetto
 
-Puoi utilizzare il [Generatore di Mod Modello di Fabric (in inglese)](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
+Puoi utilizzare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
 
 ![Anteprima del generatore.](/assets/develop/getting-started/template-generator.png)
 
@@ -38,7 +38,7 @@ Quando il progetto sarà importato, dovresti vedere i file del progetto nell'exp
 ## Creazione Manuale del Progetto
 
 :::warning
-Ti servirà che [Git (in inglese)](https://git-scm.com/) sia installato per clonare la repository della mod esempio.
+Ti servirà che [Git](https://git-scm.com/) sia installato per clonare la repository della mod esempio.
 :::
 
 Se non puoi utilizzare il Generatore di Mod Modello di Fabric, dovresti creare un nuovo progetto manualmente seguendo questi passaggi.
