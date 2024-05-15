@@ -162,9 +162,9 @@ Tutti i contributi di contenuto passano per tre fasi:
 
 ### Guida per l'Espansione
 
-Se il team della documentazione crede che tu possa espandere la tua pull request, un membro del team aggiungerà l'etichetta `expansion` alla tua pull request assieme a un commento che spiega cosa credono che tu possa espandere. Se sei d'accordo con il consiglio, puoi espandere la tua pull request.
+Se il team della documentazione crede che tu possa espandere la tua pull request, un membro del team aggiungerà l'etichetta `can-expand` alla tua pull request assieme a un commento che spiega cosa credono che tu possa espandere. Se sei d'accordo con il consiglio, puoi espandere la tua pull request.
 
-**Non sentirti obbligato a espandere la tua pull request.** Se non vuoi espandere la tua pull request, puoi semplicemente chiedere che l'etichetta `expansion` venga rimossa.
+**Non sentirti obbligato a espandere la tua pull request.** Se non vuoi espandere la tua pull request, puoi semplicemente chiedere che l'etichetta `can-expand` venga rimossa.
 
 Se non vuoi espandere la tua pull request, ma ti va bene che qualcun altro lo faccia successivamente, sarebbe meglio creare un'issue sulla [pagina Issues](https://github.com/FabricMC/fabric-docs/issues) e spiegare cosa credi che si possa espandere.
 
