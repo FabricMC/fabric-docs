@@ -18,7 +18,7 @@ I Codec vengono usati assieme a un'altra API da DFU, `DynamicOps`. Un codec defi
 
 L'utilizzo basilare di un codec è serializzare e deserializzare oggetti da e a un formato specifico.
 
-Poiché alcune classi vanilla hanno già dei codec definiti, possiamo usare quelli come un esempio. Mojang ci ha anche fornito due classi di dynamic ops di default, `JsonOps` e `NbtOps`, che tendono a coprire la maggior parte degli casi.
+Poiché alcune classi vanilla hanno già dei codec definiti, possiamo usare quelli come un esempio. Mojang ci ha anche fornito due classi di dynamic ops predefinite, `JsonOps` e `NbtOps`, che tendono a coprire la maggior parte degli casi.
 
 Ora, immaginiamo di voler serializzare un `BlockPos` a json e viceversa. Possiamo fare questo utilizzando il codec memorizzato staticamente presso `BlockPos.CODEC` con i metodi `Codec#encodeStart` e `Codec#parse`, rispettivamente.
 
