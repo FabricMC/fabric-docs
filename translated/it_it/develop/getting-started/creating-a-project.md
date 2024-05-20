@@ -11,7 +11,7 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 ## Generare Un Progetto
 
-Puoi utilizzare il [Generatore di Mod Modello di Fabric (in inglese)](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
+Puoi utilizzare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
 
 ![Anteprima del generatore.](/assets/develop/getting-started/template-generator.png)
 
@@ -21,7 +21,7 @@ Se vuoi utilizzare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionar
 
 Una volta che hai compilato i campi richiesti, premi il pulsante `Generate`, e il generatore creerà un nuovo progetto per te da utilizzare sotto forma di file zip.
 
-Dovresti estrarre questo file zip ad una posizione che scegli tu, e poi aprire la cartella estratta in IntelliJ IDEA:
+Dovresti estrarre questo file zip a una posizione che scegli tu, e poi aprire la cartella estratta in IntelliJ IDEA:
 
 ![Prompt Apri Progetto](/assets/develop/getting-started/open-project.png)
 
@@ -29,7 +29,7 @@ Dovresti estrarre questo file zip ad una posizione che scegli tu, e poi aprire l
 
 Non appena hai aperto il progetto in IntelliJ IDEA, l'ambiente di sviluppo dovrebbe automaticamente caricare la configurazione Gradle del progetto ed effettuare le operazioni di setup necessarie.
 
-Se ricevi una notifica riguardo ad uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`:
+Se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`:
 
 ![Prompt di Gradle](/assets/develop/getting-started/gradle-prompt.png)
 
@@ -38,7 +38,7 @@ Quando il progetto sarà importato, dovresti vedere i file del progetto nell'exp
 ## Creazione Manuale del Progetto
 
 :::warning
-Ti servirà che [Git (in inglese)](https://git-scm.com/) sia installato per clonare la repository della mod esempio.
+Ti servirà che [Git](https://git-scm.com/) sia installato per clonare la repository della mod esempio.
 :::
 
 Se non puoi utilizzare il Generatore di Mod Modello di Fabric, dovresti creare un nuovo progetto manualmente seguendo questi passaggi.
@@ -55,7 +55,7 @@ Dovresti poi eliminare la cartella `.git` dalla repository clonata, e poi aprire
 
 Quando avrai aperto il progetto in IntelliJ IDEA, esso dovrebbe automaticamente caricare la configurazione Gradle del progetto ed effettuare le operazioni di setup necessarie.
 
-Di nuovo, come già detto in precedenza, se ricevi una notifica riguardo ad uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
+Di nuovo, come già detto in precedenza, se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
 
 ### Modificare Il Template
 

@@ -1,6 +1,6 @@
 # Linee Guida per la Contribuzione alla Documentazione di Fabric
 
-Questo sito usa [VitePress](https://vitepress.vuejs.org/) per generare HTML statico dai vari file Markdown. Dovresti familiarizzare con le estensioni per Markdown che VitePress supporta [qui.](https://vitepress.vuejs.org/guide/markdown.html#features)
+Questo sito usa [VitePress](https://vitepress.dev/) per generare HTML statico dai vari file Markdown. Dovresti familiarizzare con le estensioni per Markdown che VitePress supporta [qui.](https://vitepress.dev/guide/markdown.html#features)
 
 ## Indice
 
@@ -94,9 +94,9 @@ La guida per lo stile è la seguente:
    ```java
      @Override
      public void onInitialize() {
-       // This code runs as soon as Minecraft is in a mod-load-ready state.
-       // However, some things (like resources) may still be uninitialized.
-       // Proceed with mild caution.
+       // Questo codice verra' eseguito non appena Minecraft e' pronto a caricare la mod.
+       // Tuttavia, alcune cose (come le risorse) potrebbero non essere ancora inizializzate.
+       // Procedi con attenzione.
 
        LOGGER.info("Hello Fabric world!");
      }
@@ -140,7 +140,7 @@ La guida per lo stile è la seguente:
 
 7. ⚠️ **Quando metti link ad altre pagine, usa link relativi.** ⚠️
 
-   Questo è dovuto al sistema di versioning in utilizzo, che processerà i link per aggiungerci la versione anticipatamente. Se usassi link assoluti, il numero di versione non verrebbe aggiunto al link.
+   Questo è dovuto al sistema di gestione delle versioni in utilizzo, che processerà i link per aggiungerci la versione anticipatamente. Se usassi link assoluti, il numero di versione non verrebbe aggiunto al link.
 
    Per esempio, per una pagina nella cartella `/players`, per mettere un link alla pagina `installing-fabric` che si trova in `/players/installing-fabric.md`, dovresti fare il seguente:
 
@@ -162,9 +162,9 @@ Tutti i contributi di contenuto passano per tre fasi:
 
 ### Guida per l'Espansione
 
-Se il team della documentazione crede che tu possa espandere la tua pull request, un membro del team aggiungerà l'etichetta `expansion` alla tua pull request assieme ad un commento che spiega cosa credono che tu possa espandere. Se sei d'accordo con il consiglio, puoi espandere la tua pull request.
+Se il team della documentazione crede che tu possa espandere la tua pull request, un membro del team aggiungerà l'etichetta `can-expand` alla tua pull request assieme a un commento che spiega cosa credono che tu possa espandere. Se sei d'accordo con il consiglio, puoi espandere la tua pull request.
 
-**Non sentirti obbligato ad espandere la tua pull request.** Se non vuoi espandere la tua pull request, puoi semplicemente chiedere che l'etichetta `expansion` venga rimossa.
+**Non sentirti obbligato a espandere la tua pull request.** Se non vuoi espandere la tua pull request, puoi semplicemente chiedere che l'etichetta `can-expand` venga rimossa.
 
 Se non vuoi espandere la tua pull request, ma ti va bene che qualcun altro lo faccia successivamente, sarebbe meglio creare un'issue sulla [pagina Issues](https://github.com/FabricMC/fabric-docs/issues) e spiegare cosa credi che si possa espandere.
 

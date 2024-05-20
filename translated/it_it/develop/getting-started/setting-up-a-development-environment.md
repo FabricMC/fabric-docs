@@ -20,7 +20,7 @@ authors:
 
 # Impostare un Ambiente di Sviluppo
 
-Per iniziare a sviluppare mod con Fabric, avrai bisogno di impostare un ambiente di sviluppo utilizzando IntelliJ IDEA.
+Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo utilizzando IntelliJ IDEA.
 
 ## Installare JDK 17
 
@@ -36,11 +36,11 @@ Ovviamente puoi utilizzare altri IDE, come Eclipse o Visual Studio Code, ma la m
 
 Se non hai IntelliJ IDEA installato, puoi scaricarlo dal [sito ufficiale](https://www.jetbrains.com/idea/download/) - segui i passaggi per l'installazione sul tuo sistema operativo.
 
-L'edizione Community di IntelliJ IDEA è gratuita e open source, ed è la versione consigliata per moddare con Fabric.
+L'edizione Community di IntelliJ IDEA è gratuita e open-source, ed è la versione consigliata per il modding con Fabric.
 
 Potresti dover scorrere giù per trovare il link per scaricare l'edizione Community - ha il seguente aspetto:
 
-![Prompt per Scaricare l'Edizione Communiti di IDEA](/assets/develop/getting-started/idea-community.png)
+![Prompt per Scaricare l'Edizione Community di IDEA](/assets/develop/getting-started/idea-community.png)
 
 ## Installare Plugin IDEA
 
@@ -52,4 +52,4 @@ Il plugin Minecraft Development fornisce supporto per il modding con Fabric, ed 
 
 Puoi installarlo aprendo IntelliJ IDEA, e poi navigando a `File > Impostazioni > Plugin > Scheda Marketplace` - cerca `Minecraft Development` nella barra di ricerca, e poi clicca il pulsante `Installa`.
 
-In alternativa, puoi scaricarlo dalla [pagina del plugin (in inglese)](https://plugins.jetbrains.com/plugin/8327-minecraft-development) e poi installarlo navigando a `File > Impostazioni > Plugin > Installa Plugin Dal Disco`.
+In alternativa, puoi scaricarlo dalla [pagina del plugin](https://plugins.jetbrains.com/plugin/8327-minecraft-development) e poi installarlo navigando a `File > Impostazioni > Plugin > Installa Plugin Dal Disco`.

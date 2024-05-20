@@ -9,14 +9,14 @@ authors:
 
 # Pozioni
 
-Le pozioni sono oggetti consumabili che conferiscono un effetto ad un'entità. Un giocatore può preparare delle pozioni usando l'Alambicco oppure ottenerle come oggetti attraverso varie meccaniche di gioco.
+Le pozioni sono oggetti consumabili che conferiscono un effetto a un'entità. Un giocatore può preparare delle pozioni usando l'Alambicco oppure ottenerle come oggetti attraverso varie meccaniche di gioco.
 
 ## Pozioni Personalizzate
 
 Aggiungere una pozione segue un percorso simile a quello per aggiungere un oggetto. Dovrai creare un'istanza della tua pozione e registrarla chiamando `BrewingRecipeRegistry.registerPotionRecipe`.
 
 :::info
-Quando Fabric API è presente, `BrewingRecipeRegistry.registerPotionRecipe` è reso disponibile attraverso un Access Widener.
+Quando l'API di Fabric è presente, `BrewingRecipeRegistry.registerPotionRecipe` è reso disponibile attraverso un Access Widener.
 :::
 
 ### Creare la Pozione
@@ -60,7 +60,7 @@ Una volta registrato, puoi distillare una pozione Tater usando una patata.
 ::: info
 **Registering Potions Using an `Ingredient`**
 
-Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingrediente` anziché un `Item` usando `
+Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingredient` anziché un `Item` usando `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 

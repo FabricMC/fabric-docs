@@ -11,7 +11,7 @@ Anzitutto, la fiducia è soggettiva, e dovresti sempre affidarti al tuo giudizio
 
 ## 1. Utilizza una fonte che è nota per essere affidabile.
 
-La maggior parte degli autori pubblica le loro mod su [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e [CurseForge](https://www.curseforge.com/minecraft/search?page=1\\&pageSize=20\\&sortType=1\\&class=mc-mods\\&gameFlavorsIds=4).
+La maggior parte degli autori pubblica le loro mod su [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4).
 
 Questi siti controllano che le mod siano quello che dicono di essere, e che non contengano codice maligno. Puoi anche segnalare mod sospette su quei siti, ed essi agiranno in modo relativamente veloce.
 
