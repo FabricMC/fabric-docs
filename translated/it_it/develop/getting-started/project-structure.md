@@ -1,6 +1,6 @@
 ---
 title: Struttura del Progetto
-description: Una panoramica sulla struttare di un progetto per una mod Fabric.
+description: Una panoramica sulla struttura di un progetto per una mod Fabric.
 authors:
   - IMB11
 ---
@@ -17,7 +17,7 @@ Gli attributi più importanti nel file `fabric.mod.json` sono:
 
 - `id`: L'ID della mod, che dovrebbe essere unico.
 - `name`: Il nome della mod.
-- `environment`: L'ambiente in cui la tua mod viene eseguit, come `client`, `server`, o `*` per entrambi.
+- `environment`: L'ambiente in cui la tua mod viene eseguita, come `client`, `server`, o `*` per entrambi.
 - `entrypoints`: Gli entrypoint che la tua mod fornisce, come `main` o `client`.
 - `depends`: Le mod da cui la tua mod dipende.
 - `mixins`: I mixin che la tua mod fornisce.

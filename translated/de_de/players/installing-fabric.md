@@ -29,7 +29,7 @@ Schließe zuerst Minecraft und den Minecraft-Launcher vor Beginn der Installatio
 
 Auf macOS musst du möglicherweise zuerst einen Rechtsklick auf die `.jar`-Datei im Downloads-Verzeichnis machen, und `Öffnen` zum Ausführen klicken.
 
-![Fabric-Installer mit "Installieren" hervorgehoben.](/assets/players/installing-fabric/macos-downloads.png)
+![MacOS Kontextmenü im Fabric-Installer.](/assets/players/installing-fabric/macos-downloads.png)
 
 Bei der Frage "Möchten Sie es wirklich öffnen?", klicke erneut auf `Öffnen`.
 :::

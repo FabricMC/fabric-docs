@@ -29,7 +29,7 @@ authors:
 
 На macOS вам может потребоваться щелкнуть правой кнопкой мыши на файл `.jar` и нажать `Открыть`, чтобы запустить его.
 
-![Кнопка "Open" при нажатии на файл установщика.](/assets/players/installing-fabric/macos-downloads.png)
+![Контекстное меню установщика Fabric на MacOS.](/assets/players/installing-fabric/macos-downloads.png)
 
 Когда вас спросят: "Вы уверены, что хотите это открыть?", нажмите `Открыть` ещё раз.
 :::
