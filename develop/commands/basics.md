@@ -158,7 +158,7 @@ Command redirects - also known as aliases - are a way to redirect the functional
 ###### Why does my code not compile?
 
 * Catch or throw a `CommandSyntaxException` - `CommandSyntaxException` is not a `RuntimeException`. If you throw it,
-  where it is thrown should be in methods that throw `CommandSyntaxException` in method signatures, or be caught.
+  that should be in methods that throw `CommandSyntaxException` in method signatures, or it should be caught.
   Brigadier will handle the checked exceptions and forward the proper error message in the game for you.
 
 * Issues with generics - You may have an issue with generics once in a while. If you are registering server

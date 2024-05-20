@@ -17,7 +17,7 @@ To register to this event, you can simply call `HudRenderCallback.EVENT.register
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack.
 
-You should checkout the [Draw Context](./draw-context.md) page to learn more about the draw context.
+You should check out the [Draw Context](./draw-context.md) page to learn more about the draw context.
 
 ### DeltaTick
 
