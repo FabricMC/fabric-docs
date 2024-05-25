@@ -25,10 +25,10 @@ teach you how to register commands and the general command structure of Brigadie
 ::: info
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you
-build a tree of commands and arguments. Brigadier is open source: https://github.com/Mojang/brigadier
+build a tree of commands and arguments. Brigadier is open source: <https://github.com/Mojang/brigadier>
 :::
 
-### The `Command` Interface
+## The `Command` Interface
 
 `com.mojang.brigadier.Command` is a functional interface, which runs some specific code, and throws a
 `CommandSyntaxException` in certain cases. It has a generic type `S`, which defines the type of the _command source_.
@@ -52,7 +52,7 @@ The integer can be considered the result of the command. Typically values less t
 do nothing. Positive values mean the command was successful and did something. Brigadier provides a constant to indicate
 success; `Command#SINGLE_SUCCESS`.
 
-#### What Can the `ServerCommandSource` Do?
+### What can the `ServerCommandSource` do?
 
 A `ServerCommandSource` provides some additional implementation-specific context when a command is run. This includes
 the
@@ -63,12 +63,12 @@ You can access the command source from a command context by calling `getSource()
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
 
-### Registering a Basic Command
+## Registering a Basic Command
 
 Commands are registered within the `CommandRegistrationCallback` provided by the Fabric API.
 
@@ -102,19 +102,19 @@ time or modifying someone's score, it should be `true`.
 If the command fails, instead of calling `sendFeedback()`, you may directly throw any exception and the server or client
 will handle it appropriately.
 
-`CommandSyntaxException` is generally thrown to indicate syntax errors in commands or arguments. You can also implement 
+`CommandSyntaxException` is generally thrown to indicate syntax errors in commands or arguments. You can also implement
 your own exception.
 
 To execute this command, you must type `/foo`, which is case-sensitive.
 
-#### Registration Environment
+### Registration Environment
 
 If desired, you can also make sure a command is only registered under some specific circumstances, for example, only in
 the dedicated environment:
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-#### Command Requirements
+### Command Requirements
 
 Let's say you have a command that you only want operators to be able to execute. This is where the `requires()` method
 comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `ServerCommandSource`
@@ -128,7 +128,7 @@ blocks. Otherwise, the command is not registered.
 This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
 also why you cannot tab-complete most commands when you do not enable cheats.
 
-#### Sub Commands
+### Sub Commands
 
 To add a sub command, you register the first literal node of the command normally. To have a sub command, you have to append the next literal node to the existing node.
 
@@ -139,23 +139,23 @@ and `/subtater subcommand` will be valid.
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Client Commands
+## Client Commands
 
 Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.command.v2` package that can be used to register client-side commands. The code should exist only in client-side code.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### Command Redirects
+## Command Redirects
 
 Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### FAQ
+## FAQ
 
 <br>
 
-###### Why does my code not compile?
+### Why does my code not compile?
 
 * Catch or throw a `CommandSyntaxException` - `CommandSyntaxException` is not a `RuntimeException`. If you throw it,
   that should be in methods that throw `CommandSyntaxException` in method signatures, or it should be caught.
@@ -171,7 +171,7 @@ Command redirects - also known as aliases - are a way to redirect the functional
 * A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
   which is usually a lambda. The lambda should return an integer, instead of other types.
 
-###### Can I register commands in runtime?
+### Can I register commands in runtime?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -184,7 +184,7 @@ This is required because the client locally caches the command tree it receives 
 are sent) for local completions-rich error messages.
 :::
 
-###### Can I unregister commands in runtime?
+### Can I unregister commands in runtime?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side

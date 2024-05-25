@@ -1,11 +1,11 @@
 ---
-title: Rendering In The Hud
+title: Rendering in the Hud
 description: Learn how to use the HudRenderCallback event to render to the hud.
 authors:
   - IMB11
 ---
 
-# Rendering In The Hud
+# Rendering in the Hud
 
 We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts.md) page and [Using The Drawing Context](./draw-context.md), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
 
@@ -23,10 +23,10 @@ You should check out the [Draw Context](./draw-context.md) page to learn more ab
 
 The `deltaTick` parameter is the time since the last frame, in seconds. This can be used to make animations and other time-based effects.
 
-#### Example: Lerping A Color Over Time
+#### Example: Lerping a Color Over Time
 
 Let's say you want to lerp a color over time. You can use the `deltaTick` parameter to do this.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
-![](/assets/develop/rendering/hud-rendering-deltatick.webp)
+![Lerping a color over time](/assets/develop/rendering/hud-rendering-deltatick.webp)

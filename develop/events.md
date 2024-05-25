@@ -33,7 +33,7 @@ Callbacks are a piece of code that is passed as an argument to an event. When th
 
 ### Callback Interfaces
 
-Each event has a corresponding callback interface, conventionally named `<EventName>Callback`. Callbacks are registered by calling `register()` method on an event instance, with an instance of the callback interface as the argument. 
+Each event has a corresponding callback interface, conventionally named `<EventName>Callback`. Callbacks are registered by calling `register()` method on an event instance, with an instance of the callback interface as the argument.
 
 All event callback interfaces provided by Fabric API can be found in the `net.fabricmc.fabric.api.event` package.
 
@@ -83,9 +83,9 @@ We'll look at creating an event that is triggered when sheep are sheared. The pr
 
 The callback interface describes what must be implemented by event listeners that will listen to your event. The callback interface also describes how the event will be called from our mixin. It is conventional to place an `Event` object as a field in the callback interface, which will identify our actual event.
 
-For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event. 
+For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event.
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "*cancel this*", "*approve this*" or "*don't care, leave it to the next event listener*" using its return value. 
+Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "*cancel this*", "*approve this*" or "*don't care, leave it to the next event listener*" using its return value.
 
 Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 

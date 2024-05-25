@@ -21,7 +21,7 @@ Newer mods may require a newer version of Fabric Loader to work, so it's importa
 <!-- Include steps from installing guide, no need to repeat them. -->
 <!--@include: ./installing-fabric.md{12,41}-->
 
-To update Fabric, simply ensure the game version and loader version is correct then click `Install`.
+To update Fabric, simply ensure the game version and Loader version is correct then click `Install`.
 
 **Make sure to uncheck 'Create Profile' when running the installer, otherwise it will create a new profile, which in this case we don't need.**
 
@@ -33,7 +33,7 @@ Replace the version with the new version of Fabric Loader you just installed, an
 
 ![Updating Fabric Loader version in the Minecraft Launcher.](/assets/players/updating-fabric.png)
 
-## 4. You're done!
+## 4. You're Done!
 
 Once you've completed the steps you can go back to the `Play` tab, select the Fabric profile from the dropdown in the bottom left corner and press play!
 

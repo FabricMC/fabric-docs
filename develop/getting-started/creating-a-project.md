@@ -1,16 +1,15 @@
 ---
-title: Creating A Project
+title: Creating a Project
 description: A step-by-step guide on how to create a new mod project using the Fabric template mod generator.
 authors:
   - IMB11
 ---
 
-# Creating A Project
+# Creating a Project
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
 
-## Generating A Project
-
+## Generating a Project
 
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the package name and mod name, and the Minecraft version that you want to develop for.
 
@@ -26,7 +25,7 @@ You should extract this zip file to a location of your choice, and then open the
 
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
 
-## Importing The Project
+## Importing the Project
 
 Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.
 
@@ -58,12 +57,12 @@ Once you've opened the project in IntelliJ IDEA, it should automatically load th
 
 Again, as previously mentioned, if you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
 
-### Modifying The Template
+### Modifying the Template
 
 Once the project has been imported, you should modify the project's details to match your mod's details:
 
 - Modify the project's `gradle.properties` file to change the `maven_group` and `archive_base_name` properties to match your mod's details.
 - Modify the `fabric.mod.json` file to change the `id`, `name`, and `description` properties to match your mod's details.
-- Make sure to update the versions of Minecraft, the mappings, the loader and the loom - all of which can be queried through https://fabricmc.net/develop/ - to match the versions you wish to target.
+- Make sure to update the versions of Minecraft, the mappings, the Loader and the Loom - all of which can be queried through <https://fabricmc.net/develop/> - to match the versions you wish to target.
 
 You can obviously change the package name and the mod's main class to match your mod's details.

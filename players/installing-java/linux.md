@@ -9,14 +9,14 @@ authors:
 
 This guide will walk you through installing Java 17 on Linux.
 
-## 1. Verify if Java is already installed.
+## 1. Verify if Java is Already Installed
 
 Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
 ![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)
 
 ::: warning
-To use the majority of modern Minecraft versions, you'll need at least Java 17 installed. If this command displays any version lower than 17, you'll need to update your existing java installation.
+To use the majority of modern Minecraft versions, you'll need at least Java 17 installed. If this command displays any version lower than 17, you'll need to update your existing Java installation.
 :::
 
 ## 2. Downloading and Installing Java 17
@@ -82,10 +82,10 @@ If your distribution isn't listed above, you can download the latest JRE from [A
 
 You should refer to an alternative guide for your distribution if you plan to develop mods.
 
-## 3. Verify that Java 17 is installed.
+## 3. Verify That Java 17 Is Installed
 
 Once the installation is complete, you can verify that Java 17 is installed by opening a terminal and typing `java -version`.
 
-If the command runs successfully, you will see something like shown before, where the java version is displayed:
+If the command runs successfully, you will see something like shown before, where the Java version is displayed:
 
 ![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)

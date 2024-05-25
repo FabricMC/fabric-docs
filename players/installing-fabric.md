@@ -40,11 +40,11 @@ Once you've opened the installer, you should see a screen like this:
 
 To install Fabric, simply choose your game version from the dropdown, and click `Install`.
 
-**Make sure that 'Create Profile' is checked.**  
+**Make sure that 'Create Profile' is checked.**
 
-## 3. You're done!
+## 3. You're Done!
 
-Once the installer has finished, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom left corner and press Play! 
+Once the installer has finished, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom left corner and press Play!
 
 ![Minecraft Launcher with Fabric profile selected.](/assets/players/installing-fabric/launcher-screen.png)
 
@@ -52,4 +52,4 @@ Once the installer has finished, you can open the Minecraft Launcher and select 
 
 Now that you've installed Fabric, you can add mods to your game! Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
 
-If you encounter any issues while following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.  
+If you encounter any issues while following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
