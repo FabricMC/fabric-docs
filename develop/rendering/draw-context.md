@@ -1,11 +1,11 @@
 ---
-title: Using The Drawing Context
+title: Using the Drawing Context
 description: Learn how to use the DrawContext class to render various shapes, text and textures.
 authors:
   - IMB11
 ---
 
-# Using The Drawing Context
+# Using the Drawing Context
 
 This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts.md) page.
 
@@ -43,7 +43,7 @@ We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVertic
 
 The `DrawContext` class has a built-in scissor manager. This allows you to easily clip your rendering to a specific area. This is useful for rendering things like tooltips, or other elements that should not be rendered outside of a specific area.
 
-### Using The Scissor Manager
+### Using the Scissor Manager
 
 ::: tip
 Scissor regions can be nested! But make sure that you disable the scissor manager the same amount of times as you enabled it.
