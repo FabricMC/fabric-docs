@@ -59,7 +59,7 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mo
 }
 ```
 
-### Testing
+### Fase di Test
 
 Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater. Usa `/effect clear` per rimuovere l'effetto.
 

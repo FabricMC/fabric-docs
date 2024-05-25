@@ -8,14 +8,14 @@ authors:
 # Segnalazioni dei Crash
 
 :::tip
-Se hai difficoltà nel trovare la cause del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nei canali `#player-support` o `#server-admin-support`.
+Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nei canali `#player-support` o `#server-admin-support`.
 :::
 
-Le segnalazioni di crash sono una parte molto importante della risoluzione di problemi con il tuo gioco o server. Contengono molte informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
+Le segnalazioni di crash, o degli arresti anomali, sono una parte molto importante della risoluzione di problemi con il tuo gioco o server. Contengono molte informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
 ## Trovare le Segnalazioni di Crash
 
-Le segnalazioni di crash sono salvate nella cartella `crash-reports` nella tua cartella del gioco. Se stai usando un server, sono salvati nella cartella `crash-reports` nella cartella del server.
+Le segnalazioni di crash sono salvate nella cartella `crash-reports` nella tua cartella del gioco. Se stai usando un server, essi sono salvati nella cartella `crash-reports` nella cartella del server.
 
 Per launcher di terze parti, dovresti affidarti alla loro documentazione per sapere dove trovare le segnalazioni di crash.
 
@@ -41,11 +41,11 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella lettura. Tuttavia, contengono tante informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
-Per questa guida, utilizzeremo [questo crash report come esempio](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
+Per questa guida, utilizzeremo [questa segnalazione di crash come esempio](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
 ### Sezioni della Segnalazione di Crash
 
-Le segnalazioni di crash consistono di varie sezioni, ciascuna separata con un header:
+Le segnalazioni di crash consistono di varie sezioni, ciascuna separata con un'intestazione:
 
 - `---- Minecraft Crash Report ----`, il riassunto della segnalazione. Questa sezione contiene l'errore principale che ha causato il crash, l'orario al quale è avvenuto, e la stack trace pertinente. Questa è la sezione più importante della segnalazione del crash poiché lo stack trace potrebbe solitamente contenere riferimenti alla mod che ha causato il crash.
 - `-- Last Reload --`, questa sezione non è davvero utile tranne se il crash è avvenuto durante un ricaricamento delle risorse (<kbd>F3</kbd>+<kbd>T</kbd>). Questa sezione conterrà probabilmente l'orario dell'ultimo ricaricamento, e lo stack trace pertinente di qualsiasi errore che si sia verificato durante il processo di ricaricamento. Questi errori sono solitamente causati dai pacchetti risorse, e possono essere ignorati tranne se stanno causando problemi con il gioco.
@@ -81,7 +81,7 @@ Tuttavia, con la quantità di mod menzionata, potrebbe significare che ci sono p
 I mixin sono un modo che hanno le mod per modificare il gioco senza dover modificarne il codice sorgente. Sono utilizzati da varie mod, e sono uno strumento molto potente per gli sviluppatori di mod.
 :::
 
-Quando un mixin crasha, esso menzionerà solitamente il mixin nello stack trace, e la classe che il mixin sta modificando.
+Quando un mixin causa un crash, esso menzionerà solitamente il mixin nello stack trace, e la classe che il mixin sta modificando.
 
 I metodi mixin conterranno `modid$handlerName` nello stack trace, mentre `modid` è l'ID della mod, e `handlerName` è il nome del gestore del mixin.
 
@@ -93,12 +93,12 @@ Puoi utilizzare queste informazioni per trovare la mod che ha causato il crash, 
 
 ## Cosa fare delle Segnalazioni di Crash
 
-La migliore cosa da fare con le segnalazioni di crash è caricarle ad un paste site, e poi condividere il link con l'autore della mod, o tramite il suo issue tracker o attraverso qualche mezzo di comunicazione (Discord ecc...).
+La migliore cosa da fare con le segnalazioni di crash è caricarle a un paste site, e poi condividere il link con l'autore della mod, o tramite il suo issue tracker o attraverso qualche mezzo di comunicazione (Discord ecc...).
 
-Questo permetterà all'autore della mod di investigare il crash, potenzialmente di riprodurlo, e di risolvere il problema che l'ha causato.
+Questo permetterà all'autore della mod d'investigare il crash, potenzialmente di riprodurlo, e di risolvere il problema che l'ha causato.
 
 Paste site comuni utilizzati frequentemente per le segnalazioni di crash sono:
 
 - [GitHub Gist](https://gist.github.com/)
 - [Pastebin](https://pastebin.com/)
-- [mclo.gs (in inglese)](https://mclo.gs/)
+- [mclo.gs](https://mclo.gs/)

@@ -25,7 +25,7 @@ When downloading mods, ensure that:
 - They are for Fabric and not another mod loader.
 - Furthermore, they are for the correct edition of Minecraft (Java Edition).
 
-## 2. Move the mod to the `mods` folder.
+## 2. Move the Mod to the `mods` Folder
 
 The mods folder can be found in the following locations for each operating system.
 
@@ -51,7 +51,7 @@ Once you've found the `mods` folder, you can move the mod `.jar` files into it.
 
 ![Installed mods in the mods folder.](/assets/players/installing-mods.png)
 
-## 3. You're done!
+## 3. You're Done!
 
 Once you've moved the mods into the `mods` folder, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom left corner and press play!
 

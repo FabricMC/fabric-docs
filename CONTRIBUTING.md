@@ -2,10 +2,10 @@
 
 This website uses [VitePress](https://vitepress.dev/) to generate static HTML from the various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here.](https://vitepress.dev/guide/markdown.html#features)
 
-## Table Of Contents
+## Table of Contents
 
 - [Fabric Documentation Contribution Guidelines](#fabric-documentation-contribution-guidelines)
-  - [How To Contribute](#how-to-contribute)
+  - [How to Contribute](#how-to-contribute)
   - [Contributing Framework](#contributing-framework)
   - [Contributing Content](#contributing-content)
     - [Style Guidelines](#style-guidelines)
@@ -14,7 +14,7 @@ This website uses [VitePress](https://vitepress.dev/) to generate static HTML fr
     - [Cleanup](#cleanup)
   - [Translating Documentation](#translating-documentation)
 
-## How To Contribute
+## How to Contribute
 
 It's recommended that you create a new branch on your fork of the repository for each pull request you make. This makes it easier to manage multiple pull requests at once.
 
@@ -56,7 +56,7 @@ You should really only make framework pull requests after consulting with the do
 
 ## Contributing Content
 
-Content contributions are the main way to contribute to the Fabric Documentation. 
+Content contributions are the main way to contribute to the Fabric Documentation.
 
 All content should follow our style guidelines.
 
@@ -75,7 +75,7 @@ The style guide is as follows:
     authors:
       - GitHubUsernameHere
     ---
-    
+
     # ...
     ```
 
@@ -138,8 +138,8 @@ The style guide is as follows:
 
 6. Any images should be placed in a suitable place in the `/assets` folder.
 
-7. ⚠️ **When linking other pages, use relative links.** ⚠️ 
-    
+7. ⚠️ **When linking other pages, use relative links.** ⚠️
+
     This is because of the versioning system in place, which will process the links to add the version beforehand. If you use absolute links, the version number will not be added to the link.
 
     For example, for a page in the `/players` folder, to link to the `installing-fabric` page found in `/players/installing-fabric.md`, you would have to do the following:
@@ -162,7 +162,7 @@ All content contributions go through three stages:
 
 ### Guidance for Expansion
 
-If the documentation team thinks that you could expand upon your pull request, a member of the team will add the `can-expand` label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request. 
+If the documentation team thinks that you could expand upon your pull request, a member of the team will add the `can-expand` label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request.
 
 **Don't feel pressured to expand upon your pull request.** If you don't want to expand upon your pull request, you can simply ask for the `can-expand` label to be removed.
 

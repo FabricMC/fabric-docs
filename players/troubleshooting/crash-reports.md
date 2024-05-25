@@ -52,7 +52,7 @@ Crash reports consist of several sections, each separated using a header:
 - `-- System Details --`, this section contains information about your system, such as the operating system, Java version, and the amount of memory allocated to the game. This section is useful for determining if you are using the correct version of Java, and if you have allocated enough memory to the game.
   - In this section, Fabric will have included a custom line that says `Fabric Mods:`, followed by a list of all the mods you have installed. This section is useful for determining if any conflicts could have occurred between mods.
 
-### Breaking Down the Crash Report
+### Breaking down the Crash Report
 
 Now that we know what each section of the crash report is, we can start to break down the crash report and find the cause of the crash.
 
@@ -60,10 +60,10 @@ Using the example linked above, we can analyze the crash report and find the cau
 
 The stack trace in the `---- Minecraft Crash Report ----` section is the most important in this case, as it contains the main error that caused the crash. In this case, the error is `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
 
-With the amount of mods mentioned in the stack trace, it can be difficult to point fingers, but the first thing to do is to look for the mod that caused the crash. 
+With the amount of mods mentioned in the stack trace, it can be difficult to point fingers, but the first thing to do is to look for the mod that caused the crash.
 
 ```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51) 
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
 at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
@@ -91,7 +91,7 @@ Method mixins will contain `modid$handlerName` in the stack trace, where `modid`
 
 You can use this information to find the mod that caused the crash, and report the crash to the mod author.
 
-## What to do with Crash Reports
+## What to Do with Crash Reports
 
 The best thing to do with crash reports is to upload them to a paste site, and then share the link with the mod author, either on their issue trackers or through some form of communication (Discord etc.).
 

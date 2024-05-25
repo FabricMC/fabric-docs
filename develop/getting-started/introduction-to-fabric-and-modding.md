@@ -1,5 +1,5 @@
 ---
-title: Introduction To Fabric And Modding
+title: Introduction to Fabric and Modding
 description: "A brief introduction to Fabric and modding in Minecraft: Java Edition."
 authors:
   - IMB11
@@ -8,7 +8,7 @@ authors:
 
 <!-- No GitHub profile exists for "basil4088" -->
 
-# Introduction To Fabric And Modding
+# Introduction to Fabric and Modding
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before we start, let's go over some of the terms that you will encounter when mo
 
 ## What Is Fabric?
 
-Fabric is a lightweight modding toolchain for Minecraft: Java Edition. 
+Fabric is a lightweight modding toolchain for Minecraft: Java Edition.
 
 It is designed to be a simple and easy-to-use modding platform. Fabric is a community-driven project, and it is open-source, meaning that anyone can contribute to the project.
 

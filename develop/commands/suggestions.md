@@ -43,4 +43,3 @@ To use this suggestion provider, you would simply pass an instance of it into th
 Obviously, suggestion providers can be more complex, since they can also read the command context to provide suggestions based on the command's state - such as the arguments that have already been provided.
 
 This could be in the form of reading the player's inventory and suggesting items, or entities that are nearby the player.
-

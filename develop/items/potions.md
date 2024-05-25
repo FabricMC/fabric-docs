@@ -62,14 +62,13 @@ Once registered, you can brew a Tater potion using a potato.
 
 ![Effect in player inventory](/assets/develop/tater-potion.png)
 
-::: info
-**Registering Potions Using an `Ingredient`**
+::: info Registering Potions Using an `Ingredient`
 
 With the help of Fabric API, it's possible to register a potion using an `Ingredient` instead of an `Item` using `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 
-### Registering the Potion without Fabric API
+### Registering the Potion Without Fabric API
 
 Without Fabric API, `BrewingRecipeRegistry.registerPotionRecipe` will be private. In order to access this method, use
 the following mixin invoker or use an Access Widener.

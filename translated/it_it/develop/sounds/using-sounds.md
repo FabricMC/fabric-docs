@@ -15,7 +15,7 @@ In questo esempio, i metodi `useOnEntity()` e `useOnBlock()` per un oggetto inte
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
-Il metodo `playSound()` è utilizzato con l'oggetto `LivingEntity`. Solo il SoundEvent, il volume ed il pitch devono essere specificati. Puoi anche utilizzare il metodo `playSound()` dall'istanza del mondo per avere un livello di controllo più alto.
+Il metodo `playSound()` è utilizzato con l'oggetto `LivingEntity`. Solo il SoundEvent, il volume e il tono devono essere specificati. Puoi anche utilizzare il metodo `playSound()` dall'istanza del mondo per avere un livello di controllo più alto.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
@@ -25,8 +25,8 @@ Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare il
 
 Minecraft ha vari slider audio nelle impostazioni del gioco. L'enum `SoundCategory` è utilizzato per determinare quale slider controllerà il volume del tuo suono.
 
-### Volume e Pitch
+### Volume e Tono
 
-Il parametro volume può causare un po' di confusione. Nell'intervallo `0.0f - 1.0f` il volume reale del suono può essere cambiato. Se il numero diventa più grande di ciò, il volume di `1.0f` verrà utilizzato e soltanto la distanza, nella quale il tuo suono può essere udito, viene cambiata. La distanza in blocchi può essere approssimatamente calcolata come `volume * 16`.
+Il parametro volume può causare un po' di confusione. Nell'intervallo `0.0f - 1.0f` il volume reale del suono può essere cambiato. Se il numero diventa più grande di ciò, il volume di `1.0f` verrà utilizzato e soltanto la distanza, nella quale il tuo suono può essere udito, viene cambiata. La distanza in blocchi può essere approssimativamente calcolata come `volume * 16`.
 
-Il parametro pitch alza o abbassa il valore del pitch e cambia anche la durata del suono. Nell'intervallo `(0.5f - 1.0f)` il pitch e la velocità si abbassano, mentre valori maggiori alzano il pitch e la velocità. Numeri al di sotto di `0.5f` rimarranno al valore di pitch `0.5f`.
+Il parametro pitch alza o abbassa il valore del tono e cambia anche la durata del suono. Nell'intervallo `(0.5f - 1.0f)` il tono e la velocità si abbassano, mentre valori maggiori alzano il tono e la velocità. Numeri al di sotto di `0.5f` rimarranno al valore di tono `0.5f`.

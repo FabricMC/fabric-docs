@@ -23,9 +23,9 @@ Potresti pensare che sia inutile specificare esecuzioni simili due volte. Per cu
 
 ## Tipi di Parametri Personalizzati
 
-Se vanilla non fornisce il tipo di parametro che ti serve, puoi creartene uno. Per fare questo, hai bisogno di creare una classe che implementa l'interface `ArgumentType<T>` dove `T` è il tipo del parametro.
+Se vanilla non fornisce il tipo di parametro che ti serve, puoi creartene uno. Per fare questo, hai bisogno di creare una classe che implementa l'interfaccia `ArgumentType<T>` dove `T` è il tipo del parametro.
 
-Avrai bisogno di implementare il metodo `parse`, che farà il parsing della stringa in input nel tipo desiderato.
+Avrai bisogno d'implementare il metodo `parse`, che farà il parsing della stringa in input nel tipo desiderato.
 
 Per esempio, puoi creare un tipo di parametro che fa il parsing di un `BlockPos` da una stringa con il formato seguente: `{x, y, z}`
 
@@ -37,7 +37,7 @@ Per esempio, puoi creare un tipo di parametro che fa il parsing di un `BlockPos`
 Avrai bisogno di registrare i tipi di parametri personalizzati sia sul server sia sul client altrimenti il comando non funzionerà!
 :::
 
-Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'inizializzatore della tua mod utilizzando la classe `ArgumentTypeRegistry`:
+Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'inizializer della tua mod utilizzando la classe `ArgumentTypeRegistry`:
 
 @[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 

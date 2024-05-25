@@ -7,22 +7,22 @@ authors:
 
 # Installare le Mod
 
-Questa guida ti aiuterà ad installare mod per Fabric utilizzando il Minecraft Launcher ufficiale.
+Questa guida ti aiuterà a installare mod per Fabric utilizzando il Launcher di Minecraft ufficiale.
 
 Per launcher di terze parti, dovresti consultare la loro documentazione.
 
 ## 1. Scaricare la Mod
 
 :::warning
-Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod](./finding-mods.md).
+Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod Affidabili](./finding-mods.md).
 :::
 
-La maggior parte delle mod richiede anche Fabric API, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
+La maggior parte delle mod richiede anche l'API di Fabric, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
 Quando scarichi delle mod, assicurati che:
 
 - Funzionino nella versione di Minecraft su cui vuoi giocare. Una mod che funziona sulla versione 1.20, per esempio, potrebbe non funzionare sulla versione 1.20.2.
-- Siano per Fabric e non per un altro mod loader.
+- Siano per Fabric e non per un altro loader di mod.
 - Inoltre, che siano per la corretta edizione di Minecraft (Java Edition).
 
 ## 2. Sposta le mod nella cartella `mods`.
@@ -53,9 +53,9 @@ Una volta che hai trovato la cartella `mods`, puoi muovere i file `.jar` della m
 
 ## 3. Hai finito!
 
-Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Minecraft Launcher e selezionare il profilo Fabric dal menu a tendina nell'angolo in basso a sinistra e premere gioca!
+Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina nell'angolo in basso a sinistra e premere gioca!
 
-![Minecraft Launcher con il profilo Fabric selezionato.](/assets/players/installing-fabric/launcher-screen.png)
+![Launcher di Minecraft con il profilo Fabric selezionato.](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Risoluzione dei problemi
 

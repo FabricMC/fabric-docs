@@ -1,6 +1,6 @@
 ---
 title: Installare Java su Linux
-description: Una guida passo passo su come installare Java su Linux.
+description: Una guida passo per passo su come installare Java su Linux.
 authors:
   - IMB11
 ---
@@ -9,9 +9,9 @@ authors:
 
 Questa guida ti spiegherà come installare Java 17 su Linux.
 
-## 1. Controlla se Java sia già installato.
+## 1. Controlla se Java è già installato.
 
-Apri un terminale, e scrivi `java -version` e premi <kbd>Invio</kbd>.
+Apri un terminale, scrivi `java -version` e premi <kbd>Invio</kbd>.
 
 ![Terminale con scritto "java -version"](/assets/players/installing-java/linux-java-version.png)
 
@@ -19,29 +19,29 @@ Apri un terminale, e scrivi `java -version` e premi <kbd>Invio</kbd>.
 Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
-## 2. Scaricare ed Installare Java 17
+## 2. Scaricare e Installare Java 17
 
 Raccomandiamo l'utilizzo di OpenJDK 17, che è disponibile per la maggior parte delle distribuzioni Linux.
 
 ### Arch Linux
 
 :::info
-Per maggior informazione su come installare Java su Arch Linux, vedi [Arch Linux Wiki](https://wiki.archlinux.org/title/Java).
+Per maggiori informazioni su come installare Java su Arch Linux, vedi [la Wiki di Arch Linux](https://wiki.archlinux.org/title/Java).
 :::
 
-Puoi installare la più recente JRE dalle repositories ufficiali:
+Puoi installare la JRE più recente dalle repository ufficiali:
 
 ```bash
 sudo pacman -S jre-openjdk
 ```
 
-Se stai avviando un server che non ha bisogno di un'interfaccia grafica, puoi anzi installare la versione headless:
+Se stai eseguendo un server che non ha bisogno di un'interfaccia grafica, puoi installare la versione headless:
 
 ```bash
 sudo pacman -S jre-openjdk-headless
 ```
 
-Se pensi di sviluppare delle mod, avari bisogno del JDK invece:
+Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 
 ```bash
 sudo pacman -S jdk-openjdk
@@ -64,21 +64,21 @@ Puoi installare Java 17 usando `dnf` con i comandi seguenti:
 sudo dnf install java-17-openjdk
 ```
 
-Se non hai bisogno di un'interfaccia grafica, puoi anzi installare la versione headless:
+Se non hai bisogno di un'interfaccia grafica, puoi installare la versione headless:
 
 ```bash
 sudo dnf install java-17-openjdk-headless
 ```
 
-Se pensi di sviluppare delle mod, avari bisogno del JDK invece:
+Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 
 ```bash
 sudo dnf install java-17-openjdk-devel
 ```
 
-### Altre distribuzioni Linux
+### Altre Distribuzioni Linux
 
-Se la tua distribuzione non è fra quelle elencate sopra, puoi scaricare il JRE più recente da [Adoptium](https://adoptium.net/temurin)
+Se la tua distribuzione non è fra quelle elencate sopra, puoi scaricare il JRE più recente da [Adoptium](https://adoptium.net/temurin/)
 
 Dovresti fare riferimento a una guida alternativa per la tua distribuzione se vuoi sviluppare delle mod.
 
