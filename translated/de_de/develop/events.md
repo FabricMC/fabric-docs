@@ -105,7 +105,7 @@ Wenn der Listener sagt, dass wir abbrechen (`ActionResult.FAIL`) oder vollständ
 
 @[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen, um zu dokumentieren, was jedes `ActionResult` macht. In unserem Fall könnte das wie folgt sein:
+Wir können Javadoc-Kommentare am Anfang von Callback-Klassen hinzufügen, um zu dokumentieren, was jedes `ActionResult` tut. In unserem Fall könnte das wie folgt sein:
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
