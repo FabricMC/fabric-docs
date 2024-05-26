@@ -9,7 +9,7 @@ authors:
 
 Le particelle sono uno strumento potente. Possono aggiungere atmosfera a una bella scena, o aggiungere tensione durante una battaglia contro il boss. Aggiungiamone una!
 
-## Registrare una particella personalizzata
+## Registrare una Particella Personalizzata
 
 Aggiungeremo una nuova particella "sparkle" che mimerà il movimento di una particella di una barra dell'End.
 
@@ -30,11 +30,11 @@ In questo esempio, stiamo registrando la nostra particella dal lato client. Stia
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-Combinazione per IntelliJ: Ctrl+Alt+B\
-Combinazione per Visual Studio Code: Ctrl+F12
-:::
+- Scorciatoia di IntelliJ: Ctrl+Alt+B
+- Scorciatoia di Visual Studio Code: Ctrl+F12
+  :::
 
-## Creare un file JSON e aggiungere le texture
+## Creare un File JSON e Aggiungere le Texture
 
 Dovrai creare 2 cartelle all'interno della cartella `resources/assets/<mod id here>/`.
 
@@ -53,7 +53,7 @@ Dopo, crea un nuovo file JSON in `particles` con lo stesso nome del percorso JSO
 Puoi aggiungere altre texture al vettore `textures` per creare un animazione per la particella. La particella scorrerà attraverso le texture nel vettore, iniziando dalla prima.
 :::
 
-## Testare la nuova particella
+## Testare la Nuova Particella
 
 Una volta completato il file JSON e salvato il tuo lavoro, puoi aprire Minecraft e testare tutto!
 
