@@ -1,30 +1,30 @@
 ---
-title: Lanciare Il Gioco
-description: Impara come utilizzare i vari profili di lancio per avviare ed effettuare debug delle tue mod in un ambiente di gioco dal vivo.
+title: Avviare il Gioco
+description: Impara come usare i vari profili d'avvio per avviare ed effettuare debug delle tue mod in un ambiente di gioco dal vivo.
 authors:
   - IMB11
 ---
 
-# Lanciare Il Gioco
+# Avviare il Gioco
 
-Loom di Fabric fornisce una varietà di profili di lancio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili di lancio e di come utilizzarli per effettuare debug e per testare le tue mod nel gioco.
+Loom di Fabric fornisce una varietà di profili d'avvio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili d'avvio e di come usarli per effettuare debug e per testare le tue mod nel gioco.
 
-## Profili di Lancio
+## Profili d'Avvio
 
-Se stai utilizzando IntelliJ IDEA, puoi trovare i profili di lancio nell'angolo in alto a destra della finestra. Clicca sul menu a tendina per vedere i profili di lancio disponibili.
+Se stai usando IntelliJ IDEA, puoi trovare i profili d'avvio nell'angolo in alto a destra della finestra. Clicca sul menu a tendina per vedere i profili d'avvio disponibili.
 
 Dovrebbe esserci un profilo client e uno server, con l'opzione di eseguire normalmente o in modalità debug:
 
-![Profili di Lancio](/assets/develop/getting-started/launch-profiles.png)
+![Profili d'Avvio](/assets/develop/getting-started/launch-profiles.png)
 
 ## Operazioni Gradle
 
-Se stai utilizzando la linea di comando, puoi utilizzare i comandi Gradle seguenti per avviare il gioco:
+Se stai usando la linea di comando, puoi usare i comandi Gradle seguenti per avviare il gioco:
 
 - `./gradlew runClient` - Avvia il gioco in modalità client.
 - `./gradlew runServer` - Avvia il gioco in modalità server.
 
-L'unico problema con questo approccio è che non puoi facilmente effettuare il debug del tuo codice. Se vuoi effettuare debug del tuo codice, avrai bisogno di utilizzare i profili di lancio in IntelliJ IDEA o tramite l'integrazione Gradle del tuo IDE.
+L'unico problema con questo approccio è che non puoi facilmente effettuare il debug del tuo codice. Se vuoi effettuare debug del tuo codice, avrai bisogno di usare i profili d'avvio in IntelliJ IDEA o tramite l'integrazione Gradle del tuo IDE.
 
 ## Hotswapping delle Classi
 
@@ -38,9 +38,9 @@ Tuttavia ci sono alcune limitazioni:
 
 ## Hotswapping dei Mixin
 
-Se stai utilizzando i Mixin, puoi fare hotswap delle tue classi Mixin senza riavviare il gioco. Questo è utile per testare cambiamenti ai tuoi Mixin velocemente.
+Se stai usando i Mixin, puoi fare hotswap delle tue classi Mixin senza riavviare il gioco. Questo è utile per testare cambiamenti ai tuoi Mixin velocemente.
 
-Avrai bisogno d'installare l'agent java Mixin perché questo funzioni.
+Avrai bisogno d'installare l'agent Java Mixin perché questo funzioni.
 
 ### 1. Trova il Jar della Libreria Mixin
 
@@ -50,7 +50,7 @@ In IntelliJ IDEA, puoi trovare il jar della libreria Mixin nella sezione "Librer
 
 Dovrai copiare il "Percorso Assoluto" del jar per il prossimo passaggio.
 
-### 2. Aggiungi l'argomento VM `-javaagent`.
+### 2. Aggiungi l'argomento VM `-javaagent`
 
 Nella tua configurazione di avvio "Client Minecraft " e/o "Server Minecraft", aggiungi ciò che segue all'opzione Argomenti VM:
 
