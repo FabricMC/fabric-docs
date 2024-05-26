@@ -156,7 +156,7 @@ The style guide is as follows:
 
 All content contributions go through three stages:
 
-1. Guidance for expansion (if possible)
+1. Guidance for Expansion (if needed)
 2. Content Verification
 3. Cleanup (Grammar etc.)
 
