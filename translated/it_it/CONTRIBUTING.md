@@ -79,7 +79,7 @@ La guida per lo stile è la seguente:
    # ...
    ```
 
-2. Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata all'interno della mod reference (posizionata nella cartella `/reference` della repository). Dopo di che, utilizza la [funzione code snippet offerta da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice, o se ti serve un controllo più raffinato, puoi usare la [funzione transclude da `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
+2. Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata all'interno della mod reference (posizionata nella cartella `/reference` della repository). Dopo di che, usa la [funzione code snippet offerta da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice, o se ti serve un controllo più raffinato, puoi usare la [funzione transclude da `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
 
    **Esempio:**
 
@@ -140,7 +140,7 @@ La guida per lo stile è la seguente:
 
 7. ⚠️ **Quando metti link ad altre pagine, usa link relativi.** ⚠️
 
-   Questo è dovuto al sistema di gestione delle versioni in utilizzo, che processerà i link per aggiungerci la versione anticipatamente. Se usassi link assoluti, il numero di versione non verrebbe aggiunto al link.
+   Questo è dovuto al sistema di gestione delle versioni in uso, che processerà i link per aggiungerci la versione anticipatamente. Se usassi link assoluti, il numero di versione non verrebbe aggiunto al link.
 
    Per esempio, per una pagina nella cartella `/players`, per mettere un link alla pagina `installing-fabric` che si trova in `/players/installing-fabric.md`, dovresti fare il seguente:
 
