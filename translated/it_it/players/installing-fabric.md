@@ -15,7 +15,7 @@ Per launcher di terze parti, dovresti consultare la loro documentazione.
 
 Puoi scaricare l'installer di Fabric dal [Sito di Fabric](https://fabricmc.net/use/).
 
-Se usi Windows, scarica la versione `.exe` (`Scarica per Windows`), perché non necessita di Java per essere installata sul tuo sistema. Essa utilizza invece la versione di Java inclusa nel launcher ufficiale.
+Se usi Windows, scarica la versione `.exe` (`Scarica per Windows`), perché non necessita di Java per essere installata sul tuo sistema. Essa usa invece la versione di Java inclusa nel launcher ufficiale.
 
 Per macOS e Linux, dovresti scaricare la versione `.jar`. A volte, dovrai installare Java prima di questo passaggio.
 
@@ -42,7 +42,7 @@ Per installare Fabric, semplicemente scegli la versione di gioco dal menu a tend
 
 **Assicurati che `Crea Profilo` sia selezionato.**
 
-## 3. Hai finito!
+## 3. Hai Finito!
 
 Una volta che l'installer ha finito, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina in basso a sinistra e premere Gioca!
 
