@@ -14,7 +14,7 @@ features:
     linkText: Per Iniziare
   - title: Guide per i Giocatori
     icon: 📚
-    details: Sei un giocatore che vuole utilizzare mod basate su Fabric? Le nostre guide per giocatori ti aiuteranno. Queste guide ti aiuteranno a scaricare, installare e risolvere eventuali problemi delle mod di Fabric.
+    details: Sei un giocatore che vuole usare mod basate su Fabric? Le nostre guide per giocatori ti aiuteranno. Queste guide ti aiuteranno a scaricare, installare e risolvere eventuali problemi delle mod di Fabric.
     link: /it_it/players/
     linkText: Leggi di più
 ---
@@ -23,6 +23,6 @@ features:
 
 ## Vuoi Contribuire?
 
-Se vuoi contribuire alla Documentazione di Fabric, puoi trovare il codice sorgente su [GitHub](https://github.com/FabricMC/fabric-docs), e le corrispondenti [linee guida per la contribuzione.](/contributing)
+Se vuoi contribuire alla Documentazione di Fabric, puoi trovare il codice sorgente su [GitHub](https://github.com/FabricMC/fabric-docs), e le corrispondenti [linee guida per la contribuzione.](./CONTRIBUTING.md)
 
 </div>
