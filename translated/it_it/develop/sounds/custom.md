@@ -7,23 +7,23 @@ authors:
 
 # Creare Suoni Personalizzati
 
-## Preparare il file audio
+## Preparare il File Audio
 
 I tuoi file audio devono essere formattati in un modo specifico. OGG Vorbis è un formato container aperto per dati multimediali, tra cui audio, e viene usato per i file audio di Minecraft. Per evitare problemi nel modo in cui Minecraft gestisce le distanze, il tuo audio deve essere solo su un singolo canale (Mono).
 
-Molti software DAW (Digital Audio Workstation) odierni riescono a importare ed esportare utilizzando questo formato. Nell'esempio seguente il software open-source gratuito "[Audacity](https://www.audacityteam.org/)" sarà usato per portare i file audio al formato corretto, tuttavia qualunque altro DAW sarà più che sufficiente.
+Molti software DAW (Digital Audio Workstation) odierni riescono a importare ed esportare usando questo formato. Nell'esempio seguente il software open-source gratuito "[Audacity](https://www.audacityteam.org/)" sarà usato per portare i file audio al formato corretto, tuttavia qualunque altro DAW sarà più che sufficiente.
 
-![file audio non preparato in Audacity](/assets/develop/sounds/custom_sounds_0.png)
+![File audio non preparato in Audacity](/assets/develop/sounds/custom_sounds_0.png)
 
-In questo esempio, il suono di un [fischio](https://freesound.org/people/strongbot/sounds/568995/) viene importato in Audacity. Attualmente questo è salvato come file `.wav` e ha due canali audio (Stereo). Modifica il suono come preferisci e assicurati di cancellare uno dei canali utilizzando il menu a tendina in cima alla "testina".
+In questo esempio, il suono di un [fischio](https://freesound.org/people/strongbot/sounds/568995/) viene importato in Audacity. Attualmente questo è salvato come file `.wav` e ha due canali audio (Stereo). Modifica il suono come preferisci e assicurati di cancellare uno dei canali usando il menu a tendina in cima alla "testina".
 
-![separare traccia Stereo](/assets/develop/sounds/custom_sounds_1.png)
+![Separare traccia Stereo](/assets/develop/sounds/custom_sounds_1.png)
 
-![eliminare uno dei canali](/assets/develop/sounds/custom_sounds_2.png)
+![Eliminare uno dei canali](/assets/develop/sounds/custom_sounds_2.png)
 
 Quando devi esportare o renderizzare un file audio, assicurati di scegliere il formato del file OGG. Alcuni DAW, come REAPER, potrebbero supportare formati audio OGG a più strati. In questo caso OGG Vorbis dovrebbe funzionare senza problemi.
 
-![esportazione come file OGG](/assets/develop/sounds/custom_sounds_3.png)
+![Esportare come file OGG](/assets/develop/sounds/custom_sounds_3.png)
 
 Inoltre tieni a mente che un file audio può aumentare drasticamente le dimensioni del file della tua mod. Se necessario, comprimi l'audio quando stai modificando ed esportando il file, per mantenere le sue dimensioni al minimo.
 
@@ -35,7 +35,7 @@ Se non esiste ancora, crea il file `resources/assets/<mod id here>/sounds.json` 
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è utilizzato nei file di lingua nel percorso `resources/assets/<mod id here>/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
+La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/<mod id here>/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
 ## Registrare il Suono Personalizzato
 
@@ -50,7 +50,7 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
 
 A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfuggire di mano. Per evitare che ciò accada, possiamo fare uso di una nuova classe di supporto.
 
-Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registra tutti i suoni, e uno che viene utilizzato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
+Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
@@ -60,4 +60,4 @@ Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo im
 
 ## Usare il SoundEvent Personalizzato
 
-Utilizza la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](/develop/sounds/using-sounds) per imparare come riprodurre i suoni.
+Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](/develop/sounds/using-sounds) per imparare come riprodurre i suoni.
