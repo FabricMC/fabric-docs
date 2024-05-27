@@ -7,7 +7,7 @@ description: Learn how to play sound events.
 
 Minecraft has a big selection of sounds which you can choose from. Check out the `SoundEvents` class to view all the vanilla sound event instances that Mojang has provided.
 
-## Using Sounds In Your Mod
+## Using Sounds in Your Mod
 
 Make sure to execute the `playSound()` method on the logical server side when using sounds!
 

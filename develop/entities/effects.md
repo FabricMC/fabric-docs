@@ -39,7 +39,7 @@ Similar to block and item registration, we use `Registry.register` to register o
 
 You can assign a name to your status effect and provide a texture icon that will appear in the player inventory screen.
 
-**Texture**
+#### Texture
 
 The status effect icon is a 18x18 PNG. Place your custom icon in:
 
@@ -49,7 +49,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ![Effect in player inventory](/assets/develop/tater-effect.png)
 
-**Translations**
+#### Translations
 
 Like any other translation, you can add an entry with ID format `"effect.<mod-id>.<effect-identifier>": "Value"` to the
 language file.
@@ -64,8 +64,8 @@ language file.
 
 ### Testing
 
-Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect. Use `/effect clear`
-to remove the effect.
+Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect.
+Use `/effect clear @p fabric-docs-reference:tater` to remove the effect.
 
 ::: info
 To create a potion that uses this effect, please see the [Potions](../items/potions.md) guide.

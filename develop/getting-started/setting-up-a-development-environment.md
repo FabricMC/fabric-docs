@@ -1,9 +1,9 @@
 ---
-title: Setting Up A Development Environment
+title: Setting up a Development Environment
 description: A step-by-step guide on how to set up a development environment to create mods using Fabric.
 authors:
   - IMB11
-  - andrew6rant 
+  - andrew6rant
   - SolidBlock-cn
   - modmuss50
   - daomephsta
@@ -18,7 +18,7 @@ authors:
 
 <!-- No GitHub profiles for: siglong -->
 
-# Setting Up A Development Environment
+# Setting up a Development Environment
 
 To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA.
 
@@ -53,5 +53,3 @@ The Minecraft Development plugin provides support for modding with Fabric, and i
 You can install it by opening IntelliJ IDEA, and then navigating to `File > Settings > Plugins > Marketplace Tab` - search for `Minecraft Development` in the search bar, and then click the `Install` button.
 
 Alternatively, you can download it from the [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) and then install it by navigating to `File > Settings > Plugins > Install Plugin From Disk`.
-
-
