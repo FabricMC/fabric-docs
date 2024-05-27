@@ -2,6 +2,8 @@ import { existsSync, readdirSync, readFileSync } from "fs";
 import { resolve } from "path/posix";
 import { ExtendedSidebarItem } from "./sidebars/utils";
 import { DefaultTheme, LocaleConfig } from "vitepress";
+import PlayersSidebar from './sidebars/players'
+import DevelopSidebar from "./sidebars/develop"
 
 export function applyTranslations(locale: string, translationSource: { [key: string]: string; }, fallbackSource: { [key: string]: string }, sidebar: ExtendedSidebarItem[]): ExtendedSidebarItem[] {
   const sidebarCopy = JSON.parse(JSON.stringify(sidebar));
@@ -78,6 +80,54 @@ export function generateTranslatedSidebars(_rootDir: string, sidebars: { [url: s
   return sidebarResult;
 }
 
+export function generateThemeConfig(_localeDir: string | null): DefaultTheme.Config {
+  return {
+    // https://vitepress.dev/reference/default-theme-config
+    nav: [
+      { text: 'Home', link: 'https://fabricmc.net/' },
+      { text: 'Download', link: 'https://fabricmc.net/use' },
+      {
+        text: 'Contribute', items: [
+          // Expand on this later, with guidelines for loader+loom potentially?
+          {
+            text: 'Fabric Documentation',
+            link: (_localeDir == null ? '' : `/${_localeDir}`) + "/contributing"
+          },
+          {
+            text: 'Fabric API',
+            link: 'https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md'
+          }
+        ]
+      },
+    ],
+
+    search: {
+      provider: 'local'
+    },
+
+    outline: "deep",
+
+    sidebar: generateTranslatedSidebars(__dirname, {
+      '/players/': PlayersSidebar,
+      '/develop/': DevelopSidebar,
+    }),
+
+    editLink: {
+      pattern: ({ filePath }) => {
+        return `https://github.com/FabricMC/fabric-docs/edit/main/${filePath}`
+      },
+      text: 'Edit this page on GitHub'  // TODO: Localise this text
+    },
+
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/FabricMC/fabric-docs' },
+      { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
+    ],
+
+    logo: "/logo.png"
+  };
+}
+
 export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config> {
   const translatedFolder = resolve(_rootDir, "..", "translated");
 
@@ -109,6 +159,7 @@ export function loadLocales(_rootDir: string): LocaleConfig<DefaultTheme.Config>
       label: localeName,
       link: `/${folder}/`,
       lang: folder,
+      themeConfig: generateThemeConfig(folder),
     }
   }
 

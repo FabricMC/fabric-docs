@@ -1,14 +1,10 @@
 import { PageData, TransformPageContext } from 'vitepress'
 
-import defineVersionedConfig from 'vitepress-versioning-plugin'
 import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
+import defineVersionedConfig from 'vitepress-versioning-plugin'
 
-import PlayersSidebar from './sidebars/players'
-import DevelopSidebar from "./sidebars/develop"
-
-import { applySEO } from './seo'
-import { removeVersionedItems } from "./seo"
-import { loadLocales, generateTranslatedSidebars } from './i18n'
+import { generateThemeConfig, loadLocales } from './i18n'
+import { applySEO, removeVersionedItems } from './seo'
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -21,8 +17,6 @@ export default defineVersionedConfig(__dirname, {
   },
 
   rewrites: {
-    // Ensures that it's `/contributing` instead of `/CONTRIBUTING`.
-    '(.*)CONTRIBUTING.md': '(.*)contributing.md',
     'translated/:lang/(.*)': ':lang/(.*)'
   },
 
@@ -37,7 +31,8 @@ export default defineVersionedConfig(__dirname, {
   locales: {
     root: {
       label: 'English',
-      lang: 'en'
+      lang: 'en',
+      themeConfig: generateThemeConfig(null)
     },
 
     ...loadLocales(__dirname)
@@ -68,51 +63,5 @@ export default defineVersionedConfig(__dirname, {
     config(md) {
       md.use(snippetPlugin);
     }
-  },
-
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: 'https://fabricmc.net/' },
-      { text: 'Download', link: 'https://fabricmc.net/use' },
-      {
-        text: 'Contribute', items: [
-          // Expand on this later, with guidelines for loader+loom potentially?
-          {
-            text: 'Fabric Documentation',
-            link: '/contributing'
-          },
-          {
-            text: 'Fabric API',
-            link: 'https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md'
-          }
-        ]
-      },
-    ],
-
-    search: {
-      provider: 'local'
-    },
-
-    outline: "deep",
-
-    sidebar: generateTranslatedSidebars(__dirname, {
-      '/players/': PlayersSidebar,
-      '/develop/': DevelopSidebar,
-    }),
-
-    editLink: {
-      pattern: ({ filePath }) => {
-        return `https://github.com/FabricMC/fabric-docs/edit/main/${filePath}`
-      },
-      text: 'Edit this page on GitHub'
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/FabricMC/fabric-docs' },
-      { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
-    ],
-
-    logo: "/logo.png"
   }
 })
