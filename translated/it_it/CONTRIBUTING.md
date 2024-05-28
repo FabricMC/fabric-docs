@@ -156,7 +156,7 @@ La guida per lo stile è la seguente:
 
 Tutti i contributi di contenuto passano per tre fasi:
 
-1. Guida per l'espansione (se possibile)
+1. Indicazioni per l'Espansione (se necessaria)
 2. Verifica dei Contenuti
 3. Pulizia (Grammatica ecc.)
 
