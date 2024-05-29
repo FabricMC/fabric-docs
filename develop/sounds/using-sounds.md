@@ -21,7 +21,7 @@ The `playSound()` method is used with the `LivingEntity` object. Only the SoundE
 
 ### SoundEvent and SoundCategory
 
-The SoundEvent defines which sound will be played. You can also [register your own SoundEvents](./custom) to include your own sound.
+The SoundEvent defines which sound will be played. You can also [register your own SoundEvents](./custom.md) to include your own sound.
 
 Minecraft has several audio sliders in the in-game settings. The `SoundCategory` enum is used to determine which slider will adjust your sound's volume.
 
