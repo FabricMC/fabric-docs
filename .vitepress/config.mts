@@ -1,9 +1,9 @@
 import { PageData, TransformPageContext } from 'vitepress'
 
 import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
-import defineVersionedConfig from 'vitepress-versioning-plugin'
+import defineVersionedConfig, { VersionedConfig } from 'vitepress-versioning-plugin'
 
-import { generateThemeConfig, loadLocales } from './i18n'
+import { loadLocales } from './i18n'
 import { applySEO, removeVersionedItems } from './seo'
 
 // https://vitepress.dev/reference/site-config
@@ -24,19 +24,12 @@ export default defineVersionedConfig(__dirname, {
   description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
   cleanUrls: true,
 
-  head: [
-    ['link', { rel: 'icon', sizes: '32x32', href: '/favicon.png' }],
-  ],
+  head: [[
+    'link',
+    { rel: 'icon', sizes: '32x32', href: '/favicon.png' }
+  ]],
 
-  locales: {
-    root: {
-      label: 'English',
-      lang: 'en',
-      themeConfig: generateThemeConfig(null)
-    },
-
-    ...loadLocales(__dirname)
-  },
+  locales: loadLocales(__dirname),
 
   // Prevent dead links from being reported as errors - allows partially translated pages to be built.
   ignoreDeadLinks: true,
@@ -46,7 +39,7 @@ export default defineVersionedConfig(__dirname, {
     "LICENSE.md",
   ],
 
-  transformPageData(pageData: PageData, ctx: TransformPageContext) {
+  transformPageData(pageData: PageData, _ctx: TransformPageContext) {
     applySEO(pageData);
   },
 
@@ -64,4 +57,4 @@ export default defineVersionedConfig(__dirname, {
       md.use(snippetPlugin);
     }
   }
-})
+} as VersionedConfig)
