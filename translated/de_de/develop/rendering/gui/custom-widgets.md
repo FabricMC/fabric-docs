@@ -20,7 +20,7 @@ Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise 
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-## Das Widget zur Oberfläche hinzufügen
+## Das Widget zu einer Oberfläche hinzufügen
 
 Wie alle Widgets musst du es mit der Methode `addDrawableChild`, die von der Klasse `Screen` bereitgestellt wird, zur Oberfläche hinzufügen. Stelle sicher, dass du dies in der Methode `init` machst.
 
