@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## Eine Oberfläche schließen
+## Die Oberfläche schließen
 
 Wenn du eine Oberfläche schließen möchtest, setze die Oberfläche einfach auf `null`:
 
