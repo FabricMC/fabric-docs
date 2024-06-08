@@ -22,7 +22,7 @@ Neuere Mods können eine neuere Version des Fabric-Loaders benötigen, um zu fun
 
 <!--@include: ./installing-fabric.md{12,41}-->
 
-Um Fabric zu aktualisieren, stelle sicher, dass die Spielversion und die Loader-Version korrekt sind und klicke auf `Installieren`.
+Um Fabric zu aktualisieren, vergewissere dich einfach, dass die Spielversion und die Loader-Version korrekt sind, und klicke dann auf `Installieren`.
 
 **Stelle sicherm dass die Option 'Profil erstellen'' deaktiviert ist, wenn du den Installer ausführst, da sonst ein neues Profil erstellt wird, das in diesem Fall nicht benötigt wird.**
 
@@ -34,7 +34,7 @@ Ersetze die Version mit der neuen Version des Fabric-Loaders, die gerade install
 
 ![Aktualisieren der Fabric-Loader-Version im Minecraft-Launcher.](/assets/players/updating-fabric.png)
 
-## 4. Du hast es geschafft!
+## 4. Du bist fertig!
 
 Wenn du mit allen Schritten fertig bist, kannst du zurück zum `Spielen`-Tab navigieren, das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
