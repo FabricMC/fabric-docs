@@ -1,11 +1,11 @@
 ---
-title: Starten des Spiels
+title: Das Spiel starten
 description: Lerne, wie du die verschiedenen Startprofile verwendest, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
 authors:
   - IMB11
 ---
 
-# Starten des Spiels
+# Das Spiel starten
 
 Fabric Loom bietet eine Vielzahl von Startprofilen, die dir helfen, deine Mods in einer Live-Spielumgebung zu starten und zu debuggen. Dieser Leitfaden behandelt die verschiedenen Startprofile und wie man sie zum Debuggen und Testen der Mods verwendet.
 
@@ -40,7 +40,7 @@ Du bist aber immer noch ziemlich eingeschränkt:
 
 Wenn du Mixins verwendest, kannst du deine Mixin-Klassen per Hotswap austauschen, ohne das Spiel neu zu starten. Dies ist nützlich, um Änderungen an deinen Mixins schnell zu testen.
 
-Hierzu musst du allerdings den Mixin-Java-Agent installieren, damit das funktioniert.
+Du musst den Mixin-Java-Agent installieren, damit dies funktioniert.
 
 ### 1. Finde die JAR der Mixin Bibliothek
 
@@ -50,7 +50,7 @@ In IntelliJ IDEA findest du die Mixin-Bibliothek JAR im Abschnitt "External Libr
 
 Für den nächsten Schritt musst du den "Absolute Path" (Absoluten Pfad) der JAR-Datei kopieren.
 
-### 2. Füge das VM-Argument `-javaagent` hinzu.
+### 2. Füge das `-javaagent` VM Argument hinzu
 
 Füge in deiner "Minecraft Client"- und/oder "Minecraft Server"-Ausführungskonfiguration Folgendes zur Option VM-Argumente hinzu:
 
