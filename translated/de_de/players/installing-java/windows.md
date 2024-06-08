@@ -11,7 +11,7 @@ Diese Anleitung führt Sie durch die Installation von Java 17 auf Windows.
 
 Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese Sektion ist also nur relevant, wenn Sie den Fabric `.jar` basierten Installer verwenden möchten oder wenn Sie die Minecraft Server `.jar` verwenden möchten.
 
-## 1. Überprüfen, ob Java bereits installiert ist.
+## 1. Überprüfen, ob Java bereits installiert ist
 
 Um zu überprüfen, ob Java bereits installiert ist, öffnen Sie die Kommandozeile.
 
@@ -29,7 +29,7 @@ Wenn der Befehl erfolgreich ausgeführt wird, sollten Sie folgendes sehen. Wenn 
 Um den Großteil der modernen Minecraft-Versionen nutzen zu können, musst du Java 17 installiert haben. Wenn der Befehl eine Version niedriger als 17 anzeigt, musst du deine bestehende Java-Installation aktualisieren.
 :::
 
-## 2. Herunterladen des Java 17 Installer.
+## 2. Herunterladen des Java 17 Installer
 
 Um Java 17 zu installieren, laden Sie bitte den Installer von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=17) herunter.
 
@@ -41,7 +41,7 @@ Sie sollten `x86` wählen, wenn Sie ein 32-Bit-Betriebssystem haben, oder `x64`,
 
 Die meisten modernen Computer sind mit einem 64-Bit-Betriebssystem ausgestattet. Wenn Sie sich unsicher sind, versuchen Sie es mit dem 64-Bit-Download.
 
-## 3. Installer starten!
+## 3. Füre den Installer aus!
 
 Folgen Sie den Schritten des Installationsprogramms, um Java 17 zu installieren. Wenn Sie diese Seite erreichen, sollten Sie die folgenden Funktionen auf "Die gesamte Funktion wird auf der lokalen Festplatte installiert" einstellen:
 
@@ -52,7 +52,7 @@ Folgen Sie den Schritten des Installationsprogramms, um Java 17 zu installieren.
 
 Wenn Sie das getan haben, können Sie `Weiter` klicken und mit der Installation fortfahren.
 
-## 4. Verifizieren, dass Java 17 installiert ist.
+## 4. Verifizieren, dass Java 17 installiert ist
 
 Sobald die Installation abgeschlossen ist, können Sie überprüfen, ob Java 17 installiert ist, indem Sie die Kommandozeile erneut öffnen und "java -version" eingeben.
 
