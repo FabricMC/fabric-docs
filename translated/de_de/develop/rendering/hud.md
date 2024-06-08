@@ -17,7 +17,7 @@ Um dieses Event zu registrieren, kannst du einfach `HudRenderCallback.EVENT.regi
 
 Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Utilities zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen.
 
-Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context.md) ansehen, um mehr über den Zeichenkontext zu erfahren.
+Du solltest dir die Seite [Zeichencontext](./draw-context.md) ansehen, um mehr über den Zeichenkontext zu erfahren.
 
 ### DeltaTick
 
@@ -29,4 +29,4 @@ Nehmen wir an, du möchtest eine Farbe im Laufe der Zeit auslöschen. Dazu kanns
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
-![](/assets/develop/rendering/hud-rendering-deltatick.webp)
+![Verfall einer Farbe im Laufe der Zeit](/assets/develop/rendering/hud-rendering-deltatick.webp)
