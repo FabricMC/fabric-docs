@@ -9,7 +9,7 @@ authors:
 
 Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric Template Mod Generator zu erstellen - wenn du möchtest, kannst du ein neues Projekt auch manuell erstellen, indem du das Beispiel-Mod-Repository verwendest, dann solltest du den Abschnitt [Manuelle Projekterstellung](#manuelle-projekterstellung) lesen.
 
-## Erstellung eines Projekts
+## Ein Projekt generrieren
 
 Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu erstellen - du solltest die erforderlichen Felder ausfüllen, wie zum Beispiel den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
 
@@ -25,9 +25,9 @@ Du solltest diese ZIP-Datei an einem Ort deiner Wahl entpacken und dann den entp
 
 ![Aufforderung zum Öffnen des Projekts](/assets/develop/getting-started/open-project.png)
 
-## Import des Projekts
+## Das Projekt importieren
 
-Sobald du das Projekt in IntelliJ IDEA geöffnet hast, sollte IDEA automatisch die Gradle-Konfiguration des Projekts laden und die notwendigen Einrichtungsaufgaben durchführen.
+Sobald du das Projekt in IntelliJ IDEA geöffnet hast, sollte die IDE automatisch die Gradle-Konfiguration des Projekts laden und die notwendigen Einrichtungsaufgaben durchführen.
 
 Wenn du eine Benachrichtigung über ein Gradle-Build-Skript erhältst, solltest du auf die Schaltfläche `Import Gradle Project` klicken:
 
@@ -63,6 +63,6 @@ Sobald das Projekt importiert wurde, solltest du die Details des Projekts so än
 
 - Ändere die Datei `gradle.properties` des Projekts, um die Eigenschaften `maven_group` und `archive_base_name` an die Details deines Mods anzupassen.
 - Ändere die Datei `fabric.mod.json`, um die Eigenschaften `id`, `name` und `description` an die Details deines Mods anzupassen.
-- Stelle sicher, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über https://fabricmc.net/develop/ abgefragt werden können - mit den Versionen übereinstimmen, die du ansprechen möchtest.
+- Achte darauf, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über https://fabricmc.net/develop/ abgefragt werden können - mit den Versionen übereinstimmen, die du nutzen möchtest.
 
 Du kannst natürlich den Paketnamen und die Hauptklasse des Mods ändern, um die Details deines Mods anzupassen.
