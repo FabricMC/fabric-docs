@@ -9,7 +9,7 @@ authors:
 
 Diese Anleitung führt Sie durch die Installation von Java 17 auf Linux.
 
-## 1. Überprüfen, ob Java bereits installiert ist.
+## 1. Überprüfen, ob Java bereits installiert ist
 
 Öffne ein Terminal und gib `java -version` ein, drücke anschließend <kbd>Enter</kbd>.
 
@@ -82,7 +82,7 @@ Wenn deine Distribution oben nicht gelistet ist, kannst du die aktuellste JRE vo
 
 Du solltest einen alternativen Leitfaden für deine Distribution verwenden, wenn du Mods entwickeln willst.
 
-## 3. Verifizieren, dass Java 17 installiert ist.
+## 3. Verifizieren, dass Java 17 installiert ist
 
 Sobald die Installation abgeschlossen ist, kannst du überprüfen, ob Java 17 installiert ist, indem du die Kommandozeile erneut öffnest und "java -version" eingibst.
 
