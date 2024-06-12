@@ -7,7 +7,7 @@ on:
     paths:
       - '**/*.md'
       - '!translated/**'
-      - '!versions/**'
+      - '!versions/*/translated/**'
   workflow_dispatch: # Manual run
 
 concurrency:
@@ -30,21 +30,18 @@ jobs:
           files: |
             **/*.md
             !translated/**
-            !versions/**
+            !versions/*/translated/**
 
       - id: node
         if: steps.changes.outputs.any_changed == 'true'
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-        continue-on-error: true  # lint even without `titlecase`
 
       - id: titlecase
-        if: steps.node.outcome == 'success'
         run: npm install markdownlint-rule-titlecase@v0.1.0
 
       - id: lint
-        if: steps.changes.outputs.any_changed == 'true'
         uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           config: .markdownlint-cli2.yaml
