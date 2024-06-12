@@ -11,7 +11,7 @@ This guide will walk you through installing Java 17 on Windows.
 
 The Minecraft Launcher comes with its own Java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
 
-## 1. Verify if Java Is Already Installed
+## 1. Check if Java Is Already Installed
 
 To check if Java is already installed, you must first open the command prompt.
 
