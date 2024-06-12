@@ -52,20 +52,20 @@ export function loadLocales(rootDir: string): LocaleConfig<DefaultTheme.Config> 
 
 /**
  * Returns a resolving function for any navbar strings.
- * @param localDir - The directory of the locale (null for English).
+ * @param localeDir - The directory of the locale (null for English).
  */
-function getNavbarResolver(localDir: string | null): (key: string) => string {
+function getNavbarResolver(localeDir: string | null): (key: string) => string {
   // Load navbar_translations.json of locale and english.
   const fallbackTranslations = JSON.parse(readFileSync(resolve(__dirname, "..", "navbar_translations.json"), "utf-8"));
   let translations: any;
 
-  if(localDir == null) {
+  if(localeDir == null) {
     translations = fallbackTranslations
   } else {
-    if(!existsSync(resolve("translated", localDir, "navbar_translations.json"))) {
+    if(!existsSync(resolve("translated", localeDir, "navbar_translations.json"))) {
       translations = fallbackTranslations;
     } else {
-      translations = JSON.parse(readFileSync(resolve("translated", localDir, "navbar_translations.json"), "utf-8"));
+      translations = JSON.parse(readFileSync(resolve("translated", localeDir, "navbar_translations.json"), "utf-8"));
     }
   }
 
