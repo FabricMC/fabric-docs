@@ -9,7 +9,7 @@ authors:
 
 This guide will walk you through installing Java 17 on Linux.
 
-## 1. Verify if Java is Already Installed
+## 1. Check if Java Is Already Installed
 
 Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
