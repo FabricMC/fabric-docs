@@ -85,7 +85,7 @@ function generateTranslatedThemeConfig(localeDir: string | null): DefaultTheme.C
 
   return {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [  // TODO: translate `nav`
+    nav: [
       { text: navbarResolver('home'), link: 'https://fabricmc.net/' },
       { text: navbarResolver('download'), link: 'https://fabricmc.net/use' },
       {
