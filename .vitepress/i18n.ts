@@ -51,31 +51,64 @@ export function loadLocales(rootDir: string): LocaleConfig<DefaultTheme.Config> 
 }
 
 /**
+ * Returns a resolving function for any navbar strings.
+ * @param localDir - The directory of the locale (null for English).
+ */
+function getNavbarResolver(localDir: string | null): (key: string) => string {
+  // Load navbar_translations.json of locale and english.
+  const fallbackTranslations = JSON.parse(readFileSync(resolve(__dirname, "..", "navbar_translations.json"), "utf-8"));
+  let translations: any;
+
+  if(localDir == null) {
+    translations = fallbackTranslations
+  } else {
+    if(!existsSync(resolve("translated", localDir, "navbar_translations.json"))) {
+      translations = fallbackTranslations;
+    } else {
+      translations = JSON.parse(readFileSync(resolve("translated", localDir, "navbar_translations.json"), "utf-8"));
+    }
+  }
+
+  return (key: string) => {
+    return translations[key] ?? fallbackTranslations[key] ?? key;
+  }
+}
+
+/**
  * Generates a theme configuration for a given locale.
  * 
  * @param localeDir - The directory of the locale (null for English).
  * @returns A theme configuration object.
  */
 function generateTranslatedThemeConfig(localeDir: string | null): DefaultTheme.Config {
+  const navbarResolver = getNavbarResolver(localeDir);
+
   return {
     // https://vitepress.dev/reference/default-theme-config
     nav: [  // TODO: translate `nav`
-      { text: 'Home', link: 'https://fabricmc.net/' },
-      { text: 'Download', link: 'https://fabricmc.net/use' },
+      { text: navbarResolver('home'), link: 'https://fabricmc.net/' },
+      { text: navbarResolver('download'), link: 'https://fabricmc.net/use' },
       {
-        text: 'Contribute', items: [
+        text: navbarResolver('contribute'), items: [
           // TODO: Expand on this later, with guidelines for loader+loom potentially?
           {
-            text: 'Fabric Documentation',
+            text: navbarResolver('title'),
             link: `${localeDir ? `/${localeDir}` : ''}/contributing`
           },
           {
-            text: 'Fabric API',
+            text: navbarResolver('contribute.api'),
             link: 'https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md'
           }
         ]
       },
     ],
+
+    // @ts-ignore
+    versioning: {
+      switcher: {
+        text: navbarResolver('version_switcher'),
+      }
+    },
 
     search: {
       provider: 'local'
@@ -100,7 +133,9 @@ function generateTranslatedThemeConfig(localeDir: string | null): DefaultTheme.C
       { icon: 'discord', link: 'https://discord.gg/v6v4pMv' }
     ],
 
-    logo: "/logo.png"
+    logo: "/logo.png",
+
+    siteTitle: navbarResolver('title')
   };
 }
 

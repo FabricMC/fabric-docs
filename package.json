@@ -5,7 +5,7 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5"
+    "@types/node": "^20.14.2"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.6.1"
@@ -13,8 +13,8 @@
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
-    "vitepress": "^1.0.0-rc.33",
-    "vitepress-versioning-plugin": "^0.10.0",
-    "vue": "^3.4.0"
+    "vitepress": "^1.2.3",
+    "vitepress-versioning-plugin": "^0.11.1",
+    "vue": "^3.4.27"
   }
 }
