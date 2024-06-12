@@ -103,12 +103,7 @@ function generateTranslatedThemeConfig(localeDir: string | null): DefaultTheme.C
       },
     ],
 
-    // @ts-ignore
-    versioning: {
-      switcher: {
-        text: navbarResolver('version_switcher'),
-      }
-    },
+    // TODO: localise version switcher
 
     search: {
       provider: 'local'
