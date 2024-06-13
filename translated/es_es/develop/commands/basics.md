@@ -25,7 +25,7 @@ La creación de comandos le permite a desarrolladores de mods añadir funcionali
 Brigadier es un analizador y despachador de comandos escrito por Mojang para Minecraft. Es una libraría basada en un una estructura de árbol de comandos, donde construyes un árbol de comandos y argumentos. Brigadier es de fuente abierta: https\://github.com/Mojang/brigadier
 :::
 
-### La interfaz `Comand` (Comando)
+## La interfaz `Comand` (Comando)
 
 `com.mojang.brigadier.Command` es una interfaz funcional, la cual corre un código específico, y tira una excepción de `CommandSyntaxException` (Excepción de Syntax de Comando) en algunos casos. Tiene un tipo genérico `S`, el cual define el tipo de la _fuente de comando_.
 La fuente de comando nos dá el contexto en el que se corrió un comando. En Minecraft, la fuente de comando es típicamente un `ServerCommandSource` (Fuente de Comando de Servidor) el cual puede representar un servidor, un bloque de comandos, una conexión remota (RCON), un jugador o una entidad.
@@ -42,7 +42,7 @@ Command<ServerCommandSource> command = context -> {
 
 El número entero retornado puede ser considerado el resultado del comando. Los valores iguales o menores a 0 típicamente significan que el comando ha fallado y no hará nada. Valores positivos indican que el comando fue exitoso e hizo algo. Brigadier provee una constante para indicar éxito; `Command#SINGLE_SUCCESS` (Éxito Único).
 
-#### ¿Qué puede hacer el `ServerCommandSource`?
+### ¿Qué puede hacer el `ServerCommandSource`?
 
 Un `ServerCommandSource` nos da contexto específico de implementación adicional cuando el comando es corrido. Esto incluye la habilidad de obtener la entidad que ejecutó el comando, el mundo o el servidor en el que el comando fue ejecutado.
 
@@ -55,7 +55,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-### Registrar un Comando Básico
+## Registrar un Comando Básico
 
 Los comandos son registrados mediante la clase `CommandRegistrationCallback` (Callback de Registración de Comandos) proveída por el Fabric API.
 
@@ -85,13 +85,13 @@ Si el comando falla, en vez de llamar `sendFeedback()`, puedes directamente tira
 
 Para ejecutar este comando, debes escribir `/foo`; aquí importan las mayúsculas y minúsculas.
 
-#### Ambiente de Registración
+### Ambiente de Registración
 
 Si se desea, también puedes asegurarte que un comando solo es registrado bajo ciertas circunstancias específicas, por ejemplo, solo en el ambiente dedicado:
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-#### Requerimientos de Comandos
+### Requerimientos de Comandos
 
 Digamos que tienes un comando y que quieres que solo los operadores puedan ejecutarlo. Aquí entra el método `requires()`. El método `requieres()` tiene un argumento de un `Predicate<S>` (Condición) el cual proveerá un `ServerCommandSource` el cual será probado con la condición data para determinar si el `CommandSource` puede ejecutar el comando.
 
@@ -101,7 +101,7 @@ Este comando solo se ejecutará si la fuente del comando es un operador nivel 2 
 
 Esto tiene el efecto secundario de que el comando no se muestra con la auto completación con la tecla Tab a personas que no tienen operador nivel 2. Esta también es la razón por la cual no puedes autocompletar comandos cuando no tienes los trucos activados.
 
-#### Sub Comandos
+### Sub Comandos
 
 Para agregar un sub comando, registras el primer nodo de comando normalmente. Para tener un sub comando, tienes que adjuntar el siguiente literal de nodo de comando al nodo existente.
 
@@ -111,23 +111,23 @@ Similarmente a los argumentos, los nodos de sub comandos pueden ser opcionales. 
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Comandos de Cliente
+## Comandos de Cliente
 
 El Fabric API tiene una clase `ClientCommandManager` en el paquete de `net.fabricmc.fabric.api.client.command.v2` que puede ser usado para registrar comandos en el lado del cliente. Este código solo debe existir en el lado del cliente.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### Redireccionando Comandos
+## Redireccionando Comandos
 
 Redireccionadores de comandos - también llamados aliases - son una manea de redireccionar la funcionalidad de un comando a otro. Esto es útil cuando quieres cambiar el nombre de un comando, pero todavía quieres mantener soporte para el nombre viejo.
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### Preguntas Frequentes
+## Preguntas Frequentes
 
 <br>
 
-###### ¿Por qué mi código no compila?
+### ¿Por qué mi código no compila?
 
 - Atrapa o tira una excepción `CommandSyntaxException` - `CommandSyntaxException` no es una `RuntimeException` (Excepción en Tiempo de Ejecución). Si la tiras, debe ser en métodos que tiren un `CommandSyntaxException` en el signature (firma) del método, o ser atrapadas.
   Brigadier manejará las excepciones checked (comprobadas) y mandará el mensaje de error correspondiente en el juego para ti.
@@ -138,7 +138,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 
 - Un comando debería retornar un número entero - Cuando registres comandos, el método `executes()` acepta un objeto `Command`, el cual usualmente es una expresión Lambda. El Lambda debería retornar un número entero, en lugar de otros tipos de valores.
 
-###### ¿Puedo registrar comandos durante la ejecución?
+### ¿Puedo registrar comandos durante la ejecución?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -149,7 +149,7 @@ Después de eso, debes enviar el árbol de comandos a cada jugador de nuevo usan
 Esto es necesario porque el cliente almacena en un caché el árbol de comandos que recibe durante inicio de sesión (o cuando paquetes de operador son enviados) para mensajes de error con completaciones locales.
 :::
 
-###### ¿Puedo des-registrar comandos durante la ejecución?
+### ¿Puedo des-registrar comandos durante la ejecución?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
