@@ -25,7 +25,7 @@ Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen,
 Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https://github.com/Mojang/brigadier
 :::
 
-### Das Interface `Command`
+## Das Interface `Command`
 
 `com.mojang.brigadier.Command` ist ein funktionales Interface, das einen bestimmten Code ausführt und in bestimmten Fällen eine `CommandSyntaxException` auslöst. Er hat einen generischen Typ `S`, der den Typ der _Befehlsquelle_ definiert.
 Die Befehlsquelle liefert einen Kontext, in dem ein Befehl ausgeführt wurde. In Minecraft ist die Befehlsquelle normalerweise ein `ServerCommandSource`, die einen Server, einen Befehlsblock, eine Remote-Verbindung (RCON), einen Spieler oder eine Entität darstellen kann.
@@ -42,7 +42,7 @@ Command<ServerCommandSource> command = context -> {
 
 Die Ganzzahl kann als Ergebnis des Befehls betrachtet werden. Normalerweise bedeuten Werte kleiner oder gleich Null, dass ein Befehl fehlgeschlagen ist und nichts machen wird. Positive Werte bedeuten, dass der Befehl erfolgreich war und etwas gemacht hat. Brigadier bietet eine Konstante zur Anzeige von Erfolg; `Befehl#SINGLE_SUCCESS`.
 
-#### Was kann die `ServerCommandSource` machen?
+### Was kann die `ServerCommandSource` machen?
 
 Eine "ServerCommandSource" liefert einen zusätzlichen implementierungsspezifischen Kontext, wenn ein Befehl ausgeführt wird. Dazu gehört die Möglichkeit, die Entität, die den Befehl ausgeführt hat, die Welt, in der der Befehl ausgeführt wurde, oder den Server, auf dem der Befehl ausgeführt wurde, zu ermitteln.
 
@@ -55,7 +55,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-### Registrieren eines einfachen Befehls
+## Registrieren eines einfachen Befehls
 
 Befehle werden innerhalb des `CommandRegistrationCallback` registriert, der von der Fabric API bereitgestellt wird.
 
@@ -79,7 +79,7 @@ Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
-Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. Wenn der Befehl etwas macht, wie z. B. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
+Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
 
 Wenn der Befehl fehlschlägt, kannst du, anstatt `sendFeedback()` aufzurufen, direkt eine beliebige Ausnahme auslösen, die vom Server oder Client entsprechend behandelt wird.
 
@@ -87,13 +87,13 @@ Die `CommandSyntaxException` wird im Allgemeinen ausgelöst, um Syntaxfehler in 
 
 Um diesen Befehl auszuführen, musst du `/foo` eingeben, wobei die Groß- und Kleinschreibung zu beachten ist.
 
-#### Umgebung der Registrierung
+### Umgebung der Registrierung
 
 Falls gewünscht, kannst du auch dafür sorgen, dass ein Befehl nur unter bestimmten Umständen registriert wird, zum Beispiel nur in der dedizierten Umgebung:
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-#### Befehlsanforderungen
+### Befehlsanforderungen
 
 Angenommen, du hast einen Befehl, den nur Operatoren ausführen können sollen. An dieser Stelle kommt die Methode `requires()` ins Spiel. Die Methode `requires()` hat ein Argument eines `Predicate<S>`, das eine `ServerCommandSource` liefert, mit der getestet werden kann, ob die `CommandSource` den Befehl ausführen kann.
 
@@ -103,7 +103,7 @@ Dieser Befehl wird nur ausgeführt, wenn die Quelle des Befehls mindestens ein O
 
 Dies hat den Nebeneffekt, dass dieser Befehl in der Tab-Vervollständigung für alle, die nicht Level 2 Operator sind, nicht angezeigt wird. Das ist auch der Grund, warum du die meisten Befehle nicht mit der Tabulatortaste vervollständigen kannst, wenn du keine Cheats aktivierst.
 
-#### Unterbefehle
+### Unterbefehle
 
 Um einen Unterbefehl hinzuzufügen, registriere den ersten buchstäblichen Knoten des Befehls ganz normal. Um einen Unterbefehl zu haben, musst du den nächsten buchstäblichen Knoten an den bestehenden Knoten anhängen.
 
@@ -113,23 +113,23 @@ Um einen Unterbefehl hinzuzufügen, registriere den ersten buchstäblichen Knote
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Client-Befehle
+## Client-Befehle
 
 Die Fabric API verfügt über einen `ClientCommandManager` im Paket `net.fabricmc.fabric.api.client.command.v2`, der zur Registrierung clientseitiger Befehle verwendet werden kann. Der Code sollte nur im clientseitigen Code vorhanden sein.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### Befehlsumleitungen
+## Befehlsumleitungen
 
 Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funktionalität eines Befehls auf einen anderen umzuleiten. Dies ist nützlich, wenn du den Namen eines Befehls ändern möchtest, aber den alten Namen beibehalten willst.
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### FAQ
+## FAQ
 
 <br>
 
-###### Warum lässt sich mein Code nicht kompilieren?
+### Warum lässt sich mein Code nicht kompilieren?
 
 - Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Wenn du sie auslöst, sollte sie in Methoden ausgelöst werden, die `CommandSyntaxException` in den Methodensignaturen auslösen, oder sie sollte abgefangen werden.
   Brigadier wird die checked Exceptions behandeln und die entsprechende Fehlermeldung im Spiel für dich weiterleiten.
@@ -140,7 +140,7 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 
 - Ein Befehl sollte eine ganze Zahl zurückgeben - Bei der Registrierung von Befehlen akzeptiert die Methode `executes()` ein `Command` Objekt, das normalerweise ein Lambda ist. Das Lambda sollte eine ganze Zahl zurückgeben, anstelle anderen Typen.
 
-###### Kann ich Befehle zur Laufzeit registrieren?
+### Kann ich Befehle zur Laufzeit registrieren?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -151,7 +151,7 @@ Danach musst du den Befehlsbaum mit `CommandManager.sendCommandTree(ServerPlayer
 Dies ist erforderlich, da der Client den Befehlsbaum, den er bei der Anmeldung (oder beim Senden von Operator-Paketen) erhält, lokal zwischenspeichert, um Fehlermeldungen zu vervollständigen.
 :::
 
-###### Kann ich die Registrierung von Befehlen während der Laufzeit aufheben?
+### Kann ich die Registrierung von Befehlen während der Laufzeit aufheben?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
