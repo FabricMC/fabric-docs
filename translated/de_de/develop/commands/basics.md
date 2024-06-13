@@ -22,7 +22,7 @@ authors:
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 :::info
-Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist OpenSource: https://github.com/Mojang/brigadier
+Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https://github.com/Mojang/brigadier
 :::
 
 ## Das Interface `Command`
@@ -50,7 +50,7 @@ Du kannst auf die Befehlsquelle von einem Befehlskontext aus zugreifen, indem du
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource();
+    ServerCommandSource source = context.getSource(); 
     return 0;
 };
 ```
@@ -79,11 +79,11 @@ Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
-Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. Wenn der Befehl etwas macht, wie z. B. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
+Der zweite Parameter bestimmt, ob die Rückmeldung an andere Operatoren gesendet werden soll. Im Allgemeinen sollte der Befehl `false` sein, wenn er etwas abfragen soll, ohne die Welt tatsächlich zu beeinflussen, wie zum Beispiel die aktuelle Zeit oder den Punktestand eines Spielers. die Zeit zu ändern oder den Spielstand einer Person zu ändern, sollte er `true` sein.
 
 Wenn der Befehl fehlschlägt, kannst du, anstatt `sendFeedback()` aufzurufen, direkt eine beliebige Ausnahme auslösen, die vom Server oder Client entsprechend behandelt wird.
 
-Die `CommandSyntaxException` wird im Allgemeinen ausgelöst, um Syntaxfehler in Befehlen oder Argumenten aufzuzeigen. Du kannst auch deine eigene Ausnahme implementieren.
+Die `CommandSyntaxException` wird im Allgemeinen ausgelöst, um Syntaxfehler in Befehlen oder Argumenten aufzuzeigen. Du kannst auch deine eigene Exception implementieren.
 
 Um diesen Befehl auszuführen, musst du `/foo` eingeben, wobei die Groß- und Kleinschreibung zu beachten ist.
 
@@ -131,7 +131,7 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 
 ### Warum lässt sich mein Code nicht kompilieren?
 
-- Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Wenn du sie auslöst, sollte das in Methoden geschehen, die `CommandSyntaxException` in der Methodensignatur auslösen, oder sie sollte abgefangen werden.
+- Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Wenn du sie auslöst, sollte sie in Methoden ausgelöst werden, die `CommandSyntaxException` in den Methodensignaturen auslösen, oder sie sollte abgefangen werden.
   Brigadier wird die checked Exceptions behandeln und die entsprechende Fehlermeldung im Spiel für dich weiterleiten.
 
 - Probleme mit generischen Typen - Es kann sein, dass du hin und wieder ein Problem mit generischen Typen hast. Wenn du Serverbefehle registrierst (was in den meisten Fällen der Fall ist), stelle sicher, dass du `CommandManager.literal` oder `CommandManager.argument` anstelle von `LiteralArgumentBuilder.literal` oder `RequiredArgumentBuilder.argument` benutzt.
