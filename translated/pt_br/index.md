@@ -10,7 +10,7 @@ features:
   - title: Guias para desenvolvedores
     icon: 🛠️
     details: Nossos guias de desenvolvedor, escritos pela comunidade, abrangem uma variedade de tópicos desde a configuração de um ambiente de desenvolvimento até tópicos mais avançados, como renderização e networking.
-    link: /pt_br/develop/
+    link: /develop/
     linkText: Guia de Introdução
   - title: Guias do Jogador
     icon: 📚
@@ -23,6 +23,6 @@ features:
 
 ## Deseja ajudar?
 
-Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição.](./CONTRIBUTING.md)
+If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
 
 </div>
