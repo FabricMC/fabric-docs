@@ -11,7 +11,7 @@ Minecraft hat eine große Auswahl an Sounds, aus denen du wählen kannst. Schau 
 
 Stelle sicher, dass du die Methode `playSound()` auf der logischen Serverseite ausführst, wenn du Sounds verwendest!
 
-In diesem Beispiel werden die Methoden `useOnEntity()` und `useOnBlock()` für ein benutzerdefiniertes interaktives Item verwendet, um einen "platzierenden Kupferblock" und einen Plünderer-Sound abzuspielen.
+In diesem Beispiel wird die Methode `useOnEntity()` und `useOnBlock()` für ein benutzerdefiniertes interaktives Element verwendet, um einen "platzierenden Kupferblock" und einen Plünderer-Sound abzuspielen.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
