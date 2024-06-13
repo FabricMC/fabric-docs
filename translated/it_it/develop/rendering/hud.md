@@ -29,4 +29,4 @@ Immagina di voler interpolare linearmente un colore nel tempo. Puoi usare il par
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
-![Interpolare un colore nel tempo](/assets/develop/rendering/hud-rendering-deltatick.webp)
+![](/assets/develop/rendering/hud-rendering-deltatick.webp)
