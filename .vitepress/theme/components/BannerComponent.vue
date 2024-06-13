@@ -4,6 +4,7 @@ import { ref, watchEffect } from 'vue';
 
 const el = ref<HTMLElement>();
 const { height } = useElementSize(el);
+const isDevelopmentEnvironment = !window.location.href.includes("docs.fabricmc.net");
 
 watchEffect(() => {
   if (height.value) {
@@ -12,11 +13,17 @@ watchEffect(() => {
       `${height.value + 16}px`
     );
   }
+  if (!isDevelopmentEnvironment) {
+    document.documentElement.style.setProperty(
+      '--vp-layout-top-height',
+      `0px`
+    );
+  }
 });
 </script>
 
 <template>
-  <div ref="el" class="banner">
+  <div ref="el" class="banner" v-if="!isDevelopmentEnvironment">
     <div class="text">
       Fabric Documentation is a work in progress. Report issues on <a
         href="https://github.com/fabricmc/fabric-docs/issues" target="_blank" rel="noopener noreferrer">GitHub</a>.
