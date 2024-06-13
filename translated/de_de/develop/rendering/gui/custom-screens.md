@@ -17,7 +17,7 @@ Du kannst deine eigenen Oberflächen erstellen, um benutzerdefinierte Inhalte, e
 
 ## Eine Oberfläche erstellen
 
-Um eine Oberfläche zu erstellen, musst du die `Screen`-Klasse erweitern und die `init`-Methode überschreiben. Optional kannst du auch die `render`-Methode überschreiben, aber stelle sicher, dass du die `super`-Methode aufrufst, sonst werden der Hintergrund, die Widgets usw. nicht gerendert.
+Um eine Oberfläche zu erstellen, musst du die `Screen`-Klasse erweitern und die `init`-Methode überschreiben.
 
 Folgendes solltest du beachten:
 
