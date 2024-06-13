@@ -47,7 +47,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ![Effekt im Inventar eines Spielers](/assets/develop/tater-effect.png)
 
-#### Übersetzungen
+#### **Übersetzungen**
 
 Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.<mod-id>.<effect-identifier>": "Wert"` zur Sprachdatei hinzufügen.
 
@@ -62,7 +62,8 @@ Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.
 ### Testen
 
 Benutze den Befehl `/effect give @p fabric-docs-reference:tater`, um dem Spieler unseren Tater-Effekt zu geben.
-Nutze `/effect clear @p fabric-docs-reference:tater`, um den Effekt zu entfernen.
+Verwende `/effect clear`
+um den Effekt zu entfernen.
 
 Um einen Trank zu erstellen, der diesen Effekt nutzt, lies bitte die Anleitung [Tränke](../items/potions.md).
 :::
