@@ -7,23 +7,23 @@ authors:
 
 # Creare Suoni Personalizzati
 
-## Preparare il File Audio
+## Preparare il file audio
 
 I tuoi file audio devono essere formattati in un modo specifico. OGG Vorbis è un formato container aperto per dati multimediali, tra cui audio, e viene usato per i file audio di Minecraft. Per evitare problemi nel modo in cui Minecraft gestisce le distanze, il tuo audio deve essere solo su un singolo canale (Mono).
 
 Molti software DAW (Digital Audio Workstation) odierni riescono a importare ed esportare usando questo formato. Nell'esempio seguente il software open-source gratuito "[Audacity](https://www.audacityteam.org/)" sarà usato per portare i file audio al formato corretto, tuttavia qualunque altro DAW sarà più che sufficiente.
 
-![File audio non preparato in Audacity](/assets/develop/sounds/custom_sounds_0.png)
+![file audio non preparato in Audacity](/assets/develop/sounds/custom_sounds_0.png)
 
 In questo esempio, il suono di un [fischio](https://freesound.org/people/strongbot/sounds/568995/) viene importato in Audacity. Attualmente questo è salvato come file `.wav` e ha due canali audio (Stereo). Modifica il suono come preferisci e assicurati di cancellare uno dei canali usando il menu a tendina in cima alla "testina".
 
-![Separare traccia Stereo](/assets/develop/sounds/custom_sounds_1.png)
+![separare traccia Stereo](/assets/develop/sounds/custom_sounds_1.png)
 
-![Eliminare uno dei canali](/assets/develop/sounds/custom_sounds_2.png)
+![eliminare uno dei canali](/assets/develop/sounds/custom_sounds_2.png)
 
 Quando devi esportare o renderizzare un file audio, assicurati di scegliere il formato del file OGG. Alcuni DAW, come REAPER, potrebbero supportare formati audio OGG a più strati. In questo caso OGG Vorbis dovrebbe funzionare senza problemi.
 
-![Esportare come file OGG](/assets/develop/sounds/custom_sounds_3.png)
+![esportazione come file OGG](/assets/develop/sounds/custom_sounds_3.png)
 
 Inoltre tieni a mente che un file audio può aumentare drasticamente le dimensioni del file della tua mod. Se necessario, comprimi l'audio quando stai modificando ed esportando il file, per mantenere le sue dimensioni al minimo.
 
@@ -60,4 +60,4 @@ Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo im
 
 ## Usare il SoundEvent Personalizzato
 
-Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](/develop/sounds/using-sounds) per imparare come riprodurre i suoni.
+Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](./using-sounds.md) per imparare come riprodurre i suoni.
