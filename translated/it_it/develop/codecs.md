@@ -107,7 +107,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 Bisogna sottolineare che i codec creati così verranno sempre deserializzati a un'`ImmutableList`. Se invece ti servisse una lista mutabile, puoi usare [xmap](#tipi-convertibili-mutualmente-e-tu) per convertirla ad una durante la deserializzazione.
 
-### Unire i Codec per Classi Simili ai Record
+### Unire i Codec per Classi simili ai Record
 
 Ora che abbiamo codec separati per ciascun attributo, possiamo combinarli a formare un singolo codec per la nostra classe usando un `RecordCodecBuilder`. Questo suppone che la nostra classe abbia un costruttore che contiene ogni attributo che vogliamo serializzare, e che ogni attributo ha un metodo getter corrispondente. Questo lo rende perfetto per essere usato assieme ai record, ma può anche essere usato con classi regolari.
 
@@ -122,11 +122,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Ogni linea nel gruppo specifica un codec, il nome di un attributo, e un metodo getter. La chiamata a `Codec#fieldOf` è usata per convertire il codec a un [MapCodec](#mapcodec), ed la chiamata a `forGetter` specifica il metodo getter usato per ottenere il valore dell'attributo da un'istanza della classe. Inoltre, la chiamata ad `apply` specifica il costruttore usato per creare nuove istanze. Nota che l'ordine degli attributi nel gruppo dovrebbe essere lo stesso di quello dei parametri nel costruttore.
+Ogni linea nel gruppo specifica un codec, il nome di un attributo, e un metodo getter. La chiamata a `Codec#fieldOf` è utilizzata per convertire il codec a un [MapCodec](#mapcodec-da-non-confondere-con-codecltmapgt), ed la chiamata a `forGetter` specifica il metodo getter utilizzato per ottenere il valore dell'attributo da un'istanza della classe. Inoltre, la chiamata ad `apply` specifica il costruttore usato per creare nuove istanze. Nota che l'ordine degli attributi nel gruppo dovrebbe essere lo stesso di quello degli parametri nel costruttore.
 
 Puoi anche usare `Codec#optionalFieldOf` in questo contesto per rendere un attributo opzionale, come spiegato nella sezione [Attributi Opzionali](#attributi-opzionali).
 
-### MapCodec, da non confondere con Codec&amp;lt;Map&amp;gt; {#mapcodec}
+### MapCodec, da non confondere con Codec&amp;amp;lt;Map&amp;amp;gt;
 
 La chiamata a `Codec#fieldOf` convertirà un `Codec<T>` in un `MapCodec<T>`, che è una variante, ma non una diretta implementazione di `Codec<T>`. I `MapCodec`, come suggerisce il loro nome garantiscono la serializzazione a una mappa chiave-valore, o al suo equivalente nella `DynamicOps` usata. Alcune funzioni ne potrebbero richiedere uno invece di un codec normale.
 
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Coppia
 
-`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
+`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec-da-non-confondere-con-codecltmapgt) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
 Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
 
 Per esempio, eseguire questo codice:
@@ -358,7 +358,7 @@ Per esempio, proviamo a serializzare una lista concatenata singolarmente. Questo
 public record ListNode(int value, ListNode next) {}
 ```
 
-Non possiamo costruire un codec per questo come si fa di solito: quale codec useremmo per l'attributo `next`? Avremmo bisogno di un `Codec<ListNode>`, che è ciò che stiamo costruendo proprio ora! `Codecs#createRecursive` ci permette di fare ciò usando una lambda che sembra magia:
+Non possiamo costruire un codec per questo come si fa di solito, quale codec utilizzeremmo per l'attributo `next`? Avremmo bisogno di un `Codec<ListNode>`, che è ciò che stiamo costruendo proprio ora! `Codecs#createRecursive` ci permette di fare ciò usando una lambda che sembra magia:
 
 ```java
 Codec<ListNode> codec = Codecs.createRecursive(
@@ -394,5 +394,5 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
 
 ## Riferimenti
 
-- Una documentazione molto più dettagliata sui codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- Una documentazione molto più dettagliata sui Codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
 - La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.
