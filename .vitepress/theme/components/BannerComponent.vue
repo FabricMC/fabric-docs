@@ -13,7 +13,7 @@ watchEffect(() => {
       `${height.value + 16}px`
     );
   }
-  if (!isDevelopmentEnvironment) {
+  if (isDevelopmentEnvironment) {
     document.documentElement.style.setProperty(
       '--vp-layout-top-height',
       `0px`
