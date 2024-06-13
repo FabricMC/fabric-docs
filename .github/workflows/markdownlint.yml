@@ -24,16 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - id: changes
-        uses: tj-actions/changed-files@v44
-        with:
-          files: |
-            **/*.md
-            !translated/**
-            !versions/*/translated/**
-
       - id: node
-        if: steps.changes.outputs.any_changed == 'true'
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
@@ -45,4 +36,7 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           config: .markdownlint-cli2.yaml
-          globs: ${{ steps.changes.outputs.all_changed_files }}
+          globs: |
+            **/*.md
+            !translated/**
+            !versions/*/translated/**
