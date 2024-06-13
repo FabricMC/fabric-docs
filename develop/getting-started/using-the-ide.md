@@ -233,14 +233,14 @@ Jetbrains has many good talks, videos and documentation pages about how to furth
 
 ### More tips and Tricks
 
-[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG)
-
-### Live Templates
-
-[Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster
+[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG) and more information on [Code Completion](https://blog.jetbrains.com/idea/2020/05/code-completion/).
 
 ### PostFix completion
 
 [JetBrains Pagse on Postfix code completion](https://www.jetbrains.com/help/idea/auto-completing-code.html#postfix_completion) to alter code after writing it quickly. Often used examples contain `.not` `.if` `.var` `.null` and `.for`. [Here](https://www.jetbrains.com/help/fleet/postfix-templates-list-java.html) is also a list of all predefined Java Postfix code completions but you can also [create your own](https://www.jetbrains.com/help/idea/auto-completing-code.html#custom-postfix-templates).
+
+### Live Templates
+
+[Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster.
 
 ---
