@@ -156,15 +156,15 @@ Die Stilrichtlinien lauten wie folgt:
 
 Alle inhaltlichen Beiträge durchlaufen drei Stufen:
 
-1. Anleitung zur Erweiterung (falls möglich)
+1. Anleitung für Erweiterung (falls möglich)
 2. Überprüfung des Inhalts
 3. Bereinigung (Grammatik etc.)
 
 ### Anleitung zur Erweiterung
 
-Wenn das Dokumentationsteam der Meinung ist, dass du deinen Pull-Request erweitern kannst, wird ein Mitglied des Teams das Label `expansion` zu deinem Pull-Request hinzufügen, zusammen mit einem Kommentar, der erklärt, was du ihrer Meinung nach erweitern könntest. Wenn du mit dem Vorschlag einverstanden bist, kannst du deinen Pull-Request erweitern.
+Wenn das Dokumentationsteam der Meinung ist, dass du deinen Pull Request erweitern könntest, wird ein Mitglied des Teams den Vermerk `can-expand` zu deinem Pull Request hinzufügen, zusammen mit einem Kommentar, der erklärt, was du ihrer Meinung nach erweitern könntest. Wenn du mit dem Vorschlag einverstanden bist, kannst du deinen Pull-Request erweitern.
 
-**Fühle dich nicht unter Druck gesetzt deinen Pull-Request zu erweitern.** Wenn du deinen Pull-Request nicht erweitern willst, kannst du einfach darum bitten, dass das Label `expansion` entfernt wird.
+**Fühl dich nicht unter Druck gesetzt, deine Anfrage zu erweitern** Wenn du deine Anfrage nicht erweitern möchtest, kannst du einfach darum bitten, dass die Kennzeichnung `can-expand` entfernt wird.
 
 Wenn du deinen Pull-Request nicht erweitern willst, aber gerne möchtest, dass jemand anderes ihn zu einem späteren Zeitpunkt erweitert, ist es am besten, ein Issue auf der [Issues-Seite](https://github.com/FabricMC/fabric-docs/issues) zu erstellen und zu erklären, was deiner Meinung nach erweitert werden könnte.
 

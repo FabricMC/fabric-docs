@@ -13,6 +13,12 @@
   "players.troubleshooting.crashReports": "Relatórios de Erros",
   "players.updatingFabric": "Atualizando o Fabric",
   "develop.title": "Guias do Desenvolvedor",
+  "develop.gettingStarted": "Primeiros Passos",
+  "develop.gettingStarted.introduction": "Introdução ao Fabric e Modding",
+  "develop.gettingStarted.devEnvSetup": "Configurar um Ambiente de Desenvolvimento",
+  "develop.gettingStarted.creatingProject": "Criando um Projeto",
+  "develop.gettingStarted.projectStructure": "Estrutura de Projeto",
+  "develop.gettingStarted.launchGame": "Iniciando o Jogo",
   "develop.items": "Itens",
   "develop.items.potions": "Poções",
   "develop.entities": "Entidades",
@@ -36,5 +42,6 @@
   "develop.misc.events": "Eventos",
   "develop.sounds": "Sons",
   "develop.sounds.using-sounds": "Tocando \"SoundEvents\"",
-  "develop.sounds.custom": "Criando Sons Personalizados"
+  "develop.sounds.custom": "Criando Sons Personalizados",
+  "github.edit": "Editar esta página no GitHub"
 }

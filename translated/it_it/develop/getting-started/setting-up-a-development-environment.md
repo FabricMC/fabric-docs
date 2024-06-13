@@ -1,6 +1,6 @@
 ---
 title: Impostare un Ambiente di Sviluppo
-description: Una guida passo per passo su come impostare un ambiente di sviluppo per creare mod utilizzando Fabric.
+description: Una guida passo per passo su come impostare un ambiente di sviluppo per creare mod usando Fabric.
 authors:
   - IMB11
   - andrew6rant
@@ -20,7 +20,7 @@ authors:
 
 # Impostare un Ambiente di Sviluppo
 
-Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo utilizzando IntelliJ IDEA.
+Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo usando IntelliJ IDEA.
 
 ## Installare JDK 17
 
@@ -31,7 +31,7 @@ Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide p
 ## Installare IntelliJ IDEA
 
 :::info
-Ovviamente puoi utilizzare altri IDE, come Eclipse o Visual Studio Code, ma la maggior parte delle pagine su questo sito di documentazione supporrà che stai utilizzando IntelliJ IDEA - dovresti fare riferimento alla documentazione del tuo IDE se ne stai utilizzando un altro.
+Ovviamente puoi usare altri IDE, come Eclipse o Visual Studio Code, ma la maggior parte delle pagine su questo sito di documentazione supporrà che stai usando IntelliJ IDEA - dovresti fare riferimento alla documentazione del tuo IDE se ne stai usando un altro.
 :::
 
 Se non hai IntelliJ IDEA installato, puoi scaricarlo dal [sito ufficiale](https://www.jetbrains.com/idea/download/) - segui i passaggi per l'installazione sul tuo sistema operativo.
