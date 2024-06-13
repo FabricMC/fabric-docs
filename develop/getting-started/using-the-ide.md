@@ -229,8 +229,18 @@ Minecraft's `ScreenHandler` class has some examples. To toggle the render view, 
 ## Optimizing IntelliJ further
 
 There are many more shortcuts and handy little tricks which would go above the scope of this page.
-Jetbrains has many good talks and videos about how to further customize your workspace.
+Jetbrains has many good talks, videos and documentation pages about how to further customize your workspace.
+
+### More tips and Tricks
+
+[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG)
+
+### Live Templates
+
+[Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster
+
+### PostFix completion
+
+[JetBrains Pagse on Postfix code completion](https://www.jetbrains.com/help/idea/auto-completing-code.html#postfix_completion) to alter code after writing it quickly. Often used examples contain `.not` `.if` `.var` `.null` and `.for`. [Here](https://www.jetbrains.com/help/fleet/postfix-templates-list-java.html) is also a list of all predefined Java Postfix code completions but you can also [create your own](https://www.jetbrains.com/help/idea/auto-completing-code.html#custom-postfix-templates).
 
 ---
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V8lss58zBPI?si=ok_SBjYiD7SjpX5f" frameborder="500" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
