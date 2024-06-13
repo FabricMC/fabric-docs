@@ -9,7 +9,7 @@ authors:
 
 Questa pagina suppone che tu abbia guardato la pagina [Concetti Base del Rendering](./basic-concepts.md).
 
-La classe `DrawContext` è la principale classe utilizzata per il rendering nel gioco. Viene usata per renderizzare forme, testi e texture, e come visto in precedenza, usata per manipolare le `MatrixStack` e i `BufferBuilder`.
+La classe `DrawContext` è la principale classe usata per il rendering nel gioco. Viene usata per renderizzare forme, testi e texture, e come visto in precedenza, usata per manipolare le `MatrixStack` e i `BufferBuilder`.
 
 ## Disegnare Forme
 

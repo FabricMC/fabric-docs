@@ -126,7 +126,7 @@ Chaque argument à la méthode `group` spécifie un codec, un nom de champ, et u
 
 On peut également utiliser `Codec#optionalFieldOf` dans ce contexte pour rendre un champ facultatif, comme expliqué dans la section [Champs facultatifs](#optional-fields).
 
-### MapCodec, et non pas Codec&lt;Map&gt;
+### MapCodec, et non pas Codec&amp;lt;Map&amp;gt;
 
 `Codec#fieldOf` transforme un `Codec<T>` en `MapCodec<T>` qui est une variante de `Codec<T>`, sans en être une implémentation directe. Comme leur nom peut le suggérer, les codecs map sérialisent leurs valeurs dans en maps clés-valeurs, ou plutôt leur équivalent dans les `DynamicOps` utilisées. Certaines fonctions peuvent en nécessiter un au lieu d'un codec normal.
 

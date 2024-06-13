@@ -7,14 +7,14 @@ authors:
 
 # Benutzerdefinierte Widgets
 
-Widgets sind im Wesentlichen in Containern untergebrachte Rendering-Komponenten, die zu einer Oberfläche hinzugefügt werden können und mit denen der Spieler durch verschiedene Ereignisse wie Mausklicks, Tastendruck usw. interagieren kann.
+Widgets sind im Wesentlichen in Containern untergebrachte Rendering-Komponenten, die zu einer Oberfläche hinzugefügt werden können und mit denen der Spieler durch verschiedene Ereignisse wie Mausklicks, Tastendruck usw.
 
 ## Ein Widget erstellen
 
-Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise durch die Erweiterung von `ClickableWidget`. Diese Klasse bietet viele nützliche Funktionen, wie beispielsweise die Verwaltung von Breite, Höhe und Position sowie die Behandlung von Events. Sie implementiert die Schnittstellen `Drawable`, `Element`, `Narratable` und `Selectable`:
+Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise durch die Erweiterung von `ClickableWidget`. Diese Klasse bietet viele nützliche Funktionen, wie beispielsweise die Verwaltung von Breite, Höhe und Position sowie die Behandlung von Events.
 
 - `Drawable` - zum Rendern - Erforderlich, um das Widget über die Methode `addDrawableChild` in der Oberfläche zu registrieren.
-- `Element` - für Events - Erforderlich, wenn du Events wie Mausklicks, Tastendrücke usw. behandeln willst.
+- `Element` - für Events - Erforderlich, wenn du Events wie Mausklicks, Tastendrücke usw.
 - `Narratable` - für die Barrierefreiheit - Erforderlich, um dein Widget für Bildschirmleser und andere Barrierefreiheitstools zugänglich zu machen.
 - `Selectable` - für die Auswahl - Erforderlich, wenn du dein Widget mit der <kbd>Tab</kbd>-Taste auswählbar machen willst - dies hilft auch bei der Barrierefreiheit.
 

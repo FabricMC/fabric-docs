@@ -11,7 +11,7 @@ authors:
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
 
-Per riassumere, devi usare il sistema di rendering di Minecraft, o crearne uno tuo che utilizza `GL.glDrawElements()`.
+Per riassumere, devi usare il sistema di rendering di Minecraft, o crearne uno tuo che usa `GL.glDrawElements()`.
 :::
 
 Questa pagina tratterà le basi del rendering usando il nuovo sistema, presentando terminologia e concetti chiave.
