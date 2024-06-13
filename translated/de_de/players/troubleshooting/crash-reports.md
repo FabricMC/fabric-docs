@@ -63,7 +63,7 @@ Der Stacktrace im `---- Minecraft Crash Report ----`-Abschnitt ist in diesem Fal
 Mit der Anzahl an Mods, die sich in diesem Stacktrace befinden, kann es schwierig sein, den Schuldigen zu finden, aber das Erste, was zu tun ist, ist die Mod zu finden, die den Absturz verursacht.
 
 ```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51) 
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
 at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
