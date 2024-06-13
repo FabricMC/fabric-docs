@@ -31,7 +31,7 @@
   "develop.rendering": "Отрисовка",
   "develop.rendering.basicConcepts": "Основные концепции рендера",
   "develop.rendering.drawContext": "Использование DrawContext",
-  "develop.rendering.hud": "Отрисовка на экране",
+  "develop.rendering.hud": "Рендер на экране",
   "develop.rendering.gui": "Интерфейсы и экраны",
   "develop.rendering.gui.customScreens": "Экраны",
   "develop.rendering.gui.customWidgets": "Виджеты",
@@ -42,5 +42,6 @@
   "develop.misc.events": "События",
   "develop.sounds": "Звуки",
   "develop.sounds.using-sounds": "Воспроизведение SoundEvents",
-  "develop.sounds.custom": "Создание своих звуков"
+  "develop.sounds.custom": "Создание своих звуков",
+  "github.edit": "Отредактировать эту страницу на GitHub"
 }
