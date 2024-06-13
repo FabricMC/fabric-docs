@@ -2,7 +2,7 @@
 title: Using the IDE to the fullest
 description: Useful information to handle and traverse your Project using the IDE.
 authors: 
-    -   JR1811
+    - JR1811
 ---
 
 # Using the IDE to the fullest
