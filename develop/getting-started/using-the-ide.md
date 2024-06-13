@@ -1,11 +1,11 @@
 ---
-title: Using the IDE to the fullest
-description: Useful information to handle and traverse your Project using the IDE.
+title: IDE Tips and Tricks
+description: Useful information to handle and traverse your Project using the IDE efficienctly.
 authors: 
     - JR1811
 ---
 
-# Using the IDE to the fullest
+# IDE Tips and Tricks
 
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
@@ -231,10 +231,6 @@ Minecraft's `ScreenHandler` class has some examples. To toggle the render view, 
 There are many more shortcuts and handy little tricks which would go above the scope of this page.
 Jetbrains has many good talks, videos and documentation pages about how to further customize your workspace.
 
-### More tips and Tricks
-
-[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG) and more information on [Code Completion](https://blog.jetbrains.com/idea/2020/05/code-completion/).
-
 ### PostFix completion
 
 [JetBrains Pagse on Postfix code completion](https://www.jetbrains.com/help/idea/auto-completing-code.html#postfix_completion) to alter code after writing it quickly. Often used examples contain `.not` `.if` `.var` `.null` and `.for`. [Here](https://www.jetbrains.com/help/fleet/postfix-templates-list-java.html) is also a list of all predefined Java Postfix code completions but you can also [create your own](https://www.jetbrains.com/help/idea/auto-completing-code.html#custom-postfix-templates).
@@ -242,5 +238,9 @@ Jetbrains has many good talks, videos and documentation pages about how to furth
 ### Live Templates
 
 [Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster.
+
+### More Tips and Tricks
+
+[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG) and more information on [Code Completion](https://blog.jetbrains.com/idea/2020/05/code-completion/).
 
 ---
