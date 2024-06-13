@@ -9,7 +9,7 @@ authors:
 
 Этот гайд расскажет, как установить Java 17 на Linux.
 
-## 1. Проверьте, установлена ли уже Java
+## 1. Проверьте, не установлена ли Java
 
 Откройте терминал, впишите `java -version` и нажмите <kbd>Enter</kbd>.
 
@@ -26,7 +26,7 @@ authors:
 ### Arch Linux
 
 :::info
-Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\(Русский\)).
+Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\\\(Русский\\\)).
 :::
 
 Вы можете установить последнюю версию JRE из официальных репозиториев:
