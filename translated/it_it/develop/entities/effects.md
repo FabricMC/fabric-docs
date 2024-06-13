@@ -37,7 +37,7 @@ Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per re
 
 Puoi assegnare un nome al tuo effetto di stato e fornire un'icona che apparirà nello schermo dell'inventario del giocatore.
 
-#### Texture
+#### **Texture**
 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
@@ -47,7 +47,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ![Effetto nell'inventario del giocatore](/assets/develop/tater-effect.png)
 
-#### Traduzioni
+#### **Traduzioni**
 
 Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mod-id>.<effect-identifier>": "Valore"` al file di lingua.
 
@@ -62,7 +62,7 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mo
 ### Fase di Test
 
 Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
-Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
+Usa `/effect clear` per rimuovere l'effetto.
 
 ::: info
 Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions.md).
