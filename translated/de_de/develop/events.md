@@ -105,13 +105,13 @@ Wenn der Listener sagt, dass wir abbrechen (`ActionResult.FAIL`) oder vollständ
 
 @[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Wir können Javadoc-Kommentare am Anfang von Callback-Klassen hinzufügen, um zu dokumentieren, was jedes `ActionResult` tut. In unserem Fall könnte das wie folgt sein:
+Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen, um zu dokumentieren, was jedes `ActionResult` macht. In unserem Fall könnte das wie folgt sein:
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 ### Auslösen des Events von einem Mixin
 
-Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Ereignis auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir das Ereignis `invoker` in `SheepEntity#interactMob` auf, wenn `sheared()` aufgerufen wird (d.h. Schafe können geschoren werden, und der Spieler hält eine Schere):
+Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Ereignis auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir das Ereignis `invoker` in `SheepEntity#interactMob` auf, wenn `sheared()` aufgerufen wird (d.h.
 
 @[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
