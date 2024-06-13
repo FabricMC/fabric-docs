@@ -9,15 +9,15 @@ description: 学习如何创建带有复杂参数的命令。
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-比如说，在命令文本`/argtater`之后，您应该输入一个整型数字。 举个例子，如果您输入了`/argtater 3`，您应该会收到一条反馈消息：`Called /argtater with value = 3`。 如果您输入了 `/argtataer` 并且没有任何参数，那么这个命令将不会被正确解析。
+比如说，在命令文本`/argtater`之后，您应该输入一个整型数字。 比如说，在命令文本`/argtater`之后，您应该输入一个整型数字。 举个例子，如果您输入了`/argtater 3`，您应该会收到一条反馈消息：`Called /argtater with value = 3`。 如果您输入了 `/argtataer` 并且没有任何参数，那么这个命令将不会被正确解析。 如果您输入了 `/argtataer` 并且没有任何参数，那么这个命令将不会被正确解析。
 
 接下来我们将添加第二个可选的参数：
 
 @[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-现在您可以输入一个或者两个整型数字了。 如果您提供了一个整型数字，那么会打印单个值的反馈文本。 如果您提供了两个整型数字，那么会打印有两个值的反馈文本。
+现在您可以输入一个或者两个整型数字了。 如果您提供了一个整型数字，那么会打印单个值的反馈文本。 现在您可以输入一个或者两个整型数字了。 如果您提供了一个整型数字，那么会打印单个值的反馈文本。 如果您提供了两个整型数字，那么会打印有两个值的反馈文本。
 
-您可能会发现没有必要指定两次相似的执行。 因此，我们可以创建一个方法，用于两次执行。
+您可能会发现没有必要指定两次相似的执行。 因此，我们可以创建一个方法，用于两次执行。 因此，我们可以创建一个方法，用于两次执行。
 
 @[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
