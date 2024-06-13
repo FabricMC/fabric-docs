@@ -42,7 +42,7 @@ Per installare Fabric, semplicemente scegli la versione di gioco dal menu a tend
 
 **Assicurati che `Crea Profilo` sia selezionato.**
 
-## 3. Hai Finito!
+## 3. Hai finito!
 
 Una volta che l'installer ha finito, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina in basso a sinistra e premere Gioca!
 
