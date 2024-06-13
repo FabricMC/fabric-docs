@@ -63,7 +63,7 @@ Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `I
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 
-### Registrare la Pozione Senza l'API di Fabric
+### Registrare la Pozione senza l'API di Fabric
 
 Senza l'API di Fabric, `BrewingRecipeRegistry.registerPotionRecipe` sarà privato. Per accedere a questo metodo usa il seguente invoker mixin o usa un Access Widener.
 
