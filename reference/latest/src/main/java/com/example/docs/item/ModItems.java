@@ -6,6 +6,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,6 +16,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.FabricDocsReference;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
+import com.example.docs.item.tool.GuiditeMaterial;
 
 // :::1
 public class ModItems {
@@ -26,6 +28,10 @@ public class ModItems {
 	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
 	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
 	// :::6
+
+	// :::7
+	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 2, 0.5F, new FabricItemSettings()), "guidite_sword");
+	// :::7
 
 	// :::5
 	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
@@ -77,6 +83,11 @@ public class ModItems {
 					itemGroup.add(ModItems.GUIDITE_LEGGINGS);
 					itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
 				});
+
+		// :::8
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
+		// :::8
 
 		// :::3
 	}

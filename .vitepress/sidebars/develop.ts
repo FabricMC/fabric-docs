@@ -62,6 +62,10 @@ export default [
         link: "/develop/items/food"
       },
       {
+        text: "develop.items.custom-tools",
+        link: "/develop/items/custom-tools"
+      },
+      {
         text: "develop.items.custom-armor",
         link: "/develop/items/custom-armor"
       },
