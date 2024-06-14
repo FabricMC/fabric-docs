@@ -97,11 +97,9 @@ You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd
 
 ## Adding a Texture and Model
 
-The item will still have the placeholder purple and black checkerboard texture until you create a texture and model for it.
+To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/<mod id here>/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
 
-To do this, place a 16x16 texture in the `assets/<mod id here>/textures/item` folder that has the same name of the item you've just registered.
-
-For the example, the texture is called `suspicious_substance.png`; It's just the poop emoji for now, you can change this to something more... suitable if you wish.
+For example purposes, you can use this example texture for `suspicious_substance.png`
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png" />
 
