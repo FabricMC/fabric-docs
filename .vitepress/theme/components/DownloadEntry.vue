@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-
-    <img :src="$props.visualURL ?? $props.downloadURL" style="max-width: 100%; max-height: 300px;">
-
+    <img v-if="!$props.noVisualURL" :src="$props.visualURL ?? $props.downloadURL" style="max-width: 100%; max-height: 300px;">
     <VPButton 
       tag="a" 
       size="medium" 
@@ -10,7 +8,7 @@
       :text="`Download ${$props.type}`" 
       :href="$props.downloadURL"
       download
-      />
+    />
   </div>
 </template>
 
@@ -21,6 +19,7 @@ import { VPButton } from "vitepress/theme"
 const props = defineProps<{
   downloadURL: string;
   visualURL?: string;
+  noVisualURL?: boolean;
   type: string;
 }>();
 </script>
@@ -31,6 +30,7 @@ div.container {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 8px;
 }
 
 a {
