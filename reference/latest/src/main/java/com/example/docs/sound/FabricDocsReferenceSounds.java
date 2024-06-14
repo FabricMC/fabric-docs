@@ -24,7 +24,7 @@ public class FabricDocsReferenceSounds implements ModInitializer {
 				SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
 
 		// ... the cleaner approach. // [!code focus]
-		CustomSounds.initialize(); // [!code focus]
+		// CustomSounds.initialize(); // [!code focus]
 	}
 }
 // :::2

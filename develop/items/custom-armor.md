@@ -113,7 +113,7 @@ Obviously, an armor set doesn't need every type to be satisfied, you can have a 
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-You will also need to add the items to an item group if you want them to be accessible from the creative inventory.
+You will also need to **add the items to an item group** if you want them to be accessible from the creative inventory.
 
 As with all items, you should create translation keys for them as well.
 
@@ -136,14 +136,7 @@ For example purposes, you may use the following textures and model JSON as a ref
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
 :::
 
-```json
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "mod_id:item/guidite_helmet"
-  }
-}
-```
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 As you can see, in-game the armor items should have suitable models:
 

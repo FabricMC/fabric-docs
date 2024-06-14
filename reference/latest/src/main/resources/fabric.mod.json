@@ -18,8 +18,6 @@
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
-			"com.example.docs.rendering.RenderingConceptsEntrypoint",
-			"com.example.docs.rendering.HudRenderingEntrypoint",
 			"com.example.docs.client.command.FabricDocsReferenceClientCommands"
 		],
 		"fabric-datagen": [

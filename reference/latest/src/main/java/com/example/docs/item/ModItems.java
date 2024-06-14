@@ -69,6 +69,15 @@ public class ModItems {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
 				.register((itemGroup) -> itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE));
 		// :::4
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+				.register((itemGroup) -> {
+					itemGroup.add(ModItems.GUIDITE_HELMET);
+					itemGroup.add(ModItems.GUIDITE_BOOTS);
+					itemGroup.add(ModItems.GUIDITE_LEGGINGS);
+					itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
+				});
+
 		// :::3
 	}
 
