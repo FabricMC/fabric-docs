@@ -85,7 +85,7 @@ However, it's missing the following:
 
 The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
 
-Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.json` and put in the translation key and it's value:
+Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.json` and put in the translation key, and it's value:
 
 ```json
 {
