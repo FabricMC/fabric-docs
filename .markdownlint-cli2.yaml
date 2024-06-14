@@ -18,6 +18,7 @@ config:
     punctuation: ".,;:。，；："
   MD029:
     style: ordered
+  MD033: false
   MD035:
     style: ---
   MD044:
