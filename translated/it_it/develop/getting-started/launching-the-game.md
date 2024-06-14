@@ -1,11 +1,11 @@
 ---
-title: Lanciare Il Gioco
+title: Lanciare il Gioco
 description: Impara come usare i vari profili d'avvio per avviare ed effettuare debug delle tue mod in un ambiente di gioco dal vivo.
 authors:
   - IMB11
 ---
 
-# Lanciare Il Gioco
+# Lanciare il Gioco
 
 Loom di Fabric fornisce una varietà di profili d'avvio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili d'avvio e di come usarli per effettuare debug e per testare le tue mod nel gioco.
 
