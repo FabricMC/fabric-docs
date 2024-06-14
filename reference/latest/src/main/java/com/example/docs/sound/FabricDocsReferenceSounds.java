@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.FabricDocsReference;
-import com.example.docs.item.FabricDocsReferenceItems;
 
 // :::2
 public class FabricDocsReferenceSounds implements ModInitializer {

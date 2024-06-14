@@ -58,6 +58,10 @@ export default [
         link: "/develop/items/first-item"
       },
       {
+        text: "develop.items.food",
+        link: "/develop/items/food"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }

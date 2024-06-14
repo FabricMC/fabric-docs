@@ -1,6 +1,8 @@
 ---
 title: Creating Your First Item
 description: Learn how to register a simple item and how to texture, model and name it.
+authors:
+  - IMB11
 ---
 
 # Creating Your First Item
@@ -9,7 +11,7 @@ This page will introduce you into some key concepts relating to items, and how y
 
 If you aren't aware, everything in Minecraft is stored in registries, and items are no exception to that.
 
-## Preparing your items class
+## Preparing Your Items Class
 
 To simplify the registering of items, you can create a method that accepts an instance of an item and a string identifier.
 
@@ -34,7 +36,7 @@ public class ModItems {
 }
 ```
 
-## Registering an item
+## Registering an Item
 
 You can now register an item using the method now.
 
@@ -57,7 +59,7 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been used before - this means that all `final` fields are evaluated.
 
-## Adding the item to an item group
+## Adding the Item to an Item Group
 
 ::: info
 If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups.md) page for more information.
@@ -79,7 +81,7 @@ However, it's missing the following:
 - Texture
 - Translation (name)
 
-## Naming the item
+## Naming The Item
 
 The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
 
@@ -93,7 +95,7 @@ Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.j
 
 You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes.
 
-## Adding a texture and model
+## Adding a Texture and Model
 
 The item will still have the placeholder purple and black checkerboard texture until you create a texture and model for it.
 

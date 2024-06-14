@@ -1,24 +1,36 @@
 package com.example.docs.item;
 
-import com.example.docs.FabricDocsReference;
-
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
+import com.example.docs.FabricDocsReference;
+
 // :::1
 public class ModItems {
 	// :::1
 
+	// :::5
+	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
+			.alwaysEdible()
+			.snack()
+			// The duration is in ticks, 20 ticks = 1 second
+			.statusEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 1), 1.0f)
+			.build();
+	// :::5
+
 	// :::2
 	public static final Item SUSPICIOUS_SUBSTANCE = register(
-			new Item(new FabricItemSettings()),
+			// Ignore the food component for now, we'll cover it later in the food section.
+			new Item(new FabricItemSettings().food(SUSPICIOUS_FOOD_COMPONENT)),
 			"suspicious_substance"
 	);
 	// :::2
@@ -36,6 +48,7 @@ public class ModItems {
 		// Return the registered item!
 		return registeredItem;
 	}
+
 	// :::1
 
 	// :::3
@@ -49,6 +62,7 @@ public class ModItems {
 		// :::4
 		// :::3
 	}
+
 	// :::3
 }
 // :::1
