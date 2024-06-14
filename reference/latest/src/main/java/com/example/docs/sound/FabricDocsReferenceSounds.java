@@ -26,7 +26,6 @@ public class FabricDocsReferenceSounds implements ModInitializer {
 
 		// ... the cleaner approach. // [!code focus]
 		CustomSounds.initialize(); // [!code focus]
-		FabricDocsReferenceItems.initialize(); // [!code focus]
 	}
 }
 // :::2

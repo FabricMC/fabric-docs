@@ -13,7 +13,8 @@
 			"com.example.docs.effect.FabricDocsReferenceEffects",
 			"com.example.docs.potion.FabricDocsReferencePotions",
 			"com.example.docs.sound.FabricDocsReferenceSounds",
-			"com.example.docs.damage.FabricDocsReferenceDamageTypes"
+			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
+			"com.example.docs.item.FabricDocsReferenceItems"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",

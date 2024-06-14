@@ -54,6 +54,10 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.items.first-item",
+        link: "/develop/items/first-item"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }

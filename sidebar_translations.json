@@ -20,6 +20,7 @@
   "develop.gettingStarted.projectStructure": "Project Structure",
   "develop.gettingStarted.launchGame": "Launching the Game",
   "develop.items": "Items",
+  "develop.items.first-item": "Creating Your First Item",
   "develop.items.potions": "Potions",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
