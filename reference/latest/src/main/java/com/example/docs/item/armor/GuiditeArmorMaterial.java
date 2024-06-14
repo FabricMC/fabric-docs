@@ -96,7 +96,8 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	// :::9
 	@Override
 	public float getKnockbackResistance() {
-		// I do not want Guidite Armor to give knockback resistance, therefore it's a zero.
+		// We don't want knockback resistance for guidite armor, but if you do,
+		// change this value to 0.XF, where X is the level of knockback resistance you want.
 		return 0;
 	}
 

@@ -95,8 +95,6 @@ The following methods will have to be implemented as well - these methods tell t
 
   @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-  <!-- TODO: At a future date, someone should pull request a knockback resistance section. -->
-
 ## Creating an Instance of the ArmorMaterial
 
 To use the armor material with the armor items, you'll need to create an instance of it - similar to a tool material:
