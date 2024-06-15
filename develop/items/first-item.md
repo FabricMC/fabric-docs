@@ -124,5 +124,5 @@ If you want to add a crafting recipe for your item, you will need to place a rec
 
 For more information on the recipe format, checkout these resources:
 
-- [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)
 - [Recipe JSON Generator](https://crafting.thedestruc7i0n.ca/)
+- [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)
