@@ -26,7 +26,7 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Per utilizzare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
+Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
 ## 2. Scarica l'installer per Java 17.
@@ -48,7 +48,7 @@ Segui le istruzioni per installare Java 17. Quando arrivi a questa pagina, dovre
 - `Imposta JAVA_HOME come variabile d'ambiente` - Questo verrà aggiunto al tuo PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Installer Java 17 con "Set JAVA\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati.](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Installer Java 17 con "Set JAVA\\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati.](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Quando hai finito, puoi cliccare su `Avanti` e continuare con l'installazione.
 

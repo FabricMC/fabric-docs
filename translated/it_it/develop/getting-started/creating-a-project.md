@@ -11,15 +11,15 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 ## Generare Un Progetto
 
-Puoi utilizzare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
+Puoi usare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
 
 ![Anteprima del generatore.](/assets/develop/getting-started/template-generator.png)
 
-Se vuoi utilizzare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionare le opzioni apposite nella sezione `Opzioni Avanzate`.
+Se vuoi usare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionare le opzioni apposite nella sezione `Opzioni Avanzate`.
 
 ![Sezione Opzioni Avanzate.](/assets/develop/getting-started/template-generator-advanced.png)
 
-Una volta che hai compilato i campi richiesti, premi il pulsante `Generate`, e il generatore creerà un nuovo progetto per te da utilizzare sotto forma di file zip.
+Una volta che hai compilato i campi richiesti, premi il pulsante `Generate`, e il generatore creerà un nuovo progetto per te sotto forma di file zip.
 
 Dovresti estrarre questo file zip a una posizione che scegli tu, e poi aprire la cartella estratta in IntelliJ IDEA:
 
@@ -41,7 +41,7 @@ Quando il progetto sarà importato, dovresti vedere i file del progetto nell'exp
 Ti servirà che [Git](https://git-scm.com/) sia installato per clonare la repository della mod esempio.
 :::
 
-Se non puoi utilizzare il Generatore di Mod Modello di Fabric, dovresti creare un nuovo progetto manualmente seguendo questi passaggi.
+Se non puoi usare il Generatore di Mod Modello di Fabric, dovresti creare un nuovo progetto manualmente seguendo questi passaggi.
 
 Anzitutto, clona la repository della mod esempio tramite Git:
 

@@ -16,16 +16,16 @@ description: 關於 Fabric 的玩家和伺服器管理員常見問題解答手�
 ### 我可以在哪裡發布 Fabric 模組？
 
 :::info
-你都應該檢查模組是否來自可信賴的來源。 你都應該檢查模組是否來自可信賴的來源。 請參閱[尋找可信賴的模組](./finding-mods.md)指南以獲得更多資訊。
+你都應該檢查模組是否來自可信賴的來源。 請參閱[尋找可信賴的模組](./finding-mods.md)指南以獲得更多資訊。
 :::
 
-大多數作者會將他們的模組發布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4)，但有些可能選擇將它們上傳到他們的個人網站，或者其他平台，如 GitHub 存儲庫。
+大多數作者會將他們的模組發布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4)，但有些可能選擇將它們上傳到他們的個人網站，或者其他平台，如 GitHub 存儲庫。
 
 ### 我可以在哪裡找到預製的 Fabric 模組包？
 
 你可以在各種平台上找到預製的 Fabric 模組包，例如：
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
-- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\&gameVersionTypeId=4)
+- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\\&gameVersionTypeId=4)
 - [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
 - [Technic](https://www.technicpack.net/modpacks)

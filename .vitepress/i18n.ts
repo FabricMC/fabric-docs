@@ -5,6 +5,45 @@ import DevelopSidebar from "./sidebars/develop";
 import PlayersSidebar from './sidebars/players';
 import { ExtendedSidebarItem } from "./sidebars/utils";
 
+function getCountryFlagEmoji(countryCode: string): string {
+  // Convert the country code to uppercase and split into individual characters
+  const codePoints = countryCode.toUpperCase().split('').map(char => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
+/**
+ * Gets the name of a locale in the format "Local Name (English Name)".
+ * @param folder The folder name of the locale.
+ * @returns The name, in "Local Name (English Name)" format
+ */
+export function getLocaleName(folder: string): string {
+  let language = folder.slice(0, 2);
+  let region = folder.slice(3, 5).toUpperCase();
+
+  let localDisplayNames = new Intl.DisplayNames([language], { type: 'language' });
+  let localName = localDisplayNames.of(language);
+
+  let englishDisplayNames = new Intl.DisplayNames(['en'], { type: 'language' });
+  let englishName = englishDisplayNames.of(language);
+
+  if (language !== region.toLowerCase()) {
+      let regionDisplayNames = new Intl.DisplayNames(['en'], { type: 'region' });
+      let regionName = regionDisplayNames.of(region);
+      englishName = `${englishName} - ${regionName}`;
+  }
+
+  // Capitalize local name
+  // @ts-ignore
+  localName = localName.charAt(0).toUpperCase() + localName.slice(1);
+
+  let countryFlag = getCountryFlagEmoji(region);
+
+  // Combine local and English names
+  let localeName = `${countryFlag} ${localName} (${englishName})`;
+
+  return localeName;
+}
+
 /**
  * Loads locales and generates a LocaleConfig object.
  * 
@@ -19,7 +58,7 @@ export function loadLocales(rootDir: string): LocaleConfig<DefaultTheme.Config> 
 
   const locales: LocaleConfig<DefaultTheme.Config> = {
     root: {
-      label: 'English',
+      label: '🇬🇧 English',
       lang: 'en',
       themeConfig: generateTranslatedThemeConfig(null)
     }
@@ -30,17 +69,8 @@ export function loadLocales(rootDir: string): LocaleConfig<DefaultTheme.Config> 
       continue;
     }
 
-    let firstHalf: string = folder.slice(0, 2);
-    let secondHalf: string = folder.slice(3, 5);
-
-    let locale = new Intl.DisplayNames([`${firstHalf}-${secondHalf.toUpperCase()}`], { type: 'language' });
-    let localeName = locale?.of(`${firstHalf}-${secondHalf.toUpperCase()}`)!;
-
-    // Capitalize the first letter of the locale name
-    localeName = localeName.charAt(0).toUpperCase() + localeName.slice(1);
-
     locales[folder] = {
-      label: localeName,
+      label: getLocaleName(folder),
       link: `/${folder}/`,
       lang: folder,
       themeConfig: generateTranslatedThemeConfig(folder),
@@ -104,11 +134,6 @@ function generateTranslatedThemeConfig(localeDir: string | null): DefaultTheme.C
     ],
 
     // TODO: localise version switcher
-
-    search: {
-      provider: 'local'
-    },
-
     outline: "deep",
 
     sidebar: generateTranslatedSidebars(__dirname, {

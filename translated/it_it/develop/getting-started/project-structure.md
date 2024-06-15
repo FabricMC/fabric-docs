@@ -30,9 +30,9 @@ Puoi trovare un esempio del file `fabric.mod.json` sotto - questo è il file `fa
 
 ## Entrypoint
 
-Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entrypoints` - questo attributo è utilizzato per specificare gli entrypoint che la tua mod fornisce.
+Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entrypoints` - questo attributo è usato per specificare gli entrypoint che la tua mod fornisce.
 
-Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è utilizzato per codice comune, mentre l'entrypoint `client` è utilizzato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
+Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è usato per codice comune, mentre l'entrypoint `client` è usato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -40,7 +40,7 @@ Quello sopra è un esempio di un semplice entrypoint `main` che logga un messagg
 
 ## `src/main/resources`
 
-La cartella `src/main/resources` è utilizzata per memorizzare le risorse che la tua mod utilizza, come texture, modelli, e suoni.
+La cartella `src/main/resources` viene usata per memorizzare le risorse che la tua mod utilizza, come texture, modelli, e suoni.
 
 È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod utilizza.
 
@@ -48,12 +48,12 @@ Le risorse sono memorizzate in una struttura che rispecchia la struttura dei pac
 
 ## `src/client/resources`
 
-La cartella `src/client/resources` è utilizzata per memorizzare risorse client specifiche, come texture, modelli, e suoni che sono solo utilizzati dal lato client.
+La cartella `src/client/resources` viene usata per memorizzare risorse client specifiche, come texture, modelli, e suoni che sono solo utilizzati dal lato client.
 
 ## `src/main/java`
 
-La cartella `src/main/java` è utilizzata per memorizzare il codice sorgente Java per la tua mod - esiste sia su ambienti client e server.
+La cartella `src/main/java` viene usata per memorizzare il codice sorgente Java per la tua mod - esiste sia su ambienti client e server.
 
 ## `src/client/java`
 
-La cartella `src/client/java` è utilizzata per memorizzare codice sorgente Java client specifico, come codice per il rendering o logica del lato client - come provider per il colore dei blocchi.
+La cartella `src/client/java` viene usata per memorizzare codice sorgente Java client specifico, come codice per il rendering o logica del lato client - come provider per il colore dei blocchi.

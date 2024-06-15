@@ -26,7 +26,7 @@ export default defineVersionedConfig(__dirname, {
 
   head: [[
     'link',
-    { rel: 'icon', sizes: '32x32', href: '/favicon.png' }
+    { rel: 'icon', sizes: '32x32', href: '/favicon.png' },
   ]],
 
   locales: loadLocales(__dirname),
@@ -49,6 +49,12 @@ export default defineVersionedConfig(__dirname, {
   },
 
   lastUpdated: true,
+
+  themeConfig: {
+    search: {
+      provider: 'local'
+    },
+  },
 
   markdown: {
     lineNumbers: true,

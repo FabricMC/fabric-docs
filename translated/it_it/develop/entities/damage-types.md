@@ -33,15 +33,15 @@ Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format)
 
 ### Accedere ai Tipi di Danno Tramite Codice
 
-Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, utilizzeremo la sua `RegistryKey` per costruire un'istanza di `DamageSource`.
+Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `RegistryKey` per costruire un'istanza di `DamageSource`.
 
 La `RegistryKey` può essere ottenuta nel modo seguente:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### Utilizzare i Tipi di Danno
+### Usare i Tipi di Danno
 
-Per mostrare l'utilizzo dei tipi di danno personalizzati, utilizzeremo un blocco personalizzato chiamato _Blocco di Tater_. Facciamo in modo che quando un'entità calpesta un _Blocco di Tater_, esso causa danno _Tater_.
+Per mostrare l'utilizzo dei tipi di danno personalizzati, useremo un blocco personalizzato chiamato _Blocco di Tater_. Facciamo in modo che quando un'entità calpesta un _Blocco di Tater_, esso causa danno _Tater_.
 
 Puoi fare override di `onSteppedOn` per infliggere questo danno.
 
@@ -57,7 +57,7 @@ L'intera implementazione del blocco:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 5 di danno (2.5 cuori) utilizzando il nostro tipo di danno personalizzato.
+Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 5 di danno (2.5 cuori) usando il nostro tipo di danno personalizzato.
 
 ### Messaggio di Morte Personalizzato
 
@@ -71,7 +71,7 @@ Al momento della morte dal nostro tipo di danno personalizzato, vedrete il messa
 
 ### Tag dei Tipi di Danno
 
-Alcuni tipi di danno possono bypassare armatura, bypassare effetti di stato, o simili. I tag sono utilizzati per controllare questo genere di proprietà dei tipi di danno.
+Alcuni tipi di danno possono bypassare armatura, bypassare effetti di stato, o simili. I tag sono usati per controllare questo genere di proprietà dei tipi di danno.
 
 Puoi trovare tipi di danno già esistenti in `data/minecraft/tags/damage_type`.
 

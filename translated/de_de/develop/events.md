@@ -111,7 +111,7 @@ Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen
 
 ### Auslösen des Events von einem Mixin
 
-Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Ereignis auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir das Ereignis `invoker` in `SheepEntity#interactMob` auf, wenn `sheared()` aufgerufen wird (d.h. Schafe können geschoren werden, und der Spieler hält eine Schere):
+Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Ereignis auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir das Ereignis `invoker` in `SheepEntity#interactMob` auf, wenn `sheared()` aufgerufen wird (d.h.
 
 @[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 

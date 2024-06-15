@@ -21,7 +21,7 @@ In diesem Beispiel wird ein [Pfeifton](https://freesound.org/people/strongbot/so
 
 ![Löschen von einem der Kanäle](/assets/develop/sounds/custom_sounds_2.png)
 
-Achte beim Exportieren oder Rendern der Audio-Datei darauf, dass du das Dateiformat OGG wählst. Einige DAWs, wie z. B. REAPER, unterstützen mehrere OGG-Audio-Layer-Formate. In diesem Fall sollte OGG Vorbis sehr gut funktionieren.
+Achte beim Exportieren oder Rendern der Audio-Datei darauf, dass du das Dateiformat OGG wählst. REAPER, unterstützen mehrere OGG-Audio-Layer-Formate. In diesem Fall sollte OGG Vorbis sehr gut funktionieren.
 
 ![Export als OGG-Datei](/assets/develop/sounds/custom_sounds_3.png)
 

@@ -16,7 +16,7 @@ Aggiornare Fabric è un processo molto simile all'installazione di Fabric, per c
 
 ## Perché dovrei aggiornare il Loader di Fabric?
 
-Mod più nuove potrebbero richiedere una versione più recente del Loader di Fabric per funzionare, quindi è importante tenerlo aggiornato per assicurarti di poter utilizzare le mod più recenti.
+Mod più nuove potrebbero richiedere una versione più recente del Loader di Fabric per funzionare, quindi è importante tenerlo aggiornato per assicurarti di poter usare le mod più recenti.
 
 <!-- Include steps from installing guide, no need to repeat them. -->
 

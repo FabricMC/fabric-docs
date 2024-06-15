@@ -11,7 +11,7 @@ La fiabilité d'une source est subjective, et vous devriez toujours juger de par
 
 ## 1. Utiliser une source connue pour être fiable.
 
-La majorité des mods sont publiés sur [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) ou [CurseForge](https://www.curseforge.com/minecraft/search?page=1\&pageSize=20\&sortType=1\&class=mc-mods\&gameFlavorsIds=4).
+La majorité des mods sont publiés sur [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) ou [CurseForge](https://www.curseforge.com/minecraft/search?page=1\\&pageSize=20\\&sortType=1\\&class=mc-mods\\&gameFlavorsIds=4).
 
 Ces sites vérifient que les mods sont bel et bien ce qu'ils prétendent être, et qu'ils ne contiennent pas de code malicieux. Vous pouvez également signaler les mods malicieux sur ces sites, et ces derniers prennent les choses en main relativement rapidement.
 

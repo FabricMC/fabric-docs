@@ -21,7 +21,7 @@ Quando l'API di Fabric è presente, `BrewingRecipeRegistry.registerPotionRecipe`
 
 ### Creare la Pozione
 
-Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Utilizzeremo direttamente la classe dell'initializer per conservarla.
+Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente la classe dell'initializer per conservarla.
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
@@ -57,8 +57,7 @@ Una volta registrato, puoi distillare una pozione Tater usando una patata.
 
 ![Effetto nell'inventario del giocatore](/assets/develop/tater-potion.png)
 
-::: info
-**Registering Potions Using an `Ingredient`**
+:::info Registrare Pozioni Usando un `Ingredient`
 
 Con l'aiuto dell'API di Fabric, è possibile registrare una pozione usando un `Ingredient` anziché un `Item` usando `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.

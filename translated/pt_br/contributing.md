@@ -1,8 +1,8 @@
-# Diretrizes de contribuição da documentação do Fabric
+# Diretrizes de Contribuição da Documentação do Fabric
 
-Esse site usa [VitePress](https://vitepress.vuejs.org/) para gerar HTML estático de varios arquivos do markdown. Você deve estar familiarizado com as extensões markdown que o VitePress suporta [aqui.](https://vitepress.vuejs.org/guide/markdown.html#features)
+Este site usa [VitePress](https://vitepress.dev/) para gerar HTML estático de vários arquivos do Markdown. Você deve estar familiarizado com as extensões Markdown que o VitePress suporta [aqui.](https://vitepress.dev/guide/markdown.html#features)
 
-## Tabela De Conteúdos
+## Sumário
 
 - [Diretrizes de contribuição da documentação do Fabric](#fabric-documentation-contribution-guidelines)
   - [Como Contribuir](#how-to-contribute)
@@ -12,9 +12,9 @@ Esse site usa [VitePress](https://vitepress.vuejs.org/) para gerar HTML estátic
     - [Instruções para Expandir](#guidance-for-expansion)
     - [Verificação De Conteúdo](#content-verification)
     - [Apuração](#cleanup)
-  - Verificação
+  - [Traduzindo a Documentação](#translating-documentation)
 
-## Como Contribuir
+## Como contribuir
 
 É recomendado que você crie uma nova "branch" no seu "fork do repositório" a cada "pull request" que você faça. Isso faz ser mais fácil de gerenciar múltiplos "pull requests" de uma vez.
 
@@ -32,7 +32,7 @@ npm run dev
 
 **Fazendo o Website.**
 
-Isto irá compilar todos os arquivos markdown em arquivos HTML estáticos e colocá-los em: `.vitepress/dist`
+Isto irá compilar todos os arquivos Markdown em arquivos HTML estáticos e colocá-los em: `.vitepress/dist`
 
 ```bash
 npm run build
@@ -130,11 +130,11 @@ As diretrizes a serem seguidas:
    } 
    ```
 
-3. Nós seguimos as regras gramaticais do inglês americano. Embora você possa usar o [LanguageTool](https://languagetool.org/) para verificar sua gramática enquanto digita,mas não se encuque muito com isso. Nossa equipe de documentação revisará e corrigirá a gramática durante a fase de revisão. No entanto, se esforçar para acertar inicialmente pode nos poupar um bom tempo.
+3. A documentação original inteira é escrita em Inglês, seguindo as regras da gramática Estadunidense. Embora você possa usar o [LanguageTool](https://languagetool.org/) para verificar sua gramática enquanto digita,mas não se encuque muito com isso. Nossa equipe de documentação revisará e corrigirá a gramática durante a fase de revisão. No entanto, se esforçar para acertar inicialmente pode nos poupar um bom tempo.
 
-4. Se você estiver criando uma nova seção, você deve criar uma nova barra lateral na pasta `.vitepress/sidebars` e adicioná-la ao arquivo `config.mts`. Se você precisar de ajuda com isso, pôr favor chame-nos no [Fabric Discord](https://discord.gg/v6v4pMv)'s no canal: `#wiki`.
+4. Se você estiver criando uma nova seção, você deve criar uma nova barra lateral na pasta `.vitepress/sidebars` e adicioná-la ao arquivo `config.mts`. Se você precisa de assistência com isso, por favor peça no [Discord do Fabric](https://discord.gg/v6v4pMv) no canal `#docs`.
 
-5. Ao criar uma nova página, você deve adicioná-la à barra lateral relevante na pasta `.vitepress/sidebars`. De novo, se você precisar de ajuda, nos chame no Discord do Fabric no canal: `#wiki`.
+5. Ao criar uma nova página, você deve adicioná-la à barra lateral relevante na pasta `.vitepress/sidebars`. De novo, se precisar de ajuda, nos chame no Discord do Fabric no canal `#docs`.
 
 6. Quaisquer imagens devem ser colocadas em um "local adequado" na pasta `/assets`.
 
@@ -142,7 +142,7 @@ As diretrizes a serem seguidas:
 
    Isso se deve ao sistema de versionamento em vigor, que processará os links para adicionar uma versão de antemão. Se você usar links absolutos, o número da versão não será adicionado ao link.
 
-   Por exemplo, para uma página na pasta  `/players` para vincular à página `installing-fabric` encontrada em `/players/installing-fabric.md`, você teria que fazer o seguinte:
+   Por exemplo, para uma página na pasta `/players`, para vincular à página `installing-fabric` encontrada em `/players/installing-fabric.md`, você teria que fazer o seguinte:
 
    ```md
    [Isto é um link para outra página](./installing-fabric.md)
@@ -151,20 +151,20 @@ As diretrizes a serem seguidas:
    Você **NÃO** deve fazer o seguinte:
 
    ```md
-   [Isto é um link para outra página](/player/installing-fabric)
+   [Isto é um link para outra página](/player/installing-fabric.md)
    ```
 
 Todas as contribuições de conteúdo passam por três etapas:
 
-1. Instruções para expandir(se possível)
+1. Instruções para Expandir (se necessário)
 2. Verificação de Conteúdo
 3. Revisão (Gramatica, etc.)
 
 ### Instruções para Expandir
 
-Se a equipe de documentação achar que você poderia expandir seu "pull request", um membro da equipe adicionará o rótulo `expansion` à o seu "pull request" junto com um comentário explicando o que eles acham que você poderia expandir. Se você concordar com a sugestão, poderá expandir seu "pull request"
+Se a equipe de documentação julgar que você poderia expandir seu "pull request", um membro da equipe adicionará o rótulo `can-expand` ao seu "pull request" com um comentário explicando o que eles pensam que você poderia expandir. Se você concordar com a sugestão, poderá expandir seu "pull request"
 
-**Não se sinta pressionado em expandir seu "pull request".** Se não quiser expandir seu "pull request", você pode simplesmente solicitar que o rótulo `expansion` seja removido.
+**Não se sinta pressionado em expandir seu "pull request".** Se não quiser expandir seu "pull request", você pode simplesmente solicitar que o rótulo `can-expand` seja removido.
 
 Se você não deseja expandir seu "Pull Request", mas deseja que outra pessoa a expanda posteriormente, é melhor criar um "Issue" na [página de "issues"](https://github.com/FabricMC/fabric-docs/issues) e explique o que você acha que pode ser expandido.
 

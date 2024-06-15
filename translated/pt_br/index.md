@@ -7,9 +7,9 @@ hero:
   name: Documentação do Fabric
   tagline: A documentação oficial para o Fabric, um conjunto de ferramentas para mods de Minecraft.
 features:
-  - title: Developer Guides
+  - title: Guias para desenvolvedores
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: Nossos guias de desenvolvedor, escritos pela comunidade, abrangem uma variedade de tópicos desde a configuração de um ambiente de desenvolvimento até tópicos mais avançados, como renderização e networking.
     link: /develop/
     linkText: Guia de Introdução
   - title: Guias do Jogador
@@ -21,7 +21,7 @@ features:
 
 <div class="vp-doc homepage-container">
 
-## Gostaria de contribuir?
+## Deseja ajudar?
 
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
 

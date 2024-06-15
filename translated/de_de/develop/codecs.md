@@ -21,7 +21,7 @@ Die grundlegende Verwendung eines Codecs ist die Serialisierung und Deserialisie
 
 Da einige Vanilla-Klassen bereits Codecs definiert haben, können wir diese als Beispiel verwenden. Mojang hat uns außerdem standardmäßig zwei dynamische Ops-Klassen zur Verfügung gestellt, `JsonOps` und `NbtOps`, die die meisten Anwendungsfälle abdecken.
 
-Nehmen wir nun an, wir wollen eine `BlockPos` nach JSON und zurück serialisieren. Wir können dies machen, indem wir den Codec, der statisch in `BlockPos.CODEC` gespeichert ist, mit den Methoden `Codec#encodeStart` bzw. `Codec#parse` verwenden.
+Nehmen wir nun an, wir wollen eine `BlockPos` nach JSON und zurück serialisieren. Wir können dies machen, indem wir den Codec, der statisch in `BlockPos.CODEC` gespeichert ist, mit den Methoden `Codec#encodeStart` bzw.
 
 ```java
 BlockPos pos = new BlockPos(1, 2, 3);
@@ -96,7 +96,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 - ein `Codec<Item>`
 - ein `Codec<List<BlockPos>>`
 
-Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der Zweite kann aus der Registry `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
+Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
 
 ### Listen
 
@@ -127,10 +127,9 @@ Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Me
 
 Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#Optionale-Attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&amp;lt;Map&amp;gt;
+### MapCodec, nicht zu verwechseln mit Codec&amp;amp;lt;Map&amp;amp;gt;
 
-Der Aufruf von `Codec#fieldOf` wandelt einen `Codec<T>` in einen `MapCodec<T>` um, der eine Variante, aber keine direkte
-Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
+Der Aufruf von `Codec#fieldOf` wird einen `Codec<T>` in einen `MapCodec<T>` umwandeln, der eine Variante, aber keine direkte Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
 
 Diese besondere Art der Erstellung eines `MapCodec` verpackt im Wesentlichen den Wert des Quellcodecs in eine Map ein, wobei der angegebene Attributname als Schlüssel dient. Zum Beispiel würde ein `Codec<BlockPos>`, wenn er in JSON serialisiert wird, wie folgt aussehen:
 
@@ -168,7 +167,7 @@ Beachte, dass optionale Felder alle Fehler, die bei der Deserialisierung auftret
 
 #### Einheit
 
-Codec.unit\` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
+Codec.unit\\` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
 
 ```java
 Codec<Integer> theMeaningOfCodec = Codec.unit(42);

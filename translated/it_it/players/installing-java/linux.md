@@ -21,7 +21,7 @@ Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà alme
 
 ## 2. Scaricare e Installare Java 17
 
-Raccomandiamo l'utilizzo di OpenJDK 17, che è disponibile per la maggior parte delle distribuzioni Linux.
+Raccomandiamo l'uso di OpenJDK 17, che è disponibile per la maggior parte delle distribuzioni Linux.
 
 ### Arch Linux
 

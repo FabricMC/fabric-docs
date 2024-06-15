@@ -19,7 +19,7 @@ Wenn du Kotlin verwenden oder Datengeneratoren hinzufügen möchtest, kannst du 
 
 ![Der Abschnitt "Advanced options".](/assets/develop/getting-started/template-generator-advanced.png)
 
-Nachdem du die erforderlichen Felder ausgefüllt hast, klickst du auf die Schaltfläche `Generate`. Der Generator erstellt dann ein neues Projekt in Form einer ZIP-Datei für dich.
+Der Generator erstellt dann ein neues Projekt in Form einer ZIP-Datei für dich.
 
 Du solltest diese ZIP-Datei an einem Ort deiner Wahl entpacken und dann den entpackten Ordner in IntelliJ IDEA öffnen:
 

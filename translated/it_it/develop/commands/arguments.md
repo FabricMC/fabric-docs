@@ -5,7 +5,7 @@ description: Impara come creare comandi con parametri complessi.
 
 # Parametri dei Comandi
 
-I parametri vengono utilizzati nella maggior parte dei comandi. A volte possono essere opzionali, il che significa che se non viene fornito quel parametri, il comando verrà eseguito comunque. Ogni nodo può avere tipi di parametri multipli, ma ricorda che c'è una possibilità di ambiguità, che dovrebbe essere evitata.
+La maggior parte dei comandi usa i parametri. A volte possono essere opzionali, il che significa che se non viene fornito quel parametri, il comando verrà eseguito comunque. Ogni nodo può avere tipi di parametri multipli, ma ricorda che c'è una possibilità di ambiguità, che dovrebbe essere evitata.
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -37,13 +37,13 @@ Per esempio, puoi creare un tipo di parametro che fa il parsing di un `BlockPos`
 Avrai bisogno di registrare i tipi di parametri personalizzati sia sul server sia sul client altrimenti il comando non funzionerà!
 :::
 
-Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'inizializer della tua mod utilizzando la classe `ArgumentTypeRegistry`:
+Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'inizializer della tua mod usando la classe `ArgumentTypeRegistry`:
 
 @[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Utilizzare i Tipi di Parametri Personalizzati
+### Usare i Tipi di Parametri Personalizzati
 
-Possiamo utilizzare il nostro tipo di parametro personalizzato in un comando - passando un'istanza di esso nel metodo `.argument` del costruttore del comando.
+Possiamo usare il nostro tipo di parametro personalizzato in un comando - passando un'istanza di esso nel metodo `.argument` del costruttore del comando.
 
 @[code lang=java transcludeWith=:::10 highlight={3}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 

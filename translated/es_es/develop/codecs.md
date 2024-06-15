@@ -126,7 +126,7 @@ Cada línea en el grupo especifica un codec, un nombre para el miembro, y el mé
 
 También puedes usar `Codec#optionalFieldOf` en este contexto para hacer un miembro opcional, como explicado en la sección de [Miembros Opcionales](#optional-fields).
 
-### MapCodec, sin ser confundido con Codec&amp;lt;Map&amp;gt;
+### MapCodec, sin ser confundido con Codec&amp;amp;lt;Map&amp;amp;gt;
 
 Llamar `Codec#fieldOf` convertirá un `Codec<T>` a un `MapCodec<T>`, el cual es una implementación variante, pero no directa de `Codec<T>`. Como su nombre lo indica, los `MapCodec`s garantizan la serialización a una asociación (map) llave a valor, o su equivalente en el `DynamicOps` usado. Algunas funciones pueden requerir una, en vez de un codec regular.
 
