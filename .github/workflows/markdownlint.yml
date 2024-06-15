@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - '**/*.md'
+      - '!LICENSE.md'
+      - '!README.md'
       - '!translated/**'
       - '!versions/*/translated/**'
   workflow_dispatch: # Manual run
@@ -28,9 +30,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-
-      - id: titlecase
-        run: npm install markdownlint-rule-titlecase@v0.1.0
+      - run: npm install
 
       - id: lint
         uses: DavidAnson/markdownlint-cli2-action@v16
