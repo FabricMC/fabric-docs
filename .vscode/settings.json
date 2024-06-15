@@ -1,3 +1,16 @@
 {
-    "java.checkstyle.configuration": "${workspaceFolder}\\reference\\checkstyle.xml"
+    "markdownlint.lintWorkspaceGlobs": [
+      "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+      "!**/bower_components",
+      "!**/node_modules",
+      "!**/vendor",
+      "!**/.git",
+      "!versions/*/translated/**",
+      "!translated/**",
+      "!LICENSE.md",
+      "!README.md"
+    ],
+    "markdownlint.customRules": [
+      "../node_modules/markdownlint-rule-titlecase/"
+    ]
 }

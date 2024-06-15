@@ -80,7 +80,7 @@ This method returns a vertex builder, which we can use to specify additional inf
 
 It's also worth understanding the concept of culling. Culling is the process of removing faces of a 3D shape that aren't visible from the viewer's perspective. If the vertices for a face are specified in the wrong order, the face might not render correctly due to culling.
 
-#### What is a Transformation Matrix?
+#### What Is a Transformation Matrix?
 
 A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the vertex call. The transformations can scale our model, move it around and rotate it.
 
