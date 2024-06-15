@@ -39,7 +39,7 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 
 ```json
 {
-    "itemGroup.fabric_docs_reference": "Fabric Docs Reference Items"
+    "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
 }
 ```
 
