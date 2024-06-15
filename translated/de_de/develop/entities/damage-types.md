@@ -23,7 +23,7 @@ Sie hat folgende Struktur:
 
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
-Diese benutzerdefinierte Schadensart verursacht jedes Mal, wenn ein Spieler Schaden erleidet, einen Anstieg von 0,1 an [Erschöpfung](https://de.minecraft.wiki/w/Hunger#Ersch%C3%B6pfung), wenn der Schaden von einer lebenden Nicht-Spieler-Quelle (z.B. einem Block) verursacht wird. Weiterhin skaliert sich die Höhe des verursachten Schadens mit dem Schwierigkeitsgrad der Welt.
+Diese benutzerdefinierte Schadensart verursacht jedes Mal, wenn ein Spieler Schaden erleidet, einen Anstieg von 0,1 an [Erschöpfung](https://de.minecraft.wiki/w/Hunger#Ersch%C3%B6pfung), wenn der Schaden von einer lebenden Nicht-Spieler-Quelle (z.B. Weiterhin skaliert sich die Höhe des verursachten Schadens mit dem Schwierigkeitsgrad der Welt.
 
 ::: info
 
@@ -71,7 +71,7 @@ Beim Tod durch unsere Schadensart wirst du die folgende Todesnachricht sehen:
 
 ### Schadensart-Tags
 
-Einige Schadensarten können Rüstung, Statuseffekte usw. umgehen. Tags werden verwendet, um diese Art von Eigenschaften von Schadensarten zu kontrollieren.
+Einige Schadensarten können Rüstung, Statuseffekte usw. Tags werden verwendet, um diese Art von Eigenschaften von Schadensarten zu kontrollieren.
 
 Vorhandene Schadensarten-Tags kannst du in `data/minecraft/tags/damage_type` finden.
 

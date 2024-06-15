@@ -57,8 +57,7 @@ Sobald der Trank registriert wurde, kannst du den Tater-Trank mit einer Kartoffe
 
 ![Effekt im Inventar eines Spielers](/assets/develop/tater-potion.png)
 
-::: info
-**Registering Potions Using an `Ingredient`**
+:::info Registrieren von Tränken mit Hilfe eines `Ingredient`
 
 Mit der Hilfe der Fabric API kann beim Erstellen des Rezepts `Ingredient` statt `Item`, mithilfe der `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` Methode, benutzt werden.

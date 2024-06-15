@@ -7,7 +7,7 @@ authors:
 
 # 安装 Fabric
 
-本指南将引导您完成为官方 Minecraft 启动器安装 Fabric。
+本指南将引导你在官方 Minecraft 启动器上完成对 Fabric 的安装。
 
 对于第三方启动器，您应该查阅它们的文档。
 

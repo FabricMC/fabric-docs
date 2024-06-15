@@ -30,9 +30,10 @@ authors:
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-IntelliJ 단축 키: Ctrl+Alt+B\
-VSCode 단축 키: Ctrl+F12
-:::
+- IntelliJ 단축 키: Ctrl+Alt+B\
+  VSCode 단축 키: Ctrl+F12
+  :::
+- 그럼 직접 한번 만들어 봅시다!
 
 ## JSON 파일을 만들고 텍스쳐 추가하기
 

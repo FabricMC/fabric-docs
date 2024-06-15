@@ -51,7 +51,7 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 这会将代码仓库克隆进一个叫`my-mod-project`的新文件夹。
 
-然后，您应该删除`.git`文件夹，并在IntelliJ IDEA中打开项目。 如果你找不到`.git`文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
+然后，您应该删除`.git`文件夹，并在IntelliJ IDEA中打开项目。 如果你找不到`.git`文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。 如果你找不到`.git`文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
 
 你在IntelliJ IDEA中打开了项目之后，IDEA会自动加载项目的Gradle配置并执行必要的初始化任务。
 
