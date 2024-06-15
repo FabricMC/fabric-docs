@@ -6,7 +6,9 @@
       "!**/vendor",
       "!**/.git",
       "!versions/*/translated/**",
-      "!translated/**"
+      "!translated/**",
+      "!LICENSE.md",
+      "!README.md"
     ],
     "markdownlint.customRules": [
       "../node_modules/markdownlint-rule-titlecase/"
