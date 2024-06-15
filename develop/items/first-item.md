@@ -19,22 +19,7 @@ You can put this method in a class called `ModItems` (or whatever you want to na
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
-```java
-public class ModItems {
-    // We can use generics to make it so we dont need to 
-    // cast to an item when using this method.
-    public static <T extends Item> T register(T item, String ID) {
-        // Create the identifier for the item.
-        Identifier itemID = new Identifier("mod_id", ID);
-        
-        // Register the item.
-        T registeredItem = Registry.register(Registries.ITEM, itemID, item);
-
-        // Return the registered item!
-        return registeredItem;
-    }
-}
-```
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Registering an Item
 
@@ -47,7 +32,13 @@ The item constructor takes in an instance of the `Items.Settings` class as a par
 - Set the item's durability.
 - ...and other miscellaneous properties.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+::: tip
+If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+
+This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
+:::
+
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 However, when you go in-game, you can see that our item doesn't exist! This is because you don't statically initialize the class.
 
