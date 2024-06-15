@@ -8,5 +8,6 @@
   "item.fabric-docs-reference.guidite_helmet": "Guidite Helmet",
   "item.fabric-docs-reference.guidite_chestplate": "Guidite Chestplate",
   "item.fabric-docs-reference.guidite_leggings": "Guidite Leggings",
-  "item.fabric-docs-reference.guidite_boots": "Guidite Boots"
+  "item.fabric-docs-reference.guidite_boots": "Guidite Boots",
+  "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
 }

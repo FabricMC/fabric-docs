@@ -9,6 +9,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -88,6 +89,19 @@ public class ModItems {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
 				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
 		// :::8
+
+		// :::9
+		var groupRegistryKey = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(FabricDocsReference.MOD_ID, "item_group"));
+		ItemGroupEvents.modifyEntriesEvent(groupRegistryKey).register(itemGroup -> {
+			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
+			itemGroup.add(ModItems.GUIDITE_SWORD);
+			itemGroup.add(ModItems.GUIDITE_HELMET);
+			itemGroup.add(ModItems.GUIDITE_BOOTS);
+			itemGroup.add(ModItems.GUIDITE_LEGGINGS);
+			itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
+			// ...
+		});
+		// :::9
 
 		// :::3
 	}

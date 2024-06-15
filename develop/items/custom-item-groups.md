@@ -7,7 +7,7 @@ authors:
 
 # Custom Item Groups
 
-In the last few pages - you've added quite a few items, it's time to consider making your own item group.
+Item groups are the tabs in the creative inventory that store items. You can create your own item group to store your items in a separate tab. This is pretty useful if your mod adds a lot of items and you want to keep them organized in one location for your players to easily access.
 
 ## Creating the Item Group
 
@@ -15,31 +15,17 @@ It's surprisingly easy to create an item group. Simply create a new static final
 
 I'll be using the "Guidite Sword" from the previous [Custom Tools](./custom-tools.md) page as the icon for the group.
 
-```java
-public static final ItemGroup MY_MOD_ITEMGROUP = FabricItemGroup.builder()
-  .icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-  .displayName(Text.translatable("itemGroup.fabric_docs_reference"))
-  .build();
-```
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 You will need to register your item group to the `ITEM_GROUP` registry for it to show up in-game.
 
-```java
-Registry.register(Registries.ITEM_GROUP, new Identifier(FabricDocsReference.MOD_ID, "item_group"), MY_MOD_ITEMGROUP);
-```
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 ## Adding Items
 
 To add items to the group, you can use the modify item group event similarly to how you added your items to the vanilla item groups:
 
-```java
-var groupRegistryKey = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(FabricDocsReference.MOD_ID, "item_group"))
-ItemGroupEvents.modifyEntriesEvent(groupRegistryKey).register(itemGroup -> {
-    itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
-    itemGroup.add(ModItems.GUIDITE_SWORD);
-    // .. other items you've made
-});
-```
+@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 
@@ -53,7 +39,7 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 
 ```json
 {
-    "itemGroup.fabric_docs_reference": "Fabric Reference Mod Items"
+    "itemGroup.fabric_docs_reference": "Fabric Docs Reference Items"
 }
 ```
 

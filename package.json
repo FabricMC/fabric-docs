@@ -13,6 +13,7 @@
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
+    "medium-zoom": "^1.1.0",
     "vitepress": "^1.2.3",
     "vitepress-versioning-plugin": "^0.11.1",
     "vue": "^3.4.27"

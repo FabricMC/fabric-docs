@@ -70,6 +70,10 @@ export default [
         link: "/develop/items/custom-armor"
       },
       {
+        text: "develop.items.custom-item-groups",
+        link: "/develop/items/custom-item-groups"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }

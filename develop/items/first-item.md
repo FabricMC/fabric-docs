@@ -111,6 +111,4 @@ Create the model JSON in the `assets/<mod id here>/models/item` folder, with the
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
-If you now reload the game (<kbd>F3</kbd> + <kbd>T</kbd>) you can now see your item texture!
-
 ![](/assets/develop/items/first_item_2.png)
