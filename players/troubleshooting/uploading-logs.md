@@ -9,7 +9,7 @@ authors:
 
 When troubleshooting issues, it is often necessary to provide logs to help identify the cause of the issue.
 
-## Why should I upload logs?
+## Why Should I Upload Logs?
 
 Uploading logs allows others to help you troubleshoot your issues much quicker than simply pasting the logs into a chat or forum post. It also allows you to share your logs with others without having to copy and paste them.
 
