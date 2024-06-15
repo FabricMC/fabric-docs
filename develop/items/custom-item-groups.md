@@ -31,7 +31,7 @@ To add items to the group, you can use the modify item group event similarly to 
 
 You should see the item group is now in the creative inventory menu. However, it is untranslated - you must add a translation key to your translations file - similarly to how you translated your first item.
 
-![](/assets/develop/items/itemgroups_0.png)
+![Item group without translation in creative menu](/assets/develop/items/itemgroups_0.png)
 
 ## Adding a Translation Key
 
@@ -45,4 +45,4 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 
 Now, as you can see, the item group should be correctly named:
 
-![](/assets/develop/items/itemgroups_1.png)
+![Fully completed item group with translation and items](/assets/develop/items/itemgroups_1.png)

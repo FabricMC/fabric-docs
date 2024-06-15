@@ -48,4 +48,4 @@ This makes the item:
 - A "snack".
 - Always give Poison II for 6 seconds when eaten.
 
-![](/assets/develop/items/food_0.webp)
+![Player eating the food and getting the aforementioned effects.](/assets/develop/items/food_0.webp)

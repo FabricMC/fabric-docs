@@ -27,7 +27,7 @@ You'll need to create a class that inherits `ArmorMaterial` - and add the follow
 
 The following methods will have to be implemented as well - these methods tell the game vital information on your armor items:
 
-- #### Durability - `getDurability(ArmorItem.Type type)`
+- ### Durability - `getDurability(ArmorItem.Type type)`
 
   Returns the durability for a specific armor type - in hit points.
 
@@ -55,8 +55,6 @@ The following methods will have to be implemented as well - these methods tell t
 
   @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-
-
 - #### Equip Sound - `getEquipsound()`
 
   What sound should be played when the armor is equipped?
@@ -64,7 +62,6 @@ The following methods will have to be implemented as well - these methods tell t
   **Example**
 
   @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
 
 - #### Repair Ingredient - `getRepairIngredient()`
 
@@ -74,7 +71,6 @@ The following methods will have to be implemented as well - these methods tell t
 
   @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-
 - #### Name - `getName()`
 
   The name of the armor material - must be lowercase.
@@ -82,7 +78,6 @@ The following methods will have to be implemented as well - these methods tell t
   **Example**
 
   @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
 
 - #### Toughness - `getToughness()`
 
@@ -93,7 +88,6 @@ The following methods will have to be implemented as well - these methods tell t
   **Example**
 
   @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
 
 - #### Knockback Resistance - `getKnockbackResistance()`
 
@@ -146,13 +140,13 @@ You will need model JSON files for all the items, not just the helmet, it's the 
 
 As you can see, in-game the armor items should have suitable models:
 
-![](/assets/develop/items/armor_1.png)
+![Armor item models](/assets/develop/items/armor_1.png)
 
 ## Armor Textures and Model
 
 When an entity wears your armor, currently the missing texture will appear:
 
-![](/assets/develop/items/armor_2.png)
+![Broken armor model on player.](/assets/develop/items/armor_2.png)
 
 This is because all armor textures are hardcoded by vanilla, to create our own, we'll have to place the texture in the vanilla armor texture folder.
 
@@ -169,4 +163,4 @@ The first layer contains textures for the helmet and chestplate, whilst the seco
 
 When these textures are present, you should be able to see your armor on entities that wear it:
 
-![](/assets/develop/items/armor_3.png)
+![Working armor model on player.](/assets/develop/items/armor_3.png)

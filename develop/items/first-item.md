@@ -15,7 +15,7 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 To simplify the registering of items, you can create a method that accepts an instance of an item and a string identifier.
 
-You can put this method in a class called `ModItems` (or whatever you want to name the class!). 
+You can put this method in a class called `ModItems` (or whatever you want to name the class!).
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
@@ -64,7 +64,7 @@ This can be done in the `initialize` method of your items class.
 
 Loading into the game, you can see that our item has been registered, and is in the Ingredients item group:
 
-![](/assets/develop/items/first_item_0.png)
+![Item in the ingredients group](/assets/develop/items/first_item_0.png)
 
 However, it's missing the following:
 
@@ -102,7 +102,7 @@ Create the model JSON in the `assets/<mod id here>/models/item` folder, with the
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
-![](/assets/develop/items/first_item_2.png)
+![Item with correct model](/assets/develop/items/first_item_2.png)
 
 ## Making the Item Compostable or a Fuel
 

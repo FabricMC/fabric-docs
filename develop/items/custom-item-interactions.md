@@ -53,7 +53,7 @@ A great example of these events being used can be found in the [Playing SoundEve
 | `useOnBlock`    | Ran when the player right clicks a block with the item. |
 | `use`           | Ran when the player right clicks the item.              |
 
-## The "use" event.
+## The `use()` Event
 
 Let's say you want to make an item that summons a lightning bolt infront of the player - you would need to create a custom class.
 
@@ -67,4 +67,4 @@ As usual, you should register your item, add a model and texture.
 
 As you can see, the lightning bolt should spawn 10 blocks infront of you - the player.
 
-![](/assets/develop/items/interactive_0.webp)
+![Lightning bolt striking the ground after player uses item.](/assets/develop/items/interactive_0.webp)
