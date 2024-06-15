@@ -120,7 +120,6 @@ public class ModItems {
 		// 20 ticks = 1 second.
 		FuelRegistry.INSTANCE.add(ModItems.GUIDITE_SWORD, 30 * 20);
 		// :::_11
-
 		// :::3
 	}
 
