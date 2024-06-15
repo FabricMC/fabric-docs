@@ -1,7 +1,6 @@
 name: Run markdownlint
 
 on:
-  push: # All push for test
   pull_request:
     branches:
       - main
