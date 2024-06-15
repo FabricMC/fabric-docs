@@ -16,7 +16,9 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 To simplify the registering of items, you can create a method that accepts an instance of an item and a string identifier.
 
-You can put this method in a class called `ModItems` (or whatever you want to name the class!).
+This method will create an item with the provided identifier and register it with the game's item registry.
+
+You can put this method in a class called `ModItems` (or whatever you want to name the class).
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
@@ -26,12 +28,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 You can now register an item using the method now.
 
-The item constructor takes in an instance of the `Items.Settings` class as a parameter. This class allows you to:
-
-- Assign the item's `ItemGroup`.
-- Make the item edible by passing a `FoodComponent`.
-- Set the item's durability.
-- ...and other miscellaneous properties.
+The item constructor takes in an instance of the `Items.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
 If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
@@ -102,6 +99,17 @@ You're going to create a simple `item/generated` model, which takes in an input 
 Create the model JSON in the `assets/<mod id here>/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+
+### Breaking Down the Model JSON
+
+- `parent`: This is the parent model that this model will inherit from. In this case, it's the `item/generated` model.
+- `textures`: This is where you define the textures for the model. The `layer0` key is the texture that the model will use.
+
+Most items will use the `item/generated` model as their parent, as it's a simple model that just displays the texture.
+
+There are alternatives, such as `item/handheld` which is used for items that are held in the player's hand, such as tools.
+
+Your item should now look like this in-game:
 
 ![Item with correct model](/assets/develop/items/first_item_2.png)
 
