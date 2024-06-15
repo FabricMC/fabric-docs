@@ -57,7 +57,7 @@ To do this, you can add a public static initialize method to your class and call
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
-Calling a method on a class statically initializes it if it hasn't been used before - this means that all `final` fields are evaluated.
+Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
 ## Adding the Item to an Item Group
 

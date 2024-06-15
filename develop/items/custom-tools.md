@@ -1,6 +1,6 @@
 ---
 title: Tools and Weapons
-description: Learn how to create your own tools and set their durability and mining levels.
+description: Learn how to create your own tools and configure their properties.
 authors:
   - IMB11
 ---

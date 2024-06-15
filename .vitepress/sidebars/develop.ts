@@ -172,6 +172,10 @@ export default [
       {
         text: "develop.misc.events",
         link: "/develop/events"
+      },
+      {
+        text: "develop.misc.text-and-translations",
+        link: "/develop/text-and-translations"
       }
     ]
   }

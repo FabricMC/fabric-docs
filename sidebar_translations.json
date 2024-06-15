@@ -44,6 +44,7 @@
   "develop.misc": "Miscellaneous Pages",
   "develop.misc.codecs": "Codecs",
   "develop.misc.events": "Events",
+  "develop.misc.text-and-translations": "Text and Translations",
   "develop.sounds": "Sounds",
   "develop.sounds.using-sounds": "Playing SoundEvents",
   "develop.sounds.custom": "Creating Custom Sounds",
