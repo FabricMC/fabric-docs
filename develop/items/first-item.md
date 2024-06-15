@@ -103,3 +103,26 @@ Create the model JSON in the `assets/<mod id here>/models/item` folder, with the
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ![](/assets/develop/items/first_item_2.png)
+
+## Making the Item Compostable or a Fuel
+
+Fabric API provides various registries that can be used to add additional properties to your item.
+
+For example, if you want to make your item compostable, you can use the `CompostableItemRegistry`:
+
+@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+Alternatively, if you want to make your item a fuel, you can use the `FuelRegistry` class:
+
+@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+## Adding a Basic Crafting Recipe
+
+<!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
+
+If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipes` folder.
+
+For more information on the recipe format, checkout these resources:
+
+- [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)
+- [Recipe JSON Generator](https://crafting.thedestruc7i0n.ca/)

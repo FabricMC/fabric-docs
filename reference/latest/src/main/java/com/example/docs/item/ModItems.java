@@ -1,5 +1,11 @@
 package com.example.docs.item;
 
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+
+import net.fabricmc.fabric.api.registry.FuelRegistry;
+
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
@@ -102,6 +108,18 @@ public class ModItems {
 			// ...
 		});
 		// :::9
+
+		// :::_10
+		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
+		CompostingChanceRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
+		// :::_10
+
+		// :::_11
+		// Add the suspicious substance to the flammable block registry with a burn time of 30 seconds.
+		// Remember, Minecraft deals with logical based-time using ticks.
+		// 20 ticks = 1 second.
+		FuelRegistry.INSTANCE.add(ModItems.GUIDITE_SWORD, 30 * 20);
+		// :::_11
 
 		// :::3
 	}
