@@ -38,5 +38,9 @@ jobs:
           config: .markdownlint-cli2.yaml
           globs: |
             **/*.md
+            !LICENSE.md
+            !README.md
+            !**/node_modules
+            !**/.git
             !translated/**
             !versions/*/translated/**
