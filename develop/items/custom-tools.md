@@ -11,6 +11,12 @@ Tools are essential for survival and progression, allowing players to gather res
 
 ## Creating a tool material.
 
+::: info
+If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
+
+This class can also be used to determine your tool material's properties in relation to vanilla tool materials.
+:::
+
 You can create a tool material by creating a new class that inherits it - in this example, I'll be creating "Guidite" tools:
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)

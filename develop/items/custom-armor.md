@@ -11,6 +11,12 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 ## Creating an Armor Material
 
+::: info
+If you plan to make multiple armor materials, consider using an `Enum` to store them. Vanilla does this in the `ArmorMaterials` class, which stores all the armor materials that are used in the game.
+
+This class can also be used to determine your armor material's properties in relation to vanilla armor materials.
+:::
+
 All armor items - like tools - have an armor material.
 
 The armor material tells the game what protection and durability the armor item should have depending on the slot.
