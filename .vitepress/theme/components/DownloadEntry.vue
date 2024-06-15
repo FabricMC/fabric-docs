@@ -44,5 +44,7 @@ a:hover {
 img {
   /* Disable interactions, prevent right click save. */
   pointer-events: none;
+
+  z-index: 0;
 }
 </style>
