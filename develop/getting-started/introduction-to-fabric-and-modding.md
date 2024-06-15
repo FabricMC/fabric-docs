@@ -46,7 +46,7 @@ You should be aware of the four main components of Fabric:
 - **Fabric API**: A set of APIs and tools for mod developers to use when creating mods.
 - **Yarn**: A set of open Minecraft mappings, free for everyone to use under the Creative Commons Zero license.
 
-## Why is Fabric necessary to mod Minecraft?
+## Why Is Fabric Necessary to Mod Minecraft?
 
 > Modding is the process of modifying a game in order to change its behavior or add new features - in the case of Minecraft, this can be anything from adding new items, blocks, or entities, to changing the game's mechanics or adding new game modes.
 
@@ -56,7 +56,7 @@ Loom remaps the obfuscated code to a human-readable format using these mappings,
 
 Loom allows you to easily develop and compile mods against remapped code, and Fabric Loader allows you to load these mods into the game.
 
-## What does Fabric API provide, and why is it needed?
+## What Does Fabric API Provide, and Why Is It Needed?
 
 > Fabric API is a set of APIs and tools for mod developers to use when creating mods.
 
