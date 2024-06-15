@@ -126,3 +126,17 @@ For more information on the recipe format, checkout these resources:
 
 - [Recipe JSON Generator](https://crafting.thedestruc7i0n.ca/)
 - [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)
+
+## Custom Tooltips
+
+If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendTooltip` method.
+
+::: info
+This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions.md) page.
+:::
+
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+
+Each call to `add()` will add one line to the tooltip.
+
+![Tooltip Showcase](/assets/develop/items/first_item_3.png)

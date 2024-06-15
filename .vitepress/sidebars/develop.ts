@@ -74,6 +74,10 @@ export default [
         link: "/develop/items/custom-item-groups"
       },
       {
+        text: "develop.items.custom-item-interactions",
+        link: "/develop/items/custom-item-interactions"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       }

@@ -1,11 +1,5 @@
 package com.example.docs.item;
 
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
@@ -20,9 +14,12 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 import com.example.docs.FabricDocsReference;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
+import com.example.docs.item.custom.LightningStick;
 import com.example.docs.item.tool.GuiditeMaterial;
 
 // :::1
@@ -35,7 +32,7 @@ public class ModItems {
 	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
 	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
 	// :::6
-
+	public static final Item LIGHTNING_STICK = register(new LightningStick(new FabricItemSettings()), "lightning_stick");
 	// :::7
 	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 2, 0.5F, new FabricItemSettings()), "guidite_sword");
 	// :::7
@@ -105,6 +102,7 @@ public class ModItems {
 			itemGroup.add(ModItems.GUIDITE_BOOTS);
 			itemGroup.add(ModItems.GUIDITE_LEGGINGS);
 			itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
+			itemGroup.add(ModItems.LIGHTNING_STICK);
 			// ...
 		});
 		// :::9
