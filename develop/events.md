@@ -19,13 +19,13 @@ authors:
 
 # Events
 
-Fabric API provides a system that allows mods to react to actions or occurrences, also defined as *events* that occur in the game.
+Fabric API provides a system that allows mods to react to actions or occurrences, also defined as _events_ that occur in the game.
 
 Events are hooks that satisfy common use cases and/or provide enhanced compatibility and performance between mods that hook into the same areas of the code. The use of events often substitutes the use of mixins.
 
 Fabric API provides events for important areas in the Minecraft codebase that multiple modders may be interested in hooking into.
 
-Events are represented by instances of `net.fabricmc.fabric.api.event.Event` which stores and calls *callbacks*. Often there is a single event instance for a callback, which is stored in a static field `EVENT` of the callback interface, but there are other patterns as well. For example, `ClientTickEvents` groups several related events together.
+Events are represented by instances of `net.fabricmc.fabric.api.event.Event` which stores and calls _callbacks_. Often there is a single event instance for a callback, which is stored in a static field `EVENT` of the callback interface, but there are other patterns as well. For example, `ClientTickEvents` groups several related events together.
 
 ## Callbacks
 
@@ -61,7 +61,7 @@ Fabric API has an event that is fired when loot tables are loaded, `LootTableEve
 
 #### Adding Items to the Loot Table
 
-In loot tables, items are stored in *loot pool entries*, and entries are stored in *loot pools*. To add an item, we'll need to add a pool with an item entry to the loot table.
+In loot tables, items are stored in _loot pool entries_, and entries are stored in _loot pools_. To add an item, we'll need to add a pool with an item entry to the loot table.
 
 We can make a pool with `LootPool#builder`, and add it to the loot table.
 
@@ -75,9 +75,9 @@ Some areas of the game do not have hooks provided by the Fabric API, so you can 
 
 We'll look at creating an event that is triggered when sheep are sheared. The process of creating an event is:
 
-* Creating the event callback interface
-* Triggering the event from a mixin
-* Creating a test implementation
+- Creating the event callback interface
+- Triggering the event from a mixin
+- Creating a test implementation
 
 ### Creating the Event Callback Interface
 
@@ -85,7 +85,7 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event.
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "*cancel this*", "*approve this*" or "*don't care, leave it to the next event listener*" using its return value.
+Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
 
 Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 

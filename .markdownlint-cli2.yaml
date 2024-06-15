@@ -21,16 +21,7 @@ config:
   MD033: false
   MD035:
     style: ---
-  MD044:
-    names:
-      - CurseForge
-      - Fabric
-      - GitHub
-      - Java
-      - Minecraft
-      - Modrinth
-      - Mojang
-    code_blocks: false
+  MD044: false
   MD046:
     style: fenced
   MD048:
@@ -49,4 +40,4 @@ config:
   MD055:
     style: leading_and_trailing
 customRules:
-  - markdownlint-rule-titlecase
+  - ./node_modules/markdownlint-rule-titlecase/rule.js

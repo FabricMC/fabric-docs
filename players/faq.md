@@ -9,11 +9,11 @@ There are a lot of questions that are asked frequently, so we've compiled a list
 
 ## General Questions
 
-### What Minecraft versions does Fabric support?
+### What Minecraft Versions Does Fabric Support?
 
 Officially, Fabric supports all versions of Minecraft starting from snapshots `18w43b` and above, and releases `1.14` and above.
 
-### Where can I download published Fabric Mods?
+### Where Can I Download Published Fabric Mods?
 
 ::: info
 You should always check if mods are from a trustworthy source. Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
@@ -21,7 +21,7 @@ You should always check if mods are from a trustworthy source. Check out the [Fi
 
 The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), however some may choose to upload them on their personal websites, or on other platforms, such as a GitHub repository.
 
-### Where can I find premade Fabric modpacks?
+### Where Can I Find Premade Fabric Modpacks?
 
 You can find premade Fabric modpacks on a variety of platforms, such as:
 

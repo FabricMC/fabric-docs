@@ -30,10 +30,10 @@ hold this.
 
 We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 
-* `StatusEffect type` - An effect. We use our custom effect here. Alternatively you can access vanilla effects
+- `StatusEffect type` - An effect. We use our custom effect here. Alternatively you can access vanilla effects
   through `net.minecraft.entity.effect.StatusEffects`.
-* `int duration` - Duration of the effect in game ticks.
-* `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
+- `int duration` - Duration of the effect in game ticks.
+- `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
 ::: info
 To create your own effect, please see the [Effects](../entities/effects.md) guide.
@@ -47,9 +47,9 @@ In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe`.
 
 `registerPotionRecipe` takes 3 parameters:
 
-* `Potion input` - The starting potion. Usually this can be a Water Bottle or an Awkward Potion.
-* `Item item` - The item which is the main ingredient of the potion.
-* `Potion output` - The resultant potion.
+- `Potion input` - The starting potion. Usually this can be a Water Bottle or an Awkward Potion.
+- `Item item` - The item which is the main ingredient of the potion.
+- `Potion output` - The resultant potion.
 
 If you use Fabric API, the mixin invoker is not necessary and a direct call
 to `BrewingRecipeRegistry.registerPotionRecipe` can be done.

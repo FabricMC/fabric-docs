@@ -14,7 +14,7 @@ For third party launchers, you should consult their documentation.
 
 Updating Fabric is a very similar process to installing Fabric, so parts of this guide will be the same as the [Installing Fabric](./installing-fabric.md) guide.
 
-## Why should I update Fabric Loader?
+## Why Should I Update Fabric Loader?
 
 Newer mods may require a newer version of Fabric Loader to work, so it's important to keep it up to date to ensure you can use the latest mods.
 

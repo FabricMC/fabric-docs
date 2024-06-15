@@ -52,7 +52,7 @@ Crash reports consist of several sections, each separated using a header:
 - `-- System Details --`, this section contains information about your system, such as the operating system, Java version, and the amount of memory allocated to the game. This section is useful for determining if you are using the correct version of Java, and if you have allocated enough memory to the game.
   - In this section, Fabric will have included a custom line that says `Fabric Mods:`, followed by a list of all the mods you have installed. This section is useful for determining if any conflicts could have occurred between mods.
 
-### Breaking down the Crash Report
+### Breaking Down the Crash Report
 
 Now that we know what each section of the crash report is, we can start to break down the crash report and find the cause of the crash.
 

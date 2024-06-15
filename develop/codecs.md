@@ -256,8 +256,8 @@ Will output this json:
 #### Either
 
 `Codec.either` combines two codecs, `Codec<A>` and `Codec<B>`, into a `Codec<Either<A, B>>`. The resulting codec will,
-during deserialization, attempt to use the first codec, and *only if that fails*, attempt to use the second one.
-If the second one also fails, the error of the *second* codec will be returned.
+during deserialization, attempt to use the first codec, and _only if that fails_, attempt to use the second one.
+If the second one also fails, the error of the _second_ codec will be returned.
 
 #### Maps
 
@@ -265,7 +265,7 @@ For processing maps with arbitrary keys, such as `HashMap`s, `Codec.unboundedMap
 `Codec<Map<K, V>>` for a given `Codec<K>` and `Codec<V>`. The resulting codec will serialize to a json object or
 whatever equivalent is available for the current dynamic ops.
 
-Due to limitations of json and nbt, the key codec used *must* serialize to a string. This includes codecs for types that
+Due to limitations of json and nbt, the key codec used _must_ serialize to a string. This includes codecs for types that
 aren't strings themselves, but do serialize to them, such as `Identifier.CODEC`. See the example below:
 
 ```java
@@ -294,7 +294,7 @@ convert them.
 
 ### Mutually Convertible Types and You
 
-#### xmap
+#### `xmap`
 
 Say we have two classes that can be converted to each other, but don't have a parent-child relationship. For example,
 a vanilla `BlockPos` and `Vec3d`. If we have a codec for one, we can use `Codec#xmap` to create a codec for the other by
@@ -411,7 +411,7 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 
 ### Recursive Codecs
 
-Sometimes it is useful to have a codec that uses *itself* to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
+Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
 
 For example, let's try to serialize a singly-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
 
