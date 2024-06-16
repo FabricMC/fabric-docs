@@ -11,7 +11,7 @@ Questa guida ti spiegherà come installare Java 17 su Windows.
 
 Il Launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante solo se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il `.jar` del Server di Minecraft.
 
-## 1. Controlla se Java è già installato.
+## 1. Controlla se Java è già installato
 
 Per controllare se Java è già installato devi prima aprire il prompt dei comandi.
 
@@ -29,7 +29,7 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
-## 2. Scarica l'installer per Java 17.
+## 2. Scarica l'Installer per Java 17
 
 Per installare Java 17, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=17).
 
@@ -41,18 +41,18 @@ Dovresti scegliere `x86` se il tuo sistema operativo è a 32-bit, oppure `x64` s
 
 La maggior parte dei computer moderni ha un sistema operativo a 64-bit. Se non sei sicuro, prova a usare il download 64-bit.
 
-## 3. Esegui l'installer!
+## 3. Esegui l'Installer!
 
 Segui le istruzioni per installare Java 17. Quando arrivi a questa pagina, dovresti selezionare "L'intera funzionalità verrà installata sul disco rigido locale" per le seguenti funzionalità:
 
 - `Imposta JAVA_HOME come variabile d'ambiente` - Questo verrà aggiunto al tuo PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Installer Java 17 con "Set JAVA\\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati.](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Installer Java 17 con "Set JAVA\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati.](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Quando hai finito, puoi cliccare su `Avanti` e continuare con l'installazione.
 
-## 4. Verifica che Java 17 sia installato.
+## 4. Verifica che Java 17 Sia Installato
 
 Quando l'installazione è stata completata, puoi verificare che Java 17 è installato aprendo il prompt dei comandi e scrivendo `java -version`.
 
