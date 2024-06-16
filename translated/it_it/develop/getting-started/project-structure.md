@@ -52,7 +52,7 @@ La cartella `src/client/resources` viene usata per memorizzare risorse client sp
 
 ## `src/main/java`
 
-La cartella `src/main/java` viene usata per memorizzare il codice sorgente Java per la tua mod - esiste sia su ambienti client e server.
+La cartella `src/main/java` viene usata per memorizzare il codice sorgente Java per la tua mod - esiste sia su ambienti client sia server.
 
 ## `src/client/java`
 
