@@ -2,6 +2,7 @@ package com.example.docs.item.armor;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.ArmorMaterials;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -13,47 +14,34 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	//:::1
 	// :::_10
 	public static final GuiditeArmorMaterial INSTANCE = new GuiditeArmorMaterial();
+
 	// :::_10
-	// :::1
-	// Base durability values for all the slots.
-	// Boots, Leggings, Chestplate, Helmet
-	// You shouldn't change these values.
-	private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
-
-	// Protection values for all the slots.
-	// For reference, diamond uses 3 for boots, 6 for leggings, 8 for chestplate
-	// and 3 for helmet.
-	private static final int PROTECTION_BOOTS = 3;
-	private static final int PROTECTION_LEGGINGS = 6;
-	private static final int PROTECTION_CHESTPLATE = 8;
-	private static final int PROTECTION_HELMET = 3;
-
-	// Storing the protection and durability values in an array allows
-	// you to quickly get them by slot ID.
-	private static final int[] PROTECTION_VALUES = new int[] {
-			PROTECTION_BOOTS,
-			PROTECTION_LEGGINGS,
-			PROTECTION_CHESTPLATE,
-			PROTECTION_HELMET
-	};
-
-	// :::1
 	// :::2
 	@Override
 	public int getDurability(ArmorItem.Type type) {
-		// Replace X with a multiplier that you see fit!
-		// For reference, diamond uses a multiplier of 33, whilst
-		// leather uses 11.
-		return BASE_DURABILITY[type.getEquipmentSlot().getEntitySlotId()] * 33;
+		// Replace this multiplier by a constant value for the durability of the armor.
+		// For reference, diamond uses 33 for all armor pieces, whilst leather uses 5.
+		int DURABILITY_MULTIPLIER = 12;
+		return switch (type) {
+			case BOOTS -> 13 * DURABILITY_MULTIPLIER;
+			case LEGGINGS -> 15 * DURABILITY_MULTIPLIER;
+			case CHESTPLATE -> 16 * DURABILITY_MULTIPLIER;
+			case HELMET -> 11 * DURABILITY_MULTIPLIER;
+		};
 	}
 
 	// :::2
 	// :::3
 	@Override
 	public int getProtection(ArmorItem.Type type) {
-		// This will get the protection value for the slot from
-		// our array.
-		return PROTECTION_VALUES[type.getEquipmentSlot().getEntitySlotId()];
+		// Protection values for all the slots.
+		// For reference, diamond uses 3 for boots, 6 for leggings, 8 for chestplate, and 3 for helmet,
+		// whilst leather uses 1, 2, 3 and 1 respectively.
+		return switch (type) {
+			case BOOTS, HELMET -> 3;
+			case LEGGINGS -> 6;
+			case CHESTPLATE -> 8;
+		};
 	}
 
 	// :::3

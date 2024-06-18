@@ -65,14 +65,12 @@ public class ModItems {
 	// :::2
 
 	// :::1
-	// We can use generics (<T extends Item>), so we don't need to
-	// cast to an item when using this method.
-	public static <T extends Item> T register(T item, String id) {
+	public static Item register(Item item, String id) {
 		// Create the identifier for the item.
 		Identifier itemID = new Identifier(FabricDocsReference.MOD_ID, id);
 
 		// Register the item.
-		T registeredItem = Registry.register(Registries.ITEM, itemID, item);
+		Item registeredItem = Registry.register(Registries.ITEM, itemID, item);
 
 		// Return the registered item!
 		return registeredItem;
