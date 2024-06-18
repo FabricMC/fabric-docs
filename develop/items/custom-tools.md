@@ -89,7 +89,9 @@ Remember to add them to an item group if you want to access them from the creati
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-You will also have to add a texture, item translation and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent. For example, I will be using the following model and texture for the "Guidite Sword" item:
+You will also have to add a texture, item translation and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent.
+
+For this example, I will be using the following model and texture for the "Guidite Sword" item:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 

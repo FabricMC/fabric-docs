@@ -10,6 +10,7 @@ import com.example.docs.item.ModItems;
 
 // :::1
 public class GuiditeArmorMaterial implements ArmorMaterial {
+	// ...
 	//:::1
 	// :::_10
 	public static final GuiditeArmorMaterial INSTANCE = new GuiditeArmorMaterial();

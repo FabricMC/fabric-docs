@@ -21,7 +21,7 @@ All armor items - like tools - have an armor material.
 
 The armor material tells the game what protection and durability the armor item should have depending on the slot.
 
-You'll need to create a class that inherits `ArmorMaterial` - and add the following fields.
+You'll need to create a class that inherits `ArmorMaterial`, like so:
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
