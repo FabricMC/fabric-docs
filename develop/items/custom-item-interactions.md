@@ -1,7 +1,8 @@
 ---
 title: Custom Item Interactions
 description: Learn how to create an item that uses built-in vanilla events.
-order: 5
+authors:
+  - IMB11
 ---
 
 # Custom Item Interactions
