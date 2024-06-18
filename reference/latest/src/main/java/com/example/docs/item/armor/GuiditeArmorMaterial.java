@@ -2,7 +2,6 @@ package com.example.docs.item.armor;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -27,6 +26,7 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 			case LEGGINGS -> 15 * DURABILITY_MULTIPLIER;
 			case CHESTPLATE -> 16 * DURABILITY_MULTIPLIER;
 			case HELMET -> 11 * DURABILITY_MULTIPLIER;
+			default -> 0;
 		};
 	}
 
@@ -41,6 +41,7 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 			case BOOTS, HELMET -> 3;
 			case LEGGINGS -> 6;
 			case CHESTPLATE -> 8;
+			default -> 0;
 		};
 	}
 
