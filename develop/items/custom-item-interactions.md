@@ -67,4 +67,4 @@ As usual, you should register your item, add a model and texture.
 
 As you can see, the lightning bolt should spawn 10 blocks infront of you - the player.
 
-![Lightning bolt striking the ground after player uses item.](/assets/develop/items/interactive_0.webp)
+<VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />

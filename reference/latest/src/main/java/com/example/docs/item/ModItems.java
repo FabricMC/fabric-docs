@@ -5,14 +5,18 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -36,7 +40,13 @@ public class ModItems {
 	// :::7
 	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 2, 0.5F, new FabricItemSettings()), "guidite_sword");
 	// :::7
-
+	// :::9
+	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(FabricDocsReference.MOD_ID, "item_group"));
+	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
+			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
+			.build();
+	// :::9
 	// :::5
 	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
 			.alwaysEdible()
@@ -59,7 +69,7 @@ public class ModItems {
 	// cast to an item when using this method.
 	public static <T extends Item> T register(T item, String id) {
 		// Create the identifier for the item.
-		Identifier itemID = new Identifier(FabricDocsReference.MOD_ID, ID);
+		Identifier itemID = new Identifier(FabricDocsReference.MOD_ID, id);
 
 		// Register the item.
 		T registeredItem = Registry.register(Registries.ITEM, itemID, item);
@@ -93,9 +103,12 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
 		// :::8
 
-		// :::9
-		var groupRegistryKey = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(FabricDocsReference.MOD_ID, "item_group"));
-		ItemGroupEvents.modifyEntriesEvent(groupRegistryKey).register(itemGroup -> {
+		// :::_12
+		// Register the group.
+		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+
+		// Register items to the custom item group.
+		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
 			itemGroup.add(ModItems.GUIDITE_SWORD);
 			itemGroup.add(ModItems.GUIDITE_HELMET);
@@ -105,7 +118,7 @@ public class ModItems {
 			itemGroup.add(ModItems.LIGHTNING_STICK);
 			// ...
 		});
-		// :::9
+		// :::_12
 
 		// :::_10
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.

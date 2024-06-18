@@ -11,21 +11,11 @@ Item groups are the tabs in the creative inventory that store items. You can cre
 
 ## Creating the Item Group
 
-It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the item group.
-
-I'll be using the "Guidite Sword" from the previous [Custom Tools](./custom-tools.md) page as the icon for the group.
-
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
-
-You will need to register your item group to the `ITEM_GROUP` registry for it to show up in-game.
-
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
-
-## Adding Items
-
-To add items to the group, you can use the modify item group event similarly to how you added your items to the vanilla item groups:
+It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the item group and a registry key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
 
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 
