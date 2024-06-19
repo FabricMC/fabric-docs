@@ -12,7 +12,7 @@ This guide will walk you through updating Fabric for the Minecraft Launcher.
 
 For third party launchers, you should consult their documentation.
 
-Updating Fabric is a very similar process to installing Fabric, so parts of this guide will be the same as the [Installing Fabric](./installing-fabric.md) guide.
+Updating Fabric is a very similar process to installing Fabric, so parts of this guide will be the same as the [Installing Fabric](./installing-fabric) guide.
 
 ## Why Should I Update Fabric Loader?
 
@@ -31,7 +31,7 @@ Once the installer has finished, you can open the Minecraft Launcher and go to t
 
 Replace the version with the new version of Fabric Loader you just installed, and press `Save`.
 
-![Updating Fabric Loader version in the Minecraft Launcher.](/assets/players/updating-fabric.png)
+![Updating Fabric Loader version in the Minecraft Launcher](/assets/players/updating-fabric.png)
 
 ## 4. You're Done!
 

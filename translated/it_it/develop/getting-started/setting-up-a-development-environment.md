@@ -26,7 +26,7 @@ Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente 
 
 Per sviluppare mod per Minecraft 1.20.4, avrai bisogno del JDK 17.
 
-Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide per installazione di Java nella [sezione guide per il giocatore.](../../players/index.md)
+Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide per installazione di Java nella [sezione guide per il giocatore](../../players/index).
 
 ## Installare IntelliJ IDEA
 

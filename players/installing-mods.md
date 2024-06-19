@@ -14,7 +14,7 @@ For third party launchers, you should consult their documentation.
 ## 1. Download the Mod
 
 ::: warning
-You should only download mods from sources you trust. For more information on finding mods, see the [Finding Trustworthy Mods](./finding-mods.md) guide.
+You should only download mods from sources you trust. For more information on finding mods, see the [Finding Trustworthy Mods](./finding-mods) guide.
 :::
 
 The majority of mods require Fabric API as well, which can be downloaded from [Modrinth](https://modrinth.com/mod/fabric-api) or [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
@@ -49,13 +49,13 @@ You can usually paste these paths into the address bar of your file explorer to 
 
 Once you've found the `mods` folder, you can move the mod `.jar` files into it.
 
-![Installed mods in the mods folder.](/assets/players/installing-mods.png)
+![Installed mods in the mods folder](/assets/players/installing-mods.png)
 
 ## 3. You're Done!
 
 Once you've moved the mods into the `mods` folder, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom left corner and press play!
 
-![Minecraft Launcher with Fabric profile selected.](/assets/players/installing-fabric/launcher-screen.png)
+![Minecraft Launcher with Fabric profile selected](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Troubleshooting
 
@@ -63,5 +63,5 @@ If you encounter any issues whilst following this guide, you can ask for help in
 
 You can also attempt to troubleshoot the issue yourself by reading the troubleshooting pages:
 
-- [Crash Reports](./troubleshooting/crash-reports.md)
-- [Uploading Logs](./troubleshooting/uploading-logs.md)
+- [Crash Reports](./troubleshooting/crash-reports)
+- [Uploading Logs](./troubleshooting/uploading-logs)

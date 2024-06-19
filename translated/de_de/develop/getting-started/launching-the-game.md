@@ -50,7 +50,7 @@ In IntelliJ IDEA findest du die Mixin-Bibliothek JAR im Abschnitt "External Libr
 
 Für den nächsten Schritt musst du den "Absolute Path" (Absoluten Pfad) der JAR-Datei kopieren.
 
-### 2. Füge das VM-Argument `-javaagent` hinzu.
+### 2. Füge das VM-Argument `-javaagent` hinzu
 
 Füge in deiner "Minecraft Client"- und/oder "Minecraft Server"-Ausführungskonfiguration Folgendes zur Option VM-Argumente hinzu:
 

@@ -30,10 +30,9 @@ authors:
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-- IntelliJ 단축 키: Ctrl+Alt+B\
-  VSCode 단축 키: Ctrl+F12
-  :::
-- 그럼 직접 한번 만들어 봅시다!
+- IntelliJ 단축 키: Ctrl+Alt+B
+- VSCode 단축 키: Ctrl+F12
+:::
 
 ## JSON 파일을 만들고 텍스쳐 추가하기
 
@@ -60,11 +59,11 @@ You can see all the particle factories by looking at all the implementations of 
 
 다음의 명령어를 입력하여 입자가 정상적으로 작동하는지 확인할 수 있습니다.
 
-```
+```mcfunction
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 
-![입자 쇼케이스!](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
+![입자 쇼케이스](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
 :::info
 이 명령어를 사용하면 입자가 플레이어 안에 생성될 것입니다. 입자를 보려면 뒤로 몇 걸음 걸어야할 수도 있습니다.

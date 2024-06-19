@@ -122,11 +122,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Chaque argument à la méthode `group` spécifie un codec, un nom de champ, et une méthode getter. L'appel à `Codec#fieldOf` convertit le codec en [codec map](#mapcodec-not-to-be-confused-with-codecltmapgt) et celui à `forGetter` indique la méthode getter utilisée pour obtenir la valeur du champ à partir d'une instance de la classe. Enfin, `apply` spécifie le constructeur utilisé pour créer de nouvelles instances. Attention, l'ordre des champs dans la méthode `group` doit être le même que celui des arguments dans le constructeur.
+Chaque argument à la méthode `group` spécifie un codec, un nom de champ, et une méthode getter. L'appel à `Codec#fieldOf` convertit le codec en [codec map](#mapcodec) et celui à `forGetter` indique la méthode getter utilisée pour obtenir la valeur du champ à partir d'une instance de la classe. Enfin, `apply` spécifie le constructeur utilisé pour créer de nouvelles instances. Attention, l'ordre des champs dans la méthode `group` doit être le même que celui des arguments dans le constructeur.
 
 On peut également utiliser `Codec#optionalFieldOf` dans ce contexte pour rendre un champ facultatif, comme expliqué dans la section [Champs facultatifs](#optional-fields).
 
-### MapCodec, et non pas Codec&amp;lt;Map&amp;gt;
+### MapCodec, et non pas Codec&lt;Map&gt; {#mapcodec}
 
 `Codec#fieldOf` transforme un `Codec<T>` en `MapCodec<T>` qui est une variante de `Codec<T>`, sans en être une implémentation directe. Comme leur nom peut le suggérer, les codecs map sérialisent leurs valeurs dans en maps clés-valeurs, ou plutôt leur équivalent dans les `DynamicOps` utilisées. Certaines fonctions peuvent en nécessiter un au lieu d'un codec normal.
 
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Pair
 
-`Codec.pair` fusionne deux codecs `Codec<A>` et `Codec<B>` en un `Codec<Pair<A, B>>`. Il faut garder à l'esprit que cela ne marche correctement qu'avec des codecs qui sérialisent un champ précis, comme [des codec maps convertis](#mapcodec-not-to-be-confused-with-codecltmapgt) ou [des codecs records](#merging-codecs-for-record-like-classes).
+`Codec.pair` fusionne deux codecs `Codec<A>` et `Codec<B>` en un `Codec<Pair<A, B>>`. Il faut garder à l'esprit que cela ne marche correctement qu'avec des codecs qui sérialisent un champ précis, comme [des codec maps convertis](#mapcodec) ou [des codecs records](#merging-codecs-for-record-like-classes).
 Le codec résultant sérialisera en une map qui combine les champs des deux codecs utilisés.
 
 Par exemple, l'exécution de ce code :

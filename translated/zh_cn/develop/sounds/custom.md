@@ -60,4 +60,4 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
 
 ## 使用自定义的 SoundEvent
 
-使用辅助类去访问自定义的 SoundEvent。 查看 [播放声音事件（SoundEvent）](/develop/sounds/using-sounds) 页面，了解如何播放声音。
+使用辅助类去访问自定义的 SoundEvent。 查看 [播放声音事件（SoundEvent）](./using-sounds) 页面，了解如何播放声音。

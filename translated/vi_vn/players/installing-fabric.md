@@ -29,14 +29,14 @@ Hãy đóng Minecraft và trình Launcher của Minecraft trước khi cài đ�
 
 Trên macOS, bạn có thể cần bấm chuột phải vào tập tin `.jar` trong thư mục tải xuống của mình và bấm `Open` để chạy nó.
 
-![Trình cài đặt Fabric với chữ "Cài đặt" được tô đậm.](/assets/players/installing-fabric/macos-downloads.png)
+![Trình cài đặt Fabric với chữ "Cài đặt" được tô đậm](/assets/players/installing-fabric/macos-downloads.png)
 
 Khi được hỏi "Bạn có muốn mở nó không?", bấm `Open` lần nữa.
 :::
 
 Ngay khi bạn mở trình cài đặt, bạn sẽ thấy màn hình như thế này:
 
-![Trình cài đặt Fabric với chữ "Cài đặt" được tô đậm.](/assets/players/installing-fabric/installer-screen.png)
+![Trình cài đặt Fabric với chữ "Cài đặt" được tô đậm](/assets/players/installing-fabric/installer-screen.png)
 
 Để cài đặt Fabric, hãy chọn phiên bản trò chơi bạn muốn từ danh sách thả xuống, và bấm `install`.
 
@@ -46,10 +46,10 @@ Ngay khi bạn mở trình cài đặt, bạn sẽ thấy màn hình như thế 
 
 Sau khi trình cài đặt hoàn tất, bạn có thể mở trình Launcher Minecraft và chọn hồ sơ Fabric từ danh sách thả xuống ở góc trái bên dưới và bấm nút Chơi!
 
-![Trình Launcher Minecraft với hồ sơ Fabric được chọn.](/assets/players/installing-fabric/launcher-screen.png)
+![Trình Launcher Minecraft với hồ sơ Fabric được chọn](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Bước Tiếp Theo
 
-Bây giờ bạn đã hoàn tất việc cài Fabric, bạn có thể thêm mod vào trong trò chơi! Check out the [Finding Mods](./finding-mods.md) guide for more information.
+Bây giờ bạn đã hoàn tất việc cài Fabric, bạn có thể thêm mod vào trong trò chơi! Check out the [Finding Mods](./finding-mods) guide for more information.
 
 Nếu bạn gặp bất cứ vấn đề nào khi đang làm theo bài hướng dẫn này, bạn có thể xin sự trợ giúp từ kênh `#player-support` trong [Discord Fabric](https://discord.gg/v6v4pMv).

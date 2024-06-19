@@ -27,7 +27,7 @@ Bevor wir beginnen, wollen wir einige Begriffe erläutern, die bei der Arbeit mi
 
 - **Mod**: Eine Modifikation des Spiels, die neue Funktionen hinzufügt oder bestehende ändert.
 - **Mod-Loader**: Ein Tool, das Mods in das Spiel lädt, wie zum Beispiel der Fabric Loader.
-- **Mixin**: Ein Werkzeug zum Ändern des Spielcodes zur Laufzeit - siehe [Mixin-Einführung] (https://fabricmc.net/wiki/tutorial:mixin_introduction) für weitere Informationen.
+- **Mixin**: Ein Werkzeug zum Ändern des Spielcodes zur Laufzeit - siehe [Mixin-Einführung](https://fabricmc.net/wiki/tutorial:mixin_introduction) für weitere Informationen.
 - **Gradle**: Ein Build-Automatisierungstool zum Erstellen und Kompilieren von Mods, das von Fabric zum Erstellen von Mods verwendet wird.
 - **Mappings**: Eine Reihe von Mappings, die obfuskierten Code auf menschenlesbaren Code abbilden.
 - **Obfuskation**: Der Prozess, der Code schwer verständlich macht und von Mojang verwendet wird, um den Code von Minecraft zu schützen.

@@ -49,8 +49,8 @@ description: 学习如何创建带有复杂参数的命令。
 
 运行命令，我们可以测试我们的参数类型是否可以正常工作：
 
-![Invalid argument.](/assets/develop/commands/custom-arguments_fail.png)
+![Invalid argument](/assets/develop/commands/custom-arguments_fail.png)
 
-![Valid argument.](/assets/develop/commands/custom-arguments_valid.png)
+![Valid argument](/assets/develop/commands/custom-arguments_valid.png)
 
-![Command result.](/assets/develop/commands/custom-arguments_result.png)
+![Command result](/assets/develop/commands/custom-arguments_result.png)

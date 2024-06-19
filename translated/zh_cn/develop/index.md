@@ -9,4 +9,4 @@ description: 由社区精心撰写的开发者指南，涉及模组开发的方�
 
 不妨看看侧边栏的指南列表。 如果您在寻找某个具体的话题，您可以使用页面顶部的搜索栏。
 
-如果您想给 Fabric 文档做贡献，您可以在[GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源码，以及相关的[贡献指南](/contributing)。
+如果您想给 Fabric 文档做贡献，您可以在[GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源码，以及相关的[贡献指南](../contributing)。

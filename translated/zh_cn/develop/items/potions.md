@@ -32,7 +32,7 @@ authors:
 - `int amplifier` - 状态效果的增幅。 比如 急迫 II 的增幅是 1。
 
 :::info
-为了创建你自己的效果，请参阅 [状态效果](../entities/effects.md) 的指南。
+为了创建你自己的效果，请参阅 [状态效果](../entities/effects) 的指南。
 :::
 
 ### 注册药水配方

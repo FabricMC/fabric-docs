@@ -60,4 +60,4 @@ This way, the `ModInitializer` implementing entrypoint class needs to only imple
 
 ## Using the Custom SoundEvent
 
-Use the helper class to access the custom SoundEvent. Checkout the [Playing SoundEvents](./using-sounds.md) page to learn how to play sounds.
+Use the helper class to access the custom SoundEvent. Checkout the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.

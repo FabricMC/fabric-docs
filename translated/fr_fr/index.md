@@ -9,12 +9,12 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: /fr_fr/develop/
+    link: ./develop/index
     linkText: Commencer
   - title: Guides des joueurs
     icon: 📚
     details: Êtes-vous un joueur envisageant d'utiliser des mods fonctionnant grâce à Fabric ? Nos guides des joueurs sont là pour vous aider. Ces guides vous aideront à télécharger, installer des mods Fabric et résoudre les problèmes pouvant survenir.
-    link: /fr_fr/players
+    link: ./players/index
     linkText: En Savoir Plus
 ---
 
@@ -22,6 +22,6 @@ features:
 
 ## Vous souhaitez contribuer ?
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines.](/contributing)
+If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
 
 </div>

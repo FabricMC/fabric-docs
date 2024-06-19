@@ -41,7 +41,13 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using the [following crash report as an example](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
+For this guide, we will be using [this crash report](/public/assets/players/crash-report-example.txt).
+
+::: details Show Crash Report
+
+<<< @/public/assets/players/crash-report-example.txt{log}
+
+:::
 
 ### Crash Report Sections
 
@@ -62,14 +68,8 @@ The stack trace in the `---- Minecraft Crash Report ----` section is the most im
 
 With the amount of mods mentioned in the stack trace, it can be difficult to point fingers, but the first thing to do is to look for the mod that caused the crash.
 
-```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
-at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
-...
-at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
-at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
-...
-```
+<!-- TODO: show part of this file -->
+<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 In this case, the mod that caused the crash is `snownee`, as it is the first mod mentioned in the stack trace.
 
@@ -100,5 +100,5 @@ This will allow the mod author to investigate the crash, potentially reproduce i
 Common paste sites that are used frequently for crash reports are:
 
 - [GitHub Gist](https://gist.github.com/)
-- [Pastebin](https://pastebin.com/)
 - [mclo.gs](https://mclo.gs/)
+- [Pastebin](https://pastebin.com/)

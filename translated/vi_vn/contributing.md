@@ -144,13 +144,13 @@ Quy định về phong cách như sau:
    Ví dụ, đối với trang ở thư mục `/players`, để liên kết trang `installing-fabric` được tạo ở `/players/installing-fabric.md`, bạn sẽ phải làm như sau:
 
    ```md
-   [Đây là liên kết dẫn đến trang khác](./installing-fabric.md)
+   [Đây là liên kết dẫn đến trang khác](./installing-fabric)
    ```
 
    Bạn **KHÔNG ĐƯỢC** làm như sau:
 
    ```md
-   [Đây là liên kết dẫn đến trang khác](/player/installing-fabric)
+   [Đây là liên kết dẫn đến trang khác](/players/installing-fabric)
    ```
 
 Tất cả sự đóng góp nội dung sẽ lần lượt đi qua ba bước:

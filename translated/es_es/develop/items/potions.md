@@ -32,7 +32,7 @@ Pasamos una instancia de `StatusEffectInstance` (Instancia de Efecto de Estado),
 - `int amplifier` - Un amplificador para el efecto. Por ejemplo, Prisa Minera II tendría un amplificador de 1.
 
 :::info
-Para crear tu propio efecto, por favor visita la guía sobre [Efectos](../entities/effects.md).
+Para crear tu propio efecto, por favor visita la guía sobre [Efectos](../entities/effects).
 :::
 
 ### Registrar la Poción

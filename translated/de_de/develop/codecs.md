@@ -123,11 +123,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Methode an. Der Aufruf `Codec#fieldOf` wird verwendet, um den Codec in einen [MapCodec](#mapcodec-nicht-zu-verwechseln-mit-codecltmapgt) zu konvertieren, und der Aufruf `forGetter` spezifiziert die Getter-Methode, die verwendet wird, um den Wert des Attributs von einer Instanz der Klasse abzurufen. In der Zwischenzeit gibt der Aufruf `apply` den Konstruktor an, der zur Erzeugung neuer Instanzen verwendet wird. Beachte, dass die Reihenfolge der Attribute in der Gruppe dieselbe sein sollte wie die Reihenfolge der Argumente im Konstruktor.
+Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Methode an. Der Aufruf `Codec#fieldOf` wird verwendet, um den Codec in einen [MapCodec](#mapcodec) zu konvertieren, und der Aufruf `forGetter` spezifiziert die Getter-Methode, die verwendet wird, um den Wert des Attributs von einer Instanz der Klasse abzurufen. In der Zwischenzeit gibt der Aufruf `apply` den Konstruktor an, der zur Erzeugung neuer Instanzen verwendet wird. Beachte, dass die Reihenfolge der Attribute in der Gruppe dieselbe sein sollte wie die Reihenfolge der Argumente im Konstruktor.
 
 Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#Optionale-Attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&amp;amp;lt;Map&amp;amp;gt;
+### MapCodec, nicht zu verwechseln mit Codec&lt;Map&gt; {#mapcodec}
 
 Der Aufruf von `Codec#fieldOf` wird einen `Codec<T>` in einen `MapCodec<T>` umwandeln, der eine Variante, aber keine direkte Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
 
@@ -167,7 +167,7 @@ Beachte, dass optionale Felder alle Fehler, die bei der Deserialisierung auftret
 
 #### Einheit
 
-Codec.unit\\` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
+`Codec.unit` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
 
 ```java
 Codec<Integer> theMeaningOfCodec = Codec.unit(42);
@@ -184,7 +184,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Paar
 
-Codec.pair" fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec-nicht-zu-verwechseln-mit-codecltmapgt) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
+`Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
 Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
 
 Beispielsweise wird beim Ausführen dieses Codes:

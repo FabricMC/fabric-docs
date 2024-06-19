@@ -14,7 +14,7 @@ Bài hướng dẫn này sẽ giúp bạn cài đặt các bản mod Fabric cho 
 ## 1. Tải Mod
 
 :::warning
-Bạn chỉ nên tải mod từ các nguồn uy tín. Để biết thêm thông tin về cách tìm mod, hãy tham khảo tài liệu [Tìm Mod](./finding-mods.md).
+Bạn chỉ nên tải mod từ các nguồn uy tín. Để biết thêm thông tin về cách tìm mod, hãy tham khảo tài liệu [Tìm Mod](./finding-mods).
 :::
 
 Phần lớn các bản mod đều yêu cầu Fabric API, thứ mà có thể được tải từ [Modrinth](https://modrinth.com/mod/fabric-api) hoặc [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)
@@ -25,7 +25,7 @@ Khi chuẩn bị tải mod, cần lưu ý:
 - Chúng phải dùng được cho Fabric và không phải là các trình mod khác.
 - Thêm vào đó, chúng phải đúng phiên bản Minecraft (Phiên bản Java).
 
-## 2. Di chuyển tệp mod vào trong thư mục `mods`.
+## 2. Di chuyển tệp mod vào trong thư mục `mods`
 
 Thư mục mods có thể được tìm thấy ở các địa chỉ bên dưới ứng với mỗi hệ điều hành.
 
@@ -49,13 +49,13 @@ Bạn có thể dán những đường dẫn đó vào thanh địa chỉ của 
 
 Khi bạn đã tìm thấy thư mục `mods`, bạn có thể di chuyển tệp mod `.jar` vào trong đó.
 
-![Cài đặt mod ở thư mục mods.](/assets/players/installing-mods.png)
+![Cài đặt mod ở thư mục mods](/assets/players/installing-mods.png)
 
 ## 3. Bạn đã hoàn tất!
 
 Sau khi bạn đã di chuyển tệp mod vào trong thư mục `mods`, bạn có thể mở trình Launcher Minecraft và chọn hồ sơ Fabric từ danh sách thả xuống ở góc trái bên dưới và bấm nút chơi!
 
-![Trình Launcher Minecraft với hồ sơ Fabric được chọn.](/assets/players/installing-fabric/launcher-screen.png)
+![Trình Launcher Minecraft với hồ sơ Fabric được chọn](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Khắc Phục Sự Cố
 
@@ -63,5 +63,5 @@ Nếu bạn gặp bất cứ vấn đề nào khi đang làm theo bài hướng 
 
 Bạn cũng có thể tự sửa chữa lỗi bằng cách tham khảo các trang khắc phục sự cố sau:
 
-- [Báo Cáo Dừng Đột Ngột](./troubleshooting/crash-reports.md)
-- [Tải Lên Tệp Log](./troubleshooting/uploading-logs.md)
+- [Báo Cáo Dừng Đột Ngột](./troubleshooting/crash-reports)
+- [Tải Lên Tệp Log](./troubleshooting/uploading-logs)

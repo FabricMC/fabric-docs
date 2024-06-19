@@ -32,7 +32,7 @@ Passamos uma instância de `StatusEffectInstance`, que leva 3 parâmetros:
 - `int amplifier` - Um amplificador para o efeito. Por exemplo, Pressa II teria um amplificador de 1.
 
 :::info
-Para criar seu próprio efeito, consulte o guia de [Efeitos](../entities/effects.md).
+Para criar seu próprio efeito, consulte o guia de [Efeitos](../entities/effects).
 :::
 
 ### Registrando a Poção

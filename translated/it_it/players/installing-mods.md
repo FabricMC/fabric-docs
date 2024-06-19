@@ -14,7 +14,7 @@ Per launcher di terze parti, dovresti consultare la loro documentazione.
 ## 1. Scaricare la Mod
 
 :::warning
-Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod Affidabili](./finding-mods.md).
+Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod Affidabili](./finding-mods).
 :::
 
 La maggior parte delle mod richiede anche l'API di Fabric, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
@@ -25,7 +25,7 @@ Quando scarichi delle mod, assicurati che:
 - Siano per Fabric e non per un altro loader di mod.
 - Inoltre, che siano per la corretta edizione di Minecraft (Java Edition).
 
-## 2. Sposta la Mod nella Cartella `mods`
+## 2. Sposta le Mod nella Cartella `mods`
 
 La cartella mods può essere trovata nelle posizioni seguenti per ciascun sistema operativo.
 
@@ -49,13 +49,13 @@ Puoi solitamente incollare questi percorsi nella barra degli indirizzi del tuo g
 
 Una volta che hai trovato la cartella `mods`, puoi muovere i file `.jar` della mod in essa.
 
-![Mod installate nella cartella mods.](/assets/players/installing-mods.png)
+![Mod installate nella cartella mods](/assets/players/installing-mods.png)
 
 ## 3. Hai Finito!
 
 Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina nell'angolo in basso a sinistra e premere gioca!
 
-![Launcher di Minecraft con il profilo Fabric selezionato.](/assets/players/installing-fabric/launcher-screen.png)
+![Launcher di Minecraft con il profilo Fabric selezionato](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Risoluzione dei problemi
 
@@ -63,5 +63,5 @@ Se incontri qualsiasi problema nel seguire questa guida, puoi chiedere aiuto nel
 
 Puoi anche tentare di risolvere il problema da solo leggendo le seguenti pagine di risoluzione dei problemi:
 
-- [Segnalazioni dei Crash](./troubleshooting/crash-reports.md)
-- [Caricare i Log](./troubleshooting/uploading-logs.md)
+- [Segnalazioni dei Crash](./troubleshooting/crash-reports)
+- [Caricare i Log](./troubleshooting/uploading-logs)

@@ -56,8 +56,8 @@ We can use our custom argument type in a command - by passing an instance of it 
 
 Running the command, we can test whether or not the argument type works:
 
-![Invalid argument.](/assets/develop/commands/custom-arguments_fail.png)
+![Invalid argument](/assets/develop/commands/custom-arguments_fail.png)
 
-![Valid argument.](/assets/develop/commands/custom-arguments_valid.png)
+![Valid argument](/assets/develop/commands/custom-arguments_valid.png)
 
-![Command result.](/assets/develop/commands/custom-arguments_result.png)
+![Command result](/assets/develop/commands/custom-arguments_result.png)

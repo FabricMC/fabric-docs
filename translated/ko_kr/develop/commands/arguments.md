@@ -49,8 +49,8 @@ description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아�
 
 명령어를 실행하여 인수 형태가 작동하는지 여부를 확인할 수 있습니다.
 
-![올바르지 않은 인수.](/assets/develop/commands/custom-arguments_fail.png)
+![올바르지 않은 인수](/assets/develop/commands/custom-arguments_fail.png)
 
-![올바른 인수.](/assets/develop/commands/custom-arguments_valid.png)
+![올바른 인수](/assets/develop/commands/custom-arguments_valid.png)
 
-![명령어 결과.](/assets/develop/commands/custom-arguments_result.png)
+![명령어 결과](/assets/develop/commands/custom-arguments_result.png)

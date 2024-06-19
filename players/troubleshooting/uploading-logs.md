@@ -19,7 +19,7 @@ Some paste sites also provide syntax highlighting for logs, which makes them eas
 
 Crash reports are automatically generated when the game crashes. They only contain crash information and not the actual logs of the game. They are located in the `crash-reports` folder in the game directory.
 
-For more information on crash reports, see [Crash Reports](./crash-reports.md).
+For more information on crash reports, see [Crash Reports](./crash-reports).
 
 ## Locating Logs
 

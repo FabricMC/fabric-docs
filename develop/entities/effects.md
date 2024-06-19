@@ -69,5 +69,5 @@ Use the command `/effect give @p fabric-docs-reference:tater` to give the player
 Use `/effect clear @p fabric-docs-reference:tater` to remove the effect.
 
 ::: info
-To create a potion that uses this effect, please see the [Potions](../items/potions.md) guide.
+To create a potion that uses this effect, please see the [Potions](../items/potions) guide.
 :::

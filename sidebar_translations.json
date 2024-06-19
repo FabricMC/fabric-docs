@@ -41,6 +41,6 @@
   "develop.misc.codecs": "Codecs",
   "develop.misc.events": "Events",
   "develop.sounds": "Sounds",
-  "develop.sounds.using-sounds": "Playing SoundEvents",
+  "develop.sounds.using-sounds": "Playing Sounds",
   "develop.sounds.custom": "Creating Custom Sounds"
 }

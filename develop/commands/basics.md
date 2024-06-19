@@ -73,7 +73,7 @@ Command<ServerCommandSource> command = context -> {
 Commands are registered within the `CommandRegistrationCallback` provided by the Fabric API.
 
 ::: info
-For information on registering callbacks, please see the [Events](../events.md) guide.
+For information on registering callbacks, please see the [Events](../events) guide.
 :::
 
 The event should be registered in your mod's initializer.

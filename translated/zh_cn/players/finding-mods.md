@@ -9,9 +9,9 @@ authors:
 
 首先，信任是主观的，当下载模组时你应该始终根据自己的判断。 但是，有一些方法可以帮助你找到可信赖的模组。 但是，有一些方法可以帮助你找到可信赖的模组。
 
-## 1. 使用众所周知的可信任来源。
+## 1. 使用众所周知的可信任来源
 
-大部分作者都将他们的模组发布在 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4) 上。
+大部分作者都将他们的模组发布在 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4) 上。
 
 这些发布网站会检查开发者们的模组是否包含他们所述内容，以及检查是否含有来自开发者的恶意代码。 你还可以向那些网站举报恶意模组，网站审核会较快的处理那些模组。 你还可以向那些网站举报恶意模组，网站审核会较快的处理那些模组。
 

@@ -59,7 +59,7 @@ Once you have completed the JSON file and saved your work, you are good to load 
 
 You can see if everything has worked by typing the following command:
 
-```command
+```mcfunction
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 

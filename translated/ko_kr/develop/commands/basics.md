@@ -21,10 +21,10 @@ authors:
 "명령어 만들기"에서는 모드 개발자가 명령어를 통한 기능을 추가하는 방법에 대해 설명합니다. 이 튜토리얼에서는 Brigadier의 일반적인 명령어 구조는 무엇이며, 어떻게 명령어를 등록하는지 알아볼 것입니다.
 
 :::info
-Brigadier는 Mojang이 만든 Minecraft의 명령어 파서 및 디스패처로, 명령어 및 인수의 트리를 만드는 트리 기반의 명령어 라이브러리 입니다. 인수 처럼, 하위 명령어 노드도 필수적이진 않습니다. Brigadier는 오픈 소스로, 원본 소스 코드는 여기에서 확인할 수 있습니다: https\://github.com/Mojang/brigadier
+Brigadier는 Mojang이 만든 Minecraft의 명령어 파서 및 디스패처로, 명령어 및 인수의 트리를 만드는 트리 기반의 명령어 라이브러리 입니다. 인수 처럼, 하위 명령어 노드도 필수적이진 않습니다. Brigadier는 오픈 소스로, 원본 소스 코드는 여기에서 확인할 수 있습니다: <https://github.com/Mojang/brigadier>
 :::
 
-### \`Command" 인터페이스
+## `Command` 인터페이스
 
 `com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다. 인수 처럼, 하위 명령어 노드도 필수적이진 않습니다.
 명령어 소스는 명령어를 실행한 대상자를 의미합니다. 마인크래프트에서, 명령어 소스는 서버를 의미하는 `ServerCommandSource`, 명령 블록, 원격 연결 (RCON), 그리고 플레이어와 엔티티가 있습니다.
@@ -41,7 +41,7 @@ Command<ServerCommandSource> command = context -> {
 
 치트를 켜지 않으면 대부분의 명령어를 탭 자동 완성에서 볼 수 없는 이유이기도 합니다. 일반적으로 음수 값은 명령어를 실행하는데 실패했고, 아무것도 실행되지 않았음을 의미합니다. 반환되는 정수는 명령어의 결과를 의미합니다. `0`은 명령어가 성공적으로 처리되었음을 의미하고, 양수 값은 명령어가 성공적으로 작동했으며 어떠한 작업이 실행되었음을 의미합니다. Brigadier는 성공을 나타내는 상수 `Command#SINGLE_SUCCESS` 를 제공하고 있습니다.
 
-#### `ServerCommandSource`의 역할
+### `ServerCommandSource`의 역할
 
 예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다. `ServerCommandSource`는 명령어를 실행한 엔티티, 명령어가 실행된 세계 또는 서버 등 명령어가 실행될 때 추가적인 컨텍스트를 제공합니다.
 
@@ -54,12 +54,12 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-### 기본 명령어의 등록
+## 기본 명령어의 등록
 
 명령어는 Fabric API에서 제공하는 `CommandRegistrationCallback` 을 통해 등록됩니다.
 
 :::info
-콜백을 등록하는 방법은 [이벤트](../events.md) 가이드를 참고하십시오.
+콜백을 등록하는 방법은 [이벤트](../events) 가이드를 참고하십시오.
 :::
 
 이벤트는 모드 초기화 단계에 등록되어야 합니다.
@@ -84,13 +84,13 @@ Command<ServerCommandSource> command = context -> {
 
 방금 등록한 명령어를 실행하려면, 대소문자를 구분하여 `/foo`를 입력하면 됩니다.
 
-#### 등록 환경
+### 등록 환경
 
 원하는 경우 명령어가 특정한 상황에만 등록되도록 할 수도 있습니다.
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-#### 명령어의 요구 사항
+### 명령어의 요구 사항
 
 관리자만 실행 가능한 명령어를 만들고 싶다고 가정해봅시다. `require()` 메소드를 사용하기 딱 좋은 상황이군요. `require()` 메소드는 `ServerCommandSource`를 제공하고 `CommandSource`가 명령어를 실행할 수 있는지 판단하는 `Predicate<S>`을 인수로 가집니다.
 
@@ -100,7 +100,7 @@ Command<ServerCommandSource> command = context -> {
 
 하지만, 명령어가 등록이 되지 않아 레벨 2 관리자가 아닌 플레이어에게는 탭 자동 완성에서 표시되지 않는다는 단점이 있습니다. 치트를 켜지 않으면 대부분의 명령어를 탭 자동 완성에서 볼 수 없는 이유이기도 합니다.
 
-#### 하위 명령어
+### 하위 명령어
 
 하위 명령어를 추가하려면, 먼저 상위 명령어의 리터럴 노드를 등록해야 합니다. 그런 다음, 상위 명령어의 리터럴 노드 다음에 하위 명령어의 리터럴 노드를 덧붙이면 됩니다.
 
@@ -110,23 +110,23 @@ Command<ServerCommandSource> command = context -> {
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### 클라이언트 명령어
+## 클라이언트 명령어
 
 Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이언트측 명령어를 등록할 때 사용되는 `ClientCommandManager` 클래스를 가지고 있습니다. 이러한 코드는 오로지 클라이언트측 코드에만 있어야 합니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### 명령어 리다이렉션
+## 명령어 리다이렉션
 
 "별칭 (Aliases)"로도 알려진 명령어 리다이렉션은 명령어의 기능을 다른 명령어로 리다이렉트(전송)하는 방법입니다. 명령어의 이름을 변경하고 싶지만, 기존 이름도 지원하고 싶을 때 유용하게 사용될 수 있습니다.
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### 자주 묻는 질문
+## 자주 묻는 질문
 
 <br>
 
-###### 코드가 컴파일되지 않습니다
+### 코드가 컴파일되지 않습니다
 
 - `CommandSyntaxException` 예외를 던지거나 처리해 보세요 - `CommandSyntaxException`은 `RuntimeException`이 아닙니다. 예외가 메소드 서명에서 던져지는게 아니라면, 무조건 처리되어야 합니다.
   Brigadier가 확인된 예외를 처리하고 게임에서 적절한 오류 메세지를 전송할 것입니다.
@@ -137,7 +137,7 @@ Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이
 
 - 명령어는 무조건 정수를 반환해야 합니다 - 명령어를 등록할 때, `execute()` 메소드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
-###### 런타임에서 명령어를 등록할 수 있습니까?
+### 런타임에서 명령어를 등록할 수 있습니까?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -148,7 +148,7 @@ you wish to its `CommandDispatcher`.
 클라이언트는 로컬로 완료 오류를 보여주기 위해 로그인 단계 중에 (또는 관리자 패킷이 전송되었을 때) 서버로부터 명령어 트리를 받아 캐시하기 때문에 필수적인 작업입니다.
 :::
 
-###### 런타임에서 명령어를 등록 해제할 수 있습니까?
+### 런타임에서 명령어를 등록 해제할 수 있습니까?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side

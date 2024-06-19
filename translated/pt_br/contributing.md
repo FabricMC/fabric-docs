@@ -145,13 +145,13 @@ As diretrizes a serem seguidas:
    Por exemplo, para uma página na pasta `/players`, para vincular à página `installing-fabric` encontrada em `/players/installing-fabric.md`, você teria que fazer o seguinte:
 
    ```md
-   [Isto é um link para outra página](./installing-fabric.md)
+   [Isto é um link para outra página](./installing-fabric)
    ```
 
    Você **NÃO** deve fazer o seguinte:
 
    ```md
-   [Isto é um link para outra página](/player/installing-fabric.md)
+   [Isto é um link para outra página](/players/installing-fabric)
    ```
 
 Todas as contribuições de conteúdo passam por três etapas:

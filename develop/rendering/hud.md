@@ -7,7 +7,7 @@ authors:
 
 # Rendering in the Hud
 
-We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts.md) page and [Using The Drawing Context](./draw-context.md), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
+We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
 
 ## HudRenderCallback
 
@@ -17,7 +17,7 @@ To register to this event, you can simply call `HudRenderCallback.EVENT.register
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack.
 
-You should check out the [Draw Context](./draw-context.md) page to learn more about the draw context.
+You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
 ### DeltaTick
 

@@ -36,7 +36,7 @@ We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 - `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
 ::: info
-To create your own effect, please see the [Effects](../entities/effects.md) guide.
+To create your own effect, please see the [Effects](../entities/effects) guide.
 :::
 
 ### Registering the Potion

@@ -107,7 +107,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 这应当给出一个漂亮的菱形——因为我们在使用绘制模式 `TRIANGLE_STRIP`，渲染器将执行以下几步：
 
-![四个步骤展示顶点在屏幕上的放置是如何形成两个三角形的。](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+![四个步骤展示顶点在屏幕上的放置是如何形成两个三角形的](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 因为在这个例子中我们在平视显示器（HUD）上绘制，我们将使用 `HudRenderCallback` 事件：
 
@@ -145,7 +145,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![一段展示菱形放大和缩小的视频。](/assets/develop/rendering/concepts-matrix-stack.webp)
+![一段展示菱形放大和缩小的视频](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## 四元数 `Quaternion`（旋转物体）
 
@@ -159,4 +159,4 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 这会产生如下的结果：
 
-![一段展示菱形绕 z 轴旋转的视频。](/assets/develop/rendering/concepts-quaternions.webp)
+![一段展示菱形绕 z 轴旋转的视频](/assets/develop/rendering/concepts-quaternions.webp)

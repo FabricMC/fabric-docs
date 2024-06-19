@@ -16,7 +16,7 @@ Officially, Fabric supports all versions of Minecraft starting from snapshots `1
 ### Where Can I Download Published Fabric Mods?
 
 ::: info
-You should always check if mods are from a trustworthy source. Check out the [Finding Trustworthy Mods](./finding-mods.md) guide for more information.
+You should always check if mods are from a trustworthy source. Check out the [Finding Trustworthy Mods](./finding-mods) guide for more information.
 :::
 
 The majority of authors publish their mods to [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) and [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), however some may choose to upload them on their personal websites, or on other platforms, such as a GitHub repository.

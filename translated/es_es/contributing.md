@@ -145,13 +145,13 @@ La guía de estilo es la siguiente:
    Por ejemplo, para una página en el folder de `/players`, enlazar a la página de `installing-fabric` encontrada en `/players/installing-fabric.md` requerirá de lo siguiente:
 
    ```md
-   [Esto es un link a otra página](./installing-fabric.md)
+   [Esto es un link a otra página](./installing-fabric)
    ```
 
    **NO** hagas lo siguiente:
 
    ```md
-   [Esto es un link a otra página](/player/installing-fabric.md)
+   [Esto es un link a otra página](/players/installing-fabric)
    ```
 
 Todas las contribuciones de contenido pasa por tres etapas:

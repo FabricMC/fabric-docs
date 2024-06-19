@@ -122,11 +122,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Cada línea en el grupo especifica un codec, un nombre para el miembro, y el método adquiridor. El llamado a `Codec#fieldOf` es usado para convertir el codec a un [map codec](#mapcodec-not-to-be-confused-with-codecltmapgt), y el llamado a `forGetter` especifica el método adquiridor que se usará para obtener el valor del miembro a partir de una instancia de la clase. Mientras tanto, el llamado a `apply` especifica que el constructor usado para crear nuevas instancias. Es importante saber que el orden de los miembros en el grupo debe ser el mismo que el orden de los argumentos del constructor.
+Cada línea en el grupo especifica un codec, un nombre para el miembro, y el método adquiridor. El llamado a `Codec#fieldOf` es usado para convertir el codec a un [map codec](#mapcodec), y el llamado a `forGetter` especifica el método adquiridor que se usará para obtener el valor del miembro a partir de una instancia de la clase. Mientras tanto, el llamado a `apply` especifica que el constructor usado para crear nuevas instancias. Es importante saber que el orden de los miembros en el grupo debe ser el mismo que el orden de los argumentos del constructor.
 
 También puedes usar `Codec#optionalFieldOf` en este contexto para hacer un miembro opcional, como explicado en la sección de [Miembros Opcionales](#optional-fields).
 
-### MapCodec, sin ser confundido con Codec&amp;amp;lt;Map&amp;amp;gt;
+### MapCodec, sin ser confundido con Codec&lt;Map&gt; {#mapcodec}
 
 Llamar `Codec#fieldOf` convertirá un `Codec<T>` a un `MapCodec<T>`, el cual es una implementación variante, pero no directa de `Codec<T>`. Como su nombre lo indica, los `MapCodec`s garantizan la serialización a una asociación (map) llave a valor, o su equivalente en el `DynamicOps` usado. Algunas funciones pueden requerir una, en vez de un codec regular.
 
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Pares
 
-`Codec.pair` combina dos codecs, `Codec<A>` y `Codec<B>`, a un `Codec<Pair<A, B>>`. Ten en cuenta que solo funciona bien con codecs que serializan a un miembro específico, como un [`MapCodec`s convertidos](#mapcodec-not-to-be-confused-with-codecltmapgt) o
+`Codec.pair` combina dos codecs, `Codec<A>` y `Codec<B>`, a un `Codec<Pair<A, B>>`. Ten en cuenta que solo funciona bien con codecs que serializan a un miembro específico, como un [`MapCodec`s convertidos](#mapcodec) o
 [codecs de record](#merging-codecs-for-record-like-classes).
 El codec resultante será serializado a una asociación (map) que combina los miembros de ambos codecs usados.
 

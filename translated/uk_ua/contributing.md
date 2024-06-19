@@ -145,13 +145,13 @@ npm run preview
    Наприклад, для сторінки у папці `/players`, щоб посилатися на сторінку `installing-fabric`, що знаходиться у `/players/installing-fabric.md`, потрібно зробити так:
 
    ```md
-   [Це посилання на іншу сторінку](./installing-fabric.md)
+   [Це посилання на іншу сторінку](./installing-fabric)
    ```
 
    Ви **НЕ ПОВИННІ** робити наступне:
 
    ```md
-   [Це посилання на іншу сторінку](/player/installing-fabric.md)
+   [Це посилання на іншу сторінку](/players/installing-fabric)
    ```
 
 Всі внески вмісту проходять три етапи:

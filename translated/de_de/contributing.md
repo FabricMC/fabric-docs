@@ -145,13 +145,13 @@ Die Stilrichtlinien lauten wie folgt:
    Um z. B. eine Seite im Ordner `/players` mit der Seite `installing-fabric` aus `/players/installing-fabric.md` zu verknüpfen, musst du Folgendes tun:
 
    ```md
-   [Dies ist ein Link zu einer anderen Seite](./installing-fabric.md)
+   [Dies ist ein Link zu einer anderen Seite](./installing-fabric)
    ```
 
    Du solltest **NICHT** Folgendes tun:
 
    ```md
-   [Dies ist ein Link zu einer anderen Seite](/player/installing-fabric.md)
+   [Dies ist ein Link zu einer anderen Seite](/players/installing-fabric)
    ```
 
 Alle inhaltlichen Beiträge durchlaufen drei Stufen:

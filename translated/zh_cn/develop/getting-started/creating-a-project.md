@@ -13,11 +13,11 @@ Fabric提供了一种简单的方法来使用Fabric模板模组生成器来创�
 
 你可以使用[Fabric模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如包名和模组名称，以及你想要基于开发的Minecraft版本。
 
-![生成器预览图。](/assets/develop/getting-started/template-generator.png)
+![生成器预览图](/assets/develop/getting-started/template-generator.png)
 
 如果你想要使用Kotlin语言开发，或者想要添加数据生成器，可以在“Advanced Options”部分中选择对应的选项。
 
-![“Advanced Options”部分。](/assets/develop/getting-started/template-generator-advanced.png)
+![“Advanced Options”部分](/assets/develop/getting-started/template-generator-advanced.png)
 
 在你填写了必需的字段后，单击“Generate”按钮，生成器将以zip文件的形式创建一个新项目供您使用。
 
@@ -45,7 +45,7 @@ Fabric提供了一种简单的方法来使用Fabric模板模组生成器来创�
 
 首先，使用Git来克隆示例模组代码仓库：
 
-```bash
+```sh
 git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 ```
 
@@ -63,6 +63,6 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 - 修改项目中的`gradle.properties`文件，把`maven_group`和`archive_base_name`修改为匹配你的模组的信息。
 - 修改项目中的`fabric.mod.json`文件，把`id`、`name`和`description`修改为匹配你的模组的信息。
-- 确保修改你的项目的Minecraft的版本，映射，Fabric模组加载器和Fabric loom——所有这些都可以通过https://fabricmc.net/develop/查询，以匹配您希望的目标版本。
+- 确保修改你的项目的Minecraft的版本，映射，Fabric模组加载器和Fabric loom——所有这些都可以通过<https://fabricmc.net/develop/>查询，以匹配您希望的目标版本。
 
 你还可以修改包名和模组的主类来匹配你的模组的细节。

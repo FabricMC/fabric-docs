@@ -12,7 +12,7 @@ authors:
 
 如您使用第三方启动器，您应参见它们的使用说明。
 
-更新 Fabric 和安装 Fabric 的过程非常相似，所以该指南的一部分与 [安装 Fabric](./installing-fabric.md) 指南完全一致。
+更新 Fabric 和安装 Fabric 的过程非常相似，所以该指南的一部分与 [安装 Fabric](./installing-fabric) 指南完全一致。
 
 ## 为什么我需要更新 Fabric 加载器？
 
@@ -32,7 +32,7 @@ authors:
 
 替换版本为您刚才安装的 Fabric 加载器版本并点击 `保存`。
 
-![在 Minecraft 启动器中更新 Fabric。](/assets/players/updating-fabric.png)
+![在 Minecraft 启动器中更新 Fabric](/assets/players/updating-fabric.png)
 
 ## 4. 大功告成！
 

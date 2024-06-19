@@ -41,7 +41,7 @@ Los reportes de crasheo pueden ser encontrados en los siguientes lugares:
 
 Los reportes de crasheo son muy largos, y pueden ser confusos de leer. Sin embargo, contienen mucha información sobre el crasheo, y pueden ayudarte a encontrar la causa del crasheo.
 
-Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo.](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt)
+Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
 ### Secciones del Reporte de Crasheo
 

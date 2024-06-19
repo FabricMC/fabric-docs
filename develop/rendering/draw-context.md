@@ -7,7 +7,7 @@ authors:
 
 # Using the Drawing Context
 
-This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts.md) page.
+This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.
 
 The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.
 
@@ -21,7 +21,7 @@ You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![A rectangle.](/assets/develop/rendering/draw-context-rectangle.png)
+![A rectangle](/assets/develop/rendering/draw-context-rectangle.png)
 
 ### Drawing Outlines/Borders
 
@@ -29,7 +29,7 @@ Let's say we want to outline the rectangle we just drew. We can use the `DrawCon
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Rectangle with border.](/assets/develop/rendering/draw-context-rectangle-border.png)
+![Rectangle with border](/assets/develop/rendering/draw-context-rectangle-border.png)
 
 ### Drawing Individual Lines
 
@@ -53,7 +53,7 @@ To enable the scissor manager, simply use the `DrawContext.enableScissor(...)` m
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Scissor region in action.](/assets/develop/rendering/draw-context-scissor.png)
+![Scissor region in action](/assets/develop/rendering/draw-context-scissor.png)
 
 As you can see, even though we tell the game to render the gradient across the entire screen, it only renders within the scissor region.
 
@@ -67,7 +67,7 @@ Generally, it's recommended that you use the overload that specifies the `textur
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Drawing whole texture example.](/assets/develop/rendering/draw-context-whole-texture.png)
+![Drawing whole texture example](/assets/develop/rendering/draw-context-whole-texture.png)
 
 ### Drawing a Portion of a Texture
 

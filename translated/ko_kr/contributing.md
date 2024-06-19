@@ -145,13 +145,13 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
    예를 들어서, `/players` 폴더의 `installing-fabric` 페이지를 언급하려는 경우, 절대 경로는 `/players/installing-fabric.md` 이지만, 다음과 같이 연결해야 합니다.
 
    ```md
-   [This is a link to another page](./installing-fabric.md)
+   [This is a link to another page](./installing-fabric)
    ```
 
    반대로 다음과 같이 입력하면 **문제가 발생**하게 됩니다!
 
    ```md
-   [This is a link to another page](/player/installing-fabric.md)
+   [This is a link to another page](/players/installing-fabric)
    ```
 
 모든 콘텐츠 기여의 끌어오기 요청은 다음 단계를 거치게 됩니다.

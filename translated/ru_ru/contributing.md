@@ -145,13 +145,13 @@ npm run preview
    Например, для страницы в папке `/players`, ссылка на страницу `installing-fabric` по пути `/players/installing-fabric.md`, вы должны сделать следующее:
 
    ```md
-   [Ссылка на другую страницу](./installing-fabric.md)
+   [Ссылка на другую страницу](./installing-fabric)
    ```
 
    Вы **НЕ** должны делать так:
 
    ```md
-   [Ссылка на другую страницу](/player/installing-fabric.md)
+   [Ссылка на другую страницу](/players/installing-fabric)
    ```
 
 Все материалы проходят три этапа:

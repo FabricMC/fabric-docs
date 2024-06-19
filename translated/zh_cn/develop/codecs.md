@@ -121,11 +121,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-在 group 中的每一行指定一个 codec，一个字段名和一个 getter 方法。 `Codec#fieldOf` 调用用于将编解码器转换为 [map codec](#mapcodec-not-to-be-confused-with-codecltmapgt)，而 `forGetter` 调用指定了用于从类的实例中检索字段值的 `getter` 方法。 与此同时，`apply` 调用指定了用于创建新实例的构造函数。 需要注意的是在 group 中的字段顺序需要和构造方法的参数顺序保持一致。
+在 group 中的每一行指定一个 codec，一个字段名和一个 getter 方法。 `Codec#fieldOf` 调用用于将编解码器转换为 [map codec](#mapcodec)，而 `forGetter` 调用指定了用于从类的实例中检索字段值的 `getter` 方法。 与此同时，`apply` 调用指定了用于创建新实例的构造函数。 需要注意的是在 group 中的字段顺序需要和构造方法的参数顺序保持一致。
 
 在这个上下文中您也可以使用 `Codec#optionalFieldOf` 使字段可选，解释在 [Optional Fields](#optional-fields) 部分。
 
-### 不要将 MapCodec 与 Codec&lt;Map&gt; 混淆
+### 不要将 MapCodec 与 Codec&lt;Map&gt; 混淆 {#mapcodec}
 
 调用 `Codec#fieldOf` 会将 `Codec<T>` 转换成 `MapCodec<T>`，这是 `Codec<T>` 的一个变体，但不是直接实现。 正如它们名称所暗示的，`MapCodec` 保证序列化成一个键值映射，或者在使用的 `DynamicOps` 中的等效物。 一些函数可能需要使用 `MapCodec` 而不是常规编解码器。
 
@@ -182,7 +182,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Pair
 
-`Codec.pair` 将两个 codec `Codec<A>` 和 `Codec<B>` 合并为 `Codec<Pair<A, B>>`。 请记住，它只适用于序列化到特定字段的 codec，例如 [转换的 `MapCodec`](#mapcodec-not-to-be-confused-with-codecltmapgt) 或 [record codec](#merging-codecs-for-record-like-classes)。
+`Codec.pair` 将两个 codec `Codec<A>` 和 `Codec<B>` 合并为 `Codec<Pair<A, B>>`。 请记住，它只适用于序列化到特定字段的 codec，例如 [转换的 `MapCodec`](#mapcodec) 或 [record codec](#merging-codecs-for-record-like-classes)。
 结果 codec 将序列化为结合了两个使用的 codec 字段的 map。
 
 例如，运行这些代码：

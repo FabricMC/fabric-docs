@@ -14,7 +14,7 @@ authors:
 ## 1. Загрузка модов
 
 :::warning
-Вы должны загружать моды только из источников, которым вы доверяете. Смотрите гайд [Поиск безопасных модов](./finding-mods.md) для большей информации.
+Вы должны загружать моды только из источников, которым вы доверяете. Смотрите гайд [Поиск безопасных модов](./finding-mods) для большей информации.
 :::
 
 Для большинства модов также требуется Fabric API, который можно загрузить с [Modrinth](https://modrinth.com/mod/fabric-api) или [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
@@ -25,7 +25,7 @@ authors:
 - Они предназначены для Fabric, а не для другого загрузчика модов.
 - Кроме того, они предназначены для правильной версии Minecraft (Java Edition).
 
-## 2. Перемещение мода в папку `mods`.
+## 2. Перемещение мода в папку `mods`
 
 Папку mods можно найти в следующих местах для каждой операционной системы.
 
@@ -49,13 +49,13 @@ authors:
 
 Как только вы найдете папку `mods`, вы можете переместить в нее `.jar` файл мода.
 
-![Установленный мод в папке модов.](/assets/players/installing-mods.png)
+![Установленный мод в папке модов](/assets/players/installing-mods.png)
 
 ## 3. Готово!
 
 Как только вы переместите мод в папку `mods`, вы можете открыть лаунчер Minecraft, выбрать профиль Fabric из списка в левом нижнем углу и нажать Играть!
 
-![Лаунчер Minecraft с выбранным профилем Fabric.](/assets/players/installing-fabric/launcher-screen.png)
+![Лаунчер Minecraft с выбранным профилем Fabric](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Исправление ошибок
 
@@ -63,5 +63,5 @@ authors:
 
 Вы также можете попытаться устранить проблему самостоятельно, ознакомившись со страницами, посвященными устранению неполадок:
 
-- [Краш-репорты](./troubleshooting/crash-reports.md)
-- [Загрузка логов](./troubleshooting/uploading-logs.md)
+- [Краш-репорты](./troubleshooting/crash-reports)
+- [Загрузка логов](./troubleshooting/uploading-logs)

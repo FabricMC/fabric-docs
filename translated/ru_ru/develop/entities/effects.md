@@ -66,5 +66,5 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 Используйте команду `/effect clear @p fabric-docs-reference:tater`, чтобы удалить эффект.
 
 ::: info
-Чтобы узнать, как создать зелье, накладывающее этот эффект, ознакомьтесь с руководством по [зельям](../items/potions.md).
+Чтобы узнать, как создать зелье, накладывающее этот эффект, ознакомьтесь с руководством по [зельям](../items/potions).
 :::

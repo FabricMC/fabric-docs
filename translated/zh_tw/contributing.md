@@ -143,13 +143,13 @@ npm run preview
    例如，對於位於 `/players` 資料夾中的頁面，要連結到 `/players/installing-fabric.md` 中的 `installing-fabric` 頁面，你應該執行以下動作：
 
    ```md
-   [這是指向另一個頁面的連結](./installing-fabric.md)
+   [這是指向另一個頁面的連結](./installing-fabric)
    ```
 
    你**不應該**執行以下動作：
 
    ```md
-   [這是指向另一個頁面的連結](/player/installing-fabric)
+   [這是指向另一個頁面的連結](/players/installing-fabric)
    ```
 
 所有內容貢獻經歷三個階段：
@@ -162,7 +162,7 @@ npm run preview
 
 如果文件團隊認為你可以擴充你的合併請求，團隊成員將在你的合併請求中新增 `expansion` 標籤，並附上一則留言，解釋他們認為你可以擴展的內容。 如果你同意這個建議，你可以擴充你的合併請求。
 
-\*\*不要感到被迫擴充你的合併請求。\*\*如果你不想擴充你的合併請求，你可以簡單地要求移除 `expansion` 標籤。
+**不要感到被迫擴充你的合併請求。**如果你不想擴充你的合併請求，你可以簡單地要求移除 `expansion` 標籤。
 
 如果你不想擴展你的合併請求，但你願意讓其他人在以後擴展它，最好是在[議題頁面](https://github.com/FabricMC/fabric-docs/issues)上建立一個問題，並解釋你認為可以擴展的內容。
 
