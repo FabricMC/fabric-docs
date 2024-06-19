@@ -52,7 +52,7 @@ The integer can be considered the result of the command. Typically values less t
 do nothing. Positive values mean the command was successful and did something. Brigadier provides a constant to indicate
 success; `Command#SINGLE_SUCCESS`.
 
-### What can the `ServerCommandSource` do?
+### What Can the `ServerCommandSource` Do?
 
 A `ServerCommandSource` provides some additional implementation-specific context when a command is run. This includes
 the
@@ -80,11 +80,11 @@ The event should be registered in your mod's initializer.
 
 The callback has three parameters:
 
-* `CommandDispatcher<ServerCommandSource> dispatcher` - Used to register, parse and execute commands. `S`  is the type
+- `CommandDispatcher<ServerCommandSource> dispatcher` - Used to register, parse and execute commands. `S`  is the type
   of command source the command dispatcher supports.
-* `CommandRegistryAccess registryAccess` - Provides an abstraction to registries that may be passed to certain command
+- `CommandRegistryAccess registryAccess` - Provides an abstraction to registries that may be passed to certain command
   argument methods
-* `CommandManager.RegistrationEnvironment environment` - Identifies the type of server the commands are being registered
+- `CommandManager.RegistrationEnvironment environment` - Identifies the type of server the commands are being registered
   on.
 
 In the mod initializer, we just register a simple command:
@@ -155,23 +155,23 @@ Command redirects - also known as aliases - are a way to redirect the functional
 
 <br>
 
-### Why does my code not compile?
+### Why Does My Code Not Compile?
 
-* Catch or throw a `CommandSyntaxException` - `CommandSyntaxException` is not a `RuntimeException`. If you throw it,
+- Catch or throw a `CommandSyntaxException` - `CommandSyntaxException` is not a `RuntimeException`. If you throw it,
   that should be in methods that throw `CommandSyntaxException` in method signatures, or it should be caught.
   Brigadier will handle the checked exceptions and forward the proper error message in the game for you.
 
-* Issues with generics - You may have an issue with generics once in a while. If you are registering server
+- Issues with generics - You may have an issue with generics once in a while. If you are registering server
   commands (which are most of the case), make sure you are using `CommandManager.literal`
   or `CommandManager.argument` instead of `LiteralArgumentBuilder.literal` or `RequiredArgumentBuilder.argument`.
 
-* Check `sendFeedback()` method - You may have forgotten to provide a boolean as the second argument. Also remember
+- Check `sendFeedback()` method - You may have forgotten to provide a boolean as the second argument. Also remember
   that, since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Text`.
 
-* A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
+- A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
   which is usually a lambda. The lambda should return an integer, instead of other types.
 
-### Can I register commands in runtime?
+### Can I Register Commands at Runtime?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -184,7 +184,7 @@ This is required because the client locally caches the command tree it receives 
 are sent) for local completions-rich error messages.
 :::
 
-### Can I unregister commands in runtime?
+### Can I Unregister Commands at Runtime?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
