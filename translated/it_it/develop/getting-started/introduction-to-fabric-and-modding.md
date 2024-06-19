@@ -1,5 +1,5 @@
 ---
-title: Introduzione A Fabric E Al Modding
+title: Introduzione a Fabric e al Modding
 description: "Una breve introduzione a Fabric e al modding in Minecraft: Java Edition."
 authors:
   - IMB11
@@ -8,13 +8,13 @@ authors:
 
 <!-- No GitHub profile exists for "basil4088" -->
 
-# Introduzione A Fabric E Al Modding
+# Introduzione a Fabric e al Modding
 
 ## Prerequisiti
 
 Prima d'iniziare, dovresti avere una comprensione basilare dello sviluppo con Java, e una comprensione della Programmazione Orientata agli Oggetti (OOP).
 
-Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a fare modding, ecco alcune risorse in inglese che puoi usare per imparare Java e OOP:
+Se questi concetti non ti sono familiari, potresti voler cercare qualche tutorial su Java e sulla OOP prima di cominciare a fare modding, ecco alcune risorse (in inglese) che puoi usare per imparare Java e OOP:
 
 - [W3: Java Tutorials](https://www.w3schools.com/java/)
 - [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
@@ -46,7 +46,7 @@ Dovresti conoscere le quattro componenti principali di Fabric:
 - **API di Fabric**: Un insieme di API e di strumenti per sviluppatori di mod da usare quando si creano mod.
 - **Yarn**: Un insieme di mapping Minecraft aperti, gratuiti per tutti da usare sotto la licenza Creative Commons Zero.
 
-## Perché è necessario Fabric per moddare Minecraft?
+## Perché È Necessario Fabric per Moddare Minecraft?
 
 > Il modding è il processo di modifica del gioco per cambiarne il comportamento o per aggiungere nuove funzionalità - nel caso di Minecraft, questo può essere qualsiasi cosa dall'aggiungere nuovi oggetti, blocchi, o entità, al cambiare le meccaniche del gioco o aggiungere nuove modalità di gioco.
 
@@ -56,7 +56,7 @@ Loom rimappa il codice offuscato a un formato leggibile usando questi mapping, r
 
 Loom ti permette di sviluppare e compilare mod facilmente in riferimento a codice rimappato, e il Loader di Fabric ti permette di caricare queste mod nel gioco.
 
-## Cosa fornisce l'API di Fabric, e perché è necessaria?
+## Cosa Fornisce l'API di Fabric, e Perché È Necessaria?
 
 > L'API di Fabric è un insieme di API e di strumenti per sviluppatori di mod da usare quando si creano mod.
 

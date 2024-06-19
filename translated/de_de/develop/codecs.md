@@ -219,7 +219,7 @@ Wenn der zweite Codec ebenfalls fehlschlägt, wird der Fehler des _zweiten_ Code
 
 Für die Verarbeitung von Maps mit beliebigen Schlüsseln, wie zum Beispiel `HashMap`s, kann `Codec.unboundedMap` verwendet werden. Dies gibt einen `Codec<Map<K, V>>` für einen gegebenen `Codec<K>` und `Codec<V>` zurück. Der resultierende Codec wird zu einem JSON-Objekt serialisiert oder oder ein gleichwertiges Objekt, das für die aktuellen dynamische Ops verfügbar ist.
 
-Aufgrund der Einschränkungen von JSON und NBT muss der verwendete Schlüsselcodec zu einer Zeichenkette serialisiert werden. Dazu gehören auch Codecs für Typen, die selbst keine Strings sind, aber zu ihnen serialisiert werden, wie zum Beispiel `Identifier.CODEC`. Siehe folgendes Beispiel:
+Aufgrund der Einschränkungen von JSON und NBT _muss_ der verwendete Schlüsselcodec zu einer Zeichenkette serialisiert werden. Dazu gehören auch Codecs für Typen, die selbst keine Strings sind, aber zu ihnen serialisiert werden, wie zum Beispiel `Identifier.CODEC`. Siehe folgendes Beispiel:
 
 ```java
 // Erstellen eines Codecs für eine Abbildung von Bezeichnern auf Ganzzahlen
@@ -245,7 +245,7 @@ Wie du sehen kannst, funktioniert dies, weil `Identifier.CODEC` direkt zu einem 
 
 ### Wechselseitig konvertierbare Typen
 
-#### xmap
+#### `xmap`
 
 Angenommen, wir haben zwei Klassen, die ineinander umgewandelt werden können, aber keine Eltern-Kind-Beziehung haben. Zum Beispiel, eine einfache `BlockPos` und `Vec3d`. Wenn wir einen Codec für eine Richtung haben, können wir mit `Codec#xmap` einen Codec für die andere Richtung erstellen, indem wir eine Konvertierungsfunktion für jede Richtung angeben.
 

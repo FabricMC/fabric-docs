@@ -22,7 +22,7 @@ authors:
 Creare comandi può permettere a uno sviluppatore di mod di aggiungere funzionalità che possono essere usate attraverso un comando. Questo tutorial ti insegnerà come registrare comandi e qual è la struttura generale dei comandi di Brigadier.
 
 :::info
-Brigadier è un parser e un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un albero di comandi e parametri. Brigadier è open-source: https://github.com/Mojang/brigadier
+Brigadier è un parser e un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un albero di comandi e parametri. Brigadier è open source: https://github.com/Mojang/brigadier
 :::
 
 ## L'interface `Command`
@@ -51,7 +51,7 @@ Puoi accedere alla sorgente del comando dal contesto del comando chiamando `getS
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -128,7 +128,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 
 <br>
 
-### Perché il mio codice non viene compilato?
+### Perché il Mio Codice Non Viene Compilato?
 
 - Catturare o lanciare una `CommandSyntaxException` - `CommandSyntaxException` non è una `RuntimeException`. Se la lanci, dovresti farlo in metodi che lanciano una `CommandSyntaxException` nelle firme dei metodi, oppure dovresti catturarla.
   Brigadier gestirà le eccezioni controllate e ti inoltrerà il messaggio d'errore effettivo nel gioco.
@@ -140,7 +140,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 
 - Un Command dovrebbe restituire un intero - Quando registri comandi, il metodo `executes()` accetta un oggetto `Command`, che è solitamente una lambda. La lambda dovrebbe restituire un intero, anziché altri tipi.
 
-### Posso registrare comandi al runtime?
+### Posso Registrare Comandi al Runtime?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -151,7 +151,7 @@ Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore 
 Questo è necessario perché il client mantiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
 
-### Posso de-registrare comandi al runtime?
+### Posso De-Registrare Comandi al Runtime?
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
