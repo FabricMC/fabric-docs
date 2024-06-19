@@ -48,8 +48,8 @@ export default [
         link: "/develop/getting-started/launching-the-game"
       },
       {
-        text: "develop.gettingStarted.usingIde",
-        link: "/develop/getting-started/using-the-ide"
+        text: "develop.gettingStarted.ideTipsAndTricks",
+        link: "/develop/getting-started/ide-tips-and-tricks"
       }
     ]
   },
