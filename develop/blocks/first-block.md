@@ -98,11 +98,11 @@ To make the texture show up in-game, you must create a block and item model whic
 
 The item model is pretty simple, it can just use the block model as a parent - since most block models have support for being rendered in a GUI:
 
-@[code](@/reference/latest/src/main/resources/assets/tutorial/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
 
 The block model however, in our case, must parent the `block/cube_all` model:
 
-@[code](@/reference/latest/src/main/resources/assets/tutorial/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
 
