@@ -39,7 +39,7 @@ JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
 // Qui abbiamo il nostro valore json, che dovrebbe corrispondere a `[1, 2, 3]`,
 // poiché quello è il formato usato dal codec di BlockPos.
-LOGGER.info("BlockPos serializzato: {}", json);
+LOGGER.info("Serialized BlockPos: {}", json);
 
 // Ora deserializzeremo nuovamente il JsonElement in un BlockPos
 DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
@@ -48,7 +48,7 @@ DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 
 // E possiamo notare che abbiamo serializzato e deserializzato il nostro BlockPos con successo!
-LOGGER.info("BlockPos deserializzato: {}", pos);
+LOGGER.info("Deserialized BlockPos: {}", pos);
 ```
 
 ### Codec Predefiniti
@@ -107,7 +107,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 Bisogna sottolineare che i codec creati così verranno sempre deserializzati a un'`ImmutableList`. Se invece ti servisse una lista mutabile, puoi usare [xmap](#tipi-convertibili-mutualmente-e-tu) per convertirla ad una durante la deserializzazione.
 
-### Unire i Codec per Classi simili ai Record
+### Unire i Codec per Classi Simili ai Record
 
 Ora che abbiamo codec separati per ciascun attributo, possiamo combinarli a formare un singolo codec per la nostra classe usando un `RecordCodecBuilder`. Questo suppone che la nostra classe abbia un costruttore che contiene ogni attributo che vogliamo serializzare, e che ogni attributo ha un metodo getter corrispondente. Questo lo rende perfetto per essere usato assieme ai record, ma può anche essere usato con classi regolari.
 
@@ -122,11 +122,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Ogni linea nel gruppo specifica un codec, il nome di un attributo, e un metodo getter. La chiamata a `Codec#fieldOf` è utilizzata per convertire il codec a un [MapCodec](#mapcodec-da-non-confondere-con-codecltmapgt), ed la chiamata a `forGetter` specifica il metodo getter utilizzato per ottenere il valore dell'attributo da un'istanza della classe. Inoltre, la chiamata ad `apply` specifica il costruttore usato per creare nuove istanze. Nota che l'ordine degli attributi nel gruppo dovrebbe essere lo stesso di quello degli parametri nel costruttore.
+Ogni linea nel gruppo specifica un codec, il nome di un attributo, e un metodo getter. La chiamata a `Codec#fieldOf` è usata per convertire il codec a un [MapCodec](#mapcodec), e la chiamata a `forGetter` specifica il metodo getter usato per ottenere il valore dell'attributo da un'istanza della classe. Inoltre, la chiamata ad `apply` specifica il costruttore usato per creare nuove istanze. Nota che l'ordine degli attributi nel gruppo dovrebbe essere lo stesso di quello dei parametri nel costruttore.
 
 Puoi anche usare `Codec#optionalFieldOf` in questo contesto per rendere un attributo opzionale, come spiegato nella sezione [Attributi Opzionali](#attributi-opzionali).
 
-### MapCodec, da non confondere con Codec&amp;amp;lt;Map&amp;amp;gt;
+### MapCodec, da non confondere con Codec&amp;lt;Map&amp;gt; {#mapcodec}
 
 La chiamata a `Codec#fieldOf` convertirà un `Codec<T>` in un `MapCodec<T>`, che è una variante, ma non una diretta implementazione di `Codec<T>`. I `MapCodec`, come suggerisce il loro nome garantiscono la serializzazione a una mappa chiave-valore, o al suo equivalente nella `DynamicOps` usata. Alcune funzioni ne potrebbero richiedere uno invece di un codec normale.
 
@@ -136,7 +136,7 @@ Questo modo particolare di creare un `MapCodec` racchiude sostanzialmente il val
 [1, 2, 3]
 ```
 
-Ma se viene convertito in un `MapCodec<BlockPos>` usando `BlockPos.CODEC.fieldOf("pos")`, avrebbe il seguente aspetto:
+Ma quando viene convertito in un `MapCodec<BlockPos>` usando `BlockPos.CODEC.fieldOf("pos")`, esso ha il seguente aspetto:
 
 ```json
 {
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Coppia
 
-`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec-da-non-confondere-con-codecltmapgt) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
+`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
 Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
 
 Per esempio, eseguire questo codice:
@@ -244,7 +244,7 @@ Come puoi vedere, questo funziona perché `Identifier.CODEC` serializza direttam
 
 ### Tipi Convertibili Mutualmente e Tu
 
-#### xmap
+#### `xmap`
 
 Immagina di avere due classi che possono essere convertite l'una nell'altra e viceversa, ma che non hanno un legame gerarchico genitore-figlio. Per esempio, un `BlockPos` vanilla e un `Vec3d`. Se avessimo un codec per uno, possiamo usare `Codec#xmap` per creare un codec per l'altro specificando una funzione di conversione per ciascuna direzione.
 
@@ -350,7 +350,7 @@ Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attribu
 
 ### Codec Ricorsivi
 
-A volte è utile avere un codec che utilizza _sé stesso_ per decodificare attributi specifici, per esempio quando si gestiscono certe strutture dati ricorsive. Nel codice vanilla, questo è utilizzato per gli oggetti `Text`, che potrebbero contenere altri `Text` come figli. Un codec del genere può essere costruito usando `Codecs#createRecursive`.
+A volte è utile avere un codec che utilizza _sé stesso_ per decodificare attributi specifici, per esempio quando si gestiscono certe strutture dati ricorsive. Nel codice vanilla, questo è usato per gli oggetti `Text`, che potrebbero contenere altri `Text` come figli. Un codec del genere può essere costruito usando `Codecs#createRecursive`.
 
 Per esempio, proviamo a serializzare una lista concatenata singolarmente. Questo metodo di rappresentare le liste consiste di una serie di nodi che contengono sia un valore sia un riferimento al nodo successivo nella lista. La lista è poi rappresentata dal suo primo nodo, e per attraversare la lista si segue il prossimo nodo finché non ce ne sono più. Ecco una semplice implementazione di nodi che contengono interi.
 
@@ -358,7 +358,7 @@ Per esempio, proviamo a serializzare una lista concatenata singolarmente. Questo
 public record ListNode(int value, ListNode next) {}
 ```
 
-Non possiamo costruire un codec per questo come si fa di solito, quale codec utilizzeremmo per l'attributo `next`? Avremmo bisogno di un `Codec<ListNode>`, che è ciò che stiamo costruendo proprio ora! `Codecs#createRecursive` ci permette di fare ciò usando una lambda che sembra magia:
+Non possiamo costruire un codec per questo come si fa di solito: quale codec useremmo per l'attributo `next`? Avremmo bisogno di un `Codec<ListNode>`, che è ciò che stiamo costruendo proprio ora! `Codecs#createRecursive` ci permette di fare ciò usando una lambda che sembra magia:
 
 ```java
 Codec<ListNode> codec = Codecs.createRecursive(
