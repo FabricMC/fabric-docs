@@ -1,4 +1,4 @@
-name: Run markdownlint
+name: Lint
 
 on:
   pull_request:
@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - '**/*.md'
-      - '!LICENSE.md'
       - '!README.md'
       - '!translated/**'
       - '!versions/*/translated/**'
@@ -38,7 +37,6 @@ jobs:
           config: .markdownlint-cli2.yaml
           globs: |
             **/*.md
-            !LICENSE.md
             !README.md
             !**/node_modules
             !**/.git

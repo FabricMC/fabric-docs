@@ -7,7 +7,6 @@
       "!**/.git",
       "!versions/*/translated/**",
       "!translated/**",
-      "!LICENSE.md",
       "!README.md"
     ],
     "markdownlint.customRules": [

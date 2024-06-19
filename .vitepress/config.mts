@@ -40,7 +40,7 @@ export default defineVersionedConfig(
       transformItems,
     },
 
-    srcExclude: ["README.md", "LICENSE.md"],
+    srcExclude: ["README.md"],
 
     themeConfig: {
       search: {
