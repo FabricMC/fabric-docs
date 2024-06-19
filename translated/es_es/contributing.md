@@ -1,6 +1,6 @@
 # Pautas de Contribución para la Documentación de Fabric
 
-Esta página web utiliza [VitePress](https://vitepress.vuejs.org/) para generar HTML estático a partir de varios archivos markdown. Debes familiarizarte con las extensiones de markdown que VitePress soporta [aquí.](https://vitepress.vuejs.org/guide/markdown.html#features)
+Esta página web utiliza [VitePress](https://vitepress.dev/) para generar HTML estático a partir de varios archivos markdown. Debes familiarizarte con las extensiones de markdown que VitePress soporta [aquí](https://vitepress.dev/guide/markdown#features).
 
 ## Índice de Contenido
 
@@ -26,7 +26,7 @@ Antes de correr cualquiera de estos comandos, asegúrate de correr `npm install`
 
 Esto te permitirá ver una vista previa de tus cambios localmente en `localhost:3000`.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 Esto compilará todos los archivos markdown en archivos HTML estáticos, los cuales estarán en `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 Esto ejecutará un servidor local en el puerto 3000 usando el contenido encontrado en `.vitepress/dist`
 
-```bash
+```sh
 npm run preview
 ```
 

@@ -1,6 +1,6 @@
 # Fabric 문서 기여 가이드라인
 
-이 웹사이트는 [VitePress](https://vitepress.dev/)를 사용해 다양한 마크다운 파일에서 정적 HTML을 생성합니다. [여기](https://vitepress.dev/guide/markdown.html#features)에서 VitePress가 지원하는 마크다운 확장 기능에 익숙해져야 합니다.
+이 웹사이트는 [VitePress](https://vitepress.dev/)를 사용해 다양한 마크다운 파일에서 정적 HTML을 생성합니다. [여기](https://vitepress.dev/guide/markdown#features)에서 VitePress가 지원하는 마크다운 확장 기능에 익숙해져야 합니다.
 
 ## 목차
 
@@ -26,7 +26,7 @@
 
 개발 서버는 `localhost:3000`에서 로컬 변경 사항을 미리 볼 수 있게 합니다. 코드가 변경되면 변경 사항을 자동으로 적용합니다.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 웹사이트를 빌드하면 모든 마크다운 파일이 정적 HTML로 컴파일되어 `.vitepress/dist` 에 저장됩니다.
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 `.vitepress/dist`에 저장된 콘텐츠를 `localhost:3000` 에서 볼 수 있도록 합니다.
 
-```bash
+```sh
 npm run preview
 ```
 

@@ -1,6 +1,6 @@
 # Fabric 文档贡献指南
 
-此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown#features)。
 
 ## 目录
 
@@ -26,7 +26,7 @@
 
 这将允许您在本地地址 `localhost:3000` 预览您的更改，并自动在修改时重载页面。
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 这将编译所有 Markdown 文件为静态 HTML 页面并保存至 `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 这将在端口 3000 启动本地服务器并展示 `.vitepress/dist` 中的网页
 
-```bash
+```sh
 npm run preview
 ```
 

@@ -1,6 +1,6 @@
 # Правила внесення внесків до документації Fabric
 
-Цей вебсайт використовує [VitePress](https://vitepress.dev/) для генерації статичного HTML з різних файлів Markdown. Вам слід ознайомитися з розширеннями Markdown, які підтримує VitePress, [тут.](https://vitepress.dev/guide/markdown.html#features)
+Цей вебсайт використовує [VitePress](https://vitepress.dev/) для генерації статичного HTML з різних файлів Markdown. Вам слід ознайомитися з розширеннями Markdown, які підтримує VitePress, [тут](https://vitepress.dev/guide/markdown#features).
 
 ## Зміст
 
@@ -26,7 +26,7 @@
 
 Це дозволить вам переглянути свої зміни локально за адресою `localhost:3000` і автоматично перезавантажить сторінку при внесенні змін.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 Це скомпілює всі файли Markdown у статичні HTML-файли та помістить їх у папку `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 Це запустить локальний сервер на порту 3000, який буде обслуговувати вміст, знайдений у папці `.vitepress/dist`
 
-```bash
+```sh
 npm run preview
 ```
 

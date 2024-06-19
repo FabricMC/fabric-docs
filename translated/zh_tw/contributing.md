@@ -1,6 +1,6 @@
 # Fabric 文件貢獻指南
 
-這個網站使用 [VitePress](https://vitepress.dev/) 來將各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.vuejs.org/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.vuejs.org/guide/markdown.html#features)。
+這個網站使用 [VitePress](https://vitepress.dev/) 來將各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.dev/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.dev/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.dev/) 來從各種 Markdown 檔案轉換成靜態 HTML。 這個網站使用 [VitePress](https://vitepress.dev/) 來從各種 Markdown 檔案轉換成靜態 HTML。 你應該熟悉 VitePress 支援的 Markdown 擴充功能，詳細內容請參閱[這裡](https://vitepress.dev/guide/markdown#features)。
 
 ## 目錄
 
@@ -26,7 +26,7 @@
 
 這將讓你能在本機預覽你的變更，網址是 `localhost:3000`，並且在你進行變更時會自動重新載入頁面。
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 這將把所有的 Markdown 檔案編譯成靜態 HTML 檔案，並將它們放置在 `.vitepress/dist` 資料夾中。
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 這將在連接埠 3000 上啟動本機伺服器，提供在 `.vitepress/dist` 中找到的內容。
 
-```bash
+```sh
 npm run preview
 ```
 
