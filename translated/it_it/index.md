@@ -2,7 +2,6 @@
 title: Documentazione di Fabric
 description: La documentazione ufficiale e curata di Fabric, una toolchain per il modding di Minecraft.
 layout: home
-titleTemplate: Documentazione di Fabric
 hero:
   name: Documentazione di Fabric
   tagline: La documentazione ufficiale e curata di Fabric, una toolchain per il modding di Minecraft.

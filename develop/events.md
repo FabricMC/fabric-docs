@@ -13,9 +13,9 @@ authors:
   - YanisBft
   - liach
   - natanfudge
+authors-nogithub:
+  - stormyfabric
 ---
-
-<!-- Couldn't find GitHub usernames for: stormyfabric -->
 
 # Events
 

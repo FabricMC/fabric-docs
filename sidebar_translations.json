@@ -42,6 +42,5 @@
   "develop.misc.events": "Events",
   "develop.sounds": "Sounds",
   "develop.sounds.using-sounds": "Playing SoundEvents",
-  "develop.sounds.custom": "Creating Custom Sounds",
-  "github.edit": "Edit this page on GitHub"
+  "develop.sounds.custom": "Creating Custom Sounds"
 }

@@ -3,9 +3,6 @@ title: Fabric Documentation
 description: The official curated documentation for Fabric, a modding toolchain for Minecraft.
 layout: home
 
-# Override the default title template, to prevent "Fabric Documentation | Fabric Documentation" as the title
-titleTemplate: Fabric Documentation
-
 hero:
   name: Fabric Documentation
   tagline: The official curated documentation for Fabric, a modding toolchain for Minecraft.

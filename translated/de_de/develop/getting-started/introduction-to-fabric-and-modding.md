@@ -4,9 +4,9 @@ description: "Eine kurze Einführung in Fabric und Modding in Minecraft: Java Ed
 authors:
   - IMB11
   - itsmiir
+authors-nogithub:
+  - basil4088
 ---
-
-<!-- No GitHub profile exists for "basil4088" -->
 
 # Einführung in Fabric und Modding
 

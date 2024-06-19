@@ -14,9 +14,9 @@ authors:
   - mkpoli
   - falseresync
   - asiekierka
+authors-nogithub:
+  - siglong
 ---
-
-<!-- No GitHub profiles for: siglong -->
 
 # 设置开发环境
 

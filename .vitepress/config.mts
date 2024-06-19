@@ -1,66 +1,61 @@
-import { PageData, TransformPageContext } from 'vitepress'
+import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import defineVersionedConfig from "vitepress-versioning-plugin";
 
-import snippetPlugin from 'markdown-it-vuepress-code-snippet-enhanced'
-import defineVersionedConfig, { VersionedConfig } from 'vitepress-versioning-plugin'
-
-import { loadLocales } from './i18n'
-import { applySEO, removeVersionedItems } from './seo'
+import { loadLocales } from "./i18n";
+import { transformItems, transformPageData } from "./transform";
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
-export default defineVersionedConfig(__dirname, {
-  versioning: {
-    latestVersion: '1.20.4',
+export default defineVersionedConfig(
+  {
+    cleanUrls: true,
+
+    head: [["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }]],
+
+    // Prevent dead links from being reported as errors - allows partially translated pages to be built.
+    ignoreDeadLinks: true,
+
+    lastUpdated: true,
+
+    locales: loadLocales(__dirname),
+
+    markdown: {
+      config(md) {
+        md.use(snippetPlugin);
+      },
+      // TODO: load `mcfunction`
+      // - https://vitepress.dev/guide/markdown#syntax-highlighting-in-code-blocks
+      // - https://shiki.style/guide/load-lang
+      // - https://github.com/MinecraftCommands/syntax-mcfunction/blob/main/mcfunction.tmLanguage.json
+      lineNumbers: true,
+      math: true,
+    },
+
     rewrites: {
-      localePrefix: 'translated'
-    }
-  },
+      "translated/:lang/(.*)": ":lang/(.*)",
+    },
 
-  rewrites: {
-    'translated/:lang/(.*)': ':lang/(.*)'
-  },
+    sitemap: {
+      hostname: "https://docs.fabricmc.net/",
+      transformItems,
+    },
 
-  title: "Fabric Documentation",
-  description: "Comprehensive documentation for Fabric, the Minecraft modding toolchain.",
-  cleanUrls: true,
+    srcExclude: ["README.md", "LICENSE.md"],
 
-  head: [[
-    'link',
-    { rel: 'icon', sizes: '32x32', href: '/favicon.png' },
-  ]],
+    themeConfig: {
+      search: {
+        provider: "local",
+      },
+    },
 
-  locales: loadLocales(__dirname),
+    transformPageData,
 
-  // Prevent dead links from being reported as errors - allows partially translated pages to be built.
-  ignoreDeadLinks: true,
-
-  srcExclude: [
-    "README.md",
-    "LICENSE.md",
-  ],
-
-  transformPageData(pageData: PageData, _ctx: TransformPageContext) {
-    applySEO(pageData);
-  },
-
-  sitemap: {
-    hostname: "https://docs.fabricmc.net/",
-    transformItems: items => removeVersionedItems(items)
-  },
-
-  lastUpdated: true,
-
-  themeConfig: {
-    search: {
-      provider: 'local'
+    versioning: {
+      latestVersion: "1.20.4",
+      rewrites: {
+        localePrefix: "translated",
+      },
     },
   },
-
-  markdown: {
-    lineNumbers: true,
-    math: true,
-    config(md) {
-      md.use(snippetPlugin);
-    }
-  }
-} as VersionedConfig)
+  __dirname
+);

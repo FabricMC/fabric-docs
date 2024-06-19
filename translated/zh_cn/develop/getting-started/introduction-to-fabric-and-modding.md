@@ -4,9 +4,9 @@ description: Minecraft：Java 版中 Fabric 和模组的简要介绍。
 authors:
   - IMB11
   - itsmiir
+authors-nogithub:
+  - basil4088
 ---
-
-<!-- No GitHub profile exists for "basil4088" -->
 
 # Fabric 和模组简介
 

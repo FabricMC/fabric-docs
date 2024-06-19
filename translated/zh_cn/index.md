@@ -2,7 +2,6 @@
 title: Fabric 文档
 description: 为 Fabric —— 一套 Minecraft 模组工具链 —— 精心撰写的官方文档。
 layout: home
-titleTemplate: Fabric 文档
 hero:
   name: Fabric 文档
   tagline: 为 Fabric —— 一套 Minecraft 模组工具链 —— 精心撰写的官方文档。

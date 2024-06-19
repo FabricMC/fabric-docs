@@ -2,7 +2,6 @@
 title: Документація Fabric
 description: Офіційна документація для Fabric, інструментарію модифікацій для Minecraft.
 layout: home
-titleTemplate: Документація Fabric
 hero:
   name: Документація Fabric
   tagline: Офіційна документація для Fabric, інструментарію модифікацій для Minecraft.

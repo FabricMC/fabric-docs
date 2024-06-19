@@ -2,7 +2,6 @@
 title: Documentación de Fabric
 description: La documentación oficial para Fabric, un conjunto de herramientas para desarrollar mods para Minecraft.
 layout: home
-titleTemplate: Documentación de Fabric
 hero:
   name: Documentación de Fabric
   tagline: La documentación oficial seleccionada para Fabric, una cadena de herramientas de modificación para Minecraft.

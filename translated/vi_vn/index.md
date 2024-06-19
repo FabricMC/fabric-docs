@@ -2,7 +2,6 @@
 title: Tài Liệu Fabric
 description: Tài liệu chính thức của Fabric, một công cụ modding dành cho Minecraft.
 layout: home
-titleTemplate: Tài Liệu Fabric
 hero:
   name: Tài Liệu Fabric
   tagline: Tài liệu chính thức của Fabric, một công cụ modding dành cho Minecraft.
