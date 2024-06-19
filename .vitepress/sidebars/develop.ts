@@ -84,6 +84,16 @@ export default [
     ]
   },
   {
+    text: "develop.blocks",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.blocks.first-block",
+        link: "/develop/blocks/first-block"
+      }
+    ]
+  },
+  {
     text: "develop.entities",
     collapsed: true,
     items: [
