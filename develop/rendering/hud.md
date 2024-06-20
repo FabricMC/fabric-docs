@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Rendering in the Hud
+# Rendering in the Hud {#rendering-in-the-hud}
 
 We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
 
-## HudRenderCallback
+## HudRenderCallback {#hudrendercallback}
 
 The `HudRenderCallback` event - provided by Fabric API - is called every frame, and is used to render things to the HUD.
 
@@ -19,13 +19,11 @@ The draw context can be used to access the various rendering utilities provided 
 
 You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
-### DeltaTick
+### DeltaTick {#deltatick}
 
 The `deltaTick` parameter is the time since the last frame, in seconds. This can be used to make animations and other time-based effects.
 
-#### Example: Lerping a Color Over Time
-
-Let's say you want to lerp a color over time. You can use the `deltaTick` parameter to do this.
+For example, let's say you want to lerp a color over time. You can use the `deltaTick` parameter to do this:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

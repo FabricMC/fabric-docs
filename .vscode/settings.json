@@ -2,12 +2,8 @@
     "markdownlint.lintWorkspaceGlobs": [
       "**/*.md",
       "!**/node_modules",
-      "!**/.git",
       "!versions/*/translated/**",
       "!translated/**",
       "!README.md"
-    ],
-    "markdownlint.customRules": [
-      "../node_modules/markdownlint-rule-titlecase/"
     ]
 }

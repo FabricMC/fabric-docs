@@ -50,7 +50,7 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -67,7 +67,7 @@ Command<ServerCommandSource> command = context -> {
 
 回调一共有三个参数：
 
-- `CommandDispatcher<ServerCommandSource> dispatcher` - 用于注册，解析，执行命令。 `S`  是分发器支持的命令源类型。
+- `CommandDispatcher<ServerCommandSource> dispatcher` - 用于注册，解析，执行命令。 `S` 是分发器支持的命令源类型。
 - `CommandRegistryAccess registryAccess` - 为可传递给某些命令参数方法的注册表提供一个抽象概念
 - `CommandManager.RegistrationEnvironment environment` - 标识注册命令的服务器类型。
 

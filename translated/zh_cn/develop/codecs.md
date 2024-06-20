@@ -62,7 +62,7 @@ Codec API 自己包含了一些 基础类型的 codec，就像 `Codec.INT` 和 `
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -259,7 +259,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 // 当转换一个存在的类 （比如 `X`）到您自己的类 (`Y`)
 // 最好是在 `Y` 类中添加 `toX` 和静态的 `fromX` 方法
-//  并且使用在您的 `xmap` 调用中使用方法引用
+// 并且使用在您的 `xmap` 调用中使用方法引用
 ```
 
 #### flatComapMap、comapFlatMap 与 flatXMap
@@ -284,7 +284,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -308,7 +308,7 @@ public class Identifier {
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于改注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry` 可以简单的调用  `Registry#getCodec`。
+- 一个基于改注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry` 可以简单的调用 `Registry#getCodec`。
 
 集齐这些，我们可以创建一个 bean 的注册表分派 codec。
 
@@ -347,5 +347,5 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ## 引用
 
-- 关于编解码器及相关API的更全面的文档，可以在[非官方DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html)中找到。
+- 关于编解码器及相关API的更全面的文档，可以在[非官方DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec)中找到。
 - 本指南的总体结构受到了 [Forge 社区 Wiki 关于 Codec 的页面](https://forge.gemwire.uk/wiki/Codecs)的重大启发，这是对同一主题的更具 Forge 特色的解读。

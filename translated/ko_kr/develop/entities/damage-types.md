@@ -13,7 +13,7 @@ authors:
 
 ## 피해 유형 추가하기
 
-_Tater_ 라는 이름의 사용자 정의 피해 유형을 추가해 봅시다. 이는 피해 유형의 JSON 파일을 생성하며 시작됩니다. 이 파일은 모드 리소스의 `data` 디렉토리의 `damage_type`  폴더에 저장됩니다.
+_Tater_ 라는 이름의 사용자 정의 피해 유형을 추가해 봅시다. 이는 피해 유형의 JSON 파일을 생성하며 시작됩니다. 이 파일은 모드 리소스의 `data` 디렉토리의 `damage_type` 폴더에 저장됩니다.
 
 ```:no-line-numbers
 resources/data/fabric-docs-reference/damage_type/tater.json

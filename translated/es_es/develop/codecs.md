@@ -37,7 +37,7 @@ Ahora podemos obtener nuestro valor serializado y convertirlo de vuelta a un `Bl
 // Cuando desarrolles un mod, querrás obviamente manejar Opcionales vaciós apropiadamente
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// Aquí tenemos nuestro valor json, que debería corresponder a `[1, 2, 3]`, 
+// Aquí tenemos nuestro valor json, que debería corresponder a `[1, 2, 3]`,
 // ya que es el formato usado por el codec de BlockPos.
 LOGGER.info("Serialized BlockPos: {}", json);
 
@@ -63,7 +63,7 @@ Ahora que hemos visto como usar codecs, veamos como podemos hacer nuestros propi
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -287,7 +287,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -311,7 +311,7 @@ Por ejemplo, digamos que tenemos una interfaz abstracta `Bean`, con dos clases i
 - Una clase `BeanType<T extends Bean>` o un record que represente el tipo de bean, y que pueda retornar un codec para él.
 - Una función en `Bean` para obtener su `BeanType<?>`.
 - Una asociación o registro para asociar `Identifier`s a `BeanType<?>`s.
-- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`,  puedes hacer una fácilmente con `Registry#getCodec`.
+- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`, puedes hacer una fácilmente con `Registry#getCodec`.
 
 Con todo esto, puedes crear un despacho de registros para beans:
 
@@ -394,5 +394,5 @@ Un `ListNode` serializado se podría ver algo así:
 
 ## Fuentes y Referencias
 
-- Puedes encontrar una documentación más completa sobre codecs y los APIs relacionados en los [Javadocs de DFU no oficiales](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- Puedes encontrar una documentación más completa sobre codecs y los APIs relacionados en los [Javadocs de DFU no oficiales](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La estructura general de esta guía fue inspirada en gran medida por la [página Wiki de Forge sobre codecs](https://forge.gemwire.uk/wiki/Codecs), una versión de esta página más enfocada para Forge.

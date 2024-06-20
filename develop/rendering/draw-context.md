@@ -5,17 +5,17 @@ authors:
   - IMB11
 ---
 
-# Using the Drawing Context
+# Using the Drawing Context {#using-the-drawing-context}
 
 This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.
 
 The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.
 
-## Drawing Shapes
+## Drawing Shapes {#drawing-shapes}
 
 The `DrawContext` class can be used to easily draw **square-based** shapes. If you want to draw triangles, or any non-square based shape, you will need to use a `BufferBuilder`.
 
-### Drawing Rectangles
+### Drawing Rectangles {#drawing-rectangles}
 
 You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
 
@@ -23,7 +23,7 @@ You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
 
 ![A rectangle](/assets/develop/rendering/draw-context-rectangle.png)
 
-### Drawing Outlines/Borders
+### Drawing Outlines/Borders {#drawing-outlines-borders}
 
 Let's say we want to outline the rectangle we just drew. We can use the `DrawContext.drawBorder(...)` method to draw an outline.
 
@@ -31,7 +31,7 @@ Let's say we want to outline the rectangle we just drew. We can use the `DrawCon
 
 ![Rectangle with border](/assets/develop/rendering/draw-context-rectangle-border.png)
 
-### Drawing Individual Lines
+### Drawing Individual Lines {#drawing-individual-lines}
 
 We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVerticalLine(...)` methods to draw lines.
 
@@ -39,11 +39,11 @@ We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVertic
 
 ![Lines](/assets/develop/rendering/draw-context-lines.png)
 
-## The Scissor Manager
+## The Scissor Manager {#the-scissor-manager}
 
 The `DrawContext` class has a built-in scissor manager. This allows you to easily clip your rendering to a specific area. This is useful for rendering things like tooltips, or other elements that should not be rendered outside of a specific area.
 
-### Using the Scissor Manager
+### Using the Scissor Manager {#using-the-scissor-manager}
 
 ::: tip
 Scissor regions can be nested! But make sure that you disable the scissor manager the same amount of times as you enabled it.
@@ -57,11 +57,11 @@ To enable the scissor manager, simply use the `DrawContext.enableScissor(...)` m
 
 As you can see, even though we tell the game to render the gradient across the entire screen, it only renders within the scissor region.
 
-## Drawing Textures
+## Drawing Textures {#drawing-textures}
 
 There is no one "correct" way to draw textures onto a screen, as the `drawTexture(...)` method has many different overloads. This section will go over the most common use cases.
 
-### Drawing an Entire Texture
+### Drawing an Entire Texture {#drawing-an-entire-texture}
 
 Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `DrawContext` class will assume these values if you don't provide them, which can sometimes be wrong.
 
@@ -69,7 +69,7 @@ Generally, it's recommended that you use the overload that specifies the `textur
 
 ![Drawing whole texture example](/assets/develop/rendering/draw-context-whole-texture.png)
 
-### Drawing a Portion of a Texture
+### Drawing a Portion of a Texture {#drawing-a-portion-of-a-texture}
 
 This is where `u` and `v` come in. These parameters specify the top-left corner of the texture to draw, and the `regionWidth` and `regionHeight` parameters specify the size of the portion of the texture to draw.
 
@@ -83,7 +83,7 @@ If we want to only draw a region that contains the magnifying glass, we can use 
 
 ![Region Texture](/assets/develop/rendering/draw-context-region-texture.png)
 
-## Drawing Text
+## Drawing Text {#drawing-text}
 
 The `DrawContext` class has various self-explanatory text rendering methods - for the sake of brevity, they will not be covered here.
 

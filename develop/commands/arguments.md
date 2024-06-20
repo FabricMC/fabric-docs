@@ -3,7 +3,7 @@ title: Command Arguments
 description: Learn how to create commands with complex arguments.
 ---
 
-# Command Arguments
+# Command Arguments {#command-arguments}
 
 Arguments are used in most of the commands. Sometimes they can be optional, which means if you do not provide that
 argument,
@@ -28,7 +28,7 @@ both executions.
 
 @[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## Custom Argument Types
+## Custom Argument Types {#custom-argument-types}
 
 If vanilla does not have the argument type you need, you can create your own. To do this, you need to create a class that inherits the `ArgumentType<T>` interface where `T` is the type of the argument.
 
@@ -38,7 +38,7 @@ For example, you can create an argument type that parses a `BlockPos` from a str
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
 
-### Registering Custom Argument Types
+### Registering Custom Argument Types {#registering-custom-argument-types}
 
 ::: warning
 You need to register the custom argument type on both the server and the client or else the command will not work!
@@ -48,7 +48,7 @@ You can register your custom argument type in the `onInitialize` method of your 
 
 @[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Using Custom Argument Types
+### Using Custom Argument Types {#using-custom-argument-types}
 
 We can use our custom argument type in a command - by passing an instance of it into the `.argument` method on the command builder.
 

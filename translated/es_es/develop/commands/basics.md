@@ -50,7 +50,7 @@ Puedes acceder la fuente del comando desde un contexto de comando llamando `getS
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```

@@ -29,14 +29,14 @@ authors:
 
 在 macOS 上，您可能需要右键点击在您下载目录中的 `.jar`，然后点击 `Open` 来运行它。
 
-![高亮 "Install"  的 Fabric 安装程序](/assets/players/installing-fabric/macos-downloads.png)
+![高亮 "Install" 的 Fabric 安装程序](/assets/players/installing-fabric/macos-downloads.png)
 
 当询问您 "Are you sure you want to open it?" 的时候，再次点击 `Open`。
 :::
 
 当您打开安装器的时候，您将会看到像是这样的屏幕：
 
-![高亮 "Install"  的 Fabric 安装程序](/assets/players/installing-fabric/installer-screen.png)
+![高亮 "Install" 的 Fabric 安装程序](/assets/players/installing-fabric/installer-screen.png)
 
 要安装 Fabric，只需从下拉列表中选择您的游戏版本，然后单击 `Install`。
 

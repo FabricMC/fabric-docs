@@ -63,7 +63,7 @@ authors:
 由於堆疊追蹤中提到了大量的模組，要指出責任者可能有些困難，但首先要做的是尋找導致崩潰的模組。
 
 ```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51) 
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
 at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)

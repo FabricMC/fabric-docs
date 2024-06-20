@@ -63,7 +63,7 @@ Maintenant qu'on sait utiliser les codecs, regardons comment construire le nôtr
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -286,7 +286,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -393,5 +393,5 @@ Un `ListNode` sérialisé pourrait alors ressembler à ceci :
 
 ## Références
 
-- Il y a une documentation bien plus exhaustive des codecs et des APIs attenantes dans la [JavaDoc DFU non-officielle](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- Il y a une documentation bien plus exhaustive des codecs et des APIs attenantes dans la [JavaDoc DFU non-officielle](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La structure globale de ce guide s'inspire beaucoup de [la page du Forge Community Wiki sur les codecs](https://forge.gemwire.uk/wiki/Codecs), qui propose une approche du même sujet plus centrée autour de Forge.

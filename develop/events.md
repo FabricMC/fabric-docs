@@ -17,7 +17,7 @@ authors-nogithub:
   - stormyfabric
 ---
 
-# Events
+# Events {#events}
 
 Fabric API provides a system that allows mods to react to actions or occurrences, also defined as _events_ that occur in the game.
 
@@ -27,25 +27,23 @@ Fabric API provides events for important areas in the Minecraft codebase that mu
 
 Events are represented by instances of `net.fabricmc.fabric.api.event.Event` which stores and calls _callbacks_. Often there is a single event instance for a callback, which is stored in a static field `EVENT` of the callback interface, but there are other patterns as well. For example, `ClientTickEvents` groups several related events together.
 
-## Callbacks
+## Callbacks {#callbacks}
 
 Callbacks are a piece of code that is passed as an argument to an event. When the event is triggered by the game, the passed piece of code will be executed.
 
-### Callback Interfaces
+### Callback Interfaces {#callback-interfaces}
 
 Each event has a corresponding callback interface, conventionally named `<EventName>Callback`. Callbacks are registered by calling `register()` method on an event instance, with an instance of the callback interface as the argument.
 
 All event callback interfaces provided by Fabric API can be found in the `net.fabricmc.fabric.api.event` package.
 
-## Listening to Events
-
-### A Simple Example
+## Listening to Events {#listening-to-events}
 
 This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don't drop an item when hand-mined.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-### Adding Items to Existing Loot Tables
+### Adding Items to Existing Loot Tables {#adding-items-to-existing-loot-tables}
 
 Sometimes you may want to add items to loot tables. For example, adding your drops to a vanilla block or entity.
 
@@ -53,13 +51,13 @@ The simplest solution, replacing the loot table file, can break other mods. What
 
 We'll be adding eggs to the coal ore loot table.
 
-#### Listening to Loot Table Loading
+#### Listening to Loot Table Loading {#listening-to-loot-table-loading}
 
 Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your mod initializer. Let's also check that the current loot table is the coal ore loot table.
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-#### Adding Items to the Loot Table
+#### Adding Items to the Loot Table {#adding-items-to-the-loot-table}
 
 In loot tables, items are stored in _loot pool entries_, and entries are stored in _loot pools_. To add an item, we'll need to add a pool with an item entry to the loot table.
 
@@ -69,7 +67,7 @@ Our pool doesn't have any items either, so we'll make an item entry using `ItemE
 
 @[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-## Custom Events
+## Custom Events {#custom-events}
 
 Some areas of the game do not have hooks provided by the Fabric API, so you can either use a mixin or create your own event.
 
@@ -79,7 +77,7 @@ We'll look at creating an event that is triggered when sheep are sheared. The pr
 - Triggering the event from a mixin
 - Creating a test implementation
 
-### Creating the Event Callback Interface
+### Creating the Event Callback Interface {#creating-the-event-callback-interface}
 
 The callback interface describes what must be implemented by event listeners that will listen to your event. The callback interface also describes how the event will be called from our mixin. It is conventional to place an `Event` object as a field in the callback interface, which will identify our actual event.
 
@@ -109,13 +107,13 @@ We can add Javadoc comments to the top of callback classes to document what each
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-### Triggering the Event From a Mixin
+### Triggering the Event From a Mixin {#triggering-the-event-from-a-mixin}
 
 We now have the basic event skeleton, but we need to trigger it. Because we want to have the event called when a player attempts to shear a sheep, we call the event `invoker` in `SheepEntity#interactMob` when `sheared()` is called (i.e. sheep can be sheared, and the player is holding shears):
 
 @[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
-### Creating a Test Implementation
+### Creating a Test Implementation {#creating-a-test-implementation}
 
 Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. Here's an example that drops a diamond instead of wool at the sheep's feet:
 
