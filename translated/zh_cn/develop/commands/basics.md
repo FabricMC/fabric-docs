@@ -19,10 +19,10 @@ authors:
 
 # 创建命令
 
-创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和Brigadier的一般命令结构。 这个指南将会教会你如何注册命令和Brigadier的一般命令结构。
+创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 :::info
-要添加子命令，通常需要注册该命令的第一个字面量节点。 为了添加一个子命令，您必须将下一个字面量节点添加到一个已经存在的节点上。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https://github.com/Mojang/brigadier
+Brigadier 是 Mojang 为 Minecraft 编写的命令解析器和调度器。 它是一个树状命令库，让您可以构建命令和参数的树。 Brigadier 被开源在：https://github.com/Mojang/brigadier
 :::
 
 ## `Command` 接口
@@ -40,7 +40,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-该整型数字可以被认为是命令的执行结果。 该整型数字可以被认为是命令的执行结果。 通常，小于或等于零的值表示命令失败并将继续执行并且什么也不做。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。
+该整型数字可以被认为是命令的执行结果。 通常，小于或等于零的值表示命令失败并将继续执行并且什么也不做。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。
 
 ### `ServerCommandSource` 可以做什么？
 
@@ -97,9 +97,9 @@ Command<ServerCommandSource> command = context -> {
 
 @[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行。 在其他情况下，命令并不会被注册。 在其他情况下，命令并不会被注册。
+这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行。 在其他情况下，命令并不会被注册。
 
-这样做的副作用是不会向不具备 2 级管理员的人显示此命令。 这也是您为什么在未开启作弊模式的情况下不能使用 tab 补全绝大多数命令的原因。 这也是您为什么在未开启作弊模式的情况下不能使用 tab 补全绝大多数命令的原因。
+这样做的副作用是不会向不具备 2 级管理员的人显示此命令。 这也是您为什么在未开启作弊模式的情况下不能使用 tab 补全绝大多数命令的原因。
 
 ### 子命令
 
@@ -107,19 +107,19 @@ Command<ServerCommandSource> command = context -> {
 
 @[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-类似参数，子命令也可被设置为可选。 类似参数，子命令也可被设置为可选。 在以下情况下，`/subtater` 和 `/subtater subcommand` 都是有效的。
+类似参数，子命令也可被设置为可选。 在以下情况下，`/subtater` 和 `/subtater subcommand` 都是有效的。
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 客户端命令
 
-Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中的 `ClientCommandManager`，可以帮助您注册客户端端的命令。 代码应当仅存在于客户端端的代码中。 代码应当仅存在于客户端端的代码中。
+Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中的 `ClientCommandManager`，可以帮助您注册客户端端的命令。 代码应当仅存在于客户端端的代码中。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 命令重定向
 
-第二个参数决定是否广播反馈给其他的管理员。 一般来讲，如果一个命令只是查询一些东西而不会改变世界，比如说查询世界的时间或者玩家的分数，它应该是 `false` 的。 如果一个命令做了一些事情，比如说改变时间或者修改一些人的分数，它应该是 `true`。 这对于您如果想改变一个命令的名字但是您依然想支持旧名的情况下十分有用。
+命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
