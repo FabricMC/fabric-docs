@@ -19,13 +19,13 @@ authors:
 
 # 创建命令
 
-创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和Brigadier的一般命令结构。
+创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 :::info
-Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： https://github.com/Mojang/brigadier
+Brigadier 是 Mojang 为 Minecraft 编写的命令解析器和调度器。 它是一个树状命令库，让您可以构建命令和参数的树。 Brigadier 被开源在：https://github.com/Mojang/brigadier
 :::
 
-### `Command` 接口
+## `Command` 接口
 
 `com.mojang.brigadier.Command` 是一个可以执行指定行为的函数式接口， 并且在某些情况下会抛出 `CommandSyntaxException` 异常。 它有一个泛型参数 `S`，定义了_命令来源_的类型。
 命令来源提供了命令运行的上下文。 在 Minecraft 中，命令来源通常是代表服务器的 `ServerCommandSource`，命令方块，远程连接(RCON)，玩家或者实体。
@@ -42,7 +42,7 @@ Command<ServerCommandSource> command = context -> {
 
 该整型数字可以被认为是命令的执行结果。 通常，小于或等于零的值表示命令失败并将继续执行并且什么也不做。 大于零的值则意味着命令被成功执行并做了某些事情。 Brigadier 提供了一个常量来表示执行成功： `Command#SINGLE_SUCCESS`。
 
-#### `ServerCommandSource` 可以做什么？
+### `ServerCommandSource` 可以做什么？
 
 当执行时 `ServerCommandSource` 提供了一些额外的特殊实现的上下文。 它有获得执行命令的实体、在哪个世界运行或者在哪个服务器上运行的能力。
 
@@ -55,7 +55,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-### 注册一个基本命令
+## 注册一个基本命令
 
 可以通过 Fabric API 提供的 `CommandRegistrationCallback` 来注册命令 。
 
@@ -81,17 +81,17 @@ Command<ServerCommandSource> command = context -> {
 
 如果一个命令失败了，您可以直接抛出任何异常而不是调用 `sendFeedback()`，服务器会妥善处理。
 
-通常抛出 `CommandSyntaxException` 异常来指示语法异常或者参数异常。 您也可以实现您自己的异常。
+通常抛出 `CommandSyntaxException` 异常来指示语法异常或者参数异常。 你也可以实现一个专属的异常类型。
 
 为了执行这个命令，您必须输入大小写敏感的 `/foo`。
 
-#### 注册环境
+### 注册环境
 
 如果需要，您还可以确保仅在某些特定情况下注册命令，例如仅在专用环境中：
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-#### 命令需求
+### 命令需求
 
 假设您有一个只希望管理员可以执行的命令。 有一个 `requires()` 方法可以做到这一点。 `requires()` 方法有一个 `Predicate<S>` 参数，它将提供一个 `ServerCommandSource` 测试并确定 `CommandSource` 是否可以执行该命令。
 
@@ -101,7 +101,7 @@ Command<ServerCommandSource> command = context -> {
 
 这样做的副作用是不会向不具备 2 级管理员的人显示此命令。 这也是您为什么在未开启作弊模式的情况下不能使用 tab 补全绝大多数命令的原因。
 
-#### 子命令
+### 子命令
 
 要添加子命令，通常需要注册该命令的第一个字面量节点。 为了添加一个子命令，您必须将下一个字面量节点添加到一个已经存在的节点上。
 
@@ -111,34 +111,36 @@ Command<ServerCommandSource> command = context -> {
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### 客户端命令
+## 客户端命令
 
 Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中的 `ClientCommandManager`，可以帮助您注册客户端端的命令。 代码应当仅存在于客户端端的代码中。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### 命令重定向
+## 命令重定向
 
-命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这对于您如果想改变一个命令的名字但是您依然想支持旧名的情况下十分有用。
+命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-### 常见问题
+## 常见问题
 
 <br>
 
-###### 为什么我的代码不可以被编译？
+### 为什么我的代码不可以被编译？
 
 - 捕捉或者抛出 `CommandSyntaxException` - `CommandSyntaxException` 并不是一个 `RuntimeException`。 如果你抛出了它， 抛出它的地方应该是在方法签名中抛出 `CommandSyntaxException` 的方法中，或者被捕获。
+  Brigadier 将处理已检查的异常并为您转发游戏中正确的错误消息。 如果抛出异常，
+  那么应该在方法签名中声明该方法会抛出 `CommandSyntaxException`，或者应该对其进行捕获处理。
   Brigadier 将处理已检查的异常并为您转发游戏中正确的错误消息。
 
-- 泛型问题──您可能有时候会遇到泛型的问题。 如果您要注册服务器命令（大多数情况），请确保使用 `CommandManager.literal` 或者 `CommandManager.argument` 而不是 `LiteralArgumentBuilder.literal` 或者 `RequiredArgumentBuilder.argument`。
+- 泛型问题──您可能有时候会遇到泛型的问题。 泛型问题──您可能有时候会遇到泛型的问题。 如果您要注册服务器命令（大多数情况），请确保使用 `CommandManager.literal` 或者 `CommandManager.argument` 而不是 `LiteralArgumentBuilder.literal` 或者 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Text`。
 
-- 命令应当返回一个整型数字 - 注册命令时，`executes()` 方法接受一个 `Command` 对象，该对象通常是 lambda。 lambda 应该返回一个整型数字，而不是其他类型。
+- 命令应当返回一个整型数字 - 注册命令时，`executes()` 方法接受一个 `Command` 对象，该对象通常是 lambda。 lambda 应该返回一个整型数字，而不是其他类型。 lambda 应该返回一个整型数字，而不是其他类型。
 
-###### 我可以在运行时注册命令吗？
+### 我可以在运行时注册命令吗？
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -149,13 +151,14 @@ you wish to its `CommandDispatcher`.
 这是必须的，因为客户端只会在玩家登录时本地缓存命令树（或者发送操作包时）以完成丰富的错误信息补全。
 :::
 
-###### 我可以在运行时注销命令吗？
+### 我可以在运行时注销命令吗？
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 在那之后，您需要使用 `sendCommandTree(ServerPlayerEntity)` 将命令树再次发送给所有玩家。
+为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 在那之后，您需要使用 `sendCommandTree(ServerPlayerEntity)` 将命令树再次发送给所有玩家。
 
 如果您不发送更新后的命令树，客户端可能认为命令依然存在，即使服务器会执行失败。
+:::
 :::
