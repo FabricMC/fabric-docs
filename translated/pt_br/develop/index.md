@@ -9,4 +9,4 @@ Nossos guias de desenvolvedor, escritos pela comunidade, abrangem uma variedade 
 
 Consulte a barra lateral para uma lista de todos os guias de desenvolvedor disponíveis. Se estiver procurando algo específico, você pode usar a barra de pesquisa no topo da página para achar o que precisa.
 
-Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição.](../CONTRIBUTING.md)
+Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição.](../contributing.md)

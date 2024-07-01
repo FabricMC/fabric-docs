@@ -1,11 +1,11 @@
 ---
-title: Lanciare Il Gioco
+title: Avviare il Gioco
 description: Impara come usare i vari profili d'avvio per avviare ed effettuare debug delle tue mod in un ambiente di gioco dal vivo.
 authors:
   - IMB11
 ---
 
-# Lanciare Il Gioco
+# Avviare il Gioco
 
 Loom di Fabric fornisce una varietà di profili d'avvio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili d'avvio e di come usarli per effettuare debug e per testare le tue mod nel gioco.
 
@@ -40,7 +40,7 @@ Tuttavia ci sono alcune limitazioni:
 
 Se stai usando i Mixin, puoi fare hotswap delle tue classi Mixin senza riavviare il gioco. Questo è utile per testare cambiamenti ai tuoi Mixin velocemente.
 
-Avrai bisogno d'installare l'agent java Mixin perché questo funzioni.
+Avrai bisogno d'installare l'agent Java Mixin perché questo funzioni.
 
 ### 1. Trova il Jar della Libreria Mixin
 
@@ -50,7 +50,7 @@ In IntelliJ IDEA, puoi trovare il jar della libreria Mixin nella sezione "Librer
 
 Dovrai copiare il "Percorso Assoluto" del jar per il prossimo passaggio.
 
-### 2. Aggiungi l'argomento VM `-javaagent`.
+### 2. Aggiungi l'argomento VM `-javaagent`
 
 Nella tua configurazione di avvio "Client Minecraft " e/o "Server Minecraft", aggiungi ciò che segue all'opzione Argomenti VM:
 

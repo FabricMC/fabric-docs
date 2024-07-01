@@ -7,7 +7,7 @@ description: Impara come riprodurre eventi sonori.
 
 Minecraft ha una grande selezione di suoni da cui puoi scegliere. Controlla la classe `SoundEvents` per vedere tutte le istanze di eventi sonori vanilla che Mojang ha predisposto.
 
-## Utilizzare Suoni Nella Tua Mod
+## Usare Suoni nella Tua Mod
 
 Assicurati di eseguire il metodo `playSound()` sul lato del server logico quando usi i suoni!
 
@@ -21,7 +21,7 @@ Il metodo `playSound()` è usato con l'oggetto `LivingEntity`. Solo il SoundEven
 
 ### SoundEvent e SoundCategory
 
-Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare il tuo SoundEvents](./custom.md) per includere il tuo suono.
+Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare i tuoi SoundEvents](./custom.md) per includere il tuo suono.
 
 Minecraft ha vari slider audio nelle impostazioni del gioco. L'enum `SoundCategory` è usato per determinare quale slider controllerà il volume del tuo suono.
 
