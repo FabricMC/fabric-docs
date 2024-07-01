@@ -8,7 +8,6 @@ import mediumZoom from 'medium-zoom';
 import BannerComponent from "./components/BannerComponent.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
-import PageAuthorComponent from './components/PageAuthorComponent.vue';
 import DownloadEntry from './components/DownloadEntry.vue';
 import ColorSwatch from './components/ColorSwatch.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
@@ -27,7 +26,7 @@ export default {
   },
   Layout() {
     const children = {
-      "aside-outline-after": () => h(PageAuthorComponent),
+      "aside-outline-after": () => h(AuthorsComponent),
       "layout-top": () => h(BannerComponent),
     };
 

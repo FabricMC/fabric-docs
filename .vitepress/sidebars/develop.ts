@@ -187,4 +187,4 @@ export default [
       }
     ]
   }
-] as ExtendedSidebarItem[];
+] as Fabric.SidebarItem[];
