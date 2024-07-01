@@ -1,18 +1,33 @@
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { h } from "vue";
+import { h, nextTick, onMounted, watch } from "vue";
+import { Theme, useRoute } from 'vitepress';
+
+import mediumZoom from 'medium-zoom';
 
 import BannerComponent from "./components/BannerComponent.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
+import PageAuthorComponent from './components/PageAuthorComponent.vue';
+import DownloadEntry from './components/DownloadEntry.vue';
+import ColorSwatch from './components/ColorSwatch.vue';
+import VideoPlayer from './components/VideoPlayer.vue';
 
 import "./style.css";
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    // Vidstack Videoplayer Component
+    app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('media-');
+
+    app.component('DownloadEntry', DownloadEntry);
+    app.component('ColorSwatch', ColorSwatch);
+    app.component('VideoPlayer', VideoPlayer);
+  },
   Layout() {
     const children = {
-      "aside-outline-after": () => h(AuthorsComponent),
+      "aside-outline-after": () => h(PageAuthorComponent),
       "layout-top": () => h(BannerComponent),
     };
 
@@ -22,4 +37,17 @@ export default {
 
     return h(DefaultTheme.Layout, null, children);
   },
-};
+  setup() {
+    const route = useRoute();
+    const initZoom = () => {
+      mediumZoom('.main img', { background: 'var(--vp-c-bg)' });
+    };
+    onMounted(() => {
+      initZoom();
+    });
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom())
+    );
+  },
+} satisfies Theme;

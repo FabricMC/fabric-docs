@@ -54,6 +54,30 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.items.first-item",
+        link: "/develop/items/first-item"
+      },
+      {
+        text: "develop.items.food",
+        link: "/develop/items/food"
+      },
+      {
+        text: "develop.items.custom-tools",
+        link: "/develop/items/custom-tools"
+      },
+      {
+        text: "develop.items.custom-armor",
+        link: "/develop/items/custom-armor"
+      },
+      {
+        text: "develop.items.custom-item-groups",
+        link: "/develop/items/custom-item-groups"
+      },
+      {
+        text: "develop.items.custom-item-interactions",
+        link: "/develop/items/custom-item-interactions"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },
@@ -155,8 +179,12 @@ export default [
       },
       {
         text: "develop.misc.events",
-        link: "/develop/events",
+        link: "/develop/events"
       },
-    ],
-  },
-] as Fabric.SidebarItem[];
+      {
+        text: "develop.misc.text-and-translations",
+        link: "/develop/text-and-translations"
+      }
+    ]
+  }
+] as ExtendedSidebarItem[];

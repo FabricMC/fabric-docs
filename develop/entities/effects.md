@@ -44,16 +44,14 @@ The status effect icon is a 18x18 PNG which will appear in the player's inventor
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Effect in player inventory](/assets/develop/tater-effect.png)
+<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
 ### Translations {#translations}
 
 Like any other translation, you can add an entry with ID format `"effect.<mod-id>.<effect-identifier>": "Value"` to the
 language file.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
   "effect.fabric-docs-reference.tater": "Tater"
 }
