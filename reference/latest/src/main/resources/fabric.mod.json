@@ -13,12 +13,11 @@
 			"com.example.docs.effect.FabricDocsReferenceEffects",
 			"com.example.docs.potion.FabricDocsReferencePotions",
 			"com.example.docs.sound.FabricDocsReferenceSounds",
-			"com.example.docs.damage.FabricDocsReferenceDamageTypes"
+			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
+			"com.example.docs.item.FabricDocsReferenceItems"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
-			"com.example.docs.rendering.RenderingConceptsEntrypoint",
-			"com.example.docs.rendering.HudRenderingEntrypoint",
 			"com.example.docs.client.command.FabricDocsReferenceClientCommands"
 		],
 		"fabric-datagen": [
