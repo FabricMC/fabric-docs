@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.FabricDocsReference;
-import com.example.docs.item.FabricDocsReferenceItems;
 
 // :::2
 public class FabricDocsReferenceSounds implements ModInitializer {
@@ -25,8 +24,7 @@ public class FabricDocsReferenceSounds implements ModInitializer {
 				SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
 
 		// ... the cleaner approach. // [!code focus]
-		CustomSounds.initialize(); // [!code focus]
-		FabricDocsReferenceItems.initialize(); // [!code focus]
+		// CustomSounds.initialize(); // [!code focus]
 	}
 }
 // :::2

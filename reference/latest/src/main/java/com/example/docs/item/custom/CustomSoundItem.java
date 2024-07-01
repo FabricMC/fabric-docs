@@ -1,4 +1,4 @@
-package com.example.docs.item;
+package com.example.docs.item.custom;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,7 +32,6 @@ public class CustomSoundItem extends Item {
 	// :::2
 	@Override
 	public ActionResult useOnBlock(ItemUsageContext context) {
-		// Tip of the day: Check out "Guard Clauses" to keep your code clean.
 		if (!context.getWorld().isClient()) {
 			// Play the sound and specify location, category and who made the sound.
 			// No entity made the sound, so we specify null.

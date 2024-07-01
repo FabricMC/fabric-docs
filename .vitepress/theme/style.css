@@ -76,6 +76,14 @@
   transform-origin: top center;
 }
 
+.medium-zoom-overlay {
+  z-index: 10000;
+}
+
+.medium-zoom-image {
+  z-index: 10001;
+}
+
 @keyframes show {
   100% {
     opacity: 1;
