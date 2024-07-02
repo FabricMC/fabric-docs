@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useData } from "vitepress"
+import { useData, useRoute } from "vitepress"
+
+const route = useRoute();
 
 const CURRENT_VERSION = "1.21";
 
 // Get version from URL.
 const version = computed(() => {
-  const url = new URL(window.location.href);
+  const path = route.path;
   // The version should be the first URL path segment and be either in the x.xx or x.xx.x format.
-  let version = url.pathname.split("/")[1];
+  let version = path.split("/")[1];
   const mcRegex = /^(\d+\.\d+(\.\d+)?)$/;
 
   // If no match, check for locales, locale may be the first path segment, it matches xx_xx locale code.
   if (!mcRegex.test(version)) {
     const localeRegex = /^([a-z]{2}_[a-z]]{2})$/;
     if (localeRegex.test(version)) {
-      version = url.pathname.split("/")[2];
+      version = path.split("/")[2];
       if (!mcRegex.test(version)) {
         // Must be latest version.
         return CURRENT_VERSION;
