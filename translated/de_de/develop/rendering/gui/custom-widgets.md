@@ -26,7 +26,7 @@ Wie alle Widgets musst du es mit der Methode `addDrawableChild`, die von der Kla
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-![Ein benutzerdefiniertes Widget in einer Oberfläche.](/assets/develop/rendering/gui/custom-widget-example.png)
+![Ein benutzerdefiniertes Widget in einer Oberfläche](/assets/develop/rendering/gui/custom-widget-example.png)
 
 ## Widget Events
 
