@@ -31,19 +31,19 @@ authors:
 
 Вы можете установить последнюю версию JRE из официальных репозиториев:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 Если вы используете сервер без необходимости в графическом интерфейсе, вы можете вместо этого установить `headless` версию:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 Если вы планируете разрабатывать моды, вместо этого вам понадобится JDK:
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 Вы можете установить Java 17, используя `apt`, с помощью следующих команд:
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 Вы можете установить Java 17, используя `dnf`, с помощью следующих команд:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 Если вам не нужен графический интерфейс, вы можете вместо этого установить `headless` версию:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 Если вы планируете разрабатывать моды, вместо этого вам понадобится JDK:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
