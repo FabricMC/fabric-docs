@@ -4,8 +4,7 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"ExampleMixin",
-		"event.SheepEntityMixin",
-		"potion.BrewingRecipeRegistryMixin"
+		"event.SheepEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
