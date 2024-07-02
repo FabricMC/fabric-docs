@@ -9,4 +9,4 @@ Unsere kuratierten, von der Community verfassten Leitfäden für Entwickler deck
 
 In der Seitenleiste findest du eine Liste mit allen verfügbaren Entwicklerleitfäden. Wenn du etwas Spezifisches suchst, kannst du die Suchleiste oben auf der Seite verwenden, um zu finden, was du benötigst.
 
-Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](/contributing).
+Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](../contributing).
