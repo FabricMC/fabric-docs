@@ -22,6 +22,10 @@ features:
 
 <div class="vp-doc homepage-container">
 
+::: warning
+You are currently viewing the documentation for Minecraft 1.20.4. If you are looking for the documentation for a different version, please select the version you are using from the dropdown on the navigation bar.
+:::
+
 ## Want to Contribute? {#contribute}
 
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
