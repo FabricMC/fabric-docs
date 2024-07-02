@@ -42,5 +42,6 @@
   "develop.misc.events": "事件",
   "develop.sounds": "音效",
   "develop.sounds.using-sounds": "撥放音效事件",
-  "develop.sounds.custom": "建立自訂音效"
+  "develop.sounds.custom": "建立自訂音效",
+  "github.edit": "在 GitHub 上編輯此頁面"
 }

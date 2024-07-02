@@ -57,8 +57,7 @@ authors:
 
 ![玩家物品栏内的效果](/assets/develop/tater-potion.png)
 
-::: info
-**Registering Potions Using an `Ingredient`**
+:::info 使用`Ingredient`注册药水
 
 在 Fabric API 的帮助下，使用 `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` 可以使用 `Ingredient` 而非 `Item` 来注册药水配方。
