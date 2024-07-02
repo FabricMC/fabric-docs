@@ -17,7 +17,7 @@ Para verificar se o Java já está instalado, você deve primeiro abrir o prompt
 
 Você pode fazer isso apertando <kbd>Win</kbd> + <kbd>R</kbd> e digitando `cmd.exe` na janela aberta.
 
-![Caixa de diálogo Executar do Windows com "cmd.exe" na barra de execução.](/assets/players/installing-java/windows-run-dialog.png)
+![Caixa de diálogo Executar do Windows com "cmd.exe" na barra de execução](/assets/players/installing-java/windows-run-dialog.png)
 
 Após abrir o prompt de comando, digite `java -version` e pressione <kbd>Enter</kbd>.
 
@@ -31,11 +31,11 @@ Para usar a maioria das versões modernas do Minecraft, você precisará ter pel
 
 ## 2. Baixar o Instalador do Java 17
 
-Para instalar o Java 17, você precisará baixar o instalador pelo [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=17).
+Para instalar o Java 17, você precisará baixar o instalador pelo [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
 
 Você deverá baixar a versão `Windows Installer (.msi)`:
 
-![Página de download do Adoptium com Windows Installer (.msi) destacado.](/assets/players/installing-java/windows-download-java.png)
+![Página de download do Adoptium com Windows Installer (.msi) destacado](/assets/players/installing-java/windows-download-java.png)
 
 Você deverá escolher 'x86' se tiver um sistema operacional 32-bit, ou 'x64' se tiver um sistema operacional 64-bit.
 
@@ -48,7 +48,7 @@ Siga os passos do instalador para instalar o Java 17. Ao chegar nesta página, v
 - `Set JAVA_HOME environment variable` - Isso será adicionado ou seu PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Instalador do Java 17 com "Set JAVA\_HOME variable" e "JavaSoft (Oracle) registry keys" destacados.](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Instalador do Java 17 com "Set JAVA_HOME variable" e "JavaSoft (Oracle) registry keys" destacados](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Assim que fizer isto, clique em 'Next' e continue com a instalação.
 

@@ -4,13 +4,13 @@ description: "A brief introduction to Fabric and modding in Minecraft: Java Edit
 authors:
   - IMB11
   - itsmiir
+authors-nogithub:
+  - basil4088
 ---
 
-<!-- No GitHub profile exists for "basil4088" -->
+# Introduction to Fabric and Modding {#introduction-to-fabric-and-modding}
 
-# Introduction to Fabric and Modding
-
-## Prerequisites
+## Prerequisites {#prerequisites}
 
 Before you start, you should have a basic understanding of developing with Java, and an understanding of Object-Oriented Programming (OOP).
 
@@ -21,7 +21,7 @@ If you are unfamiliar with these concepts, you may want to look into some tutori
 - [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
 - [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
 
-### Terminology
+### Terminology {#terminology}
 
 Before we start, let's go over some of the terms that you will encounter when modding with Fabric:
 
@@ -33,7 +33,7 @@ Before we start, let's go over some of the terms that you will encounter when mo
 - **Obfuscation**: The process of making code difficult to understand, used by Mojang to protect Minecraft's code.
 - **Remapping**: The process of mapping obfuscated code to human-readable code.
 
-## What Is Fabric?
+## What Is Fabric? {#what-is-fabric}
 
 Fabric is a lightweight modding toolchain for Minecraft: Java Edition.
 
@@ -46,7 +46,7 @@ You should be aware of the four main components of Fabric:
 - **Fabric API**: A set of APIs and tools for mod developers to use when creating mods.
 - **Yarn**: A set of open Minecraft mappings, free for everyone to use under the Creative Commons Zero license.
 
-## Why Is Fabric Necessary to Mod Minecraft?
+## Why Is Fabric Necessary to Mod Minecraft? {#why-is-fabric-necessary-to-mod-minecraft}
 
 > Modding is the process of modifying a game in order to change its behavior or add new features - in the case of Minecraft, this can be anything from adding new items, blocks, or entities, to changing the game's mechanics or adding new game modes.
 
@@ -56,7 +56,7 @@ Loom remaps the obfuscated code to a human-readable format using these mappings,
 
 Loom allows you to easily develop and compile mods against remapped code, and Fabric Loader allows you to load these mods into the game.
 
-## What Does Fabric API Provide, and Why Is It Needed?
+## What Does Fabric API Provide, and Why Is It Needed? {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API is a set of APIs and tools for mod developers to use when creating mods.
 

@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Project Structure
+# Project Structure {#project-structure}
 
 This page will go over the structure of a Fabric mod project, and the purpose of each file and folder in the project.
 
-## `fabric.mod.json`
+## `fabric.mod.json` {#fabric-mod-json}
 
 The `fabric.mod.json` file is the main file that describes your mod to Fabric Loader. It contains information such as the mod's ID, version, and dependencies.
 
@@ -28,7 +28,7 @@ You can see an example `fabric.mod.json` file below - this is the `fabric.mod.js
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
-## Entrypoints
+## Entrypoints {#entrypoints}
 
 As mentioned before, the `fabric.mod.json` file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
 
@@ -38,7 +38,7 @@ The template mod generator creates both a `main` and `client` entrypoint by defa
 
 The above is an example of a simple `main` entrypoint that logs a message to the console when the game starts.
 
-## `src/main/resources`
+## `src/main/resources` {#src-main-resources}
 
 The `src/main/resources` folder is used to store the resources that your mod uses, such as textures, models, and sounds.
 
@@ -46,14 +46,14 @@ It's also the location of `fabric.mod.json` and any mixin configuration files th
 
 Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/modid/textures/block/block.png`.
 
-## `src/client/resources`
+## `src/client/resources` {#src-client-resources}
 
 The `src/client/resources` folder is used to store client-specific resources, such as textures, models, and sounds that are only used on the client side.
 
-## `src/main/java`
+## `src/main/java` {#src-main-java}
 
 The `src/main/java` folder is used to store the Java source code for your mod - it exists on both the client and server environments.
 
-## `src/client/java`
+## `src/client/java` {#src-client-java}
 
 The `src/client/java` folder is used to store client-specific Java source code, such as rendering code or client-side logic - such as block color providers.

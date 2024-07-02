@@ -60,4 +60,4 @@ Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo im
 
 ## Usare il SoundEvent Personalizzato
 
-Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](./using-sounds.md) per imparare come riprodurre i suoni.
+Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](./using-sounds) per imparare come riprodurre i suoni.

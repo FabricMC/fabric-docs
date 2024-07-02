@@ -5,4 +5,4 @@
 .vitepress/sidebars/ @FabricMC/documentation
 package-lock.json @FabricMC/developers
 package.json @FabricMC/developers
-LICENSE.md @FabricMC/developers
+LICENSE @FabricMC/developers

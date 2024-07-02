@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # 상태 효과
 
@@ -37,7 +38,7 @@ authors:
 
 사용자 정의 상태 효과에 플레이어의 인벤토리 화면에 보여질 텍스쳐 아이콘과 이름을 지정할 수 있습니다.
 
-**텍스쳐**
+#### 텍스쳐
 
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
@@ -47,7 +48,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ![플레이어 인벤토리에서 보여지는 효과](/assets/develop/tater-effect.png)
 
-**현지화**
+#### 현지화
 
 다른 현지화처럼, 간단히 언어 파일에 `"effect.<mod-id>.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
 
@@ -64,5 +65,5 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 `/effect give @s fabric-docs-reference:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요. `/effect clear`로 효과를 제거할 수 있습니다.
 
 ::: info
-사용자 정의 효과를 부여하는 물약을 만드는 방법은 [물약](../items/potions.md) 가이드를 참조하세요.
+사용자 정의 효과를 부여하는 물약을 만드는 방법은 [물약](../items/potions) 가이드를 참조하세요.
 :::

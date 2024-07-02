@@ -32,7 +32,7 @@ Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 - `int amplifier` - Un amplificatore per l'effetto. Per esempio, Sollecitudine II avrebbe un amplificatore di 1.
 
 :::info
-Per creare il tuo effetto personalizzato, per favore guarda la guida [Effetti](../entities/effects.md).
+Per creare il tuo effetto personalizzato, per favore guarda la guida [Effetti](../entities/effects).
 :::
 
 ### Registrare la Pozione

@@ -7,7 +7,7 @@ authors:
 
 # Den Zeichenkontext verwenden
 
-Diese Seite setzt voraus, dass du einen Blick auf die Seite [Grundlegende Rendering-Konzepte](./basic-concepts.md) geworfen hast.
+Diese Seite setzt voraus, dass du einen Blick auf die Seite [Grundlegende Rendering-Konzepte](./basic-concepts) geworfen hast.
 
 Die Klasse `DrawContext` ist die Hauptklasse, die für das Rendering im Spiel verwendet wird. Sie wird für das Rendern von Formen, Text und Texturen verwendet und, wie zuvor gesehen, für die Bearbeitung von `MatrixStack`s und die Verwendung von `BufferBuilder`n.
 
@@ -21,7 +21,7 @@ Du kannst die Methode `DrawContext.fill(...)` verwenden, um ein gefülltes Recht
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Ein Rechteck.](/assets/develop/rendering/draw-context-rectangle.png)
+![Ein Rechteck](/assets/develop/rendering/draw-context-rectangle.png)
 
 ### Zeichnen von Umrissen/Rahmen
 
@@ -29,7 +29,7 @@ Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreiß
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Ein Rechteck mit einer Umrandung.](/assets/develop/rendering/draw-context-rectangle-border.png)
+![Ein Rechteck mit einer Umrandung](/assets/develop/rendering/draw-context-rectangle-border.png)
 
 ### Zeichnen von individuellen Linien
 
@@ -67,7 +67,7 @@ Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Param
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Beispiel für das Zeichnen einer ganzen Textur.](/assets/develop/rendering/draw-context-whole-texture.png)
+![Beispiel für das Zeichnen einer ganzen Textur](/assets/develop/rendering/draw-context-whole-texture.png)
 
 ### Zeichnen eines Teils einer Textur
 

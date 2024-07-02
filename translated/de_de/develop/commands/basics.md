@@ -22,7 +22,7 @@ authors:
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 :::info
-Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: https://github.com/Mojang/brigadier
+Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: <https://github.com/Mojang/brigadier>
 :::
 
 ## Das Interface `Command`
@@ -50,7 +50,7 @@ Du kannst auf die Befehlsquelle von einem Befehlskontext aus zugreifen, indem du
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -60,7 +60,7 @@ Command<ServerCommandSource> command = context -> {
 Befehle werden innerhalb des `CommandRegistrationCallback` registriert, der von der Fabric API bereitgestellt wird.
 
 :::info
-Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events.md).
+Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events).
 :::
 
 Das Event sollte im Initialisierer deines Mods registriert werden.

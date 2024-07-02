@@ -49,8 +49,8 @@ Nous pouvons utiliser notre paramètre de commande personnalisé dans une comman
 
 En exécutant la commande, on peut vérifier si le paramètre de commande fonctionne ou pas :
 
-![Argument invalide.](/assets/develop/commands/custom-arguments_fail.png)
+![Argument invalide](/assets/develop/commands/custom-arguments_fail.png)
 
-![Argument valide.](/assets/develop/commands/custom-arguments_valid.png)
+![Argument valide](/assets/develop/commands/custom-arguments_valid.png)
 
-![Résultat de commande.](/assets/develop/commands/custom-arguments_result.png)
+![Résultat de commande](/assets/develop/commands/custom-arguments_result.png)

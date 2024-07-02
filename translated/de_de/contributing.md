@@ -1,6 +1,6 @@
 # Richtlinien zur Beitragserstellung für die Fabric-Dokumentation
 
-Diese Website nutzt [VitePress](https://vitepress.dev/) um statisches HTML von den verschiedenen Markdown-Dateien zu generrieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die VitePress [hier](https://vitepress.dev/guide/markdown.html#features) unterstützt.
+Diese Website nutzt [VitePress](https://vitepress.dev/) um statisches HTML von den verschiedenen Markdown-Dateien zu generrieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die VitePress [hier](https://vitepress.dev/guide/markdown#features) unterstützt.
 
 ## Inhaltsverzeichnis
 
@@ -26,7 +26,7 @@ Bevor du einen dieser Befehle ausführst, solltest du `npm install` ausführen, 
 
 Damit kannst du deine Änderungen lokal auf `localhost:3000` ansehen und die Seite wird automatisch neu geladen, wenn du Änderungen vornimmst.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 Dies wird alle Markdown-Dateien in statische HTML-Dateien kompilieren und diese in `.vitepress/dist` ablegen
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 Dies wird einen lokalen Server auf Port 3000 starten, der den Inhalt in `.vitepress/dist` bereitstellt.
 
-```bash
+```sh
 npm run preview
 ```
 
@@ -145,13 +145,13 @@ Die Stilrichtlinien lauten wie folgt:
    Um z. B. eine Seite im Ordner `/players` mit der Seite `installing-fabric` aus `/players/installing-fabric.md` zu verknüpfen, musst du Folgendes tun:
 
    ```md
-   [Dies ist ein Link zu einer anderen Seite](./installing-fabric.md)
+   [Dies ist ein Link zu einer anderen Seite](./installing-fabric)
    ```
 
    Du solltest **NICHT** Folgendes tun:
 
    ```md
-   [Dies ist ein Link zu einer anderen Seite](/player/installing-fabric.md)
+   [Dies ist ein Link zu einer anderen Seite](/players/installing-fabric)
    ```
 
 Alle inhaltlichen Beiträge durchlaufen drei Stufen:

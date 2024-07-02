@@ -1,4 +1,4 @@
-import { ExtendedSidebarItem } from "./utils";
+import { Fabric } from "../types";
 
 export default [
   {
@@ -7,7 +7,7 @@ export default [
     items: [
       {
         text: "players.faq",
-        link: "/players/faq"
+        link: "/players/faq",
       },
       {
         text: "players.installingJava",
@@ -15,49 +15,48 @@ export default [
         items: [
           {
             text: "players.installingJava.windows",
-            link: "/players/installing-java/windows"
+            link: "/players/installing-java/windows",
           },
           {
             text: "players.installingJava.macOS",
             link: "https://fabricmc.net/wiki/player:tutorials:java:mac",
-            // @ts-ignore
-            process: false
+            process: false,
           },
           {
             text: "players.installingJava.linux",
-            link: "/players/installing-java/linux"
-          }
-        ]
+            link: "/players/installing-java/linux",
+          },
+        ],
       },
       {
         text: "players.installingFabric",
-        link: "/players/installing-fabric"
+        link: "/players/installing-fabric",
       },
       {
         text: "players.findingMods",
-        link: "/players/finding-mods"
+        link: "/players/finding-mods",
       },
       {
         text: "players.installingMods",
-        link: "/players/installing-mods"
+        link: "/players/installing-mods",
       },
       {
         text: "players.troubleshooting",
         items: [
           {
             text: "players.troubleshooting.uploadingLogs",
-            link: "/players/troubleshooting/uploading-logs"
+            link: "/players/troubleshooting/uploading-logs",
           },
           {
             text: "players.troubleshooting.crashReports",
-            link: "/players/troubleshooting/crash-reports"
-          }
-        ]
+            link: "/players/troubleshooting/crash-reports",
+          },
+        ],
       },
       {
         text: "players.updatingFabric",
-        link: "/players/updating-fabric"
-      }
-    ]
-  }
-] as ExtendedSidebarItem[];
+        link: "/players/updating-fabric",
+      },
+    ],
+  },
+] as Fabric.SidebarItem[];

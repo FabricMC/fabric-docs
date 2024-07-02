@@ -22,7 +22,7 @@ authors:
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 :::info
-Brigadier 是 Mojang 为 Minecraft 编写的命令解析器和调度器。 它是一个树状命令库，让您可以构建命令和参数的树。 Brigadier 被开源在：https://github.com/Mojang/brigadier
+Brigadier是一款由Mojang为Minecraft编写的命令解析器和调度器。 它是一款基于树的命令库，让您可以通过构建树的方式来构建您的命令和参数。 Brigadier是开源的： <https://github.com/Mojang/brigadier>
 :::
 
 ## `Command` 接口
@@ -50,7 +50,7 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -60,14 +60,14 @@ Command<ServerCommandSource> command = context -> {
 可以通过 Fabric API 提供的 `CommandRegistrationCallback` 来注册命令 。
 
 :::info
-更多注册回调的信息，请查看 [事件](../events.md) 指南。
+更多注册回调的信息，请查看 [事件](../events) 指南。
 :::
 
 该事件应该在您的 mod 的初始化程序中注册。
 
 回调一共有三个参数：
 
-- `CommandDispatcher<ServerCommandSource> dispatcher` - 用于注册，解析，执行命令。 `S`  是分发器支持的命令源类型。
+- `CommandDispatcher<ServerCommandSource> dispatcher` - 用于注册，解析，执行命令。 `S` 是分发器支持的命令源类型。
 - `CommandRegistryAccess registryAccess` - 为可传递给某些命令参数方法的注册表提供一个抽象概念
 - `CommandManager.RegistrationEnvironment environment` - 标识注册命令的服务器类型。
 

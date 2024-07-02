@@ -50,8 +50,8 @@ Wir können unseren benutzerdefinierten Argumenttyp in einem Befehl verwenden, i
 
 Durch das Ausführen des Befehls, können wir testen, ob der Argumenttyp funktioniert oder nicht:
 
-![Ungültiges Argument.](/assets/develop/commands/custom-arguments_fail.png)
+![Ungültiges Argument](/assets/develop/commands/custom-arguments_fail.png)
 
-![Gültiges Argument.](/assets/develop/commands/custom-arguments_valid.png)
+![Gültiges Argument](/assets/develop/commands/custom-arguments_valid.png)
 
-![Ergebnis des Befehls.](/assets/develop/commands/custom-arguments_result.png)
+![Ergebnis des Befehls](/assets/develop/commands/custom-arguments_result.png)

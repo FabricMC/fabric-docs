@@ -5,11 +5,11 @@ authors:
   - Superkat32
 ---
 
-# Creating Custom Particles
+# Creating Custom Particles {#creating-custom-particles}
 
 Particles are a powerful tool. They can add ambience to a beautiful scene, or add tension to an edge of your seat boss battle. Let's add one!
 
-## Register a Custom Particle
+## Register a Custom Particle {#register-a-custom-particle}
 
 We'll be adding a new sparkle particle which will mimic the movement of an end rod particle.
 
@@ -19,7 +19,7 @@ We first need to register a `ParticleType` in your mod initializer class using y
 
 The "sparkle_particle" in lowercase letters is the JSON path for the particle's texture. You will be creating a new JSON file with that exact name later.
 
-## Client-Side Registration
+## Client-Side Registration {#client-side-registration}
 
 After you have registered the particle in the `ModInitializer` entrypoint, you will also need to register the particle in the `ClientModInitializer` entrypoint.
 
@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 - Visual Studio Code's hotkey: Ctrl+F12
 :::
 
-## Creating a JSON File and Adding Textures
+## Creating a JSON File and Adding Textures {#creating-a-json-file-and-adding-textures}
 
 You will need to create 2 folders in your `resources/assets/<mod id here>/` folder.
 
@@ -53,13 +53,13 @@ Next, create a new JSON file in `particles` with the same name as the JSON path 
 You can add more textures to the `textures` array to create a particle animation. The particle will cycle through the textures in the array, starting with the first texture.
 :::
 
-## Testing the New Particle
+## Testing the New Particle {#testing-the-new-particle}
 
 Once you have completed the JSON file and saved your work, you are good to load up Minecraft and test everything out!
 
 You can see if everything has worked by typing the following command:
 
-```command
+```mcfunction
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 

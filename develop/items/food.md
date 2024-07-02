@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Food Items
+# Food Items {#food-items}
 
 Food is a core aspect of survival Minecraft, so when creating edible items you have to consider the food's usage with other edible items.
 
@@ -15,7 +15,7 @@ Unless you're making a mod with overpowered items, you should consider:
 - What potion effect(s) does it grant?
 - Is it early-game or endgame accessible?
 
-## Adding the Food Component
+## Adding the Food Component {#adding-the-food-component}
 
 To add a food component to an item, we can pass it to the `FabricItemSettings` instance:
 
@@ -38,7 +38,7 @@ The `FoodComponent.Builder` class has many methods that allow you to modify what
 
 When you've modified the builder to your liking, you can call the `build()` method to get the `FoodComponent`
 
-Using the example created in the [Creating Your First Item](./first-item.md) page, I'll be using the following options for the builder:
+Using the example created in the [Creating Your First Item](./first-item) page, I'll be using the following options for the builder:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
