@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Block States
+# Block States {#block-states}
 
 A block state is a piece of data attached to a singular block in the Minecraft world containing information on the block in the form of properties - some examples of properties vanilla stores in block states:
 
@@ -17,7 +17,7 @@ You can probably see why they are useful - they avoid the need to store NBT data
 
 Blockstate definitions are found in the `assets/<mod id here>/blockstates` folder.
 
-## Example: Pillar Block
+## Example: Pillar Block {#pillar-block}
 
 <!-- Note: This example could be used for a custom recipe types guide, a condensor machine block with a custom "Condensing" recipe? -->
 
@@ -62,13 +62,13 @@ As always, you'll need to create a translation for your block, and an item model
 
 ![Example of Pillar block in-game](/assets/develop/blocks/blockstates_1.png)
 
-## Custom Block States
+## Custom Block States {#custom-block-states}
 
 Custom block states are great if your block has unique properties - sometimes you may find that your block can re-use vanilla properties.
 
 This example will create a unique boolean property called `activated` - when a player right-clicks on the block, the block will go from `activated=false` to `activated=true` - changing its texture accordingly.
 
-### Creating The Property
+### Creating The Property {#creating-the-property}
 
 Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.of` method.
 
@@ -86,13 +86,13 @@ You'll also have to set a default state for the `activated` property in the cons
 Don't forget to register your block using the custom class instead of `Block`!
 :::
 
-### Using The Property
+### Using The Property {#using-the-property}
 
 This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### Visualizing The Property
+### Visualizing The Property {#visualizing-the-property}
 
 Before creating the blockstate file, you will need to provide textures for both the activated and deactivated states of the block, as well as the block model.
 
