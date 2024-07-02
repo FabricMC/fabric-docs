@@ -4,9 +4,9 @@ description: "Una breve introducción a Fabric y el desarrollo de mods en Minecr
 authors:
   - IMB11
   - itsmiir
+authors-nogithub:
+  - basil4088
 ---
-
-<!-- No GitHub profile exists for "basil4088" -->
 
 # Introducción a Fabric y el desarrollo de Mods
 

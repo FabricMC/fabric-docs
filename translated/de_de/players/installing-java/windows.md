@@ -11,13 +11,13 @@ Diese Anleitung führt Sie durch die Installation von Java 17 auf Windows.
 
 Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese Sektion ist also nur relevant, wenn Sie den Fabric `.jar` basierten Installer verwenden möchten oder wenn Sie die Minecraft Server `.jar` verwenden möchten.
 
-## 1. Überprüfen, ob Java bereits installiert ist.
+## 1. Überprüfen, ob Java bereits installiert ist
 
 Um zu überprüfen, ob Java bereits installiert ist, öffnen Sie die Kommandozeile.
 
 Drücken Sie <kbd>Win</kbd> + <kbd>R</kbd> und geben Sie `cmd.exe` in das Feld ein.
 
-![Windows-Ausführungsdialog mit "cmd.exe" in der Ausführungsleiste.](/assets/players/installing-java/windows-run-dialog.png)
+![Windows-Ausführungsdialog mit "cmd.exe" in der Ausführungsleiste](/assets/players/installing-java/windows-run-dialog.png)
 
 Wenn Sie die Kommandozeile geöffnet haben, geben Sie `java -version` ein und drücken <kbd>Enter</kbd>.
 
@@ -29,13 +29,13 @@ Wenn der Befehl erfolgreich ausgeführt wird, sollten Sie folgendes sehen. Wenn 
 Um den Großteil der modernen Minecraft-Versionen nutzen zu können, musst du Java 17 installiert haben. Wenn der Befehl eine Version niedriger als 17 anzeigt, musst du deine bestehende Java-Installation aktualisieren.
 :::
 
-## 2. Herunterladen des Java 17 Installer.
+## 2. Herunterladen des Java 17 Installer
 
-Um Java 17 zu installieren, laden Sie bitte den Installer von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\\&package=jdk\\\&version=17) herunter.
+Um Java 17 zu installieren, laden Sie bitte den Installer von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17) herunter.
 
 Sie müssen die Version "Windows Installer (.msi)" herunterladen:
 
-![Adoptium Download-Seite mit hervorgehobenem Windows Installer (.msi).](/assets/players/installing-java/windows-download-java.png)
+![Adoptium Download-Seite mit hervorgehobenem Windows Installer (.msi)](/assets/players/installing-java/windows-download-java.png)
 
 Sie sollten `x86` wählen, wenn Sie ein 32-Bit-Betriebssystem haben, oder `x64`, wenn Sie ein 64-Bit-Betriebssystem haben.
 
@@ -48,11 +48,11 @@ Folgen Sie den Schritten des Installationsprogramms, um Java 17 zu installieren.
 - `JAVA_HOME Umgebungsvariable setzen` - Diese wird zu Ihrem PATH hinzugefügt.
 - JavaSoft (Oracle)-Registrierungsschlüssel
 
-![Java 17-Installationsprogramm mit "JAVA\\\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 17-Installationsprogramm mit "JAVA_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Wenn Sie das getan haben, können Sie `Weiter` klicken und mit der Installation fortfahren.
 
-## 4. Verifizieren, dass Java 17 installiert ist.
+## 4. Verifizieren, dass Java 17 installiert ist
 
 Sobald die Installation abgeschlossen ist, können Sie überprüfen, ob Java 17 installiert ist, indem Sie die Kommandozeile erneut öffnen und "java -version" eingeben.
 
@@ -62,4 +62,4 @@ Wenn der Befehl erfolgreich ausgeführt wird, wird die Java-Version wie zuvor ge
 
 ---
 
-Sollten Sie auf Probleme stoßen, können Sie im [Fabric Discord] (https\://discord.gg/v6v4pMv) im Channel `#player-support` um Hilfe bitten.
+Sollten Sie auf Probleme stoßen, können Sie im [Fabric Discord](https://discord.gg/v6v4pMv) im Channel `#player-support` um Hilfe bitten.

@@ -51,7 +51,6 @@
   "develop.misc.events": "Events",
   "develop.misc.text-and-translations": "Text and Translations",
   "develop.sounds": "Sounds",
-  "develop.sounds.using-sounds": "Playing SoundEvents",
-  "develop.sounds.custom": "Creating Custom Sounds",
-  "github.edit": "Edit this page on GitHub"
+  "develop.sounds.using-sounds": "Playing Sounds",
+  "develop.sounds.custom": "Creating Custom Sounds"
 }

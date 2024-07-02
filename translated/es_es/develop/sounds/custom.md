@@ -60,4 +60,4 @@ De esta manera, la clase implementadora de `ModInitializer` solo tiene que imple
 
 ## Usando el SoundEvent Personalizado
 
-Use la clase ayudante para acceder el SoundEvent personalizado. Echa un vistazo a la página de [Reproducir SoundEvents (Eventos de Sonido)](/develop/sounds/using-sounds) para aprender a reproducir sonidos.
+Use la clase ayudante para acceder el SoundEvent personalizado. Echa un vistazo a la página de [Reproducir SoundEvents (Eventos de Sonido)](./using-sounds) para aprender a reproducir sonidos.

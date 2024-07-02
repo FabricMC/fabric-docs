@@ -26,7 +26,7 @@ Come tutti i widget, devi aggiungerlo alla schermata usando il metodo `addDrawab
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
-![Widget personalizzato sullo schermo.](/assets/develop/rendering/gui/custom-widget-example.png)
+![Widget personalizzato sullo schermo](/assets/develop/rendering/gui/custom-widget-example.png)
 
 ## Eventi di Widget
 

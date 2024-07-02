@@ -13,11 +13,11 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 Puoi usare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
 
-![Anteprima del generatore.](/assets/develop/getting-started/template-generator.png)
+![Anteprima del generatore](/assets/develop/getting-started/template-generator.png)
 
 Se vuoi usare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionare le opzioni apposite nella sezione `Opzioni Avanzate`.
 
-![Sezione Opzioni Avanzate.](/assets/develop/getting-started/template-generator-advanced.png)
+![Sezione Opzioni Avanzate](/assets/develop/getting-started/template-generator-advanced.png)
 
 Una volta che hai compilato i campi richiesti, premi il pulsante `Generate`, e il generatore creerà un nuovo progetto per te sotto forma di file zip.
 
@@ -45,7 +45,7 @@ Se non puoi usare il Generatore di Mod Modello di Fabric, dovresti creare un nuo
 
 Anzitutto, clona la repository della mod esempio tramite Git:
 
-```bash
+```sh
 git clone https://github.com/FabricMC/fabric-example-mod/ mio-progetto-mod
 ```
 
@@ -63,6 +63,6 @@ Una volta che il progetto sarà importato, dovresti modificare i dettagli del pr
 
 - Modifica il file `gradle.properties` del tuo progetto per cambiare le proprietà `maven_group` e `archive_base_name` e farle corrispondere con i dettagli della tua mod.
 - Modifica il file `fabric.mod.json` per cambiare le proprietà `id`, `name`, e `descrizione` per farle corrispondere ai dettagli della tua mod.
-- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso https://fabricmc.net/develop/ - per farle corrispondere alle versioni che vorresti prendere di mira.
+- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso <https://fabricmc.net/develop/> - per farle corrispondere alle versioni che vorresti prendere di mira.
 
 Ovviamente puoi cambiare il nome del package e la classe principale della mod per farli corrispondere ai dettagli della tua mod.

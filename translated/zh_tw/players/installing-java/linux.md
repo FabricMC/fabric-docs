@@ -9,11 +9,11 @@ authors:
 
 這個指南將引導你在 Linux 上安裝 Java 17。
 
-## 1. 驗證 Java 是否安裝。
+## 1. 驗證 Java 是否安裝
 
 開啟終端機，輸入 `java -version`，然後按下 <kbd>Enter</kbd> 鍵。
 
-![終端機中輸入了「java -version」。](/assets/players/installing-java/linux-java-version.png)
+![終端機中輸入了「java -version」](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
 要使用大多數現代的 Minecraft，你需要至少安裝 Java 17。 如果這個命令顯示低於 17 的任何版本，你需要更新現有的 Java 安裝。 如果你打算開發模組，你應參考另一個指南。 如果你打算開發模組，你應參考另一個指南。
@@ -31,19 +31,19 @@ authors:
 
 你可以從官方儲存庫安裝最新的 JRE：
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 如果你在沒有圖形化介面的伺服器上執行，則可以安裝無頭版本：
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 如果你打算開發模組，則需要 JDK：
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 你可以使用 apt 安裝 Java 17，使用以下命令：
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 你可以使用 dnf 安裝 Java 17，使用以下命令：
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 如果你不需要圖形化介面，則可以安裝無頭版本：
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 如果你打算開發模組，則需要 JDK：
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
@@ -82,10 +82,10 @@ sudo dnf install java-17-openjdk-devel
 
 如果你打算開發模組，你應參考另一個指南。
 
-## 3. 驗證 Java 17 是否安裝。
+## 3. 驗證 Java 17 是否安裝
 
 安裝完成後，你可以開啟終端機，輸入 `java -version` 來驗證是否安裝了 Java 17。
 
 如果這個命令成功執行，你將看到類似於以前顯示的內容，其中顯示了 Java 版本：
 
-![終端機中輸入了「java -version」。](/assets/players/installing-java/linux-java-version.png)
+![終端機中輸入了「java -version」](/assets/players/installing-java/linux-java-version.png)

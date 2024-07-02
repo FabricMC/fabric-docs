@@ -49,8 +49,8 @@ Possiamo usare il nostro tipo di parametro personalizzato in un comando - passan
 
 Eseguendo il comando possiamo testare se il tipo di parametro funziona o meno:
 
-![Parametro non valido.](/assets/develop/commands/custom-arguments_fail.png)
+![Parametro non valido](/assets/develop/commands/custom-arguments_fail.png)
 
-![Parametro valido.](/assets/develop/commands/custom-arguments_valid.png)
+![Parametro valido](/assets/develop/commands/custom-arguments_valid.png)
 
-![Risultato del Comando.](/assets/develop/commands/custom-arguments_result.png)
+![Risultato del Comando](/assets/develop/commands/custom-arguments_result.png)

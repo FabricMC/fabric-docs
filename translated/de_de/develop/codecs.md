@@ -64,7 +64,7 @@ Nachdem wir nun gesehen haben, wie man Codecs verwendet, wollen wir uns ansehen,
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -106,7 +106,7 @@ Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `
 Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```
 
-Es sollte beachtet werden, dass Codecs, die auf diese Weise erstellt werden, immer in eine `ImmutableList` deserialisiert werden. Wenn du stattdessen eine veränderbare Liste benötigst, kannst du [xmap](#Wechselseitig-konvertierbare-Typen) verwenden, um sie während der Deserialisierung in eine solche zu konvertieren.
+Es sollte beachtet werden, dass Codecs, die auf diese Weise erstellt werden, immer in eine `ImmutableList` deserialisiert werden. Wenn du stattdessen eine veränderbare Liste benötigst, kannst du [xmap](#wechselseitig-konvertierbare-typen) verwenden, um sie während der Deserialisierung in eine solche zu konvertieren.
 
 ### Zusammenführung von Codecs für Record-ähnliche Klassen
 
@@ -123,11 +123,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Methode an. Der Aufruf `Codec#fieldOf` wird verwendet, um den Codec in einen [MapCodec](#mapcodec-nicht-zu-verwechseln-mit-codecltmapgt) zu konvertieren, und der Aufruf `forGetter` spezifiziert die Getter-Methode, die verwendet wird, um den Wert des Attributs von einer Instanz der Klasse abzurufen. In der Zwischenzeit gibt der Aufruf `apply` den Konstruktor an, der zur Erzeugung neuer Instanzen verwendet wird. Beachte, dass die Reihenfolge der Attribute in der Gruppe dieselbe sein sollte wie die Reihenfolge der Argumente im Konstruktor.
+Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Methode an. Der Aufruf `Codec#fieldOf` wird verwendet, um den Codec in einen [MapCodec](#mapcodec) zu konvertieren, und der Aufruf `forGetter` spezifiziert die Getter-Methode, die verwendet wird, um den Wert des Attributs von einer Instanz der Klasse abzurufen. In der Zwischenzeit gibt der Aufruf `apply` den Konstruktor an, der zur Erzeugung neuer Instanzen verwendet wird. Beachte, dass die Reihenfolge der Attribute in der Gruppe dieselbe sein sollte wie die Reihenfolge der Argumente im Konstruktor.
 
-Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#Optionale-Attribute) erklärt.
+Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#optionale-attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&amp;amp;lt;Map&amp;amp;gt;
+### MapCodec, nicht zu verwechseln mit Codec&lt;Map&gt; {#mapcodec}
 
 Der Aufruf von `Codec#fieldOf` wird einen `Codec<T>` in einen `MapCodec<T>` umwandeln, der eine Variante, aber keine direkte Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
 
@@ -167,7 +167,7 @@ Beachte, dass optionale Felder alle Fehler, die bei der Deserialisierung auftret
 
 #### Einheit
 
-Codec.unit\\` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
+`Codec.unit` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
 
 ```java
 Codec<Integer> theMeaningOfCodec = Codec.unit(42);
@@ -184,7 +184,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Paar
 
-Codec.pair" fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec-nicht-zu-verwechseln-mit-codecltmapgt) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
+`Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
 Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
 
 Beispielsweise wird beim Ausführen dieses Codes:
@@ -241,7 +241,7 @@ Dadurch wird dieses JSON ausgegeben:
 }
 ```
 
-Wie du sehen kannst, funktioniert dies, weil `Identifier.CODEC` direkt zu einem String-Wert serialisiert wird. Einen ähnlichen Effekt kann man für einfache Objekte, die nicht in Strings serialisiert werden, erreichen, indem [Wechselseitig konvertierbare Typen](#Wechselseitig-konvertierbare-Typen) verwendet werden, um um sie zu konvertieren.
+Wie du sehen kannst, funktioniert dies, weil `Identifier.CODEC` direkt zu einem String-Wert serialisiert wird. Einen ähnlichen Effekt kann man für einfache Objekte, die nicht in Strings serialisiert werden, erreichen, indem [Wechselseitig konvertierbare Typen](#wechselseitig-konvertierbare-typen) verwendet werden, um um sie zu konvertieren.
 
 ### Wechselseitig konvertierbare Typen
 
@@ -259,9 +259,9 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
     pos -> new Vec3d(pos.getX(), pos.getY(), pos.getZ())
 );
 
-// Bei der Konvertierung einer bestehenden Klasse (zum Beispiel `X`) 
-// in deine eigene Klasse (`Y`), kann es sinnvoll sein 
-//  die Methode `toX` und die statische Methode `fromX` zu `Y` und 
+// Bei der Konvertierung einer bestehenden Klasse (zum Beispiel `X`)
+// in deine eigene Klasse (`Y`), kann es sinnvoll sein
+// die Methode `toX` und die statische Methode `fromX` zu `Y` und
 // Methodenreferenzen in deinem `xmap`-Aufruf hinzufügen.
 ```
 
@@ -287,7 +287,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -323,11 +323,11 @@ Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
-// Jetzt können wir einen Codec für Bohnentypen erstellen 
+// Jetzt können wir einen Codec für Bohnentypen erstellen
 // auf der Grundlage des zuvor erstellten Registry
 Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 
-// Und darauf aufbauend, hier ist unser Registry Dispatch Codec für Bohnen! 
+// Und darauf aufbauend, hier ist unser Registry Dispatch Codec für Bohnen!
 // Das erste Argument ist der Argumentname für den Bohnen-Typ.
 // Wenn du das Attribut weglässt, wird es standardmäßig auf "type" gesetzt.
 Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
@@ -395,5 +395,5 @@ Ein serialisierter `ListNode` kann dann wie folgt aussehen:
 
 ## Referenzen
 
-- Eine viel umfassendere Dokumentation von Codecs und verwandten APIs findest du in der [Inoffiziellen DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- Eine viel umfassendere Dokumentation von Codecs und verwandten APIs findest du in der [Inoffiziellen DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - Die allgemeine Struktur dieses Leitfadens wurde stark von dem [Forge Community Wiki's Seiten zu Codecs](https://forge.gemwire.uk/wiki/Codecs) inspiriert, einer eher Forge-spezifischen Darstellung desselben Themas.

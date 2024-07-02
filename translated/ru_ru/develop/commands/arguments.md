@@ -49,8 +49,8 @@ description: Узнайте, как создавать команды со сл�
 
 Выполнив команду, мы можем проверить, работает ли наш тип аргумента:
 
-![Недопустимый аргумент.](/assets/develop/commands/custom-arguments_fail.png)
+![Недопустимый аргумент](/assets/develop/commands/custom-arguments_fail.png)
 
-![Допустимый аргумент.](/assets/develop/commands/custom-arguments_valid.png)
+![Допустимый аргумент](/assets/develop/commands/custom-arguments_valid.png)
 
-![Результат команды.](/assets/develop/commands/custom-arguments_result.png)
+![Результат команды](/assets/develop/commands/custom-arguments_result.png)

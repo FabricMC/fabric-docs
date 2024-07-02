@@ -7,7 +7,7 @@ authors:
 
 # Renderizar en el Hud (Pantalla de Visualización Frontal)
 
-Ya hemos tocado brevemente el tema sobre como renderizar cosas en el Hud en la guía de [Conceptos Básicos de Renderizado](./basic-concepts.md) y [Usando el Contexto de Dibujado](./draw-context.md), así que en esta página nos enfocaremos en el evento de `HudRenderCallback` y el parametro de `deltaTick`.
+Ya hemos tocado brevemente el tema sobre como renderizar cosas en el Hud en la guía de [Conceptos Básicos de Renderizado](./basic-concepts) y [Usando el Contexto de Dibujado](./draw-context), así que en esta página nos enfocaremos en el evento de `HudRenderCallback` y el parametro de `deltaTick`.
 
 ## HudRenderCallback (Callback de Renderizado de Hud)
 
@@ -17,7 +17,7 @@ Para registrar a este evento, simplemente puedes llamar `HudRenderCallback.EVENT
 
 El contexto de dibujado puede ser usado para acceder las diferentes utilidades de renderizados dadas por el juego, y acceder el matrix stack (pila de matrices).
 
-Deberías echar un vistazo a la página de [Contexto de Dibujado](./draw-context.md) para aprender más sobre el contexto de dibujado.
+Deberías echar un vistazo a la página de [Contexto de Dibujado](./draw-context) para aprender más sobre el contexto de dibujado.
 
 ### DeltaTick (Diferencia de Ticks)
 

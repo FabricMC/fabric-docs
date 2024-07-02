@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Text and Translations
+# Text and Translations {#text-and-translations}
 
 Whenever Minecraft displays text ingame, it's probably defined using a `Text` object.
 This custom type is used instead of a `String` to allow for more advanced formatting,
@@ -21,7 +21,7 @@ converted to and from using `Text.Serializer`.
 When making a mod, it is generally preferred to construct your `Text` objects directly
 in code, making use of translations whenever possible.
 
-## Text Literals
+## Text Literals {#text-literals}
 
 The simplest way to create a `Text` object is to make a literal. This is just a string
 that will be displayed as-is, by default without any formatting.
@@ -39,7 +39,7 @@ MutableText mutable = Text.literal("Hello, world!");
 Text mutableAsText = mutable;
 ```
 
-## Translatable Text
+## Translatable Text {#translatable-text}
 
 When you want to provide multiple translations for the same string of text, you can use the `Text.translatable` method to reference a translation key in any language file. If the key doesn't exist, the translation key is converted to a literal.
 
@@ -59,7 +59,7 @@ The language file, `en_us.json`, looks like the following:
 }
 ```
 
-## Serializing Text
+## Serializing Text {#serializing-text}
 
 <!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
 
@@ -69,13 +69,13 @@ As mentioned before, you can serialize text to JSON using the following serializ
 
 This produces JSON that can be used datapacks, commands and other places that accept the JSON format of text instead of literal or translatable text.
 
-## Deserializing Text
+## Deserializing Text {#deserializing-text}
 
 Furthermore, to deserialize a JSON text object into an actual `Text` class, you can use the `fromJson` method:
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
-## Formatting
+## Formatting Text {#formatting-text}
 
 You may be familiar with Minecraft's formatting standards:
 

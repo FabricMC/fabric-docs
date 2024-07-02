@@ -107,7 +107,7 @@ Disegneremo vertici nelle seguenti posizioni sul HUD (in ordine):
 
 Questo dovrebbe darci un diamante carino - siccome stiamo usando la modalità di disegno `TRIANGLE_STRIP`, il renderizzatore eseguirà i seguenti passaggi:
 
-![Quattro passaggi che mostrano il posizionamento dei vertici sullo schermo per formare due triangoli.](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+![Quattro passaggi che mostrano il posizionamento dei vertici sullo schermo per formare due triangoli](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 Siccome stiamo disegnando sulla HUD in questo esempio, useremo l'evento `HudRenderCallback`:
 
@@ -145,7 +145,7 @@ Assicurati di spingere lo stack di matrici prima di prendere una matrice di tras
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Un video che mostra il diamante ingrandito e rimpicciolito.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Un video che mostra il diamante ingrandito e rimpicciolito](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternioni (Cose che Ruotano)
 
@@ -159,4 +159,4 @@ Immaginiamo di voler ruotare il nostro diamante attorno all'asse z. Possiamo far
 
 Il risultato è il seguente:
 
-![Un video che mostra il diamante che ruota attorno all'asse z.](/assets/develop/rendering/concepts-quaternions.webp)
+![Un video che mostra il diamante che ruota attorno all'asse z](/assets/develop/rendering/concepts-quaternions.webp)

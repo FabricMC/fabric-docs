@@ -7,7 +7,7 @@ authors:
 
 # 使用绘制上下文
 
-本文假设您已经看过[基本渲染概念](./basic-concepts.md)。
+本文假设您已经看过[基本渲染概念](./basic-concepts)。
 
 `DrawContext` 是控制渲染的核心类。 它提供了诸多渲染图形、文字、纹理的方法，此外还用来操纵 `MatrixStack` 和 `BufferBuilder`。
 

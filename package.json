@@ -1,16 +1,18 @@
 {
+  "name": "fabric-docs",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.5",
     "markdownlint": "^0.34.0",
+    "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.6.1"
+    "@rollup/rollup-linux-x64-gnu": "4.18.0"
   },
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",
@@ -18,7 +20,7 @@
     "medium-zoom": "^1.1.0",
     "vidstack": "^1.11.22",
     "vitepress": "^1.2.3",
-    "vitepress-versioning-plugin": "^0.11.1",
+    "vitepress-versioning-plugin": "^1.0.2",
     "vue": "^3.4.27"
   }
 }

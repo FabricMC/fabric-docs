@@ -1,6 +1,6 @@
 # Tài Liệu Hướng Dẫn Cách Đóng Góp Fabric
 
-Trang này sử dụng [VitePress](https://vitepress.vuejs.org/) để tạo văn bản HTML tĩnh từ nhiều tệp markdown khác nhau. Bạn nên làm quen với những tiện ích markdown mà VitePress hỗ trợ tại [đây.](https://vitepress.vuejs.org/guide/markdown.html#features)
+Trang này sử dụng [VitePress](https://vitepress.dev/) để tạo văn bản HTML tĩnh từ nhiều tệp markdown khác nhau. Bạn nên làm quen với những tiện ích markdown mà VitePress hỗ trợ tại [đây](https://vitepress.dev/guide/markdown#features).
 
 ## Mục Lục
 
@@ -25,7 +25,7 @@ Trước khi chạy bất kì lệnh nào, hãy đảm bảo chạy lệnh `npm 
 
 Điều này sẽ cho phép bạn xem trước các thay đổi bạn đã làm trên thiết bị của bạn tại địa chỉ `localhost:3000` và sẽ tự động tải lại trang khi bạn thực hiện các thay đổi.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -33,7 +33,7 @@ npm run dev
 
 Lệnh dưới đây sẽ biên dịch toàn bộ tập tin markdown thành những tệp HTML tĩnh và đặt chúng trong `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -41,7 +41,7 @@ npm run build
 
 Lệnh dưới sẽ khởi động một máy chủ nội bộ trên cổng 3000 để hiển thị nội dụng được tìm thấy ở `.vitepress/dist`
 
-```bash
+```sh
 npm run preview
 ```
 
@@ -144,13 +144,13 @@ Quy định về phong cách như sau:
    Ví dụ, đối với trang ở thư mục `/players`, để liên kết trang `installing-fabric` được tạo ở `/players/installing-fabric.md`, bạn sẽ phải làm như sau:
 
    ```md
-   [Đây là liên kết dẫn đến trang khác](./installing-fabric.md)
+   [Đây là liên kết dẫn đến trang khác](./installing-fabric)
    ```
 
    Bạn **KHÔNG ĐƯỢC** làm như sau:
 
    ```md
-   [Đây là liên kết dẫn đến trang khác](/player/installing-fabric)
+   [Đây là liên kết dẫn đến trang khác](/players/installing-fabric)
    ```
 
 Tất cả sự đóng góp nội dung sẽ lần lượt đi qua ba bước:

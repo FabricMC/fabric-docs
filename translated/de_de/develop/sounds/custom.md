@@ -60,4 +60,4 @@ Auf diese Weise muss die `ModInitializer` implementierende Einstiegsklasse nur e
 
 ## Das benutzerdefinierte SoundEvent nutzen
 
-Verwende die Hilfsklasse, um auf das benutzerdefinierte SoundEvent zuzugreifen. Auf der Seite [SoundEvents abspielen](/develop/sounds/using-sounds) erfährst du, wie man Sounds abspielt.
+Verwende die Hilfsklasse, um auf das benutzerdefinierte SoundEvent zuzugreifen. Auf der Seite [SoundEvents abspielen](./using-sounds) erfährst du, wie man Sounds abspielt.

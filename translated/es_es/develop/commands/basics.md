@@ -22,7 +22,7 @@ authors:
 La creación de comandos le permite a desarrolladores de mods añadir funcionalidad que puede ser usada mediante un comando. Este tutorial te enseñará como registrar comandos y la estructura general de comandos de Brigadier.
 
 :::info
-Brigadier es un analizador y despachador de comandos escrito por Mojang para Minecraft. Es una libraría basada en un una estructura de árbol de comandos, donde construyes un árbol de comandos y argumentos. Brigadier es de fuente abierta: https\://github.com/Mojang/brigadier
+Brigadier es un analizador y despachador de comandos escrito por Mojang para Minecraft. Es una libraría basada en un una estructura de árbol de comandos, donde construyes un árbol de comandos y argumentos. Brigadier es de fuente abierta: <https://github.com/Mojang/brigadier>
 :::
 
 ## La interfaz `Comand` (Comando)
@@ -50,7 +50,7 @@ Puedes acceder la fuente del comando desde un contexto de comando llamando `getS
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -60,7 +60,7 @@ Command<ServerCommandSource> command = context -> {
 Los comandos son registrados mediante la clase `CommandRegistrationCallback` (Callback de Registración de Comandos) proveída por el Fabric API.
 
 :::info
-Para información sobre como registrar callbacks, por favor visita la guía de [Eventos](../events.md).
+Para información sobre como registrar callbacks, por favor visita la guía de [Eventos](../events).
 :::
 
 El evento debería ser registrado en tu inicializador de mod.
@@ -132,7 +132,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 - Atrapa o tira una excepción `CommandSyntaxException` - `CommandSyntaxException` no es una `RuntimeException` (Excepción en Tiempo de Ejecución). Si la tiras, debe ser en métodos que tiren un `CommandSyntaxException` en el signature (firma) del método, o ser atrapadas.
   Brigadier manejará las excepciones checked (comprobadas) y mandará el mensaje de error correspondiente en el juego para ti.
 
-- Problemas con genéricos - Puede que tengas problemas con genéricos de vez en cuando. Si estás registrando comandos de servidor (el cual es mayormente el caso), asegúrate de usar ` CommandManager.literal` o `CommandManager.argument` en vez de `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
+- Problemas con genéricos - Puede que tengas problemas con genéricos de vez en cuando. Si estás registrando comandos de servidor (el cual es mayormente el caso), asegúrate de usar `CommandManager.literal` o `CommandManager.argument` en vez de `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
 - Verifica el método de `sendFeedback()` - Puede que te hayas olvidado de dar el valor booleano al segundo argumento. También recurda que, a partir de Minecraft 1.20, el primer parámetro es un `Supplier<Text>` en vez de `Text`.
 

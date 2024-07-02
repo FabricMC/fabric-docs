@@ -13,7 +13,7 @@ Bài hướng dẫn này sẽ giúp bạn cập nhật Fabric cho trình Launche
 Đối với các trình launcher bên thứ ba, bạn nên tham khảo tài liệu của họ.
 
 Việc cập nhật Fabric là một quá trình khá tương đồng so với việc cài đặt Fabric, vì vậy đa phần bài hướng dẫn này sẽ giống với
-bài [Cài Đặt Fabric](./installing-fabric.md).
+bài [Cài Đặt Fabric](./installing-fabric).
 
 ## Vì sao tôi phải cập nhật Fabric Loader?
 
@@ -33,7 +33,7 @@ Khi trình cài đặt hoàn tất, bạn có thể mở trình Launcher Minecra
 
 Thay thể phiên bản cũ với một phiên bản mới hơn của Fabric Loader mà bạn đã cài trước đó, và bấm `Lưu`.
 
-![Cập nhật phiên bản Fabric Loader ở trình Launcher Minecraft.](/assets/players/updating-fabric.png)
+![Cập nhật phiên bản Fabric Loader ở trình Launcher Minecraft](/assets/players/updating-fabric.png)
 
 ## 4. Bạn đã hoàn tất!
 
