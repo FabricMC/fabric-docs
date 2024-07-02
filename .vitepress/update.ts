@@ -59,7 +59,8 @@ import develop from "./sidebars/develop";
   const markdownFiles = glob.sync("**/*.md", { ignore: [
     "README.md",
     "contributing.md",
-    "versions/**/*.md"
+    "versions/**/*.md",
+    "node_modules/**/*",
   ]});
 
   // Copy into versions/oldVersion and respect the directory structure.
