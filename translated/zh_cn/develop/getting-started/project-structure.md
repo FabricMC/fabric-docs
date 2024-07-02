@@ -11,7 +11,7 @@ authors:
 
 ## `fabric.mod.json`
 
-`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要部分。 它包含了模组的 ID、版本、和依赖项等信息。
+`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要部分。 它包含了模组的 ID、版本、和依赖项等信息。 它包含了模组的 ID、版本、和依赖项等信息。
 
 其中最重要的字段便是：
 
@@ -32,7 +32,7 @@ authors:
 
 如前所述，`fabric.mod.json` 文件包含一个名为 `entrypoints` 的字段 —— 该字段用于指定你的模组提供的入口点。
 
-模组开发模板生成器默认创建 `main` 和 `client` 入口点 —— `main`入口点用于双端通用部分，`client` 入口点用于客户端特定部分。 这些入口点将会在游戏启动时依次调用。
+模组开发模板生成器默认创建 `main` 和 `client` 入口点 —— `main`入口点用于双端通用部分，`client` 入口点用于客户端特定部分。 这些入口点将会在游戏启动时依次调用。 这些入口点将会在游戏启动时依次调用。
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
