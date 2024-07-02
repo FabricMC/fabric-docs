@@ -51,7 +51,7 @@ The tool material tells the game the following information:
 
 - ### Inverse Tag - `getMiningLevel()` {#inverse-tag}
 
-    The inverse tag shows what the tool ***cannot*** mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks:
+    The inverse tag shows what the tool _**cannot**_ mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks:
 
     ```json
     {
