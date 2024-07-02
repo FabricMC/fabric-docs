@@ -7,7 +7,7 @@ authors:
 
 # Rendering im Hud
 
-Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts.md) und [Den Zeichenkontext verwenden](./draw-context.md) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf das Event `HudRenderCallback` und den Parameter `deltaTick`.
+Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [Den Zeichenkontext verwenden](./draw-context) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf das Event `HudRenderCallback` und den Parameter `deltaTick`.
 
 ## HudRenderCallback
 
@@ -17,13 +17,11 @@ Um dieses Event zu registrieren, kannst du einfach `HudRenderCallback.EVENT.regi
 
 Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Utilities zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen.
 
-Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context.md) ansehen, um mehr über den Zeichenkontext zu erfahren.
+Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen, um mehr über den Zeichenkontext zu erfahren.
 
 ### DeltaTick
 
 Der Parameter `deltaTick` ist die Zeit seit dem letzten Frame in Sekunden. Dies kann für Animationen und andere zeitbasierte Effekte verwendet werden.
-
-#### Beispiel: Auslöschen einer Farbe im Laufe der Zeit
 
 Nehmen wir an, du möchtest eine Farbe im Laufe der Zeit auslöschen. Dazu kannst du den Parameter `deltaTick` verwenden.
 
