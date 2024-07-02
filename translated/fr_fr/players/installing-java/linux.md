@@ -9,11 +9,11 @@ authors:
 
 Ce guide vous accompagnera dans l'installation de Java 17 sous Linux.
 
-## 1. Vérifier si Java est déjà installé.
+## 1. Vérifier si Java est déjà installé
 
 Ouvrez un terminal, entrez `java -version`, et pressez <kbd>Entrer</kbd>.
 
-![Terminal avec "java -version" entré dedans.](/assets/players/installing-java/linux-java-version.png)
+![Terminal avec "java -version" entré dedans](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
 Pour utiliser la majorité des versions modernes de Minecraft, vous aurez besoin d'avoir au moins Java 17 d'installé. Si cette commande affiche une version inférieure à 17, vous aurez besoin de mettre à jour vous installation Java existante.
@@ -31,19 +31,19 @@ Pour plus d'information sur comment installer Java sous Arch Linux, consultez le
 
 Vous pouvez installer le dernier JRE depuis les dépots officiels :
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 Si vous voulez faire un serveur sans nécéssité d'interface graphique, vous pouvez installer la version sans affiche à la place :
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 Si vous prévoyez de développer des mods, vous aurez plutôt besoin du JDK :
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 Vous pouvez installer Java 17 en utilisant `apt` avec les commandes suivantes :
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 Vous pouvez installer Java 17 en utilisant `dnf` avec les commandes suivantes :
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 Si vous n'avez pas besoin d'interface graphique, vous pouvez installer la version sans affiche à la place :
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 Si vous prévoyez de développer des mods, vous aurez plutôt besoin du JDK :
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
@@ -82,10 +82,10 @@ Si votre distribution n'est pas listée ci-dessus, vous pouvez télécharger le 
 
 Il est recommandé de se référer à un guide alternatif pour votre distribution si vous souhaitez développer des mods.
 
-## 3. Vérifier que Java 17 est bien installé.
+## 3. Vérifier que Java 17 est bien installé
 
 Lorsque l'installation est complète, vous pouvez vérifier que Java 17 est installé en ouvrant un terminal et en entrant `java -version`.
 
 Si la commande se termine avec succès, vous verrez quelque chose de similaire à avant, où la version de java est affichée :
 
-![Terminal avec "java -version" entré dedans.](/assets/players/installing-java/linux-java-version.png)
+![Terminal avec "java -version" entré dedans](/assets/players/installing-java/linux-java-version.png)
