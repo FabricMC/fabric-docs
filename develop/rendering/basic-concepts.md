@@ -26,11 +26,11 @@ The `Tessellator` is the main class used to render things in Minecraft. It is a 
 
 The `BufferBuilder` is the class used to format and upload rendering data to OpenGL. It is used to create a buffer, which is then uploaded to OpenGL to draw.
 
-The `Tessellator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL. You can create a `BufferBuilder` using `Tessellator.getBuffer()`.
+The `Tessellator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL.
 
 ### Initializing the `BufferBuilder` {#initializing-the-bufferbuilder}
 
-Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `BufferBuilder.begin(...)`, which takes in a `VertexFormat` and a draw mode.
+Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `Tessellator#begin(...)` method, which takes in a `VertexFormat` and a draw mode and returns a `BufferBuilder`.
 
 #### Vertex Formats {#vertex-formats}
 
@@ -76,7 +76,7 @@ Once the `BufferBuilder` is initialized, you can write data to it.
 
 The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.vertex(matrix, float, float, float)` method. The `matrix` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
-This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, we call the `.next()` method. This finalizes the current vertex and prepares the builder for the next one.
+This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
 It's also worth understanding the concept of culling. Culling is the process of removing faces of a 3D shape that aren't visible from the viewer's perspective. If the vertices for a face are specified in the wrong order, the face might not render correctly due to culling.
 

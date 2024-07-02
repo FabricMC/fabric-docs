@@ -5,7 +5,7 @@
 	"mixins": [
 		"ExampleMixin",
 		"event.SheepEntityMixin",
-		"potion.BrewingRecipeRegistryInvoker"
+		"potion.BrewingRecipeRegistryMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

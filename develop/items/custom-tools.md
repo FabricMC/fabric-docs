@@ -49,15 +49,29 @@ The tool material tells the game the following information:
 
     @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Mining Level - `getMiningLevel()` {#mining-level}
+- ### Inverse Tag - `getMiningLevel()` {#inverse-tag}
 
-    What blocks can be broken by this tool? Can it mine diamonds?
+    The inverse tag shows what the tool **can't** mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks.
 
-    A mining level of 3+ is needed to require obsidian whilst a level of 2 is required to mine diamonds.
+    ```json
+    {
+      "values": [
+        "#minecraft:needs_diamond_tool",
+        "#minecraft:needs_iron_tool",
+        "#minecraft:needs_stone_tool"
+      ]
+    }
+    ```
+
+    This means the tool can't mine blocks that need a diamond, iron, or stone tool.
 
     **Example**
 
-    @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+    We'll use the iron tool tag. This stops Guidite tools from mining blocks that require a stronger tool than iron.
+
+    @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+
+    You can use `TagKey.of(...)` to create a custom tag key if you want to use a custom tag.
 
 - ### Enchantability - `getEnchantability()` {#enchantability}
 

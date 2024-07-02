@@ -32,7 +32,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 
 		// :::11
 		ArgumentTypeRegistry.registerArgumentType(
-				new Identifier("fabric-docs", "block_pos"),
+				Identifier.of("fabric-docs", "block_pos"),
 				BlockPosArgumentType.class,
 				ConstantArgumentSerializer.of(BlockPosArgumentType::new)
 		);
