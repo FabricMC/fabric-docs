@@ -52,6 +52,11 @@ import develop from "./sidebars/develop";
 
   fs.writeFileSync("./reference/latest/build.gradle", newBuildGrade);
 
+  // Add `include "{oldVersion}"` to the end of settings.gradle
+  const settingsGradle = fs.readFileSync("./reference/settings.gradle", "utf-8");
+  const newSettingsGradle = settingsGradle + `\ninclude "${oldVersion}"`;
+  fs.writeFileSync("./reference/settings.gradle", newSettingsGradle);
+
   console.log("Refrence mod has been bumped successfully.");
   console.log("Migrating content to versioned/" + oldVersion + "...");
 
