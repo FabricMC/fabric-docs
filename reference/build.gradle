@@ -29,7 +29,7 @@ subprojects {
 	}
 
 	dependencies {
-		modImplementation "net.fabricmc:fabric-loader:0.15.3"
+		modImplementation "net.fabricmc:fabric-loader:0.15.11"
 	}
 
 	fabricApi {
