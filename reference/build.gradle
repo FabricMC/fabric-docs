@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.4-SNAPSHOT' apply false
+	id 'fabric-loom' version '1.7-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
@@ -37,14 +37,14 @@ subprojects {
 	}
 
 	tasks.withType(JavaCompile).configureEach {
-		it.options.release = 17
+		it.options.release = 21
 	}
 
 	java {
 		withSourcesJar()
 
-		sourceCompatibility = JavaVersion.VERSION_17
-		targetCompatibility = JavaVersion.VERSION_17
+		sourceCompatibility = JavaVersion.VERSION_21
+		targetCompatibility = JavaVersion.VERSION_21
 	}
 
 	spotless {

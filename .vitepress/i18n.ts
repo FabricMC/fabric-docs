@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "fs";
 import { resolve } from "path/posix";
-import { LocaleConfig } from "vitepress";
+import { DefaultTheme, LocaleConfig } from "vitepress";
 
 import DevelopSidebar from "./sidebars/develop";
 import PlayersSidebar from "./sidebars/players";
@@ -34,6 +34,75 @@ export const getWebsiteResolver = (localeFolder: string) =>
 export const getSidebarResolver = (localeFolder: string) =>
   getTranslationsResolver(localeFolder, "sidebar_translations.json");
 
+export function processExistingEntries(sidebar: DefaultTheme.SidebarMulti): DefaultTheme.SidebarMulti {
+  // Get locales from __dirname/../translated/* folder names.
+  const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
+  // Get all versioning entries that match <locale>/<version>
+  // aka, does not match <locale>/players or <locale>/develop or /develop or /players
+
+  const keys = Object.keys(sidebar);
+  const versionedEntries = keys.filter((key) => {
+    return !key.includes("/players") && !key.includes("/develop") && localeFolders.some((locale) => key.includes(locale));
+  });
+
+  const versionsMet = new Set<string>();
+  // Now, ensure that <locale>/<version>/players and <locale>/<version>/develop are included in the sidebar. Use <version>/players and <version>/develop as the key.
+  for (const entry of versionedEntries) {
+    const split = entry.split("/");
+    const locale = split[1];
+    const version = split[2];
+
+    versionsMet.add(version);
+
+    const playersToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/players/`]));
+    const developToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/develop/`]));
+
+    sidebar[`/${locale}/${version}/players/`] = getLocalisedSidebar(playersToCopy, locale);
+    sidebar[`/${locale}/${version}/develop/`] = getLocalisedSidebar(developToCopy, locale);
+
+    // Delete the original entry.
+    delete sidebar[entry];
+  }
+
+  for (const version of versionsMet) {
+    // @ts-ignore
+    sidebar[`/${version}/players/`] = getLocalisedSidebar(sidebar[`/${version}/players/`], "root");
+    // @ts-ignore
+    sidebar[`/${version}/develop/`] = getLocalisedSidebar(sidebar[`/${version}/develop/`], "root");
+  }
+
+  return sidebar;
+}
+
+export function getLocalisedSidebar(
+  sidebar: Fabric.SidebarItem[],
+  localeCode: string
+): Fabric.SidebarItem[] {
+  const sidebarResolver = getSidebarResolver(localeCode);
+  const localisedSidebar = JSON.parse(JSON.stringify(sidebar));
+
+  for (const item of localisedSidebar) {
+    if (item.translatable === false) {
+      continue;
+    }
+
+    item.text = sidebarResolver(item.text);
+
+    if (item.link && localeCode !== "root" && item.process !== false) {
+      item.link = `/${localeCode}${item.link}`;
+    }
+
+    if (item.items) {
+      item.items = getLocalisedSidebar(item.items, localeCode);
+    }
+  }
+
+  return localisedSidebar;
+}
+
 /**
  * Generates translated sidebars for a given root directory and sidebars.
  *
@@ -41,36 +110,10 @@ export const getSidebarResolver = (localeFolder: string) =>
  * @param dirname - The root directory to generate translated sidebars for.
  * @returns An object containing translated sidebars, keyed by locale URL.
  */
-function generateTranslatedSidebars(
+export function generateTranslatedSidebars(
   sidebars: { [url: string]: Fabric.SidebarItem[] },
   dirname: string
 ): { [localeUrl: string]: Fabric.SidebarItem[] } {
-  function getLocalisedSidebar(
-    sidebar: Fabric.SidebarItem[],
-    localeCode: string
-  ): Fabric.SidebarItem[] {
-    const sidebarResolver = getSidebarResolver(localeCode);
-    const localisedSidebar = JSON.parse(JSON.stringify(sidebar));
-
-    for (const item of localisedSidebar) {
-      if (item.translatable === false) {
-        continue;
-      }
-
-      item.text = sidebarResolver(item.text);
-
-      if (item.link && localeCode !== "root" && item.process !== false) {
-        item.link = `/${localeCode}${item.link}`;
-      }
-
-      if (item.items) {
-        item.items = getLocalisedSidebar(item.items, localeCode);
-      }
-    }
-
-    return localisedSidebar;
-  }
-
   const translatedSidebars: { [key: string]: Fabric.SidebarItem[] } = {};
 
   for (const key of Object.keys(sidebars)) {
@@ -117,6 +160,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     if (localeCode === "root") {
       return null;
     } else {
+      // @ts-ignore
       return crowdinOverrides[localeCode] ?? localeCode.split("_")[0];
     }
   };
@@ -313,8 +357,8 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
       language === region.toLowerCase()
         ? localeNameInEnglish.of(language)!
         : localeNameInEnglish.of(language)! +
-          " - " +
-          regionNameInEnglish.of(region);
+        " - " +
+        regionNameInEnglish.of(region);
 
     const localisedName =
       localeNameInLocale.of(language)![0].toUpperCase() +

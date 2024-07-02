@@ -1,8 +1,11 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
-import { loadLocales } from "./i18n";
+import { getLocalisedSidebar, loadLocales, processExistingEntries } from "./i18n";
 import { transformItems, transformPageData } from "./transform";
+import { DefaultTheme } from "vitepress";
+import { readdirSync } from "node:fs";
+import { resolve } from "node:path";
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -51,10 +54,15 @@ export default defineVersionedConfig(
     transformPageData,
 
     versioning: {
-      latestVersion: "1.20.4",
+      latestVersion: "1.21",
       rewrites: {
         localePrefix: "translated",
       },
+      sidebars: {
+        sidebarContentProcessor(sidebar: DefaultTheme.SidebarMulti) {
+          return processExistingEntries(sidebar);
+        },
+      }
     },
   },
   __dirname

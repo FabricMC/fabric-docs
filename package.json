@@ -3,13 +3,19 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "bump": "ts-node ./.vitepress/update.ts"
   },
   "devDependencies": {
+    "@types/glob": "^8.1.0",
     "@types/node": "^20.14.5",
+    "@types/prompts": "^2.4.9",
+    "glob": "^10.4.2",
     "markdownlint": "^0.34.0",
     "markdownlint-rule-search-replace": "^1.2.0",
-    "markdownlint-rule-titlecase": "^0.1.0"
+    "markdownlint-rule-titlecase": "^0.1.0",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.18.0"
