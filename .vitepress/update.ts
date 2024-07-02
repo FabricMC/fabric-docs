@@ -1,8 +1,6 @@
 import prompts from "prompts";
 import fs from "node:fs"
 import * as glob from "glob"
-import path from "node:path";
-import { generateTranslatedSidebars } from "./i18n";
 import players from "./sidebars/players";
 import develop from "./sidebars/develop";
 
@@ -87,6 +85,17 @@ import develop from "./sidebars/develop";
 
   console.log("Migrated sidebars.")
 
+  // console.log("Copying translations...")
+  // // Copy translated/**/*.md -> versions/oldVersion/translated/**/*.md
+  // const translatedFiles = glob.sync("translated/**/*.md");
+  // for (const file of translatedFiles) {
+  //   const oldPath = "./" + file;
+  //   const newPath = "./versions/" + oldVersion + "/" + file;
+  //   fs.cpSync(oldPath, newPath);
+  // }
+
+  console.log("Updating internal links...");
+
   // Get all markdown files within versions/oldVersion
   const versionedMarkdownFiles = glob.sync(`versions/${oldVersion}/**/*.md`);
   // Process all content
@@ -98,4 +107,6 @@ import develop from "./sidebars/develop";
     fs.writeFileSync(file, newContent);
   }
 
+  console.log("Updated internal links.");
+  console.log("DONE! Make sure that the changes are correct before committing.");
 })();
