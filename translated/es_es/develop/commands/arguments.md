@@ -49,8 +49,8 @@ Podemos usar nuestro tipo de argumento personalizado en un comando pasando una i
 
 Al correr el comando, podemos verificar que el tipo de argumento funciona:
 
-![Argumento inválido.](/assets/develop/commands/custom-arguments_fail.png)
+![Argumento inválido](/assets/develop/commands/custom-arguments_fail.png)
 
-![Argumento válido.](/assets/develop/commands/custom-arguments_valid.png)
+![Argumento válido](/assets/develop/commands/custom-arguments_valid.png)
 
-![Resultado del comando.](/assets/develop/commands/custom-arguments_result.png)
+![Resultado del comando](/assets/develop/commands/custom-arguments_result.png)
