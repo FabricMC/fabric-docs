@@ -145,7 +145,7 @@ Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformatio
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Ein Video, das die Vergrößerung und Verkleinerung eines Diamanten zeigt.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Ein Video, das die Vergrößerung und Verkleinerung eines Diamanten zeigt](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternionen (rotierende Dinge)
 
@@ -159,4 +159,4 @@ Nehmen wir an, wir wollen unseren Diamanten um die Z-Achse drehen. Wir können d
 
 Daraus ergibt sich Folgendes:
 
-![Ein Video, das die Drehung des Diamanten um die Z-Achse zeigt.](/assets/develop/rendering/concepts-quaternions.webp)
+![Ein Video, das die Drehung des Diamanten um die Z-Achse zeigt](/assets/develop/rendering/concepts-quaternions.webp)

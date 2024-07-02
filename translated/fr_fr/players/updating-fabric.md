@@ -12,7 +12,7 @@ Ce guide explique en détail le processus de mise à jour de Fabric pour le laun
 
 Pour les lanceurs tiers, vous devriez consulter leur documentation.
 
-La mise à jour de Fabric ressemble beaucoup à l'installation de Fabric, donc certains passages seront identiques au guide [Installer Fabric](./installing-fabric.md).
+La mise à jour de Fabric ressemble beaucoup à l'installation de Fabric, donc certains passages seront identiques au guide [Installer Fabric](./installing-fabric).
 
 ## Pourquoi mettre à jour Fabric Loader ?
 
@@ -32,7 +32,7 @@ Une fois que l'installateur a terminé, il est désormais possible d'ouvrir le l
 
 Remplacer la version avec la version de Fabric Loader tout juste installée et appuyer sur 'Sauvegarder'.
 
-![Mise à jour de la version de Fabric Loader dans le launcher Minecraft.](/assets/players/updating-fabric.png)
+![Mise à jour de la version de Fabric Loader dans le launcher Minecraft](/assets/players/updating-fabric.png)
 
 ## 4. Et voilà !
 

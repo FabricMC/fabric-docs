@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # Эффекты состояния
 
@@ -65,5 +66,5 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 Используйте команду `/effect clear @p fabric-docs-reference:tater`, чтобы удалить эффект.
 
 ::: info
-Чтобы узнать, как создать зелье, накладывающее этот эффект, ознакомьтесь с руководством по [зельям](../items/potions.md).
+Чтобы узнать, как создать зелье, накладывающее этот эффект, ознакомьтесь с руководством по [зельям](../items/potions).
 :::

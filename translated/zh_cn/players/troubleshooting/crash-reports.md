@@ -58,12 +58,12 @@ authors:
 
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
-`-- Last Reload --`，除非崩溃发生在资源重载过程中 (<kbd>F3</kbd>+<kbd>T</kbd>) ，否则这部分并没有什么用处。 该部分将包含上次重载的发生时间，以及重载过程中出现的任何错误的相关堆栈跟踪。 这些错误通常是由资源包引起的，可以忽略不计，除非它们导致游戏出现问题。 在这种情况下，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最为重要，因为它包含导致崩溃的主要错误。 在这里，错误为`java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
+`-- Last Reload --`，除非崩溃发生在资源重载过程中 (<kbd>F3</kbd>+<kbd>T</kbd>) ，否则这部分并没有什么用处。 该部分将包含上次重载的发生时间，以及重载过程中出现的任何错误的相关堆栈跟踪。 这些错误通常是由资源包引起的，可以忽略不计，除非它们导致游戏出现问题。 在这种情况下，`---- Minecraft Crash Report ----` 部分中的堆栈跟踪最为重要，因为它包含导致崩溃的主要错误。 在这里，错误为`java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
 
-由于堆栈跟踪中提到了大量的模组，因此很难指认崩溃“凶手”，不过，首先要做的是查找导致崩溃的部分。
+由于堆栈跟踪中提到了大量的模组，因此很难指认崩溃"凶手"，不过，首先要做的是查找导致崩溃的部分。
 
 ```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51) 
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
 at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)

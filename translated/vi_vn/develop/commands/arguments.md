@@ -49,8 +49,8 @@ Bạn có thể sử dụng kiểu tham số tùy chỉnh trong một câu lện
 
 Thử chạy câu lệnh xem kiểu tham số của chúng ta có hoạt động không:
 
-![Tham số không hợp lệ.](/assets/develop/commands/custom-arguments_fail.png)
+![Tham số không hợp lệ](/assets/develop/commands/custom-arguments_fail.png)
 
-![Tham số hợp lệ.](/assets/develop/commands/custom-arguments_valid.png)
+![Tham số hợp lệ](/assets/develop/commands/custom-arguments_valid.png)
 
-![Kết quả câu lệnh.](/assets/develop/commands/custom-arguments_result.png)
+![Kết quả câu lệnh](/assets/develop/commands/custom-arguments_result.png)

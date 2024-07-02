@@ -7,7 +7,7 @@ authors:
 
 # Usando el Contexto de Dibujado
 
-Esta página asume que ya has visto la página de [Conceptos Básicos de Renderizado](./basic-concepts.md).
+Esta página asume que ya has visto la página de [Conceptos Básicos de Renderizado](./basic-concepts).
 
 La clase `DrawContext` es la clase principal usada para renderizar cosas en el juego. Es usada para renderizar objetos, texto y texturas y, como ya hemos visto, es usada para manipular diferentes `MatrixStack`s y usar `BufferBuilder`s.
 
@@ -21,7 +21,7 @@ Puedes usar el método `DrawContext.fill(...)` para dibujar un rectángulo relle
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Un rectángulo.](/assets/develop/rendering/draw-context-rectangle.png)
+![Un rectángulo](/assets/develop/rendering/draw-context-rectangle.png)
 
 ### Dibujar Contornos/Bordes
 
@@ -29,7 +29,7 @@ Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos us
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Rectángulo con bordes.](/assets/develop/rendering/draw-context-rectangle-border.png)
+![Rectángulo con bordes](/assets/develop/rendering/draw-context-rectangle-border.png)
 
 ### Dibujar Líneas Individuales
 
@@ -53,7 +53,7 @@ Para habilitar el _scissor manager_, simplemente usa el método `DrawContext.ena
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Regiones de tijera en acción.](/assets/develop/rendering/draw-context-scissor.png)
+![Regiones de tijera en acción](/assets/develop/rendering/draw-context-scissor.png)
 
 Como puedes ver, aunque le dijimos al juego que renderice la gradiente por toda la pantalla, solo hace dentro de la región de tijera.
 
@@ -67,7 +67,7 @@ Generalmente, es recomendado que uses la sobrecarga que especifique los parámet
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
-![Ejemplo de diubjar la textura entera.](/assets/develop/rendering/draw-context-whole-texture.png)
+![Ejemplo de diubjar la textura entera](/assets/develop/rendering/draw-context-whole-texture.png)
 
 ### Dibujar una Porción de una Textura
 

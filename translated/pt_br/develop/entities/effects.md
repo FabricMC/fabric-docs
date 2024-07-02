@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # Efeitos de Estado
 
@@ -65,5 +66,5 @@ Uso o comando `/effect give @p fabric-docs-reference:tater` para dar ao jogador 
 Use `/effect clear @p fabric-docs-reference:tater` para remover o efeito.
 
 ::: info
-Para criar uma poção que utiliza este efeito, consulte o [guia de Poções](../items/potions.md).
+Para criar uma poção que utiliza este efeito, consulte o [guia de Poções](../items/potions).
 :::

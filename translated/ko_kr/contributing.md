@@ -1,6 +1,6 @@
 # Fabric 문서 기여 가이드라인
 
-이 웹사이트는 [VitePress](https://vitepress.dev/)를 사용해 다양한 마크다운 파일에서 정적 HTML을 생성합니다. [여기](https://vitepress.dev/guide/markdown.html#features)에서 VitePress가 지원하는 마크다운 확장 기능에 익숙해져야 합니다.
+이 웹사이트는 [VitePress](https://vitepress.dev/)를 사용해 다양한 마크다운 파일에서 정적 HTML을 생성합니다. [여기](https://vitepress.dev/guide/markdown#features)에서 VitePress가 지원하는 마크다운 확장 기능에 익숙해져야 합니다.
 
 ## 목차
 
@@ -26,7 +26,7 @@
 
 개발 서버는 `localhost:3000`에서 로컬 변경 사항을 미리 볼 수 있게 합니다. 코드가 변경되면 변경 사항을 자동으로 적용합니다.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 웹사이트를 빌드하면 모든 마크다운 파일이 정적 HTML로 컴파일되어 `.vitepress/dist` 에 저장됩니다.
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 `.vitepress/dist`에 저장된 콘텐츠를 `localhost:3000` 에서 볼 수 있도록 합니다.
 
-```bash
+```sh
 npm run preview
 ```
 
@@ -145,13 +145,13 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
    예를 들어서, `/players` 폴더의 `installing-fabric` 페이지를 언급하려는 경우, 절대 경로는 `/players/installing-fabric.md` 이지만, 다음과 같이 연결해야 합니다.
 
    ```md
-   [This is a link to another page](./installing-fabric.md)
+   [This is a link to another page](./installing-fabric)
    ```
 
    반대로 다음과 같이 입력하면 **문제가 발생**하게 됩니다!
 
    ```md
-   [This is a link to another page](/player/installing-fabric.md)
+   [This is a link to another page](/players/installing-fabric)
    ```
 
 모든 콘텐츠 기여의 끌어오기 요청은 다음 단계를 거치게 됩니다.

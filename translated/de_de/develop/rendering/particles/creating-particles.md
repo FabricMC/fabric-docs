@@ -31,9 +31,8 @@ In diesem Beispiel registrieren wir unseren Partikel Client-seitig. Dann geben w
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
 - IntelliJ's Tastaturkürzel: Strg+Alt+B
-- IntelliJs Hotkey: Strg+Alt+B\
-  Visual Studio Codes Hotkey: Strg+F12
-  :::
+- Visual Studio Codes Hotkey: Strg+F12
+:::
 
 ## Eine JSON Datei erstellen und Texturen hinzufügen
 
@@ -60,7 +59,7 @@ Sobald du die JSON-Datei fertiggestellt und deine Arbeit gespeichert hast, kanns
 
 Du kannst überprüfen, ob alles funktioniert hat, indem du den folgenden Befehl eingibst:
 
-```
+```mcfunction
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 

@@ -22,7 +22,7 @@ authors:
 Creare comandi può permettere a uno sviluppatore di mod di aggiungere funzionalità che possono essere usate attraverso un comando. Questo tutorial ti insegnerà come registrare comandi e qual è la struttura generale dei comandi di Brigadier.
 
 :::info
-Brigadier è un parser e un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un albero di comandi e parametri. Brigadier è open source: https://github.com/Mojang/brigadier
+Brigadier è un parser e un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un albero di comandi e parametri. Brigadier è open-source: <https://github.com/Mojang/brigadier>
 :::
 
 ## L'interface `Command`
@@ -61,7 +61,7 @@ Command<ServerCommandSource> command = context -> {
 I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito dall'API di Fabric.
 
 :::info
-Per informazioni su come registrare i callback, vedi per favore la guida [Eventi](../events.md).
+Per informazioni su come registrare i callback, vedi per favore la guida [Eventi](../events).
 :::
 
 L'evento dovrebbe essere registrato nell'initializer della tua mod.

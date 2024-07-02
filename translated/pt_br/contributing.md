@@ -1,6 +1,6 @@
 # Diretrizes de Contribuição da Documentação do Fabric
 
-Este site usa [VitePress](https://vitepress.dev/) para gerar HTML estático de vários arquivos do Markdown. Você deve estar familiarizado com as extensões Markdown que o VitePress suporta [aqui.](https://vitepress.dev/guide/markdown.html#features)
+Este site usa [VitePress](https://vitepress.dev/) para gerar HTML estático de vários arquivos do Markdown. Você deve estar familiarizado com as extensões Markdown que o VitePress suporta [aqui](https://vitepress.dev/guide/markdown#features).
 
 ## Sumário
 
@@ -26,7 +26,7 @@ Antes de executar alguns desses comandos, certifique-se de executar `npm install
 
 Isso vai permitir que você visualize as alterações localmente em: `localhost:3000` e recarregará automaticamente a página quando você fizer alterações.
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 Isto irá compilar todos os arquivos Markdown em arquivos HTML estáticos e colocá-los em: `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 Isso iniciará um servidor local na porta 3000 servindo o conteúdo encontrado em `.vitepress/dist`
 
-```bash
+```sh
 npm run preview
 ```
 
@@ -71,7 +71,7 @@ As diretrizes a serem seguidas:
    ```md
    ---
    título: Esse é o Título da Pagina
-   Descrição: Essa é a descrição da página 
+   Descrição: Essa é a descrição da página
    autores:
      - NomeAleatórioDoGitHub
    ---
@@ -127,7 +127,7 @@ As diretrizes a serem seguidas:
    ```java
    public void test() {
      System.out.println("Olá Mundo!");
-   } 
+   }
    ```
 
 3. A documentação original inteira é escrita em Inglês, seguindo as regras da gramática Estadunidense. Embora você possa usar o [LanguageTool](https://languagetool.org/) para verificar sua gramática enquanto digita,mas não se encuque muito com isso. Nossa equipe de documentação revisará e corrigirá a gramática durante a fase de revisão. No entanto, se esforçar para acertar inicialmente pode nos poupar um bom tempo.
@@ -145,13 +145,13 @@ As diretrizes a serem seguidas:
    Por exemplo, para uma página na pasta `/players`, para vincular à página `installing-fabric` encontrada em `/players/installing-fabric.md`, você teria que fazer o seguinte:
 
    ```md
-   [Isto é um link para outra página](./installing-fabric.md)
+   [Isto é um link para outra página](./installing-fabric)
    ```
 
    Você **NÃO** deve fazer o seguinte:
 
    ```md
-   [Isto é um link para outra página](/player/installing-fabric.md)
+   [Isto é um link para outra página](/players/installing-fabric)
    ```
 
 Todas as contribuições de conteúdo passam por três etapas:

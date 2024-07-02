@@ -16,16 +16,16 @@ Ufficialmente, Fabric supporta tutte le versioni di Minecraft a partire da snaps
 ### Dove Posso Scaricare le Mod Fabric Pubblicate?
 
 :::info
-Dovresti sempre controllare che le mod provengano da una fonte affidabile. Dai un occhiata alla guida [Trovare Mod Affidabili](./finding-mods.md) per più informazioni.
+Dovresti sempre controllare che le mod provengano da una fonte affidabile. Dai un occhiata alla guida [Trovare Mod Affidabili](./finding-mods) per più informazioni.
 :::
 
-La maggior parte degli autori pubblica le loro mod su [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4), anche se altri potrebbero aver deciso di caricarle sui loro siti personali o su altre piattaforme come le repository di GitHub.
+La maggior parte degli autori pubblica le loro mod su [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), anche se altri potrebbero aver deciso di caricarle sui loro siti personali o su altre piattaforme come le repository di GitHub.
 
 ### Dove Posso Trovare Modpack Fabric Prefabbricati?
 
 Puoi trovare modpack Fabric prefabbricati su varie piattaforme, come:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
-- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\&gameVersionTypeId=4)
+- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
 - [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
 - [Technic](https://www.technicpack.net/modpacks)

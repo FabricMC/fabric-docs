@@ -1,9 +1,9 @@
 ---
-title: Riprodurre i SoundEvents
+title: Riprodurre Suoni
 description: Impara come riprodurre eventi sonori.
 ---
 
-# Riprodurre i SoundEvents
+# Riprodurre Suoni
 
 Minecraft ha una grande selezione di suoni da cui puoi scegliere. Controlla la classe `SoundEvents` per vedere tutte le istanze di eventi sonori vanilla che Mojang ha predisposto.
 
@@ -21,7 +21,7 @@ Il metodo `playSound()` è usato con l'oggetto `LivingEntity`. Solo il SoundEven
 
 ### SoundEvent e SoundCategory
 
-Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare i tuoi SoundEvents](./custom.md) per includere il tuo suono.
+Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare i tuoi SoundEvents](./custom) per includere il tuo suono.
 
 Minecraft ha vari slider audio nelle impostazioni del gioco. L'enum `SoundCategory` è usato per determinare quale slider controllerà il volume del tuo suono.
 

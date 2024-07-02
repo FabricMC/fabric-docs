@@ -1,6 +1,6 @@
 # Fabric 文档贡献指南
 
-此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown#features)。
 
 ## 目录
 
@@ -26,7 +26,7 @@
 
 这将允许您在本地地址 `localhost:3000` 预览您的更改，并自动在修改时重载页面。
 
-```bash
+```sh
 npm run dev
 ```
 
@@ -34,7 +34,7 @@ npm run dev
 
 这将编译所有 Markdown 文件为静态 HTML 页面并保存至 `.vitepress/dist`
 
-```bash
+```sh
 npm run build
 ```
 
@@ -42,7 +42,7 @@ npm run build
 
 这将在端口 3000 启动本地服务器并展示 `.vitepress/dist` 中的网页
 
-```bash
+```sh
 npm run preview
 ```
 
@@ -132,9 +132,9 @@ npm run preview
 
 3. 所有原始文档都使用英文书写，跟随美国的语法规则。 虽然你可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，但不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。
 
-4. 如果您正在创建新的部分，您应当在 `.vitepress/sidebars` 文件夹中创建新的侧边栏，并将它添加到 `config.mts` 文件中。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的` #docs` 频道提问。
+4. 如果您正在创建新的部分，您应当在 `.vitepress/sidebars` 文件夹中创建新的侧边栏，并将它添加到 `config.mts` 文件中。 如果您需要帮助，请在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#docs` 频道提问。
 
-5. 创建新页面时，您应当将其添加到 `.vitepress/sidebars` 文件夹中相关的侧边栏中。 重复，如果您需要帮助，请在 Fabric Discord 的` #docs` 频道提问。
+5. 创建新页面时，您应当将其添加到 `.vitepress/sidebars` 文件夹中相关的侧边栏中。 重复，如果您需要帮助，请在 Fabric Discord 的 `#docs` 频道提问。
 
 6. 任何图片都应该放在 `/assets` 文件夹中的适当位置。
 
@@ -145,13 +145,13 @@ npm run preview
    例如，对于 `/players` 文件夹中的页面，要链接到位于 `/players/installing-fabric.md` 的 `installing-fabric` 页面，您需要进行以下操作：
 
    ```md
-   [这是一个其他页面的链接](./installing-fabric.md)
+   [这是一个其他页面的链接](./installing-fabric)
    ```
 
    您**不**应当进行以下操作：
 
    ```md
-   [这是一个其他页面的链接](/player/installing-fabric.md)
+   [这是一个其他页面的链接](/players/installing-fabric)
    ```
 
 所有内容贡献都会经历三个阶段：

@@ -19,7 +19,7 @@ Sesetengah tapak penampalan juga menyediakan penyerlahan sintaks untuk log, yang
 
 Laporan ranap permainan dijana secara automatik apabila permainan ranap. Ia hanya mengandungi maklumat ranap dan bukan log sebenar permainan. Ia terletak di dalam folder `crash-reports` dalam direktori permainan.
 
-Untuk mendapatkan maklumat lanjut tentang laporan ranap permainan, lihat [Laporan Ranap Permainan](./crash-reports.md).
+Untuk mendapatkan maklumat lanjut tentang laporan ranap permainan, lihat [Laporan Ranap Permainan](./crash-reports).
 
 ## Mencari Lokasi Log
 

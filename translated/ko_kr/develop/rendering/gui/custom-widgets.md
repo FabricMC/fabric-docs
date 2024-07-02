@@ -26,7 +26,7 @@ authors:
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
-![화면에 표시되는 사용자 정의 위젯.](/assets/develop/rendering/gui/custom-widget-example.png)
+![화면에 표시되는 사용자 정의 위젯](/assets/develop/rendering/gui/custom-widget-example.png)
 
 ## 위젯 이벤트
 

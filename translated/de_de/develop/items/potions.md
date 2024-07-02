@@ -32,7 +32,7 @@ Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besi
 - `int amplifier` - Die Stärke des Effekts. Zum Beispiel hätte Eile II einen Verstärker-Wert von 1.
 
 :::info
-Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](../entities/effects.md).
+Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](../entities/effects).
 :::
 
 ### Registrieren des Tranks

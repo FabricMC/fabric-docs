@@ -9,7 +9,7 @@ authors:
 
 Diese Anleitung führt Sie durch die Installation von Java 17 auf Linux.
 
-## 1. Überprüfen, ob Java bereits installiert ist.
+## 1. Überprüfen, ob Java bereits installiert ist
 
 Öffne ein Terminal und gib `java -version` ein, drücke anschließend <kbd>Enter</kbd>.
 
@@ -31,19 +31,19 @@ Für mehr Informationen über die Installation von Java auf Arch Linux, schaue i
 
 Du kannst die aktuellste JRE aus den offiziellen Repositories installieren:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 Wenn du einen Server betreibst, für den du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 Wenn du planst Mods zu entwickeln, brauchst du stattdessen die JDK:
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 Du kannst Java 17 über `apt` mit dem folgenden Befehl installieren:
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 Du kannst Java 17 über `dnf` mit dem folgenden Befehl installieren:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 Wenn du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 Wenn du planst Mods zu entwickeln, brauchst du stattdessen die JDK:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
@@ -82,7 +82,7 @@ Wenn deine Distribution oben nicht gelistet ist, kannst du die aktuellste JRE vo
 
 Du solltest einen alternativen Leitfaden für deine Distribution verwenden, wenn du Mods entwickeln willst.
 
-## 3. Verifizieren, dass Java 17 installiert ist.
+## 3. Verifizieren, dass Java 17 installiert ist
 
 Sobald die Installation abgeschlossen ist, kannst du überprüfen, ob Java 17 installiert ist, indem du die Kommandozeile erneut öffnest und "java -version" eingibst.
 

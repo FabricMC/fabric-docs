@@ -30,11 +30,9 @@ In questo esempio, stiamo registrando la nostra particella dal lato client. Stia
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-- Combinazione per IntelliJ: Ctrl+Alt+B\
-  Combinazione per Visual Studio Code: Ctrl+F12
-  :::
-- Scorciatoia di Visual Studio Code: Ctrl+F12
-  :::
+- Combinazione per IntelliJ: Ctrl+Alt+B
+- Combinazione per Visual Studio Code: Ctrl+F12
+:::
 
 ## Creare un file JSON e aggiungere le texture
 
@@ -61,7 +59,7 @@ Una volta completato il file JSON e salvato il tuo lavoro, puoi aprire Minecraft
 
 Puoi controllare se tutto ha funzionato scrivendo il comando seguente:
 
-```
+```mcfunction
 /particle <mod id here>:sparkle_particle ~ ~1 ~
 ```
 

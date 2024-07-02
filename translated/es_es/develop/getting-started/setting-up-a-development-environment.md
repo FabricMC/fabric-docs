@@ -14,9 +14,9 @@ authors:
   - mkpoli
   - falseresync
   - asiekierka
+authors-nogithub:
+  - siglong
 ---
-
-<!-- No GitHub profiles for: siglong -->
 
 # Configurando tu entorno de desarrollo
 
@@ -26,7 +26,7 @@ Para empezar a desarollar mods usando Fabric, necesitarás configurar un entorno
 
 Para desarrollar mods para Minecraft 1.20.4, necesitarás JDK 17.
 
-Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/index.md)
+Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/index)
 
 ## Instalando IntelliJ IDEA
 

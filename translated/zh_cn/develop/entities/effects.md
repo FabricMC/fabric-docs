@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # 状态效果
 
@@ -65,5 +66,5 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。 使用 `/effect clear` 移除该效果。
 
 ::: info
-要创建使用此效果的药水，请参阅[药水](../items/potions.md)指南。
+要创建使用此效果的药水，请参阅[药水](../items/potions)指南。
 :::

@@ -41,7 +41,7 @@ Los reportes de crasheo pueden ser encontrados en los siguientes lugares:
 
 Los reportes de crasheo son muy largos, y pueden ser confusos de leer. Sin embargo, contienen mucha información sobre el crasheo, y pueden ayudarte a encontrar la causa del crasheo.
 
-Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo.](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt)
+Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
 ### Secciones del Reporte de Crasheo
 
@@ -63,7 +63,7 @@ El stack trace en la sección de `---- Minecraft Crash Report ----` es la más i
 Con la cantidad de mods mencionados en el stack trace, puede ser difícil encontrar el mod culpable, pero lo primero que se debe hacer es encontrar el mod que causó el crasheo.
 
 ```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51) 
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
 at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)

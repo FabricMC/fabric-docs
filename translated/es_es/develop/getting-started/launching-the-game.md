@@ -50,7 +50,7 @@ En IntelliJ IDEA, puedes encontrar el jar de librería de mixin en la sección d
 
 Deberás copiar el "absolute path" (dirección absoluta) del jar para el siguiente paso.
 
-### 2. Agrega el argumento de VM de `-javaagent`.
+### 2. Agrega el argumento de VM de `-javaagent`
 
 En tus perfiles de lanzamiento de "Minecraft Client" y/o "Minecraft Server", agrega los siguientes argumentos de VM:
 

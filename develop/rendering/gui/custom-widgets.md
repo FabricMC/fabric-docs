@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Custom Widgets
+# Custom Widgets {#custom-widgets}
 
 Widgets are essentially containerized rendering components that can be added to a screen, and can be interacted with by the player through various events such as mouse clicks, key presses, and more.
 
-## Creating a Widget
+## Creating a Widget {#creating-a-widget}
 
 There are multiple ways to create a widget class, such as extending `ClickableWidget`. This class provides a lot of useful utilities, such as managing width, height, position, and handling events - it implements the `Drawable`, `Element`, `Narratable`, and `Selectable` interfaces:
 
@@ -20,15 +20,15 @@ There are multiple ways to create a widget class, such as extending `ClickableWi
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-## Adding the Widget to the Screen
+## Adding the Widget to the Screen {#adding-the-widget-to-the-screen}
 
 Like all widgets, you need to add it to the screen using the `addDrawableChild` method, which is provided by the `Screen` class. Make sure you do this in the `init` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
-![Custom widget on screen.](/assets/develop/rendering/gui/custom-widget-example.png)
+![Custom widget on screen](/assets/develop/rendering/gui/custom-widget-example.png)
 
-## Widget Events
+## Widget Events {#widget-events}
 
 You can handle events such as mouse clicks, key presses, by overriding the `onMouseClicked`, `onMouseReleased`, `onKeyPressed`, and other methods.
 

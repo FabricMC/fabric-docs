@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # Effetti di Stato
 
@@ -62,8 +63,8 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mo
 ### Fase di Test
 
 Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
-Usa `/effect clear` per rimuovere l'effetto.
+Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
 
 ::: info
-Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions.md).
+Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions).
 :::

@@ -3,7 +3,6 @@ files:
     ignore:
       - /versions/**/*
       - /translated/**/*
-      - LICENSE.md
       - README.md
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
     excluded_target_languages:
