@@ -13,11 +13,11 @@ Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric T
 
 Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu erstellen - du solltest die erforderlichen Felder ausfüllen, wie zum Beispiel den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
 
-![Vorschau des Generators.](/assets/develop/getting-started/template-generator.png)
+![Vorschau des Generators](/assets/develop/getting-started/template-generator.png)
 
 Wenn du Kotlin verwenden oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
 
-![Der Abschnitt "Advanced options".](/assets/develop/getting-started/template-generator-advanced.png)
+![Der Abschnitt "Advanced options"](/assets/develop/getting-started/template-generator-advanced.png)
 
 Der Generator erstellt dann ein neues Projekt in Form einer ZIP-Datei für dich.
 
@@ -45,7 +45,7 @@ Wenn du den Fabric Vorlagen Mod Generator nicht verwenden kannst, kannst du ein 
 
 Klone zunächst das Beispiel-Mod-Repository mit Git:
 
-```bash
+```sh
 git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 ```
 
