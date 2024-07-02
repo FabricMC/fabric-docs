@@ -14,9 +14,9 @@ authors:
   - mkpoli
   - falseresync
   - asiekierka
+authors-nogithub:
+  - siglong
 ---
-
-<!-- No GitHub profiles for: siglong -->
 
 # 设置开发环境
 
@@ -26,7 +26,7 @@ authors:
 
 要为 Minecraft 1.20.4 开发模组，您将需要 JDK 17。
 
-如果您需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index.md)中的各种 Java 安装指南。
+如果您需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
 
 ## 安装 IntelliJ IDEA
 

@@ -32,7 +32,7 @@ Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRe
 - `int amplifier` - 효과의 세기. 예를 들어, 성급함 II는 1을 세기로 가지게 됩니다.
 
 :::info
-사용자 정의 효과를 만드려면, [상태 효과](entities/effects.md) 가이드를 참조하세요.
+사용자 정의 효과를 만드려면, [상태 효과](../entities/effects) 가이드를 참조하세요.
 :::
 
 ### 포션 등록

@@ -29,14 +29,14 @@ Feche o Minecraft e Minecraft Launcher antes da instalação.
 
 No macOS, talvez seja necessário clicar com o botão direito no arquivo `.jar` em sua pasta de downloads e clicar em `Open` para executá-lo.
 
-![Menu de contexto do macOS no Instalador do Fabric.](/assets/players/installing-fabric/macos-downloads.png)
+![Menu de contexto do macOS no Instalador do Fabric](/assets/players/installing-fabric/macos-downloads.png)
 
 Quando perguntado "Tem certeza de que deseja abrir isso?", aperte em `Abrir` novamente.
 :::
 
 Assim que você abrir o instalador, deverá ver uma tela como essa:
 
-![Instalador do Fabric com "Instalar" destacado.](/assets/players/installing-fabric/installer-screen.png)
+![Instalador do Fabric com "Instalar" destacado](/assets/players/installing-fabric/installer-screen.png)
 
 Para instalar o Fabric, apenas escolha a versão do seu jogo e clique em `Instalar`.
 
@@ -46,10 +46,10 @@ Para instalar o Fabric, apenas escolha a versão do seu jogo e clique em `Instal
 
 Assim que o instalador terminar, você pode abrir o Minecraft Launcher, selecionar o perfil Fabric através do botão no canto inferior esquerdo e clicar em Jogar!
 
-![Minecraft Launcher com o perfil Fabric selecionado.](/assets/players/installing-fabric/launcher-screen.png)
+![Minecraft Launcher com o perfil Fabric selecionado](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Próximos passos
 
-Agora que você instalou o Fabric, você pode adicionar mods ao seu jogo! Dê uma olhada no guia [Encontrando Mods Confiáveis](./finding-mods.md) para mais informações.
+Agora que você instalou o Fabric, você pode adicionar mods ao seu jogo! Dê uma olhada no guia [Encontrando Mods Confiáveis](./finding-mods) para mais informações.
 
 Se você encontrar algum problema, sinta-se à vontade para pedir ajuda no [Discord do Fabric](https://discord.gg/v6v4pMv) no canal `#player-support`.

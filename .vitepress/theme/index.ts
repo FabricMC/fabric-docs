@@ -1,17 +1,18 @@
-import DefaultTheme from 'vitepress/theme'
+import { useData } from "vitepress";
+import DefaultTheme from "vitepress/theme";
+import { h, nextTick, onMounted, watch } from "vue";
 import { Theme, useRoute } from 'vitepress';
-import { h, nextTick, onMounted, watch } from 'vue'
 
 import mediumZoom from 'medium-zoom';
 
-import PageAuthorComponent from './components/PageAuthorComponent.vue'
-import BannerComponent from './components/BannerComponent.vue'
-import DownloadEntry from './components/DownloadEntry.vue'
-import ColorSwatch from './components/ColorSwatch.vue'
-import VideoPlayer from './components/VideoPlayer.vue'
+import BannerComponent from "./components/BannerComponent.vue";
+import NotFoundComponent from "./components/NotFoundComponent.vue";
+import AuthorsComponent from "./components/AuthorsComponent.vue";
+import DownloadEntry from './components/DownloadEntry.vue';
+import ColorSwatch from './components/ColorSwatch.vue';
+import VideoPlayer from './components/VideoPlayer.vue';
 
-// Import style fixes and customizations.
-import './style.css'
+import "./style.css";
 
 export default {
   extends: DefaultTheme,
@@ -19,15 +20,21 @@ export default {
     // Vidstack Videoplayer Component
     app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('media-');
 
-    app.component('DownloadEntry', DownloadEntry)
-    app.component('ColorSwatch', ColorSwatch)
-    app.component('VideoPlayer', VideoPlayer)
+    app.component('DownloadEntry', DownloadEntry);
+    app.component('ColorSwatch', ColorSwatch);
+    app.component('VideoPlayer', VideoPlayer);
   },
   Layout() {
-    return h(DefaultTheme.Layout, null, {
-      'aside-outline-after': () => h(PageAuthorComponent),
-      'layout-top': () => h(BannerComponent)
-    })
+    const children = {
+      "aside-outline-after": () => h(AuthorsComponent),
+      "layout-top": () => h(BannerComponent),
+    };
+
+    if (useData().page.value.isNotFound) {
+      children["not-found"] = () => h(NotFoundComponent);
+    }
+
+    return h(DefaultTheme.Layout, null, children);
   },
   setup() {
     const route = useRoute();

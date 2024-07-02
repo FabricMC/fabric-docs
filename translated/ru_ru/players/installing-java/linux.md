@@ -26,7 +26,7 @@ authors:
 ### Arch Linux
 
 :::info
-Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\\\(Русский\\\)).
+Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_(Русский)).
 :::
 
 Вы можете установить последнюю версию JRE из официальных репозиториев:

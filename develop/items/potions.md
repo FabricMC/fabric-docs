@@ -7,12 +7,12 @@ authors:
   - Drakonkinst
 ---
 
-# Potions
+# Potions {#potions}
 
 Potions are consumables that grants an entity an effect. A player can brew potions using a Brewing Stand or obtain them
 as items through various other game mechanics.
 
-## Custom Potions
+## Custom Potions {#custom-potions}
 
 Adding a potion follows a similar path as adding an item. You will create an instance of your potion and register it by
 calling `BrewingRecipeRegistry.registerPotionRecipe`.
@@ -21,7 +21,7 @@ calling `BrewingRecipeRegistry.registerPotionRecipe`.
 When Fabric API is present, `BrewingRecipeRegistry.registerPotionRecipe` is made accessible through an Access Widener.
 :::
 
-### Creating the Potion
+### Creating the Potion {#creating-the-potion}
 
 Let's start by declaring a field to store your `Potion` instance. We will be directly using the initializer class to
 hold this.
@@ -36,10 +36,10 @@ We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 - `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
 ::: info
-To create your own effect, please see the [Effects](../entities/effects.md) guide.
+To create your own effect, please see the [Effects](../entities/effects) guide.
 :::
 
-### Registering the Potion
+### Registering the Potion {#registering-the-potion}
 
 In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe`.
 
@@ -68,7 +68,7 @@ With the help of Fabric API, it's possible to register a potion using an `Ingred
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 :::
 
-### Registering the Potion Without Fabric API
+### Registering the Potion Without Fabric API {#registering-the-potion-without-fabric-api}
 
 Without Fabric API, `BrewingRecipeRegistry.registerPotionRecipe` will be private. In order to access this method, use
 the following mixin invoker or use an Access Widener.

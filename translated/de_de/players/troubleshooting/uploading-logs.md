@@ -19,7 +19,7 @@ Manche Paste-Seiten stellen Syntaxhervorhebung für Logs bereit, was sie deutlic
 
 Absturzberichte werden automatisch generiert, wenn das Spiel abstürzt. Sie enthalten nur Absturzinformationen, aber nicht die eigentlichen Logs des Spiels. Sie befinden sich im `crash-reports`-Verzeichnis im Spiel-Verzeichnis.
 
-Für weitere Informationen über Absturzberichte, siehe [Absturzberichte](./crash-reports.md).
+Für weitere Informationen über Absturzberichte, siehe [Absturzberichte](./crash-reports).
 
 ## Logs finden
 

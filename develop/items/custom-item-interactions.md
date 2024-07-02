@@ -5,13 +5,13 @@ authors:
   - IMB11
 ---
 
-# Custom Item Interactions
+# Custom Item Interactions {#custom-item-interactions}
 
 Basic items can only go so far - eventually you will need an item that interacts with the world when it is used.
 
 There are some key classes you must understand before taking a look at the vanilla item events.
 
-## TypedActionResult
+## TypedActionResult {#typedactionresult}
 
 For items, the most common `TypedActionResult` you'll see is for `ItemStacks` - this class tells the game what to replace the item stack (or not to replace) after the event has occured.
 
@@ -33,16 +33,16 @@ heldStack.decrement(1);
 TypedActionResult.success(heldStack);
 ```
 
-## ActionResult
+## ActionResult {#actionresult}
 
 Similarly, an `ActionResult` tells the game the status of the event, whether it was passed/ignored, failed or successful.
 
-## Overridable Events
+## Overridable Events {#overridable-events}
 
 Luckily, the Item class has many methods that can be overriden to add extra functionality to your items.
 
 ::: info
-A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds.md) page, which uses the `useOnBlock` event to play a sound when the player right clicks a block.
+A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds) page, which uses the `useOnBlock` event to play a sound when the player right clicks a block.
 :::
 
 | Method          | Information                                             |
@@ -54,7 +54,7 @@ A great example of these events being used can be found in the [Playing SoundEve
 | `useOnBlock`    | Ran when the player right clicks a block with the item. |
 | `use`           | Ran when the player right clicks the item.              |
 
-## The `use()` Event
+## The `use()` Event {#use-event}
 
 Let's say you want to make an item that summons a lightning bolt infront of the player - you would need to create a custom class.
 

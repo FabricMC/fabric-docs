@@ -32,7 +32,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 - Tecla de acceso rápido de IntelliJ: Ctrl+Alt+B
 - Tecla de acceso rápido de Visual Studio Code: Ctrl+F12
-  :::
+:::
 
 ## Crear el archivo JSON y añadir texturas
 

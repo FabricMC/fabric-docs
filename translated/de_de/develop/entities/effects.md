@@ -7,9 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+authors-nogithub:
+  - siglong
+  - tao0lu
 ---
-
-<!-- Couldn't find GitHub usernames for: siglong, tao0lu  -->
 
 # Statuseffekte
 
@@ -65,5 +66,5 @@ Benutze den Befehl `/effect give @p fabric-docs-reference:tater`, um dem Spieler
 Verwende `/effect clear`
 um den Effekt zu entfernen.
 
-Um einen Trank zu erstellen, der diesen Effekt nutzt, lies bitte die Anleitung [Tränke](../items/potions.md).
+Um einen Trank zu erstellen, der diesen Effekt nutzt, lies bitte die Anleitung [Tränke](../items/potions).
 :::

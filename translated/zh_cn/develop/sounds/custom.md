@@ -60,4 +60,4 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
 
 ## 使用自定义的 SoundEvent
 
-在新创建的辅助类中添加两个新方法： 一个用于注册所有音效，一个用于初始化该类。 之后就可以根据需要，添加新的自定义 `SoundEvent` 常量了。 使用辅助类去访问自定义的 SoundEvent。 查看 [播放声音事件（SoundEvent）](/develop/sounds/using-sounds) 页面，了解如何播放声音。
+使用辅助类去访问自定义的 SoundEvent。 查看 [播放声音事件（SoundEvent）](./using-sounds) 页面，了解如何播放声音。

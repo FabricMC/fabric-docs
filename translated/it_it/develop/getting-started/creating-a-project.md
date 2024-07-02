@@ -63,6 +63,6 @@ Una volta che il progetto sarà importato, dovresti modificare i dettagli del pr
 
 - Modifica il file `gradle.properties` del tuo progetto per cambiare le proprietà `maven_group` e `archive_base_name` e farle corrispondere con i dettagli della tua mod.
 - Modifica il file `fabric.mod.json` per cambiare le proprietà `id`, `name`, e `descrizione` per farle corrispondere ai dettagli della tua mod.
-- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso https://fabricmc.net/develop/ - per farle corrispondere alle versioni che vorresti prendere di mira.
+- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso <https://fabricmc.net/develop/> - per farle corrispondere alle versioni che vorresti prendere di mira.
 
 Ovviamente puoi cambiare il nome del package e la classe principale della mod per farli corrispondere ai dettagli della tua mod.

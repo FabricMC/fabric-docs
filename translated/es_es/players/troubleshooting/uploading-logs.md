@@ -19,7 +19,7 @@ Algunos sitios para pegar texto también remarcan la sintaxis del log, lo cual l
 
 Los reportes de crasheo son generados automáticamente cuando tu juego crashea. Solo contienen información sobre el crasheo, más no los logs enteros del juego. Están en el folder de `crash-reports` en el folder del juego.
 
-Para más información sobre los reportes de crasheo, visita [Reportes de Crasheo](./crash-reports.md).
+Para más información sobre los reportes de crasheo, visita [Reportes de Crasheo](./crash-reports).
 
 ## Encontrar los Logs
 

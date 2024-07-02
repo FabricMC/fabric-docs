@@ -41,7 +41,6 @@
   "develop.misc.codecs": "Codec",
   "develop.misc.events": "Eventi",
   "develop.sounds": "Suoni",
-  "develop.sounds.using-sounds": "Riprodurre i SoundEvents",
-  "develop.sounds.custom": "Creare Suoni Personalizzati",
-  "github.edit": "Modifica questa pagina su GitHub"
+  "develop.sounds.using-sounds": "Riprodurre Suoni",
+  "develop.sounds.custom": "Creare Suoni Personalizzati"
 }

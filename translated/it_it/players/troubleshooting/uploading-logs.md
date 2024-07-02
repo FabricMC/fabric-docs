@@ -19,7 +19,7 @@ Alcuni siti forniscono anche colorazione della sintassi per i log, che li rende 
 
 Le segnalazioni dei crash sono generate automaticamente quando il gioco subisce un crash. Contengono soltanto informazioni sul crash e non i log reali del gioco. Esse sono posizionate nella cartella `crash-reports` nella directory del gioco.
 
-Per maggiori informazioni sulle segnalazioni dei crash, vedi [Segnalazioni dei Crash](./crash-reports.md).
+Per maggiori informazioni sulle segnalazioni dei crash, vedi [Segnalazioni dei Crash](./crash-reports).
 
 ## Localizzare i Log
 

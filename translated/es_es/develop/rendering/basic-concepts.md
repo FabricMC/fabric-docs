@@ -107,7 +107,7 @@ Vamos a dibujar vértices usando los siguientes puntos en el HUD (en orden):
 
 Esto nos debería dar un hermoso diamante - ya que estamos usando el modo de dibujado de `TRIANGLE_STRIP`, el renderizado realizará los siguientes pasos:
 
-![Cuatro pasos que muestran el posicionamiento de los vértices en la pantalla para formar dos triángulos.](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+![Cuatro pasos que muestran el posicionamiento de los vértices en la pantalla para formar dos triángulos](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 Como estamos dibujando en el HUD en este ejemplo, usaremos el evento de `HudRenderCallback`:
 
@@ -145,7 +145,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Un video mostrando el diamante aumentando y disminuyendo su tamaño.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Un video mostrando el diamante aumentando y disminuyendo su tamaño](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Cuaterniones (Para Rotar Cosas)
 
@@ -159,4 +159,4 @@ Digamos que queremos rotar nuestro diamante alrededor del eje z. Podemos hacer e
 
 El resultado será el siguiente:
 
-![Un video que muestra el diamante rotando alrededor del eje z.](/assets/develop/rendering/concepts-quaternions.webp)
+![Un video que muestra el diamante rotando alrededor del eje z](/assets/develop/rendering/concepts-quaternions.webp)

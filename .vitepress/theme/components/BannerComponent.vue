@@ -1,25 +1,62 @@
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core';
-import { ref, watchEffect } from 'vue';
+import { useElementSize } from "@vueuse/core";
+import { useData, useRoute } from "vitepress";
+import { ref, watchEffect } from "vue";
+
+import { Fabric } from "../../types";
+
+const data = useData();
+const route = useRoute();
 
 const el = ref<HTMLElement>();
-const { height } = useElementSize(el);
+const options = ref<Fabric.BannerOptions>();
+const path = ref<string>("");
+const text = ref<string[]>([]);
 
-watchEffect(() => {
-  if (height.value) {
+function refreshOptions() {
+  if (route.path !== path.value) {
+    path.value = route.path;
+
+    options.value = data.theme.value.banner as Fabric.BannerOptions;
+    text.value = options.value.text.split("%s", 3);
+    while (text.value.length < 3) {
+      text.value.push("");
+    }
+  }
+}
+
+function refreshHeight() {
+  if (useElementSize(el).height.value) {
     document.documentElement.style.setProperty(
-      '--vp-layout-top-height',
-      `${height.value + 16}px`
+      "--vp-layout-top-height",
+      `${useElementSize(el).height.value}px`
     );
   }
+}
+
+watchEffect(() => {
+  refreshOptions();
+  refreshHeight();
 });
 </script>
 
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      Fabric Documentation is a work in progress. Report issues on <a
-        href="https://github.com/fabricmc/fabric-docs/issues" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      {{ text[0] }}
+      <a
+        href="https://github.com/fabricmc/fabric-docs/issues"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ options!.github }}</a
+      >
+      {{ text[1] }}
+      <a
+        href="https://discord.gg/v6v4pMv"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ options!.discord }}</a
+      >{{ text[2] }}
     </div>
   </div>
 </template>
