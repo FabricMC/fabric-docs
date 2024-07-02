@@ -31,19 +31,19 @@ Per maggiori informazioni su come installare Java su Arch Linux, vedi [la Wiki d
 
 Puoi installare la JRE più recente dalle repository ufficiali:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 Se stai eseguendo un server che non ha bisogno di un'interfaccia grafica, puoi installare la versione headless:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 Puoi installare Java 17 usando `apt` con i comandi seguenti:
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 Puoi installare Java 17 usando `dnf` con i comandi seguenti:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 Se non hai bisogno di un'interfaccia grafica, puoi installare la versione headless:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
