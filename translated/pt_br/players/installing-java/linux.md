@@ -13,7 +13,7 @@ Este guia o orientará na instalação do Java 17 no Linux.
 
 Abra um terminal, digite `java -version`, e pressione <kbd>Enter</kbd>.
 
-![Terminal com "java -version" digitado.](/assets/players/installing-java/linux-java-version.png)
+![Terminal com "java -version" digitado](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
 Para usar a maioria das versões modernas do Minecraft, você precisará ter pelo menos o Java 17 instalado. Se este comando exibir uma versão inferior a 17, será necessário atualizar sua instalação do Java atual.
@@ -31,19 +31,19 @@ Para mais informações na instalação do Java no Arch Linux, veja a [Wiki do A
 
 Você pode instalar a JRE mais recente através de repositórios oficiais:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 Se estiver rodando um servidor sem a necessidade de uma interface gráfica, você pode instalar a versão headless:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 Se você planeja desenvolver mods, precisará do JDK:
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
@@ -51,7 +51,7 @@ sudo pacman -S jdk-openjdk
 
 Você pode instalar o Java 17 usando `apt` com os seguintes comandos:
 
-```bash
+```sh
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
@@ -60,19 +60,19 @@ sudo apt install openjdk-17-jdk
 
 Você pode instalar o Java 17 usando `dnf` com os seguintes comandos:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk
 ```
 
 Se você não precisa de uma interface gráfica, você pode instalar a versão headless:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-headless
 ```
 
 Se você planeja desenvolver mods, precisará do JDK:
 
-```bash
+```sh
 sudo dnf install java-17-openjdk-devel
 ```
 
@@ -88,4 +88,4 @@ Assim que a instalação terminar, você pode verificar se o Java 17 está insta
 
 Se o comando for executado com êxito, você verá algo como mostrado anteriormente onde a versão do Java é exibida:
 
-![Terminal com "java -version" digitado.](/assets/players/installing-java/linux-java-version.png)
+![Terminal com "java -version" digitado](/assets/players/installing-java/linux-java-version.png)
