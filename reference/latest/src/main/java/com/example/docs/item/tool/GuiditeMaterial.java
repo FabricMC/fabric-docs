@@ -38,13 +38,13 @@ public class GuiditeMaterial implements ToolMaterial {
 	}
 
 	// :::4
-	// :::8
+	// :::5
 	@Override
 	public TagKey<Block> getInverseTag() {
 		return BlockTags.INCORRECT_FOR_IRON_TOOL;
 	}
 
-	// :::8
+	// :::5
 	// :::6
 	@Override
 	public int getEnchantability() {

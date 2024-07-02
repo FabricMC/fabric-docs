@@ -51,7 +51,7 @@ The tool material tells the game the following information:
 
 - ### Inverse Tag - `getMiningLevel()` {#inverse-tag}
 
-    The inverse tag shows what the tool **can't** mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks.
+    The inverse tag shows what the tool ***cannot*** mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks:
 
     ```json
     {
@@ -69,7 +69,7 @@ The tool material tells the game the following information:
 
     We'll use the iron tool tag. This stops Guidite tools from mining blocks that require a stronger tool than iron.
 
-    @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+    @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
     You can use `TagKey.of(...)` to create a custom tag key if you want to use a custom tag.
 
@@ -95,7 +95,7 @@ Once you have created your tool material and tweaked it to your likings, you can
 
 ## Creating Tool Items {#creating-tool-items}
 
-Using the same way you registered your first item, you should register each tool similarly:
+Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
