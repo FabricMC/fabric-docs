@@ -1,4 +1,5 @@
 {
+  "name": "fabric-docs",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",

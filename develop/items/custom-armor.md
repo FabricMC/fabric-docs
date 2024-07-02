@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Custom Armor
+# Custom Armor {#custom-armor}
 
 Armor provides the player with increased defense against attacks from mobs and other players.
 
-## Creating an Armor Material
+## Creating an Armor Material {#creating-an-armor-material}
 
 ::: info
 If you plan to make multiple armor materials, consider using an `Enum` to store them. Vanilla does this in the `ArmorMaterials` class, which stores all the armor materials that are used in the game.
@@ -97,7 +97,7 @@ The following methods will have to be implemented as well - these methods tell t
 
   @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-## Creating an Instance of the ArmorMaterial
+## Creating an Instance of the ArmorMaterial {#creating-an-instance-of-the-armormaterial}
 
 To use the armor material with the armor items, you'll need to create an instance of it - similar to a tool material:
 
@@ -105,7 +105,7 @@ To use the armor material with the armor items, you'll need to create an instanc
 
 You can place this instance in the armor material class itself.
 
-## Creating the Armor Items
+## Creating the Armor Items {#creating-the-armor-items}
 
 Now that you've created an instance of the material, you can create the armor items in your `ModItems` class:
 
@@ -117,16 +117,16 @@ You will also need to **add the items to an item group** if you want them to be 
 
 As with all items, you should create translation keys for them as well.
 
-## Texturing and Modelling
+## Texturing and Modelling {#texturing-and-modelling}
 
 You will need to create two sets of textures:
 
 - Textures and models for the items themselves.
 - The actual armor texture that is visible when an entity wears the armor.
 
-### Item Textures and Model
+### Item Textures and Model {#item-textures-and-model}
 
-These textures are no different to other items - you must create the textures, and create a generic generated item model - which was covered in the [Creating Your First Item](./first-item.md#adding-a-texture-and-model) guide.
+These textures are no different to other items - you must create the textures, and create a generic generated item model - which was covered in the [Creating Your First Item](./first-item#adding-a-texture-and-model) guide.
 
 For example purposes, you may use the following textures and model JSON as a reference.
 
@@ -142,11 +142,11 @@ As you can see, in-game the armor items should have suitable models:
 
 ![Armor item models](/assets/develop/items/armor_1.png)
 
-## Armor Textures and Model
+## Armor Textures and Model {#armor-textures-and-model}
 
 When an entity wears your armor, currently the missing texture will appear:
 
-![Broken armor model on player.](/assets/develop/items/armor_2.png)
+![Broken armor model on player](/assets/develop/items/armor_2.png).
 
 This is because all armor textures are hardcoded by vanilla, to create our own, we'll have to place the texture in the vanilla armor texture folder.
 
@@ -163,4 +163,4 @@ The first layer contains textures for the helmet and chestplate, whilst the seco
 
 When these textures are present, you should be able to see your armor on entities that wear it:
 
-![Working armor model on player.](/assets/develop/items/armor_3.png)
+![Working armor model on player](/assets/develop/items/armor_3.png).

@@ -6,13 +6,13 @@ authors:
   - dicedpixels
 ---
 
-# Creating Your First Item
+# Creating Your First Item {#creating-your-first-item}
 
 This page will introduce you into some key concepts relating to items, and how you can register, texture, model and name them.
 
 If you aren't aware, everything in Minecraft is stored in registries, and items are no exception to that.
 
-## Preparing Your Items Class
+## Preparing Your Items Class {#preparing-your-items-class}
 
 To simplify the registering of items, you can create a method that accepts an instance of an item and a string identifier.
 
@@ -24,7 +24,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-## Registering an Item
+## Registering an Item {#registering-an-item}
 
 You can now register an item using the method now.
 
@@ -48,10 +48,10 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-## Adding the Item to an Item Group
+## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups.md) page for more information.
+If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups) page for more information.
 :::
 
 For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
@@ -70,7 +70,7 @@ However, it's missing the following:
 - Texture
 - Translation (name)
 
-## Naming The Item
+## Naming The Item {#naming-the-item}
 
 The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
 
@@ -84,7 +84,7 @@ Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.j
 
 You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes.
 
-## Adding a Texture and Model
+## Adding a Texture and Model {#adding-a-texture-and-model}
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/<mod id here>/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
 
@@ -100,7 +100,7 @@ Create the model JSON in the `assets/<mod id here>/models/item` folder, with the
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
-### Breaking Down the Model JSON
+### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
 - `parent`: This is the parent model that this model will inherit from. In this case, it's the `item/generated` model.
 - `textures`: This is where you define the textures for the model. The `layer0` key is the texture that the model will use.
@@ -113,7 +113,7 @@ Your item should now look like this in-game:
 
 ![Item with correct model](/assets/develop/items/first_item_2.png)
 
-## Making the Item Compostable or a Fuel
+## Making the Item Compostable or a Fuel {#making-the-item-compostable-or-a-fuel}
 
 Fabric API provides various registries that can be used to add additional properties to your item.
 
@@ -125,7 +125,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 @[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-## Adding a Basic Crafting Recipe
+## Adding a Basic Crafting Recipe {#adding-a-basic-crafting-recipe}
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
@@ -136,12 +136,12 @@ For more information on the recipe format, checkout these resources:
 - [Recipe JSON Generator](https://crafting.thedestruc7i0n.ca/)
 - [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)
 
-## Custom Tooltips
+## Custom Tooltips {#custom-tooltips}
 
 If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendTooltip` method.
 
 ::: info
-This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions.md) page.
+This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
 :::
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
