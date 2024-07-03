@@ -27,6 +27,7 @@ export default {
   },
   Layout() {
     const children = {
+      "doc-before": () => h(VersionReminder),
       "aside-outline-before": () => h(VersionReminder),
       "aside-outline-after": () => h(AuthorsComponent),
       "layout-top": () => h(BannerComponent),

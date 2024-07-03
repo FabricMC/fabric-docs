@@ -1,36 +1,32 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { useData, useRoute } from "vitepress"
+import { computed } from "vue";
+import { useRoute } from "vitepress";
 
 const route = useRoute();
-
 const CURRENT_VERSION = "1.21";
 
 // Get version from URL.
 const version = computed(() => {
   const path = route.path;
-  // The version should be the first URL path segment and be either in the x.xx or x.xx.x format.
-  let version = path.split("/")[1];
+  const versionSegment = path.split("/")[1];
   const mcRegex = /^(\d+\.\d+(\.\d+)?)$/;
 
-  // If no match, check for locales, locale may be the first path segment, it matches xx_xx locale code.
-  if (!mcRegex.test(version)) {
-    const localeRegex = /^([a-z]{2}_[a-z]]{2})$/;
-    if (localeRegex.test(version)) {
-      version = path.split("/")[2];
-      if (!mcRegex.test(version)) {
-        // Must be latest version.
-        return CURRENT_VERSION;
-      } else {
-        return version;
-      }
-    } else {
-      // Default to latest version.
-      return CURRENT_VERSION;
-    }
-  } else {
-    return version;
+  // Check if the version segment matches the Minecraft version format.
+  if (mcRegex.test(versionSegment)) {
+    return versionSegment;
   }
+
+  // If not, check if it's a locale code, and then check the next segment.
+  const localeRegex = /^[a-z]{2}_[a-z]{2}$/;
+  if (localeRegex.test(versionSegment)) {
+    const nextSegment = path.split("/")[2];
+    if (mcRegex.test(nextSegment)) {
+      return nextSegment;
+    }
+  }
+
+  // Default to the current version if no match is found.
+  return CURRENT_VERSION;
 });
 </script>
 
@@ -63,9 +59,9 @@ const version = computed(() => {
         </g>
       </svg>
     </div>
-    <div>
+    <div class="mobile-wrapper">
       <p>This page is written for:</p>
-      <p class="larger">
+      <p class="version">
         <strong>{{ version }}</strong>
       </p>
     </div>
@@ -93,12 +89,11 @@ const version = computed(() => {
   background-color: var(--vp-custom-block-warning-bg);
 }
 
-.old-version > div > svg {
+.old-version > .icon > svg {
   fill: var(--vp-c-warning-1) !important;
 }
 
 .icon {
-  /* Resize to svg size */
   width: 15%;
   height: 15%;
 }
@@ -107,7 +102,7 @@ svg {
   display: block;
   width: 100%;
   height: 100%;
-  fill: var(--vp-c-tip-1)
+  fill: var(--vp-c-tip-1);
 }
 
 p {
@@ -116,6 +111,33 @@ p {
 }
 
 p.larger {
-  font-size: larger
+  font-size: larger;
+}
+
+p.version {
+  font-size: larger;
+}
+
+@media (min-width: 1280px) {
+  .content-container > .version-reminder {
+    display: none;
+  }
+}
+
+@media (max-width: 1279px) {
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  p.version {
+    font-size: small;
+  }
+
+  .mobile-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
 }
 </style>
