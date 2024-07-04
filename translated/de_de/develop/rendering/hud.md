@@ -23,8 +23,6 @@ Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen
 
 Der Parameter `deltaTick` ist die Zeit seit dem letzten Frame in Sekunden. Dies kann für Animationen und andere zeitbasierte Effekte verwendet werden.
 
-#### Beispiel: Auslöschen einer Farbe im Laufe der Zeit
-
 Nehmen wir an, du möchtest eine Farbe im Laufe der Zeit auslöschen. Dazu kannst du den Parameter `deltaTick` verwenden.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)

@@ -23,9 +23,7 @@ authors:
 
 `deltaTick` 参数从上一帧到现在的时间间隔，以秒为单位。 这可以用来制作动画和其他基于时间的效果。
 
-#### 示例：让一个颜色随时间变化
-
-假设你想让一个颜色随时间变化。 你可以使用 `deltaTick` 参数来完成它。
+示例：让一个颜色随时间变化 假设你想让一个颜色随时间变化。 你可以使用 `deltaTick` 参数来完成它。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
