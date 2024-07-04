@@ -7,7 +7,7 @@ authors:
 
 # Installing Java on Windows {#installing-java-on-windows}
 
-This guide will walk you through installing Java 17 on Windows.
+This guide will walk you through installing Java 21 on Windows.
 
 The Minecraft Launcher comes with its own Java installation, so this section is only relevant if you want to use the Fabric `.jar` based installer, or if you want to use the Minecraft Server `.jar`.
 
@@ -26,12 +26,12 @@ If the command runs successfully, you will see something like this. If the comma
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
 
 ::: warning
-To use the majority of modern Minecraft versions, you'll need at least Java 17 installed. If this command displays any version lower than 17, you'll need to update your existing Java installation.
+To use Minecraft 1.21, you'll need at least Java 21 installed. If this command displays any version lower than 21, you'll need to update your existing Java installation.
 :::
 
-## 2. Download the Java 17 Installer {#2-download-the-java-17-installer}
+## 2. Download the Java 21 Installer {#2-download-the-java-installer}
 
-To install Java 17, you'll need to download the installer from [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
+To install Java 21, you'll need to download the installer from [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=21).
 
 You'll want to download the `Windows Installer (.msi)` version:
 
@@ -43,18 +43,18 @@ The majority of modern computers will have a 64-bit operating system. If you are
 
 ## 3. Run the Installer! {#3-run-the-installer}
 
-Follow the steps in the installer to install Java 17. When you reach this page, you should set the following features to "Entire feature will be installed on local hard drive":
+Follow the steps in the installer to install Java 21. When you reach this page, you should set the following features to "Entire feature will be installed on local hard drive":
 
 - `Set JAVA_HOME environment variable` - This will be added to your PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Java 17 installer with "Set JAVA_HOME variable" and "JavaSoft (Oracle) registry keys" highlighted](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 21 installer with "Set JAVA_HOME variable" and "JavaSoft (Oracle) registry keys" highlighted](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Once you've done that, you can click `Next` and continue with the installation.
 
-## 4. Verify That Java 17 Is Installed {#4-verify-that-java-17-is-installed}
+## 4. Verify That Java 21 Is Installed {#4-verify-that-java-is-installed}
 
-Once the installation is complete, you can verify that Java 17 is installed by opening the command prompt again and typing `java -version`.
+Once the installation is complete, you can verify that Java 21 is installed by opening the command prompt again and typing `java -version`.
 
 If the command runs successfully, you will see something like shown before, where the Java version is displayed:
 

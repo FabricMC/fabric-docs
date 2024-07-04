@@ -10,6 +10,7 @@ import NotFoundComponent from "./components/NotFoundComponent.vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import DownloadEntry from './components/DownloadEntry.vue';
 import ColorSwatch from './components/ColorSwatch.vue';
+import VersionReminder from './components/VersionReminder.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
 
 import "./style.css";
@@ -26,6 +27,8 @@ export default {
   },
   Layout() {
     const children = {
+      "doc-before": () => h(VersionReminder),
+      "aside-outline-before": () => h(VersionReminder),
       "aside-outline-after": () => h(AuthorsComponent),
       "layout-top": () => h(BannerComponent),
     };

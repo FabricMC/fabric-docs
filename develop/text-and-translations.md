@@ -63,7 +63,7 @@ The language file, `en_us.json`, looks like the following:
 
 <!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
 
-As mentioned before, you can serialize text to JSON using the following serializer class:
+As mentioned before, you can serialize text to JSON using the text codec. For more information on codecs, see the [Codec](./codecs) page.
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -71,7 +71,7 @@ This produces JSON that can be used datapacks, commands and other places that ac
 
 ## Deserializing Text {#deserializing-text}
 
-Furthermore, to deserialize a JSON text object into an actual `Text` class, you can use the `fromJson` method:
+Furthermore, to deserialize a JSON text object into an actual `Text` class, again, use the codec.
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 

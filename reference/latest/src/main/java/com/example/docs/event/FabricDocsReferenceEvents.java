@@ -6,9 +6,10 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
@@ -16,7 +17,7 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 
 // Class to contain all mod events.
 public class FabricDocsReferenceEvents implements ModInitializer {
-	private static final Identifier COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableId();
+	private static final RegistryKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableKey();
 
 	@Override
 	public void onInitialize() {
@@ -34,10 +35,10 @@ public class FabricDocsReferenceEvents implements ModInitializer {
 		// :::1
 
 		// :::2
-		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+		LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
 			// Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
 			// We also check that the loot table ID is equal to the ID we want.
-			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(id)) {
+			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(key)) {
 				// We make the pool and add an item
 				LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(Items.EGG));
 				tableBuilder.pool(poolBuilder);

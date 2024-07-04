@@ -1,8 +1,11 @@
 package com.example.docs.item.tool;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 
 import com.example.docs.item.ModItems;
 
@@ -37,8 +40,8 @@ public class GuiditeMaterial implements ToolMaterial {
 	// :::4
 	// :::5
 	@Override
-	public int getMiningLevel() {
-		return 3;
+	public TagKey<Block> getInverseTag() {
+		return BlockTags.INCORRECT_FOR_IRON_TOOL;
 	}
 
 	// :::5

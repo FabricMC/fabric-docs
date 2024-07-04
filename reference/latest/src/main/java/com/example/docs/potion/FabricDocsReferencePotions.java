@@ -4,12 +4,13 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
-import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 
 import com.example.docs.effect.FabricDocsReferenceEffects;
 
@@ -18,19 +19,25 @@ public class FabricDocsReferencePotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
 					Registries.POTION,
-					new Identifier("fabric-docs-reference", "tater"),
+					Identifier.of("fabric-docs-reference", "tater"),
 					new Potion(
 							new StatusEffectInstance(
-									FabricDocsReferenceEffects.TATER_EFFECT,
+									RegistryEntry.of(FabricDocsReferenceEffects.TATER_EFFECT),
 									3600,
 									0)));
 
 	@Override
 	public void onInitialize() {
-		BrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Items.POTATO, TATER_POTION);
-
-		// Use the mixin invoker if you are not using Fabric API
-		// BrewingRecipeRegistryInvoker.invokeRegisterPotionRecipe(Potions.WATER, Items.POTATO, TATER_POTION);
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(
+					// Input potion.
+					Potions.WATER,
+					// Ingredient
+					Items.POTATO,
+					// Output potion.
+					RegistryEntry.of(TATER_POTION)
+			);
+		});
 	}
 }
 // :::1

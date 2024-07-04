@@ -9,105 +9,87 @@ authors:
 
 Armor provides the player with increased defense against attacks from mobs and other players.
 
-## Creating an Armor Material {#creating-an-armor-material}
+## Creating an Armor Materials Class {#creating-an-armor-materials-class}
 
-::: info
-If you plan to make multiple armor materials, consider using an `Enum` to store them. Vanilla does this in the `ArmorMaterials` class, which stores all the armor materials that are used in the game.
+Just like items and blocks, armor materials need to be registered. We will create a `ModArmorMaterials` class to store our custom armor materials for the sake of organization.
 
-This class can also be used to determine your armor material's properties in relation to vanilla armor materials.
+You will need to add a static `initialize()` method to this class, and call it from your mod's entrypoint so that the materials are registered.
+
+```java
+// Within the ModArmorMaterials class
+public static void initialize() {};
+```
+
+::: warning
+Make sure to call this method **before** you register your items, as the materials will need to be registered before the items can be created.
 :::
 
-All armor items - like tools - have an armor material.
+```java
+@Override
+public void onInitialize() {
+  ModArmorMaterials.initialize();
+}
+```
 
-The armor material tells the game what protection and durability the armor item should have depending on the slot.
+---
 
-You'll need to create a class that inherits `ArmorMaterial`, like so:
+Within this `ModArmorMaterials` class, you will need to create a static method which will register the armor material. This method should return a registry entry of the material, as this entry will be used by the ArmorItem constructor to create the armor items.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
-The following methods will have to be implemented as well - these methods tell the game vital information on your armor items:
+## Armor Material Properties {#armor-material-properties}
 
-- ### Durability - `getDurability(ArmorItem.Type type)`
+::: tip
+If you're struggling to gauge a good value for any of these properties, consider looking at the vanilla armor materials in the `ArmorMaterials` class.
+:::
 
-  Returns the durability for a specific armor type - in hit points.
+When creating an armor material, you will need to define the following properties:
 
-  The hit points specify the amount of hits the armor item can take before breaking.
+### Defense Points {#defense-points}
 
-  **Example**
+::: warning
+Ensure you assign a value to each type of armor piece you plan to create and register as an item. If you make an item for an armor piece without a set defense point value, the game will crash.
+:::
 
-  @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+The `defensePoints` map is used to define the number of defense points that each armor piece will provide. The higher the number, the more protection the armor piece will provide. The map should contain an entry for each armor piece type.
 
-- #### Protection - `getProtection(ArmorItem.Type type)`
+### Enchantability {#enchantability}
 
-  Returns the protection value for a specific armor type.
+The `enchantability` property defines how easily the armor can be enchanted. The higher the number, the more enchantments the armor can receive.
 
-  Usually this is always the same, regardless of your armor material.
+### Equip Sound {#equip-sound}
 
-  **Example**
+The `equipSound` property is the sound that will play when the armor is equipped. This sound should be a registry entry of a `SoundEvent`. Consider taking a look at the [Custom Sound Events](../sounds/custom) page if you are considering creating custom sounds rather than relying on vanilla sounds within the `SoundEvents` class.
 
-  @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+### Repair Ingredient(s) {#repair-ingredient}
 
-- #### Enchantability - `getEnchantability()`
+The `repairIngredientSupplier` property is a supplier of an `Ingredient` that is used to repair the armor. This ingredient can pretty much be anything, it's recommended to set it to be the same as the material's crafting ingredient used to actually craft the armor items.
 
-  How easy is it to get better and higher level enchantments with this item?
+### Toughness {#toughness}
 
-  **Example**
+The `toughness` property defines how much damage the armor will absorb. The higher the number, the more damage the armor will absorb.
 
-  @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+### Knockback Resistance {#knockback-resistance}
 
-- #### Equip Sound - `getEquipsound()`
+The `knockbackResistance` property defines how much knockback the player will reflect when hit. The higher the number, the less knockback the player will receive.
 
-  What sound should be played when the armor is equipped?
+### Dyeable {#dyeable}
 
-  **Example**
+The `dyeable` property is a boolean that defines whether the armor can be dyed. If set to `true`, the armor can be dyed using dyes in a crafting table.
 
-  @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+If you do choose to make your armor dyeable, your armor layer and item textures must be **designed to be dyed**, as the dye will overlay the texture, not replace it. Take a look at the vanilla leather armor for an example, the textures are grayscale and the dye is applied as an overlay, causing the armor to change color.
 
-- #### Repair Ingredient - `getRepairIngredient()`
+## Registering the Armor Material {#registering-the-armor-material}
 
-  What item or items can be used in an anvil to repair the armor items?
+Now that you've created a utility method which can be used to register armor materials, you can register your custom armor materials as a static field in the `ModArmorMaterials` class.
 
-  **Example**
+For this example, we'll be creative Guidite armor, with the following properties:
 
-  @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
-- #### Name - `getName()`
-
-  The name of the armor material - must be lowercase.
-
-  **Example**
-
-  @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
-- #### Toughness - `getToughness()`
-
-  How much protection should be given for high-damage attacks?
-
-  For reference, everything except diamond (`2.0F`) and netherite (`4.0F`) have a toughness of zero.
-
-  **Example**
-
-  @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
-- #### Knockback Resistance - `getKnockbackResistance()`
-
-  How much knockback resistance should the armor give the entity?
-
-  **Example**
-
-  @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
-## Creating an Instance of the ArmorMaterial {#creating-an-instance-of-the-armormaterial}
-
-To use the armor material with the armor items, you'll need to create an instance of it - similar to a tool material:
-
-@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
-
-You can place this instance in the armor material class itself.
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Creating the Armor Items {#creating-the-armor-items}
 
-Now that you've created an instance of the material, you can create the armor items in your `ModItems` class:
+Now that you've registered the material, you can create the armor items in your `ModItems` class:
 
 Obviously, an armor set doesn't need every type to be satisfied, you can have a set with just boots, or leggings etc. - the vanilla turtle shell helmet is a good example of an armor set with missing slots.
 
@@ -148,14 +130,12 @@ When an entity wears your armor, currently the missing texture will appear:
 
 ![Broken armor model on player](/assets/develop/items/armor_2.png).
 
-This is because all armor textures are hardcoded by vanilla, to create our own, we'll have to place the texture in the vanilla armor texture folder.
-
 There are two layers for the armor texture, both must be present.
 
 Since the armor material name in our case is `guidite`, the locations of the textures will be:
 
-- `assets/minecraft/textures/models/armor/guidite_layer_1.png`
-- `assets/minecraft/textures/models/armor/guidite_layer_2.png`
+- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
+- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
 
