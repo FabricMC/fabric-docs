@@ -51,7 +51,7 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups) page for more information.
+If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./custom-item-groups) page for more information.
 :::
 
 For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
