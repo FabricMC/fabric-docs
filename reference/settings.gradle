@@ -10,3 +10,4 @@ pluginManagement {
 }
 
 include "latest"
+include "1.20.4"

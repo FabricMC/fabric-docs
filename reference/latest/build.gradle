@@ -1,5 +1,9 @@
+def minecraftVersion = "1.21"
+def yarnVersion = "1.21+build.7"
+def fabricApiVersion = "0.100.4+1.21"
+
 dependencies {
-	minecraft "com.mojang:minecraft:1.20.4"
-	mappings "net.fabricmc:yarn:1.20.4+build.3:v2"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.4"
+  minecraft "com.mojang:minecraft:${minecraftVersion}"
+  mappings "net.fabricmc:yarn:${yarnVersion}:v2"
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }

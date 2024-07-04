@@ -9,11 +9,15 @@ import net.fabricmc.api.ModInitializer;
 
 // :::1
 public class FabricDocsReferenceEffects implements ModInitializer {
-	public static final StatusEffect TATER_EFFECT = new TaterEffect();
+	public static final StatusEffect TATER_EFFECT;
+
+	static {
+		TATER_EFFECT = Registry.register(Registries.STATUS_EFFECT, Identifier.of("fabric-docs-reference", "tater"), new TaterEffect());
+	}
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registries.STATUS_EFFECT, new Identifier("fabric-docs-reference", "tater"), TATER_EFFECT);
+		// ...
 	}
 }
 // :::1

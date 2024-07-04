@@ -45,7 +45,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 
 		@Override
 		protected void configure(RegistryWrapper.WrapperLookup arg) {
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("minecraft:bypasses_armor"))).add(FabricDocsReferenceDamageTypes.TATER_DAMAGE);
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("minecraft:bypasses_armor"))).add(FabricDocsReferenceDamageTypes.TATER_DAMAGE);
 		}
 	}
 
@@ -64,7 +64,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 			damageTypeObject.addProperty("message_id", TATER_DAMAGE_TYPE.msgId());
 			damageTypeObject.addProperty("scaling", TATER_DAMAGE_TYPE.scaling().asString());
 
-			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(new Identifier("fabric-docs-reference", "tater")));
+			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(Identifier.of("fabric-docs-reference", "tater")));
 		}
 
 		@Override
