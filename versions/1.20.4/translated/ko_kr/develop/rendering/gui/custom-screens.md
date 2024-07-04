@@ -28,7 +28,7 @@ authors:
 
 예를 들어, 라벨이 위에 있는 버튼이 있는 간단한 화면을 만들어 보겠습니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![사용자 정의 화면 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -52,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 만약 디테일하게 이전 화면으로 되돌아가는 기능을 추가하고 싶다면, 현재 화면을 `CustomScreen` 생성자에 입력하여 필드에 저장하고, `close` 메소드가 호출되었을 때 해당 필드를 사용하여 이전 화면으로 되돌아가면 됩니다.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 이제, 사용자 정의 화면이 열릴 때, 현재 화면을 두 번째 매개변수에 입력하면, `CustomScreen#close`가 호출되었을 때 이전 화면으로 되돌아갈 것입니다.
 

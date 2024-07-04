@@ -19,7 +19,7 @@ authors:
 
 您可以使用 `DrawContext#fill` 方法来绘制一个实心矩形。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![矩形](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -27,7 +27,7 @@ authors:
 
 假设我们想勾勒出我们刚才绘制的矩形的轮廓。 我们可以使用 `DrawContext#drawBorder` 方法来绘制轮廓。
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![带边框的矩形](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -35,7 +35,7 @@ authors:
 
 我们可以使用 `DrawContext#drawHorizontalLine` 和 `DrawContext#drawVerticalLine` 来绘制线条。
 
-@[code lang=java transcludeWith=:::3](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![线条](/assets/develop/rendering/draw-context-lines.png)
 
@@ -51,7 +51,7 @@ authors:
 
 要启用裁剪功能，只需调用 `DrawContext#enableScissor` 方法。 同样地，调用 `DrawContext#disableScissor` 方法以禁用裁剪功能。
 
-@[code lang=java transcludeWith=:::4](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![裁剪区域](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -65,7 +65,7 @@ authors:
 
 一般来说，我们推荐您使用需要指定 `textureWidth` 和 `textureHeight` 参数的 `drawTexture` 方法重载。 因为如果使用不指定的重载， `DrawContext` 会假设您的纹理文件尺寸是 256x256，而您的纹理文件不一定是这个尺寸，于是渲染结果就不一定正确。
 
-@[code lang=java transcludeWith=:::5](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![绘制整个纹理](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -79,7 +79,7 @@ authors:
 
 如果我们只希望绘制包含放大镜的区域，我们可以使用如下 `u`、`v`、`regionWidth`、`regionHeight` 值：
 
-@[code lang=java transcludeWith=:::6](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![绘制纹理的一部分](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -89,6 +89,6 @@ authors:
 
 假设我们想在界面上绘制 `Hello World`。 我们可以使用 `DrawContext#drawText` 方法来完成。
 
-@[code lang=java transcludeWith=:::7](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![绘制文字](/assets/develop/rendering/draw-context-text.png)

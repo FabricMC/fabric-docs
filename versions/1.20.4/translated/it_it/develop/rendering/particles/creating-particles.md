@@ -15,7 +15,7 @@ Aggiungeremo una nuova particella "sparkle" che mimerà il movimento di una part
 
 Devi prima registrare un `ParticleType` nella classe initializer della tua mod usando l'id della mod.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 La stringa "sparkle_particle" in minuscolo è il percorso JSON per la texture della particella. Dovrai successivamente creare un nuovo file JSON con lo stesso nome.
 
@@ -23,7 +23,7 @@ La stringa "sparkle_particle" in minuscolo è il percorso JSON per la texture de
 
 Dopo aver registrato la particella nell'entrypoint `ModInitializer`, dovrai anche registrare la particella nell'entrypoint `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/1.20.4/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
 In questo esempio, stiamo registrando la nostra particella dal lato client. Stiamo dando un po' di movimento alla particella usando la fabbrica della particella della barra dell'End. Questo vuol dire che la nostra particella si muoverà proprio come una particella di una barra dell'End.
 
@@ -47,7 +47,7 @@ Per questo esempio, avremo una sola texture in `textures/particle` chiamata "spa
 
 Dopo, crea un nuovo file JSON in `particles` con lo stesso nome del percorso JSON che hai usato quando hai registrato il tuo ParticleType. Per questo esempio, dovremo creare `sparkle_particle.json`. Questo file è importante perché fa conoscere a Minecraft quali texture dovrebbe usare la nostra particella.
 
-@[code lang=json](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
 :::tip
 Puoi aggiungere altre texture al vettore `textures` per creare un animazione per la particella. La particella scorrerà attraverso le texture nel vettore, iniziando dalla prima.

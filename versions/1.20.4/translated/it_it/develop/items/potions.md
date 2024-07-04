@@ -23,7 +23,7 @@ Quando l'API di Fabric è presente, `BrewingRecipeRegistry.registerPotionRecipe`
 
 Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente la classe dell'initializer per conservarla.
 
-@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
@@ -39,7 +39,7 @@ Per creare il tuo effetto personalizzato, per favore guarda la guida [Effetti](.
 
 Nel nostro initializer, chiamiamo `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` prende 3 parametri:
 
@@ -51,7 +51,7 @@ Se utilizzi l'API di Fabric, l'invoker mixin non è necessario e si può effettu
 
 L'esempio per intero:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Una volta registrato, puoi distillare una pozione Tater usando una patata.
 
@@ -67,4 +67,4 @@ net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`.
 
 Senza l'API di Fabric, `BrewingRecipeRegistry.registerPotionRecipe` sarà privato. Per accedere a questo metodo usa il seguente invoker mixin o usa un Access Widener.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)

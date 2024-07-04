@@ -84,7 +84,7 @@ npm run preview
    **Наприклад:**
 
    ```md
-   <<< @/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    Це вбудує рядки 15-21 файлу `FabricDocsReference.java` у довідковий модуль.

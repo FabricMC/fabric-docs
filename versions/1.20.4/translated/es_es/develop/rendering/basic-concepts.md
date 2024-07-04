@@ -111,7 +111,7 @@ Esto nos debería dar un hermoso diamante - ya que estamos usando el modo de dib
 
 Como estamos dibujando en el HUD en este ejemplo, usaremos el evento de `HudRenderCallback`:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Esto resulta en lo siguiente siendo dibujado en el HUD:
 
@@ -143,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 ¡Asegúrate de empujar la pila de matrices antes de tener una matriz de transformación!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![Un video mostrando el diamante aumentando y disminuyendo su tamaño](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -155,7 +155,7 @@ Es muy improbable que tengas que usar una clase de `Quaternion` directamente, ya
 
 Digamos que queremos rotar nuestro diamante alrededor del eje z. Podemos hacer esto mediante la clase `MatrixStack` y el método `multiply(Quaternion, x, y, z)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 El resultado será el siguiente:
 

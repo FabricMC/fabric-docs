@@ -84,7 +84,7 @@ npm run preview
    **Пример:**
 
    ```md
-   <<< @/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    Это выведет все линии с 15 по 21 из файла `FabricDocsReference.java` из мода с примерами.

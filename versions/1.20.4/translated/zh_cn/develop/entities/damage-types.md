@@ -9,7 +9,7 @@ authors:
 
 # 伤害类型
 
-有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已经变为数据驱动的，也就是说它们由 JSON 文件创建。
+有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。 有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已经变为数据驱动的，也就是说它们由 JSON 文件创建。
 
 ## 创建一种伤害类型
 
@@ -21,9 +21,9 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 它有以下的结构：
 
-@[code lang=json](@/reference/1.20.4/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
-这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。
+这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。
 
 ::: info
 
@@ -37,7 +37,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 所需的 `RegistryKey` 可用以下方式获取：
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
 ### 使用伤害类型
 
@@ -47,15 +47,15 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 我们从创建一个属于我们的自定义伤害类型的 `DamageSource` 开始。
 
-@[code lang=java transclude={21-24}](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 然后，我们调用 `entity.damage()` 并传入 我们的 `DamageSource` 和伤害量。
 
-@[code lang=java transclude={25-25}](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 方块的完整实现：
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 现在，每当生物踩在我们的自定义方块上时，它将受到使用我们的自定义伤害类型的 5 点伤害（2.5 颗心）。
 
@@ -63,7 +63,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
 
-@[code lang=json transclude={4-4}](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
 
 当死因是我们的伤害类型时，你将会看到如下的死亡信息：
 
@@ -91,6 +91,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 包含以下内容：
 
-@[code lang=json](@/reference/1.20.4/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 将 `replace` 设置为 `false` 以确保你的标签不会替换既有的标签。

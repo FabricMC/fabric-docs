@@ -17,7 +17,7 @@ Ein `SuggestionProvider` wird verwendet, um eine Liste von Vorschlägen zu erste
 
 Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` und gibt den geänderten Argument Builder mit dem angehängten Suggestion Provider zurück.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Eingebaute Vorschlaganbieter
 
@@ -36,7 +36,7 @@ Wenn ein eingebauter Anbieter deine Anforderungen nicht erfüllt, kannst du eine
 
 In diesem Beispiel erstellen wir einen Vorschlaganbieter, der alle Benutzernamen der Spieler auf dem Server vorschlägt.
 
-@[code java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 Um diesen Vorschlaganbieter zu verwenden, übergebe einfach eine Instanz davon an die Methode `.suggests` im Argument Builder.
 

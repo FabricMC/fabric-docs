@@ -26,13 +26,13 @@ In questo tutorial aggiungeremo un nuovo effetto personalizzato chiamato _Tater_
 
 Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect`, che è la classe base per tutti gli effetti.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrare il tuo Effetto Personalizzato
 
 Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nel registro `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
 ### Traduzioni e Texture
 

@@ -28,7 +28,7 @@ authors:
 
 举个例子，我们可以创建一个简单的界面，这个界面有一个按钮和一个按钮的标签。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![自定义界面 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -52,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 如果您希望在关闭界面时回退到上一个界面，您可以将当前界面对象传入自定义的 `CustomScreen` 构造方法，把它保存为字段，然后覆写 `close` 方法，将实现修改为 `this.client.setScreen(/* 您保存的上一个界面 */)` 即可。
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 现在，当您按照上面的步骤打开界面时，您可以给构造方法的第二个参数传入当前界面对象，这样当您调用 `CustomScreen#close` 的时候，游戏就会回到上一个界面。
 

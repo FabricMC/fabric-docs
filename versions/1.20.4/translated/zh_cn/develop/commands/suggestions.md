@@ -17,7 +17,7 @@ Minecraft 有一个使用在了很多地方的十分强大的命令建议系统�
 
 要使用提示提供器，您可以在参数构造器上调用 `suggests` 方法。 此方法接受一个 `SuggestionProvider`，返回一个新的参数构造器，并附加提示提供器。 此方法接受一个 `SuggestionProvider`，返回一个新的参数构造器，并附加提示提供器。
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 内建的提示提供器
 
@@ -36,7 +36,7 @@ Minecraft 有一个使用在了很多地方的十分强大的命令建议系统�
 
 对此示例，我们需要制作一个提示提供器提示所有在服务器上的玩家的名称。
 
-@[code java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 要使用该提示提供器，您只需将它的实例传递到参数构造器的 `.suggests` 方法。
 

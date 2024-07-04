@@ -19,7 +19,7 @@ La clase `DrawContext` puede ser usada para fácilmente dibujar formas **basadas
 
 Puedes usar el método `DrawContext.fill(...)` para dibujar un rectángulo rellenado.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Un rectángulo](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -27,7 +27,7 @@ Puedes usar el método `DrawContext.fill(...)` para dibujar un rectángulo relle
 
 Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos usar el método `DrawContext.drawBorder(...)` para dibujar un contorno.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Rectángulo con bordes](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -35,7 +35,7 @@ Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos us
 
 Podemos usar los métodos `DrawContext.drawHorizontalLine(...)` y `DrawContext.drawVerticalLine(...)` para dibujar líneas.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Líneas](/assets/develop/rendering/draw-context-lines.png)
 
@@ -51,7 +51,7 @@ La clase `DrawContext` tiene un _scissor manager_ ya incluido. Esto te permite c
 
 Para habilitar el _scissor manager_, simplemente usa el método `DrawContext.enableScissor(...)`. De igual forma, para deshabilitar el _scissor manager_, usa el método `DrawContext.disableScissor()`.
 
-@[code lang=java transcludeWith=:::4](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Regiones de tijera en acción](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -65,7 +65,7 @@ No hay una sola manera "correcta" de dibujar texturas en la pantalla, ya que el 
 
 Generalmente, es recomendado que uses la sobrecarga que especifique los parámetros de `textureWidth` y el `textureHeight`. Esto es porque la clase `DrawContext` asumirá estos valores si no los provees, los cuales pueden estar incorrectos algunas veces.
 
-@[code lang=java transcludeWith=:::5](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Ejemplo de diubjar la textura entera](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -79,7 +79,7 @@ Tomemos esta textura como ejemplo.
 
 Si solo queremos dibujar una región que contiene el lente magnificador, podemos usar los siguientes valores para `u`, `v`, `regionWidth`, y `regionHeight`:
 
-@[code lang=java transcludeWith=:::6](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Región de Textura](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -89,6 +89,6 @@ La clase `DrawContext` tiene varios métodos fáciles de entender para renderiza
 
 Digamos que queremos dibujar "Hello World" en la pantalla. Podemos usar el método `DrawContext.drawText(...)` para esto.
 
-@[code lang=java transcludeWith=:::7](@/reference/1.20.4/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Dibujar Texto](/assets/develop/rendering/draw-context-text.png)

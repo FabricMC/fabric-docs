@@ -75,7 +75,7 @@ Der Callback hat drei Parameter:
 
 Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
-@[code lang=java transcludeWith=:::_1](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
@@ -91,13 +91,13 @@ Um diesen Befehl auszuführen, musst du `/foo` eingeben, wobei die Groß- und Kl
 
 Falls gewünscht, kannst du auch dafür sorgen, dass ein Befehl nur unter bestimmten Umständen registriert wird, zum Beispiel nur in der dedizierten Umgebung:
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Befehlsanforderungen
 
 Angenommen, du hast einen Befehl, den nur Operatoren ausführen können sollen. An dieser Stelle kommt die Methode `requires()` ins Spiel. Die Methode `requires()` hat ein Argument eines `Predicate<S>`, das eine `ServerCommandSource` liefert, mit der getestet werden kann, ob die `CommandSource` den Befehl ausführen kann.
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Dieser Befehl wird nur ausgeführt, wenn die Quelle des Befehls mindestens ein Operator der Ebene 2 ist, einschließlich Befehlsblöcke. Andernfalls ist der Befehl nicht registriert.
 
@@ -107,23 +107,23 @@ Dies hat den Nebeneffekt, dass dieser Befehl in der Tab-Vervollständigung für 
 
 Um einen Unterbefehl hinzuzufügen, registriere den ersten buchstäblichen Knoten des Befehls ganz normal. Um einen Unterbefehl zu haben, musst du den nächsten buchstäblichen Knoten an den bestehenden Knoten anhängen.
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Ähnlich wie die Argumente können auch die Unterbefehlsknoten auf optional gesetzt werden. Im folgenden Fall sind sowohl `/subtater` als auch `/subtater subcommand` gültig.
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Client-Befehle
 
 Die Fabric API verfügt über einen `ClientCommandManager` im Paket `net.fabricmc.fabric.api.client.command.v2`, der zur Registrierung clientseitiger Befehle verwendet werden kann. Der Code sollte nur im clientseitigen Code vorhanden sein.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## Befehlsumleitungen
 
 Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funktionalität eines Befehls auf einen anderen umzuleiten. Dies ist nützlich, wenn du den Namen eines Befehls ändern möchtest, aber den alten Namen beibehalten willst.
 
-@[code lang=java transcludeWith=:::12](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## FAQ
 

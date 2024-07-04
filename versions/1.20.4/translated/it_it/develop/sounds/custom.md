@@ -33,7 +33,7 @@ Aggiungi un nuovo percorso `resources/assets/<mod id here>/sounds` per i suoni d
 
 Se non esiste ancora, crea il file `resources/assets/<mod id here>/sounds.json` e aggiungici i tuoi suoni.
 
-@[code lang=json](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
 La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/<mod id here>/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
@@ -52,11 +52,11 @@ A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfugg
 
 Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/sound/CustomSounds.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
 Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo implementare una riga per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
 ## Usare il SoundEvent Personalizzato
 

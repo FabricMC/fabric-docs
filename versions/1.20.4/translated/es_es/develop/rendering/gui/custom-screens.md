@@ -28,7 +28,7 @@ Toma en cuenta que:
 
 Por ejemplo, podemos crear una pantalla simple que tiene un botón y una etiqueta arriba.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Pantalla Personalizada 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -52,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 Si quieres ser más elegante, y retornar a la pantalla anterior, puedes pasar la pantalla actual al constructor de la clase de `CustomScreen` y guardarla en un miembro, y después puedes usarlo para volver a la pantalla anterior cuando el método `close` es llamado.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 Ahora, cuando abramos la pantalla personalizada, puedes pasar la pantalla actual como el segundo argumento - para que cuando llames `CustomScreen#close` - volverá a la pantalla anterior.
 

@@ -17,7 +17,7 @@ Minecraft має потужну систему пропозицій команд
 
 Для використання постачальника пропозицій треба викликати метод `suggests` в об'єкта `ArgumentBuilder`. Цей метод приймає об'єкт `SuggestionProvider` та повертає свій `ArgumentBuilder` з доданим постачальником пропозицій.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Вбудовані постачальники пропозицій
 
@@ -36,7 +36,7 @@ Minecraft надає декілька вбудованих постачальн�
 
 Для цього прикладу ми зробимо постачальник, який пропонує імена гравців на сервері.
 
-@[code java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 Щоб скористатися цим постачальником, треба просто передати його об'єкт у метод `.suggests` у `ArgumentBuilder`.
 

@@ -7,23 +7,23 @@ authors:
   - Drakonkinst
 ---
 
-# 药水
+# 药水{#potions}
 
-药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取它们。
+药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取。
 
-## 自定义药水
+## 自定义药水{#custom-potions}
 
-新增药水和新增物品的方式类似。 你将创建的你的药水的一个实例，并通过调用 `BrewingRecipeRegistry.registerPotionRecipe` 注册它。
+添加药水和添加物品的方式类似。 你将创建的你的药水的一个实例，并通过调用 `BrewingRecipeRegistry.registerPotionRecipe` 注册它。
 
 :::info
 当 Fabric API 存在时，`BrewingRecipeRegistry.registerPotionRecipe` 的访问权限会被访问加宽器（Access Widener）设置为 `public` 。
 :::
 
-### 创建药水
+### 创建物品{#creating-the-potion}
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用入口点类来持有这个字段。
 
-@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 我们传入一个 `StatusEffectInstance` 实例，它的构造方法接收以下 3 个参数：
 
@@ -35,11 +35,11 @@ authors:
 为了创建你自己的效果，请参阅 [状态效果](../entities/effects) 的指南。
 :::
 
-### 注册药水配方
+### 注册药水{#registering-the-potion}
 
 在我们的入口点中，我们调用 `BrewingRecipeRegistry.registerPotionRecipe`。
 
-@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` 接收以下 3 个参数：
 
@@ -51,13 +51,13 @@ authors:
 
 完整的示例：
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 注册完成后，你就可以用马铃薯酿造土豆药水。
 
 ![玩家物品栏内的效果](/assets/develop/tater-potion.png)
 
-:::info 使用`Ingredient`注册药水
+:::info 使用 `Ingredient` 注册药水
 
 在 Fabric API 的帮助下，使用 `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` 可以使用 `Ingredient` 而非 `Item` 来注册药水配方。
@@ -67,4 +67,4 @@ net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` 可以使用 `Ingr
 
 没有 Fabric API 时，`BrewingRecipeRegistry.registerPotionRecipe` 将会是 `private` 的。 为了访问这个方法，请使用如下的 `@Invoker` Mixin，或使用访问加宽器（Access Widener）。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)

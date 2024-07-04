@@ -84,7 +84,7 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
    **예시:**
 
    ```md
-   <<< @/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    이는 리퍼런스 모드의 `FabricDocsReference.java` 파일의 15-21 줄을 임베드합니다.

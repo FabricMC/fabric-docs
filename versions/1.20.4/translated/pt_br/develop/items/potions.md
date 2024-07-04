@@ -23,7 +23,7 @@ Quando o Fabric API está presente, `BrewingRecipeRegistry.registerPotionRecipe`
 
 Vamos começar declarando um campo para armazenar sua instância de `Potion`. Utilizaremos a classe inicializadora diretamente para segurar isso.
 
-@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Passamos uma instância de `StatusEffectInstance`, que leva 3 parâmetros:
 
@@ -39,7 +39,7 @@ Para criar seu próprio efeito, consulte o guia de [Efeitos](../entities/effects
 
 No nosso inicializador, chamamos `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` leva 3 parâmetros:
 
@@ -51,7 +51,7 @@ Se você usa a Fabric API, o invocador de mixin não é necessário e uma chamad
 
 O exemplo completo:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Assim que registrada, você pode preparar uma poção Tater usando uma batata.
 
@@ -66,4 +66,4 @@ Com ajuda do Fabric API, é possível registrar uma poção usando um `Ingredien
 
 Sem o Fabric API, `BrewingRecipeRegistry.registerPotionRecipe` será privado. Para acessar este método, use o seguinte invocador de mixin ou use um Acess Widener.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)

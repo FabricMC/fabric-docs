@@ -73,7 +73,7 @@ Command<ServerCommandSource> command = context -> {
 
 在 mod 初始化程序中，我们只注册两个简单的命令：
 
-@[code lang=java transcludeWith=:::_1](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 在 `sendFeedback()` 方法之中，第一个参数是要发送的文本， 并且这是一个 `Supplier<Text>` 可以用于避免在不必要的时候实例化 Text 对象。
 
@@ -89,13 +89,13 @@ Command<ServerCommandSource> command = context -> {
 
 如果需要，您还可以确保仅在某些特定情况下注册命令，例如仅在专用环境中：
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### 命令需求
 
 假设您有一个只希望管理员可以执行的命令。 有一个 `requires()` 方法可以做到这一点。 `requires()` 方法有一个 `Predicate<S>` 参数，它将提供一个 `ServerCommandSource` 测试并确定 `CommandSource` 是否可以执行该命令。
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行。 在其他情况下，命令并不会被注册。
 
@@ -105,23 +105,23 @@ Command<ServerCommandSource> command = context -> {
 
 要添加子命令，通常需要注册该命令的第一个字面量节点。 为了添加一个子命令，您必须将下一个字面量节点添加到一个已经存在的节点上。
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 类似参数，子命令也可被设置为可选。 在以下情况下，`/subtater` 和 `/subtater subcommand` 都是有效的。
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 客户端命令
 
 Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中的 `ClientCommandManager`，可以帮助您注册客户端端的命令。 代码应当仅存在于客户端端的代码中。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 命令重定向
 
 命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
-@[code lang=java transcludeWith=:::12](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 常见问题
 

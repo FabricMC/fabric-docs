@@ -27,6 +27,6 @@ El parámetro `deltaTick` es el tiempo en segundos desde el último frame, en se
 
 Digamos que quieres realizar una interpolación lineal sobre el tiempo. Puedes usar el parámetro `deltaTick` para esto.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![](/assets/develop/rendering/hud-rendering-deltatick.webp)

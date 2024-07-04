@@ -17,7 +17,7 @@ Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che ver
 
 Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo prende un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Provider di Suggerimenti Predefiniti
 
@@ -36,7 +36,7 @@ Se un provider predefinito non soddisfa i tuoi requisiti, puoi creare il tuo pro
 
 Per questo esempio, creeremo un provider di suggerimenti che suggerisce tutti i nomi utente dei giocatori sul server.
 
-@[code java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 Per usare questo provider di suggerimenti, passeresti semplicemente una sua istanza al metodo `.suggests` nel costruttore di comandi.
 

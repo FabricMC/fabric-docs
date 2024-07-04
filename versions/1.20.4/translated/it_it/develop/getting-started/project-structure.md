@@ -25,7 +25,7 @@ Gli attributi più importanti nel file `fabric.mod.json` sono:
 Puoi trovare un esempio del file `fabric.mod.json` sotto - questo è il file `fabric.mod.json` per il progetto di riferimento su cui è basato questo sito di documentazione.
 
 :::details `fabric.mod.json` del Progetto di Riferimento
-@[code lang=json](@/reference/1.20.4/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
 ## Entrypoint
@@ -34,7 +34,7 @@ Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entry
 
 Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è usato per codice comune, mentre l'entrypoint `client` è usato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 Quello sopra è un esempio di un semplice entrypoint `main` che logga un messaggio alla console quando il gioco si avvia.
 

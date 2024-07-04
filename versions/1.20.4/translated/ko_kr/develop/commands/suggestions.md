@@ -17,7 +17,7 @@ Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력�
 
 제안 공급자를 사용하려면, 인수 빌더의 `suggests` 메소드를 호출해야 합니다. 이 메드는 `SuggestionProvider`를 인수로 받고 제안 공급자가 덧붙여진 새로운 인수 빌더를 반환합니다.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 내장된 제안 공급자
 
@@ -36,7 +36,7 @@ Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력�
 
 예를 들어, 서버의 모든 플레이어 이름을 제안하는 제안 공급자를 만들어 보겠습니다.
 
-@[code java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 이 제안 공급자를 사용하려면, 그냥 간단하게 인수 빌더의 `.suggests` 메소드에 만든 인스턴스를 전달하기만 하면 됩니다.
 

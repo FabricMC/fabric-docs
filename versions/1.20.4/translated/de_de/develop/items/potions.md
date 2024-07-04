@@ -23,7 +23,7 @@ Falls die Fabric API vorhanden ist, kann auf `BrewingRecipeRegistry.registerPoti
 
 Als Erstes wird die `Potion` Instanz in einer Variable deklariert. Dabei wird die Initialisierungsklasse benutzt, um die Variable zu belegen.
 
-@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besitzt:
 
@@ -39,7 +39,7 @@ Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](..
 
 In unsere Klasse, die für das Initialisieren zuständig ist, wird dann die `BrewingRecipeRegistry.registerPotionRecipe` Methode aufgerufen.
 
-@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 
@@ -51,7 +51,7 @@ Wenn die Fabric API benutzt wird, wird der Mixin Invoker nicht benötigt und die
 
 Das vollständige Beispiel:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Sobald der Trank registriert wurde, kannst du den Tater-Trank mit einer Kartoffel brauen.
 
@@ -67,4 +67,4 @@ net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` Methode, benutzt w
 
 Ohne de Fabric API ist die Methode `BrewingRecipeRegistry.registerPotionRecipe` privat. Um auf diese Methode zuzugreifen, verwende den folgenden Mixin Invoker oder verwende einen "Access Widener".
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)

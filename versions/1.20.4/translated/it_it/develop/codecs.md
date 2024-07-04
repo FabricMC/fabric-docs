@@ -315,11 +315,11 @@ Per esempio, immaginiamo di avere un'interfaccia astratta `Bean` con due classi 
 
 Con tutto questo, possiamo creare un codec di dispatch di registry per i fagioli:
 
-@[code transcludeWith=:::](@/reference/1.20.4/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/1.20.4/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/1.20.4/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/1.20.4/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/1.20.4/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // Ora possiamo creare un codec per i tipi di fagioli

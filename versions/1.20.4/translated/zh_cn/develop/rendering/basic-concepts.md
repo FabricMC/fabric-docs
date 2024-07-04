@@ -111,7 +111,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 因为在这个例子中我们在平视显示器（HUD）上绘制，我们将使用 `HudRenderCallback` 事件：
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 在平视显示器（HUD）上绘制的结果如下：
 
@@ -143,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 在您获取变换矩阵前请确保向矩阵栈压入一个新的矩阵！
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![一段展示菱形放大和缩小的视频](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -155,7 +155,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 不妨让我们尝试绕 z 轴旋转我们的菱形。 我们可以通过 `MatrixStack` 和 `multiply(Quaternion, x, y, z)` 方法来实现。
 
-@[code lang=java transcludeWith=:::3](@/reference/1.20.4/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 这会产生如下的结果：
 

@@ -5,7 +5,13 @@ authors:
   - IMB11
 ---
 
-# Reportes de Crasheos
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
+at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
+...
+at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
+at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
+...
+===================================================
 
 :::tip
 Si estás teniendo dificultades encontrando la causa del crasheo, puedes pedir ayuda en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv), en el canal de `#player-support` o `server-admin-support`.
@@ -43,6 +49,12 @@ Los reportes de crasheo son muy largos, y pueden ser confusos de leer. Sin embar
 
 Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
+:::details Reportes de Crasheos
+
+<<< @/public/assets/players/crash-report-example.txt{log}
+
+:::
+
 ### Secciones del Reporte de Crasheo
 
 Los reportes de crasheo consisten de varias secciones, cada una separada por un encabezado:
@@ -62,14 +74,9 @@ El stack trace en la sección de `---- Minecraft Crash Report ----` es la más i
 
 Con la cantidad de mods mencionados en el stack trace, puede ser difícil encontrar el mod culpable, pero lo primero que se debe hacer es encontrar el mod que causó el crasheo.
 
-```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
-at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
-...
-at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
-at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
-...
-```
+<!-- TODO: show part of this file -->
+
+<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 En este caso, el mod que causó el crasheo es `snownee`, ya que es el primer mod mencionado en el stack trace.
 
@@ -100,5 +107,5 @@ Esto le permitirá al autor investigar el crasheo, potencialmente reproducir el 
 Algunos sitios comunes para pegar texto de reportes de crasheo son:
 
 - [GitHub Gist](https://gist.github.com/)
-- [Pastebin](https://pastebin.com/)
 - [mclo.gs](https://mclo.gs/)
+- [Pastebin](https://pastebin.com/)

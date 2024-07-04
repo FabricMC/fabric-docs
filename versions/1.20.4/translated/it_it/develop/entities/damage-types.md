@@ -21,7 +21,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Ha la struttura seguente:
 
-@[code lang=json](@/reference/1.20.4/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
 Questo tipo di danno personalizzato causa un aumento di 0.1 nel livello di esaurimento ([exhaustion level](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase)) ogni volta che il giocatore prende danno, quando il danno è causato da una fonte vivente che non sia un giocatore (per esempio un blocco). Inoltre, la quantità di danno subita cambierà a seconda della difficoltà del mondo
 
@@ -37,7 +37,7 @@ Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramit
 
 La `RegistryKey` può essere ottenuta nel modo seguente:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
 ### Usare i Tipi di Danno
 
@@ -47,15 +47,15 @@ Puoi fare override di `onSteppedOn` per infliggere questo danno.
 
 Cominciamo creando una `DamageSource` del nostro tipo di danno personalizzato.
 
-@[code lang=java transclude={21-24}](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Poi, chiamiamo `entity.damage()` con la nostra `DamageSource` e con una quantità.
 
-@[code lang=java transclude={25-25}](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 L'intera implementazione del blocco:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 5 di danno (2.5 cuori) usando il nostro tipo di danno personalizzato.
 
@@ -63,7 +63,7 @@ Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 
 
 Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.<message_id>` nel file `en_us.json` della nostra mod.
 
-@[code lang=json transclude={4-4}](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
 
 Al momento della morte dal nostro tipo di danno personalizzato, vedrete il messaggio di morte seguente:
 
@@ -91,6 +91,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 Con il contenuto seguente:
 
-@[code lang=json](@/reference/1.20.4/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Assicurati che il tuo tag non sostituisca il tag esistente impostando la chiave `replace` a `false`.

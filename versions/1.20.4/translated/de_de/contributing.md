@@ -84,7 +84,7 @@ Die Stilrichtlinien lauten wie folgt:
    **Beispiel:**
 
    ```md
-   <<< @/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    Dies wird die Zeilen 15-21 der Datei `FabricDocsReference.java` des Referenz-Mod einbetten.

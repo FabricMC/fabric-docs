@@ -84,7 +84,7 @@ npm run preview
    **例如：**
 
    ```md
-   <<< @/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    这会嵌入参考模组中 `FabricDocsReference.java` 的第 15-21 行。

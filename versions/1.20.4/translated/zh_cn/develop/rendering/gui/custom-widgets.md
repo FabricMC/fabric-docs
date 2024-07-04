@@ -18,13 +18,13 @@ authors:
 - `Narratable` 用于提供无障碍信息，无障碍功能（如复述）通过此接口访问组件内容。
 - `Selectable` 用于聚焦组件，实现此接口后组件可以由 `Tab` 键选中，这也是一种无障碍功能。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## 将组件添加至界面
 
 如同其他组件，您需要使用 `Screen#addDrawableChild` 来将组件添加到界面中。 请确保这一步在 `Screen#init` 方法中完成。
 
-@[code lang=java transcludeWith=:::3](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![界面上的自定义组件](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -34,6 +34,6 @@ authors:
 
 举个例子，您可以使用 `ClickableWidget#isHovered` 方法来使组件在鼠标悬停时变色。
 
-@[code lang=java transcludeWith=:::2](@/reference/1.20.4/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![鼠标悬停事件](/assets/develop/rendering/gui/custom-widget-events.webp)
