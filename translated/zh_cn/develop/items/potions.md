@@ -7,19 +7,19 @@ authors:
   - Drakonkinst
 ---
 
-# 药水
+# 药水{#potions}
 
-药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取它们。
+药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取。
 
-## 自定义药水
+## 自定义药水{#custom-potions}
 
-新增药水和新增物品的方式类似。 你将创建的你的药水的一个实例，并通过调用 `BrewingRecipeRegistry.registerPotionRecipe` 注册它。
+添加药水和添加物品的方式类似。 你将创建的你的药水的一个实例，并通过调用 `BrewingRecipeRegistry.registerPotionRecipe` 注册它。
 
 :::info
 当 Fabric API 存在时，`BrewingRecipeRegistry.registerPotionRecipe` 的访问权限会被访问加宽器（Access Widener）设置为 `public` 。
 :::
 
-### 创建药水
+### 创建物品{#creating-the-potion}
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用入口点类来持有这个字段。
 
@@ -35,7 +35,7 @@ authors:
 为了创建你自己的效果，请参阅 [状态效果](../entities/effects) 的指南。
 :::
 
-### 注册药水配方
+### 注册药水{#registering-the-potion}
 
 在我们的入口点中，我们调用 `BrewingRecipeRegistry.registerPotionRecipe`。
 
@@ -57,7 +57,7 @@ authors:
 
 ![玩家物品栏内的效果](/assets/develop/tater-potion.png)
 
-:::info 使用`Ingredient`注册药水
+:::info 使用 `Ingredient` 注册药水
 
 在 Fabric API 的帮助下，使用 `
 net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry` 可以使用 `Ingredient` 而非 `Item` 来注册药水配方。
