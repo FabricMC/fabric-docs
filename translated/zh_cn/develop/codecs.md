@@ -352,7 +352,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### 递归Codec
 
-有时，使用自身来解码特定字段的Codec很有用，例如在处理某些递归数据结构时。 在原始代码中，这用于`Text`对象，它可以将其他`Text`存储为子对象。 可以使用`Codecs#createRecursive`构建这样的Codec。 在原版代码中，这用于 `Text` 对象，可能会存储其他的 `Text` 作为子对象。 可以使用 `Codecs#createRecursive` 构建这样的 codec。
+有时，使用自身来解码特定字段的Codec很有用，例如在处理某些递归数据结构时。 在原始代码中，这用于`Text`对象，它可以将其他`Text`存储为子对象。 可以使用`Codec#recursive`构建这样的Codec。 在原版代码中，这用于 `Text` 对象，可能会存储其他的 `Text` 作为子对象。 可以使用 `Codec#recursive` 构建这样的 codec。
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 
@@ -360,10 +360,10 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 public record ListNode(int value, ListNode next) {}
 ```
 
-我们无法通过普通方法为此构建codec，因为我们会对`next`字段使用什么codec？ 我们需要一个`Codec<ListNode>`，这就是我们正在构建的！ `Codecs#createRecursive` 让我们使用一个神奇的 lambda 来实现这一点： 我们需要一个 `Codec<ListNode>`，这就是我们还在构建的！ 序列化与反序列化
+我们无法通过普通方法为此构建codec，因为我们会对`next`字段使用什么codec？ 我们需要一个`Codec<ListNode>`，这就是我们正在构建的！ `Codec#recursive` 让我们使用一个神奇的 lambda 来实现这一点： 我们需要一个 `Codec<ListNode>`，这就是我们还在构建的！ 序列化与反序列化
 
 ```java
-Codec<ListNode> codec = Codecs.createRecursive(
+Codec<ListNode> codec = Codec.recursive(
   "ListNode", // codec的名称
   selfCodec -> {
     // 这里，`selfCodec` 代表 `Codec<ListNode>`，就像它已经构造好了一样
