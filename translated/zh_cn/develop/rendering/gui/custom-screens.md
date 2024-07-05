@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# 自定义界面
+# 自定义界面{#custom-screens}
 
 :::info
 本文所述均指一般的、未涉及同步的界面，这类界面是由玩家独自在客户端打开的，不需要服务端的参与。
@@ -15,7 +15,7 @@ authors:
 
 您可以创建自己的界面来展示自定义内容、自定义配置目录等。
 
-## 创建界面
+## 创建界面{#creating-a-screen}
 
 要创建界面，您需要继承 `Screen` 类并覆写 `init` 方法。您可能还需要覆写 `render` 方法，但是请保证调用 `super.render`， 否则背景和组件都不会渲染。
 
@@ -32,7 +32,7 @@ authors:
 
 ![自定义界面 1](/assets/develop/rendering/gui/custom-1-example.png)
 
-## 打开界面
+## 打开界面{#opening-the-screen}
 
 您可以使用 `MinecraftClient` 类的 `setScreen` 方法来打开您的界面。您可以在许多地方做这件事，比如当一个按键触发时，当一条命令执行时，或者当客户端收到一个网络包时。
 
@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## 关闭界面
+## 关闭界面{#closing-the-screen}
 
 当您想要关闭界面时，只需将界面设为 `null` 即可：
 
