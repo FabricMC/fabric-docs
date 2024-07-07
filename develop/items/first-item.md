@@ -129,7 +129,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipes` folder.
+If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipe` folder.
 
 For more information on the recipe format, checkout these resources:
 
