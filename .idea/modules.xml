@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/fabric-docs.iml" filepath="$PROJECT_DIR$/.idea/fabric-docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.client.iml" filepath="$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.test.iml" filepath="$PROJECT_DIR$/.idea/modules/1.20.4/reference.1.20.4.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/latest/reference.latest.client.iml" filepath="$PROJECT_DIR$/.idea/modules/latest/reference.latest.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/latest/reference.latest.main.iml" filepath="$PROJECT_DIR$/.idea/modules/latest/reference.latest.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/latest/reference.latest.test.iml" filepath="$PROJECT_DIR$/.idea/modules/latest/reference.latest.test.iml" />
+    </modules>
+  </component>
+</project>
