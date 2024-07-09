@@ -39,16 +39,15 @@ Within this class, we'll first register a new enchantment, and then use the `con
 
 @[code transcludeWith=#entrypoint](@\reference\latest\src\main\java\com\example\docs\data\EnchantmentGenerator.java)
 
-Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, ensure your project has data generation turned on/configured correctly, and look for (or create if it doesn't exit) a data generation class; this will usually be at the root of your package (same folder as your main class). Lastly, add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` class.
+Before procedding, you should ensure your project is configured for data generation; if you are unsure, [view the respective wiki page](https://fabricmc.net/wiki/tutorial:datagen_setup).
 
-```java
-public void onInitializeDataGenerator(FabricDataGenerator generator) {
-        FabricDataGenerator.Pack pack = generator.createPack();
-        pack.addProvider(EnchantmentGenerator::new);
-    }
-```
+Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` class.
 
-The code above will automatically generate the respective JSON files for your enchantment when you run the `Data Generation` task in your gradle. This task only needs to be run once when you update this file.
+@[code transcludeWith=#initdatagen](@\reference\latest\src\main\java\com\example\docs\FabricDocsReferenceDataGenerator.java)
+
+Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
+
+@[code](@\reference\latest\src\main\generated\data\fabric-docs-reference\enchantment\thundering.json)
 
 You should also add translations to your `en_us.json` file to give your enchantment a readable name
 
@@ -58,4 +57,4 @@ You should also add translations to your `en_us.json` file to give your enchantm
 
 You should now be able to see our enchantment by running the Client task and opening up Minecraft.
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.mp4" title="Using the Lightning Effect" />
+<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Lightning Effect" />

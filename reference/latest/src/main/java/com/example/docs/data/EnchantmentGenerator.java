@@ -32,26 +32,30 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
 		// Our new enchantment, "Thundering."
-		register(
-				entries,
-				THUNDERING,
-				Enchantment.builder(
-								Enchantment.definition(
-										registries.getWrapperOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-										10, // this is the "weight" or probability of our enchantment showing up in the table
-										3, // the maximum level of the enchantment
-										Enchantment.leveledCost(1, 10), // base cost for level 1 of the enchantment, and min levels required for something higher
-										Enchantment.leveledCost(1, 15), // same fields as above but for max cost
-										5, // anvil cost
-										AttributeModifierSlot.HAND // valid slots
-								)
-						)
-						.addEffect(
-								EnchantmentEffectComponentTypes.POST_ATTACK, // enchantment occurs POST_ATTACK
-								EnchantmentEffectTarget.ATTACKER,
-								EnchantmentEffectTarget.VICTIM,
-								new LightningEnchantmentEffect(EnchantmentLevelBasedValue.linear(0.4f, 0.2f)) // scale the enchantment linearly.
-						)
+		register(entries, THUNDERING, Enchantment.builder(
+				Enchantment.definition(
+					registries.getWrapperOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+					// this is the "weight" or probability of our enchantment showing up in the table
+					10,
+					// the maximum level of the enchantment
+					3,
+					// base cost for level 1 of the enchantment, and min levels required for something higher
+					Enchantment.leveledCost(1, 10),
+					// same fields as above but for max cost
+					Enchantment.leveledCost(1, 15),
+					// anvil cost
+					5,
+					// valid slots
+					AttributeModifierSlot.HAND
+				)
+			)
+					.addEffect(
+						// enchantment occurs POST_ATTACK
+						EnchantmentEffectComponentTypes.POST_ATTACK,
+						EnchantmentEffectTarget.ATTACKER,
+						EnchantmentEffectTarget.VICTIM,
+						new LightningEnchantmentEffect(EnchantmentLevelBasedValue.linear(0.4f, 0.2f)) // scale the enchantment linearly.
+					)
 		);
 	}
 
@@ -66,6 +70,6 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
 
 	@Override
 	public String getName() {
-		return null;
+		return "ReferenceDocEnchantmentGenerator";
 	}
 }
