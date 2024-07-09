@@ -11,7 +11,7 @@ Since 1.21, custom enchantments have taken a "data-driven" approach; while this 
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
-After you've confirmed that your enchantment will not work with the default effect components, we can start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
+Start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
 
 Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create `CODEC` variable to encode and decode our effect; A `MapCodec` is a part of Minecraft's serialization system, which allows for converting data between different formats (e.g., from Java objects to JSON or binary data).
 
