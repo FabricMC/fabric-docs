@@ -35,7 +35,7 @@ public record LightningEnchantmentEffect(EnchantmentLevelBasedValue amount) impl
 }
 ```
 
-Here the `EnchantmentLevelBasedValue amount` indicates a value scaled to the level of the enchantment. We can use this to modify how effective the enchantment is based on level.
+Here the `amount` field within the codec indicates a value scaled to the level of the enchantment. We can use this to modify how effective the enchantment is based on level.
 
 ## The `apply()` Event {#the-apply-event}
 
