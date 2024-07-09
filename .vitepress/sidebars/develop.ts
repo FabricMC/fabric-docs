@@ -78,6 +78,10 @@ export default [
         link: "/develop/items/custom-item-interactions"
       },
       {
+        text: "develop.items.custom-enchantment-effects",
+        link: "/develop/items/custom-enchantment-effects"
+      },
+      {
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },

@@ -26,6 +26,7 @@
   "develop.items.custom-tools": "Custom Tools",
   "develop.items.custom-item-groups": "Custom Item Groups",
   "develop.items.custom-item-interactions": "Custom Item Interactions",
+  "develop.items.custom-enchantment-effects": "Custom Enchantment Effects",
   "develop.items.potions": "Potions",
   "develop.blocks": "Blocks",
   "develop.blocks.first-block": "Creating Your First Block",

@@ -11,6 +11,8 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
+import com.example.docs.enchantment.ModEnchantmentEffects;
+
 //#entrypoint
 public class FabricDocsReference implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -34,6 +36,7 @@ public class FabricDocsReference implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		//#entrypoint
+		ModEnchantmentEffects.registerModEnchantmentEffects();
 
 		//#particle_register_main
 		// Register our custom particle type in the mod initializer.
