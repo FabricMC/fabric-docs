@@ -15,7 +15,7 @@ An effect component contains code for what special things an enchantment should 
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
-After you've confirmed that your enchantment will not work with the default effect components, we can start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
+Start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
 
 Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create `CODEC` variable to encode and decode our effect; for more information on Codecs, [see their respective wiki page](https://docs.fabricmc.net/develop/codecs).
 
@@ -33,7 +33,7 @@ Like every other component of your mod, we'll have to add this EnchantmentEffect
 
 ## Creating the Enchantment {#creating-the-enchantment}
 
-Now we have an enchantment effect! Lastly, we'll create an enchantment to apply our custom effect to. This can be done by creating a JSON file like in datapacks, however, in this guide we'll generate the JSON dynamically using Fabric's data generation tools. To start, create a folder `data` and within it create an `EnchantmentGenerator` class; optionally you can keep this class within your `enchantment` folder.
+Now we have an enchantment effect! Lastly, we'll create an enchantment to apply our custom effect to. This can be done by creating a JSON file like in datapacks, however, in this guide we'll generate the JSON dynamically using Fabric's data generation tools. To start, create an `EnchantmentGenerator` class.
 
 Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programatically.
 
