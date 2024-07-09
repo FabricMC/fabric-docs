@@ -28,7 +28,7 @@ you build a tree of commands and arguments.
 Исходный код библиотеки Brigadier: https://github.com/Mojang/brigadier
 :::
 
-## Интерфейс `Команды` {#the-command-interface}
+## Интерфейс `Command` {#the-command-interface}
 
 `com.mojang.brigadier.Command` это функциональный интерфейс, который запускает конкретный код, и исключает `CommandSyntaxException` в определённых случаях. Он имеет общий тип `S`, который определяет тип _источник команды_.
 Источник команды предоставляет контекст, в котором была запущена команда. В Майнкрафт, источником команды является `ServerCommandSource` который может представлять сервер, командному блоку, удалённому соединению(RCON), игроку или сущности.
