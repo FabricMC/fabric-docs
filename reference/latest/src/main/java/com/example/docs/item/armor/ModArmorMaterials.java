@@ -19,7 +19,7 @@ import com.example.docs.item.ModItems;
 
 public class ModArmorMaterials {
 	// :::2
-	public static final RegistryEntry<ArmorMaterial> GUIDIE = registerMaterial("guidite",
+	public static final RegistryEntry<ArmorMaterial> GUIDITE = registerMaterial("guidite",
 			// Defense (protection) point values for each armor piece.
 			Map.of(
 				ArmorItem.Type.HELMET, 3,
