@@ -30,10 +30,10 @@ public class ModItems {
 	// :::1
 
 	// :::6
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDIE, ArmorItem.Type.HELMET, new Item.Settings()), "guidite_helmet");
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDIE, ArmorItem.Type.BOOTS, new Item.Settings()), "guidite_boots");
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDIE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDIE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
+	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.HELMET, new Item.Settings()), "guidite_helmet");
+	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.BOOTS, new Item.Settings()), "guidite_boots");
+	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
+	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
 	// :::6
 	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings()), "lightning_stick");
 	// :::7
