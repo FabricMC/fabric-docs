@@ -36,7 +36,6 @@ public class FabricDocsReference implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		//#entrypoint
-		ModEnchantmentEffects.registerModEnchantmentEffects();
 
 		//#particle_register_main
 		// Register our custom particle type in the mod initializer.
