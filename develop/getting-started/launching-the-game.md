@@ -3,6 +3,7 @@ title: Launching the Game
 description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment.
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # Launching the Game {#launching-the-game}
@@ -35,6 +36,13 @@ You're still quite limited though:
 - You can't add or remove methods
 - You can't change method parameters
 - You can't add or remove fields
+
+However, with the use of a special JDK, [DCVEM](https://dcevm.github.io/) (till Java 11), you are able to circumvent most of the limitations, even adding and removing classes and methods. This should allow for most changes without restarting the game.
+
+For Java 11+ use the [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) instead and add in your run configuration the following to the VM Arguments option:
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
 
 ## Hotswapping Mixins {#hotswapping-mixins}
 
