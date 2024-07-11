@@ -46,7 +46,7 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
         SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
 ```
 
-## Ripulire il Disordine
+## Ripulire il Disordine {#cleaning-up-the-mess}
 
 A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfuggire di mano. Per evitare che ciò accada, possiamo fare uso di una nuova classe di supporto.
 
