@@ -350,7 +350,7 @@ Nuestro nuevo codec serializará beans a json de esta manera, usando solo los ca
 
 ### Codecs Recursivos
 
-A veces es útil tener un codec que se use a _sí mismo_ para decodificar ciertos miembros, por ejemplo cuando estamos lidiando con ciertas estructuras de datos recursivas. En el código vanilla, esto es usado para objetos `Text` (Texto), los cuales tienen otros objetos `Text` como hijos. Tal codec puede ser construido usando `Codecs#createRecursive`.
+A veces es útil tener un codec que se use a _sí mismo_ para decodificar ciertos miembros, por ejemplo cuando estamos lidiando con ciertas estructuras de datos recursivas. En el código vanilla, esto es usado para objetos `Text` (Texto), los cuales tienen otros objetos `Text` como hijos. Tal codec puede ser construido usando `Codec#recursive`.
 
 Por ejemplo, tratemos de serializar una lista enlazada. Esta manera de representar listas consiste en varios nodos que contienen un valor y una referencia al siguiente nodo en la lista. La lista es entonces representada mediante el primer nodo, y para caminar por la lista se sigue el siguiente nodo hasta que no quede ninguno. Aquí está una implementación simple de los nodos que guardan números enteros.
 
@@ -358,10 +358,10 @@ Por ejemplo, tratemos de serializar una lista enlazada. Esta manera de represent
 public record ListNode(int value, ListNode next) {}
 ```
 
-No podemos construir un codec para esto mediante métodos ordinarios, porque ¿qué codec usaríamos para el miembro de `next`? ¡Tendríamos que usar un `Codec<ListNode>`, que es lo que estamos construyendo actualmente! `Codecs#createRecursive` nos permite lograr eso con una expresión lambda mágica:
+No podemos construir un codec para esto mediante métodos ordinarios, porque ¿qué codec usaríamos para el miembro de `next`? ¡Tendríamos que usar un `Codec<ListNode>`, que es lo que estamos construyendo actualmente! `Codec#recursive` nos permite lograr eso con una expresión lambda mágica:
 
 ```java
-Codec<ListNode> codec = Codecs.createRecursive(
+Codec<ListNode> codec = Codec.recursive(
   "ListNode", // a name for the codec
   selfCodec -> {
     // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed

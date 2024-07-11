@@ -411,7 +411,7 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 
 ### Recursive Codecs {#recursive-codecs}
 
-Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
+Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codec#recursive`.
 
 For example, let's try to serialize a singly-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
 
@@ -419,10 +419,10 @@ For example, let's try to serialize a singly-linked list. This way of representi
 public record ListNode(int value, ListNode next) {}
 ```
 
-We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codecs#createRecursive` lets us achieve that using a magic-looking lambda:
+We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codec#recursive` lets us achieve that using a magic-looking lambda:
 
 ```java
-Codec<ListNode> codec = Codecs.createRecursive(
+Codec<ListNode> codec = Codec.recursive(
   "ListNode", // a name for the codec
   selfCodec -> {
     // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed

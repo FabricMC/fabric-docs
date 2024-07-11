@@ -51,7 +51,7 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups) page for more information.
+If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./custom-item-groups) page for more information.
 :::
 
 For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
@@ -129,7 +129,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipes` folder.
+If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipe` folder.
 
 For more information on the recipe format, checkout these resources:
 
