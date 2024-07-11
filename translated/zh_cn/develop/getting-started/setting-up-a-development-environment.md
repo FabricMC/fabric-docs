@@ -22,9 +22,9 @@ authors-nogithub:
 
 要开始使用 Fabric 开发模组，需要使用 IntelliJ IDEA 设置开发环境。
 
-## 安装 JDK 17{#installing-jdk-17}
+## 安装 JDK 21 {#installing-jdk-21}
 
-为 Minecraft 1.20.4 开发模组需要 JDK 17。
+为 Minecraft 1.21 开发模组，需要 JDK 21。
 
 如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
 
@@ -50,6 +50,6 @@ IntelliJ IDEA 的社区版是免费且开源的，是使用 Fabric 开发模组�
 
 Minecraft Development 插件为使用 Fabric 开发模组提供支持，是要安装的最重要的插件。
 
-如要安装，可以打开 IntelliJ IDEA，然后在搜索栏中导航到 `文件 > 设置 > 插件 > Marketplace T标签页` - 在搜索框中搜索 `Minecraft Development`，然后点击 `安装` 按钮。
+如要安装，可以打开 IntelliJ IDEA，然后在搜索栏中导航到 `文件 > 设置 > 插件 > Marketplace 标签页` - 在搜索框中搜索 `Minecraft Development`，然后点击 `安装` 按钮。
 
-或者你可以从[插件页面](https://plugins.jetbrains.com/plugin/8327-minecraft-development) 下载它，然后依次点击 `文件 > 设置 > 插件 > 从硬盘上安装插件` 来安装。
+或者你可以从[插件页面](https://plugins.jetbrains.com/plugin/8327-minecraft-development)下载，然后依次点击 `文件 > 设置 > 插件 > 从硬盘上安装插件` 来安装。

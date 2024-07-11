@@ -14,7 +14,7 @@ authors:
 ## 1. 下载模组{#1-download-the-mod}
 
 :::warning
-你应该只从你信任的来源下载模组。 关于寻找模组的更多信息，请看[寻找可信任的模组](./finding-mods)指南。
+你应该只从你信任的来源下载模组。 关于寻找模组的更多信息，请看[寻找可信的模组](./finding-mods)指南。
 :::
 
 大多数模组都需要 Fabric API，可从 [Modrinth](https://modrinth.com/mod/fabric-api) 或 [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api) 下载。

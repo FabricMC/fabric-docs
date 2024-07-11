@@ -6,7 +6,7 @@
   "players.installingJava.macOS": "macOS",
   "players.installingJava.linux": "Linux",
   "players.installingFabric": "安装 Fabric",
-  "players.findingMods": "寻找可信赖的模组",
+  "players.findingMods": "寻找可信的模组",
   "players.installingMods": "安装模组",
   "players.troubleshooting": "疑难解答",
   "players.troubleshooting.uploadingLogs": "上传你的日志",
@@ -27,6 +27,9 @@
   "develop.items.custom-item-groups": "自定义物品组",
   "develop.items.custom-item-interactions": "自定义物品交互",
   "develop.items.potions": "药水",
+  "develop.blocks": "方块",
+  "develop.blocks.first-block": "创建你的第一个方块",
+  "develop.blocks.blockstates": "方块状态",
   "develop.entities": "实体",
   "develop.entities.effects": "状态效果",
   "develop.entities.damage-types": "伤害类型",
@@ -48,6 +51,6 @@
   "develop.misc.events": "事件",
   "develop.misc.text-and-translations": "文本和翻译",
   "develop.sounds": "声音",
-  "develop.sounds.using-sounds": "播放声音事件",
+  "develop.sounds.using-sounds": "播放声音",
   "develop.sounds.custom": "创建自定义声音"
 }

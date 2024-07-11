@@ -5,7 +5,7 @@ authors:
   - Superkat32
 ---
 
-# Creare Particelle Personalizzate
+# Creare Particelle Personalizzate {#creating-custom-particles}
 
 Le particelle sono uno strumento potente. Possono aggiungere atmosfera a una bella scena, o aggiungere tensione durante una battaglia contro il boss. Aggiungiamone una!
 
@@ -32,7 +32,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 - Combinazione per IntelliJ: Ctrl+Alt+B
 - Combinazione per Visual Studio Code: Ctrl+F12
-:::
+  :::
 
 ## Creare un file JSON e aggiungere le texture
 

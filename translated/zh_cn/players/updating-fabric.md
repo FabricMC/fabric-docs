@@ -22,7 +22,7 @@ authors:
 
 <!--@include: ./installing-fabric.md{12,41}-->
 
-更新 Fabric，简单地确认游戏版本和加载器版本是正确的，然后点击 `安装` 。
+更新 Fabric，简单确认游戏版本和 Loader 版本是正确的，然后点击 `安装` 。
 
 :::important
 **运行安装程序时，请确保没有选中“创建新的启动器配置”，否则将创建新的配置文件，而这种情况下我们不需要。**
@@ -30,11 +30,11 @@ authors:
 
 ## 3. 在 Minecraft 启动器中打开配置{#3-open-the-profile-in-the-minecraft-launcher}
 
-安装程度完成后，可以打开 Minecraft 启动器并前往 `Installations（安装）` 选项。 您应当前往您的 Fabric 配置并打开编辑界面。
+安装器完成后，可以打开 Minecraft 启动器并前往 `Installations（安装）` 选项。 您应当前往您的 Fabric 配置并打开编辑界面。
 
-将该版本替换为刚才安装的 Fabric 加载器版本并点击 `保存`。
+将该版本替换为刚才安装的 Fabric Loader 版本并点击 `保存`。
 
-![在 Minecraft 启动器中更新 Fabric](/assets/players/updating-fabric.png)
+![在 Minecraft 启动器中更新 Fabric Loader 版本](/assets/players/updating-fabric.png)
 
 ## 4. 搞定！ {#4-you-re-done}
 

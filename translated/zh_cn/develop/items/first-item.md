@@ -51,7 +51,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 ## 将物品添加到物品组{#adding-the-item-to-an-item-group}
 
 :::info
-如果想要将物品添加到自定义的 `ItemGroup`，请参阅[自定义物品组](./item-groups)页面以了解更多。
+如果想要将物品添加到自定义的 `ItemGroup`，请参阅[自定义物品组](./custom-item-groups)页面以了解更多。
 :::
 
 这里为举例，我们将这个物品添加到原材料物品组中，你需要使用 Fabric API 的 item group event——也就是 `ItemGroupEvents.modifyEntriesEvent`。

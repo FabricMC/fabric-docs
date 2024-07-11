@@ -20,7 +20,16 @@
   "develop.gettingStarted.projectStructure": "專案結構",
   "develop.gettingStarted.launchGame": "啟動你的遊戲",
   "develop.items": "物品",
+  "develop.items.first-item": "建立你的第一個物品",
+  "develop.items.food": "食物物品",
+  "develop.items.custom-armor": "自訂盔甲",
+  "develop.items.custom-tools": "自訂工具",
+  "develop.items.custom-item-groups": "自訂物品組",
+  "develop.items.custom-item-interactions": "自訂物品交互",
   "develop.items.potions": "藥水",
+  "develop.blocks": "方塊",
+  "develop.blocks.first-block": "建立你的第一個方塊",
+  "develop.blocks.blockstates": "方塊狀態",
   "develop.entities": "實體",
   "develop.entities.effects": "狀態效果",
   "develop.entities.damage-types": "傷害類型",
@@ -40,8 +49,8 @@
   "develop.misc": "雜項頁面",
   "develop.misc.codecs": "解編碼器",
   "develop.misc.events": "事件",
+  "develop.misc.text-and-translations": "文本和翻譯",
   "develop.sounds": "音效",
   "develop.sounds.using-sounds": "撥放音效事件",
-  "develop.sounds.custom": "建立自訂音效",
-  "github.edit": "在 GitHub 上編輯此頁面"
+  "develop.sounds.custom": "建立自訂音效"
 }
