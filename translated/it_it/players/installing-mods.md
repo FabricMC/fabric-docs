@@ -51,7 +51,7 @@ Una volta che hai trovato la cartella `mods`, puoi muovere i file `.jar` della m
 
 ![Mod installate nella cartella mods](/assets/players/installing-mods.png)
 
-## 3. Hai Finito!
+## 3. Hai Finito! {#3-you-re-done}
 
 Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina nell'angolo in basso a sinistra e premere gioca!
 
