@@ -3,6 +3,7 @@ title: Starten des Spiels
 description: Lerne, wie du die verschiedenen Startprofile verwendest, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # Starten des Spiels
@@ -35,6 +36,14 @@ Du bist aber immer noch ziemlich eingeschränkt:
 - Du kannst keine Methoden hinzufügen oder entfernen
 - Du kannst die Methodenparameter nicht ändern
 - Du kannst keine Attribute hinzufügen oder entfernen
+
+Mit der Nutzung der [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) hingegen, kannst du die meisten Einschränkungen umgehen, wie das Erstellen und Löschen von Klassen und Methoden. Dadurch sollten die meisten Änderungen möglich sein, ohne das Spiel neu zu starten.
+
+Füge außerdem in deine Minecraft Start Konfigurationen Folgendes zu den VM Argumenten hinzu:
+
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
 
 ## Hotswapping von Mixins
 
