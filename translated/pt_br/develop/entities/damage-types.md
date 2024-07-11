@@ -1,5 +1,5 @@
 ---
-title: Tipos de Dano
+title: Tipos de dano
 description: Aprenda a adicionar tipos de dano personalizados.
 authors:
   - dicedpixels
@@ -7,7 +7,7 @@ authors:
   - mattidragon
 ---
 
-# Tipos de Dano
+# Tipos de Dano {#damage-types}
 
 Os tipos de dano definem os tipos de dano que as entidades podem sofrer. A partir do Minecraft 1.19.4, a criação de novos tipos de dano passou a ser baseada em dados, o que significa que eles são criados usando arquivos JSON.
 
@@ -39,7 +39,7 @@ A `RegistryKey` pode ser obtida da seguinte maneira:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### Usando Tipos de Dano
+### Usando Tipos de Dano {#using-damage-types}
 
 Para demonstrar o uso de tipos de dano personalizados, usaremos um bloco personalizado chamado _Tater Block_. Façamos com que quando uma entidade viva pisar em um _Tater Block_, ele causará dano de _Tater_.
 
