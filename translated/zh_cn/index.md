@@ -1,10 +1,10 @@
 ---
 title: Fabric 文档
-description: 为 Fabric —— 一套 Minecraft 模组工具链 —— 精心撰写的官方文档。
+description: 为 Minecraft 的一个模组制作工具链 Fabric 精心撰写的官方文档。
 layout: home
 hero:
   name: Fabric 文档
-  tagline: 为 Fabric —— 一套 Minecraft 模组工具链 —— 精心撰写的官方文档。
+  tagline: 为 Minecraft 的一个模组制作工具链 Fabric 精心撰写的官方文档。
 features:
   - title: 开发者指南
     icon: 🛠️
@@ -20,8 +20,8 @@ features:
 
 <div class="vp-doc homepage-container">
 
-## 如何贡献？ {#contribute}
+## 想要贡献？ {#contribute}
 
-如果您想给 Fabric 文档做贡献，您可以在[GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源码，以及相关的[贡献指南](./contributing)。
+如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到源代码，以及相关的[贡献指南](./contributing)。
 
 </div>

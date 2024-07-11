@@ -51,8 +51,8 @@ Se vuoi sviluppare localmente, dovrai installare [Git](https://git-scm.com/).
 Dopo di che, clona la tua fork della repository con:
 
 ```sh
-# assicurati di sostituire "nome-utente" con il tuo nome utente
-git clone https://github.com/nome-utente/fabric-docs.git
+# make sure to replace "your-username" with your actual username
+git clone https://github.com/your-username/fabric-docs.git
 ```
 
 #### <Badge type="tip">localmente</Badge> Installare le Dipendenze {#install-dependencies}
@@ -125,7 +125,7 @@ Framework si riferisce alla struttura interna del sito, ogni pull request che mo
 
 Dovresti davvero fare pull request riguardanti il framework solo dopo esserti consultato con il team della documentazione nel [Discord di Fabric](https://discord.gg/v6v4pMv) o tramite un'issue.
 
-::: info
+:::info
 Modificare i file nella sidebar e la configurazione della barra di navigazione non conta come pull request riguardante il framework.
 :::
 
@@ -147,13 +147,13 @@ Ricordati anche di aggiungere il tuo nome utente GitHub ad `authors` nel frontma
 
 ```md
 ---
-title: Titolo della Pagina
-description: Questa è la descrizione della pagina.
+title: Title of the Page
+description: This is the description of the page.
 authors:
-  - nome-utente
+  - your-username
 ---
 
-# Titolo della Pagina {#title-of-the-page}
+# Title of the Page {#title-of-the-page}
 
 ...
 ```
@@ -163,7 +163,7 @@ authors:
 Ogni intestazione deve avere un'ancora, che viene utilizzata per collegarsi a quell'intestazione:
 
 ```md
-# Questa È un'Intestazione {#questa-e-un-intestazione}
+# This Is a Heading {#this-is-a-heading}
 ```
 
 L'ancora deve usare caratteri minuscoli, numeri e trattini.
@@ -225,18 +225,18 @@ Per esempio, per inserire un link alla pagina `/players/index.md` dalla pagina `
 ::: code-group
 
 ```md:no-line-numbers [✅ Correct]
-Questo è un link relativo!
-[Pagina](../players/index)
+This is a relative link!
+[Page](../players/index)
 ```
 
 ```md:no-line-numbers [❌ Wrong]
-Questo è un link assoluto.
-[Pagina](/players/index)
+This is an absolute link.
+[Page](/players/index)
 ```
 
 ```md:no-line-numbers [❌ Wrong]
-Questo link relativo ha l'estensione del file.
-[Pagina](../players/index.md)
+This relative link has the file extension.
+[Page](../players/index.md)
 ```
 
 :::

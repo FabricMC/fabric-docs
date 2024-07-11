@@ -7,7 +7,7 @@ authors:
 
 # Installare Java su Linux
 
-Questa guida ti spiegherà come installare Java 17 su Linux.
+Questa guida ti spiegherà come installare Java 21 su Linux.
 
 ## 1. Controlla se Java è già installato
 
@@ -16,12 +16,12 @@ Apri un terminale, scrivi `java -version` e premi <kbd>Invio</kbd>.
 ![Terminale con scritto "java -version"](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
-Per usare la maggior parte delle versioni moderne di Minecraft, ti servirà almeno Java 17 installato. Se questo comando mostra una versione inferiore a 17, allora dovrai aggiornare la versione di Java già esistente.
+Per usare Minecraft 1.21, ti servirà almeno Java 21 installato. Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
-## 2. Scaricare e Installare Java 17
+## 2. Scaricare e Installare Java 21 {#2-downloading-and-installing-java}
 
-Raccomandiamo l'uso di OpenJDK 17, che è disponibile per la maggior parte delle distribuzioni Linux.
+Raccomandiamo l'uso di OpenJDK 21, che è disponibile per la maggior parte delle distribuzioni Linux.
 
 ### Arch Linux
 
@@ -49,31 +49,31 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu
 
-Puoi installare Java 17 usando `apt` con i comandi seguenti:
+Puoi installare Java 21 usando `apt` con i comandi seguenti:
 
 ```sh
 sudo apt update
-sudo apt install openjdk-17-jdk
+sudo apt install openjdk-21-jdk
 ```
 
 ### Fedora
 
-Puoi installare Java 17 usando `dnf` con i comandi seguenti:
+Puoi installare Java 21 usando `dnf` con i comandi seguenti:
 
 ```sh
-sudo dnf install java-17-openjdk
+sudo dnf install java-21-openjdk
 ```
 
 Se non hai bisogno di un'interfaccia grafica, puoi installare la versione headless:
 
 ```sh
-sudo dnf install java-17-openjdk-headless
+sudo dnf install java-21-openjdk-headless
 ```
 
 Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 
 ```sh
-sudo dnf install java-17-openjdk-devel
+sudo dnf install java-21-openjdk-devel
 ```
 
 ### Altre Distribuzioni Linux
@@ -82,9 +82,9 @@ Se la tua distribuzione non è fra quelle elencate sopra, puoi scaricare il JRE 
 
 Dovresti fare riferimento a una guida alternativa per la tua distribuzione se vuoi sviluppare delle mod.
 
-## 3. Verifica che Java 17 Sia Installato
+## 3. Verifica che Java 21 Sia Installato {#3-verify-that-java-is-installed}
 
-Quando l'installazione è stata completata, puoi verificare che Java 17 sia installato aprendo il terminale e scrivendo `java -version`.
+Quando l'installazione è stata completata, puoi verificare che Java 21 sia installato aprendo il terminale e scrivendo `java -version`.
 
 Se il comando funziona correttamente, vedrai qualcosa simile a quello mostrato prima, dove è mostrata la versione di Java:
 

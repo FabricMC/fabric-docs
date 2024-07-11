@@ -20,7 +20,7 @@ features:
 
 <div class="vp-doc homepage-container">
 
-## Vuoi Contribuire?
+## Vuoi Contribuire? {#contribute}
 
 Se vuoi contribuire alla Documentazione di Fabric, puoi trovare il codice sorgente su [GitHub](https://github.com/FabricMC/fabric-docs), e le corrispondenti [linee guida per la contribuzione](./contributing).
 

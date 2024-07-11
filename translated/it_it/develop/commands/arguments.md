@@ -3,7 +3,7 @@ title: Parametri dei Comandi
 description: Impara come creare comandi con parametri complessi.
 ---
 
-# Parametri dei Comandi
+# Parametri dei Comandi {#command-arguments}
 
 La maggior parte dei comandi usa i parametri. A volte possono essere opzionali, il che significa che se non viene fornito quel parametri, il comando verrà eseguito comunque. Ogni nodo può avere tipi di parametri multipli, ma ricorda che c'è una possibilità di ambiguità, che dovrebbe essere evitata.
 

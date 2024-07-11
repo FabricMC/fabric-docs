@@ -63,6 +63,6 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 - 修改项目的 `gradle.properties` 文件，把 `maven_group` 和 `archive_base_name` 修改为匹配你的模组的信息。
 - 修改项目中的 `fabric.mod.json` 文件，把 `id`、`name` 和 `description` 修改为匹配你的模组的信息。
-- 确保修改你的项目的Minecraft的版本，映射，Fabric模组加载器和Fabric loom——所有这些都可以通过https://fabricmc.net/develop/查询，以匹配您希望的目标版本。
+- 确保更新 Minecraft、映射、Fabric Loader 和 Fabric Loom 的版本——所有这些都可以通过 https://fabricmc.net/develop/ 查询，以匹配你希望的目标版本。
 
 你还可以修改包名和模组的主类来匹配你的模组的细节。
