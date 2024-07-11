@@ -39,7 +39,7 @@ Possiamo usare i metodi `DrawContext.drawHorizontalLine(...)` e `DrawContext.dra
 
 ![Linee](/assets/develop/rendering/draw-context-lines.png)
 
-## Il Gestore di Tagli
+## Il Gestore di Tagli {#the-scissor-manager}
 
 La classe `DrawContext` ha un gestore di tagli predefinito. Questo ti permette di ritagliare il rendering a un'area specifica. Questo è utile per renderizzare cose come consigli, o altri elementi che non dovrebbero essere renderizzati al di fuori di un'area specifica.
 
