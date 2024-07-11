@@ -3,6 +3,7 @@ title: Launching the Game
 description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment.
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # Launching the Game {#launching-the-game}
@@ -35,6 +36,14 @@ You're still quite limited though:
 - You can't add or remove methods
 - You can't change method parameters
 - You can't add or remove fields
+
+However, by using the [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime), you are able to circumvent most of the limitations, and even add or remove classes and methods. This should allow most changes to take effect without restarting the game.
+
+Don't forget to add the following to the VM Arguments option in your Minecraft run configuration:
+
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
 
 ## Hotswapping Mixins {#hotswapping-mixins}
 
