@@ -37,9 +37,10 @@ Du bist aber immer noch ziemlich eingeschränkt:
 - Du kannst die Methodenparameter nicht ändern
 - Du kannst keine Attribute hinzufügen oder entfernen
 
-Mit der Nutzung des [DCVEM](https://dcevm.github.io/) JDK (Bis Java 11) hingegen, kannst du die meisten Einschränkungen umgehen, wie das Erstellen und Löschen von Klassen und Methoden. Dadurch sollten die meisten Änderungen möglich sein, ohne das Spiel neuzustarten.
+Mit der Nutzung der [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) hingegen, kannst du die meisten Einschränkungen umgehen, wie das Erstellen und Löschen von Klassen und Methoden. Dadurch sollten die meisten Änderungen möglich sein, ohne das Spiel neu zu starten.
 
-Nutze für Java 11+ stattdessen die [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) und füge in deine Minecraft Start Konfigurationen Folgendes zu den VM Argumenten hinzu:
+Füge außerdem in deine Minecraft Start Konfigurationen Folgendes zu den VM Argumenten hinzu:
+
 ```:no-line-numbers
 -XX:+AllowEnhancedClassRedefinition
 ```
