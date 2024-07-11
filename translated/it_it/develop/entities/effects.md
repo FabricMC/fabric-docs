@@ -34,11 +34,7 @@ Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per re
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
-### Traduzioni e Texture
-
-Puoi assegnare un nome al tuo effetto di stato e fornire un'icona che apparirà nello schermo dell'inventario del giocatore.
-
-#### **Texture**
+### **Texture**
 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
@@ -46,25 +42,24 @@ L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Effetto nell'inventario del giocatore](/assets/develop/tater-effect.png)
+<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
-#### **Traduzioni**
+### **Traduzioni**
 
 Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mod-id>.<effect-identifier>": "Valore"` al file di lingua.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
   "effect.fabric-docs-reference.tater": "Tater"
 }
 ```
 
-### Fase di Test
+### Fase di Test {#testing}
 
 Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
 Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
 
+:::info
 ::: info
 Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions).
 :::
