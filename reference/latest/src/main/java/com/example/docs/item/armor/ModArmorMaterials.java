@@ -43,11 +43,11 @@ public class ModArmorMaterials {
 	public static RegistryEntry<ArmorMaterial> registerMaterial(String id, Map<ArmorItem.Type, Integer> defensePoints, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredientSupplier, float toughness, float knockbackResistance, boolean dyeable) {
 		// Get the supported layers for the armor material
 		List<ArmorMaterial.Layer> layers = List.of(
-				// The ID of the texture layer, the suffix, and whether the layer is dyeable.
-				// We can just pass the armor material ID as the texture layer ID.
-				// We have no need for a suffix, so we'll pass an empty string.
-				// We'll pass the dyeable boolean we received as the dyeable parameter.
-				new ArmorMaterial.Layer(Identifier.of(FabricDocsReference.MOD_ID, id), "", dyeable)
+			// The ID of the texture layer, the suffix, and whether the layer is dyeable.
+			// We can just pass the armor material ID as the texture layer ID.
+			// We have no need for a suffix, so we'll pass an empty string.
+			// We'll pass the dyeable boolean we received as the dyeable parameter.
+			new ArmorMaterial.Layer(Identifier.of(FabricDocsReference.MOD_ID, id), "", dyeable)
 		);
 
 		ArmorMaterial material = new ArmorMaterial(defensePoints, enchantability, equipSound, repairIngredientSupplier, layers, toughness, knockbackResistance);
