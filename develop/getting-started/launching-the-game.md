@@ -37,9 +37,9 @@ You're still quite limited though:
 - You can't change method parameters
 - You can't add or remove fields
 
-However, with the use the [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime), you are able to circumvent most of the limitations, even adding and removing classes and methods. This should allow for most changes without restarting the game.
+However, by using the [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime), you are able to circumvent most of the limitations, and even add or remove classes and methods. This should allow most changes to take effect without restarting the game.
 
-Also, add in your Minecraft run configuration the following to the VM Arguments option:
+Don't forget to add the following to the VM Arguments option in your Minecraft run configuration:
 
 ```:no-line-numbers
 -XX:+AllowEnhancedClassRedefinition
