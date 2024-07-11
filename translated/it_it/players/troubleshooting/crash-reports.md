@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Segnalazioni dei Crash
+# Segnalazioni dei Crash {#crash-reports}
 
 :::tip
 Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nei canali `#player-support` o `#server-admin-support`.
@@ -43,6 +43,17 @@ Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella l
 
 Per questa guida, useremo [questa segnalazione di crash come esempio](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
 
+:::details Segnalazioni dei Crash
+
+at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
+at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
+...
+at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
+at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
+...
+
+:::
+
 ### Sezioni della Segnalazione di Crash
 
 Le segnalazioni di crash consistono di varie sezioni, ciascuna separata con un'intestazione:
@@ -62,14 +73,9 @@ Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più impor
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
 
-```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
-at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
-...
-at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
-at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
-...
-```
+<!-- TODO: show part of this file -->
+
+<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 In questo caso, la mod che ha causato il crash è `snownee`, poiché è la prima mod menzionata nello stack trace.
 
@@ -100,5 +106,5 @@ Questo permetterà all'autore della mod d'investigare il crash, potenzialmente d
 Paste site comuni usati frequentemente per le segnalazioni di crash sono:
 
 - [GitHub Gist](https://gist.github.com/)
-- [Pastebin](https://pastebin.com/)
 - [mclo.gs](https://mclo.gs/)
+- [Pastebin](https://pastebin.com/)
