@@ -22,7 +22,7 @@ O comando `/effect` pode ser usado para aplicar efeitos numa entidade.
 
 Neste tutorial adicionaremos um novo efeito personalizado chamado _Tater_, que lhe dará um ponto de experiência a cada tick do jogo.
 
-### Estenda `StatusEffect`
+### Estenda `StatusEffect` {#extend-statuseffect}
 
 Vamos criar uma classe de efeito personalizado estendendo `StatusEffect`, sendo uma classe base para todos os efeitos.
 
@@ -34,27 +34,21 @@ Similar a registração de blocos e itens, usamos `Registry.register` para regis
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
-### Traduções e Texturas
+### Textura
 
-Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador.
-
-#### Textura
-
-O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
+Estenda `StatusEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
 ```:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Efeito no inventário do jogador](/assets/develop/tater-effect.png)
+<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
-#### Traduções
+### Traduções
 
 Assim como outras traduções, você pode adicionar uma entrada com o formato de ID `"effect.<mod-id>.<effect-identifier>": "Value"` ao arquivo de idioma.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
   "effect.fabric-docs-reference.tater": "Tater"
 }
@@ -65,6 +59,7 @@ Assim como outras traduções, você pode adicionar uma entrada com o formato de
 Uso o comando `/effect give @p fabric-docs-reference:tater` para dar ao jogador nosso efeito Tater.
 Use `/effect clear @p fabric-docs-reference:tater` para remover o efeito.
 
+:::info
 ::: info
 Para criar uma poção que utiliza este efeito, consulte o [guia de Poções](../items/potions).
 :::
