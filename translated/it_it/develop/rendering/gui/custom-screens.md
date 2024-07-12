@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Schermate Personalizzate
+# Schermate Personalizzate {#custom-screens}
 
 :::info
 Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gestite dal server.
@@ -15,7 +15,7 @@ Le schermate sono essenzialmente le GUI con cui il giocatore interagisce, come l
 
 Puoi creare le tue schermate per mostrare contenuti personalizzati, un menu delle impostazioni personalizzato, e altro.
 
-## Creare una Schermata
+## Creare una Schermata {#creating-a-screen}
 
 Per creare una schermata, devi estendere la classe `Screen` e fare override del metodo `init` - puoi anche eventualmente fare override del metodo `render` - ma assicurati di chiamare il suo metodo super altrimenti non renderizzerà lo sfondo, i widget ecc.
 
@@ -32,7 +32,7 @@ Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etich
 
 ![Schermata Personalizzata 1](/assets/develop/rendering/gui/custom-1-example.png)
 
-## Aprire la Schermata
+## Aprire la Schermata {#opening-the-screen}
 
 Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puoi farlo da vari posti, come un'associazione a un tasto, un comando, o un gestore dei pacchetti del client.
 
@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## Chiudere la Schermata
+## Chiudere la Schermata {#closing-the-screen}
 
 Se vuoi chiudere lo schermo, semplicemente imposta la schermata a `null`:
 
