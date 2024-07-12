@@ -17,7 +17,7 @@ authors-nogithub:
   - stormyfabric
 ---
 
-# Eventi
+# Eventi {#events}
 
 L'API di Fabric fornisce un sistema che permette alle mod di reagire ad azioni o circostanze, anche dette _eventi_ che accadono nel gioco.
 
@@ -27,23 +27,23 @@ L'API di Fabric fornisce eventi per aree importanti nel codice base di Minecraft
 
 Gli eventi sono rappresentati da istanze di `net.fabricmc.fabric.api.event.Event` che memorizza e chiama i _callback_. Spesso c'è una singola istanza di un evento per un callback, che è conservata in un attributo statico `EVENT` dell'interfaccia callback, ma ci sono anche altre organizzazioni. Per esempio, `ClientTickEvents` raggruppa vari eventi legati insieme.
 
-## Callback
+## Callback {#callbacks}
 
 I callback sono una parte di codice che viene passata come argomento a un evento. Quando l'evento viene innescato dal gioco, il pezzo di codice passato viene eseguito.
 
-### Interfacce di Callback
+### Interfacce di Callback {#callback-interfaces}
 
 A ogni evento corrisponde un'interfaccia di callback, convenzionalmente chiamata `<EventName>Callback`. I callback sono registrati chiamando il metodo `register()` su un'istanza di un evento, con un'istanza dell'interfaccia callback come argomento.
 
 Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono essere trovate nel package `net.fabricmc.fabric.api.event`.
 
-## Ascoltare gli Eventi
+## Ascoltare gli Eventi {#listening-to-events}
 
 Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando egli colpisce dei blocchi che non droppano un oggetto se rotti senza strumenti.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-### Aggiungere Oggetti alle Loot Table Esistenti
+### Aggiungere Oggetti alle Loot Table Esistenti {#adding-items-to-existing-loot-tables}
 
 A volte potresti voler aggiungere oggetti alle loot table. Per esempio, fare in modo che un blocco o un'entità vanilla droppi un tuo oggetto.
 
@@ -51,13 +51,13 @@ La soluzione più semplice, sostituire il file della loot table, può rompere al
 
 Aggiungeremo le uova alla loot table del minerale di carbone.
 
-#### Ascoltare il Caricamento delle Loot Table
+#### Ascoltare il Caricamento delle Loot Table {#listening-to-loot-table-loading}
 
 L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'initializer della tua mod. Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-#### Aggiungere Oggetti alla Loot Table
+#### Aggiungere Oggetti alla Loot Table {#adding-items-to-the-loot-table}
 
 Nelle loot table, gli oggetti sono memorizzati come _loot pool entries_, e le voci sono memorizzate in _loot pools_. Per aggiungere un oggetto, dovremo aggiungere una pool con una voce oggetto alla loot table.
 
@@ -67,7 +67,7 @@ La nostra pool non ha nemmeno un oggetto, quindi dovremo creare una voce oggetto
 
 @[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
-## Eventi Personalizzati
+## Eventi Personalizzati {#custom-events}
 
 Alcune aree del gioco non hanno agganci forniti dall'API di Fabric, quindi dovrai usare un mixin o creare il tuo evento personalizzato.
 
@@ -77,7 +77,7 @@ Vedremo come creare un evento che viene innescato quando una pecora viene tosata
 - Innescare l'evento da un mixin
 - Creare un'implementazione di prova
 
-### Creare l'Interfaccia Callback dell'Evento
+### Creare l'Interfaccia Callback dell'Evento {#creating-the-event-callback-interface}
 
 L'interfaccia callback descrive cosa deve essere implementato dai listener di eventi che ascolteranno il tuo evento. L'interfaccia callback descrive anche come l'evento verrà chiamato dal tuo mixin. È convenzione posizionare un oggetto `Event` come attributo nell'interfaccia callback, che identificherà effettivamente il nostro evento.
 
@@ -107,13 +107,13 @@ Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documen
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-### Innescare l'Evento da un Mixin
+### Innescare l'Evento da un Mixin {#triggering-the-event-from-a-mixin}
 
 Ora abbiamo lo scheletro di base dell'evento, ma dobbiamo anche innescarlo. Siccome vogliamo che l'evento venga chiamato quando un giocatore prova a tosare una pecora, chiamiamo l'`invoker` dell'evento in `SheepEntity#interactMob` quando `sheared()` viene chiamata (ovvero quando la pecora può essere tosata, e il giocatore sta tenendo delle cesoie):
 
 @[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
-### Creare un Implementazione di Prova
+### Creare un Implementazione di Prova {#creating-a-test-implementation}
 
 Ora dobbiamo testare il nostro evento. Puoi registrare un listener nel tuo metodo d'inizializzazione (o in un'altra area, se preferisci) e aggiungere logica personalizzata lì. Qui c'è un esempio che droppa un diamante anziché lana ai piedi della pecora:
 
