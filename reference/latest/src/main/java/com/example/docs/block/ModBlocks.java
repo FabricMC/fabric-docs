@@ -22,26 +22,26 @@ public class ModBlocks {
 
 	// :::2
 	public static final Block CONDENSED_DIRT = register(
-			new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS)),
-			"condensed_dirt",
-			true
+		new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS)),
+		"condensed_dirt",
+		true
 	);
 	// :::2
 	// :::3
 	public static final Block CONDENSED_OAK_LOG = register(
-			new PillarBlock(
-					AbstractBlock.Settings.create()
-							.sounds(BlockSoundGroup.WOOD)
-			), "condensed_oak_log", true
+		new PillarBlock(
+			AbstractBlock.Settings.create()
+				.sounds(BlockSoundGroup.WOOD)
+		), "condensed_oak_log", true
 	);
 	// :::3
 	// :::4
 	public static final Block PRISMARINE_LAMP = register(
-			new PrismarineLampBlock(
-					AbstractBlock.Settings.create()
-							.sounds(BlockSoundGroup.LANTERN)
-							.luminance(PrismarineLampBlock::getLuminance)
-			), "prismarine_lamp", true
+		new PrismarineLampBlock(
+			AbstractBlock.Settings.create()
+				.sounds(BlockSoundGroup.LANTERN)
+				.luminance(PrismarineLampBlock::getLuminance)
+		), "prismarine_lamp", true
 	);
 	// :::4
 	// :::1
@@ -72,7 +72,6 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 		});
 	};
-
 	// :::1
 }
 // :::1

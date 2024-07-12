@@ -31,9 +31,9 @@ If you are unaware of what static initialization is, it is the process of initia
 
 ```java
 public class ModBlocks {
-    // ...
+  // ...
 
-    public static void initialize() {}
+  public static void initialize() {}
 }
 ```
 
@@ -79,7 +79,7 @@ Minecraft will use this translation in the creative inventory and other places w
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
