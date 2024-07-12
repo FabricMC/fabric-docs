@@ -17,13 +17,15 @@ authors:
   - xpple
 ---
 
-# Creare Comandi
+# Creare Comandi {#creating-commands}
 
 Creare comandi può permettere a uno sviluppatore di mod di aggiungere funzionalità che possono essere usate attraverso un comando. Questo tutorial ti insegnerà come registrare comandi e qual è la struttura generale dei comandi di Brigadier.
 
-:::info
-Brigadier è un parser e un dispatcher di comandi scritto da Mojang per Minecraft. È una libreria comandi basata su una gerarchia dove costruisci un albero di comandi e parametri. Brigadier è open-source: <https://github.com/Mojang/brigadier>
-:::
+::: info
+Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
+you build a tree of commands and arguments.
+
+Brigadier è open-source: https://github.com/Mojang/brigadier
 
 ## L'interface `Command`
 
@@ -43,7 +45,7 @@ Command<ServerCommandSource> command = context -> {
 L'intero può essere considerato il risultato del comando. Di solito valori minori o uguali a zero indicano che un comando è fallito e non farà nulla. Valori positivi indicano che il comando ha avuto successo e ha fatto qualcosa. Brigadier fornisce una costante per indicare
 il successo; `Command#SINGLE_SUCCESS`.
 
-### Cosa Può Fare la `ServerCommandSource`?
+### Cosa Può Fare la `ServerCommandSource`? {#what-can-the-servercommandsource-do}
 
 Una `ServerCommandSource` fornisce del contesto aggiuntivo dipendente dall'implementazione quando un comando viene eseguito. Questo include la possibilità di ottenere l'entità che ha eseguito il comando, il mondo in cui esso è stato eseguito o il server su cui è stato eseguito.
 
@@ -92,7 +94,7 @@ Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circo
 
 @[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Requisiti dei Comandi
+### Requisiti dei Comandi {#command-requirements}
 
 Immagina di avere un comando e vuoi che solo gli operatori lo possano eseguire. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `ServerCommandSource` con cui testare e determinare se la `CommandSource` può eseguire il comando.
 
@@ -102,7 +104,7 @@ Questo comando verrà eseguito solo se la fonte del comando è un operatore di l
 
 Questo ha l'effetto collaterale di non mostrare il comando se si completa con tab a nessuno eccetto operatori di livello 2. Inoltre è il motivo per cui non puoi completare molti dei comandi con tab senza abilitare i comandi.
 
-### Sotto Comandi
+### Sotto Comandi {#sub-commands}
 
 Per aggiungere un sotto comando, devi registrare il primo nodo letterale del comando normalmente. Per avere un sotto comando, devi aggiungere il nodo letterale successivo al nodo esistente.
 
@@ -112,13 +114,13 @@ Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere o
 
 @[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## Comandi Lato Client
+## Comandi Lato Client {#client-commands}
 
 L'API di Fabric ha un `ClientCommandManager` nel package `net.fabricmc.fabric.api.client.command.v2` che può essere usato per registrare comandi lato client. Il codice dovrebbe esistere solo nel codice lato client.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-## Reindirizzare Comandi
+## Reindirizzare Comandi {#command-redirects}
 
 I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare la funzionalità di un comando a un altro. Questo è utile quando vuoi cambiare il nome di un comando, ma vuoi comunque supportare il vecchio nome.
 
@@ -126,9 +128,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 
 ## Domande Frequenti (FAQ)
 
-<br>
-
-### Perché il Mio Codice Non Viene Compilato?
+### Perché il Mio Codice Non Viene Compilato? {#why-does-my-code-not-compile}
 
 - Catturare o lanciare una `CommandSyntaxException` - `CommandSyntaxException` non è una `RuntimeException`. Se la lanci, dovresti farlo in metodi che lanciano una `CommandSyntaxException` nelle firme dei metodi, oppure dovresti catturarla.
   Brigadier gestirà le eccezioni controllate e ti inoltrerà il messaggio d'errore effettivo nel gioco.
@@ -140,7 +140,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 
 - Un Command dovrebbe restituire un intero - Quando registri comandi, il metodo `executes()` accetta un oggetto `Command`, che è solitamente una lambda. La lambda dovrebbe restituire un intero, anziché altri tipi.
 
-### Posso Registrare Comandi al Runtime?
+### Posso Registrare Comandi al Runtime? {#can-i-register-commands-at-runtime}
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -151,7 +151,7 @@ Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore 
 Questo è necessario perché il client mantiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
 
-### Posso De-Registrare Comandi al Runtime?
+### Posso De-Registrare Comandi al Runtime? {#can-i-unregister-commands-at-runtime}
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side

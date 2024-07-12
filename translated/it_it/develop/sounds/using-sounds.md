@@ -3,7 +3,7 @@ title: Riprodurre Suoni
 description: Impara come riprodurre eventi sonori.
 ---
 
-# Riprodurre Suoni
+# Riprodurre Suoni {#playing-sounds}
 
 Minecraft ha una grande selezione di suoni da cui puoi scegliere. Controlla la classe `SoundEvents` per vedere tutte le istanze di eventi sonori vanilla che Mojang ha predisposto.
 

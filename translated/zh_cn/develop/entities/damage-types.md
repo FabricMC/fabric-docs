@@ -7,23 +7,23 @@ authors:
   - mattidragon
 ---
 
-# 伤害类型
+# 伤害类型{#damage-types}
 
-有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。 有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已经变为数据驱动的，也就是说它们由 JSON 文件创建。
+伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
 
-## 创建一种伤害类型
+## 创建伤害类型{#creating-a-damage-type}
 
-让我们创建一种叫 _土豆_ 的伤害类型。 让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。
+让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
 ```:no-line-numbers
 resources/data/fabric-docs-reference/damage_type/tater.json
 ```
 
-它有以下的结构：
+其结构如下：
 
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
-这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。
+这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随世界难度而变化。
 
 ::: info
 
@@ -31,17 +31,17 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 :::
 
-### 通过代码访问伤害类型
+### 通过代码访问伤害类型{#accessing-damage-types-through-code}
 
-当我们需要在代码中访问我们的自定义伤害类型时，我们将用它的 `RegistryKey` 来创建一个 `DamageSource` 实例。
+当需要在代码中访问我们的自定义伤害类型时，可以用它的 `RegistryKey` 来创建一个 `DamageSource` 实例。
 
-所需的 `RegistryKey` 可用以下方式获取：
+这个 `RegistryKey` 可用以下方式获取：
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### 使用伤害类型
+### 使用伤害类型{#using-damage-types}
 
-为了演示自定义伤害类型如何使用，我们将使用一个自定义方块 _土豆块_ 。 让我们实现当生物踩在 _土豆块_ 上时，它会对生物造成 _土豆_ 伤害。
+为了演示自定义伤害类型如何使用，我们将使用一个自定义方块 _土豆块_ 。 让我们实现生物踩在 _土豆块_ 上时会造成 _土豆_ 伤害。
 
 你可以重写 `onSteppedOn` 方法来造成这个伤害。
 
@@ -49,7 +49,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 @[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-然后，我们调用 `entity.damage()` 并传入 我们的 `DamageSource` 和伤害量。
+然后，调用 `entity.damage()` 并传入我们的 `DamageSource` 和伤害量。
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
@@ -57,9 +57,9 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-现在，每当生物踩在我们的自定义方块上时，它将受到使用我们的自定义伤害类型的 5 点伤害（2.5 颗心）。
+现在，每当生物踩在我们的自定义方块上时，都将受到使用我们的自定义伤害类型的 5 点伤害（2.5 颗心）。
 
-### 自定义死亡信息
+### 自定义死亡消息{#custom-death-message}
 
 你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
 
@@ -69,9 +69,9 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ![玩家物品栏内的效果](/assets/develop/tater-damage-death.png)
 
-### 伤害类型标签
+### 伤害类型标签{#damage-type-tags}
 
-有些伤害类型能够无视护甲，无视状态效果等等。 伤害类型的这些属性是由标签控制的。
+有些伤害类型能够无视护甲、无视状态效果等等。 伤害类型的这些属性是由标签控制的。
 
 你可以在 `data/minecraft/tags/damage_type` 中找到既有的伤害类型标签。
 
@@ -83,7 +83,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 让我们把我们的土豆伤害类型加入伤害类型标签 `bypasses_armor`。
 
-为了把我们的伤害类型加入这些标签，我们需要在 `minecraft` 命名空间下创建一个 JSON 文件。
+要将我们的伤害类型加入这些标签，需要在 `minecraft` 命名空间下创建一个 JSON 文件。
 
 ```:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json

@@ -20,7 +20,16 @@
   "develop.gettingStarted.projectStructure": "Структура проекта",
   "develop.gettingStarted.launchGame": "Запуск игры",
   "develop.items": "Предметы",
+  "develop.items.first-item": "Создание вашего первого предмета",
+  "develop.items.food": "Еда",
+  "develop.items.custom-armor": "Собственная броня",
+  "develop.items.custom-tools": "Собственные инструменты",
+  "develop.items.custom-item-groups": "Собственные вкладки с предметами",
+  "develop.items.custom-item-interactions": "Собственная интерактивность с предметами",
   "develop.items.potions": "Зелья",
+  "develop.blocks": "Блоки",
+  "develop.blocks.first-block": "Создание вашего первого блока",
+  "develop.blocks.blockstates": "Состояние блоков",
   "develop.entities": "Сущности",
   "develop.entities.effects": "Эффекты состояния",
   "develop.entities.damage-types": "Типы урона",
@@ -40,8 +49,8 @@
   "develop.misc": "Прочие страницы",
   "develop.misc.codecs": "Кодеки",
   "develop.misc.events": "События",
+  "develop.misc.text-and-translations": "Текст и переводы",
   "develop.sounds": "Звуки",
   "develop.sounds.using-sounds": "Воспроизведение SoundEvents",
-  "develop.sounds.custom": "Создание своих звуков",
-  "github.edit": "Отредактировать эту страницу на GitHub"
+  "develop.sounds.custom": "Создание своих звуков"
 }

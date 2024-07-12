@@ -33,7 +33,7 @@ Prima di cominciare, chiariamo alcuni termini che incontrerai nel moddare con Fa
 - **Offuscamento**: Il processo di rendere il codice difficile da comprendere, usato da Mojang per proteggere il codice di Minecraft.
 - **Remapping**: Il processo di rimappare codice offuscato a codice leggibile.
 
-## Cos'è Fabric?
+## Cos'è Fabric? {#what-is-fabric}
 
 Fabric è una toolchain di modding leggera per Minecraft: Java Edition.
 
@@ -46,7 +46,7 @@ Dovresti conoscere le quattro componenti principali di Fabric:
 - **API di Fabric**: Un insieme di API e di strumenti per sviluppatori di mod da usare quando si creano mod.
 - **Yarn**: Un insieme di mapping Minecraft aperti, gratuiti per tutti da usare sotto la licenza Creative Commons Zero.
 
-## Perché È Necessario Fabric per Moddare Minecraft?
+## Perché È Necessario Fabric per Moddare Minecraft? {#why-is-fabric-necessary-to-mod-minecraft}
 
 > Il modding è il processo di modifica del gioco per cambiarne il comportamento o per aggiungere nuove funzionalità - nel caso di Minecraft, questo può essere qualsiasi cosa dall'aggiungere nuovi oggetti, blocchi, o entità, al cambiare le meccaniche del gioco o aggiungere nuove modalità di gioco.
 
@@ -56,7 +56,7 @@ Loom rimappa il codice offuscato a un formato leggibile usando questi mapping, r
 
 Loom ti permette di sviluppare e compilare mod facilmente in riferimento a codice rimappato, e il Loader di Fabric ti permette di caricare queste mod nel gioco.
 
-## Cosa Fornisce l'API di Fabric, e Perché È Necessaria?
+## Cosa Fornisce l'API di Fabric, e Perché È Necessaria? {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > L'API di Fabric è un insieme di API e di strumenti per sviluppatori di mod da usare quando si creano mod.
 
