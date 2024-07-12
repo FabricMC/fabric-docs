@@ -31,7 +31,7 @@ Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 Per creare il tuo effetto personalizzato per la pozione, per favore guarda la guida [Effetti](../entities/effects).
 :::
 
-### Registrare la Pozione
+### Registrare la Pozione {#registering-the-potion}
 
 Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUILD` per registrare la nostra pozione usando il metodo `BrewingRecipeRegistry.registerPotionRecipe`.
 
