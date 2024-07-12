@@ -7,11 +7,11 @@ authors:
 
 # Custom Enchantments {#custom-enchantments}
 
-Since 1.21, custom enchantments have taken a "data-driven" approach; while this makes adding simple enchantments (ie. increasing attack damage) more straightforward and easy, it also complicates creating complex enchantments. This was done by breaking down what enchantments do into _effect components_.
+Since 1.21, custom enchantments have taken a "data-driven" approach; while this makes adding simple enchantments (like increasing attack damage) easier and more straightforward, it also complicates creating complex enchantments. This was done by breaking down what enchantments do into _effect components_.
 
 An effect component contains code for what special things an enchantment should do. By default, Minecraft supports various effects such as item damage, knockback, experience, and more--however, this guide will focus on creating custom enchantment effects that are not supported by default.
 
-**[You are heavily suggested to first determine if the default Minecraft effects will work for your usecase before contuining](https://minecraft.wiki/w/Enchantment_definition#Effect_components)**. The rest of the guide will assume you understand how "simple" data-driven enchantments are configured.
+**[You are heavily suggested to first determine if the default Minecraft effects will work for your use case before continuing](https://minecraft.wiki/w/Enchantment_definition#Effect_components)**. The rest of the guide will assume you understand how "simple" data-driven enchantments are configured.
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
@@ -35,11 +35,11 @@ Like every other component of your mod, we'll have to add this EnchantmentEffect
 
 Now we have an enchantment effect! Lastly, we'll create an enchantment to apply our custom effect to. This can be done by creating a JSON file like in datapacks, however, in this guide we'll generate the JSON dynamically using Fabric's data generation tools. To start, create an `EnchantmentGenerator` class.
 
-Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programatically.
+Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programmatically.
 
 @[code transcludeWith=#entrypoint](@\reference\latest\src\main\java\com\example\docs\data\EnchantmentGenerator.java)
 
-Before procedding, you should ensure your project is configured for data generation; if you are unsure, [view the respective wiki page](https://fabricmc.net/wiki/tutorial:datagen_setup).
+Before proceeding, you should ensure your project is configured for data generation; if you are unsure, [view the respective wiki page](https://fabricmc.net/wiki/tutorial:datagen_setup).
 
 Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` class.
 
@@ -49,10 +49,10 @@ Now, when you run your mod's data generation task, enchantment JSONs will be gen
 
 @[code](@\reference\latest\src\main\generated\data\fabric-docs-reference\enchantment\thundering.json)
 
-You should also add translations to your `en_us.json` file to give your enchantment a readable name
+You should also add translations to your `en_us.json` file to give your enchantment a readable name:
 
 ```json
-    "enchantment.FabricDocsReference.thundering": "Thundering"`
+"enchantment.FabricDocsReference.thundering": "Thundering",
 ```
 
 You should now be able to see our enchantment by running the Client task and opening up Minecraft.
