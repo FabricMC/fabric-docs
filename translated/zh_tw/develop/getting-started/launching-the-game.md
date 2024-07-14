@@ -3,6 +3,7 @@ title: 啟動遊戲
 description: 學習如何利用各種啟動設定檔在即時遊戲環境中啟動和偵錯你的模組。
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # 啟動遊戲 {#launching-the-game}
@@ -35,6 +36,14 @@ Fabric Loom 提供了多種啟動配置檔案，以幫助你在實時遊戲環�
 - 你無法新增或刪除函式
 - 你無法修改函式參數
 - 你無法添加或刪除字段
+
+不過，透過使用 [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) ，你可以避開大多數的限制，甚至可以增加或移除類別的函式。 這應該能夠讓大多數變更在不重新啟動遊戲的情況下生效。
+
+不要忘記在你的 Minecraft 運行配置中的 VM Arguments 選項中新增以下內容：
+
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
 
 ## 熱調換 Mixins {#hotswapping-mixins}
 
