@@ -5,25 +5,25 @@ authors:
   - IMB11
 ---
 
-# Installing Java on Linux
+# Installing Java on Linux {#installing-java-on-linux}
 
-This guide will walk you through installing Java 17 on Linux.
+This guide will walk you through installing Java 21 on Linux.
 
-## 1. Check if Java Is Already Installed
+## 1. Check if Java Is Already Installed {#1-check-if-java-is-already-installed}
 
 Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
-![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)
+![Terminal with "java -version" typed in](/assets/players/installing-java/linux-java-version.png)
 
 ::: warning
-To use the majority of modern Minecraft versions, you'll need at least Java 17 installed. If this command displays any version lower than 17, you'll need to update your existing Java installation.
+To use Minecraft 1.21, you'll need at least Java 21 installed. If this command displays any version lower than 21, you'll need to update your existing Java installation.
 :::
 
-## 2. Downloading and Installing Java 17
+## 2. Downloading and Installing Java 21 {#2-downloading-and-installing-java}
 
-We recommend using OpenJDK 17, which is available for most Linux distributions.
+We recommend using OpenJDK 21, which is available for most Linux distributions.
 
-### Arch Linux
+### Arch Linux {#arch-linux}
 
 ::: info
 For more information on installing Java on Arch Linux, see the [Arch Linux Wiki](https://wiki.archlinux.org/title/Java).
@@ -31,61 +31,61 @@ For more information on installing Java on Arch Linux, see the [Arch Linux Wiki]
 
 You can install the latest JRE from the official repositories:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk
 ```
 
 If you're running a server without the need for a graphical interface, you can install the headless version instead:
 
-```bash
+```sh
 sudo pacman -S jre-openjdk-headless
 ```
 
 If you plan to develop mods, you'll need the JDK instead:
 
-```bash
+```sh
 sudo pacman -S jdk-openjdk
 ```
 
-### Debian/Ubuntu
+### Debian/Ubuntu {#debian-ubuntu}
 
-You can install Java 17 using `apt` with the following commands:
+You can install Java 21 using `apt` with the following commands:
 
-```bash
+```sh
 sudo apt update
-sudo apt install openjdk-17-jdk
+sudo apt install openjdk-21-jdk
 ```
 
-### Fedora
+### Fedora {#fedora}
 
-You can install Java 17 using `dnf` with the following commands:
+You can install Java 21 using `dnf` with the following commands:
 
-```bash
-sudo dnf install java-17-openjdk
+```sh
+sudo dnf install java-21-openjdk
 ```
 
 If you don't need a graphical interface, you can install the headless version instead:
 
-```bash
-sudo dnf install java-17-openjdk-headless
+```sh
+sudo dnf install java-21-openjdk-headless
 ```
 
 If you plan to develop mods, you'll need the JDK instead:
 
-```bash
-sudo dnf install java-17-openjdk-devel
+```sh
+sudo dnf install java-21-openjdk-devel
 ```
 
-### Other Linux Distributions
+### Other Linux Distributions {#other-linux-distributions}
 
 If your distribution isn't listed above, you can download the latest JRE from [Adoptium](https://adoptium.net/temurin/)
 
 You should refer to an alternative guide for your distribution if you plan to develop mods.
 
-## 3. Verify That Java 17 Is Installed
+## 3. Verify That Java 21 Is Installed {#3-verify-that-java-is-installed}
 
-Once the installation is complete, you can verify that Java 17 is installed by opening a terminal and typing `java -version`.
+Once the installation is complete, you can verify that Java 21 is installed by opening a terminal and typing `java -version`.
 
 If the command runs successfully, you will see something like shown before, where the Java version is displayed:
 
-![Terminal with "java -version" typed in.](/assets/players/installing-java/linux-java-version.png)
+![Terminal with "java -version" typed in](/assets/players/installing-java/linux-java-version.png)

@@ -1,31 +1,31 @@
 ---
-title: Playing SoundEvents
+title: Playing Sounds
 description: Learn how to play sound events.
 ---
 
-# Playing SoundEvents
+# Playing Sounds {#playing-sounds}
 
 Minecraft has a big selection of sounds which you can choose from. Check out the `SoundEvents` class to view all the vanilla sound event instances that Mojang has provided.
 
-## Using Sounds in Your Mod
+## Using Sounds in Your Mod {#using-sounds}
 
 Make sure to execute the `playSound()` method on the logical server side when using sounds!
 
 In this example, the `useOnEntity()` and `useOnBlock()` methods for a custom interactive item are used to play a "placing copper block" and a pillager sound.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
-The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()`  method from the world instance to have a higher level of control.
+The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()` method from the world instance to have a higher level of control.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
-### SoundEvent and SoundCategory
+### SoundEvent and SoundCategory {#soundevent-and-soundcategory}
 
-The SoundEvent defines which sound will be played. You can also [register your own SoundEvents](./custom.md) to include your own sound.
+The SoundEvent defines which sound will be played. You can also [register your own SoundEvents](./custom) to include your own sound.
 
 Minecraft has several audio sliders in the in-game settings. The `SoundCategory` enum is used to determine which slider will adjust your sound's volume.
 
-### Volume and Pitch
+### Volume and Pitch {#volume-and-pitch}
 
 The volume parameter can be a bit misleading. In the range of `0.0f - 1.0f` the actual volume of the sound can be changed. If the number gets bigger than that, the volume of `1.0f` will be used and only the distance, in which your sound can be heard, gets adjusted. The block distance can be roughly calculated by `volume * 16`.
 

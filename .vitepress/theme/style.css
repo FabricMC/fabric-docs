@@ -28,16 +28,21 @@
   );
 }
 
+.VPSidebar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--vp-c-bg-elv);
+  background: var(--vp-c-bg-alt);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--vp-c-bg-alt);
+  background: var(--vp-c-gray-1);
 }
 
 .homepage-container {
@@ -74,6 +79,14 @@
   opacity: 0;
   transform: rotateX(-90deg);
   transform-origin: top center;
+}
+
+.medium-zoom-overlay {
+  z-index: 10000;
+}
+
+.medium-zoom-image {
+  z-index: 10001;
 }
 
 @keyframes show {

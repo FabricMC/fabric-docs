@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Caricare i Log
+# Caricare i Log {#uploading-logs}
 
 Quando stai tentando di risolvere problemi, spesso è necessario fornire i log per aiutare a identificare la causa del problema.
 
-## Perché dovrei caricare i log?
+## Perché Dovrei Caricare i Log? {#why-should-i-upload-logs}
 
 Caricare i log permette agli altri di aiutarti a risolvere i tuoi problemi molto più velocemente che non semplicemente incollare i log in una chat o in un post su un forum. Ti permette anche di condividere i tuoi log con altri senza doverli copiare e incollare.
 
@@ -19,7 +19,7 @@ Alcuni siti forniscono anche colorazione della sintassi per i log, che li rende 
 
 Le segnalazioni dei crash sono generate automaticamente quando il gioco subisce un crash. Contengono soltanto informazioni sul crash e non i log reali del gioco. Esse sono posizionate nella cartella `crash-reports` nella directory del gioco.
 
-Per maggiori informazioni sulle segnalazioni dei crash, vedi [Segnalazioni dei Crash](./crash-reports.md).
+Per maggiori informazioni sulle segnalazioni dei crash, vedi [Segnalazioni dei Crash](./crash-reports).
 
 ## Localizzare i Log
 
@@ -45,7 +45,7 @@ I log sono posizionati nella cartella `logs` della directory del gioco, la direc
 
 Il log più recente si chiama `latest.log`, e log precedenti usano lo schema di denominazione `aaaa-mm-gg_numero.log.gz`.
 
-## Caricare i Log
+## Caricare i Log Online {#uploading-logs-online}
 
 I log possono essere caricati su vari servizi, come:
 

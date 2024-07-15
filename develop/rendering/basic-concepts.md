@@ -6,7 +6,7 @@ authors:
   - "0x3C50"
 ---
 
-# Basic Rendering Concepts
+# Basic Rendering Concepts {#basic-rendering-concepts}
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
@@ -18,21 +18,21 @@ This page will cover the basics of rendering using the new system, going over ke
 
 Although much of rendering in Minecraft is abstracted through the various `DrawContext` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
 
-## The `Tessellator`
+## The `Tessellator` {#the-tessellator}
 
 The `Tessellator` is the main class used to render things in Minecraft. It is a singleton, meaning that there is only one instance of it in the game. You can get the instance using `Tessellator.getInstance()`.
 
-## The `BufferBuilder`
+## The `BufferBuilder` {#the-bufferbuilder}
 
 The `BufferBuilder` is the class used to format and upload rendering data to OpenGL. It is used to create a buffer, which is then uploaded to OpenGL to draw.
 
-The `Tessellator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL. You can create a `BufferBuilder` using `Tessellator.getBuffer()`.
+The `Tessellator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL.
 
-### Initializing the `BufferBuilder`
+### Initializing the `BufferBuilder` {#initializing-the-bufferbuilder}
 
-Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `BufferBuilder.begin(...)`, which takes in a `VertexFormat` and a draw mode.
+Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `Tessellator#begin(...)` method, which takes in a `VertexFormat` and a draw mode and returns a `BufferBuilder`.
 
-#### Vertex Formats
+#### Vertex Formats {#vertex-formats}
 
 The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to OpenGL.
 
@@ -55,7 +55,7 @@ The following `VertexFormat` elements are available:
 | `POSITION_TEXTURE_LIGHT_COLOR`                | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEXTURE_COLOR_NORMAL`               | `{ position, uv, color, normal }`                                                       |
 
-#### Draw Modes
+#### Draw Modes {#draw-modes}
 
 The draw mode defines how the data is drawn. The following draw modes are available:
 
@@ -70,17 +70,17 @@ The draw mode defines how the data is drawn. The following draw modes are availa
 | `DrawMode.TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
 | `DrawMode.QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
 
-### Writing to the `BufferBuilder`
+### Writing to the `BufferBuilder` {#writing-to-the-bufferbuilder}
 
 Once the `BufferBuilder` is initialized, you can write data to it.
 
 The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.vertex(matrix, float, float, float)` method. The `matrix` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
-This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, we call the `.next()` method. This finalizes the current vertex and prepares the builder for the next one.
+This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
 It's also worth understanding the concept of culling. Culling is the process of removing faces of a 3D shape that aren't visible from the viewer's perspective. If the vertices for a face are specified in the wrong order, the face might not render correctly due to culling.
 
-#### What Is a Transformation Matrix?
+#### What Is a Transformation Matrix? {#what-is-a-transformation-matrix}
 
 A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the vertex call. The transformations can scale our model, move it around and rotate it.
 
@@ -92,7 +92,7 @@ It's usually obtained via the `MatrixStack` class, which can be obtained via the
 drawContext.getMatrices().peek().getPositionMatrix();
 ```
 
-#### A Practical Example: Rendering a Triangle Strip
+#### Rendering a Triangle Strip {#rendering-a-triangle-strip}
 
 It's easier to explain how to write to the `BufferBuilder` using a practical example. Let's say we want to render something using the `DrawMode.TRIANGLE_STRIP` draw mode and the `POSITION_COLOR` vertex format.
 
@@ -107,7 +107,7 @@ We're going to draw vertices at the following points on the HUD (in order):
 
 This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` draw mode, the renderer will perform the following steps:
 
-![Four steps that show the placement of the vertices on the screen to form two triangles.](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+![Four steps that show the placement of the vertices on the screen to form two triangles](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
 
@@ -121,7 +121,7 @@ This results in the following being drawn on the HUD:
 Try mess around with the colors and positions of the vertices to see what happens! You can also try using different draw modes and vertex formats.
 :::
 
-## The `MatrixStack`
+## The `MatrixStack` {#the-matrixstack}
 
 After learning how to write to the `BufferBuilder`, you might be wondering how to transform your model - or even animate it. This is where the `MatrixStack` class comes in.
 
@@ -145,9 +145,9 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![A video showing the diamond scaling up and down.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![A video showing the diamond scaling up and down](/assets/develop/rendering/concepts-matrix-stack.webp)
 
-## Quaternions (Rotating Things)
+## Quaternions (Rotating Things) {#quaternions-rotating-things}
 
 Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `MatrixStack` via the `multiply(Quaternion, x, y, z)` method.
 
@@ -159,4 +159,4 @@ Let's say we want to rotate our diamond around the z-axis. We can do this by usi
 
 The result of this is the following:
 
-![A video showing the diamond rotating around the z-axis.](/assets/develop/rendering/concepts-quaternions.webp)
+![A video showing the diamond rotating around the z-axis](/assets/develop/rendering/concepts-quaternions.webp)

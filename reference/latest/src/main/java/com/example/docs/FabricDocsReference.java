@@ -3,7 +3,7 @@ package com.example.docs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -22,7 +22,7 @@ public class FabricDocsReference implements ModInitializer {
 	//#entrypoint
 	//#particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
-	public static final DefaultParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
+	public static final SimpleParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
 	//#particle_register_main
 	//#entrypoint
@@ -37,7 +37,7 @@ public class FabricDocsReference implements ModInitializer {
 
 		//#particle_register_main
 		// Register our custom particle type in the mod initializer.
-		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
+		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 		//#entrypoint
 	}

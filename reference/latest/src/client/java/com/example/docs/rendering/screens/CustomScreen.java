@@ -22,6 +22,7 @@ public class CustomScreen extends Screen {
 	}
 
 	// :::2
+	// :::1
 	public CustomScreen(Text title) {
 		super(title);
 	}

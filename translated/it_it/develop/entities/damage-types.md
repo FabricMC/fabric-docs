@@ -7,7 +7,7 @@ authors:
   - mattidragon
 ---
 
-# Tipi di Danno
+# Tipi di Danno {#damage-types}
 
 I tipi di danno definiscono tipi di danno che le entità possono subire. A partire da Minecraft 1.19.4, la creazione di nuovi tipi di danno è basata sui dati, per cui essi sono creati tramite file JSON.
 
@@ -31,7 +31,7 @@ Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format)
 
 :::
 
-### Accedere ai Tipi di Danno Tramite Codice
+### Tipi di Danno Accedere ai Tipi di Danno Tramite Codice Usare i Tipi di Danno
 
 Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `RegistryKey` per costruire un'istanza di `DamageSource`.
 
@@ -39,7 +39,7 @@ La `RegistryKey` può essere ottenuta nel modo seguente:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### Usare i Tipi di Danno
+### Usare i Tipi di Danno {#using-damage-types}
 
 Per mostrare l'utilizzo dei tipi di danno personalizzati, useremo un blocco personalizzato chiamato _Blocco di Tater_. Facciamo in modo che quando un'entità calpesta un _Blocco di Tater_, esso causa danno _Tater_.
 

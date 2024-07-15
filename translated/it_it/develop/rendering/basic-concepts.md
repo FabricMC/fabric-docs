@@ -26,13 +26,13 @@ Il `Tessellator` è la principale classe usata per renderizzare le cose in Minec
 
 Il `BufferBuilder` è la classe usata per formattare e caricare i dati di rendering su OpenGL. Viene usata per creare un buffer, che viene caricato su OpenGL per essere disegnato.
 
-Il `Tessellator` viene usato per creare un `BufferBuilder`, che viene usato per formattare e caricare i dati di rendering su OpenGL. Puoi creare un `BufferBuilder` usando `Tessellator.getBuffer()`.
+Il `Tessellator` viene usato per creare un `BufferBuilder`, che viene usato per formattare e caricare i dati di rendering su OpenGL.
 
 ### Inizializzare il `BufferBuilder`
 
-Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `BufferBuilder.begin(...)`, che prende un `VertexFormat` e una modalità di disegno.
+Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `Tessellator#begin(...)`, che prende un `VertexFormat` e una modalità di disegno e restituisce un `BufferBuilder`.
 
-#### Formati di Vertici
+#### Formati dei Vertici {#vertex-formats}
 
 Il `VertexFormat` definisce gli elementi che includiamo nel nostro buffer di dati e precisa come questi elementi debbano essere trasmessi a OpenGL.
 
@@ -76,11 +76,11 @@ Una volta che il `BufferBuilder` è inizializzato, puoi scriverci dei dati.
 
 Il `BufferBuilder` permette di costruire il nostro buffer, un vertice dopo l'altro. Per aggiungere un vertice, usiamo il metodo `buffer.vertex(matrix, float, float, float)`. Il parametro `matrix` è la matrice di trasformazione, che discuteremo più dettagliatamente in seguito. I tre parametri float rappresentano le coordinate (x, y, z) della posizione del vertice.
 
-Questo metodo restituisce un costruttore di vertice, che possiamo usare per specificare informazioni addizionali per il vertice. È cruciale seguire l'ordine del nostro `VertexFormat` definito quando aggiungiamo questa informazione. Se non lo facciamo, OpenGL potrebbe non interpretare i nostri dati correttamente. Dopo aver finito la costruzione di un vertice, chiamiamo il metodo `.next()`. Questo finalizza il vertice corrente e prepara il costruttore per il prossimo.
+Questo metodo restituisce un costruttore di vertice, che possiamo usare per specificare informazioni addizionali per il vertice. È cruciale seguire l'ordine del nostro `VertexFormat` definito quando aggiungiamo questa informazione. Se non lo facciamo, OpenGL potrebbe non interpretare i nostri dati correttamente. Dopo aver finito la costruzione di un vertice, se vuoi puoi continuare ad aggiungere altri vertici e dati al buffer.
 
 Importante è anche capire il concetto di culling. Il culling è il processo con cui si rimuovono facce di una forma 3D che non sono visibili dalla prospettiva dell'osservatore. Se i vertici per una faccia sono specificati nell'ordine sbagliato, la faccia potrebbe non essere renderizzata correttamente a causa del culling.
 
-#### Cos'è una Matrice di Trasformazione?
+#### Cos'è una Matrice di Trasformazione? Formati di Vertici
 
 Una matrice di trasformazione è una matrice 4x4 che viene usata per trasformare un vettore. In Minecraft, la matrice di trasformazione sta solo trasformando le coordinate che diamo nella chiamata del vertice. Le trasformazioni possono scalare il nostro modello, muoverlo e ruotarlo.
 
@@ -107,7 +107,7 @@ Disegneremo vertici nelle seguenti posizioni sul HUD (in ordine):
 
 Questo dovrebbe darci un diamante carino - siccome stiamo usando la modalità di disegno `TRIANGLE_STRIP`, il renderizzatore eseguirà i seguenti passaggi:
 
-![Quattro passaggi che mostrano il posizionamento dei vertici sullo schermo per formare due triangoli.](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+![Quattro passaggi che mostrano il posizionamento dei vertici sullo schermo per formare due triangoli](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
 Siccome stiamo disegnando sulla HUD in questo esempio, useremo l'evento `HudRenderCallback`:
 
@@ -145,7 +145,7 @@ Assicurati di spingere lo stack di matrici prima di prendere una matrice di tras
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Un video che mostra il diamante ingrandito e rimpicciolito.](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Un video che mostra il diamante ingrandito e rimpicciolito](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternioni (Cose che Ruotano)
 
@@ -159,4 +159,4 @@ Immaginiamo di voler ruotare il nostro diamante attorno all'asse z. Possiamo far
 
 Il risultato è il seguente:
 
-![Un video che mostra il diamante che ruota attorno all'asse z.](/assets/develop/rendering/concepts-quaternions.webp)
+![Un video che mostra il diamante che ruota attorno all'asse z](/assets/develop/rendering/concepts-quaternions.webp)

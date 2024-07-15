@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import org.joml.Matrix4f;
 
 import net.minecraft.client.render.BufferBuilder;
+import net.minecraft.client.render.BufferRenderer;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormat;
@@ -22,7 +23,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
+		HudRenderCallback.EVENT.register((drawContext, tickDeltaManager) -> {
 			// :::1
 			if (true) {
 				return;
@@ -32,7 +33,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			MatrixStack matrices = drawContext.getMatrices();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickDelta += tickDelta;
+			totalTickDelta += tickDeltaManager.getTickDelta(true);
 
 			// Push a new matrix onto the stack.
 			matrices.push();
@@ -41,7 +42,6 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			// Get the transformation matrix from the matrix stack, alongside the tessellator instance and a new buffer builder.
 			Matrix4f transformationMatrix = drawContext.getMatrices().peek().getPositionMatrix();
 			Tessellator tessellator = Tessellator.getInstance();
-			BufferBuilder buffer = tessellator.getBuffer();
 
 			// :::1
 			// :::2
@@ -63,21 +63,21 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			// :::3
 
 			// :::1
-			// Initialize the buffer using the specified format and draw mode.
-			buffer.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_COLOR);
+			// Begin a triangle strip buffer using the POSITION_COLOR vertex format.
+			BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_COLOR);
 
 			// Write our vertices, Z doesn't really matter since it's on the HUD.
-			buffer.vertex(transformationMatrix, 20, 20, 5).color(0xFF414141).next();
-			buffer.vertex(transformationMatrix, 5, 40, 5).color(0xFF000000).next();
-			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000).next();
-			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141).next();
+			buffer.vertex(transformationMatrix, 20, 20, 5).color(0xFF414141);
+			buffer.vertex(transformationMatrix, 5, 40, 5).color(0xFF000000);
+			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000);
+			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141);
 
 			// We'll get to this bit in the next section.
 			RenderSystem.setShader(GameRenderer::getPositionColorProgram);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
 			// Draw the buffer onto the screen.
-			tessellator.draw();
+			BufferRenderer.drawWithGlobalProgram(buffer.end());
 			// :::1
 			// :::2
 

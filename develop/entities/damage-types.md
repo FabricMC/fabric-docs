@@ -7,12 +7,12 @@ authors:
 - mattidragon
 ---
 
-# Damage Types
+# Damage Types {#damage-types}
 
 Damage types define types of damage that entities can take. Since Minecraft 1.19.4, the creation of new damage types has
 become data-driven, meaning they are created using JSON files.
 
-## Creating a Damage Type
+## Creating a Damage Type {#creating-a-damage-type}
 
 Let's create a custom damage type called _Tater_. We start by creating a JSON file for your custom damage. This file
 will
@@ -37,7 +37,7 @@ Refer to the [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format) 
 
 :::
 
-### Accessing Damage Types Through Code
+### Accessing Damage Types Through Code {#accessing-damage-types-through-code}
 
 When we need to access our custom damage type through code, we will use it's `RegistryKey` to build an instance
 of `DamageSource`.
@@ -46,7 +46,7 @@ The `RegistryKey` can be obtained as follows:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### Using Damage Types
+### Using Damage Types {#using-damage-types}
 
 To demonstrate the use of custom damage types, we will use a custom block called _Tater Block_. Let's make is so that
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
@@ -67,7 +67,7 @@ The complete block implementation:
 
 Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5 hearts) using our custom damage type.
 
-### Custom Death Message
+### Custom Death Message {#custom-death-message}
 
 You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
 mod's `en_us.json` file.
@@ -78,7 +78,7 @@ Upon death from our damage type, you'll see the following death message:
 
 ![Effect in player inventory](/assets/develop/tater-damage-death.png)
 
-### Damage Type Tags
+### Damage Type Tags {#damage-type-tags}
 
 Some damage types can bypass armor, bypass status effects, and such. Tags are used to control these kinds of properties
 of damage types.

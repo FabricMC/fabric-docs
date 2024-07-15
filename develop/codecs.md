@@ -6,7 +6,7 @@ authors:
   - Syst3ms
 ---
 
-# Codecs
+# Codecs {#codecs}
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative
@@ -17,9 +17,9 @@ Codecs are used in conjunction with another API from DFU, `DynamicOps`. A codec 
 dynamic ops are used to define a format to be serialized to and from, such as json or NBT. This means any codec can be
 used with any dynamic ops, and vice versa, allowing for great flexibility.
 
-## Using Codecs
+## Using Codecs {#using-codecs}
 
-### Serializing and Deserializing
+### Serializing and Deserializing {#serializing-and-deserializing}
 
 The basic usage of a codec is to serialize and deserialize objects to and from a specific format.
 
@@ -62,7 +62,7 @@ BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 LOGGER.info("Deserialized BlockPos: {}", pos);
 ```
 
-### Built-in Codecs
+### Built-in Codecs {#built-in-codecs}
 
 As mentioned earlier, Mojang has already defined codecs for several vanilla and standard Java classes, including but not
 limited to `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text`, and regex `Pattern`s. Codecs for Mojang's own
@@ -73,7 +73,7 @@ can use `Registries.BLOCK.getCodec()` to get a `Codec<Block>` which serializes t
 The Codec API itself also contains some codecs for primitive types, such as `Codec.INT` and `Codec.STRING`. These are
 available as statics on the `Codec` class, and are usually used as the base for more complex codecs, as explained below.
 
-## Building Codecs
+## Building Codecs {#building-codecs}
 
 Now that we've seen how to use codecs, let's take a look at how we can build our own. Suppose we have the following
 class, and we want to deserialize instances of it from json files:
@@ -117,7 +117,7 @@ We can get the first one from the aforementioned primitive codecs in the `Codec`
 the second one can be obtained from the `Registries.ITEM` registry, which has a `getCodec()` method that returns a
 `Codec<Item>`. We don't have a default codec for `List<BlockPos>`, but we can make one from `BlockPos.CODEC`.
 
-### Lists
+### Lists {#lists}
 
 `Codec#listOf` can be used to create a list version of any codec:
 
@@ -126,10 +126,10 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```
 
 It should be noted that codecs created in this way will always deserialize to an `ImmutableList`. If you need a mutable
-list instead, you can make use of [xmap](#mutually-convertible-types-and-you) to convert to one during
+list instead, you can make use of [xmap](#mutually-convertible-types) to convert to one during
 deserialization.
 
-### Merging Codecs for Record-Like Classes
+### Merging Codecs for Record-Like Classes {#merging-codecs-for-record-like-classes}
 
 Now that we have separate codecs for each field, we can combine them into one codec for our class using
 a `RecordCodecBuilder`. This assumes that our class has a constructor containing every field we want to serialize, and
@@ -183,7 +183,7 @@ fields, as explained in the [Merging Codecs for Record-like Classes](#merging-co
 above, they can also be turned back into regular codecs using `MapCodec#codec`, which will retain the same behavior of
 boxing their input value.
 
-#### Optional Fields
+#### Optional Fields {#optional-fields}
 
 `Codec#optionalFieldOf` can be used to create an optional map codec. This will, when the specified field is not present
 in the container during deserialization, either be deserialized as an empty `Optional` or a specified default value.
@@ -202,9 +202,9 @@ the field is present, but the value is invalid, the field will always be deseria
 **Since 1.20.2**, Minecraft itself (not DFU!) does however provide `Codecs#createStrictOptionalFieldCodec`,
 which fails to deserialize at all if the field value is invalid.
 
-### Constants, Constraints, and Composition
+### Constants, Constraints, and Composition {#constants-constraints-composition}
 
-#### Unit
+#### Unit {#unit}
 
 `Codec.unit` can be used to create a codec that always deserializes to a constant value, regardless of the input. When
 serializing, it will do nothing.
@@ -213,7 +213,7 @@ serializing, it will do nothing.
 Codec<Integer> theMeaningOfCodec = Codec.unit(42);
 ```
 
-#### Numeric Ranges
+#### Numeric Ranges {#numeric-ranges}
 
 `Codec.intRange` and its pals, `Codec.floatRange` and `Codec.doubleRange` can be used to create a codec that only
 accepts number values within a specified **inclusive** range. This applies to both serialization and deserialization.
@@ -223,7 +223,7 @@ accepts number values within a specified **inclusive** range. This applies to bo
 Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 ```
 
-#### Pair
+#### Pair {#pair}
 
 `Codec.pair` merges two codecs, `Codec<A>` and `Codec<B>`, into a `Codec<Pair<A, B>>`. Keep in mind it only works
 properly with codecs that serialize to a specific field, such as [converted `MapCodec`s](#mapcodec) or
@@ -253,13 +253,13 @@ Will output this json:
 }
 ```
 
-#### Either
+#### Either {#either}
 
 `Codec.either` combines two codecs, `Codec<A>` and `Codec<B>`, into a `Codec<Either<A, B>>`. The resulting codec will,
 during deserialization, attempt to use the first codec, and _only if that fails_, attempt to use the second one.
 If the second one also fails, the error of the _second_ codec will be returned.
 
-#### Maps
+#### Maps {#maps}
 
 For processing maps with arbitrary keys, such as `HashMap`s, `Codec.unboundedMap` can be used. This returns a
 `Codec<Map<K, V>>` for a given `Codec<K>` and `Codec<V>`. The resulting codec will serialize to a json object or
@@ -289,12 +289,12 @@ This will output this json:
 ```
 
 As you can see, this works because `Identifier.CODEC` serializes directly to a string value. A similar effect can be
-achieved for simple objects that don't serialize to strings by using [xmap & friends](#mutually-convertible-types-and-you) to
+achieved for simple objects that don't serialize to strings by using [xmap & friends](#mutually-convertible-types) to
 convert them.
 
-### Mutually Convertible Types and You
+### Mutually Convertible Types {#mutually-convertible-types}
 
-#### `xmap`
+#### `xmap` {#xmap}
 
 Say we have two classes that can be converted to each other, but don't have a parent-child relationship. For example,
 a vanilla `BlockPos` and `Vec3d`. If we have a codec for one, we can use `Codec#xmap` to create a codec for the other by
@@ -317,7 +317,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 // method references in your `xmap` call.
 ```
 
-#### flatComapMap, comapFlatMap, and flatXMap
+#### flatComapMap, comapFlatMap, and flatXMap {#flatcomapmap-comapflatmap-flatxmap}
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` and `flatXMap` are similar to xmap, but they allow one or both of the
 conversion functions to return a DataResult. This is useful in practice because a specific object instance may not
@@ -358,7 +358,7 @@ one to use:
 | `Codec<A>#flatComapMap` | Yes                  | No                   |
 | `Codec<A>#flatXMap`     | No                   | No                   |
 
-### Registry Dispatch
+### Registry Dispatch {#registry-dispatch}
 
 `Codec#dispatch` let us define a registry of codecs and dispatch to a specific one based on the value of a
 field in the serialized data. This is very useful when deserializing objects that have different fields depending on
@@ -409,9 +409,9 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 }
 ```
 
-### Recursive Codecs
+### Recursive Codecs {#recursive-codecs}
 
-Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
+Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codec#recursive`.
 
 For example, let's try to serialize a singly-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
 
@@ -419,10 +419,10 @@ For example, let's try to serialize a singly-linked list. This way of representi
 public record ListNode(int value, ListNode next) {}
 ```
 
-We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codecs#createRecursive` lets us achieve that using a magic-looking lambda:
+We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codec#recursive` lets us achieve that using a magic-looking lambda:
 
 ```java
-Codec<ListNode> codec = Codecs.createRecursive(
+Codec<ListNode> codec = Codec.recursive(
   "ListNode", // a name for the codec
   selfCodec -> {
     // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
@@ -453,10 +453,10 @@ A serialized `ListNode` may then look like this:
 }
 ```
 
-## References
+## References {#references}
 
 - A much more comprehensive documentation of Codecs and related APIs can be found at the
-  [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+  [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - The general structure of this guide was heavily inspired by the
   [Forge Community Wiki's page on Codecs](https://forge.gemwire.uk/wiki/Codecs), a more Forge-specific take on the same
   topic.

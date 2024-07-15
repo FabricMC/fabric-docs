@@ -14,6 +14,6 @@ import net.minecraft.util.Identifier;
 public record BeanType<T extends Bean>(Codec<T> codec) {
 	// Create a registry to map identifiers to bean types
 	public static final Registry<BeanType<?>> REGISTRY = new SimpleRegistry<>(
-			RegistryKey.ofRegistry(new Identifier("example", "bean_types")), Lifecycle.stable());
+			RegistryKey.ofRegistry(Identifier.of("example", "bean_types")), Lifecycle.stable());
 }
 // :::

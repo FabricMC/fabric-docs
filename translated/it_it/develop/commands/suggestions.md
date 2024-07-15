@@ -1,11 +1,11 @@
 ---
-title: Suggerimenti di Comandi
+title: Suggerimenti dei Comandi
 description: Impara come suggerire i valori per gli argomenti dei comandi agli utenti.
 authors:
   - IMB11
 ---
 
-# Suggerimenti di Comandi
+# Suggerimenti dei Comandi {#command-suggestions}
 
 Minecraft ha un potente sistema di suggerimento comandi che viene usato in molti posti, come nel comando `/give`. Questo sistema ti permette di suggerire valori per argomenti dei comandi all'utente, da cui possono poi selezionare - è un ottimo modo per rendere i tuoi comandi più user-friendly ed ergonomici.
 

@@ -13,9 +13,9 @@ authors:
   - YanisBft
   - liach
   - natanfudge
+authors-nogithub:
+  - stormyfabric
 ---
-
-<!-- Couldn't find GitHub usernames for: stormyfabric -->
 
 # Eventi
 
@@ -38,8 +38,6 @@ A ogni evento corrisponde un'interfaccia di callback, convenzionalmente chiamata
 Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono essere trovate nel package `net.fabricmc.fabric.api.event`.
 
 ## Ascoltare gli Eventi
-
-### Un Semplice Esempio
 
 Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando egli colpisce dei blocchi che non droppano un oggetto se rotti senza strumenti.
 

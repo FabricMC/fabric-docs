@@ -3,6 +3,7 @@ title: Starten des Spiels
 description: Lerne, wie du die verschiedenen Startprofile verwendest, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # Starten des Spiels
@@ -36,6 +37,14 @@ Du bist aber immer noch ziemlich eingeschränkt:
 - Du kannst die Methodenparameter nicht ändern
 - Du kannst keine Attribute hinzufügen oder entfernen
 
+Mit der Nutzung der [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime) hingegen, kannst du die meisten Einschränkungen umgehen, wie das Erstellen und Löschen von Klassen und Methoden. Dadurch sollten die meisten Änderungen möglich sein, ohne das Spiel neu zu starten.
+
+Füge außerdem in deine Minecraft Start Konfigurationen Folgendes zu den VM Argumenten hinzu:
+
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
+
 ## Hotswapping von Mixins
 
 Wenn du Mixins verwendest, kannst du deine Mixin-Klassen per Hotswap austauschen, ohne das Spiel neu zu starten. Dies ist nützlich, um Änderungen an deinen Mixins schnell zu testen.
@@ -50,7 +59,7 @@ In IntelliJ IDEA findest du die Mixin-Bibliothek JAR im Abschnitt "External Libr
 
 Für den nächsten Schritt musst du den "Absolute Path" (Absoluten Pfad) der JAR-Datei kopieren.
 
-### 2. Füge das VM-Argument `-javaagent` hinzu.
+### 2. Füge das VM-Argument `-javaagent` hinzu
 
 Füge in deiner "Minecraft Client"- und/oder "Minecraft Server"-Ausführungskonfiguration Folgendes zur Option VM-Argumente hinzu:
 

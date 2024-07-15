@@ -17,8 +17,8 @@ public class CustomSounds {
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {
-		SoundEvent sound = SoundEvent.of(new Identifier(FabricDocsReferenceSounds.MOD_ID, id));
-		return Registry.register(Registries.SOUND_EVENT, new Identifier(FabricDocsReferenceSounds.MOD_ID, id), sound);
+		Identifier identifier = Identifier.of(FabricDocsReferenceSounds.MOD_ID, id);
+		return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
 	}
 
 	// This static method starts class initialization, which then initializes

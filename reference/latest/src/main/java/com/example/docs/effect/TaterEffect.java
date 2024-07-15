@@ -20,12 +20,14 @@ public class TaterEffect extends StatusEffect {
 		return true;
 	}
 
-	// Called when the effect is applied
+	// Called when the effect is applied.
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
 		if (entity instanceof PlayerEntity) {
 			((PlayerEntity) entity).addExperience(1 << amplifier); // Higher amplifier gives you experience faster
 		}
+
+		return super.applyUpdateEffect(entity, amplifier);
 	}
 }
 // :::1

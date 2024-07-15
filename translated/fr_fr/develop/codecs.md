@@ -63,7 +63,7 @@ Maintenant qu'on sait utiliser les codecs, regardons comment construire le nôtr
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -122,11 +122,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 ).apply(instance, CoolBeansClass::new));
 ```
 
-Chaque argument à la méthode `group` spécifie un codec, un nom de champ, et une méthode getter. L'appel à `Codec#fieldOf` convertit le codec en [codec map](#mapcodec-not-to-be-confused-with-codecltmapgt) et celui à `forGetter` indique la méthode getter utilisée pour obtenir la valeur du champ à partir d'une instance de la classe. Enfin, `apply` spécifie le constructeur utilisé pour créer de nouvelles instances. Attention, l'ordre des champs dans la méthode `group` doit être le même que celui des arguments dans le constructeur.
+Chaque argument à la méthode `group` spécifie un codec, un nom de champ, et une méthode getter. L'appel à `Codec#fieldOf` convertit le codec en [codec map](#mapcodec) et celui à `forGetter` indique la méthode getter utilisée pour obtenir la valeur du champ à partir d'une instance de la classe. Enfin, `apply` spécifie le constructeur utilisé pour créer de nouvelles instances. Attention, l'ordre des champs dans la méthode `group` doit être le même que celui des arguments dans le constructeur.
 
 On peut également utiliser `Codec#optionalFieldOf` dans ce contexte pour rendre un champ facultatif, comme expliqué dans la section [Champs facultatifs](#optional-fields).
 
-### MapCodec, et non pas Codec&amp;lt;Map&amp;gt;
+### MapCodec, et non pas Codec&lt;Map&gt; {#mapcodec}
 
 `Codec#fieldOf` transforme un `Codec<T>` en `MapCodec<T>` qui est une variante de `Codec<T>`, sans en être une implémentation directe. Comme leur nom peut le suggérer, les codecs map sérialisent leurs valeurs dans en maps clés-valeurs, ou plutôt leur équivalent dans les `DynamicOps` utilisées. Certaines fonctions peuvent en nécessiter un au lieu d'un codec normal.
 
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Pair
 
-`Codec.pair` fusionne deux codecs `Codec<A>` et `Codec<B>` en un `Codec<Pair<A, B>>`. Il faut garder à l'esprit que cela ne marche correctement qu'avec des codecs qui sérialisent un champ précis, comme [des codec maps convertis](#mapcodec-not-to-be-confused-with-codecltmapgt) ou [des codecs records](#merging-codecs-for-record-like-classes).
+`Codec.pair` fusionne deux codecs `Codec<A>` et `Codec<B>` en un `Codec<Pair<A, B>>`. Il faut garder à l'esprit que cela ne marche correctement qu'avec des codecs qui sérialisent un champ précis, comme [des codec maps convertis](#mapcodec) ou [des codecs records](#merging-codecs-for-record-like-classes).
 Le codec résultant sérialisera en une map qui combine les champs des deux codecs utilisés.
 
 Par exemple, l'exécution de ce code :
@@ -286,7 +286,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -349,7 +349,7 @@ Notre nouveau codec sérialisera les beans en JSON ainsi, en n'utilisant que les
 
 ### Codecs récursifs
 
-Il est parfois utile d'avoir un codec qui s'utilise _soi-même_ pour décoder certains champs, par exemple avec certaines structures de données récursives. Le code vanilla en fait usage pour les objets `Text`, qui peuvent stocker d'autres `Text`s en tant qu'enfants. Un tel codec peut être construit grâce à `Codecs#createRecursive`.
+Il est parfois utile d'avoir un codec qui s'utilise _soi-même_ pour décoder certains champs, par exemple avec certaines structures de données récursives. Le code vanilla en fait usage pour les objets `Text`, qui peuvent stocker d'autres `Text`s en tant qu'enfants. Un tel codec peut être construit grâce à `Codec#recursive`.
 
 À titre d'exemple, essayons de sérialiser une liste simplement chaînée. Cette manière de représenter une liste consiste en des nœuds qui contiennent et une valeur, et une référence au prochain nœud de la liste. La liste est alors représentée par son premier nœud, et pour la parcourir, il suffit de continuer à regarder le nœud suivant juste qu'à ce qu'il n'en existe plus. Voici une implémentation simple de nœuds qui stockent des entiers.
 
@@ -357,10 +357,10 @@ Il est parfois utile d'avoir un codec qui s'utilise _soi-même_ pour décoder ce
 public record ListNode(int value, ListNode next) {}
 ```
 
-Il est impossible de construire un codec comme d'habitude, puisque quel codec utiliserait-on pour le champ `next` ? Il faudrait un `Codec<ListNode>`, ce qui est précisément ce qu'on veut obtenir ! `Codecs#createRecursive` permet de le faire au moyen d'un lambda magique en apparence :
+Il est impossible de construire un codec comme d'habitude, puisque quel codec utiliserait-on pour le champ `next` ? Il faudrait un `Codec<ListNode>`, ce qui est précisément ce qu'on veut obtenir ! `Codec#recursive` permet de le faire au moyen d'un lambda magique en apparence :
 
 ```java
-Codec<ListNode> codec = Codecs.createRecursive(
+Codec<ListNode> codec = Codec.recursive(
   "ListNode", // un nom pour le codec
   selfCodec -> {
     // Ici, `selfCodec` représente le `Codec<ListNode>`, comme s'il était déjà construit
@@ -393,5 +393,5 @@ Un `ListNode` sérialisé pourrait alors ressembler à ceci :
 
 ## Références
 
-- Il y a une documentation bien plus exhaustive des codecs et des APIs attenantes dans la [JavaDoc DFU non-officielle](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec.html).
+- Il y a une documentation bien plus exhaustive des codecs et des APIs attenantes dans la [JavaDoc DFU non-officielle](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La structure globale de ce guide s'inspire beaucoup de [la page du Forge Community Wiki sur les codecs](https://forge.gemwire.uk/wiki/Codecs), qui propose une approche du même sujet plus centrée autour de Forge.
