@@ -5,7 +5,7 @@ authors:
     - JR1811
 ---
 
-# IDE Tips and Tricks
+# IDE Tips and Tricks{#ide-tips-and-tricks}
 
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
@@ -15,9 +15,9 @@ Key binds in the text are listed as Windows shortcuts and refer to the default k
 Refer to the `File > Setings > Keymap` Settings or search for the functionality elsewhere if you are using a different Keyboard layout.
 :::
 
-## Traversing projects
+## Traversing Projects{#traversing-projects}
 
-### Manually
+### Manually{#manually}
 
 IntelliJ has many different ways of traversing projects. If you have generated sources using the `./gradlew genSources` commands in the terminal or used the `Tasks > fabric > genSources` Gradle Tasks in the Gradle Window, you can manually go through the source files of Minecraft in the
 Project Window's External Libraries.
@@ -31,28 +31,28 @@ will also be available. This method is often used when browsing for assets, tags
 
 ![Split sources](/assets/develop/getting-started/using-the-ide/traversing_02_2.png)
 
-### Search
+### Search{#search}
 
 Pressing <kbd>Shift</kbd> twice opens up a Search window. In there you can search for your project's files and classes. When Activating the checkbox `include non-project items`
 or by pressing <kbd>Shift</kbd> two times again, the search will look not only in your own project, but also in other's, such as the External Libraries.
 
 ![Search Window](/assets/develop/getting-started/using-the-ide/traversing_03.png)
 
-### Recent Window
+### Recent Window{#recent-window}
 
 Another useful tool in IntelliJ is the `Recent` window. You can open it with the Shortcut <kbd>CTRL</kbd> + <kbd>E</kbd>. In there you can jump to the files, which you have already visited and open tool windows, such as the [Structure](#structure-of-a-class) or [Bookmarks](#bookmarks) window.
 
 ![Recent window](/assets/develop/getting-started/using-the-ide/traversing_04.png)
 
-## Traversing code
+## Traversing Code{#traversing-code}
 
-### Jump to Definition / Usage
+### Jump to Definition / Usage{#jump-to-definition-usage}
 
 If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>CTRL</kbd> + <kbd>Left Click</kbd>
 or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
-### Bookmarks
+### Bookmarks{#bookmarks}
 
 You can bookmark lines of code, files or even opened Editor tabs.
 Especially when researching source codes, it can help out to mark spots which you want to find again quickly in the future.
@@ -67,9 +67,9 @@ It is possible to create multiple Bookmark lists at the same time if you need to
 
 ![Bookmark window](/assets/develop/getting-started/using-the-ide/traversing_06.png)
 
-## Analyzing classes
+## Analyzing Classes{#analyzing-classes}
 
-### Structure of a class
+### Structure of a Class{#structure-of-a-class}
 
 By opening the `Structure` window (<kbd>Alt</kbd> + <kbd>7</kbd>) you will get an overview of your currently active class. You can see which Classes and Enums
 are located in that file, which methods have been implemented and which fields and variables are declared.
@@ -79,15 +79,15 @@ to activate the `Inherited` option at the top in the View options as well, when 
 
 ![Structure window](/assets/develop/getting-started/using-the-ide/analyzing_01.png)
 
-### Type Hierarchy of a class
+### Type Hierarchy of a Class{#type-hierarchy-of-a-class}
 
 By placing the cursor on a class name and pressing <kbd>CTRL</kbd> + <kbd>H</kbd> you can open a new Type Hierarchy window, which shows all parent and child classes.
 
 ![Type Hierarchy window](/assets/develop/getting-started/using-the-ide/analyzing_02.png)
 
-## Code utility
+## Code Utility{#code-utility}
 
-### Code completion
+### Code Completion{#code-completion}
 
 Code completion should be activated by default. You will automatically get the recommendations while writing your code. If you closed it by
 accident or just moved your cursor to a new place, you can use <kbd>CTRL</kbd> + <kbd>Space</kbd> to open them up again.
@@ -96,7 +96,7 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/getting-started/using-the-ide/util_01.png)
 
-### Displaying parameters
+### Displaying Parameters{#displaying-parameters}
 
 Displaying parameters should be activated by default. You will automatically get the types and names of the parameters while writing your code.
 If you closed them by accident or just moved your cursor to a new place, you can use <kbd>CTRL</kbd> + <kbd>P</kbd> to open them up again.
@@ -106,7 +106,7 @@ implementation you want to use, while writing the method call.
 
 ![Displaying method parameters](/assets/develop/getting-started/using-the-ide/util_02.png)
 
-### Refactoring
+### Refactoring{#refactoring}
 
 Refactoring is the process of restructuring code without changing its runtime functionality. Renaming and Deleting parts of the code safely is a part of that,
 but things like extracting parts of the code into separate methods and introducing new variables for repeated code statements are also called "refactoring".
@@ -118,7 +118,7 @@ Many IDEs have an extensive tool kit to aid in this process. In IntelliJ simply 
 It is especially useful to get used to the `Rename` refactoring tool's key bind, <kbd>Shift</kbd> + <kbd>F6</kbd>, since you will rename many things in the future. Using this feature,
 every code occurrence of the renamed code will be renamed and will stay functionally the same.
 
-### Search and Replace file content
+### Search and Replace File Content{#search-and-replace-file-content}
 
 Sometimes simpler tools are needed to edit code occurrences.
 
@@ -133,12 +133,12 @@ If enabled, all of those tools allow for a more specific pattern matching using 
 
 ![Regex replace](/assets/develop/getting-started/using-the-ide/search_and_replace_01.png)
 
-## Comments
+## Comments{#comments}
 
 Good code should be easily readable and [self-documenting](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758). Picking expressive names for variables, classes and methods can help a lot, but sometimes
 comments are necessary to leave notes or **temporarily** disable code for testing.
 
-### Prepare Shortcuts
+### Prepare Shortcuts{#prepare-shortcuts}
 
 To comment out code faster, open IntelliJ's Settings, look for the `Comment with Line Comment`
 and the `Comment with Block Comment` entries, and set their Key binds to your preferences.
@@ -166,7 +166,7 @@ private static int secondsToTicks(float seconds) {
 }
 ```
 
-### Region comments
+### Region Comments{#region-comments}
 
 In IntelliJ, right next to the line numbers, you can have small [+] and [-] icons. Those can be used to temporarily collapse methods, if-statements, classes and many other things
 if you are not actively working on them. To create a custom block which can be collapsed, use the `region` and `endregion` comments.
@@ -187,7 +187,7 @@ if you are not actively working on them. To create a custom block which can be c
 If you notice that you are using too many of them, consider refactoring your code to make it more readable!
 :::
 
-### TODO and FIXME notes
+### TODO and FIXME Notes{#todo-and-fixme-notes}
 
 When working on code, it can come in handy to leave notes, on what still needs to be taken care of. Sometimes you may also spot
 a potential issue in the code, but you don't want to stop focusing on the current problem. In this case, use the
@@ -202,7 +202,7 @@ which uses those type of comments.
 
 ![Commit with TODO](/assets/develop/getting-started/using-the-ide/comments_05.png)
 
-### Javadocs
+### Javadocs{#javadocs}
 
 A great way of documenting your code is the usage of JavaDoc. JavaDocs not only provide useful information for implementation of methods and classes, but are also
 deeply integrated into IntelliJ.
@@ -218,20 +218,20 @@ Minecraft's `ScreenHandler` class has some examples. To toggle the render view, 
 
 ![JavaDoc editing](/assets/develop/getting-started/using-the-ide/comments_07.png)
 
-## Optimizing IntelliJ further
+## Optimizing IntelliJ Further{#optimizing-intellij-further}
 
 There are many more shortcuts and handy little tricks which would go above the scope of this page.
 Jetbrains has many good talks, videos and documentation pages about how to further customize your workspace.
 
-### PostFix completion
+### PostFix Completion{#postfix-completion}
 
 [JetBrains Pagse on Postfix code completion](https://www.jetbrains.com/help/idea/auto-completing-code.html#postfix_completion) to alter code after writing it quickly. Often used examples contain `.not`, `.if`, `.var`, `.null`, `.for` and `.new`. [Here](https://www.jetbrains.com/help/fleet/postfix-templates-list-java.html) is also a list of all predefined Java Postfix code completions but you can also [create your own](https://www.jetbrains.com/help/idea/auto-completing-code.html#custom-postfix-templates).
 
-### Live Templates
+### Live Templates{#live-templates}
 
 [Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster.
 
-### More Tips and Tricks
+### More Tips and Tricks{#more-tips-and-tricks}
 
 [Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG) and more information on [Code Completion](https://blog.jetbrains.com/idea/2020/05/code-completion/).
 
