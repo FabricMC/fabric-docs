@@ -127,3 +127,33 @@ If you implement either of these solutions and hover over the item without the c
 
 ![Tooltip showing "Used 0 times"](/assets/develop/items/custom_component_2.png)
 
+## Updating the component value {#setting-component-value}
+
+Now let's try updating our component value. We're going to increase the click count each time we use our Lightning Stick item. To change the value of a component on an `ItemStack` we use the `set()` method like so:
+
+```java
+stack.set(ModItems.CLICK_COUNT_COMPONENT, newValue);
+```
+
+This takes our component type and the value we want to set it to. In this case it will be our new click count.
+
+Let's add a few lines to our `use()` method to read the old click count, increase it by one and then set the updated click count.
+
+```java
+@Override
+public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    // spawn lightning
+    ...
+
+    // Update the click count
+    ItemStack stack = user.getStackInHand(hand);
+    int clickCount = stack.getOrDefault(ModItems.CLICK_COUNT_COMPONENT, 0);
+    stack.set(ModItems.CLICK_COUNT_COMPONENT, ++clickCount);
+
+    return TypedActionResult.success(stack);
+}
+```
+
+Now try starting the game and right clicking with the Lightning Stick. Count how many times you right click it. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount you clicked it.
+
+![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
