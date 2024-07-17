@@ -220,19 +220,27 @@ Minecraft's `ScreenHandler` class has some examples. To toggle the render view, 
 
 ## Optimizing IntelliJ Further{#optimizing-intellij-further}
 
-There are many more shortcuts and handy little tricks which would go above the scope of this page.
+There are many more shortcuts and handy little tricks, which would go above the scope of this page.
 Jetbrains has many good talks, videos and documentation pages about how to further customize your workspace.
 
 ### PostFix Completion{#postfix-completion}
 
-[JetBrains Pagse on Postfix code completion](https://www.jetbrains.com/help/idea/auto-completing-code.html#postfix_completion) to alter code after writing it quickly. Often used examples contain `.not`, `.if`, `.var`, `.null`, `.for` and `.new`. [Here](https://www.jetbrains.com/help/fleet/postfix-templates-list-java.html) is also a list of all predefined Java Postfix code completions but you can also [create your own](https://www.jetbrains.com/help/idea/auto-completing-code.html#custom-postfix-templates).
+Use PostFix Completion to alter code after writing it quickly. Often used examples contain `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` and `.new`. Besides the existing ones, you can also create your own in IntelliJ's Settings.
+
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4?si=oSI1NVuOKtYI1wev" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
 
 ### Live Templates{#live-templates}
 
-[Youtube IntelliJ IDEA Pro Tips: Live Templates](https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge) to generate your custom boilerplate code faster.
+Use Live Templates to generate your custom boilerplate code faster.
 
-### More Tips and Tricks{#more-tips-and-tricks}
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
 
-[Youtube IntelliJ talk by Anton Arhipov](https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG) and more information on [Code Completion](https://blog.jetbrains.com/idea/2020/05/code-completion/).
+### More Tips and Tricks{#more-tips}
+
+Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
+
+<VideoPlayer src="https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+
+For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks/). Most of their posts are also applicable to Fabric's ecosystem.
 
 ---
