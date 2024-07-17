@@ -54,3 +54,76 @@ This example uses the `LightningStick` class created in the [Custom Item Interac
 If you start the game you should be able to enter a command like so:
 
 ![Give command showing custom component](/assets/develop/items/custom_component_0.png)
+
+When you run the command you should recieve the item containing the component. However we are not currently using our component to do anything useful. Let's start by reading the value of the component in a way we can see.
+
+## Reading component value {#reading-component-value}
+
+Let's extend the `LightningStick` tooltip code to display the current value of the click count when we hover over our item in the inventory. We can use the `get()` method on our `ItemStack` to get our component value like so:
+
+```java
+int clickCount = stack.get(ModItems.CLICK_COUNT_COMPONENT);
+```
+
+This will return the current component value as the type which we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the item class:
+
+```java
+@Override
+public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+    int clickCount = stack.get(ModItems.CLICK_COUNT_COMPONENT);
+    tooltip.add(Text.translatable("item.modid.lightning_stick.used", clickCount).formatted(Formatting.GOLD));
+}
+```
+
+Don't forget to update your lang file (`/assets/<mod id>/lang/en_us.json`) and add this line:
+
+```json
+{
+    "item.modid.lightning_stick.used": "Used %1$s times"
+}
+```
+
+If you start the game and hover over the item you gave yourself earlier, you should see the count displayed as a tooltip!
+
+![Tooltip showing "Used 5 times"](/assets/develop/items/custom_component_1.png)
+
+However, if you give yourself a new Lightning Stick item *without* the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
+
+```
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
+        at com.example.LightningStick.appendTooltip(LightningStick.java:45)
+        at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
+```
+
+As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`. 
+
+There are two solutions we can use to address this problem:
+
+### Setting a default component value {#setting-default-value}
+
+When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the Lightning Stick item, we can add a default value for our custom component.
+
+```java
+public static final Item LIGHTNING_STICK = register(
+    // initialize component with default count of 0
+    new LightningStick(new Item.Settings().component(CLICK_COUNT_COMPONENT, 0)),
+    "lightning_stick"
+);
+```
+
+When a new item is created it will automatically apply our custom component with the given value.
+
+### Reading with a default value {#reading-default-value}
+
+Alternatively, when we are reading our value in the `appendTooltip` method, we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the component. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
+
+```java
+int clickCount = stack.getOrDefault(ModItems.CLICK_COUNT_COMPONENT, 0);
+```
+
+As you can see this method takes two arguments, our component type like before and a default value to return if the component is not present.
+
+If you implement either of these solutions and hover over the item without the component you should see that it displays "Used 0 times" and no longer crashes the game.
+
+![Tooltip showing "Used 0 times"](/assets/develop/items/custom_component_2.png)
+
