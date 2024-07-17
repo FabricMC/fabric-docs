@@ -81,6 +81,10 @@ export default [
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },
+      {
+        text: "develop.items.custom-data-components",
+        link: "/develop/items/custom-data-components"
+      },
     ],
   },
   {
