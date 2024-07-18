@@ -178,7 +178,7 @@ int oldCount = stack.remove(ModItems.CLICK_COUNT_COMPONENT);
 
 You may need to store multiple attributes in a single component. As a vanilla example, the `minecraft:food` component stores several values related to food, such as `nutrition`, `saturation`, `eat_seconds` and more. These components are referred to by the game as "map components".
 
-For map components, you must create a `record` class to store the data. This is the type we'll define in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in an appropriate package (you might want to make a new one called `component` for this).
+For map components, you must create a `record` class to store the data. This is the type we'll register in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in an appropriate package (you might want to make a new one called `component` for this).
 
 ```java
 public record MyCustomComponent() {
@@ -232,3 +232,36 @@ Now start the game. Using the `/give` command try applying the map component. Ma
 Add a temperature value to the object using the syntax `temperature:8.2`. You can also optionally pass a value for `burnt` using the same syntax but either `true` or `false`. You should now see the command is valid and you can give yourself an item containing the component.
 
 ![Valid give command showing both properties](/assets/develop/items/custom_component_5.png)
+
+### Getting, setting and removing advanced components {#getting-setting-removing-advanced-comps}
+
+Using the component in code is the same as before. Using `stack.get()` will return an instance of your `record` class which you can then use to read the values. Since records are read-only, you will need to create a new instance of your record to update the values.
+
+```java
+// read values of component
+MyCustomComponent comp = stack.get(ModItems.MY_COMPONENT_TYPE);
+float temp = comp.temperature();
+boolean burnt = comp.burnt();
+
+// set new component values
+stack.set(ModItems.MY_COMPONENT_TYPE, new MyCustomComponent(8.4f, true));
+
+// remove component
+stack.remove(ModItems.MY_COMPONENT_TYPE);
+```
+
+Remember to also set a default value for your component so you don't encounter issues with crashing like before. For example:
+
+```java
+public static final Item LIGHTNING_STICK = Registry.register(
+    Registries.ITEM,
+    Identifier.of(ExampleMod.MODID, "lightning_stick"),
+    new LightningStick(new Item.Settings().component(MY_COMPONENT_TYPE, new MyCustomComponent(0.0f, false)))
+);
+```
+
+Now you can store custom data on an `ItemStack`. Use responsibly!
+
+![Item showing tooltips for click count, temperature and burnt](/assets/develop/items/custom_component_6.png)
+
+
