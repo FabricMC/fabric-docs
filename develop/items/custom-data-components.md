@@ -9,7 +9,7 @@ authors:
 
 As your items grow more complex, you may find yourself needing to store custom data associated with your item. The game allows you to store persistent data within an `ItemStack`, and as of 1.21 the way we do that is by using **Data Components**.
 
-Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found in this [Minecraft snapshot changelog](https://www.minecraft.net/en-us/article/minecraft-snapshot-24w09a).
+Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
 The page also covers the general usage of the components API which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
 
@@ -173,3 +173,62 @@ This method also returns the value of the component before being removed, so you
 ```java
 int oldCount = stack.remove(ModItems.CLICK_COUNT_COMPONENT);
 ```
+
+## Advanced Data Components (maps) {#advanced-data-components}
+
+You may need to store multiple attributes in a single component. As a vanilla example, the `minecraft:food` component stores several values related to food, such as `nutrition`, `saturation`, `eat_seconds` and more. These components are referred to by the game as "map components".
+
+For map components, you must create a `record` class to store the data. This is the type we'll define in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in an appropriate package (you might want to make a new one called `component` for this).
+
+```java
+public record MyCustomComponent() {
+    
+}
+```
+
+Notice that there's a set of brackets after the class name. This is where we define the list of properties we want our component to have. Let's add a float and a boolean called `temperature` and `burnt` respectively.
+
+```java
+public record MyCustomComponent(float temperature, boolean burnt) {
+    
+}
+```
+
+Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component.
+
+```java
+public record MyCustomComponent(float temperature, boolean burnt) {
+    
+    public static final Codec<MyCustomComponent> CODEC = RecordCodecBuilder.create((builder) -> {
+        return builder.group(
+            Codec.FLOAT.fieldOf("temperature").forGetter(MyCustomComponent::temperature),
+            Codec.BOOL.optionalFieldOf("burnt", false).forGetter(MyCustomComponent::burnt)
+        ).apply(builder, MyCustomComponent::new);
+    });
+
+}
+```
+
+You can see that we are defining a list of custom fields based on the primitive `Codec` types. However we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
+
+You can also define optional fields by using `optionalFieldOf()` and passing a default value as the second argument. Any fields not marked optional will be required when setting the component using `/give` so make sure you mark any optional arguments as such when creating your codec.
+
+Finally we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases be sure to read the [Codecs](../codecs.md) page.
+
+Registering our map component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
+
+```java
+public static final ComponentType<MyCustomComponent> MY_COMPONENT_TYPE = Registry.register(
+    Registries.DATA_COMPONENT_TYPE,
+    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    ComponentType.<MyCustomComponent>builder().codec(MyCustomComponent.CODEC).build()
+);
+```
+
+Now start the game. Using the `/give` command try applying the map component. Map component values are passed as an object enclosed with `{}`. If you put blank curly brackets you'll see an error telling you that the required key `temperature` is missing.
+
+![Give command showing missing key "temperature"](/assets/develop/items/custom_component_4.png)
+
+Add a temperature value to the object using the syntax `temperature:8.2`. You can also optionally pass a value for `burnt` using the same syntax but either `true` or `false`. You should now see the command is valid and you can give yourself an item containing the component.
+
+![Valid give command showing both properties](/assets/develop/items/custom_component_5.png)
