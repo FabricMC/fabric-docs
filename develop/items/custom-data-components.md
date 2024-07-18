@@ -11,7 +11,7 @@ As your items grow more complex, you may find yourself needing to store custom d
 
 Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-The page also covers the general usage of the components API which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
+Along with registering custom components, this page covers the general usage of the components API which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
 
 ## Registering a Component {#registering-a-component}
 
