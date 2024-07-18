@@ -1,13 +1,13 @@
 ---
 title: Custom Data Components
-description: Learn how to add custom data to your items using the new 1.21 component system.
+description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
   - Romejanic
 ---
 
 # Custom Data Components {#custom-data-components}
 
-As your items grow more complex, you may find yourself needing to store custom data associated with your item. The game allows you to store persistent data within an `ItemStack`, and as of 1.21 the way we do that is by using **Data Components**.
+As your items grow more complex, you may find yourself needing to store custom data associated with your item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
 
 Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
@@ -17,7 +17,11 @@ Along with registering custom components, this page covers the general usage of 
 
 As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down.
 
-Choose a sensible class to place this in (e.g. your `ModItems` class from [Creating Your First Item](./first-item.md)), and add the following lines.
+Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Don't forget to call `ModComponents.initialize()` in your mod initializer.
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+
+This is the basic template to register a component type:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
@@ -37,21 +41,11 @@ Lastly we have a `ComponentType.Builder` which creates the actual `ComponentType
 
 Basic data components (e.g. `minecraft:damage`) consist of a single data value, such as an `int`, `float`, `boolean` or `String`.
 
-As an example, let's create an Integer value which will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
+As an example, let's create an `Integer` value which will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
 
-```java
-public static final ComponentType<Integer> CLICK_COUNT_COMPONENT = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "click_count"),
-    ComponentType.<Integer>builder().codec(Codec.INT).build()
-);
-```
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `Codec.INT` codec. We can get away with using basic codecs for simple components like this but more complex scenarios might require a custom codec (this will be covered briefly later on).
-
-::: info
-This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
-:::
 
 If you start the game you should be able to enter a command like so:
 
@@ -61,124 +55,152 @@ When you run the command you should recieve the item containing the component. H
 
 ## Reading component value {#reading-component-value}
 
-Let's extend the `LightningStick` tooltip code to display the current value of the click count when we hover over our item in the inventory. We can use the `get()` method on our `ItemStack` to get our component value like so:
+Let's add a new item which will increase the counter each time it is right clicked. You should read the [Custom Item Interactions](./custom-item-interactions.md) page which will cover the techniques we will use in this guide.
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+
+Remember as usual to register the item in your `ModItems` class.
 
 ```java
-int clickCount = stack.get(ModItems.CLICK_COUNT_COMPONENT);
+public static final Item COUNTER = register(new CounterItem(
+    new Item.Settings()
+), "counter");
 ```
 
-This will return the current component value as the type which we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the item class:
+We're going to add some tooltip code to display the current value of the click count when we hover over our item in the inventory. We can use the `get()` method on our `ItemStack` to get our component value like so:
 
 ```java
-@Override
+int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+```
+
+This will return the current component value as the type which we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the `CounterItem` class:
+
+```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-    int clickCount = stack.get(ModItems.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.modid.lightning_stick.used", clickCount).formatted(Formatting.GOLD));
+    int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
-Don't forget to update your lang file (`/assets/<mod id>/lang/en_us.json`) and add this line:
+Don't forget to update your lang file (`/assets/<mod id>/lang/en_us.json`) and add these two lines:
 
 ```json
 {
-    "item.modid.lightning_stick.used": "Used %1$s times"
+    "item.fabric-docs-reference.counter": "Counter",
+    "item.fabric-docs-reference.counter.info": "Used %1$s times",
 }
 ```
 
-If you start the game and hover over the item you gave yourself earlier, you should see the count displayed as a tooltip!
+Start up the game and run this command to give yourself a new Counter item with a count of 5.
+
+```
+/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+```
+
+When you hover over this item in your inventory you should see the count displayed in the tooltip!
 
 ![Tooltip showing "Used 5 times"](/assets/develop/items/custom_component_1.png)
 
-However, if you give yourself a new Lightning Stick item *without* the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
+However, if you give yourself a new Counter item *without* the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
 
 ```
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.LightningStick.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
 As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`. 
 
-There are two solutions we can use to address this problem:
+There are three solutions we can use to address this problem.
 
 ### Setting a default component value {#setting-default-value}
 
-When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the Lightning Stick item, we can add a default value for our custom component.
+When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the `CounterItem`, we can add a default value for our custom component.
 
-```java
-public static final Item LIGHTNING_STICK = register(
-    // initialize component with default count of 0
-    new LightningStick(new Item.Settings().component(CLICK_COUNT_COMPONENT, 0)),
-    "lightning_stick"
-);
-```
+@[code transcludeWith=::13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 When a new item is created it will automatically apply our custom component with the given value.
 
+::: warning
+Using commands, it is possible to remove a default component from an `ItemStack`. You should refer to the next two sections to properly handle a scenario where the component is not present on your item.
+:::
+
 ### Reading with a default value {#reading-default-value}
 
-Alternatively, when we are reading our value in the `appendTooltip` method, we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the component. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
+In addition, when reading the component value we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the stack. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
 
 ```java
-int clickCount = stack.getOrDefault(ModItems.CLICK_COUNT_COMPONENT, 0);
+int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 ```
 
 As you can see this method takes two arguments, our component type like before and a default value to return if the component is not present.
 
-If you implement either of these solutions and hover over the item without the component you should see that it displays "Used 0 times" and no longer crashes the game.
+### Checking if a component exists {#checking-if-component-exists}
+
+You can also check for the existance of a specific component on an `ItemStack` using the `contains()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
+
+```java
+boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+```
+
+### Fixing the error {#fixing-the-error}
+
+Let's combine those two solutions. So we will read the value with a default value of `0`, but we'll also hide the tooltip if the component is not present on the stack.
+
+@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+
+
+If you implement both of these solutions and hover over the item without the component you should see that it displays "Used 0 times" and no longer crashes the game.
 
 ![Tooltip showing "Used 0 times"](/assets/develop/items/custom_component_2.png)
 
-## Updating the component value {#setting-component-value}
+Try giving yourself a Counter with our custom component removed. You can use this command to do so:
 
-Now let's try updating our component value. We're going to increase the click count each time we use our Lightning Stick item. To change the value of a component on an `ItemStack` we use the `set()` method like so:
+```
+/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+```
+
+When hovering over this item the tooltip should be missing.
+
+![Counter item with no tooltip](/assets/develop/items/custom_component_7.png)
+
+## Updating component value {#setting-component-value}
+
+Now let's try updating our component value. We're going to increase the click count each time we use our Counter item. To change the value of a component on an `ItemStack` we use the `set()` method like so:
 
 ```java
-stack.set(ModItems.CLICK_COUNT_COMPONENT, newValue);
+stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 ```
 
 This takes our component type and the value we want to set it to. In this case it will be our new click count.
 
-Let's add a few lines to our `use()` method to read the old click count, increase it by one and then set the updated click count.
+Let's set up a new `use()` method to read the old click count, increase it by one and then set the updated click count.
 
-```java
-@Override
-public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-    // spawn lightning
-    ...
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
-    // Update the click count
-    ItemStack stack = user.getStackInHand(hand);
-    int clickCount = stack.getOrDefault(ModItems.CLICK_COUNT_COMPONENT, 0);
-    stack.set(ModItems.CLICK_COUNT_COMPONENT, ++clickCount);
-
-    return TypedActionResult.success(stack);
-}
-```
-
-Now try starting the game and right clicking with the Lightning Stick. Count how many times you right click it. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount you clicked it.
+Now try starting the game and right clicking with the Counter. Count how many times you right click it. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount you clicked it.
 
 ![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
 
-## Removing the component value {#removing-component-value}
+## Removing component value {#removing-component-value}
 
 You can also remove a component from your `ItemStack` if it is no longer needed. This is done by using the `remove()` method which takes your component type.
 
 ```java
-stack.remove(ModItems.CLICK_COUNT_COMPONENT);
+stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 This method also returns the value of the component before being removed, so you can also use it like so:
 
 ```java
-int oldCount = stack.remove(ModItems.CLICK_COUNT_COMPONENT);
+int oldCount = stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-## Advanced Data Components (maps) {#advanced-data-components}
+## Advanced Data Components {#advanced-data-components}
 
-You may need to store multiple attributes in a single component. As a vanilla example, the `minecraft:food` component stores several values related to food, such as `nutrition`, `saturation`, `eat_seconds` and more. These components are referred to by the game as "map components".
+You may need to store multiple attributes in a single component. As a vanilla example, the `minecraft:food` component stores several values related to food, such as `nutrition`, `saturation`, `eat_seconds` and more. In this guide we'll refer to them as "composite" components.
 
-For map components, you must create a `record` class to store the data. This is the type we'll register in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in an appropriate package (you might want to make a new one called `component` for this).
+For composite components, you must create a `record` class to store the data. This is the type we'll register in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in the `component` package we made earlier.
 
 ```java
 public record MyCustomComponent() {
@@ -188,26 +210,11 @@ public record MyCustomComponent() {
 
 Notice that there's a set of brackets after the class name. This is where we define the list of properties we want our component to have. Let's add a float and a boolean called `temperature` and `burnt` respectively.
 
-```java
-public record MyCustomComponent(float temperature, boolean burnt) {
-    
-}
-```
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
-Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component.
+Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs.md#merging-codecs-for-record-like-classes).
 
-```java
-public record MyCustomComponent(float temperature, boolean burnt) {
-    
-    public static final Codec<MyCustomComponent> CODEC = RecordCodecBuilder.create((builder) -> {
-        return builder.group(
-            Codec.FLOAT.fieldOf("temperature").forGetter(MyCustomComponent::temperature),
-            Codec.BOOL.optionalFieldOf("burnt", false).forGetter(MyCustomComponent::burnt)
-        ).apply(builder, MyCustomComponent::new);
-    });
-
-}
-```
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 You can see that we are defining a list of custom fields based on the primitive `Codec` types. However we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
 
@@ -215,17 +222,11 @@ You can also define optional fields by using `optionalFieldOf()` and passing a d
 
 Finally we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases be sure to read the [Codecs](../codecs.md) page.
 
-Registering our map component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
+Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
 
-```java
-public static final ComponentType<MyCustomComponent> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
-    ComponentType.<MyCustomComponent>builder().codec(MyCustomComponent.CODEC).build()
-);
-```
+@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
-Now start the game. Using the `/give` command try applying the map component. Map component values are passed as an object enclosed with `{}`. If you put blank curly brackets you'll see an error telling you that the required key `temperature` is missing.
+Now start the game. Using the `/give` command try applying the component. Composite component values are passed as an object enclosed with `{}`. If you put blank curly brackets you'll see an error telling you that the required key `temperature` is missing.
 
 ![Give command showing missing key "temperature"](/assets/develop/items/custom_component_4.png)
 
@@ -239,25 +240,28 @@ Using the component in code is the same as before. Using `stack.get()` will retu
 
 ```java
 // read values of component
-MyCustomComponent comp = stack.get(ModItems.MY_COMPONENT_TYPE);
+MyCustomComponent comp = stack.get(ModComponents.MY_CUSTOM_COMPONENT);
 float temp = comp.temperature();
 boolean burnt = comp.burnt();
 
 // set new component values
-stack.set(ModItems.MY_COMPONENT_TYPE, new MyCustomComponent(8.4f, true));
+stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
+
+// check for component
+if(stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+    // do something
+}
 
 // remove component
-stack.remove(ModItems.MY_COMPONENT_TYPE);
+stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Remember to also set a default value for your component so you don't encounter issues with crashing like before. For example:
+You can also set a default value for a composite component by passing a component object to your `Item.Settings`. For example:
 
 ```java
-public static final Item LIGHTNING_STICK = Registry.register(
-    Registries.ITEM,
-    Identifier.of(ExampleMod.MODID, "lightning_stick"),
-    new LightningStick(new Item.Settings().component(MY_COMPONENT_TYPE, new MyCustomComponent(0.0f, false)))
-);
+public static final Item COUNTER = register(new CounterItem(
+    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+), "counter");
 ```
 
 Now you can store custom data on an `ItemStack`. Use responsibly!
