@@ -117,7 +117,7 @@ There are three solutions we can use to address this problem.
 
 When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the `CounterItem`, we can add a default value for our custom component.
 
-@[code transcludeWith=::13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 When a new item is created it will automatically apply our custom component with the given value.
 
