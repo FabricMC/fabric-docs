@@ -11,6 +11,8 @@ As your items grow more complex, you may find yourself needing to store custom d
 
 Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found in this [Minecraft snapshot changelog](https://www.minecraft.net/en-us/article/minecraft-snapshot-24w09a).
 
+The page also covers the general usage of the components API which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
+
 ## Registering a Component {#registering-a-component}
 
 As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down.
@@ -157,3 +159,17 @@ public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand han
 Now try starting the game and right clicking with the Lightning Stick. Count how many times you right click it. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount you clicked it.
 
 ![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
+
+## Removing the component value {#removing-component-value}
+
+You can also remove a component from your `ItemStack` if it is no longer needed. This is done by using the `remove()` method which takes your component type.
+
+```java
+stack.remove(ModItems.CLICK_COUNT_COMPONENT);
+```
+
+This method also returns the value of the component before being removed, so you can also use it like so:
+
+```java
+int oldCount = stack.remove(ModItems.CLICK_COUNT_COMPONENT);
+```
