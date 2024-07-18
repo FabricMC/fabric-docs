@@ -46,10 +46,6 @@ export default [
       {
         text: "develop.gettingStarted.launchGame",
         link: "/develop/getting-started/launching-the-game"
-      },
-      {
-        text: "develop.gettingStarted.ideTipsAndTricks",
-        link: "/develop/getting-started/ide-tips-and-tricks"
       }
     ]
   },
@@ -202,6 +198,10 @@ export default [
       {
         text: "develop.misc.text-and-translations",
         link: "/develop/text-and-translations"
+      },
+      {
+        text: "develop.misc.ideTipsAndTricks",
+        link: "/develop/ide-tips-and-tricks"
       }
     ]
   }
