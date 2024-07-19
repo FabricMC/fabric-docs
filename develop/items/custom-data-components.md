@@ -251,7 +251,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if(stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 
