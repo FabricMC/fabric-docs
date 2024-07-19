@@ -214,31 +214,31 @@ Notice that there's a set of brackets after the class name. This is where we def
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
-Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
+Since we are defining a custom data structure, there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
-You can see that we are defining a list of custom fields based on the primitive `Codec` types. However we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
+You can see that we are defining a list of custom fields based on the primitive `Codec` types. However, we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
 
 You can also define optional fields by using `optionalFieldOf()` and passing a default value as the second argument. Any fields not marked optional will be required when setting the component using `/give` so make sure you mark any optional arguments as such when creating your codec.
 
-Finally we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases be sure to read the [Codecs](../codecs) page.
+Finally, we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases, be sure to read the [Codecs](../codecs) page.
 
 Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
 
 @[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
-Now start the game. Using the `/give` command try applying the component. Composite component values are passed as an object enclosed with `{}`. If you put blank curly brackets you'll see an error telling you that the required key `temperature` is missing.
+Now start the game. Using the `/give` command, try applying the component. Composite component values are passed as an object enclosed with `{}`. If you put blank curly brackets, you'll see an error telling you that the required key `temperature` is missing.
 
 ![Give command showing missing key "temperature"](/assets/develop/items/custom_component_4.png)
 
-Add a temperature value to the object using the syntax `temperature:8.2`. You can also optionally pass a value for `burnt` using the same syntax but either `true` or `false`. You should now see the command is valid and you can give yourself an item containing the component.
+Add a temperature value to the object using the syntax `temperature:8.2`. You can also optionally pass a value for `burnt` using the same syntax but either `true` or `false`. You should now see that the command is valid, and can give you an item containing the component.
 
 ![Valid give command showing both properties](/assets/develop/items/custom_component_5.png)
 
 ### Getting, Setting and Removing Advanced Components {#getting-setting-removing-advanced-comps}
 
-Using the component in code is the same as before. Using `stack.get()` will return an instance of your `record` class which you can then use to read the values. Since records are read-only, you will need to create a new instance of your record to update the values.
+Using the component in code is the same as before. Using `stack.get()` will return an instance of your `record` class, which you can then use to read the values. Since records are read-only, you will need to create a new instance of your record to update the values.
 
 ```java
 // read values of component
