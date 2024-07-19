@@ -21,7 +21,9 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 import com.example.docs.FabricDocsReference;
+import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.ModArmorMaterials;
+import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.item.tool.GuiditeMaterial;
 
@@ -39,6 +41,12 @@ public class ModItems {
 	// :::7
 	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, new Item.Settings()), "guidite_sword");
 	// :::7
+	// :::_13
+	public static final Item COUNTER = register(new CounterItem(
+		// Initialize the click count component with a default value of 0
+		new Item.Settings().component(ModComponents.CLICK_COUNT_COMPONENT, 0)
+	), "counter");
+	// :::_13
 	// :::9
 	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
