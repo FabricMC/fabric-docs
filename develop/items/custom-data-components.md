@@ -53,9 +53,9 @@ If you start the game you should be able to enter a command like so:
 
 When you run the command you should recieve the item containing the component. However we are not currently using our component to do anything useful. Let's start by reading the value of the component in a way we can see.
 
-## Reading component value {#reading-component-value}
+## Reading Component Value {#reading-component-value}
 
-Let's add a new item which will increase the counter each time it is right clicked. You should read the [Custom Item Interactions](./custom-item-interactions.md) page which will cover the techniques we will use in this guide.
+Let's add a new item which will increase the counter each time it is right clicked. You should read the [Custom Item Interactions](./custom-item-interactions) page which will cover the techniques we will use in this guide.
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
@@ -93,7 +93,7 @@ Don't forget to update your lang file (`/assets/<mod id>/lang/en_us.json`) and a
 
 Start up the game and run this command to give yourself a new Counter item with a count of 5.
 
-```
+```mcfunction
 /give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
 ```
 
@@ -101,19 +101,19 @@ When you hover over this item in your inventory you should see the count display
 
 ![Tooltip showing "Used 5 times"](/assets/develop/items/custom_component_1.png)
 
-However, if you give yourself a new Counter item *without* the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
+However, if you give yourself a new Counter item _without_ the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
 
-```
+```txt
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
         at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
-As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`. 
+As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`.
 
 There are three solutions we can use to address this problem.
 
-### Setting a default component value {#setting-default-value}
+### Setting a Default Component Value {#setting-default-value}
 
 When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the `CounterItem`, we can add a default value for our custom component.
 
@@ -125,7 +125,7 @@ When a new item is created it will automatically apply our custom component with
 Using commands, it is possible to remove a default component from an `ItemStack`. You should refer to the next two sections to properly handle a scenario where the component is not present on your item.
 :::
 
-### Reading with a default value {#reading-default-value}
+### Reading with a Default Value {#reading-default-value}
 
 In addition, when reading the component value we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the stack. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
 
@@ -135,7 +135,7 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 As you can see this method takes two arguments, our component type like before and a default value to return if the component is not present.
 
-### Checking if a component exists {#checking-if-component-exists}
+### Checking if a Component Exists {#checking-if-component-exists}
 
 You can also check for the existance of a specific component on an `ItemStack` using the `contains()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
 
@@ -143,12 +143,11 @@ You can also check for the existance of a specific component on an `ItemStack` u
 boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-### Fixing the error {#fixing-the-error}
+### Fixing the Error {#fixing-the-error}
 
 Let's combine those two solutions. So we will read the value with a default value of `0`, but we'll also hide the tooltip if the component is not present on the stack.
 
 @[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
-
 
 If you implement both of these solutions and hover over the item without the component you should see that it displays "Used 0 times" and no longer crashes the game.
 
@@ -156,7 +155,7 @@ If you implement both of these solutions and hover over the item without the com
 
 Try giving yourself a Counter with our custom component removed. You can use this command to do so:
 
-```
+```mcfunction
 /give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
 ```
 
@@ -164,7 +163,7 @@ When hovering over this item the tooltip should be missing.
 
 ![Counter item with no tooltip](/assets/develop/items/custom_component_7.png)
 
-## Updating component value {#setting-component-value}
+## Updating Component Value {#setting-component-value}
 
 Now let's try updating our component value. We're going to increase the click count each time we use our Counter item. To change the value of a component on an `ItemStack` we use the `set()` method like so:
 
@@ -186,7 +185,7 @@ Now try starting the game and right-clicking with the Counter item in your hand.
 
 ![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
 
-## Removing component value {#removing-component-value}
+## Removing Component Value {#removing-component-value}
 
 You can also remove a component from your `ItemStack` if it is no longer needed. This is done by using the `remove()` method which takes your component type.
 
@@ -208,7 +207,7 @@ For composite components, you must create a `record` class to store the data. Th
 
 ```java
 public record MyCustomComponent() {
-    
+
 }
 ```
 
@@ -216,7 +215,7 @@ Notice that there's a set of brackets after the class name. This is where we def
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
-Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs.md#merging-codecs-for-record-like-classes).
+Since we are defining a custom data structure there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
@@ -224,7 +223,7 @@ You can see that we are defining a list of custom fields based on the primitive 
 
 You can also define optional fields by using `optionalFieldOf()` and passing a default value as the second argument. Any fields not marked optional will be required when setting the component using `/give` so make sure you mark any optional arguments as such when creating your codec.
 
-Finally we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases be sure to read the [Codecs](../codecs.md) page.
+Finally we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases be sure to read the [Codecs](../codecs) page.
 
 Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
 
@@ -238,7 +237,7 @@ Add a temperature value to the object using the syntax `temperature:8.2`. You ca
 
 ![Valid give command showing both properties](/assets/develop/items/custom_component_5.png)
 
-### Getting, setting and removing advanced components {#getting-setting-removing-advanced-comps}
+### Getting, Setting and Removing Advanced Components {#getting-setting-removing-advanced-comps}
 
 Using the component in code is the same as before. Using `stack.get()` will return an instance of your `record` class which you can then use to read the values. Since records are read-only, you will need to create a new instance of your record to update the values.
 
@@ -271,5 +270,3 @@ public static final Item COUNTER = register(new CounterItem(
 Now you can store custom data on an `ItemStack`. Use responsibly!
 
 ![Item showing tooltips for click count, temperature and burnt](/assets/develop/items/custom_component_6.png)
-
-
