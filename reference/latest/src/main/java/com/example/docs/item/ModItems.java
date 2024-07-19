@@ -43,7 +43,7 @@ public class ModItems {
 	// :::7
 	// :::_13
 	public static final Item COUNTER = register(new CounterItem(
-		// initialize count component with value of 0
+		// Initialize the click count component with a default value of 0
 		new Item.Settings().component(ModComponents.CLICK_COUNT_COMPONENT, 0)
 	), "counter");
 	// :::_13

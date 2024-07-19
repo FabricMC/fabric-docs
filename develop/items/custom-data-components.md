@@ -181,7 +181,7 @@ Let's set up a new `use()` method to read the old click count, increase it by on
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
-Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you clicked it.
+Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you've clicked it.
 
 ![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
 
