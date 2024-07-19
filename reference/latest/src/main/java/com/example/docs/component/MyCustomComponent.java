@@ -7,7 +7,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 public record MyCustomComponent(float temperature, boolean burnt) {
 	//::1
 	//::2
-	public static final Codec<MyCustomComponent> CODEC = RecordCodecBuilder.create((builder) -> {
+	public static final Codec<MyCustomComponent> CODEC = RecordCodecBuilder.create(builder -> {
 		return builder.group(
 			Codec.FLOAT.fieldOf("temperature").forGetter(MyCustomComponent::temperature),
 			Codec.BOOL.optionalFieldOf("burnt", false).forGetter(MyCustomComponent::burnt)
