@@ -16,10 +16,10 @@ import com.example.docs.component.ModComponents;
 
 //::1
 public class CounterItem extends Item {
-
 	public CounterItem(Settings settings) {
 		super(settings);
 	}
+
 	//::1
 
 	@Override
@@ -39,17 +39,19 @@ public class CounterItem extends Item {
 		// Return the original stack
 		return TypedActionResult.success(stack);
 	}
+
 	//::2
 
 	@Override
 	//::3
 	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
 		int count = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
+
 		if (stack.contains(ModComponents.CLICK_COUNT_COMPONENT)) {
 			tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
 		}
 	}
-	
+
 	//::3
 
 	//::1

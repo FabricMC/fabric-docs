@@ -17,7 +17,7 @@ Along with registering custom components, this page covers the general usage of 
 
 As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
 
-Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Don't forget to call `ModComponents.initialize()` in your mod initializer.
+Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Don't forget to add a reference to this new class in your mod initializer so the components are registered.
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
