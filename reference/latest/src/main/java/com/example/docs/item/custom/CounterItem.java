@@ -25,9 +25,10 @@ public class CounterItem extends Item {
 	@Override
 	//::2
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		// Don't do anything on the client
 		ItemStack stack = user.getStackInHand(hand);
-		if (world.isClient) {
+
+		// Don't do anything on the client
+		if (world.isClient()) {
 			return TypedActionResult.success(stack);
 		}
 

@@ -15,7 +15,7 @@ Along with registering custom components, this page covers the general usage of 
 
 ## Registering a Component {#registering-a-component}
 
-As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down.
+As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
 
 Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Don't forget to call `ModComponents.initialize()` in your mod initializer.
 
@@ -172,13 +172,17 @@ Now let's try updating our component value. We're going to increase the click co
 stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 ```
 
-This takes our component type and the value we want to set it to. In this case it will be our new click count.
+This takes our component type and the value we want to set it to. In this case it will be our new click count. This method also returns the old value of the component (if one is present) which may be useful in some situations. For example:
+
+```java
+int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
+```
 
 Let's set up a new `use()` method to read the old click count, increase it by one and then set the updated click count.
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
-Now try starting the game and right clicking with the Counter. Count how many times you right click it. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount you clicked it.
+Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you clicked it.
 
 ![Tooltip showing "Used 8 times"](/assets/develop/items/custom_component_3.png)
 
