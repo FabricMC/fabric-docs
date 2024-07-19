@@ -103,7 +103,7 @@ When you hover over this item in your inventory, you should see the count displa
 
 However, if you give yourself a new Counter item _without_ the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
 
-```txt
+```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
         at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
