@@ -115,7 +115,7 @@ There are three solutions we can use to address this problem.
 
 ### Setting a Default Component Value {#setting-default-value}
 
-When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component.
+When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
 
 @[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -145,11 +145,11 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 ### Fixing the Error {#fixing-the-error}
 
-Let's combine those two solutions. So we will read the value with a default value of `0`, but we'll also hide the tooltip if the component is not present on the stack.
+We're going to go with the third option. So along with adding a default component value, we'll also check if the component is present on the stack and only show the tooltip if it is.
 
 @[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
-If you implement both of these solutions and hover over the item without the component, you should see that it displays "Used 0 times" and no longer crashes the game.
+Start the game again and hover over the item without the component, you should see that it displays "Used 0 times" and no longer crashes the game.
 
 ![Tooltip showing "Used 0 times"](/assets/develop/items/custom_component_2.png)
 
