@@ -207,7 +207,6 @@ For composite components, you must create a `record` class to store the data. Th
 
 ```java
 public record MyCustomComponent() {
-
 }
 ```
 
