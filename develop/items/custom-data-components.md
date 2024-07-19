@@ -9,7 +9,7 @@ authors:
 
 As your items grow more complex, you may find yourself needing to store custom data associated with each item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
 
-Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
+Data Components replace NBT data from previous versions with structured data types which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
 Along with registering custom components, this page covers the general usage of the components API, which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
 
@@ -193,8 +193,8 @@ You can also remove a component from your `ItemStack` if it is no longer needed.
 stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-This method also returns the value of the component before being removed, so you can also use it like so:
 This method also returns the value of the component before being removed, so you can also use it as follows:
+
 ```java
 int oldCount = stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
