@@ -34,11 +34,7 @@ Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `StatusEffec
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
-### Übersetzungen und Texturen
-
-Du kannst deinem Statuseffekt einen Namen geben und ein Textursymbol erstellen, das in der Inventaroberfläche des Spielers angezeigt wird.
-
-#### Texturen
+### Texturen
 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
@@ -46,15 +42,13 @@ Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-![Effekt im Inventar eines Spielers](/assets/develop/tater-effect.png)
+<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
-#### **Übersetzungen**
+### **Übersetzungen**
 
 Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.<mod-id>.<effect-identifier>": "Wert"` zur Sprachdatei hinzufügen.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
   "effect.fabric-docs-reference.tater": "Tater"
 }
@@ -66,5 +60,6 @@ Benutze den Befehl `/effect give @p fabric-docs-reference:tater`, um dem Spieler
 Verwende `/effect clear`
 um den Effekt zu entfernen.
 
+:::info
 Um einen Trank zu erstellen, der diesen Effekt nutzt, lies bitte die Anleitung [Tränke](../items/potions).
 :::
