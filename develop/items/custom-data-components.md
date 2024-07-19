@@ -7,11 +7,11 @@ authors:
 
 # Custom Data Components {#custom-data-components}
 
-As your items grow more complex, you may find yourself needing to store custom data associated with your item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
+As your items grow more complex, you may find yourself needing to store custom data associated with each item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
 
 Data Components replace NBT data from previous versions with structured data types (i.e. components) which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Along with registering custom components, this page covers the general usage of the components API which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
+Along with registering custom components, this page covers the general usage of the components API, which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
 
 ## Registering a Component {#registering-a-component}
 
@@ -31,27 +31,27 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 );
 ```
 
-There's a few things here worth noting. On the first and fourth lines you can see a `?`. This will be replaced with the type of your component's value. We'll fill this in soon.
+There are a few things here worth noting. On the first and fourth lines, you can see a `?`. This will be replaced with the type of your component's value. We'll fill this in soon.
 
-Secondly, similar to registering a block or item you must provide an `Identifier` containing the intended ID of your component. This is namespaced with your mod's mod ID.
+Secondly, you must provide an `Identifier` containing the intended ID of your component. This is namespaced with your mod's mod ID.
 
-Lastly we have a `ComponentType.Builder` which creates the actual `ComponentType` instance which is being registered. This contains another cruical detail we will need to discuss which is your component's `Codec`. This is currently `null` but we will also fill it in soon.
+Lastly, we have a `ComponentType.Builder` that creates the actual `ComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
 ## Basic Data Components {#basic-data-components}
 
-Basic data components (e.g. `minecraft:damage`) consist of a single data value, such as an `int`, `float`, `boolean` or `String`.
+Basic data components (like `minecraft:damage`) consist of a single data value, such as an `int`, `float`, `boolean` or `String`.
 
-As an example, let's create an `Integer` value which will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
+As an example, let's create an `Integer` value that will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
-You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `Codec.INT` codec. We can get away with using basic codecs for simple components like this but more complex scenarios might require a custom codec (this will be covered briefly later on).
+You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `Codec.INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
 
-If you start the game you should be able to enter a command like so:
+If you start the game, you should be able to enter a command like this:
 
-![Give command showing custom component](/assets/develop/items/custom_component_0.png)
+![`/give` command showing the custom component](/assets/develop/items/custom_component_0.png)
 
-When you run the command you should recieve the item containing the component. However we are not currently using our component to do anything useful. Let's start by reading the value of the component in a way we can see.
+When you run the command, you should receive the item containing the component. However, we are not currently using our component to do anything useful. Let's start by reading the value of the component in a way we can see.
 
 ## Reading Component Value {#reading-component-value}
 
@@ -73,7 +73,7 @@ We're going to add some tooltip code to display the current value of the click c
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-This will return the current component value as the type which we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the `CounterItem` class:
+This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the `CounterItem` class:
 
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
@@ -97,7 +97,7 @@ Start up the game and run this command to give yourself a new Counter item with 
 /give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
 ```
 
-When you hover over this item in your inventory you should see the count displayed in the tooltip!
+When you hover over this item in your inventory, you should see the count displayed in the tooltip!
 
 ![Tooltip showing "Used 5 times"](/assets/develop/items/custom_component_1.png)
 
@@ -115,11 +115,11 @@ There are three solutions we can use to address this problem.
 
 ### Setting a Default Component Value {#setting-default-value}
 
-When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components which are applied to all new items. If we go back to our `ModItems` class to where we register the `CounterItem`, we can add a default value for our custom component.
+When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component.
 
 @[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-When a new item is created it will automatically apply our custom component with the given value.
+When a new item is created, it will automatically apply our custom component with the given value.
 
 ::: warning
 Using commands, it is possible to remove a default component from an `ItemStack`. You should refer to the next two sections to properly handle a scenario where the component is not present on your item.
@@ -127,17 +127,17 @@ Using commands, it is possible to remove a default component from an `ItemStack`
 
 ### Reading with a Default Value {#reading-default-value}
 
-In addition, when reading the component value we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the stack. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
+In addition, when reading the component value, we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the stack. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
 
 ```java
 int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 ```
 
-As you can see this method takes two arguments, our component type like before and a default value to return if the component is not present.
+As you can see, this method takes two arguments: our component type like before, and a default value to return if the component is not present.
 
 ### Checking if a Component Exists {#checking-if-component-exists}
 
-You can also check for the existance of a specific component on an `ItemStack` using the `contains()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
+You can also check for the existence of a specific component on an `ItemStack` using the `contains()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
 
 ```java
 boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
@@ -149,7 +149,7 @@ Let's combine those two solutions. So we will read the value with a default valu
 
 @[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
-If you implement both of these solutions and hover over the item without the component you should see that it displays "Used 0 times" and no longer crashes the game.
+If you implement both of these solutions and hover over the item without the component, you should see that it displays "Used 0 times" and no longer crashes the game.
 
 ![Tooltip showing "Used 0 times"](/assets/develop/items/custom_component_2.png)
 
@@ -159,7 +159,7 @@ Try giving yourself a Counter with our custom component removed. You can use thi
 /give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
 ```
 
-When hovering over this item the tooltip should be missing.
+When hovering over this item, the tooltip should be missing.
 
 ![Counter item with no tooltip](/assets/develop/items/custom_component_7.png)
 
@@ -177,7 +177,7 @@ This takes our component type and the value we want to set it to. In this case i
 int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 ```
 
-Let's set up a new `use()` method to read the old click count, increase it by one and then set the updated click count.
+Let's set up a new `use()` method to read the old click count, increase it by one, and then set the updated click count.
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
@@ -187,14 +187,14 @@ Now try starting the game and right-clicking with the Counter item in your hand.
 
 ## Removing Component Value {#removing-component-value}
 
-You can also remove a component from your `ItemStack` if it is no longer needed. This is done by using the `remove()` method which takes your component type.
+You can also remove a component from your `ItemStack` if it is no longer needed. This is done by using the `remove()` method, which takes in your component type.
 
 ```java
 stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 This method also returns the value of the component before being removed, so you can also use it like so:
-
+This method also returns the value of the component before being removed, so you can also use it as follows:
 ```java
 int oldCount = stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
