@@ -30,5 +30,10 @@ public class ModComponents {
 	//::3
 
 	//::1
+	protected static void initialize() {
+		FabricDocsReference.LOGGER.info("Registering {} components", FabricDocsReference.MOD_ID);
+		// Technically this method can stay empty, but some developers like to notify
+		// the console, that certain parts of the mod have been successfully initialized
+	}
 }
 //::1
