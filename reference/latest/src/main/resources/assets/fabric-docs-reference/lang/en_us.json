@@ -10,6 +10,8 @@
   "item.fabric-docs-reference.guidite_leggings": "Guidite Leggings",
   "item.fabric-docs-reference.guidite_boots": "Guidite Boots",
   "item.fabric-docs-reference.lightning_stick": "Lightning Stick",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times",
   "itemTooltip.fabric-docs-reference.lightning_stick": "This is an extremely powerful weapon that can summon lightning bolts.",
   "itemGroup.fabric_docs_reference": "Fabric Docs Reference",
   "block.fabric-docs-reference.condensed_dirt": "Condensed Dirt",
