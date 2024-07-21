@@ -19,6 +19,6 @@ public class ModEnchantmentEffects {
 	}
 
 	public static void registerModEnchantmentEffects() {
-		System.out.println("Registering EnchantmentEffects for" + FabricDocsReference.MOD_ID);
+		FabricDocsReference.LOGGER.info("Registering EnchantmentEffects for" + FabricDocsReference.MOD_ID);
 	}
 }
