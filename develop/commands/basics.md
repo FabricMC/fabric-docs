@@ -150,7 +150,7 @@ Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.comma
 
 Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## FAQ {#faq}
 

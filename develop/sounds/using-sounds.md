@@ -1,6 +1,8 @@
 ---
 title: Playing Sounds
 description: Learn how to play sound events.
+authors:
+  - JR1811
 ---
 
 # Playing Sounds {#playing-sounds}

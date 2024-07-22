@@ -19,6 +19,7 @@
   "develop.gettingStarted.creatingProject": "Creating a Project",
   "develop.gettingStarted.projectStructure": "Project Structure",
   "develop.gettingStarted.launchGame": "Launching the Game",
+  "develop.gettingStarted.solvingProblems": "Basic Problem-Solving",
   "develop.items": "Items",
   "develop.items.first-item": "Creating Your First Item",
   "develop.items.food": "Food Items",
@@ -27,6 +28,7 @@
   "develop.items.custom-item-groups": "Custom Item Groups",
   "develop.items.custom-item-interactions": "Custom Item Interactions",
   "develop.items.potions": "Potions",
+  "develop.items.custom-data-components": "Custom Data Components",
   "develop.blocks": "Blocks",
   "develop.blocks.first-block": "Creating Your First Block",
   "develop.blocks.blockstates": "Block States",
@@ -50,6 +52,7 @@
   "develop.misc.codecs": "Codecs",
   "develop.misc.events": "Events",
   "develop.misc.text-and-translations": "Text and Translations",
+  "develop.misc.ideTipsAndTricks": "IDE Tips and Tricks",
   "develop.sounds": "Sounds",
   "develop.sounds.using-sounds": "Playing Sounds",
   "develop.sounds.custom": "Creating Custom Sounds"

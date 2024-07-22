@@ -45,9 +45,9 @@ export default [
       },
       {
         text: "develop.gettingStarted.launchGame",
-        link: "/develop/getting-started/launching-the-game",
-      },
-    ],
+        link: "/develop/getting-started/launching-the-game"
+      }
+    ]
   },
   {
     text: "develop.items",
@@ -76,6 +76,10 @@ export default [
       {
         text: "develop.items.custom-item-interactions",
         link: "/develop/items/custom-item-interactions"
+      },
+      {
+        text: "develop.items.custom-data-components",
+        link: "/develop/items/custom-data-components"
       },
       {
         text: "develop.items.potions",
@@ -198,6 +202,10 @@ export default [
       {
         text: "develop.misc.text-and-translations",
         link: "/develop/text-and-translations"
+      },
+      {
+        text: "develop.misc.ideTipsAndTricks",
+        link: "/develop/ide-tips-and-tricks"
       }
     ]
   }

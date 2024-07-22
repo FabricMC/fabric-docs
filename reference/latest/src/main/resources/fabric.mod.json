@@ -15,7 +15,8 @@
 			"com.example.docs.sound.FabricDocsReferenceSounds",
 			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
 			"com.example.docs.item.FabricDocsReferenceItems",
-			"com.example.docs.block.FabricDocsReferenceBlocks"
+			"com.example.docs.block.FabricDocsReferenceBlocks",
+			"com.example.docs.component.FabricDocsReferenceComponents"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
