@@ -17,7 +17,7 @@ authors-nogithub:
   - stormyfabric
 ---
 
-# Events
+# Ein einfaches Beispiel
 
 Die Fabric API bietet ein System, das es Mods erlaubt, auf Aktionen oder Ereignisse zu reagieren, die auch als _Events_ im Spiel definiert sind.
 
@@ -38,8 +38,6 @@ Jedes Ereignis hat ein entsprechendes Callback-Interface, das üblicherweise `<E
 Alle Event-Callback-Interfaces, die von der Fabric API bereitgestellt werden, sind im Paket `net.fabricmc.fabric.api.event` zu finden.
 
 ## Auf Events hören
-
-### Ein einfaches Beispiel
 
 Dieses Beispiel registriert einen `AttackBlockCallback`, um dem Spieler Schaden zuzufügen, wenn er Blöcke trifft, die keinen Gegenstand fallen lassen, wenn sie von Hand abgebaut werden.
 
