@@ -21,9 +21,11 @@ authors:
 
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
-:::info
-Brigadier ist ein Befehlsparser und Dispatcher, der von Mojang für Minecraft entwickelt wurde. Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust. Brigadier ist Open Source: <https://github.com/Mojang/brigadier>
-:::
+::: info
+Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
+you build a tree of commands and arguments.
+
+Brigadier ist Open Source: https://github.com/Mojang/brigadier
 
 ## Das Interface `Command`
 
@@ -42,7 +44,7 @@ Command<ServerCommandSource> command = context -> {
 
 Die Ganzzahl kann als Ergebnis des Befehls betrachtet werden. Normalerweise bedeuten Werte kleiner oder gleich Null, dass ein Befehl fehlgeschlagen ist und nichts machen wird. Positive Werte bedeuten, dass der Befehl erfolgreich war und etwas gemacht hat. Brigadier bietet eine Konstante zur Anzeige von Erfolg; `Befehl#SINGLE_SUCCESS`.
 
-### Was kann die `ServerCommandSource` machen?
+### Was kann die `ServerCommandSource` machen? <br>
 
 Eine "ServerCommandSource" liefert einen zusätzlichen implementierungsspezifischen Kontext, wenn ein Befehl ausgeführt wird. Dazu gehört die Möglichkeit, die Entität, die den Befehl ausgeführt hat, die Welt, in der der Befehl ausgeführt wurde, oder den Server, auf dem der Befehl ausgeführt wurde, zu ermitteln.
 
@@ -50,7 +52,7 @@ Du kannst auf die Befehlsquelle von einem Befehlskontext aus zugreifen, indem du
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource();
+    ServerCommandSource source = context.getSource(); 
     return 0;
 };
 ```
@@ -123,13 +125,11 @@ Die Fabric API verfügt über einen `ClientCommandManager` im Paket `net.fabricm
 
 Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funktionalität eines Befehls auf einen anderen umzuleiten. Dies ist nützlich, wenn du den Namen eines Befehls ändern möchtest, aber den alten Namen beibehalten willst.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## FAQ
 
-<br>
-
-### Warum kompiliert mein Code nicht?
+### Warum kompiliert mein Code nicht? {#why-does-my-code-not-compile}
 
 - Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Wenn du sie auslöst, sollte sie in Methoden ausgelöst werden, die `CommandSyntaxException` in den Methodensignaturen auslösen, oder sie sollte abgefangen werden.
   Brigadier wird die checked Exceptions behandeln und die entsprechende Fehlermeldung im Spiel für dich weiterleiten.
@@ -140,7 +140,7 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 
 - Ein Befehl sollte eine ganze Zahl zurückgeben - Bei der Registrierung von Befehlen akzeptiert die Methode `executes()` ein `Command` Objekt, das normalerweise ein Lambda ist. Das Lambda sollte eine ganze Zahl zurückgeben, anstelle anderen Typen.
 
-### Kann ich Befehle zur Laufzeit registrieren?
+### Kann ich Befehle zur Laufzeit registrieren? Befehlsumleitungen
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -151,7 +151,7 @@ Danach musst du den Befehlsbaum mit `CommandManager.sendCommandTree(ServerPlayer
 Dies ist erforderlich, da der Client den Befehlsbaum, den er bei der Anmeldung (oder beim Senden von Operator-Paketen) erhält, lokal zwischenspeichert, um Fehlermeldungen zu vervollständigen.
 :::
 
-### Kann ich die Registrierung von Befehlen während der Laufzeit aufheben?
+### Kann ich die Registrierung von Befehlen während der Laufzeit aufheben? Es ist eine baumbasierte Befehlsbibliothek, in der du einen Baum von Befehlen und Argumenten aufbaust.
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
