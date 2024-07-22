@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Absturzberichte
+# Absturzberichte {#crash-reports}
 
 :::tip
 Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
@@ -13,7 +13,7 @@ Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frag
 
 Absturzberichte sind ein sehr wichtiger Teil, um Probleme mit deinem Spiel oder Server zu beheben. Sie enthalten viele Informationen über den Absturz und können beim Finden der Ursache für den Absturz hilfreich sein.
 
-## Absturzberichte finden
+## Absturzberichte Absturzberichte finden
 
 Absturzberichte werden im `crash-reports`-Verzeichnis in deinem Spiel-Verzeichnis gespeichert. Falls du einen Server nutzt, sind sie im `crash-reports`-Verzeichnis im Server-Verzeichnis.
 
@@ -43,6 +43,12 @@ Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings 
 
 In dieser Anleitung werden wir den [folgenden Absturzbericht als Beispiel](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) verwenden.
 
+:::details Absturzbericht anzeigen
+
+<<< @/public/assets/players/crash-report-example.txt{log}
+
+:::
+
 ### Abschnitte des Absturzberichts
 
 Absturzberichte bestehen aus mehreren Abschnitten, jeder ist mit einer Überschrift getrennt:
@@ -62,14 +68,9 @@ Der Stacktrace im `---- Minecraft Crash Report ----`-Abschnitt ist in diesem Fal
 
 Mit der Anzahl an Mods, die sich in diesem Stacktrace befinden, kann es schwierig sein, den Schuldigen zu finden, aber das Erste, was zu tun ist, ist die Mod zu finden, die den Absturz verursacht.
 
-```:no-line-numbers
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
-at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
-...
-at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
-at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
-...
-```
+<!-- TODO: show part of this file -->
+
+<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 In diesem Fall ist die Mod, die den Absturz verursacht `snownee`, da es die erste Mod im Stacktrace ist, die erwähnt wird.
 
@@ -100,5 +101,5 @@ Das ermöglicht es dem Mod-Autor den Absturz zu untersuchen, potenziell zu repro
 Bekannte Paste-Seiten, die oft für Absturzberichte genutzt werden, sind:
 
 - [GitHub Gist](https://gist.github.com/)
-- [Pastebin](https://pastebin.com/)
 - [MCLogs](https://mclo.gs/)
+- [Pastebin](https://pastebin.com/)
