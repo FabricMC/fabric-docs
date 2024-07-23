@@ -16,11 +16,13 @@
 			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
 			"com.example.docs.item.FabricDocsReferenceItems",
 			"com.example.docs.block.FabricDocsReferenceBlocks",
+			"com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
 			"com.example.docs.component.FabricDocsReferenceComponents"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",
-			"com.example.docs.client.command.FabricDocsReferenceClientCommands"
+			"com.example.docs.client.command.FabricDocsReferenceClientCommands",
+			"com.example.docs.FabricDocsDynamicSound"
 		],
 		"fabric-datagen": [
 			"com.example.docs.FabricDocsReferenceDataGenerator",
