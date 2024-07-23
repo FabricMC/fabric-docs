@@ -124,7 +124,7 @@ Restarting the game, or reloading via <kbd>F3</kbd> + <kbd>T</kbd> to apply chan
 
 ## Adding Block Drops {#adding-block-drops}
 
-When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/<mod id here>/loot_tables/blocks/` folder.
+When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/<mod id here>/loot_table/blocks/` folder.
 
 ::: info
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
@@ -138,7 +138,7 @@ This loot table provides a single item drop of the block item when the block is 
 
 You may also want your block to be harvestable only by a specific tool - for example, you may want to make your block faster to harvest with a shovel.
 
-All the tool tags should be placed in the `data/minecraft/tags/mineable/` folder - where the name of the file depends on the type of tool used, one of the following:
+All the tool tags should be placed in the `data/minecraft/tags/block/mineable/` folder - where the name of the file depends on the type of tool used, one of the following:
 
 - `hoe.json`
 - `axe.json`
