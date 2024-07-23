@@ -21,9 +21,13 @@ public class FabricDocsDynamicSound implements ClientModInitializer {
 		client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 		// :::1
 		// :::2
-		client.getSoundManager().play(
-				new CustomSoundInstance(client.player, CustomSounds.ENGINE_LOOP, SoundCategory.NEUTRAL)
-		);
+		CustomSoundInstance instance = new CustomSoundInstance(client.player, CustomSounds.ENGINE_LOOP, SoundCategory.NEUTRAL);
+
+		// play the sound instance
+		client.getSoundManager().play(instance);
+
+		// stop the sound instance
+		client.getSoundManager().stop(instance);
 		// :::2
 	}
 }

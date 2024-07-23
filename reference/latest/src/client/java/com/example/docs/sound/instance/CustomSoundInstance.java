@@ -30,7 +30,6 @@ public class CustomSoundInstance extends MovingSoundInstance {
 			this.setDone();
 			return;
 		}
-
 		// move sound position over to the new position for every tick
 		setPositionToEntity();
 	}

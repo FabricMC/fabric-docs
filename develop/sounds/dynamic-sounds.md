@@ -140,7 +140,11 @@ Simply create a new class for your custom `SoundInstance` and extend from `Movin
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
 
-Then just call this custom `SoundInstance` from the client side place, where you wan't to call it from.
+Using your custom `Entity` or `BlockEntity` instead of that basic `LivingEntity` instance can give you even more control e.g. in the `tick()` method based
+on getter methods.
+
+After you finished creating your custom `SoundInstance`, just call it from the client side place, where you wan't to call it from.
+In the same way you can also stop the custom `SoundInstance` manually, if necessary.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
 
