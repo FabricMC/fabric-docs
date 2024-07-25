@@ -124,7 +124,7 @@ Starte das Spiel neu oder lade es über <kbd>F3</kbd> + <kbd>T</kbd> neu, um die
 
 ## Blockdrops hinzufügen {#adding-block-drops}
 
-Wenn man den Block im Überlebensmodus abbaut, kann es sein, dass der Block nicht gedroppt wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item zu droppen, muss man seine Beutetabelle implementieren - die Beutetabellen-Datei sollte im Ordner `data/<mod id here>/loot_tables/blocks/` abgelegt werden.
+Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/<mod id here>/loot_table/blocks/` abgelegt werden.
 
 :::info
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
@@ -138,7 +138,7 @@ Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird
 
 Vielleicht möchtest du auch, dass dein Block nur mit einem bestimmten Werkzeug abgebaut werden kann - zum Beispiel möchtest du, dass dein Block schneller mit einer Schaufel abgebaut werden kann.
 
-Alle Werkzeug-Tags sollten im Ordner `data/minecraft/tags/mineable/` abgelegt werden - der Name der Datei hängt von der Art des verwendeten Werkzegus ab, einer der folgenden:
+Alle Tool-Tags sollten im Ordner `data/minecraft/tags/block/mineable/` abgelegt werden - der Name der Datei hängt von der Art des verwendeten Tools ab, einer der folgenden:
 
 - `hoe.json`
 - `axe.json`
