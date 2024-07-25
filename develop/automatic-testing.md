@@ -76,7 +76,6 @@ I ended up with the following test. For an explanation of what this code actuall
 Great, the first test worked! But wait, the second test failed? In the logs, we get one of the following errors.
 
 @[code lang=java transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
-@[code lang=java transcludeWith=:::automatic-testing:6](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 This is because we're trying to access the registry, or a class that depends on the registry
 (or in rare cases, depends on other Minecraft classes such as `SharedConstants`),

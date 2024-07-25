@@ -52,7 +52,7 @@ public class BeanTypeTest {
 // :::automatic-testing:4
 
 /*
-// :::automatic-testing:6
+// :::automatic-testing:5
 java.lang.ExceptionInInitializerError
 	at net.minecraft.item.ItemStack.<clinit>(ItemStack.java:94)
 	at com.example.docs.codec.BeanTypeTest.testBeanCodec(BeanTypeTest.java:20)
