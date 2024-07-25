@@ -18,6 +18,9 @@ import com.example.docs.FabricDocsReference;
 import com.example.docs.item.ModItems;
 
 public class ModArmorMaterials {
+	// :::3
+	public static final int GUIDITE_DURABILITY_MULTIPLIER = 15;
+	// :::3
 	// :::2
 	public static final RegistryEntry<ArmorMaterial> GUIDITE = registerMaterial("guidite",
 			// Defense (protection) point values for each armor piece.

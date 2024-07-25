@@ -93,6 +93,20 @@ Now that you've registered the material, you can create the armor items in your 
 
 Obviously, an armor set doesn't need every type to be satisfied, you can have a set with just boots, or leggings etc. - the vanilla turtle shell helmet is a good example of an armor set with missing slots.
 
+### Durability {#durability}
+
+Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items.
+For this reason the durability needs to be manually added to the armor items' `Item.Settings` when registering them.
+
+This is achieved using the `maxDamage` method in the `Item.Settings` class.
+The different armor slots have different base durabilities which are commonly multiplied by a shared armor material multiplier but hard-coded values can also be used.
+
+For the Guidite armor we'll be using a shared armor multiplier stored alongside the armor material:
+
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+
+We can then create the armor items using the durability constant:
+
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 You will also need to **add the items to an item group** if you want them to be accessible from the creative inventory.
