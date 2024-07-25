@@ -93,6 +93,20 @@ Nachdem du das Material registriert hast, kannst du die Rüstungsitems in deiner
 
 Natürlich muss ein Rüstungsset nicht jeden Typ abdecken, man kann auch ein Set mit nur Stiefeln oder Hosen etc. haben. - Der Vanille-Schildkrötenpanzerhelm ist ein gutes Beispiel für ein Rüstungsset mit fehlenden Slots.
 
+### Haltbarkeit {#durability}
+
+Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen über die Haltbarkeit von Items.
+Aus diesem Grund muss die Haltbarkeit manuell zu den `Item.Settings` der Rüstungsitems hinzugefügt werden, wenn diese registriert werden.
+
+Dies kann durch die Methode `maxDamage` in der Klasse `Item.Settings` bewirkt werden.
+Die verschiedenen Rüstungsslots haben unterschiedliche Grundhaltbarkeiten, die üblicherweise mit einem gemeinsamen Multiplikator des Rüstungsmaterials multipliziert werden, es können aber auch fest kodierte Werte verwendet werden.
+
+Für die Guidite-Rüstung werden wir einen gemeinsamen Multiplikator für die Rüstung verwenden, der zusammen mit dem Rüstungsmaterial gespeichert wird:
+
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+
+Anschließend können wir die Rüstungsitems unter Verwendung der Haltbarkeitskonstante erstellen:
+
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Außerdem musst du die Items **einer Itemgruppe hinzufügen**, wenn du möchtest, dass sie über das kreative Inventar zugänglich sind.
