@@ -96,7 +96,7 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/misc/using-the-ide/util_01.png)
 
-### Code Generation
+### Code Generation {#code-generation}
 
 The Generate menu can be quickly accessed with <kbd>COMMAND</kbd>/<kbd>CTRL</kbd> + <kbd>N</kbd>.
 In a java file, you will be at least given options for generating constructors, getters, setters, override & implement methods, and much more.

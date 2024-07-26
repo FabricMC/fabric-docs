@@ -5,7 +5,7 @@ authors:
   - kevinthegreat1
 ---
 
-# Automatic Testing
+# Automatic Testing {#automatic-testing}
 
 This page explains how to write code to automatically test parts of your mod.
 There are two ways to automatically test your mod:
@@ -15,12 +15,12 @@ while gametests spins up an entire Minecraft client and server to run your tests
 which makes it more suitable for testing features and gameplay.
 Currently, this guide only covers unit testing.
 
-## Unit Testing with Fabric Loader JUnit
+## Unit Testing with Fabric Loader JUnit {#unit-testing-with-fabric-loader-junit}
 
 Due to the nature of Minecraft modding such as obfuscation, simply adding and using JUnit normally will not work.
 That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
 
-### Setting up Fabric Loader JUnit
+### Setting up Fabric Loader JUnit {#setting-up-fabric-loader-junit}
 
 First, we need to add Fabric Loader JUnit to the development environment. Add the following to your dependencies in your `build.gradle`:
 
@@ -30,21 +30,21 @@ Then, we need to tell gradle to use Fabric Loader JUnit for testing. You can do 
 
 @[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/build.gradle)
 
-#### Split Sources
+#### Split Sources {#split-sources}
 
 If you are using split sources, you also need to add either the client or server source set to the test source set.
 Fabric Loader JUnit defaults to client so we'll add the client source set to our testing environment with the following in `build.gradle`:
 
 @[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
 
-### Writing Tests
+### Writing Tests {#writing-tests}
 
 Once you reload gradle, we are now ready to write tests.
 Tests are written exactly the same as regular JUnit test,
 except with an extra bit of setup if you want to access any registry dependent class, such as `ItemStack`.
 If you're conformable with JUnit, you can skip to [Setting Up Registries](#setting-up-registries).
 
-#### Setting Up Your First Test Class
+#### Setting Up Your First Test Class {#setting-up-your-first-test-class}
 
 Tests are written in the `src/test/java` directory and should have the same package structure as the class you are testing.
 For example, if I want to test `src/main/java/com/example/docs/codec/BeanType.java`, 
@@ -71,7 +71,7 @@ I ended up with the following test. For an explanation of what this code actuall
 
 @[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-#### Setting Up Registries
+#### Setting Up Registries {#setting-up-registries}
 
 Great, the first test worked! But wait, the second test failed? In the logs, we get one of the following errors.
 
@@ -84,7 +84,7 @@ Simply add the following code to your class.
 
 @[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-### Setting Up CI (GitHub Actions)
+### Setting Up CI (GitHub Actions) {#setting-up-ci-github-actions}
 
 Your tests will now run every time you build, including in CI providers such as GitHub Actions.
 But what if a build fails? We need to upload the logs as an artifact, so we can view the test reports.

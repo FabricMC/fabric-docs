@@ -5,13 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import net.minecraft.Bootstrap;
 import net.minecraft.SharedConstants;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 // :::automatic-testing:4
 public class BeanTypeTest {

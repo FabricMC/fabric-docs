@@ -2,6 +2,7 @@ package com.example.docs.codec;
 
 import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.MapCodec;
+
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleRegistry;
