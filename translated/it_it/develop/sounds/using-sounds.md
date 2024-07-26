@@ -1,6 +1,8 @@
 ---
 title: Riprodurre Suoni
 description: Impara come riprodurre eventi sonori.
+authors:
+  - JR1811
 ---
 
 # Riprodurre Suoni {#playing-sounds}
