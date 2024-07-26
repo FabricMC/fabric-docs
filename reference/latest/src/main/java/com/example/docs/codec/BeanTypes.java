@@ -12,7 +12,7 @@ public class BeanTypes {
 	public static final BeanType<CountingBean> COUNTING_BEAN = register("counting_bean", new BeanType<>(CountingBean.CODEC));
 
 	//:::
-	public static void register() {}
+	public static void register() { }
 
 	//:::
 	public static <T extends Bean> BeanType<T> register(String id, BeanType<T> beanType) {

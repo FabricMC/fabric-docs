@@ -15,7 +15,7 @@ while gametests spins up an entire Minecraft client and server to run your tests
 which makes it more suitable for testing features and gameplay.
 Currently, this guide only covers unit testing.
 
-## Units Testing with Fabric Loader JUnit
+## Unit Testing with Fabric Loader JUnit
 
 Due to the nature of Minecraft modding such as obfuscation, simply adding and using JUnit normally will not work.
 That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
