@@ -6,7 +6,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
@@ -22,7 +21,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 					Identifier.of("fabric-docs-reference", "tater"),
 					new Potion(
 							new StatusEffectInstance(
-									RegistryEntry.of(FabricDocsReferenceEffects.TATER_EFFECT),
+									Registries.STATUS_EFFECT.getEntry(FabricDocsReferenceEffects.TATER_EFFECT),
 									3600,
 									0)));
 
@@ -35,7 +34,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 					// Ingredient
 					Items.POTATO,
 					// Output potion.
-					RegistryEntry.of(TATER_POTION)
+					Registries.POTION.getEntry(TATER_POTION)
 			);
 		});
 	}
