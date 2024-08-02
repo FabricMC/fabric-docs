@@ -6,7 +6,7 @@ authors:
   - Syst3ms
 ---
 
-# Codecs
+# Listen
 
 Ein Codec ist ein System zur einfachen Serialisierung von Java-Objekten und ist in Mojangs DataFixerUpper (DFU)
 Bibliothek enthalten, die in Minecraft enthalten ist. In einem Modding-Kontext können sie als Alternative zu GSON und Jankson verwendet werden, wenn man benutzerdefinierte JSON-Dateien liest und schreibt, wobei sie mehr und mehr an Bedeutung gewinnen, da Mojang eine Menge alten Code umschreibt, um Codecs zu verwenden.
@@ -64,7 +64,7 @@ Nachdem wir nun gesehen haben, wie man Codecs verwendet, wollen wir uns ansehen,
 
 ```java
 public class CoolBeansClass {
-
+    
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -98,7 +98,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 
 Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
 
-### Listen
+### Listen {#lists}
 
 `Codec#listOf` kann verwendet werden, um eine Listenversion eines beliebigen Codecs zu erstellen:
 
@@ -127,7 +127,7 @@ Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Me
 
 Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#optionale-attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&lt;Map&gt; {#mapcodec}
+### MapCodec, nicht zu verwechseln mit Codec&amp;amp;lt;Map&amp;amp;gt;
 
 Der Aufruf von `Codec#fieldOf` wird einen `Codec<T>` in einen `MapCodec<T>` umwandeln, der eine Variante, aber keine direkte Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
 
@@ -147,7 +147,7 @@ Bei der Umwandlung in einen `MapCodec<BlockPos>` unter Verwendung von `BlockPos.
 
 Während die gebräuchlichste Verwendung für Map-Codecs darin besteht, mit anderen Map-Codecs zusammengeführt zu werden, um einen Codec für eine ganze Klasse von Felder zu konstruieren, wie im Abschnitt [Zusammenführung von Codecs für Record-ähnliche Klassen](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen) oben erklärt wurde, können sie auch mit `MapCodec#codec` in reguläre Codecs zurückverwandelt werden, die das gleiche Verhalten beibehalten, nämlich ihren Eingabewert verpacken.
 
-#### Optionale Attribute
+#### Optionale Felder {#optional-fields}
 
 `Codec#optionalFieldOf` kann verwendet werden, um einen optionalen Mapcodec zu erstellen. Wenn das angegebene Feld bei der Deserialisierung nicht im Container vorhanden ist, wird es entweder als leeres `Optional` oder als angegebener Standardwert deserialisiert.
 
@@ -210,7 +210,7 @@ Folgendes JSON generiert:
 }
 ```
 
-#### Entweder-Oder-Kombination
+#### Either {#either}
 
 `Codec.either` kombiniert zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Either<A, B>>`. Der resultierende Codec wird bei der Deserialisierung versuchen, den ersten Codec zu verwenden, und _nur wenn das fehlschlägt_, versuchen, den zweiten Codec zu verwenden.
 Wenn der zweite Codec ebenfalls fehlschlägt, wird der Fehler des _zweiten_ Codecs zurückgegeben.
@@ -287,7 +287,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-
+    
     // ...
 }
 ```
@@ -351,7 +351,7 @@ Unser neuer Codec serialisiert Bohnen zu JSON und erfasst dabei nur die Felder, 
 
 ### Rekursive Codecs
 
-Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `Text`-Objekte verwendet, die andere `Text`e als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` erstellt werden.
+Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `Text`-Objekte verwendet, die andere `Text`e als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` konstruiert werden.
 
 Versuchen wir zum Beispiel, eine einfach verknüpfte Liste zu serialisieren. Diese Art der Darstellung von Listen besteht aus einem Bündel von Knoten, die sowohl einen Wert als auch einen Verweis auf den nächsten Knoten in der Liste enthalten. Die Liste wird dann durch ihren ersten Knoten repräsentiert, und das Durchlaufen der Liste erfolgt durch Verfolgen des nächsten Knotens, bis keiner mehr übrig ist. Hier ist eine einfache Implementierung von Knoten, die ganze Zahlen speichern.
 
@@ -359,19 +359,19 @@ Versuchen wir zum Beispiel, eine einfach verknüpfte Liste zu serialisieren. Die
 public record ListNode(int value, ListNode next) {}
 ```
 
-Wir können dafür keinen Codec mit normalen Mitteln konstruieren, denn welchen Codec würden wir für das Attribut `next` verwenden? Wir bräuchten einen `Codec<ListNode>`, und den sind wir gerade dabei zu konstruieren! Mit `Codec#recursive` können wir das mit einem magisch aussehenden Lambda erreichen:
+Wir können dafür keinen Codec mit normalen Mitteln konstruieren, denn welchen Codec würden wir für das Attribut `next` verwenden? Wir bräuchten einen `Codec<ListNode>`, und den sind wir gerade dabei zu konstruieren! Mit `Codec#recursive` können wir das mit einem magisch aussehendem Lambda erreichen:
 
 ```java
 Codec<ListNode> codec = Codec.recursive(
   "ListNode", // Ein Name für den Codec
   selfCodec -> {
-    // Hier repräsentiert `selfCodec` den `Codec<ListNode>`, als ob er bereits konstruiert wäre
+    // Hier, repräsentiert `selfCodec` den `Codec<ListNode>`, als wäre er bereits konstruiert
     // Dieses Lambda sollte den Codec zurückgeben, den wir von Anfang an verwenden wollten,
     // der sich durch `selfCodec` auf sich selbst bezieht
     return RecordCodecBuilder.create(instance ->
       instance.group(
         Codec.INT.fieldOf("value").forGetter(ListNode::value),
-         // das Attribut `next` wird rekursiv mit dem eigenen Codec behandelt
+         // das `next` Feld wird rekursiv mit dem Selbstkodierer behandelt
         Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
       ).apply(instance, ListNode::new)
     );

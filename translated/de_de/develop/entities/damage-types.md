@@ -31,7 +31,7 @@ Im [Minecraft Wiki](https://de.minecraft.wiki/w/Schadensarten#Dateiformat) finde
 
 :::
 
-### Auf eine Schadensart durch Code zugreifen
+### Zugriff Auf Schadensarten Durch Code {#accessing-damage-types-through-code}
 
 Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `RegistryKey`, um eine Instanz von `DamageSource` zu erstellen.
 

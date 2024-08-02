@@ -18,17 +18,17 @@ authors-nogithub:
   - siglong
 ---
 
-# Entwicklungsumgebung einrichten
+# Entwicklungsumgebung einrichten {#setting-up-a-development-environment}
 
 Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklungsumgebung mit IntelliJ IDEA einrichten.
 
-## JDK 17 installieren
+## JDK 17 installieren {#installing-jdk-21}
 
-Um Mods für Minecraft 1.20.4 zu entwickeln, benötigst du eine JDK 17.
+Um Mods für Minecraft 1.21 zu entwickeln, benötigst du das JDK 17.
 
 Wenn du Hilfe bei der Installation von Java benötigst, kannst du die verschiedenen Java-Installationsanleitungen im Abschnitt [Leitfäden für Spieler](../../players/index) nachlesen.
 
-## IntelliJ IDEA installieren
+## IntelliJ IDEA installieren {#installing-intellij-idea}
 
 :::info
 Natürlich kannst du auch andere IDEs verwenden, wie zum Beispiel Eclipse oder Visual Studio Code, aber die meisten Seiten dieser Dokumentation gehen davon aus, dass du IntelliJ IDEA verwendest - wenn du eine andere IDE verwendest, solltest du die Dokumentation für deine IDE lesen.
@@ -40,13 +40,13 @@ Die Community-Edition von IntelliJ IDEA ist kostenlos und Open Source, und sie i
 
 Möglicherweise musst du nach unten scrollen, um den Download-Link für die Community-Edition zu finden - er sieht wie folgt aus:
 
-![Aufforderung für den Download derIDEA Community Edition](/assets/develop/getting-started/idea-community.png)
+![Aufforderung für den Download der IDEA Community Edition](/assets/develop/getting-started/idea-community.png)
 
-## IDEA Plugins installieren
+## IDEA Plugins installieren {#installing-idea-plugins}
 
 Obwohl diese Plugins nicht unbedingt notwendig sind, können sie das Modding mit Fabric erheblich erleichtern - deshalb solltest du in Erwägung ziehen, sie zu installieren.
 
-### Minecraft Development
+### Minecraft Development {#minecraft-development}
 
 Das Minecraft Development Plugin bietet Unterstützung für das Modding mit Fabric und ist das wichtigste Plugin, das man installieren sollte.
 

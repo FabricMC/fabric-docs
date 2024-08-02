@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Widget Personalizzati
+# Widget Personalizzati {#custom-widgets}
 
 I Widget sono essenzialmente componenti di rendering containerizzate che possono essere aggiunti a una schermata, e i giocatori possono interagirci attraverso vari eventi come clic del mouse, pressione di tasti, e altro.
 
-## Creare un Widget
+## Creare un Widget {#creating-a-widget}
 
 Si possono seguire varie strade per creare una classe widget, come estendere `ClickableWidget`. Questa classe fornisce un sacco di utilità, come la gestione di larghezza, altezza, posizione, e quella degli eventi - implementa le interfacce `Drawable`, `Element`, `Narratable`, e `Selectable`:
 
@@ -20,7 +20,7 @@ Si possono seguire varie strade per creare una classe widget, come estendere `Cl
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
-## Aggiungere il Widget alla Schermata
+## Aggiungere il Widget alla Schermata {#adding-the-widget-to-the-screen}
 
 Come tutti i widget, devi aggiungerlo alla schermata usando il metodo `addDrawableChild`, che è fornito dalla classe `Screen`. Assicurati di farlo nel metodo `init`.
 
@@ -28,7 +28,7 @@ Come tutti i widget, devi aggiungerlo alla schermata usando il metodo `addDrawab
 
 ![Widget personalizzato sullo schermo](/assets/develop/rendering/gui/custom-widget-example.png)
 
-## Eventi di Widget
+## Eventi di Widget {#widget-events}
 
 Puoi gestire eventi come click del mouse, pressione di tasti, facendo override dei metodi `onMouseClicked`, `onMouseReleased`, `onKeyPressed`, e altri.
 

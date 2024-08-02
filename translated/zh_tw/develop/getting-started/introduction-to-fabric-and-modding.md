@@ -27,7 +27,7 @@ authors-nogithub:
 
 - **Mod**: 對遊戲進行修改，增加或改變現有的功能。
 - **Mod Loader**: 將模組載入遊戲的工具，例如 Fabric Loader。
-- **Mixin**: 在運行時修改遊戲程式碼的工具 - 更多資信請參閱 [Mixin Introduction](https://fabricmc.net/wiki/tutorial:mixin_introduction)。
+- **Mixin**: 在運行時修改遊戲程式碼的工具 - 更多資訊請參閱 [Mixin Introduction](https://fabricmc.net/wiki/tutorial:mixin_introduction)。
 - **Gradle**: 用於構建和編譯模組的自動化構建工具，Fabric 用它來構建模組。
 - **Mappings**: 將被混淆的程式碼轉化為人類可讀程式碼的映射集合。
 - **Obfuscation**: 讓程式碼變得難以理解的過程，Mojang 用它來保護 Minecraft 的原始碼。

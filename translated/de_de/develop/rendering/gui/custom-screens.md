@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Oberflächen
+# Benutzerdefinierte Oberflächen {#custom-screens}
 
 :::info
 Diese Seite bezieht sich auf normale Oberflächen, nicht auf solche, die vom Spieler auf dem Client geöffnet werden, und nicht auf solche, die vom Server bearbeitet werden.
@@ -15,7 +15,7 @@ Oberflächen sind im Wesentlichen die grafischen Oberflächen, mit denen der Spi
 
 Du kannst deine eigenen Oberflächen erstellen, um benutzerdefinierte Inhalte, ein benutzerdefiniertes Einstellungsmenü und vieles mehr anzuzeigen.
 
-## Eine Oberfläche erstellen
+## Eine Oberfläche erstellen {#creating-a-screen}
 
 Um eine Oberfläche zu erstellen, musst du die `Screen`-Klasse erweitern und die `init`-Methode überschreiben.
 
@@ -32,7 +32,7 @@ Als Beispiel können wir eine einfache Oberfläche erstellen, der eine Schaltfl�
 
 ![Benutzerdefinierte Oberfläche 1](/assets/develop/rendering/gui/custom-1-example.png)
 
-## Die Oberfläche öffnen
+## Die Oberfläche öffnen {#opening-the-screen}
 
 Du kannst die Oberfläche mit der `setScreen`-Methode des `MinecraftClient` öffnen - du kannst dies von vielen Stellen aus tun, wie zum Beispiel einer Tastenbindung, einem Befehl oder einem Client-Paket-Handler.
 
@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## Die Oberfläche schließen
+## Die Oberfläche schließen {#closing-the-screen}
 
 Wenn du eine Oberfläche schließen möchtest, setze die Oberfläche einfach auf `null`:
 

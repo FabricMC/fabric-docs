@@ -5,13 +5,13 @@ authors:
   - IMB11
 ---
 
-# Installare Java su Windows
+# Installare Java su Windows {#installing-java-on-windows}
 
 Questa guida ti spiegherà come installare Java 21 su Windows.
 
 Il Launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante solo se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il `.jar` del Server di Minecraft.
 
-## 1. Controlla se Java è già installato
+## 1. Controlla Se Java È Già Installato {#1-check-if-java-is-already-installed}
 
 Per controllare se Java è già installato devi prima aprire il prompt dei comandi.
 

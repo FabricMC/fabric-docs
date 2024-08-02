@@ -3,6 +3,7 @@ title: 启动游戏
 description: 了解如何利用各种启动配置文件在实时游戏环境中启动和调试你的模组。
 authors:
   - IMB11
+  - Tenneb22
 ---
 
 # 启动游戏{#launching-the-game}
@@ -35,6 +36,14 @@ Fabric Loom 提供了各种启动配置文件，可以帮助你在实时游戏�
 - 你无法添加或移除方法
 - 你无法更改方法参数
 - 你无法添加或移除字段
+
+但是，通过使用 [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime)，你可以绕过大部分限制，甚至可以添加或删除类和方法。 这样大多数更改无需重启游戏即可生效。
+
+不要忘记在 Minecraft 运行配置中的 VM 参数选项中添加以下内容：
+
+```:no-line-numbers
+-XX:+AllowEnhancedClassRedefinition
+```
 
 ## 热交换 Mixin{#hotswapping-mixins}
 
