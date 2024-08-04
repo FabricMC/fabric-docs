@@ -18,10 +18,12 @@ To simplify the registering of items, you can create a method that accepts an in
 
 This method will create an item with the provided identifier and register it with the game's item registry.
 
-You can put this method in a class called `ModItems` (or whatever you want to name the class).
+You can put this method in a new class next to your ModInitializer class.  
+(We will assume this class is called `ModItems` for the rest of this page, but you can call it whatever you want).
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
+Make sure to replace "FabricDocsReference.MOD_ID" with a reference to the MOD_ID in your "ModInitializer" class
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Registering an Item {#registering-an-item}
@@ -36,17 +38,24 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
+For example, you can create a new "Suspicious Substance" by adding this static field to your ModItems class.
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-However, when you go in-game, you can see that our item doesn't exist! This is because you don't statically initialize the class.
+However, when you go in-game, you can see that our item doesn't exist! This is because there are no references to the ModItem class which would initialize it when Minecraft starts.
 
-To do this, you can add a public static initialize method to your class and call it from your `ModInitializer` class. Currently, this method doesn't need anything inside it.
+To force initialization of the static field, you can add a public static initialize method to your class and call it from your `ModInitializer` class. Currently, this method doesn't need anything inside it.
 
+ModItems.java
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Your class that implements "ModInitializer"
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
+
+With that added, running your mod will now allow you to /give yourself your {mod-id}:suspicious_substance.
+
+But it still won't show up when you press 'E', for that, you will need to register the item to an Item Group, described next.
 
 ## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
