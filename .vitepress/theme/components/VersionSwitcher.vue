@@ -33,20 +33,14 @@ function visitVersion(version) {
   const isLocalized = localeKeys.some((key) => router.route.path.startsWith(`/${key}/`));
 
   let route;
+  const isOnLatest = currentVersion.value === props.versioningPlugin.latestVersion;
   if(isLocalized) {
     // Get locale from the current path
     const locale = localeKeys.find((key) => router.route.path.startsWith(`/${key}/`));
-    
-    // Replace path with:
-    // `/en/...` -> `/en/v2/...` if not latestVersion
-    // `/en/v2/...` -> `/en/... if latestVersion
-    const isOnLatest = currentVersion.value === props.versioningPlugin.latestVersion;
-    
+  
     if(!isOnLatest) {
-      console.log(version);
       if(version === props.versioningPlugin.latestVersion) {
         route = router.route.path.replace(`/${locale}/${currentVersion.value}/`, `/${locale}/`);
-        console.log(route);
       } else {
         route = router.route.path.replace(`/${locale}/${currentVersion}/`, `/${locale}/${version}/`);
       }
@@ -54,13 +48,18 @@ function visitVersion(version) {
       route = router.route.path.replace(`/${locale}/`, `/${locale}/${version}/`);
     }
   } else {
-    route = router.route.path.replace(`/${currentVersion.value}/`, `/${version}/`);
+    if(!isOnLatest) {
+      if(version === props.versioningPlugin.latestVersion) {
+        route = router.route.path.replace(`/${currentVersion.value}/`, '/');
+      } else {
+        route = router.route.path.replace(`/${currentVersion.value}/`, `/${version}/`);
+      }
+    } else {
+      route = router.route.path.replace('/', `/${version}/`);
+    }
   }
 
-  console.log(route);
-
   router.go(route);
-
   currentVersion.value = version;
 }
 </script>
