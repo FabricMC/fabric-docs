@@ -93,6 +93,20 @@ public void onInitialize() {
 
 显然，盔甲集并不需要满足每种类型，可以让你的集只有靴或护腿等——原版的海龟壳头盔就是个例子，盔甲集缺了部分槽位。
 
+### 耐久度{#durability}
+
+不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。
+因此当注册盔甲物品时耐久度需要被手动添加到它的 `Item.Settings` 里。
+
+这是使用 `Item.Settings` 类中 `maxDamage` 方法实现的。
+不同的盔甲槽位有不同的基础耐久，通常都会在乘以一个共享的盔甲材料倍率，但也可以使用硬编码的值。
+
+对于 Guidite 盔甲，我们使用存储在盔甲材料中的共享盔甲倍率。
+
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+
+然后，使用耐久度常数创建盔甲物品。
+
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 如果需要让物品能从创造模式物品栏获取的话，还需要**给将物品添加到物品组**。

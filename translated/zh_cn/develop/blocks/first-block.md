@@ -1,6 +1,6 @@
 ---
 title: 创建你的第一个方块
-description: 学习如何在 Minecraft 中创建你的第一个自定义的方块。
+description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
   - IMB11
 ---
@@ -124,7 +124,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 添加方块掉落物{#adding-block-drops}
 
-在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/<mod id here>/loot_tables/blocks/` 文件夹中。
+在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/<mod id here>/loot_table/blocks/` 文件夹中。
 
 :::info
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
@@ -138,7 +138,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 你可能也想要让方块只能被特定类型的方块挖掘——例如，可能想让你的方块用锹挖掘更快。
 
-所有的工具标签都位于 `data/minecraft/tags/mineable/` 文件夹内——其中文件的名称取决于使用的工具的类型，是以下之一：
+所有的工具标签都位于 `data/minecraft/tags/block/mineable/` 文件夹内——其中文件的名称取决于使用的工具的类型，是以下之一：
 
 - `hoe.json`（锄）
 - `axe.json`（斧）
