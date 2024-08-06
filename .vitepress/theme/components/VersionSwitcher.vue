@@ -13,6 +13,22 @@ const data = useData();
 
 const currentVersion = ref(props.versioningPlugin.latestVersion);
 
+router.onBeforeRouteChange = (to: string) => {
+  if(to === '/') {
+    currentVersion.value = props.versioningPlugin.latestVersion;
+    return true;
+  }
+
+  for (const v of props.versioningPlugin.versions) {
+    if (to.includes(`/${v}/`)) {
+      currentVersion.value = v;
+      break;
+    }
+  }
+  
+  return true;
+}
+
 onBeforeMount(() => {
   for (const v of props.versioningPlugin.versions) {
     if (router.route.path.includes(`/${v}/`)) {
