@@ -1,11 +1,9 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
-import { getLocalisedSidebar, loadLocales, processExistingEntries } from "./i18n";
+import { loadLocales, processExistingEntries } from "./i18n";
 import { transformItems, transformPageData } from "./transform";
 import { DefaultTheme } from "vitepress";
-import { readdirSync } from "node:fs";
-import { resolve } from "node:path";
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -26,10 +24,21 @@ export default defineVersionedConfig(
       config(md) {
         md.use(snippetPlugin);
       },
-      // TODO: load `mcfunction`
-      // - https://vitepress.dev/guide/markdown#syntax-highlighting-in-code-blocks
-      // - https://shiki.style/guide/load-lang
-      // - https://github.com/MinecraftCommands/syntax-mcfunction/blob/main/mcfunction.tmLanguage.json
+      languages: [
+        (async () => {
+          const mcfunctionLanguage = (await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
+            with: {
+              type: "json"
+            }
+          }) as any).default
+
+          mcfunctionLanguage.name = 'mcfunction';
+          return mcfunctionLanguage;
+        }),
+      ],
+      async shikiSetup(shiki) {
+        await shiki.loadTheme('github-light', 'github-dark');
+      },
       lineNumbers: true,
       math: true,
     },
