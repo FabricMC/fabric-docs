@@ -9,12 +9,12 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: /develop/
+    link: /cs_cz/1.20.4/develop/
     linkText: Začít
   - title: Hráčské Návody
     icon: 📚
     details: Jste hráč snícím o používání Fabric modů? Naše hráčské návody vám mohou pomoct. Tyto návody pomůžou se stahování, instalací a spravení Fabric modů.
-    link: /players/
+    link: /cs_cz/1.20.4/players/
     linkText: Zjistit více
 
 search: false
