@@ -1,12 +1,14 @@
 package com.example.docs.command;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
-import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.RegistryEntryReferenceArgumentType;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
 import net.minecraft.command.suggestion.SuggestionProviders;
-import net.minecraft.entity.EntityType;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -19,192 +21,218 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
 // Class to contain all mod command registrations.
 public class FabricDocsReferenceCommands implements ModInitializer {
+	// :::execute_dedicated_command
+	private static int executeDedicatedCommand(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /dedicated_command."), false);
+		return 1;
+	}
+
+	// :::execute_dedicated_command
+	// :::execute_required_command
+	private static int executeRequiredCommand(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /required_command."), false);
+		return 1;
+	}
+
+	// :::execute_required_command
+	// :::execute_sub_command_one
+	private static int executeSubCommandOne(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /command sub_command_one."), false);
+		return 1;
+	}
+
+	// :::execute_sub_command_one
+	// :::execute_command_sub_command_two
+	private static int executeCommandTwo(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_two."), false);
+		return 1;
+	}
+
+	private static int executeSubCommandTwo(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /sub_command_two."), false);
+		return 1;
+	}
+
+	// :::execute_command_sub_command_two
+	// :::execute_redirected_by
+	private static int executeRedirectedBy(CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /redirected_by."), false);
+		return 1;
+	}
+
+	// :::execute_redirected_by
+	// :::execute_command_with_arg
+	private static int executeCommandWithArg(CommandContext<ServerCommandSource> context) {
+		int value = IntegerArgumentType.getInteger(context, "value");
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_arg with value = %s".formatted(value)), false);
+		return 1;
+	}
+
+	// :::execute_command_with_arg
+	// :::execute_command_with_two_args
+	private static int executeWithOneAre(CommandContext<ServerCommandSource> context) {
+		int value1 = IntegerArgumentType.getInteger(context, "value_one");
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_two_args with value one = %s".formatted(value1)), false);
+		return 1;
+	}
+
+	private static int executeWithTwoArgs(CommandContext<ServerCommandSource> context) {
+		int value1 = IntegerArgumentType.getInteger(context, "value_one");
+		int value2 = IntegerArgumentType.getInteger(context, "value_two");
+		context.getSource().sendFeedback(() -> Text.literal("Called /argtater2 with value one = %s and value two = %s".formatted(value1, value2)),
+				false);
+		return 1;
+	}
+
+	// :::execute_command_with_two_args
+	// :::execute_common
+	private static int executeCommon(int value1, int value2, CommandContext<ServerCommandSource> context) {
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_common_exec with value 1 = %s and value 2 = %s".formatted(value1, value2)), false);
+		return 1;
+	}
+
+	// :::execute_common
+	// :::execute_custom_arg_command
+	private static int executeCustomArgCommand(CommandContext<ServerCommandSource> context) {
+		BlockPos arg = context.getArgument("block_pos", BlockPos.class);
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_custom_arg with block pos = %s".formatted(arg)), false);
+		return 1;
+	}
+
+	// :::execute_custom_arg_command
+	// :::execute_command_with_suggestions
+	private static int executeCommandWithSuggestions(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var entityType = RegistryEntryReferenceArgumentType.getSummonableEntityType(context, "entity");
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_suggestions with entity = %s".formatted(entityType.value().getUntranslatedName())), false);
+		return 1;
+	}
+
+	// :::execute_command_with_suggestions
+	// :::execute_command_with_custom_suggestions
+	private static int executeCommandWithCustomSuggestions(CommandContext<ServerCommandSource> context) {
+		String name = StringArgumentType.getString(context, "player_name");
+		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_custom_suggestions with value = %s".formatted(name)), false);
+		return 1;
+	}
+
+	// :::execute_command_with_custom_suggestions
+
 	@Override
 	public void onInitialize() {
-		// :::_1
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("tater").executes(context -> {
-				context.getSource().sendFeedback(() -> Text.literal("Called /tater with no arguments."), false);
-				return 1;
-			}));
-		});
-		// :::_1
-
-		// :::11
+		// :::register_custom_arg
 		ArgumentTypeRegistry.registerArgumentType(
 				Identifier.of("fabric-docs", "block_pos"),
 				BlockPosArgumentType.class,
 				ConstantArgumentSerializer.of(BlockPosArgumentType::new)
 		);
-		// :::11
+		// :::register_custom_arg
 
-		// :::2
+		// :::test_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			if (environment.dedicated) {
-				dispatcher.register(CommandManager.literal("dedicatedtater").executes(context -> {
-					context.getSource()
-							.sendFeedback(() -> Text.literal("Called /dedicatedtater with no arguments."), false);
-					return 1;
-				}));
-			}
-		});
-		// :::2
-
-		// :::3
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("requiredtater")
-					.requires(source -> source.hasPermissionLevel(1))
-					.executes(context -> {
-						context.getSource()
-								.sendFeedback(() -> Text.literal("Called /requiredtater with no arguments."), false);
-						return 1;
-					}));
-		});
-		// :::3
-
-		// :::4
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("argtater1")
-					.then(CommandManager.argument("value", IntegerArgumentType.integer())
-							.executes(context -> {
-								int value = IntegerArgumentType.getInteger(context, "value");
-								context.getSource()
-										.sendFeedback(
-												() -> Text.literal(
-														"Called /argtater1 with value = %s".formatted(value)),
-												false);
-								return 1;
-							})));
-		});
-		// :::4
-
-		// :::5
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("argtater2")
-					.then(CommandManager.argument("value1", IntegerArgumentType.integer())
-							.executes(context -> {
-								int value1 = IntegerArgumentType.getInteger(context, "value1");
-								context.getSource()
-										.sendFeedback(
-												() -> Text.literal(
-														"Called /argtater2 with value 1 = %s".formatted(value1)),
-												false);
-								return 1;
-							})
-							.then(CommandManager.argument("value2", IntegerArgumentType.integer())
-									.executes(context -> {
-										int value1 = IntegerArgumentType.getInteger(context, "value1");
-										int value2 = IntegerArgumentType.getInteger(context, "value2");
-										context.getSource()
-												.sendFeedback(
-														() -> Text.literal(
-																"Called /argtater2 with value 1 = %s and value 2 = %s"
-																		.formatted(value1, value2)),
-														false);
-										return 1;
-									}))));
-		});
-		// :::5
-
-		// :::6
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("argtater3")
-					.then(CommandManager.argument("value1", IntegerArgumentType.integer())
-							.executes(context ->
-									printValues(IntegerArgumentType.getInteger(context, "value1"), 0, context))
-							.then(CommandManager.argument("value2", IntegerArgumentType.integer())
-									.executes(context -> printValues(
-											IntegerArgumentType.getInteger(context, "value1"),
-											IntegerArgumentType.getInteger(context, "value2"),
-											context)))));
-		});
-		// :::6
-
-		// :::7
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("subtater1")
-					.then(CommandManager.literal("subcommand").executes(context -> {
-						context.getSource()
-								.sendFeedback(
-										() -> Text.literal("Called /subtater1 subcommand with no arguments."), false);
-						return 1;
-					})));
-		});
-		// :::7
-
-		// :::8
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("subtater2")
-					.executes(context -> {
-						context.getSource()
-								.sendFeedback(() -> Text.literal("Called /subtater2 with no arguments."), false);
-						return 1;
-					})
-					.then(CommandManager.literal("subcommand").executes(context -> {
-						context.getSource()
-								.sendFeedback(
-										() -> Text.literal("Called /subtater2 subcommand with no arguments."), false);
-						return 1;
-					})));
-		});
-		// :::8
-
-		// :::9
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("entity_name").then(
-					CommandManager.argument("entity", EntityArgumentType.entity())
-							.suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
-							.executes(context -> {
-								EntityType<?> entityType = EntityArgumentType.getEntity(context, "entity").getType();
-								context.getSource().sendFeedback(
-										() -> Text.literal("Called /subtater2 with entity: ")
-												.append(
-														Text.translatable(entityType.getTranslationKey())
-												),
-										false);
-								return 1;
-							})
-			));
-		});
-		// :::9
-
-		// :::10
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("parse_pos").then(
-					CommandManager.argument("pos", new BlockPosArgumentType())
-							.executes(context -> {
-								BlockPos arg = context.getArgument("pos", BlockPos.class);
-								context.getSource().sendFeedback(
-										() -> Text.literal("Called /parse_pos with BlockPos: ")
-												.append(Text.of(arg.toString())),
-										false);
-								return 1;
-							})
-			));
-		});
-		// :::10
-
-		// :::12
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			final var taterCommandNode = dispatcher.register(CommandManager.literal("tater4").executes(context -> {
-				context.getSource().sendFeedback(() -> Text.literal("Called /tater4 with no arguments."), false);
+			dispatcher.register(CommandManager.literal("test_command").executes(context -> {
+				context.getSource().sendFeedback(() -> Text.literal("Called /test_command."), false);
 				return 1;
 			}));
-			dispatcher.register(CommandManager.literal("redirect_potato").redirect(taterCommandNode));
 		});
-		// :::12
+		// :::test_command
+
+		// :::dedicated_command
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			if (environment.dedicated) {
+				dispatcher.register(CommandManager.literal("dedicated_command")
+						.executes(FabricDocsReferenceCommands::executeDedicatedCommand));
+			}
+		});
+		// :::dedicated_command
+
+		// :::required_command
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("required_command")
+					.requires(source -> source.hasPermissionLevel(1))
+					.executes(FabricDocsReferenceCommands::executeRequiredCommand));
+		});
+		// :::required_command
+
+		// :::sub_command_one
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_one")
+					.then(CommandManager.literal("sub_command_one").executes(FabricDocsReferenceCommands::executeSubCommandOne)));
+		});
+		// :::sub_command_one
+
+		// :::sub_command_two
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_two")
+					.executes(FabricDocsReferenceCommands::executeCommandTwo)
+					.then(CommandManager.literal("sub_command_two").executes(FabricDocsReferenceCommands::executeSubCommandTwo)));
+		});
+		// :::sub_command_two
+
+		// :::redirect_command
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			var redirectedBy = dispatcher.register(CommandManager.literal("redirected_by").executes(FabricDocsReferenceCommands::executeRedirectedBy));
+			dispatcher.register(CommandManager.literal("to_redirect").executes(FabricDocsReferenceCommands::executeRedirectedBy).redirect(redirectedBy));
+		});
+		// :::redirect_command
+
+		// :::command_with_arg
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_arg")
+					.then(CommandManager.argument("value", IntegerArgumentType.integer())
+							.executes(FabricDocsReferenceCommands::executeCommandWithArg)));
+		});
+		// :::command_with_arg
+
+		// :::command_with_two_args
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_two_args")
+					.then(CommandManager.argument("value_one", IntegerArgumentType.integer())
+							.executes(FabricDocsReferenceCommands::executeWithOneAre)
+							.then(CommandManager.argument("value_two", IntegerArgumentType.integer())
+									.executes(FabricDocsReferenceCommands::executeWithTwoArgs))));
+		});
+		// :::command_with_two_args
+
+		// :::command_with_common_exec
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_common_exec")
+					.then(CommandManager.argument("value_one", IntegerArgumentType.integer())
+							.executes(context -> executeCommon(IntegerArgumentType.getInteger(context, "value_one"), 0, context))
+							.then(CommandManager.argument("value_two", IntegerArgumentType.integer())
+									.executes(context -> executeCommon(
+											IntegerArgumentType.getInteger(context, "value_one"),
+											IntegerArgumentType.getInteger(context, "value_two"),
+											context)))));
+		});
+		// :::command_with_common_exec
+
+		// :::custom_arg_command
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_custom_arg").then(
+					CommandManager.argument("block_pos", new BlockPosArgumentType())
+							.executes(FabricDocsReferenceCommands::executeCustomArgCommand)
+			));
+		});
+		// :::custom_arg_command
+
+		// :::command_with_suggestions
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_suggestions").then(
+					CommandManager.argument("entity", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ENTITY_TYPE))
+							.suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
+							.executes(FabricDocsReferenceCommands::executeCommandWithSuggestions)
+			));
+		});
+		// :::command_with_suggestions
+
+		// :::command_with_custom_suggestions
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("command_with_custom_suggestions").then(
+					CommandManager.argument("player_name", StringArgumentType.string())
+							.suggests(new PlayerSuggestionProvider())
+							.executes(FabricDocsReferenceCommands::executeCommandWithCustomSuggestions)
+			));
+		});
+		// :::command_with_custom_suggestions
 	}
-
-	// :::6
-
-	private static int printValues(int value1, int value2, CommandContext<ServerCommandSource> context) {
-		context.getSource()
-				.sendFeedback(
-						() -> Text.literal(
-								"Called /argtater3 with value 1 = %s and value 2 = %s".formatted(value1, value2)),
-						false);
-		return 1;
-	}
-
-	// :::6
 }
