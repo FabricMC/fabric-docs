@@ -1,6 +1,8 @@
 ---
 title: Domande Frequenti per Giocatori (FAQ)
 description: Domande frequenti riguardanti Fabric per giocatori e admin di server.
+
+search: false
 ---
 
 # Domande Frequenti (FAQ)

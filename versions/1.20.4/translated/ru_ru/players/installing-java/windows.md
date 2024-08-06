@@ -3,6 +3,8 @@ title: Установка Java на Windows
 description: Пошаговая инструкция по установке Java на Windows.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Установка Java на Windows

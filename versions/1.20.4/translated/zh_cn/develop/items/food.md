@@ -3,6 +3,8 @@ title: 食物物品
 description: 学会如何给物品添加 FoodComponent 以让它可食物，并配置。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 食物物品{#food-items}

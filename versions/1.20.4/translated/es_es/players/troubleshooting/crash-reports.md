@@ -3,6 +3,8 @@ title: Reportes de Crasheos
 description: Aprender sobre que hacer con los reportes de crasheo, y como leerlos.
 authors:
   - IMB11
+
+search: false
 ---
 
 at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)

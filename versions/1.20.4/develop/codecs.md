@@ -4,6 +4,8 @@ description: A comprehensive guide for understanding and using Mojang's codec sy
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codecs {#codecs}

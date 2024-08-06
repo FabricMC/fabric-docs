@@ -1,6 +1,8 @@
 ---
 title: SoundEvents abspielen
 description: Lerne, wie man Sound Events abspielt.
+
+search: false
 ---
 
 # SoundEvents abspielen

@@ -1,6 +1,8 @@
 ---
 title: Frequently Asked Questions for Players
 description: Frequently asked questions for players and server administrators relating to Fabric.
+
+search: false
 ---
 
 # Frequently Asked Questions {#faq}

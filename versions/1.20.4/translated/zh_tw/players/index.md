@@ -1,6 +1,8 @@
 ---
 title: 玩家指南
 description: 一系列的指南，供玩家和伺服器管理員安裝和使用Fabric。
+
+search: false
 ---
 
 # 玩家指南

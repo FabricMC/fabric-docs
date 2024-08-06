@@ -3,6 +3,8 @@ title: Segnalazioni dei Crash
 description: Impara cosa fare con le segnalazioni di crash, e come leggerle.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Segnalazioni dei Crash

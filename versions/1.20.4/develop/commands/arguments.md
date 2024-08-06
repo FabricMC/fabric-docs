@@ -1,6 +1,8 @@
 ---
 title: Command Arguments
 description: Learn how to create commands with complex arguments.
+
+search: false
 ---
 
 # Command Arguments {#command-arguments}

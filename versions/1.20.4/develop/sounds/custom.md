@@ -3,6 +3,8 @@ title: Creating Custom Sounds
 description: Learn how to add and use a new sound with the registry.
 authors:
   - JR1811
+
+search: false
 ---
 
 # Creating Custom Sounds {#creating-custom-sounds}

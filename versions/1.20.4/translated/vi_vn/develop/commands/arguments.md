@@ -1,6 +1,8 @@
 ---
 title: Tham Số Câu Lệnh
 description: Học cách tạo ra câu lệnh với tham số phức tạp.
+
+search: false
 ---
 
 # Tham Số Câu Lệnh

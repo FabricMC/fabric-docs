@@ -6,6 +6,8 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
+
+search: false
 ---
 
 # Introducción a Fabric y el desarrollo de Mods

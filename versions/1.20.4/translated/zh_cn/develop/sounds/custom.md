@@ -3,6 +3,8 @@ title: 创建自定义音效
 description: 了解如何通过注册表添加和使用新音效。
 authors:
   - JR1811
+
+search: false
 ---
 
 # 创建自定义音效

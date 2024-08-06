@@ -3,6 +3,8 @@ title: 在 Linux 上安装 Java
 description: 手把手指导如何在 Linux 上安装 Java。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 在 Linux 上安装 Java

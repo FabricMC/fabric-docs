@@ -3,6 +3,8 @@ title: Using the Drawing Context
 description: Learn how to use the DrawContext class to render various shapes, text and textures.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Using the Drawing Context {#using-the-drawing-context}

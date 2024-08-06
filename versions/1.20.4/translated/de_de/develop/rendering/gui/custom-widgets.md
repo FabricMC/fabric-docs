@@ -3,6 +3,8 @@ title: Benutzerdefinierte Widgets
 description: Lerne, wie man benutzerdefinierte Widgets für deine Oberfläche erstellt.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Benutzerdefinierte Widgets

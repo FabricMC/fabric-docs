@@ -3,6 +3,8 @@ title: Uploading Logs
 description: How to upload logs for troubleshooting.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Uploading Logs {#uploading-logs}

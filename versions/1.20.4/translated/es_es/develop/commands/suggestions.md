@@ -3,6 +3,8 @@ title: Sugerencias de Comandos
 description: Aprende a sugerir valores para argumentos de comandos a usuarios.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Sugerencias de Comandos

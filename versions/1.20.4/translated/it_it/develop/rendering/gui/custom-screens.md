@@ -3,6 +3,8 @@ title: Schermate Personalizzate
 description: Impara come creare schermate personalizzate per la tua mod.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Schermate Personalizzate

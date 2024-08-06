@@ -3,6 +3,8 @@ title: Benutzerdefinierte Partikel erstellen
 description: Lerne, wie man benutzerdefinierte Partikel mit der Fabric API erstellt.
 authors:
   - Superkat32
+
+search: false
 ---
 
 # Benutzerdefinierte Partikel erstellen

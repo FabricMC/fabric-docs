@@ -16,6 +16,8 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
+
+search: false
 ---
 
 # Impostare un Ambiente di Sviluppo
