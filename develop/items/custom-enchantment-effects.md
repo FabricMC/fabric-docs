@@ -7,11 +7,13 @@ authors:
 
 # Custom Enchantments {#custom-enchantments}
 
-Since 1.21, custom enchantments have taken a "data-driven" approach; while this makes adding simple enchantments (like increasing attack damage) easier and more straightforward, it also complicates creating complex enchantments. This was done by breaking down what enchantments do into _effect components_.
+Starting from version 1.21, custom enchantments in Minecraft use a "data-driven" approach. This makes it easier to add simple enchantments, like increasing attack damage, but more challenging to create complex ones. The process involves breaking down enchantments into _effect components_.
 
-An effect component contains code for what special things an enchantment should do. By default, Minecraft supports various effects such as item damage, knockback, experience, and more--however, this guide will focus on creating custom enchantment effects that are not supported by default.
+An effect component contains the code that defines the special effects of an enchantment. Minecraft supports various default effects, such as item damage, knockback, and experience. 
 
-**[You are heavily suggested to first determine if the default Minecraft effects will work for your use case before continuing](https://minecraft.wiki/w/Enchantment_definition#Effect_components)**. The rest of the guide will assume you understand how "simple" data-driven enchantments are configured.
+However, this guide focuses on creating custom enchantment effects that aren't supported by default.
+
+**Before continuing, please check if the default Minecraft effects can work for your needs by visiting [the Minecraft Wiki's Enchantment Effect Components page](https://minecraft.wiki/w/Enchantment_definition#Effect_components)**. The rest of the guide assumes you understand how to configure "simple" data-driven enchantments.
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
@@ -19,7 +21,7 @@ Start by creating an `enchantment` folder, and within it create a folder `effect
 
 Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create `CODEC` variable to encode and decode our effect; you can read more about [Codecs here](../codecs).
 
-The bulk of our code will go into the `apply()` event, which is called when the criteria for your enchantment to work is met. We'll later configure this Effect to be called when an entity is hit, but for now let's write simple code to strike the target with lightning.
+The bulk of our code will go into the `apply()` event, which is called when the criteria for your enchantment to work is met. We'll later configure this `Effect` to be called when an entity is hit, but for now let's write simple code to strike the target with lightning.
 
 @[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java)
 
@@ -27,13 +29,13 @@ Here the `amount` variable indicates a value scaled to the level of the enchantm
 
 ## Registering the Enchantment Effect {#registering-the-enchantment-effect}
 
-Like every other component of your mod, we'll have to add this EnchantmentEffect to Minecraft's registry. To do so, add a class `ModEnchantmentEffects` (or whatever you want to name it) and a helper method to register the enchantment. Be sure to call the `registerModEnchantmentEffects()` in your main class which contains the `onInitialize()` method.
+Like every other component of your mod, we'll have to add this `EnchantmentEffect` to Minecraft's registry. To do so, add a class `ModEnchantmentEffects` (or whatever you want to name it) and a helper method to register the enchantment. Be sure to call the `registerModEnchantmentEffects()` in your main class which contains the `onInitialize()` method.
 
 @[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java)
 
 ## Creating the Enchantment {#creating-the-enchantment}
 
-Now we have an enchantment effect! Lastly, we'll create an enchantment to apply our custom effect to. This can be done by creating a JSON file like in datapacks, however, in this guide we'll generate the JSON dynamically using Fabric's data generation tools. To start, create an `EnchantmentGenerator` class.
+Now we have an enchantment effect! The final step is to create an enchantment that applies our custom effect. While this can be done by creating a JSON file similar to those in datapacks, this guide will show you how to generate the JSON dynamically using Fabric's data generation tools. To begin, create an `EnchantmentGenerator` class.
 
 Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programmatically.
 
@@ -55,6 +57,6 @@ You should also add translations to your `en_us.json` file to give your enchantm
 "enchantment.FabricDocsReference.thundering": "Thundering",
 ```
 
-You should now be able to see our enchantment by running the Client task and opening up Minecraft.
+You should now have a working custom enchantment effect! You can test it by enchanting a weapon with the enchantment and hitting a mob, an example is given in the following video.
 
 <VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Lightning Effect" />
