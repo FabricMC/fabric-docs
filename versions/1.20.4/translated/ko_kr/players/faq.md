@@ -1,6 +1,8 @@
 ---
 title: 자주 묻는 질문
 description: Fabric 관련 서버 관리자와 플레이어가 자주 묻는 질문입니다.
+
+search: false
 ---
 
 # 자주 묻는 질문

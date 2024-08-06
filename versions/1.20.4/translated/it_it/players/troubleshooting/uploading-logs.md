@@ -3,6 +3,8 @@ title: Caricare i Log
 description: Come caricare i log per la risoluzione dei problemi.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Caricare i Log

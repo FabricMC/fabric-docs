@@ -5,13 +5,13 @@ authors:
   - IMB11
 ---
 
-# Installare le Mod
+# Installare le Mod {#installing-mods}
 
 Questa guida ti aiuterà a installare mod per Fabric usando il Launcher di Minecraft ufficiale.
 
 Per launcher di terze parti, dovresti consultare la loro documentazione.
 
-## 1. Scaricare la Mod
+## 1. Scarica la Mod {#1-download-the-mod}
 
 :::warning
 Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod Affidabili](./finding-mods).
@@ -25,7 +25,7 @@ Quando scarichi delle mod, assicurati che:
 - Siano per Fabric e non per un altro loader di mod.
 - Inoltre, che siano per la corretta edizione di Minecraft (Java Edition).
 
-## 2. Sposta le Mod nella Cartella `mods`
+## 2. Sposta le Mod nella Cartella `mods` {#2-move-the-mod-to-the-mods-folder}
 
 La cartella mods può essere trovata nelle posizioni seguenti per ciascun sistema operativo.
 
@@ -57,7 +57,7 @@ Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Launcher
 
 ![Launcher di Minecraft con il profilo Fabric selezionato](/assets/players/installing-fabric/launcher-screen.png)
 
-## Risoluzione dei problemi
+## Risoluzione dei Problemi {#troubleshooting}
 
 Se incontri qualsiasi problema nel seguire questa guida, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nel canale `#player-support`.
 

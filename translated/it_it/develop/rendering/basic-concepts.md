@@ -6,7 +6,7 @@ authors:
   - "0x3C50"
 ---
 
-# Concetti Base del Rendering
+# Concetti Base del Rendering {#basic-rendering-concepts}
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
@@ -18,17 +18,17 @@ Questa pagina tratterà le basi del rendering usando il nuovo sistema, presentan
 
 Anche se molto del rendering in Minecraft viene astratto attraverso i vari metodi `DrawContext`, e probabilmente non ti servirà toccare nulla di quel che viene menzionato qui, è comunque importante capire le basi di come funziona il rendering.
 
-## Il `Tessellator`
+## Il `Tessellator` {#the-tessellator}
 
 Il `Tessellator` è la principale classe usata per renderizzare le cose in Minecraft. È un singleton, cioè solo un'istanza è presente in gioco. Puoi ottenere l'istanza usando `Tessellator.getInstance()`.
 
-## Il `BufferBuilder`
+## Il `BufferBuilder` {#the-bufferbuilder}
 
 Il `BufferBuilder` è la classe usata per formattare e caricare i dati di rendering su OpenGL. Viene usata per creare un buffer, che viene caricato su OpenGL per essere disegnato.
 
 Il `Tessellator` viene usato per creare un `BufferBuilder`, che viene usato per formattare e caricare i dati di rendering su OpenGL.
 
-### Inizializzare il `BufferBuilder`
+### Inizializzare il `BufferBuilder` {#initializing-the-bufferbuilder}
 
 Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `Tessellator#begin(...)`, che prende un `VertexFormat` e una modalità di disegno e restituisce un `BufferBuilder`.
 
@@ -55,7 +55,7 @@ I seguenti elementi `VertexFormat` sono disponibili:
 | `POSITION_TEXTURE_LIGHT_COLOR`                | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEXTURE_COLOR_NORMAL`               | `{ position, uv, color, normal }`                                                       |
 
-#### Modalità di Disegno
+#### Modalità di Disegno {#draw-modes}
 
 La modalità di disegno definisce come sono disegnati i dati. Sono disponibili le seguenti modalità di disegno:
 
@@ -70,7 +70,7 @@ La modalità di disegno definisce come sono disegnati i dati. Sono disponibili l
 | `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un triangolo con il primo e l'ultimo vertice.            |
 | `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertici, formando un quadrilatero.                                                                                       |
 
-### Scrivere al `BufferBuilder`
+### Scrivere al `BufferBuilder` {#writing-to-the-bufferbuilder}
 
 Una volta che il `BufferBuilder` è inizializzato, puoi scriverci dei dati.
 
@@ -80,7 +80,7 @@ Questo metodo restituisce un costruttore di vertice, che possiamo usare per spec
 
 Importante è anche capire il concetto di culling. Il culling è il processo con cui si rimuovono facce di una forma 3D che non sono visibili dalla prospettiva dell'osservatore. Se i vertici per una faccia sono specificati nell'ordine sbagliato, la faccia potrebbe non essere renderizzata correttamente a causa del culling.
 
-#### Cos'è una Matrice di Trasformazione? Formati di Vertici
+#### Cos'è una Matrice di Trasformazione? {#what-is-a-transformation-matrix}
 
 Una matrice di trasformazione è una matrice 4x4 che viene usata per trasformare un vettore. In Minecraft, la matrice di trasformazione sta solo trasformando le coordinate che diamo nella chiamata del vertice. Le trasformazioni possono scalare il nostro modello, muoverlo e ruotarlo.
 
@@ -92,7 +92,7 @@ Solitamente è ottenuta dalla classe `MatrixStack`, che può essere ottenuta att
 drawContext.getMatrices().peek().getPositionMatrix();
 ```
 
-#### Un Esempio Pratico: Renderizzare una Striscia di Triangoli
+#### Renderizzare una Striscia di Triangoli {#rendering-a-triangle-strip}
 
 Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratico. Immaginiamo di voler renderizzare qualcosa usando la modalità di disegno `DrawMode.TRIANGLE_STRIP` e il formato vertice `POSITION_COLOR`.
 
@@ -121,7 +121,7 @@ Questo risulta nel seguente disegno sul HUD:
 Prova a giocare coi colori e le posizioni dei vertici per vedere che succede! Puoi anche provare a usare modalità di disegno e formati vertice differenti.
 :::
 
-## La `MatrixStack`
+## La `MatrixStack` {#the-matrixstack}
 
 Dopo aver imparato come scrivere al `BufferBuilder`, ti starai chiedendo come trasformare il tuo modello - anche animarlo magari. Qui è dove entra in gioco la classe `MatrixStack`.
 
@@ -147,7 +147,7 @@ Assicurati di spingere lo stack di matrici prima di prendere una matrice di tras
 
 ![Un video che mostra il diamante ingrandito e rimpicciolito](/assets/develop/rendering/concepts-matrix-stack.webp)
 
-## Quaternioni (Cose che Ruotano)
+## Quaternioni (Cose che Ruotano) {#quaternions-rotating-things}
 
 I quaternioni sono un modo di rappresentare rotazioni in uno spazio 3D. Vengono usate per ruotare la matrice in cima al `MatrixStack` usando il metodo `multiply(Quaternion, x, y, z)`.
 

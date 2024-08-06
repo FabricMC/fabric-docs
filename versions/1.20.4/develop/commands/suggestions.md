@@ -3,6 +3,8 @@ title: Command Suggestions
 description: Learn how to suggest command argument values to users.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Command Suggestions {#command-suggestions}

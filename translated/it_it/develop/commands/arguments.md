@@ -21,7 +21,7 @@ Potresti pensare che sia inutile specificare esecuzioni simili due volte. Per cu
 
 @[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## Tipi di Parametri Personalizzati
+## Tipi di Parametri Personalizzati {#custom-argument-types}
 
 Se vanilla non fornisce il tipo di parametro che ti serve, puoi creartene uno. Per fare questo, hai bisogno di creare una classe che implementa l'interfaccia `ArgumentType<T>` dove `T` è il tipo del parametro.
 
@@ -31,7 +31,7 @@ Per esempio, puoi creare un tipo di parametro che fa il parsing di un `BlockPos`
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
 
-### Registrare i Tipi di Parametri Personalizzati
+### Registrare i Tipi di Parametri Personalizzati {#registering-custom-argument-types}
 
 :::warning
 Avrai bisogno di registrare i tipi di parametri personalizzati sia sul server sia sul client altrimenti il comando non funzionerà!
@@ -41,7 +41,7 @@ Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize
 
 @[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### Usare i Tipi di Parametri Personalizzati
+### Usare i Tipi di Parametri Personalizzati {#using-custom-argument-types}
 
 Possiamo usare il nostro tipo di parametro personalizzato in un comando - passando un'istanza di esso nel metodo `.argument` del costruttore del comando.
 

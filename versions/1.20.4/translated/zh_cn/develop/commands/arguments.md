@@ -1,6 +1,8 @@
 ---
 title: 命令参数
 description: 学习如何创建带有复杂参数的命令。
+
+search: false
 ---
 
 # 命令参数

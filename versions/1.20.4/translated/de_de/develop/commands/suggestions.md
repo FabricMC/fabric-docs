@@ -3,6 +3,8 @@ title: Befehlsvorschläge
 description: Lerne, wie man Spielern Werte für Befehlsargumente vorschlagen kann.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Befehlsvorschläge

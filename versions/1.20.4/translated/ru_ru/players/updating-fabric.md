@@ -4,6 +4,8 @@ description: Пошаговая инструкция по обновлению F
 authors:
   - IMB11
   - modmuss50
+
+search: false
 ---
 
 # Обновление Fabric

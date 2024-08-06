@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Rendering nel Hud
+# Rendering nel Hud {#rendering-in-the-hud}
 
 Abbiamo già parlato brevemente di come renderizzare cose sulla Hud nelle pagine [Concetti di Rendering di Base](./basic-concepts) e [Usare il Drawing Context](./draw-context), per cui in questa pagina ci concentreremo sull'evento `HudRenderCallback` e sul parametro `deltaTick`.
 
-## HudRenderCallback
+## HudRenderCallback {#hudrendercallback}
 
 L'evento `HudRenderCallback` - fornito dall'API di Fabric - viene chiamato ogni frame, e viene usato per renderizzare cose sul HUD.
 
@@ -19,7 +19,7 @@ Il contesto di disegno può essere usato per accedere a varie utilità di render
 
 Dovresti dare un'occhiata alla pagina [Usare il Contesto di Disegno](./draw-context) per saperne di più riguardo al contesto di disegno.
 
-### DeltaTick
+### DeltaTick {#deltatick}
 
 Il `deltaTick` è il tempo trascorso dall'ultimo frame, in secondi. Questo può essere usato per fare animazioni e altri effetti basati sul tempo.
 

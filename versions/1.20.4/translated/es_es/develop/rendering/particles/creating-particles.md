@@ -3,6 +3,8 @@ title: Creando Partículas Personalizadas
 description: Aprende a crear partículas personalizadas usando el Fabric API.
 authors:
   - Superkat32
+
+search: false
 ---
 
 # Creando Partículas Personalizadas

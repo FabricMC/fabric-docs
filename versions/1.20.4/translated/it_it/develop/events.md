@@ -15,6 +15,8 @@ authors:
   - natanfudge
 authors-nogithub:
   - stormyfabric
+
+search: false
 ---
 
 # Eventi

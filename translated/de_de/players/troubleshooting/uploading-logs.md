@@ -9,7 +9,7 @@ authors:
 
 Wenn man versucht, Fehler zu beheben, ist es oft nötig, Logs bereitzustellen, die beim Identifizieren der Ursache des Fehlers helfen.
 
-## Warum sollte ich Logs hochladen?
+## Warum sollte ich Logs hochladen? {#why-should-i-upload-logs}
 
 Das Hochladen von Logs ermöglicht es anderen, dir bei der Fehlersuche schneller zu helfen, als wenn die Logs in den Chat oder Forenbeiträge eingefügt werden. Es ermöglicht dir auch, die Logs mit anderen zu teilen, ohne sie zu Kopieren oder Einfügen zu müssen.
 

@@ -3,6 +3,8 @@ title: Widgets Personalizados
 description: Aprende a crear widgets personalizados para tus pantallas o menús.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Widgets Personalizados

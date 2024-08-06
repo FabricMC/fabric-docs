@@ -3,6 +3,8 @@ title: 自定义组件
 description: 学习如何给您的界面创建自定义组件。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 自定义组件

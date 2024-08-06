@@ -3,11 +3,11 @@ title: Domande Frequenti per Giocatori (FAQ)
 description: Domande frequenti riguardanti Fabric per giocatori e admin di server.
 ---
 
-# Domande Frequenti (FAQ)
+# Domande Frequenti (FAQ) {#faq}
 
 Ci sono molte domande che vengono poste di frequente, quindi ne abbiamo compilato una lista qui.
 
-## Quali Versioni di Minecraft Supporta Fabric? Domande Generali
+## Quali Versioni di Minecraft Supporta Fabric? {#what-minecraft-versions-does-fabric-support}
 
 Ufficialmente, Fabric supporta tutte le versioni di Minecraft a partire da snapshot `18w43b` e seguenti, e dalla release `1.14` e superiori.
 

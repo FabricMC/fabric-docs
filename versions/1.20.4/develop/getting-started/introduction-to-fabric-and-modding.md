@@ -6,6 +6,8 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
+
+search: false
 ---
 
 # Introduction to Fabric and Modding {#introduction-to-fabric-and-modding}

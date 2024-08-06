@@ -1,8 +1,9 @@
+import * as glob from "glob";
+import fs from "node:fs";
+import { EOL } from "node:os";
 import prompts from "prompts";
-import fs from "node:fs"
-import * as glob from "glob"
-import players from "./sidebars/players";
 import develop from "./sidebars/develop";
+import players from "./sidebars/players";
 
 (async () => {
   // Determine old minecraft version by reading /reference/latest/build.gradle's `def minecraftVersion = "XXXX"` line.
@@ -59,12 +60,14 @@ import develop from "./sidebars/develop";
   console.log("Migrating content to versioned/" + oldVersion + "...");
 
   // Move all markdown files except README.md to versions/oldVersion
-  const markdownFiles = glob.sync("**/*.md", { ignore: [
-    "README.md",
-    "contributing.md",
-    "versions/**/*.md",
-    "node_modules/**/*",
-  ]});
+  const markdownFiles = glob.sync("**/*.md", {
+    ignore: [
+      "README.md",
+      "contributing.md",
+      "versions/**/*.md",
+      "node_modules/**/*",
+    ]
+  });
 
   // Copy into versions/oldVersion and respect the directory structure.
   for (const file of markdownFiles) {
@@ -75,12 +78,12 @@ import develop from "./sidebars/develop";
 
   console.log("Migration complete.")
   console.log("Migration sidebars...")
-  
+
   const versionedSidebar = {
     '/players/': players,
     '/develop/': develop
   };
-  
+
   fs.writeFileSync("./.vitepress/sidebars/versioned/" + oldVersion + ".json", JSON.stringify(versionedSidebar, null, 2));
 
   console.log("Migrated sidebars.")
@@ -108,5 +111,35 @@ import develop from "./sidebars/develop";
   }
 
   console.log("Updated internal links.");
+
+  console.log("Adding search:false frontmatter to all markdown files...");
+
+  for (const file of versionedMarkdownFiles) {
+    const data = fs.readFileSync(file, "utf-8");
+    // Check if the file has frontmatter
+    if (data.startsWith('---')) {
+      // Find the end of the frontmatter
+      const endOfFrontmatter = data.indexOf('---', 3);
+
+      // Extract the frontmatter
+      let frontmatter = data.slice(0, endOfFrontmatter);
+
+      // Add 'search: false' to the frontmatter
+      if (!frontmatter.includes('search:')) {
+        frontmatter += EOL + 'search: false';
+
+        // Replace the old frontmatter with the updated one
+        const updatedData = frontmatter + data.slice(endOfFrontmatter);
+
+        // Write the updated data back to the file
+        fs.writeFile(file, updatedData, function (err) {
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
+    }
+  }
+
   console.log("DONE! Make sure that the changes are correct before committing.");
 })();

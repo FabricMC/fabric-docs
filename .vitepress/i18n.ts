@@ -225,6 +225,10 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
           },
         ],
       },
+      {
+        // TODO: Allow custom component to have i18n translations for mobile navigation bar.
+        component: "VersionSwitcher"
+      }
     ],
 
     notFound: {
@@ -304,9 +308,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
       },
     ],
 
-    versionSwitcher: {
-      text: websiteResolver("version_switcher"),
-    },
+    versionSwitcher: false,
   };
 }
 

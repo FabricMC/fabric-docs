@@ -1,6 +1,8 @@
 ---
 title: Paramètres de Commandes
 description: Apprenez comment créer des commandes avec des paramètres complexes.
+
+search: false
 ---
 
 # Paramètres de Commandes

@@ -3,6 +3,8 @@ title: 명령어 제안
 description: 어떻게 명령어 인수를 플레이어에게 제안하는지 알아보세요.
 authors:
   - IMB11
+
+search: false
 ---
 
 # 명령어 제안

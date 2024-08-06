@@ -3,6 +3,8 @@ title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Text and Translations {#text-and-translations}

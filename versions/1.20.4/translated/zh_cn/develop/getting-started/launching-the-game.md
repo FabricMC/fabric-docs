@@ -3,6 +3,8 @@ title: 启动游戏
 description: 了解如何利用各种启动配置文件在实时游戏环境中启动和调试你的模组。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 启动游戏{#launching-the-game}
