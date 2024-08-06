@@ -15,7 +15,7 @@ const currentVersion = ref(props.versioningPlugin.latestVersion);
 
 onBeforeMount(() => {
   for (const v of props.versioningPlugin.versions) {
-    if (router.route.path.match(/^\/(?:[^/]+\/)?[^/]+\/.*$/)) {
+    if (router.route.path.includes(`/${v}/`)) {
       currentVersion.value = v;
       break;
     }
