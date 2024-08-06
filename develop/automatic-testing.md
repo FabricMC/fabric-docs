@@ -47,7 +47,7 @@ If you're conformable with JUnit, you can skip to [Setting Up Registries](#setti
 #### Setting Up Your First Test Class {#setting-up-your-first-test-class}
 
 Tests are written in the `src/test/java` directory and should have the same package structure as the class you are testing.
-For example, if I want to test `src/main/java/com/example/docs/codec/BeanType.java`, 
+For example, if I want to test `src/main/java/com/example/docs/codec/BeanType.java`,
 I would create a class at `src/test/java/com/example/docs/codec/BeanTypeTest.java`.
 (Note that the convention is to copy the class name and add `Test` at the end.)
 

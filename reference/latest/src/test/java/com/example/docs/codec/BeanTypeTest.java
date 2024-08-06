@@ -26,8 +26,8 @@ public class BeanTypeTest {
 		SharedConstants.createGameVersion();
 		Bootstrap.initialize();
 	}
-	// :::automatic-testing:7
 
+	// :::automatic-testing:7
 	// :::automatic-testing:4
 	@Test
 	void testBeanCodec() {
@@ -67,7 +67,6 @@ Caused by: java.lang.IllegalArgumentException: Not bootstrapped (called from reg
 	at net.minecraft.registry.Registries.create(Registries.java:229)
 	at net.minecraft.registry.Registries.<clinit>(Registries.java:139)
 	... 5 more
-
 
 Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
 java.lang.IllegalArgumentException: Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
