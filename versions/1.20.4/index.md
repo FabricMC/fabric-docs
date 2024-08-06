@@ -18,6 +18,8 @@ features:
     details: Are you a player looking to use mods powered by Fabric? Our player guides have you covered. These guides will help you in downloading, installing, and troubleshooting Fabric mods.
     link: /players/
     linkText: Read More
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

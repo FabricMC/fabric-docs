@@ -16,6 +16,8 @@ features:
     details: Jste hráč snícím o používání Fabric modů? Naše hráčské návody vám mohou pomoct. Tyto návody pomůžou se stahování, instalací a spravení Fabric modů.
     link: /players/
     linkText: Zjistit více
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

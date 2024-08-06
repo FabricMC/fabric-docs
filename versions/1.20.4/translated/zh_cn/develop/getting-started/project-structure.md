@@ -3,6 +3,8 @@ title: 项目结构
 description: Fabric 模组项目结构概述
 authors:
   - IMB11
+
+search: false
 ---
 
 # 项目结构{#project-structure}

@@ -1,6 +1,8 @@
 ---
 title: 명령어 인수
 description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아보세요.
+
+search: false
 ---
 
 # 명령어 인수

@@ -3,6 +3,8 @@ title: Starten des Spiels
 description: Lerne, wie du die verschiedenen Startprofile verwendest, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Starten des Spiels

@@ -1,6 +1,8 @@
 ---
 title: Guías para Desarrolladores
 description: Nuestras guías para desarrolladores, escritas por la comunidad, cubren una amplia gama de temas, desde la configuración de un entorno de desarrollo hasta temas más avanzados como renderizado y redes.
+
+search: false
 ---
 
 # Guías para Desarrolladores

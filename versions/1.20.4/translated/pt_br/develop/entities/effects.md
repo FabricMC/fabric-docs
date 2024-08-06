@@ -10,6 +10,8 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+
+search: false
 ---
 
 # Efeitos de Estado

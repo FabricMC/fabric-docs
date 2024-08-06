@@ -16,6 +16,8 @@ features:
     details: 你是一位希望使用由 Fabric 驅動的模組的玩家嗎？我們的玩家指南可以滿足你的需求。這些指南將幫助你下載、安裝和疑難排解 Fabric 模組。 我們的玩家指南可以滿足你的需求。 這些指南將幫助你下載、安裝和疑難排解 Fabric 模組。
     link: /players/
     linkText: 閱讀更多
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

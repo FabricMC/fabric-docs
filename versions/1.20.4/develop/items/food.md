@@ -3,6 +3,8 @@ title: Food Items
 description: Learn how to add a FoodComponent to an item to make it edible, and configure it.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Food Items {#food-items}

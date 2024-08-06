@@ -3,6 +3,8 @@ title: Project Structure
 description: An overview of the structure of a Fabric mod project.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Project Structure {#project-structure}

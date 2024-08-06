@@ -4,6 +4,8 @@ description: Impara i concetti base del rendering usando il motore grafico di Mi
 authors:
   - IMB11
   - "0x3C50"
+
+search: false
 ---
 
 # Concetti Base del Rendering

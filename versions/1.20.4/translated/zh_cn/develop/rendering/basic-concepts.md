@@ -4,6 +4,8 @@ description: 学习 Minecraft 渲染引擎的基本概念。
 authors:
   - IMB11
   - "0x3C50"
+
+search: false
 ---
 
 # 基本渲染概念

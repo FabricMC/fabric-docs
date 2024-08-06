@@ -16,6 +16,8 @@ features:
     details: Bist du ein Spieler, der Mods verwenden möchte, die von Fabric unterstützt werden? Unsere Spieler-Leitfäden decken alles ab. Diese Anleitungen werden dir beim Herunterladen, Installieren und Beheben von Problemen mit Fabric-Mods helfen.
     link: /players/
     linkText: Weiterlesen
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

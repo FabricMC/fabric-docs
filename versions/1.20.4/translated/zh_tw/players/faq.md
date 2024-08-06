@@ -1,6 +1,8 @@
 ---
 title: 玩家常見問題
 description: 關於 Fabric 的玩家和伺服器管理員常見問題解答手冊。
+
+search: false
 ---
 
 # 常見問題

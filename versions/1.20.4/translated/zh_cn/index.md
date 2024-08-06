@@ -16,6 +16,8 @@ features:
     details: 您在考虑使用 Fabric 模组吗？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
     link: /players/
     linkText: 详情
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

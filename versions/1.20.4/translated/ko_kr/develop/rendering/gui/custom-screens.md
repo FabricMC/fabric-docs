@@ -3,6 +3,8 @@ title: 사용자 정의 화면
 description: 모드의 사용자 정의 화면을 만드는 방법을 알아보세요.
 authors:
   - IMB11
+
+search: false
 ---
 
 # 사용자 정의 화면

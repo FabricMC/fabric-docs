@@ -16,6 +16,8 @@ features:
     details: Sei un giocatore che vuole usare mod basate su Fabric? Le nostre guide per giocatori ti aiuteranno. Queste guide ti aiuteranno a scaricare, installare e risolvere eventuali problemi delle mod di Fabric.
     link: /players/
     linkText: Leggi di più
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

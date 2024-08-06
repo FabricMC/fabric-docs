@@ -3,6 +3,8 @@ title: 로그 업로드
 description: 문제를 해결하기 위해 로그를 업로드하는 방법을 알아보세요.
 authors:
   - IMB11
+
+search: false
 ---
 
 # 로그 업로드

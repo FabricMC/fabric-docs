@@ -56,7 +56,7 @@ export default defineVersionedConfig(
 
     themeConfig: {
       search: {
-        provider: "local",
+        provider: "local"
       },
     },
 

@@ -5,6 +5,8 @@ authors:
   - dicedpixels
   - PandoricaVi
   - Drakonkinst
+
+search: false
 ---
 
 # 물약

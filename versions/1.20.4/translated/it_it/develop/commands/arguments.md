@@ -1,6 +1,8 @@
 ---
 title: Parametri dei Comandi
 description: Impara come creare comandi con parametri complessi.
+
+search: false
 ---
 
 # Parametri dei Comandi

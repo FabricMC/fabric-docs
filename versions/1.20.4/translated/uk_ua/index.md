@@ -16,6 +16,8 @@ features:
     details: Ви гравець що хоче використовувати моди для Fabric? Наш посібник для гравців допоможе вам. Цей посібник допоможе вам в завантаженні, використовувати та виправляти неполадки модів Fabric.
     link: /players/
     linkText: Читати більше
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

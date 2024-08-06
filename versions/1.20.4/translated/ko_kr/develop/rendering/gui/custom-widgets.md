@@ -3,6 +3,8 @@ title: 사용자 정의 위젯
 description: 화면에 사용될 사용자 정의 위젯을 만드는 방법을 알아보세요.
 authors:
   - IMB11
+
+search: false
 ---
 
 # 사용자 정의 위젯
