@@ -13,7 +13,7 @@ import ColorSwatch from './components/ColorSwatch.vue';
 import VersionReminder from './components/VersionReminder.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
 
-import VersionSwitcher from "vitepress-versioning-plugin/src/components/VersionSwitcher.vue";
+import VersionSwitcher from "./components/VersionSwitcher.vue";
 
 import "./style.css";
 
