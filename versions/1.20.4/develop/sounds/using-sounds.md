@@ -1,6 +1,8 @@
 ---
 title: Playing Sounds
 description: Learn how to play sound events.
+
+search: false
 ---
 
 # Playing Sounds {#playing-sounds}

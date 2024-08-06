@@ -1,6 +1,8 @@
 ---
 title: Hướng Dẫn Cho Người Chơi
 description: Một bộ tài liệu hướng dẫn cho người chơi và quản trị viên máy chủ về cách cài đặt và sử dụng Fabric.
+
+search: false
 ---
 
 # Hướng Dẫn Cho Người Chơi

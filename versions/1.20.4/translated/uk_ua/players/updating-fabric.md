@@ -4,6 +4,8 @@ description: Покрокова інструкція з оновлення Fabri
 authors:
   - IMB11
   - modmuss50
+
+search: false
 ---
 
 # Оновлення Fabric

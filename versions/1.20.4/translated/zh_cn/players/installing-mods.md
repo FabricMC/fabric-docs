@@ -3,6 +3,8 @@ title: 安装模组
 description: Fabric 模组安装的逐步指南
 authors:
   - IMB11
+
+search: false
 ---
 
 # 安装模组{#installing-mods}

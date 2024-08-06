@@ -6,7 +6,7 @@ authors:
   - modmuss50
 ---
 
-# Aggiornare Fabric
+# Aggiornare Fabric {#updating-fabric}
 
 Questa guida ti aiuterà nell'aggiornare Fabric per quanto riguarda il Launcher di Minecraft.
 
@@ -28,7 +28,7 @@ Per aggiornare Fabric, assicurati semplicemente che la versione del gioco e quel
 **Assicurati di deselezionare 'Crea Profilo' quando esegui l'installer, altrimenti creerà un nuovo profilo, che in questo caso non ci serve.**
 :::
 
-## 3. Apri il Profilo nel Launcher di Minecraft
+## 3. Apri il Profilo nel Launcher di Minecraft {#3-open-the-profile-in-the-minecraft-launcher}
 
 Appena l'installer ha finito, puoi aprire il Launcher di Minecraft e recarti nella scheda `Installazioni`. Dovresti andare al tuo profilo Fabric e aprire la schermata modifica.
 

@@ -3,6 +3,8 @@ title: Widget Personalizzati
 description: Impara come creare widget personalizzati per la tua schermata.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Widget Personalizzati

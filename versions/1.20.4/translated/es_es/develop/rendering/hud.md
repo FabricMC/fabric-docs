@@ -3,6 +3,8 @@ title: Renderizar en el Hud (Pantalla de Visualización Frontal)
 description: Aprende a usar el evento de HudRenderCallback (Callback de Renderizado de Hud) para renderizar para el hud.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Renderizar en el Hud (Pantalla de Visualización Frontal)

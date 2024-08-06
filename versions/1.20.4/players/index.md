@@ -1,6 +1,8 @@
 ---
 title: Player Guides
 description: A collection of guides for players and server administrators on installing and using Fabric.
+
+search: false
 ---
 
 # Player Guides {#player-guides}

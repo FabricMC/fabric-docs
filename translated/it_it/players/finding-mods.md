@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Trovare Mod Affidabili
+# Trovare Mod Affidabili {#finding-mods}
 
 Anzitutto, la fiducia è soggettiva, e dovresti sempre affidarti al tuo giudizio quando scarichi mod. Tuttavia, ci sono alcune cose che puoi fare che ti aiutano a trovare mod affidabili.
 

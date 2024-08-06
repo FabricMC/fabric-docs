@@ -3,6 +3,8 @@ title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Tools {#tools}

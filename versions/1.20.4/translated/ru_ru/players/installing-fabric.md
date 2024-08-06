@@ -3,6 +3,8 @@ title: Установка Fabric
 description: Пошаговая инструкция по установке Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Установка Fabric

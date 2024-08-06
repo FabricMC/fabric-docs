@@ -16,6 +16,8 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
+
+search: false
 ---
 
 # Configurando tu entorno de desarrollo

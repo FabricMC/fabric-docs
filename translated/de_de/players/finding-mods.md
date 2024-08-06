@@ -11,17 +11,17 @@ Zu Beginn, Vertrauen ist subjektiv, du solltest beim Herunterladen von Mods imme
 
 ## 1. Nutze eine Quelle, die bekanntermaßen vertrauenswürdig ist
 
-Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4).
+Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
 
 Diese Webseiten prüfen, dass die Mods tun, was sie versprechen und, dass sie keinen bösartigen Code enthalten. Du kannst auf diesen Webseiten auch bösartige Mods melden, und sie werden ziemlich schnell Maßnahmen ergreifen.
 
-## 2. Frage bei Anderen nach!
+## 2. Frage bei Anderen nach! {#with-others}
 
 Wenn du eine Mod von einer nicht bekanntermaßen vertrauenswürdigen Quelle herunterlädst, solltest du bei Anderen nachfragen, um zu prüfen, ob sie die Mod vorher von der gleichen Seite heruntergeladen haben und ob sie Probleme damit hatten.
 
 Frag im Zweifel gerne im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` nach.
 
-## 3. Vermeide bekannte Schadware-Seiten!
+## 3. Vermeide bekannte Schadware-Seiten! {#avoid-malware}
 
 :::info
 Schadware-Seiten sind nicht für jeden offensichtlich. Falls du dir unsicher bist, solltest du dich nach Meinungen Anderer erkunden, oder die Seite meiden und dich nur auf vertrauenswürdige Quellen verlassen, wie Modrinth und CurseForge.

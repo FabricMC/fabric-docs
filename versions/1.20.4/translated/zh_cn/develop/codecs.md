@@ -4,6 +4,8 @@ description: 用于理解和使用 Mojang 的 codec 系统以序列化和反序�
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codec

@@ -1,6 +1,8 @@
 ---
 title: Guides pour les joueur.ses
 description: Une collection de guides pour les joueurs et les administrateurs de serveur sur comment installer et utiliser Fabric.
+
+search: false
 ---
 
 # Guides pour les joueur.ses

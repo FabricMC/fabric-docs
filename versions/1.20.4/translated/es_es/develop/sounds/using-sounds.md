@@ -1,6 +1,8 @@
 ---
 title: Reproducir SoundEvents (Eventos de Sonido)
 description: Aprende a reproducir eventos de sonido.
+
+search: false
 ---
 
 # Reproducir SoundEvents (Eventos de Sonido)

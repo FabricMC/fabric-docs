@@ -4,6 +4,8 @@ description: "Краткое знакомство с Fabric и создание�
 authors:
   - IMB11
   - itsmiir
+
+search: false
 ---
 
 <!-- No GitHub profile exists for "basil4088" -->

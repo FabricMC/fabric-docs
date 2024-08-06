@@ -15,13 +15,13 @@ Caricare i log permette agli altri di aiutarti a risolvere i tuoi problemi molto
 
 Alcuni siti forniscono anche colorazione della sintassi per i log, che li rende più facili da leggere, e potrebbero censurare informazioni riservate, come il tuo nome utente, o informazioni sul sistema.
 
-## Segnalazioni dei Crash
+## Segnalazioni dei Crash {#crash-reports}
 
 Le segnalazioni dei crash sono generate automaticamente quando il gioco subisce un crash. Contengono soltanto informazioni sul crash e non i log reali del gioco. Esse sono posizionate nella cartella `crash-reports` nella directory del gioco.
 
 Per maggiori informazioni sulle segnalazioni dei crash, vedi [Segnalazioni dei Crash](./crash-reports).
 
-## Localizzare i Log
+## Localizzare i Log {#locating-logs}
 
 Questa guida ricopre il Launcher di Minecraft ufficiale (anche comunemente noto come il "launcher vanilla") - per launcher di terze parti, dovresti consultare la loro documentazione.
 

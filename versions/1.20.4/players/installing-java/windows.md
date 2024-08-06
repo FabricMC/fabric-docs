@@ -3,6 +3,8 @@ title: Installing Java on Windows
 description: A step by step guide on how to install Java on Windows.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Installing Java on Windows {#installing-java-on-windows}

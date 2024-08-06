@@ -1,6 +1,8 @@
 ---
 title: Často kladené otázky hráčů
 description: Často kladené otázky hráčů a administrátorů ohledně Fabricu.
+
+search: false
 ---
 
 # Často kladené dotazy

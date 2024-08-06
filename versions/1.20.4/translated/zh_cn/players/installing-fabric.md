@@ -3,6 +3,8 @@ title: 安装 Fabric
 description: 如何安装 Fabric 的手把手指南。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 安装 Fabric{#installing-fabric}
