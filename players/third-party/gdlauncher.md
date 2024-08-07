@@ -6,6 +6,8 @@ description: A guide on using Fabric with GDLauncher.
 # Using Fabric with GDLauncher {#fabric-with-gdlauncher}
 
 ::: warning
+Fabric does not endorse any third-party tools listed within this section, and we do not provide support for them. If you encounter any issues with these tools, please report them to the respective tool's developers.
+
 This page is for GDLauncher Carbon, the new version of GDLauncher. If you are using the old version of GDLauncher you should upgrade to GDLauncher Carbon.
 :::
 

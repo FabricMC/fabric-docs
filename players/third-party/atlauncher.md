@@ -5,6 +5,10 @@ description: A guide on installing and using Fabric with ATLauncher.
 
 # Fabric with ATLauncher {#fabric-with-atlauncher}
 
+::: warning
+Fabric does not endorse any third-party tools listed within this section, and we do not provide support for them. If you encounter any issues with these tools, please report them to the respective tool's developers.
+:::
+
 ATLauncher is a modpack launcher that supports Fabric mods and modpacks. This page will guide you through the process of installing Fabric and adding Fabric mods and modpacks with ATLauncher.
 
 ## Installing Fabric {#installing-fabric}
