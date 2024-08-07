@@ -25,4 +25,4 @@ To install Fabric mods with the FTB App, you will need to **right click** on the
 
 ![FTB App Instance Folder](/assets/players/third-party/ftb-app-instance-folder.png)
 
-If the `mods` folder does not exist, you should create it - The FTB App does not support downloading mods, you will need to manually place the mods in the `mods` folder. Consider reading the [Finding Trustworthy Mods](../finding-mods.md) guide to ensure you are downloading mods from a trustworthy source.
+If the `mods` folder does not exist, you should create it - The FTB App does not support downloading mods, you will need to manually place the mods in the `mods` folder. Consider reading the [Finding Trustworthy Mods](../finding-mods) guide to ensure you are downloading mods from a trustworthy source.
