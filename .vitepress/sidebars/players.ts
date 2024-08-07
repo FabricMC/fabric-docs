@@ -59,4 +59,42 @@ export default [
       },
     ],
   },
+  {
+    text: "players.thirdParty",
+    link: "/players/third-party",
+    /* 
+    "Using Fabric with Modrinth App"
+    "Using Fabric with CurseForge App"
+    "Using Fabric with Prism Launcher"
+    "Using Fabric with ATLauncher"
+    "Using Fabric with GDLauncher Carbon"
+    "Using Fabric with FTB App"
+    */
+    items: [
+      {
+        text: "players.thirdParty.modrinth",
+        link: "/players/third-party/modrinth",
+      },
+      {
+        text: "players.thirdParty.curseforge",
+        link: "/players/third-party/curseforge",
+      },
+      {
+        text: "players.thirdParty.prism",
+        link: "/players/third-party/prism",
+      },
+      {
+        text: "players.thirdParty.atlauncher",
+        link: "/players/third-party/atlauncher",
+      },
+      {
+        text: "players.thirdParty.gdlauncher",
+        link: "/players/third-party/gdlauncher",
+      },
+      {
+        text: "players.thirdParty.ftb",
+        link: "/players/third-party/ftb",
+      },
+    ]
+  }
 ] as Fabric.SidebarItem[];
