@@ -60,12 +60,6 @@ subprojects {
 		targetCompatibility = JavaVersion.VERSION_21
 	}
 
-	// :::automatic-testing:2
-	test {
-		useJUnitPlatform()
-	}
-	// :::automatic-testing:2
-
 	spotless {
 		lineEndings = com.diffplug.spotless.LineEnding.UNIX
 

@@ -3,7 +3,6 @@ package com.example.docs.codec;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,24 +16,22 @@ import net.minecraft.item.Items;
 // :::automatic-testing:4
 public class BeanTypeTest {
 	private static final Gson GSON = new GsonBuilder().create();
-	private static final Codec<Bean> BEAN_CODEC = BeanType.REGISTRY.getCodec().dispatch("type", Bean::getType, BeanType::codec);
 
-	// :::automatic-testing:4
-	// :::automatic-testing:7
 	@BeforeAll
 	static void beforeAll() {
+		// :::automatic-testing:4
+		// :::automatic-testing:7
 		SharedConstants.createGameVersion();
 		Bootstrap.initialize();
+		// :::automatic-testing:7
+		// :::automatic-testing:4
+		BeanTypes.register();
 	}
 
-	// :::automatic-testing:7
-	// :::automatic-testing:4
 	@Test
 	void testBeanCodec() {
-		BeanTypes.register();
-
 		StringyBean expectedBean = new StringyBean("This bean is stringy!");
-		Bean actualBean = BEAN_CODEC.parse(JsonOps.INSTANCE, GSON.fromJson("{\"type\":\"example:stringy_bean\",\"stringy_string\":\"This bean is stringy!\"}", JsonObject.class)).getOrThrow();
+		Bean actualBean = Bean.BEAN_CODEC.parse(JsonOps.INSTANCE, GSON.fromJson("{\"type\":\"example:stringy_bean\",\"stringy_string\":\"This bean is stringy!\"}", JsonObject.class)).getOrThrow();
 
 		Assertions.assertInstanceOf(StringyBean.class, actualBean);
 		Assertions.assertEquals(expectedBean.getType(), actualBean.getType());

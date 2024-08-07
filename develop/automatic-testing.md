@@ -17,7 +17,7 @@ Currently, this guide only covers unit testing.
 
 ## Unit Testing with Fabric Loader JUnit {#unit-testing-with-fabric-loader-junit}
 
-Due to the nature of Minecraft modding such as obfuscation, simply adding and using JUnit normally will not work.
+Due to the nature of Minecraft modding using runtime bytecode modification tools such as Mixin, simply adding and using JUnit normally will not work.
 That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
 
 ### Setting up Fabric Loader JUnit {#setting-up-fabric-loader-junit}
@@ -28,7 +28,7 @@ First, we need to add Fabric Loader JUnit to the development environment. Add th
 
 Then, we need to tell gradle to use Fabric Loader JUnit for testing. You can do so by adding the following code the to your `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/build.gradle)
+@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
 #### Split Sources {#split-sources}
 
@@ -36,6 +36,8 @@ If you are using split sources, you also need to add either the client or server
 Fabric Loader JUnit defaults to client so we'll add the client source set to our testing environment with the following in `build.gradle`:
 
 @[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
+
+Note: this extra step with split sources is planned to be fixed in Loom 1.8. For more information, track [this issue](https://github.com/FabricMC/fabric-loom/issues/1060).
 
 ### Writing Tests {#writing-tests}
 
@@ -46,10 +48,16 @@ If you're conformable with JUnit, you can skip to [Setting Up Registries](#setti
 
 #### Setting Up Your First Test Class {#setting-up-your-first-test-class}
 
-Tests are written in the `src/test/java` directory and should have the same package structure as the class you are testing.
+Tests are written in the `src/test/java` directory.
+
+One naming convention is to have the same package structure as the class you are testing:
 For example, if I want to test `src/main/java/com/example/docs/codec/BeanType.java`,
 I would create a class at `src/test/java/com/example/docs/codec/BeanTypeTest.java`.
 (Note that the convention is to copy the class name and add `Test` at the end.)
+This also allows you to easily access package-private methods and fields.
+
+Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`.
+This prevents some problems that may arise with using the same package if you use java modules.
 
 (Note that the following instructions may be specific to Intellij. However, it should be trivial to follow with a different ide.)
 After you've created the test class, use <kbd>COMMAND</kbd>/<kbd>CTRL</kbd> + <kbd>N</kbd> to bring up the generate menu.
@@ -80,7 +88,7 @@ Great, the first test worked! But wait, the second test failed? In the logs, we 
 This is because we're trying to access the registry, or a class that depends on the registry
 (or in rare cases, depends on other Minecraft classes such as `SharedConstants`),
 but Minecraft is nowhere near initialized. We just need to initialize it just a little bit to have registries working.
-Simply add the following code to your class.
+Simply add the following code to the beginning of your `beforeAll` method.
 
 @[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
