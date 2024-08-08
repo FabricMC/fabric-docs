@@ -102,8 +102,7 @@ The Generate menu can be quickly accessed with <kbd>⌘/CTRL</kbd><kbd>N</kbd>.
 In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
 You can also generate accessors and invokers if you have the mcdev plugin installed.
 
-In addition, you can quickly override methods with <kbd>CTRL</kbd> + <kbd>O</kbd>
-and implement methods with <kbd>CTRL</kbd> + <kbd>I</kbd>.
+In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd><kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd><kbd>I</kbd>.
 
 ![Code generation menu in a java file](/assets/develop/misc/using-the-ide/generate_01.png)
 
