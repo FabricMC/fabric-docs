@@ -104,7 +104,7 @@ You can also generate accessors and invokers if you have the mcdev plugin instal
 
 In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd><kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd><kbd>I</kbd>.
 
-![Code generation menu in a java file](/assets/develop/misc/using-the-ide/generate_01.png)
+![Code generation menu in a Java file](/assets/develop/misc/using-the-ide/generate_01.png)
 
 In a java test file, you will be given options to generate testing related methods, as follows.
 
