@@ -98,7 +98,7 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 ### Code Generation {#code-generation}
 
-The Generate menu can be quickly accessed with <kbd>COMMAND</kbd>/<kbd>CTRL</kbd> + <kbd>N</kbd>.
+The Generate menu can be quickly accessed with <kbd>⌘/CTRL</kbd><kbd>N</kbd>.
 In a java file, you will be at least given options for generating constructors, getters, setters, override & implement methods, and much more.
 You can also generate accessors and invokers if you have the mcdev plugin installed.
 
