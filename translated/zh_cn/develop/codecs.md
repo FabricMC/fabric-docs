@@ -351,9 +351,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### 递归 Codec{#recursive-codecs}
 
-
 有时，使用_自身_来解码特定字段的 codec 很有用，例如在处理某些递归数据结构时。 在原版代码中，这用于 `Text` 对象，可能会存储其他的 `Text` 作为子对象。 可以使用 `Codec#recursive` 构建这样的 codec。
-
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 
@@ -361,9 +359,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 public record ListNode(int value, ListNode next) {}
 ```
 
-
 我们无法通过普通方法为此构建 codec，因为对 `next` 字段要使用什么 codec？ 我们需要一个 `Codec<ListNode>`，这就是我们还在构建的！ `Codec#recursive` 能让我们使用看上去像魔法的 lambda 来达到这点。
-
 
 ```java
 Codec<ListNode> codec = Codec.recursive(
