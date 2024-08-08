@@ -1,12 +1,13 @@
 package com.example.docs.codec;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 // :::
 // An implementing class of Bean, with its own codec.
 public class StringyBean implements Bean {
-	public static final Codec<StringyBean> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+	public static final MapCodec<StringyBean> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
 			Codec.STRING.fieldOf("stringy_string").forGetter(StringyBean::getStringyString)
 	).apply(instance, StringyBean::new));
 

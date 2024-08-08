@@ -7,3 +7,9 @@ dependencies {
   mappings "net.fabricmc:yarn:${yarnVersion}:v2"
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
+
+// :::automatic-testing:2
+test {
+	useJUnitPlatform()
+}
+// :::automatic-testing:2

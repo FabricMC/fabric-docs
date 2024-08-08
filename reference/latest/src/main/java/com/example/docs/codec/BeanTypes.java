@@ -11,6 +11,10 @@ public class BeanTypes {
 	public static final BeanType<StringyBean> STRINGY_BEAN = register("stringy_bean", new BeanType<>(StringyBean.CODEC));
 	public static final BeanType<CountingBean> COUNTING_BEAN = register("counting_bean", new BeanType<>(CountingBean.CODEC));
 
+	//:::
+	public static void register() { }
+
+	//:::
 	public static <T extends Bean> BeanType<T> register(String id, BeanType<T> beanType) {
 		return Registry.register(BeanType.REGISTRY, Identifier.of("example", id), beanType);
 	}

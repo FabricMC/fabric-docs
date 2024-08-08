@@ -1,12 +1,13 @@
 package com.example.docs.codec;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 // :::
 // Another implementation
 public class CountingBean implements Bean {
-	public static final Codec<CountingBean> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+	public static final MapCodec<CountingBean> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
 			Codec.INT.fieldOf("counting_number").forGetter(CountingBean::getCountingNumber)
 	).apply(instance, CountingBean::new));
 
