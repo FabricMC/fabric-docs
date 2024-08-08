@@ -8,13 +8,13 @@ hero:
 features:
   - title: Guide per Sviluppatori
     icon: 🛠️
-    details: Le nostre guide, scritte dalla community, coprono una vasta gamma di argomenti, dal setup di un ambiente di sviluppo ad argomenti più avanzati, come il rendering e il networking.
-    link: ./develop/index
+    details: Le nostre guide scritte dalla community trattano di tutto, dalla configurazione del tuo ambiente di sviluppo ad argomenti avanzati come rendering e reti.
+    link: /it_it/develop/
     linkText: Per Iniziare
   - title: Guide per i Giocatori
     icon: 📚
     details: Sei un giocatore che vuole usare mod basate su Fabric? Le nostre guide per giocatori ti aiuteranno. Queste guide ti aiuteranno a scaricare, installare e risolvere eventuali problemi delle mod di Fabric.
-    link: ./players/index
+    link: /it_it/players/
     linkText: Leggi di più
 ---
 
