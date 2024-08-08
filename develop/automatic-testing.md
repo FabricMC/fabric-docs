@@ -59,7 +59,6 @@ This also allows you to easily access package-private methods and fields.
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`.
 This prevents some problems that may arise with using the same package if you use java modules.
 
-(Note that the following instructions may be specific to Intellij. However, it should be trivial to follow with a different ide.)
 After you've created the test class, use <kbd>COMMAND</kbd>/<kbd>CTRL</kbd> + <kbd>N</kbd> to bring up the generate menu.
 Select test and start typing your choice of method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done.
 For more tips and tricks on using the ide, see [IDE Tips and Tricks](ide-tips-and-tricks#code-generation).

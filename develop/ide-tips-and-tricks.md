@@ -106,9 +106,9 @@ In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd><kbd>O</kb
 
 ![Code generation menu in a Java file](/assets/develop/misc/using-the-ide/generate_01.png)
 
-In a java test file, you will be given options to generate testing related methods, as follows.
+In a Java test file, you will be given options to generate related testing methods, as follows:
 
-![Code generation menu in a java test file](/assets/develop/misc/using-the-ide/generate_02.png)
+![Code generation menu in a Java test file](/assets/develop/misc/using-the-ide/generate_02.png)
 
 ### Displaying Parameters{#displaying-parameters}
 
