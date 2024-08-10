@@ -100,7 +100,7 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 The Generate menu can be quickly accessed with <kbd>⌘/CTRL</kbd><kbd>N</kbd>.
 In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
-You can also generate accessors and invokers if you have the mcdev plugin installed.
+You can also generate accessors and invokers if you have the [Minecraft Development plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installed.
 
 In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd><kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd><kbd>I</kbd>.
 
