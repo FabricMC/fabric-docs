@@ -24,6 +24,7 @@ You can put this method in a new class next to your ModInitializer class.
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
 Make sure to replace "FabricDocsReference.MOD_ID" with a reference to the MOD_ID in your "ModInitializer" class
+
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Registering an Item {#registering-an-item}
@@ -39,6 +40,7 @@ This will not work if you've marked the item as damageable, as the stack size is
 :::
 
 For example, you can create a new "Suspicious Substance" by adding this static field to your ModItems class.
+
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 However, when you go in-game, you can see that our item doesn't exist! This is because there are no references to the ModItem class which would initialize it when Minecraft starts.
@@ -46,9 +48,11 @@ However, when you go in-game, you can see that our item doesn't exist! This is b
 To force initialization of the static field, you can add a public static initialize method to your class and call it from your `ModInitializer` class. Currently, this method doesn't need anything inside it.
 
 ModItems.java
+
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Your class that implements "ModInitializer"
+
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
