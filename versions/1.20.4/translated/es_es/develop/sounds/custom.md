@@ -3,6 +3,8 @@ title: Crear Sonidos Personalizados
 description: Aprende a agregar y usar un nuevo sonido con el registro.
 authors:
   - JR1811
+
+search: false
 ---
 
 # Crear Sonidos Personalizados

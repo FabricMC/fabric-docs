@@ -3,6 +3,8 @@ title: 충돌 보고서
 description: 충돌 보고서가 어떤 역할을 가지고, 어떻게 읽는지 알아보세요.
 authors:
   - IMB11
+
+search: false
 ---
 
 # 충돌 보고서

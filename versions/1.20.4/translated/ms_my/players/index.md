@@ -1,6 +1,8 @@
 ---
 title: Panduan Pemain
 description: Koleksi panduan untuk pemain dan juga pentadbir pelayan dalam memasang dan menggunakan Fabric.
+
+search: false
 ---
 
 # Panduan Pemain

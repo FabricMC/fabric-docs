@@ -3,6 +3,8 @@ title: Finding Trustworthy Mods
 description: A guide on how to find Fabric mods using trustworthy sources.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Finding Trustworthy Mods {#finding-mods}

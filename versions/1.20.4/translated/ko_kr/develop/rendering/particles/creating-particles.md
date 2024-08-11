@@ -3,6 +3,8 @@ title: 사용자 정의 입자 만들기
 description: Fabric API를 통해 사용자 정의 입자를 만드는 방법을 알아보세요.
 authors:
   - Superkat32
+
+search: false
 ---
 
 # 사용자 정의 입자 만들기

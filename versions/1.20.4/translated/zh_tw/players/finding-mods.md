@@ -3,6 +3,8 @@ title: 尋找可信賴的模組
 description: 本指南教你如何使用可信賴的來源找到 Fabric 模組。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 尋找可信賴的模組

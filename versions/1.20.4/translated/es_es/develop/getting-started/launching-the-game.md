@@ -3,6 +3,8 @@ title: Corriendo tu Juego
 description: Aprende a utilizar los perfiles de lanzamiento varios para cargar y depurar tus mods en un entorno de juego en vivo.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Corriendo tu Juego

@@ -1,6 +1,8 @@
 ---
 title: 玩家常见问题
 description: 玩家和服务器管理员有关 Fabric 的常见问题。
+
+search: false
 ---
 
 # 玩家常见问题

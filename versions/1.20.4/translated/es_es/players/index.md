@@ -1,6 +1,8 @@
 ---
 title: Guías para Jugadores
 description: Una colección de guías para jugadores y administradores sobre la instalación y el uso de Fabric.
+
+search: false
 ---
 
 # Guías para Jugadores

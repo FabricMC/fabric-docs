@@ -3,6 +3,8 @@ title: Cài Đặt Mod
 description: Bộ hướng dẫn từng bước để cài đặt mod cho Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Cài Đặt Mod

@@ -3,6 +3,8 @@ title: Installation von Fabric
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Installation von Fabric

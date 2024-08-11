@@ -9,13 +9,15 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: ./develop/index
+    link: /vi_vn/1.20.4/develop/
     linkText: Khởi Đầu
   - title: Hướng Dẫn Cho Người Chơi
     icon: 📚
     details: Có phải bạn đang tìm kiếm cách chạy các bản mod dành cho Fabric? Bộ hướng dẫn của chúng tôi sẽ giúp bạn điều đó. Những cách này sẽ giúp bạn trong việc tải xuống, cài đặt và khắc phục sự cố khi dùng mod Fabric.
-    link: ./players/index
+    link: /vi_vn/1.20.4/players/
     linkText: Đọc Thêm
+
+search: false
 ---
 
 <div class="vp-doc homepage-container">

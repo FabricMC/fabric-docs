@@ -16,6 +16,8 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
+
+search: false
 ---
 
 # Setting up a Development Environment {#setting-up-a-development-environment}

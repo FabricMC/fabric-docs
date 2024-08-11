@@ -4,6 +4,8 @@ description: Un guide complet pour comprendre et utiliser le système de codecs 
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codecs

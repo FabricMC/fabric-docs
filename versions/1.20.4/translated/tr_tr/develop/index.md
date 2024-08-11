@@ -1,6 +1,8 @@
 ---
 title: Geliştirici Rehberleri
 description: Topluluk tarafından yazılmış geliştirici rehberlerimiz, development ortamını hazırlamaktan render ve network gibi daha karmaşık konulara kadar giden pek çok konuyu içerir.
+
+search: false
 ---
 
 # Geliştirici Rehberleri

@@ -5,6 +5,8 @@ authors:
   - dicedpixels
   - hiisuuii
   - mattidragon
+
+search: false
 ---
 
 # Schadensarten

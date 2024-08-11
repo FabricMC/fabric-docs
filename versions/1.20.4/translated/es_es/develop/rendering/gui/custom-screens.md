@@ -3,6 +3,8 @@ title: Pantallas Personalizadas
 description: Aprende a crear pantallas y menús personalizadas para tu mod.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Pantallas Personalizadas
