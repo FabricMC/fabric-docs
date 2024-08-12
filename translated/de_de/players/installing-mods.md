@@ -51,7 +51,7 @@ Sobald du das `mods`-Verzeichnis gefunden hast, kannst du die `.jar`-Dateien der
 
 ![Installierte Mods im mods-Verzeichnis](/assets/players/installing-mods.png)
 
-## 3. Du hast es geschafft!
+## 3. Du hast es geschafft! {#3-you-re-done}
 
 Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 

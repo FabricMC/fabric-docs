@@ -4,6 +4,8 @@ description: Learn how to register a simple item and how to texture, model and n
 authors:
   - IMB11
   - dicedpixels
+
+search: false
 ---
 
 # Creating Your First Item {#creating-your-first-item}

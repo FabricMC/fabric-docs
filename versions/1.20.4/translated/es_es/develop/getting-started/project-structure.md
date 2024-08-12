@@ -3,6 +3,8 @@ title: Estructura de Proyecto
 description: Una descripción general de la estructura de un proyecto de mod de Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Estructura de Proyecto

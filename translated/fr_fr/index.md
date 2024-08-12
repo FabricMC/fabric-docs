@@ -9,12 +9,12 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: ./develop/index
+    link: /develop/
     linkText: Commencer
   - title: Guides des joueurs
     icon: 📚
     details: Êtes-vous un joueur envisageant d'utiliser des mods fonctionnant grâce à Fabric ? Nos guides des joueurs sont là pour vous aider. Ces guides vous aideront à télécharger, installer des mods Fabric et résoudre les problèmes pouvant survenir.
-    link: ./players/index
+    link: /players/
     linkText: En Savoir Plus
 ---
 

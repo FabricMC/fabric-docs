@@ -3,6 +3,8 @@ title: Benutzerdefinierte Sounds erstellen
 description: Lerne, wie man neue Sounds mit einer Registry hinzufügt und nutzt.
 authors:
   - JR1811
+
+search: false
 ---
 
 # Benutzerdefinierte Sounds erstellen

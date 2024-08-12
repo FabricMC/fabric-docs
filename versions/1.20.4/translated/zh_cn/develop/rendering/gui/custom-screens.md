@@ -3,6 +3,8 @@ title: 自定义界面
 description: 学习如何给你的模组创建自定义界面。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 自定义界面

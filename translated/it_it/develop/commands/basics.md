@@ -27,7 +27,7 @@ you build a tree of commands and arguments.
 
 Brigadier è open-source: https://github.com/Mojang/brigadier
 
-## L'interface `Command`
+## L'interface `Command` {#the-command-interface}
 
 `com.mojang.brigadier.Command` è un'interfaccia funzionale, che esegue del codice specifico, e lancia una `CommandSyntaxException` in determinati casi. Ha un tipo generico `S`, che definisce il tipo della _sorgente del comando_.
 La sorgente del comando fornisce del contesto in cui un comando è stato eseguito. In Minecraft, la sorgente del comando è tipicamente una `ServerCommandSource` che potrebbe rappresentare un server, un blocco comandi, una connessione remota (RCON), un giocatore o un'entità.
@@ -58,7 +58,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-## Registrare un Comando Basilare
+## Registrare un Comando Basilare {#registering-a-basic-command}
 
 I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito dall'API di Fabric.
 
@@ -88,7 +88,7 @@ Se il comando fallisce, anziché chiamare `sendFeedback()`, puoi direttamente la
 
 Per eseguire questo comando, devi scrivere `/foo`, tutto minuscolo.
 
-### Ambiente di Registrazione
+### Ambiente di Registrazione {#registration-environment}
 
 Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circostanze specifiche, per esempio, solo nell'ambiente dedicato:
 
@@ -124,9 +124,9 @@ L'API di Fabric ha un `ClientCommandManager` nel package `net.fabricmc.fabric.ap
 
 I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare la funzionalità di un comando a un altro. Questo è utile quando vuoi cambiare il nome di un comando, ma vuoi comunque supportare il vecchio nome.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## Domande Frequenti (FAQ)
+## Domande Frequenti (FAQ) {#faq}
 
 ### Perché il Mio Codice Non Viene Compilato? {#why-does-my-code-not-compile}
 

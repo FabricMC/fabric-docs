@@ -1,6 +1,8 @@
 ---
 title: 播放声音事件（SoundEvent）
 description: 学习如何播放声音事件（SoundEvent）。
+
+search: false
 ---
 
 # 播放声音事件（SoundEvent）

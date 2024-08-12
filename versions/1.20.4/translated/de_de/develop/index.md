@@ -1,6 +1,8 @@
 ---
 title: Leitfäden für Entwickler
 description: Unsere kuratierten, von der Community verfassten Leitfäden für Entwickler decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
+
+search: false
 ---
 
 # Leitfäden für Entwickler

@@ -3,6 +3,8 @@ title: Creare Particelle Personalizzate
 description: Impara come creare particelle personalizzate usando l'API di Fabric.
 authors:
   - Superkat32
+
+search: false
 ---
 
 # Creare Particelle Personalizzate

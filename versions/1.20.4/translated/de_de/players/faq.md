@@ -1,6 +1,8 @@
 ---
 title: Häufig gestellte Fragen für Spieler
 description: Häufig gestellte Fragen für Spieler und Serveradministratoren in Bezug auf Fabric.
+
+search: false
 ---
 
 # Häufig gestellte Fragen

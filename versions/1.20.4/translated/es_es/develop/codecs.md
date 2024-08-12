@@ -4,6 +4,8 @@ description: Una guía completa para entender y usar el sistema de codecs de Moj
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codecs

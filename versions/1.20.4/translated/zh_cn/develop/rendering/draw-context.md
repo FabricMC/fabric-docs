@@ -3,6 +3,8 @@ title: 使用绘制上下文
 description: 学习如何使用 DrawContext 类来渲染各种图形、文字、纹理。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 使用绘制上下文

@@ -19,6 +19,7 @@
   "develop.gettingStarted.creatingProject": "建立一個專案",
   "develop.gettingStarted.projectStructure": "專案結構",
   "develop.gettingStarted.launchGame": "啟動你的遊戲",
+  "develop.gettingStarted.solvingProblems": "基本問題解決",
   "develop.items": "物品",
   "develop.items.first-item": "建立你的第一個物品",
   "develop.items.food": "食物物品",
@@ -27,6 +28,7 @@
   "develop.items.custom-item-groups": "自訂物品組",
   "develop.items.custom-item-interactions": "自訂物品交互",
   "develop.items.potions": "藥水",
+  "develop.items.custom-data-components": "自訂資料組件",
   "develop.blocks": "方塊",
   "develop.blocks.first-block": "建立你的第一個方塊",
   "develop.blocks.blockstates": "方塊狀態",
@@ -50,6 +52,7 @@
   "develop.misc.codecs": "解編碼器",
   "develop.misc.events": "事件",
   "develop.misc.text-and-translations": "文本和翻譯",
+  "develop.misc.ideTipsAndTricks": "IDE 使用技巧",
   "develop.sounds": "音效",
   "develop.sounds.using-sounds": "撥放音效事件",
   "develop.sounds.custom": "建立自訂音效"

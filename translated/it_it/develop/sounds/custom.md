@@ -5,9 +5,9 @@ authors:
   - JR1811
 ---
 
-# Creare Suoni Personalizzati
+# Creare Suoni Personalizzati {#creating-custom-sounds}
 
-## Preparare il File Audio
+## Preparare il File Audio {#preparing-the-audio-file}
 
 I tuoi file audio devono essere formattati in un modo specifico. OGG Vorbis è un formato container aperto per dati multimediali, tra cui audio, e viene usato per i file audio di Minecraft. Per evitare problemi nel modo in cui Minecraft gestisce le distanze, il tuo audio deve essere solo su un singolo canale (Mono).
 
@@ -27,7 +27,7 @@ Quando devi esportare o renderizzare un file audio, assicurati di scegliere il f
 
 Inoltre tieni a mente che un file audio può aumentare drasticamente le dimensioni del file della tua mod. Se necessario, comprimi l'audio quando stai modificando ed esportando il file, per mantenere le sue dimensioni al minimo.
 
-## Caricare il File Audio
+## Caricare il File Audio {#loading-the-audio-file}
 
 Aggiungi un nuovo percorso `resources/assets/<mod id here>/sounds` per i suoni della tua mod, e trasferisci qui il file audio esportato `metal_whistle.ogg`.
 
@@ -37,7 +37,7 @@ Se non esiste ancora, crea il file `resources/assets/<mod id here>/sounds.json` 
 
 La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/<mod id here>/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
-## Registrare il Suono Personalizzato
+## Registrare il Suono Personalizzato {#registering-the-custom-sound}
 
 Per aggiungere il suono personalizzato alla mod, registra un SoundEvent nella classe che implementa l'entrypoint `ModInitializer`.
 
@@ -58,6 +58,6 @@ Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo im
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
-## Usare il SoundEvent Personalizzato
+## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 
 Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](./using-sounds) per imparare come riprodurre i suoni.

@@ -392,7 +392,7 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
 }
 ```
 
-## Riferimenti
+## Riferimenti {#references}
 
 - Una documentazione molto più dettagliata sui Codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.

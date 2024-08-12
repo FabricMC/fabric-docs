@@ -3,6 +3,8 @@ title: Rendering nel Hud
 description: Impara a usare l'evento HudRenderCallback per renderizzare sul hud.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Rendering nel Hud

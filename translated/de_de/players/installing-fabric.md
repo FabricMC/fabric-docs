@@ -3,6 +3,8 @@ title: Installation von Fabric
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Fabric.
 authors:
   - IMB11
+  - Benonardo
+  - modmuss50
 ---
 
 # Installation von Fabric
@@ -42,13 +44,11 @@ Um Fabric zu installieren, wähle einfach die Spielversion aus der Liste und kli
 
 **Stelle sicher, dass die Option 'Profil erstellen' aktiviert ist.**
 
-## 3. Du hast es geschafft!
+## 3. Du hast es geschafft! {#3-you-re-done}
 
 Sobald das Installationsprogramm fertig ist, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
 ![Minecraft-Launcher mit ausgewähltem Fabric-Profil](/assets/players/installing-fabric/launcher-screen.png)
-
-## Nächste Schritte
 
 Jetzt, nachdem du Fabric installiert hast, kannst du dem Spiel Mods hinzufügen! Weitere Informationen zum Finden von Mods findest du in dem Leitfaden [Vertrauenswürdige Mods finden](./finding-mods).
 

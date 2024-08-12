@@ -1,6 +1,8 @@
 ---
 title: Riprodurre Suoni
 description: Impara come riprodurre eventi sonori.
+
+search: false
 ---
 
 # Riprodurre Suoni

@@ -12,29 +12,29 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Effetti di Stato
+# Effetti di Stato {#status-effects}
 
 Gli effetti di stato, anche noti come effetti, sono una condizione che interessa un'entità. Possono essere positivi, negativi o neutrali in natura. Il gioco base applica questi effetti in vari modi, come cibi, pozioni ecc.
 
 Il comando `/effect` può essere usato per applicare effetti su un'entità.
 
-## Effetti di Stato Personalizzati
+## Effetti di Stato Personalizzati {#custom-status-effects}
 
 In questo tutorial aggiungeremo un nuovo effetto personalizzato chiamato _Tater_ che ti darà un punto esperienza in ogni tick di gioco.
 
-### Estendere `StatusEffect`
+### Estendere `StatusEffect` {#extend-statuseffect}
 
 Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect`, che è la classe base per tutti gli effetti.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
-### Registrare il tuo Effetto Personalizzato
+### Registrare il tuo Effetto Personalizzato {#registering-your-custom-effect}
 
 Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nel registro `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
-### **Texture**
+### Texture {#texture}
 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
@@ -44,7 +44,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 <DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
-### **Traduzioni**
+### Traduzioni {#translations}
 
 Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mod-id>.<effect-identifier>": "Valore"` al file di lingua.
 

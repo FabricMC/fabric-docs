@@ -1,6 +1,8 @@
 ---
 title: 玩家指南
 description: 为玩家和服务器管理员制作的安装和使用 Fabic 的指南合集。
+
+search: false
 ---
 
 # 玩家指南{#player-guides}

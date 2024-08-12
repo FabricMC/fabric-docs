@@ -3,6 +3,8 @@ title: Custom Widgets
 description: Learn how to create custom widgets for your screens.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Custom Widgets {#custom-widgets}

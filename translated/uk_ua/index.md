@@ -9,12 +9,12 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: ./develop/index
+    link: /develop/
     linkText: Розпочати
   - title: Посібник для гравців
     icon: 📚
     details: Ви гравець що хоче використовувати моди для Fabric? Наш посібник для гравців допоможе вам. Цей посібник допоможе вам в завантаженні, використовувати та виправляти неполадки модів Fabric.
-    link: ./players/index
+    link: /players/
     linkText: Читати більше
 ---
 

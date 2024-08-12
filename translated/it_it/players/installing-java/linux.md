@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Installare Java su Linux
+# Installare Java su Linux {#installing-java-on-linux}
 
 Questa guida ti spiegherà come installare Java 21 su Linux.
 
-## 1. Controlla se Java è già installato
+## 1. Controlla Se Java È Già Installato {#1-check-if-java-is-already-installed}
 
 Apri un terminale, scrivi `java -version` e premi <kbd>Invio</kbd>.
 
@@ -23,7 +23,7 @@ Per usare Minecraft 1.21, ti servirà almeno Java 21 installato. Se questo coman
 
 Raccomandiamo l'uso di OpenJDK 21, che è disponibile per la maggior parte delle distribuzioni Linux.
 
-### Arch Linux
+### Arch Linux {#arch-linux}
 
 :::info
 Per maggiori informazioni su come installare Java su Arch Linux, vedi [la Wiki di Arch Linux](https://wiki.archlinux.org/title/Java).
@@ -47,7 +47,7 @@ Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 sudo pacman -S jdk-openjdk
 ```
 
-### Debian/Ubuntu
+### Debian/Ubuntu {#debian-ubuntu}
 
 Puoi installare Java 21 usando `apt` con i comandi seguenti:
 
@@ -56,7 +56,7 @@ sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-### Fedora
+### Fedora {#fedora}
 
 Puoi installare Java 21 usando `dnf` con i comandi seguenti:
 
@@ -76,7 +76,7 @@ Se pensi di sviluppare delle mod, ti servirà invece il JDK:
 sudo dnf install java-21-openjdk-devel
 ```
 
-### Altre Distribuzioni Linux
+### Altre Distribuzioni Linux {#other-linux-distributions}
 
 Se la tua distribuzione non è fra quelle elencate sopra, puoi scaricare il JRE più recente da [Adoptium](https://adoptium.net/temurin/)
 

@@ -3,6 +3,8 @@ title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Custom Armor {#custom-armor}

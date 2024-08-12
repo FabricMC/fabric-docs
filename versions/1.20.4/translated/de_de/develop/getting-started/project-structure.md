@@ -3,6 +3,8 @@ title: Projektstruktur
 description: Ein Überblick über die Struktur eines Fabric-Mod-Projekts.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Projektstruktur

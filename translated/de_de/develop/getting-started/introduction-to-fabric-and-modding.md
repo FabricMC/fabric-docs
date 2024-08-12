@@ -33,7 +33,7 @@ Bevor wir beginnen, wollen wir einige Begriffe erläutern, die bei der Arbeit mi
 - **Obfuskation**: Der Prozess, der Code schwer verständlich macht und von Mojang verwendet wird, um den Code von Minecraft zu schützen.
 - **Remapping**: Der Prozess der Umwandlung von obfuskierten Code in für Menschen lesbaren Code.
 
-## Was ist Fabric?
+## Was ist Fabric? {#what-is-fabric}
 
 Fabric ist eine leichtgewichtige Modding-Werkzeugbox für Minecraft: Java Edition.
 
@@ -46,7 +46,7 @@ Du solltest die vier Hauptkomponenten von Fabric kennen:
 - **Fabric API**: Eine Reihe von APIs und Werkezuge für Mod-Entwickler, die du bei der Erstellung von Mods verwenden kannst.
 - **Yarn**: Eine Reihe offener Minecraft-Mappings, die unter der Creative Commons Zero-Lizenz für jeden frei nutzbar sind.
 
-## Warum wird Fabric für das Modden von Minecraft benötigt?
+## Warum wird Fabric für das Modden von Minecraft benötigt? {#why-is-fabric-necessary-to-mod-minecraft}
 
 > Beim Modding wird ein Spiel modifiziert, um sein Verhalten zu ändern oder neue Funktionen hinzuzufügen - im Fall von Minecraft kann dies alles sein, vom Hinzufügen neuer Items, Blöcke oder Entitäten bis hin zur Änderung der Spielmechanik oder dem Hinzufügen neuer Spielmodi.
 
@@ -56,7 +56,7 @@ Loom wandelt den obfuskierten Code mit Hilfe dieser Mappings in ein für Mensche
 
 Mit Loom kannst du auf einfache Weise Mods entwickeln und Mods gegen remapped Code kompilieren, und mit Fabric Loader kannst du diese Mods in das Spiel laden.
 
-## Was bietet die Fabric API und warum ist sie nötig?
+## Was bietet die Fabric API und warum ist sie nötig? {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API ist eine Sammlung von APIs und Werkzeugen, die Mod-Entwickler bei der Erstellung von Mods verwenden können.
 

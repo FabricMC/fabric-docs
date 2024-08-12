@@ -4,6 +4,8 @@ description: Una guida esaustiva per la comprensione e l'uso del sistema di code
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codec
