@@ -31,7 +31,7 @@ Then, we need to tell Gradle to use Fabric Loader JUnit for testing. You can do 
 
 #### Split Sources {#split-sources}
 
-::: important
+::: info
 This section is planned to become irrelevant after the release of Loom 1.8. For more information, track [this issue](https://github.com/FabricMC/fabric-loom/issues/1060).
 :::
 
@@ -81,7 +81,7 @@ This is because we're trying to access the registry or a class that depends on t
 
 ### Setting Up GitHub Actions {#setting-up-github-actions}
 
-::: note
+::: info
 This section assumes that you are using the standard GitHub Action workflow included with the example mod and with the mod template.
 :::
 
