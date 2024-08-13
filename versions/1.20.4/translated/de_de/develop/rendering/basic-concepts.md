@@ -4,6 +4,8 @@ description: Lerne, die grundlegenden Konzepte des Renderings mit der Rendering-
 authors:
   - IMB11
   - "0x3C50"
+
+search: false
 ---
 
 # Grundlegende Rendering-Konzepte

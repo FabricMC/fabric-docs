@@ -13,6 +13,8 @@ import ColorSwatch from './components/ColorSwatch.vue';
 import VersionReminder from './components/VersionReminder.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
 
+import VersionSwitcher from "./components/VersionSwitcher.vue";
+
 import "./style.css";
 
 export default {
@@ -20,10 +22,14 @@ export default {
   enhanceApp({ app }) {
     // Vidstack Videoplayer Component
     app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('media-');
+    app.component('VideoPlayer', VideoPlayer);
 
+    // Custom Components for Pages
     app.component('DownloadEntry', DownloadEntry);
     app.component('ColorSwatch', ColorSwatch);
-    app.component('VideoPlayer', VideoPlayer);
+
+    // Versioning Plugin Components
+    app.component('VersionSwitcher', VersionSwitcher);
   },
   Layout() {
     const children = {

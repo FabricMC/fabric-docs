@@ -3,6 +3,8 @@ title: Встановлення модів
 description: Покрокова інструкція по установці модів для Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Встановлення модів

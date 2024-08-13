@@ -3,6 +3,8 @@ title: Block States
 description: Learn why blockstates are a great way to add visual functionality to your blocks.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Block States {#block-states}

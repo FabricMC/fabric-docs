@@ -1,6 +1,8 @@
 ---
 title: Befehlsargumente
 description: Lerne, wie man Befehle mit komplexen Parametern erstellt.
+
+search: false
 ---
 
 # Befehlsargumente

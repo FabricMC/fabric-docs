@@ -3,6 +3,8 @@ title: Custom Item Groups
 description: Learn how to create your own item group and add items to it.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Custom Item Groups {#custom-item-groups}

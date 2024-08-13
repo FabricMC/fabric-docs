@@ -3,6 +3,8 @@ title: 渲染Hud
 description: 学习如何使用 HudRenderCallback 事件来渲染Hud。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 渲染Hud

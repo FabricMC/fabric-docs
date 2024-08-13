@@ -1,6 +1,8 @@
 ---
 title: Linee Guida per la Contribuzione
 description: Linee guida per le contribuzioni alla Documentazione di Fabric.
+
+search: false
 ---
 
 # Linee Guida per la Contribuzione {#contributing}

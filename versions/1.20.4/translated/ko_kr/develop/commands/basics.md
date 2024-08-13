@@ -14,6 +14,8 @@ authors:
   - haykam
   - mschae23
   - treeways
+
+search: false
 ---
 
 # 명령어 만들기
