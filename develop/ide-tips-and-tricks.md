@@ -96,6 +96,20 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/misc/using-the-ide/util_01.png)
 
+### Code Generation {#code-generation}
+
+The Generate menu can be quickly accessed with <kbd>⌘/CTRL</kbd><kbd>N</kbd>.
+In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
+You can also generate accessors and invokers if you have the [Minecraft Development plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installed.
+
+In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd><kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd><kbd>I</kbd>.
+
+![Code generation menu in a Java file](/assets/develop/misc/using-the-ide/generate_01.png)
+
+In a Java test file, you will be given options to generate related testing methods, as follows:
+
+![Code generation menu in a Java test file](/assets/develop/misc/using-the-ide/generate_02.png)
+
 ### Displaying Parameters{#displaying-parameters}
 
 Displaying parameters should be activated by default. You will automatically get the types and names of the parameters while writing your code.
