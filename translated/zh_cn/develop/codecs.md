@@ -330,7 +330,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // 基于那个，这是我们用于 bean 的注册表分派 codec！
 // 第一个参数是这个 bean 类型的字段名
 // 当省略时默认是 "type"。
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 我们的新 codec 将会这样将 bean 类序列化为 json，仅抓取与特定类型相关的字段：
