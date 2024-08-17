@@ -24,16 +24,20 @@ server data, while client resources might be handy if you want to allow the crea
 > For example, `MyClass#deserialize(JsonElement element)`. If you're unsure of how to create such methods, consider
 > taking a closer look at what a [Codec](../develop/codecs.md) is.
 
-The JsonDataLoader will function as the main key point in our system. It provides the `apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler)`
+The `JsonDataLoader` will function as the main key point in our system. It provides the `apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler)`
 method, which we'll override to load the read files into our storage.
+
+> We'll create a `JsonDataLoader` for loading JSON files from the `fruit` folder
+> in a data pack, deserialize them into actual fruits, and store them
+> for further retrieval.
 
 Let's start by creating a class itself. It should extend `JsonDataLoader`, and override the constructor
 and the `apply` method.
 
 ```java
-public class ExampleDataLoader extends JsonDataLoader {
+public class FruitDataLoader extends JsonDataLoader {
 
-	public ExampleDataLoader(Gson gson, String dataType) {
+	public FruitDataLoader(Gson gson, String dataType) {
 		super(gson, dataType);
 	}
 
@@ -109,7 +113,7 @@ what they are at the beginning of the article. We'll use `SERVER_DATA`, but you 
 if you need.
 
 `getFabricId()` returns an identifier that is then used by Fabric to further register our `JsonDataLoader`. This
-is usually the same as the `dataType` sting parsed to the constructor, but with a proper namespace.
+is usually the same as the `dataType` string parsed to the constructor, but with a proper namespace.
 
 We create a new instance of our `JsonDataLoader` class in the `reload()` method, and then call the `reload()`
 method again, but this time on the instance we've created. This ensures that our resources get reloaded, when needed
