@@ -323,14 +323,14 @@ Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
-// Jetzt können wir einen Codec für Bohnentypen erstellen
-// auf der Grundlage des zuvor erstellten Registry
+// Jetzt können wir einen Codec für Bohnen-Typen erstellen
+// basierend auf der zuvor erstellten Registry
 Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 
-// Und darauf aufbauend, hier ist unser Registry Dispatch Codec für Bohnen!
-// Das erste Argument ist der Argumentname für den Bohnen-Typ.
-// Wenn du das Attribut weglässt, wird es standardmäßig auf "type" gesetzt.
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+// Und darauf basierend, hier unser Registry Dispatch Codec für Bohnen!
+// Das erste Argument ist der Feldname für den Bohnen-Typ.
+// Wenn es weggelassen wird, wird sie standardmäßig zu "type".
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Unser neuer Codec serialisiert Bohnen zu JSON und erfasst dabei nur die Felder, die für ihren spezifischen Typ relevant sind:

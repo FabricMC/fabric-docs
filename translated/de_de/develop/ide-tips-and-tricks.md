@@ -88,6 +88,20 @@ Wenn du zum Beispiel Lambdas verwendest, kannst du sie mit dieser Methode schnel
 
 ![Lambda mit vielen Parametern](/assets/develop/misc/using-the-ide/util_01.png)
 
+### Code Generierung {#code-generation}
+
+Das Menü Generate kann mit <kbd>⌘/CTRL</kbd><kbd>N</kbd> schnell aufgerufen werden.
+In einer Java-Datei kannst du Konstruktoren, Getter, Setter, überschreibende oder implementierende Methoden und vieles mehr generrieren.
+Du kannst auch Accessors und Invokers erzeugen, wenn du das [Minecraft Development Plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installiert hast.
+
+Zusätzlich kannst du Methoden mit <kbd>⌘/CTRL</kbd><kbd>O</kbd> überschreiben und mit <kbd>⌘/CTRL</kbd><kbd>I</kbd> implementieren.
+
+![Menü zur Codegenerierung in einer Java-Datei](/assets/develop/misc/using-the-ide/generate_01.png)
+
+In einer Java-Testdatei erhälst du Optionen, um die entsprechenden Testmethoden zu generieren, wie folgt:
+
+![Menü zur Codegenerierung in einer Java-Testdatei](/assets/develop/misc/using-the-ide/generate_02.png)
+
 ### Parameter darstellen {#displaying-parameters}
 
 Die Anzeige der Parameter sollte standardmäßig aktiviert sein. Du bekommst automatisch die Typen und Namen der Parameter, während du deinen Code schreibst.

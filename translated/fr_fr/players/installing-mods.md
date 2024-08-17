@@ -51,7 +51,7 @@ Une fois le dossier `mods` trouvé, vous pouvez y déplacer les fichiers `.jar` 
 
 ![Mods installés dans le dossier mods](/assets/players/installing-mods.png)
 
-## 3. Et voilà !
+## 3. Et voilà ! {#3-you-re-done}
 
 Après avoir déplacé les mods dans le dossier `mods`, vous pouvez ouvrir le launcher Minecraft et sélectionner le profil Fabric depuis le menu déroulant en bas à gauche, puis appuyer sur Jouer.
 
