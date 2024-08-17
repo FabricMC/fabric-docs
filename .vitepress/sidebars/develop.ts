@@ -196,6 +196,10 @@ export default [
         link: "/develop/codecs",
       },
       {
+        text: "develop.misc.custom-resources",
+        link: "/develop/custom-resources",
+      },
+      {
         text: "develop.misc.events",
         link: "/develop/events"
       },
