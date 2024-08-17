@@ -55,7 +55,7 @@ public class ModItems {
 			.build();
 	// :::9
 	// :::5
-	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
+	public static final FoodComponent POISON_FOOD_COMPONENT = new FoodComponent.Builder()
 			.alwaysEdible()
 			.snack()
 			// The duration is in ticks, 20 ticks = 1 second
@@ -63,10 +63,16 @@ public class ModItems {
 			.build();
 	// :::5
 
+	// :::poisonous_apple
+	public static final Item POISONOUS_APPLE = register(
+			new Item(new Item.Settings().food(POISON_FOOD_COMPONENT)),
+			"poisonous_apple"
+	);
+	// :::poisonous_apple
+
 	// :::2
 	public static final Item SUSPICIOUS_SUBSTANCE = register(
-			// Ignore the food component for now, we'll cover it later in the food section.
-			new Item(new Item.Settings().food(SUSPICIOUS_FOOD_COMPONENT)),
+			new Item(new Item.Settings()),
 			"suspicious_substance"
 	);
 	// :::2
@@ -115,6 +121,7 @@ public class ModItems {
 		// Register items to the custom item group.
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
+			itemGroup.add(ModItems.POISONOUS_APPLE);
 			itemGroup.add(ModItems.GUIDITE_SWORD);
 			itemGroup.add(ModItems.GUIDITE_HELMET);
 			itemGroup.add(ModItems.GUIDITE_BOOTS);
