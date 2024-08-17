@@ -38,11 +38,13 @@ public class FruitDataLoader extends JsonDataLoader {
 	public static final HashMap<Identifier, Fruit> DATA = new HashMap<>();
 	// A Gson used in our JsonDataLoader, explicitly set to print multiline.
 	public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+	//:::1
 
 	//:::2
 	public FruitDataLoader() {
 		super(GSON, "fruit");
 	}
+	//:::2
 
 	//:::3
 	@Override
@@ -60,6 +62,7 @@ public class FruitDataLoader extends JsonDataLoader {
 		}
 		LOGGER.info("Loaded {} items.", it);
 	}
+	//:::3
 
 	//:::4
 	public static void register(){
@@ -76,6 +79,7 @@ public class FruitDataLoader extends JsonDataLoader {
 			}
 		});
 	}
+	//:::4
 
 	//:::5
 	public record Fruit(String name) {
@@ -88,4 +92,5 @@ public class FruitDataLoader extends JsonDataLoader {
 			return result.resultOrPartial(LOGGER::error);
 		}
 	}
+	//:::5
 }
