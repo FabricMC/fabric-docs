@@ -17,10 +17,10 @@ Es sei denn, du machst einen Mod mit übermächtigen Gegenständen, solltest du 
 
 ## Den Nahrungsmittel Component hinzufügen {#adding-the-food-component}
 
-Um eine Nahrungsmittel Component zu einem Artikel hinzuzufügen, können wir sie an die Instanz `FabricItemSettings` übergeben:
+Um einen Nahrungsmittel Component zu einem Item hinzuzufügen, können wir es an die `Item.Settings` Instanz übergeben:
 
 ```java
-new FabricItemSettings().food(new FoodComponent.Builder().build())
+new Item.Settings().food(new FoodComponent.Builder().build())
 ```
 
 Im Moment wird der Gegenstand dadurch nur essbar, mehr nicht.
@@ -36,11 +36,13 @@ Die Klasse `FoodComponent.Builder` hat viele Methoden, mit denen du ändern kann
 | `snack`              | Deklariert dein Item als Snack.                                                                                                                                                                                                    |
 | `statusEffect`       | Fügt einen Statuseffekt hinzu, wenn du dein Item isst. Normalerweise wird dieser Methode eine Instanz des Statuseffekts und eine Chance übergeben, wobei die Chance ein dezimaler Prozentsatz ist (`1f = 100%`) |
 
-Wenn du den Builder nach deinen Wünschen geändert hast, kannst du die Methode `build()` aufrufen, um den `FoodComponent` zu erhalten
-
-Anhand des Beispiels, das auf der Seite [Dein erstes Item erstellen](./first-item) erstellt wurde, werde ich die folgenden Optionen für den Builder verwenden:
+Wenn du den Builder nach deinen Wünschen verändert hast, kannst du die Methode `build()` aufrufen, um den `FoodComponent` zu erhalten.
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+Ähnlich wie in dem Beispiel auf der Seite [Dein erstes Item erstellen](./first-item) werde ich den obigen Component verwenden:
+
+@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Dies macht das Item:
 
