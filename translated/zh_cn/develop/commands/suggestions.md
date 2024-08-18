@@ -17,7 +17,8 @@ Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give
 
 要使用建议提供器，你需要在 argument builder 中调用 `suggests` 方法。 此方法接收一个 `SuggestionProvider`，返回一个附加了新的建议提供器的 argument builder。
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 内置的建议提供器{#built-in-suggestion-providers}
 
@@ -39,6 +40,9 @@ Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give
 @[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 要使用这个建议提供器，只需将一个实例传递到参数构造器的 `.suggests` 方法。
+
+@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 显然，建议提供器能够更复杂，因为还可以读取命令上下文以根据命令的状态（例如已经提供的参数）提供建议。
 
