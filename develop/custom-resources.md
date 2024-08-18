@@ -34,19 +34,8 @@ method, which we'll override to load the read files into our storage.
 Let's start by creating a class itself. It should extend `JsonDataLoader`, and override the constructor
 and the `apply` method.
 
-```java
-public class FruitDataLoader extends JsonDataLoader {
 
-	public FruitDataLoader(Gson gson, String dataType) {
-		super(gson, dataType);
-	}
-
-	@Override
-	protected void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {
-		
-	}
-}
-```
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/EmptyDataLoader.java)
 
 Let's add some static fields, which we'll then use later on. We're also going to use
 a `HashMap` to store our data, but you can always replace it with a more advanced registry.
