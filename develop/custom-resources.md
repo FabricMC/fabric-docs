@@ -12,17 +12,17 @@ Each resource type falls into one of two categories: **Client Resources** and **
 Client Resources are the ones that are loaded from a **resource pack**, thus being fully client-side, and accessible at any time.
 Server Data, on the other hand, is used for various tasks on the server, and is loaded from a **data pack**.
 
-## Deciding on your Resource Type {#deciding-on-a-resource-type}
+## Deciding on Your Resource Type {#deciding-on-a-resource-type}
 
 Which type you'll use is completely up to you and your needs. Most of the time, the type depends on
 the environment you're working with. For example, for recipes for a custom block, you'd want to use the
 server data, while client resources might be handy if you want to allow the creation of new themes for your screen.
 
-# Creating a JsonDataLoader
+## Creating a JsonDataLoader {#creating-a-json-data-loader}
 
 > This article assumes you have a class for the object you want to read with a proper deserialization method.
 > For example, `MyClass#deserialize(JsonElement element)`. If you're unsure of how to create such methods, consider
-> taking a closer look at what a [Codec](../develop/codecs.md) is.
+> taking a closer look at what a [Codec](../develop/codecs) is.
 
 The `JsonDataLoader` will function as the main key point in our system. It provides the `apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler)`
 method, which we'll override to load the read files into our storage.
@@ -60,7 +60,7 @@ With that being out of place, or constructor should now look like this:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
 
-## Deserializing Fields
+## Deserializing Fields {#deserializing-fields}
 
 Now that our class looks clean, we can take a proper look at the `apply` method. This is the place where
 we're going to deserialize `JsonElements` into custom objects, and store them afterward.
@@ -89,7 +89,7 @@ example:banana
 We then iterate over the entries of the prepared map, deserialize them, and load them into
 our very own registry, a simple `HashMap` in our case.
 
-# Registering the Custom Resource
+## Registering the Custom Resource {#registering-the-custom-resource}
 
 With that our `JsonDataLoader` is done, all that is left is to register it within our `ModInitializer`.
 Since the registration method is quite big, you might want to create a separate static method. Let's take
