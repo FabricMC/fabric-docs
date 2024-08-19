@@ -10,6 +10,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 
@@ -28,24 +30,17 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
-public class FruitDataLoader extends JsonDataLoader {
+//:::1
+public class BookDataLoader extends JsonDataLoader {
 
-	//:::1
-	// A Logger we'll use for debugging reasons.
 	public static final Logger LOGGER = LoggerFactory.getLogger(BookDataLoader.class);
-	// A HashMap we'll use to store our data, feel free to use something more advanced.
-	public static final HashMap<Identifier, Fruit> DATA = new HashMap<>();
-	// A Gson used in our JsonDataLoader, explicitly set to print multiline.
+	public static final HashMap<Identifier, Book> DATA = new HashMap<>();
 	public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-	//:::1
 
-	//:::2
-	public FruitDataLoader() {
+	public BookDataLoader() {
 		super(GSON, "fruit");
 	}
-	//:::2
 
-	//:::3
 	@Override
 	protected void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {
 		int it = 0;
@@ -53,7 +48,7 @@ public class FruitDataLoader extends JsonDataLoader {
 		for(Map.Entry<Identifier, JsonElement> entry : prepared.entrySet()) {
 			Identifier identifier = entry.getKey();
 			JsonElement json = entry.getValue();
-			Optional<Fruit> optional = Fruit.deserialize(json);
+			Optional<Book> optional = Book.deserialize(json);
 			if(optional.isPresent()){
 				DATA.put(identifier, optional.get());
 				it++;
@@ -61,11 +56,9 @@ public class FruitDataLoader extends JsonDataLoader {
 		}
 		LOGGER.info("Loaded {} items.", it);
 	}
-	//:::3
 
-	//:::4
 	public static void register(){
-		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new IdentifiableResourceReloadListener() {
+		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new IdentifiableResourceReloadListener() {
 
 			@Override
 			public Identifier getFabricId() {
@@ -78,5 +71,5 @@ public class FruitDataLoader extends JsonDataLoader {
 			}
 		});
 	}
-	//:::4
 }
+//:::1

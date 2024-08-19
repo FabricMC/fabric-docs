@@ -12,40 +12,32 @@ Each resource type falls into one of two categories: **Client Resources** and **
 Client Resources are the ones that are loaded from a **resource pack**, thus being fully client-side, and accessible at any time.
 Server Data, on the other hand, is used for various tasks on the server, and is loaded from a **data pack**.
 
-## Deciding on Your Resource Type {#deciding-on-a-resource-type}
-
-Which type you'll use is completely up to you and your needs. Most of the time, the type depends on
-the environment you're working with. For example, for recipes for a custom block, you'd want to use the
-server data, while client resources might be handy if you want to allow the creation of new themes for your screen.
+::: info
+In this article, we'll create two separate `JsonDataLoaders`. A server-side one,
+to load `Fruit` objects from a `data pack`, and a client-side one - to load `Book`s
+from a resource pack. We'll also briefly discuss how `Codec`s could help us on
+our journey! In case you're unfamiliar with them, consider taking a closer look
+at what [Codecs](../develop/codecs) are.
+:::
 
 ## Creating a JsonDataLoader {#creating-a-json-data-loader}
 
-> This article assumes you have a class for the object you want to read with a proper deserialization method.
-> For example, `MyClass#deserialize(JsonElement element)`. If you're unsure of how to create such methods, consider
-> taking a closer look at what a [Codec](../develop/codecs) is.
-
 The `JsonDataLoader` will function as the main key point in our system. It provides the `apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler)`
-method, which we'll override to load the read files into our storage.
+method, which we'll override to read files and load them into our storage.
 
-> We'll create a `JsonDataLoader` for loading JSON files from the `fruit` folder
-> in a data pack, deserialize them into actual fruits, and store them
-> for further retrieval.
+Imagine you want to add a system, where all players can create their own `Fruit`s. Why not
+make it dynamic and allow their creation with a data pack? We'll create a `FruitDataLoader`
+that serves our needs. Make it extend `JsonDataLoader` and override all required methods.
 
-Let's start by creating a class itself. It should extend `JsonDataLoader`, and override the constructor
-and the `apply` method.
-
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/EmptyDataLoader.java)
-
-Let's add some static fields, which we'll then use later on. We're also going to use
+Let's introduce some static fields, which we'll then use later on? We're also going to use
 a `HashMap` to store our data, but you can always replace it with a more advanced registry.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
 
-Our current constructor takes in a Gson object and a string. We've already created a custom
-Gson object as a static field, so we can simply replace it. The string, on the other hand, is a bit
+Our current constructor takes in a `Gson` object and a string. We've already created a custom
+`Gson` object as a static field, so we can simply replace it. The string, on the other hand, is a bit
 trickier. It represents the **folder** within the pack. In our example, setting it to `"fruit"`
-will load the files that are located within the `fruit` folder of the pack:
+will load the files that are located within the `fruit` folder of the **data pack**:
 
 ```
 root
@@ -56,7 +48,7 @@ root
       └─ banana.json
 ```
 
-With that being out of place, or constructor should now look like this:
+With that being out of place, our constructor should now look like this:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
 
@@ -67,49 +59,75 @@ we're going to deserialize `JsonElements` into custom objects, and store them af
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
 
+::: warning
+We should clear all existing entries before adding new ones, and this is **VERY IMPORTANT**. This
+ensures that the deletion of a file **actually deletes** it after reloading.
+:::
+
+`JsonDataLoader` allows us to easily read **JSON** files from the specified folder. The `apply` method
+is the exact place where you tend to do it. Since we deal with **JSON** files here, it makes total sense
+(and is even preferred) to use `Codec`s for deserialization purposes. Let's take a look at an example
+of how such codec might look like:
+
+```java
+Codec<Fruit> CODEC = Codec.STRING.fieldOf("name").xmap(Fruit::new, Fruit::name).codec();
+```
+
+This right here is probably the simplest codec you can get. It directly maps `name` field to
+a `Fruit` object, meaning our JSON files should look like this:
+
+```json
+{
+  "name": "apple"
+}
+```
+
+The `prepared` map is an argument parsed to our `apply` method. It essentially maps `Identifiers` to
+`JsonElements`. Identifiers specify paths within the folder, e.g `example:orange`, `example:apple`.
+JsonElements are even more handy. Since we're using codecs, we can easily convert them into `Fruit` objects,
+by calling the **deserialization** method. It may vary, but it always looks more-or-less like this:
+
+```java
+public static Optional<Fruit> deserialize(JsonElement json) {
+	DataResult<Fruit> result = CODEC.parse(JsonOps.INSTANCE, json);
+	return result.resultOrPartial(LOGGER::error);
+}
+```
+
+::: tip
 We can use an iterator to keep track on how many items we've loaded so far, to then log it to the console.
 This is genuinely useful for debugging purposes.
-
-We should clear all existing entries before adding new ones, and this is VERY IMPORTANT. This
-ensures that the deletion of a file **actually deletes** it after reloading.
-
-The `Map.Entry<>` is used here to bundle an identifier with a JsonElement. While it's clear what the JsonElement
-represents - the JsonElement read from the file, what is the identifier for?
-
-It's actually quite simple, the identifier corresponds to the location of the file within
-your folder, specified by that very string in the constructor. In our example with fruits, the identifiers
-would be:
-
-```
-example:orange
-example:apple
-example:banana
-```
-
-We then iterate over the entries of the prepared map, deserialize them, and load them into
-our very own registry, a simple `HashMap` in our case.
+:::
 
 ## Registering the Custom Resource {#registering-the-custom-resource}
 
-With that our `JsonDataLoader` is done, all that is left is to register it within our `ModInitializer`.
-Since the registration method is quite big, you might want to create a separate static method. Let's take
-a look:
-
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
 
-Right away, you can see that we use the `ResourceType` enum to specify the resource type. We've discussed
-what they are at the beginning of the article. We'll use `SERVER_DATA`, but you can go for `CLIENT_RESOURCES`
-if you need.
+Custom resources, just like a lot of other features, require a proper registration within your `ModInitializer`.
+Now, this registration process is quite big, so you might want to put it in a static method.
+
+::: tip
+Since our `FruitDataLoader` tends to load files from a **data pack**, we use the `SERVER_DATA` `ResourceType` here.
+If your object should instead be loaded from a **resource pack**, considering changing this value to `CLIENT_RESOURCES`
+:::
 
 `getFabricId()` returns an identifier that is then used by Fabric to further register our `JsonDataLoader`. This
 is usually the same as the `dataType` string parsed to the constructor, but with a proper namespace.
 
 We create a new instance of our `JsonDataLoader` class in the `reload()` method, and then call the `reload()`
-method again, but this time on the instance we've created. This ensures that our resources get reloaded, when needed
-(Either by pressing CTRL + T or typing /reload, depending on your `ResourceType`).
+method again, but this time on the instance we've created. This ensures that our resources get reloaded, when needed.
+
+With that our `FruitDataLoader` is done, and we can focus on the `BookDataLoader` to load our books.
+Luckily, the process is similar. In fact, it's pretty much the same!
+
+::: details Take a look at the `BookDataLoader` class
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/BookDataLoader.java)
+:::
 
 ---
 
-An example `Fruit` class used in this article. Feel free to copy it and adjust for your needs.
-
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/resources/FruitDataLoader.java)
+Example `Fruit` and `Book` classes used in this article. Feel free to copy them and adjust for your needs.
+::: code-group
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/Fruit.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/resources/Book.java)
+:::
