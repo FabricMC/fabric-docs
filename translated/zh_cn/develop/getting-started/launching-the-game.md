@@ -70,3 +70,16 @@ Fabric Loom 提供了各种启动配置文件，可以帮助你在实时游戏�
 ![VM 参数屏幕截图](/assets/develop/getting-started/vm-arguments.png)
 
 现在，你应该能够在调试期间修改 mixin 方法的内容，并且无需重启游戏即可使更改生效。
+
+## 可能的问题
+
+**Error: Could not find or load main class net.fabricmc.devlaunchinjector.Main Caused by: java.lang.ClassNotFoundException: net.fabricmc.devlaunchinjector.Main**
+
+原因：
+
+请查看你的电脑用户名是否为中文，当是中文时会导致这个问题。因为 gradle 并不将依赖包保存到项目文件夹，而是集中在`%homepath%/.gradle/caches/`文件夹下统一管理，包括`net.fabricmc.devlaunchinjector`，当你运行运行配置的时候，会因为路径错误而退出。查看报错信息，会发现一堆乱码。
+
+解决：
+
+可以通过更改 gradle 存放全局配置以及 caches 文件夹的路径（即.gradle 文件夹的位置）来避免路径中出现中文，方法设置环境变量`GRADLE_USER_HOME`，它控制`.gradle`的位置。比如`C:\.gradle`。现在重启并重新构建，运行，错误得到解决。
+如果你重构完成后发现配置文件消失，打开 gradle 面板，点击重新加载所有 gradle 文件（左上角的加载图标），等待完成即可。
