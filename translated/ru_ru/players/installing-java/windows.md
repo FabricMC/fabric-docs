@@ -7,9 +7,9 @@ authors:
 
 # Установка Java на Windows
 
-Этот гайд расскажет, как установить Java 17 на Windows.
+Это руководство поможет вам установить Java 21 на Windows.
 
-Этот гайд понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
+Это руководство понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
 
 ## 1. Проверьте, не установлена ли Java
 
@@ -26,12 +26,12 @@ authors:
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Чтобы использовать большинство современных версий Minecraft, вам потребуется установить как минимум Java 17. Если эта команда отображает любую версию ниже 17, вам придётся обновить Java.
+Чтобы использовать Minecraft 1.21, вам необходимо установить Java 21 и выше. Если эта команда отображает любую версию ниже 21, вам придётся обновить Java.
 :::
 
-## 2. Скачивание установщика Java 17
+## 2. Загрузите установщик Java 21 {#2-download-the-java-installer}
 
-Чтобы установить Java 17, вам нужно скачать установщик с [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
+Чтобы установить Java 21, вам необходимо загрузить загрузчик из [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21).
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 
@@ -41,20 +41,20 @@ authors:
 
 Большинство современных компьютеров имеют 64-битную операционную систему. Если вы не уверены, используйте 64-битный установщик.
 
-## 3. Запустите установщик!
+## 3. Запустите установщик! {#3-run-the-installer}
 
-Следуйте инструкциям в установщике, чтобы установить Java 17. Когда вы доходите до этой страницы, вы должны выбрать "Entire feature will be installed on local hard drive" для следующих функций:
+Следуйте указаниям программы установки, чтобы установить Java 21. Когда вы доходите до этой страницы, вы должны выбрать "Entire feature will be installed on local hard drive" для следующих функций:
 
 - `Set JAVA_HOME environment variable` - будет добавлено в PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Установщик Java 17 c выделенными "Set JAVA_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Установщик Java 21 c выделенными "Set JAVA\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 После этого нажмите на `Next` и продолжите установку.
 
-## 4. Убедитесь, что Java 17 установлена
+## 4. Убедитесь, что Java 21 установлена {#4-verify-that-java-is-installed}
 
-После того как установка закончится, вы можете проверить, что Java 17 установлена, открыв командную строку и вписав `java -version`.
+После завершения установки, вы можете проверить что Java 21 установлена открытием командного запроса заново и ввести `java -version`.
 
 Если команда будет выполнена успешно, вы увидите что-то вроде показанного ранее, где отображается версия Java:
 
