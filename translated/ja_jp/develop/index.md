@@ -9,4 +9,4 @@ description: Fabricのコミュニティによって書かれたこのデベロ�
 
 ガイドの一覧はサイドバーで見ることができます。 何か知りたい内容があるなら、このページの一番上にある検索バーを使うと良いですよ。
 
-もしFabricのドキュメントに貢献したいなら、[投稿ガイドライン](../contributing)を参照してください。ソースコードは[GitHub](https://github.com/FabricMC/fabric-docs)にあります。
+もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](../contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。
