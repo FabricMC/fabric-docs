@@ -133,7 +133,6 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// Sets the SoundInstance into its ending phase.
 	// This is especially useful for external access to this SoundInstance
 	public void end() {
-		this.transitionTick = 0;
 		this.transitionState = TransitionState.ENDING;
 	}
 	// :::6

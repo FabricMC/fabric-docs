@@ -108,7 +108,7 @@ public class EngineBlockEntity extends BlockEntity implements DynamicSoundSource
 		return this.getTick() > -1;
 	}
 
-	private void sendPacketToTrackingClients(CustomPayload payload) {
+	public void sendPacketToTrackingClients(CustomPayload payload) {
 		if (payload == null || !(this.getWorld() instanceof ServerWorld)) return;
 		PlayerLookup.tracking(this).forEach(player -> ServerPlayNetworking.send(player, payload));
 	}

@@ -261,7 +261,7 @@ public enum TransitionState {
 }
 ```
 
-But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values, like priorities etc.
+But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 
@@ -362,4 +362,15 @@ is a valid edge case. For the sake of simplicity we just created a `List<Abstrac
 To use this sound system simply make use of either the `DynamicSoundManager` methods or the `SoundInstance` methods. Using `onStartedTrackingBy` and `onStoppedTrackingBy`
 from entities or just custom S2C networking you can now start and stop your custom dynamic `SoundInstance`s.
 
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/network/ReceiveS2C.java)
+
+The final product can adjust its volume based on the sound phase to smoothen out the transitions and change the pitch based on a stress value, which is
+coming straight from the sound source.
+
 <VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+
+You could add another value to your sound source, which keeps track of an "overheat" value and let a hissing `SoundInstance` slowly fade in if the value is above 0
+or add a new interface to your custom dynamic `SoundInstance`s which assigns a priority value to the sound types, which helps out choosing which sound to play, if they
+collide with each other.
+
+With the current system you can easily handle multiple `SoundInstance`s at once and design the audio to your needs.
