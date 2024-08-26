@@ -1,12 +1,17 @@
 package com.example.docs.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -42,11 +47,37 @@ public class EngineBlock extends BlockWithEntity {
 
 	@Override
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity blockEntity))
+		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity))
 			return super.onUse(state, world, pos, player, hit);
 
-		if (blockEntity.isTicking()) return super.onUse(state, world, pos, player, hit);
-		blockEntity.setTick(0);    // starts ticking
-		return ActionResult.SUCCESS;
+		if (player.getMainHandStack().isIn(ItemTags.COALS)) {
+			if (engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() + 40)) {
+				player.getMainHandStack().decrementUnlessCreative(1, player);
+				playSound(world, SoundEvents.ITEM_AXE_STRIP, pos);
+				return ActionResult.SUCCESS;
+			}
+			return ActionResult.PASS;
+		}
+		else {
+			if (engineBlockEntity.isRunning()) {
+				engineBlockEntity.setNormalizedStress(engineBlockEntity.getNormalizedStress() + 0.2f);
+				return ActionResult.SUCCESS;
+			} else if (engineBlockEntity.getFuel() > 0) {
+				playSound(world, SoundEvents.BLOCK_LEVER_CLICK, pos);
+				engineBlockEntity.turnOn();
+				return ActionResult.SUCCESS;
+			}
+		}
+		return ActionResult.PASS;
+	}
+
+	@Override
+	protected BlockRenderType getRenderType(BlockState state) {
+		return BlockRenderType.MODEL;
+	}
+
+	private static void playSound(World world, SoundEvent soundEvent, BlockPos pos) {
+		if (world.isClient()) return;
+		world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS, 0.8f, 1f);
 	}
 }

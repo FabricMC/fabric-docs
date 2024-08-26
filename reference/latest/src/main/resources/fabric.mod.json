@@ -17,7 +17,8 @@
 			"com.example.docs.item.FabricDocsReferenceItems",
 			"com.example.docs.block.FabricDocsReferenceBlocks",
 			"com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
-			"com.example.docs.component.FabricDocsReferenceComponents"
+			"com.example.docs.component.FabricDocsReferenceComponents",
+			"com.example.docs.networking.FabricDocsReferenceNetworking"
 		],
 		"client": [
 			"com.example.docs.FabricDocsReferenceClient",

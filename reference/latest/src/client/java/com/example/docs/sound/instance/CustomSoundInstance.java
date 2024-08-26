@@ -13,14 +13,15 @@ public class CustomSoundInstance extends MovingSoundInstance {
 
 	private final LivingEntity entity;
 
-	// Here we pass over the sound source of the SoundInstance and store it in the instance.
+
 	public CustomSoundInstance(LivingEntity entity, SoundEvent soundEvent, SoundCategory soundCategory) {
 		super(soundEvent, soundCategory, SoundInstance.createRandom());
-
-		// here we can set up values when the sound is about to start.
-		this.repeat = true;
+		// In this constructor we also add the sound source (LivingEntity) of
+		// the SoundInstance and store it in the current object
 		this.entity = entity;
-		setPositionToEntity();
+		// set up default values when the sound is about to start
+		this.repeat = true;
+		this.setPositionToEntity();
 	}
 
 	@Override
@@ -31,15 +32,22 @@ public class CustomSoundInstance extends MovingSoundInstance {
 			return;
 		}
 		// move sound position over to the new position for every tick
-		setPositionToEntity();
+		this.setPositionToEntity();
+	}
+
+	@Override
+	public boolean shouldAlwaysPlay() {
+		// override to true, so that the SoundInstance can start
+		// or add your own condition to the SoundInstance, if necessary
+		return true;
 	}
 
 	// small utility method to move the sound instance position
 	// to the sound source's position
 	private void setPositionToEntity() {
-		this.x = entity.getX();
-		this.y = entity.getY();
-		this.z = entity.getZ();
+		this.x = this.entity.getX();
+		this.y = this.entity.getY();
+		this.z = this.entity.getZ();
 	}
 }
 // :::1
