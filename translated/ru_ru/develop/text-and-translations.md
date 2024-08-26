@@ -97,7 +97,7 @@ MutableText result = Text.literal("Hello World!")
     <tr><td><ColorSwatch color="#FF55FF" /></td><td>Фиолетовый (light_purple)</td><td>§d</td><td>\u00A7d</td><td>#FF55FF</td></tr>
     <tr><td><ColorSwatch color="#FFFF55" /></td><td>Жёлтый (yellow)</td><td>§e</td><td>\u00A7e</td><td>#FFFF55</td></tr>
     <tr><td><ColorSwatch color="#FFFFFF" /></td><td>Белый (white)</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
-    <tr><td></td><td>Сбросить</td><td>§r</td><td></td><td></td></tr>
+    <tr><td></td><td>Сброс форматирования</td><td>§r</td><td></td><td></td></tr>
     <tr><td></td><td><b>Жирный</b></td><td>§l</td><td></td><td></td></tr>
     <tr><td></td><td><s>Зачёркнутый</s></td><td>§m</td><td></td><td></td></tr>
     <tr><td></td><td><u>Подчёркнутый</u></td><td>§n</td><td></td><td></td></tr>
