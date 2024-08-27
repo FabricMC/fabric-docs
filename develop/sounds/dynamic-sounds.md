@@ -8,7 +8,7 @@ authors:
 # Create Dynamic and Interactive Sounds{#create-dynamic-and-interactive-sounds}
 
 ::: info
-This page builds on top of the [Playing Sounds](../sounds/custom) and the [Creating Custom Sounds](../sounds/custom) pages!
+This page builds on top of the [Playing Sounds](../sounds/using-sounds) and the [Creating Custom Sounds](../sounds/custom) pages!
 :::
 
 ## Problems with `SoundEvents` {#problems-with-soundevents}
