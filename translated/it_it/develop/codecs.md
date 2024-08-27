@@ -329,7 +329,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // E in base a quello, ecco il nostro codec di dispatch della registry per i fagioli!
 // Il primo parametro e il nome dell'attributo per il tipo di fagiolo.
 // Se lasciato vuoto, assumerà "type" come valore predefinito.
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attributi che sono rilevanti al loro tipo specifico:

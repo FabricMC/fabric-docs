@@ -1,6 +1,6 @@
 ---
 title: 食物物品
-description: 学会如何给物品添加 FoodComponent 以让它可食物，并配置。
+description: 学会如何给物品添加 FoodComponent 以让它可食用，并配置。
 authors:
   - IMB11
 ---
@@ -17,10 +17,10 @@ authors:
 
 ## 添加食物组件{#adding-the-food-component}
 
-要为物品添加食物组件，可以先传递到 `FabricItemSettings` 实例：
+要为物品添加食物组件，可以先传递到 `Item.Settings` 实例：
 
 ```java
-new FabricItemSettings().food(new FoodComponent.Builder().build())
+new Item.Settings().food(new FoodComponent.Builder().build())
 ```
 
 现在，只要让物品可食用，没有别的。
@@ -36,11 +36,13 @@ new FabricItemSettings().food(new FoodComponent.Builder().build())
 | `snack`              | 将你的物品描述为零食。                                              |
 | `statusEffect`       | 吃你的物品时添加状态效果。 通常传递到此方法的是一个状态效果实例和概率，其中概率是小数（`1f = 100%`） |
 
-按照自己的喜欢修改了 builder 后，可以调用 `build()` 方法以获得 `FoodComponent`
-
-使用[创建你的第一个物品](./first-item)页面中创建的例子，并为 builder 使用以下选项：
+按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodComponent`。
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+与 [创建你的第一个物品](./first-item) 类似，该示例将使用上述的组件：
+
+@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 这会让物品：
 

@@ -89,6 +89,20 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ![具有多个参数的 Lambda](/assets/develop/misc/using-the-ide/util_01.png)
 
+### 代码生成{#code-generation}
+
+“生成”菜单可通过 <kbd>⌘/CTRL</kbd><kbd>N</kbd> 快速访问。
+在 Java 文件中，你可以生成构造器、getter、setter、重写或实现方法，等等。
+你还可以生成 accessor 和 invoker，如果有安装了 [Minecraft Development 插件](./getting-started/setting-up-a-development-environment#minecraft-development)的话。
+
+此外，你还可以通过 <kbd>⌘/CTRL</kbd><kbd>O</kbd> 快速重写方法，或通过 <kbd>⌘/CTRL</kbd><kbd>I</kbd> 实现方法。
+
+![Java 文件中的代码生成菜单](/assets/develop/misc/using-the-ide/generate_01.png)
+
+在 Java 测试文件中，会有选项生成相关的测试方法，就像下面这样：
+
+![Java 测试文件中的代码生成菜单](/assets/develop/misc/using-the-ide/generate_02.png)
+
 ### 显示参数{#displaying-parameters}
 
 显示参数应默认激活。 你将在编写代码时自动获取参数的类型和名称。
