@@ -20,6 +20,8 @@ public class CustomSoundInstance extends MovingSoundInstance {
 		// the SoundInstance and store it in the current object
 		this.entity = entity;
 		// set up default values when the sound is about to start
+		this.volume = 1.0f;
+		this.pitch = 1.0f;
 		this.repeat = true;
 		this.setPositionToEntity();
 	}

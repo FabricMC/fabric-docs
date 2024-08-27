@@ -7,7 +7,7 @@ authors:
 
 # Create Dynamic and Interactive Sounds{#create-dynamic-and-interactive-sounds}
 
-::: warning
+::: info
 This page builds on top of the [Playing Sounds](../sounds/custom) and the [Creating Custom Sounds](../sounds/custom) pages!
 :::
 
@@ -273,7 +273,7 @@ But if this enum is used anywhere else, e.g. in custom network packets, you may 
 instead of the client only packages.
 :::
 
-### SoundInstanceCallback Interface {#soundinstancecallback-interface}
+### `SoundInstanceCallback` Interface {#soundinstancecallback-interface}
 
 This interface is used as a callback. For now we only need a `onFinished` method but you can add your own methods if you need to send
 other signals too.
@@ -335,7 +335,7 @@ what conditions would bring the sound to a stop and what sound modulation we wan
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
 
-### DynamicSoundManager Class {#dynamicsoundmanager-class}
+### `DynamicSoundManager` Class {#dynamicsoundmanager-class}
 
 We discussed [earlier](#using-a-soundinstance) how to play and stop a `SoundInstance`. To clean up, centralize and manage those interactions you can create your own
 `SoundInstance` handler which builds on top of that.
@@ -369,7 +369,7 @@ coming straight from the sound source.
 
 <VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
 
-You could add another value to your sound source, which keeps track of an "overheat" value and let a hissing `SoundInstance` slowly fade in if the value is above 0
+You could add another value to your sound source, which keeps track of an "overheat" value and, in addition, let a hissing `SoundInstance` slowly fade in if the value is above 0
 or add a new interface to your custom dynamic `SoundInstance`s which assigns a priority value to the sound types, which helps out choosing which sound to play, if they
 collide with each other.
 
