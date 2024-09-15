@@ -75,7 +75,7 @@ Command<ServerCommandSource> command = context -> {
 
 在模组的初始化器中，我们只注册两个简单的命令：
 
-@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 在 `sendFeedback()` 方法之中，第一个参数是要发送的文本， 是 `Supplier<Text>`，以避免在不必要时实例化 Text 对象。
 
@@ -85,19 +85,25 @@ Command<ServerCommandSource> command = context -> {
 
 通常抛出 `CommandSyntaxException` 异常来指示命令或参数中的语法错误。 你也可以实现你自己的异常。
 
-要执行这个命令，必须 `/foo`，这是大小写敏感的。
+要执行这个命令，必须输入 `/test_command`，这是大小写敏感的。
+
+:::info
+这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后，给 `.execute()` 传入方法引用。 这样做是为了更清晰。
+:::
 
 ### 注册环境{#registration-environment}
 
 如有需要，你可以确保命令仅在一些特定情况下注册，例如仅在专用的环境中：
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### 命令要求{#command-requirements}
 
 假如说你希望命令只有管理员可以执行， 这时就要用到 `requires()` 方法。 `requires()` 方法有一个 `Predicate<S>` 参数，提供一个 `ServerCommandSource` 以检测并确定 `CommandSource` 能否执行命令。
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行， 否则，命令不会被注册。
 
@@ -107,11 +113,13 @@ Command<ServerCommandSource> command = context -> {
 
 要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/subtater` 和 `/subtater subcommand` 都是有效的。
+类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 客户端命令{#client-commands}
 
@@ -123,7 +131,12 @@ Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.clien
 
 命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+:::warning
+Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/brigadier/issues/46)。 如果需要重定向没有参数的命令节点，给 `.execute()` 构造器提供一个到相同逻辑的引用，就像这个例子中。
+:::
+
+@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 常见问题{#faq}
 

@@ -6,13 +6,13 @@ authors:
   - dicedpixels
 ---
 
-# Dein erstes Item erstellen
+# Dein erstes Item erstellen {#creating-your-first-item}
 
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
 
 Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, genauso wie Items.
 
-## Deine Item-Klasse vorbereiten
+## Deine Item-Klasse vorbereiten {#preparing-your-items-class}
 
 Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die eine Instanz eines Items und einen String-Bezeichner akzeptiert.
 
@@ -24,7 +24,7 @@ Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-## Ein Item registrieren
+## Ein Item registrieren {#registering-an-item}
 
 Mit der Methode kannst du nun ein Item registrieren.
 

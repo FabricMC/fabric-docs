@@ -8,13 +8,13 @@ hero:
 features:
   - title: 开发者指南
     icon: 🛠️
-    details: 由社区精心撰写的开发者指南，涉及模组开发的方方面面，从搭建开发环境到更高级的主题，比如渲染和网络交互。
-    link: /develop/
+    details: 我们的社区编写的开发者指南，涵盖一切，从设置你的开发环境，到渲染和网络通信等高级话题。
+    link: /zh_cn/develop/
     linkText: 快速上手
   - title: 玩家指南
     icon: 📚
     details: 您在考虑使用 Fabric 模组吗？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
-    link: /players/
+    link: /zh_cn/players/
     linkText: 详情
 ---
 

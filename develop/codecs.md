@@ -390,7 +390,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // And based on that, here's our registry dispatch codec for beans!
 // The first argument is the field name for the bean type.
 // When left out, it will default to "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Our new codec will serialize beans to json like this, grabbing only fields that are relevant to their specific type:
