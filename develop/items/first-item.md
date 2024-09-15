@@ -39,27 +39,32 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
-For example, you can create a new "Suspicious Substance" by adding this static field to your ModItems class.
-
+Following this example, we will create a new "Suspicious Substance" item, by adding this static field to your `ModItems` class.
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 However, when you go in-game, you can see that our item doesn't exist! This is because there are no references to the ModItem class which would initialize it when Minecraft starts.
 
 To force initialization of the static field, you can add a public static initialize method to your class and call it from your `ModInitializer` class. Currently, this method doesn't need anything inside it.
 
-ModItems.java
+#### ModItems.java
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Your class that implements "ModInitializer"
+#### Your class that implements `ModInitializer`
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-With that added, running your mod will now allow you to /give yourself your {mod-id}:suspicious_substance.
+Once you've added this method, you can run your mod and use the following command to give you the suspicious substance item.
 
-But it still won't show up when you press 'E', for that, you will need to register the item to an Item Group, described next.
+```command
+/give @s <mod-id>:suspicious_substance
+```
+
+Make sure to replace `<mod-id>` with your mod's ID!
+
+Though you will be able to give yourself the item, it still won't show up within the creative inventory.  For that, you will need to register the item to an Item Group, described next.
 
 ## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
@@ -110,6 +115,8 @@ When restarting/reloading the game - you should see that the item still has no t
 You're going to create a simple `item/generated` model, which takes in an input texture and nothing else.
 
 Create the model JSON in the `assets/<mod id here>/models/item` folder, with the same name as the item; `suspicious_substance.json`
+
+Note: Ensure you put your mod-id in place of "fabric-docs-reference"
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
