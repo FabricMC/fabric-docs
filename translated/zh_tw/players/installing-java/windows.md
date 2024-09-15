@@ -7,7 +7,7 @@ authors:
 
 # 在 Windows 上安裝 Java {#installing-java-on-windows}
 
-這個指南將引導你在Windows上安裝Java 21。
+這個指南將引導你在 Windows 上安裝 Java 21。
 
 Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想使用 Fabric 的 `.jar` 安裝程式，或者你想使用 Minecraft 伺服器的 `.jar` 時相關。
 
@@ -45,16 +45,16 @@ Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想�
 
 依照安裝程式中的步驟安裝Java 21。 當你到達這個頁面時，你應該將以下功能設為「整個功能將安裝在本機硬碟上」：
 
-- `Set JAVA_HOME environment variable` - 這將加入到你的 PATH 中。
-- `JavaSoft (Oracle) registry keys`
+- `設定 JAVA_HOME 變數` - 這將加入到你的 PATH 中。
+- `JavaSoft (Oracle) 登錄機碼`
 
 ![Java 21 安裝程式，其中「設定 JAVA\_HOME 變數」和「JavaSoft (Oracle) 登錄機碼」已醒目提示](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 完成後，你可以按 `下一步` 繼續安裝。
 
-## 4. 確認Java 21是否已安裝 {#4-verify-that-java-is-installed}
+## 4. 驗證 Java 21 是否已安裝 {#4-verify-that-java-is-installed}
 
-安裝完成後，你可以再次打開命令提示字元並輸入 `java -version` 來確認Java 21是否已安裝。
+安裝完成後，你可以再次開啟命令提示字元，並輸入 `java -version` 來驗證 Java 21 是否已安裝。
 
 如果這個命令成功執行，你將看到類似於以前顯示的內容，其中顯示了 Java 版本：
 
