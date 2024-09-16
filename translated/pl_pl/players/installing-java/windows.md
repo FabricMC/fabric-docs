@@ -1,6 +1,6 @@
 ---
 title: Instalowanie oprogramowania Java na Windows
-description: Przewodnik krok po kroku, jak zainstalować oprogramowanie Java na Windows.
+description: Przewodnik krok po kroku o tym, jak zainstalować oprogramowanie Java na Windows.
 authors:
   - IMB11
 ---
@@ -26,7 +26,7 @@ Jeśli polecenie zostanie uruchomione pomyślnie, to zobaczysz coś takiego. Je�
 ![Wiersz poleceń z wpisanym poleceniem "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Aby używać Minecrafta w wersji 1.21, musisz mieć zainstalowaną co najmniej Javę 21. Jeśli to polecenie wyświetla wersję mniejszą niż 21, to wymagane będzie zaktualizowanie istniejącej instalacji Javy.
+Aby używać Minecrafta w wersji 1.21, musisz mieć zainstalowaną co najmniej Javę 21. Jeśli to polecenie wyświetla wersję mniejszą niż 21, wymagane będzie zaktualizowanie istniejącej instalacji Javy.
 :::
 
 ## 2. Pobierz instalator Javy 21 {#2-download-the-java-installer}
@@ -54,7 +54,7 @@ Po zrobieniu tego kliknij `Next` i kontynuuj instalację.
 
 ## 4. Zweryfikuj czy Java 21 została zainstalowana {#4-verify-that-java-is-installed}
 
-Po zakończeniu instalowania możesz zweryfikować czy Java 21 jest zainstalowana, ponownie otwierając wiersz poleceń i wpisując `java -version`.
+Po zakończeniu instalacji możesz zweryfikować czy Java 21 została zainstalowana, ponownie otwierając wiersz poleceń i wpisując `java -version`.
 
 Jeśli polecenie zostanie uruchomione pomyślnie, to zobaczysz coś takiego, gdzie wyświetlana jest wersja Javy:
 
