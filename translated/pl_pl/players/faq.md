@@ -5,7 +5,7 @@ description: Często zadawane pytania dla graczy i administratorów serwerów do
 
 # Często zadawane pytania {#faq}
 
-Jest wiele pytań, które są często zadawane, więc zebraliśmy je tutaj w listę.
+Istnieje wiele często zadawanych pytań, więc zebraliśmy je tutaj w listę.
 
 ## Jakie wersje Minecrafta obsługuje Fabric? {#what-minecraft-versions-does-fabric-support}
 
@@ -14,7 +14,7 @@ Oficjalnie, Fabric obsługuje wszystkie wersje Minecraft począwszy od snapshota
 ## Skąd mogę pobrać mody do Fabric? {#where-can-i-download-published-fabric-mods}
 
 :::info
-Upewniaj się zawsze czy mody pochodzą z wiarygodnego źródła. Po więcej informacji sprawdź poradnik na temat [znajdowania wiarygodnych modów](./finding-mods).
+Upewniaj się zawsze czy mody pochodzą z wiarygodnego źródła. Po więcej informacji sprawdź przewodnik na temat [znajdowania wiarygodnych modów](./finding-mods).
 :::
 
 Większość twórców publikuje swoje mody na [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) i [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4), niektórzy mogą jednak zdecydować się na opublikowanie ich na swojej własnej stronie internetowej lub innych platformach, takich jak repozytorium GitHub.
