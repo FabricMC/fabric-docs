@@ -73,6 +73,10 @@ export default defineVersionedConfig(
         },
       }
     },
+
+    build: {
+      sourcemap: true,
+    }
   },
   __dirname
 );
