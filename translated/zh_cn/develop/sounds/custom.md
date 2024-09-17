@@ -42,8 +42,8 @@ authors:
 要将自定义声音添加到模组中，请在实现了 `ModInitializer` 入口点的类中注册一个 SoundEvent。
 
 ```java
-Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"),
-        SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
+Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
+        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
 ```
 
 ## 整理整理{#cleaning-up-the-mess}

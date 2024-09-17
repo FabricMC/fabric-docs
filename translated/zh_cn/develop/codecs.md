@@ -6,15 +6,15 @@ authors:
   - Syst3ms
 ---
 
-# Codec
+# Codec{#codecs}
 
 Codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，当读取和写入自定义 JSON 文件时，codec 可用作 GSON 和 Jankson 的替代品，尽管这些开始越来越相关，因为 Mojang 正在重写大量旧代码以使用 Codec。
 
 Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 codec 定义一个对象的结构，而 dynamic ops 用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
 
-## 使用 Codec
+## 使用 Codec{#using-codecs}
 
-### 序列化和反序列化 {#serializing-and-deserializing}
+### 序列化和反序列化{#serializing-and-deserializing}
 
 Codec 的基本用法是将对象序列化为特定格式或反序列化为特定格式。
 
@@ -51,19 +51,19 @@ BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 LOGGER.info("Deserialized BlockPos: {}", pos);
 ```
 
-### 内置的 Codec
+### 内置的 Codec{#built-in-codecs}
 
 正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`Identifier`、`Text` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `getCodec()` 方法，例如，你可以使用 `Registries.BLOCK.getCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
 
 Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `Codec.STRING`。 这些都在 `Codec` 类中作为静态字段存在，通常用作更多复杂 codec 的基础，会在下方做出解释。
 
-## 构建 Codec
+## 构建 Codec{#building-codecs}
 
 现在我们已经知道如何使用 codec，让我们看看我们如何构建自己的 codec。 假设我们有以下类，希望从 json 文件中反序列化其实例：
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -105,11 +105,11 @@ public class CoolBeansClass {
 Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```
 
-应该注意的是，以这种方式创建的 codec 总是会反序列化为一个 `ImmutableList`。 如果需要的是可变的列表，可以利用 [xmap]（#mutually-convertible-types）在反序列化期间转换为可变列表。
+应该注意的是，以这种方式创建的 codec 总是会反序列化为一个 `ImmutableList`。 如果需要的是可变的列表，可以利用 [xmap](#mutually-convertible-types) 在反序列化期间转换为可变列表。
 
 ### 合并用于类似 Record 类的 Codec{#merging-codecs-for-record-like-classes}
 
-现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 为我们的类将其合并为一个 codec。 假定我们的类有一个包含想序列化的所有字段的构造方法，并且每个字段都有相应的 getter 方法。 所以与 record 一起使用会非常适合，但也可以用于常规类。
+现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 为我们的类将其合并为一个 codec。 假定我们的类有一个包含想序列化的所有字段的构造方法，并且每个字段都有相应的 getter 方法。 这使得它非常适合与 record 一起使用，但也可以用于常规类。
 
 来看看如何为我们的 `CoolBeansClass` 创建一个 codec：
 
@@ -124,7 +124,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 在 group 中的每一行指定 codec、字段名称和 getter 方法。 调用 `Codec#fieldOf` 是为将 codec 转换为 [map codec](#mapcodec)，调用 `forGetter` 则是指定了从类的实例中检索字段值的 getter 方法。 同时，调用 `apply` 则指定了用于创建新实例的构造函数。 注意 group 中的字段的顺序应与构造函数中参数的顺序相同。
 
-这里也可以使用 `Codec#optionalFieldOf` 使字段可选，在[可选字段](#optional-fields)章节会有解释。
+这里也可以使用 `Codec#optionalFieldOf` 使字段可选，在 [可选字段](#optional-fields) 章节会有解释。
 
 ### 不要将 MapCodec 与 Codec&amp;lt;Map&amp;gt; 混淆 {#mapcodec}
 

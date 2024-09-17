@@ -3,6 +3,7 @@ title: Ein Projekt erstellen
 description: Eine Schritt-für-Schritt-Anleitung, wie man ein neues Mod-Projekt mit dem Fabric Vorlagen Mod Generator erstellt.
 authors:
   - IMB11
+  - Cactooz
 ---
 
 # Ein Projekt erstellen
@@ -11,11 +12,13 @@ Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric T
 
 ## Erstellung eines Projekts
 
-Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu erstellen - du solltest die erforderlichen Felder ausfüllen, wie zum Beispiel den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
+Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu generrieren - du solltest die erforderlichen Felder ausfüllen, wie beispielsweise den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
+
+Der Paketname sollte klein geschrieben, durch Punkte getrennt und eindeutig sein, um Konflikte mit den Paketen anderer Programmierer zu vermeiden. Er ist typischerweise wie eine umgedrehte Internet-Domain formatiert, beispielsweise wie `com.example.modid`.
 
 ![Vorschau des Generators](/assets/develop/getting-started/template-generator.png)
 
-Wenn du Kotlin verwenden oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
+Wenn du Kotlin verwenden, die offiziellen Mappings von Mojang anstelle der Yarn-Mappings nutzen oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
 
 ![Der Abschnitt "Advanced options"](/assets/develop/getting-started/template-generator-advanced.png)
 
@@ -63,6 +66,6 @@ Sobald das Projekt importiert wurde, solltest du die Details des Projekts so än
 
 - Ändere die Datei `gradle.properties` des Projekts, um die Eigenschaften `maven_group` und `archive_base_name` an die Details deines Mods anzupassen.
 - Ändere die Datei `fabric.mod.json`, um die Eigenschaften `id`, `name` und `description` an die Details deines Mods anzupassen.
-- Stelle sicher, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über <https://fabricmc.net/develop/> abgefragt werden können - mit den Versionen übereinstimmen, die du ansprechen möchtest.
+- Stelle sicher, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über https://fabricmc.net/develop/ abgefragt werden können - mit den Versionen übereinstimmen, die du ansprechen möchtest.
 
 Du kannst natürlich den Paketnamen und die Hauptklasse des Mods ändern, um die Details deines Mods anzupassen.
