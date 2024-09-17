@@ -29,7 +29,7 @@ The `FoodComponent.Builder` class has many methods that allow you to modify what
 
 | Method               | Description                                                                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hunger`             | Sets the amount of hunger points your item will replenish.                                                                                                            |
+| `nutrition`          | Sets the amount of hunger points your item will replenish.                                                                                                            |
 | `saturationModifier` | Sets the amount of saturation points your item will add.                                                                                                              |
 | `meat`               | Declares your item as meat. Carnivorous entities, such as wolves, will be able to eat it.                                                                             |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.                                                                                                              |
