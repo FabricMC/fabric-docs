@@ -3,6 +3,7 @@ title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
   - IMB11
+  - LordEnder-Kitty
 ---
 
 # Text and Translations {#text-and-translations}
@@ -56,6 +57,36 @@ The language file, `en_us.json`, looks like the following:
 {
   "my_mod.text.hello": "Hello!",
   "my_mod.text.bye": "Goodbye :("
+}
+```
+
+If you wish to be able to use variables in the translation, similar to how death messages allow you to use the involved players and items in the translation, you may add said variables as parameters. You may add however many parameters you like.
+
+```java
+Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+```
+
+You may reference these variables in the translation like so:
+
+```json
+{
+  "my_mod.text.hello": "%1$s said hello!"
+}
+```
+
+In the game, %1\$s will be replaced with the name of the player you referenced in the code. Using `player.getDisplayName()` will make it so that additional information about the entity will appear in a tooltip when hovering over the name in the chat message as opposed to using `player.getName()`, which will still get the name; however, it will not show the extra details. Similar can be done with itemStacks, using `stack.toHoverableText()`.
+
+As for what %1\$s even means, all you really need to know is that the number corresponds to which variable you are trying to use. Let's say you have three variables that you are using.
+
+```java
+Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+```
+
+If you want to reference what, in our case, is the attacker, you would use %2\$s because it's the second variable that we passed in. Likewise, %3\$s refers to the itemStack. A translation with this many additional parameters might look like this:
+
+```json
+{
+  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
 }
 ```
 
