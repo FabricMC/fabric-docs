@@ -1,21 +1,13 @@
 ---
 title: Automated Testing
-description: A guide to writing automatic tests with Fabric Loader JUnit.
+description: A guide to writing automatic unit tests with Fabric Loader JUnit.
 authors:
   - kevinthegreat1
 ---
 
 # Automated Testing {#automated-testing}
 
-This page explains how to write code to automatically test parts of your mod. There are two ways to automatically test your mod: unit tests with Fabric Loader JUnit or game tests with the Gametest framework from Minecraft.
-
-Unit tests should be used to test components of your code, such as methods and helper classes, while game tests spin up an actual Minecraft client and server to run your tests, which makes it suitable for testing features and gameplay.
-
-::: warning
-Currently, this guide only covers unit testing.
-:::
-
-## Unit Testing {#unit-testing}
+This page explains how to write code to automatically test parts of your mod using JUnit test framework.
 
 Since Minecraft modding relies on runtime byte-code modification tools such as Mixin, simply adding and using JUnit normally would not work. That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
 
