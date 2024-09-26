@@ -40,9 +40,9 @@ Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUI
 
 `registerPotionRecipe` prende 3 parametri:
 
-- `RegistryEntry<Potion> input` - L'entry della registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
+- `RegistryEntry<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
-- `RegistryEntry<Potion> output` - L'entry della registry della pozione risultante.
+- `RegistryEntry<Potion> output` - La voce di registry della pozione risultante.
 
 Una volta registrato, puoi distillare una pozione Tater usando una patata.
 
