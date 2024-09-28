@@ -160,7 +160,7 @@ authors:
 
 ### Aggiungi Ancore alle Intestazioni {#add-anchors-to-headings}
 
-Ogni intestazione deve avere un'ancora, che viene utilizzata per collegarsi a quell'intestazione:
+Ogni intestazione deve avere un'ancora, che viene usata per collegarsi a quell'intestazione:
 
 ```md
 # This Is a Heading {#this-is-a-heading}
