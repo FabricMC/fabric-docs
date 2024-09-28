@@ -29,7 +29,7 @@ Chiudi Minecraft e il Launcher di Minecraft prima d'iniziare l'installazione.
 
 :::details Informazioni per utenti macOS
 
-Su macOS, potresti dover fare click destro sul file `.jar` nella tua cartella download e cliccare `Apri` per avviarlo.
+Su macOS, potresti dover fare clic destro sul file `.jar` nella tua cartella download e cliccare `Apri` per avviarlo.
 
 ![Menu contestuale macOS sull'Installer di Fabric](/assets/players/installing-fabric/macos-downloads.png)
 
