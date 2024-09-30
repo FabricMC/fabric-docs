@@ -30,6 +30,7 @@ The `FoodComponent.Builder` class has many methods that allow you to modify what
 | Method               | Description                                                                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `nutrition`          | Sets the amount of hunger points your item will replenish.                                                                                                            |
+| `saturationModifier` | Sets the amount of saturation points your item will add.                                                                                                              |
 | `saturationModifier` | Sets the amount of saturation points your item will add.                                                                                                              |                                                                |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.                                                                                                              |
 | `snack`              | Declares your item as a snack.                                                                                                                                        |
