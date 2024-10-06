@@ -63,5 +63,5 @@ authors:
 
 您也可以嘗試透過閱讀疑難排解頁面自行解決問題：
 
-- - [崩潰報告](./troubleshooting/crash-reports)
-- - [上傳記錄檔](./troubleshooting/uploading-logs)
+- [崩潰報告](./troubleshooting/crash-reports)
+- [上傳記錄檔](./troubleshooting/uploading-logs)
