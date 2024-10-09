@@ -30,7 +30,7 @@ Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect
 
 ### Registrare il tuo Effetto Personalizzato {#registering-your-custom-effect}
 
-Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nel registro `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
+Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nella registry `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 

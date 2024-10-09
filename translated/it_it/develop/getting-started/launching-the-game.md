@@ -37,7 +37,7 @@ Tuttavia ci sono alcune limitazioni:
 - Non puoi cambiare i parametri dei metodi
 - Non puoi aggiungere né togliere attributi
 
-Tuttavia, utilizzando il [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime), puoi raggirare la maggior parte dei limiti, e addirittura aggiungere o togliere classi e metodi. Questo dovrebbe permettere alla maggior parte delle modifiche di essere applicate senza riavviare il gioco.
+Tuttavia, usando il [JetBrains Runtime](https://github.com/JetBrains/JetBrainsRuntime), puoi raggirare la maggior parte dei limiti, e addirittura aggiungere o togliere classi e metodi. Questo dovrebbe permettere alla maggior parte delle modifiche di essere applicate senza riavviare il gioco.
 
 Non dimenticare di aggiungere ciò che segue all'opzione Argomenti VM nella tua configurazione d'avvio di Minecraft:
 

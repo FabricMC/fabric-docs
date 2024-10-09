@@ -41,7 +41,7 @@ La `RegistryKey` può essere ottenuta nel modo seguente:
 
 ### Usare i Tipi di Danno {#using-damage-types}
 
-Per mostrare l'utilizzo dei tipi di danno personalizzati, useremo un blocco personalizzato chiamato _Blocco di Tater_. Facciamo in modo che quando un'entità calpesta un _Blocco di Tater_, esso causa danno _Tater_.
+Per mostrare l'uso dei tipi di danno personalizzati, useremo un blocco personalizzato chiamato _Blocco di Tater_. Facciamo in modo che quando un'entità calpesta un _Blocco di Tater_, esso causa danno _Tater_.
 
 Puoi fare override di `onSteppedOn` per infliggere questo danno.
 

@@ -74,7 +74,7 @@ Es fehlen jedoch folgende Punkte:
 
 Für das Item gibt es derzeit keine Übersetzung, du musst also eine hinzufügen. Der Übersetzungsschlüssel wurde bereits von Minecraft bereitgestellt: `item.mod_id.suspicious_substance`.
 
-Erstelle eine neue JSON-Datei unter: `src/main/resources/assets/<mod id here>/lang/en_us.json` und gebe den Übersetzungsschlüssel und seinen Wert ein:
+Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/<mod id here>/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
 
 ```json
 {

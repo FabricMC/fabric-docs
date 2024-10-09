@@ -21,7 +21,7 @@ Możesz to zrobić poprzez wciśnięcie klawiszy <kbd>Win</kbd> + <kbd>R</kbd> i
 
 Po otwarciu wiersza poleceń wpisz `java -version` i naciśnij <kbd>Enter</kbd>.
 
-Jeśli polecenie zostanie uruchomione pomyślnie, to zobaczysz coś takiego. Jeśli komenda się nie powiedzie, przejdź do następnego kroku.
+Jeśli polecenie zostanie wykonane pomyślnie, to zobaczysz coś takiego. Jeśli polecenie się nie powiodło, przejdź do następnego kroku.
 
 ![Wiersz poleceń z wpisanym poleceniem "java -version"](/assets/players/installing-java/windows-java-version.png)
 
@@ -37,7 +37,7 @@ Pobierz wersję `Windows Installer (.msi)`:
 
 ![Strona pobierania Adoptium z wyróżnioną wersją Windows Installer (.msi)](/assets/players/installing-java/windows-download-java.png)
 
-Jeżeli masz 32-bitowy system operacyjny wybierz `x86`, natomiast jeśli masz 64-bitowy system wybierz `x64`.
+Jeśli masz 32-bitowy system operacyjny wybierz `x86`, natomiast jeśli masz 64-bitowy system wybierz `x64`.
 
 Większość nowoczesnych komputerów posiada 64-bitowy system operacyjny. Jeśli nie masz pewności, spróbuj pobrać wersję 64-bitową.
 

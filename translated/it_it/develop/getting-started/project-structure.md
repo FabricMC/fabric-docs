@@ -40,15 +40,15 @@ Quello sopra è un esempio di un semplice entrypoint `main` che logga un messagg
 
 ## `src/main/resources` {#src-main-resources}
 
-La cartella `src/main/resources` viene usata per memorizzare le risorse che la tua mod utilizza, come texture, modelli, e suoni.
+Nella cartella `src/main/resources` si memorizzano le risorse che la tua mod usa, come texture, modelli, e suoni.
 
-È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod utilizza.
+È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod usa.
 
 Le risorse sono memorizzate in una struttura che rispecchia la struttura dei pacchetti risorse - per esempio, una texture per un blocco verrebbe memorizzata in `assets/modid/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 
-La cartella `src/client/resources` viene usata per memorizzare risorse client specifiche, come texture, modelli, e suoni che sono solo utilizzati dal lato client.
+Nella cartella `src/client/resources` si memorizzano risorse client specifiche, come texture, modelli, e suoni che sono solo usati dal lato client.
 
 ## `src/main/java` {#src-main-java}
 
