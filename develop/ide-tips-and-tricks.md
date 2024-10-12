@@ -53,9 +53,11 @@ In there you can jump to the files, which you have already visited and open tool
 
 ### Jump to Definition / Usage{#jump-to-definition-usage}
 
-If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd> + <kbd>Left Click</kbd>
+If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd> + <kbd>Left Click / B</kbd>
 or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
+
+You can also use <kbd>⌘/CTRL</kbd> + <kbd>⌥/Shift</kbd> + <kbd>Left Click / B</kbd>
 
 ### Bookmarks{#bookmarks}
 
@@ -76,7 +78,7 @@ It is possible to create multiple Bookmark lists at the same time if you need to
 
 ### Structure of a Class{#structure-of-a-class}
 
-By opening the `Structure` window (<kbd>Alt</kbd> + <kbd>7</kbd>) you will get an overview of your currently active class. You can see which Classes and Enums
+By opening the `Structure` window (<kbd>⌘/Alt</kbd> + <kbd>7</kbd>) you will get an overview of your currently active class. You can see which Classes and Enums
 are located in that file, which methods have been implemented and which fields and variables are declared.
 
 Sometimes it can be helpful,
@@ -101,9 +103,9 @@ For example, when using Lambdas, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/misc/using-the-ide/util_01.png)
 
-### Code Generation {#code-generation}
+### Code Generation{#code-generation}
 
-The Generate menu can be quickly accessed with <kbd>Alt</kbd> + <kbd>Insert</kbd> or by going to `Code` at the top and selecting `Generate`.
+The Generate menu can be quickly accessed with <kbd>Alt</kbd> + <kbd>Insert</kbd> (<kbd>⌘ Command</kbd> + <kbd>N</kbd> on Mac) or by going to `Code` at the top and selecting `Generate`.
 In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
 You can also generate accessors and invokers if you have the [Minecraft Development plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installed.
 
@@ -148,23 +150,25 @@ Sometimes simpler tools are needed to edit code occurrences.
 | <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Find in a bigger scope (can set specific file type mask)    |
 | <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Replace in a bigger scope (can set specific file type mask) |
 
-If enabled, all of those tools allow for a more specific pattern matching using "[Regex](https://en.wikipedia.org/wiki/Regular_expression)".
+If enabled, all of those tools allow for a more specific pattern matching using [Regex](https://en.wikipedia.org/wiki/Regular_expression).
 
 ![Regex replace](/assets/develop/misc/using-the-ide/search_and_replace_01.png)
 
-### Other Useful Keybinds
+### Other Useful Keybinds{#other-keybinds}
 
 Selecting some text and using <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>↑ Up / ↓ Down</kbd> can move the selected text up or down.
 
 In IntelliJ, the keybind for `Redo` may not be the usual <kbd>⌘/CTRL</kbd> + <kbd>Y</kbd> (Delete Line).
 Instead, it may be <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>. You can change this in the **Keymap**.
 
+For even more keyboard shortcuts, you can see [IntelliJ's documentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
+
 ## Comments{#comments}
 
 Good code should be easily readable and [self-documenting](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758).
 Picking expressive names for variables, classes and methods can help a lot, but sometimes comments are necessary to leave notes or **temporarily** disable code for testing.
 
-To comment out code faster, you can select some text and use the <kbd>⌘/CTRL</kbd> + <kbd>/</kbd> (line comment) and <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd> (block comment) keybinds.
+To comment out code faster, you can select some text and use the <kbd>⌘/CTRL</kbd> + <kbd>/</kbd> (line comment) and <kbd>⌘/CTRL</kbd> + <kbd>⌥/Shift</kbd> + <kbd>/</kbd> (block comment) keybinds.
 
 Now you can highlight the necessary code and use the shortcuts, to comment the section out.
 
