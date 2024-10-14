@@ -11,8 +11,8 @@ This page gives useful bits of information, to speed up and ease the workflow of
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
 
 ::: warning
-Key binds in the text are listed as Windows shortcuts and refer to the default keymap of IntelliJ IDEA, if not stated otherwise.
-Refer to the `File > Setings > Keymap` Settings or search for the functionality elsewhere if you are using a different Keyboard layout.
+Key binds in the text refer to the default keymap of IntelliJ IDEA, if not stated otherwise.
+Refer to the `File > Setings > Keymap` Settings or search for the functionality elsewhere if you are using a different keyboard layout.
 :::
 
 ## Traversing Projects{#traversing-projects}
