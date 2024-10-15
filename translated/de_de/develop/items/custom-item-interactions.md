@@ -1,11 +1,11 @@
 ---
-title: Benutzerdefinierte Iteminterkationen
+title: Benutzerdefinierte Item-Interaktionen
 description: Lerne, wie man ein Item erstellt, welches eingebaute Vanilla Events nutzt.
 authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Iteminterkationen {#custom-item-interactions}
+# Benutzerdefinierte Item-Interaktionen {#custom-item-interactions}
 
 Mit einfachen Items ist es nicht getan - irgendwann braucht man ein Item, das mit der Welt interagiert, wenn es benutzt wird.
 
