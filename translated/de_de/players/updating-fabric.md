@@ -24,7 +24,7 @@ Neuere Mods können eine neuere Version des Fabric-Loaders benötigen, um zu fun
 
 Um Fabric zu aktualisieren, stelle sicher, dass die Spielversion und die Loader-Version korrekt sind und klicke auf `Installieren`.
 
-:::important
+:::warning WICHTIG
 **Stelle sicherm dass die Option 'Profil erstellen'' deaktiviert ist, wenn du den Installer ausführst, da sonst ein neues Profil erstellt wird, das in diesem Fall nicht benötigt wird.**
 :::
 
