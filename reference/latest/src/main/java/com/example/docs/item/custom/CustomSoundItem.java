@@ -19,7 +19,7 @@ public class CustomSoundItem extends Item {
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 		// As stated above, don't use the playSound() method on the client side
-		// ... it wont work!
+		// ... it won't work!
 		if (!entity.getWorld().isClient()) {
 			// Play the sound as if it was coming from the entity.
 			entity.playSound(SoundEvents.ENTITY_PILLAGER_AMBIENT, 2f, 0.7f);
