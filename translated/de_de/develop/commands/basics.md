@@ -25,7 +25,7 @@ Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen,
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Brigadier ist Open Source: https://github.com/Mojang/brigadier
+Brigadier ist Open Source: <https://github.com/Mojang/brigadier>
 
 ## Das Interface `Command` {#the-command-interface}
 
