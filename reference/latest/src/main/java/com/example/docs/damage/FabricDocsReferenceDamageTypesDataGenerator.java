@@ -20,6 +20,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
+import com.example.docs.data.EnchantmentGenerator;
+
 public class FabricDocsReferenceDamageTypesDataGenerator implements DataGeneratorEntrypoint {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
 
@@ -36,6 +38,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 
 		pack.addProvider(TaterDamageTypesGenerator::new);
 		pack.addProvider(TaterDamageTypeTagGenerator::new);
+		pack.addProvider(EnchantmentGenerator::new);
 	}
 
 	private static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
