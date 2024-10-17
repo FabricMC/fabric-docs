@@ -17,7 +17,7 @@ authors:
   - xpple
 ---
 
-# Создание команд
+# Создание команд {#creating-commands}
 
 Создание команд позволяет разработчику мода добавлять функционал, который может быть использован при вызове команд. Это руководство научит вас регистрировать команды и общую структуру команд Brigadier.
 
@@ -25,7 +25,7 @@ authors:
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Исходный код библиотеки Brigadier: https://github.com/Mojang/brigadier
+Исходный код библиотеки Brigadier: <https://github.com/Mojang/brigadier>
 :::
 
 ## Интерфейс `Command` {#the-command-interface}
@@ -45,7 +45,7 @@ Command<ServerCommandSource> command = context -> {
 
 Целое число может быть результатом команды. Обычно значения меньше или равные нулю означают, что команда не выполнена и ничего не сделает. Позитивные значения означают, что команда успешно выполнилась и что-то выполнила. Brigadier предоставляет константу для обозначения успеха; `Command#SINGLE_SUCCESS`.
 
-### Что может делать \`ServerCommandSource?
+### Что может делать \`ServerCommandSource? {#what-can-the-servercommandsource-do}
 
 `ServerCommandSource` предоставляет дополнительный контекст когда команда выполняется. Это добавляет возможность получить сущность которая выполнила команду, мир в котором команда выполнилась команда или сервер на котором запустилась команда.
 
@@ -76,7 +76,7 @@ Command<ServerCommandSource> command = context -> {
 
 В инициализации мода, мы просто регистрируем простую команду:
 
-@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 В методе`sendFeedback()`, первый аргумент это текст для отправки, который является `Supplier<Text>`, чтобы избежать создание экземпляров текстовых объектов когда они не нужны.
 
@@ -86,19 +86,25 @@ Command<ServerCommandSource> command = context -> {
 
 `CommandSyntaxException` обычно выбрасывается для обозначения синтаксических ошибок в команде или в аргументах. Вы можете так же имплементировать своё исключение.
 
-Чтобы выполнить эту команды, вы должны ввести `/foo` с учётом регистра.
+Чтобы выполнить эту команду, необходимо ввести `/test_command`, при этом регистр символов имеет значение.
+
+:::info
+С этого момента мы будем извлекать логику, написанную в lambda-функции переданном в конструкторы `.execute()`, в отдельные методы. Затем мы можем передать ссылку на метод в `.execute()`. Это сделано для ясности.
+:::
 
 ### Регистрационная среда {#registration-environment}
 
 При желании вы так же можете сделать так, чтобы когда команда регистрировалась с определёнными условиями, например только в выделенной среде:
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Требования к команде {#command-requirements}
 
 Допустим, что у вас есть команда и вы хотите чтобы её могли выполнять только операторы. Здесь метод `requires()` вступает в игру. Метод `requires()` имеет один аргумент `Predicate<S>` который будет предоставлять `ServerCommandSource` для проверки возможности `CommandSource` выполнять команду.
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Команда выполнится только, если источник команды имеет второй уровень минимально, включая команду блоков. Иначе, команда не зарегистрируется.
 
@@ -108,11 +114,13 @@ Command<ServerCommandSource> command = context -> {
 
 Чтобы добавить подкоманду, вы должны зарегистрировать первый литеральный нод команды. Чтобы иметь подкоманду, вы должны добавить следующий литеральный нод к существующему ноду.
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-Подобно аргументам, ноды подкоманд могут также быть опциональными. В следующем случае оба `/subtater` и `/subtater subcommand` будут правильными.
+Подобно аргументам, ноды подкоманд могут также быть опциональными. В следующем случае будут допустимы как `/command_two`, так и `/command_two sub_command_two`.
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Клиентские команды {#client-commands}
 
@@ -124,9 +132,14 @@ Fabric API имеет `ClientCommandManager` в пакете`net.fabricmc.fabric
 
 Перенаправление команд - также известное как псевдонимы - это способ перенаправить функционал одной команды к другой. Это полезно, если вы хотите изменить название команды, но всё равно хотите поддерживать старое название.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+:::warning
+Brigadier [будет перенаправлять только командные узлы с аргументами](https://github.com/Mojang/brigadier/issues/46). Если вы хотите перенаправить командный узел без аргументов, предоставьте конструктор `.executes()` со ссылкой на ту же логику, что описана в примере.
+:::
 
-## FAQ {#faq}
+@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+
+## ЧАВО {#faq}
 
 ### Почему мой код не компилируется? {#why-does-my-code-not-compile}
 

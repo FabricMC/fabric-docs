@@ -66,6 +66,6 @@ Sobald das Projekt importiert wurde, solltest du die Details des Projekts so än
 
 - Ändere die Datei `gradle.properties` des Projekts, um die Eigenschaften `maven_group` und `archive_base_name` an die Details deines Mods anzupassen.
 - Ändere die Datei `fabric.mod.json`, um die Eigenschaften `id`, `name` und `description` an die Details deines Mods anzupassen.
-- Stelle sicher, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über https://fabricmc.net/develop/ abgefragt werden können - mit den Versionen übereinstimmen, die du ansprechen möchtest.
+- Stelle sicher, dass die Versionen von Minecraft, die Mappings, der Loader und Loom - die alle über <https://fabricmc.net/develop/> abgefragt werden können - mit den Versionen übereinstimmen, die du ansprechen möchtest.
 
 Du kannst natürlich den Paketnamen und die Hauptklasse des Mods ändern, um die Details deines Mods anzupassen.

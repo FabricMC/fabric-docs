@@ -51,13 +51,13 @@ authors:
 
 ![Установленный мод в папке модов](/assets/players/installing-mods.png)
 
-## 3. Готово!
+## 3. Готово! {#3-you-re-done}
 
 Как только вы переместите мод в папку `mods`, вы можете открыть лаунчер Minecraft, выбрать профиль Fabric из списка в левом нижнем углу и нажать Играть!
 
 ![Лаунчер Minecraft с выбранным профилем Fabric](/assets/players/installing-fabric/launcher-screen.png)
 
-## Исправление ошибок
+## Поиск неисправностей {#troubleshooting}
 
 Если вы столкнулись с какими-либо проблемами, попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в канале `#player-support`.
 
