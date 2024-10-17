@@ -31,7 +31,6 @@ The `FoodComponent.Builder` class has many methods that allow you to modify what
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `nutrition`          | Sets the amount of hunger points your item will replenish.                                                                                                            |
 | `saturationModifier` | Sets the amount of saturation points your item will add.                                                                                                              |
-| `meat`               | Declares your item as meat. Carnivorous entities, such as wolves, will be able to eat it.                                                                             |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.                                                                                                              |
 | `snack`              | Declares your item as a snack.                                                                                                                                        |
 | `statusEffect`       | Adds a status effect when you eat your item. Usually a status effect instance and chance is passed to this method, where chance is a decimal percentage (`1f = 100%`) |
