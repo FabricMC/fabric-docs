@@ -1,6 +1,6 @@
 ---
 title: Рендеринг в HUD
-description: Узнайте, как использовать событие HudRenderCallback для рендеринга в HUD
+description: Узнайте, как использовать событие HudRenderCallback для рендеринга в HUD.
 authors:
   - IMB11
 ---
