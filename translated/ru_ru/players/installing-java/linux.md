@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Установка Java на Linux
+# Установка Java на Linux {#installing-java-on-linux}
 
 Это руководство поможет вам установить Java 21 на Linux.
 
-## 1. Проверьте, не установлена ли Java
+## 1. Проверьте, не установлена ли Java {#1-check-if-java-is-already-installed}
 
 Откройте терминал, впишите `java -version` и нажмите <kbd>Enter</kbd>.
 
@@ -23,7 +23,7 @@ authors:
 
 Мы рекомендуем использовать OpenJDK 21, который доступен для большинства дистрибутивов Linux.
 
-### Arch Linux
+### Arch Linux {#arch-linux}
 
 :::info
 Для дополнительной информации об установке Java в Arch Linux смотрите [википедию Arch Linux](https://wiki.archlinux.org/title/Java_\\\(Русский\\\)).
@@ -47,16 +47,16 @@ sudo pacman -S jre-openjdk-headless
 sudo pacman -S jdk-openjdk
 ```
 
-### Debian/Ubuntu
+### Debian/Ubuntu {#debian-ubuntu}
 
-Вы можете установить Java 21 с помощью `apt`, выполнив следующие команды
+Вы можете установить Java 21 с помощью `apt`, выполнив следующие команды:
 
 ```sh
 sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-### Fedora
+### Fedora {#fedora}
 
 Вы можете установить Java 21 с помощью `dnf`, выполнив следующие команды:
 
@@ -76,7 +76,7 @@ sudo dnf install java-21-openjdk-headless
 sudo dnf install java-21-openjdk-devel
 ```
 
-### Другие дистрибутивы Linux
+### Другие дистрибутивы Linux {#other-linux-distributions}
 
 Если вашего дистрибутива нет в списке выше, вы можете загрузить последнюю версию JRE с [Adoptium](https://adoptium.net/temurin/)
 
