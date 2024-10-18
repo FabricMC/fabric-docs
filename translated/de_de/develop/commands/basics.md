@@ -26,6 +26,7 @@ Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It
 you build a tree of commands and arguments.
 
 Brigadier ist Open Source: <https://github.com/Mojang/brigadier>
+:::
 
 ## Das Interface `Command` {#the-command-interface}
 
@@ -44,7 +45,7 @@ Command<ServerCommandSource> command = context -> {
 
 Die Ganzzahl kann als Ergebnis des Befehls betrachtet werden. Normalerweise bedeuten Werte kleiner oder gleich Null, dass ein Befehl fehlgeschlagen ist und nichts machen wird. Positive Werte bedeuten, dass der Befehl erfolgreich war und etwas gemacht hat. Brigadier bietet eine Konstante zur Anzeige von Erfolg; `Befehl#SINGLE_SUCCESS`.
 
-### Was kann die `ServerCommandSource` machen? <br>
+### Was kann die `ServerCommandSource` machen? {#what-can-the-servercommandsource-do}
 
 Eine "ServerCommandSource" liefert einen zusätzlichen implementierungsspezifischen Kontext, wenn ein Befehl ausgeführt wird. Dazu gehört die Möglichkeit, die Entität, die den Befehl ausgeführt hat, die Welt, in der der Befehl ausgeführt wurde, oder den Server, auf dem der Befehl ausgeführt wurde, zu ermitteln.
 
