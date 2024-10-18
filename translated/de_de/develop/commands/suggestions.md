@@ -5,22 +5,22 @@ authors:
   - IMB11
 ---
 
-# Befehlsvorschläge
+# Befehlsvorschläge {#command-suggestions}
 
 Minecraft hat ein mächtiges System für Befehlsvorschläge, das an vielen Stellen verwendet wird, wie zum Beispiel beim Befehl `/give`. Mit diesem System kannst du dem Spieler Werte für Befehlsargumente vorschlagen, aus denen er dann auswählen kann - eine großartige Möglichkeit, um deine Befehle benutzerfreundlicher und ergonomischer zu gestalten.
 
-## Vorschlaganbieter
+## Vorschlaganbieter {#suggestion-providers}
 
 Ein `SuggestionProvider` wird verwendet, um eine Liste von Vorschlägen zu erstellen, die an den Spieler gesendet werden. Ein Vorschlaganbieter ist eine funktionales Interface, das einen `CommandContext` und einen `SuggestionBuilder` entgegennimmt und einige `Suggestions` zurückgibt. Der `SuggestionProvider` gibt ein `CompletableFuture` zurück, da die Vorschläge möglicherweise nicht sofort verfügbar sind.
 
-## Verwenden von Vorschlaganbietern
+## Verwenden von Vorschlaganbietern {#using-suggestion-providers}
 
 Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` und gibt den geänderten Argument Builder mit dem angehängten Suggestion Provider zurück.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## Eingebaute Vorschlaganbieter
+## Eingebaute Vorschlaganbieter {#built-in-suggestion-providers}
 
 Es gibt einige eingebaute Vorschlaganbieter, du verwenden kannst:
 
@@ -31,7 +31,7 @@ Es gibt einige eingebaute Vorschlaganbieter, du verwenden kannst:
 | `LootCommand.SUGGESTION_PROVIDER`         | Zeigt alle verfügbaren Loottabellen an.                   |
 | `SuggestionProviders.ALL_BIOMES`          | Schlägt alle Biome vor, die verfügbar sind.               |
 
-## Erstellen eines benutzerdefinierten Vorschlagsanbieters
+## Erstellen eines benutzerdefinierten Vorschlagsanbieters {#creating-a-custom-suggestion-provider}
 
 Wenn ein eingebauter Anbieter deine Anforderungen nicht erfüllt, kannst du einen eigenen Vorschlaganbieter erstellen. Zu diesem Zweck musst du eine Klasse erstellen, die das Interface `SuggestionProvider` implementiert und die Methode `getSuggestions` überschreibt.
 

@@ -5,11 +5,11 @@ authors:
   - JR1811
 ---
 
-# SoundEvents abspielen
+# SoundEvents abspielen {#playing-sounds}
 
 Minecraft hat eine große Auswahl an Sounds, aus denen du wählen kannst. Schau dir die Klasse `SoundEvents` an, um alle von Mojang bereitgestellten SoundEvent Instanzen zu sehen.
 
-## Sounds in deinem Mod verwenden
+## Sounds in deinem Mod verwenden {#using-sounds}
 
 Stelle sicher, dass du die Methode `playSound()` auf der logischen Serverseite ausführst, wenn du Sounds verwendest!
 
@@ -21,7 +21,7 @@ Die Methode `playSound()` wird mit dem `LivingEntity` Objekt verwendet. Nur das 
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
-### SoundEvent und SoundCategory
+### SoundEvent und SoundCategory {#soundevent-and-soundcategory}
 
 Das SoundEvent legt fest, welcher Sound abgespielt wird. Du kannst auch [deine eigenen SoundEvents registrieren](./custom), um deinen eigenen Sound einzubinden.
 

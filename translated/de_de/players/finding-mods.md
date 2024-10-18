@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Vertrauenswürdige Mods finden
+# Vertrauenswürdige Mods finden {#finding-mods}
 
 Zu Beginn, Vertrauen ist subjektiv, du solltest beim Herunterladen von Mods immer nach eigenem Ermessen handeln. Hier sind ein paar Dinge, die dir helfen können, vertrauenswürdige Mods zu finden.
 
-## 1. Nutze eine Quelle, die bekanntermaßen vertrauenswürdig ist
+## 1. Nutze eine Quelle, die bekanntermaßen vertrauenswürdig ist {#trustworthy-source}
 
 Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
 

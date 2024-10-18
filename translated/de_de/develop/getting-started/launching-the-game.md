@@ -6,11 +6,11 @@ authors:
   - Tenneb22
 ---
 
-# Starten des Spiels
+# Starten des Spiels {#launching-the-game}
 
 Fabric Loom bietet eine Vielzahl von Startprofilen, die dir helfen, deine Mods in einer Live-Spielumgebung zu starten und zu debuggen. Dieser Leitfaden behandelt die verschiedenen Startprofile und wie man sie zum Debuggen und Testen der Mods verwendet.
 
-## Startprofile
+## Startprofile {#launch-profiles}
 
 Wenn du IntelliJ IDEA verwendest, findest du die Startprofile in der oberen rechten Ecke des Fensters. Klicke auf das Dropdown-Menü, um die verfügbaren Startprofile anzuzeigen.
 
@@ -18,7 +18,7 @@ Es sollte ein Client- und ein Serverprofil geben, mit der Möglichkeit, es entwe
 
 ![Startprofile](/assets/develop/getting-started/launch-profiles.png)
 
-## Gradle Aufgaben
+## Gradle Aufgaben {#gradle-tasks}
 
 Wenn du die Kommandozeile verwendest, kannst du die folgenden Gradle-Befehle verwenden, um das Spiel zu starten:
 
@@ -27,7 +27,7 @@ Wenn du die Kommandozeile verwendest, kannst du die folgenden Gradle-Befehle ver
 
 Das einzige Problem bei diesem Ansatz ist, dass Sie Ihren Code nicht einfach debuggen können. Wenn du deinen Code debuggen willst, musst du die Startprofile in IntelliJ IDEA oder über die Gradle-Integration deiner IDE verwenden.
 
-## Hotswapping von Klassen
+## Hotswapping von Klassen {#hotswapping-classes}
 
 Wenn du das Spiel im Debug-Modus ausführst, kannst du deine Klassen per Hotswap austauschen, ohne das Spiel neu zu starten. Dies ist nützlich, um Änderungen an deinem Code schnell zu testen.
 
@@ -45,13 +45,13 @@ Füge außerdem in deine Minecraft Start Konfigurationen Folgendes zu den VM Arg
 -XX:+AllowEnhancedClassRedefinition
 ```
 
-## Hotswapping von Mixins
+## Hotswapping von Mixins {#hotswapping-mixins}
 
 Wenn du Mixins verwendest, kannst du deine Mixin-Klassen per Hotswap austauschen, ohne das Spiel neu zu starten. Dies ist nützlich, um Änderungen an deinen Mixins schnell zu testen.
 
 Hierzu musst du allerdings den Mixin-Java-Agent installieren, damit das funktioniert.
 
-### 1. Finde die JAR der Mixin Bibliothek
+### 1. Finde die JAR der Mixin Bibliothek {#1-locate-the-mixin-library-jar}
 
 In IntelliJ IDEA findest du die Mixin-Bibliothek JAR im Abschnitt "External Libraries" des Abschnitts "Project":
 
@@ -59,7 +59,7 @@ In IntelliJ IDEA findest du die Mixin-Bibliothek JAR im Abschnitt "External Libr
 
 Für den nächsten Schritt musst du den "Absolute Path" (Absoluten Pfad) der JAR-Datei kopieren.
 
-### 2. Füge das VM-Argument `-javaagent` hinzu
+### 2. Füge das VM-Argument `-javaagent` hinzu {#2-add-the--javaagent-vm-argument}
 
 Füge in deiner "Minecraft Client"- und/oder "Minecraft Server"-Ausführungskonfiguration Folgendes zur Option VM-Argumente hinzu:
 

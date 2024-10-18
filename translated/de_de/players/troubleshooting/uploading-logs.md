@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# Logs hochladen
+# Logs hochladen {#uploading-logs}
 
 Wenn man versucht, Fehler zu beheben, ist es oft nötig, Logs bereitzustellen, die beim Identifizieren der Ursache des Fehlers helfen.
 
@@ -15,13 +15,13 @@ Das Hochladen von Logs ermöglicht es anderen, dir bei der Fehlersuche schneller
 
 Manche Paste-Seiten stellen Syntaxhervorhebung für Logs bereit, was sie deutlich einfacher zu lesen macht und zensieren sensible Daten, wie Benutzernamen oder Systeminformationen.
 
-## Absturzberichte
+## Absturzberichte {#crash-reports}
 
 Absturzberichte werden automatisch generiert, wenn das Spiel abstürzt. Sie enthalten nur Absturzinformationen, aber nicht die eigentlichen Logs des Spiels. Sie befinden sich im `crash-reports`-Verzeichnis im Spiel-Verzeichnis.
 
 Für weitere Informationen über Absturzberichte, siehe [Absturzberichte](./crash-reports).
 
-## Logs finden
+## Logs finden {#locating-logs}
 
 Diese Anleitung behandelt den offiziellen Minecraft-Launcher (oft auch "Vanilla-Launcher" genannt) - für Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
 
@@ -45,7 +45,7 @@ Logs befinden sich im `logs`-Verzeichnis innerhalb des Spiel-Verzeichnisses, das
 
 Das neueste Log hat den Dateinamen `latest.log` und vorherige Logs nutzen das Muster `JJJJ-MM-TT_Nummer.log.gz` zur Benennung.
 
-## Logs hochladen
+## Logs hochladen {#uploading-logs-online}
 
 Logs können bei einer Vielzahl von Diensten hochgeladen werden, zum Beispiel:
 

@@ -9,7 +9,7 @@ authors:
 
 위젯은 일반적으로 화면에 추가되는 렌더링 컴포넌트의 컨테이너로, 키 입력, 마우스 클릭 등의 여러 이벤트를 통해 플레이어와 상호작용할 수 있습니다.
 
-## 위젯 만들기
+## 위젯 만들기 {#creating-a-widget}
 
 `ClickableWidget`을 확장(Extend)하는 등 위젯 클래스를 만드는 방법은 여러 가지가 있습니다. `ClickableWidget` 클래스는 `Drawable`, `Element`, `Narratable`, `Selectable` 인터페이스를 확장해 높이, 너비, 위치, 이벤트 처리 등 여러 유용한 도구를 제공합니다.
 

@@ -7,11 +7,11 @@ authors:
   - mattidragon
 ---
 
-# Schadensarten
+# Schadensarten {#damage-types}
 
 Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können. Seit Minecraft 1.19.4 ist die Erstellung neuer Schadensarten datengesteuert, das heißt sie werden mithilfe von JSON-Dateien erstellt.
 
-## Eine Schadensart erstellen
+## Eine Schadensart erstellen {#creating-a-damage-type}
 
 Lass uns eine benutzerdefinierte Schadensart mit dem Namen _Tater_ erstellen. Wir beginnen mit der Erstellung einer JSON-Datei für deinen benutzerdefinierten Schaden. Diese Datei wird im `data`-Verzeichnis deines Mods in einem Unterverzeichnis mit dem Namen `damage_type` abgelegt.
 
@@ -39,7 +39,7 @@ Der `RegistryKey` kann wie folgt ermittelt werden:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### Schadensarten verwenden
+### Schadensarten verwenden {#using-damage-types}
 
 Um die Verwendung von benutzerdefinierten Schadensarten zu demonstrieren, werden wir einen benutzerdefinierten Block mit dem Namen _Tater-Block_ verwenden. Wenn eine lebende Entität auf einen _Tater-Block_ tritt, verursacht er _Tater_ Schaden.
 
@@ -59,7 +59,7 @@ Die vollständige Implementierung des Blocks:
 
 Wenn nun eine lebende Entität auf unseren benutzerdefinierten Block tritt, erleidet sie mit unserer benutzerdefinierten Schadensart 5 Schaden (2,5 Herzen).
 
-### Benutzerdefinierte Todesnachricht
+### Benutzerdefinierte Todesnachricht {#custom-death-message}
 
 Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.<message_id>` in der Datei `en_us.json` unseres Mods definieren.
 
@@ -69,7 +69,7 @@ Beim Tod durch unsere Schadensart wirst du die folgende Todesnachricht sehen:
 
 ![Effekt im Inventar eines Spielers](/assets/develop/tater-damage-death.png)
 
-### Schadensart-Tags
+### Schadensart-Tags {#damage-type-tags}
 
 Einige Schadensarten können Rüstung, Statuseffekte usw. Tags werden verwendet, um diese Art von Eigenschaften von Schadensarten zu kontrollieren.
 

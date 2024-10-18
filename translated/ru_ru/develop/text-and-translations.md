@@ -80,7 +80,7 @@ MutableText result = Text.literal("Hello World!")
 ```
 
 <table>
-    <tbody><tr><th>Цвет</th><th>Название</th><th>Код в чате</th><th>Код для MOTD</th><th>Hex код</th></tr>
+    <tbody><tr><th>Цвет</th><th>Название</th><th>Код в чате</th><th>Код для MOTD</th><th>HEX-код</th></tr>
     <tr><td><ColorSwatch color="#000000" /></td><td>Чёрный (black)</td><td>§0</td><td>\u00A70</td><td>#000000</td></tr>
     <tr><td><ColorSwatch color="#0000AA" /></td><td>Тёмно-синий (dark_blue)</td><td>§1</td><td>\u00A71</td><td>#0000AA</td></tr>
     <tr><td><ColorSwatch color="#00AA00" /></td><td>Тёмно-зелёный (dark_green)</td><td>§2</td><td>\u00A72</td><td>#00AA00</td></tr>
