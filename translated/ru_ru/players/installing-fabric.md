@@ -7,13 +7,13 @@ authors:
   - modmuss50
 ---
 
-# Установка Fabric
+# Установка Fabric {#installing-fabric}
 
 В этом гайде мы расскажем вам об установке Fabric на официальный лаунчер Minecraft.
 
 Для сторонних лаунчеров вам следует ознакомиться с их документацией.
 
-## 1. Загрузка установщика Fabric
+## 1. Загрузка установщика Fabric {#1-download-the-fabric-installer}
 
 Вы можете загрузить установщик Fabric с [сайта Fabric](https://fabricmc.net/use/).
 
@@ -21,7 +21,7 @@ authors:
 
 Для macOS и Linux вам потребуется установить версию `.jar`. Иногда вам необходимо установить Java перед выполнением этого шага.
 
-## 2. Запуск установщика Fabric
+## 2. Запуск установщика Fabric {#2-run-the-fabric-installer}
 
 :::warning
 Перед установкой закройте Minecraft и лаунчер.
