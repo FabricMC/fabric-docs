@@ -127,6 +127,10 @@ export default [
         text: "develop.sounds.custom",
         link: "/develop/sounds/custom",
       },
+      {
+        text: "develop.sounds.dynamic-sounds",
+        link: "/develop/sounds/dynamic-sounds",
+      },
     ],
   },
   {
