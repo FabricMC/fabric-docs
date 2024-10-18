@@ -69,7 +69,7 @@ authors:
 
 ![Пример рисования всей текстуры](/assets/develop/rendering/draw-context-whole-texture.png)
 
-### Рисование части текстуры {#drawing-a-partion-of-a-texture}
+### Рисование части текстуры {#drawing-a-portion-of-a-texture}
 
 Вот тут-то и появляются `u` и `v`. Эти параметры определяют верхний левый угол текстуры для рисования, а параметры `regionWidth` и `regionHeight` определяют размер части текстуры для рисования.
 
