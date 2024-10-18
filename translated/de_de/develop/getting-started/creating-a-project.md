@@ -6,11 +6,11 @@ authors:
   - Cactooz
 ---
 
-# Ein Projekt erstellen
+# Ein Projekt erstellen {#creating-a-project}
 
 Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric Template Mod Generator zu erstellen - wenn du möchtest, kannst du ein neues Projekt auch manuell erstellen, indem du das Beispiel-Mod-Repository verwendest, dann solltest du den Abschnitt [Manuelle Projekterstellung](#manuelle-projekterstellung) lesen.
 
-## Erstellung eines Projekts
+## Erstellung eines Projekts {#generating-a-project}
 
 Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu generrieren - du solltest die erforderlichen Felder ausfüllen, wie beispielsweise den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
 
@@ -28,7 +28,7 @@ Du solltest diese ZIP-Datei an einem Ort deiner Wahl entpacken und dann den entp
 
 ![Aufforderung zum Öffnen des Projekts](/assets/develop/getting-started/open-project.png)
 
-## Import des Projekts
+## Import des Projekts {#importing-the-project}
 
 Sobald du das Projekt in IntelliJ IDEA geöffnet hast, sollte IDEA automatisch die Gradle-Konfiguration des Projekts laden und die notwendigen Einrichtungsaufgaben durchführen.
 
@@ -38,7 +38,7 @@ Wenn du eine Benachrichtigung über ein Gradle-Build-Skript erhältst, solltest 
 
 Sobald das Projekt importiert wurde, solltest du die Dateien des Projekts im Projekt-Explorer sehen und mit der Entwicklung deines Mods beginnen können.
 
-## Manuelle Projekterstellung
+## Manuelle Projekterstellung {#manual-project-creation}
 
 :::warning
 Du musst [Git](https://git-scm.com/) installiert haben, um das Beispiel-Mod-Repository klonen zu können.
@@ -60,7 +60,7 @@ Sobald du das Projekt in IntelliJ IDEA geöffnet hast, sollte es automatisch die
 
 Wie bereits erwähnt, solltest du, wenn du eine Benachrichtigung über ein Gradle-Build-Skript erhältst, auf die Schaltfläche `Import Gradle Project` klicken.
 
-### Die Vorlage bearbeiten
+### Die Vorlage bearbeiten {#modifying-the-template}
 
 Sobald das Projekt importiert wurde, solltest du die Details des Projekts so ändern, dass sie mit den Details deines Mods übereinstimmen:
 
