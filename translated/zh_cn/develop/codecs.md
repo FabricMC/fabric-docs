@@ -312,7 +312,7 @@ public class Identifier {
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于该注册表的 `Codec<BeanType<?>>`。 一个基于改注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry` 可以简单的调用 `Registry#getCodec`。
+- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，那么可以简单地调用  `Registry#getCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 
