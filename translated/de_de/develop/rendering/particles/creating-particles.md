@@ -5,11 +5,11 @@ authors:
   - Superkat32
 ---
 
-# Benutzerdefinierte Partikel erstellen
+# Benutzerdefinierte Partikel erstellen {#creating-custom-particles}
 
 Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosphäre oder einem spannenden Kampf gegen einen Endgegner mehr Spannung verleihen. Lasst uns einen hinzufügen!
 
-## Einen benutzerdefinierten Partikel registrieren
+## Einen benutzerdefinierten Partikel registrieren {#register-a-custom-particle}
 
 Wir werden einen neuen Glitzerpartikel hinzufügen, der die Bewegung eines Partikels des Endstabs nachahmt.
 
@@ -19,7 +19,7 @@ Zuerst müssen wir mit deiner Mod-Id einen `ParticleType` in deiner Mod-Initiali
 
 Der "sparkle_particle" in Kleinbuchstaben ist der JSON-Pfad für die Textur des Partikels. Du wirst später eine neue JSON-Datei mit genau diesem Namen erstellen.
 
-## Client-seitige Registrierung
+## Client-seitige Registrierung {#client-side-registration}
 
 Nachdem du den Partikel im `ModInitializer` Einstiegspunkt registriert hast, musst du den Partikel auch im `ClientModInitializer` Einstiegspunkt registrieren.
 
@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 - Visual Studio Codes Hotkey: Strg+F12
   :::
 
-## Eine JSON Datei erstellen und Texturen hinzufügen
+## Eine JSON Datei erstellen und Texturen hinzufügen {#creating-a-json-file-and-adding-textures}
 
 Du musst 2 Ordner in deinem `resources/assets/<mod id here>/` Ordner erstellen.
 
@@ -53,7 +53,7 @@ Als nächstes erstelle eine neue JSON-Datei in `particles` mit demselben Namen w
 Du kannst weitere Texturen in das Array `textures` einfügen, um eine Partikelanimation zu erstellen. Der Partikel durchläuft die Texturen im Array, beginnend mit der ersten Textur.
 :::
 
-## Den neuen Partikel testen
+## Den neuen Partikel testen {#testing-the-new-particle}
 
 Sobald du die JSON-Datei fertiggestellt und deine Arbeit gespeichert hast, kannst du Minecraft starten und alles testen!
 
