@@ -42,7 +42,7 @@ MinecraftClient.getInstance().setScreen(
 );
 ```
 
-## Закрытие экрана  {#closing-the-screen}
+## Закрытие экрана {#closing-the-screen}
 
 Если вы хотите закрыть экран, просто установите экран в значение `null`:
 
