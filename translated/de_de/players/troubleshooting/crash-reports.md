@@ -13,7 +13,7 @@ Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frag
 
 Absturzberichte sind ein sehr wichtiger Teil, um Probleme mit deinem Spiel oder Server zu beheben. Sie enthalten viele Informationen über den Absturz und können beim Finden der Ursache für den Absturz hilfreich sein.
 
-## Absturzberichte Absturzberichte finden
+## Absturzberichte Absturzberichte finden {#finding-crash-reports}
 
 Absturzberichte werden im `crash-reports`-Verzeichnis in deinem Spiel-Verzeichnis gespeichert. Falls du einen Server nutzt, sind sie im `crash-reports`-Verzeichnis im Server-Verzeichnis.
 
@@ -37,11 +37,11 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 :::
 
-## Absturzberichte lesen
+## Absturzberichte lesen {#reading-crash-reports}
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-In dieser Anleitung werden wir den [folgenden Absturzbericht als Beispiel](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) verwenden.
+Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.txt) nutzen.
 
 :::details Absturzbericht anzeigen
 
@@ -49,7 +49,7 @@ In dieser Anleitung werden wir den [folgenden Absturzbericht als Beispiel](https
 
 :::
 
-### Abschnitte des Absturzberichts
+### Abschnitte des Absturzberichts {#crash-report-sections}
 
 Absturzberichte bestehen aus mehreren Abschnitten, jeder ist mit einer Überschrift getrennt:
 
@@ -58,7 +58,7 @@ Absturzberichte bestehen aus mehreren Abschnitten, jeder ist mit einer Überschr
 - `-- System Details --`, dieser Abschnitt enthält Informationen über dein System, wie das Betriebssystem, die Java-Version, und die Speichermenge, die dem Spiel zugewiesen wurde. Dieser Abschnitt ist nützlich, um festzustellen, ob du die korrekte Java-Version verwendest und ob du dem Spiel genug Speicher zugewiesen hast.
   - In diesem Abschnitt fügt Fabric eine eigene Zeile ein, die mit `Fabric Mods:` beginnt und darauf folgend alle installierten Mods auflistet. Dieser Abschnitt ist nützlich, um festzustellen, ob Konflikte zwischen Mods aufgetreten sein könnten.
 
-### Den Absturzbericht herunterbrechen
+### Den Absturzbericht herunterbrechen {#breaking-down-the-crash-report}
 
 Da wir jetzt alle Abschnitte des Absturzberichts kennengelernt haben, können wir nun beginnen, den Absturzbericht herunterzubrechen und die Ursache des Absturzes zu finden.
 
@@ -76,7 +76,7 @@ In diesem Fall ist die Mod, die den Absturz verursacht `snownee`, da es die erst
 
 Mit der Anzahl an erwähnten Mods kann es aber auf Kompatibilitätsprobleme zwischen den Mods hindeuten, und die Mod, die den Absturz verursacht hat, muss nicht die Schuldige sein. In diesem Fall ist es das Beste, den Absturz dem Autor zu melden und ihn den Absturz weiter untersuchen zu lassen.
 
-## Abstürze durch Mixins
+## Abstürze durch Mixins {#mixin-crashes}
 
 :::info
 Mixins sind eine Möglichkeit, das Spiel zu verändern, ohne den Quellcode des Spiels zu verändern. Sie werden von vielen Mods genutzt und sind ein mächtiges Werkzeug für Mod-Entwickler.
@@ -92,7 +92,7 @@ Mixins für Methoden enthalten `modid$handlerName` im Stacktrace, wobei `modid` 
 
 Du kannst diese Information nutzen, um die Mod zu finden, die den Absturz verursacht und den Absturz an den Mod-Autor zu melden.
 
-## Was macht man mit Absturzberichten
+## Was macht man mit Absturzberichten {#what-to-do-with-crash-reports}
 
 Das Beste, was man mit Absturzberichten machen kann, ist sie auf eine Paste-Seite hochzuladen und einen Link mit dem Mod-Autor entweder über den Issue-Tracker oder durch eine andere Art der Kommunikation (Discord etc.) zu teilen.
 
