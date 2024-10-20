@@ -97,8 +97,8 @@
 }
 
 /* Keybinding CSS (<kbd> tags) */
-kbd {
-  background-color: #eee;
+kbd:not(.DocSearch-Button-Key) {
+  background-color: #eee !important;
   border-radius: 3px;
   border: 1px solid #b4b4b4;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
