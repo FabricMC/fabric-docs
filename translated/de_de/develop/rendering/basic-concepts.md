@@ -70,7 +70,7 @@ Der Zeichenmodus legt fest, wie die Daten gezeichnet werden. Die folgenden Zeich
 | `DrawMode.TRIANGLE_FAN`     | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Scheitelpunkt bildet ein neues Dreieck mit dem ersten und dem letzten Scheitelpunkt.     |
 | `DrawMode.QUADS`            | Jedes Element besteht aus 4 Scheitelpunkten, die ein Viereck bilden.                                                                                                   |
 
-### In den `BufferBuilder` schreiben
+### In den `BufferBuilder` schreiben {#writing-to-the-bufferbuilder}
 
 Sobald der `BufferBuilder` initialisiert ist, kannst du Daten in ihn schreiben.
 
@@ -80,7 +80,7 @@ Diese Methode gibt einen Eckpunkt-Builder zurück, den wir verwenden können, um
 
 Es lohnt sich auch, das Konzept des Culling zu verstehen. Culling ist der Prozess, bei dem Flächen einer 3D-Form entfernt werden, die aus der Perspektive des Betrachters nicht sichtbar sind. Wenn die Eckpunkte für eine Fläche in der falschen Reihenfolge angegeben werden, wird die Fläche aufgrund von Culling möglicherweise nicht korrekt dargestellt.
 
-#### Was ist eine Transformationsmatrix? Zeichenmodi
+#### Was ist eine Transformationsmatrix? {#what-is-a-transformation-matrix}
 
 Eine Transformationsmatrix ist eine 4x4-Matrix, die zur Transformation eines Vektors verwendet wird. In Minecraft transformiert die Transformationsmatrix lediglich die Koordinaten, die wir in den Vertex-Aufruf hineingeben. Mit den Transformationen kann unser Modell skaliert, verschoben und gedreht werden.
 
@@ -92,7 +92,7 @@ Es wird normalerweise über die Klasse `MatrixStack` bezogen, die über das Obje
 drawContext.getMatrices().peek().getPositionMatrix();
 ```
 
-#### Ein praktisches Beispiel: Rendering eines Dreiecksstreifens
+#### Ein praktisches Beispiel: Rendering eines Dreiecksstreifens {#rendering-a-triangle-strip}
 
 Es ist einfacher, anhand eines praktischen Beispiels zu erklären, wie man in den `BufferBuilder` schreibt. Nehmen wir an, wir wollen etwas mit dem Zeichenmodus `DrawMode.TRIANGLE_STRIP` und dem Vertexformat `POSITION_COLOR` rendern.
 
@@ -121,7 +121,7 @@ Dies führt dazu, dass auf dem HUD folgendes gezeichnet wird:
 Versuche, mit den Farben und Positionen der Eckpunkte herumzuspielen, um zu sehen, was passiert! Du kannst auch verschiedene Zeichenmodi und Vertex-Formate ausprobieren.
 :::
 
-## Der `MatrixStack`
+## Der `MatrixStack` {#the-matrixstack}
 
 Nachdem du gelernt hast, wie man in den `BufferBuilder` schreibt, fragst du dich vielleicht, wie du dein Modell transformieren oder sogar animieren kannst. Hier kommt die Klasse `MatrixStack` ins Spiel.
 
@@ -147,7 +147,7 @@ Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformatio
 
 ![Ein Video, das die Vergrößerung und Verkleinerung eines Diamanten zeigt](/assets/develop/rendering/concepts-matrix-stack.webp)
 
-## Quaternionen (rotierende Dinge)
+## Quaternionen (rotierende Dinge) {#quaternions-rotating-things}
 
 Quaternionen sind eine Methode zur Darstellung von Drehungen im 3D-Raum. Sie werden verwendet, um die oberste Matrix auf dem `MatrixStack` über die Methode `multiply(Quaternion, x, y, z)` zu drehen.
 

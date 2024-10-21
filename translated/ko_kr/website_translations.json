@@ -1,7 +1,7 @@
 {
-  "authors.heading": "페이 작성자",
-  "authors.nogithub": "%s (Github에 없음)",
-  "banner": "Fabric 문서화가 진행 중입니다. %s 또는 %s에 이슈를 보고하십시오.",
+  "authors.heading": "페이지 작성자",
+  "authors.nogithub": "%s (GitHub에 없음)",
+  "banner": "Fabric 문서화가 진행 중입니다. %s 또는 %s에 이슈를 보고하세요.",
   "description": "마인크래프트를 위한 모딩 툴체인, Fabric을 위한 포괄적인 문서입니다.",
   "footer.next": "다음 페이지",
   "footer.prev": "이전 페이지",

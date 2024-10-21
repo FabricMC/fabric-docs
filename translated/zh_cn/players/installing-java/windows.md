@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# 在 Windows 上安装 Java
+# 在 Windows 上安装 Java {#installing-java-on-windows}
 
 这个指南将会指引您在 Windows 上安装 Java 21。
 
