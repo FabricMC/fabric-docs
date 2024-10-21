@@ -153,7 +153,7 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 ## Mining Levels {#mining-levels}
 
-Similarly, the mining level tag can be found in the same folder, and respects the following format:
+Similarly, the mining level tag can be found in the `data/minecraft/tags/block/` folder, and respects the following format:
 
 - `needs_stone_tool.json` - A minimum level of stone tools
 - `needs_iron_tool.json` - A minimum level of iron tools
