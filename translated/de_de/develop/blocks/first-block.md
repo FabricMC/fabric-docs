@@ -153,7 +153,7 @@ In diesem Beispiel wird der Block "Condensed Dirt" zum Tag `shovel` hinzugefügt
 
 ## Abbauebene {#mining-levels}
 
-In ähnlicher Weise befindet sich das Tag für die Abbauebene im selben Ordner und hat das folgende Format:
+Ähnlich verhält es sich mit dem Mining-Level-Tag, das im Ordner `data/minecraft/tags/block/` zu finden ist und das folgende Format hat:
 
 - `needs_stone_tool.json` - Eine minimale Ebene für Steinwerkzeuge.
 - `needs_iron_tool.json` - Eine minimale Ebene für Eisenwerkzeuge.
