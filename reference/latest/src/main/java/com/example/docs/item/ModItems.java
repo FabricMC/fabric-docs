@@ -1,14 +1,18 @@
 package com.example.docs.item;
 
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.FuelRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,7 +22,6 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 import com.example.docs.FabricDocsReference;
 import com.example.docs.component.ModComponents;
@@ -32,14 +35,14 @@ public class ModItems {
 	// :::1
 
 	// :::6
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_helmet");
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_chestplate");
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_leggings");
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_boots");
+	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.HELMET, new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_helmet");
+	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.CHESTPLATE, new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_chestplate");
+	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.LEGGINGS, new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_leggings");
+	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.BOOTS, new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), "guidite_boots");
 	// :::6
 	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings()), "lightning_stick");
 	// :::7
-	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, new Item.Settings()), "guidite_sword");
+	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 1.5F, 1F, new Item.Settings()), "guidite_sword");
 	// :::7
 	// :::_13
 	public static final Item COUNTER = register(new CounterItem(
@@ -141,7 +144,9 @@ public class ModItems {
 		// Add the suspicious substance to the flammable block registry with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
-		FuelRegistry.INSTANCE.add(ModItems.GUIDITE_SWORD, 30 * 20);
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.GUIDITE_SWORD, 30 * 20);
+		});
 		// :::_11
 		// :::3
 	}
