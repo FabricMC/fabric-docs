@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "fabric-docs-reference",
+	"version": "1.0.0",
+	"name": "Fabric docs reference",
+	"icon": "assets/fabric-docs-reference/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.docs.FabricDocsReference",
+			"com.example.docs.event.FabricDocsReferenceEvents",
+			"com.example.docs.command.FabricDocsReferenceCommands",
+			"com.example.docs.effect.FabricDocsReferenceEffects",
+			"com.example.docs.potion.FabricDocsReferencePotions",
+			"com.example.docs.sound.FabricDocsReferenceSounds",
+			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
+			"com.example.docs.item.FabricDocsReferenceItems",
+			"com.example.docs.block.FabricDocsReferenceBlocks",
+			"com.example.docs.component.FabricDocsReferenceComponents"
+		],
+		"client": [
+			"com.example.docs.FabricDocsReferenceClient",
+			"com.example.docs.client.command.FabricDocsReferenceClientCommands"
+		],
+		"fabric-datagen": [
+			"com.example.docs.FabricDocsReferenceDataGenerator",
+			"com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator"
+		]
+	},
+	"mixins": [
+		"fabric-docs-reference.mixins.json",
+		{
+			"config": "fabric-docs-reference.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {}
+}
