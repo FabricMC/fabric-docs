@@ -3,6 +3,8 @@ title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
   - IMB11
+  - xEobard_Thawne
+  - its-miroma
 ---
 
 # Creating Your First Block {#creating-your-first-block}
@@ -150,6 +152,8 @@ The contents of the file are quite simple - it is a list of items that should be
 This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining tag.
 
 ## Mining Levels {#mining-levels}
 
