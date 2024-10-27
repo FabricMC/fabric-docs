@@ -153,7 +153,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 挖掘等级{#mining-levels}
 
-类似地，相同的文件夹内也可以找到挖掘等级，并遵循以下格式：
+类似地，`data/minecraft/tags/block/` 文件夹内也可以找到挖掘等级，并遵循以下格式：
 
 - `needs_stone_tool.json` - 最低需要石质工具
 - `needs_iron_tool.json` - 最低需要铁质工具
