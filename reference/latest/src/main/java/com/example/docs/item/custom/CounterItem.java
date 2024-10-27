@@ -7,9 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import com.example.docs.component.ModComponents;
@@ -24,12 +24,12 @@ public class CounterItem extends Item {
 
 	@Override
 	//::2
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+	public ActionResult use(World world, PlayerEntity user, Hand hand) {
 		ItemStack stack = user.getStackInHand(hand);
 
 		// Don't do anything on the client
 		if (world.isClient()) {
-			return TypedActionResult.success(stack);
+			return ActionResult.SUCCESS;
 		}
 
 		// Read the current count and increase it by one
@@ -37,7 +37,7 @@ public class CounterItem extends Item {
 		stack.set(ModComponents.CLICK_COUNT_COMPONENT, ++count);
 
 		// Return the original stack
-		return TypedActionResult.success(stack);
+		return ActionResult.SUCCESS;
 	}
 
 	//::2
