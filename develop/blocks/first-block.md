@@ -11,7 +11,7 @@ Blocks are the building blocks of Minecraft (no pun intended) - just like everyt
 
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and it's block item.
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and its block item.
 
 You should put this method in a class called `ModBlocks` (or whatever you want to name it).
 
