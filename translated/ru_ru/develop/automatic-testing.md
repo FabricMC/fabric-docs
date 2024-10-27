@@ -29,16 +29,6 @@ authors:
 
 @[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
-#### Разделить источники {#split-sources}
-
-:::info
-Планируется, что этот раздел станет неактуальным после выхода Loom 1.8. Для получения дополнительной информации отслеживайте [эту проблему](https://github.com/FabricMC/fabric-loom/issues/1060).
-:::
-
-Если вы используете разделенные источники, вам также необходимо добавить либо клиентский, либо серверный набор источников в тестовый набор источников. По умолчанию Fabric Loader JUnit настроен на клиент, поэтому мы добавим исходный набор клиента в нашу тестовую среду с помощью следующего кода в `build.gradle`:
-
-@[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
-
 ### Написание тестов {#writing-tests}
 
 После перезагрузки Gradle вы будете готовы писать тесты.

@@ -29,16 +29,6 @@ Dann müssen wir Gradle anweisen, Fabric Loader JUnit zum Testen zu verwenden. D
 
 @[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
-#### Aufgeteilte Sources {#split-sources}
-
-:::info
-Es ist geplant, dass dieser Abschnitt nach der Veröffentlichung von Loom 1.8 irrelevant wird. Für mehr Informationen, folge [diesem Issue](https://github.com/FabricMC/fabric-loom/issues/1060).
-:::
-
-Wenn du geteilte Sources verwendest, musst du auch entweder den Client- oder das Server-Sourceset zum Testsourceset hinzufügen. Fabric Loader JUnit ist standardmäßig auf Client eingestellt, also fügen wir das Client-Sourceset zu unserer Testumgebung mit folgendem Eintrag in der `build.gradle`-Datei hinzu:
-
-@[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
-
 ### Tests schreiben {#writing-tests}
 
 Nachdem du Gradle neu geladen hast, bist du bereit, Tests zu schreiben.

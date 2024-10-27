@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT' apply false
+	id 'fabric-loom' version '1.8-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
@@ -27,15 +27,6 @@ subprojects {
 			ideConfigGenerated = true
 		}
 	}
-
-	// :::automatic-testing:3
-	sourceSets {
-		test {
-			compileClasspath += client.compileClasspath
-			runtimeClasspath += client.runtimeClasspath
-		}
-	}
-	// :::automatic-testing:3
 
 	dependencies {
 		modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
