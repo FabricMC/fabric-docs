@@ -23,7 +23,7 @@ Just like items and blocks, potions need to be registered.
 Let's start by declaring a field to store your `Potion` instance. We will be directly using the initializer class to
 hold this.
 
-@[code lang=java transclude={19-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 
