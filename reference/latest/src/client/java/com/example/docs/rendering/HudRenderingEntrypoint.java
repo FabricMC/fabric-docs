@@ -11,12 +11,12 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// :::1
-		HudRenderCallback.EVENT.register((context, tickDeltaManager) -> {
+		HudRenderCallback.EVENT.register((context, tickCounter) -> {
 			int color = 0xFFFF0000; // Red
 			int targetColor = 0xFF00FF00; // Green
 
 			// Total tick delta is stored in a field, so we can use it later.
-			totalTickDelta += tickDeltaManager.getTickDelta(true);
+			totalTickDelta += tickCounter.getTickDelta(true);
 
 			// "lerp" simply means "linear interpolation", which is a fancy way of saying "blend".
 			float lerpedAmount = MathHelper.abs(MathHelper.sin(totalTickDelta / 50F));
