@@ -23,7 +23,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudRenderCallback.EVENT.register((drawContext, tickCounter) -> {
+		HudRenderCallback.EVENT.register((drawContext, tickDeltaManager) -> {
 			// :::1
 			if (true) {
 				return;
@@ -33,7 +33,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			MatrixStack matrices = drawContext.getMatrices();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickDelta += tickCounter.getTickDelta(true);
+			totalTickDelta += tickDeltaManager.getTickDelta(true);
 
 			// Push a new matrix onto the stack.
 			matrices.push();

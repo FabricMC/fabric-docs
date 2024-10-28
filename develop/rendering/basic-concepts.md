@@ -135,7 +135,7 @@ The `MatrixStack` class has the following methods:
 
 You can also multiply the top matrix on the stack using quaternions, which we will cover in the next section.
 
-Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the "progress" between the last game tick and the next game tick.
+Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the time that has passed since the last frame.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
