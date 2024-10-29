@@ -13,7 +13,7 @@ import net.minecraft.util.ActionResult;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 // Class to contain all mod events.
 public class FabricDocsReferenceEvents implements ModInitializer {
@@ -35,7 +35,7 @@ public class FabricDocsReferenceEvents implements ModInitializer {
 		// :::1
 
 		// :::2
-		LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
+		LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
 			// Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
 			// We also check that the loot table ID is equal to the ID we want.
 			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(key)) {
