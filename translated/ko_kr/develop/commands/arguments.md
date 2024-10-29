@@ -32,7 +32,7 @@ description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아�
 
 만약 바닐라에 사용하려는 인수 타입이 없다면, 직접 인수 타입을 만들 수도 있습니다. 만드는 방법을 알아보자면, 먼저 `ArgumentType<T>` 인터페이스를 상속하는 클래스를 만들어야 합니다. 이때, `T`는 인수의 타입을 의미합니다.
 
-이제 입력된 문자열을 원하는 타입으로 변환하기 위해 `parse` 메소드를 구현해야 합니다.
+이제 입력된 문자열을 원하는 타입으로 변환하기 위해 `parse` 메서드를 구현해야 합니다.
 
 예를 들어, `{x, y, z}` 형태로 입력된 문자열을 `BlockPos`로 변환해보겠습니다.
 
@@ -44,13 +44,13 @@ description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아�
 명령어를 올바르게 작동하게 하려면 서버와 클라이언트 모두에 사용자 정의 인수 타입을 등록해야 합니다! 그렇지 않으면 정상적으로 작동하지 않을 것입니다.
 :::
 
-모드 초기화 단계의 `onInitialize` 메소드 에서 `ArgumentTypeRegistry` 클래스를 통해 사용자 정의 인수 타입을 등록할 수 있습니다.
+모드 초기화 단계의 `onInitialize` 메서드 에서 `ArgumentTypeRegistry` 클래스를 통해 사용자 정의 인수 타입을 등록할 수 있습니다.
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### 사용자 정의 인수 타입의 사용 {#using-custom-argument-types}
 
-명령어 빌더의 `.argument` 메소드에 인스턴스를 입력하여 명령어에 사용자 정의 인수 타입을 사용할 수 있습니다.
+명령어 빌더의 `.argument` 메서드에 인스턴스를 입력하여 명령어에 사용자 정의 인수 타입을 사용할 수 있습니다.
 
 @[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
