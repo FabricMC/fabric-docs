@@ -64,13 +64,15 @@ Ora che sappiamo cos'è ciascuna sezione della segnalazione di crash, possiamo i
 
 Usando l'esempio del link sopra, possiamo analizzare la segnalazione di crash e trovare la causa del crash, incluse le mod che l'hanno causato.
 
-Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash. In questo caso, l'errore è `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
+Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash.
+
+:::details Mostra Errore
+
+<<< @/public/assets/players/crash-report-example.txt{7 log}
+
+:::
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
-
-<!-- TODO: show part of this file -->
-
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 In questo caso, la mod che ha causato il crash è `snownee`, poiché è la prima mod menzionata nello stack trace.
 
