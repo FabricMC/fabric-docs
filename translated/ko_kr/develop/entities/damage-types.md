@@ -43,13 +43,13 @@ JSON 파일 구조에 대한 자세한 내용은 [Minecraft 위키 (영문)](htt
 
 피해 유형 사용의 예시를 만들어 보기 위해, 먼저 사용자 정의 블록 _Tater Block_을 추가해보겠습니다. _Tater Block_은 살아있는 엔티티가 밟으면 _Tater_ 피해를 입힙니다.
 
-피해를 주기 위해 먼저 `onSteppedOn` 메소드를 덮어(Override) 쓰겠습니다.
+피해를 주기 위해 먼저 `onSteppedOn` 메서드를 덮어(Override) 쓰겠습니다.
 
 사용자 정의 피해 유형의 `DamageSource`를 생성하며 시작합니다.
 
 @[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-그리고, `entity.damage()` 메소드에 `DamageSource`와 피해 크기를 입력하여 호출합니다.
+그리고, `entity.damage()` 메서드에 `DamageSource`와 피해 크기를 입력하여 호출합니다.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
