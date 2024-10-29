@@ -15,7 +15,7 @@ Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력�
 
 ## 제안 공급자 사용하기 {#using-suggestion-providers}
 
-제안 공급자를 사용하려면, 인수 빌더의 `suggests` 메소드를 호출해야 합니다. 이 메소드는 `SuggestionProvider`를 인수로 받고 제안 공급자가 덧붙여진 새로운 인수 빌더를 반환합니다.
+제안 공급자를 사용하려면, 인수 빌더의 `suggests` 메서드를 호출해야 합니다. 이 메서드는 `SuggestionProvider`를 인수로 받고 제안 공급자가 덧붙여진 새로운 인수 빌더를 반환합니다.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -33,13 +33,13 @@ Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력�
 
 ## 직접 제안 공급자 만들기 {#creating-a-custom-suggestion-provider}
 
-내장된 제안 공급자에 필요로 하는 것이 없다면, 직접 자신만의 제안 공급자를 만들 수도 있습니다. 이렇게 하려면, 먼저 `SuggestionProvider` 인터페이스를 구현(Implement)하는 클래스를 만들고, `getSuggestion` 메소드를 덮어써야(Override) 합니다.
+내장된 제안 공급자에 필요로 하는 것이 없다면, 직접 자신만의 제안 공급자를 만들 수도 있습니다. 이렇게 하려면, 먼저 `SuggestionProvider` 인터페이스를 구현(Implement)하는 클래스를 만들고, `getSuggestion` 메서드를 덮어써야(Override) 합니다.
 
 예를 들어, 서버의 모든 플레이어 이름을 제안하는 제안 공급자를 만들어 보겠습니다.
 
 @[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
-이 제안 공급자를 사용하려면, 그냥 간단하게 인수 빌더의 `.suggests` 메소드에 만든 인스턴스를 전달하기만 하면 됩니다.
+이 제안 공급자를 사용하려면, 그냥 간단하게 인수 빌더의 `.suggests` 메서드에 만든 인스턴스를 전달하기만 하면 됩니다.
 
 @[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
