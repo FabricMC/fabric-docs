@@ -32,9 +32,9 @@ Brigadier는 오픈 소스로, 원본 소스 코드는 여기에서 확인할 �
 `com.mojang.brigadier.Command`는 특정 코드를 실행하고 `CommandSyntaxException`을 던지는 기능형 인터페이스 이며, _명령어의 소스_ 의 타입을 결정하는 제네릭 타입 `S`를 가집니다. 인수처럼, 하위 명령어 노드도 필수적이진 않습니다.
 명령어 소스는 명령어를 실행한 대상자를 의미합니다. Minecraft에서, 명령어 소스는 서버를 의미하는 `ServerCommandSource`, 명령 블록, 원격 연결 (RCON), 그리고 플레이어와 엔티티가 있습니다.
 
-`Command`의 `run(CommandContext<S>)` 메소드는 `CommandContext<S>`를 인수로 받아 정수를 반환합니다. 명령어 컨텍스트에선 명령어 소스 `S`와, 인수, 분석된 명령어 노드 또는 명령어의 입력을 받아올 수 있습니다.
+`Command`의 `run(CommandContext<S>)` 메서드는 `CommandContext<S>`를 인수로 받아 정수를 반환합니다. 명령어 컨텍스트에선 명령어 소스 `S`와, 인수, 분석된 명령어 노드 또는 명령어의 입력을 받아올 수 있습니다.
 
-다른 기능형 인터페이스처럼, 이 인터페이스에는 대부분 람다식 또는 메소드 참조가 사용됩니다.
+다른 기능형 인터페이스처럼, 이 인터페이스에는 대부분 람다식 또는 메서드 참조가 사용됩니다.
 
 ```java
 Command<ServerCommandSource> command = context -> {
@@ -48,7 +48,7 @@ Command<ServerCommandSource> command = context -> {
 
 예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다. `ServerCommandSource`는 명령어를 실행한 엔티티, 명령어가 실행된 세계 또는 서버 등 명령어가 실행될 때 추가적인 컨텍스트를 제공합니다.
 
-`CommandContext` 인스턴스에서 `getSource()` 메소드를 호출해 명령어 컨텍스트에서 명령어 소스에 접근할 수도 있습니다.
+`CommandContext` 인스턴스에서 `getSource()` 메서드를 호출해 명령어 컨텍스트에서 명령어 소스에 접근할 수도 있습니다.
 
 ```java
 Command<ServerCommandSource> command = context -> {
@@ -70,14 +70,14 @@ Command<ServerCommandSource> command = context -> {
 콜백은 다음 세 가지 매개변수를 가집니다.
 
 - `CommandDispatcher<ServerCommandSource> dispatcher` - 명령어를 등록, 분석하고 실행하는 데 사용됩니다. `S`는 명령어 디스패처가 지원하는 명령어 소스의 타입입니다.
-- `CommandRegistryAccess registryAccess` - 특정한 명령어 인수 메소드에 입력될 수 있는 레지스트리의 추상화를 제공합니다.
+- `CommandRegistryAccess registryAccess` - 특정한 명령어 인수 메서드에 입력될 수 있는 레지스트리의 추상화를 제공합니다.
 - `CommandManager.RegistrationEnvironment environment` - 명령어가 등록되는 서버의 유형을 식별합니다.
 
 이제 모드 초기화에서 간단한 명령어를 한번 등록해봅시다.
 
 @[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-`sendFeedback()` 메소드의 첫 번째 인수는 보내질 텍스트이며, 텍스트 오브젝트의 필요 없는 인스턴스화를 막기 위해 `Supplier<Text>` 로 제공됩니다.
+`sendFeedback()` 메서드의 첫 번째 인수는 보내질 텍스트이며, 텍스트 오브젝트의 필요 없는 인스턴스화를 막기 위해 `Supplier<Text>` 로 제공됩니다.
 
 두 번째 인수는 다른 관리자에게 피드백을 전송할지 결정합니다. 일반적으로, 세계 시간이나 플레이어의 점수를 출력하는 등 세계에 영향을 주지 않는 명령어라면 `false` 로 설정됩니다. 반대로 시간이나 플레이어의 점수를 변경하는 등 명령어가 세계에 영향을 준다면 `true` 가 되게 됩니다.
 
@@ -88,7 +88,7 @@ Command<ServerCommandSource> command = context -> {
 방금 등록한 명령어를 실행하려면, 대소문자를 구분하여 `/test_command`를 입력하면 됩니다.
 
 :::info
-이 시점부터, `.execute()` 빌더에 전달된 람다식 이내에서 작성된 로직을 개별 메소드로 추출하겠습니다. 그런 다음 `.execute()`에 대한 메소드 참조를 전달할 수 있습니다. 이는 명확함을 위해 수행되었습니다.
+이 시점부터, `.execute()` 빌더에 전달된 람다식 이내에서 작성된 로직을 개별 메서드로 추출하겠습니다. 그런 다음 `.execute()`에 대한 메서드 참조를 전달할 수 있습니다. 이는 명확함을 위해 수행되었습니다.
 :::
 
 ### 등록 환경 {#registration-environment}
@@ -100,7 +100,7 @@ Command<ServerCommandSource> command = context -> {
 
 ### 명령어의 요구 사항 {#command-requirements}
 
-관리자만 실행 가능한 명령어를 만들고 싶다고 가정해봅시다. `require()` 메소드를 사용하기 딱 좋은 상황이군요. `require()` 메소드는 `ServerCommandSource`를 제공하고 `CommandSource`가 명령어를 실행할 수 있는지 판단하는 `Predicate<S>`을 인수로 가집니다.
+관리자만 실행 가능한 명령어를 만들고 싶다고 가정해봅시다. `require()` 메서드를 사용하기 딱 좋은 상황이군요. `require()` 메서드는 `ServerCommandSource`를 제공하고 `CommandSource`가 명령어를 실행할 수 있는지 판단하는 `Predicate<S>`을 인수로 가집니다.
 
 @[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -142,14 +142,14 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 
 ### 왜 내 코드가 컴파일되지 않나요? {#why-does-my-code-not-compile}
 
-- `CommandSyntaxException` 예외를 던지거나 처리해 보세요. `CommandSyntaxException`은 `RuntimeException`이 아닙니다. 만약 던진다면, 메소드 시그니처에서 `CommandSyntaxException`을 발생시키는 메소드에 있어야 합니다. 그렇지 않으면, 처리되어야 합니다.
+- `CommandSyntaxException` 예외를 던지거나 처리해 보세요. `CommandSyntaxException`은 `RuntimeException`이 아닙니다. 만약 던진다면, 메소드 시그니처에서 `CommandSyntaxException`을 발생시키는 메서드에 있어야 합니다. 그렇지 않으면, 처리되어야 합니다.
   Brigadier가 확인된 예외를 처리하고 게임에서 적절한 오류 메세지를 전송할 것입니다.
 
-- 제네릭 타입이 올바른지 확인해 보세요. 가끔 제네릭 타입에 문제가 있을 수도 있습니다. (대부분의 경우처럼) 명령어를 서버에 등록하려 한다면, `LiteralArgumentBuilder.literal` 대신에 `CommandManager.literal`, 또는 `RequiredArgumentBuilder.argument` 대신에 `CommandManager.argument`를 사용중인지 확인하세요.
+- 제네릭 타입이 올바른지 확인해 보세요. 가끔 제네릭 타입에 문제가 있을 수도 있습니다. (대부분의 경우처럼) 명령어를 서버에 등록하려 한다면, `LiteralArgumentBuilder.literal` 대신에 `CommandManager.literal`, 또는 `RequiredArgumentBuilder.argument` 대신에 `CommandManager.argument`를 사용 중인지 확인하세요.
 
-- `sendFeedback()` 메소드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Text`가 아니라 `Supplier<Text>` 임을 기억하세요.
+- `sendFeedback()` 메서드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Text`가 아니라 `Supplier<Text>` 임을 기억하세요.
 
-- 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메소드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
+- 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메서드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
 ### 런타임에서 명령어를 등록할 수 있나요? <br>
 
