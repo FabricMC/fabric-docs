@@ -73,7 +73,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141);
 
 			// We'll get to this bit in the next section.
-			RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+			RenderSystem.setShader(ShaderProgramKeys.POSITION_COLOR);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
 			// Draw the buffer onto the screen.
