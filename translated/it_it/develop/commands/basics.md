@@ -26,6 +26,7 @@ Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It
 you build a tree of commands and arguments.
 
 Brigadier è open-source: <https://github.com/Mojang/brigadier>
+:::
 
 ## L'interface `Command` {#the-command-interface}
 

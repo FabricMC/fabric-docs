@@ -22,6 +22,6 @@ features:
 
 ## Chcesz pomóc? {#contribute}
 
-Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące wnoszenia wkładu](./contributing).
+Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące współtworzenia](./contributing).
 
 </div>

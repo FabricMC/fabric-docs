@@ -3,6 +3,8 @@ title: Deinen ersten Block erstellen
 description: Lerne, wie du deinen ersten benutzerdefinierten Block in Minecraft erstellen kannst.
 authors:
   - IMB11
+  - xEobardThawne
+  - its-miroma
 ---
 
 # Deinen ersten Block erstellen {#creating-your-first-block}
@@ -11,7 +13,7 @@ Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau 
 
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
 
-Wenn du die Seite [Dein erstes Item erstellen](../items/first-item) abgeschlossen hast, wird dir dieser Prozess sehr vertraut vorkommen - Du musst eine Methode erstellen, die deinen Block und sein Blockitem registriert.
+Wenn du die Seite [Dein erstes Item erstellen](../items/first-item) abgeschlossen hast, wird dir dieser Prozess sehr vertraut vorkommen - Du musst eine Methode erstellen, die deinen Block und sein Block-Item registriert.
 
 Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
 
@@ -150,6 +152,8 @@ Der Inhalt der Datei ist recht einfach - es handelt sich um eine Liste von Eleme
 In diesem Beispiel wird der Block "Condensed Dirt" zum Tag `shovel` hinzugefügt.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+
+Wenn du möchtest, dass ein Tool zum Abbau des Blocks erforderlich ist, musst du die Blockeinstellungen um den Zusatz `.requiresTool()` erweitern und das entsprechende Mining-Tag hinzufügen.
 
 ## Abbauebene {#mining-levels}
 

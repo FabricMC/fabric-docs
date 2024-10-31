@@ -20,7 +20,7 @@ Genauso wie Items und Blöcke, müssen auch Tränke registriert werden.
 
 Als Erstes wird die `Potion` Instanz in einer Variable deklariert. Dabei wird die Initialisierungsklasse benutzt, um die Variable zu belegen.
 
-@[code lang=java transclude={19-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besitzt:
 

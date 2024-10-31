@@ -20,7 +20,7 @@ Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
 Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente la classe dell'initializer per conservarla.
 
-@[code lang=java transclude={19-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
