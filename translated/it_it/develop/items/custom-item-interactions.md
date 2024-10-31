@@ -13,7 +13,7 @@ Ci sono alcune classi chiave che devi comprendere prima di dare un'occhiata agli
 
 ## TypedActionResult {#typedactionresult}
 
-Per gli oggetti, il `TypedActionResult` che incontrerai più comunemente è per gli `ItemStacks` - questa classe informa il gioco riguardo a cosa sostituire o non nello stack di oggetti dopo che l'evento è avvenuto.
+Per gli oggetti, il `TypedActionResult` che incontrerai più comunemente è per gli `ItemStacks` - questa classe informa il gioco riguardo a cosa sostituire (o non) nello stack di oggetti dopo che l'evento è avvenuto.
 
 Se non è successo nulla nell'evento, dovresti usare il metodo `TypedActionResult#pass(stack)`, dove `stack` è lo stack di oggetti corrente.
 
