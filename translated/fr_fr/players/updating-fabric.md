@@ -14,7 +14,7 @@ Pour les lanceurs tiers, vous devriez consulter leur documentation.
 
 La mise à jour de Fabric ressemble beaucoup à l'installation de Fabric, donc certains passages seront identiques au guide [Installer Fabric](./installing-fabric).
 
-## Pourquoi mettre à jour Fabric Loader ?
+## Pourquoi mettre à jour Fabric Loader ? Et voilà !
 
 De nouveaux mods peuvent nécessiter une version plus récente de Fabric Loader pour fonctionner, il est donc important de le garder à jour pour s'assurer de pouvoir utiliser les mods les plus récents.
 
@@ -24,7 +24,9 @@ De nouveaux mods peuvent nécessiter une version plus récente de Fabric Loader 
 
 Pour mettre à jour Fabric, s'assurer que les versions du jeu et de Loader correspondent, puis appuyer sur 'Install' (Installer).
 
+:::warning IMPORTANT
 **Assurez-vous d'avoir décoché 'Créer un profil' en exécutant l'installateur, sinon un nouveau profil sera créé, ce qui est indésirable ici.**
+:::
 
 ## 3. Ouvrir le profil dans le launcher Minecraft
 
@@ -34,7 +36,7 @@ Remplacer la version avec la version de Fabric Loader tout juste installée et a
 
 ![Mise à jour de la version de Fabric Loader dans le launcher Minecraft](/assets/players/updating-fabric.png)
 
-## 4. Et voilà !
+## 4. Et voilà ! {#4-you-re-done}
 
 Une fois que ces étapes ont été faites, retourner à l'onglet 'Jeu', sélectionner le profil Fabric depuis le menu déroulant dans le coin inférieur gauche et appuyer sur 'Jouer' !
 
