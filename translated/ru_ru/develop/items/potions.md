@@ -20,7 +20,7 @@ authors:
 
 Начнем с объявления поля для хранения вашего экземпляра `Potion`. Мы будем напрямую использовать класс инициализатора для хранения этого.
 
-@[code lang=java transclude={19-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Мы передаем экземпляр `StatusEffectInstance`, который принимает 3 параметра:
 
