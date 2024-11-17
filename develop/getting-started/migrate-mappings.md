@@ -1,14 +1,14 @@
-====== Updating Yarn mappings in a Java codebase ======
+# Updating Yarn mappings in a Java codebase
 
 Loom allows semi-automatic updating of the mappings used in a Java codebase. Due to frequent changes in Yarn, this can be a useful tool for keeping a codebase up-to-date with the newest changes.
 
 **Note:** This automated process currently does not handle Mixins or reflection, instances of these will need to be manually updated.
 
-===== Loom 0.2.6 and above =====
+## Loom 0.2.6 and above
 
 Say you want to migrate from 1.16.5 yarn to 1.17.1 yarn.
 
-  - Go [[https://fabricmc.net/develop|here]], select the version to migrate to, and copy the Gradle command under "Mappings Migration", for example ''gradlew migrateMappings %%--%%mappings %%"%%1.17.1+build.40%%"%%''.  DO NOT modify your gradle.properties or build.gradle yet.   
+  - Go [https://fabricmc.net/develop](here), select the version to migrate to, and copy the Gradle command under "Mappings Migration", for example ''gradlew migrateMappings %%--%%mappings %%"%%1.17.1+build.40%%"%%''.  DO NOT modify your gradle.properties or build.gradle yet.   
   - Run the command in the root of your Gradle project.
   - Your migrated sources will appear in ''remappedSrc''. Verify that the migration produced valid migrated code.
   - Copy the sources from ''remappedSrc'' to the original folder. Keep the original sources backed up just in case.
@@ -16,7 +16,7 @@ Say you want to migrate from 1.16.5 yarn to 1.17.1 yarn.
   - Refresh the Gradle project in your IDE.
   - Check and update any Mixin targets that may be outdated.
 
-If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sure your mappings in ''build.gradle'' is set to ''loom.officialMojangMappings()'' before running ''migrateMappings''. For more information, check out the dedicated [[tutorial:mappings|Mappings]] page.
+If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sure your mappings in ''build.gradle'' is set to ''loom.officialMojangMappings()'' before running ''migrateMappings''. For more information, check out the dedicated [https://fabricmc.net/wiki/tutorial:mappings](Mappings) page on the Fabric wiki.
 
 === Additional customization === 
   * Specify from where to take your Java files with ''%%--%%input path/to/source''. Default: ''src/main/java''.
