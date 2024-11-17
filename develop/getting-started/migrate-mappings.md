@@ -30,7 +30,7 @@ Loom uses [Mercury](https://github.com/CadixDev/Mercury) to remap Java source co
 
 Some assembly required.
 
-  - Figure out your target mappings version. For example, "net.fabricmc:yarn:1.14.1 Pre-Release 2+build.2".
+  - Figure out your target mappings version. For example, ```net.fabricmc:yarn:1.14.1 Pre-Release 2+build.2```.
   - Make sure the mappings for this version get created. This is the hacky part, as currently the only way to do it is to edit the ```minecraft``` and ```mappings``` fields in a ```build.gradle``` to the new version, run any Gradle command ("gradle build" will do, even if it crashes), then **change the fields back**.
   - Run the following magical wizardry command: ```gradle migrateMappings -PtargetMappingsArtifact="net.fabricmc:yarn:1.14.1 Pre-Release 2+build.2" -PinputDir=src/main/java -PoutputDir=remappedSrc```, where:
     * ```targetMappingsArtifact``` refers to the target mappings version. It is imperative that the build.gradle be set to the current mappings version of the mod when running this command!
