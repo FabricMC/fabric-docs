@@ -23,10 +23,10 @@ If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sur
   * Specify where to output the remapped source with ''%%--%%output path/to/output''. Default: 'remappedSrc'. You can use ''src/main/java'' here to avoid having to copy the remapped classes, but make sure you have a backup.
   * Specify a custom place to retrieve the mappings from with ''%%--%%mappings some_group:some_artifact:some_version:some_qualifier''. Default: ''net.fabricmc:yarn:<version-you-inputted>:v2''. Use ''net.minecraft:mappings:<minecraft-version>'' to migrate to official Mojang mappings.
 
-=== Reporting issues ===
+### Reporting issues
 Loom uses [https://github.com/CadixDev/Mercury](Mercury) to remap Java source code, for problems with remapping please report issues to their [https://github.com/CadixDev/Mercury/issues](issue tracker), or discuss it through their communications channel (irc.esper.net #cadix).
 
-===== Loom 0.2.2-0.2.5 =====
+## Loom 0.2.2-0.2.5
 
 Some assembly required.
 
