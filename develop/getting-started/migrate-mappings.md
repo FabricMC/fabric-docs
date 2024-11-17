@@ -12,7 +12,7 @@ Say you want to migrate from 1.16.5 yarn to 1.17.1 yarn.
   - Run the command in the root of your Gradle project.
   - Your migrated sources will appear in ```remappedSrc```. Verify that the migration produced valid migrated code.
   - Copy the sources from ```remappedSrc``` to the original folder. Keep the original sources backed up just in case.
-  - Update your gradle.properties file according to the instructions in [https://fabricmc.net/develop](the first site).
+  - Update your gradle.properties file according to the instructions in [the first site](https://fabricmc.net/develop).
   - Refresh the Gradle project in your IDE.
   - Check and update any Mixin targets that may be outdated.
 
@@ -24,7 +24,7 @@ If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sur
   * Specify a custom place to retrieve the mappings from with ```--mappings some_group:some_artifact:some_version:some_qualifier''. Default: ''net.fabricmc:yarn:<version-you-inputted>:v2''. Use ''net.minecraft:mappings:<minecraft-version>``` to migrate to official Mojang mappings.
 
 ### Reporting issues
-Loom uses [https://github.com/CadixDev/Mercury](Mercury) to remap Java source code, for problems with remapping please report issues to their issue tracker, or discuss it through their communications channel (irc.esper.net #cadix).
+Loom uses [Mercury](https://github.com/CadixDev/Mercury) to remap Java source code, for problems with remapping please report issues to their issue tracker, or discuss it through their communications channel (irc.esper.net #cadix).
 
 ## Loom 0.2.2-0.2.5
 
