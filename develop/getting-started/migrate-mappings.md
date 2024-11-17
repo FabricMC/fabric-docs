@@ -39,6 +39,6 @@ Some assembly required.
   - Copy the remapped source code to the input directory, if everything's fine.
   - Hope for the best.
 
-//Note: You may need to specify the full paths in quotes, try this if you get file not found issues.//
+*Note: You may need to specify the full paths in quotes, try this if you get file not found issues.*
 
 This should work across Minecraft versions as well, provided we haven't massively broken Intermediaries or done something equally silly (aka: most of the time).
