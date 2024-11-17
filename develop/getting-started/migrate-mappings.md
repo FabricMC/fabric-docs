@@ -16,7 +16,7 @@ Say you want to migrate from 1.16.5 yarn to 1.17.1 yarn.
   - Refresh the Gradle project in your IDE.
   - Check and update any Mixin targets that may be outdated.
 
-If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sure your mappings in ```build.gradle``` is set to ```loom.officialMojangMappings()``` before running ```migrateMappings```. For more information, check out the dedicated [https://fabricmc.net/wiki/tutorial:mappings](Mappings) page on the Fabric wiki.
+If you want to go from Mojang's official mappings, AKA mojmap, to yarn, make sure your mappings in ```build.gradle``` is set to ```loom.officialMojangMappings()``` before running ```migrateMappings```. For more information, check out the dedicated [Mappings](https://fabricmc.net/wiki/tutorial:mappings) page on the Fabric wiki.
 
 ### Additional customization 
   * Specify from where to take your Java files with ```--input path/to/source```. Default: ```src/main/java```.
