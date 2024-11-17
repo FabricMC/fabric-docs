@@ -8,7 +8,7 @@ Loom allows semi-automatic updating of the mappings used in a Java codebase. Due
 
 Say you want to migrate from 1.16.5 yarn to 1.17.1 yarn.
 
-  - Go [https://fabricmc.net/develop](here), select the version to migrate to, and copy the Gradle command under "Mappings Migration", for example ```gradlew migrateMappings --mappings "1.17.1+build.40"```.  DO NOT modify your gradle.properties or build.gradle yet.   
+  - Go (https://fabricmc.net/develop)[here], select the version to migrate to, and copy the Gradle command under "Mappings Migration", for example ```gradlew migrateMappings --mappings "1.17.1+build.40"```.  DO NOT modify your gradle.properties or build.gradle yet.   
   - Run the command in the root of your Gradle project.
   - Your migrated sources will appear in ```remappedSrc```. Verify that the migration produced valid migrated code.
   - Copy the sources from ```remappedSrc``` to the original folder. Keep the original sources backed up just in case.
