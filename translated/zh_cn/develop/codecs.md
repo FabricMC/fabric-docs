@@ -6,7 +6,7 @@ authors:
   - Syst3ms
 ---
 
-# Codec{#codecs}
+# Codecs {#codecs}
 
 Codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，当读取和写入自定义 JSON 文件时，codec 可用作 GSON 和 Jankson 的替代品，尽管这些开始越来越相关，因为 Mojang 正在重写大量旧代码以使用 Codec。
 
