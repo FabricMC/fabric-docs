@@ -57,10 +57,31 @@ language file.
 }
 ```
 
-### Testing {#testing}
+### Applying The Effect {#applying-the-effect}
 
-Use the command `/effect give @p fabric-docs-reference:tater` to give the player our Tater effect.
-Use `/effect clear @p fabric-docs-reference:tater` to remove the effect.
+It's worth taking a look at how you'd typically apply an effect to an entity.
+
+::: tip
+For a quick test, it might be a better idea to use the previously mentioned `/effect` command: <br/>
+`/effect give @p fabric-docs-reference:tater`
+:::
+
+To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, that takes in
+a `StatusEffectInstance`, and returns a boolean, specifying whether the effect was applied successfully.
+
+Let's create a `StatusEffectInstance` by using its 6-Argument constructor:
+
+```java
+var instance = new StatusEffectInstance(FabricDocsReferenceEffects.TATER, 5 * 20, 0, false, true, true);
+```
+
+`effect`: `RegistryEntry<StatusEffect>` - a registry entry that represents our effect. <br/>
+`duration`: `int` - the duration of the effect **in ticks**; not seconds. <br/>
+`amplifier`: `int` - the amplifier to the level of the effect. It doesn't correspond to **the level** of the effect, but is rather added on top. Hence, `amplifier` of `4` => level of `5` <br/>
+ 
+`ambient`: `boolean` - this is a tricky one. It basically specifies that the effect was added by the environment (e.g. **Beacon**) and doesn't have a direct cause. If `true`, the icon of the effect in the HUD will appear with an aqua overlay. <br/>
+`particles`: `boolean` - whether to show particles. <br/>
+`icon`: `boolean` - whether to display an icon of the effect in the HUD. The effect will be displayed in the inventory regardless of this flag. <br/>
 
 ::: info
 To create a potion that uses this effect, please see the [Potions](../items/potions) guide.

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 
 // :::1
 public class TaterEffect extends StatusEffect {
+
 	protected TaterEffect() {
 		// category: StatusEffectCategory - describes if the effect is helpful (BENEFICIAL), harmful (HARMFUL) or useless (NEUTRAL)
 		// color: int - Color is the color assigned to the effect (in RGB)
@@ -26,7 +27,6 @@ public class TaterEffect extends StatusEffect {
 		if (entity instanceof PlayerEntity) {
 			((PlayerEntity) entity).addExperience(1 << amplifier); // Higher amplifier gives you experience faster
 		}
-
 		return super.applyUpdateEffect(entity, amplifier);
 	}
 }
