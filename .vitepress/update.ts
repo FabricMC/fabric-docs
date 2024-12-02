@@ -167,6 +167,26 @@ import players from "./sidebars/players";
     }
   }
 
+  console.log("Adding warning box to index.md...");
+  fs.writeFileSync(
+    `./versions/${oldVersion}index.md`,
+    fs
+      .readFileSync(`./versions/${oldVersion}index.md`, "utf-8")
+      .replace(
+        /^---\n\n/m,
+        [
+          "---",
+          "",
+          "::: warning",
+          `You are currently viewing the documentation for Minecraft ${oldVersion}. If you are looking for the documentation for a different version, please select the version you are using from the dropdown on the navigation bar.`,
+          ":::",
+          "",
+          "",
+        ].join("\n")
+      )
+      .replace("link: ", `link: /${oldVersion}`)
+  );
+
   console.log("Setting latest version in VersionReminder...");
   fs.writeFileSync(
     "./.vitepress/theme/components/VersionReminder.vue",
