@@ -70,7 +70,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 
 	// :::execute_command_with_arg
 	// :::execute_command_with_two_args
-	private static int executeWithOneAre(CommandContext<ServerCommandSource> context) {
+	private static int executeWithOneArg(CommandContext<ServerCommandSource> context) {
 		int value1 = IntegerArgumentType.getInteger(context, "value_one");
 		context.getSource().sendFeedback(() -> Text.literal("Called /command_with_two_args with value one = %s".formatted(value1)), false);
 		return 1;
@@ -187,7 +187,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_with_two_args")
 					.then(CommandManager.argument("value_one", IntegerArgumentType.integer())
-							.executes(FabricDocsReferenceCommands::executeWithOneAre)
+							.executes(FabricDocsReferenceCommands::executeWithOneArg)
 							.then(CommandManager.argument("value_two", IntegerArgumentType.integer())
 									.executes(FabricDocsReferenceCommands::executeWithTwoArgs))));
 		});
