@@ -43,7 +43,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](ide-tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./ide-tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -57,7 +57,7 @@ Now, it's time to write your actual test code. You can assert conditions using `
 
 @[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-For an explanation of what this code actually does, see [Codecs](codecs#registry-dispatch).
+For an explanation of what this code actually does, see [Codecs](./codecs#registry-dispatch).
 
 #### Setting Up Registries {#setting-up-registries}
 

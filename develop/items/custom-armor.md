@@ -13,7 +13,7 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 Just like items and blocks, armor materials need to be registered. We will create a `ModArmorMaterials` class to store our custom armor materials for the sake of organization.
 
-You will need to add a static `initialize()` method to this class, and call it from your mod's entrypoint so that the materials are registered.
+You will need to add a static `initialize()` method to this class, and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) so that the materials are registered.
 
 ```java
 // Within the ModArmorMaterials class
@@ -83,7 +83,7 @@ If you do choose to make your armor dyeable, your armor layer and item textures 
 
 Now that you've created a utility method which can be used to register armor materials, you can register your custom armor materials as a static field in the `ModArmorMaterials` class.
 
-For this example, we'll be creative Guidite armor, with the following properties:
+For this example, we'll be creating Guidite armor, with the following properties:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
@@ -126,7 +126,7 @@ These textures are no different to other items - you must create the textures, a
 
 For example purposes, you may use the following textures and model JSON as a reference.
 
-<DownloadEntry type="Item Textures" visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">Item Textures</DownloadEntry>
 
 ::: info
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
@@ -142,7 +142,7 @@ As you can see, in-game the armor items should have suitable models:
 
 When an entity wears your armor, currently the missing texture will appear:
 
-![Broken armor model on player](/assets/develop/items/armor_2.png).
+![Broken armor model on player](/assets/develop/items/armor_2.png)
 
 There are two layers for the armor texture, both must be present.
 
@@ -151,10 +151,10 @@ Since the armor material name in our case is `guidite`, the locations of the tex
 - `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
 - `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
 
-<DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Armor Model Textures</DownloadEntry>
 
 The first layer contains textures for the helmet and chestplate, whilst the second layer contains textures for leggings and boots.
 
 When these textures are present, you should be able to see your armor on entities that wear it:
 
-![Working armor model on player](/assets/develop/items/armor_3.png).
+![Working armor model on player](/assets/develop/items/armor_3.png)
