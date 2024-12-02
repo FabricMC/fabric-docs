@@ -10,6 +10,7 @@ authors:
 # Installing Fabric {#installing-fabric}
 
 <!-- #region common -->
+
 This guide only applies for the official Minecraft Launcher. For third party launchers, you should consult their documentation.
 
 ## 1. Download the Fabric Installer {#1-download-the-fabric-installer}
@@ -38,6 +39,7 @@ When asked "Are you sure you want to open it?", click `Open` again.
 Once you've opened the installer, you should see a screen like this:
 
 ![Fabric Installer with "Install" highlighted](/assets/players/installing-fabric/installer-screen.png)
+
 <!-- #endregion common -->
 
 To install Fabric, simply choose your game version from the dropdown, and click `Install`.

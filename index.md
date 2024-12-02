@@ -10,7 +10,7 @@ hero:
 features:
   - title: Developer Guides
     icon: 🛠️
-    details:  Our community-written developer guides cover everything from setting up your development environment to advanced topics like rendering and networking.
+    details: Our community-written developer guides cover everything from setting up your development environment to advanced topics like rendering and networking.
     link: /develop/
     linkText: Get Started
   - title: Player Guides

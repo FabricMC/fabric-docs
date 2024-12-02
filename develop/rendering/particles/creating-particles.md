@@ -39,7 +39,7 @@ You can see all the particle factories by looking at all the implementations of 
 You will need to create 2 folders in your `resources/assets/<mod id here>/` folder.
 
 | Folder Path          | Explanation                                                                          |
-|----------------------|--------------------------------------------------------------------------------------|
+| -------------------- | ------------------------------------------------------------------------------------ |
 | `/textures/particle` | The `particle` folder will contain all the textures for all of your particles.       |
 | `/particles`         | The `particles` folder will contain all of the json files for all of your particles. |
 

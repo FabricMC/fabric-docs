@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - '**/*.md'
-      - '!README.md'
-      - '!translated/**'
-      - '!versions/*/translated/**'
+      - "**/*.md"
+      - "!README.md"
+      - "!translated/**"
+      - "!versions/*/translated/**"
   workflow_dispatch: # Manual run
 
 concurrency:

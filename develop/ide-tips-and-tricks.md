@@ -137,7 +137,7 @@ every code occurrence of the renamed code will be renamed and will stay function
 Sometimes simpler tools are needed to edit code occurrences.
 
 | Key bind                                      | Function                                                    |
-|-----------------------------------------------| ----------------------------------------------------------- |
+| --------------------------------------------- | ----------------------------------------------------------- |
 | <kbd>CTRL</kbd>+<kbd>F</kbd>                  | Find in current file                                        |
 | <kbd>CTRL</kbd>+<kbd>R</kbd>                  | Replace in current file                                     |
 | <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Find in a bigger scope (can set specific file type mask)    |

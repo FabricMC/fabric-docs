@@ -86,8 +86,8 @@ Don't forget to update your lang file (`/assets/<mod id>/lang/en_us.json`) and a
 
 ```json
 {
-    "item.fabric-docs-reference.counter": "Counter",
-    "item.fabric-docs-reference.counter.info": "Used %1$s times",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times"
 }
 ```
 

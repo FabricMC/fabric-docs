@@ -80,12 +80,12 @@ Your tests will now run on every build, including those by CI providers such as 
 Add this to your `.github/workflows/build.yml` file, below the `./gradlew build` step.
 
 ```yaml
-      - name: Store reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path: |
-            **/build/reports/
-            **/build/test-results/
+- name: Store reports
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: reports
+    path: |
+      **/build/reports/
+      **/build/test-results/
 ```

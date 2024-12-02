@@ -6,7 +6,6 @@ authors:
   - PandoricaVi
   - Drakonkinst
   - JaaiDead
-
 ---
 
 # Potions {#potions}

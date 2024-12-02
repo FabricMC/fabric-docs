@@ -78,7 +78,7 @@ Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.j
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
 

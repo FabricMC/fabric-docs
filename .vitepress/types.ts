@@ -31,7 +31,7 @@ export namespace Fabric {
   }
 
   export interface DownloadOptions {
-        /**
+    /**
      * Set custom text for download button.
      *
      * @default 'Download %s'

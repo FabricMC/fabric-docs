@@ -81,7 +81,7 @@ Minecraft will use this translation in the creative inventory and other places w
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
