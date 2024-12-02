@@ -30,6 +30,15 @@ export namespace Fabric {
     github: string;
   }
 
+  export interface DownloadOptions {
+        /**
+     * Set custom text for download button.
+     *
+     * @default 'Download %s'
+     */
+    text: string;
+  }
+
   export interface NotFoundOptions {
     /**
      * @default '404'
@@ -107,6 +116,24 @@ export namespace Fabric {
   export interface ThemeConfig extends Versioned.ThemeConfig {
     authors: AuthorsOptions;
     banner: BannerOptions;
+    download: DownloadOptions;
     notFound: NotFoundOptions;
+    version: VersionOptions;
+  }
+
+  export interface VersionOptions {
+    /**
+     * Set custom text for switcher button.
+     *
+     * @default 'Switch Version'
+     */
+    switcher: string;
+
+    /**
+     * Set custom message for version reminder.
+     *
+     * @default 'This page is written for version:'
+     */
+    reminder: string;
   }
 }
