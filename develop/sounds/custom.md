@@ -60,4 +60,4 @@ This way, the mod's initializer only needs to implement one line to register all
 
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 
-Use the helper class to access the custom SoundEvent. Checkout the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.
+Use the helper class to access the custom SoundEvent. Check out the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.
