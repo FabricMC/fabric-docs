@@ -46,7 +46,7 @@ Diese Website ist OpenSource und wird in einem GitHub-Repository entwickelt, was
 
 Du kannst [hier](https://docs.github.com/en/get-started/using-github/github-flow) mehr über den GitHub-Ablauf lesen.
 
-Du kannst entweder Änderungen über die Weboberfläche auf GitHub vornehmen oder die Website lokal entwickeln und in der Vorschau anzeigen.
+Du kannst Änderungen entweder durch die Weboberfläche von GitHub machen oder du kannst die Website lokal entwickeln und die Vorschau ansehen.
 
 #### Deinen Fork klonen {#clone-your-fork}
 
