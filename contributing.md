@@ -45,7 +45,7 @@ This website is open-source, and it is developed in a GitHub repository, which m
 
 You can read more about the GitHub flow [here](https://docs.github.com/en/get-started/using-github/github-flow).
 
-You can either make changes from the web interface on GitHub, or you can develop and preview the website locally.
+You can either make changes from the web UI on GitHub, or you can develop and preview the website locally.
 
 #### Cloning Your Fork {#clone-your-fork}
 

@@ -1,6 +1,4 @@
 {
-    "replace": false,
-    "values": [
-        "fabric-docs-reference:condensed_dirt"
-    ]
+  "replace": false,
+  "values": ["fabric-docs-reference:condensed_dirt"]
 }

@@ -1,12 +1,12 @@
-<template>
-  <div class="color-swatch" :style="`background-color: ${color}`" />
-</template>
-
 <script setup>
 const { color } = defineProps({
   color: String,
 });
 </script>
+
+<template>
+  <div class="color-swatch" :style="`background-color: ${color}`" />
+</template>
 
 <style scoped>
 .color-swatch {

@@ -38,9 +38,9 @@ This will not work if you've marked the item as damageable, as the stack size is
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-However, when you go in-game, you can see that our item doesn't exist! This is because you don't statically initialize the class.
+However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
-To do this, you can add a public static initialize method to your class and call it from your `ModInitializer` class. Currently, this method doesn't need anything inside it.
+To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -51,7 +51,7 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./custom-item-groups) page for more information.
+If you want to add the item to a custom `ItemGroup`, check out the [Custom Item Groups](./custom-item-groups) page for more information.
 :::
 
 For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
@@ -78,11 +78,11 @@ Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.j
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
 
-You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes.
+You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
 ## Adding a Texture and Model {#adding-a-texture-and-model}
 
@@ -90,7 +90,7 @@ To give your item a texture and model, simply create a 16x16 texture image for y
 
 For example purposes, you can use this example texture for `suspicious_substance.png`
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">Texture</DownloadEntry>
 
 When restarting/reloading the game - you should see that the item still has no texture, that's because you will need to add a model that uses this texture.
 
@@ -131,7 +131,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipe` folder.
 
-For more information on the recipe format, checkout these resources:
+For more information on the recipe format, check out these resources:
 
 - [Recipe JSON Generator](https://crafting.thedestruc7i0n.ca/)
 - [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)

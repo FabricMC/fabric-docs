@@ -1,11 +1,8 @@
-import { PageData, SiteConfig, TransformPageContext } from "vitepress";
+import { PageData, SiteConfig } from "vitepress";
 
 import { getWebsiteResolver } from "./i18n";
 
-export function transformPageData(
-  pageData: PageData,
-  _context: TransformPageContext
-) {
+export function transformPageData(pageData: PageData, _context: any) {
   pageData.frontmatter.head ??= [];
 
   const parts = pageData.relativePath.split("/");

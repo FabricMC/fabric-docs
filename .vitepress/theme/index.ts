@@ -1,19 +1,16 @@
-import { useData } from "vitepress";
+import mediumZoom from "medium-zoom";
+import { Theme, useData, useRoute } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
-import { Theme, useRoute } from 'vitepress';
 
-import mediumZoom from 'medium-zoom';
-
-import BannerComponent from "./components/BannerComponent.vue";
-import NotFoundComponent from "./components/NotFoundComponent.vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
-import DownloadEntry from './components/DownloadEntry.vue';
-import ColorSwatch from './components/ColorSwatch.vue';
-import VersionReminder from './components/VersionReminder.vue';
-import VideoPlayer from './components/VideoPlayer.vue';
-
+import BannerComponent from "./components/BannerComponent.vue";
+import ColorSwatch from "./components/ColorSwatch.vue";
+import DownloadEntry from "./components/DownloadEntry.vue";
+import NotFoundComponent from "./components/NotFoundComponent.vue";
+import VersionReminder from "./components/VersionReminder.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
+import VideoPlayer from "./components/VideoPlayer.vue";
 
 import "./style.css";
 
@@ -21,15 +18,16 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     // Vidstack Videoplayer Component
-    app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('media-');
-    app.component('VideoPlayer', VideoPlayer);
+    app.config.compilerOptions.isCustomElement = (tag) =>
+      tag.startsWith("media-");
+    app.component("VideoPlayer", VideoPlayer);
 
     // Custom Components for Pages
-    app.component('DownloadEntry', DownloadEntry);
-    app.component('ColorSwatch', ColorSwatch);
+    app.component("DownloadEntry", DownloadEntry);
+    app.component("ColorSwatch", ColorSwatch);
 
     // Versioning Plugin Components
-    app.component('VersionSwitcher', VersionSwitcher);
+    app.component("VersionSwitcher", VersionSwitcher);
   },
   Layout() {
     const children = {
@@ -48,7 +46,7 @@ export default {
   setup() {
     const route = useRoute();
     const initZoom = () => {
-      mediumZoom('.main img', { background: 'var(--vp-c-bg)' });
+      mediumZoom(".main img", { background: "var(--vp-c-bg)" });
     };
     onMounted(() => {
       initZoom();
