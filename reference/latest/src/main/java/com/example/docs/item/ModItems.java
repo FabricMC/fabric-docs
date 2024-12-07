@@ -78,6 +78,7 @@ public class ModItems {
 	// :::2
 
 	// :::1
+	// [1.21.2 and below]
 	public static Item register(Item item, String id) {
 		// Create the identifier for the item.
 		Identifier itemID = Identifier.of(FabricDocsReference.MOD_ID, id);
@@ -89,6 +90,30 @@ public class ModItems {
 		return registeredItem;
 	}
 
+	// [1.21.3 and ablove]
+	public static Item register(Function<Item.Settings, Item> itemProvider, String id) {
+		
+		// creates a registryKey ... I dunno how to explain this one tbh. Someone will fill this in.
+		RegistryKey key = RegistryKey.of(Registries.ITEM, Identifier.of(FabricDocsReference.MOD_ID, id));
+
+		// Returns registered item. & adds the registrykey from before to the settings :D.
+		return Registry.register(Registries.ITEM, key, itemProvider.apply(new Item.Settings().registryKey(key)));
+	}
+	
+	// [1.21.3 and ablove] for when you want to add item settings.
+	public static final Item EXAMPLE_ITEM_FOR_NEW_UPDATES_A = register(settings -> {
+		
+		// do whatever u want with the settings
+		settings.maxCount(1);
+		
+		// returns item.
+		return new Item(settings);
+		
+	}, "example_item_for_new_updates")
+	
+	// [1.21.3 and ablove] for no item settings.
+	public static final Item EXAMPLE_ITEM_FOR_NEW_UPDATES_B = register(Item::new, "example_item_for_new_updates_1")
+	
 	// :::1
 
 	// :::3
