@@ -13,7 +13,7 @@ Un'armatura fornisce al giocatore una difesa migliore contro attacchi di mob e d
 
 Proprio come gli oggetti e i blocchi, i materiali delle armature devono essere registrati. Per mettere ordine, creeremo una classe `ModArmorMaterials` in cui memorizzare il nostro materiale personalizzato.
 
-Dovrai aggiungere un metodo statico `initialize()` a questa classe, e chiamarlo dall'entrypoint della tua mod perché i materiali vengano registrati.
+Dovrai aggiungere un metodo statico `initialize()` a questa classe, e chiamarlo dall'[initializer della tua mod](./getting-started/project-structure#entrypoints) perché i materiali vengano registrati.
 
 ```java
 // Within the ModArmorMaterials class
@@ -126,7 +126,7 @@ Queste texture non differiscono da quelle di altri oggetti - devi creare le text
 
 Come esempio, puoi usare le seguenti texture e modelli JSON come riferimento.
 
-<DownloadEntry type="Item Textures" visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">Texture degli Oggetti</DownloadEntry>
 
 :::info
 Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stesso principio di altri modelli di oggetti.
@@ -142,7 +142,7 @@ Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gi
 
 Quando un'entità indossa la tua armatura, per ora apparirà la texture mancante:
 
-![Modello di armatura corrotto su un giocatore](/assets/develop/items/armor_2.png).
+![Modello di armatura corrotto su un giocatore](/assets/develop/items/armor_2.png)
 
 Ci sono due strati per le texture dell'armatura, entrambi devono essere presenti.
 
@@ -151,10 +151,10 @@ Poiché il nome del materiale dell'armatura è nel nostro caso `guidite`, i perc
 - `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
 - `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
 
-<DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Texture dei Modelli delle Armature</DownloadEntry>
 
 Il primo strato contiene texture per elmo e corazza, mentre il secondo strato contiene texture per gambiere e stivali.
 
 Quando queste texture sono presenti, dovresti poter vedere la tua armatura sulle entità che la indossano:
 
-![Modello di armatura funzionante su un giocatore](/assets/develop/items/armor_3.png).
+![Modello di armatura funzionante su un giocatore](/assets/develop/items/armor_3.png)
