@@ -59,6 +59,35 @@ public class ModBlocks {
 		return Registry.register(Registries.BLOCK, id, block);
 	}
 
+	// [1.21.3 and above]
+	private static Block reigster(Function<AbstractBlock.Settings, Block> blockProvider, String id, boolean shouldRegisterItem) {
+		
+		// makes identifier for the registryKeys (so you don't repeat yourself)
+		Identifier identifier = Identifier.of(FabricDocsReference.MOD_ID, id);
+
+		// creates registryKey for block. (needed)
+		RegistryKey blockKey = RegistryKey.of(Registries.BLOCK, identifier);
+
+		// creates the block & adds the block key to the settings. 
+		Block block = blockProvider.apply(AbstractBlock.Settings.create().registryKey(blockKey));
+
+		// registers block.
+		Block registeredBlock = Registry.register(Registries.ITEM, blockKey, block);
+		
+		if (shouldRegisterItem) {
+			
+			// creates item registry key. (needed)
+			RegistryKey itemKey = RegistryKey.of(Registries.ITEM, identifier);
+			
+			// registers blockItem
+			Registry.register(Registries.ITEM, itemKey, new BlockItem(registeredBlock, new Item.Settings().registryKey(itemKey)));
+		}
+		
+		// returns registered block.
+		return registeredBlock;
+	}
+
+	
 	// :::1
 	public static void initialize() {
 		// :::3
