@@ -25,7 +25,7 @@ Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
-Puoi fare questo creando un metodo fittizio `initialize`, che potrà essere richiamato nell'initializer della tua mod per avviare l'inizializzazione statica.
+Puoi fare questo creando un metodo fittizio `initialize`, che potrà essere richiamato nell'[initializer della tua mod](./getting-started/project-structure#entrypoints) per avviare l'inizializzazione statica.
 
 :::info
 Se non sai cos'è l'inizializzazione statica, essa è il processo di inizializzazione degli attributi statici in una classe. Questo viene fatto quando la classe viene caricata dalla JVM, ed è fatto prima che qualsiasi istanza della classe venga creata.
@@ -69,7 +69,7 @@ Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo cre
 
 Dovresti ora notare che il tuo blocco è nell'inventario in creativa, e può essere posizionato nel mondo!
 
-![Blocco nel mondo senza né modello né texture](/assets/develop/blocks/first_block_0.png).
+![Blocco nel mondo senza né modello né texture](/assets/develop/blocks/first_block_0.png)
 
 Ci sono alcuni problemi tuttavia - il blocco non ha nome, non ha texture e non ha modello né per il blocco né per l'oggetto.
 
@@ -81,17 +81,17 @@ Minecraft userà questa traduzione nell'inventario in creativa e in altri posti 
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
-Per applicare le modifiche, puoi riavviare il gioco o costruire la tua mod e premere <kbd>F3</kbd> + <kbd>T</kbd> - e dovresti vedere che il blocco ha un nome nell'inventario in creative e in altri posti come nella schermata delle statistiche.
+Per applicare le modifiche, puoi riavviare il gioco o costruire la tua mod e premere <kbd>F3</kbd>+<kbd>T</kbd> - e dovresti vedere che il blocco ha un nome nell'inventario in creative e in altri posti come nella schermata delle statistiche.
 
 ## Modelli e Texture {#models-and-textures}
 
 Tutte le texture dei blocchi si trovano nella cartella `assets/<mod id here>/textures/block` - ti forniamo una texture di esempio del blocco di "Terra Condensata", che sei libero di usare.
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
 Per fare in modo che la texture sia visibile nel gioco, devi creare un blocco e un modello di oggetto, presenti nelle posizioni appropriate al blocco di "Terra Condensata":
 
@@ -120,7 +120,7 @@ Questo file si dovrebbe trovare nella cartella `assets/mod_id/blockstates`, e il
 
 Gli stati dei blocchi sono piuttosto complessi, per cui li tratteremo in un'altra pagina: [Stati dei Blocchi](./blockstates)
 
-Riavviando il gioco o ricaricando con <kbd>F3</kbd> + <kbd>T</kbd> per applicare le modifiche - dovresti poter vedere la texture del blocco nell'inventario e fisicamente nel mondo:
+Riavviando il gioco o ricaricando con <kbd>F3</kbd>+<kbd>T</kbd> per applicare le modifiche - dovresti poter vedere la texture del blocco nell'inventario e fisicamente nel mondo:
 
 ![Blocco nel mondo con texture e modello appropriati](/assets/develop/blocks/first_block_4.png)
 
