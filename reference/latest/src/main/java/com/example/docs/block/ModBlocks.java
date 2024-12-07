@@ -87,13 +87,16 @@ public class ModBlocks {
 		return registeredBlock;
 	}
 
-	// [1.21.3 and above]
-	public static final Block EXAMPLE_BLOCK_FOR_21_3 = register(settings -> {
+	// [1.21.3 and above] for adding settings
+	public static final Block EXAMPLE_BLOCK_FOR_21_3_A = register(settings -> {
 
 		// change the settings however you want.
 		
 		return new Block(settings);
-	});
+	}, "example_block_for_21_3_a");
+
+	// [1.21.3 and above] for no settings
+	public static final Block EXAMPLE_BLOCK_FOR_21_3_B = register(Block::new, "example_block_for_21_3_b");
 	
 	
 	// :::1
