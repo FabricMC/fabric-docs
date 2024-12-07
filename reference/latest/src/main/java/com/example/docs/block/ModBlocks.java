@@ -87,6 +87,14 @@ public class ModBlocks {
 		return registeredBlock;
 	}
 
+	// [1.21.3 and above]
+	public static final Block EXAMPLE_BLOCK_FOR_21_3 = register(settings -> {
+
+		// change the settings however you want.
+		
+		return new Block(settings);
+	});
+	
 	
 	// :::1
 	public static void initialize() {
