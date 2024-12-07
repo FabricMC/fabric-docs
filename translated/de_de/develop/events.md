@@ -53,7 +53,7 @@ Wir werden die Beutetabelle für Kohleerz um Eier erweitern.
 
 #### Auf das Laden der Beutetabelle hören {#listening-to-loot-table-loading}
 
-Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst einen Callback dafür in deinem Mod-Initialisierer registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist.
+Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst hierfür einen Callback in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist.
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
