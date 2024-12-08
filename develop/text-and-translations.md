@@ -7,10 +7,10 @@ authors:
 
 # Text and Translations {#text-and-translations}
 
-Whenever Minecraft displays text ingame, it's probably defined using a `Text` object.
+Whenever Minecraft displays text in-game, it's probably defined using a `Text` object.
 This custom type is used instead of a `String` to allow for more advanced formatting,
 including colors, boldness, obfuscation, and click events. They also allow easy access
-to the translation system, making it simple to translate any interface elements into
+to the translation system, making it simple to translate any UI element into
 different languages.
 
 If you've worked with datapacks or functions before, you may see parallels with the
