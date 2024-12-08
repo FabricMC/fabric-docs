@@ -18,7 +18,7 @@ Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
 ### Creare la Pozione {#creating-the-potion}
 
-Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente la classe dell'initializer per conservarla.
+Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla.
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 

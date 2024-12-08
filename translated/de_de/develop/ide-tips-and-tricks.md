@@ -5,19 +5,19 @@ authors:
   - JR1811
 ---
 
-# Tipps und Tricks für die Entwicklungsumgebung{#ide-tips-and-tricks}
+# Tipps und Tricks für die Entwicklungsumgebung {#ide-tips-and-tricks}
 
 Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so schnell und angenehm wie möglich zu gestalten, bereit. Benutze diese je nach Bedarf.
 Es kann eine gewisse Einarbeitungszeit brauchen, um sich an die Tastenkombinationen und anderen Optionen zu gewöhnen. Diese Seite kann dafür als eine Hilfe dafür genutzt werden.
 
 :::warning
 Tastenkombinationen sind hier spezifisch für Windows ausgelegt. Die meisten beziehen sich auch auf die Standardbelegung von IntelliJ, solange nichts anderes erwähnt wurde.
-Tastenkombinationen können auch unter `File > Setings > Keymap` Einstellungen von IntelliJ nachgeschlagen und geändert werden.
+Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders nach dieser Funktion, wenn du ein anderes Tastaturlayout verwendest.
 :::
 
 ## Fortbewegung in Projekten{#traversing-projects}
 
-### Manuell{#manually}
+### Manuell {#manually}
 
 IntelliJ bietet mehrere Möglichkeiten, sich im Projekt fortzubewegen. Falls die Quelldaten mit den `./gradlew genSources` Befehlen oder die `Tasks > fabric > genSources` Gradle Aufgaben im Gradle Fenster benutzt wurden, können die Quelldaten von Minecraft, innerhalb des Projektfensters "External Libnraries", manuell nachgeschlagen werden.
 
@@ -29,7 +29,7 @@ Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Proj
 
 ![Geteilte Quellen](/assets/develop/misc/using-the-ide/traversing_02_2.png)
 
-### Suche {#search}
+### Suchen {#search}
 
 Durch zweimaliges Drücken von <kbd>Shift</kbd> öffnet sich ein Suchfenster. Dort kannst du nach den Dateien und Klassen deines Projekts suchen. Durch Aktivieren des Kontrollkästchens `include non-project items` oder durch zweimaliges Drücken von <kbd>Shift</kbd> wird nicht nur im eigenen Projekt gesucht, sondern auch in anderen, z. B. in den Externen Bibliotheken.
 
@@ -37,7 +37,7 @@ Durch zweimaliges Drücken von <kbd>Shift</kbd> öffnet sich ein Suchfenster. Do
 
 ### Letzte Fenster {#recent-window}
 
-Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kannst es mit dem Shortcut <kbd>STRG</kbd> + <kbd>E</kbd> öffnen. Dort kannst du zu den Dateien springen, die du bereits besucht hast, und Werkzeugfenster öffnen, z. B. das Fenster [Struktur](#structure-of-a-class) oder [Lesezeichen](#bookmarks).
+Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kannst es mit der Tastenkombination <kbd>CTRL</kbd>+<kbd>E</kbd> öffnen. Dort kannst du zu den Dateien springen, die du bereits besucht hast, und Werkzeugfenster öffnen, z. B. das Fenster [Struktur](#structure-of-a-class) oder [Lesezeichen](#bookmarks).
 
 ![Letzte Fenster](/assets/develop/misc/using-the-ide/traversing_04.png)
 
@@ -45,7 +45,8 @@ Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kanns
 
 ### Zur Definition / Verwendung springen {#jump-to-definition-usage}
 
-Wenn du entweder die Definition oder die Verwendung von Variablen, Methoden, Klassen und anderen Dingen überprüfen musst, kannst du <kbd>STRG</kbd> + <kbd>Linksklick</kbd> drücken oder <kbd>Mittlere Maustaste</kbd> (Mausrad drücken) auf dessen Namen verwenden. Auf diese Weise vermeidest du langes Scrollen oder eine manuelle Suche nach einer Definition, die sich in einer anderen Datei befindet.
+Wenn du entweder die Definition oder die Verwendung von Variablen, Methoden, Klassen und anderen Dingen überprüfen willst, kannst du <kbd>CTRL</kbd>+<kbd>Linksklick</kbd> drücken
+oder mit der <kbd>Mittleren Maustaste</kbd> (Mausrad) auf den Namen drücken. Auf diese Weise vermeidest du langes Scrollen oder eine manuelle Suche nach einer Definition, die sich in einer anderen Datei befindet.
 
 ### Lesezeichen {#bookmarks}
 
@@ -64,9 +65,9 @@ Die [Haltepunkte](./basic-problem-solving#breakpoint) werden dort ebenfalls ange
 
 ## Klassen analysieren {#analyzing-classes}
 
-### Struktur einer Klasse {#structure-of-a-class}
+### Klassenstruktur {#structure-of-a-class}
 
-Durch das Öffnen des Fensters `Structure` (<kbd>Alt</kbd> + <kbd>7</kbd>) erhaltest du einen Überblick über deine derzeit aktive Klasse. Du kannst sehen, welche Klassen und Enums sich in dieser Datei befinden, welche Methoden implementiert wurden und welche Felder und Variablen deklariert sind.
+Durch das Öffnen des Fensters `Struktur` (<kbd>Alt</kbd>+<kbd>7</kbd>) erhältst du einen Überblick über deine derzeit aktive Klasse. Du kannst sehen, welche Klassen und Enums sich in dieser Datei befinden, welche Methoden implementiert wurden und welche Felder und Variablen deklariert sind.
 
 Manchmal kann es auch hilfreich sein, die Option `Inherited` oben in den Ansichtsoptionen zu aktivieren, wenn man nach potenziellen Methoden sucht, die man überschreiben kann.
 
@@ -74,15 +75,15 @@ Manchmal kann es auch hilfreich sein, die Option `Inherited` oben in den Ansicht
 
 ### Typenhierarchie einer Klasse {#type-hierarchy-of-a-class}
 
-Indem du den Cursor auf einen Klassennamen setzt und <kbd>STRG</kbd> + <kbd>H</kbd> drückSt, kannst du ein neues Typenhierarchie-Fenster öffnen, das alle Eltern- und Kindklassen anzeigt.
+Indem du den Cursor auf einen Klassennamen setzt und <kbd>STRG</kbd>+<kbd>H</kbd> drückst, kannst du ein neues Typenhierarchie-Fenster öffnen, das alle Eltern- und Kindklassen anzeigt.
 
 ![Typenhierachie Fenster](/assets/develop/misc/using-the-ide/analyzing_02.png)
 
-## Code Utility {#code-utility}
+## Code-Utility {#code-utility}
 
 ### Code Vervollständigung {#code-completion}
 
-Die Code-Vervollständigung sollte standardmäßig aktiviert sein. Du bekommst die Empfehlungen automatisch beim Schreiben deines Codes. Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>STRG</kbd> + <kbd>Leertaste</kbd> wieder öffnen.
+Die Code-Vervollständigung sollte standardmäßig aktiviert sein. Du bekommst die Empfehlungen automatisch beim Schreiben deines Codes. Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>STRG</kbd>+<kbd>Leertaste</kbd> wieder öffnen.
 
 Wenn du zum Beispiel Lambdas verwendest, kannst du sie mit dieser Methode schnell schreiben.
 
@@ -102,10 +103,10 @@ In einer Java-Testdatei erhälst du Optionen, um die entsprechenden Testmethoden
 
 ![Menü zur Codegenerierung in einer Java-Testdatei](/assets/develop/misc/using-the-ide/generate_02.png)
 
-### Parameter darstellen {#displaying-parameters}
+### Parameter anzeigen {#displaying-parameters}
 
 Die Anzeige der Parameter sollte standardmäßig aktiviert sein. Du bekommst automatisch die Typen und Namen der Parameter, während du deinen Code schreibst.
-Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>STRG</kbd> + <kbd>P</kbd> wieder öffnen.
+Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>CTRL</kbd>+<kbd>P</kbd> wieder öffnen.
 
 Methoden und Klassen können mehrere Implementationen mit unterschiedlichen Parametern haben, was auch als Überladen bezeichnet wird. Auf diese Weise kannst du beim Schreiben des Methodenaufrufs entscheiden, welche Implementation du verwenden möchtest.
 
@@ -119,18 +120,18 @@ Viele IDEs verfügen über ein umfangreiches Toolkit, das bei diesem Prozess hil
 
 ![Refactoring](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-Es ist besonders nützlich, sich an die Tastenkombination <kbd>Shift</kbd> + <kbd>F6</kbd> zu gewöhnen, da du in der Zukunft viele Dinge umbenennen wirst. Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt und bleibt funktionell gleich.
+Es ist besonders nützlich, sich an die Tastenkombination <kbd>Umschalttaste</kbd>+<kbd>F6</kbd> zu gewöhnen, da du in der Zukunft viele Dinge `umbenennen` wirst. Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt und bleibt funktionell gleich.
 
 ### Suchen und Ersetzen von Dateiinhalten {#search-and-replace-file-content}
 
 Manchmal sind einfachere Werkzeuge erforderlich, um Code-Vorkommen zu bearbeiten.
 
-| Tastenkombination                                 | Funktion                                                                                         |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <kbd>STRG</kbd> + <kbd>F</kbd>                    | Finde in der aktuellen Datei                                                                     |
-| <kbd>STRG</kbd> + <kbd>R</kbd>                    | Ersetze in der aktuellen Datei                                                                   |
-| <kbd>STRG</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Finde in einem größeren Bereich (kann spezifische Dateitypmaske einstellen)   |
-| <kbd>STRG</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Ersetze in einem größeren Bereich (kann spezifische Dateitypmaske einstellen) |
+| Tastenkombination                             | Funktion                                                                                         |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| <kbd>CTRL</kbd>+<kbd>F</kbd>                  | Finde in der aktuellen Datei                                                                     |
+| <kbd>CTRL</kbd>+<kbd>R</kbd>                  | Ersetze in der aktuellen Datei                                                                   |
+| <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Finde in einem größeren Bereich (kann spezifische Dateitypmaske einstellen)   |
+| <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Ersetze in einem größeren Bereich (kann spezifische Dateitypmaske einstellen) |
 
 Wenn sie aktiviert sind, ermöglichen alle diese Werkzeuge einen spezifischeren Mustervergleich mit "[Regex](https://en.wikipedia.org/wiki/Regular_expression)".
 

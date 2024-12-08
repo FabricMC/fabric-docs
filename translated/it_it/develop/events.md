@@ -53,7 +53,7 @@ Aggiungeremo le uova alla loot table del minerale di carbone.
 
 #### Ascoltare il Caricamento delle Loot Table {#listening-to-loot-table-loading}
 
-L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'initializer della tua mod. Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
+L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 

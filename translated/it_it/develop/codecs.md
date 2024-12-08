@@ -385,7 +385,7 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }

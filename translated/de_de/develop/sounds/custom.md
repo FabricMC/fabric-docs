@@ -39,7 +39,7 @@ Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels 
 
 ## Registrieren des benutzerdefinierten Sounds {#registering-the-custom-sound}
 
-Um den benutzerdefinierten Sound zum Mod hinzuzufügen, registriere ein SoundEvent in der Klasse, die den `ModInitializer`-Einstiegspunkt implementiert.
+Um den benutzerdefinierten Sound zu dem Mod hinzuzufügen, registriere ein SoundEvent in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints).
 
 ```java
 Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
@@ -54,7 +54,7 @@ Füge zwei neue Methoden zu der neu erstellten Hilfsklasse hinzu. Eine, die alle
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-Auf diese Weise muss die `ModInitializer` implementierende Einstiegsklasse nur eine Zeile implementieren, um alle benutzerdefinierten SoundEvents zu registrieren.
+Auf diese Weise, muss der Mod-Initialisierer nur eine Zeile zur Registrierung aller benutzerdefinierten SoundEvents implementieren.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 

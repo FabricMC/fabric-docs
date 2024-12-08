@@ -17,7 +17,7 @@ Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seit
 
 Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente mit einem `ComponentType` registrieren. Dieser Komponententyp nimmt ein generisches Argument entgegen, das den Typ des Wertes deiner Komponente enthält. Darauf werden wir weiter unten bei der Behandlung von [einfachen](#basic-data-components) und [fortgeschrittenen](#advanced-data-components) Komponenten näher eingehen.
 
-Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem Mod-Initialisierer aufrufst.
+Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufrufst.
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
@@ -86,8 +86,8 @@ Vergiss nicht, deine Sprachdatei (`/assets/<mod id>/lang/en_us.json`) zu aktuali
 
 ```json
 {
-    "item.fabric-docs-reference.counter": "Counter",
-    "item.fabric-docs-reference.counter.info": "Used %1$s times",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times"
 }
 ```
 

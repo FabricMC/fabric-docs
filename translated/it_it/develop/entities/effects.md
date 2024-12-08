@@ -42,7 +42,7 @@ L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Texture di Esempio</DownloadEntry>
 
 ### Traduzioni {#translations}
 

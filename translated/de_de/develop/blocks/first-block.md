@@ -25,7 +25,7 @@ Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Kla
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
-Du kannst dies tun, indem du eine Dummy-Methode `initialize` erstellst, die in deinem Mod-Initialisierer aufgerufen werden kann, um die statische Initialisierung auszulösen.
+Du kannst dies tun, indem du eine Dummy-Methode `initialize` erstellst, die in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufgerufen werden kann, um die statische Initialisierung auszulösen.
 
 :::info
 Wenn du nicht weißt, was statische Initialisierung ist, ist es der Prozess der Initialisierung von statischen Feldern in einer Klasse. Dies geschieht, wenn die Klasse von der JVM geladen wird, und zwar bevor Instanzen der Klasse erstellt werden.
@@ -69,7 +69,7 @@ In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf de
 
 Du solltest nun feststellen, dass sich dein Block im Kreativ-Inventar befindet und in der Welt platziert werden kann!
 
-![Block in der Welt ohne passendes Modell oder Textur](/assets/develop/blocks/first_block_0.png).
+![Block in der Welt ohne passendes Modell oder Textur](/assets/develop/blocks/first_block_0.png)
 
 Es gibt jedoch ein paar Probleme - das Blockitem ist nicht benannt, und der Block hat keine Textur, kein Blockmodell und kein Itemmodell.
 
@@ -81,17 +81,17 @@ Minecraft verwendet diese Übersetzung im Kreativ-Inventar und an anderen Stelle
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
-Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</kbd> + <kbd>T</kbd> drücken, um die Änderungen zu übernehmen - und du solltest sehen, dass der Block einen Namen im kreativen Inventar und an anderen Stellen wie dem Statistikbildschirm hat.
+Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</kbd>+<kbd>T</kbd> drücken, um die Änderungen zu übernehmen - und du solltest sehen, dass der Block einen Namen im kreativen Inventar und an anderen Stellen wie dem Statistikbildschirm hat.
 
 ## Modelle und Texturen {#models-and-textures}
 
 Alle Blocktexturen befinden sich im Ordner `assets/<mod id here>/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texturen</DownloadEntry>
 
 Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodell erstellen, die du an den entsprechenden Stellen für den "Condensed Dirt"-Block finden kannst:
 
@@ -120,7 +120,7 @@ Diese Datei sollte sich im Ordner `assets/mod_id/blockstates` befinden, und ihr 
 
 Blockzustände sind sehr komplex, weshalb sie auf einer späteren Seite behandelt werden: [Blockzustände](./blockstates)
 
-Starte das Spiel neu oder lade es über <kbd>F3</kbd> + <kbd>T</kbd> neu, um die Änderungen zu übernehmen - Du solltest die Blocktextur im Inventar und physisch in der Welt sehen können:
+Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die Änderungen zu übernehmen - Du solltest die Blocktextur im Inventar und physisch in der Welt sehen können:
 
 ![Block in der Welt mit einer passenden Textur und Modell](/assets/develop/blocks/first_block_4.png)
 

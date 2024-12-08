@@ -66,7 +66,7 @@ Befehle werden innerhalb des `CommandRegistrationCallback` registriert, der von 
 Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events).
 :::
 
-Das Event sollte im Initialisierer deines Mods registriert werden.
+Das Event sollte in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registriert werden.
 
 Der Callback hat drei Parameter:
 
@@ -91,7 +91,7 @@ Die `CommandSyntaxException` wird im Allgemeinen ausgelöst, um Syntaxfehler in 
 Um diesen Befehl auszuführen, musst du `/test_command` eingeben, wobei Groß- und Kleinschreibung zu beachten sind.
 
 :::info
-Von diesem Punkt an werden wir die Logik extrahieren, die innerhalb des Lambdas an den `.execute()`-Builder übergeben wird, in einzelne Methoden extrahieren. Wir können dann eine Methodenreferenz an `.execute()` übergeben. Dies dient der Übersichtlichkeit.
+Von diesem Punkt an werden wir die Logik, die innerhalb des Lambdas an den `.execute()`-Builder übergeben wird, in einzelne Methoden extrahieren. Dann können wir eine Methodenreferenz an `.execute()` übergeben. Dies dient der Übersichtlichkeit.
 :::
 
 ### Umgebung der Registrierung {#registration-environment}

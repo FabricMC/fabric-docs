@@ -67,7 +67,7 @@ I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito 
 Per informazioni su come registrare i callback, vedi per favore la guida [Eventi](../events).
 :::
 
-L'evento dovrebbe essere registrato nell'initializer della tua mod.
+L'evento dovrebbe essere registrato nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
 Il callback ha tre parametri:
 

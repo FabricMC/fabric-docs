@@ -35,7 +35,7 @@ Du kannst die aktuellste JRE aus den offiziellen Repositories installieren:
 sudo pacman -S jre-openjdk
 ```
 
-Wenn du einen Server betreibst, für den du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
+Wenn du einen Server betreibst, der keine grafische Benutzeroberfläche benötigt, kannst du stattdessen die Headless-Version installieren:
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -64,7 +64,7 @@ Du kannst Java 21 über `dnf` mit dem folgenden Befehlen installieren:
 sudo dnf install java-21-openjdk
 ```
 
-Wenn du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
+Wenn du keine grafische Benutzeroberfläche benötigst, kannst du die Headless-Version installieren:
 
 ```sh
 sudo dnf install java-21-openjdk-headless

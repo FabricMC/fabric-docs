@@ -31,7 +31,7 @@ Säulenblöcke haben zwei Texturen, oben und an der Seite - sie verwenden das Mo
 
 Wie immer bei allen Blocktexturen befinden sich die Texturdateien in `assets/<mod id here>/textures/block`.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Texturen</DownloadEntry>
 
 Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, müssen wir zwei separate Modelldateien erstellen:
 
@@ -96,7 +96,7 @@ In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn
 
 Bevor du die Blockzustand-Datei erstellst, musst du Texturen für den aktivierten und den deaktivierten Zustand des Blocks sowie für das Blockmodell bereitstellen.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">Texturen</DownloadEntry>
 
 Nutze dein Wissen über Blockmodelle, um zwei Modelle für den Block zu erstellen: Eines für den aktivierten Zustand und eines für den deaktivierten Zustand. Danach kannst du mit der Erstellung der Blockzustand-Datei beginnen.
 
