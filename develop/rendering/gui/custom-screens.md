@@ -62,3 +62,30 @@ MinecraftClient.getInstance().setScreen(
   new CustomScreen(Text.empty(), currentScreen)
 );
 ```
+
+## Resize the screen {#resize-the-screen}
+
+If you want to change the size of the screen, by default, the screen is 176 (width) and 166 (height)
+
+```java
+public class CustomScreen extends Screen {
+  private static final int TEXTURE_WIDTH = 195;
+  private static final int TEXTURE_HEIGHT = 136;
+
+	public CustomScreen(Text title) {
+		super(title);
+
+		this.backgroundWidth = TEXTURE_WIDTH;
+		this.backgroundHeight = TEXTURE_HEIGHT;
+	}
+
+	@Override
+	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+		this.renderBackground(context);
+		int i = this.x;
+		int j = this.y;
+		context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+	}
+  ...
+}
+```
