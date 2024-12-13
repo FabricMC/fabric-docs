@@ -383,7 +383,7 @@ Codec<ListNode> codec = Codec.recursive(
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }
