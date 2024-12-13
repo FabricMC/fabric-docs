@@ -18,7 +18,7 @@ Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象�
 
 这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
 
-这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的字类，可以轻易地格式化和连接。 这个后面会有更多。
+这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的子类，可以轻易地格式化和连接。 这个后面会有更多。
 
 ```java
 Text literal = Text.of("Hello, world!");
