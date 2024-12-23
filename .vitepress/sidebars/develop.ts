@@ -188,6 +188,15 @@ export default [
     ],
   },
   {
+	  text: "develop.dataGeneration",
+	  items: [
+		{
+			text: "develop.dataGeneration.setup",
+			link: "/develop/data-generation/setup"
+		}
+	  ]
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [
