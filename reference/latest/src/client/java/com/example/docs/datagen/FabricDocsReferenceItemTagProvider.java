@@ -30,7 +30,7 @@ public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 		// :::datagen-tags:1
-		// :::datagen-tags:3
+		// :::datagen-tags:4
 		getOrCreateTagBuilder(SMELLY_ITEMS)
 				.add(Items.SLIME_BALL)
 				.add(Items.ROTTEN_FLESH)
@@ -38,7 +38,7 @@ public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> 
 				.add(Identifier.ofVanilla("wooden_planks"))
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
-		// :::datagen-tags:3
+		// :::datagen-tags:4
 		// :::datagen-tags:1
 	}
 }
