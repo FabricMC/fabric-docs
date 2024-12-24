@@ -189,6 +189,7 @@ export default [
   },
   {
 	  text: "develop.dataGeneration",
+	  collapsed: true,
 	  items: [
 		{
 			text: "develop.dataGeneration.setup",
