@@ -24,7 +24,8 @@
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator",
-      "com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator"
+      "com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator",
+      "com.example.docs.datagen.FabricDocsReferenceItemTagGenerator"
     ]
   },
   "mixins": [
