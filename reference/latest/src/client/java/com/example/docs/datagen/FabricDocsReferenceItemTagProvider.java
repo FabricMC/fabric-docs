@@ -35,7 +35,7 @@ public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> 
 				.add(Items.SLIME_BALL)
 				.add(Items.ROTTEN_FLESH)
 				.addOptionalTag(ItemTags.DIRT)
-				.add(Identifier.ofVanilla("wooden_planks"))
+				.add(Identifier.ofVanilla("oak_planks"))
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:4
