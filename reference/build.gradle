@@ -36,11 +36,11 @@ subprojects {
 		// :::automatic-testing:1
 	}
 
-	// :::data-generation-setup:1
+	// :::datagen-setup:1
 	fabricApi {
 		configureDataGeneration()
 	}
-	// :::data-generation-setup:1
+	// :::datagen-setup:1
 
 	tasks.withType(JavaCompile).configureEach {
 		it.options.release = 21
