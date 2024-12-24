@@ -193,6 +193,10 @@ export default [
 		{
 			text: "develop.dataGeneration.setup",
 			link: "/develop/data-generation/setup"
+		},
+		{
+			text: "develop.dataGeneration.tags",
+			link: "/develop/data-generation/tags"
 		}
 	  ]
   },
