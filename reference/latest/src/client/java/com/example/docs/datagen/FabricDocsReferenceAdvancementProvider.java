@@ -9,6 +9,7 @@ import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.AdvancementRewards;
+import net.minecraft.advancement.criterion.ConsumeItemCriterion;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
@@ -43,6 +44,23 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				// Give the advancement an id
 				.build(consumer, FabricDocsReference.MOD_ID + "/get_dirt");
 		// :::datagen-advancements:3
+		// :::datagen-advancements:4
+		AdvancementEntry appleAndBeef = Advancement.Builder.create()
+				.parent(getDirt)
+				.display(
+						Items.APPLE,
+						Text.literal("Apple and Beef"),
+						Text.literal("Ate an apple and beef"),
+						null, // Children don't need a background, the root advancement takes care of that
+						AdvancementFrame.CHALLENGE,
+						true,
+						true,
+						false
+				)
+				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(Items.APPLE))
+				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(Items.COOKED_BEEF))
+				.build(consumer, FabricDocsReference.MOD_ID + "/apple_and_beef");
+		// :::datagen-advancements:4
 		// :::datagen-advancements:1
 	}
 }

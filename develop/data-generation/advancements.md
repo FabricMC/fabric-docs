@@ -41,6 +41,26 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=json](@/reference/latest/src/main/generated/data/minecraft/advancement/fabric-docs-reference/get_dirt.json)
 :::
 
+## One More Example {#one-more-example}
+
+Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
+
+@[code lang=java transcludeWith=:::datagen-advancements:4](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+
+Don't forget to generate them! Use the terminal command below or the run configuration in IntelliJ.
+
+::: code-group
+
+```sh [Windows]
+gradlew runDatagen
+```
+
+```sh [Linux]
+./gradlew runDatagen
+```
+
+:::
+
 ## Custom Criterion {#custom-criterion}
 
 ## Custom Conditions {#custom-conditions}
