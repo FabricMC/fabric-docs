@@ -63,6 +63,15 @@ gradlew runDatagen
 
 ## Custom Criterion {#custom-criterion}
 
+There are already many criterions. The Minecraft Wiki has them listed under "[List of triggers](https://minecraft.wiki/w/Advancement_definition#List_of_triggers)." You can also look at the source itself in the `net.minecraft.advancement.criterion` package to see what's already available. Generally, you'll only need a new criterion if you implement a custom mechanic into the game. If none of the existing ones fit your needs, read on!
+
+First, we'll need a new mechanic to implement. Let's tell the player what tool they used every time they break a block.
+
+@[code lang=java transcludeWith=:::datagen-advancements:5](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+
+Note that this code is really bad. The `HashMap` is not stored anywhere persistent, so it will be reset every time the game is restarted. It's just to show off `Criterion`s. Start the game and try it out!
+
+
 ## Custom Conditions {#custom-conditions}
 
 ### Predicates {#predicates}
