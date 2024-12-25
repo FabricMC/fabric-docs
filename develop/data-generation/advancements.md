@@ -114,4 +114,8 @@ Finally, we need to trigger our criteria. Add this to where we sent a message to
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
-Your shiny new criterion is now ready to use!
+Your shiny new criterion is now ready to use! Let's add it to our provider:
+
+@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+
+Run the datagen task again, and you've got your new advancement to play with!

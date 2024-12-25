@@ -2,13 +2,16 @@ package com.example.docs.datagen;
 
 import com.example.docs.FabricDocsReference;
 
+import com.example.docs.advancement.ModCriteria;
+
+import com.example.docs.advancement.UseToolCriterion;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
-import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.ConsumeItemCriterion;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.item.Items;
@@ -61,6 +64,22 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(Items.COOKED_BEEF))
 				.build(consumer, FabricDocsReference.MOD_ID + "/apple_and_beef");
 		// :::datagen-advancements:4
+		// :::datagen-advancements:custom-criteria-advancement
+		AdvancementEntry breakBlockWithTool = Advancement.Builder.create()
+				.parent(getDirt)
+				.display(
+						Items.DIAMOND_SHOVEL,
+						Text.literal("Not a Shovel"),
+						Text.literal("That's not a shovel (probably)"),
+						null,
+						AdvancementFrame.GOAL,
+						true,
+						true,
+						false
+				)
+				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(null)))
+				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool");
+		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:1
 	}
 }
