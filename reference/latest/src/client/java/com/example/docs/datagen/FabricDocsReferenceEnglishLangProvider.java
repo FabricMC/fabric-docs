@@ -1,17 +1,13 @@
 package com.example.docs.datagen;
 
-import com.example.docs.item.ModItems;
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.registry.RegistryWrapper;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.text.Text;
-
-import java.util.concurrent.CompletableFuture;
-// :::datagen-translations:1
+// :::datagen-translations:provider
 public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {
 	protected FabricDocsReferenceEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
@@ -20,11 +16,11 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
-		// :::datagen-translations:1
-		// :::datagen-translations:3
-		translationBuilder.add("text.fabric-docs-reference.greeting", "Hello there!");
-		// :::datagen-translations:3
-		// :::datagen-translations:1
+		// :::datagen-translations:provider
+		// :::datagen-translations:build
+		translationBuilder.add("text.fabric_docs_reference.greeting", "Hello there!");
+		// :::datagen-translations:build
+		// :::datagen-translations:provider
 	}
 }
-// :::datagen-translations:1
+// :::datagen-translations:provider
