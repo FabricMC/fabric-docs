@@ -202,6 +202,10 @@ export default [
 		{
 			text: "develop.dataGeneration.translations",
 			link: "/develop/data-generation/translations"
+		},
+		{
+			text: "devlop.dataGeneration.advancements",
+			link: "/develop/data-generation/advancements"
 		}
 	  ]
   },
