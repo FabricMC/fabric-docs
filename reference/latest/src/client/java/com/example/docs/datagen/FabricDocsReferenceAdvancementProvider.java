@@ -23,7 +23,7 @@ import net.minecraft.util.Identifier;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
-// :::datagen-advancements:1
+// :::datagen-advancements:provider-start
 public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementProvider {
 	protected FabricDocsReferenceAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup);
@@ -31,8 +31,8 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 
 	@Override
 	public void generateAdvancement(RegistryWrapper.WrapperLookup wrapperLookup, Consumer<AdvancementEntry> consumer) {
-		// :::datagen-advancements:1
-		// :::datagen-advancements:3
+		// :::datagen-advancements:provider-start
+		// :::datagen-advancements:simple-advancement
 		AdvancementEntry getDirt = Advancement.Builder.create()
 				.display(
 						Items.DIRT, // The display icon
@@ -48,8 +48,8 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				.criterion("got_dirt", InventoryChangedCriterion.Conditions.items(Items.DIRT))
 				// Give the advancement an id
 				.build(consumer, FabricDocsReference.MOD_ID + "/get_dirt");
-		// :::datagen-advancements:3
-		// :::datagen-advancements:4
+		// :::datagen-advancements:simple-advancement
+		// :::datagen-advancements:second-advancement
 		AdvancementEntry appleAndBeef = Advancement.Builder.create()
 				.parent(getDirt)
 				.display(
@@ -65,7 +65,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(Items.APPLE))
 				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(Items.COOKED_BEEF))
 				.build(consumer, FabricDocsReference.MOD_ID + "/apple_and_beef");
-		// :::datagen-advancements:4
+		// :::datagen-advancements:second-advancement
 		// :::datagen-advancements:custom-criteria-advancement
 		AdvancementEntry breakBlockWithTool = Advancement.Builder.create()
 				.parent(getDirt)
@@ -98,7 +98,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				.criterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
 				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool_five_times");
 		// :::datagen-advancements:new-custom-criteria-advancement
-		// :::datagen-advancements:1
+		// :::datagen-advancements:provider-start
 	}
 }
-// :::datagen-advancements:1
+// :::datagen-advancements:provider-start

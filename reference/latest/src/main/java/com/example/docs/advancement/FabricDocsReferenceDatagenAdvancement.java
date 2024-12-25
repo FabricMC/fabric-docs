@@ -10,15 +10,15 @@ import net.minecraft.text.Text;
 
 import java.util.HashMap;
 
-// :::datagen-advancements:5
+// :::datagen-advancements:entrypoint
 public class FabricDocsReferenceDatagenAdvancement implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		// :::datagen-advancements:5
+		// :::datagen-advancements:entrypoint
 		// :::datagen-advancements:call-init
 		ModCriteria.init();
 		// :::datagen-advancements:call-init
-		// :::datagen-advancements:5
+		// :::datagen-advancements:entrypoint
 		HashMap<Item, Integer> tools = new HashMap<>();
 
 		PlayerBlockBreakEvents.AFTER.register(((world, player, blockPos, blockState, blockEntity) -> {
@@ -28,18 +28,18 @@ public class FabricDocsReferenceDatagenAdvancement implements ModInitializer {
 				Integer usedCount = tools.getOrDefault(item, 0);
 				usedCount++;
 				tools.put(item, usedCount);
-				// :::datagen-advancements:5
+				// :::datagen-advancements:entrypoint
 				// :::datagen-advancements:trigger-criterion
 				ModCriteria.USE_TOOL.trigger(serverPlayer);
 				// :::datagen-advancements:trigger-criterion
 				// :::datagen-advancements:trigger-new-criterion
 				ModCriteria.PARAMETERIZED_USE_TOOL.trigger(serverPlayer, usedCount);
 				// :::datagen-advancements:trigger-new-criterion
-				// :::datagen-advancements:5
+				// :::datagen-advancements:entrypoint
 
 				serverPlayer.sendMessage(Text.of("You've used \"" + item + "\" as a tool " + usedCount + " times!"));
 			}
 		}));
 	}
 }
-// :::datagen-advancements:5
+// :::datagen-advancements:entrypoint

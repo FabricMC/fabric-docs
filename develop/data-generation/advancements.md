@@ -15,11 +15,11 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 First, we need to make our provider. Create a class that `extends FabricAdvancementProvider` and fill out the base methods:
 
-@[code lang=java transcludeWith=:::datagen-advancements:1](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint`.
 
-@[code lang=java transcludeWith=:::datagen-advancements:2](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementGenerator.java)
+@[code lang=java transcludeWith=:::datagen-advancements:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementGenerator.java)
 
 ## Advancement Structure {#advancement-structure}
 
@@ -35,7 +35,7 @@ An advancement is made up a few different components. Along with the requirement
 
 Here's a simple advancement for getting a dirt block:
 
-@[code lang=java transcludeWith=:::datagen-advancements:3](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 ::: details JSON Output
 @[code lang=json](@/reference/latest/src/main/generated/data/minecraft/advancement/fabric-docs-reference/get_dirt.json)
@@ -45,7 +45,7 @@ Here's a simple advancement for getting a dirt block:
 
 Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
 
-@[code lang=java transcludeWith=:::datagen-advancements:4](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 Don't forget to generate them! Use the terminal command below or the run configuration in IntelliJ.
 
@@ -80,7 +80,7 @@ A **predicate** is something that takes a value and returns a `boolean`. For exa
 
 First, we'll need a new mechanic to implement. Let's tell the player what tool they used every time they break a block.
 
-@[code lang=java transcludeWith=:::datagen-advancements:5](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
 Note that this code is really bad. The `HashMap` is not stored anywhere persistent, so it will be reset every time the game is restarted. It's just to show off `Criterion`s. Start the game and try it out!
 
@@ -91,7 +91,7 @@ Next, let's create our custom criterion, `UseToolCriterion`. It's going to need 
 Whew, that's a lot! Let's break it down.
 
 - `UseToolCriterion` is an `AbstractCriterion`, which `Conditions` can apply to.
-- `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate, since all `Criterion`s apply only to players. %%TODO: fact check%%
+- `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate (technically a `LootContextPredicate`). %%TODO: fact check%%
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 
 ::: info
@@ -128,7 +128,7 @@ Your shiny new criterion is now ready to use! Let's add it to our provider:
 
 Run the datagen task again, and you've got your new advancement to play with!
 
-## Conditions with Parameters
+## Conditions with Parameters {#conditions-with-parameters}
 
 This is all well and good, but what if we want to only grant an advancement once we've done something 5 times? And why not another one at 10 times? For this, we need to give our condition a parameter. You can stay with `UseToolCriterion`, or you can follow along with a new `ParameterizedUseToolCriterion`. In practice, you should only have the parameterized one, but we'll keep both for this tutorial.
 

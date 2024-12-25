@@ -3,7 +3,7 @@ package com.example.docs.datagen;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-// :::datagen-advancements:2
+// :::datagen-advancements:generator
 public class FabricDocsReferenceAdvancementGenerator implements DataGeneratorEntrypoint {
 
 	@Override
@@ -12,4 +12,4 @@ public class FabricDocsReferenceAdvancementGenerator implements DataGeneratorEnt
 		pack.addProvider(FabricDocsReferenceAdvancementProvider::new);
 	}
 }
-// :::datagen-advancements:2
+// :::datagen-advancements:generator
