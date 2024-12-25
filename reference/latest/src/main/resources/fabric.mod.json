@@ -16,7 +16,8 @@
       "com.example.docs.damage.FabricDocsReferenceDamageTypes",
       "com.example.docs.item.FabricDocsReferenceItems",
       "com.example.docs.block.FabricDocsReferenceBlocks",
-      "com.example.docs.component.FabricDocsReferenceComponents"
+      "com.example.docs.component.FabricDocsReferenceComponents",
+      "com.example.docs.advancement.FabricDocsReferenceDatagenAdvancement"
     ],
     "client": [
       "com.example.docs.FabricDocsReferenceClient",
@@ -25,7 +26,8 @@
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator",
       "com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceItemTagGenerator"
+      "com.example.docs.datagen.FabricDocsReferenceItemTagGenerator",
+      "com.example.docs.datagen.FabricDocsReferenceAdvancementGenerator"
     ]
   },
   "mixins": [
