@@ -14,6 +14,11 @@ import java.util.HashMap;
 public class FabricDocsReferenceDatagenAdvancement implements ModInitializer {
 	@Override
 	public void onInitialize() {
+		// :::datagen-advancements:5
+		// :::datagen-advancements:call-init
+		ModCriteria.init();
+		// :::datagen-advancements:call-init
+		// :::datagen-advancements:5
 		HashMap<Item, Integer> tools = new HashMap<>();
 
 		PlayerBlockBreakEvents.AFTER.register(((world, player, blockPos, blockState, blockEntity) -> {

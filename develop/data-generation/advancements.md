@@ -110,6 +110,14 @@ Almost there! Next, we need an instance of our criterion to work with. Let's put
 
 @[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
+To make sure that our criteria are initialized at the right time, add a blank `init` method:
+
+@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+
+And call it in your mod initializer:
+
+@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+
 Finally, we need to trigger our criteria. Add this to where we sent a message to the player. %%TODO: find better naming for transclude, maybe better explanation of where it goes.%%
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)

@@ -6,6 +6,13 @@ import com.example.docs.FabricDocsReference;
 import net.minecraft.advancement.criterion.Criteria;
 
 public class ModCriteria {
+	// :::datagen-advancements:mod-criteria
+	// :::datagen-advancements:mod-criteria-init
+	public static void init() {
+
+	}
+	// :::datagen-advancements:mod-criteria-init
+	// :::datagen-advancements:mod-criteria
 	public static final UseToolCriterion USE_TOOL = Criteria.register(FabricDocsReference.MOD_ID + "/use_tool", new UseToolCriterion());
 	// :::datagen-advancements:mod-criteria
 	// :::datagen-advancements:new-mod-criteria
