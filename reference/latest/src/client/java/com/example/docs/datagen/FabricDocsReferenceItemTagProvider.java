@@ -16,21 +16,21 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import net.minecraft.util.Identifier;
 
-// :::datagen-tags:1
+// :::datagen-tags:provider
 public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> {
-	// :::datagen-tags:1
-	// :::datagen-tags:3
+	// :::datagen-tags:provider
+	// :::datagen-tags:tag-key
 	public static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "smelly_items"));
-	// :::datagen-tags:3
-	// :::datagen-tags:1
+	// :::datagen-tags:tag-key
+	// :::datagen-tags:provider
 	public FabricDocsReferenceItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
 		super(output, RegistryKeys.ITEM, registriesFuture);
 	}
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		// :::datagen-tags:1
-		// :::datagen-tags:4
+		// :::datagen-tags:provider
+		// :::datagen-tags:build
 		getOrCreateTagBuilder(SMELLY_ITEMS)
 				.add(Items.SLIME_BALL)
 				.add(Items.ROTTEN_FLESH)
@@ -38,8 +38,8 @@ public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> 
 				.add(Identifier.ofVanilla("oak_planks"))
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
-		// :::datagen-tags:4
-		// :::datagen-tags:1
+		// :::datagen-tags:build
+		// :::datagen-tags:provider
 	}
 }
-// :::datagen-tags:1
+// :::datagen-tags:provider
