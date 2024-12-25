@@ -4,6 +4,7 @@ import com.example.docs.FabricDocsReference;
 
 import com.example.docs.advancement.ModCriteria;
 
+import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -19,6 +20,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 // :::datagen-advancements:1
@@ -77,9 +79,25 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						true,
 						false
 				)
-				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(null)))
+				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(Optional.empty())))
 				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
+		// :::datagen-advancements:new-custom-criteria-advancement
+		AdvancementEntry breakBlockWithToolFiveTimes = Advancement.Builder.create()
+				.parent(breakBlockWithTool)
+				.display(
+						Items.GOLDEN_SHOVEL,
+						Text.literal("Not a Shovel Still"),
+						Text.literal("That's still not a shovel (probably)"),
+						null,
+						AdvancementFrame.GOAL,
+						true,
+						true,
+						false
+				)
+				.criterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
+				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool_five_times");
+		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:1
 	}
 }

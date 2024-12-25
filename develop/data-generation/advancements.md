@@ -119,3 +119,37 @@ Your shiny new criterion is now ready to use! Let's add it to our provider:
 @[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 Run the datagen task again, and you've got your new advancement to play with!
+
+## Conditions with Parameters
+
+This is all well and good, but what if we want to only grant an advancement once we've done something 5 times? And why not another one at 10 times? For this, we need to give our condition a parameter. You can stay with `UseToolCriterion`, or you can follow along with a new `ParameterizedUseToolCriterion`. In practice, you should only have the parameterized one, but we'll keep both for this tutorial.
+
+Let's work bottom-up. We'll need to check if the requirements are met, so let's edit our `Condtions#requirementsMet` method:
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+
+`requiredTimes` doesn't exist, so make it a parameter of `Conditions`:
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+
+Now our codec is erroring. Let's write a new codec for the new changes:
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+
+Moving on, we now need to fix our `trigger` method:
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+
+If you've made a new criterion, we need to add it to `ModCriteria`
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+
+And call it in our main class, right where the old one is:
+
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+
+Add the advancement to your provider:
+
+@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+
+Run datagen again, and you're finally done!

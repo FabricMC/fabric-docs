@@ -27,6 +27,9 @@ public class FabricDocsReferenceDatagenAdvancement implements ModInitializer {
 				// :::datagen-advancements:trigger-criterion
 				ModCriteria.USE_TOOL.trigger(serverPlayer);
 				// :::datagen-advancements:trigger-criterion
+				// :::datagen-advancements:trigger-new-criterion
+				ModCriteria.PARAMETERIZED_USE_TOOL.trigger(serverPlayer, usedCount);
+				// :::datagen-advancements:trigger-new-criterion
 				// :::datagen-advancements:5
 
 				serverPlayer.sendMessage(Text.of("You've used \"" + item + "\" as a tool " + usedCount + " times!"));
