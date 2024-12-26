@@ -27,7 +27,8 @@
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator",
       "com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator",
       "com.example.docs.datagen.FabricDocsReferenceItemTagGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceAdvancementGenerator"
+      "com.example.docs.datagen.FabricDocsReferenceAdvancementGenerator",
+      "com.example.docs.datagen.FabricDocsReferenceRecipeGenerator"
     ]
   },
   "mixins": [
