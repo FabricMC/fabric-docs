@@ -206,6 +206,10 @@ export default [
 		{
 			text: "devlop.dataGeneration.advancements",
 			link: "/develop/data-generation/advancements"
+		},
+		{
+			text: "devlop.dataGeneration.recipes",
+			link: "/develop/data-generation/recipes"
 		}
 	  ]
   },
