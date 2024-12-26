@@ -45,4 +45,3 @@ Other recipes work similarly, but require a few extra parameters. For example, s
 
 ## Custom Recipe Types {#custom-recipe-types}
 
-%%TODO: Help please xd%%

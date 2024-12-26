@@ -26,10 +26,10 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint`.
 An advancement is made up a few different components. Along with the requirements, called "criterion," it may have:
 
 - An `AdvancementDisplay` that tells the game how to show the advancement to players,
-- `AdvancementRequirements`, which are different from criterion (we'll go over these later), %% TODO: What are these? %%
-- `AdvancementRewards`, which the player recives for completing the advancement.
+- `AdvancementRequirements`, which are lists of lists of criteria, requiring at least one criterion from each sub-list to be completed,
+- `AdvancementRewards`, which the player receives for completing the advancement.
 - A `CriterionMerger`, which tells the advancement how to handle multiple criterion, and
-- A parent `Advancement`, which organizes the heirarchy you see on the "Advancements" screen.
+- A parent `Advancement`, which organizes the hierarchy you see on the "Advancements" screen.
 
 ## Simple Advancements {#simple-advancements}
 
@@ -72,7 +72,7 @@ While datagen can be on the client side, `Criterion`s and `Predicate`s are in th
 
 A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancement.criterion` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
 
-**Conditions** are evalued by criteria %%TODO: fact check%%. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
+**Conditions** are evaluated by criteria. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
 
 A **predicate** is something that takes a value and returns a `boolean`. For example, a `Predicate<Item>` might return `true` if the item is a diamond, while a `Predicate<LivingEntity>` might return `true` if the entity is not hostile to villagers.
 
@@ -91,7 +91,7 @@ Next, let's create our custom criterion, `UseToolCriterion`. It's going to need 
 Whew, that's a lot! Let's break it down.
 
 - `UseToolCriterion` is an `AbstractCriterion`, which `Conditions` can apply to.
-- `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate (technically a `LootContextPredicate`). %%TODO: fact check%%
+- `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate (technically a `LootContextPredicate`).
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 
 ::: info
@@ -118,7 +118,7 @@ And call it in your mod initializer:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
-Finally, we need to trigger our criteria. Add this to where we sent a message to the player. %%TODO: find better naming for transclude, maybe better explanation of where it goes.%%
+Finally, we need to trigger our criteria. Add this to where we sent a message to the player in the main mod class.
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
