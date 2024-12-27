@@ -41,7 +41,7 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella lettura. Tuttavia, contengono tante informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
-Per questa guida, useremo [questa segnalazione di crash come esempio](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
+Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-report-example.txt).
 
 :::details Segnalazioni dei Crash
 
@@ -54,7 +54,7 @@ Per questa guida, useremo [questa segnalazione di crash come esempio](https://gi
 Le segnalazioni di crash consistono di varie sezioni, ciascuna separata con un'intestazione:
 
 - `---- Minecraft Crash Report ----`, il riassunto della segnalazione. Questa sezione contiene l'errore principale che ha causato il crash, l'orario al quale è avvenuto, e la stack trace pertinente. Questa è la sezione più importante della segnalazione del crash poiché lo stack trace potrebbe solitamente contenere riferimenti alla mod che ha causato il crash.
-- `-- Last Reload --`, questa sezione non è davvero utile tranne se il crash è avvenuto durante un ricaricamento delle risorse (<kbd>F3</kbd>+<kbd>T</kbd>). Questa sezione conterrà probabilmente l'orario dell'ultimo ricaricamento, e lo stack trace pertinente di qualsiasi errore che si sia verificato durante il processo di ricaricamento. Questi errori sono solitamente causati dai pacchetti risorse, e possono essere ignorati tranne se stanno causando problemi con il gioco.
+- `-- Last Reload --`, questa sezione non è molto utile a meno che il crash sia avvenuto durante un ricaricamento delle risorse (<kbd>F3</kbd>+<kbd>T</kbd>). Questa sezione conterrà probabilmente l'orario dell'ultimo ricaricamento, e lo stack trace pertinente di qualsiasi errore che si sia verificato durante il processo di ricaricamento. Questi errori sono solitamente causati dai pacchetti risorse, e possono essere ignorati tranne se stanno causando problemi con il gioco.
 - `-- System Details --`, questa sezione contiene informazioni riguardo al tuo sistema, come il sistema operativo, la versione di Java, e la quantità di memoria allocata al gioco. Questa sezione è utile per determinare se stai usando la versione corretta di Java, e se hai allocato abbastanza memoria al gioco.
   - In questa sezione, Fabric avrà incluso una linea personalizzata che dice `Fabric Mods:`, seguita da una lista di tutte le mod che hai installato. Questa sezione è utile per determinare se possibili conflitti potrebbero essersi verificati tra mod.
 
@@ -64,13 +64,15 @@ Ora che sappiamo cos'è ciascuna sezione della segnalazione di crash, possiamo i
 
 Usando l'esempio del link sopra, possiamo analizzare la segnalazione di crash e trovare la causa del crash, incluse le mod che l'hanno causato.
 
-Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash. In questo caso, l'errore è `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
+Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash.
+
+:::details Mostra Errore
+
+<<< @/public/assets/players/crash-report-example.txt{7 log}
+
+:::
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
-
-<!-- TODO: show part of this file -->
-
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 In questo caso, la mod che ha causato il crash è `snownee`, poiché è la prima mod menzionata nello stack trace.
 

@@ -3,6 +3,8 @@ title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
   - IMB11
+  - xEobardThawne
+  - its-miroma
 ---
 
 # Creating Your First Block {#creating-your-first-block}
@@ -11,7 +13,7 @@ Blocks are the building blocks of Minecraft (no pun intended) - just like everyt
 
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and it's block item.
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and its block item.
 
 You should put this method in a class called `ModBlocks` (or whatever you want to name it).
 
@@ -23,7 +25,7 @@ Mojang does something extremely similar like this with vanilla blocks; you can r
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 
-You can do this by creating a dummy `initialize` method, which can be called in your mod initializer to trigger the static initialization.
+You can do this by creating a dummy `initialize` method, which can be called in your [mod's initializer](./getting-started/project-structure#entrypoints) to trigger the static initialization.
 
 ::: info
 If you are unaware of what static initialization is, it is the process of initializing static fields in a class. This is done when the class is loaded by the JVM, and is done before any instances of the class are created.
@@ -67,7 +69,7 @@ For this example, we'll use a custom item group created in the [Custom Item Grou
 
 You should now notice that your block is in the creative inventory, and can be placed in the world!
 
-![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png).
+![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png)
 
 There are a few issues though - the block item is not named, and the block has no texture, block model or item model.
 
@@ -79,17 +81,17 @@ Minecraft will use this translation in the creative inventory and other places w
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
-You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes - and you should see that the block has a name in the creative inventory and other places such as the statistics screen.
+You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - and you should see that the block has a name in the creative inventory and other places such as the statistics screen.
 
 ## Models and Textures {#models-and-textures}
 
 All block textures can be found in the `assets/<mod id here>/textures/block` folder - an example texture for the "Condensed Dirt" block is free to use.
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
 To make the texture show up in-game, you must create a block and item model which can be found in the respective locations for the "Condensed Dirt" block:
 
@@ -118,7 +120,7 @@ This file should be located in the `assets/mod_id/blockstates` folder, and its n
 
 Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
 
-Restarting the game, or reloading via <kbd>F3</kbd> + <kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
+Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
 
 ![Block in world with suitable texture and model](/assets/develop/blocks/first_block_4.png)
 
@@ -151,9 +153,11 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining tag.
+
 ## Mining Levels {#mining-levels}
 
-Similarly, the mining level tag can be found in the same folder, and respects the following format:
+Similarly, the mining level tag can be found in the `data/minecraft/tags/block/` folder, and respects the following format:
 
 - `needs_stone_tool.json` - A minimum level of stone tools
 - `needs_iron_tool.json` - A minimum level of iron tools

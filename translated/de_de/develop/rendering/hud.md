@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Rendering im Hud
+# Rendering im Hud {#rendering-in-the-hud}
 
 Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [Den Zeichenkontext verwenden](./draw-context) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf das Event `HudRenderCallback` und den Parameter `deltaTick`.
 
-## HudRenderCallback
+## HudRenderCallback {#hudrendercallback}
 
 Das Event `HudRenderCallback`, das von der Fabric API bereitgestellt wird, wird bei jedem Frame aufgerufen und wird zum Rendern von Dingen auf dem HUD verwendet.
 
@@ -19,7 +19,7 @@ Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Uti
 
 Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen, um mehr über den Zeichenkontext zu erfahren.
 
-### DeltaTick
+### DeltaTick {#deltatick}
 
 Der `deltaTick` bezieht sich auf die Zeit seit dem letzten Frame in Sekunden. Dies kann für Animationen und andere zeitbasierte Effekte verwendet werden.
 

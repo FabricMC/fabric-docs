@@ -44,7 +44,7 @@ The status effect icon is a 18x18 PNG which will appear in the player's inventor
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Example Texture</DownloadEntry>
 
 ### Translations {#translations}
 

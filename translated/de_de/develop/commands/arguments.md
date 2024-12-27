@@ -45,7 +45,7 @@ Du kannst zum Beispiel einen Argumenttyp erstellen, der eine `BlockPos` aus eine
 Du musst den benutzerdefinierten Argumenttyp sowohl im Server als auch im Client registrieren, sonst wird der Befehl nicht funktionieren!
 :::
 
-Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` deines Mod-Initialisierers mit der Klasse `ArgumentTypeRegistry` registrieren:
+Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` deines [Mod-Initialisierers](./getting-started/project-structure#entrypoints) mit der Klasse `ArgumentTypeRegistry` registrieren:
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 

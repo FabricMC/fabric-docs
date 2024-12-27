@@ -6,7 +6,7 @@ authors:
   - modmuss50
 ---
 
-# Aktualisieren von Fabric
+# Aktualisieren von Fabric {#updating-fabric}
 
 Diese Anleitung wird das Aktualisieren von Fabric detailliert für den Minecraft-Launcher erklären.
 
@@ -18,26 +18,24 @@ Das Vorgehen beim Aktualisieren von Fabric ist der Installation ähnlich, deshal
 
 Neuere Mods können eine neuere Version des Fabric-Loaders benötigen, um zu funktionieren, weshalb es wichtig ist, ihn auf dem neuesten Stand zu halten, um immer die neuesten Mods benutzen zu können.
 
-<!-- Include steps from installing guide, no need to repeat them. -->
+<!--@include: ./installing-fabric.md#common-->
 
-<!--@include: ./installing-fabric.md{12,41}-->
+Um Fabric zu aktualisieren, vergewissere dich einfach, dass die Spielversion und die Loader-Version korrekt sind, und klicke dann auf `Installieren`.
 
-Um Fabric zu aktualisieren, stelle sicher, dass die Spielversion und die Loader-Version korrekt sind und klicke auf `Installieren`.
-
-:::important
-**Stelle sicherm dass die Option 'Profil erstellen'' deaktiviert ist, wenn du den Installer ausführst, da sonst ein neues Profil erstellt wird, das in diesem Fall nicht benötigt wird.**
+:::warning WICHTIG
+Stelle sicher, dass du die Option `Profil erstellen` deaktivierst, wenn du das Installationsprogramm ausführst, da sonst ein neues Profil erstellt wird, das wir in diesem Fall nicht benötigen.
 :::
 
-## 3. Öffne das Profil im Minecraft-Launcher
+## 3. Öffne das Profil im Minecraft Launcher {#3-open-the-profile-in-the-minecraft-launcher}
 
-Sobald die Installation beendet ist, kannst du den Minecraft-Launcher öffnen und zum `Installationen`-Tab navigieren. Wähle dein Fabric-Profil und öffne die Bearbeitungsoberfläche.
+Sobald der Installer fertig ist, kannst du den Minecraft Launcher öffnen und auf die Registerkarte `Installationen` gehen. Gehe zu deinem Fabric-Profil und öffne den Bearbeitungsbildschirm.
 
-Ersetze die Version mit der neuen Version des Fabric-Loaders, die gerade installiert wurde und klicke auf `Speichern`.
+Ersetze die Version durch die neue Version von Fabric Loader, die du gerade installiert hast, und drücke `Speichern`.
 
-![Aktualisieren der Fabric-Loader-Version im Minecraft-Launcher](/assets/players/updating-fabric.png)
+![Aktualisieren der Fabric Loader Version im Minecraft Launcher](/assets/players/updating-fabric.png)
 
 ## 4. Du hast es geschafft! {#4-you-re-done}
 
-Wenn du mit allen Schritten fertig bist, kannst du zurück zum `Spielen`-Tab navigieren, das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
+Sobald du die Schritte abgeschlossen hast, kannst du zur Registerkarte `Spielen` zurückkehren, das Fabric-Profil aus dem Dropdown-Menü in der linken unteren Ecke auswählen und auf `Spielen` drücken!
 
-Fall dir beim Folgen dieser Anleitungen irgendwelche Fehler auftreten, kannst du nach Hilfe im [Fabric-Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` fragen.
+Wenn du beim Befolgen dieses Leitfadens auf Probleme stößt, kannst du im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal ´#player-support\` um Hilfe bitten.

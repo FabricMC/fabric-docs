@@ -32,11 +32,16 @@ You can see an example `fabric.mod.json` file below - this is the `fabric.mod.js
 
 As mentioned before, the `fabric.mod.json` file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
 
-The template mod generator creates both a `main` and `client` entrypoint by default - the `main` entrypoint is used for common code, and the `client` entrypoint is used for client-specific code. These entrypoints are called respectively when the game starts.
+The template mod generator creates both a `main` and `client` entrypoint by default:
+
+- The `main` entrypoint is used for common code, and it's contained in a class which implements `ModInitializer`
+- The `client` entrypoint is used for client-specific code, and its class implements `ClientModInitializer`
+
+These entrypoints are called respectively when the game starts.
+
+Here's an example of a simple `main` entrypoint that logs a message to the console when the game starts:
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
-
-The above is an example of a simple `main` entrypoint that logs a message to the console when the game starts.
 
 ## `src/main/resources` {#src-main-resources}
 

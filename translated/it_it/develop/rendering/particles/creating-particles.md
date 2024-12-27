@@ -13,7 +13,7 @@ Le particelle sono uno strumento potente. Possono aggiungere atmosfera a una bel
 
 Aggiungeremo una nuova particella "sparkle" che mimerà il movimento di una particella di una barra dell'End.
 
-Devi prima registrare un `ParticleType` nella classe initializer della tua mod usando l'id della mod.
+Devi prima registrare un `ParticleType` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints) usando l'id della mod.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -21,7 +21,7 @@ La stringa "sparkle_particle" in minuscolo è il percorso JSON per la texture de
 
 ## Registrazione Lato-Client {#client-side-registration}
 
-Dopo aver registrato la particella nell'entrypoint `ModInitializer`, dovrai anche registrare la particella nell'entrypoint `ClientModInitializer`.
+Dopo aver registrato la particella nell'initializer della tua mod, dovrai anche registrare la particella nell'initializer lato client.
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 

@@ -17,7 +17,7 @@ authors:
   - xpple
 ---
 
-# 创建命令
+# 创建命令 {#creating-commands}
 
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
@@ -25,7 +25,7 @@ authors:
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Brigadier 是开源的：https://github.com/Mojang/brigadier
+Brigadier 是开源的：<https://github.com/Mojang/brigadier>
 
 ## `Command` 接口{#the-command-interface}
 

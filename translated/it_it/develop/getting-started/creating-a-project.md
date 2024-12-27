@@ -3,6 +3,7 @@ title: Creare un Progetto
 description: Una guida passo per passo su come creare un nuovo progetto per una mod con il generatore di mod modello di Fabric.
 authors:
   - IMB11
+  - Cactooz
 ---
 
 # Creare un Progetto {#creating-a-project}
@@ -11,11 +12,13 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 ## Generare un Progetto {#generating-a-project}
 
-Puoi usare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome del package e quello della mod, e la versione di Minecraft per la quale vuoi sviluppare.
+Puoi usare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome della mod, quello del package, e la versione di Minecraft per la quale vuoi sviluppare.
+
+Il nome del package dovrebbe essere minuscolo, separato da punti, e unico per evitare conflitti con package di altri programmatori. Di solito viene formattato come un domain internet invertito, per esempio `com.example.modid`.
 
 ![Anteprima del generatore](/assets/develop/getting-started/template-generator.png)
 
-Se vuoi usare Kotlin, o vuoi aggiungere generatori di dati, puoi selezionare le opzioni apposite nella sezione `Opzioni Avanzate`.
+Se avessi intenzione di usare Kotlin, usare i mapping ufficiali di Mojang invece dei mapping di Yarn, o volessi aggiungere generatori di dati, puoi selezionare le opzioni appropriate nella sezione `Advanced Options`.
 
 ![Sezione Opzioni Avanzate](/assets/develop/getting-started/template-generator-advanced.png)
 
@@ -63,6 +66,6 @@ Una volta che il progetto sarà importato, dovresti modificare i dettagli del pr
 
 - Modifica il file `gradle.properties` del tuo progetto per cambiare le proprietà `maven_group` e `archive_base_name` e farle corrispondere con i dettagli della tua mod.
 - Modifica il file `fabric.mod.json` per cambiare le proprietà `id`, `name`, e `descrizione` per farle corrispondere ai dettagli della tua mod.
-- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso https://fabricmc.net/develop/ - per farle corrispondere alle versioni che vorresti prendere di mira.
+- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso <https://fabricmc.net/develop/> - per farle corrispondere alle versioni che vorresti prendere di mira.
 
 Ovviamente puoi cambiare il nome del package e la classe principale della mod per farli corrispondere ai dettagli della tua mod.

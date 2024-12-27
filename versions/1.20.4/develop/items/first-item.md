@@ -84,7 +84,7 @@ Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.j
 }
 ```
 
-You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes.
+You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
 ## Adding a Texture and Model {#adding-a-texture-and-model}
 

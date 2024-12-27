@@ -7,13 +7,13 @@ authors:
   - modmuss50
 ---
 
-# Installation von Fabric
+# Installation von Fabric {#installing-fabric}
 
-Diese Anleitung wird die Installation von Fabric detailliert für den offiziellen Minecraft-Launcher erklären.
+<!-- #region common -->
 
-Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
+Dieser Leitfaden bezieht sich ausschließlich auf den offiziellen Minecraft Launcher. Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
 
-## 1. Herunterladen des Fabric-Installers
+## 1. Herunterladen des Fabric-Installers {#1-download-the-fabric-installer}
 
 Der Fabric-Installer kann von der [Fabric-Webseite](https://fabricmc.net/use/) heruntergeladen werden.
 
@@ -21,10 +21,10 @@ Wenn du Windows verwendest, lade die `.exe`-Version (`Download For Windows`) her
 
 Für macOS und Linux solltest du die `.jar`-Version verwenden. Manchmal musst du Java vor diesem Schritt installieren.
 
-## 2. Ausführen des Fabric-Installers
+## 2. Ausführen des Fabric-Installers {#2-run-the-fabric-installer}
 
 :::warning
-Schließe zuerst Minecraft und den Minecraft-Launcher vor Beginn der Installation.
+Schließe vor dem Ausführen des Installers zuerst Minecraft und den Minecraft Launcher.
 :::
 
 :::details Informationen für macOS-Nutzer
@@ -40,9 +40,13 @@ Wenn du den Installer geöffnet hast, sollte diese Oberfläche erscheinen:
 
 ![Fabric-Installer mit "Installieren" hervorgehoben](/assets/players/installing-fabric/installer-screen.png)
 
-Um Fabric zu installieren, wähle einfach die Spielversion aus der Liste und klicke installieren.
+<!-- #endregion common -->
 
-**Stelle sicher, dass die Option 'Profil erstellen' aktiviert ist.**
+Um Fabric zu installieren, wähle einfach die Spielversion aus der Liste und klicke `Installieren`.
+
+:::warning WICHTIG
+Stelle sicher, dass die Option 'Profil erstellen' aktiviert ist.
+:::
 
 ## 3. Du hast es geschafft! {#3-you-re-done}
 

@@ -446,7 +446,7 @@ A serialized `ListNode` may then look like this:
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }
