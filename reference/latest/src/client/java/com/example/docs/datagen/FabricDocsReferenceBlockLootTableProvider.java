@@ -1,9 +1,6 @@
 package com.example.docs.datagen;
 
-import com.example.docs.block.ModBlocks;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -13,10 +10,13 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryWrapper;
 
-import java.util.concurrent.CompletableFuture;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+
+import com.example.docs.block.ModBlocks;
+
 // :::datagen-loot-tables:block-provider
 public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTableProvider {
-
 	protected FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
@@ -32,8 +32,8 @@ public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTa
 		addDropWithSilkTouch(ModBlocks.PRISMARINE_LAMP);
 		// Make condensed oak logs drop between 7 and 9 oak logs
 		addDrop(ModBlocks.CONDENSED_OAK_LOG, LootTable.builder().pool(addSurvivesExplosionCondition(Items.OAK_LOG, LootPool.builder()
-						.rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(7), new ConstantLootNumberProvider(9)))
-						.with(ItemEntry.builder(Items.OAK_LOG))))
+				.rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(7), new ConstantLootNumberProvider(9)))
+				.with(ItemEntry.builder(Items.OAK_LOG))))
 		);
 		// :::datagen-loot-tables:block-drops
 		// :::datagen-loot-tables:block-provider
