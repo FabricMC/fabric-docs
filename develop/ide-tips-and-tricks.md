@@ -12,7 +12,7 @@ It may take some time to learn and get used to the shortcuts and other options. 
 
 ::: warning
 Key binds in the text refer to the default keymap of IntelliJ IDEA, if not stated otherwise.
-Refer to the `File > Setings > Keymap` Settings or search for the functionality elsewhere if you are using a different keyboard layout.
+Refer to the `File > Settings > Keymap` Settings or search for the functionality elsewhere if you are using a different keyboard layout.
 :::
 
 ## Traversing Projects {#traversing-projects}
@@ -25,7 +25,7 @@ used the `Tasks > fabric > genSources` Gradle Tasks in the Gradle Window, you ca
 ![Gradle Task](/assets/develop/misc/using-the-ide/traversing_01.png)
 
 The Minecraft Source code can be found if you look for `net.minecraft` in the Project Window's External Libraries.
-If your project uses split sources from the online [Template mod generator](https://fabricmc.net/develop/template/), there will be two sources, as indicated by the name (client/common).
+If your project uses split sources from the online [Template mod generator](https://fabricmc.net/develop/template), there will be two sources, as indicated by the name (client/common).
 Additionally other sources of projects, libraries and dependencies, which are imported via the `build.gradle` file will also be available.
 This method is often used when browsing for assets, tags and other files.
 
@@ -38,13 +38,13 @@ This method is often used when browsing for assets, tags and other files.
 Pressing <kbd>Shift</kbd> twice opens up a Search window. In there you can search for your project's files and classes. When Activating the checkbox `include non-project items`
 or by pressing <kbd>Shift</kbd> two times again, the search will look not only in your own project, but also in other's, such as the External Libraries.
 
-You can also use the shortcuts <kbd>⌘/CTRL</kbd> + <kbd>N</kbd> to search classes and <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> to search all _files_.
+You can also use the shortcuts <kbd>⌘/CTRL</kbd>+<kbd>N</kbd> to search classes and <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> to search all _files_.
 
 ![Search Window](/assets/develop/misc/using-the-ide/traversing_03.png)
 
 ### Recent Window {#recent-window}
 
-Another useful tool in IntelliJ is the `Recent` window. You can open it with the Shortcut <kbd>⌘/CTRL</kbd> + <kbd>E</kbd>.
+Another useful tool in IntelliJ is the `Recent` window. You can open it with the Shortcut <kbd>⌘/CTRL</kbd>+<kbd>E</kbd>.
 In there you can jump to the files, which you have already visited and open tool windows, such as the [Structure](#structure-of-a-class) or [Bookmarks](#bookmarks) window.
 
 ![Recent window](/assets/develop/misc/using-the-ide/traversing_04.png)
@@ -53,13 +53,13 @@ In there you can jump to the files, which you have already visited and open tool
 
 ### Jump to Definition / Usage {#jump-to-definition-usage}
 
-If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd> + <kbd>Left Click / B</kbd>
+If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>
 or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
-You can also use <kbd>⌘/CTRL</kbd> + <kbd>⌥/Shift</kbd> + <kbd>Left Click / B</kbd>
+You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd>
 
-### Bookmarks{#bookmarks}
+### Bookmarks {#bookmarks}
 
 You can bookmark lines of code, files or even opened Editor tabs.
 Especially when researching source codes, it can help out to mark spots which you want to find again quickly in the future.
@@ -78,7 +78,7 @@ It is possible to create multiple Bookmark lists at the same time if you need to
 
 ### Structure of a Class {#structure-of-a-class}
 
-By opening the `Structure` window (<kbd>⌘/Alt</kbd> + <kbd>7</kbd>) you will get an overview of your currently active class. You can see which Classes and Enums
+By opening the `Structure` window (<kbd>⌘/Alt</kbd>+<kbd>7</kbd>) you will get an overview of your currently active class. You can see which Classes and Enums
 are located in that file, which methods have been implemented and which fields and variables are declared.
 
 Sometimes it can be helpful,
@@ -88,7 +88,7 @@ to activate the `Inherited` option at the top in the View options as well, when 
 
 ### Type Hierarchy of a Class {#type-hierarchy-of-a-class}
 
-By placing the cursor on a class name and pressing <kbd>⌘/CTRL</kbd> + <kbd>H</kbd> you can open a new Type Hierarchy window, which shows all parent and child classes.
+By placing the cursor on a class name and pressing <kbd>⌘/CTRL</kbd>+<kbd>H</kbd> you can open a new Type Hierarchy window, which shows all parent and child classes.
 
 ![Type Hierarchy window](/assets/develop/misc/using-the-ide/analyzing_02.png)
 
@@ -97,19 +97,19 @@ By placing the cursor on a class name and pressing <kbd>⌘/CTRL</kbd> + <kbd>H<
 ### Code Completion {#code-completion}
 
 Code completion should be activated by default. You will automatically get the recommendations while writing your code.
-If you closed it by accident or just moved your cursor to a new place, you can use <kbd>⌘/CTRL</kbd> + <kbd>Space</kbd> to open them up again.
+If you closed it by accident or just moved your cursor to a new place, you can use <kbd>⌘/CTRL</kbd>+<kbd>Space</kbd> to open them up again.
 
 For example, when using Lambdas, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/misc/using-the-ide/util_01.png)
 
-### Code Generation{#code-generation}
+### Code Generation {#code-generation}
 
-The Generate menu can be quickly accessed with <kbd>Alt</kbd> + <kbd>Insert</kbd> (<kbd>⌘ Command</kbd> + <kbd>N</kbd> on Mac) or by going to `Code` at the top and selecting `Generate`.
+The Generate menu can be quickly accessed with <kbd>Alt</kbd>+<kbd>Insert</kbd> (<kbd>⌘ Command</kbd>+<kbd>N</kbd> on Mac) or by going to `Code` at the top and selecting `Generate`.
 In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
 You can also generate accessors and invokers if you have the [Minecraft Development plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installed.
 
-In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd> + <kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd> + <kbd>I</kbd>.
+In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd>+<kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd>+<kbd>I</kbd>.
 
 ![Code generation menu in a Java file](/assets/develop/misc/using-the-ide/generate_01.png)
 
@@ -120,7 +120,7 @@ In a Java test file, you will be given options to generate related testing metho
 ### Displaying Parameters {#displaying-parameters}
 
 Displaying parameters should be activated by default. You will automatically get the types and names of the parameters while writing your code.
-If you closed them by accident or just moved your cursor to a new place, you can use <kbd>⌘/CTRL</kbd> + <kbd>P</kbd> to open them up again.
+If you closed them by accident or just moved your cursor to a new place, you can use <kbd>⌘/CTRL</kbd>+<kbd>P</kbd> to open them up again.
 
 Methods and classes can have multiple implementations with different parameters, also known as Overloading. This way you can decide on which
 implementation you want to use, while writing the method call.
@@ -136,39 +136,39 @@ Many IDEs have an extensive tool kit to aid in this process. In IntelliJ simply 
 
 ![Refactoring](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-It is especially useful to get used to the `Rename` refactoring tool's key bind, <kbd>Shift</kbd> + <kbd>F6</kbd>, since you will rename many things in the future.
+It is especially useful to get used to the `Rename` refactoring tool's key bind, <kbd>Shift</kbd>+<kbd>F6</kbd>, since you will rename many things in the future.
 Using this feature, every code occurrence of the renamed code will be renamed and will stay functionally the same.
 
 ### Search and Replace File Content {#search-and-replace-file-content}
 
 Sometimes simpler tools are needed to edit code occurrences.
 
-| Key bind                                            | Function                                                    |
-| --------------------------------------------------- | ----------------------------------------------------------- |
-| <kbd>⌘/CTRL</kbd> + <kbd>F</kbd>                    | Find in current file                                        |
-| <kbd>⌘/CTRL</kbd> + <kbd>R</kbd>                    | Replace in current file                                     |
-| <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Find in a bigger scope (can set specific file type mask)    |
-| <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Replace in a bigger scope (can set specific file type mask) |
+| Keybind                                         | Function                                                    |
+| ----------------------------------------------- | ----------------------------------------------------------- |
+| <kbd>⌘/CTRL</kbd>+<kbd>F</kbd>                  | Find in current file                                        |
+| <kbd>⌘/CTRL</kbd>+<kbd>R</kbd>                  | Replace in current file                                     |
+| <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Find in a bigger scope (can set specific file type mask)    |
+| <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Replace in a bigger scope (can set specific file type mask) |
 
 If enabled, all of those tools allow for a more specific pattern matching using [Regex](https://en.wikipedia.org/wiki/Regular_expression).
 
 ![Regex replace](/assets/develop/misc/using-the-ide/search_and_replace_01.png)
 
-### Other Useful Keybinds{#other-keybinds}
+### Other Useful Keybinds {#other-keybinds}
 
-Selecting some text and using <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>↑ Up / ↓ Down</kbd> can move the selected text up or down.
+Selecting some text and using <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>↑ Up / ↓ Down</kbd> can move the selected text up or down.
 
-In IntelliJ, the keybind for `Redo` may not be the usual <kbd>⌘/CTRL</kbd> + <kbd>Y</kbd> (Delete Line).
-Instead, it may be <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>. You can change this in the **Keymap**.
+In IntelliJ, the keybind for `Redo` may not be the usual <kbd>⌘/CTRL</kbd>+<kbd>Y</kbd> (Delete Line).
+Instead, it may be <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>. You can change this in the **Keymap**.
 
-For even more keyboard shortcuts, you can see [IntelliJ's documentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
+For even more keyboard shortcuts, you can see [IntelliJ's documentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts).
 
-## Comments{#comments}
+## Comments {#comments}
 
 Good code should be easily readable and [self-documenting](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758).
 Picking expressive names for variables, classes and methods can help a lot, but sometimes comments are necessary to leave notes or **temporarily** disable code for testing.
 
-To comment out code faster, you can select some text and use the <kbd>⌘/CTRL</kbd> + <kbd>/</kbd> (line comment) and <kbd>⌘/CTRL</kbd> + <kbd>⌥/Shift</kbd> + <kbd>/</kbd> (block comment) keybinds.
+To comment out code faster, you can select some text and use the <kbd>⌘/CTRL</kbd>+<kbd>/</kbd> (line comment) and <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>/</kbd> (block comment) keybinds.
 
 Now you can highlight the necessary code and use the shortcuts, to comment the section out.
 
@@ -254,21 +254,21 @@ Jetbrains has many good talks, videos and documentation pages about how to furth
 Use PostFix Completion to alter code after writing it quickly. Often used examples contain `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` and `.new`.
 Besides the existing ones, you can also create your own in IntelliJ's Settings.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4?si=oSI1NVuOKtYI1wev" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
 
 ### Live Templates {#live-templates}
 
 Use Live Templates to generate your custom boilerplate code faster.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
 
 ### More Tips and Tricks {#more-tips}
 
 Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
 
-For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks/).
+For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks).
 Most of their posts are also applicable to Fabric's ecosystem.
 
 ---
