@@ -45,6 +45,6 @@ We'll need a `RegistryKey<LootTable>` for our loot table. Let's put that in a ne
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 
-Then, we can generate a loot table.
+Then, we can generate a loot table inside the `generate` method of your provider.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
