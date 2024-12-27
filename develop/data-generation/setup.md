@@ -80,3 +80,9 @@ To run datagen, use the run configuration in your IDE, or run `./gradlew runData
 ## Next Steps {#next-steps}
 
 Now that datagen is set up, we need to add **providers**. These are what generate the data to add to your `Pack`. The following pages outline how to do this.
+
+- [Advancements](./advancements)
+- [Loot Tables](./loot-tables)
+- [Recipes](./recipes)
+- [Tags](./tags)
+- [Translations](./translations)
