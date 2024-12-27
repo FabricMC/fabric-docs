@@ -17,7 +17,7 @@ However, this guide focuses on creating custom enchantment effects that aren't s
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
-Start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
+Start by creating an `enchantment` folder, and within it, create an `effect` folder. Within that, we'll create the `LightningEnchantmentEffect` record.
 
 Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create a `CODEC` variable to encode and decode our effect; you can read more about [Codecs here](../codecs).
 
