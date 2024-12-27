@@ -23,7 +23,7 @@ Loot pools have **entries**, **conditions**, functions, **rolls**, and **bonus r
 
 ## Blocks {#blocks}
 
-In order for blocks to drop items - including itself - we need to make a loot table. Create a class that `extends FabricLootTableProvider`:
+In order for blocks to drop items - including itself - we need to make a loot table. Create a class that `extends FabricBlockLootTableProvider`:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
 
@@ -34,3 +34,17 @@ There's a lot of helper methods available to help you build your loot tables. We
 Let's add a few drops in the `generate` method:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
+
+## Chests {#chests}
+
+Chest loot is a little bit tricker than block loot. Create a class that `extends SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
+
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
+
+We'll need a `RegistryKey<LootTable>` for our loot table. Let's put that in a new class called `ModLootTables`. Make sure this is in your `main` source set if you're using split sources.
+
+@[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
+
+Then, we can generate a loot table.
+
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)

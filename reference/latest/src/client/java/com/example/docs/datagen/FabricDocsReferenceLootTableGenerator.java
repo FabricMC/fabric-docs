@@ -11,6 +11,7 @@ public class FabricDocsReferenceLootTableGenerator implements DataGeneratorEntry
 		// Add providers here
 		// :::datagen-loot-tables:generator
 		pack.addProvider(FabricDocsReferenceBlockLootTableProvider::new);
+		pack.addProvider(FabricDocsReferenceChestLootTableProvider::new);
 		// :::datagen-loot-tables:generator
 	}
 }
