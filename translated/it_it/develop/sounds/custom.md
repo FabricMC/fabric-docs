@@ -39,11 +39,11 @@ La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nom
 
 ## Registrare il Suono Personalizzato {#registering-the-custom-sound}
 
-Per aggiungere il suono personalizzato alla mod, registra un SoundEvent nella classe che implementa l'entrypoint `ModInitializer`.
+Per aggiungere il suono personalizzato alla mod, registra un SoundEvent nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"),
-        SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
+Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
+        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
 ```
 
 ## Ripulire il Disordine {#cleaning-up-the-mess}
@@ -54,7 +54,7 @@ Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registr
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo implementare una riga per registrare tutti i SoundEvent personalizzati.
+Facendo così, basta che l'initializer della tua mod implementi una riga sola per registrare tutti i SoundEvent personalizzati.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 

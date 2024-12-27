@@ -35,7 +35,7 @@ You can install the latest JRE from the official repositories:
 sudo pacman -S jre-openjdk
 ```
 
-If you're running a server without the need for a graphical interface, you can install the headless version instead:
+If you're running a server without the need for a graphical UI, you can install the headless version instead:
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -64,7 +64,7 @@ You can install Java 21 using `dnf` with the following commands:
 sudo dnf install java-21-openjdk
 ```
 
-If you don't need a graphical interface, you can install the headless version instead:
+If you don't need a graphical UI, you can install the headless version instead:
 
 ```sh
 sudo dnf install java-21-openjdk-headless

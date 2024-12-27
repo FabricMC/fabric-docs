@@ -45,9 +45,9 @@ export default [
       },
       {
         text: "develop.gettingStarted.launchGame",
-        link: "/develop/getting-started/launching-the-game"
-      }
-    ]
+        link: "/develop/getting-started/launching-the-game",
+      },
+    ],
   },
   {
     text: "develop.items",
@@ -55,27 +55,27 @@ export default [
     items: [
       {
         text: "develop.items.first-item",
-        link: "/develop/items/first-item"
+        link: "/develop/items/first-item",
       },
       {
         text: "develop.items.food",
-        link: "/develop/items/food"
+        link: "/develop/items/food",
       },
       {
         text: "develop.items.custom-tools",
-        link: "/develop/items/custom-tools"
+        link: "/develop/items/custom-tools",
       },
       {
         text: "develop.items.custom-armor",
-        link: "/develop/items/custom-armor"
+        link: "/develop/items/custom-armor",
       },
       {
         text: "develop.items.custom-item-groups",
-        link: "/develop/items/custom-item-groups"
+        link: "/develop/items/custom-item-groups",
       },
       {
         text: "develop.items.custom-item-interactions",
-        link: "/develop/items/custom-item-interactions"
+        link: "/develop/items/custom-item-interactions",
       },
       {
         text: "develop.items.custom-enchantment-effects",
@@ -83,7 +83,7 @@ export default [
       },
       {
         text: "develop.items.custom-data-components",
-        link: "/develop/items/custom-data-components"
+        link: "/develop/items/custom-data-components",
       },
       {
         text: "develop.items.potions",
@@ -97,13 +97,13 @@ export default [
     items: [
       {
         text: "develop.blocks.first-block",
-        link: "/develop/blocks/first-block"
+        link: "/develop/blocks/first-block",
       },
       {
         text: "develop.blocks.blockstates",
-        link: "/develop/blocks/blockstates"
-      }
-    ]
+        link: "/develop/blocks/blockstates",
+      },
+    ],
   },
   {
     text: "develop.entities",
@@ -201,16 +201,20 @@ export default [
       },
       {
         text: "develop.misc.events",
-        link: "/develop/events"
+        link: "/develop/events",
       },
       {
         text: "develop.misc.text-and-translations",
-        link: "/develop/text-and-translations"
+        link: "/develop/text-and-translations",
       },
       {
         text: "develop.misc.ideTipsAndTricks",
-        link: "/develop/ide-tips-and-tricks"
-      }
-    ]
-  }
+        link: "/develop/ide-tips-and-tricks",
+      },
+      {
+        text: "develop.misc.automatic-testing",
+        link: "/develop/automatic-testing",
+      },
+    ],
+  },
 ] as Fabric.SidebarItem[];

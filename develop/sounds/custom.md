@@ -39,11 +39,11 @@ The subtitle entry provides more context for the player. The subtitle name is us
 
 ## Registering the Custom Sound {#registering-the-custom-sound}
 
-To add the custom sound to the mod, register a SoundEvent in the class which implements the `ModInitializer` entrypoint.
+To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](./getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"),
-        SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
+Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
+        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
 ```
 
 ## Cleaning up the Mess {#cleaning-up-the-mess}
@@ -54,10 +54,10 @@ Add two new methods to the newly created helper class. One, which registers all 
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-This way, the `ModInitializer` implementing entrypoint class needs to only implement one line to register all custom SoundEvents.
+This way, the mod's initializer only needs to implement one line to register all custom SoundEvents.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 
-Use the helper class to access the custom SoundEvent. Checkout the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.
+Use the helper class to access the custom SoundEvent. Check out the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.

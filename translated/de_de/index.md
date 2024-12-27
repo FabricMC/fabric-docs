@@ -6,22 +6,16 @@ hero:
   name: Fabric Dokumentation
   tagline: Die offizielle kuratierte Dokumentation für Fabric, einer Modding-Toolchain für Minecraft.
 features:
-  - title: Leitfäden für Entwickler
-    icon: 🛠️
-    details: Unsere kuratierten, von der Community verfassten Leitfäden für Entwickler decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
-    link: /develop/
-    linkText: Loslegen
   - title: Leitfäden für Spieler
     icon: 📚
     details: Bist du ein Spieler, der Mods verwenden möchte, die von Fabric unterstützt werden? Unsere Spieler-Leitfäden decken alles ab. Diese Anleitungen werden dir beim Herunterladen, Installieren und Beheben von Problemen mit Fabric-Mods helfen.
     link: /players/
     linkText: Weiterlesen
+  - title: Leitfäden für Entwickler
+    icon: 🛠️
+    details: Unsere von der Community verfassten Leitfäden für Entwickler decken alles ab, von der Einrichtung deiner Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
+    link: /develop/
+    linkText: Loslegen
 ---
 
-<div class="vp-doc homepage-container">
-
-## Möchtest du einen Beitrag leisten? {#contribute}
-
 Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](./contributing)
-
-</div>

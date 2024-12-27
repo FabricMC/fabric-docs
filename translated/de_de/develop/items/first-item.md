@@ -6,13 +6,13 @@ authors:
   - dicedpixels
 ---
 
-# Dein erstes Item erstellen
+# Dein erstes Item erstellen {#creating-your-first-item}
 
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
 
 Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, genauso wie Items.
 
-## Deine Item-Klasse vorbereiten
+## Deine Item-Klasse vorbereiten {#preparing-your-items-class}
 
 Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die eine Instanz eines Items und einen String-Bezeichner akzeptiert.
 
@@ -24,7 +24,7 @@ Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-## Ein Item registrieren
+## Ein Item registrieren {#registering-an-item}
 
 Mit der Methode kannst du nun ein Item registrieren.
 
@@ -38,9 +38,9 @@ Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Wenn du jedoch ins Spiel gehst, kannst du sehen, dass es unser item nicht gibt! Der Grund dafür ist, dass du die Klasse nicht statisch initialisierst.
+Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du sehen, dass unser Item im Spiel noch nicht existiert! Der Grund dafür ist, dass du die Klasse nicht statisch initialisiert hast.
 
-Dazu kannst du eine öffentliche statische Initialisierungsmethode zu deiner Klasse hinzufügen und sie von deiner `ModInitializer`-Klasse aus aufrufen. Derzeit braucht diese Methode nichts zu enthalten.
+Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisierung deiner Klasse hinzufügen und diese in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse aufrufen. Derzeit braucht diese Methode nichts zu enthalten.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -74,15 +74,15 @@ Es fehlen jedoch folgende Punkte:
 
 Für das Item gibt es derzeit keine Übersetzung, du musst also eine hinzufügen. Der Übersetzungsschlüssel wurde bereits von Minecraft bereitgestellt: `item.mod_id.suspicious_substance`.
 
-Erstelle eine neue JSON-Datei unter: `src/main/resources/assets/<mod id here>/lang/en_us.json` und gebe den Übersetzungsschlüssel und seinen Wert ein:
+Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/<mod id here>/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
 
-Du kannst entweder das Spiel neu starten oder deinen Mod bauen und <kbd>F3</kbd> + <kbd>T</kbd> drücken, um die Änderungen zu übernehmen.
+Du kannst entweder das Spiel neu starten oder deinen Mod bauen und <kbd>F3</kbd>+<kbd>T</kbd> drücken, um die Änderungen zu übernehmen.
 
 ## Eine Textur und ein Modell hinzufügen {#adding-a-texture-and-model}
 
@@ -90,7 +90,7 @@ Um deinem Item eine Textur und ein Modell zu geben, erstelle einfach ein 16x16 T
 
 Als Beispiel kannst du diese Textur für `suspicious_substance.png` verwenden.
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">Textur</DownloadEntry>
 
 Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer noch keine Textur hat, weil du ein Modell hinzufügen musst, das diese Textur verwendet.
 

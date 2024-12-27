@@ -31,7 +31,7 @@ Pillar blocks have two textures, top and side - they use the `block/cube_column`
 
 As always, with all block textures, the texture files can be found in `assets/<mod id here>/textures/block`
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Textures</DownloadEntry>
 
 Since the pillar block has two positions, horizontal and vertical, we'll need to make two separate model files:
 
@@ -96,7 +96,7 @@ This example flips the boolean `activated` property when the player interacts wi
 
 Before creating the blockstate file, you will need to provide textures for both the activated and deactivated states of the block, as well as the block model.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">Textures</DownloadEntry>
 
 Use your knowledge of block models to create two models for the block: one for the activated state and one for the deactivated state. Once you've done that, you can begin creating the blockstate file.
 

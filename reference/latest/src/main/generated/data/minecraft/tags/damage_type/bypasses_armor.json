@@ -1,5 +1,4 @@
 {
-  "values": [
-    "fabric-docs-reference:tater"
-  ]
+  "replace": false,
+  "values": ["fabric-docs-reference:tater"]
 }

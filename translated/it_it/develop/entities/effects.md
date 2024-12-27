@@ -30,7 +30,7 @@ Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect
 
 ### Registrare il tuo Effetto Personalizzato {#registering-your-custom-effect}
 
-Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nel registro `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
+Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nella registry `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
@@ -42,7 +42,7 @@ L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Texture di Esempio</DownloadEntry>
 
 ### Traduzioni {#translations}
 

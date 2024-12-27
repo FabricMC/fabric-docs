@@ -41,7 +41,7 @@ authors:
 
 崩溃报告的篇幅很长，读起来可能十分费解， 然而包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
 
-在本指南中，我们将以 [该崩溃报告](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) 为例。
+在本指南中，我们将以 [该崩溃报告](/assets/players/crash-report-example.txt) 为例。
 
 :::details 显示崩溃报告
 
@@ -64,13 +64,15 @@ authors:
 
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
-在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。 在这里，错误为`java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
+在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
+
+:::details 显示错误详情
+
+<<< @/public/assets/players/crash-report-example.txt{7 log}
+
+:::
 
 堆栈跟踪中提到了大量模组，因此很难指出原因，不过，首先要做的是查找导致崩溃的模组。
-
-<!-- TODO: show part of this file -->
-
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
 
 在这里，导致崩溃的模组是 `snownee`，因为它是堆栈跟踪中提到的第一个模组。
 
