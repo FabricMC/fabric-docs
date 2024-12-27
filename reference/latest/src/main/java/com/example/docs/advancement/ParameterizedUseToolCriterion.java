@@ -1,14 +1,13 @@
 package com.example.docs.advancement;
 
-import com.mojang.serialization.Codec;
+import java.util.Optional;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
-
-import java.util.Optional;
 
 /**
  * {@link UseToolCriterion} but with a parameter. Separated because there was no way to show the process to parameterize

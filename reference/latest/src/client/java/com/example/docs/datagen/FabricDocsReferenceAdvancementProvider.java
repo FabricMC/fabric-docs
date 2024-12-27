@@ -2,13 +2,9 @@ package com.example.docs.datagen;
 
 import com.example.docs.FabricDocsReference;
 
-import com.example.docs.advancement.ModCriteria;
-
-import com.example.docs.advancement.ParameterizedUseToolCriterion;
-import com.example.docs.advancement.UseToolCriterion;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+import java.util.Optional;
 
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
@@ -20,9 +16,13 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+
+import com.example.docs.advancement.ModCriteria;
+import com.example.docs.advancement.ParameterizedUseToolCriterion;
+import com.example.docs.advancement.UseToolCriterion;
+
 // :::datagen-advancements:provider-start
 public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementProvider {
 	protected FabricDocsReferenceAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {

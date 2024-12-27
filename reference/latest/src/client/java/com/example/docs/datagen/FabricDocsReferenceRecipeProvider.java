@@ -1,4 +1,5 @@
 package com.example.docs.datagen;
+
 // :::datagen-recipes:provider
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -11,7 +12,6 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -59,7 +59,7 @@ public class FabricDocsReferenceRecipeProvider extends FabricRecipeProvider {
 				0.1f, // Experience
 				300, // Cooking time
 				"food_to_wheat" // group
-				);
+		);
 		// :::datagen-recipes:other
 		// :::datagen-recipes:provider
 	}

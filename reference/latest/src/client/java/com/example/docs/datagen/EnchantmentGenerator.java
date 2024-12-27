@@ -2,8 +2,6 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.enchantment.ModEnchantmentEffects;
-
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
@@ -18,11 +16,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 
+import com.example.docs.enchantment.ModEnchantmentEffects;
 import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
 
 //#entrypoint
 public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
-
 	public EnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
 		super(output, registriesFuture);
 		System.out.println("REGISTERING ENCHANTS");
