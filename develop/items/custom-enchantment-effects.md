@@ -57,6 +57,6 @@ You should also add translations to your `en_us.json` file to give your enchantm
 "enchantment.FabricDocsReference.thundering": "Thundering",
 ```
 
-You should now have a working custom enchantment effect! You can test it by enchanting a weapon with the enchantment and hitting a mob, an example is given in the following video.
+You should now have a working custom enchantment effect! Test it by enchanting a weapon with the enchantment and hitting a mob. An example is given in the following video:
 
 <VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Lightning Effect" />
