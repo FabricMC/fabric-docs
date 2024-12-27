@@ -3,6 +3,11 @@ title: Advancement Generation
 description: A guide to setting up advancement generation with datagen.
 authors:
   - skycatminepokie
+  - MattiDragon
+  - Spinoscythe
+authors-nogithub:
+  - jmanc3
+  - mcrafterzz
 ---
 
 # Advancement Generation {#advancement-generation}
@@ -38,7 +43,7 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 ::: details JSON Output
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
 :::
 
 ## One More Example {#one-more-example}

@@ -3,6 +3,17 @@ title: Data Generation Setup
 description: A guide to setting up Data Generation with Fabric API.
 authors:
   - skycatminepokie
+  - modmuss50
+  - earthcomputer
+  - shnupbups
+  - arkosammy12
+  - haykam821
+  - matthewperiut
+  - SolidBlock-cn
+  - Jab125
+authors-nogithub:
+  - jmanc3
+  - macrafterzz
 ---
 
 # Data Generation Setup {#data-generation-setup}
