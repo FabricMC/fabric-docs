@@ -19,7 +19,7 @@ However, this guide focuses on creating custom enchantment effects that aren't s
 
 Start by creating an `enchantment` folder, and within it create a folder `effect`. Within the `effect` folder, we'll create the `LightningEnchantmentEffect` record.
 
-Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create `CODEC` variable to encode and decode our effect; you can read more about [Codecs here](../codecs).
+Next, we can create a constructor and override the `EnchantmentEntityEffect` interface methods. We'll also create a `CODEC` variable to encode and decode our effect; you can read more about [Codecs here](../codecs).
 
 The bulk of our code will go into the `apply()` event, which is called when the criteria for your enchantment to work is met. We'll later configure this `Effect` to be called when an entity is hit, but for now, let's write simple code to strike the target with lightning.
 
