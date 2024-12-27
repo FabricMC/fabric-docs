@@ -8,7 +8,7 @@ public class FabricDocsReferenceRecipeGenerator implements DataGeneratorEntrypoi
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-		pack.addProvider(FabricDocsReferenceAdvancementProvider::new);
+		pack.addProvider(FabricDocsReferenceRecipeProvider::new);
 	}
 }
 // :::datagen-recipes:generator
