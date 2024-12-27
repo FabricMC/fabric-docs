@@ -48,4 +48,3 @@ Other recipes work similarly, but require a few extra parameters. For example, s
 @[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceRecipeProvider.java)
 
 ## Custom Recipe Types {#custom-recipe-types}
-

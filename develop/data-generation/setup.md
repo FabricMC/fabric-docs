@@ -18,12 +18,14 @@ authors-nogithub:
 
 # Data Generation Setup {#data-generation-setup}
 
-## What is Data Generation? {#what-is-data-generation}
+## What Is Data Generation? {#what-is-data-generation}
+
 Data generation (or datagen) is an API for programmatically generating recipes, advancements, tags, item models, language files, loot tables, and basically anything JSON-based.
 
 ## Enabling Data Generation {#enabling-data-generation}
 
 ### At Project Creation {#enabling-data-generation-at-project-creation}
+
 The easiest way to enable datagen is at project creation. Check the "Enable Data Generation" box when using the [template generator](https://fabricmc.net/develop/template/).
 
 ![The checked "Data Generation" box on the template generator](/assets/develop/data-generation/data_generation_setup_01.png)
@@ -33,6 +35,7 @@ If datagen is enabled, you should have a "Data Generation" run configuration and
 :::
 
 ### Manually {#manually-enabling-data-generation}
+
 First, we need to enable datagen in the `build.gradle` file.
 
 @[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
@@ -48,12 +51,12 @@ Finally, we need to tell Fabric about the entrypoint in our `fabric.mod.json`:
   // ...
   "entrypoints": {
     // ...
-	"client": [
-		// ...
-	],
+    "client": [
+      // ...
+    ],
     "fabric-datagen": [ // [!code ++]
-	  "com.exmaple.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
-	] // [!code ++]
+      "com.exmaple.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
+    ] // [!code ++]
   }
 }
 ```
@@ -65,11 +68,13 @@ Don't forget to add a comma (`,`) after the previous entrypoint block!
 Close and reopen IntelliJ to create a run configuration for datagen.
 
 ## Creating a Pack {#creating-a-pack}
+
 Inside your datagen entrypoint's `onInitializeDataGenerator` method, we need to create a `Pack`. Later, you'll add **providers**, which put generated data into this `Pack`.
 
 @[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Running Data Generation {#running-data-generation}
+
 To run datagen, use the run configuration in your IDE, or run `./gradlew runDatagen` in the console. The generated files will be created in `src/main/generated`.
 
 ## Next Steps {#next-steps}

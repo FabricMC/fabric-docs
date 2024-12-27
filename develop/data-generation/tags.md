@@ -29,7 +29,7 @@ Now add this provider to your `DataGeneratorEntrypoint`, and you're ready to sta
 
 @[code lang=java transcludeWith=:::datagen-tags:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagGenerator.java)
 
-## Creating a Tag
+## Creating a Tag {#creating-a-tag}
 
 Now that you've created a provider, let's add a tag to it. First, create a `TagKey<T>`:
 

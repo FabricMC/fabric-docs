@@ -72,7 +72,6 @@ gradlew runDatagen
 While datagen can be on the client side, `Criterion`s and `Predicate`s are in the main source set (both sides), since the server needs to trigger and evaluate them.
 :::
 
-
 ### Definitions {#definitions}
 
 A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancement.criterion` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
