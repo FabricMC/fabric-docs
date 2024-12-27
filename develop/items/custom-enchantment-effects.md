@@ -11,9 +11,9 @@ Starting from version 1.21, custom enchantments in Minecraft use a "data-driven"
 
 An effect component contains the code that defines the special effects of an enchantment. Minecraft supports various default effects, such as item damage, knockback, and experience.
 
-However, this guide focuses on creating custom enchantment effects that aren't supported by default.
-
-**Before continuing, please check if the default Minecraft effects can work for your needs by visiting [the Minecraft Wiki's Enchantment Effect Components page](https://minecraft.wiki/w/Enchantment_definition#Effect_components)**. The rest of the guide assumes you understand how to configure "simple" data-driven enchantments.
+::: tip
+Be sure to check if the default Minecraft effects satisfy your needs by visiting [the Minecraft Wiki's Enchantment Effect Components page](https://minecraft.wiki/w/Enchantment_definition#Effect_components). This guide assumes you understand how to configure "simple" data-driven enchantments and focuses on creating custom enchantment effects that aren't supported by default.
+:::
 
 ## Custom Enchantment Effects {#custom-enchantment-effects}
 
