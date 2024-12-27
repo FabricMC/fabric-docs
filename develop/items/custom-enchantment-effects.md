@@ -39,13 +39,13 @@ Now we have an enchantment effect! The final step is to create an enchantment th
 
 Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programmatically.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/data/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
 
-Before proceeding, you should ensure your project is configured for data generation; if you are unsure, [view the respective wiki page](https://fabricmc.net/wiki/tutorial:datagen_setup).
+Before proceeding, you should ensure your project is configured for data generation; if you are unsure, [view the respective docs page](../data-generation/setup).
 
 Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` class.
 
-@[code transcludeWith=#initdatagen](@/reference/latest/src/main/java/com/example/docs/FabricDocsReferenceDataGenerator.java)
+@[code transcludeWith=#initdatagen](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnchantmentGenerator.java)
 
 Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
 

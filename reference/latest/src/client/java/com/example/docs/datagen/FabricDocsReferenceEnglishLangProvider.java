@@ -2,21 +2,13 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.effect.FabricDocsReferenceEffects;
-import com.example.docs.effect.TaterEffect;
-import com.example.docs.item.ModItems;
-
-import com.example.docs.potion.FabricDocsReferencePotions;
-import com.example.docs.sound.CustomSounds;
-
-import com.example.docs.sound.FabricDocsReferenceSounds;
-
 import net.minecraft.registry.RegistryWrapper;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import net.minecraft.util.Identifier;
+import com.example.docs.effect.FabricDocsReferenceEffects;
+import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
 public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {
@@ -51,6 +43,7 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add("block.fabric-docs-reference.condensed_dirt", "Condensed Dirt");
 		translationBuilder.add("block.fabric-docs-reference.condensed_oak_log", "Condensed Oak Log");
 		translationBuilder.add("block.fabric-docs-reference.prismarine_lamp", "Prismarine Lamp");
+		translationBuilder.add("enchantment.FabricDocsReference.thundering", "Thundering");
 		// :::datagen-translations:provider
 	}
 }
