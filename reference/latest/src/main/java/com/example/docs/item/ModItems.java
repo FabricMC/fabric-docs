@@ -138,10 +138,10 @@ public class ModItems {
 		// :::_10
 
 		// :::_11
-		// Add the suspicious substance to the flammable block registry with a burn time of 30 seconds.
+		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
-		FuelRegistry.INSTANCE.add(ModItems.GUIDITE_SWORD, 30 * 20);
+		FuelRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
 		// :::_11
 		// :::3
 	}

@@ -1,28 +1,48 @@
+<script setup lang="ts">
+import { onContentUpdated, useData } from "vitepress";
+import { VPButton } from "vitepress/theme";
+import { ref, useSlots } from "vue";
+
+const data = useData();
+const props = defineProps<{
+  downloadURL: string;
+  visualURL?: string;
+}>();
+const slotContent = useSlots().default?.() ?? [""];
+
+const text = ref<string>("");
+
+function refreshText() {
+  text.value = data.theme.value.download.text as string;
+
+  if (slotContent.length > 0) {
+    // @ts-expect-error
+    text.value = text.value.replace("%s", slotContent[0].children ?? "");
+  }
+}
+
+onContentUpdated(() => {
+  refreshText();
+});
+</script>
+
 <template>
   <div class="container">
-    <img v-if="!$props.noVisualURL" :src="$props.visualURL ?? $props.downloadURL" style="max-width: 100%; max-height: 300px;">
-    <VPButton 
-      tag="a" 
-      size="medium" 
-      theme="brand" 
-      :text="`Download ${$props.type}`" 
+    <img
+      v-if="$props.visualURL"
+      :src="$props.visualURL ?? $props.downloadURL"
+      style="max-width: 100%; max-height: 300px"
+    />
+    <VPButton
+      tag="a"
+      size="medium"
+      theme="brand"
+      :text="text"
       :href="$props.downloadURL"
       download
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { VPButton } from "vitepress/theme"
-
-// downloadURL prop, visualURL prop (optional), if no visualURL, use downloadURL
-const props = defineProps<{
-  downloadURL: string;
-  visualURL?: string;
-  noVisualURL?: boolean;
-  type: string;
-}>();
-</script>
 
 <style scoped>
 div.container {

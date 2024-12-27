@@ -29,7 +29,7 @@ authors:
 
 ```json
 {
-    "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
+  "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
 }
 ```
 

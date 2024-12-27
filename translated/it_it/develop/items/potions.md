@@ -18,9 +18,9 @@ Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
 ### Creare la Pozione {#creating-the-potion}
 
-Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente la classe dell'initializer per conservarla.
+Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla.
 
-@[code lang=java transclude={19-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
@@ -40,9 +40,9 @@ Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUI
 
 `registerPotionRecipe` prende 3 parametri:
 
-- `RegistryEntry<Potion> input` - L'entry della registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
+- `RegistryEntry<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
-- `RegistryEntry<Potion> output` - L'entry della registry della pozione risultante.
+- `RegistryEntry<Potion> output` - La voce di registry della pozione risultante.
 
 Una volta registrato, puoi distillare una pozione Tater usando una patata.
 

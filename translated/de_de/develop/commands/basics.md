@@ -25,7 +25,8 @@ Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen,
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Brigadier ist Open Source: https://github.com/Mojang/brigadier
+Brigadier ist Open Source: <https://github.com/Mojang/brigadier>
+:::
 
 ## Das Interface `Command` {#the-command-interface}
 
@@ -44,7 +45,7 @@ Command<ServerCommandSource> command = context -> {
 
 Die Ganzzahl kann als Ergebnis des Befehls betrachtet werden. Normalerweise bedeuten Werte kleiner oder gleich Null, dass ein Befehl fehlgeschlagen ist und nichts machen wird. Positive Werte bedeuten, dass der Befehl erfolgreich war und etwas gemacht hat. Brigadier bietet eine Konstante zur Anzeige von Erfolg; `Befehl#SINGLE_SUCCESS`.
 
-### Was kann die `ServerCommandSource` machen? <br>
+### Was kann die `ServerCommandSource` machen? {#what-can-the-servercommandsource-do}
 
 Eine "ServerCommandSource" liefert einen zusätzlichen implementierungsspezifischen Kontext, wenn ein Befehl ausgeführt wird. Dazu gehört die Möglichkeit, die Entität, die den Befehl ausgeführt hat, die Welt, in der der Befehl ausgeführt wurde, oder den Server, auf dem der Befehl ausgeführt wurde, zu ermitteln.
 
@@ -65,7 +66,7 @@ Befehle werden innerhalb des `CommandRegistrationCallback` registriert, der von 
 Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events).
 :::
 
-Das Event sollte im Initialisierer deines Mods registriert werden.
+Das Event sollte in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registriert werden.
 
 Der Callback hat drei Parameter:
 
@@ -90,7 +91,7 @@ Die `CommandSyntaxException` wird im Allgemeinen ausgelöst, um Syntaxfehler in 
 Um diesen Befehl auszuführen, musst du `/test_command` eingeben, wobei Groß- und Kleinschreibung zu beachten sind.
 
 :::info
-Von diesem Punkt an werden wir die Logik extrahieren, die innerhalb des Lambdas an den `.execute()`-Builder übergeben wird, in einzelne Methoden extrahieren. Wir können dann eine Methodenreferenz an `.execute()` übergeben. Dies dient der Übersichtlichkeit.
+Von diesem Punkt an werden wir die Logik, die innerhalb des Lambdas an den `.execute()`-Builder übergeben wird, in einzelne Methoden extrahieren. Dann können wir eine Methodenreferenz an `.execute()` übergeben. Dies dient der Übersichtlichkeit.
 :::
 
 ### Umgebung der Registrierung {#registration-environment}

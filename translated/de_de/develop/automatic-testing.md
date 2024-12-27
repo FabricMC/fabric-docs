@@ -29,16 +29,6 @@ Dann müssen wir Gradle anweisen, Fabric Loader JUnit zum Testen zu verwenden. D
 
 @[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
-#### Aufgeteilte Sources {#split-sources}
-
-:::info
-Es ist geplant, dass dieser Abschnitt nach der Veröffentlichung von Loom 1.8 irrelevant wird. Für mehr Informationen, folge [diesem Issue](https://github.com/FabricMC/fabric-loom/issues/1060).
-:::
-
-Wenn du geteilte Sources verwendest, musst du auch entweder den Client- oder das Server-Sourceset zum Testsourceset hinzufügen. Fabric Loader JUnit ist standardmäßig auf Client eingestellt, also fügen wir das Client-Sourceset zu unserer Testumgebung mit folgendem Eintrag in der `build.gradle`-Datei hinzu:
-
-@[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
-
 ### Tests schreiben {#writing-tests}
 
 Nachdem du Gradle neu geladen hast, bist du bereit, Tests zu schreiben.
@@ -53,7 +43,7 @@ Eine Namenskonvention besteht darin, die Paketstruktur der Klasse, die du testes
 
 Eine andere Namenskonvention ist ein `test`-Paket, wie `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. Dies verhindert einige Probleme, die bei der Verwendung desselben Pakets auftreten können, wenn du Java-Module verwendest.
 
-Nachdem du die Testklasse erstellt hast, verwende <kbd>⌘/CTRL</kbd><kbd>N</kbd>, um das Generate-Menü aufzurufen. Wähle Test und beginne mit der Eingabe deines Methodennamens, der normalerweise mit `test` beginnt. Drücke <kbd>ENTER</kbd>, wenn du fertig bist. Weitere Tipps und Tricks zur Verwendung der IDE findest du unter [IDE Tipps und Tricks](ide-tips-and-tricks#code-generation).
+Nachdem du die Testklasse erstellt hast, verwende <kbd>⌘/CTRL</kbd><kbd>N</kbd>, um das Generate-Menü aufzurufen. Wähle Test und beginne mit der Eingabe deines Methodennamens, der normalerweise mit `test` beginnt. Drücke <kbd>ENTER</kbd>, wenn du fertig bist. Weitere Tipps und Tricks zur Verwendung der IDE findest du unter [IDE Tipps und Tricks](./ide-tips-and-tricks#code-generation).
 
 ![Eine Testmethode generieren](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -67,7 +57,7 @@ Nun ist es an der Zeit, den eigentlichen Testcode zu schreiben. Du kannst Beding
 
 @[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-Für eine Erklärung, was dieser Code tatsächlich tut, siehe [Codecs](codecs#registry-dispatch).
+Für eine Erklärung, was dieser Code tatsächlich tut, siehe [Codecs](./codecs#registry-dispatch).
 
 #### Registries einrichten {#setting-up-registries}
 
@@ -90,12 +80,12 @@ Deine Tests werden nun bei jedem Build ausgeführt, auch bei denen von CI-Anbiet
 Füge dies zu deiner `.github/workflows/build.yml`-Datei hinzu, unterhalb des `./gradlew build` Schrittes.
 
 ```yaml
-      - name: Store reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path: |
-            **/build/reports/
-            **/build/test-results/
+- name: Store reports
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: reports
+    path: |
+      **/build/reports/
+      **/build/test-results/
 ```

@@ -3,7 +3,6 @@ import defineVersionedConfig from "vitepress-versioning-plugin";
 
 import { loadLocales, processExistingEntries } from "./i18n";
 import { transformItems, transformPageData } from "./transform";
-import { DefaultTheme } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -25,19 +24,13 @@ export default defineVersionedConfig(
         md.use(snippetPlugin);
       },
       languages: [
-        (async () => {
-          const mcfunctionLanguage = (await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
-            with: {
-              type: "json"
-            }
-          }) as any).default
-
-          mcfunctionLanguage.name = 'mcfunction';
-          return mcfunctionLanguage;
-        }),
+        async () =>
+          await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
+            with: { type: "json" },
+          }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
       ],
       async shikiSetup(shiki) {
-        await shiki.loadTheme('github-light', 'github-dark');
+        await shiki.loadTheme("github-light", "github-dark");
       },
       lineNumbers: true,
       math: true,
@@ -56,7 +49,7 @@ export default defineVersionedConfig(
 
     themeConfig: {
       search: {
-        provider: "local"
+        provider: "local",
       },
     },
 
@@ -68,15 +61,11 @@ export default defineVersionedConfig(
         localePrefix: "translated",
       },
       sidebars: {
-        sidebarContentProcessor(sidebar: DefaultTheme.SidebarMulti) {
-          return processExistingEntries(sidebar);
-        },
-      }
+        sidebarContentProcessor: processExistingEntries,
+        sidebarUrlProcessor: (url: string, version: string) =>
+          url.startsWith("/") ? `/${version}${url}` : url,
+      },
     },
-
-    build: {
-      sourcemap: true,
-    }
   },
   __dirname
 );

@@ -29,16 +29,6 @@ Then, we need to tell Gradle to use Fabric Loader JUnit for testing. You can do 
 
 @[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
-#### Split Sources {#split-sources}
-
-::: info
-This section is planned to become irrelevant after the release of Loom 1.8. For more information, track [this issue](https://github.com/FabricMC/fabric-loom/issues/1060).
-:::
-
-If you are using split sources, you also need to add either the client or server source set to the test source set. Fabric Loader JUnit defaults to client, so we'll add the client source set to our testing environment with the following in `build.gradle`:
-
-@[code lang=groovy transcludeWith=:::automatic-testing:3](@/reference/build.gradle)
-
 ### Writing Tests {#writing-tests}
 
 Once you reload Gradle, you're now ready to write tests.
@@ -53,7 +43,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](ide-tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./ide-tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -67,7 +57,7 @@ Now, it's time to write your actual test code. You can assert conditions using `
 
 @[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-For an explanation of what this code actually does, see [Codecs](codecs#registry-dispatch).
+For an explanation of what this code actually does, see [Codecs](./codecs#registry-dispatch).
 
 #### Setting Up Registries {#setting-up-registries}
 
@@ -90,12 +80,12 @@ Your tests will now run on every build, including those by CI providers such as 
 Add this to your `.github/workflows/build.yml` file, below the `./gradlew build` step.
 
 ```yaml
-      - name: Store reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path: |
-            **/build/reports/
-            **/build/test-results/
+- name: Store reports
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: reports
+    path: |
+      **/build/reports/
+      **/build/test-results/
 ```

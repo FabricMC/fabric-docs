@@ -1,9 +1,9 @@
 {
-    "markdownlint.lintWorkspaceGlobs": [
-      "**/*.md",
-      "!**/node_modules",
-      "!versions/*/translated/**",
-      "!translated/**",
-      "!README.md"
-    ]
+  "markdownlint.lintWorkspaceGlobs": [
+    "**/*.md",
+    "!**/node_modules",
+    "!versions/*/translated/**",
+    "!translated/**",
+    "!README.md"
+  ]
 }

@@ -69,7 +69,7 @@ For this example, we'll use a custom item group created in the [Custom Item Grou
 
 You should now notice that your block is in the creative inventory, and can be placed in the world!
 
-![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png).
+![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png)
 
 There are a few issues though - the block item is not named, and the block has no texture, block model or item model.
 
@@ -85,7 +85,7 @@ Minecraft will use this translation in the creative inventory and other places w
 }
 ```
 
-You can either restart the game or build your mod and press <kbd>F3</kbd> + <kbd>T</kbd> to apply changes - and you should see that the block has a name in the creative inventory and other places such as the statistics screen.
+You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - and you should see that the block has a name in the creative inventory and other places such as the statistics screen.
 
 ## Models and Textures {#models-and-textures}
 
@@ -120,7 +120,7 @@ This file should be located in the `assets/mod_id/blockstates` folder, and its n
 
 Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
 
-Restarting the game, or reloading via <kbd>F3</kbd> + <kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
+Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
 
 ![Block in world with suitable texture and model](/assets/develop/blocks/first_block_4.png)
 

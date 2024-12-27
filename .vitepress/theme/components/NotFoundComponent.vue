@@ -129,7 +129,9 @@ watchEffect(() => {
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-brand-1);
-  transition: border-color 0.25s, color 0.25s;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
 }
 
 .link:hover {

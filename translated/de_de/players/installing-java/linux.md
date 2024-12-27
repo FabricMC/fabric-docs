@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Java auf Linux installieren
+# Java auf Linux installieren {#installing-java-on-linux}
 
 Diese Anleitung führt Sie durch die Installation von Java 21 auf Linux.
 
-## 1. Überprüfen, ob Java bereits installiert ist
+## 1. Überprüfen, ob Java bereits installiert ist {#1-check-if-java-is-already-installed}
 
 Öffne ein Terminal und gib `java -version` ein, drücke anschließend <kbd>Enter</kbd>.
 
@@ -23,7 +23,7 @@ Um Minecraft 1.21 zu verwenden, muss mindestens Java 21 installiert sein. Wenn d
 
 Wir empfehlen die Verwendung von OpenJDK 21, das für die meisten Linux-Distributionen verfügbar ist.
 
-### Arch Linux
+### Arch Linux {#arch-linux}
 
 :::info
 Für mehr Informationen über die Installation von Java auf Arch Linux, schaue in das [Arch Linux Wiki](https://wiki.archlinux.org/title/Java).
@@ -35,7 +35,7 @@ Du kannst die aktuellste JRE aus den offiziellen Repositories installieren:
 sudo pacman -S jre-openjdk
 ```
 
-Wenn du einen Server betreibst, für den du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
+Wenn du einen Server betreibst, der keine grafische Benutzeroberfläche benötigt, kannst du stattdessen die Headless-Version installieren:
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -47,7 +47,7 @@ Wenn du planst Mods zu entwickeln, brauchst du stattdessen die JDK:
 sudo pacman -S jdk-openjdk
 ```
 
-### Debian/Ubuntu
+### Debian/Ubuntu {#debian-ubuntu}
 
 Du kannst Java 21 mit `apt` mit den folgenden Befehlen installieren:
 
@@ -56,7 +56,7 @@ sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-### Fedora
+### Fedora {#fedora}
 
 Du kannst Java 21 über `dnf` mit dem folgenden Befehlen installieren:
 
@@ -64,7 +64,7 @@ Du kannst Java 21 über `dnf` mit dem folgenden Befehlen installieren:
 sudo dnf install java-21-openjdk
 ```
 
-Wenn du keine grafische Oberfläche benötigst, kannst du stattdessen die Headless-Version installieren:
+Wenn du keine grafische Benutzeroberfläche benötigst, kannst du die Headless-Version installieren:
 
 ```sh
 sudo dnf install java-21-openjdk-headless
@@ -76,7 +76,7 @@ Wenn du planst Mods zu entwickeln, brauchst du stattdessen die JDK:
 sudo dnf install java-21-openjdk-devel
 ```
 
-### Andere Linux Distributionen
+### Andere Linux Distributionen {#other-linux-distributions}
 
 Wenn deine Distribution oben nicht gelistet ist, kannst du die aktuellste JRE von [Adoptium](https://adoptium.net/temurin/) herunterladen
 

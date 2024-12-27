@@ -1,24 +1,26 @@
 ---
 title: Codec
-description: 用于理解和使用 Mojang 的 codec 系统以序列化和反序列化对象的全面指南。
+description: 一份用于理解和使用 Mojang 的 codec 系统以序列化和反序列化对象的全面指南。
 authors:
   - enjarai
   - Syst3ms
 ---
 
-# Codec{#codecs}
+# Codecs {#codecs}
 
-Codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，当读取和写入自定义 JSON 文件时，codec 可用作 GSON 和 Jankson 的替代品，尽管这些开始越来越相关，因为 Mojang 正在重写大量旧代码以使用 Codec。
+Codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，它们可以用作替代方案
+到 GSON 和 Jankson 中，尽管它们开始变得
+越来越相似，这是因为 Mojang 正在重写许多旧代码以使用 Codecs。
 
-Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 codec 定义一个对象的结构，而 dynamic ops 用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
+Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 Codec 定义一个对象的结构，而动态管理器用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
 
-## 使用 Codec{#using-codecs}
+## 使用 Codecs{#using-codecs}
 
 ### 序列化和反序列化{#serializing-and-deserializing}
 
 Codec 的基本用法是将对象序列化为特定格式或反序列化为特定格式。
 
-一些原版的类已经定义了 codec，这些我们可以用作例子。 Mojang 默认提供了两个 dynamic ops 类，`JsonOps` 和 `NbtOps`，涵盖大部分的使用场景。
+一些原版的类已经定义了 Codecs，这些我们可以用作示例。 Mojang 默认提供了两个 dynamic ops 类，`JsonOps` 和 `NbtOps`，涵盖大部分的使用场景。
 
 现在，假设我们要把一个 `BlockPos` 对象序列化成 json 再反序列化回对象。 我们可以分别使用 `BlockPos.CODEC` 中的静态方法 `Codec#encodeStart` 和 `Codec#parse`。
 
@@ -312,7 +314,7 @@ public class Identifier {
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于该注册表的 `Codec<BeanType<?>>`。 一个基于改注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry` 可以简单的调用 `Registry#getCodec`。
+- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，那么可以简单地调用  `Registry#getCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 

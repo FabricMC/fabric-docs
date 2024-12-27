@@ -1,6 +1,6 @@
 ---
 title: 啟動遊戲
-description: 學習如何利用各種啟動設定檔在即時遊戲環境中啟動和偵錯你的模組。
+description: 了解如何利用各種啟動設定檔在即時遊戲環境中啟動和除錯您的模組。
 authors:
   - IMB11
   - Tenneb22

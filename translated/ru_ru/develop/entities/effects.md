@@ -12,23 +12,23 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Эффекты состояния
+# Эффекты состояния {#status-effects}
 
 Эффекты состояния, также известные как просто эффекты, представляют собой состояние, которое может воздействовать на сущность. Они могут сказываться положительно, отрицательно или нейтрально на сущности. В обычном случае в игре эти эффекты применяются несколькими способами, такими как поедание еды, распитие зелий и так далее.
 
 Можно использовать команду `/effect` для применения эффектов к сущности.
 
-## Свои эффекты состояния
+## Свои эффекты состояния {#custom-status-effects}
 
 В этом руководстве мы добавим новый эффект под названием _Tater_, который даёт игроку одно очко опыта каждый игровой такт.
 
-### Расширение `StatusEffect`
+### Расширение `StatusEffect` {#extend-statuseffect}
 
 Давайте создадим класс нашего эффекта, который будет наследовать основной класс всех эффектов — `StatusEffect`.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
-### Регистрация своего эффекта
+### Регистрация своего эффекта {#registering-your-custom-effect}
 
 Схожим с регистрацией блоков и предметов образом, мы используем `Registry.register`, чтобы зарегистрировать наш эффект в реестре `STATUS_EFFECT`. Это можно сделать в нашем инициализаторе.
 
@@ -42,9 +42,9 @@ authors-nogithub:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Пример текстуры</DownloadEntry>
 
-### Переводы
+### Переводы {#translations}
 
 Как и с любыми другими переводами, вы можете добавить запись формата `"effect.<mod-id>.<effect-identifier>": "Значение"` в языковой файл.
 

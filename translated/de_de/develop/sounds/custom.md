@@ -5,9 +5,9 @@ authors:
   - JR1811
 ---
 
-# Benutzerdefinierte Sounds erstellen
+# Benutzerdefinierte Sounds erstellen {#creating-custom-sounds}
 
-## Vorbereitung der Audio-Datei
+## Vorbereitung der Audio-Datei {#preparing-the-audio-file}
 
 Deine Audio-Dateien müssen auf eine bestimmte Weise formatiert werden. OGG Vorbis ist ein offenes Containerformat für Multimediadaten, wie zum Beispiel Audio, und wird für die Sounddateien von Minecraft verwendet. Um Probleme mit der Distanzierung in Minecraft zu vermeiden, darf deine Audio nur einen einzigen Kanal besitzen (Mono).
 
@@ -27,7 +27,7 @@ Achte beim Exportieren oder Rendern der Audio-Datei darauf, dass du das Dateifor
 
 Denke auch daran, dass Audio-Dateien die Dateigröße deines Mods drastisch erhöhen können. Falls erforderlich, komprimiere die Audiodaten beim Bearbeiten und Exportieren der Datei, um die Dateigröße des fertigen Produkts so gering wie möglich zu halten.
 
-## Laden der Audio-Datei
+## Laden der Audio-Datei {#loading-the-audio-file}
 
 Füge das neue Verzeichnis `resources/assets/<mod id here>/sounds` für die Sounds in deinem Mod hinzu, und lege die exportierte Audio-Datei `metal_whistle.ogg` dort hinein.
 
@@ -37,9 +37,9 @@ Fahre mit der Erstellung der Datei `resources/assets/<mod id here>/sounds.json` 
 
 Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels wird in den Sprachdateien im Verzeichnis `resources/assets/<mod id here>/lang` verwendet und wird angezeigt, wenn die Untertitel-Einstellung im Spiel aktiviert ist und dieser benutzerdefinierte Sound abgespielt wird.
 
-## Registrieren des benutzerdefinierten Sounds
+## Registrieren des benutzerdefinierten Sounds {#registering-the-custom-sound}
 
-Um den benutzerdefinierten Sound zum Mod hinzuzufügen, registriere ein SoundEvent in der Klasse, die den `ModInitializer`-Einstiegspunkt implementiert.
+Um den benutzerdefinierten Sound zu dem Mod hinzuzufügen, registriere ein SoundEvent in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints).
 
 ```java
 Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
@@ -54,10 +54,10 @@ Füge zwei neue Methoden zu der neu erstellten Hilfsklasse hinzu. Eine, die alle
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-Auf diese Weise muss die `ModInitializer` implementierende Einstiegsklasse nur eine Zeile implementieren, um alle benutzerdefinierten SoundEvents zu registrieren.
+Auf diese Weise, muss der Mod-Initialisierer nur eine Zeile zur Registrierung aller benutzerdefinierten SoundEvents implementieren.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
-## Das benutzerdefinierte SoundEvent nutzen
+## Das benutzerdefinierte SoundEvent nutzen {#using-the-custom-soundevent}
 
 Verwende die Hilfsklasse, um auf das benutzerdefinierte SoundEvent zuzugreifen. Auf der Seite [SoundEvents abspielen](./using-sounds) erfährst du, wie man Sounds abspielt.
