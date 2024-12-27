@@ -3,6 +3,7 @@ title: IDE Tips and Tricks
 description: Useful information to handle and traverse your Project using the IDE efficiently.
 authors:
   - JR1811
+  - AnAwesomGuy
 ---
 
 # IDE Tips and Tricks {#ide-tips-and-tricks}
