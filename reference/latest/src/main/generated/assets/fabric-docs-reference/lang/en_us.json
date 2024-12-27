@@ -18,5 +18,6 @@
   "itemGroup.fabric_docs_reference": "Fabric Docs Reference",
   "itemTooltip.fabric-docs-reference.lightning_stick": "This is an extremely powerful weapon that can summon lightning bolts.",
   "sound.fabric-docs-reference.metal_whistle": "Metal Whistle",
+  "enchantment.fabric-docs-reference.thundering": "Thundering",
   "text.fabric_docs_reference.greeting": "Hello there!"
 }
