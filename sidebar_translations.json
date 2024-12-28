@@ -45,7 +45,7 @@
   "develop.dataGeneration.tags": "Tag Generation",
   "develop.dataGeneration.translations": "Translation Generation",
   "develop.dataGeneration.advancements": "Advancement Generation",
-  "develop.dataGeneration.recipes": "Recipe Generator",
+  "develop.dataGeneration.recipes": "Recipe Generation",
   "develop.dataGeneration.lootTables": "Loot Table Generation",
   "develop.rendering": "Rendering",
   "develop.rendering.basicConcepts": "Basic Rendering Concepts",
