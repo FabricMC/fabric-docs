@@ -6,12 +6,12 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
 import net.fabricmc.api.ClientModInitializer;
+
 import com.example.docs.network.ReceiveS2C;
 import com.example.docs.sound.CustomSounds;
 import com.example.docs.sound.instance.CustomSoundInstance;
 
 public class FabricDocsDynamicSound implements ClientModInitializer {
-
 	@Override
 	public void onInitializeClient() {
 		ReceiveS2C.initialize();

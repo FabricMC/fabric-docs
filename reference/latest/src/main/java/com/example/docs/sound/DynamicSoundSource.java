@@ -1,7 +1,6 @@
 package com.example.docs.sound;
 
 import net.minecraft.util.math.Vec3d;
-import org.jetbrains.annotations.Nullable;
 
 // :::1
 public interface DynamicSoundSource {

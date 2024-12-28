@@ -9,13 +9,12 @@ import com.example.docs.sound.DynamicSoundSource;
 
 // :::1
 public class EngineSoundInstance extends AbstractDynamicSoundInstance {
-
 	// Here we just use the default constructor parameters.
 	// If you want to specifically set values here already,
 	// you can clean up the constructor parameters a bit
 	public EngineSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundCategory soundCategory,
-							   int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
-							   SoundInstanceCallback callback) {
+							int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
+							SoundInstanceCallback callback) {
 		super(soundSource, soundEvent, soundCategory, startTransitionTicks, endTransitionTicks, maxVolume, minPitch, maxPitch, callback);
 	}
 

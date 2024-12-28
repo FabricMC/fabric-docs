@@ -1,6 +1,8 @@
 package com.example.docs.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -16,7 +18,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
@@ -47,8 +48,9 @@ public class EngineBlock extends BlockWithEntity {
 
 	@Override
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity))
+		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity)) {
 			return super.onUse(state, world, pos, player, hit);
+		}
 
 		if (player.getMainHandStack().isIn(ItemTags.COALS)) {
 			if (engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() + 40)) {
@@ -56,9 +58,9 @@ public class EngineBlock extends BlockWithEntity {
 				playSound(world, SoundEvents.ITEM_AXE_STRIP, pos);
 				return ActionResult.SUCCESS;
 			}
+
 			return ActionResult.PASS;
-		}
-		else {
+		} else {
 			if (engineBlockEntity.isRunning()) {
 				engineBlockEntity.setNormalizedStress(engineBlockEntity.getNormalizedStress() + 0.2f);
 				return ActionResult.SUCCESS;
@@ -68,6 +70,7 @@ public class EngineBlock extends BlockWithEntity {
 				return ActionResult.SUCCESS;
 			}
 		}
+
 		return ActionResult.PASS;
 	}
 

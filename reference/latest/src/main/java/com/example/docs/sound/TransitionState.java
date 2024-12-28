@@ -1,8 +1,8 @@
 package com.example.docs.sound;
 
-import com.example.docs.FabricDocsReference;
-
 import net.minecraft.util.Identifier;
+
+import com.example.docs.FabricDocsReference;
 
 // :::1
 public enum TransitionState {

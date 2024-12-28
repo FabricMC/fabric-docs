@@ -30,8 +30,10 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 		if (instance == null) {
 			instance = new DynamicSoundManager();
 		}
+
 		return instance;
 	}
+
 	// :::1
 
 	// :::2
@@ -58,8 +60,10 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 				return Optional.of(activeSound);
 			}
 		}
+
 		return Optional.empty();
 	}
+
 	// :::2
 
 	// :::1

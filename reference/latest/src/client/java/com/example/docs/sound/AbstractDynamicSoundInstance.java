@@ -32,9 +32,8 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 
 	// set up default settings of the SoundInstance in this constructor
 	protected AbstractDynamicSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundCategory soundCategory,
-										   int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
-										   SoundInstanceCallback callback) {
-
+										int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
+										SoundInstanceCallback callback) {
 		super(soundEvent, soundCategory, SoundInstance.createRandom());
 
 		// store important references to other objects
@@ -66,6 +65,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 		// or add your own condition to the SoundInstance, if necessary
 		return true;
 	}
+
 	// :::3
 
 	// :::4
@@ -84,6 +84,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 		switch (this.transitionState) {
 			case STARTING -> {
 				this.transitionTick++;
+
 				// go into next phase if starting phase finished its duration
 				if (this.transitionTick > this.startTransitionTicks) {
 					this.transitionTick = 0;	// reset tick for future ending phase
@@ -92,6 +93,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 			}
 			case ENDING -> {
 				this.transitionTick++;
+
 				// set SoundInstance as finished if ending phase finished its duration
 				if (this.transitionTick > this.endTransitionTicks) {
 					this.callback.onFinished(this);
@@ -102,6 +104,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 		// apply volume and pitch modulation here,
 		// if you use a normal SoundInstance class
 	}
+
 	// :::4
 
 	// :::5
@@ -120,6 +123,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	protected void modulateSoundForStress() {
 		this.pitch = MathHelper.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
 	}
+
 	// :::5
 
 	// :::6
@@ -135,6 +139,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	public void end() {
 		this.transitionState = TransitionState.ENDING;
 	}
+
 	// :::6
 	// :::1
 }

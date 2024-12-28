@@ -4,6 +4,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.sound.SoundCategory;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 import com.example.docs.networking.payload.EngineSoundInstancePacket;
 import com.example.docs.sound.AbstractDynamicSoundInstance;
@@ -30,13 +31,16 @@ public class ReceiveS2C {
 						60, 30, 1.2f, 0.8f, 1.4f,
 						soundManager)
 				);
+
 				return;
 			}
 		}
+
 		if (!packet.shouldStart()) {
 			soundManager.getPlayingSoundInstance(CustomSounds.ENGINE_LOOP).ifPresent(AbstractDynamicSoundInstance::end);
 		}
 	}
+
 	// :::1
 
 	public static void initialize() {

@@ -16,13 +16,12 @@ public class ModBlockEntities {
 			register("engine", EngineBlockEntity::new, ModBlocks.ENGINE_BLOCK);
 
 	private static <T extends BlockEntity> BlockEntityType<T> register(String name,
-																	   BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
-																	   Block... blocks) {
+																	BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
+																	Block... blocks) {
 		Identifier id = Identifier.of(FabricDocsReference.MOD_ID, name);
 		return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
 	}
 
 	public static void initialize() {
-
 	}
 }

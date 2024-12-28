@@ -11,6 +11,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
@@ -76,8 +77,6 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 		});
 	}
-
-	;
 
 	// :::1
 }

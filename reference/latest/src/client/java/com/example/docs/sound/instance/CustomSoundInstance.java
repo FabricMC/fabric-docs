@@ -5,14 +5,10 @@ import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.random.Random;
 
-import com.example.docs.sound.AbstractDynamicSoundInstance;
 // :::1
 public class CustomSoundInstance extends MovingSoundInstance {
-
 	private final LivingEntity entity;
-
 
 	public CustomSoundInstance(LivingEntity entity, SoundEvent soundEvent, SoundCategory soundCategory) {
 		super(soundEvent, soundCategory, SoundInstance.createRandom());
@@ -33,6 +29,7 @@ public class CustomSoundInstance extends MovingSoundInstance {
 			this.setDone();
 			return;
 		}
+
 		// move sound position over to the new position for every tick
 		this.setPositionToEntity();
 	}

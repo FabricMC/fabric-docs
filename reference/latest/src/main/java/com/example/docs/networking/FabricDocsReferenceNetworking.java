@@ -1,9 +1,10 @@
 package com.example.docs.networking;
 
-import com.example.docs.FabricDocsReference;
+import net.minecraft.util.Identifier;
+
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.util.Identifier;
+import com.example.docs.FabricDocsReference;
 
 public class FabricDocsReferenceNetworking implements ModInitializer {
 	public static final String MOD_ID = FabricDocsReference.MOD_ID;
