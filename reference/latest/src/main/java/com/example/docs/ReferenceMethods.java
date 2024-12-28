@@ -1,9 +1,9 @@
 package com.example.docs;
 
-import com.example.docs.effect.FabricDocsReferenceEffects;
-
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+
+import com.example.docs.effect.FabricDocsReferenceEffects;
 
 /**
  * A static-first class, used solely to provide version-aware

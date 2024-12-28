@@ -68,6 +68,7 @@ For a quick test, it might be a better idea to use the previously mentioned `/ef
 ```mcfunction
 effect give @p fabric-docs-reference:tater
 ```
+
 :::
 
 To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, which takes in
