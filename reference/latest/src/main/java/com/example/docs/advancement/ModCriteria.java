@@ -16,9 +16,10 @@ public class ModCriteria {
 	// :::datagen-advancements:mod-criteria
 	// :::datagen-advancements:mod-criteria-init
 	public static void init() {
-
 	}
+
 	// :::datagen-advancements:new-mod-criteria
 	// :::datagen-advancements:mod-criteria
 }
+
 // :::datagen-advancements:mod-criteria

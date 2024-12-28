@@ -14,11 +14,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
  * in just one class.
  */
 public class ParameterizedUseToolCriterion extends AbstractCriterion<ParameterizedUseToolCriterion.Conditions> {
-
 	// :::datagen-advancements:new-trigger
 	public void trigger(ServerPlayerEntity player, int totalTimes) {
 		trigger(player, conditions -> conditions.requirementsMet(totalTimes));
 	}
+
 	// :::datagen-advancements:new-trigger
 
 	@Override
@@ -44,6 +44,7 @@ public class ParameterizedUseToolCriterion extends AbstractCriterion<Parameteriz
 		public boolean requirementsMet(int totalTimes) {
 			return totalTimes > requiredTimes; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
+
 		// :::datagen-advancements:new-requirements-met
 	}
 }
