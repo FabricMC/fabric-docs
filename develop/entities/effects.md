@@ -63,8 +63,11 @@ language file.
 It's worth taking a look at how you'd typically apply an effect to an entity.
 
 ::: tip
-For a quick test, it might be a better idea to use the previously mentioned `/effect` command: <br/>
-`/effect give @p fabric-docs-reference:tater`
+For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
+
+```mcfunction
+/effect give @p fabric-docs-reference:tater
+```
 :::
 
 To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, which takes in
