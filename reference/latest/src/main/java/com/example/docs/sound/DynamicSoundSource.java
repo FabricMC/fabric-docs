@@ -15,4 +15,3 @@ public interface DynamicSoundSource {
 	float getNormalizedStress();
 }
 // :::1
-

@@ -8,4 +8,3 @@ public class FabricDocsReferenceBlockEntities implements ModInitializer {
 		ModBlockEntities.initialize();
 	}
 }
-

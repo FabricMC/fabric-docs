@@ -144,4 +144,3 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// :::1
 }
 // :::1
-
