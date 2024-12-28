@@ -11,7 +11,7 @@ authors-nogithub:
 
 # Recipe Generation {#recipe-generation}
 
-::: info PREQUISITES
+::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
 

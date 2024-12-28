@@ -14,7 +14,7 @@ authors-nogithub:
 
 # Translation Generation {#translation-generation}
 
-::: info PREQUISITES
+::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
 
