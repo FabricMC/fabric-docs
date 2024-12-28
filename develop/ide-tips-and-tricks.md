@@ -146,8 +146,8 @@ To change how IntelliJ formats code, see the settings at `File > Settings > Edit
 
 #### Context Actions {#context-actions}
 
-Context actions allow for specific sections of code to be refractored based on the context.
-To use it, simply move your cursor to the area you want to refractor, and press <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> or click the lightbulb to the left.
+Context actions allow for specific sections of code to be refactored based on the context.
+To use it, simply move your cursor to the area you want to refactor, and press <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> or click the lightbulb to the left.
 There will be a popup showing context actions that can be used for the code selected.
 
 ![Example of context actions](/assets/develop/misc/using-the-ide/context_actions_01.png)
@@ -230,7 +230,7 @@ If you notice that you are using too many of them, consider refactoring your cod
 
 ### Disabling the Formatter {#disabling-formatter}
 
-Comments can also disable the formatter during code refractoring mentioned above by surrounding a piece of code like so:
+Comments can also disable the formatter during code refactoring mentioned above by surrounding a piece of code like so:
 
 ```java
 //formatter:off (disable formatter)
