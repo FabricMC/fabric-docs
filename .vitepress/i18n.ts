@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "fs";
 import { resolve } from "path/posix";
-import { DefaultTheme, LocaleConfig } from "vitepress";
+import { LocaleConfig } from "vitepress";
+import { Versioned } from "vitepress-versioning-plugin";
 
 import DevelopSidebar from "./sidebars/develop";
 import PlayersSidebar from "./sidebars/players";
@@ -34,9 +35,13 @@ export const getWebsiteResolver = (localeFolder: string) =>
 export const getSidebarResolver = (localeFolder: string) =>
   getTranslationsResolver(localeFolder, "sidebar_translations.json");
 
-export function processExistingEntries(sidebar: DefaultTheme.SidebarMulti): DefaultTheme.SidebarMulti {
+export function processExistingEntries(
+  sidebar: Versioned.Sidebar
+): Versioned.Sidebar {
   // Get locales from __dirname/../translated/* folder names.
-  const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), { withFileTypes: true })
+  const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), {
+    withFileTypes: true,
+  })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
@@ -45,7 +50,11 @@ export function processExistingEntries(sidebar: DefaultTheme.SidebarMulti): Defa
 
   const keys = Object.keys(sidebar);
   const versionedEntries = keys.filter((key) => {
-    return !key.includes("/players") && !key.includes("/develop") && localeFolders.some((locale) => key.includes(locale));
+    return (
+      !key.includes("/players") &&
+      !key.includes("/develop") &&
+      localeFolders.some((locale) => key.includes(locale))
+    );
   });
 
   const versionsMet = new Set<string>();
@@ -57,21 +66,35 @@ export function processExistingEntries(sidebar: DefaultTheme.SidebarMulti): Defa
 
     versionsMet.add(version);
 
-    const playersToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/players/`]));
-    const developToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/develop/`]));
+    const playersToCopy = JSON.parse(
+      JSON.stringify(sidebar[`/${version}/players/`])
+    );
+    const developToCopy = JSON.parse(
+      JSON.stringify(sidebar[`/${version}/develop/`])
+    );
 
-    sidebar[`/${locale}/${version}/players/`] = getLocalisedSidebar(playersToCopy, locale);
-    sidebar[`/${locale}/${version}/develop/`] = getLocalisedSidebar(developToCopy, locale);
+    sidebar[`/${locale}/${version}/players/`] = getLocalisedSidebar(
+      playersToCopy,
+      locale
+    );
+    sidebar[`/${locale}/${version}/develop/`] = getLocalisedSidebar(
+      developToCopy,
+      locale
+    );
 
     // Delete the original entry.
     delete sidebar[entry];
   }
 
   for (const version of versionsMet) {
-    // @ts-ignore
-    sidebar[`/${version}/players/`] = getLocalisedSidebar(sidebar[`/${version}/players/`], "root");
-    // @ts-ignore
-    sidebar[`/${version}/develop/`] = getLocalisedSidebar(sidebar[`/${version}/develop/`], "root");
+    sidebar[`/${version}/players/`] = getLocalisedSidebar(
+      sidebar[`/${version}/players/`] as Fabric.SidebarItem[],
+      "root"
+    );
+    sidebar[`/${version}/develop/`] = getLocalisedSidebar(
+      sidebar[`/${version}/develop/`] as Fabric.SidebarItem[],
+      "root"
+    );
   }
 
   return sidebar;
@@ -160,7 +183,6 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     if (localeCode === "root") {
       return null;
     } else {
-      // @ts-ignore
       return crowdinOverrides[localeCode] ?? localeCode.split("_")[0];
     }
   };
@@ -185,6 +207,10 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     docFooter: {
       next: websiteResolver("footer.next"),
       prev: websiteResolver("footer.prev"),
+    },
+
+    download: {
+      text: websiteResolver("download"),
     },
 
     editLink: {
@@ -224,6 +250,9 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
             link: "https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md",
           },
         ],
+      },
+      {
+        component: "VersionSwitcher",
       },
     ],
 
@@ -304,9 +333,12 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
       },
     ],
 
-    versionSwitcher: {
-      text: websiteResolver("version_switcher"),
+    version: {
+      reminder: websiteResolver("version.reminder"),
+      switcher: websiteResolver("version.switcher"),
     },
+
+    versionSwitcher: false,
   };
 }
 
@@ -357,8 +389,8 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
       language === region.toLowerCase()
         ? localeNameInEnglish.of(language)!
         : localeNameInEnglish.of(language)! +
-        " - " +
-        regionNameInEnglish.of(region);
+          " - " +
+          regionNameInEnglish.of(region);
 
     const localisedName =
       localeNameInLocale.of(language)![0].toUpperCase() +

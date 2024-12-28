@@ -1,6 +1,8 @@
 ---
 title: 播放声音
 description: 学习如何播放声音事件（SoundEvent）。
+authors:
+  - JR1811
 ---
 
 # 播放声音{#playing-sounds}

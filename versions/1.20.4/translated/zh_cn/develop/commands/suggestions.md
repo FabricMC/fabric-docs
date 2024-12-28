@@ -3,6 +3,8 @@ title: 命令提示
 description: 学习如何向用户提示命令参数的值。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 命令提示

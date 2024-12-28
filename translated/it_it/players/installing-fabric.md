@@ -7,13 +7,13 @@ authors:
   - modmuss50
 ---
 
-# Installare Fabric
+# Installare Fabric {#installing-fabric}
 
-Questa guida ti guiderà nell'installazione di Fabric per il Launcher di Minecraft ufficiale.
+<!-- #region common -->
 
-Per launcher di terze parti, dovresti consultare la loro documentazione.
+Questa guida si applica soltanto al Launcher di Minecraft ufficiale. Per launcher di terze parti, dovresti consultare la loro documentazione.
 
-## 1. Scarica l'installer di Fabric
+## 1. Scarica l'Installer di Fabric {#1-download-the-fabric-installer}
 
 Puoi scaricare l'installer di Fabric dal [Sito di Fabric](https://fabricmc.net/use/).
 
@@ -21,15 +21,15 @@ Se usi Windows, scarica la versione `.exe` (`Scarica per Windows`), perché non 
 
 Per macOS e Linux, dovresti scaricare la versione `.jar`. A volte, dovrai installare Java prima di questo passaggio.
 
-## 2. Esegui l'Installer di Fabric
+## 2. Esegui l'Installer di Fabric {#2-run-the-fabric-installer}
 
 :::warning
-Chiudi Minecraft e il Launcher di Minecraft prima d'iniziare l'installazione.
+Chiudi Minecraft e il Launcher di Minecraft prima di avviare l'installer.
 :::
 
 :::details Informazioni per utenti macOS
 
-Su macOS, potresti dover fare click destro sul file `.jar` nella tua cartella download e cliccare `Apri` per avviarlo.
+Su macOS, potresti dover fare clic destro sul file `.jar` nella tua cartella download e cliccare `Apri` per avviarlo.
 
 ![Menu contestuale macOS sull'Installer di Fabric](/assets/players/installing-fabric/macos-downloads.png)
 
@@ -40,9 +40,13 @@ Una volta aperto l'installer, dovresti vedere una schermata come questa:
 
 ![Fabric Installer con "Installa" evidenziato](/assets/players/installing-fabric/installer-screen.png)
 
-Per installare Fabric, semplicemente scegli la versione di gioco dal menu a tendina, e clicca `Installa`.
+<!-- #endregion common -->
 
-**Assicurati che `Crea Profilo` sia selezionato.**
+Per installare Fabric, basta scegliere la versione di gioco dal menu a tendina e cliccare `Installa`.
+
+:::warning IMPORTANTE
+Assicurati che `Crea Profilo` sia selezionato.
+:::
 
 ## 3. Hai Finito! {#3-you-re-done}
 

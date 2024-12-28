@@ -3,6 +3,8 @@ title: Custom Item Interactions
 description: Learn how to create an item that uses built-in vanilla events.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Custom Item Interactions {#custom-item-interactions}

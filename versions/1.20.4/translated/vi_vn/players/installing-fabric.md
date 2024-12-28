@@ -3,6 +3,8 @@ title: Cài Đặt Fabric
 description: Bộ hướng dẫn từng bước để cài đặt Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Cài Đặt Fabric

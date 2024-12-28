@@ -4,8 +4,6 @@ config:
     style: atx
   MD004:
     style: dash
-  MD007:
-    indent: 2
   MD009:
     br_spaces: 0
   MD013: false
@@ -21,7 +19,6 @@ config:
   MD033: false
   MD035:
     style: ---
-  MD044: false
   MD046:
     style: fenced
   MD048:
@@ -44,11 +41,18 @@ config:
     rules:
       - name: missing-heading-anchor
         message: "Add anchors to headings. Use lowercase characters, numbers and dashes"
-        searchPattern: "/^#+.*$(?<!\\{#[a-z0-9-]+\\})/gm"
+        information: https://vitepress.dev/guide/markdown#header-anchors
+        searchPattern: "/^#+ .*$(?<!\\{#[a-z0-9-]+\\})/gm"
+        searchScope: text
+      - name: missing-space-before-anchor
+        message: "Add a space before the heading's anchor."
+        information: https://vitepress.dev/guide/markdown#header-anchors
+        searchPattern: "/^(#+ .*)(?<! )(\\{#[a-z0-9-]+\\})$/gm"
+        replace: "$1 $2"
         searchScope: text
       - name: no-absolute-links
         message: "Don't use absolute links"
-        searchPattern: "/\\[.*?\\]\\(/(?!assets|public|reference).*?\\)/g"
+        searchPattern: "/\\[[^\\]]*\\]\\(/(?!assets|public|reference)[^\\)]*\\)/g"
         searchScope: text
       - name: no-curly-quotes
         message: "Don't use curly quotes"
@@ -57,17 +61,65 @@ config:
         searchScope: text
       - name: no-file-extension-in-links
         message: "Don't add the file extension to links"
-        searchPattern: "/\\[(.*?)\\]\\((.*?)\\.(?:md|html)((?:#[a-z0-9-]+)?)\\)/g"
-        replace: "[$1]($2$3)"
+        information: https://vitepress.dev/guide/routing#linking-between-pages
+        searchPattern: "/(\\[[^\\]]*\\])\\(([^\\)]*)\\.(?:md|html)((?:#[a-z0-9-]+)?)\\)/g"
+        replace: "$1($2$3)"
+        searchScope: text
+      - name: no-github-flavored-alerts
+        message: "Don't use GitHub-favored Alerts"
+        information: https://vitepress.dev/guide/markdown#custom-containers
+        searchPattern:
+          - "/^> \\[!NOTE\\]/gm"
+          - "/^> \\[!TIP\\]/gm"
+          - "/^> \\[!IMPORTANT\\]/gm"
+          - "/^> \\[!WARNING\\]/gm"
+          - "/^> \\[!CAUTION\\]/gm"
+        replace:
+          - "::: info"
+          - "::: tip"
+          - "::: warning IMPORTANT"
+          - "::: warning"
+          - "::: danger"
+        searchScope: text
+      - name: no-images-in-text
+        message: "Don't place images in text"
+        searchPattern: "/(?:(?<!^)!\\[[^\\]]*\\]\\([^\\)]*\\).*$)|(?:^!\\[[^\\]]*\\]\\([^\\)]*\\)(?!$))/gm"
+        searchScope: text
+      - name: no-invalid-containers
+        message: "Don't use invalid containers"
+        information: https://vitepress.dev/guide/markdown#custom-containers
+        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre)(?: |$))/gm"
+        replace: "::: info "
+        searchScope: text
+      - name: no-links-to-public
+        message: "Don't add /public to links"
+        information: https://vitepress.dev/guide/asset-handling#the-public-directory
+        searchPattern: "/(\\[[^\\]]*\\]\\()/public([^\\)]*\\))/g"
+        replace: "$1$2"
         searchScope: text
       - name: no-multiple-spaces
         message: "Don't use multiple spaces"
-        searchPattern: "/(?<!\\n| )  +(?! |\\|)/g"
+        searchPattern: "/(?<!\\n|\\|| )  +(?! |\\|)/g"
         replace: " "
+        searchScope: text
+      - name: no-nbsp
+        message: "Don't use no-break spaces"
+        searchPattern: "/\\xa0/gu"
+        replace: " "
+        searchScope: all
+      - name: no-padding-for-keybinds
+        message: "Don't put spaces around pluses in keybinds"
+        searchPattern: "/(<\\/kbd *>)(?:(?: +\\+ *)|(?:\\+ +))(<kbd[^>]*>)/g"
+        replace: "$1+$2"
+        searchScope: text
+      - name: no-punctuation-after-images
+        message: "Don't place punctuation after images"
+        searchPattern: "/^(!\\[[^\\]]*\\]\\([^\\)]*\\))[.,:;?!]+/gm"
+        replace: "$1"
         searchScope: text
       - name: no-punctuation-in-links
         message: "Don't place punctuation inside of links"
-        searchPattern: "/(?<!@)\\[(.*?)([.,:;?!]+)\\]\\((.*?)\\)/g"
+        searchPattern: "/(?<!@)\\[([^\\]]*)([.,:;?!]+)\\]\\(([^\\)]*)\\)/g"
         replace: "[$1]($3)$2"
         searchScope: text
       - name: no-trailing-whitespace

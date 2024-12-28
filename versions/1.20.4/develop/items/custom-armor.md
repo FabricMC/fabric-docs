@@ -3,6 +3,8 @@ title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Custom Armor {#custom-armor}
@@ -146,7 +148,7 @@ As you can see, in-game the armor items should have suitable models:
 
 When an entity wears your armor, currently the missing texture will appear:
 
-![Broken armor model on player](/assets/develop/items/armor_2.png).
+![Broken armor model on player](/assets/develop/items/armor_2.png)
 
 This is because all armor textures are hardcoded by vanilla, to create our own, we'll have to place the texture in the vanilla armor texture folder.
 
@@ -163,4 +165,4 @@ The first layer contains textures for the helmet and chestplate, whilst the seco
 
 When these textures are present, you should be able to see your armor on entities that wear it:
 
-![Working armor model on player](/assets/develop/items/armor_3.png).
+![Working armor model on player](/assets/develop/items/armor_3.png)

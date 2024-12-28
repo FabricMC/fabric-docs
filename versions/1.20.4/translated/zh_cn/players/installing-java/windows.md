@@ -3,6 +3,8 @@ title: 在 Windows 上安装 Java
 description: 在 Windows 上安装 Java 的逐步指南。
 authors:
   - IMB11
+
+search: false
 ---
 
 # 在 Windows 上安装 Java

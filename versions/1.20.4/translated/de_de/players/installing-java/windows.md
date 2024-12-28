@@ -3,6 +3,8 @@ title: Java auf Windows installieren
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Java auf Windows.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Java auf Windows installieren

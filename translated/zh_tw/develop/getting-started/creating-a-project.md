@@ -1,11 +1,11 @@
 ---
-title: 建立一個專案
+title: 建立專案
 description: 關於如何使用 Fabric 模組模板生成器來製作新的模組專案的逐步指南。
 authors:
   - IMB11
 ---
 
-# 建立一個專案 {#creating-a-project}
+# 建立專案 {#creating-a-project}
 
 Fabric 提供了使用 Fabric 模組模板生成器創建新模組專案的簡單方法。 —— 如果你願意，也可以使用範例模組儲存庫手動創建一個新專案，請參閱 [手動創建專案](#manual-project-creation) 章節。
 
@@ -63,6 +63,6 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 - 修改專案中的 `gradle.properties` 檔案，把 `maven_group` 和 `archive_base_name` 修改成與你的模組的資訊相符。
 - 修改 `fabric.mod.json` 文件，將 `id`、`name` 和 `description` 屬性改為成與你的模組的資訊相符。
-- 請確保更新Minecraft的版本、映射、Loader和Loom的版本，你可以透過 \<https://fabricmc. net/develop/> 查詢這些資訊，以確保它們符合你希望的目標版本。
+- 請確保更新Minecraft的版本、映射、Loader和Loom的版本，你可以透過 https://fabricmc.net/develop/ 查詢這些資訊，以確保它們符合你希望的目標版本。
 
 你也可以修改套件名稱和模組的主類別來符合你的模組的細節。

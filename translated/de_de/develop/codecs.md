@@ -6,16 +6,16 @@ authors:
   - Syst3ms
 ---
 
-# Codecs
+# Listen {#codecs}
 
 Ein Codec ist ein System zur einfachen Serialisierung von Java-Objekten und ist in Mojangs DataFixerUpper (DFU)
 Bibliothek enthalten, die in Minecraft enthalten ist. In einem Modding-Kontext können sie als Alternative zu GSON und Jankson verwendet werden, wenn man benutzerdefinierte JSON-Dateien liest und schreibt, wobei sie mehr und mehr an Bedeutung gewinnen, da Mojang eine Menge alten Code umschreibt, um Codecs zu verwenden.
 
 Codecs werden in Verbindung mit einer anderen API von DFU, `DynamicOps`, verwendet. Ein Codec definiert die Struktur eines Objekts, während dynamische Ops verwendet werden, um ein Format zu definieren, in das und aus dem serialisiert werden soll, zum Beispiel JSON oder NBT. Das bedeutet, dass jeder Codec mit allen dynamischen Ops verwendet werden kann und umgekehrt, was eine große Flexibilität ermöglicht.
 
-## Verwenden von Codecs
+## Verwenden von Codecs {#using-codecs}
 
-### Serialisierung und Deserialisierung
+### Serialisierung und Deserialisierung {#serializing-and-deserializing}
 
 Die grundlegende Verwendung eines Codecs ist die Serialisierung und Deserialisierung von Objekten in und aus einem bestimmten Format.
 
@@ -52,19 +52,19 @@ BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 LOGGER.info("Deserialized BlockPos: {}", pos);
 ```
 
-### Eingebaute Codecs
+### Eingebaute Codecs {#built-in-codecs}
 
 Wie bereits erwähnt, hat Mojang bereits Codecs für mehrere Vanilla- und Standard-Java-Klassen definiert, einschließlich, aber nicht beschränkt auf `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` und Regex `Pattern`. Codecs für Mojangs eigene Klassen sind normalerweise als statische Attribute mit dem Namen `CODEC` in der Klasse selbst zu finden, während die meisten anderen in der Klasse `Codecs` untergebracht sind. Es sollte auch beachtet werden, dass alle Vanilla-Registries eine `getCodec()`-Methode enthalten, zum Beispiel kann man `Registries.BLOCK.getCodec()` verwenden, um einen `Codec<Block>` zu erhalten, der in die Block-ID und zurück serialisiert wird.
 
 Die Codec API selbst enthält auch einige Codecs für primitive Typen wie `Codec.INT` und `Codec.STRING`. Diese sind als statische Attribute der Klasse "Codec" verfügbar und werden in der Regel als Basis für komplexere Codecs verwendet, wie im Folgenden erläutert.
 
-## Erstellen von Codecs
+## Erstellen von Codecs {#building-codecs}
 
 Nachdem wir nun gesehen haben, wie man Codecs verwendet, wollen wir uns ansehen, wie wir unsere eigenen erstellen können. Angenommen, wir haben die folgende Klasse und wollen Instanzen davon aus JSON-Dateien deserialisieren:
 
 ```java
 public class CoolBeansClass {
-
+    
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -98,7 +98,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 
 Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
 
-### Listen
+### Listen {#lists}
 
 `Codec#listOf` kann verwendet werden, um eine Listenversion eines beliebigen Codecs zu erstellen:
 
@@ -108,7 +108,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 Es sollte beachtet werden, dass Codecs, die auf diese Weise erstellt werden, immer in eine `ImmutableList` deserialisiert werden. Wenn du stattdessen eine veränderbare Liste benötigst, kannst du [xmap](#wechselseitig-konvertierbare-typen) verwenden, um sie während der Deserialisierung in eine solche zu konvertieren.
 
-### Zusammenführung von Codecs für Record-ähnliche Klassen
+### Zusammenführung von Codecs für Record-ähnliche Klassen {#merging-codecs-for-record-like-classes}
 
 Da wir nun für jedes Feld einen eigenen Codec haben, können wir sie mit einem `RecordCodecBuilder` zu einem Codec für unsere Klasse kombinieren. Dies setzt voraus, dass unsere Klasse einen Konstruktor hat, der jedes Feld enthält, das wir serialisieren wollen, und dass jedes Feld eine entsprechende Getter-Methode hat. Dies macht es perfekt für die Verwendung in Verbindung mit Records, aber es kann auch mit normalen Klassen verwendet werden.
 
@@ -127,7 +127,7 @@ Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Me
 
 Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#optionale-attribute) erklärt.
 
-### MapCodec, nicht zu verwechseln mit Codec&lt;Map&gt; {#mapcodec}
+### MapCodec, nicht zu verwechseln mit Codec&amp;lt;Map&amp;gt; {#mapcodec}
 
 Der Aufruf von `Codec#fieldOf` wird einen `Codec<T>` in einen `MapCodec<T>` umwandeln, der eine Variante, aber keine direkte Implementierung von `Codec<T>` ist. `MapCodec`s werden, wie ihr Name schon sagt, garantiert in eine Schlüssel-zu-Wert-Map oder deren Äquivalent in den verwendeten `DynamicOps` serialisiert. Einige Funktionen können einen solchen Codec über einen normalen Codec erfordern.
 
@@ -147,7 +147,7 @@ Bei der Umwandlung in einen `MapCodec<BlockPos>` unter Verwendung von `BlockPos.
 
 Während die gebräuchlichste Verwendung für Map-Codecs darin besteht, mit anderen Map-Codecs zusammengeführt zu werden, um einen Codec für eine ganze Klasse von Felder zu konstruieren, wie im Abschnitt [Zusammenführung von Codecs für Record-ähnliche Klassen](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen) oben erklärt wurde, können sie auch mit `MapCodec#codec` in reguläre Codecs zurückverwandelt werden, die das gleiche Verhalten beibehalten, nämlich ihren Eingabewert verpacken.
 
-#### Optionale Attribute
+#### Optionale Felder {#optional-fields}
 
 `Codec#optionalFieldOf` kann verwendet werden, um einen optionalen Mapcodec zu erstellen. Wenn das angegebene Feld bei der Deserialisierung nicht im Container vorhanden ist, wird es entweder als leeres `Optional` oder als angegebener Standardwert deserialisiert.
 
@@ -163,9 +163,9 @@ Beachte, dass optionale Felder alle Fehler, die bei der Deserialisierung auftret
 
 **Seit 1.20.2**, Minecraft selbst (nicht DFU!) bietet jedoch `Codecs#createStrictOptionalFieldCodec`, das die Deserialisierung fehlschlägt, wenn der Feldwert ungültig ist.
 
-### Konstanten, Beschränkungen und Komposition
+### Konstanten, Beschränkungen und Komposition {#constants-constraints-composition}
 
-#### Einheit
+#### Einheit {#unit}
 
 `Codec.unit` kann verwendet werden, um einen Codec zu erstellen, der immer zu einem konstanten Wert deserialisiert, unabhängig von der Eingabe. Bei der Serialisierung wird nichts getan.
 
@@ -173,7 +173,7 @@ Beachte, dass optionale Felder alle Fehler, die bei der Deserialisierung auftret
 Codec<Integer> theMeaningOfCodec = Codec.unit(42);
 ```
 
-#### Zahlenbereiche
+#### Zahlenbereiche {#numeric-ranges}
 
 `Codec.intRange` und seine Kollegen `Codec.floatRange` und `Codec.doubleRange` können verwendet werden, um einen Codec zu erstellen, der nur Zahlenwerte innerhalb eines bestimmten **inklusiven** Bereichs akzeptiert. Dies gilt sowohl für die Serialisierung als auch für die Deserialisierung.
 
@@ -182,7 +182,7 @@ Codec<Integer> theMeaningOfCodec = Codec.unit(42);
 Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 ```
 
-#### Paar
+#### Paar {#pair}
 
 `Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
 Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
@@ -210,12 +210,12 @@ Folgendes JSON generiert:
 }
 ```
 
-#### Entweder-Oder-Kombination
+#### Either {#either}
 
 `Codec.either` kombiniert zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Either<A, B>>`. Der resultierende Codec wird bei der Deserialisierung versuchen, den ersten Codec zu verwenden, und _nur wenn das fehlschlägt_, versuchen, den zweiten Codec zu verwenden.
 Wenn der zweite Codec ebenfalls fehlschlägt, wird der Fehler des _zweiten_ Codecs zurückgegeben.
 
-#### Maps
+#### Maps {#maps}
 
 Für die Verarbeitung von Maps mit beliebigen Schlüsseln, wie zum Beispiel `HashMap`s, kann `Codec.unboundedMap` verwendet werden. Dies gibt einen `Codec<Map<K, V>>` für einen gegebenen `Codec<K>` und `Codec<V>` zurück. Der resultierende Codec wird zu einem JSON-Objekt serialisiert oder oder ein gleichwertiges Objekt, das für die aktuellen dynamische Ops verfügbar ist.
 
@@ -243,9 +243,9 @@ Dadurch wird dieses JSON ausgegeben:
 
 Wie du sehen kannst, funktioniert dies, weil `Identifier.CODEC` direkt zu einem String-Wert serialisiert wird. Einen ähnlichen Effekt kann man für einfache Objekte, die nicht in Strings serialisiert werden, erreichen, indem [Wechselseitig konvertierbare Typen](#wechselseitig-konvertierbare-typen) verwendet werden, um um sie zu konvertieren.
 
-### Wechselseitig konvertierbare Typen
+### Wechselseitig konvertierbare Typen {#mutually-convertible-types}
 
-#### `xmap`
+#### `xmap` {#xmap}
 
 Angenommen, wir haben zwei Klassen, die ineinander umgewandelt werden können, aber keine Eltern-Kind-Beziehung haben. Zum Beispiel, eine einfache `BlockPos` und `Vec3d`. Wenn wir einen Codec für eine Richtung haben, können wir mit `Codec#xmap` einen Codec für die andere Richtung erstellen, indem wir eine Konvertierungsfunktion für jede Richtung angeben.
 
@@ -265,7 +265,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 // Methodenreferenzen in deinem `xmap`-Aufruf hinzufügen.
 ```
 
-#### flatComapMap, comapFlatMap und flatXMap
+#### flatComapMap, comapFlatMap und flatXMap {#flatcomapmap-comapflatmap-flatxmap}
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` und `flatXMap` sind ähnlich wie xmap, erlauben aber, dass eine oder beide der Konvertierungsfunktionen ein DataResult zurückgeben. Dies ist in der Praxis nützlich, da eine bestimmte Objektinstanz möglicherweise nicht nicht immer für die Konvertierung gültig ist.
 
@@ -287,7 +287,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-
+    
     // ...
 }
 ```
@@ -301,7 +301,7 @@ Diese Methoden sind zwar sehr hilfreich, aber ihre Namen sind etwas verwirrend, 
 | `Codec<A>#flatComapMap` | Ja                   | Nein                 |
 | `Codec<A>#flatXMap`     | Nein                 | Nein                 |
 
-### Registry Dispatch
+### Registry Dispatch {#registry-dispatch}
 
 `Codec#dispatch` ermöglicht die Definition eines Registry von Codecs und die Abfertigung eines bestimmten Codecs auf der Grundlage des Wertes eines
 Attributs in den serialisierten Daten. Dies ist sehr nützlich bei der Deserialisierung von Objekten, die je nach Typ unterschiedliche Attribute haben, aber dennoch dasselbe Objekt darstellen.
@@ -323,14 +323,14 @@ Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
-// Jetzt können wir einen Codec für Bohnentypen erstellen
-// auf der Grundlage des zuvor erstellten Registry
+// Jetzt können wir einen Codec für Bohnen-Typen erstellen
+// basierend auf der zuvor erstellten Registry
 Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 
-// Und darauf aufbauend, hier ist unser Registry Dispatch Codec für Bohnen!
-// Das erste Argument ist der Argumentname für den Bohnen-Typ.
-// Wenn du das Attribut weglässt, wird es standardmäßig auf "type" gesetzt.
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+// Und darauf basierend, hier unser Registry Dispatch Codec für Bohnen!
+// Das erste Argument ist der Feldname für den Bohnen-Typ.
+// Wenn es weggelassen wird, wird sie standardmäßig zu "type".
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Unser neuer Codec serialisiert Bohnen zu JSON und erfasst dabei nur die Felder, die für ihren spezifischen Typ relevant sind:
@@ -349,9 +349,9 @@ Unser neuer Codec serialisiert Bohnen zu JSON und erfasst dabei nur die Felder, 
 }
 ```
 
-### Rekursive Codecs
+### Rekursive Codecs {#recursive-codecs}
 
-Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `Text`-Objekte verwendet, die andere `Text`e als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` erstellt werden.
+Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `Text`-Objekte verwendet, die andere `Text`e als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` konstruiert werden.
 
 Versuchen wir zum Beispiel, eine einfach verknüpfte Liste zu serialisieren. Diese Art der Darstellung von Listen besteht aus einem Bündel von Knoten, die sowohl einen Wert als auch einen Verweis auf den nächsten Knoten in der Liste enthalten. Die Liste wird dann durch ihren ersten Knoten repräsentiert, und das Durchlaufen der Liste erfolgt durch Verfolgen des nächsten Knotens, bis keiner mehr übrig ist. Hier ist eine einfache Implementierung von Knoten, die ganze Zahlen speichern.
 
@@ -359,19 +359,19 @@ Versuchen wir zum Beispiel, eine einfach verknüpfte Liste zu serialisieren. Die
 public record ListNode(int value, ListNode next) {}
 ```
 
-Wir können dafür keinen Codec mit normalen Mitteln konstruieren, denn welchen Codec würden wir für das Attribut `next` verwenden? Wir bräuchten einen `Codec<ListNode>`, und den sind wir gerade dabei zu konstruieren! Mit `Codec#recursive` können wir das mit einem magisch aussehenden Lambda erreichen:
+Wir können dafür keinen Codec mit normalen Mitteln konstruieren, denn welchen Codec würden wir für das Attribut `next` verwenden? Wir bräuchten einen `Codec<ListNode>`, und den sind wir gerade dabei zu konstruieren! Mit `Codec#recursive` können wir das mit einem magisch aussehendem Lambda erreichen:
 
 ```java
 Codec<ListNode> codec = Codec.recursive(
   "ListNode", // Ein Name für den Codec
   selfCodec -> {
-    // Hier repräsentiert `selfCodec` den `Codec<ListNode>`, als ob er bereits konstruiert wäre
+    // Hier, repräsentiert `selfCodec` den `Codec<ListNode>`, als wäre er bereits konstruiert
     // Dieses Lambda sollte den Codec zurückgeben, den wir von Anfang an verwenden wollten,
     // der sich durch `selfCodec` auf sich selbst bezieht
     return RecordCodecBuilder.create(instance ->
       instance.group(
         Codec.INT.fieldOf("value").forGetter(ListNode::value),
-         // das Attribut `next` wird rekursiv mit dem eigenen Codec behandelt
+         // das `next` Feld wird rekursiv mit dem Selbstkodierer behandelt
         Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
       ).apply(instance, ListNode::new)
     );
@@ -386,14 +386,14 @@ Ein serialisierter `ListNode` kann dann wie folgt aussehen:
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }
 }
 ```
 
-## Referenzen
+## Referenzen {#references}
 
 - Eine viel umfassendere Dokumentation von Codecs und verwandten APIs findest du in der [Inoffiziellen DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - Die allgemeine Struktur dieses Leitfadens wurde stark von dem [Forge Community Wiki's Seiten zu Codecs](https://forge.gemwire.uk/wiki/Codecs) inspiriert, einer eher Forge-spezifischen Darstellung desselben Themas.

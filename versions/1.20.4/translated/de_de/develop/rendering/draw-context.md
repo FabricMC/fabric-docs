@@ -3,6 +3,8 @@ title: Den Zeichenkontext verwenden
 description: Lerne, wie man die Klasse DrawContext verwendet, um verschiedene Formen, Texte und Texturen zu rendern.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Den Zeichenkontext verwenden

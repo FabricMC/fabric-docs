@@ -3,19 +3,22 @@ title: 创建项目
 description: 关于如何使用 Fabric 模板模组生成器创建新的模组项目的逐步指南。
 authors:
   - IMB11
+  - Cactooz
 ---
 
 # 创建项目{#creating-a-project}
 
-Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考[手动创建项目](#manual-project-creation)章节。
+Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考 [手动创建项目](#manual-project-creation) 章节。
 
 ## 生成项目{#generating-a-project}
 
-你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如包名和模组名称，以及你想要基于开发的 Minecraft 版本。
+你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如模组称和包名，以及你想要基于其开发的 Minecraft 版本。
+
+包名应该是小写字母，由点隔开；命名必须唯一，以避免和其他开发者的包冲突。 通常是网络域名的反向，例如 `com.example.modid`。
 
 ![生成器预览图](/assets/develop/getting-started/template-generator.png)
 
-如果你想要使用 Kotlin 语言开发，或者想要添加数据生成器，可以在“Advanced Options”部分中选择对应的选项。
+如果要使用 Kotlin 语言，或使用 Mojang 的官方映射而非 Yarn 映射，或需要添加数据生成，可以在 “Advanced Options”中选择适当的选项。
 
 ![“Advanced Options”部分](/assets/develop/getting-started/template-generator-advanced.png)
 
@@ -27,9 +30,9 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 ## 导入项目{#importing-the-project}
 
-你在 IntelliJ IDEA 中打开了项目之后，IDEA 会自动加载项目的 Gradle 配置并执行必要的初始化任务。
+在 IntelliJ IDEA 中打开该项目之后，IDEA 会自动加载项目的 Gradle 配置并执行必要的初始化任务。
 
-如果收到一个关于 Gradle 构建脚本的通知，应该点击 `Import Gradle Project` 按钮：
+如果收到一个关于 Gradle 构建脚本的通知，应该点击 `Import Gradle Project` 按钮以导入Gradle项目：
 
 ![Gradle 按钮提示](/assets/develop/getting-started/gradle-prompt.png)
 
@@ -51,7 +54,7 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 这会将代码仓库克隆进一个叫 `my-mod-project`的新文件夹。
 
-然后，您应该删除`.git`文件夹，并在IntelliJ IDEA中打开项目。 如果你找不到`.git`文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。 如果你找不到`.git`文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。 如果 `.git` 文件夹没有出现，需要在你的文件资源管理器中启用显示隐藏文件。
+然后应该删除 `.git` 文件夹，并在 IntelliJ IDEA 中打开项目。 如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
 
 在 IntelliJ IDEA 中打开了项目之后，IDEA 会自动加载项目的 Gradle 配置并执行必要的初始化任务。
 
@@ -59,10 +62,10 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 ### 修改模板{#modifying-the-template}
 
-项目导入好后，你需要修改项目的细节，以匹配你的模组的信息:
+项目导入好后，你需要修改项目的详细信息，以匹配你的模组的信息:
 
 - 修改项目的 `gradle.properties` 文件，把 `maven_group` 和 `archive_base_name` 修改为匹配你的模组的信息。
 - 修改项目中的 `fabric.mod.json` 文件，把 `id`、`name` 和 `description` 修改为匹配你的模组的信息。
-- 确保更新 Minecraft、映射、Fabric Loader 和 Fabric Loom 的版本——所有这些都可以通过 https://fabricmc.net/develop/ 查询，以匹配你希望的目标版本。
+- 确保更新 Minecraft、映射、Fabric Loader 和 Fabric Loom 的版本——所有这些都可以通过 <https://fabricmc.net/develop/> 查询，以匹配你希望的目标版本。
 
-你还可以修改包名和模组的主类来匹配你的模组的细节。
+你还可以修改包名和模组的主类来匹配你的模组的详细信息设定。

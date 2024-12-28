@@ -19,15 +19,18 @@ All contributions must follow our [style guidelines](#style-guidelines).
 
 If you want to translate the documentation into your language, you can do this on the [Fabric Crowdin page](https://crowdin.com/project/fabricmc).
 
-## Contributing Content {#contributing-content}
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## <Badge type="tip">new-content</Badge> Contributing Content {#contributing-content}
 
 Content contributions are the main way to contribute to the Fabric Documentation.
 
-All content contributions go through three stages:
+All content contributions go through the following stages, each of which is associated with a label:
 
-1. Guidance for Expansion (if needed)
-2. Content Verification
-3. Cleanup (Grammar etc.)
+1. <Badge type="tip">locally</Badge> Prepare your changes and push a PR
+2. <Badge type="tip">stage:expansion</Badge>: Guidance for Expansion if needed
+3. <Badge type="tip">stage:verification</Badge>: Content verification
+4. <Badge type="tip">stage:cleanup</Badge>: Grammar, Linting...
+5. <Badge type="tip">stage:ready</Badge>: Ready to be merged!
 
 All content must follow our [style guidelines](#style-guidelines).
 
@@ -42,9 +45,9 @@ This website is open-source, and it is developed in a GitHub repository, which m
 
 You can read more about the GitHub flow [here](https://docs.github.com/en/get-started/using-github/github-flow).
 
-You can either make changes from the web interface on GitHub, or you can develop and preview the website locally.
+You can either make changes from the web UI on GitHub, or you can develop and preview the website locally.
 
-#### <Badge type="tip">locally</Badge> Cloning Your Fork {#clone-your-fork}
+#### Cloning Your Fork {#clone-your-fork}
 
 If you want to develop locally, you will need to install [Git](https://git-scm.com/).
 
@@ -55,7 +58,7 @@ After that, clone your fork of the repository with:
 git clone https://github.com/your-username/fabric-docs.git
 ```
 
-#### <Badge type="tip">locally</Badge> Installing Dependencies {#install-dependencies}
+#### Installing Dependencies {#install-dependencies}
 
 If you want to preview your changes locally, you will need to install [Node.js 18+](https://nodejs.org/en/).
 
@@ -65,7 +68,7 @@ After that, make sure to install all dependencies with:
 npm install
 ```
 
-#### <Badge type="tip">locally</Badge> Running the Development Server {#run-the-development-server}
+#### Running the Development Server {#run-the-development-server}
 
 This will allow you to preview your changes locally at `localhost:5173` and will automatically reload the page when you make changes.
 
@@ -75,7 +78,7 @@ npm run dev
 
 Now you can open and browse the website from the browser by visiting `http://localhost:5173`.
 
-#### <Badge type="tip">locally</Badge> Building the Website {#building-the-website}
+#### Building the Website {#building-the-website}
 
 This will compile all Markdown files into static HTML files and place them in `.vitepress/dist`:
 
@@ -83,7 +86,7 @@ This will compile all Markdown files into static HTML files and place them in `.
 npm run build
 ```
 
-#### <Badge type="tip">locally</Badge> Previewing the Built Website {#previewing-the-built-website}
+#### Previewing the Built Website {#previewing-the-built-website}
 
 This will start a local server on port `4173` serving the content found in `.vitepress/dist`:
 
@@ -91,7 +94,7 @@ This will start a local server on port `4173` serving the content found in `.vit
 npm run preview
 ```
 
-#### <Badge type="tip">locally</Badge> Opening a Pull Request {#opening-a-pull-request}
+#### Opening a Pull Request {#opening-a-pull-request}
 
 Once you're happy with your changes, you may `push` your changes:
 
@@ -103,25 +106,34 @@ git push
 
 Then, follow the link in the output of `git push` to open a PR.
 
-### 2. Guidance for Expansion if Needed {#2-guidance-for-expansion-if-needed}
+### 2. <Badge type="tip">stage:expansion</Badge> Guidance for Expansion if Needed {#2-guidance-for-expansion-if-needed}
 
-If the documentation team thinks that you could expand upon your pull request, a member of the team will add the `can-expand` label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request.
+If the documentation team thinks that you could expand upon your pull request, a member of the team will add the <Badge type="tip">stage:expansion</Badge> label to your pull request alongside a comment explaining what they think you could expand upon. If you agree with the suggestion, you can expand upon your pull request.
 
-Don't feel pressured to expand upon your pull request. If you don't want to expand upon your pull request, you can simply ask for the `can-expand` label to be removed.
+If you do not want to expand upon your pull request, but you are happy for someone else to expand upon it at a later date, you should create an issue on the [Issues page](https://github.com/FabricMC/fabric-docs/issues) and explain what you think could be expanded upon. The documentation team will then add the <Badge type="tip">help-wanted</Badge> label to your PR.
 
-If you do not want to expand upon your pull request, but you are happy for someone else to expand upon it at a later date, it's best to create an issue on the [Issues page](https://github.com/FabricMC/fabric-docs/issues) and explain what you think could be expanded upon.
+### 3. <Badge type="tip">stage:verification</Badge> Content Verification {#3-content-verification}
 
-### 3. Content Verification {#3-content-verification}
+This is the most important stage as it ensures that the content is accurate and follows the Fabric Documentation style guide.
 
-All pull requests adding content undergo content verification, this is the most important stage as it ensures that the content is accurate and follows the Fabric Documentation style guide.
+In this stage, the following questions should be answered:
 
-### 4. Cleanup {#4-cleanup}
+- Is all of the content correct?
+- Is all of the content up-to-date?
+- Does the content cover all cases, such as different operating systems?
 
-This stage is where the documentation team will fix any grammar issues and make any other changes they deem necessary before merging the pull request!
+### 4. <Badge type="tip">stage:cleanup</Badge> Cleanup {#4-cleanup}
 
-## Contributing Framework {#contributing-framework}
+In this stage, the following happens:
 
-Framework refers to the internal structure of the website, any pull requests that modify the framework of the website will be labeled with the `framework` label.
+- Fixing of any grammar issues using [LanguageTool](https://languagetool.org/)
+- Linting of all Markdown files using [`markdownlint`](https://github.com/DavidAnson/markdownlint)
+- Formatting of all Java code using [Checkstyle](https://checkstyle.sourceforge.io/)
+- Other miscellaneous fixes or improvements
+
+## <Badge type="tip">framework</Badge> Contributing Framework {#contributing-framework}
+
+Framework refers to the internal structure of the website, any pull requests that modify the framework of the website will be labeled with the <Badge type="tip">framework</Badge> label.
 
 You should really only make framework pull requests after consulting with the documentation team on the [Fabric Discord](https://discord.gg/v6v4pMv) or via an issue.
 
@@ -136,8 +148,6 @@ If you are unsure about anything, you can ask in the [Fabric Discord](https://di
 ### Write the Original in American English {#write-the-original-in-american-english}
 
 All original documentation is written in English, following the American rules of grammar.
-
-While you may use [LanguageTool](https://languagetool.org/) to check your grammar as you type, don't stress too much about it. Our documentation team will review and correct grammar during the cleanup stage. However, making an effort to get it right initially can save us time.
 
 ### Add Data to the Frontmatter {#add-data-to-the-frontmatter}
 

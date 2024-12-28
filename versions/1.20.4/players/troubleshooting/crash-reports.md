@@ -3,6 +3,8 @@ title: Crash Reports
 description: Learn what to do with crash reports, and how to read them.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Crash Reports {#crash-reports}
@@ -41,7 +43,7 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using [this crash report](/public/assets/players/crash-report-example.txt).
+For this guide, we will be using [this crash report](/assets/players/crash-report-example.txt).
 
 ::: details Show Crash Report
 

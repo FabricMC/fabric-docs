@@ -6,36 +6,38 @@
 	"icon": "assets/fabric-docs-reference/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"com.example.docs.FabricDocsReference",
-			"com.example.docs.event.FabricDocsReferenceEvents",
-			"com.example.docs.command.FabricDocsReferenceCommands",
-			"com.example.docs.effect.FabricDocsReferenceEffects",
-			"com.example.docs.potion.FabricDocsReferencePotions",
-			"com.example.docs.sound.FabricDocsReferenceSounds",
-			"com.example.docs.damage.FabricDocsReferenceDamageTypes",
-			"com.example.docs.item.FabricDocsReferenceItems",
-			"com.example.docs.block.FabricDocsReferenceBlocks",
-			"com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
-			"com.example.docs.component.FabricDocsReferenceComponents",
-			"com.example.docs.networking.FabricDocsReferenceNetworking"
-		],
-		"client": [
-			"com.example.docs.FabricDocsReferenceClient",
-			"com.example.docs.client.command.FabricDocsReferenceClientCommands",
-			"com.example.docs.FabricDocsDynamicSound"
-		],
-		"fabric-datagen": [
-			"com.example.docs.FabricDocsReferenceDataGenerator",
-			"com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator"
-		]
+	  "main": [
+		"com.example.docs.FabricDocsReference",
+		"com.example.docs.event.FabricDocsReferenceEvents",
+		"com.example.docs.command.FabricDocsReferenceCommands",
+		"com.example.docs.effect.FabricDocsReferenceEffects",
+		"com.example.docs.potion.FabricDocsReferencePotions",
+		"com.example.docs.sound.FabricDocsReferenceSounds",
+		"com.example.docs.damage.FabricDocsReferenceDamageTypes",
+		"com.example.docs.item.FabricDocsReferenceItems",
+		"com.example.docs.enchantment.FabricDocsReferenceEnchantments",
+		"com.example.docs.block.FabricDocsReferenceBlocks",
+		"com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
+		"com.example.docs.component.FabricDocsReferenceComponents",
+		"com.example.docs.networking.FabricDocsReferenceNetworking"
+	  ],
+	  "client": [
+		"com.example.docs.FabricDocsReferenceClient",
+		"com.example.docs.client.command.FabricDocsReferenceClientCommands",
+		"com.example.docs.FabricDocsDynamicSound"
+	  ],
+	  "fabric-datagen": [
+		"com.example.docs.FabricDocsReferenceDataGenerator",
+		"com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator"
+	  ]
 	},
 	"mixins": [
-		"fabric-docs-reference.mixins.json",
-		{
-			"config": "fabric-docs-reference.client.mixins.json",
-			"environment": "client"
-		}
+	  "fabric-docs-reference.mixins.json",
+	  {
+		"config": "fabric-docs-reference.client.mixins.json",
+		"environment": "client"
+	  }
 	],
 	"depends": {}
-}
+  }
+  

@@ -4,6 +4,8 @@ description: Ein umfassender Leitfaden zum Verständnis und zur Verwendung von M
 authors:
   - enjarai
   - Syst3ms
+
+search: false
 ---
 
 # Codecs

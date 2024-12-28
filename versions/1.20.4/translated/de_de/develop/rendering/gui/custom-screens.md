@@ -3,6 +3,8 @@ title: Benutzerdefinierte Oberflächen
 description: Lerne, wie man benutzerdefinierte Oberflächen für deinen Mod erstellt.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Benutzerdefinierte Oberflächen

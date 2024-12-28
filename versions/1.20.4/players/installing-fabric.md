@@ -3,6 +3,8 @@ title: Installing Fabric
 description: A step by step guide on how to install Fabric.
 authors:
   - IMB11
+
+search: false
 ---
 
 # Installing Fabric {#installing-fabric}

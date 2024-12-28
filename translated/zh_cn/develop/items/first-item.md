@@ -129,7 +129,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/<mod id here>/recipes` 文件夹中。
+如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/<mod id here>/recipe` 文件夹中。
 
 更多关于配方格式的信息，可参考以下资源：
 

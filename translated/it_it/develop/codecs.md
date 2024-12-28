@@ -16,7 +16,7 @@ I Codec vengono usati assieme a un'altra API da DFU, `DynamicOps`. Un codec defi
 
 ### Serializzazione e Deserializzazione {#serializing-and-deserializing}
 
-L'utilizzo basilare di un codec è serializzare e deserializzare oggetti da e a un formato specifico.
+L'uso principale di un codec è serializzare e deserializzare oggetti da e a un formato specifico.
 
 Poiché alcune classi vanilla hanno già dei codec definiti, possiamo usare quelli come un esempio. Mojang ci ha anche fornito due classi di dynamic ops predefinite, `JsonOps` e `NbtOps`, che tendono a coprire la maggior parte degli casi.
 
@@ -29,7 +29,7 @@ BlockPos pos = new BlockPos(1, 2, 3);
 DataResult<JsonElement> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
 ```
 
-Quando si usa un codec, i valori sono restituiti come un `DataResult`. Questo è un wrapper che può rappresentare un successo oppure un fallimento. Possiamo usare questo in diversi modi: Se vogliamo soltanto il nostro valore serializzato, `DataResult#result` restituirà semplicemente un `Optional` contenente il nostro valore, mentre `DataResult#resultOrPartial` ci permette anche di fornire una funzione per gestire qualsiasi errore che potrebbe essersi verificato. La seconda è specialmente utile per risorse di datapack personalizzati, dove vorremmo segnare gli errori nel log senza causare problemi altrove.
+Quando si usa un codec, i valori sono restituiti come un `DataResult`. Questo è un wrapper che può rappresentare un successo oppure un fallimento. Possiamo usare questo in diversi modi: Se vogliamo soltanto il nostro valore serializzato, `DataResult#result` restituirà semplicemente un `Optional` contenente il nostro valore, mentre `DataResult#resultOrPartial` ci permette anche di fornire una funzione per gestire qualsiasi errore che potrebbe essersi verificato. La seconda è specialmente utile per risorse di datapack personalizzati, in cui potremmo voler segnare gli errori nel log senza causare problemi altrove.
 
 Quindi prendiamo il nostro valore serializzato e ritrasformiamolo nuovamente in un `BlockPos`:
 
@@ -218,7 +218,7 @@ Se anche il secondo fallisse, l'errore del _secondo_ codec verrà restituito.
 
 Per gestire mappe con chiavi arbitrarie, come `HashMap`, `Codec.unboundedMap` può essere usato. Questo restituisce un `Codec<Map<K, V>>` per un dato `Codec<K>` e `Codec<V>`. Il codec risultante serializzerà a un oggetto json oppure a qualsiasi equivalente disponibile per il dynamic ops corrente.
 
-Date le limitazioni di json e nbt, il codec chiave utilizzato _deve_ serializzare a una stringa. Questo include codec per tipo che non sono in sé stringhe, ma che serializzano a esse, come `Identifier.CODEC`. Vedi l'esempio sotto:
+Date le limitazioni di json e nbt, il codec chiave usato _deve_ serializzare a una stringa. Questo include codec per tipo che non sono in sé stringhe, ma che serializzano a esse, come `Identifier.CODEC`. Vedi l'esempio sotto:
 
 ```java
 // Crea un codec per una mappa da identifier a interi
@@ -329,7 +329,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // E in base a quello, ecco il nostro codec di dispatch della registry per i fagioli!
 // Il primo parametro e il nome dell'attributo per il tipo di fagiolo.
 // Se lasciato vuoto, assumerà "type" come valore predefinito.
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attributi che sono rilevanti al loro tipo specifico:
@@ -350,7 +350,7 @@ Il nostro nuovo codec serializzerà fagioli a json così, prendendo solo attribu
 
 ### Codec Ricorsivi {#recursive-codecs}
 
-A volte è utile avere un codec che utilizza _sé stesso_ per decodificare attributi specifici, per esempio quando si gestiscono certe strutture dati ricorsive. Nel codice vanilla, questo è usato per gli oggetti `Text`, che potrebbero contenere altri `Text` come figli. Un codec del genere può essere costruito usando `Codec#recursive`.
+A volte è utile avere un codec che usa _sé stesso_ per decodificare attributi specifici, per esempio quando si gestiscono certe strutture dati ricorsive. Nel codice vanilla, questo è usato per gli oggetti `Text`, che potrebbero contenere altri `Text` come figli. Un codec del genere può essere costruito usando `Codec#recursive`.
 
 Per esempio, proviamo a serializzare una lista concatenata singolarmente. Questo metodo di rappresentare le liste consiste di una serie di nodi che contengono sia un valore sia un riferimento al nodo successivo nella lista. La lista è poi rappresentata dal suo primo nodo, e per attraversare la lista si segue il prossimo nodo finché non ce ne sono più. Ecco una semplice implementazione di nodi che contengono interi.
 
@@ -385,14 +385,14 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }
 }
 ```
 
-## Riferimenti
+## Riferimenti {#references}
 
 - Una documentazione molto più dettagliata sui Codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.

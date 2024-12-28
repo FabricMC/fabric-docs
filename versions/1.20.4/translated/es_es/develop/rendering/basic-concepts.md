@@ -4,6 +4,8 @@ description: Aprende sobre los conceptos básicos de renderización usando el mo
 authors:
   - IMB11
   - "0x3C50"
+
+search: false
 ---
 
 # Conceptos Básicos de Renderización

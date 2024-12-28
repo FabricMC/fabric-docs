@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# Struttura del Progetto
+# Struttura del Progetto {#project-structure}
 
 Questa pagina analizzerà la struttura di un progetto per una mod Fabric, e l'utilità di ogni file e cartella nel progetto.
 
-## `fabric.mod.json`
+## `fabric.mod.json` {#fabric-mod-json}
 
 Il file `fabric.mod.json` è il file principale che descrive la tua mod al Loader di Fabric. Contiene informazioni come l'ID della mod, la versione, e le dipendenze.
 
@@ -28,32 +28,37 @@ Puoi trovare un esempio del file `fabric.mod.json` sotto - questo è il file `fa
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
-## Entrypoint
+## Entrypoint {#entrypoints}
 
 Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entrypoints` - questo attributo è usato per specificare gli entrypoint che la tua mod fornisce.
 
-Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è usato per codice comune, mentre l'entrypoint `client` è usato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
+Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti:
+
+- L'entrypoint `main` è usato per codice comune, ed è contenuto in una classe che implementi `ModInitializer`
+- L'entrypoint `client` è usato per codice esclusivo del client, e la sua classe implementa `ClientModInitializer`
+
+Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
+
+Ecco un esempio di un entrypoint `main` molto semplice che logga un messaggio alla console quando si avvia il gioco:
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
-Quello sopra è un esempio di un semplice entrypoint `main` che logga un messaggio alla console quando il gioco si avvia.
+## `src/main/resources` {#src-main-resources}
 
-## `src/main/resources`
+Nella cartella `src/main/resources` si memorizzano le risorse che la tua mod usa, come texture, modelli, e suoni.
 
-La cartella `src/main/resources` viene usata per memorizzare le risorse che la tua mod utilizza, come texture, modelli, e suoni.
-
-È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod utilizza.
+È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod usa.
 
 Le risorse sono memorizzate in una struttura che rispecchia la struttura dei pacchetti risorse - per esempio, una texture per un blocco verrebbe memorizzata in `assets/modid/textures/block/block.png`.
 
-## `src/client/resources`
+## `src/client/resources` {#src-client-resources}
 
-La cartella `src/client/resources` viene usata per memorizzare risorse client specifiche, come texture, modelli, e suoni che sono solo utilizzati dal lato client.
+Nella cartella `src/client/resources` si memorizzano risorse client specifiche, come texture, modelli, e suoni che sono solo usati dal lato client.
 
-## `src/main/java`
+## `src/main/java` {#src-main-java}
 
 La cartella `src/main/java` viene usata per memorizzare il codice sorgente Java per la tua mod - esiste sia su ambienti client sia server.
 
-## `src/client/java`
+## `src/client/java` {#src-client-java}
 
 La cartella `src/client/java` viene usata per memorizzare codice sorgente Java client specifico, come codice per il rendering o logica del lato client - come provider per il colore dei blocchi.

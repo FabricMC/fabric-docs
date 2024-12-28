@@ -3,6 +3,8 @@ title: Creare Suoni Personalizzati
 description: Impara a usare e aggiungere un nuovo suono con la registry.
 authors:
   - JR1811
+
+search: false
 ---
 
 # Creare Suoni Personalizzati

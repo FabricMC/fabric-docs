@@ -25,9 +25,10 @@ Creare comandi può permettere a uno sviluppatore di mod di aggiungere funzional
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Brigadier è open-source: https://github.com/Mojang/brigadier
+Brigadier è open-source: <https://github.com/Mojang/brigadier>
+:::
 
-## L'interface `Command`
+## L'interface `Command` {#the-command-interface}
 
 `com.mojang.brigadier.Command` è un'interfaccia funzionale, che esegue del codice specifico, e lancia una `CommandSyntaxException` in determinati casi. Ha un tipo generico `S`, che definisce il tipo della _sorgente del comando_.
 La sorgente del comando fornisce del contesto in cui un comando è stato eseguito. In Minecraft, la sorgente del comando è tipicamente una `ServerCommandSource` che potrebbe rappresentare un server, un blocco comandi, una connessione remota (RCON), un giocatore o un'entità.
@@ -58,7 +59,7 @@ Command<ServerCommandSource> command = context -> {
 };
 ```
 
-## Registrare un Comando Basilare
+## Registrare un Comando Basilare {#registering-a-basic-command}
 
 I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito dall'API di Fabric.
 
@@ -66,7 +67,7 @@ I comandi sono registrati all'interno del `CommandRegistrationCallback` fornito 
 Per informazioni su come registrare i callback, vedi per favore la guida [Eventi](../events).
 :::
 
-L'evento dovrebbe essere registrato nell'initializer della tua mod.
+L'evento dovrebbe essere registrato nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
 Il callback ha tre parametri:
 
@@ -76,7 +77,7 @@ Il callback ha tre parametri:
 
 Nell'initializer della mod, registriamo un semplice comando:
 
-@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Nel metodo `sendFeedback()` il primo parametro è il testo che viene mandato, che è un `Supplier<Text>` per evitare d'istanziare oggetti Text quando non è necessario.
 
@@ -86,19 +87,25 @@ Se il comando fallisce, anziché chiamare `sendFeedback()`, puoi direttamente la
 
 `CommandSyntaxException` generalmente viene lanciata per indicare errori di sintassi nel comando o negli argomenti. Puoi anche implementare la tua eccezione personalizzata.
 
-Per eseguire questo comando, devi scrivere `/foo`, tutto minuscolo.
+Per eseguire questo comando, devi scrivere `/test_command`, tutto minuscolo.
 
-### Ambiente di Registrazione
+:::info
+Da ora in poi, estrarremo la logica scritta all'interno della lambda passata nei costruttori `.execute()` in metodi individuali. Potremo quindi passare a `.execute()` un riferimento al metodo. Faremo questo per chiarezza.
+:::
+
+### Ambiente di Registrazione {#registration-environment}
 
 Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circostanze specifiche, per esempio, solo nell'ambiente dedicato:
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Requisiti dei Comandi {#command-requirements}
 
 Immagina di avere un comando e vuoi che solo gli operatori lo possano eseguire. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `ServerCommandSource` con cui testare e determinare se la `CommandSource` può eseguire il comando.
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Questo comando verrà eseguito solo se la fonte del comando è un operatore di livello 2 almeno, inclusi i blocchi comandi. Altrimenti, il comando non è registrato.
 
@@ -108,11 +115,13 @@ Questo ha l'effetto collaterale di non mostrare il comando se si completa con ta
 
 Per aggiungere un sotto comando, devi registrare il primo nodo letterale del comando normalmente. Per avere un sotto comando, devi aggiungere il nodo letterale successivo al nodo esistente.
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere opzionali. Nel caso seguente, sia `/subtater` che `/subtater subcommand` saranno validi.
+Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere opzionali. Nel caso seguente, sia `/command_two` che `/command_two sub_command_two` saranno validi.
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Comandi Lato Client {#client-commands}
 
@@ -124,9 +133,14 @@ L'API di Fabric ha un `ClientCommandManager` nel package `net.fabricmc.fabric.ap
 
 I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare la funzionalità di un comando a un altro. Questo è utile quando vuoi cambiare il nome di un comando, ma vuoi comunque supportare il vecchio nome.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+:::warning
+Brigadier [reinderizzerà soltanto i nodi di comandi contenenti parametri](https://github.com/Mojang/brigadier/issues/46). Se volessi reinderizzare il nodo di un comando senza parametri, fornisci un costruttore `.executes()` con un riferimento alla stessa logica presentata nell'esempio.
+:::
 
-## Domande Frequenti (FAQ)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+
+## Domande Frequenti (FAQ) {#faq}
 
 ### Perché il Mio Codice Non Viene Compilato? {#why-does-my-code-not-compile}
 
