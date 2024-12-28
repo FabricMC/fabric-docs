@@ -208,15 +208,15 @@ export default [
 			link: "/develop/data-generation/translations"
 		},
 		{
-			text: "devlop.dataGeneration.advancements",
+			text: "develop.dataGeneration.advancements",
 			link: "/develop/data-generation/advancements"
 		},
 		{
-			text: "devlop.dataGeneration.recipes",
+			text: "develop.dataGeneration.recipes",
 			link: "/develop/data-generation/recipes"
 		},
 		{
-			text: "devlop.dataGeneration.lootTables",
+			text: "develop.dataGeneration.lootTables",
 			link: "/develop/data-generation/loot-tables"
 		}
 	  ]
