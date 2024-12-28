@@ -1,6 +1,6 @@
 ---
 title: IDE Tips and Tricks
-description: Useful information to handle and traverse your Project using the IDE efficiently.
+description: Useful information to handle and traverse your project using the IDE efficiently.
 authors:
   - JR1811
   - AnAwesomGuy
@@ -21,11 +21,11 @@ Refer to the `File > Settings > Keymap` Settings or search for the functionality
 ### Manually {#manually}
 
 IntelliJ has many different ways of traversing projects. If you have generated sources using the `./gradlew genSources` commands in the terminal or
-used the `Tasks > fabric > genSources` Gradle Tasks in the Gradle Window, you can manually go through the source files of Minecraft in the Project Window's External Libraries.
+used the `Tasks > fabric > genSources` Gradle tasks in the Gradle Window, you can manually go through the source files of Minecraft in the Project Window's External Libraries.
 
-![Gradle Task](/assets/develop/misc/using-the-ide/traversing_01.png)
+![Gradle tasks](/assets/develop/misc/using-the-ide/traversing_01.png)
 
-The Minecraft Source code can be found if you look for `net.minecraft` in the Project Window's External Libraries.
+The Minecraft source code can be found if you look for `net.minecraft` in the Project Window's External Libraries.
 If your project uses split sources from the online [Template mod generator](https://fabricmc.net/develop/template), there will be two sources, as indicated by the name (client/common).
 Additionally other sources of projects, libraries and dependencies, which are imported via the `build.gradle` file will also be available.
 This method is often used when browsing for assets, tags and other files.
@@ -41,7 +41,7 @@ or by pressing <kbd>Shift</kbd> two times again, the search will look not only i
 
 You can also use the shortcuts <kbd>⌘/CTRL</kbd>+<kbd>N</kbd> to search classes and <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> to search all _files_.
 
-![Search Window](/assets/develop/misc/using-the-ide/traversing_03.png)
+![Search window](/assets/develop/misc/using-the-ide/traversing_03.png)
 
 ### Recent Window {#recent-window}
 
@@ -58,7 +58,7 @@ If you need to check out either the definition or the usage of variables, method
 or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
-You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd>
+You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd> to view all the implementations of a class or interface.
 
 ### Bookmarks {#bookmarks}
 
@@ -100,7 +100,7 @@ By placing the cursor on a class name and pressing <kbd>⌘/CTRL</kbd>+<kbd>H</k
 Code completion should be activated by default. You will automatically get the recommendations while writing your code.
 If you closed it by accident or just moved your cursor to a new place, you can use <kbd>⌘/CTRL</kbd>+<kbd>Space</kbd> to open them up again.
 
-For example, when using Lambdas, you can write them quickly using this method.
+For example, when using lambda expressions, you can write them quickly using this method.
 
 ![Lambda with many parameters](/assets/develop/misc/using-the-ide/util_01.png)
 
@@ -130,15 +130,29 @@ implementation you want to use, while writing the method call.
 
 ### Refactoring {#refactoring}
 
-Refactoring is the process of restructuring code without changing its runtime functionality. Renaming and Deleting parts of the code safely is a part of that,
+Refactoring is the process of restructuring code without changing its runtime functionality. Renaming and deleting parts of the code safely is a part of that,
 but things like extracting parts of the code into separate methods and introducing new variables for repeated code statements are also called "refactoring".
 
 Many IDEs have an extensive tool kit to aid in this process. In IntelliJ simply right click files or parts of the code to get access to the available refactoring tools.
 
 ![Refactoring](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-It is especially useful to get used to the `Rename` refactoring tool's key bind, <kbd>Shift</kbd>+<kbd>F6</kbd>, since you will rename many things in the future.
+It is especially useful to get used to the `Rename` refactoring tool's key bind, <kbd>Shift</kbd>+<kbd>F6</kbd>, since you will likely rename many things in the future.
 Using this feature, every code occurrence of the renamed code will be renamed and will stay functionally the same.
+
+You are also able to reformat code according to your code style.
+To do this, select the code you want to reformat (if nothing is selected, the entire file will be reformatted) and press <kbd>⌘/CTRL</kbd>+<kbd>⌥/ALT</kbd>+<kbd>L</kbd>.
+To change how IntelliJ formats code, see the settings at `File > Settings > Editor > Code Style > Java`.
+
+#### Context Actions {#context-actions}
+
+Context actions allow for specific sections of code to be refactored based on the context.
+To use it, simply move your cursor to the area you want to refactor, and press <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> or click the lightbulb to the left.
+There will be a popup showing context actions that can be used for the code selected.
+
+![Example of context actions](/assets/develop/misc/using-the-ide/context_actions_01.png)
+
+![Example of context actions](/assets/develop/misc/using-the-ide/context_actions_02.png)
 
 ### Search and Replace File Content {#search-and-replace-file-content}
 
@@ -151,7 +165,7 @@ Sometimes simpler tools are needed to edit code occurrences.
 | <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Find in a bigger scope (can set specific file type mask)    |
 | <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Replace in a bigger scope (can set specific file type mask) |
 
-If enabled, all of those tools allow for a more specific pattern matching using [Regex](https://en.wikipedia.org/wiki/Regular_expression).
+If used, all of those tools allow for a more specific pattern matching through [Regex](https://en.wikipedia.org/wiki/Regular_expression).
 
 ![Regex replace](/assets/develop/misc/using-the-ide/search_and_replace_01.png)
 
@@ -171,7 +185,7 @@ Picking expressive names for variables, classes and methods can help a lot, but 
 
 To comment out code faster, you can select some text and use the <kbd>⌘/CTRL</kbd>+<kbd>/</kbd> (line comment) and <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>/</kbd> (block comment) keybinds.
 
-Now you can highlight the necessary code and use the shortcuts, to comment the section out.
+Now you can highlight the necessary code (or just have your cursor on it) and use the shortcuts, to comment the section out.
 
 ```java
 // private static final int PROTECTION_BOOTS = 2;
@@ -192,10 +206,10 @@ private static int secondsToTicks(float seconds) {
 }
 ```
 
-### Region Comments {#region-comments}
+### Code Folding {#code-folding}
 
-In IntelliJ, right next to the line numbers, you can have small [+] and [-] icons.
-Those can be used to temporarily collapse methods, if-statements, classes and many other things if you are not actively working on them.
+In IntelliJ, next to the line numbers, you may see small arrow icons.
+They can be used to temporarily collapse methods, if-statements, classes and many other things if you are not actively working on them.
 To create a custom block which can be collapsed, use the `region` and `endregion` comments.
 
 ```java
@@ -212,6 +226,38 @@ To create a custom block which can be collapsed, use the `region` and `endregion
 
 ::: warning
 If you notice that you are using too many of them, consider refactoring your code to make it more readable!
+:::
+
+### Disabling the Formatter {#disabling-formatter}
+
+Comments can also disable the formatter during code refactoring mentioned above by surrounding a piece of code like so:
+
+```java
+//formatter:off (disable formatter)
+    public static void disgustingMethod() { /* ew this code sucks */ }
+//formatter:on (re-enable the formatter)
+```
+
+### Suppressing Inspections {#noinspection}
+
+`//noinspection` comments can be used to suppress inspections and warnings.
+They are functionally identical to the `@SuppressWarnings` annotation, but without the limitation of being an annotation and can be used on statements.
+
+```java
+// below is bad code and IntelliJ knows that
+
+@SuppressWarnings("rawtypes") // annotations can be used here
+List list = new ArrayList();
+
+//noinspection unchecked (annotations cannot be here so we use the comment)
+this.processList((List<String>)list);
+
+//noinspection rawtypes,unchecked,WriteOnlyObject (you can even suppress multiple!)
+new ArrayList().add("bananas");
+```
+
+::: warning
+If you notice that you are suppressing too many warnings, consider rewriting your code to not produce so many warnings!
 :::
 
 ### TODO and FIXME Notes {#todo-and-fixme-notes}
@@ -269,7 +315,7 @@ Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Cod
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
 
-For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks).
+For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea/getting-started).
 Most of their posts are also applicable to Fabric's ecosystem.
 
 ---

@@ -21,7 +21,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 					Identifier.of("fabric-docs-reference", "tater"),
 					new Potion(
 							new StatusEffectInstance(
-									Registries.STATUS_EFFECT.getEntry(FabricDocsReferenceEffects.TATER_EFFECT),
+									FabricDocsReferenceEffects.TATER,
 									3600,
 									0)));
 
