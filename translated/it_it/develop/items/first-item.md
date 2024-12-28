@@ -38,9 +38,9 @@ Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Tuttavia, se vai nel gioco, non troverai l'oggetto! Questo perché non hai inizializzato la classe staticamente.
+Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
-Per fare questo, puoi aggiungere un metodo di inizializzazione pubblico e statico alla tua classe e richiamarlo dalla classe `ModInitializer`. Per ora il metodo non deve contenere nulla.
+Per fare questo puoi aggiungere un metodo `initialize()` pubblico e statico alla tua classe e richiamarlo dall'[initializer della tua mod](./getting-started/project-structure#entrypoints). Per ora il metodo non deve contenere nulla.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -51,7 +51,7 @@ Chiamare un metodo su una classe la inizializza staticamente se non è mai stata
 ## Aggiungere l'Oggetto ad un Gruppo di Oggetti {#adding-the-item-to-an-item-group}
 
 :::info
-Se volessi aggiungere l'oggetto a un `ItemGroup` personalizzato, controlla la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
+Se volessi aggiungere l'oggetto a un `ItemGroup` personalizzato, consulta la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
 :::
 
 Per questo esempio, aggiungeremo questo oggetto all'`ItemGroup` ingredienti, dovrai usare gli eventi dei gruppi di oggetti dell'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
@@ -78,11 +78,11 @@ Crea un nuovo file JSON presso: `src/main/resources/assets/<mod id here>/lang/en
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
 
-Puoi riavviare il gioco, o ricostruire la tua mod e premere <kbd>F3</kbd> + <kbd>T</kbd> per applicare le modifiche.
+Puoi riavviare il gioco, o ricostruire la tua mod e premere <kbd>F3</kbd>+<kbd>T</kbd> per applicare le modifiche.
 
 ## Aggiungere Texture e Modello {#adding-a-texture-and-model}
 
@@ -90,7 +90,7 @@ Per dare al tuo oggetto una texture e un modello, ti basta creare un'immagine 16
 
 Per questo esempio, puoi usare questa texture di esempio per `suspicious_substance.png`
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">Texture</DownloadEntry>
 
 Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non ha texture, questo perché devi aggiungere un modello che usi questa texture.
 
@@ -131,7 +131,7 @@ In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare la class
 
 Se vuoi aggiungere una ricetta per il tuo oggetto, devi posizione un file JSON della ricetta nella cartella `data/<mod id here>/recipe`.
 
-Per maggiori informazioni sul formato delle ricette, controlla queste risorse:
+Per maggiori informazioni sul formato delle ricette, consulta queste risorse:
 
 - [Generatore di Ricette JSON](https://crafting.thedestruc7i0n.ca/)
 - [Minecraft Wiki - Recipe JSON](https://minecraft.wiki/w/Recipe#JSON_Format)

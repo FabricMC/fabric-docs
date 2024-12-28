@@ -32,11 +32,16 @@ Puoi trovare un esempio del file `fabric.mod.json` sotto - questo è il file `fa
 
 Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entrypoints` - questo attributo è usato per specificare gli entrypoint che la tua mod fornisce.
 
-Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è usato per codice comune, mentre l'entrypoint `client` è usato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
+Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti:
+
+- L'entrypoint `main` è usato per codice comune, ed è contenuto in una classe che implementi `ModInitializer`
+- L'entrypoint `client` è usato per codice esclusivo del client, e la sua classe implementa `ClientModInitializer`
+
+Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
+
+Ecco un esempio di un entrypoint `main` molto semplice che logga un messaggio alla console quando si avvia il gioco:
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
-
-Quello sopra è un esempio di un semplice entrypoint `main` che logga un messaggio alla console quando il gioco si avvia.
 
 ## `src/main/resources` {#src-main-resources}
 

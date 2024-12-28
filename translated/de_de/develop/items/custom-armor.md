@@ -13,7 +13,7 @@ Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mob
 
 Genau wie Items und Blöcke müssen auch Rüstungsmaterialien registriert werden. Wir werden eine Klasse `ModArmorMaterials` erstellen, um unsere benutzerdefinierten Rüstungsmaterialien zum Zweck der Organisation zu speichern.
 
-Du musst eine statische Methode `initialize()` zu dieser Klasse hinzufügen und sie vom Einstiegspunkt deines Mods aus aufrufen, damit die Materialien registriert werden.
+Du musst eine statische Methode `initialize()` zu dieser Klasse hinzufügen und sie vom [Mod-Initialisierer](./getting-started/project-structure#entrypoints) deines Mods aus aufrufen, damit die Materialien registriert werden.
 
 ```java
 // Within the ModArmorMaterials class
@@ -83,7 +83,7 @@ Wenn du dich dafür entscheidest, deine Rüstung färbbar zu machen, muss die Te
 
 Nachdem du nun eine Utility-Methode erstellt hast, die zur Registrierung von Rüstungsmaterialien verwendet werden kann, kannst du deine benutzerdefinierten Rüstungsmaterialien als statisches Feld in der Klasse `ModArmorMaterials` registrieren.
 
-In diesem Beispiel werden wir eine kreative Guidite-Rüstung mit den folgenden Eigenschaften verwenden:
+In diesem Beispiel werden wir eine Guidite-Rüstung mit den folgenden Eigenschaften erstellen:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
@@ -126,7 +126,7 @@ Diese Texturen unterscheiden sich nicht von anderen Items - Du musst die Texture
 
 Als Beispiel dient das folgende Textur- und Modell-JSON als Referenz.
 
-<DownloadEntry type="Item Textures" visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">Item Texturen</DownloadEntry>
 
 :::info
 Du benötigst JSON-Modelldateien für alle Gegenstände, nicht nur für den Helm. Es ist das gleiche Prinzip wie bei anderen Itemmodellen.
@@ -142,7 +142,7 @@ Wie du sehen kannst, sollten die Rüstungsitems im Spiel geeignete Modelle haben
 
 Wenn eine Entität deine Rüstung trägt, wird die fehlende Textur angezeigt:
 
-![Kaputtes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_2.png).
+![Kaputtes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_2.png)
 
 Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
@@ -151,10 +151,10 @@ Da der Name des Rüstungsmaterial in unserem Fall `guidite` lautet, werden die T
 - `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
 - `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
 
-<DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Rüstungsmodell Texturen</DownloadEntry>
 
 Die erste Schicht enthält Texturen für den Helm und den Brustpanzer, während die zweite Schicht Texturen für Hosen und Stiefel enthält.
 
 Wenn diese Texturen vorhanden sind, solltest du deine Rüstung auf Entitäten sehen können, die sie tragen:
 
-![Funktionierendes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_3.png).
+![Funktionierendes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_3.png)

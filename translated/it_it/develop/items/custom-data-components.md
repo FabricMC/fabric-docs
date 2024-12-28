@@ -17,7 +17,7 @@ Assieme alla registrazione delle componenti personalizzate, questa pagina copre 
 
 Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `ComponentType`. Questo tipo di componente prende un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
 
-Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di chiamare `ModComponents.initialize()` nell'initializer della tua mod.
+Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di richiamare `ModComponents.initialize()` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
@@ -86,8 +86,8 @@ Non dimenticare di aggiornare il tuo file di lingua (`/assets/<mod id>/lang/en_u
 
 ```json
 {
-    "item.fabric-docs-reference.counter": "Counter",
-    "item.fabric-docs-reference.counter.info": "Used %1$s times",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times"
 }
 ```
 

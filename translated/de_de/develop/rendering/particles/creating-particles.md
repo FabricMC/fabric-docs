@@ -13,7 +13,7 @@ Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosph�
 
 Wir werden einen neuen Glitzerpartikel hinzufügen, der die Bewegung eines Partikels des Endstabs nachahmt.
 
-Zuerst müssen wir mit deiner Mod-Id einen `ParticleType` in deiner Mod-Initialisierungsklasse registrieren.
+Wir müssen zuerst einen `ParticleType` in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse unter Verwendung deiner Mod ID registrieren.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -21,7 +21,7 @@ Der "sparkle_particle" in Kleinbuchstaben ist der JSON-Pfad für die Textur des 
 
 ## Client-seitige Registrierung {#client-side-registration}
 
-Nachdem du den Partikel im `ModInitializer` Einstiegspunkt registriert hast, musst du den Partikel auch im `ClientModInitializer` Einstiegspunkt registrieren.
+Nachdem du den Partikel in dem Mod-Initialisierer registriert hast, musst du den Partikel auch in dem clientseitigen Initialisierer registrieren.
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 

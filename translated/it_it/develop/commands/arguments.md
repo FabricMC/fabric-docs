@@ -44,7 +44,7 @@ Per esempio, puoi creare un tipo di parametro che fa il parsing di un `BlockPos`
 Avrai bisogno di registrare i tipi di parametri personalizzati sia sul server sia sul client altrimenti il comando non funzionerà!
 :::
 
-Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'inizializer della tua mod usando la classe `ArgumentTypeRegistry`:
+Puoi registrare il tuo tipo di parametro personalizzato nel metodo `onInitialize` dell'[inizializer della tua mod](./getting-started/project-structure#entrypoints) usando la classe `ArgumentTypeRegistry`:
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 

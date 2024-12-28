@@ -32,11 +32,16 @@ Nachfolgend siehst du eine Beispieldatei `fabric.mod.json` - dies ist die Datei 
 
 Wie bereits erwähnt, enthält die Datei `fabric.mod.json` ein Feld namens `entrypoints` - dieses Feld wird verwendet, um die Einstiegspunkte anzugeben, die dein Mod bereitstellt.
 
-Der Vorlagen-Mod-Generator erstellt standardmäßig sowohl einen `main`- als auch einen `client`-Einstiegspunkt - der `main`-Einstiegspunkt wird für allgemeinen Code verwendet, der `client`-Einstiegspunkt für Client-spezifischen Code. Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
+Der Template-Mod-Generator erstellt standardmäßig sowohl einen `main`- als auch einen `client`-Einstiegspunkt:
+
+- Der Einstiegspunkt `main` wird für allgemeinen Code verwendet und ist in einer Klasse enthalten, die `ModInitializer` implementiert
+- Der `client` Einstiegspunkt wird für clientspezifischen Code genutzt und seine Klasse implementiert `ClientModInitializer`
+
+Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
+
+Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet:
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
-
-Das obige ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet.
 
 ## `src/main/resources` {#src-main-resources}
 

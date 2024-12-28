@@ -42,7 +42,7 @@ authors-nogithub:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Пример текстуры</DownloadEntry>
 
 ### Переводы {#translations}
 

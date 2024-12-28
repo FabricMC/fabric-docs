@@ -77,7 +77,7 @@ Commands are registered within the `CommandRegistrationCallback` provided by the
 For information on registering callbacks, please see the [Events](../events) guide.
 :::
 
-The event should be registered in your mod's initializer.
+The event should be registered in your [mod's initializer](./getting-started/project-structure#entrypoints).
 
 The callback has three parameters:
 
@@ -88,7 +88,7 @@ The callback has three parameters:
 - `CommandManager.RegistrationEnvironment environment` - Identifies the type of server the commands are being registered
   on.
 
-In the mod initializer, we just register a simple command:
+In the mod's initializer, we just register a simple command:
 
 @[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -109,7 +109,7 @@ your own exception.
 To execute this command, you must type `/test_command`, which is case-sensitive.
 
 ::: info
-From this point onwards, we will be extracting the logic written within the lambda passed into `.execute()` builders  into individual methods. We can then pass a method reference to `.execute()`. This is done for clarity.
+From this point onwards, we will be extracting the logic written within the lambda passed into `.execute()` builders into individual methods. We can then pass a method reference to `.execute()`. This is done for clarity.
 :::
 
 ### Registration Environment {#registration-environment}

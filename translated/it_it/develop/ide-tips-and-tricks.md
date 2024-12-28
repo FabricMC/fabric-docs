@@ -37,7 +37,7 @@ Premere <kbd>Maiusc</kbd> due volte apre una finestra Cerca. Lì puoi cercare i 
 
 ### Finestra Recenti {#recent-window}
 
-Un altro strumento utile in IntelliJ è la finestra `Recent`. Puoi aprirla con la scorciatoia <kbd>CTRL</kbd> + <kbd>E</kbd>. Lì puoi saltare ai file che hai già visitato, e aprire finestre degli strumenti, come [Struttura](#structure-of-a-class) o [Preferiti](#bookmarks).
+Un altro strumento utile in IntelliJ è la finestra `Recent`. Puoi aprirla con la scorciatoia <kbd>CTRL</kbd>+<kbd>E</kbd>. Lì puoi saltare ai file che hai già visitato, e aprire finestre degli strumenti, come [Struttura](#structure-of-a-class) o [Preferiti](#bookmarks).
 
 ![Finestra Recenti](/assets/develop/misc/using-the-ide/traversing_04.png)
 
@@ -45,7 +45,7 @@ Un altro strumento utile in IntelliJ è la finestra `Recent`. Puoi aprirla con l
 
 ### Salta alla Definizione / Utilizzo {#jump-to-definition-usage}
 
-Se devi controllare la definizione o gli utilizzi di variabili, metodi, classi e altre cose, puoi premere <kbd>CTRL</kbd> + <kbd>Clic Sinistro</kbd>
+Se devi controllare la definizione o gli utilizzi di variabili, metodi, classi e altre cose, puoi premere <kbd>CTRL</kbd>+<kbd>Clic Sinistro</kbd>
 o usare il <kbd>Pulsante Centrale del Mouse</kbd> (premere la rotellina) sul nome. Così eviterai lunghe sessioni di scorrimento o una ricerca manuale della definizione che troveresti in un altro file.
 
 ### Preferiti {#bookmarks}
@@ -67,7 +67,7 @@ I [Punti di Interruzione](./basic-problem-solving#breakpoint) saranno anche pres
 
 ### Struttura di una Classe {#structure-of-a-class}
 
-Aprendo la finestra `Structure` (<kbd>Alt</kbd> + <kbd>7</kbd>) otterrai una panoramica della classe attualmente attiva. Puoi vedere quali Classi e quali Enum si trovano in quel file, quali metodi sono stati implementati e quali attributi e variabili sono dichiarate.
+Aprendo la finestra `Structure` (<kbd>Alt</kbd>+<kbd>7</kbd>) otterrai una panoramica della classe attualmente attiva. Puoi vedere quali Classi e quali Enum si trovano in quel file, quali metodi sono stati implementati e quali attributi e variabili sono dichiarate.
 
 A volte può essere utile attivare anche l'opzione `Inherited` in cima alle opzioni Visualizza, quando si cercano metodi specifici di cui fare override.
 
@@ -75,7 +75,7 @@ A volte può essere utile attivare anche l'opzione `Inherited` in cima alle opzi
 
 ### Gerarchia dei Tipi di una Classe {#type-hierarchy-of-a-class}
 
-Posizionando il cursore sul nome di una classe e premendo <kbd>CTRL</kbd> + <kbd>H</kbd> puoi aprire una nuova finestra Type Hierarchy, che mostra tutte le classi genitore e figlie.
+Posizionando il cursore sul nome di una classe e premendo <kbd>CTRL</kbd>+<kbd>H</kbd> puoi aprire una nuova finestra Type Hierarchy, che mostra tutte le classi genitore e figlie.
 
 ![Finestra Type Hierarchy](/assets/develop/misc/using-the-ide/analyzing_02.png)
 
@@ -83,7 +83,7 @@ Posizionando il cursore sul nome di una classe e premendo <kbd>CTRL</kbd> + <kbd
 
 ### Completamento del Codice {#code-completion}
 
-Il completamento del codice dovrebbe essere attivo in maniera predefinita. Otterrai consigli mentre scrivi il tuo codice in automatico. Se l'hai per errore chiuso o hai spostato il cursore ad un altro punto, puoi usare <kbd>CTRL</kbd> + <kbd>Spazio</kbd> per riaprirli nuovamente.
+Il completamento del codice dovrebbe essere attivo in maniera predefinita. Otterrai consigli mentre scrivi il tuo codice in automatico. Se l'hai per errore chiuso o hai spostato il cursore ad un altro punto, puoi usare <kbd>CTRL</kbd>+<kbd>Spazio</kbd> per riaprirli nuovamente.
 
 Per esempio, usando i Lambda, puoi scriverli velocemente usando questo metodo.
 
@@ -106,7 +106,7 @@ In un file di test Java, ti saranno fornite opzioni per generare metodi di test 
 ### Mostrare i Parametri {#displaying-parameters}
 
 La visualizzazione dei parametri dovrebbe essere attiva in maniera predefinita. Otterrai automaticamente i tipi e i nomi dei parametri mentre scrivi il tuo codice.
-Se li hai per errore chiusi o hai spostato il cursore ad un altro punto, puoi usare <kbd>CTRL</kbd> + <kbd>P</kbd> per riaprirli nuovamente.
+Se li hai per errore chiusi o hai spostato il cursore ad un altro punto, puoi usare <kbd>CTRL</kbd>+<kbd>P</kbd> per riaprirli nuovamente.
 
 Metodi e classi possono avere più implementazioni con parametri diversi, fenomeno detto Overloading. In questo modo puoi decidere quale implementazione vuoi usare, mentre scrivi la chiamata al metodo.
 
@@ -120,18 +120,18 @@ Tanti ambienti di sviluppo hanno una vasta gamma di strumenti per assistere ques
 
 ![Refactoring](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-È soprattutto utile abituarsi alla scorciatoia dello strumento di refactoring `Rename`, ovvero <kbd>Maiusc</kbd> + <kbd>F6</kbd>, poiché rinonimerai molte cose nel futuro. Usando questa funzione, ogni occorrenza del codice rinonimato sarà rinonimata e la sua funzionalità rimarrà intatta.
+È soprattutto utile abituarsi alla scorciatoia dello strumento di refactoring `Rename`, ovvero <kbd>Maiusc</kbd>+<kbd>F6</kbd>, poiché rinonimerai molte cose nel futuro. Usando questa funzione, ogni occorrenza del codice rinonimato sarà rinonimata e la sua funzionalità rimarrà intatta.
 
 ### Trova e Sostituisci i Contenuti di un File {#search-and-replace-file-content}
 
 A volte sono necessari strumenti più semplici per modificare le occorrenze del codice.
 
-| Combinazione                                      | Funzione                                                                                     |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| <kbd>CTRL</kbd> + <kbd>F</kbd>                    | Trova nel file corrente                                                                      |
-| <kbd>CTRL</kbd> + <kbd>R</kbd>                    | Sostituisci nel file corrente                                                                |
-| <kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Trova in uno scope più grande (e imposta un filtro di tipo di file)       |
-| <kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Sostituisci in uno scope più grande (e imposta un filtro di tipo di file) |
+| Combinazione                                   | Funzione                                                                                     |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| <kbd>CTRL</kbd>+<kbd>F</kbd>                   | Trova nel file corrente                                                                      |
+| <kbd>CTRL</kbd>+<kbd>F</kbd>                   | Sostituisci nel file corrente                                                                |
+| <kbd>CTRL</kbd>+<kbd>Maiusc</kbd>+<kbd>F</kbd> | Trova in uno scope più grande (e imposta un filtro di tipo di file)       |
+| <kbd>CTRL</kbd>+<kbd>Maiusc</kbd>+<kbd>R</kbd> | Sostituisci in uno scope più grande (e imposta un filtro di tipo di file) |
 
 Se attive, tutti questi strumenti permettono una ricerca più specifica usando le "[Regex](https://en.wikipedia.org/wiki/Regular_expression)".
 

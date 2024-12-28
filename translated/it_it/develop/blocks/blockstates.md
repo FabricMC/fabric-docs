@@ -31,7 +31,7 @@ I pilastri hanno due texture diverse, superiore e laterale - e usano il modello 
 
 Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/<mod id here>/textures/blocks`
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">le Texture</DownloadEntry>
 
 Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare due file di modelli separati:
 
@@ -97,7 +97,7 @@ Questo esempio invertirà la proprietà booleana `activated` quando il giocatore
 
 Prima di creare il file degli stati del blocco, dovrai fornire texture per entrambi gli stati del blocco, sia attivo sia inattivo, e con quelle anche il modello del blocco.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">le Texture</DownloadEntry>
 
 Sfrutta la tua conoscenza dei modelli dei blocchi per creare due modelli per il blocco: uno per lo stato attivo ed uno per quello inattivo. Quando avrai fatto ciò, puoi iniziare la creazione del file degli stati del blocco.
 
