@@ -66,16 +66,14 @@ It's worth taking a look at how you'd typically apply an effect to an entity.
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-/effect give @p fabric-docs-reference:tater
-\```
+effect give @p fabric-docs-reference:tater
+```
 :::
 
 To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, which takes in
 a `StatusEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
 
-```java
-var instance = new StatusEffectInstance(FabricDocsReferenceEffects.TATER, 5 * 20, 0, false, true, true);
-```
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | Argument    | Type                          | Description                                                                                                                                                                                                                   |
 |-------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
