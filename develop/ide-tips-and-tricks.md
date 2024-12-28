@@ -315,7 +315,7 @@ Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Cod
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
 
-For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea/getting-started.html).
+For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea/getting-started).
 Most of their posts are also applicable to Fabric's ecosystem.
 
 ---
