@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.FabricDocsReference;
+import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
 
@@ -44,6 +45,10 @@ public class ModBlocks {
 			), "prismarine_lamp", true
 	);
 	// :::4
+	public static final Block ENGINE_BLOCK = register(
+			new EngineBlock(AbstractBlock.Settings.create()), "engine", true
+	);
+
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
 		// Register the block and its item.
@@ -71,7 +76,7 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 		});
-	};
+	}
 
 	// :::1
 }

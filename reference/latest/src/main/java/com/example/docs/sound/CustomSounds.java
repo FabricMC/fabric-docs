@@ -14,6 +14,7 @@ public class CustomSounds {
 	// ITEM_METAL_WHISTLE is the name of the custom sound event
 	// and is called in the mod to use the custom sound
 	public static final SoundEvent ITEM_METAL_WHISTLE = registerSound("metal_whistle");
+	public static final SoundEvent ENGINE_LOOP = registerSound("engine");
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {

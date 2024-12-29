@@ -57,5 +57,6 @@
   "develop.misc.automatic-testing": "Automated Testing",
   "develop.sounds": "Sounds",
   "develop.sounds.using-sounds": "Playing Sounds",
-  "develop.sounds.custom": "Creating Custom Sounds"
+  "develop.sounds.custom": "Creating Custom Sounds",
+  "develop.sounds.dynamic-sounds": "Dynamic Sounds"
 }
