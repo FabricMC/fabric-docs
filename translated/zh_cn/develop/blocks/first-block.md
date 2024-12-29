@@ -3,6 +3,8 @@ title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
   - IMB11
+  - xEobardThawne
+  - its-miroma
 ---
 
 # 创建你的第一个方块{#creating-your-first-block}
@@ -23,7 +25,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 
-要做到这样，你可以创建占位的 `initialize` 方法，并在模组初始化器中调用以触发静态初始化。
+你可以添加一个 `initialize` 方法，并在模组的[初始化](./getting-started/project-structure#entrypoints)中调用以进行静态初始化。
 
 :::info
 如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
@@ -43,7 +45,7 @@ public class ModBlocks {
 
 和物品类似，方块会在构造函数中接收一个 `Block.Settings` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
-我们不会在这里提到所有选项——可以查看类本身来看看各种选项，应该能解释清楚的。
+这里不会把所有选项都提到——可以查看类本身来看看各种选项，应该能直接懂的。
 
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
@@ -79,17 +81,17 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
-你可以重启游戏，或者构建你的模组然后按 <kbd>F3</kbd> + <kbd>T</kbd> 以应用更改——你应该看到方块在创造模式物品栏中以及其他地方（例如统计屏幕）中有个名字了。
+你可以重启游戏，或者构建你的模组，然后在游戏里按 <kbd>F3</kbd> + <kbd>T</kbd> 以重新加载资源文件——你将会看到方块在创造模式物品栏里或者其他地方（例如统计屏幕）中有个名字了。
 
 ## 模型和纹理{#models-and-textures}
 
 所有方块纹理都可以在 `assets/<mod id here>/textures/block` 文件夹中找到——“Condensed Dirt”方块的示例纹理可以自由使用。
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
 要确保模型在游戏内显示，必须创建方块和物品模型，“Condensed Dirt”方块的方块和物品模型分别可以在下列地方找到：
 
@@ -118,7 +120,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
 
-重启游戏，或者通过<kbd>F3</kbd> + <kbd>T</kbd>重新加载以应用更改——你应该能够看到方块在物品栏内的纹理以及在世界中呈现：
+重启游戏，或者按下<kbd>F3</kbd> + <kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
 
 ![世界内有适当的纹理和模型的方块](/assets/develop/blocks/first_block_4.png)
 
@@ -150,6 +152,8 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 这个例子会将“Condensed Dirt”方块添加到 `shovel` 标签中。
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+
+如果应使用工具来挖掘此方块，则需要在方块属性（`Block.Settings`）中添加`.requiresTool()`，并添加相应的挖掘标签。
 
 ## 挖掘等级{#mining-levels}
 
