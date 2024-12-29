@@ -176,6 +176,7 @@ Selecting some text and using <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>↑ Up /
 In IntelliJ, the keybind for `Redo` may not be the usual <kbd>⌘/CTRL</kbd>+<kbd>Y</kbd> (Delete Line).
 Instead, it may be <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>. You can change this in the **Keymap**.
 
+<!-- markdownlint-disable-next-line search-replace -->
 For even more keyboard shortcuts, you can see [IntelliJ's documentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
 
 ## Comments {#comments}
@@ -315,7 +316,5 @@ Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Cod
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
 
-For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea).
+For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea/getting-started).
 Most of their posts are also applicable to Fabric's ecosystem.
-
----
