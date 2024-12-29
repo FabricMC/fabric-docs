@@ -38,9 +38,9 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-但是，进到游戏后，你会发现我们的物品不存在！ 这是因为你还没有静态初始化类。
+然而，如果现在尝试运行修改的客户端，会发现我们的物品在游戏中还不存在！ 这是因为你还没有静态初始化类。
 
-你可以在你的类中添加一个 public static 的初始化方法，然后在你的 `ModInitializer` 类中调用。 当前，方法不需要里面有任何东西。
+要这样做，你需要在你的类中添加静态的 initialize 方法，然后在你的[模组的初始化类](./getting-started/project-structure#entrypoints)中调用。 当前，方法不需要里面有任何东西。
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -78,7 +78,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -90,7 +90,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 例如，将示例纹理用于 `suspicious_substance.png`。
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">纹理</DownloadEntry>
 
 重启或重新加载游戏时，你会发现物品还没有纹理，这是因为需要添加一个使用了此纹理的模型。
 
