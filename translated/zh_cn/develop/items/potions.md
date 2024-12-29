@@ -18,7 +18,7 @@ authors:
 
 ### 创建物品{#creating-the-potion}
 
-让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用入口点类来持有这个字段。
+让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用 `ModInitializer`——实现这个类来持有这个字段。
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
