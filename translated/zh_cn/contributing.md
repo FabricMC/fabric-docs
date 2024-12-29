@@ -19,15 +19,19 @@ description: Fabric 文档贡献指南
 
 如果想将文档翻译为你的语言，可以在 [Fabric Crowdin 页面](https://zh.crowdin.com/project/fabricmc)翻译。
 
-## 贡献内容{#contributing-content}
+<!-- markdownlint-disable-next-line titlecase-rule -->
+
+## <Badge type="tip">new-content</Badge> 贡献内容{#contributing-content}
 
 贡献内容是贡献 Fabric 文档的主要方式。
 
-所有内容贡献都会经历三个阶段：
+所有内容贡献都经过以下步骤，每个步骤都与一个标签相关联：
 
-1. 扩展指南（如果可能）
-2. 内容验证
-3. 清理（语法等）
+1. <Badge type="tip">本地</Badge> 准备您的更改并推出一个PR
+2. <Badge type="tip">stage:expansion</Badge>：扩展指南（如果可能）
+3. <Badge type="tip">stage:verification</Badge>：内容验证
+4. <Badge type="tip">步骤：整理中</Badge>：语法检查中...
+5. <Badge type="tip">步骤：准备</Badge>：准备合并！
 
 所有的内容都应当遵循我们的[样式指南](#style-guidelines)。
 
@@ -44,7 +48,7 @@ description: Fabric 文档贡献指南
 
 可以在 GitHub 网站界面上做出更改，也可以本地开发和预览网站。
 
-#### <Badge type="tip">本地</Badge>克隆你的复刻{#clone-your-fork}
+#### 克隆你的复刻{#clone-your-fork}
 
 如果想要本地克隆复刻，需要安装 [Git](https://git-scm.com/)。
 
@@ -55,7 +59,7 @@ description: Fabric 文档贡献指南
 git clone https://github.com/your-username/fabric-docs.git
 ```
 
-#### <Badge type="tip">本地</Badge>安装依赖{#install-dependencies}
+#### 安装依赖{#install-dependencies}
 
 **如果想要本地预览更改，需要安装 [Node.js 18+](https://nodejs.org/en/)**
 
@@ -65,7 +69,7 @@ git clone https://github.com/your-username/fabric-docs.git
 npm install
 ```
 
-#### <Badge type="tip">本地</Badge>运行开发服务器{#run-the-development-server}
+#### 运行开发服务器{#run-the-development-server}
 
 这将允许您在本地地址 `localhost:3000` 预览您的更改，并自动在修改时重载页面。
 
@@ -75,7 +79,7 @@ npm run dev
 
 现在可以从浏览器访问 `http://localhost:5173` 打开和浏览网站。
 
-#### <Badge type="tip">本地</Badge>构建网站{#building-the-website}
+#### 构建网站{#building-the-website}
 
 这会把所有 Markdown 文件编译为静态 HTML 文件并保存至 `.vitepress/dist`：
 
@@ -83,7 +87,7 @@ npm run dev
 npm run build
 ```
 
-#### <Badge type="tip">本地</Badge>预览构建的网站{#previewing-the-built-website}
+#### 预览构建的网站{#previewing-the-built-website}
 
 这将在端口 `4173` 启动本地服务器并展示 `.vitepress/dist` 中的网页：
 
@@ -91,7 +95,7 @@ npm run build
 npm run preview
 ```
 
-#### <Badge type="tip">本地</Badge>打开拉取请求{#opening-a-pull-request}
+#### 打开拉取请求{#opening-a-pull-request}
 
 对你的更改满意了，就可以 `推送（push）` 你的更改。
 
@@ -103,25 +107,34 @@ git push
 
 然后，跟随 `git push` 的输出打开拉取请求。
 
-### 2. 需要时扩展指南{#2-guidance-for-expansion-if-needed}
+### 2. <Badge type="tip">stage:expansion</Badge> 需要时扩展指南{#2-guidance-for-expansion-if-needed}
 
-如果文档团队认为你需要扩展拉取请求，团队的成员会给你的拉取请求添加 `can-expand` 标签，并附上一条评论解释为什么他认为可以扩展。 如果同意建议，可以扩展你的拉取请求。
+如果文档团队认为您需要拓展您的拉去请求，团队成员将添加 <Badge type="tip">stage:expansion</Badge> 标签到您的拉去请求，并附上一条评论解释为什么他认为可以拓展。 如果同意建议，可以扩展你的拉取请求。
 
-不用为扩展拉取请求感觉到压力。 如果不想扩展您的拉取请求，可以简单地请求移除 `can-expansion` 标签。
+如果不想扩展您的拉取请求，但乐于让其他人在未来扩展它，最好在[议题页面](https://github.com/FabricMC/fabric-docs/issues)创建议题，并解释您想如何扩展。 之后文档制作团队将会在你的PR中加入<Badge type="tip">帮助-追踪</Badge>标签
 
-如果不想扩展您的拉取请求，但乐于让其他人在未来扩展它，最好在[议题页面](https://github.com/FabricMC/fabric-docs/issues)创建议题，并解释您想如何扩展。
+### 3. <Badge type="tip">stage:verification</Badge> 内容验证{#3-content-verification}
 
-### 3. 内容验证{#3-content-verification}
+这是最重要的阶段，因为这能确保内容准确且遵循 Fabric 文档的样式指南。
 
-所有添加内容的拉取请求都会经过内容验证，这是最重要的阶段，因为这能确保内容准确且遵循 Fabric 文档的样式指南。
+在这一步，以下问题应被回答：
 
-### 4. 清理{#4-cleanup}
+- 所有内容都正确吗？
+- 所有内容都是最新的吗？
+- 内容是否涵盖所有情况，例如不同的操作系统？
 
-这个阶段是文档团队会修正任何语法问题并在合并拉取请求之前进行他们认为必要的任何其他修改的时候！
+### 4. <Badge type="tip">stage:cleanup</Badge> 清理{#4-cleanup}
 
-## 贡献网页框架{#contributing-framework}
+在这一步，会发生以下内容：
 
-“框架”指的是网站的内部结构，任何修改网站框架的拉取请求都应该用 `framework` 标签标记。
+- 使用[LanguageTool](https://languagetool.org/)来修复一切语法问题
+- 使用 [`markdownlint`](https://github.com/DavidAnson/markdownlint) 检查所有 Markdown 文件
+- 使用[检查工具](https://checkstyle.sourceforge.io/)来格式化所有Java代码
+- 其它杂项翻译或优化
+
+## <Badge type="tip">framework</Badge> 贡献网页框架{#contributing-framework}
+
+“框架”指的是网站的内部结构，任何修改网站框架的拉取请求都应该用 <Badge type="tip">framework</Badge> 标签标记。
 
 您应该在咨询了 [Fabric Discord](https://discord.gg/v6v4pMv) 上的文档团队或通过一个 issue 后再发起框架相关的拉取请求。
 
@@ -136,8 +149,6 @@ git push
 ### 用美式英语写原文{#write-the-original-in-american-english}
 
 所有原始文档都使用英文书写，遵循美国的语法规则。
-
-可以使用 [LanguageTool](https://languagetool.org/) 检查你的语法，不要过于担心。 我们的文档团队会在清理阶段审查并纠正语法。 不过，一开始就努力做到正确可以为我们节省时间。
 
 ### 给 Frontmatter 添加数据{#add-data-to-the-frontmatter}
 
