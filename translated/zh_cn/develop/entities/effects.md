@@ -7,6 +7,7 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - Manchick0
 authors-nogithub:
   - siglong
   - tao0lu
@@ -42,7 +43,7 @@ authors-nogithub:
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 
-<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">示例纹理</DownloadEntry>
 
 ### 翻译{#translations}
 
@@ -54,10 +55,31 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 }
 ```
 
-### 测试{#testing}
+### 应用效果{#applying-the-effect}
 
-使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。
-使用 `/effect clear @p fabric-docs-reference:tater` 移除效果。
+不妨看看你会如何将效果应用到实体。
+
+::: tip
+For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
+
+```mcfunction
+effect give @p fabric-docs-reference:tater
+```
+
+:::
+
+要在代码内部应用状态效果，需要使用 `LivingEntity#addStatusEffect` 方法，接收一个 `StatusEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
+
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+
+| 参数          | 类型                            | 描述                                                                          |
+| ----------- | ----------------------------- | --------------------------------------------------------------------------- |
+| `effect`    | `RegistryEntry<StatusEffect>` | 代表效果的注册表项。                                                                  |
+| `duration`  | `int`                         | 效果的时长，单位为**刻**，而非**秒**                                                      |
+| `amplifier` | `int`                         | 效果等级的倍率。 不是与效果的**等级**直接对应，而是有增加的。 比如，`amplifier` 为 `4` => 等级为 `5`           |
+| `ambient`   | `boolean`                     | 这个有些棘手， 基本上是指定效果是由环境（比如**信标**）施加的，没有直接原因。 如果是 `true`，HUD内的效果图标会以青色覆盖层的形式出现。 |
+| `particles` | `boolean`                     | 是否显示粒子。                                                                     |
+| `icon`      | `boolean`                     | 是否在 HUD 中显示效果的图标。 效果会在物品栏中显示，无论其设置的属性。                                      |
 
 :::info
 要创建使用此效果的药水，请参阅[药水](../items/potions)指南。
