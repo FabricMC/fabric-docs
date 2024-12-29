@@ -161,7 +161,7 @@ MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos
 MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ORIGIN);
 ```
 
-需要注意，可选字段会忽略反序列化过程中可能发生的任何错误而不报错。 这意味着如果这个字段存在，但值无效，该字段总是会被反序列化为默认值。
+需要注意，可选字段会忽略反序列化过程中可能发生的任何错误而不报错。 这意味着如果字段存在，但值无效，该字段总是会被反序列化为默认值。
 
 **从 1.20.2 开始**，Minecraft 自己 (不是 DFU！) 却确实提供`Codecs#createStrictOptionalFieldCodec`，
 如果字段值无效，则反序列化失败。
@@ -189,7 +189,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 `Codec.pair` 将两个 codec `Codec<A>` 和 `Codec<B>` 合并为 `Codec<Pair<A, B>>`。 请记住，它只能与序列化到特定字段的Codec配合使用，例如[转换的`MapCodec`](#mapcodec)或
 [记录Codec](#merging-codecs-for-record-like-classes)。
-结果 codec 将序列化为结合了两个使用的 codec 字段的 map。
+结果的 codec 将序列化为结合了两个使用的 codec 字段的 map。
 
 例如，运行这些代码：
 
@@ -388,7 +388,7 @@ Codec<ListNode> codec = Codec.recursive(
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }
