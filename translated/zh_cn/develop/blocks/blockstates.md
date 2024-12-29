@@ -31,7 +31,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 同样，纹理文件可以在 `assets/<mod id here>/textures/block` 中找到。
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">纹理</DownloadEntry>
 
 由于柱方块有两个位置，水平和垂直，我们需要创建两个单独的模型文件：
 
@@ -96,7 +96,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 创建方块状态前，我们需要为方块的激活的和未激活的状态都提供纹理，以及方块模型。
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">纹理</DownloadEntry>
 
 用你的方块模型知识，创建方块的两个模型：一个用于激活的状态，一个用于未激活的状态。 完成后，就可以开始创建方块状态文件了。
 
