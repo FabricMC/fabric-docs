@@ -1,7 +1,5 @@
 package com.example.docs.block;
 
-import com.example.docs.block.custom.DuplicatorBlock;
-
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.PillarBlock;
@@ -16,6 +14,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.custom.CounterBlock;
+import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;

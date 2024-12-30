@@ -1,7 +1,5 @@
 package com.example.docs.block.entity;
 
-import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -12,6 +10,7 @@ import net.minecraft.util.Identifier;
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
+import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 
 public class ModBlockEntities {
