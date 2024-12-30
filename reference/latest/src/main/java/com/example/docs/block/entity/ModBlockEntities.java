@@ -7,6 +7,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
@@ -21,10 +23,10 @@ public class ModBlockEntities {
 			register("counter", CounterBlockEntity::new, ModBlocks.COUNTER_BLOCK);
 
 	private static <T extends BlockEntity> BlockEntityType<T> register(String name,
-																	BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
+																	FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
 																	Block... blocks) {
 		Identifier id = Identifier.of(FabricDocsReference.MOD_ID, name);
-		return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
+		return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
 
 	// :::1

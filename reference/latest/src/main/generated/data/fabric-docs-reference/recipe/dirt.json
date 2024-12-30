@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:coarse_dirt"
-    }
+    "minecraft:coarse_dirt"
   ],
   "result": {
     "count": 1,

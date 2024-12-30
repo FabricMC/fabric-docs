@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "multi_bench",
   "key": {
-    "l": {
-      "tag": "minecraft:logs"
-    },
-    "w": {
-      "tag": "minecraft:wool"
-    }
+    "l": "#minecraft:logs",
+    "w": "#minecraft:wool"
   },
   "pattern": [
     "ww",
