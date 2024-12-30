@@ -65,7 +65,7 @@ Command<ServerCommandSource> command = context -> {
 关于如何注册回调，请查看[事件](../events) 指南。
 :::
 
-这个事件必须在你的模组的初始化器中注册。
+该事件应要在你的模组的[入口点](./getting-started/project-structure#entrypoints)中注册。
 
 这个回调有三个参数：
 
@@ -73,7 +73,7 @@ Command<ServerCommandSource> command = context -> {
 - `CommandRegistryAccess registryAccess` - 为可能传入特定命令参数的注册表提供抽象方法
 - `CommandManager.RegistrationEnvironment environment` - 识别命令将要注册到的服务器的类型。
 
-在模组的初始化器中，我们只注册两个简单的命令：
+在模组的入口点中，我们只注册两个简单的命令：
 
 @[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -88,7 +88,7 @@ Command<ServerCommandSource> command = context -> {
 要执行这个命令，必须输入 `/test_command`，这是大小写敏感的。
 
 :::info
-这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后，给 `.execute()` 传入方法引用。 这样做是为了更清晰。
+这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后给 `.execute()` 传入方法引用。 这样做是为了更清晰。
 :::
 
 ### 注册环境{#registration-environment}

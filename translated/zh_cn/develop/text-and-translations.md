@@ -3,12 +3,13 @@ title: 文本和翻译
 description: Minecraft 处理格式化文本和翻译的全面文档。
 authors:
   - IMB11
+  - LordEnder-Kitty
 ---
 
 # 文本和翻译{#text-and-translations}
 
 Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象定义的。
-使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够访问翻译系统，使得将任何界面元素翻译成不同语言都变得容易。
+使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 
 如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Text` 对象的 json 呈现，可以使用 `Text.Serializer` 互相转换。
 
@@ -18,7 +19,7 @@ Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象�
 
 这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
 
-这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的字类，可以轻易地格式化和连接。 这个后面会有更多。
+这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的子类，可以轻易地格式化和连接。 这个后面会有更多。
 
 ```java
 Text literal = Text.of("Hello, world!");
@@ -44,6 +45,36 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 {
   "my_mod.text.hello": "Hello!",
   "my_mod.text.bye": "Goodbye :("
+}
+```
+
+如果想在翻译中使用变量（类似于在死亡消息中可以在翻译中使用涉及的玩家和物品），可以将这些变量作为参数添加进去。 想添加多少参数都可以。
+
+```java
+Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+```
+
+在翻译中，可以像这样引用这些变量：
+
+```json
+{
+  "my_mod.text.hello": "%1$s said hello!"
+}
+```
+
+在游戏中，%1\$s 会被替换为你在代码中引用的玩家的名字。 使用 `player.getDisplayName()` 会使用鼠标悬停在聊天消息中的名字上时，以提示框形式出现实体的额外信息，相比之下使用 `player.getName()` 只会得到名字但不显示额外细节。 对物品堆也是类似，使用 `stack.toHoverableText()`。
+
+至于 %1\$s 都是指什么，你要知道的就是数字对应的你尝试使用的哪个变量。 比如说你有使用三个变量。
+
+```java
+Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+```
+
+如果要引用，比如在这里是引用谁是攻击者，应该使用 %2\$s，因为这是我们传入的第二个变量。 类似地，%3\$s 引用的是物品堆。 有这些额外参数的翻译可能会像这样：
+
+```json
+{
+  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
 }
 ```
 

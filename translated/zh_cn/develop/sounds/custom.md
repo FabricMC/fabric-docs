@@ -39,7 +39,7 @@ authors:
 
 ## 注册自定义声音{#registering-the-custom-sound}
 
-要将自定义声音添加到模组中，请在实现了 `ModInitializer` 入口点的类中注册一个 SoundEvent。
+要将自定义声音添加到模组，在你的[模组的初始化器](./getting-started/project-structure#entrypoints)中注册 SoundEvent。
 
 ```java
 Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
@@ -54,7 +54,7 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-如此，在实现了 `ModInitializer` 的入口点类中，只需调用一行即可注册所有的自定义 SoundEvents。
+如此，模组的初始化器只需实现一行即可注册所有的自定义 SoundEvents。
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 

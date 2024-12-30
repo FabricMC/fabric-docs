@@ -44,7 +44,7 @@ description: 学习如何创建带有复杂参数的命令。
 您需要在服务端和客户端都注册自定义参数类型，否则命令不会生效！
 :::
 
-您可以在你的模组的初始化方法 `onInitialize` 中使用 `ArgumentTypeRegistry` 类来注册：
+你可以在你的模组[入口点](./getting-started/project-structure#entrypoints)中的初始化方法 `onInitialize` 中使用 `ArgumentTypeRegistry` 类来注册：
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 

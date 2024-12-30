@@ -32,11 +32,16 @@ authors:
 
 如前所述，`fabric.mod.json` 文件包含一个名为 `entrypoints` 的字段——该字段用于指定你的模组提供的入口点。
 
-模组开发模板生成器默认创建 `main` 和 `client` 入口点——`main` 入口点用于双端共用部分，`client` 入口点用于客户端特定部分。 这些入口点将会在游戏启动时依次调用。
+默认情况下，模板模组生成器会同时创建 `main` 和 `client` 入口点：
+
+- `main`入口点用于通用代码，它包含在一个实现了 `ModInitializer` 的类中；
+- `client`入口点用于特殊的仅客户端的代码，并且其实现 `ClientModInitializer`。
+
+这些入口点将会在游戏启动时依次调用。
+
+这是一个简单的 `main` 入口点的使用示例，会在游戏开始时记录一条消息到控制台：
 
 @[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
-
-上面是一个简单的 `main` 入口点的使用示例，会在游戏开始时记录一条消息到控制台。
 
 ## `src/main/resources`{#src-main-resources}
 

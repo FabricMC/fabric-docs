@@ -13,7 +13,7 @@ authors:
 
 我们会添加新的火花粒子，模仿末地烛的粒子移动。
 
-首先需要在你的模组初始化类中，使用你的模组 id，创建一个 `ParticleType`。
+首先，需要在你的[模组初始化器](./getting-started/project-structure#entrypoints)中，使用你有模组 id，注册 `ParticleType`。
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -21,7 +21,7 @@ authors:
 
 ## 客户端注册{#client-side-registration}
 
-将粒子注册到 `ModInitializer` 入口点后，还需要将粒子注册到 `ClientModInitializer` 入口点。
+在模组的初始化器中注册粒子后，还需要在客户端的初始化器中注册粒子。
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 

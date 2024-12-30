@@ -18,13 +18,11 @@ authors:
 
 新的模组可能需要新版本的 Fabric Loader 才能运行，所以保持更新很重要，从而确保能够使用最新的模组。
 
-<!-- Include steps from installing guide, no need to repeat them. -->
+<!--@include: ./installing-fabric.md#common-->
 
-<!--@include: ./installing-fabric.md{12,41}-->
+要更新 Fabric，简单地确认游戏版本和加载器版本是正确的，然后点击 `安装` 。
 
-更新 Fabric，简单确认游戏版本和 Loader 版本是正确的，然后点击 `安装` 。
-
-:::warning 重要内容！
+:::warning 重要
 **运行安装程序时，请确保没有选中“创建新的启动器配置”，否则将创建新的配置文件，而这种情况下我们不需要。**
 :::
 
