@@ -1,4 +1,4 @@
-package com.example.docs.damage;
+package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -9,39 +9,20 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataWriter;
 import net.minecraft.entity.damage.DamageScaling;
 import net.minecraft.entity.damage.DamageType;
-import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
-import com.example.docs.data.EnchantmentGenerator;
+import com.example.docs.damage.FabricDocsReferenceDamageTypes;
 
-public class FabricDocsReferenceDamageTypesDataGenerator implements DataGeneratorEntrypoint {
+public class FabricDocsReferenceDamageTypesProvider {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
 
-	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.DAMAGE_TYPE, registerable -> {
-			registerable.register(FabricDocsReferenceDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
-		});
-	}
-
-	@Override
-	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-
-		pack.addProvider(TaterDamageTypesGenerator::new);
-		pack.addProvider(TaterDamageTypeTagGenerator::new);
-		pack.addProvider(EnchantmentGenerator::new);
-	}
-
-	private static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
+	public static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
 		TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
 			super(output, RegistryKeys.DAMAGE_TYPE, registriesFuture);
 		}
@@ -52,7 +33,7 @@ public class FabricDocsReferenceDamageTypesDataGenerator implements DataGenerato
 		}
 	}
 
-	private static class TaterDamageTypesGenerator implements DataProvider {
+	public static class TaterDamageTypesGenerator implements DataProvider {
 		private final DataOutput.PathResolver path;
 
 		TaterDamageTypesGenerator(FabricDataOutput fabricDataOutput) {

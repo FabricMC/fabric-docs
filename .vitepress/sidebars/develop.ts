@@ -206,6 +206,36 @@ export default [
     ],
   },
   {
+	  text: "develop.dataGeneration",
+	  collapsed: true,
+	  items: [
+		{
+			text: "develop.dataGeneration.setup",
+			link: "/develop/data-generation/setup"
+		},
+		{
+			text: "develop.dataGeneration.tags",
+			link: "/develop/data-generation/tags"
+		},
+		{
+			text: "develop.dataGeneration.translations",
+			link: "/develop/data-generation/translations"
+		},
+		{
+			text: "develop.dataGeneration.advancements",
+			link: "/develop/data-generation/advancements"
+		},
+		{
+			text: "develop.dataGeneration.recipes",
+			link: "/develop/data-generation/recipes"
+		},
+		{
+			text: "develop.dataGeneration.lootTables",
+			link: "/develop/data-generation/loot-tables"
+		}
+	  ]
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [

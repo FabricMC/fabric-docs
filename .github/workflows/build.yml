@@ -28,6 +28,10 @@ jobs:
         working-directory: ./reference
       - run: ./gradlew runDatagen --stacktrace --warning-mode fail
         working-directory: ./reference
+      - name: Check resources
+        run: |
+          git status
+          if [ -n "$(git status --porcelain)" ]; then exit 1; fi
       - uses: Juuxel/publish-checkstyle-report@v1
         if: ${{ failure() }}
         with:
