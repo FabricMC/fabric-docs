@@ -57,14 +57,14 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::5
 		Identifier texture = Identifier.of("minecraft", "textures/block/deepslate.png");
-		// texture, x, y, u, v, width, height, textureWidth, textureHeight
+		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
 		context.drawTexture(RenderLayer::getGuiTextured, texture, 90, 90, 0, 0, 16, 16, 16, 16);
 		// :::5
 
 		// :::6
 		Identifier texture2 = Identifier.of("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
-		// texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
+		// renderLayer, texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
 		context.drawTexture(RenderLayer::getGuiTextured, texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);
 		// :::6
 
