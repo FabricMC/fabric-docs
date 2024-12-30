@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.FabricDocsReference;
+import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
@@ -49,6 +50,12 @@ public class ModBlocks {
 			new EngineBlock(AbstractBlock.Settings.create()), "engine", true
 	);
 
+	// :::5
+	public static final Block COUNTER_BLOCK = register(
+			new CounterBlock(AbstractBlock.Settings.create()), "counter_block", true
+	);
+	// :::5
+
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
 		// Register the block and its item.
@@ -75,6 +82,7 @@ public class ModBlocks {
 		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
+			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
 		});
 	}
 
