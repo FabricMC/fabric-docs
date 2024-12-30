@@ -24,7 +24,8 @@
 	  "client": [
 		"com.example.docs.FabricDocsReferenceClient",
 		"com.example.docs.client.command.FabricDocsReferenceClientCommands",
-		"com.example.docs.FabricDocsDynamicSound"
+		"com.example.docs.FabricDocsDynamicSound",
+	    "com.example.docs.FabricDocsBlockEntityRenderer"
 	  ],
 	  "fabric-datagen": [
 		"com.example.docs.FabricDocsReferenceDataGenerator",

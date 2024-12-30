@@ -106,6 +106,12 @@ export default [
       {
         text: "develop.blocks.block-entities",
         link: "/develop/blocks/block-entities",
+        items: [
+          {
+            text: "develop.blocks.block-entity-renderer",
+            link: "/develop/blocks/block-entity-renderer",
+          }
+        ]
       }
     ],
   },
