@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
+import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 

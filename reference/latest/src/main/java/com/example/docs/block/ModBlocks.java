@@ -25,10 +25,10 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.custom.CounterBlock;
+import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
-import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.item.ModItems;
 
 // :::1

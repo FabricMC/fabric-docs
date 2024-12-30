@@ -1,9 +1,7 @@
 package com.example.docs.block.custom;
 
-import com.example.docs.block.entity.ModBlockEntities;
-import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
-
 import com.mojang.serialization.MapCodec;
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -17,10 +15,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-
 import net.minecraft.world.World;
 
-import org.jetbrains.annotations.Nullable;
+import com.example.docs.block.entity.ModBlockEntities;
+import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 
 // :::1
 public class DuplicatorBlock extends BlockWithEntity {
@@ -55,12 +53,14 @@ public class DuplicatorBlock extends BlockWithEntity {
 		if (!(world.getBlockEntity(pos) instanceof DuplicatorBlockEntity duplicatorBlockEntity)) {
 			return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
 		}
+
 		// :::2
 
 		// :::3
 		if (!duplicatorBlockEntity.canInsert(0, stack, hit.getSide())) {
 			return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
 		}
+
 		// :::3
 
 		// :::2
@@ -71,6 +71,7 @@ public class DuplicatorBlock extends BlockWithEntity {
 
 		return ActionResult.SUCCESS;
 	}
+
 	// :::2
 
 	@Nullable

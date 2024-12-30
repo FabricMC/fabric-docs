@@ -12,7 +12,6 @@ import net.minecraft.util.collection.DefaultedList;
  * @author Juuz
  */
 public interface ImplementedInventory extends Inventory {
-
 	/**
 	 * Retrieves the item list of this inventory.
 	 * Must return the same instance every time it's called.
@@ -49,10 +48,12 @@ public interface ImplementedInventory extends Inventory {
 	default boolean isEmpty() {
 		for (int i = 0; i < size(); i++) {
 			ItemStack stack = getStack(i);
+
 			if (!stack.isEmpty()) {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
@@ -73,9 +74,11 @@ public interface ImplementedInventory extends Inventory {
 	@Override
 	default ItemStack removeStack(int slot, int count) {
 		ItemStack result = Inventories.splitStack(getItems(), slot, count);
+
 		if (!result.isEmpty()) {
 			markDirty();
 		}
+
 		return result;
 	}
 
@@ -98,6 +101,7 @@ public interface ImplementedInventory extends Inventory {
 	@Override
 	default void setStack(int slot, ItemStack stack) {
 		getItems().set(slot, stack);
+
 		if (stack.getCount() > stack.getMaxCount()) {
 			stack.setCount(stack.getMaxCount());
 		}
@@ -129,4 +133,3 @@ public interface ImplementedInventory extends Inventory {
 		return true;
 	}
 }
-

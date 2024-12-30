@@ -1,8 +1,6 @@
 package com.example.docs.block.entity.custom;
 
-import com.example.docs.block.entity.ModBlockEntities;
-
-import com.example.docs.inventory.ImplementedInventory;
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,7 +15,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-import org.jetbrains.annotations.Nullable;
+import com.example.docs.block.entity.ModBlockEntities;
+import com.example.docs.inventory.ImplementedInventory;
 
 /*
 The following is a dummy piece of code to not have `implements SidedInventory` in the first code block where we implement `ImplementedInventory`.
@@ -40,6 +39,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 	public DefaultedList<ItemStack> getItems() {
 		return items;
 	}
+
 	// :::1
 
 	// :::2
@@ -54,6 +54,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 		Inventories.writeNbt(nbt, items, registryLookup);
 		super.writeNbt(nbt, registryLookup);
 	}
+
 	// :::2
 
 	// :::3
@@ -66,6 +67,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 			Block.dropStack(world, blockPos, stack);
 		}
 	}
+
 	// :::3
 
 	// :::4
@@ -83,6 +85,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 	public boolean canExtract(int slot, ItemStack stack, Direction dir) {
 		return true;
 	}
+
 	// :::4
 
 	// :::1
