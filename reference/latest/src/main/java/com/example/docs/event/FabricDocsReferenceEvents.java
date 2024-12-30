@@ -9,6 +9,7 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 
 import net.fabricmc.api.ModInitializer;
@@ -17,7 +18,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 // Class to contain all mod events.
 public class FabricDocsReferenceEvents implements ModInitializer {
-	private static final RegistryKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableKey();
+	private static final RegistryKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableKey().get();
 
 	@Override
 	public void onInitialize() {
@@ -26,8 +27,8 @@ public class FabricDocsReferenceEvents implements ModInitializer {
 			BlockState state = world.getBlockState(pos);
 
 			// Manual spectator check is necessary because AttackBlockCallbacks fire before the spectator check
-			if (!player.isSpectator() && player.getMainHandStack().isEmpty() && state.isToolRequired()) {
-				player.damage(world.getDamageSources().generic(), 1.0F);
+			if (!player.isSpectator() && player.getMainHandStack().isEmpty() && state.isToolRequired() && world instanceof ServerWorld serverWorld) {
+				player.damage(serverWorld, world.getDamageSources().generic(), 1.0F);
 			}
 
 			return ActionResult.PASS;

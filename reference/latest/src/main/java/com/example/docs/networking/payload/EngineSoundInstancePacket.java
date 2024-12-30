@@ -18,7 +18,7 @@ public record EngineSoundInstancePacket(boolean shouldStart, BlockPos blockEntit
 	}
 
 	public static final PacketCodec<RegistryByteBuf, EngineSoundInstancePacket> CODEC = PacketCodec.tuple(
-			PacketCodecs.BOOL, EngineSoundInstancePacket::shouldStart,
+			PacketCodecs.BOOLEAN, EngineSoundInstancePacket::shouldStart,
 			BlockPos.PACKET_CODEC, EngineSoundInstancePacket::blockEntityPos,
 			EngineSoundInstancePacket::new
 	);

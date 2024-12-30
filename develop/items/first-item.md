@@ -121,7 +121,7 @@ For example, if you want to make your item compostable, you can use the `Compost
 
 @[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Alternatively, if you want to make your item a fuel, you can use the `FuelRegistry` class:
+Alternatively, if you want to make your item a fuel, you can use the `FuelRegistryEvents.BUILD` event:
 
 @[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

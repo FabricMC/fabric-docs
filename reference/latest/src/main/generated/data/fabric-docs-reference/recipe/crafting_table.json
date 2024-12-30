@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "multi_bench",
   "key": {
-    "l": {
-      "tag": "minecraft:logs"
-    }
+    "l": "#minecraft:logs"
   },
   "pattern": [
     "ll",

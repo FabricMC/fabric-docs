@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "fabric-docs-reference:item/suspicious_substance"
+  }
+}

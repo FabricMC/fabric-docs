@@ -31,7 +31,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
 		// Our new enchantment, "Thundering."
 		register(entries, ModEnchantmentEffects.THUNDERING, Enchantment.builder(
 				Enchantment.definition(
-					registries.getWrapperOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+					registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
 					// this is the "weight" or probability of our enchantment showing up in the table
 					10,
 					// the maximum level of the enchantment

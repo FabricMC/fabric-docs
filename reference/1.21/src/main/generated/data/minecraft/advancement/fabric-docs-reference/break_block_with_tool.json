@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:fabric-docs-reference/get_dirt",
+  "criteria": {
+    "break_block_with_tool": {
+      "trigger": "minecraft:fabric-docs-reference/use_tool"
+    }
+  },
+  "display": {
+    "description": "That's not a shovel (probably)",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:diamond_shovel"
+    },
+    "title": "Not a Shovel"
+  },
+  "requirements": [
+    [
+      "break_block_with_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

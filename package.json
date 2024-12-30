@@ -4,7 +4,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "ts-node ./.vitepress/update.ts"
+    "bump": "tsx ./.vitepress/update.ts"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
@@ -15,7 +15,7 @@
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
     "prompts": "^2.4.2",
-    "ts-node": "^10.9.2"
+    "tsx": "^4.19.2"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.21.3"

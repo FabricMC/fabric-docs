@@ -20,7 +20,7 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 
 			// "lerp" simply means "linear interpolation", which is a fancy way of saying "blend".
 			float lerpedAmount = MathHelper.abs(MathHelper.sin(totalTickDelta / 50F));
-			int lerpedColor = ColorHelper.Argb.lerp(lerpedAmount, color, targetColor);
+			int lerpedColor = ColorHelper.lerp(lerpedAmount, color, targetColor);
 
 			// Draw a square with the lerped color.
 			// x1, x2, y1, y2, z, color

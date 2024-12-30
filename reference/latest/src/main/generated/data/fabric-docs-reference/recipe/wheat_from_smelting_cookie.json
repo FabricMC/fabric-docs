@@ -4,9 +4,7 @@
   "cookingtime": 300,
   "experience": 0.1,
   "group": "food_to_wheat",
-  "ingredient": {
-    "item": "minecraft:cookie"
-  },
+  "ingredient": "minecraft:cookie",
   "result": {
     "id": "minecraft:wheat"
   }
