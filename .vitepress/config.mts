@@ -56,7 +56,7 @@ export default defineVersionedConfig(
     transformPageData,
 
     versioning: {
-      latestVersion: "1.21",
+      latestVersion: "1.21.4",
       rewrites: {
         localePrefix: "translated",
       },

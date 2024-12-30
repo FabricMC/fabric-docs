@@ -4,7 +4,7 @@ import { ref, watchEffect } from "vue";
 
 const data = useData();
 const route = useRoute();
-const LATEST = "1.21";
+const LATEST = "1.21.4";
 
 const path = ref<string>("");
 const text = ref<string>("");
