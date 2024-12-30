@@ -28,14 +28,7 @@
       "com.example.docs.FabricDocsDynamicSound"
     ],
     "fabric-datagen": [
-      "com.example.docs.datagen.FabricDocsReferenceDataGenerator",
-      "com.example.docs.damage.FabricDocsReferenceDamageTypesDataGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceItemTagGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceAdvancementGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceRecipeGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceLangGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceLootTableGenerator",
-      "com.example.docs.datagen.FabricDocsReferenceEnchantmentGenerator"
+      "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
     ]
   },
   "mixins": [

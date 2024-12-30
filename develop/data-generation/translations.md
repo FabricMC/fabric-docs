@@ -28,9 +28,9 @@ First, we'll make our **provider**. Remember, providers are what actually genera
 You will need a different provider for each langauge you want to generate (eg. one `ExampleEnglishLangProvider` and one `ExamplePirateLangProvider`).
 :::
 
-To finish setup, add this provider to your `DataGeneratorEntrypoint`.
+To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transcludeWith=:::datagen-translations:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceLangGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creating Translations {#creating-translations}
 

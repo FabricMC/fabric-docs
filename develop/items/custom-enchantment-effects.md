@@ -43,9 +43,9 @@ Within this class, we'll first register a new enchantment, and then use the `con
 
 Before proceeding, you should ensure your project is configured for data generation; if you are unsure, [view the respective docs page](../data-generation/setup).
 
-Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` class.
+Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` method.
 
-@[code transcludeWith=#initdatagen](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnchantmentGenerator.java)
+@[code transclude={22-22}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
 
@@ -59,4 +59,4 @@ You should also add translations to your `en_us.json` file to give your enchantm
 
 You should now have a working custom enchantment effect! Test it by enchanting a weapon with the enchantment and hitting a mob. An example is given in the following video:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Lightning Effect" />
+<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Thundering Enchantment" />

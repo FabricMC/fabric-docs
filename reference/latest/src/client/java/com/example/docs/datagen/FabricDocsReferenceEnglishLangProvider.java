@@ -1,18 +1,15 @@
 package com.example.docs.datagen;
 
-import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import com.example.docs.effect.FabricDocsReferenceEffects;
 import com.example.docs.item.ModItems;
-
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 
 // :::datagen-translations:provider
 public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {

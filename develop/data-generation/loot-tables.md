@@ -18,9 +18,9 @@ authors-nogithub:
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
 
-You will need different providers (classes) for blocks, chests, and entities. Remember to add them all to your pack in your generator:
+You will need different providers (classes) for blocks, chests, and entities. Remember to add them all to your pack in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceLootTableGenerator.java)
+@[code lang=java transclude={32-33}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Loot Tables Explained {#loot-tables-explained}
 

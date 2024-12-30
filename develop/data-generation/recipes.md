@@ -21,9 +21,9 @@ First, we'll need our provider. Make a class that `extends FabricRecipeProvider`
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceRecipeProvider.java)
 
-And add it to your pack in your generator:
+To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transcludeWith=:::datagen-recipes:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceRecipeGenerator.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Shapeless Recipes {#shapeless-recipes}
 

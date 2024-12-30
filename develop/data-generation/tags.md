@@ -25,9 +25,9 @@ First, create your own class that `extends FabricTagProvider<T>`, where `T` is t
 You will need a different provider for each type of tag (eg. one `FabricTagProvider<EntityType<?>>` and one `FabricTagProvider<Item>`).
 :::
 
-Now add this provider to your `DataGeneratorEntrypoint`, and you're ready to start creating tags!
+To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transcludeWith=:::datagen-tags:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagGenerator.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creating a Tag {#creating-a-tag}
 
