@@ -24,7 +24,7 @@ Also, by including a constructor like this, it becomes possible to use the const
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
-Add the entrypoint to the `fabric.mod.json` file, so that the renderer is registered.
+You should register block entity renderers in your `ClientModInitializer` class.
 
 `BlockEntityRendererFactories` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
 
