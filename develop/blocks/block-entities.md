@@ -12,7 +12,7 @@ Vanilla Minecraft uses block entities for blocks like chests, furnaces, and comm
 
 In this article, we will create a block that counts how many times it has been right-clicked.
 
-## Creating and Registering the Block Entity {#creating-and-registering-the-block-entity}
+## Creating the Block Entity {#creating-the-block-entity}
 
 To make Minecraft "see" the new block entity, we need to create a block entity type. This is done by extending the `BlockEntity` class and registering it in the `ModBlockEntities` class, just like we did with the block.
 
@@ -27,7 +27,7 @@ Note how the constructor of the `CounterBlockEntity` takes two parameters, but t
 If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityFactory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
 :::
 
-## Creating and Registering the Block {#creating-and-registering-the-block}
+## Creating the Block {#creating-the-block}
 
 Next, to actually use the block entity, we need a block that implements `BlockEntityProvider`. Let's create one and call it `CounterBlock`.
 
@@ -49,7 +49,7 @@ Don't forget to register the block in the `ModBlocks` class, just like in the [C
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-## Giving the Block Entity a Purpose {#giving-the-block-entity-a-purpose}
+## Using the Block Entity {#using-the-block-entity}
 
 Now that we have a block entity, we can use it to store the number of times the block has been right-clicked. We'll do this by adding a `clicks` field to the `CounterBlockEntity` class:
 
