@@ -1,5 +1,7 @@
 package com.example.docs.block.entity;
 
+import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -17,6 +19,9 @@ import com.example.docs.block.entity.custom.EngineBlockEntity;
 public class ModBlockEntities {
 	public static final BlockEntityType<EngineBlockEntity> ENGINE_BLOCK_ENTITY =
 			register("engine", EngineBlockEntity::new, ModBlocks.ENGINE_BLOCK);
+
+	public static final BlockEntityType<DuplicatorBlockEntity> DUPLICATOR_BLOCK_ENTITY =
+			register("duplicator", DuplicatorBlockEntity::new, ModBlocks.DUPLICATOR_BLOCK);
 
 	// :::1
 	public static final BlockEntityType<CounterBlockEntity> COUNTER_BLOCK_ENTITY =
