@@ -7,26 +7,26 @@ authors:
 
 # Block Entity Renderers {#block-entity-renderers}
 
-Sometimes, just a block is not enough, and you need to add dynamic rendering to it. This is done with `BlockEntityRenderer`s.
+Sometimes, using Minecraft's model format is not enough. If you need to add dynamic rendering to it, you will need to use a `BlockEntityRenderer`.
 
-For example, let's make the Counter Block from the [Block Entities article](../blocks/block-entities.md) show the number of clicks on its top side.
+For example, let's make the Counter Block from the [Block Entities article](../blocks/block-entities) show the number of clicks on its top side.
 
 ## Creating a BlockEntityRenderer {#creating-a-blockentityrenderer}
 
-First, we need to create a `BlockEntityRenderer` for our `CounterBlockEntity`. If your project is using split source sets for client and server, it should be put in the `src/client/java` directory, since there are no rendering-related classes in the server .jar.
+First, we need to create a `BlockEntityRenderer` for our `CounterBlockEntity`.
+
+When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's important to place the class in the appropriate source set, such as `src/client/`, if your project uses split source sets for client and server. Accessing rendering-related classes directly in the `src/main/` source set is not safe because those classes might be loaded on a server.
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 The new class has a constructor with `BlockEntityRendererFactory.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
-Also, by including a constructor like this, it becomes possible to use the constructor as a `BlockEntityRendererFactory` itself:
+Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
-Here, `BlockEntityRendererFactories` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
+Add the entrypoint to the `fabric.mod.json` file, so that the renderer is registered.
 
-::: tip
-When creating a new entry point like above, don't forget to add it to the `fabric.mod.json` file! Otherwise, the renderer won't get registered.
-:::
+`BlockEntityRendererFactories` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
 
 ## Drawing on Blocks {#drawing-on-blocks}
 
@@ -40,7 +40,7 @@ First, we need to offset and rotate the text so that it's on the block's top sid
 As the name suggests, the `MatrixStack` is a _stack_, meaning that you can push and pop transformations.
 A good rule-of-thumb is to push a new one at the beginning of the `render` method and pop it at the end, so that the rendering of one block doesn't affect others.
 
-More information about the `MatrixStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts.md).
+More information about the `MatrixStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts).
 :::
 
 To make the translations and rotations needed easier to understand, let's visualize them. In this picture, the green block is where the text would be drawn, by default in the furthest bottom-left point of the block:
@@ -88,6 +88,7 @@ The `TextRenderer` has methods to measure text (`getWidth`), which is useful for
 @[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 The `draw` method takes a lot of parameters, but the most important ones are:
+
 - the `Text` (or `String`) to draw;
 - its `x` and `y` coordinates;
 - the RGB `color` value;

@@ -41,6 +41,8 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 		String text = entity.getClicks() + "";
 		float width = textRenderer.getWidth(text);
 
+		// draw the text. params:
+		// text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light
 		textRenderer.draw(
 				text,
 				-width/2, -4f,
