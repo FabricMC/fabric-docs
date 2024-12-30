@@ -51,8 +51,6 @@ public class ModBlocks {
 			), CONDENSED_OAK_LOG_KEY, true
 	);
 
-	// ...
-
 	// :::3
 	// :::4
 	public static final RegistryKey<Block> PRISMARINE_LAMP_KEY = RegistryKey.of(

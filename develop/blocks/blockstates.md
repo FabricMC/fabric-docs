@@ -82,10 +82,6 @@ You'll also have to set a default state for the `activated` property in the cons
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-::: warning
-Don't forget to register your block using the custom class instead of `Block`!
-:::
-
 ### Using The Property {#using-the-property}
 
 This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
