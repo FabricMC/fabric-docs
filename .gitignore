@@ -1,6 +1,7 @@
 # Folders
 /node_modules
 /.vitepress/cache
+/.vitepress/.temp
 /.vitepress/dist
 .idea/
 .obsidian/

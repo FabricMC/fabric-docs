@@ -49,6 +49,9 @@ We will not cover all the options here—you can view the class yourself to see 
 
 For example purposes, we will be creating a simple block that has the properties of dirt, but is a different material.
 
+- We need a `RegistryKey<Block>` which is used as a unique identifier for our block, this is passed into `Registry.register` in the previous utility method.
+- The `RegistryKey<Block>` is also required by the `AbstractBlock.Settings` builder.
+
 ::: tip
 You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
 :::
@@ -57,13 +60,15 @@ You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the 
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
-### Adding Your Block to an Item Group {#adding-your-block-to-an-item-group}
+### Adding Your Block's Item to an Item Group {#adding-your-block-s-item-to-an-item-group}
 
 Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
 For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+
+You should place this within the `initialize()` function of your class.
 
 ---
 
@@ -118,7 +123,9 @@ This file should be located in the `assets/mod_id/blockstates` folder, and its n
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
-Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
+::: tip
+Blockstates are incredibly complex, which is why they will be covered next in [their own seperate page](./blockstates).
+:::
 
 Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
 
@@ -167,4 +174,4 @@ The file has the same format as the harvesting tool file - a list of items to be
 
 ## Extra Notes {#extra-notes}
 
-If you're adding multiple blocks to your mod, you may want to consider using [Data Generation](https://fabricmc.net/wiki/tutorial:datagen_setup) to automate the process of creating block and item models, blockstate definitions, and loot tables.
+If you're adding multiple blocks to your mod, you may want to consider using [Data Generation](../data-generation/setup) to automate the process of creating block and item models, blockstate definitions, and loot tables.
