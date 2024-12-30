@@ -8,17 +8,17 @@ authors:
 # Block Entities {#block-entities}
 
 Block entities are a way to store additional data for a block, that is not part of the block state: inventory contents, custom name and so on.
-Vanilla Minecraft uses block entities for blocks like chests, furnaces, and command blocks.
+Minecraft uses block entities for blocks like chests, furnaces, and command blocks.
 
-In this article, we will create a block that counts how many times it has been right-clicked.
+As an example, we will create a block that counts how many times it has been right-clicked.
 
 ## Creating the Block Entity {#creating-the-block-entity}
 
-To make Minecraft "see" the new block entity, we need to create a block entity type. This is done by extending the `BlockEntity` class and registering it in the `ModBlockEntities` class, just like we did with the block.
+To make Minecraft recognize and load the new block entities, we need to create a block entity type. This is done by extending the `BlockEntity` class and registering it in a new `ModBlockEntities` class.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Registering a Block Entity yields a `BlockEntityType` like the `COUNTER_BLOCK_ENTITY` we've used above:
+Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_ENTITY` we've used above:
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java)
 
@@ -33,7 +33,8 @@ Next, to actually use the block entity, we need a block that implements `BlockEn
 
 ::: tip
 There's two ways to approach this:
-- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method (*and* the `getRenderType` method, since `BlockWithEntity` makes it invisible by default)
+
+- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method (_and_ the `getRenderType` method, since `BlockWithEntity` makes it invisible by default)
 - create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
 
 We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.
@@ -95,13 +96,17 @@ Let's say we want to make it so that the counter can only be incremented once ev
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Now we can use this field to check if the counter can be increased in `incrementClicks`:
+Don't forget to serialize and deserialize this field!
+
+Now we can use `ticksSinceLast` to check if the counter can be increased in `incrementClicks`:
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 ::: tip
 If the block entity does not seem to tick, try checking the registration code! It should pass the blocks that are valid for this entity into the `BlockEntityType.Builder`, or else it will give a warning in the console:
+
 ```
 [13:27:55] [Server thread/WARN] (Minecraft) Block entity fabric-docs-reference:counter @ BlockPos{x=-29, y=125, z=18} state Block{fabric-docs-reference:counter_block} invalid for ticking:
 ```
+
 :::
