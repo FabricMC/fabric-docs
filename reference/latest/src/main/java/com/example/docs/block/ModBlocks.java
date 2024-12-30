@@ -1,5 +1,7 @@
 package com.example.docs.block;
 
+import com.example.docs.block.custom.DuplicatorBlock;
+
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.PillarBlock;
@@ -56,6 +58,10 @@ public class ModBlocks {
 	);
 	// :::5
 
+	public static final Block DUPLICATOR_BLOCK = register(
+			new DuplicatorBlock(AbstractBlock.Settings.create()), "duplicator", true
+	);
+
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
 		// Register the block and its item.
@@ -83,6 +89,7 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
+			itemGroup.add(ModBlocks.DUPLICATOR_BLOCK.asItem());
 		});
 	}
 
