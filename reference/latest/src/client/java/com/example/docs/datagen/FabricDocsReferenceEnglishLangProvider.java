@@ -1,5 +1,6 @@
 package com.example.docs.datagen;
 
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.registry.RegistryWrapper;
@@ -9,6 +10,9 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.effect.FabricDocsReferenceEffects;
 import com.example.docs.item.ModItems;
+
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 
 // :::datagen-translations:provider
 public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {
@@ -28,9 +32,12 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
-		translationBuilder.add(FabricDocsReferenceEffects.TATER_EFFECT, "Tater");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
-		// TODO: use the helper methods
+
+		translationBuilder.add(Util.createTranslationKey("effect", Identifier.of("fabric-docs-reference", "tater")), "Tater");
+
+		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
+		// to add translations from an existing language file instead of manually defining them all.
 		translationBuilder.add("sound.fabric-docs-reference.metal_whistle", "Metal Whistle");
 		translationBuilder.add("item.minecraft.potion.effect.tater", "Tater Potion");
 		translationBuilder.add("death.attack.tater", "%1$s died from Tater damage!");
