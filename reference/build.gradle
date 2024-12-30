@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT' apply false
+	id 'fabric-loom' version '1.9-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
