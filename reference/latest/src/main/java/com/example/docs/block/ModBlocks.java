@@ -28,6 +28,7 @@ import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
+import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.item.ModItems;
 
 // :::1
@@ -122,6 +123,15 @@ public class ModBlocks {
 			.build();
 	// :::datagen-model:family-declaration
 
+	public static final RegistryKey<Block> DUPLICATOR_BLOCK_KEY = RegistryKey.of(
+			RegistryKeys.BLOCK,
+			Identifier.of(FabricDocsReference.MOD_ID, "duplicator")
+	);
+
+	public static final Block DUPLICATOR_BLOCK = register(
+			new DuplicatorBlock(AbstractBlock.Settings.create().registryKey(DUPLICATOR_BLOCK_KEY)), DUPLICATOR_BLOCK_KEY, true
+	);
+
 	// :::1
 	private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
@@ -168,6 +178,7 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
+			itemGroup.add(ModBlocks.DUPLICATOR_BLOCK.asItem());
 			itemGroup.add(ModBlocks.ENGINE_BLOCK.asItem());
 			itemGroup.add(RUBY_BLOCK);
 			itemGroup.add(RUBY_STAIRS);

@@ -35,6 +35,7 @@
   "develop.blocks.blockstates": "Block States",
   "develop.blocks.block-entities": "Block Entities",
   "develop.blocks.block-entity-renderer": "Block Entity Renderers",
+  "develop.blocks.inventory": "Block Inventories",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
   "develop.entities.damage-types": "Damage Types",

@@ -29,6 +29,7 @@ public class FabricDocsReferenceInternalModelProvider extends FabricModelProvide
 	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONDENSED_DIRT);
 		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COUNTER_BLOCK);
+		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUPLICATOR_BLOCK);
 
 		// TODO: This would be a good example for the model generation page. Move when needed.
 		// TODO: Actually make the model for the prismarine lamp - not sure how to do it via datagen.
