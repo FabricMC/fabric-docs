@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.1,
+  "group": "food_to_wheat",
+  "ingredient": {
+    "item": "minecraft:hay_block"
+  },
+  "result": {
+    "id": "minecraft:wheat"
+  }
+}
