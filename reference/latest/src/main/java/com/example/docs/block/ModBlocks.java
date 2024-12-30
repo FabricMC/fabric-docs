@@ -9,7 +9,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
@@ -36,6 +35,7 @@ public class ModBlocks {
 			CONDENSED_DIRT_KEY,
 			true
 	);
+
 	// :::2
 	// :::3
 	public static final RegistryKey<Block> CONDENSED_OAK_LOG_KEY = RegistryKey.of(
@@ -106,22 +106,20 @@ public class ModBlocks {
 		setupItemGroups();
 	}
 
-	// :::1
-
-	// :::3
 	public static void setupItemGroups() {
+		// :::6
 		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
 			itemGroup.add(ModBlocks.CONDENSED_DIRT.asItem());
 		});
-		//:::3
+		// :::6
+
 		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
 		});
-		//:::3
 	}
 
-	//:::3
+	// :::1
 }
 // :::1

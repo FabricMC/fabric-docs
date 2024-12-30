@@ -66,11 +66,9 @@ Since the `BlockItem` is automatically created and registered, to add it to an i
 
 For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-::: tip
-You can put your `ItemGroupEvents.modifyEntriesEvent(...)` calls in the static `initialize()` function if you want, it's in `setupItemGroups()` in this example for reference purposes.
-:::
+You should place this within the `initialize()` function of your class.
 
 ---
 
