@@ -103,6 +103,10 @@ export default [
         text: "develop.blocks.blockstates",
         link: "/develop/blocks/blockstates",
       },
+      {
+        text: "develop.blocks.block-entities",
+        link: "/develop/blocks/block-entities",
+      }
     ],
   },
   {
@@ -130,6 +134,10 @@ export default [
       {
         text: "develop.sounds.custom",
         link: "/develop/sounds/custom",
+      },
+      {
+        text: "develop.sounds.dynamic-sounds",
+        link: "/develop/sounds/dynamic-sounds",
       },
     ],
   },

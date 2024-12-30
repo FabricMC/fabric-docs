@@ -13,7 +13,7 @@ authors:
 
 和类似于物品和方块类似，盔甲材料也需要注册。 为了组织好，我们创建一个 `ModArmorMaterials` 类存储我们的自定义盔甲材料。
 
-需要为这个类添加一个静态的 `initialize()` 方法，并从模组的初始化器中调用，从而注册这些材料。
+需要为这个类添加静态的 `initialize()` 方法，并在你的[模组的初始化器](./getting-started/project-structure#entrypoints)入口点中调用，从而注册这些材料。
 
 ```java
 // Within the ModArmorMaterials class
@@ -126,7 +126,7 @@ public void onInitialize() {
 
 例如，你可以使用下面的纹理和模型 JSON 作为参考。
 
-<DownloadEntry type="Item Textures" visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">物品纹理</DownloadEntry>
 
 :::info
 你需要所有物品的模型 JSON 文件，不只是头盔，这原则和其他物品模型一样。
@@ -142,7 +142,7 @@ public void onInitialize() {
 
 实体穿着你的盔甲时，现在显示的还是缺失纹理：
 
-![玩家身上的损坏的盔甲模型](/assets/develop/items/armor_2.png).
+![玩家身上的损坏的盔甲模型](/assets/develop/items/armor_2.png)
 
 盔甲纹理有两层，都要有。
 
@@ -151,10 +151,10 @@ public void onInitialize() {
 - `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
 - `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
 
-<DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">盔甲模型纹理</DownloadEntry>
 
 第一层包含头盔和胸甲的纹理，第二层包含护腿和靴的纹理。
 
 这些纹理存在时，你应该能够看到实体穿着的盔甲了：
 
-![玩家身上的生效的盔甲模型](/assets/develop/items/armor_3.png).
+![玩家身上的生效的盔甲模型](/assets/develop/items/armor_3.png)

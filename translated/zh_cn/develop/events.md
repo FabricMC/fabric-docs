@@ -53,7 +53,7 @@ Fabric API 提供的所有事件回调接口，可见 `net.fabricmc.fabric.api.e
 
 #### 监听战利品表加载{#listening-to-loot-table-loading}
 
-Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEvents.MODIFY`。 你可以在模组初始化入口点中为它注册一个回调。 我们还要检查一下监听的战利品表是否是煤炭矿石战利品表。
+Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEvents.MODIFY`。 可以在你的模组的[初始化器](./getting-started/project-structure#entrypoints)中注册回调。 我们还要检查一下监听的战利品表是否是煤炭矿石战利品表。
 
 @[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 

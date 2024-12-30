@@ -35,7 +35,7 @@ authors:
 sudo pacman -S jre-openjdk
 ```
 
-如果您正在运行服务器不需要图形化用户接口，您可以安装 headless 版本：
+如果您正在运行服务器不需要图形用户界面，您可以安装无头版本：
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -64,7 +64,7 @@ sudo apt install openjdk-21-jdk
 sudo dnf install java-21-openjdk
 ```
 
-如果您不需要图形化接口，您可以安装 headless 版本：
+如果不需要图形化界面，可以安装 headless 版本：
 
 ```sh
 sudo dnf install java-21-openjdk-headless

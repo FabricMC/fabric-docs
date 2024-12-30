@@ -33,6 +33,7 @@
   "develop.blocks": "Blocks",
   "develop.blocks.first-block": "Creating Your First Block",
   "develop.blocks.blockstates": "Block States",
+  "develop.blocks.block-entities": "Block Entities",
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
   "develop.entities.damage-types": "Damage Types",
@@ -64,5 +65,6 @@
   "develop.misc.automatic-testing": "Automated Testing",
   "develop.sounds": "Sounds",
   "develop.sounds.using-sounds": "Playing Sounds",
-  "develop.sounds.custom": "Creating Custom Sounds"
+  "develop.sounds.custom": "Creating Custom Sounds",
+  "develop.sounds.dynamic-sounds": "Dynamic Sounds"
 }
