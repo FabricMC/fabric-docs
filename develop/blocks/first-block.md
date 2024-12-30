@@ -60,7 +60,7 @@ You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the 
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
-### Adding Your Block's Item to an Item Group {#adding-your-block-to-an-item-group}
+### Adding Your Block's Item to an Item Group {#adding-your-block-s-item-to-an-item-group}
 
 Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
