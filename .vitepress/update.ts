@@ -152,7 +152,7 @@ import players from "./sidebars/players";
 
       // Add 'search: false' to the frontmatter
       if (!frontmatter.includes("search:")) {
-        frontmatter += EOL + "search: false";
+        frontmatter += EOL + "search: false" + EOL;
 
         // Replace the old frontmatter with the updated one
         const updatedData = frontmatter + data.slice(endOfFrontmatter);
@@ -169,9 +169,9 @@ import players from "./sidebars/players";
 
   console.log("Adding warning box to index.md...");
   fs.writeFileSync(
-    `./versions/${oldVersion}index.md`,
+    `./versions/${oldVersion}/index.md`,
     fs
-      .readFileSync(`./versions/${oldVersion}index.md`, "utf-8")
+      .readFileSync(`./versions/${oldVersion}/index.md`, "utf-8")
       .replace(
         /^---\n\n/m,
         [
