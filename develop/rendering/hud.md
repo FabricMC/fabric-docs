@@ -19,7 +19,7 @@ The draw context can be used to access the various rendering utilities provided 
 
 You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
-### Tick Delta {#tickdelta}
+### Tick Delta {#tick-delta}
 
 `tickDelta` is the "progress" between the last game tick and the next game tick.
 
