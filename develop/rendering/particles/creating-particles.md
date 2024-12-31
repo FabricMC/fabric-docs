@@ -13,7 +13,7 @@ Particles are a powerful tool. They can add ambience to a beautiful scene, or ad
 
 We'll be adding a new sparkle particle which will mimic the movement of an end rod particle.
 
-We first need to register a `ParticleType` in your [mod's initializer](./getting-started/project-structure#entrypoints) class using your mod id.
+We first need to register a `ParticleType` in your [mod's initializer](../../getting-started/project-structure#entrypoints) class using your mod id.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 

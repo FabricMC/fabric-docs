@@ -65,6 +65,8 @@ There is no one "correct" way to draw textures onto a screen, as the `drawTextur
 
 Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `DrawContext` class will assume these values if you don't provide them, which can sometimes be wrong.
 
+You will also need to specify the render layer which your texture is drawn onto. For basic textures, this will usually always be `RenderLayer::getGuiTextured`.
+
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Drawing whole texture example](/assets/develop/rendering/draw-context-whole-texture.png)
