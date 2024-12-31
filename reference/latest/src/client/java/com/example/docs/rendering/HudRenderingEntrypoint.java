@@ -7,8 +7,6 @@ import net.minecraft.util.math.MathHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
-import org.lwjgl.glfw.GLFW;
-
 public class HudRenderingEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
