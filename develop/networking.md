@@ -153,7 +153,7 @@ To send a packet with our custom payload, we can use `ServerPlayNetworking.send`
 and a `CustomPayload`.
 
 Let's start by creating our Lightning Tater item. You can override `use` to add trigger an action when the item is used.
-In this case, let's send packets to all the players in the server.
+In this case, let's send packets to all the players in the server world.
 
 @[code lang=java transcludeWith=:::lightning_tater_item](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -167,9 +167,21 @@ We create an instance of the payload with the user's position:
 
 @[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
-Finally, we get all the players in the server through `PlayerLookup` and send a packet to each player.
+Finally, we get all the players in the server world through `PlayerLookup` and send a packet to each player.
 
 @[code lang=java transclude={29-31}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+
+::: info
+Fabric API provides `PlayerLookup`, a collection of helper functions that will look up players in a server.
+
+A term frequently used to describe the functionality of these methods is "_tracking_". It means that an entity or a
+chunk
+on the server is known to a player's client (within in view distance) and the entity or block entity should notify
+tracking clients of changes.
+
+Tracking is an important concept for efficient networking, so that only the necessary players are notified of changes by
+sending packets.
+:::
 
 Remember to register the item in our **common initializer**.
 

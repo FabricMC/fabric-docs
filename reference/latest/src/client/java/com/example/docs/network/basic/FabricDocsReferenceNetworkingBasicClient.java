@@ -38,13 +38,15 @@ public class FabricDocsReferenceNetworkingBasicClient implements ClientModInitia
 
 		// :::use_item_callback
 		UseItemCallback.EVENT.register((playerEntity, world, hand) -> {
-			ItemStack usedItemStack = playerEntity.getStackInHand(hand);
+			if (world.isClient) {
+				ItemStack usedItemStack = playerEntity.getStackInHand(hand);
 
-			if (usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
-				UsePoisonousPotatoPayload payload = new UsePoisonousPotatoPayload(playerEntity.getName().getString(), playerEntity.getBlockPos());
-				ClientPlayNetworking.send(payload);
+				if (usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
+					UsePoisonousPotatoPayload payload = new UsePoisonousPotatoPayload(playerEntity.getName().getString(), playerEntity.getBlockPos());
+					ClientPlayNetworking.send(payload);
 
-				return TypedActionResult.success(playerEntity.getStackInHand(hand));
+					return TypedActionResult.success(playerEntity.getStackInHand(hand));
+				}
 			}
 
 			return TypedActionResult.pass(playerEntity.getStackInHand(hand));
