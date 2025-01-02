@@ -240,7 +240,8 @@ To send a packet, let's add an action when the player uses a Poisonous Potato. W
 event to
 keep things concise.
 
-We register the event in our **client initializer**. This ensures that the action is only triggered on the client.
+We register the event in our **client initializer**, and we use `isClient()` to ensure that the action is only triggered
+on the logical client.
 
 @[code lang=java transcludeWith=:::use_item_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
