@@ -20,7 +20,7 @@ public class LightningTaterItem extends Item {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		if (world.isClient) {
+		if (world.isClient()) {
 			return TypedActionResult.pass(user.getStackInHand(hand));
 		}
 

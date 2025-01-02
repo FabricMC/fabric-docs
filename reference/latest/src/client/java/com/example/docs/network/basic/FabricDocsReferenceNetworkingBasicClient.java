@@ -38,7 +38,7 @@ public class FabricDocsReferenceNetworkingBasicClient implements ClientModInitia
 
 		// :::use_item_callback
 		UseItemCallback.EVENT.register((playerEntity, world, hand) -> {
-			if (world.isClient) {
+			if (world.isClient()) {
 				ItemStack usedItemStack = playerEntity.getStackInHand(hand);
 
 				if (usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
