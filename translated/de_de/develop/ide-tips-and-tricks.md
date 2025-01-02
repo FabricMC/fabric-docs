@@ -1,8 +1,9 @@
 ---
 title: Tipps und Tricks für die Entwicklungsumgebung
-description: Nützliche Informationen, um das Bewegen und das Arbeiten im Projekt effizienter zu gestalten.
+description: Nützliche Informationen, um dein Projekt mit der IDE effizient zu bearbeiten und zu durchsuchen.
 authors:
   - JR1811
+  - AnAwesomGuy
 ---
 
 # Tipps und Tricks für die Entwicklungsumgebung {#ide-tips-and-tricks}
@@ -11,7 +12,7 @@ Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so 
 Es kann eine gewisse Einarbeitungszeit brauchen, um sich an die Tastenkombinationen und anderen Optionen zu gewöhnen. Diese Seite kann dafür als eine Hilfe dafür genutzt werden.
 
 :::warning
-Tastenkombinationen sind hier spezifisch für Windows ausgelegt. Die meisten beziehen sich auch auf die Standardbelegung von IntelliJ, solange nichts anderes erwähnt wurde.
+Tastenkombinationen im Text beziehen sich auf die Standardtastaturbelegung von IntelliJ IDEA, wenn nicht anders angegeben.
 Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders nach dieser Funktion, wenn du ein anderes Tastaturlayout verwendest.
 :::
 
@@ -19,11 +20,14 @@ Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders
 
 ### Manuell {#manually}
 
-IntelliJ bietet mehrere Möglichkeiten, sich im Projekt fortzubewegen. Falls die Quelldaten mit den `./gradlew genSources` Befehlen oder die `Tasks > fabric > genSources` Gradle Aufgaben im Gradle Fenster benutzt wurden, können die Quelldaten von Minecraft, innerhalb des Projektfensters "External Libnraries", manuell nachgeschlagen werden.
+IntelliJ bietet mehrere Möglichkeiten, sich im Projekt fortzubewegen. Falls die Quelldaten mit den `./gradlew genSources` Befehlen oder über die `Tasks > fabric > genSources` Gradle Tasks im Gradle Fenster generiert wurden, können die Quelldaten von Minecraft, innerhalb des Projektfensters `Externe Bibliotheken`, manuell nachgeschlagen werden.
 
-![Gradle Task](/assets/develop/misc/using-the-ide/traversing_01.png)
+![Gradle Tasks](/assets/develop/misc/using-the-ide/traversing_01.png)
 
-Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters "External Libraries" gefunden werden. Wenn dein Projekt geteilte Quellen aus dem Online-[Template Modgenerator](https://fabricmc.net/develop/template/) verwendet, gibt es zwei Quellen, wie durch den Namen (client/common) angegeben. Zusätzlich werden auch andere Quellen von Projekten, Bibliotheken und Abhängigkeiten, die über die Datei `build.gradle` importiert werden, verfügbar sein. Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
+Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters Externe Bibliotheken gefunden werden.
+Wenn dein Projekt geteilte Quellen aus dem Online [Template Modgenerator](https://fabricmc.net/develop/template) verwendet, gibt es zwei Quellen, wie durch den Namen (client/common) angegeben.
+Zusätzlich werden auch andere Quellen von Projekten, Bibliotheken und Abhängigkeiten, die über die Datei `build.gradle` importiert werden, verfügbar sein.
+Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
 
 ![Externe Bibliothek](/assets/develop/misc/using-the-ide/traversing_02_1.png)
 
@@ -33,11 +37,14 @@ Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Proj
 
 Durch zweimaliges Drücken von <kbd>Shift</kbd> öffnet sich ein Suchfenster. Dort kannst du nach den Dateien und Klassen deines Projekts suchen. Durch Aktivieren des Kontrollkästchens `include non-project items` oder durch zweimaliges Drücken von <kbd>Shift</kbd> wird nicht nur im eigenen Projekt gesucht, sondern auch in anderen, z. B. in den Externen Bibliotheken.
 
+Du kannst auch die Tastenkombination <kbd>⌘/STRG</kbd>+<kbd>N</kbd> zur Suche von Klassen und <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> zur Suche aller _Dateien_ nutzen.
+
 ![Suchfenster](/assets/develop/misc/using-the-ide/traversing_03.png)
 
 ### Letzte Fenster {#recent-window}
 
-Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kannst es mit der Tastenkombination <kbd>CTRL</kbd>+<kbd>E</kbd> öffnen. Dort kannst du zu den Dateien springen, die du bereits besucht hast, und Werkzeugfenster öffnen, z. B. das Fenster [Struktur](#structure-of-a-class) oder [Lesezeichen](#bookmarks).
+Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kannst es mit der Tastenkombination <kbd>⌘/STRG</kbd>+<kbd>E</kbd> öffnen.
+Dort kannst du zu den Dateien springen, die du bereits besucht hast, und Werkzeugfenster öffnen, z. B. das Fenster [Struktur](#structure-of-a-class) oder [Lesezeichen](#bookmarks).
 
 ![Letzte Fenster](/assets/develop/misc/using-the-ide/traversing_04.png)
 
@@ -45,8 +52,10 @@ Ein weiteres nützliches Werkzeug in IntelliJ ist das Fenster `Recent`. Du kanns
 
 ### Zur Definition / Verwendung springen {#jump-to-definition-usage}
 
-Wenn du entweder die Definition oder die Verwendung von Variablen, Methoden, Klassen und anderen Dingen überprüfen willst, kannst du <kbd>CTRL</kbd>+<kbd>Linksklick</kbd> drücken
-oder mit der <kbd>Mittleren Maustaste</kbd> (Mausrad) auf den Namen drücken. Auf diese Weise vermeidest du langes Scrollen oder eine manuelle Suche nach einer Definition, die sich in einer anderen Datei befindet.
+Wenn du entweder die Definition oder Nutzung von Variablen, Methoden, Klassen oder anderen Dingen ansehen willst, kannst du <kbd>⌘/STRG</kbd>+<kbd>Linksklick / B</kbd>
+oder <kbd>Mittlere Maustate</kbd> (drücken des Mausrads) auf deren Namen verwenden. Auf diese Weise vermeidest du langes Scrollen oder eine manuelle Suche nach einer Definition, die sich in einer anderen Datei befindet.
+
+Du kannst außerdem <kbd>⌘/STRG</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Linklsklick / B</kbd> verwenden, um alle Implementationen einer Klasse oder eines Interfaces zu sehen.
 
 ### Lesezeichen {#bookmarks}
 
@@ -54,12 +63,12 @@ Du kannst Codezeilen, Dateien oder sogar geöffnete Editor-Registerkarten mit Le
 Besonders bei der Recherche von Quellcodes kann es helfen, Stellen zu markieren, die man in Zukunft schnell wiederfinden möchte.
 
 Klicke entweder mit der rechten Maustaste auf eine Datei im Projektfenster, auf eine Registerkarte im Editor oder auf die Zeilennummer in einer Datei.
-Das Anlegen von `Mnemonic Bookmarks` ermöglicht es dur, schnell zu diesen Bookmarks zurück zu wechseln, indem du die Tasenkombination <kbd>CTRL</kbd> und die von dir gewählte Ziffer verwendest.
+Das Anlegen von `Mnemonic Bookmarks` ermöglicht es dur, schnell zu diesen Bookmarks zurück zu wechseln, indem du die Tastenkombination <kbd>⌘/STRG</kbd> und die von dir gewählte Ziffer verwendest.
 
 ![Lesezeichen setzen](/assets/develop/misc/using-the-ide/traversing_05.png)
 
 Es ist möglich, im Fenster `Bookmarks` mehrere Lesezeichenlisten gleichzeitig zu erstellen, wenn du sie trennen oder ordnen möchtest.
-Die [Haltepunkte](./basic-problem-solving#breakpoint) werden dort ebenfalls angezeigt.
+[Haltepunkte](./basic-problem-solving#breakpoint) werden dort ebenfalls angezeigt.
 
 ![Lesezeichen Fenster](/assets/develop/misc/using-the-ide/traversing_06.png)
 
@@ -67,7 +76,7 @@ Die [Haltepunkte](./basic-problem-solving#breakpoint) werden dort ebenfalls ange
 
 ### Klassenstruktur {#structure-of-a-class}
 
-Durch das Öffnen des Fensters `Struktur` (<kbd>Alt</kbd>+<kbd>7</kbd>) erhältst du einen Überblick über deine derzeit aktive Klasse. Du kannst sehen, welche Klassen und Enums sich in dieser Datei befinden, welche Methoden implementiert wurden und welche Felder und Variablen deklariert sind.
+Durch das Öffnen des Fensters `Struktur` (<kbd>⌘/Alt</kbd>+<kbd>7</kbd>) erhältst du einen Überblick über deine aktuell aktive Klasse. Du kannst sehen, welche Klassen und Enums sich in dieser Datei befinden, welche Methoden implementiert wurden und welche Felder und Variablen deklariert sind.
 
 Manchmal kann es auch hilfreich sein, die Option `Inherited` oben in den Ansichtsoptionen zu aktivieren, wenn man nach potenziellen Methoden sucht, die man überschreiben kann.
 
@@ -75,7 +84,7 @@ Manchmal kann es auch hilfreich sein, die Option `Inherited` oben in den Ansicht
 
 ### Typenhierarchie einer Klasse {#type-hierarchy-of-a-class}
 
-Indem du den Cursor auf einen Klassennamen setzt und <kbd>STRG</kbd>+<kbd>H</kbd> drückst, kannst du ein neues Typenhierarchie-Fenster öffnen, das alle Eltern- und Kindklassen anzeigt.
+Indem du den Cursor auf einen Klassennamen setzt und <kbd>⌘/STRG</kbd>+<kbd>H</kbd> drückst, kannst du ein neues Typenhierarchie-Fenster öffnen, das alle Eltern- und Kindklassen anzeigt.
 
 ![Typenhierachie Fenster](/assets/develop/misc/using-the-ide/analyzing_02.png)
 
@@ -83,7 +92,8 @@ Indem du den Cursor auf einen Klassennamen setzt und <kbd>STRG</kbd>+<kbd>H</kbd
 
 ### Code Vervollständigung {#code-completion}
 
-Die Code-Vervollständigung sollte standardmäßig aktiviert sein. Du bekommst die Empfehlungen automatisch beim Schreiben deines Codes. Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>STRG</kbd>+<kbd>Leertaste</kbd> wieder öffnen.
+Die Code-Vervollständigung sollte standardmäßig aktiviert sein. Du bekommst die Empfehlungen automatisch beim Schreiben deines Codes.
+Wenn du sie versehentlich geschlossen oder den Mauszeiger an eine neue Stelle bewegt hast, kannst du sie mit <kbd>⌘/STRG</kbd>+<kbd>Leertaste</kbd> wieder öffnen.
 
 Wenn du zum Beispiel Lambdas verwendest, kannst du sie mit dieser Methode schnell schreiben.
 
@@ -91,11 +101,11 @@ Wenn du zum Beispiel Lambdas verwendest, kannst du sie mit dieser Methode schnel
 
 ### Code Generierung {#code-generation}
 
-Das Menü Generate kann mit <kbd>⌘/CTRL</kbd><kbd>N</kbd> schnell aufgerufen werden.
+Das Menü Generieren kannst du schnell durch <kbd>Alt</kbd>+<kbd>Einfügen</kbd> (<kbd>⌘ Befehl</kbd>+<kbd>N</kbd> auf Mac) aufgerufen werden oder indem du oben auf `Code` gehst und `Generieren` auswählst.
 In einer Java-Datei kannst du Konstruktoren, Getter, Setter, überschreibende oder implementierende Methoden und vieles mehr generrieren.
 Du kannst auch Accessors und Invokers erzeugen, wenn du das [Minecraft Development Plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installiert hast.
 
-Zusätzlich kannst du Methoden mit <kbd>⌘/CTRL</kbd><kbd>O</kbd> überschreiben und mit <kbd>⌘/CTRL</kbd><kbd>I</kbd> implementieren.
+Zusätzlich kannst du Methoden mit <kbd>⌘/STRG</kbd>+<kbd>O</kbd> überschreiben und mit <kbd>⌘/STRG</kbd>+<kbd>I</kbd> implementieren.
 
 ![Menü zur Codegenerierung in einer Java-Datei](/assets/develop/misc/using-the-ide/generate_01.png)
 
@@ -106,7 +116,7 @@ In einer Java-Testdatei erhälst du Optionen, um die entsprechenden Testmethoden
 ### Parameter anzeigen {#displaying-parameters}
 
 Die Anzeige der Parameter sollte standardmäßig aktiviert sein. Du bekommst automatisch die Typen und Namen der Parameter, während du deinen Code schreibst.
-Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>CTRL</kbd>+<kbd>P</kbd> wieder öffnen.
+Wenn du sie versehentlich geschlossen oder den Cursor an eine neue Stelle bewegt hast, kannst du sie mit <kbd>⌘/STRG</kbd>+<kbd>P</kbd> wieder öffnen.
 
 Methoden und Klassen können mehrere Implementationen mit unterschiedlichen Parametern haben, was auch als Überladen bezeichnet wird. Auf diese Weise kannst du beim Schreiben des Methodenaufrufs entscheiden, welche Implementation du verwenden möchtest.
 
@@ -114,40 +124,63 @@ Methoden und Klassen können mehrere Implementationen mit unterschiedlichen Para
 
 ### Refactoring {#refactoring}
 
-Refactoring ist der Prozess der Umstrukturierung von Code, ohne dessen Laufzeitfunktionalität zu verändern. Das sichere Umbenennen und Löschen von Teilen des Codes ist ein Teil davon, aber auch Dinge wie das Extrahieren von Teilen des Codes in separate Methoden und die Einführung neuer Variablen für wiederholte Codeanweisungen werden als "Refactoring" bezeichnet.
+Refactoring ist der Prozess der Umstrukturierung von Code, ohne dessen Laufzeitfunktionalität zu verändern. Das sichere Umbenennen und Löschen von Teilen des Codes ist ein Teil davon, aber Dinge wie das Extrahieren von Teilen des Codes in separate Methoden und die Einführung neuer Variablen für wiederholte Code-Anweisungen werden auch als "Refactoring" bezeichnet.
 
 Viele IDEs verfügen über ein umfangreiches Toolkit, das bei diesem Prozess hilft. In IntelliJ klicke einfach mit der rechten Maustaste auf Dateien oder Teile des Codes, um Zugriff auf die verfügbaren Refactoring-Tools zu erhalten.
 
 ![Refactoring](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-Es ist besonders nützlich, sich an die Tastenkombination <kbd>Umschalttaste</kbd>+<kbd>F6</kbd> zu gewöhnen, da du in der Zukunft viele Dinge `umbenennen` wirst. Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt und bleibt funktionell gleich.
+Es ist besonders nützlich, sich an die Tastenkombination <kbd>Shift</kbd>+<kbd>F6</kbd> zu gewöhnen, da du in der Zukunft wahrscheinlich viele Dinge umbenennen wirst.
+Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt und bleibt funktionell gleich.
+
+Du kannst den Code auch entsprechend deinem Codestil umformatieren.
+Wähle dazu den Code aus, den du neu formatieren möchtest (wenn nichts ausgewählt ist, wird die gesamte Datei neu formatiert) und drücke <kbd>⌘/STRG</kbd>+<kbd>⌥/ALT</kbd>+<kbd>L</kbd>.
+Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java `.
+
+#### Kontextaktionen {#context-actions}
+
+Mit Hilfe von Kontextaktionen können bestimmte Codeabschnitte kontextabhängig umgestaltet werden.
+Bewege dazu einfach den Mauszeiger auf den Bereich, den du überarbeiten möchtest, und drücke <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> oder klicke Sie auf die Glühbirne auf der linken Seite.
+Es erscheint ein Popup-Fenster mit Kontextaktionen, die für den ausgewählten Code verwendet werden können.
+
+![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_01.png)
+
+![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_02.png)
 
 ### Suchen und Ersetzen von Dateiinhalten {#search-and-replace-file-content}
 
 Manchmal sind einfachere Werkzeuge erforderlich, um Code-Vorkommen zu bearbeiten.
 
-| Tastenkombination                             | Funktion                                                                                         |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <kbd>CTRL</kbd>+<kbd>F</kbd>                  | Finde in der aktuellen Datei                                                                     |
-| <kbd>CTRL</kbd>+<kbd>R</kbd>                  | Ersetze in der aktuellen Datei                                                                   |
-| <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Finde in einem größeren Bereich (kann spezifische Dateitypmaske einstellen)   |
-| <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Ersetze in einem größeren Bereich (kann spezifische Dateitypmaske einstellen) |
+| Tastenkombination                               | Funktion                                                                                         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| <kbd>⌘/STRG</kbd>+<kbd>F</kbd>                  | Finde in der aktuellen Datei                                                                     |
+| <kbd>⌘/STRG</kbd>+<kbd>R</kbd>                  | Ersetze in der aktuellen Datei                                                                   |
+| <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Finde in einem größeren Bereich (kann spezifische Dateitypmaske einstellen)   |
+| <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | Ersetze in einem größeren Bereich (kann spezifische Dateitypmaske einstellen) |
 
-Wenn sie aktiviert sind, ermöglichen alle diese Werkzeuge einen spezifischeren Mustervergleich mit "[Regex](https://en.wikipedia.org/wiki/Regular_expression)".
+Falls verwendet, ermöglichen alle diese Werkzeuge einen spezifischeren Mustervergleich durch [Regex](https://en.wikipedia.org/wiki/Regular_expression).
 
 ![Regex Ersetzung](/assets/develop/misc/using-the-ide/search_and_replace_01.png)
 
+### Andere nützliche Tastenkombinationen {#other-keybinds}
+
+Wenn du einen Text markierst und <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>↑ Nach oben / ↓ Nach unten</kbd> verwendest, kannst du den markierten Text nach oben oder unten verschieben.
+
+In IntelliJ ist die Tastenkombination für `Redo` nicht unbedingt die übliche <kbd>⌘/STRG</kbd>+<kbd>Y</kbd> (Zeile löschen).
+Stattdessen kann es <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> sein. Du kannst dies in der **Tastaturbelegung** ändern.
+
+<!-- markdownlint-disable-next-line search-replace -->
+
+Weitere Tastenkombinationen findest du in der [IntelliJ-Dokumentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
+
 ## Kommentare {#comments}
 
-Guter Code sollte leicht lesbar und [selbst-dokumentierend](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758) sein. Die Wahl aussagekräftiger Namen für Variablen, Klassen und Methoden kann sehr hilfreich sein, aber manchmal sind Kommentare notwendig, um Notizen zu hinterlassen oder **vorübergehend** Code zum Testen zu deaktivieren.
+Guter Code sollte leicht lesbar und [selbst-dokumentierend](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758) sein.
+Die Wahl aussagekräftiger Namen für Variablen, Klassen und Methoden kann sehr hilfreich sein, aber manchmal sind Kommentare notwendig, um Notizen zu hinterlassen oder **vorübergehend** Code zum Testen zu deaktivieren.
 
-### Tasenkombinationen vorbereiten {#prepare-shortcuts}
+Um Code schneller auszukommentieren, kannst du einen Text markieren und die Tastenkombinationen <kbd>⌘/STRG</kbd>+<kbd>/</kbd> (Zeilenkommentar) und <kbd>⌘/STRG</kbd>+<kbd>⌥/Shift</kbd>+<kbd>/</kbd> (Blockkommentar) verwenden.
 
-Um Code schneller auszukommentieren, öffne die Einstellungen von IntelliJ, suche nach den Einträgen `Comment with Line Comment` und `Comment with Block Comment` und stelle die Tastenbelegung nach deinen Wünschen ein.
-
-![Tastenkombinationseinstellungen](/assets/develop/misc/using-the-ide/comments_01.png)
-
-Jetzt kannst du den erforderlichen Code markieren und die Tastenkombinationen verwenden, um den Abschnitt auszukommentieren.
+Jetzt kannst du den erforderlichen Code markieren (oder einfach den Mauszeiger darauf halten) und die Tastenkombinationen verwenden, um den Abschnitt auszukommentieren.
 
 ```java
 // private static final int PROTECTION_BOOTS = 2;
@@ -168,9 +201,11 @@ private static int secondsToTicks(float seconds) {
 }
 ```
 
-### Regionkommentare {#region-comments}
+### Code-Faltung {#code-folding}
 
-In IntelliJ kannst du direkt neben den Zeilennummern kleine [+]- und [-]-Symbole sehen. Diese können verwendet werden, um Methoden, if-Anweisungen, Klassen und viele andere Dinge vorübergehend auszublenden, wenn du nicht aktiv an ihnen arbeitest. Um einen benutzerdefinierten Block zu erstellen, der eingeklappt werden kann, verwende die Kommentare `region` und `endregion`.
+In IntelliJ kannst du neben den Zeilennummern kleine Pfeil-Symbole sehen.
+Diese können verwendet werden, um Methoden, if-Anweisungen, Klassen und viele andere Dinge vorübergehend auszublenden, wenn du nicht aktiv an ihnen arbeitest.
+Um einen benutzerdefinierten Block zu erstellen, der eingeklappt werden kann, verwende die Kommentare `region` und `endregion`.
 
 ```java
 // region collapse block name
@@ -188,23 +223,56 @@ In IntelliJ kannst du direkt neben den Zeilennummern kleine [+]- und [-]-Symbole
 Wenn du feststellst, dass du zu viele davon verwendest, solltest du deinen Code überarbeiten, um ihn lesbarer zu machen!
 :::
 
+### Den Formatierer deaktivieren {#disabling-formatter}
+
+Kommentare können den Formatierer auch während der oben erwähnten Codeumstrukturierung deaktivieren, indem sie ein Codestück wie folgt umschließen:
+
+```java
+//formatter:off (disable formatter)
+    public static void disgustingMethod() { /* ew this code sucks */ }
+//formatter:on (re-enable the formatter)
+```
+
+### Unterdrückung von Inspektionen {#noinspection}
+
+`//noinspection` Kommentare können außerdem auch dazu genutzt werden um Inspektionen und Warnungen zu unterdrücken.
+Sie sind funktionell identisch mit der Annotation `@SuppressWarnings`, jedoch ohne die Einschränkung, dass es sich um eine Annotation handelt, und können für Anweisungen verwendet werden.
+
+```java
+// below is bad code and IntelliJ knows that
+
+@SuppressWarnings("rawtypes") // annotations can be used here
+List list = new ArrayList();
+
+//noinspection unchecked (annotations cannot be here so we use the comment)
+this.processList((List<String>)list);
+
+//noinspection rawtypes,unchecked,WriteOnlyObject (you can even suppress multiple!)
+new ArrayList().add("bananas");
+```
+
+:::warning
+Wenn du merkst, dass du zu viele Warnungen unterdrückst, solltest du deinen Code so umschreiben, dass er nicht so viele Warnungen erzeugt!
+:::
+
 ### TODO und FIXME Notizen {#todo-and-fixme-notes}
 
-Bei der Arbeit am Code kann es hilfreich sein, Notizen zu hinterlassen, was noch zu erledigen ist. Manchmal entdeckst du auch ein potenzielles Problem im Code, aber du willst nicht aufhören, dich auf das aktuelle Problem zu konzentrieren. Verwenden in diesem Fall die Kommentare `TODO` oder `FIXME`.
+Bei der Arbeit am Code kann es hilfreich sein, Notizen zu hinterlassen, was noch zu erledigen ist. Manchmal entdeckst du auch ein potenzielles Problem im Code, aber du willst nicht aufhören, dich auf das aktuelle Problem zu konzentrieren. Verwende in diesem Fall die Kommentare `TODO` oder `FIXME`.
 
 ![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_03.png)
 
 IntelliJ behält sie im `TODO`-Fenster im Auge und kann dich benachrichtigen, wenn du Code committen willst, der diese Art von Kommentaren verwendet.
 
-![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_04.png)
+![TODO und FIXME Kommentar](/assets/develop/misc/using-the-ide/comments_04.png)
 
 ![Kommentar mit TODO](/assets/develop/misc/using-the-ide/comments_05.png)
 
 ### JavaDocs {#javadocs}
 
-Eine gute Möglichkeit, deinen Code zu dokumentieren, ist die Verwendung von JavaDoc. JavaDocs liefern nicht nur nützliche Informationen zur Implementierung von Methoden und Klassen, sondern sind auch tief in IntelliJ integriert.
+Eine gute Möglichkeit, deinen Code zu dokumentieren, ist die Verwendung von JavaDoc.
+JavaDocs liefern nicht nur nützliche Informationen zur Implementation von Methoden und Klassen, sondern sind auch tief in IntelliJ integriert.
 
-Wenn du mit dem Mauszeiger über Methoden- oder Klassennamen fährst, die mit JavaDoc-Kommentaren versehen sind, werden diese Informationen in ihrem Informationsfenster angezeigt.
+Wenn du mit dem Mauszeiger über Methoden- oder Klassennamen fährst, die mit JavaDoc-Kommentaren versehen sind, werden diese Informationen in deren Informationsfenster angezeigt.
 
 ![JavaDoc](/assets/develop/misc/using-the-ide/comments_06.png)
 
@@ -221,22 +289,22 @@ Jetbrains hat viele gute Vorträge, Videos und Dokumentationsseiten darüber, wi
 
 ### PostFix Vervollständigung {#postfix-completion}
 
-Verwende die PostFix Vervollständigung, um Code nach dem Schreiben schnell zu ändern. Häufig verwendete Beispiele sind `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` und `.new`. Neben den bereits vorhandenen kannst du in den Einstellungen von IntelliJ auch eigene erstellen.
+Verwende die PostFix Vervollständigung, um Code nach dem Schreiben schnell zu ändern. Häufig verwendete Beispiele sind `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` und `.new`.
+Neben den bereits vorhandenen kannst du in den Einstellungen von IntelliJ auch eigene erstellen.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4?si=oSI1NVuOKtYI1wev" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
 
 ### Live-Vorlagen {#live-templates}
 
 Verwende Live-Vorlagen, um deinen eigenen Vorlagen-Code schneller zu generieren.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU?si=dGYFr2hY7lPJ6Wge" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
 
 ### Mehr Tipps und Tricks {#more-tips}
 
 Anton Arhipov von Jetbrains hielt auch einen ausführlichen Vortrag über Regex Matching, Code Vervollständigung, Debugging und viele andere Themen in IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI?si=XKl5tuUN-hCG_bTG" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
 
-Weitere Informationen findest du auf der Website [Jetbrains' Tipps & Tricks](https://blog.jetbrains.com/idea/category/tips-tricks/). Die meisten ihrer Beiträge sind auch auf das Ökosystem von Fabric anwendbar.
-
----
+Für weitere Informationen, sieh dir [Jetbrains Tips & Tricks Seite](https://blog.jetbrains.com/idea/category/tips-tricks) und [IntelliJ's Dokumentation](https://www.jetbrains.com/help/idea/getting-started) an.
+Die meisten ihrer Beiträge sind auch auf das Ökosystem von Fabric anwendbar.

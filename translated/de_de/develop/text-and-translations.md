@@ -3,6 +3,7 @@ title: Text und Übersetzungen
 description: Umfassende Dokumentation für Minecraft's Umgang mit formatiertem Text und Übersetzungen.
 authors:
   - IMB11
+  - LordEnder-Kitty
 ---
 
 # Text und Übersetzungen {#text-and-translations}
@@ -44,6 +45,36 @@ Die Sprachdatei `en_us.json` sieht wie folgt aus:
 {
   "my_mod.text.hello": "Hello!",
   "my_mod.text.bye": "Goodbye :("
+}
+```
+
+Wenn du in der Lage sein willst, Variablen in der Übersetzung zu verwenden, ähnlich wie Todesnachrichten es erlauben, die beteiligten Spieler und Gegenstände in der Übersetzung zu verwenden, kannst du diese Variablen als Parameter hinzufügen. Du kannst so viele Parameter hinzufügen, wie du willst.
+
+```java
+Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+```
+
+Du kannst diese Variablen in der Übersetzung wie folgt referenzieren:
+
+```json
+{
+  "my_mod.text.hello": "%1$s said hello!"
+}
+```
+
+Im Spiel wird %1\$s durch den Namen des Spielers ersetzt, auf den du im Code verwiesen hast. Die Verwendung von `player.getDisplayName()` bewirkt, dass zusätzliche Informationen über die Entität in einem Tooltip erscheinen, wenn der Mauszeiger über den Namen in der Chat-Nachricht bewegt wird, im Gegensatz zur Verwendung von `player.getName()`, die zwar den Namen ermittelt, aber keine zusätzlichen Details anzeigt. Ähnliches kann mit ItemStacks gemacht werden, indem `stack.toHoverableText()` verwendet wird.
+
+Was %1\$s überhaupt bedeutet, musst du nur wissen, dass die Zahl der Variablen entspricht, die du zu verwenden versuchst. Nehmen wir an, du hast drei Variablen, die du verwendest.
+
+```java
+Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+```
+
+Wenn du auf den Angreifer verweisen möchtest, würdest du %2\$s verwenden, weil es die zweite Variable ist, die wir übergeben haben. Ebenso bezieht sich %3\$s auf den ItemStack. Eine Übersetzung mit so vielen zusätzlichen Parametern könnte wie folgt aussehen:
+
+```json
+{
+  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
 }
 ```
 
