@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 import com.example.docs.damage.FabricDocsReferenceDamageTypes;
+import com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicModelProvider;
 
 // :::datagen-setup:generator
 public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint {
@@ -36,6 +37,8 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 		pack.addProvider(FabricDocsReferenceDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		// :::datagen-setup:generator
+
+		pack.addProvider(FabricDocsReferenceNetworkingBasicModelProvider::new);
 	}
 
 	// :::datagen-setup:generator
