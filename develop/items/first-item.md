@@ -98,6 +98,8 @@ You're going to create a simple `item/generated` model, which takes in an input 
 
 Create the model JSON in the `assets/<mod id here>/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+
 But we're still missing a thing: the item still doesn't load?
 
 ### Adding an Item Description {#adding-an-item-description}
