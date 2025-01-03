@@ -98,7 +98,14 @@ You're going to create a simple `item/generated` model, which takes in an input 
 
 Create the model JSON in the `assets/<mod id here>/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+But we're still missing a thing: the item still doesn't load?
+
+### Adding an Item Description {#adding-an-item-description}
+
+Since 1.21.4, Minecraft won't try to guess your item model's location anymore, and so, we need to provide an item description.
+
+Create the item description JSON in the `assets/<mod id here>/items`, with the same name as the item; `suspicious_substance.json`.
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/items/suspicious_substance.json)
 
 ### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
@@ -108,6 +115,11 @@ Create the model JSON in the `assets/<mod id here>/models/item` folder, with the
 Most items will use the `item/generated` model as their parent, as it's a simple model that just displays the texture.
 
 There are alternatives, such as `item/handheld` which is used for items that are held in the player's hand, such as tools.
+
+### Breaking Down the Item Description JSON {#breaking-down-the-item-description-json}
+- `model`: This is the property that contains the reference to our model.
+  - `type`: This is the type of our model. For most items, this should be `minecraft:model`
+  - `model`: This is the model's identifier. It should have this form: `<mod id here>:item/<item name here>`
 
 Your item should now look like this in-game:
 
