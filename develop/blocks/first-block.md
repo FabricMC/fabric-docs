@@ -102,7 +102,7 @@ To make the texture show up in-game, you must create a block model which can be 
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description-creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/<mod id here>/items/condensed_dirt.json`.
+For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/<mod id here>/items/condensed_dirt.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
