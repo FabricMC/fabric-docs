@@ -111,7 +111,7 @@ If you're updating to 1.21.4 from an older version of the game, the `humanoid` f
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/<mod_id>/equipment/` folder.
 
-The `RegistryKey<EquipmentAsset` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
+The `RegistryKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 
 Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
 
