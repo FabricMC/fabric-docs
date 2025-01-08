@@ -113,7 +113,7 @@ Next, you'll need to create an associated equipment model definition. These go i
 
 The `RegistryKey<EquipmentAsset` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 
-Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armour pieces, our equipment model definition will look like this:
+Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
 
