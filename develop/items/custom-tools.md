@@ -11,75 +11,22 @@ Tools are essential for survival and progression, allowing players to gather res
 
 ## Creating a Tool Material {#creating-a-tool-material}
 
-::: info
-If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
+You can create a tool material by instantiating a new `ToolMaterial` object and storing it in a field that can be used later to create the tool items that use the material.
 
-This class can also be used to determine your tool material's properties in relation to vanilla tool materials.
-:::
+@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-You can create a tool material by creating a new class that inherits it - in this example, I'll be creating "Guidite" tools:
+The `ToolMaterial` constructor accepts the following parameters, in this specific order:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+| Parameter | Description |
+| --------- | ----------- |
+| `incorrectBlocksForDrops` | If a block is in the incorrectBlocksForDrops tag, it means that when you use a tool made from this `ToolMaterial` on that block, the block will not drop any items. |
+| `durability` | The durability of all tools that are of this `ToolMaterial`.  |
+| `speed` | The mining speed of the tools that are of this `ToolMaterial`. |
+| `attackDamageBonus` | The additional attack damage of the tools that are of this `ToolMaterial` will have. |
+| `enchantmentValue` | The "Enchantibility" of tools which are of this `ToolMaterial`. |
+| `repairItems` | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil. |
 
-Once you have created your tool material and tweaked it to your likings, you can create an instance of it to be used in the tool item constructors.
-
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-The tool material tells the game the following information:
-
-### Durability - `getDurability()` {#durability}
-
-How many times the tool can be used before breaking:
-
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Mining Speed - `getMiningSpeedMultiplier()` {#mining-speed}
-
-If the tool is used to break blocks, how fast should it break the blocks?
-
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-For reference purposes, the diamond tool material has a mining speed of `8.0F` whilst the stone tool material has a mining speed of `4.0F`.
-
-### Attack Damage - `getAttackDamage()` {#attack-damage}
-
-How many points of damage should the tool do when used as a weapon against another entity?
-
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Inverse Tag - `getMiningLevel()` {#inverse-tag}
-
-The inverse tag shows what the tool _**cannot**_ mine. For instance, using the `BlockTags.INCORRECT_FOR_WOODEN_TOOL` tag stops the tool from mining certain blocks:
-
-```json
-{
-  "values": [
-    "#minecraft:needs_diamond_tool",
-    "#minecraft:needs_iron_tool",
-    "#minecraft:needs_stone_tool"
-  ]
-}
-```
-
-This means the tool can't mine blocks that need a diamond, iron, or stone tool.
-
-Let's use the iron tool tag. This stops Guidite tools from mining blocks that require a stronger tool than iron.
-
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-You can use `TagKey.of(...)` to create a custom tag key if you want to use a custom tag.
-
-### Enchantability - `getEnchantability()` {#enchantability}
-
-How easy is it to get better and higher level enchantments with this item? For reference, Gold has an enchantability of 22 whilst Netherite has an enchantability of 15.
-
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Repair Ingredient(s) - `getRepairIngredient()` {#repair-ingredient}
-
-What item or items are used to repair the tool?
-
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
 ## Creating Tool Items {#creating-tool-items}
 
@@ -87,11 +34,13 @@ Using the same utility function as in the [Creating Your First Item](./first-ite
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
 Remember to add them to an item group if you want to access them from the creative inventory!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-You will also have to add a texture, item translation and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent.
+You will also have to add a texture, item translation and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
 
 For this example, I will be using the following model and texture for the "Guidite Sword" item:
 

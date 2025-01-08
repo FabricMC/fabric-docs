@@ -11,12 +11,18 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -30,30 +36,42 @@ import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.ModArmorMaterials;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
-import com.example.docs.item.tool.GuiditeMaterial;
+
+import java.util.Map;
 
 // :::1
 public class ModItems {
 	// :::1
 
+	// :::guidite_tool_material
+	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
+			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
+			455,
+			5.0F,
+			1.5F,
+			22,
+			ModArmorMaterials.REPAIRS_GUIDITE_ARMOR
+	);
+	// :::guidite_tool_material
+
 	// :::6
 	public static final RegistryKey<Item> GUIDITE_HELMET_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_helmet"));
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.HELMET, new Item.Settings().registryKey(GUIDITE_HELMET_KEY).maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_HELMET_KEY);
+	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE_ARMOR_MATERIAL, EquipmentType.HELMET, new Item.Settings().registryKey(GUIDITE_HELMET_KEY).maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_HELMET_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_CHESTPLATE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_chestplate"));
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.CHESTPLATE, new Item.Settings().registryKey(GUIDITE_CHESTPLATE_KEY).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_CHESTPLATE_KEY);
+	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, new Item.Settings().registryKey(GUIDITE_CHESTPLATE_KEY).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_CHESTPLATE_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_LEGGINGS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_leggings"));
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.LEGGINGS, new Item.Settings().registryKey(GUIDITE_LEGGINGS_KEY).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_LEGGINGS_KEY);
+	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE_ARMOR_MATERIAL, EquipmentType.LEGGINGS, new Item.Settings().registryKey(GUIDITE_LEGGINGS_KEY).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_LEGGINGS_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_BOOTS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_boots"));
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE, EquipmentType.BOOTS, new Item.Settings().registryKey(GUIDITE_BOOTS_KEY).maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_BOOTS_KEY);
+	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE_ARMOR_MATERIAL, EquipmentType.BOOTS, new Item.Settings().registryKey(GUIDITE_BOOTS_KEY).maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_BOOTS_KEY);
 	// :::6
 	public static final RegistryKey<Item> LIGHTNING_STICK_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "lightning_stick"));
 	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings().registryKey(LIGHTNING_STICK_KEY)), LIGHTNING_STICK_KEY);
 	// :::7
 	public static final RegistryKey<Item> GUIDITE_SWORD_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_sword"));
-	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 1f, 1f, new Item.Settings().registryKey(GUIDITE_SWORD_KEY)), GUIDITE_SWORD_KEY);
+	public static final Item GUIDITE_SWORD = register(new SwordItem(GUIDITE_TOOL_MATERIAL, 1f, 1f, new Item.Settings().registryKey(GUIDITE_SWORD_KEY)), GUIDITE_SWORD_KEY);
 	// :::7
 	// :::_13
 	public static final RegistryKey<Item> COUNTER_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "counter"));
