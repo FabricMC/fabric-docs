@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/guidite_sword"
+        },
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "fabric-docs-reference:item/guidite_sword_in_hand"
+    },
+    "property": "minecraft:display_context"
+  }
+}
