@@ -105,7 +105,7 @@ Since this block only has two possible variants, as it only has one property (`a
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ::: tip
-Dont forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description-creating-the-item-model-description) for the block so that it will show in the inventory!
+Dont forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
 :::
 
 ---
