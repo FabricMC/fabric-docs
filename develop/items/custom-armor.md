@@ -11,73 +11,46 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 ## Creating an Armor Materials Class {#creating-an-armor-materials-class}
 
-Just like items and blocks, armor materials need to be registered. We will create a `ModArmorMaterials` class to store our custom armor materials for the sake of organization.
+Technically, you dont need a dedicated class for your armor material, but it's good practice anyways with the number of static fields you will need.
 
-You will need to add a static `initialize()` method to this class, and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) so that the materials are registered.
+For this example, we'll create an `GuiditeArmorMaterial` class to store our static fields.
 
-```java
-// Within the ModArmorMaterials class
-public static void initialize() {};
-```
+### Base Durability {#base-durability}
 
-::: warning
-Make sure to call this method **before** you register your items, as the materials will need to be registered before the items can be created.
-:::
+This constant will be used in the `Item.Settings#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
 
-```java
-@Override
-public void onInitialize() {
-  ModArmorMaterials.initialize();
-}
-```
+@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
----
+If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
-Within this `ModArmorMaterials` class, you will need to create a static method which will register the armor material. This method should return a registry entry of the material, as this entry will be used by the ArmorItem constructor to create the armor items.
+### Equipment Asset Registry Key {#equipment-asset-registry-key}
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+Whilst we dont have to register our `ArmorMaterial` to any registries, the game will use this to find the relevant textures for our armor, it's generally good practice to store any registry keys as constants.
 
-## Armor Material Properties {#armor-material-properties}
+@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-::: tip
-If you're struggling to gauge a good value for any of these properties, consider looking at the vanilla armor materials in the `ArmorMaterials` class.
-:::
+We will pass this to the `ArmorMaterial` constructor later.
 
-When creating an armor material, you will need to define the following properties:
+### `ArmorMaterial` Instance {#armormaterial-instance}
 
-### Defense Points {#defense-points}
+To create our material, we need to create a new instance of the `ArmorMaterial` record, the base durability and material registry key constants will be used here.
 
-::: warning
-Ensure you assign a value to each type of armor piece you plan to create and register as an item. If you make an item for an armor piece without a set defense point value, the game will crash.
-:::
+@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-The `defensePoints` map is used to define the number of defense points that each armor piece will provide. The higher the number, the more protection the armor piece will provide. The map should contain an entry for each armor piece type.
+The `ArmorMaterial` constructor accepts the following parameters, in this specific order:
 
-### Enchantability {#enchantability}
+| Parameter | Description |
+| --------- | ----------- |
+| `durability` | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
+| `defense` | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot. |
+| `enchantmentValue` | The "enchantibility" of armor items which use this material. |
+| `equipSound` | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page. |
+| `toughness` | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage. |
+| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer. |
+| `repairIngredient` | An item tag that represents all items which can be used to repair the armor items of this material in an anvil. |
+| `assetId` | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier. |
 
-The `enchantability` property defines how easily the armor can be enchanted. The higher the number, the more enchantments the armor can receive.
-
-### Equip Sound {#equip-sound}
-
-The `equipSound` property is the sound that will play when the armor is equipped. This sound should be a registry entry of a `SoundEvent`. Consider taking a look at the [Custom Sound Events](../sounds/custom) page if you are considering creating custom sounds rather than relying on vanilla sounds within the `SoundEvents` class.
-
-### Repair Ingredient(s) {#repair-ingredient}
-
-The `repairIngredientSupplier` property is a supplier of an `Ingredient` that is used to repair the armor. This ingredient can pretty much be anything, it's recommended to set it to be the same as the material's crafting ingredient used to actually craft the armor items.
-
-### Toughness {#toughness}
-
-The `toughness` property defines how much damage the armor will absorb. The higher the number, the more damage the armor will absorb.
-
-### Knockback Resistance {#knockback-resistance}
-
-The `knockbackResistance` property defines how much knockback the player will reflect when hit. The higher the number, the less knockback the player will receive.
-
-### Dyeable {#dyeable}
-
-The `dyeable` property is a boolean that defines whether the armor can be dyed. If set to `true`, the armor can be dyed using dyes in a crafting table.
-
-If you do choose to make your armor dyeable, your armor layer and item textures must be **designed to be dyed**, as the dye will overlay the texture, not replace it. Take a look at the vanilla leather armor for an example, the textures are grayscale and the dye is applied as an overlay, causing the armor to change color.
+If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
 ## Registering the Armor Material {#registering-the-armor-material}
 

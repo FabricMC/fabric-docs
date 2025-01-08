@@ -2,7 +2,7 @@ package com.example.docs.item;
 
 import net.fabricmc.api.ModInitializer;
 
-import com.example.docs.item.armor.ModArmorMaterials;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // :::1
 public class FabricDocsReferenceItems implements ModInitializer {
@@ -10,7 +10,7 @@ public class FabricDocsReferenceItems implements ModInitializer {
 	public void onInitialize() {
 		// :::1
 		// :::2
-		ModArmorMaterials.initialize();
+		GuiditeArmorMaterial.initialize();
 		// :::2
 		// :::1
 		ModItems.initialize();
