@@ -2,12 +2,6 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.block.ModBlocks;
-
-import com.example.docs.enchantment.FabricDocsReferenceEnchantments;
-
-import com.example.docs.enchantment.ModEnchantmentEffects;
-
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -15,6 +9,7 @@ import net.minecraft.util.Util;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
+import com.example.docs.block.ModBlocks;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider

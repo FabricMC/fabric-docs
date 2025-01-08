@@ -2,8 +2,6 @@ package com.example.docs.datagen;
 
 import static com.example.docs.datagen.FabricDocsReferenceDamageTypesProvider.TATER_DAMAGE_TYPE;
 
-import com.example.docs.datagen.internal.FabricDocsReferenceInternalModelProvider;
-
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
@@ -11,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 import com.example.docs.damage.FabricDocsReferenceDamageTypes;
+import com.example.docs.datagen.internal.FabricDocsReferenceInternalModelProvider;
 
 // :::datagen-setup:generator
 public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint {

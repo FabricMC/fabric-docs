@@ -1,35 +1,21 @@
 package com.example.docs.datagen.internal;
 
-import com.example.docs.FabricDocsReference;
-import com.example.docs.block.ModBlocks;
-
-import com.example.docs.block.custom.PrismarineLampBlock;
-
-import com.example.docs.item.ModItems;
+import net.minecraft.client.data.BlockStateModelGenerator;
+import net.minecraft.client.data.BlockStateVariant;
+import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.ModelIds;
+import net.minecraft.client.data.Models;
+import net.minecraft.client.data.MultipartBlockStateSupplier;
+import net.minecraft.client.data.VariantSettings;
+import net.minecraft.client.data.When;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.BlockStateVariant;
-import net.minecraft.client.data.EquipmentAssetProvider;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.ItemModels;
-import net.minecraft.client.data.Model;
-import net.minecraft.client.data.ModelIds;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.MultipartBlockStateSupplier;
-import net.minecraft.client.data.TextureKey;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.client.data.TexturedModel;
-import net.minecraft.client.data.VariantSettings;
-import net.minecraft.client.data.When;
-import net.minecraft.client.render.item.model.ItemModel;
-import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
+import com.example.docs.block.ModBlocks;
+import com.example.docs.block.custom.PrismarineLampBlock;
+import com.example.docs.item.ModItems;
 
-import java.util.Optional;
 
 /**
  * This generator is just for the reference item and block models.

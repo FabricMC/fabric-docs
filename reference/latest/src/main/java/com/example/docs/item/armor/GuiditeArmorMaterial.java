@@ -2,11 +2,8 @@ package com.example.docs.item.armor;
 
 import java.util.Map;
 
-import com.example.docs.FabricDocsReference;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.ArmorMaterials;
 import net.minecraft.item.equipment.EquipmentAsset;
 import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.item.equipment.EquipmentType;
@@ -15,6 +12,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+
+import com.example.docs.FabricDocsReference;
 
 public class GuiditeArmorMaterial {
 
