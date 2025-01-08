@@ -50,16 +50,16 @@ public class ModItems {
 
 	// :::6
 	public static final RegistryKey<Item> GUIDITE_HELMET_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_helmet"));
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(GuiditeArmorMaterial.GUIDITE_ARMOR_MATERIAL, EquipmentType.HELMET, new Item.Settings().registryKey(GUIDITE_HELMET_KEY).maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_HELMET_KEY);
+	public static final Item GUIDITE_HELMET = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET, new Item.Settings().registryKey(GUIDITE_HELMET_KEY).maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_HELMET_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_CHESTPLATE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_chestplate"));
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.GUIDITE_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, new Item.Settings().registryKey(GUIDITE_CHESTPLATE_KEY).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_CHESTPLATE_KEY);
+	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE, new Item.Settings().registryKey(GUIDITE_CHESTPLATE_KEY).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_CHESTPLATE_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_LEGGINGS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_leggings"));
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.GUIDITE_ARMOR_MATERIAL, EquipmentType.LEGGINGS, new Item.Settings().registryKey(GUIDITE_LEGGINGS_KEY).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_LEGGINGS_KEY);
+	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS, new Item.Settings().registryKey(GUIDITE_LEGGINGS_KEY).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_LEGGINGS_KEY);
 
 	public static final RegistryKey<Item> GUIDITE_BOOTS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_boots"));
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(GuiditeArmorMaterial.GUIDITE_ARMOR_MATERIAL, EquipmentType.BOOTS, new Item.Settings().registryKey(GUIDITE_BOOTS_KEY).maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.GUIDITE_DURABILITY_MULTIPLIER))), GUIDITE_BOOTS_KEY);
+	public static final Item GUIDITE_BOOTS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS, new Item.Settings().registryKey(GUIDITE_BOOTS_KEY).maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_BOOTS_KEY);
 	// :::6
 	public static final RegistryKey<Item> LIGHTNING_STICK_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "lightning_stick"));
 	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings().registryKey(LIGHTNING_STICK_KEY)), LIGHTNING_STICK_KEY);

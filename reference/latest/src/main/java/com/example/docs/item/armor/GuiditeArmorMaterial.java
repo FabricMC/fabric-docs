@@ -23,7 +23,7 @@ public class GuiditeArmorMaterial {
 	// :::base_durability
 
 	// :::material_key
-	public static final RegistryKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(FabricDocsReference.MOD_ID, "guidite_armor"));
+	public static final RegistryKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(FabricDocsReference.MOD_ID, "guidite"));
 	// :::material_key
 
 	// :::repair_tag

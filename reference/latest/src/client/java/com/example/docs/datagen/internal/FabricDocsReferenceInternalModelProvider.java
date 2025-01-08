@@ -13,6 +13,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.BlockStateVariant;
+import net.minecraft.client.data.EquipmentAssetProvider;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.ItemModels;
 import net.minecraft.client.data.Model;
@@ -66,7 +67,7 @@ public class FabricDocsReferenceInternalModelProvider extends FabricModelProvide
 		itemModelGenerator.register(ModItems.GUIDITE_LEGGINGS, Models.GENERATED);
 		itemModelGenerator.register(ModItems.POISONOUS_APPLE, Models.GENERATED);
 		itemModelGenerator.register(ModItems.SUSPICIOUS_SUBSTANCE, Models.GENERATED);
-		itemModelGenerator.registerWithInHandModel(ModItems.GUIDITE_SWORD);
+		itemModelGenerator.register(ModItems.GUIDITE_SWORD, Models.HANDHELD);
 	}
 
 	@Override

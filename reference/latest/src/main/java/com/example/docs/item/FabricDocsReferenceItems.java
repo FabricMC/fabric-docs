@@ -8,11 +8,6 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 public class FabricDocsReferenceItems implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		// :::1
-		// :::2
-		GuiditeArmorMaterial.initialize();
-		// :::2
-		// :::1
 		ModItems.initialize();
 	}
 }
