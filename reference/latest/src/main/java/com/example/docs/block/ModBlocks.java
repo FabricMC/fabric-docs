@@ -92,6 +92,7 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
+			itemGroup.add(ModBlocks.ENGINE_BLOCK.asItem());
 		});
 	}
 
