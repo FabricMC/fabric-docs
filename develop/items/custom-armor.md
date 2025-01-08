@@ -11,7 +11,7 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 ## Creating an Armor Materials Class {#creating-an-armor-materials-class}
 
-Technically, you dont need a dedicated class for your armor material, but it's good practice anyways with the number of static fields you will need.
+Technically, you don't need a dedicated class for your armor material, but it's good practice anyways with the number of static fields you will need.
 
 For this example, we'll create an `GuiditeArmorMaterial` class to store our static fields.
 
