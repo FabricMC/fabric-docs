@@ -98,7 +98,7 @@ All block textures can be found in the `assets/<mod id here>/textures/block` fol
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
-To make the texture show up in-game, you must create a block model which can be found in the `assets/<mod id here>/models/block/condensed_dirt.json` file respectively for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
+To make the texture show up in-game, you must create a block model which can be found in the `assets/<mod id here>/models/block/condensed_dirt.json` file for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
