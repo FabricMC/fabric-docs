@@ -67,7 +67,7 @@ Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello
 
 Gli stati del blocco personalizazti sono ottimi se il tuo blocco ha proprietà uniche - a volte è anche possibile che il tuo blocco riusi proprietà vanilla.
 
-Questo esempio creerà una proprietà booleana chiamata `activated` - quando un giocatore clicca con il pulsante destro il blocco, il blocco passerà dall'essere `activated=false` ad `activated=true` - cambiando la texture in maniera appropriata.
+Questo esempio creerà una proprietà booleana chiamata `activated` - quando un giocatore clicca con il tasto destro il blocco, il blocco passerà dall'essere `activated=false` ad `activated=true` - cambiando la texture in maniera appropriata.
 
 ### Creare la Proprietà {#creating-the-property}
 
