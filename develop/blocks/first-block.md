@@ -98,18 +98,17 @@ All block textures can be found in the `assets/<mod id here>/textures/block` fol
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
-To make the texture show up in-game, you must create a block and item model which can be found in the respective locations for the "Condensed Dirt" block:
+To make the texture show up in-game, you must create a block model which can be found in the `assets/<mod id here>/models/block/condensed_dirt.json` file for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-The item model is pretty simple, it can just use the block model as a parent - since most block models have support for being rendered in a GUI:
+For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/<mod id here>/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
-The block model however, in our case, must parent the `block/cube_all` model:
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+::: tip
+You only need to create an item model description if you've registered a `BlockItem` along with your block!
+:::
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
 
@@ -121,7 +120,7 @@ For the example block, which doesn't have a complex blockstate, only one entry i
 
 This file should be located in the `assets/mod_id/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
 ::: tip
 Blockstates are incredibly complex, which is why they will be covered next in [their own seperate page](./blockstates).
@@ -160,7 +159,7 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining tag.
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining level tag.
 
 ## Mining Levels {#mining-levels}
 

@@ -40,7 +40,7 @@ Since the pillar block has two positions, horizontal and vertical, we'll need to
 
 An example of the `condensed_oak_log_horizontal.json` file:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -56,7 +56,7 @@ Next, we need to create a blockstate file. The blockstate file is where the magi
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
 - `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 As always, you'll need to create a translation for your block, and an item model which parents either of the two models.
 
@@ -103,6 +103,10 @@ If you have multiple properties on a block, you'll need to account for all possi
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+
+::: tip
+Dont forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
+:::
 
 ---
 

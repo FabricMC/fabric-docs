@@ -85,18 +85,19 @@ public class ModBlocks {
 	// :::5
 
 	// :::1
-	public static Block register(Block block, RegistryKey<Block> registryKey, boolean shouldRegisterItem) {
+	public static Block register(Block block, RegistryKey<Block> blockKey, boolean shouldRegisterItem) {
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:air` or `minecraft:end_gateway`
 		if (shouldRegisterItem) {
-			// Items need to be registered with a different type of registry key, but the ID
+	// Items need to be registered with a different type of registry key, but the ID
 			// can be the same.
-			RegistryKey<Item> itemRegistryKey = RegistryKey.of(RegistryKeys.ITEM, registryKey.getValue());
-			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemRegistryKey));
-			Registry.register(Registries.ITEM, itemRegistryKey, blockItem);
+			RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
+
+			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+			Registry.register(Registries.ITEM, itemKey, blockItem);
 		}
 
-		return Registry.register(Registries.BLOCK, registryKey, block);
+		return Registry.register(Registries.BLOCK, blockKey, block);
 	}
 
 	// :::1
@@ -115,6 +116,7 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.CONDENSED_OAK_LOG.asItem());
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
+			itemGroup.add(ModBlocks.ENGINE_BLOCK.asItem());
 		});
 	}
 
