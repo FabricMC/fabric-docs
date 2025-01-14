@@ -42,8 +42,12 @@ Here's a simple advancement for getting a dirt block:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
+::: warning
+When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
+:::
+
 ::: details JSON Output
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
 :::
 
 ## One More Example {#one-more-example}
@@ -51,20 +55,6 @@ Here's a simple advancement for getting a dirt block:
 Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
-
-Don't forget to generate them! Use the terminal command below or the run configuration in IntelliJ.
-
-::: code-group
-
-```sh [Windows]
-gradlew runDatagen
-```
-
-```sh [Linux]
-./gradlew runDatagen
-```
-
-:::
 
 ## Custom Criteria {#custom-criteria}
 
