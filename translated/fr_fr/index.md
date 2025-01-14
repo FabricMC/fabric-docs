@@ -9,7 +9,7 @@ features:
   - title: Guides des joueurs
     icon: 📚
     details: Êtes-vous un joueur envisageant d'utiliser des mods fonctionnant grâce à Fabric ? Nos guides des joueurs sont là pour vous aider. Ces guides vous aideront à télécharger, installer des mods Fabric et résoudre les problèmes pouvant survenir.
-    link: /fr_fr/players
+    link: /fr_fr/players/
     linkText: En Savoir Plus
   - title: Guides développeur
     icon: 🛠️
