@@ -18,7 +18,7 @@ authors:
 
 ### 물약 만들기 {#creating-the-potion}
 
-`Potion` 인스턴스를 저장할 필드를 만들며 시작해 봅시다. 클래스의 생성자를 사용해 바로 저장할 것입니다.
+`Potion` 인스턴스를 저장할 필드를 만들며 시작해 봅시다. 이를 보관하기 위해 `ModInitializer` 구현 클래스를 직접 사용하겠습니다.
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
