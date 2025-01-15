@@ -25,7 +25,7 @@ If you're struggling to determine a balanced base durability, you can refer to t
 
 ### Equipment Asset Registry Key {#equipment-asset-registry-key}
 
-Whilst we dont have to register our `ArmorMaterial` to any registries, the game will use this to find the relevant textures for our armor, it's generally good practice to store any registry keys as constants.
+Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any registry keys as constants, as the game will use this to find the relevant textures for our armor.
 
 @[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -100,8 +100,8 @@ There are two layers for the armor texture, both must be present.
 
 Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
-- `assets/<mod_id>/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
-- `assets/<mod_id>/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
+- `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
+- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
@@ -109,7 +109,7 @@ Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_
 If you're updating to 1.21.4 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
 :::
 
-Next, you'll need to create an associated equipment model definition. These go in the `/assets/<mod_id>/equipment/` folder.
+Next, you'll need to create an associated equipment model definition. These go in the `/assets/mod-id/equipment/` folder.
 
 The `RegistryKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 

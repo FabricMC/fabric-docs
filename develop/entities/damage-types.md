@@ -69,7 +69,7 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 
 ### Custom Death Message {#custom-death-message}
 
-You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
+You can define a death message for the damage type in the format of `death.attack.message_id` in our
 mod's `en_us.json` file.
 
 ```json

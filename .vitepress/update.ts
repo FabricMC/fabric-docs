@@ -127,7 +127,7 @@ import players from "./sidebars/players";
   for (const file of versionedMarkdownFiles) {
     const content = fs.readFileSync(file, "utf-8");
 
-    // Replace all instances of @/reference/latest/ with @/reference/oldVersion/
+    // Replace all instances of /reference/latest with /reference/oldVersion
     const newContent = content.replace(
       /\/reference\/latest/g,
       `/reference/${oldVersion}`
