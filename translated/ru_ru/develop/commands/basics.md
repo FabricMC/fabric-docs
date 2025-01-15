@@ -66,7 +66,7 @@ Command<ServerCommandSource> command = context -> {
 Сведения о регистрации обратных вызовов смотрите в [События](../events).
 :::
 
-Событие следует регистрировать в инициализаторе вашего мода.
+Событие должно быть зарегистрировано в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 Обратный вызов имеет три аргумента:
 
@@ -74,7 +74,7 @@ Command<ServerCommandSource> command = context -> {
 - `CommandRegistryAccess  registryAccess` - предоставляет абстракцию   которую можно передать определённой команде   методы аргументов
 - `CommandManager.RegistrationEnvironment environment` - Определяет тип сервера,   на котором регистрируются команды.
 
-В инициализации мода, мы просто регистрируем простую команду:
+В инициализаторе мода мы просто регистрируем простую команду:
 
 @[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
@@ -89,7 +89,7 @@ Command<ServerCommandSource> command = context -> {
 Чтобы выполнить эту команду, необходимо ввести `/test_command`, при этом регистр символов имеет значение.
 
 :::info
-С этого момента мы будем извлекать логику, написанную в lambda-функции переданном в конструкторы `.execute()`, в отдельные методы. Затем мы можем передать ссылку на метод в `.execute()`. Это сделано для ясности.
+С этого момента мы будем извлекать логику, написанную в лямбде, передаваемой в сборщики `.execute()`, в отдельные методы. Затем мы можем передать ссылку на метод в `.execute()`. Это сделано для ясности.
 :::
 
 ### Регистрационная среда {#registration-environment}
