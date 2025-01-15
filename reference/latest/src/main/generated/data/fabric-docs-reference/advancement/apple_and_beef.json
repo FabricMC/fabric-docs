@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:fabric-docs-reference/get_dirt",
+  "parent": "fabric-docs-reference:get_dirt",
   "criteria": {
     "ate_apple": {
       "conditions": {

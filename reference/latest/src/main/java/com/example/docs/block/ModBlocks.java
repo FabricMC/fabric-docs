@@ -89,7 +89,7 @@ public class ModBlocks {
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:air` or `minecraft:end_gateway`
 		if (shouldRegisterItem) {
-	// Items need to be registered with a different type of registry key, but the ID
+			// Items need to be registered with a different type of registry key, but the ID
 			// can be the same.
 			RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
 

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:fabric-docs-reference/break_block_with_tool",
+  "parent": "fabric-docs-reference:break_block_with_tool",
   "criteria": {
     "break_block_with_tool_five_times": {
       "conditions": {
