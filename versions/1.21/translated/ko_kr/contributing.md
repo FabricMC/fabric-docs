@@ -1,8 +1,6 @@
 ---
 title: 기여 가이드라인
 description: Fabric 문서 기여 가이드라인
-
-search: false
 ---
 
 # 기여 가이드라인 {#contributing}
@@ -48,7 +46,7 @@ Fabric 문서 웹사이트의 모든 페이지는 스타일 가이드를 준수�
 
 GitHub 흐름에 대한 자세한 내용은 [여기](https://docs.github.com/en/get-started/using-github/github-flow)에서 확인할 수 있습니다.
 
-또한 GitHub의 웹 인터페이스에서 변경하거나 로컬에서 웹사이트를 개발해 미리 볼 수 있습니다.
+GitHub의 웹 UI에서 변경하거나 로컬에서 웹을 개발하고 미리 볼 수 있습니다.
 
 #### 포크 복사하기 {#clone-your-fork}
 
@@ -190,10 +188,10 @@ authors:
 ::: code-group
 
 ```md
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
 ```
 
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
 
 :::
 
@@ -204,10 +202,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 :::
 

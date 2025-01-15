@@ -1,8 +1,6 @@
 ---
 title: Руководство по внесению вклада
 description: Руководство по внесению вклада в документацию Fabric
-
-search: false
 ---
 
 # Руководство по внесению вклада {#contributing}
@@ -190,10 +188,10 @@ authors:
 ::: code-group
 
 ```md
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
 ```
 
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
 
 :::
 
@@ -204,10 +202,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 :::
 

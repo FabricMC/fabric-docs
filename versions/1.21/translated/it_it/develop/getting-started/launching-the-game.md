@@ -4,8 +4,6 @@ description: Impara come usare i vari profili d'avvio per avviare ed effettuare 
 authors:
   - IMB11
   - Tenneb22
-
-search: false
 ---
 
 # Avviare il Gioco {#launching-the-game}

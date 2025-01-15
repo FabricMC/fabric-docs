@@ -3,8 +3,6 @@ title: Przesyłanie logów
 description: Jak przesyłać logi na potrzeby rozwiązywania problemów.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Przesyłanie logów {#uploading-logs}

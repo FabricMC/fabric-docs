@@ -7,11 +7,10 @@ authors:
   - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - Manchick0
 authors-nogithub:
   - siglong
   - tao0lu
-
-search: false
 ---
 
 # Effetti di Stato {#status-effects}
@@ -28,13 +27,13 @@ In questo tutorial aggiungeremo un nuovo effetto personalizzato chiamato _Tater_
 
 Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect`, che è la classe base per tutti gli effetti.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrare il tuo Effetto Personalizzato {#registering-your-custom-effect}
 
 Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nella registry `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
 ### Texture {#texture}
 
@@ -56,10 +55,31 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mo
 }
 ```
 
-### Fase di Test {#testing}
+### Applicare l'Effetto {#applying-the-effect}
 
-Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
-Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
+Vale la pena di dare un'occhiata a come si aggiunge solitamente un effetto ad un'entità.
+
+::: tip
+For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
+
+```mcfunction
+effect give @p fabric-docs-reference:tater
+```
+
+:::
+
+Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addStatusEffect`, che prende una `StatusEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
+
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+
+| Argomento   | Tipo                          | Descrizione                                                                                                                                                                                                                                                                             |
+| ----------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `effect`    | `RegistryEntry<StatusEffect>` | Una voce di registry che rappresenta l'effetto.                                                                                                                                                                                                                         |
+| `duration`  | `int`                         | La durata dell'effetto **in tick**; **non** in secondi                                                                                                                                                                                                                                  |
+| `amplifier` | `int`                         | L'amplificatore al livello dell'effetto. Non corrisponde al **livello** dell'effetto, ma è invece aggiunto al di sopra. Per cui un `amplifier` di `4` => livello `5`                                                                                    |
+| `ambient`   | `boolean`                     | Questo è un po' complesso. In pratica indica che l'effetto è stato aggiunto dall'ambiente (per esempio un **Faro**) e non ha una causa diretta. Se `true`, l'icona dell'effetto nel HUD avrà un overlay color ciano. |
+| `particles` | `boolean`                     | Se si mostrano le particelle.                                                                                                                                                                                                                                           |
+| `icon`      | `boolean`                     | Se si mostra un'icona dell'effetto nel HUD. L'effetto sarà mostrato nell'inventario indipendentemente da questo valore.                                                                                                                                 |
 
 :::info
 ::: info

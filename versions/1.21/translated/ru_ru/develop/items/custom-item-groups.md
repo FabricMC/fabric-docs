@@ -3,8 +3,6 @@ title: Собственные вкладки предметов
 description: Вы узнаете как создавать собственные вкладки предметов и добавлять в них предметы.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Собственные вкладки предметов {#custom-item-groups}
@@ -15,9 +13,9 @@ search: false
 
 Процесс создания необычайно прост. Просто создайте в классе с вашими предметами новое статическое неизменяемое поле для хранения новой вкладки предметов и ключа реестра для неё. После этого можно использовать событие вкладки с предметами как при добавлении предметов в ванильную вкладку с предметами:
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 

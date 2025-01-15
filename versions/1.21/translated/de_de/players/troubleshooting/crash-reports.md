@@ -3,8 +3,6 @@ title: Absturzberichte
 description: Erfahre, wie mit Absturzberichten umzugehen ist, und wie man sie liest.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Absturzberichte {#crash-reports}

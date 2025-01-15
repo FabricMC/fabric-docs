@@ -1,8 +1,6 @@
 ---
 title: Beitragsrichtlinen
 description: Richtlinien zur Beitragserstellung für die Fabric-Dokumentation
-
-search: false
 ---
 
 # Wie man beiträgt {#contributing}
@@ -190,10 +188,10 @@ Dies wird die Zeilen 15-21 der Datei `FabricDocsReference.java` des Referenz-Mod
 ::: code-group
 
 ```md
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
 ```
 
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
 
 :::
 
@@ -204,10 +202,10 @@ So werden beispielsweise die Abschnitte der obigen Datei eingebettet, die mit de
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 :::
 

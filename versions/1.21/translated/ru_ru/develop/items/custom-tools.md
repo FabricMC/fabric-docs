@@ -3,8 +3,6 @@ title: Оружие и инструменты
 description: Узнайте, как создавать собственные инструменты и настраивать их свойства.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Инструменты {#tools}
@@ -21,7 +19,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 "Вы можете создать материал для инструмента, создав новый класс, который его наследует — в этом примере я буду создавать инструменты «Guidite»:
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 Материал инструмента сообщает игре следующую информацию:
 
@@ -31,7 +29,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   **Пример**
 
-  @[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 - ### Скорость добычи - `getMiningSpeedMultiplier()` {#mining-speed}
 
@@ -41,7 +39,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   **Пример**
 
-  @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 - ### Урон от атаки - `getAttackDamage()` {#attack-damage}
 
@@ -49,7 +47,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   **Пример**
 
-  @[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 - ### Обратный тег - `getMiningLevel()` {#inverse-tag}
 
@@ -71,7 +69,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   Мы воспользуемся тегом железного инструмента. Это не позволяет инструментам Guidite добывать блоки, для которых требуется инструмент прочнее железа.
 
-  @[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
   Если вы хотите использовать пользовательский тег, вы можете использовать `TagKey.of(...)` для создания пользовательского ключа тега.
 
@@ -81,7 +79,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   **Пример**
 
-  @[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 - ### Ингредиент(ы) для восстановления - `getRepairIngredient()` {#repair-ingredient}
 
@@ -89,27 +87,27 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   **Пример**
 
-  @[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+  @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 После того как вы создали материал для инструмента и настроили его по своему вкусу, вы можете создать его экземпляр для использования в конструкторах предметов инструмента.
 
-@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ## Создание инструментов {#creating-tool-items}
 
 Используя ту же вспомогательную функцию, что и в руководстве [Создание вашего первого элемента](./first-item), вы можете создавать свои инструменты:
 
-@[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Не забудьте добавить их в группу предметов, если вы хотите получить к ним доступ из творческого инвентаря!
 
-@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Вам также придется добавить текстуру, перевод предмета и модель предмета. Однако для модели элемента вам следует использовать модель `item/handheld` в качестве родительской.
 
 В этом примере я буду использовать следующую модель и текстуру для предмета «Меч Guidite»:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
 

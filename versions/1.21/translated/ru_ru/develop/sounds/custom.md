@@ -3,8 +3,6 @@ title: Создание своих звуков
 description: Вы научите добавлять и использовать новые звуки с реестром.
 authors:
   - JR1811
-
-search: false
 ---
 
 # Создание своих звуков {#creating-custom-sounds}
@@ -35,7 +33,7 @@ search: false
 
 Дальше создайте файл `resources/assets/<mod id here>/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
 Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/<mod id here>/lang` и будет показываться, если включена настройка и звук воспроизводиться.
 
@@ -54,11 +52,11 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 Добавьте два новых метода для ранее созданного класса помощника. Первый регистрирует все звуки и используется для инициализации этого класса на первом месте. После этого вы можете добавить в новый статический класс `SoundEvent` нужные переменные.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/sound/CustomSounds.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
 `ModInitializer` имплементируют точки входа которые нужны классу, чтобы имплементировать весь реестр с собственными SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 

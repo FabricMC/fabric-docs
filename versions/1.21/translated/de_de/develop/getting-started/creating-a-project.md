@@ -4,8 +4,6 @@ description: Eine Schritt-für-Schritt-Anleitung, wie man ein neues Mod-Projekt 
 authors:
   - IMB11
   - Cactooz
-
-search: false
 ---
 
 # Ein Projekt erstellen {#creating-a-project}

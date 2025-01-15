@@ -3,8 +3,6 @@ title: Raporty awarii
 description: Dowiedz się, co robić z raportami awarii i jak je odczytywać.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Raporty awarii {#crash-reports}

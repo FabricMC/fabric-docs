@@ -1,8 +1,6 @@
 ---
 title: Przewodniki dla deweloperów
 description: Nasze napisane przez społeczność przewodniki dla deweloperów, obejmują wszystko — od konfiguracji środowiska programistycznego po zaawansowane tematy takie jak renderowanie i networking.
-
-search: false
 ---
 
 # Przewodniki dla deweloperów {#developer-guides}

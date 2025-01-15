@@ -3,8 +3,6 @@ title: Отчёты о сбоях
 description: Узнайте, что можно делать с отчётами о сбоях и как их читать.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Отчёты о сбоях {#crash-reports}

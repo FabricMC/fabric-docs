@@ -3,8 +3,6 @@ title: Пользовательские виджеты
 description: Узнайте, как создавать пользовательские виджеты для ваших экранов.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Пользовательские виджеты {#custom-widgets}
@@ -20,13 +18,13 @@ search: false
 - `Narratable` — для доступности — требуется, чтобы сделать ваш виджет доступным для программ чтения с экрана и других инструментов обеспечения доступности.
 - `Selectable` — для выбора — требуется, если вы хотите сделать виджет доступным для выбора с помощью клавиши <kbd>Tab</kbd> - это также способствует повышению доступности.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## Добавление виджета на экран {#adding-the-widget-to-the-screen}
 
 Как и все виджеты, его необходимо добавить на экран с помощью метода `addDrawableChild`, который предоставляется классом `Screen`. Обязательно сделайте это в методе `init`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Пользовательский виджет на экране](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -36,6 +34,6 @@ search: false
 
 Например, вы можете заставить виджет менять цвет при наведении на него курсора, используя метод `isHovered()`, предоставляемый классом `ClickableWidget`:
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![Пример события наведения](/assets/develop/rendering/gui/custom-widget-events.webp)

@@ -3,8 +3,6 @@ title: Logs hochladen
 description: Wie man Logs zur Fehlerbehebung hochlädt.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Logs hochladen {#uploading-logs}

@@ -3,8 +3,6 @@ title: Den Zeichenkontext verwenden
 description: Lerne, wie man die Klasse DrawContext verwendet, um verschiedene Formen, Texte und Texturen zu rendern.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Den Zeichenkontext verwenden {#using-the-drawing-context}
@@ -21,7 +19,7 @@ Die Klasse `DrawContext` kann verwendet werden, um auf einfache Weise **quadrati
 
 Du kannst die Methode `DrawContext.fill(...)` verwenden, um ein gefülltes Rechteck zu zeichnen.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Ein Rechteck](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -29,7 +27,7 @@ Du kannst die Methode `DrawContext.fill(...)` verwenden, um ein gefülltes Recht
 
 Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreißen. Wir können die Methode `DrawContext.drawBorder(...)` verwenden, um einen Umriss zu zeichnen.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Ein Rechteck mit einer Umrandung](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -37,7 +35,7 @@ Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreiß
 
 Wir können die Methoden `DrawContext.drawHorizontalLine(...)` und `DrawContext.drawVerticalLine(...)` verwenden, um Linien zu zeichnen.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Linien](/assets/develop/rendering/draw-context-lines.png)
 
@@ -53,7 +51,7 @@ Scheren-Regionen können verschachtelt werden! Stelle sicher, dass du den Schere
 
 Um den Scheren-Manager zu aktivieren, verwende einfach die Methode `DrawContext.enableScissor(...)`. Um den Scheren-Manager zu deaktivieren, verwende die Methode `DrawContext.disableScissor()`.
 
-@[code lang=java transcludeWith=:::4](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 [Scheren-Region in Aktion](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -67,7 +65,7 @@ Es gibt nicht den einen "richtigen" Weg, um Texturen auf einen Bildschirm zu zei
 
 Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Parameter `textureWidth` und `textureHeight` angibt. Der Grund dafür ist, dass die Klasse `DrawContext` diese Werte entgegennimmt, wenn du sie nicht angibst, was manchmal falsch sein kann.
 
-@[code lang=java transcludeWith=:::5](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Beispiel für das Zeichnen einer ganzen Textur](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -81,7 +79,7 @@ Nehmen wir diese Textur als Beispiel.
 
 Wenn wir nur einen Bereich zeichnen wollen, der die Lupe enthält, können wir die folgenden Werte `u`, `v`, `regionWidth` und `regionHeight` verwenden:
 
-@[code lang=java transcludeWith=:::6](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Textur der Region](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -91,6 +89,6 @@ Die Klasse `DrawContext` verfügt über verschiedene selbsterklärende Methoden 
 
 Nehmen wir an, wir wollen "Hello World" auf die Oberfläche zeichnen. Wir können dazu die Methode `DrawContext.drawText(...)` verwenden.
 
-@[code lang=java transcludeWith=:::7](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Einen Text zeichnen](/assets/develop/rendering/draw-context-text.png)

@@ -1,8 +1,6 @@
 ---
 title: Często zadawane pytania dla graczy
 description: Często zadawane pytania dla graczy i administratorów serwerów dotyczące Fabric.
-
-search: false
 ---
 
 # Często zadawane pytania {#faq}

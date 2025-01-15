@@ -3,8 +3,6 @@ title: IDE 提示和技巧
 description: 让你在 IDE 中高效处理并遍历你的项目的有用信息
 authors:
   - JR1811
-
-search: false
 ---
 
 # IDE 提示和技巧{#ide-tips-and-tricks}

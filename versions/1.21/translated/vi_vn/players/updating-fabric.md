@@ -4,8 +4,6 @@ description: Bộ hướng dẫn từng bước để cập nhật Fabric.
 authors:
   - IMB11
   - modmuss50
-
-search: false
 ---
 
 # Cập Nhật Fabric

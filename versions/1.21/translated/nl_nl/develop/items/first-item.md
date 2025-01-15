@@ -4,8 +4,6 @@ description: Leer hoe je een simpel voorwerp registreert en hoe je textureert, m
 authors:
   - IMB11
   - dicedpixels
-
-search: false
 ---
 
 # Maak Je Eerste Voorwerp {#creating-your-first-item}
@@ -24,7 +22,7 @@ Je kunt deze methode het beste in een soort klasse genaamd `ModVoorwerpen` (of w
 
 Mojang doet dit ook voor hun voorwerpen! Neem maar eens een kijkje naar de `Items` klasse voor inspiratie.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Het Registreren van een Voorwerp {#registering-an-item}
 
@@ -38,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 Dit werkt niet als je het item als beschadigbaar hebt gemarkeerd, omdat de stapelgrootte voor beschadigbare items altijd 1 is om duplicatie-exploits te voorkomen.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Als je echter in het spel gaat, kun je zien dat ons item niet bestaat! Dit komt omdat u de klasse niet statisch initialiseert.
 
 Om dit te doen, kunt u een openbare statische initialisatiemethode aan uw klasse toevoegen en deze vanuit uw klasse `ModInitializer` aanroepen. Momenteel heeft deze methode niets nodig.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Het aanroepen van een methode voor een klasse initialiseert deze statisch als deze nog niet eerder is geladen - dit betekent dat alle `static` velden worden geëvalueerd. Dit is waar de dummy `initialize` voor is.
 
@@ -60,7 +58,7 @@ We zullen dit item bijvoorbeeld toevoegen aan de ingrediënten `ItemGroup`, u zu
 
 Dit kan gedaan worden in de `initialize`-methode van uw voorwerpen klasse.
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Als je het spel inlaadt, kun je zien dat ons item is geregistreerd en zich in de voorwerpgroep Ingrediënten bevindt:
 
@@ -100,7 +98,7 @@ Je gaat een eenvoudig `item/generated`-model maken, dat een invoertextuur bevat 
 
 Maak de model-JSON in de map `assets/<mod id here>/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Het Model-JSON Afbreken {#breaking-down-the-model-json}
 
@@ -121,11 +119,11 @@ Fabric API biedt verschillende registers die kunnen worden gebruikt om extra eig
 
 Als je je voorwerp bijvoorbeeld composteerbaar wilt maken, kun je het `CompostableItemRegistry` gebruiken:
 
-@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Als je van je voorwerp een ​​brandstof wilt maken, kun je ook de klasse `FuelRegistry` gebruiken:
 
-@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Een Basisrecept Toevoegen {#adding-a-basic-crafting-recipe}
 
@@ -146,7 +144,7 @@ Als je wilt dat je voorwerp een ​​aangepaste tooltip heeft, moet je een klas
 In dit voorbeeld wordt de klasse `LightningStick` gebruikt die is gemaakt op de pagina [Aangepaste Voorwerpinteracties](./custom-item-interactions).
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Elke aanroep van `add()` zal één regel aan de tooltip toevoegen.
 

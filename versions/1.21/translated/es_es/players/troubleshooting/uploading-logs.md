@@ -3,8 +3,6 @@ title: Subir Logs
 description: Como subir logs para solucionar problemas.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Subir Logs

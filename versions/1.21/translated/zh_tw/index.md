@@ -16,8 +16,6 @@ features:
     details: 我們的社群編寫的開發人員指南涵蓋了從設定開發環境到繪製和網路等進階主題的所有內容。
     link: /zh_tw/develop/
     linkText: 開始使用
-
-search: false
 ---
 
 如果你想為 Fabric 文件做出貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到原始碼，以及相關的[貢獻指南](./contributing)。

@@ -3,8 +3,6 @@ title: Собственные интерактивные предметы
 description: Вы научитесь создавать предметы, которые используют ванильные события.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Собственные интерактивные предметы {#custom-item-interactions}
@@ -60,11 +58,11 @@ TypedActionResult.success(heldStack);
 
 Допустим, что вы хотите сделать предмет, который вызывает молнию перед игроком, вам нужно будет создать отдельный класс.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Событие `use`, вероятно, самое полезное из всех, вы можете использовать это событие, чтобы призвать молнию, вы должны создать её перед игроками в 10 блоков от направления.
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Как обычно, вам необходимо зарегистрировать свой предмет, добавьте модель и текстуру.
 

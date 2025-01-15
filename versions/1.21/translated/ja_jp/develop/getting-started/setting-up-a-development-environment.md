@@ -16,8 +16,6 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
-
-search: false
 ---
 
 # 開発環境のセットアップ {#setting-up-a-development-environment}

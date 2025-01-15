@@ -3,8 +3,6 @@ title: 上傳記錄檔
 description: 如何上傳記錄檔以進行疑難排解。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 上傳記錄檔 {#uploading-logs}

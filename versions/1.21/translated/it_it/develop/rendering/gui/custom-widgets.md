@@ -3,8 +3,6 @@ title: Widget Personalizzati
 description: Impara come creare widget personalizzati per la tua schermata.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Widget Personalizzati {#custom-widgets}
@@ -20,13 +18,13 @@ Si possono seguire varie strade per creare una classe widget, come estendere `Cl
 - `Narratable` - per l'accessibilità - Necessario per rendere il tuo widget accessibile a lettori di schermi e ad altri strumenti per l'accessibilità.
 - `Selectable` - per la selezione - Necessario se vuoi rendere il tuo widget selezionabile usando il tasto <kbd>Tab</kbd> - anche questo aiuta per l'accessibilità.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## Aggiungere il Widget alla Schermata {#adding-the-widget-to-the-screen}
 
 Come tutti i widget, devi aggiungerlo alla schermata usando il metodo `addDrawableChild`, che è fornito dalla classe `Screen`. Assicurati di farlo nel metodo `init`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Widget personalizzato sullo schermo](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -36,6 +34,6 @@ Puoi gestire eventi come clic del mouse, pressione di tasti, facendo override de
 
 Per esempio, puoi far cambiare colore al widget quando il mouse ci passa sopra usando il metodo `isHovered()` fornito dalla classe `ClickableWidget`:
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![Esempio Evento Hovering](/assets/develop/rendering/gui/custom-widget-events.webp)

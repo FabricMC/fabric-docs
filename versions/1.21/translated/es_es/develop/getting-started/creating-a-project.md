@@ -3,8 +3,6 @@ title: Creando un Proyecto
 description: Una guía paso a paso sobre como crear un proyecto de mod usando el generador de plantillas de mods de Fabric.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Creando un Proyecto

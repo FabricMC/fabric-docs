@@ -3,8 +3,6 @@ title: プロジェクトの構成
 description: Fabric Mod プロジェクトの構成の概要
 authors:
   - IMB11
-
-search: false
 ---
 
 # プロジェクトの構成 {#project-structure}
@@ -27,7 +25,7 @@ search: false
 以下に `fabric.mod.json` ファイルの例を示します。これは、このドキュメント上のサンプルプロジェクトで使われる `fabric.mod.json` ファイルです。
 
 :::details サンプルプロジェクト `fabric.mod.json`
-@[code lang=json](@/reference/1.21/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
 ## エントリポイント {#entrypoints}
@@ -36,7 +34,7 @@ search: false
 
 テンプレート Mod ジェネレータはデフォルトで `main` と `client` のエントリポイントを作成します。`main` エントリポイントは共通するコードに使用され、`client` エントリポイントはクライアントでのみ実行されるコードに使用されます。 これらのエントリポイントは、ゲーム開始時にそれぞれ呼び出されます。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 上記のコードは、ゲーム開始時にコンソールにログを出力する、シンプルな `main` エントリポイントの例です。
 

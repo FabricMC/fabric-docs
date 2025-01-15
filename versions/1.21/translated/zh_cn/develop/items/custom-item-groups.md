@@ -3,8 +3,6 @@ title: 自定义物品组
 description: 学习如何创建自己的物品组，并往里面添加物品。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 自定义物品组{#custom-item-groups}
@@ -15,9 +13,9 @@ search: false
 
 创建物品组极其容易。 只要在你的物品类中简单创建一个新的 static final 字段，存储物品组以及注册表键，就可以使用物品组事件，类型于给原版物品组添加物品的方式：
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 

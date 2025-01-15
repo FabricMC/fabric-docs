@@ -16,8 +16,6 @@ features:
     details: 我们的社区编写的开发者指南，涵盖一切，从设置你的开发环境，到渲染和网络通信等高级话题。
     link: /zh_cn/develop/
     linkText: 快速上手
-
-search: false
 ---
 
 如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到源代码，以及相关的[贡献指南](./contributing)。

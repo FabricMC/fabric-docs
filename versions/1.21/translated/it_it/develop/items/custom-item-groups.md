@@ -3,8 +3,6 @@ title: Gruppi di Oggetti Personalizzati
 description: Impara come creare il tuo gruppo di oggetti e come aggiungerci oggetti.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Gruppi di Oggetti Personalizzati {#custom-item-groups}
@@ -15,9 +13,9 @@ I gruppi di oggetti sono le schede nell'inventario in creativa che memorizzano o
 
 È sorprendentemente facile creare un gruppo di oggetti. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare il gruppo di oggetti e una chiave di registry per esso, puoi quindi usare l'evento del gruppo di oggetti come quando hai aggiunti i tuoi oggetti ai gruppi vanilla:
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 

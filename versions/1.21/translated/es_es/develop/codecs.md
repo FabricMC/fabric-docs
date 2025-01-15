@@ -4,8 +4,6 @@ description: Una guía completa para entender y usar el sistema de codecs de Moj
 authors:
   - enjarai
   - Syst3ms
-
-search: false
 ---
 
 # Codecs
@@ -317,11 +315,11 @@ Por ejemplo, digamos que tenemos una interfaz abstracta `Bean`, con dos clases i
 
 Con todo esto, puedes crear un despacho de registros para beans:
 
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // Ahora podemos crear un codec para los tipos de bean

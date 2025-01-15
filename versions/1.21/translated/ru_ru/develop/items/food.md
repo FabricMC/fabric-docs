@@ -3,8 +3,6 @@ title: Предметы еды
 description: Узнайте, как добавить FoodComponent к предмету, чтобы сделать его съедобным, и как его настроить.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Предметы еды {#food-items}
@@ -39,11 +37,11 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 
 После того как вы изменили конструктор по своему вкусу, вы можете вызвать метод `build()`, чтобы получить `FoodComponent`.
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Подобно примеру на странице [Создание вашего первого элемента](./first-item), я буду использовать указанный выше компонент:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Это делает предмет:
 

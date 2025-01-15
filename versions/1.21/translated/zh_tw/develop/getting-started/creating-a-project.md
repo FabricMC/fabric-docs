@@ -3,8 +3,6 @@ title: 建立專案
 description: 關於如何使用 Fabric 模組模板生成器來製作新的模組專案的逐步指南。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 建立專案 {#creating-a-project}

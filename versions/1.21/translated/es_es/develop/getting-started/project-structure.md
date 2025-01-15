@@ -3,8 +3,6 @@ title: Estructura de Proyecto
 description: Una descripción general de la estructura de un proyecto de mod de Fabric.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Estructura de Proyecto
@@ -27,7 +25,7 @@ Los campos más importantes en el archivo `fabric.mod.json` son:
 Puedes ver un ejemplo del archivo `fabric.mod.json` abajo - este es el archivo `fabric.mod.json` del proyecto de referencia que este sitio de documentación utiliza.
 
 :::details Proyecto de Referencia `fabric.mod.json`
-@[code lang=json](@/reference/1.21/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
 ## Puntos de Entrada
@@ -36,7 +34,7 @@ Como ya fue mencionado, el archivo `fabric.mod.json` contiene un campo llamado `
 
 El generador de plantillas de mods crea los puntos de entrada `main` y `client` por defecto - el punto de entrada de `main` es usado para código común, mientras que el punto de entrada de `client` es usado para código exclusivo o específico para el cliente. Estos puntos de entrada son llamados respectivamente cuando el juego comienza.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 Lo anterior es un ejemplo de un punto de entrada de `main` simple, el cual manda un mensaje a la consola cuando el juego empieza.
 

@@ -4,8 +4,6 @@ description: 关于如何使用 Fabric 模板模组生成器创建新的模组�
 authors:
   - IMB11
   - Cactooz
-
-search: false
 ---
 
 # 创建项目{#creating-a-project}

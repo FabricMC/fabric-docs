@@ -3,8 +3,6 @@ title: Пользовательские компоненты данных
 description: Узнайте, как добавлять пользовательские данные к вашим товарам, используя новую систему компонентов 1.20.5.
 authors:
   - Romejanic
-
-search: false
 ---
 
 # Пользовательские компоненты данных {#custom-data-components}
@@ -19,9 +17,9 @@ search: false
 
 Как и все остальное в вашем моде, вам необходимо зарегистрировать свой пользовательский компонент с помощью `ComponentType`. Этот тип компонента принимает универсальный аргумент, содержащий тип значения вашего компонента. Мы более подробно рассмотрим это далее, когда будем рассматривать [базовые](#basic-data-components) и [расширенные](#advanced-data-components) компоненты.
 
-Выберите подходящий класс для размещения этого кода. В этом примере мы создадим новый пакет с именем `component` и класс, содержащий все типы наших компонентов, с именем `ModComponents`. Обязательно вызовите `ModComponents.initialize()` в инициализаторе мода.
+Выберите подходящий класс для размещения этого кода. В этом примере мы создадим новый пакет с именем `component` и класс, содержащий все типы наших компонентов, с именем `ModComponents`. Убедитесь, что вы вызвали `ModComponents.initialize()` в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
-@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 Это базовый шаблон для регистрации типа компонента:
 
@@ -45,7 +43,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 В качестве примера давайте создадим значение `Integer`, которое будет отслеживать, сколько раз игрок щелкнул правой кнопкой мыши, удерживая наш предмет. Давайте обновим регистрацию нашего компонента следующим образом:
 
-@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 Вы можете видеть, что теперь мы передаем `<Integer>` в качестве нашего универсального типа, указывая, что этот компонент будет сохранен как одно значение `int`. В качестве нашего кодека мы используем предоставленный кодек `Codec.INT`. Для таких простых компонентов, как этот, можно обойтись использованием базовых кодеков, но для более сложных сценариев может потребоваться специальный кодек (об этом мы кратко поговорим позже).
 
@@ -59,7 +57,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 Давайте добавим новый элемент, который будет увеличивать счетчик каждый раз, когда по нему щелкают правой кнопкой мыши. Вам следует прочитать страницу [Взаимодействие с пользовательскими элементами](./custom-item-interactions), где описаны методы, которые мы будем использовать в этом руководстве.
 
-@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Не забудьте, как обычно, зарегистрировать элемент в классе `ModItems`.
 
@@ -88,8 +86,8 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```json
 {
-    "item.fabric-docs-reference.counter": "Counter",
-    "item.fabric-docs-reference.counter.info": "Used %1$s times",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times"
 }
 ```
 
@@ -119,7 +117,7 @@ As expected, since the `ItemStack` doesn't currently contain an instance of our 
 
 Когда вы регистрируете свой элемент и передаете объект `Item.Settings` в конструктор элемента, вы также можете предоставить список компонентов по умолчанию, которые применяются ко всем новым элементам. Если вернуться к нашему классу `ModItems`, где мы регистрируем `CounterItem`, мы можем добавить значение по умолчанию для нашего пользовательского компонента. Добавьте это, чтобы для новых элементов отображалось количество «0».
 
-@[code transcludeWith=::_13](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 При создании нового элемента он автоматически применит наш пользовательский компонент с заданным значением.
 
@@ -149,7 +147,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 Мы выберем третий вариант. Поэтому наряду с добавлением значения компонента по умолчанию мы также проверим, присутствует ли компонент в стеке, и покажем подсказку только в том случае, если это так.
 
-@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Запустите игру снова и наведите курсор на предмет без компонента. Вы должны увидеть надпись «Использовано 0 раз», и игра больше не будет вылетать.
 
@@ -181,7 +179,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Давайте настроим новый метод `use()` для считывания старого количества кликов, увеличения его на единицу, а затем установки обновленного количества кликов.
 
-@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Теперь попробуйте запустить игру и щелкнуть правой кнопкой мыши, держа в руке предмет Counter. Если вы откроете свой инвентарь и снова посмотрите на предмет, вы увидите, что показатель использования увеличился пропорционально количеству кликов по нему.
 
@@ -214,11 +212,11 @@ public record MyCustomComponent() {
 
 Обратите внимание, что после имени класса стоят скобки. Здесь мы определяем список свойств, которые должен иметь наш компонент. Давайте добавим число с плавающей точкой и логическое значение с именами `температура` и `сожженный` соответственно.
 
-@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Поскольку мы определяем пользовательскую структуру данных, для нашего варианта использования не будет готового `Кодека`, как в случае с [базовым компонентом](#basic-data-components). Это значит, что нам придется создать собственный кодек. Давайте определим его в нашем классе записи, используя `RecordCodecBuilder`, на который мы сможем ссылаться после регистрации компонента. Более подробную информацию об использовании `RecordCodecBuilder` можно найти в [этом разделе страницы Кодеки](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Вы можете видеть, что мы определяем список пользовательских полей на основе примитивных типов `Codec`. Однако мы также сообщаем ей, как называются наши поля, используя `fieldOf()`, а затем используем `forGetter()`, чтобы сообщить игре, какой атрибут нашей записи следует заполнить.
 
@@ -228,7 +226,7 @@ public record MyCustomComponent() {
 
 Регистрация составного компонента аналогична предыдущей. Мы просто передаем наш класс записи как универсальный тип, а наш пользовательский `Codec` — в метод `codec()`.
 
-@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 Теперь начинайте игру. Попробуйте применить компонент с помощью команды `/give`. Значения составных компонентов передаются как объект, заключенный в `{}`. Если вы поставите пустые фигурные скобки, вы увидите сообщение об ошибке, сообщающее, что требуемый ключ `temperature` отсутствует.
 

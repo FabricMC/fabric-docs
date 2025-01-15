@@ -3,8 +3,6 @@ title: 自定义盔甲
 description: 学习如何创建自己的盔甲集。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 自定义盔甲{#custom-armor}
@@ -37,7 +35,7 @@ public void onInitialize() {
 
 在这个 `ModArmorMaterials` 类中，你还会需要创建一个静态方法，注册盔甲材料。 这个方块应该会返回材料的一个注册表项，因为这个项会用于 ArmorItem 的构造方法中创建盔甲物品。
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## 盔甲材料属性{#armor-material-properties}
 
@@ -87,7 +85,7 @@ public void onInitialize() {
 
 看这个例子，我们创建 Guidite 盔甲，有以下属性：
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## 创建盔甲物品{#creating-the-armor-items}
 
@@ -105,11 +103,11 @@ public void onInitialize() {
 
 对于 Guidite 盔甲，我们使用存储在盔甲材料中的共享盔甲倍率。
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 然后，使用耐久度常数创建盔甲物品。
 
-@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 如果需要让物品能从创造模式物品栏获取的话，还需要**给将物品添加到物品组**。
 
@@ -134,7 +132,7 @@ public void onInitialize() {
 你需要所有物品的模型 JSON 文件，不只是头盔，这原则和其他物品模型一样。
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 可以看到，游戏内的盔甲物品应该有合适的模型：
 

@@ -4,8 +4,6 @@ description: Een stap voor stap instructie voor het updaten van fabric.
 authors:
   - IMB11
   - modmuss50
-
-search: false
 ---
 
 # Fabric Updaten{#updating-fabric}

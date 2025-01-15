@@ -16,8 +16,6 @@ features:
     details: Có phải bạn đang tìm kiếm cách chạy các bản mod dành cho Fabric? Bộ hướng dẫn của chúng tôi sẽ giúp bạn điều đó. Những cách này sẽ giúp bạn trong việc tải xuống, cài đặt và khắc phục sự cố khi dùng mod Fabric.
     link: /players/
     linkText: Đọc Thêm
-
-search: false
 ---
 
 <div class="vp-doc homepage-container">

@@ -3,8 +3,6 @@ title: Instalowanie oprogramowania Java na Linux
 description: Przewodnik krok po kroku o tym, jak zainstalować oprogramowanie Java na Linux.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Instalowanie oprogramowania Java na Linux {#installing-java-on-linux}

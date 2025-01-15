@@ -3,8 +3,6 @@ title: 创建自定义粒子
 description: 学习如何使用 Fabric API 创建自定义粒子。
 authors:
   - Superkat32
-
-search: false
 ---
 
 # 创建自定义粒子{#creating-custom-particles}
@@ -17,7 +15,7 @@ search: false
 
 首先，需要在你的[模组初始化器](./getting-started/project-structure#entrypoints)中，使用你有模组 id，注册 `ParticleType`。
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 小写字母“sparkle_particle”是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。
 
@@ -25,7 +23,7 @@ search: false
 
 在模组的初始化器中注册粒子后，还需要在客户端的初始化器中注册粒子。
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/1.21/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
 在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
 
@@ -49,7 +47,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 然后，在 `particles` 中创建新的 JSON 文件，名称与用于创建你的 ParticleType 的 JSON 路径相同。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
 :::tip
 可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。

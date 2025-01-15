@@ -1,8 +1,6 @@
 ---
 title: Przewodniki dla graczy
 description: Zbiór przewodników dla graczy i administratorów serwerów na temat instalowania i korzystania z Fabric.
-
-search: false
 ---
 
 # Przewodniki dla graczy {#player-guides}

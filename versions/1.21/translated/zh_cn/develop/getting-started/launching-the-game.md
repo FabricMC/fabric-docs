@@ -4,8 +4,6 @@ description: 了解如何利用各种启动配置文件在实时游戏环境中�
 authors:
   - IMB11
   - Tenneb22
-
-search: false
 ---
 
 # 启动游戏{#launching-the-game}

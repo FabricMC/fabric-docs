@@ -3,8 +3,6 @@ title: Znajdowanie wiarygodnych modów
 description: Przewodnik na temat znajdowania modów do Fabric przy użyciu wiarygodnych źródeł.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Znajdowanie wiarygodnych modów {#finding-mods}

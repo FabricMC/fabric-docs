@@ -3,8 +3,6 @@ title: Собственная броня
 description: Вы узнаете как создавать собственные комплекты брони.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Собственная броня {#custom-armor}
@@ -37,7 +35,7 @@ public void onInitialize() {
 
 Внутри класса `ModArmorMaterials` необходимо создать статический метод для регистрации материалов брони. Этот метод должен возвращать запись материала в реестре, которая в дальнейшем будет использована в конструкторе `ArmorItem` для создания предмета брони.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Свойства материала брони {#armor-material-properties}
 
@@ -87,7 +85,7 @@ public void onInitialize() {
 
 Для этого примера мы создадим броню Guidite со следующими свойствами:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Создание предметов брони {#creating-the-armor-items}
 
@@ -105,11 +103,11 @@ public void onInitialize() {
 
 Для брони Guidite мы будем использовать общий множитель брони, хранящийся вместе с материалом брони:
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 Затем мы можем создать предметы брони, используя константу прочности:
 
-@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Вам также потребуется **добавить предметы в группу предметов**, если вы хотите, чтобы они были доступны из творческого инвентаря.
 
@@ -134,7 +132,7 @@ public void onInitialize() {
 Вам понадобятся файлы моделей JSON для всех предметов, а не только для шлема, принцип тот же, что и для других моделей предметов.
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 Как видите, в игре предметы брони должны иметь подходящие модели:
 

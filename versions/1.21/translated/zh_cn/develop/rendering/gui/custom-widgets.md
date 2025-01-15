@@ -3,8 +3,6 @@ title: 自定义组件
 description: 学习如何给您的界面创建自定义组件。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 自定义组件{#custom-widgets}
@@ -20,13 +18,13 @@ search: false
 - `Narratable` 用于无障碍，让组件能够通过屏幕阅读器或其他无障碍工具访问。
 - `Selectable` 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也能帮助无障碍。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## 将组件添加到屏幕{#adding-the-widget-to-the-screen}
 
 如同其他组件，您需要使用 `Screen#addDrawableChild` 来将组件添加到界面中。 请确保这一步在 `Screen#init` 方法中完成。
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![屏幕中的自定义组件](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -36,6 +34,6 @@ search: false
 
 举个例子，您可以使用 `ClickableWidget#isHovered` 方法来使组件在鼠标悬停时变色。
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![鼠标悬停事件](/assets/develop/rendering/gui/custom-widget-events.webp)

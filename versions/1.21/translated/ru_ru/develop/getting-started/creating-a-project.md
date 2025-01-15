@@ -4,8 +4,6 @@ description: Пошаговое руководство по созданию н�
 authors:
   - IMB11
   - Cactooz
-
-search: false
 ---
 
 # Создание проекта {#creating-a-project}
