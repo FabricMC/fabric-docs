@@ -17,7 +17,7 @@ authors:
 
 Как и все остальное в вашем моде, вам необходимо зарегистрировать свой пользовательский компонент с помощью `ComponentType`. Этот тип компонента принимает универсальный аргумент, содержащий тип значения вашего компонента. Мы более подробно рассмотрим это далее, когда будем рассматривать [базовые](#basic-data-components) и [расширенные](#advanced-data-components) компоненты.
 
-Выберите подходящий класс для размещения этого кода. В этом примере мы создадим новый пакет с именем `component` и класс, содержащий все типы наших компонентов, с именем `ModComponents`. Обязательно вызовите `ModComponents.initialize()` в инициализаторе мода.
+Выберите подходящий класс для размещения этого кода. В этом примере мы создадим новый пакет с именем `component` и класс, содержащий все типы наших компонентов, с именем `ModComponents`. Убедитесь, что вы вызвали `ModComponents.initialize()` в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
@@ -86,8 +86,8 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```json
 {
-    "item.fabric-docs-reference.counter": "Counter",
-    "item.fabric-docs-reference.counter.info": "Used %1$s times",
+  "item.fabric-docs-reference.counter": "Counter",
+  "item.fabric-docs-reference.counter.info": "Used %1$s times"
 }
 ```
 
