@@ -31,9 +31,9 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/<mod id here>/textures/block` 에서 찾을 수 있습니다.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">텍스처</DownloadEntry>
 
-기둥 블록이 두 개의 위치 — 수평과 수직 — 이 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다.
+기둥 블록이 두 개의 위치 — 수평과 수직 — 가 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다.
 
 - `block/cube_column_horizontal` 모델을 확장하는 `condensed_oak_log_horizontal.json`.
 - `block/cube_column` 모델을 확장하는 `condensed_oak_log.json`.
@@ -58,7 +58,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
-언제나, 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
+언제나 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
 
 ![게임 안에서의 기둥 블록의 예시](/assets/develop/blocks/blockstates_1.png)
 
@@ -96,7 +96,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 블록 상태 파일을 만들기 전, 블록 모델과 같이 블록이 활성화되었을 때와 비활성화되었을 때의 텍스처를 제공하여야 합니다.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">텍스처</DownloadEntry>
 
 블록의 두 모델 — 활성화된 상태와 비활성화된 상태 — 을 만들기 위하여 블록 모델의 지식을 이용하세요. 끝난 다음, 블록 상태 파일을 계속하여 만들 수 있습니다.
 

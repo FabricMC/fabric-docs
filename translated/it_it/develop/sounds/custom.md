@@ -48,9 +48,9 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 ## Ripulire il Disordine {#cleaning-up-the-mess}
 
-A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfuggire di mano. Per evitare che ciò accada, possiamo fare uso di una nuova classe di supporto.
+A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfuggire di mano. Per evitare che ciò accada, possiamo fare uso di una nuova classe ausiliaria.
 
-Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
+Aggiungi due nuovi metodi alla classe ausiliaria appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
@@ -60,4 +60,4 @@ Facendo così, basta che l'initializer della tua mod implementi una riga sola pe
 
 ## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 
-Usa la classe di supporto per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre i SoundEvents](./using-sounds) per imparare come riprodurre i suoni.
+Usa la classe ausiliaria per accedere al SoundEvent personalizzato. Consulta la pagina [Riprodurre Suoni](./using-sounds) per imparare come riprodurre i suoni.

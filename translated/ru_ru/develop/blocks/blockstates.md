@@ -31,7 +31,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/<mod id here>/textures/block`
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстуры</DownloadEntry>
 
 Из-за того что колоновый блок имеет две позиции: горизонтальную и вертикальную, мы должны сделать два отдельных файла моделей:
 
@@ -96,7 +96,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Перед созданием файла состояния блока вам необходимо предоставить текстуры для активированного и деактивированного состояний блока, а также модель блока.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">Текстуры</DownloadEntry>
 
 Используйте свои знания о моделях блоков, чтобы создать две модели блока: одну для активированного состояния и одну для деактивированного состояния. После этого можно приступать к созданию файла blockstate.
 
