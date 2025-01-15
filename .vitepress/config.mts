@@ -17,6 +17,9 @@ export default defineVersionedConfig(
 
     lastUpdated: true,
 
+    // Reduce the size of the dist by using a separate js file for the metadata.
+    metaChunk: true,
+
     locales: loadLocales(__dirname),
 
     markdown: {
