@@ -55,7 +55,7 @@ Infine, informiamo Fabric dell'entrypoint nel nostro `fabric.mod.json`:
       // ...
     ],
     "fabric-datagen": [ // [!code ++]
-      "com.exmaple.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
+      "com.example.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
     ] // [!code ++]
   }
 }
