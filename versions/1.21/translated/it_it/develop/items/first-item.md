@@ -22,7 +22,7 @@ Puoi mettere questo metodo in una classe chiamata `ModItems` (o qualsiasi altro 
 
 Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `Items`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Registrare un Oggetto {#registering-an-item}
 
@@ -36,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la dimensione di uno stack è sempre 1 per oggetti danneggiabili per evitare duplicazioni.
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
 Per fare questo puoi aggiungere un metodo `initialize()` pubblico e statico alla tua classe e richiamarlo dall'[initializer della tua mod](./getting-started/project-structure#entrypoints). Per ora il metodo non deve contenere nulla.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Chiamare un metodo su una classe la inizializza staticamente se non è mai stata caricata prima - questo significa che tutti gli attributi `static` vengono calcolati. Questo è il motivo di questo metodo `initialize` fasullo.
 
@@ -58,7 +58,7 @@ Per questo esempio, aggiungeremo questo oggetto all'`ItemGroup` ingredienti, dov
 
 Questo si può fare nel metodo `initialize` della tua classe degli oggetti.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Appena caricato il gioco, vedrai che il nostro oggetto è stato registrato, ed è nel gruppo di oggetti Ingredienti:
 
@@ -98,7 +98,7 @@ Creeremo un semplice modello `item/generated`, che prende come input solo una te
 
 Crea il modello JSON nella cartella `assets/<mod id here>/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 
@@ -119,11 +119,11 @@ L'API di Fabric fornisce varie registry che si possono usare per aggiungere altr
 
 Per esempio, per rendere il tuo oggetto compostabile, puoi usare la `CompostableItemRegistry`:
 
-@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare la classe `FuelRegistry`:
 
-@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Aggiungere una Ricetta Basilare {#adding-a-basic-crafting-recipe}
 
@@ -144,7 +144,7 @@ Se vuoi che il tuo oggetto abbia un tooltip personalizzato, dovrai creare una cl
 Questo esempio usa la classe `LightningStick` creata nella pagina [Interazioni Personalizzate tra Oggetti](./custom-item-interactions).
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Ogni chiamata di `add()` aggiungerà una linea al tooltip.
 

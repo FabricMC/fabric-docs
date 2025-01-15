@@ -132,7 +132,7 @@ Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt e
 
 Beachte, dass dies nur auf dem spezifischen Client abgespielt wird, der diesen Teil des Codes ausgeführt hat.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
 
 :::warning
 Bitte beachte, dass die Klasse `AbstractSoundInstance`, von der `SoundInstance` erbt, die Annotation `@Environment(EnvType.CLIENT)` hat.
@@ -156,7 +156,7 @@ Wenn wir dann einen Blick auf die Unterklasse `MovingSoundInstance` werfen, sehe
 
 Um diese Hilfsmittel zu nutzen, erstelle einfach eine neue Klasse für deine benutzerdefinierte `SoundInstance` und lass sie von `MovingSoundInstance` erben.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
 
 Die Verwendung einer eigenen `Entity` oder `BlockEntity` anstelle der grundlegenden `LivingEntity`-Instanz kann dir noch mehr Kontrolle geben, z.B. in der `tick()`-Methode, die auf Accessor-Methoden basiert, aber du benötigst nicht unbedingt einen Verweis auf eine solche Soundquelle. Stattdessen könntest du auch von irgendwo anders auf eine `BlockPos` zugreifen oder sogar nur einmal im Konstruktor von Hand setzen.
 
@@ -167,7 +167,7 @@ Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass
 Nachdem du deine benutzerdefinierte `SoundInstance` erstellt hast, kann sie überall verwendet werden, solange sie auf der Client-Seite mit dem Sound-Manager ausgeführt wurde.
 Auf die gleiche Weise kannst du die benutzerdefinierte `SoundInstance` auch manuell stoppen, falls erforderlich.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
 
 Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `ClientPlayerEntity` selbst.
 
@@ -221,7 +221,7 @@ Anstatt z.B. eine benutzerdefinierte `BlockEntity` direkt zu referenzieren, reic
 
 In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `ZombieEntity`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
 Nachdem du dieses Interface erstellt hast, stelle sicher, dass du es auch in den notwendigen Klassen implementierst.
 
@@ -253,7 +253,7 @@ public enum TransitionState {
 
 Aber wenn diese Werte über das Netzwerk gesendet werden, möchtest du vielleicht einen `Identifier` für sie definieren oder sogar andere benutzerdefinierte Werte hinzufügen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/sound/TransitionState.java)
 
 :::info
 Auch hier gilt: Wenn du "geteilte Quellen" verwendest, musst du überlegen, wo du dieses Enum einsetzen willst.
@@ -266,7 +266,7 @@ Wenn dieses Enum jedoch an anderer Stelle verwendet wird, z. B. in benutzerdefin
 
 Dieses Interface wird als Callback genutzt. Im Moment brauchen wir nur eine `onFinished`-Methode, aber du kannst deine eigenen Methoden hinzufügen, wenn du auch andere Signale vom `SoundInstance`-Objekt senden musst.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
 
 Implementiere dieses Interface in jeder Klasse, die in der Lage sein sollte, die eingehenden Signale zu verarbeiten, z. B. in der `AbstractDynamicSoundInstance`, die wir in Kürze erstellen werden, um die Funktionalität in der benutzerdefinierten `SoundInstance` selbst zu erzeugen.
 
@@ -286,39 +286,39 @@ Zusätzlich, werden wir mehr Eigenschaften definieren.
 - Tick-Halter, um den Fortschritt des aktuellen Sounds zu verfolgen.
 - ein Callback, welcher für das finale Aufräumen ein Signal zurück zu dem `DynamicSoundManager` sendet, wenn die `SoundInstance` tatsächlich fertig ist
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 Lege dann die Standard-Startwerte für die benutzerdefinierte `SoundInstance` im Konstruktor der abstrakten Klasse fest.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 Nachdem der Konstruktor fertig ist, musst du der `SoundInstance` erlauben, zu spielen.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 Jetzt kommt der wichtige Teil für diese dynamische `SoundInstance`. Je nachdem, wie die Instanz gerade tickt, kann sie verschiedene Werte und Verhaltensweisen anwenden.
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::4](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 Wie du sehen kannst, haben wir die Lautstärke- und Tonhöhenmodulation hier noch nicht angewendet. Wir wenden nur das gemeinsame Verhalten an.
 In dieser `AbstractDynamicSoundInstance` Klasse stellen wir also nur die Grundstruktur und die Werkzeuge für die Unterklassen zur Verfügung, die selbst entscheiden können, welche Art der Klangmodulation sie tatsächlich anwenden wollen.
 
 Werfen wir also einen Blick auf einige Beispiele für solche Klangmodulationsmethoden.
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::5](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 Wie du sehen kannst, helfen normalisierte Werte in Kombination mit linearer Interpolation (lerp) dabei, die Werte an die bevorzugten Audio-Grenzwerte anzupassen.
 Denk daran, dass du, wenn du mehrere Methoden hinzufügst, die denselben Wert ändern, beobachten und anpassen musst, wie sie miteinander zusammenarbeiten.
 
 Jetzt müssen wir nur noch die verbleibenden Hilfsmethoden hinzufügen und wir sind fertig mit der Klasse `AbstractDynamicSoundInstance`.
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+@[code lang=java transcludeWith=:::6](@/reference/1.21/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
 
 ### Beispiel `SoundInstance` Implementation {#example-soundinstance-implementation}
 
 Wenn wir uns die eigentliche benutzerdefinierte Klasse `SoundInstance` ansehen, die von der neu erstellten Klasse `AbstractDynamicSoundInstance` abgeleitet ist, müssen wir uns nur überlegen, unter welchen Bedingungen der Klang zum Stillstand kommt und welche Klangmodulation wir anwenden wollen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
 
 ### `DynamicSoundManager` Klasse {#dynamicsoundmanager-class}
 
@@ -327,7 +327,7 @@ Wir haben [früher](#using-a-soundinstance) besprochen, wie man eine `SoundInsta
 Diese neue Klasse `DynamicSoundManager` wird die benutzerdefinierten `SoundInstances` verwalten, so dass sie auch nur auf der Client-Seite zur Verfügung stehen wird. Darüber hinaus sollte ein Client immer nur eine Instanz dieser Klasse zulassen. Mehrere Soundmanager für einen einzigen Client wären nicht sehr sinnvoll und würden die Interaktionen noch komplizierter machen.
 Lasst uns ein ["Singleton Design Pattern"](https://refactoring.guru/design-patterns/singleton/java/example) nutzen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
 
 Wenn die Grundstruktur stimmt, kannst du die Methoden hinzufügen, die für die Interaktion mit dem Soundsystem erforderlich sind.
 
@@ -335,7 +335,7 @@ Wenn die Grundstruktur stimmt, kannst du die Methoden hinzufügen, die für die 
 - Sounds stoppen
 - Prüfen, ob ein Sound gerade abgespielt wird
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
 
 Anstatt nur eine Liste aller aktuell spielenden `SoundInstances` zu haben, könnte man auch verfolgen, welche Soundquellen welche Sounds spielen.
 So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `Liste<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer AbstractDynamicSoundInstance\` eine bessere Wahl sein.
@@ -344,7 +344,7 @@ So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengerä
 
 Um dieses Soundsystem zu verwenden, musst du entweder die Methoden von `DynamicSoundManager` oder die Methoden von `SoundInstance` verwenden. Mit Hilfe von `onStartedTrackingBy` und `onStoppedTrackingBy` von Entitäten oder einfach nur benutzerdefinierten S2C-Netzwerkpacketen kannst du jetzt deine benutzerdefinierten dynamischen `SoundInstance`s starten und stoppen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/network/ReceiveS2C.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/network/ReceiveS2C.java)
 
 Das Endprodukt kann seine Lautstärke auf der Grundlage der Soundphase anpassen, um die Übergänge zu glätten, und die Tonhöhe auf der Grundlage eines Stresswertes ändern, der von der Soundquelle stammt.
 

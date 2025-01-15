@@ -28,7 +28,7 @@ authors:
 
 В качестве примера мы можем создать простой экран с кнопкой и меткой над ней.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Пользовательский экран 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -52,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 Если вы хотите проявить изюминку и вернуться к предыдущему экрану, вы можете передать текущий экран в конструктор `CustomScreen` и сохранить его в поле, а затем использовать его для возврата к предыдущему экрану при вызове метода `close`.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 Теперь при открытии пользовательского экрана вы можете передать текущий экран в качестве второго аргумента — тогда при вызове `CustomScreen#close` произойдет возврат к предыдущему экрану.
 

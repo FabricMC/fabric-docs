@@ -27,7 +27,7 @@ authors:
 
 Затем нам нужно указать Gradle использовать Fabric Loader JUnit для тестирования. Это можно сделать, добавив следующий код в `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/1.21/build.gradle)
 
 ### Написание тестов {#writing-tests}
 
@@ -55,7 +55,7 @@ authors:
 
 Теперь пришло время написать настоящий тестовый код. Вы можете утверждать условия, используя `org.junit.jupiter.api.Assertions`. Проверьте следующий тест:
 
-@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 Объяснение того, что на самом деле делает этот код, см. в [Кодеки](codecs#registry-dispatch).
 
@@ -63,11 +63,11 @@ authors:
 
 Отлично, первый тест сработал! Но подождите, второй тест не прошёл? В журналах мы получаем одну из следующих ошибок.
 
-@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 Это происходит потому, что мы пытаемся получить доступ к реестру или классу, который зависит от реестра (или, в редких случаях, зависит от других классов Minecraft таких, как `SharedConstants`), но Minecraft не инициализирован. Нам нужно просто немного инициализировать его, чтобы реестры заработали. Просто добавьте следующий код в начало метода `beforeAll`.
 
-@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 ### Настройка действий GitHub {#setting-up-github-actions}
 

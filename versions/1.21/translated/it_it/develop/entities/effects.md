@@ -27,13 +27,13 @@ In questo tutorial aggiungeremo un nuovo effetto personalizzato chiamato _Tater_
 
 Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect`, che è la classe base per tutti gli effetti.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrare il tuo Effetto Personalizzato {#registering-your-custom-effect}
 
 Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nella registry `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
 ### Texture {#texture}
 
@@ -70,7 +70,7 @@ effect give @p fabric-docs-reference:tater
 
 Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addStatusEffect`, che prende una `StatusEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | Argomento   | Tipo                          | Descrizione                                                                                                                                                                                                                                                                             |
 | ----------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

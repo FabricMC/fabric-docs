@@ -13,9 +13,9 @@ authors:
 
 创建物品组极其容易。 只要在你的物品类中简单创建一个新的 static final 字段，存储物品组以及注册表键，就可以使用物品组事件，类型于给原版物品组添加物品的方式：
 
-@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 <hr />
 

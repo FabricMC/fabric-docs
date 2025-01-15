@@ -15,11 +15,11 @@ Stelle sicher, dass du die Methode `playSound()` auf der logischen Serverseite a
 
 In diesem Beispiel werden die Methoden `useOnEntity()` und `useOnBlock()` für ein benutzerdefiniertes interaktives Item verwendet, um einen "platzierenden Kupferblock" und einen Plünderer-Sound abzuspielen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
 Die Methode `playSound()` wird mit dem `LivingEntity` Objekt verwendet. Nur das SoundEvent, die Lautstärke und die Tonhöhe müssen angegeben werden. Es kann auch die Methode `playSound()` aus der Weltinstanz verwenden werden, um mehr Möglichkeiten bei der Parameterauswahl zu haben.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
 ### SoundEvent und SoundCategory {#soundevent-and-soundcategory}
 

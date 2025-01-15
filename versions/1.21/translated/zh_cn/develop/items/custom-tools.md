@@ -19,11 +19,11 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 为了创建一个工具材料，你可以创建一个继承它的、新的类——在此示例中，将创建 Guidite 质的工具：
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 创建了工具原型并根据自己的喜好对其进行了调整后，你就可以创建它的一个实例以用于工具物品构造函数。
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 工具原型向游戏告知以下信息：
 
@@ -31,13 +31,13 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 该工具在损坏前可被使用多少次：
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### 挖掘速度 - `getMiningSpeedMultiplier()` {#mining-speed}
 
 如果该工具用来破坏方块，那么它破坏方块的速度应该多快？
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 作为参考，钻石工具材料的挖掘速度为 `8.0F`，而石质工具材料的挖掘速度为 `4.0F`。
 
@@ -45,7 +45,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 将工具作为武器攻击别的实体时，应该造成多少点伤害？
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### 反向标签 - `getMiningLevel()` {#inverse-tag}
 
@@ -65,7 +65,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 我们使用铁制工具标签。 铁制工具标签会阻止 Guidite 工具开采需要用比铁制工具更强的的工具来开采的方块。
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 如果你想自定义标签，可以使用 `TagKey.of(...)` 来创建自定义标签键。
 
@@ -73,29 +73,29 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 这个物品在附魔台中附上更好、更高级的附魔有多轻松？ 作为参考和比较，金质的附魔等级为 22，而下界合金的附魔等级为 15。
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### 修复原料 - `getRepairIngredient()` {#repair-ingredient}
 
 使用什么物品来修理该工具？
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ## 创建工具物品{#creating-tool-items}
 
 使用与 [创建你的第一个物品](./first-item) 指南中相同的实用功能，你可以创建工具物品：
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 如果你想从创造物品栏中访问它们，请记得将它们添加到物品组中！
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你需要使用 `item/handheld` 模型作为你的父级。
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">纹理</DownloadEntry>
 

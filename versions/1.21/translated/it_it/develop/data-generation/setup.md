@@ -42,7 +42,7 @@ Anzitutto, dobbiamo attivare la datagen nel file `build.gradle`.
 
 Poi ci serve una classe entrypoint. È qui che comincia la nostra datagen. Mettila da qualche parte nel package `client` - questo esempio la inserisce in `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Infine, informiamo Fabric dell'entrypoint nel nostro `fabric.mod.json`:
 
@@ -71,7 +71,7 @@ Chiudi e riapri IntelliJ per creare una configurazione di esecuzione per la data
 
 Nel metodo `onInitializeDataGenerator` del tuo entrypoint di datagen, dobbiamo creare un `Pack`. Dopo aggiungerai dei **fornitori**, che metteranno i dati generati in questo `Pack`.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Eseguire la Generazione di Dati {#running-data-generation}
 

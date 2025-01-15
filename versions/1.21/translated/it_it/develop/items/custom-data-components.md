@@ -19,7 +19,7 @@ Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente 
 
 Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di richiamare `ModComponents.initialize()` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Questo è il modello generico per registrare un tipo di componente:
 
@@ -43,7 +43,7 @@ Le componenti di dati basilari (come `minecraft:damage`) consiste di un valore d
 
 Per questo esempio, creiamo un valore `Integer` che traccierà quante volte il giocatore ha cliccato con il tasto destro mente teneva il nostro oggetto. Aggiorniamo la registrazione della nostra componente alla seguente:
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Puoi ora notare che abbiamo passato `<Integer>` come nostro tipo generico, indicando che questa componente sarà memorizzata come un valore `int` singolo. Per il nostro codec, cusiamo il codec `Codec.INT` fornito. Possiamo cavarcela usando codec basilari per componenti semplici come questa, ma scenari più complessi potrebbero richiedere un codec personalizzato (questo sarà trattato tra poco).
 
@@ -57,7 +57,7 @@ Quando esegui il comando, dovresti ricevere l'oggetto contenente la componente. 
 
 Aggiungiamo un nuovo oggetto che aumenterà il contatore ogni volta che viene cliccato con il tasto destro. Dovresti leggere la pagina [Interazioni tra Oggetti Personalizzate](./custom-item-interactions) che tratterà delle tecniche utilizzate in questa guida.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Ricorda come sempre di registrare l'oggetto nella tua classe `ModItems`.
 
@@ -117,7 +117,7 @@ Ci sono tre soluzioni a questo problema.
 
 Quando registri il tuo oggetto e passi un'istanza di `Item.Settings` al suo costruttore, puoi anche fornire una lista di componenti predefinite applicate a tutti i nuovi oggetti. Tornando alla nostra classe `ModItems`, dove registriamo il `CounterItem`, possiamo aggiungere un valore predefinito alla nostra componente. Aggiungi questo così i nuovi oggetti mostreranno un conto di `0`.
 
-@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::_13](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Quando un nuovo oggetto viene creato, applicherà automaticamente la nostra componente personalizzata con il valore dato.
 
@@ -147,7 +147,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 Sceglieremo la terza opzione. Quindi, oltre ad aggiungere un valore predefinito alla componente, controlleremo anche se la componente esiste sullo stack, e mostreremo il tooltip solo se lo è.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Riavvia il gioco e passa il mouse sopra all'oggetto senza la componente, dovresti notare che mostra "Used 0 times" e non fa più crashare il gioco.
 
@@ -179,7 +179,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Configuriamo un nuovo metodo `use()` per leggere il vecchio conto dei clic, aumentarlo di uno, e impostare il conto dei clic aggiornato.
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Ora prova ad avviare il gioco e a cliccare con il tasto destro l'oggetto Counter nella tua mano. Aprendo l'inventario dovresti notare che il numero di utilizzi dell'oggetto è aumentato di tante volte quante hai cliccato.
 
@@ -212,11 +212,11 @@ public record MyCustomComponent() {
 
 Nota che c'è un paio di parentesi dopo il nome della classe. Questo è dove definiremo la lista di proprietà che vogliamo dare alla nostra componente. Aggiungiamo un float e un booleano chiamati `temperature` e `burnt` rispettivamente.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Poiché stiamo definendo una struttura dai personalizzata, non ci sarà un `Codec` preesistente per il nostro caso come c'era per le [componenti basilari](#basic-data-components). Questo significa che dovremo costruire il nostro codec. Definiamone uno nella nostra classe record con un `RecordCodecBuilder` a cui potremo far riferimento quando registriamo la componente. Per maggiori dettagli sull'utilizzo di un `RecordCodecBuilder` fai riferimento a [questa sezione della pagina sui Codec](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Puoi notare che stiamo definendo una lista di attributi personalizzati basata sui tipi di `Codec` primitivi. Tuttavia, stiamo anche indicando come si chiamano i nostri attributi con `fieldOf()`, e poi usando `forGetter()` per dire al gioco quale attributo del nostro record deve essere riempito.
 
@@ -226,7 +226,7 @@ Infine, possiamo chiamare `apply()` e passare il costruttore del nostro record. 
 
 Registrare una componente composita funziona come prima. Basta passare la nostra classe record come tipo generico, e il nostro `Codec` personalizzato al metodo `codec()`.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Ora avvia il gioco. Usando il comando `/give`, prova ad applicare la componente. I valori delle componenti composite si passano come oggetto racchiuso da `{}`. Se lasci le graffe vuote, vedrai un errore che ti dice che la chiave `temperature` necessaria è mancante.
 

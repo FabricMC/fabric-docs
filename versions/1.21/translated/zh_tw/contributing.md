@@ -82,7 +82,7 @@ npm run preview
    **範例：**
 
    ```md
-   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    這將在參考模組中嵌入 `FabricDocsReference.java` 檔案的第 15 至 21 行程式碼。

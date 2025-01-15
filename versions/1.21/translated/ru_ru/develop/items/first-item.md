@@ -22,7 +22,7 @@ authors:
 
 Mojang уже сделали это со своими предметами! Загляните в класс `Items` для вдохновения.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Регистрация предмета{#registering-an-item}
 
@@ -36,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 Это не сработает, если вы пометили предмет как повреждаемый, потому что размер для повреждаемых предметов всегда равен 1, для предотвращения эксплойтов дублирования.
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Однако, когда вы перейдете в игру, то увидите, что нашего предмета не существует! Это потому что вы инициализировали класс не статически.
 
 Для этого вы можете добавить в свой класс публичный статический метод инициализации и вызывать его из класса `ModInitializer`. В настоящее время этот метод не принимает никаких аргументов.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Вызов метода класса статически инициализирует его, если он не был ранее загружен — это означает, что оцениваются все `статические` поля. Вот для чего нужен этот фиктивный метод `initialize`.
 
@@ -58,7 +58,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Это может быть сделано в методе `initialize` вашего класса.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Запустив игру, вы можете увидеть, что наш предмет зарегистрирован и находится в категории предметов "ингредиенты":
 
@@ -98,7 +98,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Создайте модель JSON в папке `assets/<mod id here>/models/item` с тем же именем, что и у элемента; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Разбор модели JSON {#breaking-down-the-model-json}
 
@@ -119,11 +119,11 @@ API Fabric предоставляет различные реестры, кот�
 
 Например, если вы хотите сделать свой предмет компостируемым, то вы можете использовать `CompostableItemRegistry`:
 
-@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Также если вы хотите сделать ваш предмет топливом, вы можете использовать класс `FuelRegistry`:
 
-@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Добавление рецепта создания {#adding-a-basic-crafting-recipe}
 
@@ -144,7 +144,7 @@ API Fabric предоставляет различные реестры, кот�
 В этом примере используется класс `LightningStick`, созданный на странице [Взаимодействия пользовательских элементов](./custom-item-interactions).
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Каждый вызов `add()` добавляет одну строку в подсказку.
 

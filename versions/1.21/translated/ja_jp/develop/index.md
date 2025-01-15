@@ -9,6 +9,6 @@ description: Fabricのコミュニティによって書かれたこのデベロ�
 
 ガイドの一覧はサイドバーで見ることができます。 何か知りたい内容があるなら、このページの一番上にある検索バーを使うと良いですよ。
 
-このドキュメントに対応した動作するModのコードは、[GitHubの `/reference` フォルダ](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest) にあります。
+このドキュメントに対応した動作するModのコードは、[GitHubの `/reference` フォルダ](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21) にあります。
 
 もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](../contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。

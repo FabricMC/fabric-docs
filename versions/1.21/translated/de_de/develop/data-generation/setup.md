@@ -42,7 +42,7 @@ Zuerst müssen wir die Datengenerierung in der `build.Gradle`-Datei aktivieren.
 
 Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unsere Datengenerierung startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Schließlich müsen wir Fabric in der `fabric.mod.json` über den Einstiegspunkt informieren:
 
@@ -71,7 +71,7 @@ Schließe IntelliJ und öffne es erneut, um eine Laufkonfiguration für die Date
 
 Innerhalb der Methode `onInitializeDataGenerator` deines Einstiegspunktes für die Datengenerierung m+ssen wir ein `Pack` erstellen. Später fügst du **Provider** hinzu, die generierte Daten in dieses `Pack` einfügen.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Ausführen des Datengenerators {#running-data-generation}
 

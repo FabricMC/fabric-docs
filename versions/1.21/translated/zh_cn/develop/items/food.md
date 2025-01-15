@@ -37,11 +37,11 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 
 按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodComponent`。
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 与 [创建你的第一个物品](./first-item) 类似，该示例将使用上述的组件：
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::poisonous_apple](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 这会让物品：
 

@@ -37,11 +37,11 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 
 원하는 대로 빌더를 수정한 후, `FoodComponent`를 가지기 위해 `build()` 메서드를 호출할 수 있습니다.
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 [Creating Your First Item](./first-item) 페이지의 예시와 비슷하게 위의 구성 요소를 사용하겠습니다:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::poisonous_apple](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 이렇게 하면 아이템이 다음과 같이 됩니다:
 

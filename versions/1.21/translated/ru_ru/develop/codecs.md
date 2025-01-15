@@ -314,11 +314,11 @@ public class Identifier {
 
 Имея всё это, мы можем создать кодек диспетчера реестров для бобов:
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // Теперь мы можем создать кодек для типов бобов

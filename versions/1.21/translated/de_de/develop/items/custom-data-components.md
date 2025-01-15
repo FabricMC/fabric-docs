@@ -19,7 +19,7 @@ Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente
 
 Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufrufst.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 
@@ -43,7 +43,7 @@ Einfache Datenkomponenten (wie `minecraft:damage`) bestehen aus einzelnen Datenw
 
 Als Beispiel wollen wir einen `Integer`-Wert erstellen, der festhält, wie oft der Spieler mit der rechten Maustaste geklickt hat, während er unseren Gegenstand hielt. Aktualisieren wir unsere Komponentenregistrierung wie folgt:
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird. Für unseren Codec verwenden wir den mitgelieferten `Codec.INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
 
@@ -57,7 +57,7 @@ Wenn du den Befehl ausführst, solltest du das Element erhalten, das die Kompone
 
 Fügen wir ein neues Item hinzu, das den Zähler jedes Mal erhöht, wenn es mit der rechten Maustaste angeklickt wird. Du solltest die Seite [Benutzerdefinierte Iteminteraktionen](./custom-item-interactions) lesen, die die Techniken behandelt, die wir in diesem Leitfaden verwenden werden.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Denke wie üblich daran, das Item in deiner Klasse `ModItems` zu registrieren.
 
@@ -117,7 +117,7 @@ Es gibt drei Lösungen, mit denen wir dieses Problem angehen können.
 
 Wenn du deinen Artikel registrierst und ein `Item.Settings`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
 
-@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::_13](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Wenn ein neues Item erstellt wird, wird automatisch unsere benutzerdefinierte Komponente mit dem angegebenen Wert angewendet.
 
@@ -147,7 +147,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 Wir fahren mit der dritten Option fort. Wir fügen also nicht nur einen Standardkomponentenwert hinzu, sondern prüfen auch, ob die Komponente auf dem Stack vorhanden ist, und zeigen den Tooltip nur an, wenn dies der Fall ist.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Starte das Spiel erneut und fahre mit dem Mauszeiger über das Item ohne die Komponente. Du solltest sehen, dass er "Used 0 times" anzeigt und das Spiel nicht mehr abstürzt.
 
@@ -179,7 +179,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Richten wir eine neue Methode `use()` ein, um die alte Klickzahl zu lesen, sie um eins zu erhöhen und dann die aktualisierte Klickzahl zu setzen.
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Starte nun das Spiel und klicke mit der rechten Maustaste auf den Counter in deiner Hand. Wenn du dein Inventar öffnest und dir das Item noch einmal ansiehst, solltest du sehen, dass die Nutzungszahl um die Anzahl der Klicks gestiegen ist, die du darauf gemacht hast.
 
@@ -212,11 +212,11 @@ public record MyCustomComponent() {
 
 Beachte, dass sich nach dem Klassennamen Klammern befinden. Hier definieren wir die Liste der Eigenschaften, die unsere Komponente haben soll. Fügen wir eine Fließkommazahl und einen booleschen Wert mit den Bezeichnungen `temperature` und `burnt` hinzu.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Da wir eine benutzerdefinierte Datenstruktur definieren, gibt es für unseren Anwendungsfall keinen bereits vorhandenen `Codec` wie bei den [einfachen Komponenten](#basic-data-components). Das bedeutet, dass wir unseren eigenen Codec konstruieren müssen. Definieren wir einen in unsere Record-Klasse mit einem `RecordCodecBuilder`, auf den wir verweisen können, sobald wir die Komponente registrieren. Weitere Einzelheiten zur Verwendung eines `RecordCodecBuilder` findest du in [diesem Abschnitt der Codecs-Seite](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 Du kannst sehen, dass wir eine Liste von benutzerdefinierten Feldern auf der Grundlage der primitiven `Codec`-Typen definieren. Wir teilen dem Spiel jedoch auch mit, wie unsere Felder heißen, indem wir `fieldOf()` verwenden und dann `forGetter()` benutzen, um dem Spiel mitzuteilen, welches Attribut unseres Datensatzes es füllen soll.
 
@@ -226,7 +226,7 @@ Schließlich rufen wir `apply()` auf und übergeben den Konstruktor unseres Date
 
 Die Registrierung einer zusammengesetzten Komponente ist ähnlich wie zuvor. Wir übergeben einfach unsere Record-Klasse als generischen Typ und unseren benutzerdefinierten `Codec` an die Methode `codec()`.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 Starte jetzt das Spiel. Versuche, die Komponente mit dem Befehl `/give` anzuwenden. Zusammengesetzte Komponentenwerte werden als ein mit `{}` umschlossenes Objekt übergeben. Wenn du leere geschweifte Klammern einfügst, wird eine Fehlermeldung angezeigt, die besagt, dass der erforderliche Schlüssel `temperature` fehlt.
 

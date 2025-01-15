@@ -25,7 +25,7 @@ Die wichtigsten Felder in der Datei `fabric.mod.json` sind:
 Nachfolgend siehst du eine Beispieldatei `fabric.mod.json` - dies ist die Datei `fabric.mod.json` für das Referenzprojekt, das diese Dokumentationsseite betreibt.
 
 :::details Referenzprojekt `fabric.mod.json`
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/1.21/src/main/resources/fabric.mod.json)
 :::
 
 ## Einstiegspunkte {#entrypoints}
@@ -41,7 +41,7 @@ Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
 
 Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
 
 ## `src/main/resources` {#src-main-resources}
 

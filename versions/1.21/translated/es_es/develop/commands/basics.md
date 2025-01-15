@@ -73,7 +73,7 @@ El callback tiene tres parámetros:
 
 En el inicializador de mod, solo registramos un comando simple:
 
-@[code lang=java transcludeWith=:::_1](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::_1](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 En el método `sendFeedback()`, el primer parámetro es el texto a ser enviado, el cual está en un `Supplier<Text>` (Proveedor) para no tener que instanciar nuevos objetos `Text` (Texto) cuando no es necesario.
 
@@ -89,13 +89,13 @@ Para ejecutar este comando, debes escribir `/foo`; aquí importan las mayúscula
 
 Si se desea, también puedes asegurarte que un comando solo es registrado bajo ciertas circunstancias específicas, por ejemplo, solo en el ambiente dedicado:
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Requerimientos de Comandos
 
 Digamos que tienes un comando y que quieres que solo los operadores puedan ejecutarlo. Aquí entra el método `requires()`. El método `requieres()` tiene un argumento de un `Predicate<S>` (Condición) el cual proveerá un `ServerCommandSource` el cual será probado con la condición data para determinar si el `CommandSource` puede ejecutar el comando.
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Este comando solo se ejecutará si la fuente del comando es un operador nivel 2 como mínimo, incluyendo bloques de comandos. De lo contrario, el comando no es registrado.
 
@@ -105,23 +105,23 @@ Esto tiene el efecto secundario de que el comando no se muestra con la auto comp
 
 Para agregar un sub comando, registras el primer nodo de comando normalmente. Para tener un sub comando, tienes que adjuntar el siguiente literal de nodo de comando al nodo existente.
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Similarmente a los argumentos, los nodos de sub comandos pueden ser opcionales. En el siguiente caso ambos comandos `/subtater` y `/subtater subcommand` serán válidos.
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Comandos de Cliente
 
 El Fabric API tiene una clase `ClientCommandManager` en el paquete de `net.fabricmc.fabric.api.client.command.v2` que puede ser usado para registrar comandos en el lado del cliente. Este código solo debe existir en el lado del cliente.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## Redireccionando Comandos
 
 Redireccionadores de comandos - también llamados aliases - son una manea de redireccionar la funcionalidad de un comando a otro. Esto es útil cuando quieres cambiar el nombre de un comando, pero todavía quieres mantener soporte para el nombre viejo.
 
-@[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## Preguntas Frequentes
 

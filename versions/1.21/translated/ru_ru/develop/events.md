@@ -41,7 +41,7 @@ API Fabric предоставляет события для важных обл�
 
 В этом примере регистрируется `AttackBlockCallback` для нанесения урона игроку при столкновении с блоками, из которых не выпадает предмет при ручной добыче.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ### Добавление предмета к существующим таблицам лута {#adding-items-to-existing-loot-tables}
 
@@ -55,7 +55,7 @@ API Fabric предоставляет события для важных обл�
 
 В API Fabric есть событие, которое запускается при загрузке таблиц добычи, `LootTableEvents.MODIFY`. Вы можете зарегистрировать обратный вызов для него в инициализаторе мода. Давайте также проверим, что текущая таблица добычи — это таблица добычи угольной руды.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Добавление предметов в таблицу добычи {#adding-items-to-the-loot-table}
 
@@ -65,7 +65,7 @@ API Fabric предоставляет события для важных обл�
 
 В нашем пуле также нет элементов, поэтому мы создадим запись элемента с помощью `ItemEntry#builder` и добавим ее в пул.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ## Собственные события {#custom-events}
 
@@ -89,34 +89,34 @@ API Fabric предоставляет события для важных обл�
 
 Вам необходимо создать интерфейс, имеющий экземпляр «События» и метод для реализации ответа. Базовая настройка обратного вызова для стрижки овец выглядит следующим образом:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Давайте рассмотрим это более подробно. При вызове мы перебираем всех слушателей:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={21-22}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Затем мы вызываем наш метод (в данном случае `interact`) для слушателя, чтобы получить его ответ:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={33-33}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Если слушатель сообщает, что нам необходимо отменить (`ActionResult.FAIL`) или завершить (`ActionResult.SUCCESS`), обратный вызов возвращает результат и завершает цикл. `ActionResult.PASS` переходит к следующему слушателю и в большинстве случаев должен завершиться успешно, если больше нет зарегистрированных слушателей:
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={25-30}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Мы можем добавить комментарии Javadoc в начало классов обратного вызова, чтобы документировать, что делает каждый `ActionResult`. В нашем случае это может быть:
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={9-16}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 ### Запуск события из Mixin'а {#triggering-the-event-from-a-mixin}
 
 Теперь у нас есть базовый скелет события, но нам нужно его запустить. Поскольку мы хотим, чтобы событие вызывалось, когда игрок пытается постричь овцу, мы вызываем событие `invoker` в `SheepEntity#interactMob`, когда вызывается `sheared()` (т. е. овцу можно стричь, а игрок держит ножницы):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
 ### Создание тестовой имплементации {#creating-a-test-implementation}
 
 Теперь нам нужно протестировать наше событие. Вы можете зарегистрировать слушатель в своем методе инициализации (или в другой области, если вам так удобнее) и добавить туда пользовательскую логику. Вот пример, в котором вместо шерсти к ногам овцы падает алмаз:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 Если вы зайдете в игру и пострижете овцу, вместо шерсти должен выпасть алмаз.

@@ -35,7 +35,7 @@ public void onInitialize() {
 
 All'interno di questa classe `ModArmorMaterials`, dovrai creare un metodo statico che registrerà il materiale dell'armatura. Questo metodo dovrebbe restituire una voce di registry per il materiale, perché questa voce verrà usata dal costruttore di ArmorItem per creare le componenti dell'armatura.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Proprietà dei Materiali delle Armature {#armor-material-properties}
 
@@ -85,7 +85,7 @@ Ora che hai creato un metodo di utilità che può essere usato per registrare ma
 
 Per questo esempio, creeremo l'armatura di Guidite, con le seguenti proprietà:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Creare gli Oggetti dell'Armatura {#creating-the-armor-items}
 
@@ -103,11 +103,11 @@ Le varie parti dell'armatura hanno durabilità base diverse, solitamente ottenut
 
 Per l'armatura di Guidite useremo un fattore condiviso memorizzato assieme al materiale dell'armatura:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 Possiamo quindi creare gli oggetti dell'armatura con la costante di durabilità:
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Dovrai anche **aggiungere gli oggetti ad un gruppo** se vorrai che essi siano accessibili dall'inventario in creativa.
 
@@ -132,7 +132,7 @@ Come esempio, puoi usare le seguenti texture e modelli JSON come riferimento.
 Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stesso principio di altri modelli di oggetti.
 :::
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gioco:
 

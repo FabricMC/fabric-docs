@@ -17,12 +17,12 @@ Anzitutto, dobbiamo creare un `BlockEntityRenderer` per il nostro `CounterBlockE
 
 Nel creare un `BlockEntityRenderer` per il `CounterBlockEntity`, è importante inserire la classe nell'insieme delle fonti corretto, come `src/client/`, se il tuo progetto divide gli insiemi delle fonti tra client e server. Accedere a classi legate al rendering direttamente nell'insieme delle fonti `src/main/` non è sicuro perché quelle classi potrebbero essere caricare su un server.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 La nuova classe ha un costruttore con un `BlockEntityRendererFactory.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `TextRenderer`.
 Inoltre, includendo un costruttore come questo, è possibile usare il costruttore come interfaccia funzionale per la `BlockEntityRendererFactory`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
 Aggiungi l'entrypoint al file `fabric.mod.json`, in modo che il renderer sia registrato.
 
@@ -77,7 +77,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Ora la trasformazione completa ha questo aspetto:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 ### Disegnare Testo {#drawing-text}
 
@@ -85,7 +85,7 @@ Come menzionato in precedenza, il `Context` passato al costruttore del nostro re
 
 Il `TextRenderer` ha metodi per misurare il testo (`getWidth`), il che è utile per centrarlo, e per disegnarlo (`draw`).
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 Il metodo `draw` prende molti parametri, ma quelli più importanti sono:
 
