@@ -43,7 +43,7 @@ The `ArmorMaterial` constructor accepts the following parameters, in this specif
 | --------- | ----------- |
 | `durability` | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
 | `defense` | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot. |
-| `enchantmentValue` | The "enchantibility" of armor items which use this material. |
+| `enchantmentValue` | The "enchantability" of armor items which use this material. |
 | `equipSound` | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page. |
 | `toughness` | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage. |
 | `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer. |

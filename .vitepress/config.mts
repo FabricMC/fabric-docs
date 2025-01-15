@@ -49,6 +49,14 @@ export default defineVersionedConfig(
 
     themeConfig: {
       search: {
+        options: {
+          _render(src, env, md) {
+            if (env.frontmatter?.search === false) return "";
+            if (env.relativePath.startsWith("translated/")) return "";
+            if (env.relativePath.startsWith("versions/")) return "";
+            return md.render(src, env);
+          },
+        },
         provider: "local",
       },
     },

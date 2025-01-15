@@ -49,7 +49,7 @@ The `src/main/resources` folder is used to store the resources that your mod use
 
 It's also the location of `fabric.mod.json` and any mixin configuration files that your mod uses.
 
-Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/modid/textures/block/block.png`.
+Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/mod-id/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

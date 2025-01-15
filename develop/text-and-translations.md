@@ -110,7 +110,7 @@ Furthermore, to deserialize a JSON text object into an actual `Text` class, agai
 
 You may be familiar with Minecraft's formatting standards:
 
-You can apply these formattings using the `Formatting` enum on the `MutableText` class:
+You can apply these formatting styles using the `Formatting` enum on the `MutableText` class:
 
 ```java
 MutableText result = Text.literal("Hello World!")
