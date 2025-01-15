@@ -123,7 +123,7 @@ This file should be located in the `assets/mod_id/blockstates` folder, and its n
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
 ::: tip
-Blockstates are incredibly complex, which is why they will be covered next in [their own seperate page](./blockstates).
+Blockstates are incredibly complex, which is why they will be covered next in [their own separate page](./blockstates).
 :::
 
 Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:

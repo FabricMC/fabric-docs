@@ -23,7 +23,7 @@ The `ToolMaterial` constructor accepts the following parameters, in this specifi
 | `durability` | The durability of all tools that are of this `ToolMaterial`.  |
 | `speed` | The mining speed of the tools that are of this `ToolMaterial`. |
 | `attackDamageBonus` | The additional attack damage of the tools that are of this `ToolMaterial` will have. |
-| `enchantmentValue` | The "Enchantibility" of tools which are of this `ToolMaterial`. |
+| `enchantmentValue` | The "Enchantability" of tools which are of this `ToolMaterial`. |
 | `repairItems` | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil. |
 
 If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.

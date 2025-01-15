@@ -164,7 +164,7 @@ In specific situations, a logical server side entity's properties can differ fro
 If you notice that your values don't line up, make sure that your values are synchronized
 either with entity's `TrackedData`, `BlockEntity` S2C packets or complete custom S2C network packets.
 
-After you have finished creating your custom `SoundInstance` It's ready to be used anywhere as long as it's been executed on the client side using the sound manager.
+After you have finished creating your custom `SoundInstance`, it's ready to be used anywhere as long as it's been executed on the client side using the sound manager.
 In the same way, you can also stop the custom `SoundInstance` manually, if necessary.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
@@ -173,7 +173,7 @@ The sound loop will be played now only for the client, which ran that SoundInsta
 
 This concludes the explanation of creating and using a simple custom `SoundInstance`.
 
-## Advanced SoundInstances {#advanced-soundinstances}
+## Advanced `SoundInstance`s {#advanced-soundinstances}
 
 ::: warning
 The following content covers an advanced topic.
@@ -223,9 +223,9 @@ If you choose to create a new, more modular, custom `AbstractDynamicSoundInstanc
 you may want to reference not only a single type of `Entity` but different ones, or even a `BlockEntity` too.
 
 In that case, making use of abstraction is the key.
-Instead of referencing e.g. a custom `BlockEntity` directly, only keeping track of an Interface, which provides the data, solves that problem.
+Instead of referencing e.g. a custom `BlockEntity` directly, only keeping track of an interface, which provides the data, solves that problem.
 
-Going forward we will make use of a custom Interface called `DynamicSoundSource`. It is implemented in all classes which want to make use of that dynamic sound functionality,
+Going forward we will make use of a custom interface called `DynamicSoundSource`. It is implemented in all classes which want to make use of that dynamic sound functionality,
 like your custom `BlockEntity`, Entities or even, using Mixins, on already existing classes, like `ZombieEntity`. It basically represents only the necessary data of the sound source.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
@@ -235,8 +235,8 @@ After creating this interface, make sure to implement it in the necessary classe
 ::: info
 This is a utility, which may be used on both the client and the logical server side.
 
-So this Interface should be stored in the common packages instead of the client only packages, if you make use of the
-"split sources" option
+So this interface should be stored in the common packages instead of the client only packages, if you make use of the
+"split sources" option.
 :::
 
 ### `TransitionState` Enum {#transitionstate-enum}
