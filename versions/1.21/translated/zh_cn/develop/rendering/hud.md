@@ -25,6 +25,6 @@ authors:
 
 例如，假设要让颜色随时间变化。 可以使用 `deltaTickManager` 获得 deltaTick，并随时间存储以变化颜色。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![](/assets/develop/rendering/hud-rendering-deltatick.webp)

@@ -95,7 +95,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. на сторінці [Codec](./codecs).
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
 
 Це створює JSON, який можна використовувати в пакетах даних, командах та інших місцях, які приймають формат тексту JSON замість літерального або перекладаного тексту.
 
@@ -103,7 +103,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Крім того, щоб десеріалізувати текстовий об’єкт JSON у фактичний клас `Text`, знову скористайтеся кодеком.
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
 
 ## Форматування тексту {#formatting-text}
 

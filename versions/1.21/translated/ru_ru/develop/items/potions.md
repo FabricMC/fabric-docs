@@ -20,7 +20,7 @@ authors:
 
 Начнем с объявления поля для хранения вашего экземпляра `Potion`. Мы будем напрямую использовать класс инициализатора для хранения этого.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Мы передаем экземпляр `StatusEffectInstance`, который принимает 3 параметра:
 
@@ -37,7 +37,7 @@ authors:
 
 В нашем инициализаторе мы будем использовать событие `FabricBrewingRecipeRegistryBuilder.BUILD` для регистрации нашего зелья с помощью метода `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={29-42}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` принимает 3 параметра:
 

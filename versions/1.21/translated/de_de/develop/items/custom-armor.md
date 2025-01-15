@@ -35,7 +35,7 @@ public void onInitialize() {
 
 Innerhalb dieser `ModArmorMaterials` Klasse, musst du eine statische Methode erstellen, welche das Rüstungsmaterial registrieren wird. Diese Methode sollte einen Registrierungseintrag für das Material zurückgeben, da dieser Eintrag vom Rüstungsitem-Konstruktor zur Erstellung des Rüstungsitem verwendet wird.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Rüstungsmaterial Eigenschaften {#armor-material-properties}
 
@@ -85,7 +85,7 @@ Nachdem du nun eine Utility-Methode erstellt hast, die zur Registrierung von Rü
 
 In diesem Beispiel werden wir eine Guidite-Rüstung mit den folgenden Eigenschaften erstellen:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Rüstungsitems erstellen {#creating-the-armor-items}
 
@@ -103,11 +103,11 @@ Die verschiedenen Rüstungsslots haben unterschiedliche Grundhaltbarkeiten, die 
 
 Für die Guidite-Rüstung werden wir einen gemeinsamen Multiplikator für die Rüstung verwenden, der zusammen mit dem Rüstungsmaterial gespeichert wird:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 Anschließend können wir die Rüstungsitems unter Verwendung der Haltbarkeitskonstante erstellen:
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Außerdem musst du die Items **einer Itemgruppe hinzufügen**, wenn du möchtest, dass sie über das kreative Inventar zugänglich sind.
 
@@ -132,7 +132,7 @@ Als Beispiel dient das folgende Textur- und Modell-JSON als Referenz.
 Du benötigst JSON-Modelldateien für alle Gegenstände, nicht nur für den Helm. Es ist das gleiche Prinzip wie bei anderen Itemmodellen.
 :::
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 Wie du sehen kannst, sollten die Rüstungsitems im Spiel geeignete Modelle haben:
 

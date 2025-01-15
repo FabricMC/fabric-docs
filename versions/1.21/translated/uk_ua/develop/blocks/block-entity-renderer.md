@@ -17,12 +17,12 @@ authors:
 
 Створюючи `BlockEntityRenderer` для `CounterBlockEntity`, важливо помістити клас у відповідний вихідний набір, наприклад `src/client/`, якщо ваш проєкт використовує розділені вихідні набори для клієнта та сервера. Доступ до пов’язаних із промальовуванням класів безпосередньо у вихідному наборі `src/main/` небезпечний, оскільки ці класи можуть бути завантажені на сервер.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 Новий клас має конструктор із `BlockEntityRendererFactory.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `TextRenderer`.
 Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererFactory`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
 Додайте точку входу до файлу `fabric.mod.json`, щоб зареєструвати промальовування.
 
@@ -77,7 +77,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Тепер усе перетворення виглядає так:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 ### Малювання тексту {#drawing-text}
 
@@ -85,7 +85,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 `TextRenderer` має методи для вимірювання тексту (`getWidth`), що корисно для центрування, і для його малювання (`draw`).
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 Метод `draw` приймає багато параметрів, але найважливіші з них:
 

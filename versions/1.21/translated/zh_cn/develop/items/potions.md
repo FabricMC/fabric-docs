@@ -20,7 +20,7 @@ authors:
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用 `ModInitializer`——实现这个类来持有这个字段。
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 我们传入一个 `StatusEffectInstance` 实例，它的构造方法接收以下 3 个参数：
 
@@ -36,7 +36,7 @@ authors:
 
 在我们的初始化器中，我们将使用 `FabricBrewingRecipeRegistryBuilder.BUILD` 事件，使用 `BrewingRecipeRegistry.registerPotionRecipe` 方法注册我们的药水。
 
-@[code lang=java transclude={29-42}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` 接收以下 3 个参数：
 

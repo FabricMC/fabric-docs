@@ -111,7 +111,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 Поскольку в этом примере мы рисуем на HUD, мы будем использовать событие `HudRenderCallback`:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 В результате на HUD отображается следующее:
 
@@ -143,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 Обязательно выдвиньте стек матриц, прежде чем получить матрицу преобразования!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![Видео, демонстрирующее увеличение и уменьшение размера алмаза](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -155,7 +155,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 Допустим, мы хотим повернуть наш алмаз вокруг оси z. Мы можем сделать это с помощью `MatrixStack` и метода `multiply(Quaternion, x, y, z)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Результатом этого является следующее:
 

@@ -25,7 +25,7 @@ authors:
 Ниже вы можете увидеть пример файла `fabric.mod.json`, этот файл `fabric.mod.json` для примерного проекта, лежащего в основе этого сайта документации.
 
 :::details Примерный проект `fabric.mod.json`
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/1.21/src/main/resources/fabric.mod.json)
 :::
 
 ## Точки входа {#entrypoints}
@@ -34,7 +34,7 @@ authors:
 
 Создатель шаблонов создает обе точки входа `main` и `client` по умолчанию, точка входа `main` используется для общего кода, а точка входа `client` используется для клиентоориентированного кода. Эти точки входа вызывается, когда игра запускается.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
 
 Выше приведён пример простой точки входа `main`, который записывает сообщение в консоль, когда игра запускается.
 

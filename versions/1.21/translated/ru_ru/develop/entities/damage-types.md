@@ -23,7 +23,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Он имеет следующую структуру:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
 Этот пользовательский тип урона увеличивает [истощение голодом](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) на 0,1 каждый раз, когда игрок получает урон, когда урон наносится живым, неигровым источником (например, блоком). Кроме того, количество нанесенного урона будет масштабироваться в зависимости от сложности мира
 
@@ -39,7 +39,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 `RegistryKey` можно получить следующим образом:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
 ### Использование типов урона {#using-damage-types}
 
@@ -49,15 +49,15 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Начнем с создания `DamageSource` нашего пользовательского типа урона.
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={21-24}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Затем мы вызываем `entity.damage()` с нашим `DamageSource` и суммой.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={25-25}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Полная реализация блока:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Теперь, когда живое существо наступит на наш блок, оно получит 5 единиц урона (2,5 сердца) с использованием нашего типа урона.
 
@@ -65,7 +65,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Вы можете определить сообщение о смерти для типа урона в формате `death.attack.<message_id>` в файле `en_us.json`.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
 
 После смерти от нашего типа урона вы увидите следующее сообщение о смерти:
 
@@ -94,6 +94,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 Со следующим содержанием:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Убедитесь, что ваш тег не заменяет существующий тег, установив ключ `replace` в значение `false`.

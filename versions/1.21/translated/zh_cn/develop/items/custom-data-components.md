@@ -19,7 +19,7 @@ authors:
 
 把这个组件放到一个合理的类中。 对于这个例子，我们创建一个新的包，叫做 `compoennt`，以及一个类，叫做 `ModComponents`，包含我们所有的组件类型。 确保在你的[模组的初始化器](./getting-started/project-structure#entrypoints)中调用 `ModComponents.initialize()`。
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 这是注册一个组件类型的基本模板：
 
@@ -43,7 +43,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 例如，我们创建一个 `Integer` 值，追踪玩家手持我们的物品右键点击了多少次。 参照下面的代码，更新刚刚注册组件的代码。
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 可以提到，我们这里将 `<Integer>` 传入作为我们的泛型类型，表示这个组件会存储为单个的 `int` 值。 对于我们的 codec，直接使用提供的 `Codec.INC` codec 就可以了。 对于这样简单的组件，可以使用基本的 codec，但是更加复杂的情形可能需要自定义的 codec（后面就会讲到）。
 
@@ -57,7 +57,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 添加新物品，每次右键点击时都会增加计数器。 可以阅读[自定义物品交互](./custom-item-interactions)页面以了解我们在这个教程中使用的技巧。
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 记得要和平时一样，在 `ModItems` 类中注册物品。
 
@@ -117,7 +117,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 
 当你注册你的物品并传递 `Item.Settings` 对象到你的物品构造器中，你还可以提供应用于所有新物品的默认组件的列表。 如果回到我们的 `ModItems` 类，注册 `CounterItem` 的地方，就可以为我们的自定义组件添加默认值。 添加这个，这样新物品会显示计数为 `0`。
 
-@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::_13](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 创建了新物品后，就会自动为我们的自定义组件应用给定的值。
 
@@ -147,7 +147,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 我们现在以第三个选项开始。 添加了默认的组件值，还需要检测组件是否存在于物品堆中，只有存在时才显示提示。
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 再次启动游戏，并将鼠标悬停在没有组件的物品上，你应该看到显示的是“使用了 0 次”并不再崩溃游戏。
 
@@ -179,7 +179,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 我们调用 `use()` 方法，先读旧的点击次数，增加一，然后设置新的点击次数。
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 尝试启动游戏并右键点击手中的计数器物品。 如果打开物品栏并再次看看物品，应该就会发现，使用次数随点击的次数增加了。
 
@@ -212,11 +212,11 @@ public record MyCustomComponent() {
 
 注意类名后有一组括号。 这里我们定义组件需要有的一系列的属性。 先添加一个浮点数和布尔值，分别叫做 `temperature` 和 `burnt`。
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::1](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 因为我们定义自定义的数据结构，所以这种情况下不会像[基本组件](#basic-data-components)那样有预先存在的 `Codec`。 也就是说，需要创建自己的 codec。 我们在 record 类中使用 `RecordCodecBuilder` 定义一个，这样在注册组件时就可以引用。 关于使用 `RecordCodecBuilder` 的更多细节，请参考 [Codec 页面的这个章节](../codecs#merging-codecs-for-record-like-classes)。
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::2](@/reference/1.21/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
 你可以看到我们基于原始的 `Codec` 类型定义了一系列的自定义字段。 我们用 `fieldOf()` 来说明我们的字段叫做什么，然后用 `forGetter()` 告诉游戏怎样从记录中获取该字段。
 
@@ -226,7 +226,7 @@ public record MyCustomComponent() {
 
 注册“合成”组件和之前类似， 就只需要传入我们的 record 类作为泛型类型，以及给 `codec()` 方法传入自定义的 `Codec`。
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+@[code transcludeWith=::3](@/reference/1.21/src/main/java/com/example/docs/component/ModComponents.java)
 
 现在启动游戏， 使用 `/give` 命令，尝试应用组件。 合成组件的值传入时是作为对象，用 `{}` 包围起来。 如果用空的花括号，会看到错误，提示你缺少必需的键 `temperature`。
 

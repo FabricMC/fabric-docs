@@ -23,7 +23,7 @@ Poi possiamo creare un costruttore e fare override dei metodi dell'interfaccia `
 
 La maggior parte del nostro codice andrà nell'evento `apply()`, che viene chiamato quando i criteri perché il tuo incantesimo funzioni sono soddisfatti. Dopo di che configureremo questo `Effect` in modo che sia chiamato quando un'entità è colpita, ma per ora scriviamo codice semplice per colpire l'obiettivo con un fulmine.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java)
+@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java)
 
 Qui, la variabile `amount` indica un valore ridimensionato in base al livello dell'incantesimo. Possiamo usare questa per modificare l'efficacia dell'incantesimo in base al livello. Nel codice sopra, stiamo usando il livello dell'incantesimo per determinare quanti fulmini vengono generati.
 
@@ -31,7 +31,7 @@ Qui, la variabile `amount` indica un valore ridimensionato in base al livello de
 
 Come ogni altra componente della tua mod, dovremo aggiungere questo `EnchantmentEffect` alla registry di Minecraft. Per fare ciò, aggiungi una classe `ModEnchantmentEffects` (o un qualsiasi nome che tu voglia darle) e un metodo ausiliare per registrare l'incantesimo. Assicurati di chiamare il `registerModEnchantmentEffects()` nella tua classe principale, che contiene il metodo `onInitialize()`.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java)
+@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java)
 
 ## Creare l'Incantesimo {#creating-the-enchantment}
 
@@ -39,17 +39,17 @@ Ora abbiamo un effetto d'incantesimo! Il passaggio finale è creare un incantesi
 
 All'interno di questa classe registreremo anzitutto un nuovo incantesimo, e poi useremo il metodo `configure()` per creare il nostro JSON programmaticamente.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/1.21/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
 
 Prima di procedere dovresti assicurarti che il tuo progetto sia configurato per la generazione di dati; se non sei sicuro, [controlla la pagina corrispondente della documentazione](../data-generation/setup).
 
 Infine, dobbiamo dire alla nostra mod di aggiungere il nostro `EnchantmentGenerator` alla lista di operazioni di generazione dati. Per fare questo, basta aggiungere il `EnchantmentGenerator` a questo all'interno del metodo `onInitializeDataGenerator`.
 
-@[code transclude={22-22}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={22-22}](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli incantesimi verranno generati nella cartella `generated`. Ecco un esempio qua sotto:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/1.21/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
 
 Dovresti anche aggiungere le traduzioni al tuo file `en_us.json` per dare al tuo incantesimo un nome leggibile:
 

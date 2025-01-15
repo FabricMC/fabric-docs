@@ -17,7 +17,7 @@ authors:
 
 Что-то подобное Mojang делают с ванильными блоками. Вы можете обратиться к классу `Blocks`, чтобы увидеть, как они это делают.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 
@@ -37,7 +37,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
 
 ## Создание и регистрация вашего блока {#creating-and-registering-your-block}
 
@@ -51,7 +51,7 @@ public class ModBlocks {
 Вы можете использовать `AbstractBlock.Settings.copy(AbstractBlock block)`, чтобы скопировать параметры существующего блока. В данном случае мы могли бы использовать `Blocks.DIRT` для копирования параметров блока земли, но для примера мы используем конструктор.
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Для автоматического создания предмета блока мы можем передать `true` параметру `shouldRegisterItem` метода `register`, который мы создали на предыдущем шаге.
 
@@ -61,7 +61,7 @@ public class ModBlocks {
 
 Для этого примера мы используем пользовательскую группу предметов, созданную на странице [Собственные вкладки предметов](../items/custom-item-groups).
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 
@@ -98,11 +98,11 @@ Minecraft будет использовать этот перевод в тво�
 
 Модель элемента довольно проста, она может просто использовать модель блока в качестве родительской, поскольку большинство моделей блоков поддерживают визуализацию в графическом интерфейсе:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
 
 Однако в нашем случае модель блока должна быть родительской для модели `block/cube_all`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
 При загрузке игры вы можете заметить, что текстура по-прежнему отсутствует. Это связано с тем, что вам необходимо добавить определение состояния блока.
 
@@ -114,7 +114,7 @@ Minecraft будет использовать этот перевод в тво�
 
 Этот файл должен находиться в папке `assets/mod_id/blockstates`, а его имя должно совпадать с идентификатором блока, использованным при регистрации вашего блока в классе `ModBlocks`. Например, если идентификатор блока — `condensed_dirt`, файл должен называться `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
 Состояния блоков действительно сложны, поэтому они рассматриваются на следующей странице: [Состояния блоков](./blockstates)
 
@@ -130,7 +130,7 @@ Minecraft будет использовать этот перевод в тво�
 Для более глубокого понимания таблиц добычи вы можете обратиться к официальной странице [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
 
 В таблице добычи указано, какой предмет выпадет из блока, когда блок сломан и когда он взорван взрывом.
 
@@ -149,7 +149,7 @@ Minecraft будет использовать этот перевод в тво�
 
 В этом примере, блок «Condensed Dirt» добавляется к тегу `shovel`.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 ## Уровни добычи {#mining-levels}
 

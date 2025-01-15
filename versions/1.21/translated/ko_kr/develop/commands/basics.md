@@ -75,7 +75,7 @@ Command<ServerCommandSource> command = context -> {
 
 이제 모드 초기화에서 간단한 명령어를 한번 등록해봅시다.
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 `sendFeedback()` 메서드의 첫 번째 인수는 보내질 텍스트이며, 텍스트 오브젝트의 필요 없는 인스턴스화를 막기 위해 `Supplier<Text>` 로 제공됩니다.
 
@@ -95,15 +95,15 @@ Command<ServerCommandSource> command = context -> {
 
 원하는 경우 명령어가 특정한 상황에만 등록되도록 할 수도 있습니다. 예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다.
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### 명령어의 요구 사항 {#command-requirements}
 
 관리자만 실행 가능한 명령어를 만들고 싶다고 가정해봅시다. `require()` 메서드를 사용하기 딱 좋은 상황이군요. `require()` 메서드는 `ServerCommandSource`를 제공하고 `CommandSource`가 명령어를 실행할 수 있는지 판단하는 `Predicate<S>`을 인수로 가집니다.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 이렇게 하면 명령 블록을 포함해 명령어 소스가 적어도 레벨 2 관리자는 되어야 명령어를 실행할 수 있게 됩니다. 요구 사항을 충족하지 못한다면 명령어는 등록조차 되지 않게 됩니다.
 
@@ -113,19 +113,19 @@ Command<ServerCommandSource> command = context -> {
 
 하위 명령어를 추가하려면, 먼저 상위 명령어의 리터럴 노드를 등록해야 합니다. 그런 다음, 상위 명령어의 리터럴 노드 다음에 하위 명령어의 리터럴 노드를 덧붙이면 됩니다.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 인수처럼, 하위 명령어 노드도 필수적이진 않습니다. 아래와 같은 상황에선, `/command_two`와 `/command_two sub_command_two`  모두 올바른 명령어가 되게 됩니다.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 클라이언트 명령어 {#client-commands}
 
 Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이언트측 명령어를 등록할 때 사용되는 `ClientCommandManager` 클래스를 가지고 있습니다. 이러한 코드는 오로지 클라이언트측 코드에만 있어야 합니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 명령어 리다이렉션 {#command-redirects}
 
@@ -135,8 +135,8 @@ Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이
 Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입니다](https://github.com/Mojang/brigadier/issues/46). 만약 인수 없이 명령 노드를 리다이렉션하려면 예제에 설명된 것과 동일한 로직에 대한 참조와 함께 '.executes()\` 빌더를 제공하세요.
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## 자주 묻는 질문 {#faq}
 

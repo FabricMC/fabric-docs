@@ -318,11 +318,11 @@ public class Identifier {
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // 现在我们可以创建一个用于 bean 类型的 codec

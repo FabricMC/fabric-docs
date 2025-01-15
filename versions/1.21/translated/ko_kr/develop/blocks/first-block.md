@@ -19,7 +19,7 @@ authors:
 
 Mojang은 바닐라 블록과 매우 비슷한 무언가를 수행합니다. `Blocks` 클래스를 참조하여 어떻게 하였는지 참고해도 됩니다.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 
@@ -39,7 +39,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
 
 ## 블록을 추가하고 등록하기 {#creating-and-registering-your-block}
 
@@ -53,7 +53,7 @@ public class ModBlocks {
 또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 자동으로 블록 아이템을 만들기 위하여, 이전 단계에서 만든 `register` 메서드의 `shouldRegisterItem` 매개변수를 `true`를 전달하면 됩니다.
 
@@ -63,7 +63,7 @@ public class ModBlocks {
 
 예시로, [사용자 지정 아이템 그룹](../items/custom-item-groups) 페이지에서 만든 사용자 지정 그룹을 사용할 것입니다.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 
@@ -100,11 +100,11 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 이 아이템 모델은 꽤 단순합니다. 대부분의 블록 모델이 GUI에서 렌더되는 것을 지원하기 때문에그저 상위 모델로 블록 모델을 사용할 수 있습니다:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
 
 하지만, 이 블록 모델은, 이 상황에서, `block/cube_all` 모델의 상위 모델이어야 합니다:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
 게임으로 불러왔을 때, 여전히 텍스처가 없을 수도 있습니다. 왜냐하면 블록 상태 정의를 추가해야 하기 때문입니다.
 
@@ -116,7 +116,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 파일은 `assets/mod_id/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
 블록 상태는 정말 복잡합니다. 그러므로, [블록 상태](./blockstates) 페이지에서 다루겠습니다.
 
@@ -132,7 +132,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 노획물 목록에 대하여 더 자세히 알고 싶으면, [Minecraft 위키 - 노획물 목록](https://ko.minecraft.wiki/w/%EB%85%B8%ED%9A%8D%EB%AC%BC_%EB%AA%A9%EB%A1%9D) 페이지를 참고할 수 있습니다.
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
 
 이 노획물 목록은 블록이 부서질 때나 폭발할 때 단일 블록 아이템의 떨굼을 제공합니다.
 
@@ -151,7 +151,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 이 예시는 "거친 흙" (Condensed Dirt) 블록을 `shovel` (삽) 태그에 추가시킵니다.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 만약 블록을 부수기 위하여 특정한 도구를 사용하여야 하게 하길 원한다면, 블록 설정에 `.requiresTool()`을 추가하고 적절한 채굴 태그를 추가하여야 합니다.
 

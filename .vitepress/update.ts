@@ -1,6 +1,5 @@
 import * as glob from "glob";
 import fs from "node:fs";
-import { EOL } from "node:os";
 import prompts from "prompts";
 
 import develop from "./sidebars/develop";

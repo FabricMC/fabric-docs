@@ -43,7 +43,7 @@ Todas las interfaces de callbacks para eventos proveídas por el Fabric API pued
 
 Este ejemplo registra un `AttackBlockCallback` para atacar el jugador cuando este golpea bloques que no sueltan un item cuando son minados con la mano.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ### Añadiendo Items a Loot Tables Existentes
 
@@ -57,7 +57,7 @@ Agregaremos huevos al loot table del bloque de mena de hierro.
 
 El Fabric API tiene un evento que es llamado cuando los loot tables son cargados, llamado `LootTableEvents.MODIFY`. Puedes registrar un callback para el evento en tu inicializador de mod. Verifiquemos también que el loot table actual sea el del bloque de mena de hierro.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Agregando Items al Loot Table
 
@@ -67,7 +67,7 @@ Podemos crear un grupo con `LootPool#builder`, y agregarlo al loot table.
 
 Nuestro grupo no tiene ningún item, asique haremos una entrada de item usando `ItemEntry#builder`, y la agregaremos al grupo.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ## Eventos Personalizados
 
@@ -91,34 +91,34 @@ Usar `ActionResult` como valor de retorno es una manera convencional para hacer 
 
 Necesitarás crear una interfaz que tiene una instancia de `Event` y un método para la implementación de la respuesta. Una configuración básica para nuestro callback de esquilado de oveja es:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Veamos este códigdo con más detalle. Cuando el invocador es llamado, iteramos sobre todos los escuchadores:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={21-22}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Entonces llamamos nuestro método (en este caso, `interact`), en el escuchador para obtener su respuesta:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={33-33}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Si el escuchador dice que tenemos que cancelar (`ActionResult.FAIL`) o terminar completamente (`ActionResult.SUCCESS`), el callback retorna el resultado y termina el loop. `ActionResult.PASS` prosigue al siguiente escuchador, y en la mayoría de los casos debería resultar en éxito si no hay más escuchadores registrados:
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={25-30}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Podemos agregar Javadocs por encima de las clases de callback para documentar que es lo que hace cada `ActionResult`. En nuestro caso, puede ser:
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={9-16}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 ### Activando el Evento Desde un Mixin
 
 Ya tenemos el esqueleto básico de nuestro evento, pero necesitamos llamarlo o activarlo. Ya que queremos que nuestro evento sea llamado cuando un jugador trata de esquilar una oveja, podemos llamado el invocador `invoker` del evento en `SheepEntity#interactMob`, cuando el método `sheared()` es llamado (osea que la oveja puede ser esquilada, y el jugador está sosteniendo tijeras):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
 ### Creando una Implementación de Prueba
 
 Ahora necesitamos probar nuestro evento. Puedes registrar un escuchador en tu método de inicialización (o en otro lugar, si lo prefieres) y poner tu propio código ahí. En este ejemplo, cuando la oveja es esquilada, suelta un diamante en vez de lana:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 Si entras al juego y esquilas una oveja, un diamante debería ser soltado en vez de lana.

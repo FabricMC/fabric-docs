@@ -19,11 +19,11 @@ Diese Klasse kann auch verwendet werden, um die Eigenschaften deines Werkzeugmat
 
 Du kannst ein Werkzeugmaterial erstellen, indem du eine neue Klasse erstellst, die es erbt - in diesem Beispiel werde ich "Guidite"-Werkzeuge erstellen:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 Sobald du dein Werkzeugmaterial erstellt und nach deinen Wünschen angepasst hast, kannst du eine Instanz davon erstellen, die in den Konstruktoren der Werkzeugitems verwendet werden kann.
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 Das Werkzeugmaterial gibt dem Spiel die folgenden Informationen:
 
@@ -31,13 +31,13 @@ Das Werkzeugmaterial gibt dem Spiel die folgenden Informationen:
 
 Wie oft das Werkzeug verwendet werden kann, bevor es bricht:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### Abbaugeschwindigkeit - `getMiningSpeedMultiplier()` {#mining-speed}
 
 Wenn das Werkzeug zum Brechen von Blöcken verwendet wird, wie schnell sollte es die Blöcke brechen?
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 Zu Referenzzwecken hat das Diamantwerkzeugmaterial eine Abbaugeschwindigkeit von `8.0F`, während das Steinwerkzeugmaterial eine Abbaugeschwindigkeit von `4.0F` hat.
 
@@ -45,7 +45,7 @@ Zu Referenzzwecken hat das Diamantwerkzeugmaterial eine Abbaugeschwindigkeit von
 
 Wie viele Schadenspunkte sollte das Werkzeug verursachen, wenn es als Waffe gegen eine andere Entität eingesetzt wird?
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### Inverse Tag - `getMiningLevel()` {#inverse-tag}
 
@@ -65,7 +65,7 @@ Das bedeutet, dass das Werkzeug keine Blöcke abbauen kann, die ein Diamant-, Ei
 
 Lass das Eisenwerkzeug-Tag verwenden. Dies verhindert, dass Guidite-Werkzeuge Blöcke abbauen, die ein stärkeres Werkzeug als Eisen erfordern.
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 Du kannst `TagKey.of(...)` verwenden, um einen benutzerdefinierten Tag-Schlüssel zu erstellen, wenn du einen benutzerdefiniertes Tag verwenden willst.
 
@@ -73,29 +73,29 @@ Du kannst `TagKey.of(...)` verwenden, um einen benutzerdefinierten Tag-Schlüsse
 
 Wie einfach ist es, mit diesem Gegenstand bessere und höherstufige Verzauberungen zu erhalten? Zum Vergleich: Gold hat eine Verzauberungsfähigkeit von 22, während Netherit eine Verzauberungsfähigkeit von 15 hat.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ### Reparatur-Zutat(en) - `getRepairIngredient()` {#repair-ingredient}
 
 Welche Items werden zur Reparatur des Werkzeugs verwendet?
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+@[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
 ## Werkzeugitems erstellen {#creating-tool-items}
 
 Mit der gleichen Hilfsfunktion wie in der Anleitung [Erstelle dein ersten Item](./first-item) kannst du deine Werkzeugitems erstellen:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::7](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Vergiss nicht, sie zu einer Itemgruppe hinzuzufügen, wenn du vom Kreativ-Inventar aus auf sie zugreifen willst!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::8](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
 Du musst auch eine Textur, eine Itemübersetzung und ein Itemmodell hinzufügen. Für das Itemmodell solltest du jedoch das Modell `item/handheld` als übergeordnetes Modell verwenden.
 
 In diesem Beispiel verwende ich das folgende Modell und die folgende Textur für den Gegenstand "Guidite Sword":
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Textur</DownloadEntry>
 

@@ -25,6 +25,6 @@ Il `deltaTick` è il tempo trascorso dall'ultimo frame, in secondi. Questo può 
 
 Per esempio, immagina di voler interpolare linearmente un colore nel tempo. Puoi usare il `deltaTickManager` per ottenere il deltaTick, e memorizzarlo nel tempo per interpolare il colore:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![Interpolare un colore nel tempo](/assets/develop/rendering/hud-rendering-deltatick.webp)

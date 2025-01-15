@@ -17,12 +17,12 @@ Zuerst müssen wir einen `BlockEntityRenderer` für unsere `CounterBlockEntity` 
 
 Beim Erstellen eines `BlockEntityRenderer` für die `CounterBlockEntity` ist es wichtig, wenn das Projekt geteilte Quellen für den Client und den Server nutzt, die Klasse in das passende Quellenverzeichnis, wie `src/client/`, zu platzieren. Der Zugriff auf Rendering-bezogene Klassen direkt im `src/main/` Quellenverzeichnis ist nicht sicher, da diese Klassen möglicherweise am Server nicht geladen sind.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererFactory.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
 Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererFactory` selbst zu verwenden:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
 Füge den Einstiegspunkt zu der Datei `fabric.mod.json` hinzu, damit der Renderer registriert ist.
 
@@ -77,7 +77,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Jetzt sieht die ganze Transformation wie folgt aus:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 ### Zeichnen von Text {#drawing-text}
 
@@ -85,7 +85,7 @@ Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers über
 
 Der `TextRenderer` hat Methoden um Text zu messen (`getWidth`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`draw`).
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 Die Methode `draw` nimmt einige Paramter, aber die Wichtigsten sind:
 

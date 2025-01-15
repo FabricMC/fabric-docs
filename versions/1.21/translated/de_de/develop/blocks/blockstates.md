@@ -25,7 +25,7 @@ Minecraft verfügt bereits über einige benutzerdefinierte Klassen, mit denen ma
 
 Die Vanilla `PillarBlock` Klasse erlaubt, dass der Block in der X, Y oder Z Axe platziert werden kann.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Säulenblöcke haben zwei Texturen, oben und an der Seite - sie verwenden das Modell `block/cube_column`.
 
@@ -40,7 +40,7 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -56,7 +56,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
 - `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Wie immer musst du eine Übersetzung für deinen Block und ein Objektmodell erstellen, das einem der beiden Modelle übergeordnet ist.
 
@@ -72,15 +72,15 @@ Dieses Beispiel wird eine einzigartiges boolesche Eigenschaft mit dem Namen `act
 
 Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.of` verwendet.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Als Nächstes müssen wir die Eigenschaft mit der Methode `appendProperties` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Außerdem musst du im Konstruktor deines benutzerdefinierten Blocks einen Standardzustand für die Eigenschaft `activated` festlegen.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 Vergiss nicht, deinen Block mit der benutzerdefinierten Klasse anstelle von `Block` zu registrieren!
@@ -90,7 +90,7 @@ Vergiss nicht, deinen Block mit der benutzerdefinierten Klasse anstelle von `Blo
 
 In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `onUse` überschreiben:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Die Eigenschaft visualisieren {#visualizing-the-property}
 
@@ -106,7 +106,7 @@ Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kom
 
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ---
 
@@ -114,9 +114,9 @@ Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür 
 
 Du kannst die `luminance`-Methode verwenden, um die vom Block ausgestrahlte Lichtstärke einzustellen. Wir können eine statische Methode in der `PrismarineLampBlock`-Klasse erstellen, um die Lichtstärke auf der Grundlage der `activated`-Eigenschaft zurückzugeben, und sie als Methodenreferenz an die `luminance`-Methode übergeben:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 

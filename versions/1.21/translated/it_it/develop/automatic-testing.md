@@ -27,7 +27,7 @@ Anzitutto, dobbiamo aggiungere Fabric Loader JUnit all'ambiente di sviluppo. Agg
 
 Poi, dobbiamo informare Gradle su come usare Fabric Loader JUnit per il testing. Puoi fare ciò aggiungendo il codice seguente al tuo `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/1.21/build.gradle)
 
 ### Scrivere Test {#writing-tests}
 
@@ -55,7 +55,7 @@ Nota gli indicatori a freccia verde nel margine: puoi facilmente eseguire un tes
 
 Ora è il tempo di scrivere il tuo codice di test effettivo. Puoi assicurare condizioni con `org.junit.jupiter.api.Assertions`. Dai un'occhiata ai test seguenti:
 
-@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 Per una spiegazione di cosa fa questo codice, consulta la pagina [Codec](./codecs#registry-dispatch).
 
@@ -63,11 +63,11 @@ Per una spiegazione di cosa fa questo codice, consulta la pagina [Codec](./codec
 
 Ottimo, il primo test è funzionato! Ma aspetta, il secondo test è fallito? Nei log, otteniamo uno dei seguenti errori.
 
-@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 Questo è perché stiamo provando ad accedere alla registry o a una classe che dipende su queste (o, in casi rari, dipende su altre classi Minecraft come `SharedConstants`), ma Minecraft non è stato inizializzato. Dobbiamo solo inizializzarlo un po' perché funzionino le registry. Ti basta aggiungere il codice seguente all'inizio del tuo metodo `beforeAll`.
 
-@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/1.21/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 ### Configurare le GitHub Actions {#setting-up-github-actions}
 

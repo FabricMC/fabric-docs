@@ -25,7 +25,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Ванільний клас `PillarBlock` дозволяє розміщувати блок по осях X, Y або Z.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Блоки колон мають дві текстури, верхню та бічну - вони використовують модель `block/cube_column`.
 
@@ -40,7 +40,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Приклад файлу `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -56,7 +56,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 - `axis=y` – коли блок розміщено вздовж осі Y, ми будемо використовувати звичайну вертикальну модель.
 - `axis=z` – коли блок розміщується вздовж осі Z, ми повертаємо модель у позитивний X.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Як завжди, вам потрібно буде створити переклад для свого блоку та модель предмета, яка є батьками будь-якої з двох моделей.
 
@@ -72,15 +72,15 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 По-перше, вам потрібно буде створити саму властивість — оскільки це логічне значення, ми використаємо метод `BooleanProperty.of`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Далі ми маємо додати властивість до менеджера стану блоку в методі appendProperties. Щоб отримати доступ до конструктора, вам потрібно змінити метод:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Ви також повинні встановити стан за замовчуванням для властивості `activated` у конструкторі вашого спеціального блоку.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 Не забудьте зареєструвати свій блок, використовуючи спеціальний клас замість `Block`!
@@ -90,7 +90,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 У цьому прикладі змінюється логічна властивість `activated`, коли гравець взаємодіє з блоком. Для цього ми можемо замінити метод `onUse`:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Візуалізація власності {#visualizing-the-property}
 
@@ -106,7 +106,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Оскільки цей блок має лише два можливі варіанти, оскільки він має лише одну властивість («активовано»), стан блоку JSON виглядатиме приблизно так:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ---
 
@@ -114,9 +114,9 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Ви можете використовувати метод `luminance`, щоб установити рівень світла, випромінюваного блоком, ми можемо створити статичний метод у класі `PrismarineLampBlock`, щоб повернути рівень освітлення на основі властивості `activated`, і передати його як посилання на метод до методу `luminance`:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 

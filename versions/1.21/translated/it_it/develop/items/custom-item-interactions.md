@@ -58,11 +58,11 @@ Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suon
 
 Immaginiamo che tu voglia fare in modo che l'oggetto crei un lampo davanti al giocatore - dovrai creare una classe personalizzata.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 L'evento `use` è probabilmente il più utile tra tutti - puoi usare questo evento per generare il lampo, dovresti generarlo 10 blocchi davanti al giocatore, nella direzione verso cui è diretto.
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Come sempre, dovresti registrare il tuo oggetto, aggiungere un modello e una texture.
 
