@@ -24,7 +24,7 @@ First, we need to make our provider. Create a class that `extends FabricAdvancem
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Advancement Structure {#advancement-structure}
 
@@ -42,8 +42,12 @@ Here's a simple advancement for getting a dirt block:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
+::: warning
+When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
+:::
+
 ::: details JSON Output
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
 :::
 
 ## One More Example {#one-more-example}
@@ -51,20 +55,6 @@ Here's a simple advancement for getting a dirt block:
 Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
-
-Don't forget to generate them! Use the terminal command below or the run configuration in IntelliJ.
-
-::: code-group
-
-```sh [Windows]
-gradlew runDatagen
-```
-
-```sh [Linux]
-./gradlew runDatagen
-```
-
-:::
 
 ## Custom Criteria {#custom-criteria}
 
@@ -136,7 +126,7 @@ Run the datagen task again, and you've got your new advancement to play with!
 
 This is all well and good, but what if we want to only grant an advancement once we've done something 5 times? And why not another one at 10 times? For this, we need to give our condition a parameter. You can stay with `UseToolCriterion`, or you can follow along with a new `ParameterizedUseToolCriterion`. In practice, you should only have the parameterized one, but we'll keep both for this tutorial.
 
-Let's work bottom-up. We'll need to check if the requirements are met, so let's edit our `Condtions#requirementsMet` method:
+Let's work bottom-up. We'll need to check if the requirements are met, so let's edit our `Conditions#requirementsMet` method:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 

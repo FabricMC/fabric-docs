@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "com.example.docs.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["ExampleMixin", "event.SheepEntityMixin"],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -17,7 +17,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, create your own class that `extends FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**. Here we'll show how to create `Item` tags, but the same principal applies for other things. Let your IDE fill in the required code, then replace the `registryKey` constructor parameter with the `RegistryKey` for your type:
+First, create your own class that `extends FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**. Here we'll show how to create `Item` tags, but the same principle applies for other things. Let your IDE fill in the required code, then replace the `registryKey` constructor parameter with the `RegistryKey` for your type:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
@@ -27,7 +27,7 @@ You will need a different provider for each type of tag (eg. one `FabricTagProvi
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creating a Tag {#creating-a-tag}
 

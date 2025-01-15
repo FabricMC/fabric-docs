@@ -17,6 +17,9 @@ export default defineVersionedConfig(
 
     lastUpdated: true,
 
+    // Reduce the size of the dist by using a separate js file for the metadata.
+    metaChunk: true,
+
     locales: loadLocales(__dirname),
 
     markdown: {
@@ -49,6 +52,14 @@ export default defineVersionedConfig(
 
     themeConfig: {
       search: {
+        options: {
+          _render(src, env, md) {
+            if (env.frontmatter?.search === false) return "";
+            if (env.relativePath.startsWith("translated/")) return "";
+            if (env.relativePath.startsWith("versions/")) return "";
+            return md.render(src, env);
+          },
+        },
         provider: "local",
       },
     },
@@ -56,7 +67,7 @@ export default defineVersionedConfig(
     transformPageData,
 
     versioning: {
-      latestVersion: "1.21",
+      latestVersion: "1.21.4",
       rewrites: {
         localePrefix: "translated",
       },

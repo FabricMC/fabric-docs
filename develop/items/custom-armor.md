@@ -11,81 +11,46 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 ## Creating an Armor Materials Class {#creating-an-armor-materials-class}
 
-Just like items and blocks, armor materials need to be registered. We will create a `ModArmorMaterials` class to store our custom armor materials for the sake of organization.
+Technically, you don't need a dedicated class for your armor material, but it's good practice anyways with the number of static fields you will need.
 
-You will need to add a static `initialize()` method to this class, and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) so that the materials are registered.
+For this example, we'll create an `GuiditeArmorMaterial` class to store our static fields.
 
-```java
-// Within the ModArmorMaterials class
-public static void initialize() {};
-```
+### Base Durability {#base-durability}
 
-::: warning
-Make sure to call this method **before** you register your items, as the materials will need to be registered before the items can be created.
-:::
+This constant will be used in the `Item.Settings#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
 
-```java
-@Override
-public void onInitialize() {
-  ModArmorMaterials.initialize();
-}
-```
+@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
----
+If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
-Within this `ModArmorMaterials` class, you will need to create a static method which will register the armor material. This method should return a registry entry of the material, as this entry will be used by the ArmorItem constructor to create the armor items.
+### Equipment Asset Registry Key {#equipment-asset-registry-key}
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+Whilst we dont have to register our `ArmorMaterial` to any registries, the game will use this to find the relevant textures for our armor, it's generally good practice to store any registry keys as constants.
 
-## Armor Material Properties {#armor-material-properties}
+@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-::: tip
-If you're struggling to gauge a good value for any of these properties, consider looking at the vanilla armor materials in the `ArmorMaterials` class.
-:::
+We will pass this to the `ArmorMaterial` constructor later.
 
-When creating an armor material, you will need to define the following properties:
+### `ArmorMaterial` Instance {#armormaterial-instance}
 
-### Defense Points {#defense-points}
+To create our material, we need to create a new instance of the `ArmorMaterial` record, the base durability and material registry key constants will be used here.
 
-::: warning
-Ensure you assign a value to each type of armor piece you plan to create and register as an item. If you make an item for an armor piece without a set defense point value, the game will crash.
-:::
+@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-The `defensePoints` map is used to define the number of defense points that each armor piece will provide. The higher the number, the more protection the armor piece will provide. The map should contain an entry for each armor piece type.
+The `ArmorMaterial` constructor accepts the following parameters, in this specific order:
 
-### Enchantability {#enchantability}
+| Parameter | Description |
+| --------- | ----------- |
+| `durability` | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
+| `defense` | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot. |
+| `enchantmentValue` | The "enchantability" of armor items which use this material. |
+| `equipSound` | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page. |
+| `toughness` | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage. |
+| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer. |
+| `repairIngredient` | An item tag that represents all items which can be used to repair the armor items of this material in an anvil. |
+| `assetId` | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier. |
 
-The `enchantability` property defines how easily the armor can be enchanted. The higher the number, the more enchantments the armor can receive.
-
-### Equip Sound {#equip-sound}
-
-The `equipSound` property is the sound that will play when the armor is equipped. This sound should be a registry entry of a `SoundEvent`. Consider taking a look at the [Custom Sound Events](../sounds/custom) page if you are considering creating custom sounds rather than relying on vanilla sounds within the `SoundEvents` class.
-
-### Repair Ingredient(s) {#repair-ingredient}
-
-The `repairIngredientSupplier` property is a supplier of an `Ingredient` that is used to repair the armor. This ingredient can pretty much be anything, it's recommended to set it to be the same as the material's crafting ingredient used to actually craft the armor items.
-
-### Toughness {#toughness}
-
-The `toughness` property defines how much damage the armor will absorb. The higher the number, the more damage the armor will absorb.
-
-### Knockback Resistance {#knockback-resistance}
-
-The `knockbackResistance` property defines how much knockback the player will reflect when hit. The higher the number, the less knockback the player will receive.
-
-### Dyeable {#dyeable}
-
-The `dyeable` property is a boolean that defines whether the armor can be dyed. If set to `true`, the armor can be dyed using dyes in a crafting table.
-
-If you do choose to make your armor dyeable, your armor layer and item textures must be **designed to be dyed**, as the dye will overlay the texture, not replace it. Take a look at the vanilla leather armor for an example, the textures are grayscale and the dye is applied as an overlay, causing the armor to change color.
-
-## Registering the Armor Material {#registering-the-armor-material}
-
-Now that you've created a utility method which can be used to register armor materials, you can register your custom armor materials as a static field in the `ModArmorMaterials` class.
-
-For this example, we'll be creating Guidite armor, with the following properties:
-
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
 ## Creating the Armor Items {#creating-the-armor-items}
 
@@ -93,19 +58,9 @@ Now that you've registered the material, you can create the armor items in your 
 
 Obviously, an armor set doesn't need every type to be satisfied, you can have a set with just boots, or leggings etc. - the vanilla turtle shell helmet is a good example of an armor set with missing slots.
 
-### Durability {#durability}
+Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Settings` when registering them.
 
-Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items.
-For this reason the durability needs to be manually added to the armor items' `Item.Settings` when registering them.
-
-This is achieved using the `maxDamage` method in the `Item.Settings` class.
-The different armor slots have different base durabilities which are commonly multiplied by a shared armor material multiplier but hard-coded values can also be used.
-
-For the Guidite armor we'll be using a shared armor multiplier stored alongside the armor material:
-
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
-
-We can then create the armor items using the durability constant:
+This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Settings` class.
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -113,12 +68,9 @@ You will also need to **add the items to an item group** if you want them to be 
 
 As with all items, you should create translation keys for them as well.
 
-## Texturing and Modelling {#texturing-and-modelling}
+## Textures and Models {#textures-and-models}
 
-You will need to create two sets of textures:
-
-- Textures and models for the items themselves.
-- The actual armor texture that is visible when an entity wears the armor.
+You will need to create a set of textures for the items, and a set of textures for the actual armour when it's worn by a "humanoid" entity (players, zombies, skeletons, etc).
 
 ### Item Textures and Model {#item-textures-and-model}
 
@@ -132,29 +84,41 @@ For example purposes, you may use the following textures and model JSON as a ref
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
 :::
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
 
 As you can see, in-game the armor items should have suitable models:
 
 ![Armor item models](/assets/develop/items/armor_1.png)
 
-## Armor Textures and Model {#armor-textures-and-model}
+### Armor Textures {#armor-textures}
 
-When an entity wears your armor, currently the missing texture will appear:
+When an entity wears your armor, nothing will be shown. This is because you're missing textures and the equipment model definitions.
 
 ![Broken armor model on player](/assets/develop/items/armor_2.png)
 
 There are two layers for the armor texture, both must be present.
 
-Since the armor material name in our case is `guidite`, the locations of the textures will be:
+Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
-- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
-- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
+- `assets/<mod_id>/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
+- `assets/<mod_id>/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
 
-<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Armor Model Textures</DownloadEntry>
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
-The first layer contains textures for the helmet and chestplate, whilst the second layer contains textures for leggings and boots.
+::: tip
+If you're updating to 1.21.4 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
+:::
 
-When these textures are present, you should be able to see your armor on entities that wear it:
+Next, you'll need to create an associated equipment model definition. These go in the `/assets/<mod_id>/equipment/` folder.
+
+The `RegistryKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
+
+Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
+
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+
+With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
 ![Working armor model on player](/assets/develop/items/armor_3.png)
+
+<!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->

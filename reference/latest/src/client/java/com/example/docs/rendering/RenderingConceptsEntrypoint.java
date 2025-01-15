@@ -3,9 +3,9 @@ package com.example.docs.rendering;
 import com.mojang.blaze3d.systems.RenderSystem;
 import org.joml.Matrix4f;
 
+import net.minecraft.client.gl.ShaderProgramKeys;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.BufferRenderer;
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormat;
 import net.minecraft.client.render.VertexFormats;
@@ -72,8 +72,9 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000);
 			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141);
 
-			// We'll get to this bit in the next section.
-			RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+			// Make sure the correct shader for your chosen vertex format is set!
+			// You can find all the shaders in the ShaderProgramKeys class.
+			RenderSystem.setShader(ShaderProgramKeys.POSITION_COLOR);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
 			// Draw the buffer onto the screen.

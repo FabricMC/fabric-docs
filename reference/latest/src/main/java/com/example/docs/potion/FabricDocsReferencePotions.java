@@ -19,7 +19,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 			Registry.register(
 					Registries.POTION,
 					Identifier.of("fabric-docs-reference", "tater"),
-					new Potion(
+					new Potion("tater",
 							new StatusEffectInstance(
 									FabricDocsReferenceEffects.TATER,
 									3600,

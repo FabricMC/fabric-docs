@@ -1,6 +1,5 @@
 import * as glob from "glob";
 import fs from "node:fs";
-import { EOL } from "node:os";
 import prompts from "prompts";
 
 import develop from "./sidebars/develop";
@@ -138,40 +137,11 @@ import players from "./sidebars/players";
 
   console.log("Updated internal links.");
 
-  console.log("Adding search:false frontmatter to all markdown files...");
-
-  for (const file of versionedMarkdownFiles) {
-    const data = fs.readFileSync(file, "utf-8");
-    // Check if the file has frontmatter
-    if (data.startsWith("---")) {
-      // Find the end of the frontmatter
-      const endOfFrontmatter = data.indexOf("---", 3);
-
-      // Extract the frontmatter
-      let frontmatter = data.slice(0, endOfFrontmatter);
-
-      // Add 'search: false' to the frontmatter
-      if (!frontmatter.includes("search:")) {
-        frontmatter += EOL + "search: false";
-
-        // Replace the old frontmatter with the updated one
-        const updatedData = frontmatter + data.slice(endOfFrontmatter);
-
-        // Write the updated data back to the file
-        fs.writeFile(file, updatedData, function (err) {
-          if (err) {
-            console.log(err);
-          }
-        });
-      }
-    }
-  }
-
   console.log("Adding warning box to index.md...");
   fs.writeFileSync(
-    `./versions/${oldVersion}index.md`,
+    `./versions/${oldVersion}/index.md`,
     fs
-      .readFileSync(`./versions/${oldVersion}index.md`, "utf-8")
+      .readFileSync(`./versions/${oldVersion}/index.md`, "utf-8")
       .replace(
         /^---\n\n/m,
         [
