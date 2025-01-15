@@ -173,7 +173,7 @@ The sound loop will be played now only for the client, which ran that SoundInsta
 
 This concludes the explanation of creating and using a simple custom `SoundInstance`.
 
-## Advanced `SoundInstance`s {#advanced-soundinstances}
+## Advanced Sound Instances {#advanced-sound-instances}
 
 ::: warning
 The following content covers an advanced topic.
