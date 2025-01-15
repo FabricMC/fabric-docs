@@ -48,7 +48,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				// "got_dirt" is the name referenced by other advancements when they want to have "requirements."
 				.criterion("got_dirt", InventoryChangedCriterion.Conditions.items(Items.DIRT))
 				// Give the advancement an id
-				.build(consumer, FabricDocsReference.MOD_ID + "/get_dirt");
+				.build(consumer, FabricDocsReference.MOD_ID + ":get_dirt");
 		// :::datagen-advancements:simple-advancement
 		// :::datagen-advancements:second-advancement
 		final RegistryWrapper.Impl<Item> itemLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
@@ -66,7 +66,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				)
 				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(wrapperLookup.getOrThrow(RegistryKeys.ITEM), Items.APPLE))
 				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(itemLookup, Items.COOKED_BEEF))
-				.build(consumer, FabricDocsReference.MOD_ID + "/apple_and_beef");
+				.build(consumer, FabricDocsReference.MOD_ID + ":apple_and_beef");
 		// :::datagen-advancements:second-advancement
 		// :::datagen-advancements:custom-criteria-advancement
 		AdvancementEntry breakBlockWithTool = Advancement.Builder.create()
@@ -82,7 +82,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						false
 				)
 				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(Optional.empty())))
-				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool");
+				.build(consumer, FabricDocsReference.MOD_ID + ":break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement
 		AdvancementEntry breakBlockWithToolFiveTimes = Advancement.Builder.create()
@@ -98,7 +98,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						false
 				)
 				.criterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool_five_times");
+				.build(consumer, FabricDocsReference.MOD_ID + ":break_block_with_tool_five_times");
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:provider-start
 	}

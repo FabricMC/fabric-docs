@@ -16,7 +16,6 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
 
-
 /**
  * This generator is just for the reference item and block models.
  * Not for describing how to use the model provider.

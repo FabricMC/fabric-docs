@@ -16,7 +16,6 @@ import net.minecraft.util.Identifier;
 import com.example.docs.FabricDocsReference;
 
 public class GuiditeArmorMaterial {
-
 	// :::base_durability
 	public static final int BASE_DURABILITY = 15;
 	// :::base_durability
