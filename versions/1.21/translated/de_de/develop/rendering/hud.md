@@ -3,8 +3,6 @@ title: Rendering im Hud
 description: Lerne, wie man das Event HudRenderCallback nutzt, um im Hud zu rendern.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Rendering im Hud {#rendering-in-the-hud}
@@ -27,6 +25,6 @@ Der `deltaTick` bezieht sich auf die Zeit seit dem letzten Frame in Sekunden. Di
 
 Nehmen wir an, du möchtest eine Farbe im Laufe der Zeit auslöschen. Du kannst den `deltaTickManager` verwenden, um den deltaTick zu erhalten und ihn über die Zeit zu speichern, um die Farbe zu lerpen:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![](/assets/develop/rendering/hud-rendering-deltatick.webp)

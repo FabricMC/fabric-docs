@@ -3,8 +3,6 @@ title: 블록 상태
 description: 블록 상태가 블록에 시각적 기능을 추가하는 좋은 방법인 이유에 대하여 알아보세요.
 authors:
   - IMB11
-
-search: false
 ---
 
 # 블록 상태 {#block-states}
@@ -27,22 +25,22 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 바닐라 `PillarBlock` 클래스는 블록이 X, Y 혹은 Z축에 배치할 수 있도록 합니다.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 기둥 블록은 두 가지의 텍스처 — 윗면과 옆면 — 이 있습니다. `block/cube_column` 모델을 사용합니다.
 
 언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/<mod id here>/textures/block` 에서 찾을 수 있습니다.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">텍스처</DownloadEntry>
 
-기둥 블록이 두 개의 위치 — 수평과 수직 — 이 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다.
+기둥 블록이 두 개의 위치 — 수평과 수직 — 가 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다.
 
 - `block/cube_column_horizontal` 모델을 확장하는 `condensed_oak_log_horizontal.json`.
 - `block/cube_column` 모델을 확장하는 `condensed_oak_log.json`.
 
 `condensed_oak_log_horizontal.json` 파일의 예시:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -58,9 +56,9 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 - `axis=y` - 블록이 Y축을 따라 설치되면, 기본 수직 모델을 사용할 것입니다.
 - `axis=z` - 블록이 Z축을 따라 설치되면, 양의 Z축 방향을 향하도록 모델을 회전할 것입니다.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
-언제나, 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
+언제나 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
 
 ![게임 안에서의 기둥 블록의 예시](/assets/develop/blocks/blockstates_1.png)
 
@@ -74,15 +72,15 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 먼저, 속성이 불이기 때문에 속성 자체를 만들어야 합니다. `BooleanProperty.of` 메서드를 사용할 것입니다.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 다음으로, `appendProperties` 메서드에 있는 블록 상태 관리자에 속성을 추가하여야 합니다. 빌더에 접근하기 위하여 메서드를 덮어써야 할 것입니다:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 또한 사용자 정의 블록의 생성자에서 `activated` 속성의 기본 상태를 설정하여야 합니다.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 `Block` 대신 사용자 지정 클래스를 이용하여 블록을 등록하는 것을 잊지 마세요!
@@ -92,13 +90,13 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 이 예시는 플레이어가 블록과 상호작용을 할 때 불 `activated` 속성을 뒤집습니다. 이를 위하여 `onUse` 메서드를 재정의할 수 있습니다:
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### 속성 시각화하기 {#visualizing-the-property}
 
 블록 상태 파일을 만들기 전, 블록 모델과 같이 블록이 활성화되었을 때와 비활성화되었을 때의 텍스처를 제공하여야 합니다.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">텍스처</DownloadEntry>
 
 블록의 두 모델 — 활성화된 상태와 비활성화된 상태 — 을 만들기 위하여 블록 모델의 지식을 이용하세요. 끝난 다음, 블록 상태 파일을 계속하여 만들 수 있습니다.
 
@@ -108,7 +106,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 블록이 오직 두 개의 가능한 변형이 있고, 오직 한 개의 속성 (`activated`)가 있으므로, 블록 상태 JSON 파일은 다음과 같을 것입니다.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ---
 
@@ -116,9 +114,9 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 `luminance` 메서드를 통하여 블록이 발광할 때의 빛 단계를 조정할 수 있고, `activated` 속성에 기반한 빛 단계를 반환하기 위하여 `PrismarineLampBlock` 클래스에 정적 메서드를 만들 수 있으며, 메서드 참조로서 `luminance` 메서드에 대하여 전달할 수도 있습니다:
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ---
 

@@ -4,8 +4,6 @@ description: Fabric 템플릿 모드 생성기로 새 모드를 생성하는 방
 authors:
   - IMB11
   - Cactooz
-
-search: false
 ---
 
 # 프로젝트 만들기 {#creating-a-project}

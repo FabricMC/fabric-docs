@@ -1,8 +1,6 @@
 ---
 title: 플레이어 가이드
 description: 플레이어와 서버 관리자를 위한 Fabric 설치 및 사용 가이드 모음입니다.
-
-search: false
 ---
 
 # 플레이어 가이드 {#player-guides}

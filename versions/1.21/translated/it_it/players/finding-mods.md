@@ -3,8 +3,6 @@ title: Trovare Mod Affidabili
 description: Una guida su come trovare mod Fabric attraverso fonti affidabili.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Trovare Mod Affidabili {#finding-mods}

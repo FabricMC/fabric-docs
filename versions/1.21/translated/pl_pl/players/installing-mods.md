@@ -3,8 +3,6 @@ title: Instalowanie modów
 description: Przewodnik krok po kroku o tym, jak zainstalować mody do Fabric.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Instalowanie modów {#installing-mods}

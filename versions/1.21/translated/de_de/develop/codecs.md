@@ -4,8 +4,6 @@ description: Ein umfassender Leitfaden zum Verständnis und zur Verwendung von M
 authors:
   - enjarai
   - Syst3ms
-
-search: false
 ---
 
 # Listen {#codecs}
@@ -318,11 +316,11 @@ Nehmen wir an, wir haben ein abstraktes `Bean`-Interface mit zwei implementieren
 
 Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // Jetzt können wir einen Codec für Bohnen-Typen erstellen

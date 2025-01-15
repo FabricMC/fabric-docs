@@ -1,8 +1,6 @@
 ---
 title: Wytyczne współtworzenia
 description: Wytyczne dotyczące współtworzenia i wnoszenia wkładu do dokumentacji Fabric.
-
-search: false
 ---
 
 # Wytyczne współtworzenia {#contributing}
@@ -190,10 +188,10 @@ Na przykład, aby wyróżnić linie 15-21 pliku `FabricDocsReference.java` z mod
 ::: code-group
 
 ```md
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
 ```
 
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
 
 :::
 
@@ -204,10 +202,10 @@ Dla przykładu ten kod osadzi sekcje powyższego pliku, które są oznaczone tag
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 :::
 

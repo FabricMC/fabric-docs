@@ -3,8 +3,6 @@ title: 崩溃报告
 description: 学习如何处理崩溃报告以及如何阅读。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 崩溃报告{#crash-reports}

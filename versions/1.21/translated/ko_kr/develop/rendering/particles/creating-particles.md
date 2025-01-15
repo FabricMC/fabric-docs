@@ -3,8 +3,6 @@ title: 사용자 정의 입자 만들기
 description: Fabric API를 통해 사용자 정의 입자를 만드는 방법을 알아보세요.
 authors:
   - Superkat32
-
-search: false
 ---
 
 # 사용자 정의 입자 만들기
@@ -17,7 +15,7 @@ search: false
 
 먼저, 모드 초기화 클래스에 모드 ID로 `ParticleType` 을 등록해 봅시다.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 소문자로 "sparkle_particle"은 이후 입자의 텍스쳐를 위한 JSON 파일의 이름이 되게 됩니다. 곧 JSON 파일을 어떻게 생성하는지 알아볼 것입니다.
 
@@ -25,7 +23,7 @@ search: false
 
 `ModInitializer` 엔트리포인트에 입자를 등록했다면, `ClientModInitializer`의 엔트리포인트에도 입자를 등록해야 합니다.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/1.21/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
 위 예시는 입자를 클라이언트측에 등록하는 방법입니다. 이제 엔드 막대기 입자 팩토리를 통해 입자에 움직임을 줘보겠습니다. 이렇게 하면 입자가 엔드 막대기 입자와 똑같이 움직이게 됩니다.
 
@@ -49,7 +47,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 그리고, `particles` 폴더에는 ParticleType에 등록한 것과 같은 이름의 소문자를 이름으로 가지는 JSON 파일을 생성합니다. 이 예제에서는, `sparkle_particle.json` 으로 생성하겠습니다. 이 파일은 Minecraft가 입자에 어떠한 텍스쳐를 사용해야 하는지 정의하기 때문에 매우 중요합니다.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
 :::tip
 입자에 애니메이션을 적용하고 싶다면 `textures` 배열 노드에 더 많은 텍스쳐를 추가하면 됩니다. 입자는 배열의 순서대로 반복될 것입니다.

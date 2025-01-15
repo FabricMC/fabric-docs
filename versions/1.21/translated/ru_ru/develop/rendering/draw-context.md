@@ -3,8 +3,6 @@ title: Использование контекста рисования
 description: Узнайте, как использовать класс DrawContext для визуализации различных фигур, текста и текстур.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Использование контекста рисования {#using-the-drawing-context}
@@ -21,7 +19,7 @@ search: false
 
 Для рисования закрашенного прямоугольника можно использовать метод `DrawContext.fill(...)`.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Прямоугольник](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -29,7 +27,7 @@ search: false
 
 Допустим, мы хотим обвести только что нарисованный прямоугольник. Мы можем использовать метод `DrawContext.drawBorder(...)`, чтобы нарисовать контур.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Прямоугольник с рамкой](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -37,7 +35,7 @@ search: false
 
 Для рисования линий мы можем использовать методы `DrawContext.drawHorizontalLine(...)` и `DrawContext.drawVerticalLine(...)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Линии](/assets/develop/rendering/draw-context-lines.png)
 
@@ -53,7 +51,7 @@ search: false
 
 Чтобы включить менеджер ножниц, просто используйте метод `DrawContext.enableScissor(...)`. Аналогично, чтобы отключить менеджер ножниц, используйте метод `DrawContext.disableScissor()`.
 
-@[code lang=java transcludeWith=:::4](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Регион ножниц в действии](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -67,7 +65,7 @@ search: false
 
 Обычно рекомендуется использовать перегрузку, которая задает параметры `textureWidth` и `textureHeight`. Это связано с тем, что класс `DrawContext` примет эти значения, если вы их не предоставите, что иногда может быть неверным.
 
-@[code lang=java transcludeWith=:::5](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Пример рисования всей текстуры](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -81,7 +79,7 @@ search: false
 
 Если мы хотим нарисовать только область, содержащую увеличительное стекло, мы можем использовать следующие значения `u`, `v`, `regionWidth` и `regionHeight`:
 
-@[code lang=java transcludeWith=:::6](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Текстура области](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -91,6 +89,6 @@ search: false
 
 Допустим, мы хотим нарисовать на экране «Hello World». Для этого мы можем использовать метод `DrawContext.drawText(...)`.
 
-@[code lang=java transcludeWith=:::7](@/reference/1.21/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Рисование текста](/assets/develop/rendering/draw-context-text.png)

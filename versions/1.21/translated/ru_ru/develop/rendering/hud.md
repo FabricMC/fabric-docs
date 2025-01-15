@@ -3,8 +3,6 @@ title: Рендеринг в HUD
 description: Узнайте, как использовать событие HudRenderCallback для рендеринга в HUD.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Рендеринг в HUD {#rendering-in-the-hud}
@@ -27,6 +25,6 @@ search: false
 
 Например, предположим, что вы хотите изменять цвет с течением времени. Вы можете использовать `deltaTickManager`, чтобы получить deltaTick, и сохранять его с течением времени для преобразования цвета:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![Изменение цвета с течением времени](/assets/develop/rendering/hud-rendering-deltatick.webp)

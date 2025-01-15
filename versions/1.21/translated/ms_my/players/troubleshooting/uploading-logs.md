@@ -3,8 +3,6 @@ title: Memuat Naik Log
 description: Cara memuat naik log untuk menyelesaikan masalah.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Memuat Naik Log

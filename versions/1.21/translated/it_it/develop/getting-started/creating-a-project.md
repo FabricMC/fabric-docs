@@ -4,8 +4,6 @@ description: Una guida passo per passo su come creare un nuovo progetto per una 
 authors:
   - IMB11
   - Cactooz
-
-search: false
 ---
 
 # Creare un Progetto {#creating-a-project}

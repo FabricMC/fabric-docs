@@ -3,8 +3,6 @@ title: プロジェクトの作成
 description: Fabric テンプレート Mod ジェネレータを使用した Mod 作成の段階的なガイド。
 authors:
   - IMB11
-
-search: false
 ---
 
 # プロジェクトの作成 {#creating-a-project}

@@ -4,8 +4,6 @@ description: 了解如何利用各種啟動設定檔在即時遊戲環境中啟�
 authors:
   - IMB11
   - Tenneb22
-
-search: false
 ---
 
 # 啟動遊戲 {#launching-the-game}

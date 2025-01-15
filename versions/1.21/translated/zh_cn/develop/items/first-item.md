@@ -4,8 +4,6 @@ description: 学习如何注册简单的物品，以及如何给物品添加纹�
 authors:
   - IMB11
   - dicedpixels
-
-search: false
 ---
 
 # 创建你的第一个物品{#creating-your-first-item}
@@ -24,7 +22,7 @@ search: false
 
 Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## 注册物品{#registering-an-item}
 
@@ -38,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 如果将物品标记为可被破坏，那么这就不会生效，因为可被破坏的物品的堆叠大小永远是 1 以避免重复损坏。
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 然而，如果现在尝试运行修改的客户端，会发现我们的物品在游戏中还不存在！ 这是因为你还没有静态初始化类。
 
 要这样做，你需要在你的类中添加静态的 initialize 方法，然后在你的[模组的初始化类](./getting-started/project-structure#entrypoints)中调用。 当前，方法不需要里面有任何东西。
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。
 
@@ -60,7 +58,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 你可以在你的物品类的 `initialize` 方法中完成。
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 载入游戏，你会看到我们的物品已经注册好了，并且在原材料物品组中。
 
@@ -100,7 +98,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 在 `assets/<mod id here>/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### 逐个分析模型 JSON{#breaking-down-the-model-json}
 
@@ -121,11 +119,11 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 例如，要让物品可堆肥，可以使用 `CompostableItemRegistry`：
 
-@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 又如，如果要让物品可作燃料，可以使用 `FuelRegistry` 类。
 
-@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## 添加基本的合成配方 {#adding-a-basic-crafting-recipe}
 
@@ -146,7 +144,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 这个例子使用 `LightningStick` 类，这是在[自定义物品交互](./custom-item-interactions)页面创建的。
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 每次调用 `add()` 都会添加一行提示。
 

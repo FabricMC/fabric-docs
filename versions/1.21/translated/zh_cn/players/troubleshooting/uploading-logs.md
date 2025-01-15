@@ -3,8 +3,6 @@ title: 上传日志
 description: 如何上传日志以进行疑难解答。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 上传日志{#uploading-logs}

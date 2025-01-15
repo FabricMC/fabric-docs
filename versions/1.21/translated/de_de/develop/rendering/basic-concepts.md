@@ -4,8 +4,6 @@ description: Lerne, die grundlegenden Konzepte des Renderings mit der Rendering-
 authors:
   - IMB11
   - "0x3C50"
-
-search: false
 ---
 
 # Grundlegende Rendering-Konzepte {#basic-rendering-concepts}
@@ -113,7 +111,7 @@ Dies sollte einen schönen Diamanten ergeben - da wir den Zeichenmodus `TRIANGLE
 
 Da wir in diesem Beispiel auf dem HUD zeichnen, verwenden wir das Event `HudRenderCallback`:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Dies führt dazu, dass auf dem HUD folgendes gezeichnet wird:
 
@@ -145,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformationsmatrix erhältst!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![Ein Video, das die Vergrößerung und Verkleinerung eines Diamanten zeigt](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -157,7 +155,7 @@ Es ist sehr unwahrscheinlich, dass du jemals eine Quaternion-Klasse direkt benut
 
 Nehmen wir an, wir wollen unseren Diamanten um die Z-Achse drehen. Wir können dies tun, indem wir den `MatrixStack` und die Methode `multiply(Quaternion, x, y, z)` verwenden.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Daraus ergibt sich Folgendes:
 

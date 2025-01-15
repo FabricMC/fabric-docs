@@ -3,8 +3,6 @@ title: Создание пользовательских частиц
 description: Узнайте, как создать пользовательскую частицу с помощью Fabric API.
 authors:
   - Superkat32
-
-search: false
 ---
 
 # Создание пользовательских частиц {#creating-custom-particles}
@@ -17,7 +15,7 @@ search: false
 
 Сначала нам нужно зарегистрировать `ParticleType` в классе инициализатора вашего мода, используя идентификатор вашего мода.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 «sparkle_particle» строчными буквами — это путь JSON к текстуре частицы. Позже вы создадите новый JSON-файл с таким же именем.
 
@@ -25,7 +23,7 @@ search: false
 
 После регистрации частицы в точке входа `ModInitializer` вам также необходимо зарегистрировать частицу в точке входа `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/1.21/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
 В этом примере мы регистрируем нашу частицу на стороне клиента. Затем мы придаем частице некоторое движение, используя фабрику частиц конечного стержня. Это означает, что наша частица будет двигаться точно так же, как частица конечного стержня.
 
@@ -49,7 +47,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 Затем создайте новый JSON-файл в `particles` с тем же именем, что и путь JSON, который вы использовали при регистрации ParticleType. Для этого примера нам потребуется создать `sparkle_particle.json`. Этот файл важен, поскольку он сообщает Minecraft, какие текстуры должна использовать наша частица.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
 :::tip
 Вы можете добавить больше текстур в массив `textures`, чтобы создать анимацию частиц. Частица будет циклически проходить по текстурам в массиве, начиная с первой текстуры.

@@ -4,8 +4,6 @@ description: Impara i concetti base del rendering usando il motore grafico di Mi
 authors:
   - IMB11
   - "0x3C50"
-
-search: false
 ---
 
 # Concetti Base del Rendering {#basic-rendering-concepts}
@@ -113,7 +111,7 @@ Questo dovrebbe darci un diamante carino - siccome stiamo usando la modalità di
 
 Siccome stiamo disegnando sulla HUD in questo esempio, useremo l'evento `HudRenderCallback`:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Questo risulta nel seguente disegno sul HUD:
 
@@ -145,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 Assicurati di spingere lo stack di matrici prima di prendere una matrice di trasformazione!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![Un video che mostra il diamante ingrandito e rimpicciolito](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -157,7 +155,7 @@ Difficilmente dovrai usare una classe Quaternion direttamente, siccome Minecraft
 
 Immaginiamo di voler ruotare il nostro diamante attorno all'asse z. Possiamo farlo usando il `MatrixStack` e il metodo `multiply(Quaternion, x, y, z)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Il risultato è il seguente:
 

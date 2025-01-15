@@ -1,8 +1,6 @@
 ---
 title: Linee Guida per la Contribuzione
 description: Linee guida per le contribuzioni alla Documentazione di Fabric.
-
-search: false
 ---
 
 # Linee Guida per la Contribuzione {#contributing}
@@ -190,10 +188,10 @@ Per esempio, per evidenziare le linee 15-21 del file `FabricDocsReference.java` 
 ::: code-group
 
 ```md
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
 ```
 
-<<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
 
 :::
 
@@ -204,10 +202,10 @@ Per esempio, questo incorporerà le sezioni del suddetto file che sono contrasse
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 :::
 

@@ -16,8 +16,6 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
-
-search: false
 ---
 
 # 建置開發環境 {#setting-up-a-development-environment}

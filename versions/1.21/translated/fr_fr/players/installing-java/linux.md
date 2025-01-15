@@ -3,8 +3,6 @@ title: Installer Java sous Linux
 description: Un guide étape par étape sur comment installer Java sous Linux.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Installer Java sous Linux

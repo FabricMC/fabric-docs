@@ -4,8 +4,6 @@ description: Un guide complet pour comprendre et utiliser le système de codecs 
 authors:
   - enjarai
   - Syst3ms
-
-search: false
 ---
 
 # Codecs
@@ -316,11 +314,11 @@ Par exemple, imaginons une interface abstraite `Bean` avec deux classes qui l'im
 
 Une fois tout ceci fait, on peut créer un codec de répartition par registre pour les beans :
 
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/codec/BeanTypes.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
 // On peut créer un codec pour les types de bean

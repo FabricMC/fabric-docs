@@ -1,8 +1,6 @@
 ---
 title: Perguntas frequentes dos jogadores
 description: Dúvidas mais frequentes dos jogadores e administradores de servidor sobre o Fabric.
-
-search: false
 ---
 
 # Perguntas Frequentes (FAQ)

@@ -3,8 +3,6 @@ title: 專案結構
 description: Fabric 模組專案結構概述
 authors:
   - IMB11
-
-search: false
 ---
 
 # 專案結構 {#project-structure}
@@ -27,7 +25,7 @@ search: false
 下方是一個範例 `fabric.mod.json` 檔案 —— 這是此文檔網站的參考專案的 `fabric.mod.json` 檔案。
 
 :::details 參考專案 `fabric.mod.json`
-@[code lang=json](@/reference/1.21/src/main/resources/fabric.mod.json)
+@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
 ## Entrypoints {#entrypoints}
@@ -36,7 +34,7 @@ search: false
 
 模板模組生成器預設會創建一個 `main` 和一個 `client` 進入點 —— `main` 進入點用於共用的程式碼，而 `client` 進入點則用於客戶端特定的程式碼。 這些進入點會在遊戲啟動時分別被調用。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 上面是一個簡單的 `main` 進入點範例，在遊戲啟動時向控制台記錄一條訊息。
 

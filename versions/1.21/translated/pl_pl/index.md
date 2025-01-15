@@ -16,8 +16,6 @@ features:
     details: Nasze napisane przez społeczność przewodniki dla deweloperów, obejmują wszystko — od konfiguracji środowiska programistycznego po zaawansowane tematy takie jak renderowanie i networking.
     link: /pl_pl/develop/
     linkText: Rozpocznij
-
-search: false
 ---
 
 Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące współtworzenia](./contributing).

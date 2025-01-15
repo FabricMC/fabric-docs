@@ -16,8 +16,6 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
-
-search: false
 ---
 
 # Настройка среды разработки {#setting-up-a-development-environment}

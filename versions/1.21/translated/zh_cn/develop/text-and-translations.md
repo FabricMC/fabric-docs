@@ -4,8 +4,6 @@ description: Minecraft 处理格式化文本和翻译的全面文档。
 authors:
   - IMB11
   - LordEnder-Kitty
-
-search: false
 ---
 
 # 文本和翻译{#text-and-translations}
@@ -86,7 +84,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 前面提到过，可以使用 text codec 将文本序列化为 JSON。 更多关于 codec 的信息，请看 [Codec](./codecs) 页面。
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
 这会产生可用于数据包、命令和其他接受 JSON 格式文本而非字面或可翻译文本的地方的 JSON。
 
@@ -94,7 +92,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 要将 JSON 文本对象反序列化为 `Text` 类，还是使用 codec。
 
-@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
 ## 格式化文本{#formatting-text}
 

@@ -16,8 +16,6 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
-
-search: false
 ---
 
 # Entwicklungsumgebung einrichten {#setting-up-a-development-environment}

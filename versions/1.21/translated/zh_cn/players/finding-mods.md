@@ -3,8 +3,6 @@ title: 寻找可信的模组
 description: 本指南教你如何使用可信来源找到 Fabric 模组。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 寻找可信的模组{#finding-mods}

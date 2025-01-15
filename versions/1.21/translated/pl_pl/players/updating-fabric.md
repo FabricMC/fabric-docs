@@ -4,8 +4,6 @@ description: Przewodnik krok po kroku o tym, jak zaktualizować Fabric.
 authors:
   - IMB11
   - modmuss50
-
-search: false
 ---
 
 # Aktualizowanie Fabric {#updating-fabric}

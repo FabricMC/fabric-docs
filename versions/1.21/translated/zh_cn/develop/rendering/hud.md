@@ -3,8 +3,6 @@ title: 在 Hud 中渲染
 description: 学习如何使用 HudRenderCallback 事件来渲染Hud。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 渲染 Hud{#rendering-in-the-hud}
@@ -27,6 +25,6 @@ search: false
 
 例如，假设要让颜色随时间变化。 可以使用 `deltaTickManager` 获得 deltaTick，并随时间存储以变化颜色。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![](/assets/develop/rendering/hud-rendering-deltatick.webp)

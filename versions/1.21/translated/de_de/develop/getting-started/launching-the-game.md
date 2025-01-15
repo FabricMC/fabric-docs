@@ -4,8 +4,6 @@ description: Lerne, wie du die verschiedenen Startprofile verwendest, um deine M
 authors:
   - IMB11
   - Tenneb22
-
-search: false
 ---
 
 # Starten des Spiels {#launching-the-game}

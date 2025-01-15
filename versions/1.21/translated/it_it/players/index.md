@@ -1,8 +1,6 @@
 ---
 title: Guide per Giocatori
 description: Una collezione di guide per giocatori e admin di server riguardo all'installazione e all'uso di Fabric.
-
-search: false
 ---
 
 # Guide per Giocatori {#player-guides}

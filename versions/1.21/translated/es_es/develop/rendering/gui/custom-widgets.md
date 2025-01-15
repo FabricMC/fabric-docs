@@ -3,8 +3,6 @@ title: Widgets Personalizados
 description: Aprende a crear widgets personalizados para tus pantallas o menús.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Widgets Personalizados
@@ -20,13 +18,13 @@ Hay varias maneras de crear una clase widget, como extender `ClickableWidget` (W
 - `Narratable` - para accesibilidad - Requerido para que tu widget sea accesible a lectores de pantalla y otras herramientas de accesibilidad.
 - `Seleccionable` - para selecciones - Requerido si quieres que tu widget sea seleccionable usando la tecla <kbd>Tab</kbd> - esto también ayuda en accesibilidad.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## Agregar el Widget a La Pantalla
 
 Como todos los widgets, necesitarás agregarlo a la pantalla mediante el método `addDrawableChild`, el cual es proveído por la clase `Screen`. Asegúrate de hacerlo en el método `init`.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Widget personalizado en la pantalla](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -36,6 +34,6 @@ Puedes manejar eventos como clicks del mouse, cuando se presiona una tecla, anul
 
 Por ejemplo, puedes hacer que el widget cambie color cuando el mouse está flotando encima del widget usando el método `isHovering()` proveído por la clase `ClickableWidget`:
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![Ejemplo de Evento de Mouse Flotando](/assets/develop/rendering/gui/custom-widget-events.webp)

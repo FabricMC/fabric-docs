@@ -15,8 +15,6 @@ authors:
   - mschae23
   - treeways
   - xpple
-
-search: false
 ---
 
 # Создание команд {#creating-commands}
@@ -68,7 +66,7 @@ Command<ServerCommandSource> command = context -> {
 Сведения о регистрации обратных вызовов смотрите в [События](../events).
 :::
 
-Событие следует регистрировать в инициализаторе вашего мода.
+Событие должно быть зарегистрировано в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 Обратный вызов имеет три аргумента:
 
@@ -76,9 +74,9 @@ Command<ServerCommandSource> command = context -> {
 - `CommandRegistryAccess  registryAccess` - предоставляет абстракцию   которую можно передать определённой команде   методы аргументов
 - `CommandManager.RegistrationEnvironment environment` - Определяет тип сервера,   на котором регистрируются команды.
 
-В инициализации мода, мы просто регистрируем простую команду:
+В инициализаторе мода мы просто регистрируем простую команду:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 В методе`sendFeedback()`, первый аргумент это текст для отправки, который является `Supplier<Text>`, чтобы избежать создание экземпляров текстовых объектов когда они не нужны.
 
@@ -91,22 +89,22 @@ Command<ServerCommandSource> command = context -> {
 Чтобы выполнить эту команду, необходимо ввести `/test_command`, при этом регистр символов имеет значение.
 
 :::info
-С этого момента мы будем извлекать логику, написанную в lambda-функции переданном в конструкторы `.execute()`, в отдельные методы. Затем мы можем передать ссылку на метод в `.execute()`. Это сделано для ясности.
+С этого момента мы будем извлекать логику, написанную в лямбде, передаваемой в сборщики `.execute()`, в отдельные методы. Затем мы можем передать ссылку на метод в `.execute()`. Это сделано для ясности.
 :::
 
 ### Регистрационная среда {#registration-environment}
 
 При желании вы так же можете сделать так, чтобы когда команда регистрировалась с определёнными условиями, например только в выделенной среде:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ### Требования к команде {#command-requirements}
 
 Допустим, что у вас есть команда и вы хотите чтобы её могли выполнять только операторы. Здесь метод `requires()` вступает в игру. Метод `requires()` имеет один аргумент `Predicate<S>` который будет предоставлять `ServerCommandSource` для проверки возможности `CommandSource` выполнять команду.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Команда выполнится только, если источник команды имеет второй уровень минимально, включая команду блоков. Иначе, команда не зарегистрируется.
 
@@ -116,19 +114,19 @@ Command<ServerCommandSource> command = context -> {
 
 Чтобы добавить подкоманду, вы должны зарегистрировать первый литеральный нод команды. Чтобы иметь подкоманду, вы должны добавить следующий литеральный нод к существующему ноду.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 Подобно аргументам, ноды подкоманд могут также быть опциональными. В следующем случае будут допустимы как `/command_two`, так и `/command_two sub_command_two`.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## Клиентские команды {#client-commands}
 
 Fabric API имеет `ClientCommandManager` в пакете`net.fabricmc.fabric.api.client.command.v2` который можно использовать для регистрации команд на клиентской стороне. Код должен существовать только в коде клиентской стороны.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## Перенаправление команд {#command-redirects}
 
@@ -138,8 +136,8 @@ Fabric API имеет `ClientCommandManager` в пакете`net.fabricmc.fabric
 Brigadier [будет перенаправлять только командные узлы с аргументами](https://github.com/Mojang/brigadier/issues/46). Если вы хотите перенаправить командный узел без аргументов, предоставьте конструктор `.executes()` со ссылкой на ту же логику, что описана в примере.
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
 ## ЧАВО {#faq}
 

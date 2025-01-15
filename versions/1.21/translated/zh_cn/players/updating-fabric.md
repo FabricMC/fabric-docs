@@ -4,8 +4,6 @@ description: 更新 Fabric 的手把手的指南
 authors:
   - IMB11
   - modmuss50
-
-search: false
 ---
 
 # 更新 Fabric{#updating-fabric}

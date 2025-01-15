@@ -15,8 +15,6 @@ authors:
   - natanfudge
 authors-nogithub:
   - stormyfabric
-
-search: false
 ---
 
 # Eventi {#events}
@@ -43,7 +41,7 @@ Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono ess
 
 Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando egli colpisce dei blocchi che non droppano un oggetto se rotti senza strumenti.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ### Aggiungere Oggetti alle Loot Table Esistenti {#adding-items-to-existing-loot-tables}
 
@@ -57,7 +55,7 @@ Aggiungeremo le uova alla loot table del minerale di carbone.
 
 L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
 
-@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 #### Aggiungere Oggetti alla Loot Table {#adding-items-to-the-loot-table}
 
@@ -67,7 +65,7 @@ Possiamo creare una pool con `LootPool#builder`, e aggiungerla alla loot table.
 
 La nostra pool non ha nemmeno un oggetto, quindi dovremo creare una voce oggetto usando `ItemEntry#builder` e aggiungerla alla pool.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 ## Eventi Personalizzati {#custom-events}
 
@@ -91,34 +89,34 @@ Usare `ActionResult` come valore restituito è una convenzione per far cooperare
 
 Dovrai creare un'interfaccia che ha un'istanza `Event` e un metodo per implementare la risposta. Una semplice configurazione per il nostro callback di tosatura di una pecora è:
 
-@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Diamogli un'occhiata più precisa. Quando l'invocatore viene chiamato, iteriamo su tutti i listener:
 
-@[code lang=java transclude={21-22}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Poi chiamiamo il nostro metodo (in questo caso, `interact`) sul listener per ottenere la sua risposta:
 
-@[code lang=java transclude={33-33}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Se il listener dice che dobbiamo annullare (`ActionResult.FAIL`), oppure finire completamente (`ActionResult.SUCCESS`), il callback restituisce il risultato e finisce il loop. `ActionResult.PASS` si sposta sul prossimo listener, e nella maggior parte dei casi dovrebbe risultare in un successo se non ci sono altri listener registrati:
 
-@[code lang=java transclude={25-30}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa fa ogni `ActionResult`. Nel nostro caso, potrebbe essere:
 
-@[code lang=java transclude={9-16}](@/reference/1.21/src/main/java/com/example/docs/event/SheepShearCallback.java)
+@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
 ### Innescare l'Evento da un Mixin {#triggering-the-event-from-a-mixin}
 
 Ora abbiamo lo scheletro di base dell'evento, ma dobbiamo anche innescarlo. Siccome vogliamo che l'evento venga chiamato quando un giocatore prova a tosare una pecora, chiamiamo l'`invoker` dell'evento in `SheepEntity#interactMob` quando `sheared()` viene chiamata (ovvero quando la pecora può essere tosata, e il giocatore sta tenendo delle cesoie):
 
-@[code lang=java transcludeWith=:::](@/reference/1.21/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
 
 ### Creare un Implementazione di Prova {#creating-a-test-implementation}
 
 Ora dobbiamo testare il nostro evento. Puoi registrare un listener nel tuo metodo d'inizializzazione (o in un'altra area, se preferisci) e aggiungere logica personalizzata lì. Qui c'è un esempio che droppa un diamante anziché lana ai piedi della pecora:
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
 Se entri nel gioco e tosi una pecora, un diamante dovrebbe essere droppato anziché lana.

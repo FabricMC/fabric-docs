@@ -5,8 +5,6 @@ authors:
   - IMB11
   - Benonardo
   - modmuss50
-
-search: false
 ---
 
 # Установка Fabric {#installing-fabric}

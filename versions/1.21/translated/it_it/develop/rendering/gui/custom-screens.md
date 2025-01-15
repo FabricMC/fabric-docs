@@ -3,8 +3,6 @@ title: Schermate Personalizzate
 description: Impara come creare schermate personalizzate per la tua mod.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Schermate Personalizzate {#custom-screens}
@@ -30,7 +28,7 @@ Dovresti prendere nota del fatto che:
 
 Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etichetta al di sopra.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Schermata Personalizzata 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -54,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la schermata corrente nel costruttore `CustomScreen` e conservala in una variabile, per poi tornare alla schermata precedente usando il metodo `close`.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 Ora, aprendo la schermata personalizzata, puoi passare la schermata corrente come secondo argomento - quindi quando chiami `CustomScreen#close` - ritornerà alla schermata precedente.
 

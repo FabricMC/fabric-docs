@@ -84,7 +84,7 @@ As diretrizes a serem seguidas:
    **Exemplo.**
 
    ```md
-   <<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    Isso incorporará as linhas 15-21 do arquivo `FabricDocsReference.java` no mod de referência.

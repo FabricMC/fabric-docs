@@ -3,8 +3,6 @@ title: Instalowanie oprogramowania Java na Windows
 description: Przewodnik krok po kroku o tym, jak zainstalować oprogramowanie Java na Windows.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Instalowanie oprogramowania Java na Windows {#installing-java-on-windows}

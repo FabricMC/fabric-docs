@@ -3,8 +3,6 @@ title: 崩潰報告
 description: 了解如何處理崩潰報告，以及如何閱讀它們。
 authors:
   - IMB11
-
-search: false
 ---
 
 # 處理崩潰報告

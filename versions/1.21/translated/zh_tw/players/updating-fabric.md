@@ -4,8 +4,6 @@ description: 有關如何更新 Fabric 的逐步指南。
 authors:
   - IMB11
   - modmuss50
-
-search: false
 ---
 
 # 更新 Fabric {#updating-fabric}

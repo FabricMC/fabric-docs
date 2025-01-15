@@ -3,8 +3,6 @@ title: 안전한 모드 찾기
 description: 안전한 사이트에서 Fabric 모드를 찾는 방법을 알아보세요.
 authors:
   - IMB11
-
-search: false
 ---
 
 # 안전한 모드 찾기 {#finding-mods}

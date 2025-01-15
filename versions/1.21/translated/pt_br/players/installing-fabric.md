@@ -3,8 +3,6 @@ title: Instalando Fabric
 description: Um guia passo a passo de como instalar Fabric.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Instalando Fabric

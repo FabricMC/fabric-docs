@@ -3,8 +3,6 @@ title: Загрузка логов
 description: Как загрузить логи для устранения проблем.
 authors:
   - IMB11
-
-search: false
 ---
 
 # Загрузка логов {#uploading-logs}

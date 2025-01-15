@@ -4,8 +4,6 @@ description: Lerne, wie man ein einfaches Item registriert und wie man es textur
 authors:
   - IMB11
   - dicedpixels
-
-search: false
 ---
 
 # Dein erstes Item erstellen {#creating-your-first-item}
@@ -24,7 +22,7 @@ Du kannst diese Methode in eine Klasse namens `ModItems` (oder wie immer du die 
 
 Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Ein Item registrieren {#registering-an-item}
 
@@ -38,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast, da die Stackgröße für beschädigungsfähige Gegenstände immer 1 ist, um Duplikations-Exploits zu verhindern.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du sehen, dass unser Item im Spiel noch nicht existiert! Der Grund dafür ist, dass du die Klasse nicht statisch initialisiert hast.
 
 Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisierung deiner Klasse hinzufügen und diese in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse aufrufen. Derzeit braucht diese Methode nichts zu enthalten.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 
@@ -60,7 +58,7 @@ Für ein Beispiel, in dem wir dieses Element zu den Zutaten `ItemGroup` hinzufü
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Wenn du das Spiel lädst, kannst du sehen, dass unser Item registriert wurde und sich in der Gruppe der Zutaten befindet:
 
@@ -100,7 +98,7 @@ Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur
 
 Erzeuge das Modell JSON im Ordner `assets/<mod id here>/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -121,11 +119,11 @@ Die Fabric API bietet verschiedene Register, die verwendet werden können, um zu
 
 Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableItemRegistry` verwenden:
 
-@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du alternativ die Klasse `FuelRegistry` verwenden:
 
-@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Hinzufügen eines einfachen Craftingrezepts {#adding-a-basic-crafting-recipe}
 
@@ -146,7 +144,7 @@ Wenn du möchtest, dass dein Item einen benutzerdefinierten Tooltip hat, musst d
 In diesem Beispiel wird die Klasse `LightningStick` verwendet, die auf der Seite [Benutzerdefinierte Iteminteraktionen](./custom-item-interactions) erstellt wurde.
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Jeder Aufruf von `add()` fügt dem Tooltip eine Zeile hinzu.
 

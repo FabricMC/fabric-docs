@@ -84,7 +84,7 @@ La guía de estilo es la siguiente:
    **Por ejemplo:**
 
    ```md
-   <<< @/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
    ```
 
    Esto adjuntará las líneas 15-21 del archivo `FabricDocsReference.java` del mod de referencia.
