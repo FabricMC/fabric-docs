@@ -65,6 +65,8 @@ Es gibt nicht den einen "richtigen" Weg, um Texturen auf einen Bildschirm zu zei
 
 Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Parameter `textureWidth` und `textureHeight` angibt. Der Grund dafür ist, dass die Klasse `DrawContext` diese Werte entgegennimmt, wenn du sie nicht angibst, was manchmal falsch sein kann.
 
+Du musst auch die Renderebene angeben, auf die deine Textur gezeichnet wird. Für einfache Texturen wird dies normalerweise immer `RenderLayer::getGuiTextured` sein.
+
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Beispiel für das Zeichnen einer ganzen Textur](/assets/develop/rendering/draw-context-whole-texture.png)
