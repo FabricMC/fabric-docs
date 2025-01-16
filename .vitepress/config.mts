@@ -10,6 +10,8 @@ export default defineVersionedConfig(
   {
     cleanUrls: true,
 
+    mpa: true,
+
     head: [["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }]],
 
     // Prevent dead links from being reported as errors - allows partially translated pages to be built.
