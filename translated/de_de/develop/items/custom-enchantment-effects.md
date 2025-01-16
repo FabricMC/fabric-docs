@@ -45,7 +45,7 @@ Bevor du fortfährst, solltest du sicherstellen, dass dein Projekt für die Date
 
 Zum Schluss müssen wir unserem Mod sagen, dass er unseren `EnchantmentGenerator` zur Liste der Datenerzeugungsaufgaben hinzufügen soll. Um dies zu tun, füge einfach den `EnchantmentGenerator` innerhalb der Methode `onInitializeDataGenerator` zu dieser hinzu.
 
-@[code transclude={22-22}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Wenn du nun die Datengenerierungsaufgabe deines Mods ausführst, werden die Verzauberungs-JSONs im Ordner `generated` generiert. Ein Beispiel ist unten zu sehen:
 
