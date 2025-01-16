@@ -49,6 +49,9 @@ Non tratteremo tutte le opzioni qui—puoi vedere la classe da solo per capirne 
 
 Per questo esempio, creeremo un blocco semplice, con le proprietà della terra ma con un materiale diverso.
 
+- Ci serve una `RegistryKey<Block>` da usare come identificatore unico del nostro blocco, che passeremo in `Registry.register` nel metodo di utilità precedente.
+- La `RegistryKey<Block>` è anche richiesta dal costruttore di `AbstractBlock.Settings`.
+
 :::tip
 Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
 :::
@@ -57,13 +60,15 @@ Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare 
 
 Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
-### Aggiungere il Tuo Blocco ad un Gruppo di Oggetti {#adding-your-block-to-an-item-group}
+### Aggiungere l'Oggetto del Tuo Blocco a un Gruppo di Oggetti {#adding-your-block-s-item-to-an-item-group}
 
 Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a un gruppo di oggetti devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
 
 Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo creato nella pagina [Gruppi di Oggetti Personalizzati](../items/custom-item-groups).
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+
+Dovresti mettere questo nella funzione `initialize()` della tua classe.
 
 ---
 
@@ -93,18 +98,17 @@ Tutte le texture dei blocchi si trovano nella cartella `assets/<mod id here>/tex
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
-Per fare in modo che la texture sia visibile nel gioco, devi creare un blocco e un modello di oggetto, presenti nelle posizioni appropriate al blocco di "Terra Condensata":
+Per fare in modo che la texture sia visibile nel gioco, devi creare un modello del blocco, presenti nel file `assets/<mod id here>/models/block/condensed_dirt.json` per quanto riguarda il blocco di "Terra Condensata". Per questo blocco useremo il tipo di modello `block/cube_all`.
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-Il modello dell'oggetto è piuttosto semplice, basta che usi il modello del blocco come genitore - poiché la GUI supporta il rendering della maggior parte dei modelli dei blocchi:
+Perché il blocco sia mostrato nell'inventario, dovrai creare una [Descrizione del Modello dell'Oggetto](../items/first-item#creating-the-item-model-description) che punti al modello del tuo blocco. Per questo esempio la descrizione del modello dell'oggetto per il blocco "Terra Condensata" si può trovare in `assets/<mod id here>/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
-Nel nostro caso, però, il modello del blocco deve avere come genitore il modello `block/cube_all`:
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+:::tip
+Dovrai creare una descrizione del modello d'oggetto solo se hai registrato un `BlockItem` assieme al tuo blocco!
+:::
 
 Quando carichi il gioco, potresti notare che la texture è ancora mancante. Questo perché devi aggiungere la definizione degli stati del blocco.
 
@@ -116,9 +120,11 @@ Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella 
 
 Questo file si dovrebbe trovare nella cartella `assets/mod_id/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
-Gli stati dei blocchi sono piuttosto complessi, per cui li tratteremo in un'altra pagina: [Stati dei Blocchi](./blockstates)
+:::tip
+Gli stati dei blocchi sono davvero complessi, ed è per questo che gli tratteremo successivamente in una [loro pagina a parte](./blockstates).
+:::
 
 Riavviando il gioco o ricaricando con <kbd>F3</kbd>+<kbd>T</kbd> per applicare le modifiche - dovresti poter vedere la texture del blocco nell'inventario e fisicamente nel mondo:
 
@@ -136,11 +142,11 @@ Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecra
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 
-## Consigliare uno Strumento per la Raccolta {#recommending-a-harvesting-tool}
+## Consigliare un'Utensile per la Raccolta {#recommending-a-harvesting-tool}
 
-Potresti anche volere che il tuo blocco sia ottenibile solo con uno strumento specifico - per esempio, più veloce da ottenere con una pala.
+Potresti anche volere che il tuo blocco sia ottenibile solo con un'utensile specifico - per esempio, più veloce da ottenere con una pala.
 
-Tutti i tag degli strumenti dovrebbero essere nella cartella `data/minecraft/tags/block/mineable/` - e il nome del file dipende dal tipo di strumento usato, uno tra i seguenti:
+Tutti i tag degli utensili dovrebbero essere nella cartella `data/minecraft/tags/block/mineable/` - e il nome del file dipende dal tipo di utensile usato, uno tra i seguenti:
 
 - `hoe.json`
 - `axe.json`
@@ -153,18 +159,18 @@ Questo esempio aggiunge il blocco "Terra Condensata" al tag `shovel`.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-Se desideri che uno strumento sia necessario per minare il blocco, dovrai aggiungere `.requiresTool()` alle impostazioni del tuo blocco, oltre che aggiungere il tag dello scavo appropriato.
+Se desideri che un'utensile sia necessario per minare il blocco, dovrai aggiungere `.requiresTool()` alle impostazioni del tuo blocco, oltre che aggiungere il tag del livello di scavo appropriato.
 
 ## Livelli di Scavo {#mining-levels}
 
 Similmente, il tag del livello di scavo si trova nella cartella `data/minecraft/tags/block/`, e segue il seguente formato:
 
-- `needs_stone_tool.json` - Almeno strumenti di pietra
-- `needs_iron_tool.json` - Almeno strumenti di ferro
-- `needs_diamond_tool.json` - Almeno strumenti di diamante
+- `needs_stone_tool.json` - Almeno utensili di pietra
+- `needs_iron_tool.json` - Almeno utensili di ferro
+- `needs_diamond_tool.json` - Almeno utensili di diamante
 
 Il file ha lo stesso formato di quello per la raccolta - una lista di oggetti da aggiungere al tag.
 
 ## Note Aggiuntive {#extra-notes}
 
-Se stai aggiungendo più blocchi alla tua mod, potresti voler usare la [Data Generation](https://fabricmc.net/wiki/tutorial:datagen_setup) per automatizzare il processo di creazione dei modelli di blocchi e oggetti, delle definizioni degli stati del blocco, e delle loot table.
+Se stai aggiungendo più blocchi alla tua mod, potresti voler usare la [Generazione di Dati](../data-generation/setup) per automatizzare il processo di creazione dei modelli di blocchi e oggetti, delle definizioni degli stati del blocco, e delle loot table.
