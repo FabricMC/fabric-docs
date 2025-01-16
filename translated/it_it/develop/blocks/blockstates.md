@@ -40,7 +40,7 @@ Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare 
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -57,7 +57,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
 - `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello dell'oggetto il quale deve essere figlio di uno dei due modelli.
 
@@ -83,10 +83,6 @@ Dovrai anche impostare un valore predefinito per la proprietà `activated` nel c
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-Non dimenticare di registrare il tuo blocco usando la classe personalizzata invece di `Block`!
-:::
-
 ### Usare la Proprietà {#using-the-property}
 
 Questo esempio invertirà la proprietà booleana `activated` quando il giocatore interagisce con il blocco. Possiamo fare override del metodo `onUse` per questo:
@@ -108,6 +104,10 @@ Se hai proprietà multiple su un blocco, dovrai tenere in conto tutte le possibi
 Poiché questo blocco ha solo due possibili varianti, dato che ha solo una proprietà (`activated`), il file JSON degli stati del blocco avrà il seguente aspetto:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+
+:::tip
+Non dimenticare di aggiungere una [Descrizione del Modello d'Oggetto](../items/first-item#creating-the-item-model-description) per il blocco così che appaia nell'inventario!
+:::
 
 ---
 
