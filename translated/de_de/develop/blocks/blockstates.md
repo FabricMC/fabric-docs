@@ -40,7 +40,7 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -56,7 +56,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
 - `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Wie immer musst du eine Übersetzung für deinen Block und ein Objektmodell erstellen, das einem der beiden Modelle übergeordnet ist.
 
@@ -82,10 +82,6 @@ Außerdem musst du im Konstruktor deines benutzerdefinierten Blocks einen Standa
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-Vergiss nicht, deinen Block mit der benutzerdefinierten Klasse anstelle von `Block` zu registrieren!
-:::
-
 ### Die Eigenschaft nutzen {#using-the-property}
 
 In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `onUse` überschreiben:
@@ -107,6 +103,10 @@ Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kom
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+
+:::tip
+Vergiss nicht eine [Item-Modell-Beschreibung](../items/first-item#creating-the-item-model-description) für den Block hinzuzufügen, so dass er das Inventar anzeigt!
+:::
 
 ---
 
