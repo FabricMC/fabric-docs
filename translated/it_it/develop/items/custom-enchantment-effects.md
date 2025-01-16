@@ -45,7 +45,7 @@ Prima di procedere dovresti assicurarti che il tuo progetto sia configurato per 
 
 Infine, dobbiamo dire alla nostra mod di aggiungere il nostro `EnchantmentGenerator` alla lista di operazioni di generazione dati. Per fare questo, basta aggiungere il `EnchantmentGenerator` a questo all'interno del metodo `onInitializeDataGenerator`.
 
-@[code transclude={22-22}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli incantesimi verranno generati nella cartella `generated`. Ecco un esempio qua sotto:
 
