@@ -19,9 +19,9 @@ Du solltest immer prüfen, ob Mods aus einer vertrauenswürdigen Quelle stammen.
 
 Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) und [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4), manche laden sie jedoch auch auf ihre persönliche Website oder auf andere Plattformen wie GitHub hoch.
 
-## Wo kann ich vorgemachte Fabric-Modpacks herunterladen? {#where-can-i-find-premade-fabric-modpacks}
+## Wo kann ich vorgefertige Fabric-Modpacks herunterladen? {#where-can-i-find-pre-made-fabric-modpacks}
 
-Du kannst vorgefertigte Fabric-Modpacks auf einer Vielzahl von Plattformen finden, beispielsweise:
+Du kannst vorgefertigte Fabric-Modpacks auf einer Vielzahl von Plattformen finden, wie beispielsweise:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\\&gameVersionTypeId=4)
