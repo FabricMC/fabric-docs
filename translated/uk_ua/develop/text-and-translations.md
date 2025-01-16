@@ -109,7 +109,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Ви можете бути знайомі зі стандартами форматування Minecraft:
 
-Ви можете застосувати ці форматування за допомогою переліку `Formatting` у класі `MutableText`:
+Ви можете застосувати ці стилі форматування за допомогою переліку `Formatting` класу `MutableText`:
 
 ```java
 MutableText result = Text.literal("Hello World!")
