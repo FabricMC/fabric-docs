@@ -49,7 +49,7 @@ Nella cartella `src/main/resources` si memorizzano le risorse che la tua mod usa
 
 È anche la posizione di `fabric.mod.json` e di qualsiasi file di configurazione mixin che la tua mod usa.
 
-Le risorse sono memorizzate in una struttura che rispecchia la struttura dei pacchetti risorse - per esempio, una texture per un blocco verrebbe memorizzata in `assets/modid/textures/block/block.png`.
+Le risorse sono memorizzate in una struttura che rispecchia la struttura dei pacchetti risorse - per esempio, una texture per un blocco verrebbe memorizzata in `assets/mod-id/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 
