@@ -4,6 +4,7 @@ description: Impara come registrare un semplice oggetto e come aggiungergli text
 authors:
   - IMB11
   - dicedpixels
+  - RaphProductions
 ---
 
 # Creare il Tuo Primo Oggetto {#creating-your-first-item}
@@ -98,7 +99,7 @@ Creeremo un semplice modello `item/generated`, che prende come input solo una te
 
 Crea il modello JSON nella cartella `assets/<mod id here>/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 
@@ -107,7 +108,21 @@ Crea il modello JSON nella cartella `assets/<mod id here>/models/item`, con lo s
 
 La maggior parte degli oggetti usa il modello `item/generated` come genitore, perché è un modello semplice che mostra semplicemente la texture.
 
-Ci sono alternative, tra cui `item/handheld` che si usa per oggetto da tenere nella mano del giocatore, come gli strumenti.
+Ci sono alternative, tra cui `item/handheld` che si usa per oggetti che il giocatore "tiene in mano", come gli utensili.
+
+## Creare la Descrizione del Modello d'Oggetto {#creating-the-item-model-description}
+
+Minecraft non sa in automatico dove i file dei modelli dei tuoi oggetti si trovino, dobbiamo fornire una descrizione del modello dell'oggetto.
+
+Crea la descrizione JSON dell'oggetto in `assets/<mod id here>/items`, e come nome del file l'identifier dell'oggetto: `suspicious_substance.json`.
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+
+### Comprendere il JSON della Descrizione del Modello d'Oggetto {#breaking-down-the-item-model-description-json}
+
+- `model`: Questa è la proprietà che contiene il riferimento al nostro modello.
+  - `type`: Questo è il tipo del nostro modello. Per la maggior parte degli oggetti dovrebbe essere `minecraft:model`
+  - `model`: Questo è l'identifier del modello. Dovrebbe seguire questo formato: `<mod id here>:item/<item name here>`
 
 Il tuo oggetto dovrebbe ora avere questo aspetto nel gioco:
 
@@ -121,7 +136,7 @@ Per esempio, per rendere il tuo oggetto compostabile, puoi usare la `Compostable
 
 @[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare la classe `FuelRegistry`:
+In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare l'evento `FuelRegistryEvents.BUILD`:
 
 @[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
