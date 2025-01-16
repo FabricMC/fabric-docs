@@ -173,7 +173,7 @@ Il loop di suono sarà adesso riprodotto solo sul client che ha eseguito quella 
 
 Così abbiamo concluso la spiegazione di come creare e usare una semplice `SoundInstance` personalizzata.
 
-## SoundInstance Avanzate {#advanced-soundinstances}
+## Istanze di Suoni Avanzate {#advanced-sound-instances}
 
 :::warning
 Il contenuto seguente tratta di un argomento avanzato.
