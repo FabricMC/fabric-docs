@@ -4,6 +4,7 @@ import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vu
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { onBeforeMount, ref } from "vue";
 
+// Define component properties with TypeScript types
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };
   screenMenu?: boolean;
@@ -15,14 +16,17 @@ const router = useRouter();
 const currentVersion = ref<string>(props.versioningPlugin.latestVersion);
 const text = ref<string>("");
 
+// Function to refresh the text value from theme data
 function refreshText() {
   text.value = data.theme.value.version.switcher;
 }
 
+// Update text value when content is updated
 onContentUpdated(() => {
   refreshText();
 });
 
+// Update current version before route change
 router.onBeforeRouteChange = (to: string) => {
   if (to === "/") {
     currentVersion.value = props.versioningPlugin.latestVersion;
@@ -39,6 +43,7 @@ router.onBeforeRouteChange = (to: string) => {
   return true;
 };
 
+// Set current version on component mount based on route path
 onBeforeMount(() => {
   for (const v of props.versioningPlugin.versions) {
     if (router.route.path.includes(`/${v}/`)) {
@@ -49,13 +54,15 @@ onBeforeMount(() => {
 });
 
 const isOpen = ref(false);
+
+// Toggle the open state of the version switcher
 const toggle = () => {
   isOpen.value = !isOpen.value;
 };
 
+// Function to navigate to a different version whilst maintaining current locale.
 function visitVersion(version) {
   const localeKeys = Object.keys(data.site.value.locales);
-  // Check if the current path is localized
   const isLocalized = localeKeys.some((key) =>
     router.route.path.startsWith(`/${key}/`)
   );
@@ -64,7 +71,7 @@ function visitVersion(version) {
   const isOnLatest =
     currentVersion.value === props.versioningPlugin.latestVersion;
   if (isLocalized) {
-    // Get locale from the current path
+    // Get locale from the current path.
     const locale = localeKeys.find((key) =>
       router.route.path.startsWith(`/${key}/`)
     );
@@ -108,6 +115,7 @@ function visitVersion(version) {
 </script>
 
 <template>
+  <!-- Flyout version switcher for non-screen menu -->
   <VPFlyout
     v-if="!screenMenu"
     class="VPVersionSwitcher"
@@ -116,6 +124,7 @@ function visitVersion(version) {
     :label="text"
   >
     <div class="items">
+      <!-- Link to the latest version if it's not the current version -->
       <VPLink
         href="#"
         v-if="currentVersion != versioningPlugin.latestVersion"
@@ -123,6 +132,7 @@ function visitVersion(version) {
       >
         {{ versioningPlugin.latestVersion }}
       </VPLink>
+      <!-- Loop through versions and create links for each version -->
       <template v-for="version in versioningPlugin.versions" :key="version">
         <VPLink
           href="#"
@@ -135,6 +145,8 @@ function visitVersion(version) {
       </template>
     </div>
   </VPFlyout>
+
+  <!-- Screen menu version switcher -->
   <div v-else class="VPScreenVersionSwitcher" :class="{ open: isOpen }">
     <button
       class="button"
@@ -149,9 +161,11 @@ function visitVersion(version) {
     </button>
 
     <div id="navbar-group-version" class="items">
+      <!-- Link to the latest version -->
       <VPLink href="#" @click="visitVersion(versioningPlugin.latestVersion)">
         {{ versioningPlugin.latestVersion }}
       </VPLink>
+      <!-- Loop through versions and create links for each version -->
       <template v-for="version in versioningPlugin.versions" :key="version">
         <VPLink href="#" @click="visitVersion(version)">
           {{ version }}
@@ -162,12 +176,13 @@ function visitVersion(version) {
 </template>
 
 <style>
+/* Styling for the versioning icon */
 .vpi-versioning.option-icon {
   margin-right: 2px !important;
 }
 
 .vpi-versioning {
-  --icon: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNvbG9yPSIjMDAwMDAwIj48cGF0aCBkPSJNMTcgN0MxOC4xMDQ2IDcgMTkgNi4xMDQ1NyAxOSA1QzE5IDMuODk1NDMgMTguMTA0NiAzIDE3IDNDMTUuODk1NCAzIDE1IDMuODk1NDMgMTUgNUMxNSA2LjEwNDU3IDE1Ljg5NTQgNyAxNyA3WiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTcgN0M4LjEwNDU3IDcgOSA2LjEwNDU3IDkgNUM5IDMuODk1NDMgOC4xMDQ1NyAzIDcgM0M1Ljg5NTQzIDMgNSAzLjg5NTQzIDUgNUM1IDYuMTA0NTcgNS44OTU0MyA3IDcgN1oiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPjxwYXRoIGQ9Ik03IDIxQzguMTA0NTcgMjEgOSAyMC4xMDQ2IDkgMTlDOSAxNy44OTU0IDguMTA0NTcgMTcgNyAxN0M1Ljg5NTQzIDE3IDUgMTcuODk1NCA1IDE5QzUgMjAuMTA0NiA1Ljg5NTQzIDIxIDcgMjFaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNNyA3VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNMTcgN1Y4QzE3IDEwLjUgMTUgMTEgMTUgMTFMOSAxM0M5IDEzIDcgMTMuNSA3IDE2VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L3N2Zz4=");
+  --icon: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNvbG9yPSIjMDAwMDAwIj48cGF0aCBkPSJNMTcgN0MxOC4xMDQ2IDcgMTkgNi4xMDQ1NyAxOSA1QzE5IDMuODk1NDMgMTguMTA0NiAzIDE3IDNDMTUuODk1NCAzIDE1IDMuODk1NDMgMTUgNUMxNSA2LjEwNDU3IDE1Ljg5NTQgNyAxNyA3WiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTcgN0M4LjEwNDU3IDcgOSA2LjEwNDU3IDkgNUM5IDMuODk1NDMgOC4xMDQ1NyAzIDcgM0M1Ljg5NTQzIDMgNSAzLjg5NTQzIDUgNUM1IDYuMTA0NTcgNS44OTU0MyA3IDcgN1oiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPjxwYXRoIGQ9Ik07IDIxQzguMTA0NTcgMjEgOSAyMC4xMDQ2IDkgMTlDOSAxNy44OTU0IDguMTA0NTcgMTcgNyAxN0M1Ljg5NTQzIDE3IDUgMTcuODk1NCA1IDE5QzUgMjAuMTA0NiA1Ljg5NTQzIDIxIDcgMjFaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNNyA3VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNMTcgN1Y4QzE3IDEwLjUgMTUgMTEgMTUgMTFMOSAxM0M5IDEzIDcgMTMuNSA3IDE2VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L3N2Zz4=");
 }
 </style>
 
