@@ -11,75 +11,22 @@ Werkzeuge sind für das Überleben und das Vorankommen unerlässlich, denn sie e
 
 ## Ein Werkzeugmaterial erstellen {#creating-a-tool-material}
 
-::: info
-If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
+Du kannst ein Werkzeugmaterial erstellen, indem du ein neues `ToolMaterial`-Objekt instanziierst und es in einem Feld speicherst, das später verwendet werden kann, um die Werkzeugelemente zu erstellen, die das Material verwenden.
 
-Diese Klasse kann auch verwendet werden, um die Eigenschaften deines Werkzeugmaterials im Verhältnis zu Vanilla-Werkzeugmaterialien zu bestimmen.
-:::
+@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Du kannst ein Werkzeugmaterial erstellen, indem du eine neue Klasse erstellst, die es erbt - in diesem Beispiel werde ich "Guidite"-Werkzeuge erstellen:
+Der `ToolMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spezifischen Reihenfolge:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+| Parameter                 | Beschreibung                                                                                                                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `incorrectBlocksForDrops` | Wenn ein Block im incorrectBlocksForDrops-Tag ist, bedeutet das, dass der Block keine Gegenstände fallen lässt, wenn man ein Werkzeug aus diesem `ToolMaterial` zum abbauen dieses Blocks benutzt. |
+| `durability`              | Die Haltbarkeit aller Werkzeuge, die aus diesem `ToolMaterial` bestehen.                                                                                                                           |
+| `speed`                   | Die Abbaugeschwindigkeit der Werkzeuge, die aus diesem `ToolMaterial` bestehen.                                                                                                                    |
+| `attackDamageBonus`       | Der zusätzliche Angriffsschaden der Werkzeuge, die aus diesem `ToolMaterial` sind.                                                                                                                 |
+| `enchantmentValue`        | Die "Verzauberbarkeit" von Werkzeugen, die aus diesem `ToolMaterial` bestehen.                                                                                                                     |
+| `repairItems`             | Alle Gegenstände, die in diesem Tag enthalten sind, können verwendet werden, um Werkzeuge aus diesem `ToolMaterial` in einem Amboss zu reparieren.                                                 |
 
-Sobald du dein Werkzeugmaterial erstellt und nach deinen Wünschen angepasst hast, kannst du eine Instanz davon erstellen, die in den Konstruktoren der Werkzeugitems verwendet werden kann.
-
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-Das Werkzeugmaterial gibt dem Spiel die folgenden Informationen:
-
-### Haltbarkeit - `getDurability()` {#durability}
-
-Wie oft das Werkzeug verwendet werden kann, bevor es bricht:
-
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Abbaugeschwindigkeit - `getMiningSpeedMultiplier()` {#mining-speed}
-
-Wenn das Werkzeug zum Brechen von Blöcken verwendet wird, wie schnell sollte es die Blöcke brechen?
-
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-Zu Referenzzwecken hat das Diamantwerkzeugmaterial eine Abbaugeschwindigkeit von `8.0F`, während das Steinwerkzeugmaterial eine Abbaugeschwindigkeit von `4.0F` hat.
-
-### Angriffsschaden - `getAttackDamage()` {#attack-damage}
-
-Wie viele Schadenspunkte sollte das Werkzeug verursachen, wenn es als Waffe gegen eine andere Entität eingesetzt wird?
-
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Inverse Tag - `getMiningLevel()` {#inverse-tag}
-
-Das inverse Tag zeigt an, was das Werkzeug _**nicht**_ abbauen kann. Die Verwendung des Tags `BlockTags.INCORRECT_FOR_WOODEN_TOOL` verhindert beispielsweise, dass das Werkzeug bestimmte Blöcke abbaut:
-
-```json
-{
-  "values": [
-    "#minecraft:needs_diamond_tool",
-    "#minecraft:needs_iron_tool",
-    "#minecraft:needs_stone_tool"
-  ]
-}
-```
-
-Das bedeutet, dass das Werkzeug keine Blöcke abbauen kann, die ein Diamant-, Eisen- oder Steinwerkzeug benötigen.
-
-Lass das Eisenwerkzeug-Tag verwenden. Dies verhindert, dass Guidite-Werkzeuge Blöcke abbauen, die ein stärkeres Werkzeug als Eisen erfordern.
-
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-Du kannst `TagKey.of(...)` verwenden, um einen benutzerdefinierten Tag-Schlüssel zu erstellen, wenn du einen benutzerdefiniertes Tag verwenden willst.
-
-### Verzauberbarkeit - `getEnchantability()` {#enchantability}
-
-Wie einfach ist es, mit diesem Gegenstand bessere und höherstufige Verzauberungen zu erhalten? Zum Vergleich: Gold hat eine Verzauberungsfähigkeit von 22, während Netherit eine Verzauberungsfähigkeit von 15 hat.
-
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### Reparatur-Zutat(en) - `getRepairIngredient()` {#repair-ingredient}
-
-Welche Items werden zur Reparatur des Werkzeugs verwendet?
-
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+Wenn du Schwierigkeiten hast, ausgewogene Werte für einen der numerischen Parameter zu bestimmen, solltest du dir die Vanilla-Werkzeugmaterialkonstanten ansehen, wie zum Beispiel `ToolMaterial.STONE` oder `ToolMaterial.DIAMOND`.
 
 ## Werkzeugitems erstellen {#creating-tool-items}
 
@@ -87,15 +34,17 @@ Mit der gleichen Hilfsfunktion wie in der Anleitung [Erstelle dein ersten Item](
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Die beiden Float-Werte (1f, 1f) beziehen sich auf den Angriffsschaden des Werkzeugs bzw. die Angriffsgeschwindigkeit des Werkzeugs.
+
 Vergiss nicht, sie zu einer Itemgruppe hinzuzufügen, wenn du vom Kreativ-Inventar aus auf sie zugreifen willst!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Du musst auch eine Textur, eine Itemübersetzung und ein Itemmodell hinzufügen. Für das Itemmodell solltest du jedoch das Modell `item/handheld` als übergeordnetes Modell verwenden.
+Du musst auch eine Textur, eine Itemübersetzung und ein Itemmodell hinzufügen. Für das Itemmodell solltest du jedoch anstelle von dem üblichen `item/generated` das Modell `item/handheld` als übergeordnetes Modell verwenden.
 
 In diesem Beispiel verwende ich das folgende Modell und die folgende Textur für den Gegenstand "Guidite Sword":
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Textur</DownloadEntry>
 
