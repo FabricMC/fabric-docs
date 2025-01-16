@@ -36,7 +36,7 @@ Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](..
 
 In unserer Initialisierungsmethode benutzen wir das `FabricBrewingRecipeRegistryBuilder.BUILD` Event um unseren Trank mithilfe der `BrewingRecipeRegistry.registerPotionRecipe` Methode zu registrieren.
 
-@[code lang=java transclude={29-42}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 
