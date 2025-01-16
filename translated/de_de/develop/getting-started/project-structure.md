@@ -49,7 +49,7 @@ Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, 
 
 Es ist auch der Ort, an dem sich die Datei `fabric.mod.json` und alle Mixin-Konfigurationsdateien befinden, die dein Mod verwendet.
 
-Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/modid/textures/block/block.png` gespeichert werden.
+Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/mod-id/textures/block/block.png` gespeichert werden.
 
 ## `src/client/resources` {#src-client-resources}
 
