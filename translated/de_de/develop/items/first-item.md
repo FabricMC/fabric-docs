@@ -4,6 +4,7 @@ description: Lerne, wie man ein einfaches Item registriert und wie man es textur
 authors:
   - IMB11
   - dicedpixels
+  - RaphProductions
 ---
 
 # Dein erstes Item erstellen {#creating-your-first-item}
@@ -98,7 +99,7 @@ Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur
 
 Erzeuge das Modell JSON im Ordner `assets/<mod id here>/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
 ### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -108,6 +109,20 @@ Erzeuge das Modell JSON im Ordner `assets/<mod id here>/models/item`, mit dem gl
 Die meisten Items werden das Modell `item/generated` als übergeordnetes Modell verwenden, da es ein einfaches Modell ist, das nur die Textur anzeigt.
 
 Es gibt Alternativen, z. B. `item/handheld`, das für Items verwendet wird, die der Spieler in der Hand hält, wie z. B. Werkzeuge.
+
+## Erstellung der Itemmodell-Beschreibung {#creating-the-item-model-description}
+
+Minecraft weiß nicht automatisch, wo die Modelldateien deines Items zu finden sind, wir müssen eine Beschreibung des Itemmodell angeben.
+
+Erstelle die JSON-Beschreibung des Items im Verzeichnis `assets/<mod id here>/items`, mit demselben Dateinamen wie der Bezeichner des Items; `suspicious_substance.json`.
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+
+### Aufschlüsselung des JSON der Itemmodell-Beschreibung {#breaking-down-the-item-model-description-json}
+
+- `model`: Das ist die Eigenschaft, die die Referenz zu unserem Modell beinhaltet.
+  - `type`: Dies ist der Typ unseres Modell. Für die meisten Items sollte dies `minecraft:model` sein.
+  - `model`: Dies ist die Bezeichnung des Modells. Es sollte diese Form haben: `<mod id here>:item/<item name here>`
 
 Dein Item sollte nun im Spiel wie folgt aussehen:
 
@@ -121,7 +136,7 @@ Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `Compo
 
 @[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du alternativ die Klasse `FuelRegistry` verwenden:
+Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelRegistryEvents.BUILD` verwenden:
 
 @[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
