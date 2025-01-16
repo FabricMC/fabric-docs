@@ -9,7 +9,7 @@ authors:
 
 Это руководство поможет вам установить Java 21 на Linux.
 
-## 1. Проверьте, не установлена ли Java {#1-check-if-java-is-already-installed}
+## 1. Проверьте наличие уже установленной Java {#1-check-if-java-is-already-installed}
 
 Откройте терминал, впишите `java -version` и нажмите <kbd>Enter</kbd>.
 
@@ -35,7 +35,7 @@ authors:
 sudo pacman -S jre-openjdk
 ```
 
-Если вы используете сервер без необходимости в графическом интерфейсе, вы можете вместо этого установить `headless` версию:
+Если вы используете сервер без необходимости использования графического пользовательского интерфейса, вместо этого вы можете установить headless версию:
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -64,7 +64,7 @@ sudo apt install openjdk-21-jdk
 sudo dnf install java-21-openjdk
 ```
 
-Если вам не нужен графический интерфейс, вы можете вместо этого установить `headless` версию:
+Если вам не нужен графический пользовательский интерфейс, вместо этого вы можете установить headless версию:
 
 ```sh
 sudo dnf install java-21-openjdk-headless
