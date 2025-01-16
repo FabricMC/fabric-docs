@@ -39,7 +39,7 @@ authors:
 
 ## Регистрация своего звука {#registering-the-custom-sound}
 
-Чтобы добавить собственный звук в мод, зарегистрируете в классе SoundEvent, который имплементирует точку входа `ModInitializer`.
+Чтобы добавить собственный звук в мод, зарегистрируйте SoundEvent в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 ```java
 Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
@@ -54,10 +54,10 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-`ModInitializer` имплементируют точки входа которые нужны классу, чтобы имплементировать весь реестр с собственными SoundEvents.
+Таким образом, инициализатору мода достаточно реализовать только одну строку для регистрации всех пользовательских SoundEvents.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 
-Используйте класс помощник для доступа к собственному SoundEvent. Просмотрите страницу [Воспроизводящиеся SoundEvent'ы](./using-sounds), чтобы научиться как воспроизводить звуки.
+Используйте класс помощник для доступа к собственному SoundEvent. Посетите страницу [Playing SoundEvents](./using-sounds), чтобы узнать, как воспроизводить звуки.
