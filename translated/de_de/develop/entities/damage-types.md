@@ -47,11 +47,11 @@ Du kannst `onSteppedOn` überschreiben, um diesen Schaden zu zuzufügen.
 
 Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten Schadensart.
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Dann rufen wir `entity.damage()` mit unserer `DamageSource` und einem Betrag auf.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Die vollständige Implementierung des Blocks:
 
@@ -63,7 +63,13 @@ Wenn nun eine lebende Entität auf unseren benutzerdefinierten Block tritt, erle
 
 Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.<message_id>` in der Datei `en_us.json` unseres Mods definieren.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 Beim Tod durch unsere Schadensart wirst du die folgende Todesnachricht sehen:
 
