@@ -13,7 +13,7 @@ Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosph�
 
 Wir werden einen neuen Glitzerpartikel hinzufügen, der die Bewegung eines Partikels des Endstabs nachahmt.
 
-Wir müssen zuerst einen `ParticleType` in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse unter Verwendung deiner Mod ID registrieren.
+Wir müssen zuerst einen `ParticleType` in deiner [Mod-Initialisierer](../../getting-started/project-structure#entrypoints) Klasse unter Verwendung deiner Mod ID registrieren.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
