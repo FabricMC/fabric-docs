@@ -30,7 +30,7 @@ Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempi
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creare Traduzioni {#creating-translations}
 
