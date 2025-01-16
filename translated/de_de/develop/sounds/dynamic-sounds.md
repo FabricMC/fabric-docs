@@ -173,7 +173,7 @@ Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundI
 
 Damit ist die Erklärung zur Erstellung und Verwendung einer einfachen benutzerdefinierten `SoundInstance` abgeschlossen.
 
-## Fortgeschrittene SoundInstances {#advanced-soundinstances}
+## Fortgeschrittene Sound Instanzen {#advanced-sound-instances}
 
 :::warning
 Der folgende Inhalt behandelt ein fortgeschrittenes Thema.
@@ -229,7 +229,7 @@ Nachdem du dieses Interface erstellt hast, stelle sicher, dass du es auch in den
 Dies ist ein Hilfsmittel, das sowohl auf der Client- als auch auf der logischen Serverseite verwendet werden kann.
 
 Daher sollte dieses Interface in den allgemeinen Paketen statt in den reinen Client-Paketen gespeichert werden, wenn du die
-Option "geteilte Quellen" verwendest
+Option "split sources" verwendest.
 :::
 
 ### `TransitionState` Enum {#transitionstate-enum}
