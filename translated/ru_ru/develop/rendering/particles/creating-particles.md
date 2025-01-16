@@ -13,7 +13,7 @@ authors:
 
 Мы добавим новую блестящую частицу, которая будет имитировать движение конечной стержневой частицы.
 
-Сначала нам нужно зарегистрировать `ParticleType` в классе инициализатора вашего мода, используя идентификатор вашего мода.
+Сначала нам нужно зарегистрировать `ParticleType` в вашем классе [инициализатор мода](../../getting-started/project-structure#entrypoints), используя идентификатор вашего мода.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -21,7 +21,7 @@ authors:
 
 ## Регистрация на стороне клиента {#client-side-registration}
 
-После регистрации частицы в точке входа `ModInitializer` вам также необходимо зарегистрировать частицу в точке входа `ClientModInitializer`.
+После того, как вы зарегистрировали частицу в инициализаторе мода, вам также необходимо зарегистрировать частицу в инициализаторе на стороне клиента.
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
