@@ -13,7 +13,7 @@ Le particelle sono uno strumento potente. Possono aggiungere atmosfera a una bel
 
 Aggiungeremo una nuova particella "sparkle" che mimerà il movimento di una particella di una barra dell'End.
 
-Devi prima registrare un `ParticleType` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints) usando l'id della mod.
+Devi prima registrare un `ParticleType` nell'[initializer della tua mod](../../getting-started/project-structure#entrypoints) usando l'id della mod.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
