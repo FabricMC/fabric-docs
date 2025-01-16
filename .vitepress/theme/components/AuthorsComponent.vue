@@ -45,7 +45,7 @@ onContentUpdated(() => {
           class="author-avatar"
           :src="`https://wsrv.nl/?url=${encodeURIComponent(
             `https://github.com/${author}.png?size=32`
-          )}&af`"
+          )}&af&maxage=7d`"
           :alt="author"
         />
       </a>
