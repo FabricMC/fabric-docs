@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^12.4.0",
-    "country-flag-emoji-polyfill": "^0.1.8",
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "medium-zoom": "^1.1.0",
