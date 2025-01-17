@@ -21,6 +21,17 @@
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
       #3463fe 30%,
       #4787ff);
+
+  /* Flag Emoji Polyfill (Chrome does not render county flags on windows) */
+  --vp-font-family-base: 'Flag Emoji Polyfill', 'Inter', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root:where(:lang(zh)) {
+  /* Flag Emoji Polyfill (Chrome does not render county flags on windows) */
+  --vp-font-family-base: 'Flag Emoji Polyfill', 'Punctuation SC', 'Inter', ui-sans-serif, system-ui,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
 }
 
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */

@@ -3,6 +3,8 @@ import { Theme, useData, useRoute } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
@@ -53,5 +55,7 @@ export default {
       () => route.path,
       () => nextTick(() => initZoom())
     );
+
+    polyfillCountryFlagEmojis("Flag Emoji Polyfill");
   },
 } satisfies Theme;
