@@ -35,8 +35,6 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 		pack.addProvider(FabricDocsReferenceDamageTypesProvider.TaterDamageTypesGenerator::new);
 		pack.addProvider(FabricDocsReferenceDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
-		pack.addProvider(FabricDocsReferenceModelProvider::new);
-
 		// :::datagen-setup:generator
 	}
 

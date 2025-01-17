@@ -59,9 +59,6 @@ public class ModBlocks {
 			new CounterBlock(AbstractBlock.Settings.create()), "counter_block", true
 	);
 	// :::5
-	public static final Block QUESTION_BLOCK = register(
-			new Block(AbstractBlock.Settings.create()), "question_block", true
-	);
 
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
