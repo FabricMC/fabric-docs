@@ -13,7 +13,7 @@ authors:
 
 我们会添加新的火花粒子，模仿末地烛的粒子移动。
 
-首先，需要在你的[模组初始化器](./getting-started/project-structure#entrypoints)中，使用你有模组 id，注册 `ParticleType`。
+首先，需要在你的[模组初始化器](../../getting-started/project-structure#entrypoints)中，使用你有模组 ID，注册 `ParticleType`。
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
