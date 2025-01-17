@@ -232,7 +232,11 @@ export default [
 		{
 			text: "develop.dataGeneration.lootTables",
 			link: "/develop/data-generation/loot-tables"
-		}
+		},
+        {
+            text: "develop.dataGeneration.models",
+            link: "/develop/data-generation/models"
+        }
 	  ]
   },
   {
