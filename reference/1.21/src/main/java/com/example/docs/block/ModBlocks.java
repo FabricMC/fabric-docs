@@ -18,6 +18,10 @@ import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Function;
+
 // :::1
 public class ModBlocks {
 	// :::1
@@ -55,6 +59,9 @@ public class ModBlocks {
 			new CounterBlock(AbstractBlock.Settings.create()), "counter_block", true
 	);
 	// :::5
+	public static final Block QUESTION_BLOCK = register(
+			new Block(AbstractBlock.Settings.create()), "question_block", true
+	);
 
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
