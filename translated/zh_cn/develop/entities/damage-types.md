@@ -47,11 +47,11 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 我们从创建一个属于我们的自定义伤害类型的 `DamageSource` 开始。
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 然后，调用 `entity.damage()` 并传入我们的 `DamageSource` 和伤害量。
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 方块的完整实现：
 
@@ -63,7 +63,13 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 当死因是我们的伤害类型时，你将会看到如下的死亡信息：
 
