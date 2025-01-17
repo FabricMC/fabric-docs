@@ -111,7 +111,7 @@ First, you need to define an `Identifier` used to identify our packet's payload.
 
 We can define this identifier in our **common initializer** for easy access.
 
-@[code lang=java transclude={16-16}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={21-21}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 Now, let's define the payload that will be sent with the packet. This payload will contain the position (a `BlockPos`)
 of the item user.
@@ -141,7 +141,7 @@ Before we send a packet with our custom payload, we need to register it.
 This can be done in our **common initializer** by `PayloadTypeRegistry.playS2C().register` which takes in a
 `CustomPayload.Id` and a `PacketCodec`.
 
-@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 A similar method exists to register client-to-server payloads: `PayloadTypeRegistry.playC2S().register`.
 
@@ -161,15 +161,15 @@ Let's examine the code above.
 
 We only send packets when the action is initiated on the server, by returning early with a `isClient` check:
 
-@[code lang=java transclude={23-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+@[code lang=java transclude={22-24}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
 We create an instance of the payload with the user's position:
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
 Finally, we get all the players in the server world through `PlayerLookup` and send a packet to each player.
 
-@[code lang=java transclude={29-31}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+@[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
 ::: info
 Fabric API provides `PlayerLookup`, a collection of helper functions that will look up players in a server.
@@ -185,7 +185,7 @@ sending packets.
 
 Remember to register the item in our **common initializer**.
 
-@[code lang=java transclude={19-19}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={24-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 ### Receiving a Packet on the Client {#receiving-a-packet-on-the-client}
 
@@ -204,11 +204,11 @@ Let's examine the code above.
 We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
 can be used to get the `x`, `y` and `z` positions.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we create a `LightningEntity` and add it to the world.
 
-@[code lang=java transclude={29-34}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={34-39}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
@@ -217,24 +217,21 @@ striking at the user's position.
 
 ### Sending a Packet to the Server {#sending-a-packet-to-the-server}
 
-Just like sending a packet to the client, we start by creating a custom payload. This time, we will be sending the
-player's name and position to the server.
+Just like sending a packet to the client, we start by creating a custom payload. This time, when a player uses a
+Poisonous Potato on a living entity, we will apply the Glowing effect to it.
 
-@[code lang=java transcludeWith=::use_poisonous_potato_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/UsePoisonousPotatoPayload.java)
+@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectPayload.java)
 
-Note the usage of `PacketCodec.tuple` to combine two values, a `String` and a `BlockPos`.
+We pass in the appropriate codec along with a method reference to get the value from the Record to build this codec.
 
-We pass in the appropriate codec along with a method reference to get the value from the Record to build this compound
-codec.
+`GIVE_GLOWING_EFFECT_PAYLOAD_ID` is defined in the **common initializer** for easy access.
 
-`USE_POISONOUS_POTATO_PAYLOAD_ID` is defined in the **common initializer** for easy access.
-
-@[code lang=java transclude={17-17}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 Then we register our payload in our **common initializer**. However, this time as _Client-to-Server_ payload by using
 `PayloadTypeRegistry.playC2S().register`.
 
-@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={29-29}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 To send a packet, let's add an action when the player uses a Poisonous Potato. We'll be using the `UseItemCallback`
 event to
@@ -243,16 +240,19 @@ keep things concise.
 We register the event in our **client initializer**, and we use `isClient()` to ensure that the action is only triggered
 on the logical client.
 
+We get the cross-hair target, verify if it's targeting an entity.
+
 @[code lang=java transcludeWith=:::use_item_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
-We create and instance of our `UsePoisonousPotatoPayload` with the necessary arguments.
+We create and instance of our `GiveGlowingEffectPayload` with the necessary arguments. In this case, the network ID of
+the targeted entity.
 
-@[code lang=java transclude={44-44}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={54-54}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we send a packet to the server by calling `ClientPlayNetworking.send` with the instance of our
 `UsePoisonousPotatoPayload`.
 
-@[code lang=java transclude={45-45}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={55-55}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 ### Receiving a Packet on the Server {#receiving-a-packet-on-the-server}
 
@@ -261,8 +261,19 @@ This can be done in the **common initializer**, by calling `ServerPlayNetworking
 
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
-To broadcast a message to all players, we use `context.server().getPlayerManager().broadcast`.
+::: info
+It is important that you validate the content of the packet on the server side.
 
-Now when any player tries to use a Poisonous Potato, a broadcast message will be shown.
+In this case, we validate if the entity exists based on its network ID.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm" title="Broadcast message when a Poisonous Potato is used" />
+@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+
+Additionally, the targeted entity has to be a living entity, and we restrict the range of the target entity from the
+player to 5.
+
+@[code lang=java transclude={35-35}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+:::
+
+Now when any player tries to use a Poisonous Potato on a living entity, the glowing effect will be applied to it.
+
+<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm" title="Glowing effect is applied when a Poisonous Potato is used on a living entity." />
