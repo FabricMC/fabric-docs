@@ -15,7 +15,8 @@ export default defineVersionedConfig(
     // Prevent dead links from being reported as errors - allows partially translated pages to be built.
     ignoreDeadLinks: true,
 
-    lastUpdated: true,
+    lastUpdated: false, // Git is Corrupted so it is Disabled.
+
 
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
