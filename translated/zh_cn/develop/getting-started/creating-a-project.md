@@ -14,7 +14,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如模组称和包名，以及你想要基于其开发的 Minecraft 版本。
 
-包名应该是小写字母，由点隔开；命名必须唯一，以避免和其他开发者的包冲突。 通常是网络域名的反向，例如 `com.example.modid`。
+包名应该是小写字母，由点隔开；命名必须唯一，以避免和其他开发者的包冲突。 它通常被格式化为反向互联网域名，例如 `com.example.mod-id`。
 
 ![生成器预览图](/assets/develop/getting-started/template-generator.png)
 
