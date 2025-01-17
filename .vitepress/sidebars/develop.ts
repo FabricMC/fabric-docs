@@ -255,6 +255,10 @@ export default [
         link: "/develop/events",
       },
       {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
+      },
+      {
         text: "develop.misc.text-and-translations",
         link: "/develop/text-and-translations",
       },
