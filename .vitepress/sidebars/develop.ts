@@ -234,8 +234,12 @@ export default [
 			link: "/develop/data-generation/loot-tables"
 		},
         {
-            text: "develop.dataGeneration.models",
-            link: "/develop/data-generation/models"
+            text: "develop.dataGeneration.blockModels",
+            link: "/develop/data-generation/block-models"
+        },
+        {
+            text: "develop.dataGeneration.itemModels",
+            link: "/develop/data-generation/item-models"
         }
 	  ]
   },
