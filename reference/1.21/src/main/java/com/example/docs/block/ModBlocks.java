@@ -18,10 +18,6 @@ import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Function;
-
 // :::1
 public class ModBlocks {
 	// :::1
