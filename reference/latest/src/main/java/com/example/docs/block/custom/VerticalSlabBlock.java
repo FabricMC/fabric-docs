@@ -123,13 +123,7 @@ public class VerticalSlabBlock extends Block {
 	}
 	// :::datagen-model-custom:append
 
-	@Override
-	protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
-		if (!state.canPlaceAt(world, pos)) {
-			return Blocks.AIR.getDefaultState();
-		}
-		return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-	}
+
 	// :::datagen-model-custom:constructor
 }
 // :::datagen-model-custom:constructor
