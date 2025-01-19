@@ -128,7 +128,14 @@ public class ModBlocks {
 	public static final Block VERTICAL_OAK_LOG_SLAB = registerBlock(
 			"vertical_oak_log_slab", VerticalSlabBlock::new, AbstractBlock.Settings.create());
 
-	public static final BlockFamily RUBY_FAMILY = new BlockFamily.Builder(RUBY_BLOCK).stairs(RUBY_STAIRS).slab(RUBY_SLAB).fence(RUBY_FENCE).build();
+	// :::datagen-model:family-declaration
+	public static final BlockFamily RUBY_FAMILY =
+			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
+			.stairs(ModBlocks.RUBY_STAIRS)
+			.slab(ModBlocks.RUBY_SLAB)
+			.fence(ModBlocks.RUBY_FENCE)
+			.build();
+	// :::datagen-model:family-declaration
 
 	// :::1
 	public static Block register(Block block, RegistryKey<Block> blockKey, boolean shouldRegisterItem) {
