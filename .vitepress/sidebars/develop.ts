@@ -236,10 +236,6 @@ export default [
         {
             text: "develop.dataGeneration.blockModels",
             link: "/develop/data-generation/block-models"
-        },
-        {
-            text: "develop.dataGeneration.itemModels",
-            link: "/develop/data-generation/item-models"
         }
 	  ]
   },
