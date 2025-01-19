@@ -33,8 +33,6 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 
-import java.util.function.Function;
-
 // :::1
 public class ModItems {
 	// :::1

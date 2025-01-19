@@ -37,7 +37,7 @@ Here are some handy examples you can use to generate your desired models:
 
 @[code lang=java transcludeWith=:::datagen-model:cube-all](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-This it the most commonly used function. It generates a JSON model file for a normal `cube_all` block model. One texture is used for all six sides, in this case we use `steel_block`.
+This is the most commonly used function. It generates a JSON model file for a normal `cube_all` block model. One texture is used for all six sides, in this case we use `steel_block`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
 
@@ -97,14 +97,14 @@ Otherwise, it will look the same no matter the direction it's facing.
 
 ## Custom Block Models and Datagen Methods {#custom-models-and-methods}
 
-In this section we'll create the models for a **vertical slab block** with Oak Log textures => _Vertical Oak Log Slab_.
+In this section, we'll create the models for a **vertical slab block** with Oak Log textures => _Vertical Oak Log Slab_.
 
 _Points 2. - 6. are declared in an inner static helper class called `CustomBlockStateModelGenerator`._
 
 ### Custom Block Class {#custom-block-class}
 
-Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/block-states) tutorial. `SINGLE` will indicate if there's both slabs.
-Then you should override `getOutlineShape` and `getCollisionShape`, so that the outline is rendered correctly and the block has the correct collision shape.
+Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/block-states) tutorial. `SINGLE` will indicate if there are both slabs.
+Then you should override `getOutlineShape` and `getCollisionShape`, so that the outline is rendered correctly, and the block has the correct collision shape.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:voxels](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
 
