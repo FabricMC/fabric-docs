@@ -111,18 +111,6 @@ public class ModItems {
 	);
 	// :::2
 
-	/**Helper methods for registering items (Fellteros) <br>
-	 * Item registration would like this:
-	 * <blockquote><pre>
-	 *     public static final Item TEST = registerItem("test", Item::new)
-	 * </pre></blockquote>*/
-	private static Item registerItem(String name, Function<Item.Settings, Item> function) {
-		return Registry.register(Registries.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name), function.apply(new Item.Settings().registryKey(keyOfItem(name))));
-	}
-	private static RegistryKey<Item> keyOfItem(String name) {
-		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
-	}
-
 
 	// :::1
 	public static Item register(Item item, RegistryKey<Item> registryKey) {
