@@ -1,10 +1,10 @@
 ---
 title: Fabric ドキュメント
-description: マインクラフトの前提ModであるFabricの、公式ドキュメント
+description: マインクラフトの前提Mod Fabricの公式ドキュメント
 layout: home
 hero:
   name: Fabric ドキュメント
-  tagline: マインクラフトの前提ModであるFabricの、公式ドキュメント
+  tagline: マインクラフトの前提Mod Fabricの公式ドキュメント
 features:
   - title: プレイヤーガイド
     icon: 📚
