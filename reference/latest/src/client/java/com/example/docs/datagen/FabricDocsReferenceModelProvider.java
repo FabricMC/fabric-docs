@@ -141,10 +141,10 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 
 		// :::datagen-model-custom:gen
 		public static void registerVerticalSlab(BlockStateModelGenerator bsmg, Block vertSlabBlock, Block fullBlock, TextureMap textures) {
-			Identifier identifier = VERTICAL_SLAB.upload(vertSlabBlock, textures, bsmg.modelCollector);
-			Identifier identifier2 = ModelIds.getBlockModelId(fullBlock);
-			bsmg.blockStateCollector.accept(createVerticalSlabBlockStates(vertSlabBlock, identifier, identifier2));
-			bsmg.registerParentedItemModel(vertSlabBlock, identifier);
+			Identifier slabModel = VERTICAL_SLAB.upload(vertSlabBlock, textures, bsmg.modelCollector);
+			Identifier fullBlockModel = ModelIds.getBlockModelId(fullBlock);
+			bsmg.blockStateCollector.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
+			bsmg.registerParentedItemModel(vertSlabBlock, slabModel);
 		}
 		// :::datagen-model-custom:gen
 
