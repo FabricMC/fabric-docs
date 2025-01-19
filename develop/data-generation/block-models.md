@@ -3,6 +3,7 @@ title: Block Model Generation
 description: A guide to generating block models & blockstates via datagen.
 authors:
   - Fellteros
+  - natri0
 ---
 
 # Block Model Generation {#model-generation}
@@ -43,28 +44,13 @@ Here are some handy examples you can use to generate your desired models:
 
 @[code lang=java transcludeWith=:::datagen-model:cube-all](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-The easiest and most basic method there is. It generates a JSON model file for a normal cubic block. It provides the same texture (named `steel_block`) for all six sides.
+The easiest and most basic method there is. It generates a JSON model file for a normal cubic block. One texture is used for all six sides, in this case we use `steel_block`.
 
-```json
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "fabric-docs-reference:block/steel_block"
-  }
-}
-```
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
 
 It also generates a blockstate JSON file. Since we have no blockstates (e.g. Axis, Facing, ...), one variant is sufficient, and is used everytime the block is placed.
 
-```json
-{
-  "variants": {
-    "": {
-      "model": "fabric-docs-reference:block/steel_block"
-    }
-  }
-}
-```
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/steel_block.json)
 
 ### Singletons {#singletons}
 
@@ -74,18 +60,10 @@ The `registerSingleton` method provides JSON model files based on the `TexturedM
 
 will generate models for a normal cube, that uses a PNG file `pipe_block` for the sides and a PNG file `pipe_block_top` for the top and bottom sides.
 
-```json
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "fabric-docs-reference:block/pipe_block_top",
-    "side": "fabric-docs-reference:block/pipe_block"
-  }
-}
-```
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/pipe_block.json)
 
 :::tip
-If you're stuck choosing which TextureModel you should use, open the `TexturedModel` class and look at the `TextureMaps`!
+If you're stuck choosing which TextureModel you should use, open the `TexturedModel` class and look at the [`TextureMaps`](#using-texture-map)!
 :::
 
 ### Block Texture Pool {#block-texture-pool}
@@ -94,7 +72,8 @@ If you're stuck choosing which TextureModel you should use, open the `TexturedMo
 
 Another useful method is `registerCubeAllModelTexturePool`. Define the textures by passing in the "base block", and then append the "children", which will have the same textures. <br>
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
-***It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure the texture provision!*** <br>
+***It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.***
+Be aware of this, if you're changing block model of this particular block, as it will result in en error.<br>
 
 You can also append a `BlockFamily`, which will generate models for all of its "children".
 
@@ -114,11 +93,11 @@ For example, in the `.stairs()` method, you have to pass in an instance of Stair
 Doors and trapdoors are a little different. Here, you have to make three new textures - two for the door, and one for the trapdoor. <br>
 
 1. **The door**. It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
-8 new model JSONs should be created. <br>
+The `registerDoor()` method will create models for all orientations of the door, both open and closed. <br>
 **You also need an item texture!** Put it in `assets/<mod_id>/textures/item/` folder.
 2. **The trapdoor**. Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
 Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable".
-Otherwise, it will look the same no matter the facing.
+Otherwise, it will look the same no matter the direction it's facing.
 
 ::: warning
 Again, make sure the door and trapdoor blocks are instances of their corresponding block classes (`DoorBlock`, `TrapdoorBlock`)!
@@ -126,8 +105,8 @@ Again, make sure the door and trapdoor blocks are instances of their correspondi
 
 ## Custom Block Models and Datagen Methods {#custom-models-and-methods}
 
-In this tutorial, we will be creating a method, that will generate block models and blockstate for a custom block. <br>
-In this case it will be a **vertical slab block** with Oak Log textures => _Vertical Oak Log Slab_.
+In this tutorial we'll create the models for a **vertical slab block** with Oak Log textures => _Vertical Oak Log Slab_.
+
 
 ::: info THINGS WE WILL NEED
 1. [Custom Block Class](#custom-block-class)
@@ -138,40 +117,22 @@ In this case it will be a **vertical slab block** with Oak Log textures => _Vert
 6. [Custom Datagen Method](#custom-datagen-method)
 :::
 
+_Points 2. - 6. are declared in an inner static helper class called `CustomBlockStateModelGenerator`._
+
 ### Custom Block Class {#custom-block-class}
 
-First, create a plain Java class that `extends Block`. Then create constructor matching super.
-
-@[code lang=java transcludeWith=:::datagen-model-custom:constructor](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
-
-Next, create two properties:
-1. `BooleanProperty` SINGLE, indicating if the vertical slab is single or not. 
-2. `EnumProperty<Direction>` FACING, providing a direction in which the block is facing.
-
-@[code lang=java transcludeWith=:::datagen-model-custom:properties](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
-
-Determine four `VoxelShape`s, one for each direction, as VoxelShapes cannot be rotated.
+Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/block-states) tutorial. `SINGLE` will indicate if there's both slabs.
+Then you should override `getOutlineShape` and `getCollisionShape`, so that the outline is rendered correctly and the block has the correct collision shape.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:voxels](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
 
-Override the `getSidesShape()` method to determine the voxel shape used. Use switch statement and pass in the `direction` variable.
-Then call this method in the `getCollisionShape()` & `getOutlineShape()` methods.
-
 @[code lang=java transcludeWith=:::datagen-model-custom:collision](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
 
-Override the `canReplace()` method, otherwise you couldn't make the slab a full block.
+Also override the `canReplace()` method, otherwise you couldn't make the slab a full block.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:replace](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
 
-Override the `getPlacementState()` method to determine placement blockstate.
-
-@[code lang=java transcludeWith=:::datagen-model-custom:placement](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
-
-Lastly, override the `appendProperties()` method and add both properties to the builder.
-
-@[code lang=java transcludeWith=:::datagen-model-custom:append](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
-
-And you're done! You can now create a vertical slab block and place it in the game!
+And you're done! You can now test the block out and place it in game.
 
 ### Parent Block Model {#parent-block-model}
 
@@ -228,8 +189,8 @@ I highly recommend using [Blockbench](https://www.blockbench.net/) for this, as 
 ```
 
 See [how blockstates are formatted](https://minecraft.wiki/w/Blockstates_definition_format) for more information. <br>
-Notice the `#bottom`, `#top`, `#side` keywords. They act as a kind of "placeholders", that will get replaced by `Identifier`s in the generated JSON file.
-Something like in sandstone's model file:
+Notice the `#bottom`, `#top`, `#side` keywords. They act as variables that can be set by models that have this one as a parent:
+
 ```json
 {
   "parent": "minecraft:block/cube_bottom_top",
@@ -241,7 +202,7 @@ Something like in sandstone's model file:
 }
 ```
 
-`#bottom` gets "replaced" by the `"bottom"` and so on. **Put it in the `resources/assets/<mod_id>/models/block/` folder.**
+The `bottom` value will replace the `#bottom` placeholder and so on. **Put it in the `resources/assets/<mod_id>/models/block/` folder.**
 
 ### Custom Model {#custom-model}
 
@@ -267,7 +228,7 @@ Since we want to use the Oak Log textures, but have the ``BOTTOM``, ``TOP`` and 
 
 @[code lang=java transcludeWith=:::datagen-model-custom:texture-map](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-=> the ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
+The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
 All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model! 
@@ -279,7 +240,8 @@ The `BlockStateSupplier` contains all blockstate variants, their rotation, and o
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-First, we create a new `VariantsBlockStateSupplier` using `.create()`. Then append `.coordinate()`, in which create a new `BlockStateVariantMap`. Here, pass in all of our properties - in this case `FACING` & `SINGLE`.
+First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
+Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` & `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
 Specify which model and which transformations (uvlock, rotation) is used when using `.register()`. <br>
 For example: 
 * On the first line, the block is facing north, and is single => we use the model with no rotation.
@@ -290,18 +252,16 @@ For example:
 
 The last step - creating an actual method you can call and that will generate the JSONs.
 But what are the parameters for?
-1. `BlockStateModelGenerator bsmg` is used for its variables. **Creating new ones won't work!**
+1. `BlockStateModelGenerator bsmg`, the same one that got passed into `generateBlockStateModels`.
 2. `Block vertSlabBlock` is the block to which we will generate the JSONs.
 3. `Block fullBlock` - is the model used when the `SINGLE` property is false = the slab block looks like a full block.
 4. `TextureMap textures` defines the actual textures the model uses. See the [Using Texture Map](#using-texture-map) chapter.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Let's go over line by line to really understand what is going on:
-1. Here we obtain the `Identifier` representing the vertical slab model via the `.upload()` method. We will pass in our [TextureMap](#using-texture-map) when calling this method.
-2. Here we obtain the `Identifier` of the full block - in our case of Oak Log.
-3. Here the `Consumer blockStateCollector` is called, accepting all of our blockstate variants.
-4. Here we register an item model for the vertical slab.
+First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.upload()`. Then we get the `Identifier` of the full block model with `ModelIds.getBlockModelId()`, and pass those two models into `createVerticalSlabBlockStates`.
+The `BlockStateSupplier` gets passed into the `blockStateCollector`, so that the JSON files are actually generated.
+Also, we create a model for the vertical slab item with `BlockStateModelGenerator.registerParentedItemModel()`.
 
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:
 
