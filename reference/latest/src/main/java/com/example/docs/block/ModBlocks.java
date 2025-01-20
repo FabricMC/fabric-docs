@@ -1,6 +1,8 @@
 package com.example.docs.block;
 
-import com.example.docs.block.custom.VerticalSlabBlock;
+import java.util.function.Function;
+
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -27,11 +29,8 @@ import com.example.docs.FabricDocsReference;
 import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
+import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Function;
 
 // :::1
 public class ModBlocks {
@@ -165,13 +164,14 @@ public class ModBlocks {
 		Registry.register(Registries.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name), new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(keyOfItem(name))));
 		return Registry.register(Registries.BLOCK, keyOfBlock(name), block);
 	}
+
 	private static RegistryKey<Item> keyOfItem(String name) {
 		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
 	}
+
 	private static RegistryKey<Block> keyOfBlock(String name) {
 		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FabricDocsReference.MOD_ID, name));
 	}
-
 
 	public static void initialize() {
 		setupItemGroups();

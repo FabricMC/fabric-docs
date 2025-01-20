@@ -1,12 +1,7 @@
 package com.example.docs.datagen;
 
 // :::datagen-model:provider
-import com.example.docs.FabricDocsReference;
-import com.example.docs.block.ModBlocks;
-import com.example.docs.block.custom.VerticalSlabBlock;
-
-import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import java.util.Optional;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -26,7 +21,12 @@ import net.minecraft.client.data.VariantsBlockStateSupplier;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
-import java.util.Optional;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+
+import com.example.docs.FabricDocsReference;
+import com.example.docs.block.ModBlocks;
+import com.example.docs.block.custom.VerticalSlabBlock;
 
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	public FabricDocsReferenceModelProvider(FabricDataOutput output) {
@@ -67,13 +67,10 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		);
 		// :::datagen-model-custom:method-call
 
-
-
 		// :::datagen-model:provider
 	}
+
 	// :::datagen-model:provider
-
-
 
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
@@ -96,10 +93,8 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 
 	// :::datagen-model:provider
 
-
 	// Inner class containing all Objects needed for the custom datagen tutorial.
 	public static class CustomBlockStateModelGenerator {
-
 		// :::datagen-model-custom:model
 		public static final Model VERTICAL_SLAB = block("vertical_slab", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
 
@@ -112,6 +107,7 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		private static Model block(String parent, String variant, TextureKey... requiredTextureKeys) {
 			return new Model(Optional.of(Identifier.of(FabricDocsReference.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
+
 		// :::datagen-model-custom:model
 
 		// :::datagen-model-custom:texture-map
@@ -121,6 +117,7 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 					.put(TextureKey.BOTTOM, ModelIds.getBlockSubModelId(block, "_top"))
 					.put(TextureKey.SIDE, ModelIds.getBlockModelId(block));
 		}
+
 		// :::datagen-model-custom:texture-map
 
 		// :::datagen-model-custom:supplier
@@ -137,6 +134,7 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 					.register(Direction.SOUTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true))
 					.register(Direction.WEST, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true)));
 		}
+
 		// :::datagen-model-custom:supplier
 
 		// :::datagen-model-custom:gen
@@ -146,11 +144,9 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 			bsmg.blockStateCollector.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
 			bsmg.registerParentedItemModel(vertSlabBlock, slabModel);
 		}
+
 		// :::datagen-model-custom:gen
-
-
 	}
-
 
 	// :::datagen-model:provider
 	@Override

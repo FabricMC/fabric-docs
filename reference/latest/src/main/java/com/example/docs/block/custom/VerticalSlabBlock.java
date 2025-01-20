@@ -1,5 +1,9 @@
 package com.example.docs.block.custom;
 
+import java.util.Objects;
+
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -13,10 +17,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Objects;
 
 // :::datagen-model-custom:constructor
 public class VerticalSlabBlock extends Block {
@@ -37,6 +37,7 @@ public class VerticalSlabBlock extends Block {
 	public VerticalSlabBlock(Settings settings) {
 		super(settings);
 	}
+
 	// :::datagen-model-custom:constructor
 
 	// :::datagen-model-custom:collision
@@ -45,6 +46,7 @@ public class VerticalSlabBlock extends Block {
 		boolean type = state.get(SINGLE);
 		Direction direction = state.get(FACING);
 		VoxelShape voxelShape;
+
 		if (type) {
 			switch (direction) {
 				case WEST -> voxelShape = WEST_SHAPE.asCuboid();
@@ -53,6 +55,7 @@ public class VerticalSlabBlock extends Block {
 				case NORTH -> voxelShape = NORTH_SHAPE.asCuboid();
 				default -> throw new MatchException(null, null);
 			}
+
 			return voxelShape;
 		} else {
 			return VoxelShapes.fullCube();
@@ -68,21 +71,24 @@ public class VerticalSlabBlock extends Block {
 	protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return this.getSidesShape(state, world, pos);
 	}
+
 	// :::datagen-model-custom:collision
 
 	// :::datagen-model-custom:replace
 	@Override
 	protected boolean canReplace(BlockState state, ItemPlacementContext context) {
 		Direction direction = state.get(FACING);
+
 		if (context.getStack().isOf(this.asItem()) && state.get(SINGLE)) {
 			if (context.canReplaceExisting()) {
 				return context.getSide().getOpposite() == direction;
 			}
 		}
+
 		return false;
 	}
-	// :::datagen-model-custom:replace
 
+	// :::datagen-model-custom:replace
 
 	// :::datagen-model-custom:placement
 	@Override
@@ -117,8 +123,8 @@ public class VerticalSlabBlock extends Block {
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(SINGLE, FACING);
 	}
-	// :::datagen-model-custom:append
 
+	// :::datagen-model-custom:append
 
 	// :::datagen-model-custom:constructor
 }
