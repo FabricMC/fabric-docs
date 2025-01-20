@@ -1,13 +1,14 @@
 ---
 title: Block Model Generation
-description: A guide to generating block models & blockstates via datagen.
+description: A guide to generating block models and blockstates via datagen.
 authors:
   - Fellteros
   - natri0
   - IMB11
+  - its-miroma
 ---
 
-# Block Model Generation {#model-generation}
+# Block Model Generation {#block-model-generation}
 
 ::: info Prerequisites
 Make sure you've completed the [datagen setup](./setup) process first.
@@ -15,8 +16,8 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, we will need to create our ModelProvider. Create a class that `extends FabricModelProvider`. Implement both abstract methods, `generateBlockStateModels` & `generateItemModels`.
-Lastly, create constructor matching super.
+First, we will need to create our ModelProvider. Create a class that `extends FabricModelProvider`. Implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
+Lastly, create a constructor matching super.
 
 @[code lang=java transcludeWith=:::datagen-model:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
@@ -67,10 +68,14 @@ If you're stuck choosing which `TextureModel` you should use, open the `Textured
 
 @[code lang=java transcludeWith=:::datagen-model:block-texture-pool-normal](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Another useful method is `registerCubeAllModelTexturePool`. Define the textures by passing in the "base block", and then append the "children", which will have the same textures.
+Another useful method is `registerCubeAllModelTexturePool`: define the textures by passing in the "base block", and then append the "children", which will have the same textures.
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
-**_It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model._**
+
+::: warning
+It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.
+
 Be aware of this, if you're changing block model of this particular block, as it will result in en error.
+:::
 
 You can also append a `BlockFamily`, which will generate models for all of its "children".
 
@@ -86,24 +91,25 @@ You can also append a `BlockFamily`, which will generate models for all of its "
 
 Doors and trapdoors are a little different. Here, you have to make three new textures - two for the door, and one for the trapdoor.
 
-1. **The door**. It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
-The `registerDoor()` method will create models for all orientations of the door, both open and closed.
-**You also need an item texture!** Put it in `assets/<mod_id>/textures/item/` folder.
-2. **The trapdoor**. Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
-Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable".
-Otherwise, it will look the same no matter the direction it's facing.
+1. The door:
+    - It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
+    - The `registerDoor()` method will create models for all orientations of the door, both open and closed.
+    - **You also need an item texture!** Put it in `assets/<mod_id>/textures/item/` folder.
+2. The trapdoor:
+   - Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
+   - Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable". Otherwise, it will look the same no matter the direction it's facing.
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Ruby Door and Trapdoor</DownloadEntry>
 
-## Custom Block Models and Datagen Methods {#custom-models-and-methods}
+## Custom Block Models {#custom-block-models}
 
-In this section, we'll create the models for a **vertical slab block** with Oak Log textures => _Vertical Oak Log Slab_.
+In this section, we'll create the models for a Vertical Oak Log Slab, with Oak Log textures.
 
 _Points 2. - 6. are declared in an inner static helper class called `CustomBlockStateModelGenerator`._
 
 ### Custom Block Class {#custom-block-class}
 
-Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/block-states) tutorial. `SINGLE` will indicate if there are both slabs.
+Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/blockstates) tutorial. `SINGLE` will indicate if there are both slabs.
 Then you should override `getOutlineShape` and `getCollisionShape`, so that the outline is rendered correctly, and the block has the correct collision shape.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:voxels](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
@@ -121,54 +127,7 @@ And you're done! You can now test the block out and place it in game.
 Now, let's create a parent block model. It will determine the size, position in hand or other slots and the `x` and `y` coordinates of the texture.
 I highly recommend using [Blockbench](https://www.blockbench.net/) for this, as making it manually is a really tedious process. It should look something like this:
 
-```json
-{
-  "parent": "minecraft:block/block",
-  "textures": {
-    "particle": "#side"
-  },
-  "display": {
-    "gui": {
-      "rotation": [ 30, -135, 0 ],
-      "translation": [ -1.5, 0.75, 0],
-      "scale":[ 0.625, 0.625, 0.625 ]
-    },
-    "firstperson_righthand": {
-      "rotation": [ 0, -45, 0 ],
-      "translation": [ 0, 2, 0],
-      "scale":[ 0.375, 0.375, 0.375 ]
-    },
-    "firstperson_lefthand": {
-      "rotation": [ 0, 315, 0 ],
-      "translation": [ 0, 2, 0],
-      "scale":[ 0.375, 0.375, 0.375 ]
-    },
-    "thirdperson_righthand": {
-      "rotation": [ 75, -45, 0 ],
-      "translation": [ 0, 0, 2],
-      "scale":[ 0.375, 0.375, 0.375 ]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [ 75, 315, 0 ],
-      "translation": [ 0, 0, 2],
-      "scale":[ 0.375, 0.375, 0.375 ]
-    }
-  },
-  "elements": [
-    {   "from": [ 0, 0, 0 ],
-      "to": [ 16, 16, 8 ],
-      "faces": {
-        "down":  { "uv": [ 0, 8, 16, 16 ], "texture": "#bottom", "cullface": "down", "tintindex": 0 },
-        "up":    { "uv": [ 0, 0, 16, 8 ], "texture": "#top",    "cullface": "up", "tintindex": 0 },
-        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#side",   "cullface": "north", "tintindex": 0 },
-        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "tintindex": 0 },
-        "west":  { "uv": [ 0, 0, 8, 16 ], "texture": "#side",   "cullface": "west", "tintindex": 0 },
-        "east":  { "uv": [ 8, 0, 16, 16 ], "texture": "#side",   "cullface": "east", "tintindex": 0 }
-      }
-    }
-  ]
-}
-```
+@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/vertical_slab.json)
 
 See [how blockstates are formatted](https://minecraft.wiki/w/Blockstates_definition_format) for more information.
 Notice the `#bottom`, `#top`, `#side` keywords. They act as variables that can be set by models that have this one as a parent:
@@ -184,7 +143,7 @@ Notice the `#bottom`, `#top`, `#side` keywords. They act as variables that can b
 }
 ```
 
-The `bottom` value will replace the `#bottom` placeholder and so on. **Put it in the `resources/assets/<mod_id>/models/block/` folder.**
+The `bottom` value will replace the `#bottom` placeholder and so on. **Put it in the `resources/assets/mod_id/models/block/` folder.**
 
 ### Custom Model {#custom-model}
 
@@ -192,16 +151,14 @@ Another thing we will need is an instance of the `Model` class. It will represen
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-The `block()` method creates a new `Model`, pointing to the `vertical_slab.json` file inside the `resources/assets/<mod_id>/models/block/` folder.
+The `block()` method creates a new `Model`, pointing to the `vertical_slab.json` file inside the `resources/assets/mod_id/models/block/` folder.
 The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Object.
 
 ### Using Texture Map {#using-texture-map}
 
 What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with an `Identifier` (Value).
-You can:
 
-1. Use the Vanilla ones, e.g. `TextureMap.all()`(associates all TextureKeys with the same Identifier) or other.
-2. Create a new one by creating a new instance and then using `.put()` to associate keys with values.
+You can either use the vanilla ones, like `TextureMap.all()`(which associates all TextureKeys with the same Identifier), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
 `TextureMap.all()` associates all TextureKeys with the same Identifier, no matter how many of them there are!
@@ -217,14 +174,14 @@ The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use 
 All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
 :::
 
-### Custom BlockStateSupplier Method {#custom-supplier-method}
+### Custom `BlockStateSupplier` Method {#custom-supplier-method}
 
 The `BlockStateSupplier` contains all blockstate variants, their rotation, and other options like uvlock.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
 First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
-Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` & `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
+Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
 Specify which model and which transformations (uvlock, rotation) is used when using `.register()`.
 For example:
 
@@ -254,5 +211,6 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 ## Sources and Links {#sources-and-links}
 
-Other examples of using custom datagen methods have been created using [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) mods.
-You can also view the example tests in Fabric API and the Fabric docs reference mod for more information.
+You can view the example tests in Fabric API and the Fabric docs reference mod for more information.
+
+You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.
