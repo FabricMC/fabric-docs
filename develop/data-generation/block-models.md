@@ -22,7 +22,7 @@ Lastly, create constructor matching super.
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-## Blockstates and block models {#blockstates-and-block-models}
+## Blockstates and Block Models {#blockstates-and-block-models}
 
 ```java
 @Override
@@ -69,7 +69,7 @@ If you're stuck choosing which `TextureModel` you should use, open the `Textured
 
 Another useful method is `registerCubeAllModelTexturePool`. Define the textures by passing in the "base block", and then append the "children", which will have the same textures.
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
-***It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.***
+**_It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model._**
 Be aware of this, if you're changing block model of this particular block, as it will result in en error.
 
 You can also append a `BlockFamily`, which will generate models for all of its "children".
@@ -199,6 +199,7 @@ The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Ob
 
 What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with an `Identifier` (Value).
 You can:
+
 1. Use the Vanilla ones, e.g. `TextureMap.all()`(associates all TextureKeys with the same Identifier) or other.
 2. Create a new one by creating a new instance and then using `.put()` to associate keys with values.
 
@@ -213,7 +214,7 @@ Since we want to use the Oak Log textures, but have the ``BOTTOM``, ``TOP`` and 
 The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
-All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model! 
+All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
 :::
 
 ### Custom BlockStateSupplier Method {#custom-supplier-method}
@@ -225,15 +226,17 @@ The `BlockStateSupplier` contains all blockstate variants, their rotation, and o
 First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
 Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` & `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
 Specify which model and which transformations (uvlock, rotation) is used when using `.register()`.
-For example: 
-* On the first line, the block is facing north, and is single => we use the model with no rotation.
-* On the fourth line, the block is facing west, and is single => we rotate the model on the Y axis by 270°.
-* On the sixth line, the block is facing east, but isn't single => it looks like a normal oak log => we don't have to rotate it.
+For example:
+
+- On the first line, the block is facing north, and is single => we use the model with no rotation.
+- On the fourth line, the block is facing west, and is single => we rotate the model on the Y axis by 270°.
+- On the sixth line, the block is facing east, but isn't single => it looks like a normal oak log => we don't have to rotate it.
 
 ### Custom Datagen Method {#custom-datagen-method}
 
 The last step - creating an actual method you can call and that will generate the JSONs.
 But what are the parameters for?
+
 1. `BlockStateModelGenerator bsmg`, the same one that got passed into `generateBlockStateModels`.
 2. `Block vertSlabBlock` is the block to which we will generate the JSONs.
 3. `Block fullBlock` - is the model used when the `SINGLE` property is false = the slab block looks like a full block.
@@ -249,9 +252,7 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 @[code lang=java transcludeWith=:::datagen-model-custom:method-call](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-## Sources and links {#sources-and-links}
+## Sources and Links {#sources-and-links}
 
 Other examples of using custom datagen methods have been created using [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) mods.
 You can also view the example tests in Fabric API and the Fabric docs reference mod for more information.
-
-
