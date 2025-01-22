@@ -113,6 +113,10 @@ export default [
           {
             text: "develop.blocks.block-entity-renderer",
             link: "/develop/blocks/block-entity-renderer",
+          },
+          {
+            text: "develop.blocks.inventory",
+            link: "/develop/blocks/inventory",
           }
         ]
       }
