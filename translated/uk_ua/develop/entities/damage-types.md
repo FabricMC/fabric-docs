@@ -68,7 +68,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### Власне сповіщення про смерть
 
-Ви можете визначити повідомлення про смерть для типу шкоди у форматі `death.attack.<message_id>` у нашому
+Ви можете визначити повідомлення про смерть для типу шкоди у форматі `death.attack.message_id` у нашому
 файл `en_us.json`(це англійська, для української створіть `uk_ua.json`) мода.
 
 ```json
