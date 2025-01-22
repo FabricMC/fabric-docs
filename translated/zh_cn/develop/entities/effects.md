@@ -47,7 +47,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### 翻译{#translations}
 
-像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.<mod-id>.<effect-identifier>": "Value"`。
+像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.mod-id.effect-identifier": "Value"`。
 
 ```json
 {
