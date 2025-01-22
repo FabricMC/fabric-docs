@@ -2,9 +2,6 @@ name: Lint
 
 on:
   pull_request:
-    branches:
-      - main
-      - port/**
     paths:
       - "**/*.md"
       - "!README.md"
