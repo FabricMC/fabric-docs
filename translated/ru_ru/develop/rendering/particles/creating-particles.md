@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Создание JSON-файла и добавление текстур {#creating-a-json-file-and-adding-textures}
 
-Вам нужно будет создать 2 папки в папке `resources/assets/<mod id here>/`.
+Вам нужно будет создать 2 папки в папке `resources/assets/mod-id/`.
 
 | Путь к папке         | Обьяснение                                                                              |
 | -------------------- | --------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ You can see all the particle factories by looking at all the implementations of 
 Проверить, все ли работает, можно, введя следующую команду:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![Демонстрация частицы](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
