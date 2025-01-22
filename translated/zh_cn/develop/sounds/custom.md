@@ -29,13 +29,13 @@ authors:
 
 ## 加载音频文件{#loading-the-audio-file}
 
-要在你的模组中使用音频文件，要添加新的 `resources/assets/<mod id here>/sounds` 目录，并将导出的音频文件 `metal_whistle.ogg` 放入该目录中。
+要在你的模组中使用音频文件，要添加新的 `resources/assets/mod-id/sounds` 目录，并将导出的音频文件 `metal_whistle.ogg` 放入该目录中。
 
-如果 `resources/assets/<mod id here>/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
+如果 `resources/assets/mod-id/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-字幕（subtitle）条目为玩家提供了更多的关于该声音的信息。 在 `resources/assets/<mod id here>/lang` 目录下的语言文件中会用到声音文件，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示这个字幕。
+字幕（subtitle）条目为玩家提供了更多的关于该声音的信息。 在 `resources/assets/mod-id/lang` 目录下的语言文件中会用到声音文件，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示这个字幕。
 
 ## 注册自定义声音{#registering-the-custom-sound}
 
