@@ -14,3 +14,5 @@ netlify.toml @FabricMC/developers
 package-lock.json @FabricMC/developers
 package.json @FabricMC/developers
 public/robots.txt @FabricMC/developers
+reference/ @FabricMC/developers
+reference/latest/ @FabricMC/documentation
