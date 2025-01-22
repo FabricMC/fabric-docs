@@ -4,4 +4,5 @@ This repository contains the source code for the Fabric Documentation website, w
 
 ## Contributing
 
-Please refer to the [contribution guidelines](./contributing) for more information.
+<!-- markdownlint-disable-next-line search-replace -->
+Please refer to the [contribution guidelines](./contributing.md) for more information.

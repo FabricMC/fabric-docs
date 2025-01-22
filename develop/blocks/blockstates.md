@@ -15,7 +15,7 @@ A block state is a piece of data attached to a singular block in the Minecraft w
 
 You can probably see why they are useful - they avoid the need to store NBT data in a block entity - reducing the world size, and preventing TPS issues!
 
-Blockstate definitions are found in the `assets/<mod id here>/blockstates` folder.
+Blockstate definitions are found in the `assets/mod-id/blockstates` folder.
 
 ## Example: Pillar Block {#pillar-block}
 
@@ -29,7 +29,7 @@ The vanilla `PillarBlock` class allows the block to be placed in the X, Y or Z a
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
-As always, with all block textures, the texture files can be found in `assets/<mod id here>/textures/block`
+As always, with all block textures, the texture files can be found in `assets/mod-id/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Textures</DownloadEntry>
 
@@ -45,7 +45,7 @@ An example of the `condensed_oak_log_horizontal.json` file:
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
 :::
@@ -105,7 +105,7 @@ Since this block only has two possible variants, as it only has one property (`a
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ::: tip
-Dont forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
+Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
 :::
 
 ---
@@ -124,4 +124,4 @@ You can use the `luminance` method to set the light level emitted by the block, 
 
 Once you've completed everything, the final result should look something like the following:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarine Lamp Block in-game</VideoPlayer>
