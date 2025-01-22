@@ -61,7 +61,7 @@ Wenn nun eine lebende Entität auf unseren benutzerdefinierten Block tritt, erle
 
 ### Benutzerdefinierte Todesnachricht {#custom-death-message}
 
-Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.<message_id>` in der Datei `en_us.json` unseres Mods definieren.
+Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.message_id` in der Datei `en_us.json` unseres Mods definieren.
 
 ```json
 {
