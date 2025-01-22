@@ -68,4 +68,4 @@ Come sempre, dovresti registrare il tuo oggetto, aggiungere un modello e una tex
 
 Come puoi notare, il lampo dovrebbe essere generato 10 blocchi davanti a te, giocatore.
 
-<VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />
+<VideoPlayer src="/assets/develop/items/custom_items_0.webm">Usare il Bastone del Lampo</VideoPlayer>
