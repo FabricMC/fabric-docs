@@ -48,4 +48,4 @@ Questo rende l'oggetto:
 - Sempre edibile, può essere mangiato indipendentemente dal livello di fame.
 - Fornisce sempre Avvelenamento II per 6 secondi appena consumato.
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />
+<VideoPlayer src="/assets/develop/items/food_0.webm">Mangiare la Mela Avvelenata</VideoPlayer>
