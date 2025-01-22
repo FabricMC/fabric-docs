@@ -13,6 +13,8 @@ const props = defineProps<{
 const title = (useSlots().default?.() ?? [""])[0].children ?? "";
 </script>
 
+<!-- A video player component that can be used within documentation pages instead of relying on .GIFs or .webp animated videos. -->
+
 <template>
   <media-player
     load="visible"

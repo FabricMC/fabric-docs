@@ -4,7 +4,6 @@ import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
-import BannerComponent from "./components/BannerComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
@@ -34,7 +33,6 @@ export default {
       "doc-before": () => h(VersionReminder),
       "aside-outline-before": () => h(VersionReminder),
       "aside-outline-after": () => h(AuthorsComponent),
-      "layout-top": () => h(BannerComponent),
     };
 
     if (useData().page.value.isNotFound) {

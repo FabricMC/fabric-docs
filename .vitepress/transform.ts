@@ -2,6 +2,9 @@ import { PageData, SiteConfig } from "vitepress";
 
 import { getWebsiteResolver } from "./i18n";
 
+/**
+ * Adds open graph data (social media embed info) and tells web crawlers to not index versioned pages.
+ */
 export function transformPageData(pageData: PageData, _context: any) {
   pageData.frontmatter.head ??= [];
 
