@@ -347,7 +347,7 @@ Per usare questo sistema sonoro, basta sfruttare i metodi di `DynamicSoundManage
 
 Il prodotto finale può regolare il proprio volume in base alla fase di suono, per rendere fluide le transizioni, e cambiare il tono in base a un valore di stress che proviene dalla fonte sonora.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">BlockEntity Motore con cambiamenti dinamici del suono</VideoPlayer>
 
 Potresti anche volendo aggiungere un altro valore alla tua fonte sonora, che tiene traccia di un valore "surriscaldamento", e fare in modo che una `SoundInstance` di un fischio/sibilo aumenti lentamente se il valore è sopra a 0; o ancora aggiungere una nuova interfaccia alla tua `SoundInstance` dinamica personalizzata, che assegni un valore di priorità ai tipi di suono, e permette di scegliere quale suono riprodurre se questi vanno in conflitto tra loro.
 
