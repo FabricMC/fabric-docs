@@ -61,7 +61,7 @@ Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 
 
 ### Messaggio di Morte Personalizzato {#custom-death-message}
 
-Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.<message_id>` nel file `en_us.json` della nostra mod.
+Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.message_id` nel file `en_us.json` della nostra mod.
 
 ```json
 {
