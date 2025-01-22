@@ -61,7 +61,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### 自定义死亡消息{#custom-death-message}
 
-你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
+你可以在你的模组的 `en_us.json` 文件中以 `death.attack.message_id` 的格式定义伤害类型的死亡信息。
 
 ```json
 {
