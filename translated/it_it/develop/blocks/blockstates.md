@@ -15,7 +15,7 @@ Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Mine
 
 Probabilmente hai capito perché sono così utili - per evitare di immagazzinare dati NBT in un blocco-entità, riducendo dunque le dimensioni del mondo e migliorando i TPS!
 
-Le definizioni degli stati dei blocchi si trovano nella cartella `assets/<mod id here>/blockstates`.
+Le definizioni degli stati dei blocchi si trovano nella cartella `assets/mod-id/blockstates`.
 
 ## Esempio: Pilastro {#pillar-block}
 
@@ -29,7 +29,7 @@ La classe vanilla `PillarBlock` permette di piazzare il blocco lungo gli assi X,
 
 I pilastri hanno due texture diverse, superiore e laterale - e usano il modello `block/cube_column`.
 
-Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/<mod id here>/textures/blocks`
+Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/mod-id/textures/blocks`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">le Texture</DownloadEntry>
 
@@ -45,7 +45,7 @@ Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)]
 (https://minecraft.wiki/w/Tutorials/Models#Block_states).
