@@ -124,4 +124,4 @@ You can use the `luminance` method to set the light level emitted by the block, 
 
 Once you've completed everything, the final result should look something like the following:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarine Lamp Block in-game</VideoPlayer>
