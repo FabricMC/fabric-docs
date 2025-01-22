@@ -49,7 +49,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### Переклад {#translations}
 
-Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.<0>.<1>": "Значення"`
+Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.mod-id.effect-identifier": "Значення"`
 у мовний файл.
 
 ```json
