@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Eine JSON Datei erstellen und Texturen hinzufügen {#creating-a-json-file-and-adding-textures}
 
-Du musst 2 Ordner in deinem `resources/assets/<mod id here>/` Ordner erstellen.
+Du musst 2 Ordner in deinem `resources/assets/mod-id/` Ordner erstellen.
 
 | Ordnerpfad           | Erklärung                                                                                            |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ Sobald du die JSON-Datei fertiggestellt und deine Arbeit gespeichert hast, kanns
 Du kannst überprüfen, ob alles funktioniert hat, indem du den folgenden Befehl eingibst:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![Vorführung des Partikels](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
