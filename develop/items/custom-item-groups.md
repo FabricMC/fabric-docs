@@ -17,7 +17,7 @@ It's surprisingly easy to create an item group. Simply create a new static final
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-<hr />
+---
 
 You should see the item group is now in the creative inventory menu. However, it is untranslated - you must add a translation key to your translations file - similarly to how you translated your first item.
 

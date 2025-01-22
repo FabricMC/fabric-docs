@@ -2,6 +2,9 @@ import { PageData, SiteConfig } from "vitepress";
 
 import { getWebsiteResolver } from "./i18n";
 
+/**
+ * Adds open graph data (social media embed info) and tells web crawlers to not index versioned pages.
+ */
 export function transformPageData(pageData: PageData, _context: any) {
   pageData.frontmatter.head ??= [];
 
@@ -32,7 +35,7 @@ export function transformPageData(pageData: PageData, _context: any) {
     // TODO: "twitter:site"?
   ];
 
-  // Dont index the page if it's a versioned page.
+  // Don't index the page if it's a versioned page.
   if (pageData.filePath.includes("versions")) {
     tags.push(["robots", "noindex"]);
   }

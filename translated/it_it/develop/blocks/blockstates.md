@@ -125,4 +125,4 @@ Puoi usare il metodo `luminance` per impostare il livello di luce emessa dal blo
 
 Quando avrai completato tutto, il risultato finale dovrebbe avere il seguente aspetto:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Blocco di Lampada di Prismarino nel gioco</VideoPlayer>

@@ -75,7 +75,7 @@ However, it's missing the following:
 
 The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
 
-Create a new JSON file at: `src/main/resources/assets/<mod id here>/lang/en_us.json` and put in the translation key, and its value:
+Create a new JSON file at: `src/main/resources/assets/mod-id/lang/en_us.json` and put in the translation key, and its value:
 
 ```json
 {
@@ -87,7 +87,7 @@ You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T
 
 ## Adding a Texture and Model {#adding-a-texture-and-model}
 
-To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/<mod id here>/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
+To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/mod-id/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
 
 For example purposes, you can use this example texture for `suspicious_substance.png`
 
@@ -97,7 +97,7 @@ When restarting/reloading the game - you should see that the item still has no t
 
 You're going to create a simple `item/generated` model, which takes in an input texture and nothing else.
 
-Create the model JSON in the `assets/<mod id here>/models/item` folder, with the same name as the item; `suspicious_substance.json`
+Create the model JSON in the `assets/mod-id/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -112,9 +112,9 @@ There are alternatives, such as `item/handheld` which is used for items that are
 
 ## Creating the Item Model Description {#creating-the-item-model-description}
 
-Minecraft doesn't automatically know where your item's model files can be found, we need to provide an item model description.
+Minecraft doesn't automatically know where your items' model files can be found, we need to provide an item model description.
 
-Create the item description JSON in the `assets/<mod id here>/items`, with the same filename as the identifier of the item; `suspicious_substance.json`.
+Create the item description JSON in the `assets/mod-id/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
 
@@ -122,7 +122,7 @@ Create the item description JSON in the `assets/<mod id here>/items`, with the s
 
 - `model`: This is the property that contains the reference to our model.
   - `type`: This is the type of our model. For most items, this should be `minecraft:model`
-  - `model`: This is the model's identifier. It should have this form: `<mod id here>:item/<item name here>`
+  - `model`: This is the model's identifier. It should have this form: `mod-id:item/item_name`
 
 Your item should now look like this in-game:
 
@@ -144,7 +144,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/<mod id here>/recipe` folder.
+If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/mod-id/recipe` folder.
 
 For more information on the recipe format, check out these resources:
 

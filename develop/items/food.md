@@ -48,4 +48,4 @@ This makes the item:
 - Always edible, it can be eaten regardless of hunger level.
 - Always give Poison II for 6 seconds when eaten.
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />
+<VideoPlayer src="/assets/develop/items/food_0.webm">Eating the Poisonous Apple</VideoPlayer>

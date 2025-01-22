@@ -8,16 +8,19 @@ export default [
     items: [
       {
         text: "Fabric API GitHub",
+        processSidebarURLs: false,
         translatable: false,
         link: "https://github.com/FabricMC/fabric",
       },
       {
         text: "Yarn GitHub",
+        processSidebarURLs: false,
         translatable: false,
         link: "https://github.com/FabricMC/yarn",
       },
       {
         text: "Loom GitHub",
+        processSidebarURLs: false,
         translatable: false,
         link: "https://github.com/FabricMC/fabric-loom",
       },
