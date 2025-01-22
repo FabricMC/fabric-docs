@@ -59,4 +59,4 @@ Dovresti anche aggiungere le traduzioni al tuo file `en_us.json` per dare al tuo
 
 Dovresti ora avere un effetto d'incantesimo personalizzato funzionante! Testalo incantando un'arma con l'incantesimo e colpendo un mob. Ecco un esempio nel video seguente:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Thundering Enchantment" />
+<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">Usare l'Incantesimo Fulminazione</VideoPlayer>
