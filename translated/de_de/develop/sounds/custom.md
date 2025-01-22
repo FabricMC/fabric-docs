@@ -29,13 +29,13 @@ Denke auch daran, dass Audio-Dateien die Dateigröße deines Mods drastisch erh�
 
 ## Laden der Audio-Datei {#loading-the-audio-file}
 
-Füge das neue Verzeichnis `resources/assets/<mod id here>/sounds` für die Sounds in deinem Mod hinzu, und lege die exportierte Audio-Datei `metal_whistle.ogg` dort hinein.
+Füge das neue Verzeichnis `resources/assets/mod-id/sounds` für die Sounds in deinem Mod hinzu, und lege die exportierte Audio-Datei `metal_whistle.ogg` dort hinein.
 
-Fahre mit der Erstellung der Datei `resources/assets/<mod id here>/sounds.json` fort, falls sie noch nicht existiert und füge deinen Sound zu den Sound-Einträgen hinzu.
+Fahre mit der Erstellung der Datei `resources/assets/mod-id/sounds.json` fort, falls sie noch nicht existiert und füge deinen Sound zu den Sound-Einträgen hinzu.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels wird in den Sprachdateien im Verzeichnis `resources/assets/<mod id here>/lang` verwendet und wird angezeigt, wenn die Untertitel-Einstellung im Spiel aktiviert ist und dieser benutzerdefinierte Sound abgespielt wird.
+Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels wird in den Sprachdateien im Verzeichnis `resources/assets/mod-id/lang` verwendet und wird angezeigt, wenn die Untertitel-Einstellung im Spiel aktiviert ist und dieser benutzerdefinierte Sound abgespielt wird.
 
 ## Registrieren des benutzerdefinierten Sounds {#registering-the-custom-sound}
 
