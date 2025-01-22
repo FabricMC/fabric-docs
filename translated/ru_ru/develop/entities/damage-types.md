@@ -63,7 +63,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### Пользовательское сообщение о смерти {#custom-death-message}
 
-Вы можете определить сообщение о смерти для типа урона в формате `death.attack.<message_id>` в файле `en_us.json`.
+Вы можете определить сообщение о смерти для типа урона в формате `death.attack.message_id` в файле `en_us.json`.
 
 ```json
 {
