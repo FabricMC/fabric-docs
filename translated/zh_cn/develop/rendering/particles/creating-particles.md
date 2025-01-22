@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## 创建 JSON 文件并添加纹理{#creating-a-json-file-and-adding-textures}
 
-你需要在你的 `resources/assets/<mod id here>/` 文件夹中创建两个文件夹。
+你需要在你的 `resources/assets/mod-id/` 文件夹中创建两个文件夹。
 
 | 文件夹路径                | 说明                            |
 | -------------------- | ----------------------------- |
@@ -60,7 +60,7 @@ You can see all the particle factories by looking at all the implementations of 
 可以输入以下命令，看看是否一切正常：
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
