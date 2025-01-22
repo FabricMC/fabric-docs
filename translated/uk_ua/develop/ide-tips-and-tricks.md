@@ -301,19 +301,19 @@ Jetbrains має багато хороших доповідей, відео та
 Використовуйте PostFix Completion, щоб змінити код після його швидкого написання. Часто використовувані приклади містять `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` та `.new`.
 Крім існуючих, ви також можете створити власні в налаштуваннях IntelliJ.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU">Поради IntelliJ IDEA Pro: завершення Postfix на YouTube</VideoPlayer>
 
 ### "Живі" шаблони {#live-templates}
 
 Використовуйте живі шаблони, щоб швидше генерувати власний шаблонний код.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI">Поради IntelliJ IDEA Pro: живі шаблони на YouTube</VideoPlayer>
 
 ### Більше порад і підказок {#more-tips}
 
 Антон Архипов з Jetbrains також детально розповів про зіставлення регулярних виразів, завершення коду, налагодження та багато інших тем в IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI">Доповідь Антона Архипова про IntelliJ на YouTube</VideoPlayer>
 
 Для отримання додаткової інформації відвідайте [сайт Jetbrains з порадами та підказками](https://blog.jetbrains.com/idea/category/tips-tricks) і [документацію IntelliJ](https://www.jetbrains.com/ допомога/ідея/початок роботи).
 Більшість їхніх публікацій також стосуються екосистеми Fabric.
