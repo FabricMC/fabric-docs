@@ -302,19 +302,19 @@ Jetbrains has many good talks, videos and documentation pages about how to furth
 Use PostFix Completion to alter code after writing it quickly. Often used examples contain `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` and `.new`.
 Besides the existing ones, you can also create your own in IntelliJ's Settings.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4">IntelliJ IDEA Pro Tips: Postfix Completion on YouTube</VideoPlayer>
 
 ### Live Templates {#live-templates}
 
 Use Live Templates to generate your custom boilerplate code faster.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU">IntelliJ IDEA Pro Tips: Live Templates on YouTube</VideoPlayer>
 
 ### More Tips and Tricks {#more-tips}
 
 Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI">IntelliJ talk by Anton Arhipov on YouTube</VideoPlayer>
 
 For even more information, check out [Jetbrains' Tips & Tricks site](https://blog.jetbrains.com/idea/category/tips-tricks) and [IntelliJ's documentation](https://www.jetbrains.com/help/idea/getting-started).
 Most of their posts are also applicable to Fabric's ecosystem.

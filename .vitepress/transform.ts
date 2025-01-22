@@ -35,7 +35,7 @@ export function transformPageData(pageData: PageData, _context: any) {
     // TODO: "twitter:site"?
   ];
 
-  // Dont index the page if it's a versioned page.
+  // Don't index the page if it's a versioned page.
   if (pageData.filePath.includes("versions")) {
     tags.push(["robots", "noindex"]);
   }
