@@ -47,7 +47,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### Переводы {#translations}
 
-Как и с любыми другими переводами, вы можете добавить запись формата `"effect.<mod-id>.<effect-identifier>": "Значение"` в языковой файл.
+Как и с любыми другими переводами, вы можете добавить запись формата `"effect.mod-id.effect-identifier": "Значение"` в языковой файл.
 
 ```json
 {
