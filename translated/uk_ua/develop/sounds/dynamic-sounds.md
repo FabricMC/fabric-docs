@@ -349,7 +349,7 @@ public enum TransitionState {
 
 Кінцевий продукт може регулювати свою гучність на основі звукової фази, щоб згладити переходи та змінити висоту на основі значення стресу, яке надходить від джерела звуку.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Механізм BlockEntity з динамічними змінами звуку</VideoPlayer>
 
 Ви можете додати інше значення до свого джерела звуку, яке відстежує значення «перегріву» і, крім того, дозволити шиплячому `SoundInstance` повільно зникати, якщо значення вище 0, або додати новий інтерфейс до вашого спеціального динамічного `SoundInstance` \`s, який призначає значення пріоритету типам звуків, що допомагає вибрати звук для відтворення, якщо вони стикаються один з одним.
 
