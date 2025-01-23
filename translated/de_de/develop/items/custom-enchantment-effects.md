@@ -59,4 +59,4 @@ Du solltest auch Übersetzungen zu deiner `en_us.json` Datei hinzufügen, um dei
 
 Du solltest jetzt einen funktionierenden, benutzerdefinierten Verzauberungseffekt haben! Teste es, indem du eine Waffe mit der Verzauberung verzauberst und einen Mob triffst. Ein Beispiel wird im folgenden Video gezeigt:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Thundering Enchantment" />
+<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">Das Thundering-Enchantment benutzen</VideoPlayer>
