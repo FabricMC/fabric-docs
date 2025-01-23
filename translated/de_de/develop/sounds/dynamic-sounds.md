@@ -348,7 +348,7 @@ Um dieses Soundsystem zu verwenden, musst du entweder die Methoden von `DynamicS
 
 Das Endprodukt kann seine Lautstärke auf der Grundlage der Soundphase anpassen, um die Übergänge zu glätten, und die Tonhöhe auf der Grundlage eines Stresswertes ändern, der von der Soundquelle stammt.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Motor Block Entität mit dynamischen Sound Änderungen</VideoPlayer>
 
 Du könntest einen weiteren Wert zu deiner Soundquelle hinzufügen, der einen "Überhitzungs"-Wert verfolgt und zusätzlich eine zischende `SoundInstance` langsam einblenden lässt, wenn der Wert über 0 liegt, oder ein neues Interface zu deiner benutzerdefinierten dynamischen `SoundInstance` hinzufügen, die den Soundtypen einen Prioritätswert zuweist, der bei der Auswahl des abzuspielenden Sounds hilft, wenn sie miteinander kollidieren.
 
