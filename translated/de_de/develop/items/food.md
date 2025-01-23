@@ -48,4 +48,4 @@ Dies macht das Item:
 - Immer essbar, es kann unabhängig vom Hungerlevel gegessen werden.
 - Immer den Effekt Vergiftung II für 6 Sekunden, wenn gegessen.
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />
+<VideoPlayer src="/assets/develop/items/food_0.webm">Den giftigen Apfel essen</VideoPlayer>
