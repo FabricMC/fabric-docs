@@ -1,38 +1,29 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
-import { ref, watchEffect } from "vue";
+import { computed } from "vue";
 
 const data = useData();
 const route = useRoute();
 const LATEST = "1.21.4";
 
-const path = ref<string>("");
-const text = ref<string>("");
-const version = ref<string>("");
+const path = computed(() => route.path);
+const text = computed(() => data.theme.value.version.reminder as string);
 
-function refreshText() {
-  if (route.path !== path.value) {
-    path.value = route.path;
+const version = computed(() => {
+  const mcRegex = /^\d+\.\d+(\.\d+)*$/;
+  const localeRegex = /^[a-z]{2}_[a-z]{2}$/;
 
-    text.value = data.theme.value.version.reminder as string;
+  const segments = path.value.split("/");
+  const firstSegment = segments[1] ?? "";
+  const secondSegment = segments[2] ?? "";
 
-    const mcRegex = /^\d+\.\d+(\.\d+)*$/;
-    const localeRegex = /^[a-z]{2}_[a-z]{2}$/;
-
-    const firstSegment = path.value.split("/")[1] ?? "";
-    const secondSegment = path.value.split("/")[2] ?? "";
-    if (mcRegex.test(firstSegment)) {
-      version.value = firstSegment;
-    } else if (localeRegex.test(firstSegment) && mcRegex.test(secondSegment)) {
-      version.value = secondSegment;
-    } else {
-      version.value = LATEST;
-    }
+  if (mcRegex.test(firstSegment)) {
+    return firstSegment;
+  } else if (localeRegex.test(firstSegment) && mcRegex.test(secondSegment)) {
+    return secondSegment;
+  } else {
+    return LATEST;
   }
-}
-
-watchEffect(() => {
-  refreshText();
 });
 </script>
 
@@ -56,13 +47,13 @@ watchEffect(() => {
               <path
                 stroke-width="7px"
                 d="M256.657,127.525h-31.9c-10.557,0-19.125,8.645-19.125,19.125v101.975c0,10.48,8.645,19.125,19.125,19.125h31.9
-				c10.48,0,19.125-8.645,19.125-19.125V146.65C275.782,136.17,267.138,127.525,256.657,127.525z"
+                c10.48,0,19.125-8.645,19.125-19.125V146.65C275.782,136.17,267.138,127.525,256.657,127.525z"
               />
               <path
                 stroke-width="7px"
                 d="M239.062,0C106.947,0,0,106.947,0,239.062s106.947,239.062,239.062,239.062c132.115,0,239.062-106.947,239.062-239.062
-				S371.178,0,239.062,0z M239.292,409.734c-94.171,0-170.595-76.348-170.595-170.596c0-94.248,76.347-170.595,170.595-170.595
-				s170.595,76.347,170.595,170.595C409.887,333.387,333.464,409.734,239.292,409.734z"
+                S371.178,0,239.062,0z M239.292,409.734c-94.171,0-170.595-76.348-170.595-170.596c0-94.248,76.347-170.595,170.595-170.595
+                s170.595,76.347,170.595,170.595C409.887,333.387,333.464,409.734,239.292,409.734z"
               />
             </g>
           </g>
@@ -82,8 +73,8 @@ watchEffect(() => {
         <g>
           <path
             d="M462.5,96.193l-21.726-21.726c-8.951-8.95-23.562-8.95-32.59,0L180.368,302.361l-119.34-119.34
-        c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62
-        c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z"
+            c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62
+            c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z"
           />
         </g>
       </svg>
