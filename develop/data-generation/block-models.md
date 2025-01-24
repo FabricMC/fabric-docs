@@ -125,7 +125,7 @@ And you're done! You can now test the block out and place it in game.
 ### Parent Block Model {#parent-block-model}
 
 Now, let's create a parent block model. It will determine the size, position in hand or other slots and the `x` and `y` coordinates of the texture.
-I highly recommend using [Blockbench](https://www.blockbench.net/) for this, as making it manually is a really tedious process. It should look something like this:
+It's recommended to use an editor such as [Blockbench](https://www.blockbench.net/) for this, as making it manually is a really tedious process. It should look something like this:
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/vertical_slab.json)
 
@@ -194,7 +194,7 @@ For example:
 The last step - creating an actual method you can call and that will generate the JSONs.
 But what are the parameters for?
 
-1. `BlockStateModelGenerator bsmg`, the same one that got passed into `generateBlockStateModels`.
+1. `BlockStateModelGenerator generator`, the same one that got passed into `generateBlockStateModels`.
 2. `Block vertSlabBlock` is the block to which we will generate the JSONs.
 3. `Block fullBlock` - is the model used when the `SINGLE` property is false = the slab block looks like a full block.
 4. `TextureMap textures` defines the actual textures the model uses. See the [Using Texture Map](#using-texture-map) chapter.
@@ -211,6 +211,6 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in Fabric API and the Fabric docs reference mod for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.4/fabric-data-generation-api-v1/src/) and this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
 
 You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.
