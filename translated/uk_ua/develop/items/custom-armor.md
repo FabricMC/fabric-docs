@@ -78,7 +78,7 @@ authors:
 
 Для прикладу ви можете використовувати наведені нижче текстури та модель JSON як еталон.
 
-<0>Текстура предмета</0>
+<DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">Текстура предмета</DownloadEntry>
 
 :::info
 Вам знадобляться файли моделі JSON для всіх предметів, а не лише для шолома, це той самий принцип, що й інші моделі предметів.
@@ -103,7 +103,7 @@ authors:
 - `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` – містить текстури верхньої частини тіла та черевиків.
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Містить текстури наголінників.
 
-<0>Текстури моделі обладунків Guidite</0>
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Текстури моделі обладунків Guidite</DownloadEntry>
 
 :::tip
 Якщо ви оновлюєте старішу версію гри до 1.21.4, у теці `humanoid` буде ваша текстура обладунків `layer0.png`, а в теці `humanoid_leggings` — ваша текстура обладунків `layer1.png`.
@@ -111,7 +111,7 @@ authors:
 
 Далі вам потрібно буде створити пов’язане визначення моделі обладнання. Вони знаходяться в теці `/assets/mod-id/equipment/`.
 
-Константа `RegistryKey<0>`, яку ми створили раніше, визначатиме назву файлу JSON. У цьому випадку це буде `guidite.json`.
+Константа `RegistryKey<EquipmentAsset>`, яку ми створили раніше, визначатиме назву файлу JSON. У цьому випадку це буде `guidite.json`.
 
 Оскільки ми плануємо додати лише «гуманоїда» (шолом, нагрудник, наголінники, чоботи тощо) обладунків, наше визначення моделі обладнання виглядатиме так:
 
