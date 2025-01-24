@@ -22,16 +22,16 @@ authors-nogithub:
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
 :::info ПРИМІТКА
-Вам знадобиться інший постачальник для кожного типу теґу (наприклад, один `FabricTagProvider<EntityType<?>>` і один `FabricTagProvider<0>`).
+Вам знадобиться інший постачальник для кожного типу теґу (наприклад, один `FabricTagProvider<EntityType<?>>` і один `FabricTagProvider<Item>`).
 :::
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
 @[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
-## Створення теґу
+## Створення теґу {#creating-a-tag}
 
-Тепер, коли ви створили постачальника, нумо додамо до нього теґ. Спочатку створіть `TagKey<0>`:
+Тепер, коли ви створили постачальника, нумо додамо до нього теґ. Спочатку створіть `TagKey<T>`:
 
 @[code lang=java transcludeWith=:::datagen-tags:tag-key](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
