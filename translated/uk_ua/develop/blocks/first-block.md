@@ -50,7 +50,7 @@ public class ModBlocks {
 Для прикладу ми створимо простий блок, який має властивості бруду, але є іншим матеріалом.
 
 - Нам потрібен `RegistryKey<Block>`, який використовується як унікальний ID для нашого блоку, він передається в `Registry.register` у попередньому методі утиліти.
-- `RegistryKey<0>` також потрібен конструктору `AbstractBlock.Settings`.
+- `RegistryKey<Block>` також потрібен конструктору `AbstractBlock.Settings`.
 
 :::tip
 Ви також можете використовувати `AbstractBlock.Settings.copy(AbstractBlock block)`, щоб скопіювати налаштування блоку що існує, у цьому випадку ми могли б використати `Blocks.DIRT`, щоб скопіювати налаштування dirt, але для прикладу ми скористаємося конструктором.
@@ -96,7 +96,7 @@ Minecraft використовуватиме цей переклад у твор
 
 Усі текстури блоків можна знайти в теці `assets/mod-id/textures/block` - приклад текстури для блоку «Condensed Dirt» можна використовувати безплатно.
 
-<0>Текстура</0>
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Текстура</DownloadEntry>
 
 Щоб текстура промальовувалася в грі, ви повинні створити модель блоку, яку можна знайти у файлі `assets/mod-id/models/block/condensed_dirt.json` для блоку «Condensed Dirt». Для цього блоку ми будемо використовувати тип моделі `block/cube_all`.
 
