@@ -51,7 +51,7 @@ authors:
 
 @[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
 
-Ви також повинні додати переклади до свого файлу `en_us.json`(для української створіть `uk_ua.json`), щоб надати своєму зачаруванню читабельну назву:
+Ви також повинні додати переклади до свого файлу `en_us.json` (для української створіть `uk_ua.json`), щоб надати своєму зачаруванню читабельну назву:
 
 ```json
 "enchantment.FabricDocsReference.thundering": "Thundering",
