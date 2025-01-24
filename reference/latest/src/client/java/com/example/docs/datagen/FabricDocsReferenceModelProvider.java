@@ -1,6 +1,5 @@
 package com.example.docs.datagen;
 
-// :::datagen-model:provider
 import java.util.Optional;
 
 import net.minecraft.block.Block;
@@ -28,6 +27,7 @@ import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 
+// :::datagen-model:provider
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	public FabricDocsReferenceModelProvider(FabricDataOutput output) {
 		super(output);
@@ -138,11 +138,11 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		// :::datagen-model-custom:supplier
 
 		// :::datagen-model-custom:gen
-		public static void registerVerticalSlab(BlockStateModelGenerator bsmg, Block vertSlabBlock, Block fullBlock, TextureMap textures) {
-			Identifier slabModel = VERTICAL_SLAB.upload(vertSlabBlock, textures, bsmg.modelCollector);
+		public static void registerVerticalSlab(BlockStateModelGenerator generator, Block vertSlabBlock, Block fullBlock, TextureMap textures) {
+			Identifier slabModel = VERTICAL_SLAB.upload(vertSlabBlock, textures, generator.modelCollector);
 			Identifier fullBlockModel = ModelIds.getBlockModelId(fullBlock);
-			bsmg.blockStateCollector.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
-			bsmg.registerParentedItemModel(vertSlabBlock, slabModel);
+			generator.blockStateCollector.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
+			generator.registerParentedItemModel(vertSlabBlock, slabModel);
 		}
 
 		// :::datagen-model-custom:gen
