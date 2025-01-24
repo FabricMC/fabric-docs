@@ -57,6 +57,16 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK.asItem(), "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP.asItem(), "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK.asItem(), "Engine Block");
+
+		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
+		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");
+		translationBuilder.add(ModBlocks.RUBY_BLOCK, "Ruby Block");
+		translationBuilder.add(ModBlocks.RUBY_STAIRS, "Ruby Stairs");
+		translationBuilder.add(ModBlocks.RUBY_SLAB, "Ruby Slab");
+		translationBuilder.add(ModBlocks.RUBY_FENCE, "Ruby Fence");
+		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
+		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
+		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
 		// :::datagen-translations:provider
 	}
 }

@@ -108,7 +108,6 @@ public class ModItems {
 			SUSPICIOUS_SUBSTANCE_KEY
 	);
 	// :::2
-
 	// :::1
 	public static Item register(Item item, RegistryKey<Item> registryKey) {
 		// Register the item.

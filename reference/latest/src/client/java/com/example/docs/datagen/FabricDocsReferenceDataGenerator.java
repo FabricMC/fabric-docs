@@ -38,6 +38,8 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 
 		pack.addProvider(FabricDocsReferenceInternalModelProvider::new);
 
+		pack.addProvider(FabricDocsReferenceModelProvider::new);
+
 		// :::datagen-setup:generator
 	}
 

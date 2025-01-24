@@ -235,7 +235,11 @@ export default [
 		{
 			text: "develop.dataGeneration.lootTables",
 			link: "/develop/data-generation/loot-tables"
-		}
+		},
+        {
+            text: "develop.dataGeneration.blockModels",
+            link: "/develop/data-generation/block-models"
+        }
 	  ]
   },
   {
