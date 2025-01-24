@@ -29,8 +29,8 @@ authors:
 ```java
 BlockPos pos = new BlockPos(1, 2, 3);
 
-// Serialize the BlockPos to a JsonElement
-DataResult<0> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
+// Серіалізація BlockPos до JsonElement
+DataResult<JsonElement> result= BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
 ```
 
 Під час використання кодека значення повертаються у формі `DataResult`. Це обгортка, яка може представляти або успіх чи невдача. Ми можемо використовувати це кількома способами: якщо нам просто потрібно наше серіалізоване значення, `DataResult#result` буде
@@ -40,20 +40,20 @@ DataResult<0> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
 Тож візьмімо наше серіалізоване значення та перетворимо його назад на `BlockPos`:
 
 ```java
-// When actually writing a mod, you'll want to properly handle empty Optionals of course
+// Під час написання мода ви, звичайно, захочете правильно обробляти порожні Optionals
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// Here we have our json value, which should correspond to `[1, 2, 3]`,
+// Тут ми маємо наше значення json, яке має відповідати `[1, 2, 3]`,
 // as that's the format used by the BlockPos codec.
 LOGGER.info("Serialized BlockPos: {}", json);
 
-// Now we'll deserialize the JsonElement back into a BlockPos
-DataResult<0> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
+// Тепер ми десеріалізуємо JsonElement назад у BlockPos
+DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 
-// Again, we'll just grab our value from the result
+// Знову ж таки, ми просто візьмемо наше значення з результату
 BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// And we can see that we've successfully serialized and deserialized our BlockPos!
+// І ми бачимо, що ми успішно серіалізували і десеріалізували наш BlockPos!
 LOGGER.info("Deserialized BlockPos: {}", pos);
 ```
 
@@ -198,7 +198,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Пара {#pair}
 
-`Codec.pair` об’єднує два кодеки, `Codec<0>` і `Codec<1>`, у `Codec<Pair<2>>`. Майте на увазі, що він працює належним чином лише з кодеками, які серіалізуються в певне поле, наприклад [перетворені `MapCodec`s](#mapcodec) або [кодеки запису](#merging-codecs-for-record-like-classes).
+`Codec.pair` об’єднує два кодеки, `Codec<A>` і `Codec<B>`, у `Codec<Pair<A, B>>`. Майте на увазі, що він працює належним чином лише з кодеками, які серіалізуються в певне поле, наприклад [перетворені `MapCodec`s](#mapcodec) або [кодеки запису](#merging-codecs-for-record-like-classes).
 Отриманий кодек буде серіалізовано в мапу, що поєднує поля обох використаних кодеків.
 
 Наприклад, запустіть цей код:
@@ -374,7 +374,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 public record ListNode(int value, ListNode next) {}
 ```
 
-Ми не можемо створити кодек для цього звичайними засобами, оскільки який кодек ми використаємо для поля `next`? Нам потрібен `Codec<0>`, який ми зараз розробляємо! `Codec#recursive` дозволяє нам досягти цього за допомогою магічної на вигляд лямбди:
+Ми не можемо створити кодек для цього звичайними засобами, оскільки який кодек ми використаємо для поля `next`? Нам потрібен `Codec<ListNode>`, який ми зараз розробляємо! `Codec#recursive` дозволяє нам досягти цього за допомогою магічної на вигляд лямбди:
 
 ```java
 Codec<ListNode> codec = Codec.recursive(
