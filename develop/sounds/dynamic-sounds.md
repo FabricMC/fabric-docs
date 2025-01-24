@@ -365,7 +365,7 @@ from entities or just custom S2C networking, you can now start and stop your cus
 The final product can adjust its volume based on the sound phase to smoothen out the transitions and change the pitch based on a stress value, which is
 coming from the sound source.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Engine BlockEntity with dynamic sound changes</VideoPlayer>
 
 You could add another value to your sound source, which keeps track of an "overheat" value and, in addition, let a hissing `SoundInstance` slowly fade in if the value is above 0
 or add a new interface to your custom dynamic `SoundInstance`s which assigns a priority value to the sound types, which helps out choosing which sound to play, if they
