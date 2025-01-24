@@ -40,7 +40,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 `condensed_oak_log_horizontal.json` 文件的示例：
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -56,7 +56,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 - `axis=y` - 方块沿 Y 轴旋转时，使用正常的垂直模型。
 - `axis=z` - 方块沿Z 轴放置时，旋转模型以朝向正 X 方向。
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 同样，需要为你的方块创建翻译，以及继承了这两个模型中的任意一个的物品模型。
 
@@ -82,10 +82,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-别忘了注册方块时使用自定义的类而不是 `Block`！
-:::
-
 ### 使用属性{#using-the-property}
 
 这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法：
@@ -107,6 +103,10 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 因为方块只有一个属性（`activated`），只有两个变种，所以方块状态 JSON 看起来应该像这样：
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+
+:::tip
+不要忘记为方块添加[物品模型描述](../items/first-item#creating-the-item-model-description)，以便它在物品栏中显示！
+:::
 
 ---
 

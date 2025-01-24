@@ -135,7 +135,7 @@ Die Klasse `MatrixStack` hat folgende Methoden:
 
 Du kannst auch die oberste Matrix auf dem Stapel mit Quaternionen multiplizieren, was wir im nächsten Abschnitt behandeln werden.
 
-Ausgehend von unserem obigen Beispiel können wir unseren Diamanten nach oben und unten skalieren, indem wir `MatrixStack` und `tickDelta` verwenden - das ist die Zeit, die seit dem letzten Frame vergangen ist.
+Ausgehend von unserem obigen Beispiel können wir unseren Diamanten nach oben und unten skalieren, indem wir den `MatrixStack` und `tickDelta` verwenden - was der "Fortschritt" zwischen dem letztem Spieltick und dem nächsten Spieltick ist. Wir werden dies später auf der Seite [Rendering im Hud](./hud#tick-delta) erläutern.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.

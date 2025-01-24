@@ -13,7 +13,7 @@ authors:
 
 我们会添加新的火花粒子，模仿末地烛的粒子移动。
 
-首先，需要在你的[模组初始化器](./getting-started/project-structure#entrypoints)中，使用你有模组 id，注册 `ParticleType`。
+首先，需要在你的[模组初始化器](../../getting-started/project-structure#entrypoints)中，使用你有模组 ID，注册 `ParticleType`。
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## 创建 JSON 文件并添加纹理{#creating-a-json-file-and-adding-textures}
 
-你需要在你的 `resources/assets/<mod id here>/` 文件夹中创建两个文件夹。
+你需要在你的 `resources/assets/mod-id/` 文件夹中创建两个文件夹。
 
 | 文件夹路径                | 说明                            |
 | -------------------- | ----------------------------- |
@@ -60,7 +60,7 @@ You can see all the particle factories by looking at all the implementations of 
 可以输入以下命令，看看是否一切正常：
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

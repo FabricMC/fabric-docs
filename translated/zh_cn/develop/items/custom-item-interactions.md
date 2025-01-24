@@ -56,7 +56,7 @@ TypedActionResult.success(heldStack);
 
 ## 以使用(use) 事件为例 {#use-event}
 
-假设你想制作一个在玩家面前召唤闪电的物品，这显然需要创建一个自定义的物品类。
+假设你想制作一个在玩家面前召唤闪电束的物品，这显然需要创建一个自定义的物品类。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
@@ -66,6 +66,6 @@ TypedActionResult.success(heldStack);
 
 同样的，你需要注册物品，并添加模型和纹理。
 
-然后，效果就是这样
+正如你所见，闪电应该在你（玩家）面前 10 个方块远处产生。
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />

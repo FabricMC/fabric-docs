@@ -15,7 +15,7 @@ Ein Blockzustand entspricht ein wenig Daten, die einem einzelnen Block in der Mi
 
 Du kannst wahrscheinlich sehen, warum sie nützlich sind - sie vermeiden die Notwendigkeit, NBT-Daten in einer Blockentität zu speichern - was die Weltgröße reduziert und TPS-Probleme verhindert!
 
-Blockzustand-Definitionen finden sich im Ordner `assets/<mod id here>/blockstates`.
+Blockzustand-Definitionen finden sich im Ordner `assets/mod-id/blockstates`.
 
 ## Beispiel: Säulenblock {#pillar-block}
 
@@ -29,7 +29,7 @@ Die Vanilla `PillarBlock` Klasse erlaubt, dass der Block in der X, Y oder Z Axe 
 
 Säulenblöcke haben zwei Texturen, oben und an der Seite - sie verwenden das Modell `block/cube_column`.
 
-Wie immer bei allen Blocktexturen befinden sich die Texturdateien in `assets/<mod id here>/textures/block`.
+Wie immer bei allen Blocktexturen befinden sich die Texturdateien in `assets/mod-id/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Texturen</DownloadEntry>
 
@@ -40,12 +40,12 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Einen tieferen Einblick in alle Modifikatoren, die in den Blockzustand-Dateien verfügbar sind, findest du auf der Seite [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
@@ -56,7 +56,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
 - `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Wie immer musst du eine Übersetzung für deinen Block und ein Objektmodell erstellen, das einem der beiden Modelle übergeordnet ist.
 
@@ -82,10 +82,6 @@ Außerdem musst du im Konstruktor deines benutzerdefinierten Blocks einen Standa
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-Vergiss nicht, deinen Block mit der benutzerdefinierten Klasse anstelle von `Block` zu registrieren!
-:::
-
 ### Die Eigenschaft nutzen {#using-the-property}
 
 In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `onUse` überschreiben:
@@ -108,6 +104,10 @@ Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigens
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
+:::tip
+Vergiss nicht eine [Item-Model Beschreibung](../items/first-item#creating-the-item-model-description) für den Block zu erstellen, damit er im Inventar angezeigt wird!
+:::
+
 ---
 
 Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür sorgen, dass sie Licht ausstrahlt, wenn die Eigenschaft `activated` true ist. Dies kann über die Blockeinstellungen erfolgen, die bei der Registrierung des Blocks an den Konstruktor übergeben werden.
@@ -124,4 +124,4 @@ Du kannst die `luminance`-Methode verwenden, um die vom Block ausgestrahlte Lich
 
 Wenn du alles vervollständigt hast, sollte das Endergebnis etwa so aussehen wie das folgende:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarin Lampe im Spiel</VideoPlayer>

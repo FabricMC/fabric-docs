@@ -7,7 +7,7 @@ authors:
 
 # Block Entität Renderer {#block-entity-renderers}
 
-Manchmal reicht das Nutzen von Minecraft's Modellformat nicht aus. Wenn du dynamisches Rendering zu diesen hinzufügen willst, wirst du einen `BlockEntityRenderer` nutzen müssen.
+Manchmal reicht das Nutzen von Minecraft's Modellformat nicht aus. Wenn du dynamisches Rendering zu dessen visuellen Elemten hinzufügen willst, wirst du einen `BlockEntityRenderer` nutzen müssen.
 
 Lasst uns als Beispiel den Zählerblock aus dem [Artikel zu Block Entitäten](../blocks/block-entities) die Zahl an Klicks auf der Oberseite anzeigen lassen.
 
@@ -24,7 +24,7 @@ Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
-Füge den Einstiegspunkt zu der Datei `fabric.mod.json` hinzu, damit der Renderer registriert ist.
+Du solltest Renderer für Blockentitäten in deiner Klasse `ClientModInitializer` registrieren.
 
 `BlockEntityRendererFactories` ist eine Registrierung, die jeden `BlockEntityType` mit benutzerdefinierten Rendering-Code dem entsprechenden `BlockEntityRenderer` zuordnet.
 

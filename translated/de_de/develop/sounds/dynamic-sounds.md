@@ -173,7 +173,7 @@ Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundI
 
 Damit ist die Erklärung zur Erstellung und Verwendung einer einfachen benutzerdefinierten `SoundInstance` abgeschlossen.
 
-## Fortgeschrittene SoundInstances {#advanced-soundinstances}
+## Fortgeschrittene Sound Instanzen {#advanced-sound-instances}
 
 :::warning
 Der folgende Inhalt behandelt ein fortgeschrittenes Thema.
@@ -229,7 +229,7 @@ Nachdem du dieses Interface erstellt hast, stelle sicher, dass du es auch in den
 Dies ist ein Hilfsmittel, das sowohl auf der Client- als auch auf der logischen Serverseite verwendet werden kann.
 
 Daher sollte dieses Interface in den allgemeinen Paketen statt in den reinen Client-Paketen gespeichert werden, wenn du die
-Option "geteilte Quellen" verwendest
+Option "split sources" verwendest.
 :::
 
 ### `TransitionState` Enum {#transitionstate-enum}
@@ -348,7 +348,7 @@ Um dieses Soundsystem zu verwenden, musst du entweder die Methoden von `DynamicS
 
 Das Endprodukt kann seine Lautstärke auf der Grundlage der Soundphase anpassen, um die Übergänge zu glätten, und die Tonhöhe auf der Grundlage eines Stresswertes ändern, der von der Soundquelle stammt.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm" title="Engine BlockEntity with dynamic sound changes" />
+<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Motor Block Entität mit dynamischen Sound Änderungen</VideoPlayer>
 
 Du könntest einen weiteren Wert zu deiner Soundquelle hinzufügen, der einen "Überhitzungs"-Wert verfolgt und zusätzlich eine zischende `SoundInstance` langsam einblenden lässt, wenn der Wert über 0 liegt, oder ein neues Interface zu deiner benutzerdefinierten dynamischen `SoundInstance` hinzufügen, die den Soundtypen einen Prioritätswert zuweist, der bei der Auswahl des abzuspielenden Sounds hilft, wenn sie miteinander kollidieren.
 

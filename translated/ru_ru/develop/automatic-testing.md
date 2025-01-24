@@ -43,7 +43,7 @@ authors:
 
 Другое соглашение об именовании — наличие пакета `test`, например `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. Это предотвращает некоторые проблемы, которые могут возникнуть при использовании того же пакета, если вы используете модули Java.
 
-После создания тестового класса используйте <kbd>⌘/CTRL</kbd><kbd>N</kbd>, чтобы вызвать меню «Создать». Выберите Test и начните вводить имя метода, обычно начинающееся с `test`. Выберите Test и начните вводить имя метода, обычно начинающееся с `test`. Нажмите <kbd>ENTER</kbd>, когда закончите. Дополнительные советы и рекомендации по использованию IDE см. в разделе [Советы и рекомендации по IDE](ide-tips-and-tricks#code-generation).
+После создания тестового класса используйте <kbd>⌘/CTRL</kbd><kbd>N</kbd>, чтобы вызвать меню «Создать». Выберите Test и начните вводить имя метода, обычно начинающееся с `test`. Выберите Test и начните вводить имя метода, обычно начинающееся с `test`. Нажмите <kbd>ENTER</kbd>, когда закончите. Дополнительные советы и рекомендации по использованию IDE см. в разделе [Советы и рекомендации IDE](./ide-tips-and-tricks#code-generation).
 
 ![Создание метода тестирования](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -57,7 +57,7 @@ authors:
 
 @[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
-Объяснение того, что на самом деле делает этот код, см. в [Кодеки](codecs#registry-dispatch).
+Объяснение того, что на самом деле делает этот код, см. в разделе [Кодеки](./codecs#registry-dispatch).
 
 #### Настройка реестров {#setting-up-registries}
 
@@ -80,12 +80,12 @@ authors:
 Добавьте это в файл `.github/workflows/build.yml`, ниже шага `./gradlew build`.
 
 ```yaml
-      - name: Store reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path: |
-            **/build/reports/
-            **/build/test-results/
+- name: Store reports
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: reports
+    path: |
+      **/build/reports/
+      **/build/test-results/
 ```

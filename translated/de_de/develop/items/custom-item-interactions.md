@@ -68,4 +68,4 @@ Wie üblich solltest du deine Items registrieren, ein Modell und eine Textur hin
 
 Wie du sehen kannst, sollte der Blitz 10 Blöcke vor dir - dem Spieler - erscheinen.
 
-<VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />
+<VideoPlayer src="/assets/develop/items/custom_items_0.webm">Den Blitzstick benutzen</VideoPlayer>

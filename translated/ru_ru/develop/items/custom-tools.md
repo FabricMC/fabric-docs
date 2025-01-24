@@ -11,87 +11,22 @@ authors:
 
 ## Создание Материала Инструмента {#creating-a-tool-material}
 
-::: info
-If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
+Вы можете создать инструментальный материал, создав новый объект "ToolMaterial" и сохранив его в поле, которое позже можно будет использовать для создания предметов инструмента, использующих этот материал.
 
-Этот класс также можно использовать для определения свойств материала вашего инструмента по отношению к классическим материалам инструмента.
-:::
+@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-"Вы можете создать материал для инструмента, создав новый класс, который его наследует — в этом примере я буду создавать инструменты «Guidite»:
+Конструктор `ToolMaterial` принимает следующие параметры в указанном порядке:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+| Параметр                  | Описание                                                                                                                                                                                                       |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `incorrectBlocksForDrops` | Если блок указан в теге incorrectBlocksForDrops, это означает, что при использовании инструмента, изготовленного из этого `ToolMaterial`, с этого блока не будут выпадать какие-либо предметы. |
+| `durability`              | Долговечность всех инструментов, изготовленных из этого `ToolMaterial`.                                                                                                                        |
+| `speed`                   | Скорость майнинга инструментов, изготовленных из этого `ToolMaterial`.                                                                                                                         |
+| `attackDamageBonus`       | Инструменты, изготовленные из этого `ToolMaterial`, будут наносить дополнительный урон при атаке.                                                                                              |
+| `enchantmentValue`        | "Зачарованность" инструментов, изготовленных из этого `ToolMaterial`.                                                                                                                          |
+| `repairItems`             | Любые предметы, указанные в этом теге, могут быть использованы для ремонта инструментов из этого `ToolMaterial` на наковальне.                                                                 |
 
-Материал инструмента сообщает игре следующую информацию:
-
-- ### Прочность - `getDurability()` {#durability}
-
-  Сколько раз можно использовать инструмент, прежде чем он сломается.
-
-  **Пример**
-
-  @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-- ### Скорость добычи - `getMiningSpeedMultiplier()` {#mining-speed}
-
-  Если инструмент используется для разрушения блоков, с какой скоростью он должен их разрушать?
-
-  Для справки: скорость добычи алмазного инструмента составляет 8,0F, а скорость добычи каменного инструмента — 4,0F.
-
-  **Пример**
-
-  @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-- ### Урон от атаки - `getAttackDamage()` {#attack-damage}
-
-  Сколько единиц урона должен наносить инструмент при использовании его в качестве оружия против другого существа?
-
-  **Пример**
-
-  @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-- ### Обратный тег - `getMiningLevel()` {#inverse-tag}
-
-  Обратный тег показывает, что инструмент _**не может**_ добывать. Например, использование тега `BlockTags.INCORRECT_FOR_WOODEN_TOOL` запрещает инструмент добывать определенные блоки:
-
-  ```json
-  {
-    "values": [
-      "#minecraft:needs_diamond_tool",
-      "#minecraft:needs_iron_tool",
-      "#minecraft:needs_stone_tool"
-    ]
-  }
-  ```
-
-  Это означает, что инструмент не может добывать блоки, для которых требуется алмазный, железный или каменный инструмент.
-
-  **Пример**
-
-  Мы воспользуемся тегом железного инструмента. Это не позволяет инструментам Guidite добывать блоки, для которых требуется инструмент прочнее железа.
-
-  @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-  Если вы хотите использовать пользовательский тег, вы можете использовать `TagKey.of(...)` для создания пользовательского ключа тега.
-
-- ### Зачарование - `getEnchantability()` {#enchantability}
-
-  Насколько легко получить лучшие и более высокие уровни чар с помощью этого предмета? Для справки: зачаровываемость золота составляет 22, в то время как зачаровываемость незерита — 15.
-
-  **Пример**
-
-  @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-- ### Ингредиент(ы) для восстановления - `getRepairIngredient()` {#repair-ingredient}
-
-  Какой предмет или предметы используются для ремонта инструмента?
-
-  **Пример**
-
-  @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-После того как вы создали материал для инструмента и настроили его по своему вкусу, вы можете создать его экземпляр для использования в конструкторах предметов инструмента.
-
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+Если вам трудно определить сбалансированные значения для любого из числовых параметров, вам следует рассмотреть возможность использования стандартные константы материала инструмента, таких как `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
 ## Создание инструментов {#creating-tool-items}
 
@@ -99,19 +34,19 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Два плавающих значений (`1f, 1f`) относятся к урону от атаки инструмента и скорости атаки инструмента соответственно.
+
 Не забудьте добавить их в группу предметов, если вы хотите получить к ним доступ из творческого инвентаря!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Вам также придется добавить текстуру, перевод предмета и модель предмета. Однако для модели элемента вам следует использовать модель `item/handheld` в качестве родительской.
+Вам также придется добавить текстуру, перевод предмета и модель предмета. Однако для модели предмета вы захотите использовать модель `item/handheld` в качестве родительского вместо обычной модели `item/generated`.
 
 В этом примере я буду использовать следующую модель и текстуру для предмета «Меч Guidite»:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
-
----
+<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Текстура</DownloadEntry>
 
 Вот и все! Если вы зайдете в игру, вы увидите свой(и) инструмент(ы) на вкладке инструментов в меню творческого инвентаря.
 

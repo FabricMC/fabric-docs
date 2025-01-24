@@ -47,11 +47,11 @@ Puoi fare override di `onSteppedOn` per infliggere questo danno.
 
 Cominciamo creando una `DamageSource` del nostro tipo di danno personalizzato.
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Poi, chiamiamo `entity.damage()` con la nostra `DamageSource` e con una quantità.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 L'intera implementazione del blocco:
 
@@ -61,9 +61,15 @@ Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 
 
 ### Messaggio di Morte Personalizzato {#custom-death-message}
 
-Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.<message_id>` nel file `en_us.json` della nostra mod.
+Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.message_id` nel file `en_us.json` della nostra mod.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 Al momento della morte dal nostro tipo di danno personalizzato, vedrete il messaggio di morte seguente:
 

@@ -13,7 +13,7 @@ authors:
 
 Мы добавим новую блестящую частицу, которая будет имитировать движение конечной стержневой частицы.
 
-Сначала нам нужно зарегистрировать `ParticleType` в классе инициализатора вашего мода, используя идентификатор вашего мода.
+Сначала нам нужно зарегистрировать `ParticleType` в вашем классе [инициализатор мода](../../getting-started/project-structure#entrypoints), используя идентификатор вашего мода.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -21,7 +21,7 @@ authors:
 
 ## Регистрация на стороне клиента {#client-side-registration}
 
-После регистрации частицы в точке входа `ModInitializer` вам также необходимо зарегистрировать частицу в точке входа `ClientModInitializer`.
+После того, как вы зарегистрировали частицу в инициализаторе мода, вам также необходимо зарегистрировать частицу в инициализаторе на стороне клиента.
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Создание JSON-файла и добавление текстур {#creating-a-json-file-and-adding-textures}
 
-Вам нужно будет создать 2 папки в папке `resources/assets/<mod id here>/`.
+Вам нужно будет создать 2 папки в папке `resources/assets/mod-id/`.
 
 | Путь к папке         | Обьяснение                                                                              |
 | -------------------- | --------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ You can see all the particle factories by looking at all the implementations of 
 Проверить, все ли работает, можно, введя следующую команду:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![Демонстрация частицы](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

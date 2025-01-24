@@ -49,11 +49,11 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Начнем с создания `DamageSource` нашего пользовательского типа урона.
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Затем мы вызываем `entity.damage()` с нашим `DamageSource` и суммой.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Полная реализация блока:
 
@@ -63,9 +63,15 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### Пользовательское сообщение о смерти {#custom-death-message}
 
-Вы можете определить сообщение о смерти для типа урона в формате `death.attack.<message_id>` в файле `en_us.json`.
+Вы можете определить сообщение о смерти для типа урона в формате `death.attack.message_id` в файле `en_us.json`.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 После смерти от нашего типа урона вы увидите следующее сообщение о смерти:
 

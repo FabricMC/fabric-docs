@@ -98,7 +98,7 @@ Inoltre, per deserializzare un oggetto testo da JSON a un oggetto della classe `
 
 Forse sei familiare con gli standard di formattazione di Minecraft:
 
-Puoi applicare queste formattazioni usando l'enum `Formatting` sulla classe `MutableText`:
+Puoi applicare questi stili di formattazione usando l'enum `Formatting` sulla classe `MutableText`:
 
 ```java
 MutableText result = Text.literal("Hello World!")

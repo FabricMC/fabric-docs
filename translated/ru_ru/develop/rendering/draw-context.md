@@ -65,6 +65,8 @@ authors:
 
 Обычно рекомендуется использовать перегрузку, которая задает параметры `textureWidth` и `textureHeight`. Это связано с тем, что класс `DrawContext` примет эти значения, если вы их не предоставите, что иногда может быть неверным.
 
+Вам также нужно будет указать слой рендеринга, на котором будет нарисована ваша текстура. Для базовых текстур это обычно всегда будет `RenderLayer::getGuiTextured`.
+
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Пример рисования всей текстуры](/assets/develop/rendering/draw-context-whole-texture.png)

@@ -56,7 +56,7 @@ TypedActionResult.success(heldStack);
 
 ## Событие `use()`{#use-event}
 
-Допустим, что вы хотите сделать предмет, который вызывает молнию перед игроком, вам нужно будет создать отдельный класс.
+Допустим, вы хотите создать предмет, который вызывает молнию перед игроком - вам нужно будет создать собственный класс.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
@@ -66,6 +66,6 @@ TypedActionResult.success(heldStack);
 
 Как обычно, вам необходимо зарегистрировать свой предмет, добавьте модель и текстуру.
 
-Как видите, молния должна появиться в 10 блоках перед вами, игроком.
+Как вы можете видеть, молния должна появиться в 10 блоках перед вами - игроком.
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />

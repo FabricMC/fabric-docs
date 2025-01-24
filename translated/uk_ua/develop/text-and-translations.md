@@ -50,7 +50,7 @@ Text translatable = Text.translatable("my_mod.text.hello");
 MutableText mutable = Text.translatable("my_mod.text.bye");
 ```
 
-Мовний файл `en_us.json`(для української треба `uk_ua.json`) виглядає так:
+Мовний файл `en_us.json` (для української треба `uk_ua.json`) виглядає так:
 
 ```json
 {
@@ -109,7 +109,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Ви можете бути знайомі зі стандартами форматування Minecraft:
 
-Ви можете застосувати ці форматування за допомогою переліку `Formatting` у класі `MutableText`:
+Ви можете застосувати ці стилі форматування за допомогою переліку `Formatting` класу `MutableText`:
 
 ```java
 MutableText result = Text.literal("Hello World!")
@@ -138,6 +138,6 @@ MutableText result = Text.literal("Hello World!")
     <tr><td></td><td><b>Жирний</b></td><td>§l</td><td></td><td></td></tr>
     <tr><td></td><td><s>Зачеркнутий</s></td><td>§m</td><td></td><td></td></tr>
     <tr><td></td><td><u>Підкреслений</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><0>Курсив</0></td><td>§o</td><td></td><td></td></tr>
+    <tr><td></td><td><i>Курсив</i></td><td>§o</td><td></td><td></td></tr>
     <tr><td></td><td>Зашифрований</td><td>§k</td><td></td><td></td></tr>
 </tbody></table>

@@ -17,7 +17,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 ## Einrichten {#setup}
 
-Erstelle zunächst eine eigene Klasse, die `extends FabricTagProvider<T>`, wobei `T` der Typ der Sache ist, für die du ein Tag bereitstellen möchtest. Dies ist dein **Provider**. Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auf alle anderen Sachen anwenden. Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `registryKey` durch den `RegistryKey` für deinen Typ:
+Erstelle zunächst eine eigene Klasse, die `extends FabricTagProvider<T>`, wobei `T` der Typ der Sache ist, für die du ein Tag bereitstellen möchtest. Dies ist dein **Provider**. Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auch auf alle anderen Dinge anwenden. Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `registryKey` durch den `RegistryKey` für deinen Typ:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
@@ -27,7 +27,7 @@ Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `Fabr
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Erstellen eines Tags {#creating-a-tag}
 
