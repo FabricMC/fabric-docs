@@ -14,7 +14,7 @@ Minecraft використовує блоки-сутності для блокі
 
 ## Створення блоку-сутність {#creating-the-block-entity}
 
-Щоб змусити Minecraft розпізнавати та завантажувати нові блоки-сутності, нам потрібно створити тип блоку-сутності Це робиться шляхом розширення класу `BlockEntity` і реєстрації його в новому класі `ModBlockEntities`.
+Щоб змусити Minecraft розпізнавати та завантажувати нові блоки-сутності, нам потрібно створити тип блоку-сутності. Це робиться шляхом розширення класу `BlockEntity` і реєстрації його в новому класі `ModBlockEntities`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
