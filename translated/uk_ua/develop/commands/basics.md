@@ -26,7 +26,7 @@ authors:
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
-Brigadier має відкритий вихідний код: <0>
+Brigadier має відкритий вихідний код: <https://github.com/Mojang/brigadier>
 :::
 
 ## Інтерфейс `Command` {#the-command-interface}
@@ -37,13 +37,13 @@ Brigadier має відкритий вихідний код: <0>
 джерело надає певний контекст, у якому була виконана команда. У Minecraft джерелом команди зазвичай є a
 `ServerCommandSource`, який може представляти сервер, командний блок, віддалене з’єднання (RCON), гравця або сутність.
 
-Єдиний метод у `Command`, `run(CommandContext<ServerCommandSource>)` приймає `CommandContext<0>` як єдиний параметр і повертає ціле число. Контекст команди містить джерело вашої команди `S` і дозволяє отримати аргументи, подивіться на розбір
+Єдиний метод у `Command`, `run(CommandContext<S>)` приймає `CommandContext<S>` як єдиний параметр і повертає ціле число. Контекст команди містить джерело вашої команди `S` і дозволяє отримати аргументи, подивіться на розбір
 командні вузли та перегляньте вхідні дані, які використовуються в цій команді.
 
 Як і інші функціональні інтерфейси, він зазвичай використовується як лямбда або посилання на метод:
 
 ```java
-Command<0> command = context -> {
+Command<ServerCommandSource> command = context -> {
     return 0;
 };
 ```
@@ -60,7 +60,7 @@ Command<0> command = context -> {
 Ви можете отримати доступ до джерела команд із контексту команди, викликавши `getSource()` в екземплярі `CommandContext`.
 
 ```java
-Command<0> command = context -> {
+Command<ServerCommandSource> command = context -> {
     ServerCommandSource source = context.getSource();
     return 0;
 };
@@ -78,7 +78,7 @@ Command<0> command = context -> {
 
 Зворотний виклик має три параметри:
 
-- `CommandDispatcher<0> dispatcher` - використовується для реєстрації, аналізу та виконання команд. `S` - це тип
+- `CommandDispatcher<ServerCommandSource> dispatcher` - використовується для реєстрації, аналізу та виконання команд. `S` - це тип
   джерела команди, яке підтримує диспетчер команд.
 - `CommandRegistryAccess registryAccess` - надає абстракцію до реєстрів, які можна передати певній команді
   методи аргументу
@@ -175,7 +175,7 @@ Brigadier [перенаправлятиме лише командні вузли
   або `CommandManager.argument` замість `LiteralArgumentBuilder.literal` або `RequiredArgumentBuilder.argument`.
 
 - Перевірте метод sendFeedback() – можливо, ви забули вказати логічне значення як другий аргумент. Також запам'ятайте
-  що, починаючи з Minecraft 1.20, першим параметром є `Supplier<0>` замість `Text`.
+  що, починаючи з Minecraft 1.20, першим параметром є `Supplier<Text>` замість `Text`.
 
 - Команда має повертати ціле число. Під час реєстрації команд метод `executes()` приймає об’єкт `Command`,
   який зазвичай є лямбда. Лямбда має повертати ціле число замість інших типів.
