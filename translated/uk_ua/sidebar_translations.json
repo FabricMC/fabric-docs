@@ -49,6 +49,7 @@
   "develop.dataGeneration.advancements": "Генерація досягнень",
   "develop.dataGeneration.recipes": "Генерація рецептів",
   "develop.dataGeneration.lootTables": "Генерація таблиць здобичі",
+  "develop.dataGeneration.blockModels": "Генерація моделі блоку",
   "develop.rendering": "Промальовування",
   "develop.rendering.basicConcepts": "Базові концепції промальовування",
   "develop.rendering.drawContext": "Використання DrawContext",
