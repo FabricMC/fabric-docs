@@ -11,7 +11,7 @@ Più i tuoi oggetti crescono in complessità, più troverai la necessità di mem
 
 Le Componenti di Dati sostituiscono i dati NBT di versioni precedenti, con tipi di dati strutturati che possono essere applicati a un `ItemStack` per memorizzare dati su quello stack. Le componenti di dati sfruttano namespace, il che significa che possiamo implementare le nostre componenti di dati per memorizzare dati personalizzati su un `ItemStack` e accederci successivamente. Una lista completa delle componenti di dati vanilla si trova su questa [pagina della Minecraft Wiki](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Assieme alla registrazione delle componenti personalizzate, questa pagina copre l'utilizzo generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponentTypes`.
+Assieme alla registrazione delle componenti personalizzate, questa pagina tratta l'uso generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponentTypes`.
 
 ## Registrare una Componente {#registering-a-component}
 
@@ -55,7 +55,7 @@ Quando esegui il comando, dovresti ricevere l'oggetto contenente la componente. 
 
 ## Leggere il Valore della Componente {#reading-component-value}
 
-Aggiungiamo un nuovo oggetto che aumenterà il contatore ogni volta che viene cliccato con il tasto destro. Dovresti leggere la pagina [Interazioni tra Oggetti Personalizzate](./custom-item-interactions) che tratterà delle tecniche utilizzate in questa guida.
+Aggiungiamo un nuovo oggetto che aumenterà il contatore ogni volta che viene cliccato con il tasto destro. Dovresti leggere la pagina [Interazioni tra Oggetti Personalizzate](./custom-item-interactions) che tratterà delle tecniche usate in questa guida.
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
@@ -214,7 +214,7 @@ Nota che c'è un paio di parentesi dopo il nome della classe. Questo è dove def
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
-Poiché stiamo definendo una struttura dai personalizzata, non ci sarà un `Codec` preesistente per il nostro caso come c'era per le [componenti basilari](#basic-data-components). Questo significa che dovremo costruire il nostro codec. Definiamone uno nella nostra classe record con un `RecordCodecBuilder` a cui potremo far riferimento quando registriamo la componente. Per maggiori dettagli sull'utilizzo di un `RecordCodecBuilder` fai riferimento a [questa sezione della pagina sui Codec](../codecs#merging-codecs-for-record-like-classes).
+Poiché stiamo definendo una struttura dai personalizzata, non ci sarà un `Codec` preesistente per il nostro caso come c'era per le [componenti basilari](#basic-data-components). Questo significa che dovremo costruire il nostro codec. Definiamone uno nella nostra classe record con un `RecordCodecBuilder` a cui potremo far riferimento quando registriamo la componente. Per maggiori dettagli sull'uso di un `RecordCodecBuilder` fai riferimento a [questa sezione della pagina sui Codec](../codecs#merging-codecs-for-record-like-classes).
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
 
