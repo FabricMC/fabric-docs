@@ -7,7 +7,6 @@ on:
       - "!README.md"
       - "!translated/**"
       - "!versions/*/translated/**"
-  workflow_dispatch: # Manual run
 
 concurrency:
   group: markdownlint-${{ github.event.pull_request.number || github.ref }}

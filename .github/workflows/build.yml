@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   docs:
-    if: github.event_name == "pull_request" || github.repository == "FabricMC/fabric-docs"
+    if: github.repository == 'FabricMC/fabric-docs'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
       - run: npm run build
 
   mod:
-    if: github.event_name == "pull_request" || github.repository == "FabricMC/fabric-docs"
+    if: github.event_name == 'pull_request' || github.repository == 'FabricMC/fabric-docs'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
