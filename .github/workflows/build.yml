@@ -43,3 +43,8 @@ jobs:
         with:
           reports: |
             reference/**/build/reports/checkstyle/*.xml
+
+  cleanup:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: exit 0
