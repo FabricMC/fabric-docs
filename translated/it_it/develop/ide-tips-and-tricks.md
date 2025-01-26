@@ -158,7 +158,7 @@ A volte sono necessari strumenti più semplici per modificare le occorrenze del 
 | <kbd>⌘/CTRL</kbd>+<kbd>Maiusc</kbd>+<kbd>F</kbd> | Trova in uno scope più grande (e imposta un filtro di tipo di file)       |
 | <kbd>⌘/CTRL</kbd>+<kbd>Maiusc</kbd>+<kbd>R</kbd> | Sostituisci in uno scope più grande (e imposta un filtro di tipo di file) |
 
-Se si utilizzano, tutti questi strumenti permettono una ricerca più specifica grazie alle [Regex](https://en.wikipedia.org/wiki/Regular_expression).
+Quando ben sfruttati, tutti questi strumenti permettono una ricerca più specifica grazie alle [Regex](https://en.wikipedia.org/wiki/Regular_expression).
 
 ![Sostituzione regex](/assets/develop/misc/using-the-ide/search_and_replace_01.png)
 
