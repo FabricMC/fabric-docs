@@ -86,10 +86,10 @@ Mixins sind eine Möglichkeit für Mods, das Spiel zu verändern, ohne den Quell
 
 Wenn ein Mixin abstürzt, wird in der Regel das Mixin im Stacktrace erwähnt und die Klasse, die das Mixin ändert.
 
-Methoden-Mixins enthalten `modid$handlerName` in dem Stack-Trace, wobei `modid` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
+Methoden-Mixins enthalten `mod-id$handlerName` in dem Stacktrace, wobei `mod-id` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Anhand dieser Informationen kannst du den Mod, der den Absturz verursacht hat, ausfindig machen und den Absturz an den Autor des Mods melden.

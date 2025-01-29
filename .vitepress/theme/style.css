@@ -1,8 +1,18 @@
-/**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
- */
+/* 
+  This file overrides and extends default VitePress theme CSS variables and styles:
+  https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+*/
 
+/* Emoji Flag Unicode Polyfill */
+@font-face {
+  font-family: "Flag Emoji Polyfill";
+  unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067,
+    U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
+  src: url("./CountryFlagsPolyfill.woff2") format('woff2');
+  font-display: swap;
+}
+
+/* Define custom color variables, fabricmc.net brand colors, and other shared properties. */
 :root {
   --vp-c-blue-1: #1662c5;
   --vp-c-blue-2: #2275da;
@@ -14,25 +24,32 @@
   --vp-c-brand-3: var(--vp-c-blue-1);
   --vp-c-brand-soft: var(--vp-c-blue-soft);
 
-  /* --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
-}
 
-:root {
+  /* Override Hero Text Gradient */
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    #3463fe 30%,
-    #4787ff
-  );
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+      #3463fe 30%,
+      #4787ff);
+
+  /* Flag Emoji Polyfill (Chrome does not render county flags on windows) */
+  --vp-font-family-base: 'Flag Emoji Polyfill', 'Inter', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+:root:where(:lang(zh)) {
+  /* Flag Emoji Polyfill (Chrome does not render county flags on windows) */
+  --vp-font-family-base: 'Flag Emoji Polyfill', 'Punctuation SC', 'Inter', ui-sans-serif, system-ui,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+/* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
 .VPSidebar {
   scrollbar-width: thin;
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
+/* Custom scrollbar visuals for WebKit-based browsers */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -45,6 +62,7 @@
   background: var(--vp-c-gray-1);
 }
 
+/* Homepage Container - Center content and limit maximum width. */
 .homepage-container {
   margin: auto;
   width: 100%;
@@ -52,10 +70,12 @@
   padding: 0 24px;
 }
 
+/* Override default padding on the VitePress Home component */
 .VPHome {
   padding-bottom: 0px !important;
 }
 
+/* Responsive Adjustments - Increase padding for wider screens. */
 @media (min-width: 640px) {
   .homepage-container {
     padding: 0 48px;
@@ -69,18 +89,20 @@
   }
 }
 
-.VPLocalSearchBox > .backdrop {
+/* Local Search Box Animations - Fade in backdrop and animate search box on appearance. */
+.VPLocalSearchBox>.backdrop {
   opacity: 0;
   animation: show 200ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
 }
 
-.VPLocalSearchBox > .shell {
+.VPLocalSearchBox>.shell {
   animation: show 400ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
   opacity: 0;
   transform: rotateX(-90deg);
   transform-origin: top center;
 }
 
+/* Medium Zoom Overlays - Increase stacking order for zoomed images and their overlay. */
 .medium-zoom-overlay {
   z-index: 10000;
 }
@@ -89,6 +111,7 @@
   z-index: 10001;
 }
 
+/* Simple keyframe animation for fading/showing elements */
 @keyframes show {
   100% {
     opacity: 1;
@@ -96,7 +119,7 @@
   }
 }
 
-/* Keybinding CSS (<kbd> tags) */
+/* Keybinding CSS - Style <kbd> elements for keyboard shortcuts. */
 kbd:not(.DocSearch-Button-Key) {
   background-color: #eee !important;
   border-radius: 3px;
@@ -113,9 +136,14 @@ kbd:not(.DocSearch-Button-Key) {
   white-space: nowrap;
 }
 
-/* Center any images in markdown. */
-.vp-doc > p > img,
-.vp-doc > div > p > img {
+/* Center images within paragraphs. */
+.vp-doc>p>img,
+.vp-doc>div>p>img {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Custom Icons */
+.vpi-versioning {
+  --icon: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNvbG9yPSIjMDAwMDAwIj48cGF0aCBkPSJNMTcgN0MxOC4xMDQ2IDcgMTkgNi4xMDQ1NyAxOSA1QzE5IDMuODk1NDMgMTguMTA0NiAzIDE3IDNDMTUuODk1NCAzIDE1IDMuODk1NDMgMTUgNUMxNSA2LjEwNDU3IDE1Ljg5NTQgNyAxNyA3WiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTcgN0M4LjEwNDU3IDcgOSA2LjEwNDU3IDkgNUM5IDMuODk1NDMgOC4xMDQ1NyAzIDcgM0M1Ljg5NTQzIDMgNSAzLjg5NTQzIDUgNUM1IDYuMTA0NTcgNS44OTU0MyA3IDcgN1oiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPjxwYXRoIGQ9Ik07IDIxQzguMTA0NTcgMjEgOSAyMC4xMDQ2IDkgMTlDOSAxNy44OTU0IDguMTA0NTcgMTcgNyAxN0M1Ljg5NTQzIDE3IDUgMTcuODk1NCA1IDE5QzUgMjAuMTA0NiA1Ljg5NTQzIDIxIDcgMjFaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNNyA3VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNMTcgN1Y4QzE3IDEwLjUgMTUgMTEgMTUgMTFMOSAxM0M5IDEzIDcgMTMuNSA3IDE2VjE3IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9yZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L3N2Zz4=");
 }

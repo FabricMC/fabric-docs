@@ -86,10 +86,10 @@ Mixin 是一种修改游戏而无需修改游戏的源代码的方式。 许多�
 
 当有 mixin 崩溃时，通常会在堆栈跟踪中提到该 mixin 类以及该 mixin 类修改的类。
 
-方法 mixin 会在堆栈跟踪中包含 `modid$handlerName`，其中 `modid` 是模组的 ID，`handlerName` 是 mixin 处理器的名称。
+方法 mixin 会在堆栈跟踪中包含 `mod-id$handlerName`，其中 `mod-id` 是模组的 ID，`handlerName` 是 mixin 处理器的名称。
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 你可以使用此信息找到导致崩溃的模组，并向模组作者报告崩溃情况。

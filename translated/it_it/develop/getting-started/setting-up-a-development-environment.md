@@ -24,7 +24,7 @@ Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente 
 
 ## Installare JDK 21 {#installing-jdk-21}
 
-Per sviluppare mod per Minecraft 1.21, avrai bisogno del JDK 21.
+Per sviluppare mod per Minecraft 1.21.4, avrai bisogno del JDK 21.
 
 Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide per installazione di Java nella [sezione guide per il giocatore](../../players/index).
 

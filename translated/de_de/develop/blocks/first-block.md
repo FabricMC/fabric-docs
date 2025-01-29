@@ -49,6 +49,9 @@ Wir werden hier nicht alle Optionen behandeln - Du kannst die Klasse selbst anse
 
 Als Beispiel werden wir einen einfachen Block erstellen, der die Eigenschaften von Erde hat, aber ein anderes Material ist.
 
+- Wir benötigen einen `RegistryKey<Block>`, der als eindeutiger Bezeichner für unseren Block verwendet wird. Dieser wird in der vorherigen Hilfsmethode an `Registry.register` übergeben.
+- Weiterhin wird der `RegistryKey<Block>` auch vom `AbstractBlock.Settings`-Builder benötigt.
+
 :::tip
 Du kannst auch `AbstractBlock.Settings.copy(AbstractBlock block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
 :::
@@ -57,13 +60,15 @@ Du kannst auch `AbstractBlock.Settings.copy(AbstractBlock block)` verwenden, um 
 
 Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
-### Deinen Block zu einer Itemgruppe hinzufügen {#adding-your-block-to-an-item-group}
+### Hinzufügen deines Block-Items zu einer Itemgruppe {#adding-your-block-s-item-to-an-item-group}
 
 Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um ihn zu einer Itemgruppe hinzuzufügen, die Methode `Block.asItem()` verwenden, um die `BlockItem`-Instanz zu erhalten.
 
 In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf der Seite [Benutzerdefinierte Itemgruppe](../items/custom-item-groups) erstellt wurde.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+
+Du solltest dies innerhalb deiner `initialize()`-Funktion deiner Klasse hinzufügen.
 
 ---
 
@@ -75,7 +80,7 @@ Es gibt jedoch ein paar Probleme - das Blockitem ist nicht benannt, und der Bloc
 
 ## Blockübersetzungen hinzufügen {#adding-block-translations}
 
-Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/<mod id here>/lang/en_us.json`.
+Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/mod-id/lang/en_us.json`.
 
 Minecraft verwendet diese Übersetzung im Kreativ-Inventar und an anderen Stellen, an denen der Blockname angezeigt wird, wie z. B. bei der Befehlsrückmeldung.
 
@@ -89,22 +94,21 @@ Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</
 
 ## Modelle und Texturen {#models-and-textures}
 
-Alle Blocktexturen befinden sich im Ordner `assets/<mod id here>/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
+Alle Blocktexturen befinden sich im Ordner `assets/mod-id/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texturen</DownloadEntry>
 
-Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodell erstellen, die du an den entsprechenden Stellen für den "Condensed Dirt"-Block finden kannst:
+Damit die Textur im Spiel angezeigt wird, musst du ein Blockmodell erstellen, das in der Datei `assets/mod-id/models/block/condensed_dirt.json` für den "Condensed Dirt"-Block gefunden werden kann. Für diesen Block werden wir den Modelltyp `block/cube_all` verwenden.
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-Das Itemmodell ist ziemlich einfach, es kann einfach das Blockmodell als Elternteil verwenden - da die meisten Blockmodelle Unterstützung für die Darstellung in einer grafischen Benutzeroberfläche haben:
+Damit der Block in deinem Inventar angezeigt wird, musst du eine [Itemmodell-Beschreibung](../items/first-item#creating-the-item-model-description) erstellen, die auf dein Blockmodell verweist. In diesem Beispiel ist die Beschreibung des Itemmodells für den Block "Condensed Dirt" unter `assets/mod-id/items/condensed_dirt.json` zu finden.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
-Das Blockmodell muss jedoch in unserem Fall dem Modell `block/cube_all` übergeordnet sein:
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+:::tip
+Du musst nur dann eine Beschreibung des Itemmodells erstellen, wenn du ein `BlockItem` zusammen mit deinem Block registriert hast!
+:::
 
 Wenn du das Spiel lädst, wirst du feststellen, dass die Textur noch fehlt. Dies liegt daran, dass du eine Blockzustand-Definition hinzufügen musst.
 
@@ -114,11 +118,13 @@ Die Blockzustand-Definition wird verwendet, um dem Spiel mitzuteilen, welches Mo
 
 Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintrag in der Definition erforderlich.
 
-Diese Datei sollte sich im Ordner `assets/mod_id/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
+Diese Datei sollte sich im Ordner `assets/mod-id/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
-Blockzustände sind sehr komplex, weshalb sie auf einer späteren Seite behandelt werden: [Blockzustände](./blockstates)
+:::tip
+Blockstates sind unglaublich komplex, weshalb sie als Nächstes auf [einer eigenen Seite](./blockstates) behandelt werden.
+:::
 
 Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die Änderungen zu übernehmen - Du solltest die Blocktextur im Inventar und physisch in der Welt sehen können:
 
@@ -126,7 +132,7 @@ Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die �
 
 ## Blockdrops hinzufügen {#adding-block-drops}
 
-Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/<mod id here>/loot_table/blocks/` abgelegt werden.
+Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/mod-id/loot_table/blocks/` abgelegt werden.
 
 :::info
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
@@ -167,4 +173,4 @@ Die Datei hat das gleiche Format wie die Datei des Abbauwerkzeuges - eine Liste 
 
 ## Zusatz Notizen {#extra-notes}
 
-Wenn du mehrere Blöcke zu deinem Mod hinzufügst, solltest du die [Datengenerierung](https://fabricmc.net/wiki/tutorial:datagen_setup) in Betracht ziehen, um den Prozess der Erstellung von Block- und Itemmodellen, Blockzustandsdefinitionen und Beutetabellen zu automatisieren.
+Wenn du mehrere Blöcke zu deinem Mod hinzufügst, solltest du die [Datengenerierung](../data-generation/setup) in Betracht ziehen, um den Prozess der Erstellung von Block- und Itemmodellen, Blockzustandsdefinitionen und Beutetabellen zu automatisieren.

@@ -15,7 +15,7 @@ Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Mine
 
 Probabilmente hai capito perché sono così utili - per evitare di immagazzinare dati NBT in un blocco-entità, riducendo dunque le dimensioni del mondo e migliorando i TPS!
 
-Le definizioni degli stati dei blocchi si trovano nella cartella `assets/<mod id here>/blockstates`.
+Le definizioni degli stati dei blocchi si trovano nella cartella `assets/mod-id/blockstates`.
 
 ## Esempio: Pilastro {#pillar-block}
 
@@ -29,7 +29,7 @@ La classe vanilla `PillarBlock` permette di piazzare il blocco lungo gli assi X,
 
 I pilastri hanno due texture diverse, superiore e laterale - e usano il modello `block/cube_column`.
 
-Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/<mod id here>/textures/blocks`
+Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/mod-id/textures/blocks`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">le Texture</DownloadEntry>
 
@@ -40,12 +40,12 @@ Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare 
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)]
 (https://minecraft.wiki/w/Tutorials/Models#Block_states).
@@ -57,7 +57,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
 - `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello dell'oggetto il quale deve essere figlio di uno dei due modelli.
 
@@ -83,10 +83,6 @@ Dovrai anche impostare un valore predefinito per la proprietà `activated` nel c
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-Non dimenticare di registrare il tuo blocco usando la classe personalizzata invece di `Block`!
-:::
-
 ### Usare la Proprietà {#using-the-property}
 
 Questo esempio invertirà la proprietà booleana `activated` quando il giocatore interagisce con il blocco. Possiamo fare override del metodo `onUse` per questo:
@@ -109,6 +105,10 @@ Poiché questo blocco ha solo due possibili varianti, dato che ha solo una propr
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
+:::tip
+Non dimenticare di aggiungere una [Descrizione del Modello d'Oggetto](../items/first-item#creating-the-item-model-description) per il blocco così che appaia nell'inventario!
+:::
+
 ---
 
 Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luce quando la proprietà `activated` è `true`. Questo si può ottenere tramite le impostazioni del blocco, passate al costruttore durante la registrazione del blocco.
@@ -125,4 +125,4 @@ Puoi usare il metodo `luminance` per impostare il livello di luce emessa dal blo
 
 Quando avrai completato tutto, il risultato finale dovrebbe avere il seguente aspetto:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Blocco di Lampada di Prismarino nel gioco</VideoPlayer>

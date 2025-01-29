@@ -14,7 +14,7 @@ Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso 
 
 Puoi usare il [Generatore di Mod Modello di Fabric](https://fabricmc.net/develop/template/) per generare un nuovo progetto per la tua mod - dovresti compilare i campi richiesti, come il nome della mod, quello del package, e la versione di Minecraft per la quale vuoi sviluppare.
 
-Il nome del package dovrebbe essere minuscolo, separato da punti, e unico per evitare conflitti con package di altri programmatori. Di solito viene formattato come un domain internet invertito, per esempio `com.example.modid`.
+Il nome del package dovrebbe essere minuscolo, separato da punti, e unico per evitare conflitti con package di altri programmatori. Di solito viene formattato come un domain internet invertito, per esempio `com.example.mod-id`.
 
 ![Anteprima del generatore](/assets/develop/getting-started/template-generator.png)
 

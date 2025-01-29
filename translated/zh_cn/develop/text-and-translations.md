@@ -98,7 +98,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 你应该熟悉 Minecraft 的格式化标准：
 
-可以对 `MutableText` 类使用 `Formatting` 枚举以应用这些格式。
+可以对 `MutableText` 类使用 `Formatting` 枚举以应用这些格式样式。
 
 ```java
 MutableText result = Text.literal("Hello World!")

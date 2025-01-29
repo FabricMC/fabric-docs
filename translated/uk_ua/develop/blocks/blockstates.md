@@ -15,7 +15,7 @@ authors:
 
 Ви, напевно, розумієте чому вони корисні - вони уникають необхідності зберігати дані NBT дані у блоковій сутності - зменшуючи розмір світу, та запобігаючи проблемам із TPS!
 
-Визначення станів блоку знаходиться у теці `assets/<mod id here>/blockstates`.
+Визначення станів блоку знаходиться у теці `assets/mod-id/blockstates`.
 
 ## Наприклад: Блок колонна {#pillar-block}
 
@@ -29,7 +29,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Блоки колон мають дві текстури, верхню та бічну - вони використовують модель `block/cube_column`.
 
-Як і зазвичай, з усіма текстурами блоків, текстури можна знайти в `assets/<mod id here>/textures/block`
+Як і зазвичай, з усіма текстурами блоків, текстури можна знайти в `assets/mod-id/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстури</DownloadEntry>
 
@@ -40,23 +40,23 @@ Minecraft має деякі користувальницькі класи, як�
 
 Приклад файлу `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Щоб детальніше ознайомитися з усіма модифікаторами, доступними у файлах стану блоку, перегляньте сторінку [Вікі Minecraft — Моделі (Стани блоків)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
 
-Далі, ми повинні створити файл стану блоку У файлі blockstate відбувається магія — стовпові блоки мають три осі, тому ми використовуватимемо спеціальні моделі для таких ситуацій:
+Далі, ми повинні створити файл стану блоку. У файлі blockstate відбувається магія — стовпові блоки мають три осі, тому ми використовуватимемо спеціальні моделі для таких ситуацій:
 
 - `axis=x` – коли блок розміщено вздовж осі X, ми повертатимемо модель у позитивному напрямку X.
 - `axis=y` – коли блок розміщено вздовж осі Y, ми будемо використовувати звичайну вертикальну модель.
 - `axis=z` – коли блок розміщується вздовж осі Z, ми повертаємо модель у позитивний X.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
 
 Як завжди, вам потрібно буде створити переклад для свого блоку та модель предмета, яка є батьками будь-якої з двох моделей.
 
@@ -82,10 +82,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-Не забудьте зареєструвати свій блок, використовуючи спеціальний клас замість `Block`!
-:::
-
 ### Використання властивості {#using-the-property}
 
 У цьому прикладі змінюється логічна властивість `activated`, коли гравець взаємодіє з блоком. Для цього ми можемо замінити метод `onUse`:
@@ -108,6 +104,10 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
+:::tip
+Не забудьте додати [опис моделі предмета](../items/first-item#creating-the-item-model-description) для блоку, щоб він показувався в інвентарі!
+:::
+
 ---
 
 Оскільки прикладом блоку є лампа, нам також потрібно змусити її випромінювати світло, коли властивість `activated` має значення true. Це можна зробити через налаштування блоку, передані конструктору під час реєстрації блоку.
@@ -124,4 +124,4 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Коли ви все завершите, кінцевий результат має виглядати приблизно так:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Призмариновий ліхтар у грі</VideoPlayer>

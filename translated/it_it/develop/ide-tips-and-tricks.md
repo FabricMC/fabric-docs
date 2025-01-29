@@ -292,19 +292,19 @@ Jetbrains ha tanti buoni discorsi, video e pagine di documentazione riguardo a c
 Usa il Completamento PostFix per alterare il codice velocemente dopo averlo scritto. Esempi spesso citati comprendono `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` e `.new`.
 Oltre a quelli già esistenti, puoi anche aggiungerne di tuoi nelle Impostazioni di IntelliJ.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4">"IntelliJ IDEA Pro Tips: Postfix Completion" su YouTube</VideoPlayer>
 
 ### Modelli Live {#live-templates}
 
 Usa i Modelli Live per generare il tuo codice ripetitivo personalizzato più velocemente.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU">"IntelliJ IDEA Pro Tips: Live Templates" su YouTube</VideoPlayer>
 
 ### Altri Trucchi {#more-tips}
 
 Anton Arhipov di Jetbrains ha anche avuto un discorso approfondito riguardo a Corrispondenza Regex, Completamento di Codice, Debugging e molti altri argomenti legati a IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI">"IntelliJ talk" di Anton Arhipov su YouTube</VideoPlayer>
 
 Per ulteriori informazioni, controlla il [sito di Trucchi e Consigli di Jetbrains](https://blog.jetbrains.com/idea/category/tips-tricks) e la [documentazione di IntelliJ](https://www.jetbrains.com/help/idea/getting-started).
 Tanti dei loro post possono essere applicati anche all'ecosistema Fabric.

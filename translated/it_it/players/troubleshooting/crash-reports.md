@@ -86,10 +86,10 @@ I mixin sono un modo che hanno le mod per modificare il gioco senza dover modifi
 
 Quando un mixin causa un crash, esso menzionerà solitamente il mixin nello stack trace, e la classe che il mixin sta modificando.
 
-I metodi mixin conterranno `modid$handlerName` nello stack trace, mentre `modid` è l'ID della mod, e `handlerName` è il nome del gestore del mixin.
+I metodi mixin conterranno `mod-id$handlerName` nello stack trace, mentre `mod-id` è l'ID della mod, e `handlerName` è il nome del gestore del mixin.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Puoi usare queste informazioni per trovare la mod che ha causato il crash, e segnalare il crash all'autore della mod.

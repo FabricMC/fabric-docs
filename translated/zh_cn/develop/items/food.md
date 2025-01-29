@@ -25,17 +25,17 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 
 现在，只要让物品可食用，没有别的。
 
-`FoodComponent` 类有很多方法，允许你修改玩家吃你的物品时发生的事情：
+`FoodComponent` 类有某些方法，允许你修改玩家吃你的物品时发生的事情：
 
-| 方法                   | 描述                                                       |
-| -------------------- | -------------------------------------------------------- |
-| `nutrition`          | 设置你的物品会补充的饥饿值的数量。                                        |
-| `saturationModifier` | 设置你的物品会增加的饱和度的数量。                                        |
-| `alwaysEdible`       | 允许无论饥饿值均能吃你的物品。                                          |
-| `snack`              | 将你的物品描述为零食。                                              |
-| `statusEffect`       | 吃你的物品时添加状态效果。 通常传递到此方法的是一个状态效果实例和概率，其中概率是小数（`1f = 100%`） |
+| 方法                   | 描述                |
+| -------------------- | ----------------- |
+| `nutrition`          | 设置你的物品会补充的饥饿值的数量。 |
+| `saturationModifier` | 设置你的物品会增加的饱和度的数量。 |
+| `alwaysEdible`       | 允许无论饥饿值均能吃你的物品。   |
 
 按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodComponent`。
+
+如果您想在玩家吃食物时添加状态效果，则需要将 `ConsumableComponent` 与 `FoodComponent` 类一起使用，如以下示例所示：
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -46,7 +46,6 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 这会让物品：
 
 - 总是可食用，无论饥饿值均可以吃。
-- 是“零食”。
 - 吃完会总会给予 6 秒中毒 II。
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Suspicious Substance" />
+<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />

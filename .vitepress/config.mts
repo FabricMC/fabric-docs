@@ -8,15 +8,17 @@ import { transformItems, transformPageData } from "./transform";
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
   {
+    // Removes .html from the end of URLs.
     cleanUrls: true,
 
+    // Mostly just for the favicon.
     head: [["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }]],
 
     // Prevent dead links from being reported as errors - allows partially translated pages to be built.
     ignoreDeadLinks: true,
 
-    lastUpdated: false, // Git is Corrupted so it is Disabled.
-
+    // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
+    lastUpdated: true,
 
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
@@ -25,10 +27,12 @@ export default defineVersionedConfig(
 
     markdown: {
       config(md) {
+        // Use the snippet plugin (transclusion, etc.)
         md.use(snippetPlugin);
       },
       languages: [
         async () =>
+          // Adds support for mcfunction language to shiki.
           await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
             with: { type: "json" },
           }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
@@ -54,6 +58,7 @@ export default defineVersionedConfig(
     themeConfig: {
       search: {
         options: {
+          // Removes versioned and translated pages from search.
           _render(src, env, md) {
             if (env.frontmatter?.search === false) return "";
             if (env.relativePath.startsWith("translated/")) return "";
@@ -67,6 +72,7 @@ export default defineVersionedConfig(
 
     transformPageData,
 
+    // Versioning plugin configuration.
     versioning: {
       latestVersion: "1.21.4",
       rewrites: {

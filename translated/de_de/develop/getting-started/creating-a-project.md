@@ -14,7 +14,7 @@ Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric T
 
 Du kannst den [Fabric Vorlagen Mod Generator](https://fabricmc.net/develop/template/) verwenden, um ein neues Projekt für deinen Mod zu generrieren - du solltest die erforderlichen Felder ausfüllen, wie beispielsweise den Paketnamen und den Mod-Namen, sowie die Minecraft-Version, für die du entwickeln möchtest.
 
-Der Paketname sollte klein geschrieben, durch Punkte getrennt und eindeutig sein, um Konflikte mit den Paketen anderer Programmierer zu vermeiden. Er ist typischerweise wie eine umgedrehte Internet-Domain formatiert, beispielsweise wie `com.example.modid`.
+Der Paketname sollte klein geschrieben, durch Punkte getrennt und eindeutig sein, um Konflikte mit den Paketen anderer Programmierer zu vermeiden. Er ist typischerweise wie eine umgedrehte Internet-Domain formatiert, beispielsweise wie `com.example.mod-id`.
 
 ![Vorschau des Generators](/assets/develop/getting-started/template-generator.png)
 

@@ -65,6 +65,8 @@ authors:
 
 一般来说，我们推荐您使用需要指定 `textureWidth` 和 `textureHeight` 参数的 `drawTexture` 方法重载。 因为如果使用不指定的重载， `DrawContext` 会假设您的纹理文件尺寸是 256x256，而您的纹理文件不一定是这个尺寸，于是渲染结果就不一定正确。
 
+你还需要指定绘制纹理的渲染层。 对于基本纹理，这通常始终是 `RenderLayer::getGuiTextured`。
+
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![绘制整个纹理](/assets/develop/rendering/draw-context-whole-texture.png)

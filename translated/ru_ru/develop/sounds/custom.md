@@ -29,17 +29,17 @@ authors:
 
 ## Загрузка аудиофайла {#loading-the-audio-file}
 
-Добавьте новую директорию `resources/assets/<mod id here>/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
+Добавьте новую директорию `resources/assets/mod-id/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
 
-Дальше создайте файл `resources/assets/<mod id here>/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
+Дальше создайте файл `resources/assets/mod-id/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/<mod id here>/lang` и будет показываться, если включена настройка и звук воспроизводиться.
+Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/mod-id/lang` и будет показываться, если включена настройка и звук воспроизводиться.
 
 ## Регистрация своего звука {#registering-the-custom-sound}
 
-Чтобы добавить собственный звук в мод, зарегистрируете в классе SoundEvent, который имплементирует точку входа `ModInitializer`.
+Чтобы добавить собственный звук в мод, зарегистрируйте SoundEvent в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 ```java
 Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
@@ -54,10 +54,10 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
 
-`ModInitializer` имплементируют точки входа которые нужны классу, чтобы имплементировать весь реестр с собственными SoundEvents.
+Таким образом, инициализатору мода достаточно реализовать только одну строку для регистрации всех пользовательских SoundEvents.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 
-Используйте класс помощник для доступа к собственному SoundEvent. Просмотрите страницу [Воспроизводящиеся SoundEvent'ы](./using-sounds), чтобы научиться как воспроизводить звуки.
+Используйте класс помощник для доступа к собственному SoundEvent. Посетите страницу [Playing SoundEvents](./using-sounds), чтобы узнать, как воспроизводить звуки.

@@ -26,7 +26,7 @@ Ti serviranno fornitori (classi) diversi per blocchi, bauli, ed entità. Ricorda
 
 Le **loot table** definiscono cosa si ottiene dalla rottura di un blocco (esclusi i contenuti, per esempio per i bauli), uccisione di un'entità, o apertura di un contenitore appena generato. Ogni loot table ha dei **pool** fra cui gli oggetti sono selezionati. Le loot table hanno anche **funzioni**, che modificano il loot risultante in qualche modo.
 
-Le loot pool hanno **voci**, **condizioni**, funzioni, **roll** e **roll bonus**. Le voci sono gruppi, sequenze, o possibilità di oggetti, o solo oggetti. Le condizioni sono cose per cui si testa nel mondo, come incantesimi su uno strumento o una probabilità casuale. Il numero minimo di voci scelte da una pool è detto roll, e qualsiasi cosa sopra a ciò è detta una roll bonus.
+Le loot pool hanno **voci**, **condizioni**, funzioni, **roll** e **roll bonus**. Le voci sono gruppi, sequenze, o possibilità di oggetti, o solo oggetti. Le condizioni sono cose per cui si testa nel mondo, come incantesimi su un'utensile o una probabilità casuale. Il numero minimo di voci scelte da una pool è detto roll, e qualsiasi cosa sopra a ciò è detta una roll bonus.
 
 ## Blocchi {#blocks}
 

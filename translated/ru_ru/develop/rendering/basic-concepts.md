@@ -135,7 +135,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 Вы также можете умножить верхнюю матрицу в стеке, используя кватернионы, о чем мы поговорим в следующем разделе.
 
-Используя наш пример выше, мы можем масштабировать наш алмаз вверх и вниз, используя `MatrixStack` и `tickDelta`, то есть время, прошедшее с момента последнего кадра.
+Взяв за основу приведенный выше пример, мы можем масштабировать наш ромб вверх и вниз, используя `MatrixStack` и `tickDelta`, которые представляют собой "прогресс" между последним игровым тиком и следующим игровым тактом. Мы разъясним это позже на странице [Рендеринг в Hud](./hud#tick-delta).
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.

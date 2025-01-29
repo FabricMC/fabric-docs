@@ -24,7 +24,7 @@ Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che `extends Fab
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Struttura dei Progressi {#advancement-structure}
 
@@ -42,8 +42,12 @@ Ecco un semplice progresso per aver ottenuto un blocco di terra:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
+:::warning
+Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Identifier` del progresso nel formato `String`!
+:::
+
 :::details Output JSON
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
 :::
 
 ## Un Altro Esempio Ancora {#one-more-example}
@@ -51,20 +55,6 @@ Ecco un semplice progresso per aver ottenuto un blocco di terra:
 Solo per capirne il funzionamento, aggiungiamo un altro progresso. Faremo pratica con l'aggiunta di ricompense, l'utilizzo di criterio multiplo, e l'assegnazione di genitori:
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
-
-Non dimenticare di generarli! Usa il comando da terminale qui sotto o esegui la configurazione in IntelliJ.
-
-::: code-group
-
-```sh [Windows]
-gradlew runDatagen
-```
-
-```sh [Linux]
-./gradlew runDatagen
-```
-
-:::
 
 ## Criteri Personalizzati {#custom-criteria}
 
@@ -82,7 +72,7 @@ Un **predicato** è qualcosa che prende un valore e restituisce un `boolean`. Pe
 
 ### Creare Criteri Personalizzati {#creating-custom-criteria}
 
-Anzitutto ci serve una meccanica da implementare. Informiamo il giocatore riguardo a quale strumento ha utilizzato ogni volta che rompe un blocco.
+Anzitutto ci serve una meccanica da implementare. Informiamo il giocatore riguardo a quale utensile ha utilizzato ogni volta che rompe un blocco.
 
 @[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 

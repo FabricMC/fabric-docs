@@ -37,7 +37,7 @@ authors-nogithub:
 
 ### 纹理{#texture}
 
-状态效果的图片是一个 18x18 的 PNG，显示在玩家的背包中。 将你的自定义图标放在：
+状态效果图标是 18x18 的 PNG，出现在玩家的物品栏屏幕中。 将你的自定义图标放在：
 
 ```:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
@@ -47,7 +47,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### 翻译{#translations}
 
-像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.<mod-id>.<effect-identifier>": "Value"`。
+像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.mod-id.effect-identifier": "Value"`。
 
 ```json
 {

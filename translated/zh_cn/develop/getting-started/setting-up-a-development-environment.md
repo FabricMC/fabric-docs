@@ -24,7 +24,7 @@ authors-nogithub:
 
 ## 安装 JDK 21 {#installing-jdk-21}
 
-为 Minecraft 1.21 开发模组，需要 JDK 21。
+要开发 Minecraft 1.21.4 的模组，需要 JDK 21。
 
 如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
 

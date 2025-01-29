@@ -24,7 +24,7 @@ Zuerst müssen wir unseren Provider erstellen. Erstelle eine Klasse, die `extend
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Struktur eines Fortschritts {#advancement-structure}
 
@@ -42,8 +42,12 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
+:::warning
+Denke bei der Erstellung deiner Fortschrittseinträge daran, dass die Funktion den `Identifier` des Fortschritts im Format `String` annimmt!
+:::
+
 :::details JSON Ausgabe
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
 :::
 
 ## Ein weiteres Beispiel {#one-more-example}
@@ -51,20 +55,6 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 Um den Dreh raus zu bekommen, fügen wir noch einen weiteren Fortschritt hinzu. Wir üben das Hinzufügen von Belohnungen, die Verwendung mehrerer Kriterien und die Zuweisung von Eltern:
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
-
-Vergiss nicht, sie zu generieren! Nutze den untenstehenden Terminal-Befehl oder die Laufkonfiguration in IntelliJ.
-
-::: code-group
-
-```sh [Windows]
-gradlew runDatagen
-```
-
-```sh [Linux]
-./gradlew runDatagen
-```
-
-:::
 
 ## Benutzdefinierte Kriterien {#custom-criteria}
 
@@ -136,7 +126,7 @@ Führe den Datengenerator Task erneut aus und du hast einen neuen Fortschritt be
 
 Das ist alles schön und gut, aber was ist, wenn wir einen Fortschritt nur dann gewähren wollen, wenn wir etwas fünfmal getan haben? Und warum nicht noch einen bei zehn Mal? Hierfür müssen wir unserer Bedingung einen Parameter geben. Du kannst bei `UseToolCriterion` bleiben, oder du kannst mit einem neuen `ParameterizedUseToolCriterion` nachziehen. In der Praxis solltest du nur die parametrisierte Variante haben, aber für dieses Tutorial werden wir beide behalten.
 
-Lass uns von unten nach oben arbeiten. Wir müssen prüfen, ob die Anforderungen erfüllt sind, also bearbeiten wir unsere Methode `Condtions#requirementsMet`:
+Lass uns von unten nach oben arbeiten. Wir müssen prüfen, ob die Anforderungen erfüllt sind, also bearbeiten wir unsere Methode \`Conditions#requirementsMet:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 

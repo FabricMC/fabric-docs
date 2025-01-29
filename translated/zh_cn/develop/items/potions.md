@@ -36,7 +36,7 @@ authors:
 
 在我们的初始化器中，我们将使用 `FabricBrewingRecipeRegistryBuilder.BUILD` 事件，使用 `BrewingRecipeRegistry.registerPotionRecipe` 方法注册我们的药水。
 
-@[code lang=java transclude={29-42}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
 `registerPotionRecipe` 接收以下 3 个参数：
 

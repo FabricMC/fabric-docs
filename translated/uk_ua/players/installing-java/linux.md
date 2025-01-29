@@ -11,7 +11,7 @@ authors:
 
 ## 1. Перевірте, чи Java вже встановлено {#1-check-if-java-is-already-installed}
 
-Відкрийте термінал, введіть `java -version` і натисніть <0>Enter</0>.
+Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
 ![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
 

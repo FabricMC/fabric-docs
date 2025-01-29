@@ -292,19 +292,19 @@ Jetbrains hat viele gute Vorträge, Videos und Dokumentationsseiten darüber, wi
 Verwende die PostFix Vervollständigung, um Code nach dem Schreiben schnell zu ändern. Häufig verwendete Beispiele sind `.not`, `.if`, `.var`, `.null`, `.nn`, `.for`, `.fori`, `.return` und `.new`.
 Neben den bereits vorhandenen kannst du in den Einstellungen von IntelliJ auch eigene erstellen.
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4" title="IntelliJ IDEA Pro Tips: Postfix Completion on YouTube"/>
+<VideoPlayer src="https://youtu.be/wvo9aXbzvy4">IntelliJ IDEA Profi-Tipps: Postfix-Vervollständigung auf YouTube</VideoPlayer>
 
 ### Live-Vorlagen {#live-templates}
 
 Verwende Live-Vorlagen, um deinen eigenen Vorlagen-Code schneller zu generieren.
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU" title="IntelliJ IDEA Pro Tips: Live Templates on YouTube"/>
+<VideoPlayer src="https://youtu.be/XhCNoN40QTU">IntelliJ IDEA Profi-Tipps: Live-Templates auf YouTube</VideoPlayer>
 
 ### Mehr Tipps und Tricks {#more-tips}
 
 Anton Arhipov von Jetbrains hielt auch einen ausführlichen Vortrag über Regex Matching, Code Vervollständigung, Debugging und viele andere Themen in IntelliJ.
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI" title="IntelliJ talk by Anton Arhipov on YouTube"/>
+<VideoPlayer src="https://youtu.be/V8lss58zBPI">IntelliJ Vortrag von Anton Arhipov auf YouTube</VideoPlayer>
 
 Für weitere Informationen, sieh dir [Jetbrains Tips & Tricks Seite](https://blog.jetbrains.com/idea/category/tips-tricks) und [IntelliJ's Dokumentation](https://www.jetbrains.com/help/idea/getting-started) an.
 Die meisten ihrer Beiträge sind auch auf das Ökosystem von Fabric anwendbar.
