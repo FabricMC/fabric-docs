@@ -126,7 +126,7 @@ Ciò che abbiamo chiamato `ENGINE_LOOP` è il suono in loop del motore completat
 
 ## Usare una `SoundInstance` {#using-a-soundinstance}
 
-Per riprodurre suoni sul lato client, è necessaria una `SoundInstance`. Tuttavia utilizzano comunque un `SoundEvent`.
+Per riprodurre suoni sul lato client, è necessaria una `SoundInstance`. Tuttavia usano comunque un `SoundEvent`.
 
 Se vuoi solo riprodurre qualcosa come un clic su un elemento dell'interfaccia grafica, esiste già la classe `PositionedSoundInstance`.
 

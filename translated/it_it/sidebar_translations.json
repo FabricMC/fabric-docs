@@ -49,6 +49,7 @@
   "develop.dataGeneration.advancements": "Generazione di Progressi",
   "develop.dataGeneration.recipes": "Generazione di Ricette",
   "develop.dataGeneration.lootTables": "Generazione di Loot Table",
+  "develop.dataGeneration.blockModels": "Generazione di Modelli di Blocchi",
   "develop.rendering": "Rendering",
   "develop.rendering.basicConcepts": "Concetti Base del Rendering",
   "develop.rendering.drawContext": "Usare il Contesto di Disegno",
