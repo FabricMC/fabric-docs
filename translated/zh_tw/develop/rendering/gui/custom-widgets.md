@@ -16,7 +16,7 @@ authors:
 - `Drawable` （繪製）： 需要使用 `addDrawableChild` 來繪製出這個畫面元件。
 - `Element` （事件）： 如果有需要讀取玩家互動（點選、按鍵等）。
 - `Narratable` （無障礙功能）： 如果有需要使用文字朗讀和其他無障礙功能。
-- `Selectable` （選擇）： 如果想要讓畫面元件變得可以透過<kbd>Tab<0>選擇，這也有助於無障礙功能。
+- `Selectable` （選擇）： 如果想要讓畫面元件變得可以透過<kbd>Tab</kbd>選擇，這也有助於無障礙功能。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
