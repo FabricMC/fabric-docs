@@ -52,7 +52,7 @@ Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Iden
 
 ## Un Altro Esempio Ancora {#one-more-example}
 
-Solo per capirne il funzionamento, aggiungiamo un altro progresso. Faremo pratica con l'aggiunta di ricompense, l'utilizzo di criterio multiplo, e l'assegnazione di genitori:
+Solo per capirne il funzionamento, aggiungiamo un altro progresso. Faremo pratica con l'aggiunta di ricompense, l'uso di criterio multiplo, e l'assegnazione di genitori:
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
@@ -72,7 +72,7 @@ Un **predicato** è qualcosa che prende un valore e restituisce un `boolean`. Pe
 
 ### Creare Criteri Personalizzati {#creating-custom-criteria}
 
-Anzitutto ci serve una meccanica da implementare. Informiamo il giocatore riguardo a quale utensile ha utilizzato ogni volta che rompe un blocco.
+Anzitutto ci serve una meccanica da implementare. Informiamo il giocatore riguardo a quale utensile ha usato ogni volta che rompe un blocco.
 
 @[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
