@@ -2,7 +2,7 @@
   "markdownlint.lintWorkspaceGlobs": [
     "**/*.md",
     "!**/node_modules",
-    "!versions/*/translated/**",
+    "!versions/**",
     "!translated/**",
     "!README.md"
   ]

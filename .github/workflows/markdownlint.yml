@@ -6,7 +6,7 @@ on:
       - "**/*.md"
       - "!README.md"
       - "!translated/**"
-      - "!versions/*/translated/**"
+      - "!versions/**"
 
 concurrency:
   group: markdownlint-${{ github.event.pull_request.number || github.ref }}
@@ -38,4 +38,4 @@ jobs:
             !**/node_modules
             !**/.git
             !translated/**
-            !versions/*/translated/**
+            !versions/**
