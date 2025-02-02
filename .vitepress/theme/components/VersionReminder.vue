@@ -28,6 +28,7 @@ const version = computed(() => {
 </script>
 
 <template>
+  <br class="before-version-reminder" />
   <div :class="`version-reminder ${version !== LATEST ? 'old-version' : ''}`">
     <div class="icon">
       <svg
@@ -86,7 +87,7 @@ const version = computed(() => {
       </p>
     </div>
   </div>
-  <br />
+  <br class="after-version-reminder" />
 </template>
 
 <style scoped>
@@ -114,8 +115,8 @@ const version = computed(() => {
 }
 
 .icon {
-  width: 15%;
-  height: 15%;
+  width: 20%;
+  height: 20%;
 }
 
 svg {
@@ -139,7 +140,9 @@ p.version {
 }
 
 @media (min-width: 1280px) {
-  .content-container > .version-reminder {
+  .content-container > .version-reminder,
+  .content-container > .after-version-reminder,
+  .before-version-reminder {
     display: none;
   }
 }

@@ -11,8 +11,6 @@ config:
   MD013: false
   MD024:
     siblings_only: true
-  MD025: # TODO: remove
-    front_matter_title: ""
   MD026:
     # Allow headings to end with `!`
     punctuation: ".,;:。，；："
