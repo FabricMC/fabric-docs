@@ -8,8 +8,6 @@ authors-nogithub:
   - basil4088
 ---
 
-# Fabric 和模组简介 {#introduction-to-fabric-and-modding}
-
 ## 先决条件 {#prerequisites}
 
 在开始学习之前，你应该对 Java 开发有基本的了解，并对面向对象编程（OOP）有所认识。
@@ -48,7 +46,7 @@ Fabric 旨在成为简单易用的模组开发平台。 Fabric 是由社区驱�
 
 ## 为什么开发 Minecraft 模组需要 Fabric？ {#why-is-fabric-necessary-to-mod-minecraft}
 
-> “模组（Modding）”是指修改游戏以改变其行为或添加新功能的过程，就 Minecraft 而言，这可以是添加新物品、方块或实体，也可以是改变游戏机制或添加新的游戏模式。
+> "模组（Modding）"是指修改游戏以改变其行为或添加新功能的过程，就 Minecraft 而言，这可以是添加新物品、方块或实体，也可以是改变游戏机制或添加新的游戏模式。
 
 Minecraft: Java Edition 被 Mojang 混淆，因此很难单独修改。 不过，在 Fabric 等模组开发工具的帮助下，修改变得更加容易。 有一些映射系统可以协助这一过程。
 

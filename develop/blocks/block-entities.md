@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Block Entities {#block-entities}
-
 Block entities are a way to store additional data for a block, that is not part of the block state: inventory contents, custom name and so on.
 Minecraft uses block entities for blocks like chests, furnaces, and command blocks.
 

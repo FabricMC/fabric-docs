@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# 첫 번째 블록 만들기 {#creating-your-first-block}
-
 블록은 Minecraft에서의 건축 블록입니다 (말장난 아님). Minecraft의 다른 모든 것들처럼, 마찬가지로 레지스트리에 저장됩니다.
 
 ## 블록 클래스 준비하기 {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ authors:
 Mojang은 바닐라 블록과 매우 비슷한 무언가를 수행합니다. `Blocks` 클래스를 참조하여 어떻게 하였는지 참고해도 됩니다.
 
 @[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 아이템처럼, 블록 인스턴스가 포함된 모든 정적 필드가 초기화되도록 클래스가 불러와졌음을 확인하여야 합니다.
 
@@ -50,7 +46,7 @@ public class ModBlocks {
 예시로, 흙의 속성을 가지고 있지만, 다른 재질의 간단한 블록을 만들어 볼 것입니다.
 
 :::tip
-또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
+또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해`Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
@@ -65,17 +61,15 @@ public class ModBlocks {
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 이제 크리에이티브 인벤토리에 블록이 있고, 세계에 설치할 수 있음을 알 수 있습니다!
 
-![적합한 모델이나 텍스처가 없는 세계의 블록](/assets/develop/blocks/first_block_0.png).
+![적합한 모델이나 텍스처가 없는 세계의 블록](/assets/develop/blocks/first_block_0.png)
 
 여기엔 몇가지 문제가 있습니다. 블록의 이름이 없으며, 텍스처도 없고 블록 모델이나 아이템 모델도 없습니다.
 
 ## 블록 번역 추가하기 {#adding-block-translations}
 
-번역을 추가하기 위하여, 번역 파일 (`assets/<mod id here>/lang/en_us.json`)에 번역 키를 만들어야 합니다.
+번역을 추가하기 위하여, 번역 파일 (`assets/mod-id/lang/en_us.json`)에 번역 키를 만들어야 합니다.
 
 Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드백과 같은 블록의 이름이 표시되는 다른 곳에 사용할 것입니다.
 
@@ -85,18 +79,18 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 }
 ```
 
-모드를 빌드하기 위하여 게임을 다시 시작하거나 <kbd>F3</kbd> + <kbd>T</kbd>를 눌러 변경 사항을 적용할 수 있습니다. 그러면 크리에이티브 인벤토리나 통계 화면과 같은 다른 곳에 블록의 이름이 있는 것이 보일 것입니다.
+모드를 빌드하기 위하여 게임을 다시 시작하거나 <kbd>F3</kbd>+<kbd>T</kbd>를 눌러 변경 사항을 적용할 수 있습니다. 그러면 크리에이티브 인벤토리나 통계 화면과 같은 다른 곳에 블록의 이름이 있는 것이 보일 것입니다.
 
 ## 모델 및 텍스처 {#models-and-textures}
 
-모든 블록의 텍스처는 `assets/<mod id here>/textures/block` 폴더에서 찾을 수 있습니다. 예시 텍스처인 "거친 흙" 블록은 무료로 사용할 수 있습니다.
+모든 블록의 텍스처는 `assets/mod-id/textures/block` 폴더에서 찾을 수 있습니다. 예시 텍스처인 "거친 흙" 블록은 무료로 사용할 수 있습니다.
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
 
 텍스처가 게임 안에서 보이게 하려면, "거친 흙" 블록의 다음 위치에서 찾을 수 있는 블록 및 아이템 모델을 만들어야 합니다:
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+- `assets/mod-id/models/block/condensed_dirt.json`
+- `assets/mod-id/models/item/condensed_dirt.json`
 
 이 아이템 모델은 꽤 단순합니다. 대부분의 블록 모델이 GUI에서 렌더되는 것을 지원하기 때문에그저 상위 모델로 블록 모델을 사용할 수 있습니다:
 
@@ -120,13 +114,13 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 블록 상태는 정말 복잡합니다. 그러므로, [블록 상태](./blockstates) 페이지에서 다루겠습니다.
 
-게임을 다시 시작하거나, <kbd>F3</kbd> + <kbd>T</kbd>을 통해 다시 불러와 변경 사항을 적용하세요. 블록 텍스처가 인벤토리 안과 실제 세계에서 볼 수 있을 것입니다.
+게임을 다시 시작하거나, <kbd>F3</kbd>+<kbd>T</kbd>을 통해 다시 불러와 변경 사항을 적용하세요. 블록 텍스처가 인벤토리 안과 실제 세계에서 볼 수 있을 것입니다.
 
 ![적합한 모델이나 텍스처가 있는 세계의 블록](/assets/develop/blocks/first_block_4.png)
 
 ## 블록 떨굼 추가하기 {#adding-block-drops}
 
-서바이벌 모드에서 블록을 부쉈을 때, 블록이 떨어지지 않는 것을 봤을 수도 있습니다. 아마 이 기능을 원하였을 수도 있습니다. 하지만 블록을 부숴서 떨어지게 만들기 위하여 노획물 목록을 구현하여야 합니다. 노획물 목록은 `data/<mod id here>/loot_table/blocks/` 폴더에 위치해야 합니다.
+서바이벌 모드에서 블록을 부쉈을 때, 블록이 떨어지지 않는 것을 봤을 수도 있습니다. 아마 이 기능을 원하였을 수도 있습니다. 하지만 블록을 부숴서 떨어지게 만들기 위하여 노획물 목록을 구현하여야 합니다. 노획물 목록은 `data/mod-id/loot_table/blocks/` 폴더에 위치해야 합니다.
 
 :::info
 노획물 목록에 대하여 더 자세히 알고 싶으면, [Minecraft 위키 - 노획물 목록](https://ko.minecraft.wiki/w/%EB%85%B8%ED%9A%8D%EB%AC%BC_%EB%AA%A9%EB%A1%9D) 페이지를 참고할 수 있습니다.

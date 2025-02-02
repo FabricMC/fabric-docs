@@ -7,11 +7,9 @@ authors:
   - mattidragon
 ---
 
-# 伤害类型{#damage-types}
-
 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
 
-## 创建伤害类型{#creating-a-damage-type}
+## 创建伤害类型 {#creating-a-damage-type}
 
 让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
@@ -31,7 +29,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 :::
 
-### 通过代码访问伤害类型{#accessing-damage-types-through-code}
+### 通过代码访问伤害类型 {#accessing-damage-types-through-code}
 
 当需要在代码中访问我们的自定义伤害类型时，可以用它的 `RegistryKey` 来创建一个 `DamageSource` 实例。
 
@@ -39,7 +37,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
-### 使用伤害类型{#using-damage-types}
+### 使用伤害类型 {#using-damage-types}
 
 为了演示自定义伤害类型如何使用，我们将使用一个自定义方块 _土豆块_ 。 让我们实现生物踩在 _土豆块_ 上时会造成 _土豆_ 伤害。
 
@@ -59,7 +57,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 现在，每当生物踩在我们的自定义方块上时，都将受到使用我们的自定义伤害类型的 5 点伤害（2.5 颗心）。
 
-### 自定义死亡消息{#custom-death-message}
+### 自定义死亡消息 {#custom-death-message}
 
 你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
 
@@ -69,7 +67,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ![玩家物品栏内的效果](/assets/develop/tater-damage-death.png)
 
-### 伤害类型标签{#damage-type-tags}
+### 伤害类型标签 {#damage-type-tags}
 
 有些伤害类型能够无视护甲、无视状态效果等等。 伤害类型的这些属性是由标签控制的。
 

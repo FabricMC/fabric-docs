@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 사용자 정의 입자 만들기
-
 입자는 강력한 도구입니다. 아름다운 장면에 분위기를 더할 수도 있고, 보스와의 전투에 긴장감을 더할 수도 있습니다. 그럼 직접 한번 만들어 봅시다!
 
 ## 사용자 정의 입자 등록하기
@@ -38,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## JSON 파일을 만들고 텍스쳐 추가하기
 
-먼저, 모드 소스의 `resources/assets/<mod id here>/` 폴더에 두 가지 새로운 폴더를 생성해야 합니다.
+먼저, 모드 소스의 `resources/assets/mod-id/` 폴더에 두 가지 새로운 폴더를 생성해야 합니다.
 
 | 폴더 경로                | 설명                                                              |
 | -------------------- | --------------------------------------------------------------- |
@@ -62,7 +60,7 @@ You can see all the particle factories by looking at all the implementations of 
 다음의 명령어를 입력하여 입자가 정상적으로 작동하는지 확인할 수 있습니다.
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![입자 쇼케이스](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Strumenti {#tools}
-
 Gli strumenti sono essenziali per la sopravvivenza e l'avanzamento, poiché permettono ai giocatori di raccogliere risorse, costruire edifici, e difendere sé stessi.
 
 ## Creare un Materiale dello Strumento {#creating-a-tool-material}

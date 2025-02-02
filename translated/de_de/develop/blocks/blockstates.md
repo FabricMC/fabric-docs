@@ -98,7 +98,7 @@ Nutze dein Wissen über Blockmodelle, um zwei Modelle für den Block zu erstelle
 
 Da du eine neue Eigenschaft erstellt hast, musst du die Blockzustand-Datei für den Block aktualisieren, um diese Eigenschaft zu berücksichtigen.
 
-Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kombinationen berücksichtigen. Zum Beispiel würden `activated` und `axis zu 6 Kombinationen führen (zwei mögliche Werte für `activated`und drei mögliche Werte für`axis\`).
+Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kombinationen berücksichtigen. Zum Beispiel würden `activated` und `axis` zu 6 Kombinationen führen (zwei mögliche Werte für `activated` und drei mögliche Werte für `axis`).
 
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 

@@ -63,6 +63,6 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 - `gradle.properties` ファイル内の `maven_group` と `archive_base_name` を編集します。
 - `fabric.mod.json` ファイル内の `id`、`name`、`description` プロパティを編集します。
-- Minecraft、マッピング、Fabric Loader、Loom のバージョンを、対応させたい値に編集します。これらは https://fabricmc.net/develop/ で照会できます。
+- Minecraft、マッピング、Fabric Loader、Loom のバージョンを、対応させたい値に編集します。これらは <https://fabricmc.net/develop/> で照会できます。
 
 言うまでもないですが、パッケージ名と Mod のメインクラスも適宜編集してください。

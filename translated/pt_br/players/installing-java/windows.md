@@ -15,7 +15,7 @@ O Launcher do Minecraft vem com sua própria instalação do Java, portanto esta
 
 Para verificar se o Java já está instalado, você deve primeiro abrir o prompt de comando.
 
-Você pode fazer isso apertando <kbd>Win</kbd> + <kbd>R</kbd> e digitando `cmd.exe` na janela aberta.
+Você pode fazer isso apertando <kbd>Win</kbd>+<kbd>R</kbd> e digitando `cmd.exe` na janela aberta.
 
 ![Caixa de diálogo Executar do Windows com "cmd.exe" na barra de execução](/assets/players/installing-java/windows-run-dialog.png)
 

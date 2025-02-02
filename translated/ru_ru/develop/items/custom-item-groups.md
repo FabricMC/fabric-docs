@@ -17,8 +17,6 @@ authors:
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-<hr />
-
 Новая вкладка с предметами появится в творческом инвентаре. Однако, она не переведена — вам необходимо добавить ключ перевода в файл с переводами как при переводе вашего первого предмета.
 
 ![Вкладка предметов без перевода в творческом инвентаре](/assets/develop/items/itemgroups_0.png)

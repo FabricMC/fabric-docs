@@ -17,8 +17,6 @@ authors-nogithub:
   - stormyfabric
 ---
 
-# Eventi {#events}
-
 L'API di Fabric fornisce un sistema che permette alle mod di reagire ad azioni o circostanze, anche dette _eventi_ che accadono nel gioco.
 
 Gli eventi sono agganci che soddisfano usi comuni e/o permettono compatibilità e prestazioni migliori tra mod diverse che si agganciano alle stesse aree del codice. L'uso degli eventi spesso sostituisce l'uso dei mixin.

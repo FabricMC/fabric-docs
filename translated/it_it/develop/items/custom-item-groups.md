@@ -17,8 +17,6 @@ I gruppi di oggetti sono le schede nell'inventario in creativa che memorizzano o
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-<hr />
-
 Dovresti notare che il gruppo di oggetti è ora nel menu dell'inventario in creativa. Tuttavia, è rimasto senza traduzione - devi aggiungere una chiave al tuo file di traduzioni - come quando hai tradotto il tuo primo oggetto.
 
 ![Gruppo di oggetti senza traduzione nel menu creativo](/assets/develop/items/itemgroups_0.png)

@@ -5,11 +5,11 @@ authors:
   - IMB11
 ---
 
-# 工具{#tools}
+# 工具 {#tools}
 
 工具对于生存和游戏进程至关重要，可让玩家收集资源、建造建筑物和保护自己。
 
-## 创建工具材料{#creating-a-tool-material}
+## 创建工具材料 {#creating-a-tool-material}
 
 ::: info
 If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
@@ -81,7 +81,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-## 创建工具物品{#creating-tool-items}
+## 创建工具物品 {#creating-tool-items}
 
 使用与 [创建你的第一个物品](./first-item) 指南中相同的实用功能，你可以创建工具物品：
 

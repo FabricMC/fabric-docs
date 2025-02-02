@@ -20,10 +20,4 @@ features:
 search: false
 ---
 
-<div class="vp-doc homepage-container">
-
-## Deseja ajudar?
-
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
-
-</div>

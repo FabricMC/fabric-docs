@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Uploading Logs {#uploading-logs}
-
 When troubleshooting issues, it is often necessary to provide logs to help identify the cause of the issue.
 
 ## Why Should I Upload Logs? {#why-should-i-upload-logs}

@@ -3,8 +3,6 @@ title: Tham Số Câu Lệnh
 description: Học cách tạo ra câu lệnh với tham số phức tạp.
 ---
 
-# Tham Số Câu Lệnh
-
 Hầu hết các câu lệnh đều có tham số. Nhiều khi tham số đó không bắt buộc, bạn không cần phải đưa vào câu lệnh nhưng nó vẫn chạy. Một node có thể có nhiều loại tham số, nhưng bạn nên tránh xảy ra trường hợp kiểu dữ liệu của tham số không rõ.
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

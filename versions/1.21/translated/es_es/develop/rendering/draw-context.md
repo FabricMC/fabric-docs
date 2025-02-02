@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Usando el Contexto de Dibujado
-
 Esta página asume que ya has visto la página de [Conceptos Básicos de Renderizado](./basic-concepts).
 
 La clase `DrawContext` es la clase principal usada para renderizar cosas en el juego. Es usada para renderizar objetos, texto y texturas y, como ya hemos visto, es usada para manipular diferentes `MatrixStack`s y usar `BufferBuilder`s.

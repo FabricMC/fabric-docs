@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Oberflächen {#custom-screens}
-
 :::info
 Diese Seite bezieht sich auf normale Oberflächen, nicht auf solche, die vom Spieler auf dem Client geöffnet werden, und nicht auf solche, die vom Server bearbeitet werden.
 :::

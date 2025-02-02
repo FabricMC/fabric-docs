@@ -7,11 +7,11 @@ authors:
   - its-miroma
 ---
 
-# 创建你的第一个方块{#creating-your-first-block}
+# 创建你的第一个方块 {#creating-your-first-block}
 
 方块是构成 Minecraft 世界的主要组成部分——和 Minecraft 的其他一切一样，是储存在注册表中的。
 
-## 准备你的 Blocks 类{#preparing-your-blocks-class}
+## 准备你的 Blocks 类 {#preparing-your-blocks-class}
 
 如果你已经完成了[创建你的第一个物品](../items/first-item)，那么这一过程会非常熟悉——你会需要创建一个注册方块以及方块物品的方法。
 
@@ -41,7 +41,7 @@ public class ModBlocks {
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
 
-## 创建并注册你的方块{#creating-and-registering-your-block}
+## 创建并注册你的方块 {#creating-and-registering-your-block}
 
 和物品类似，方块会在构造函数中接收一个 `Block.Settings` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
@@ -57,7 +57,7 @@ public class ModBlocks {
 
 我们上一步创建过 `regisger` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
 
-### 将方块添加到物品组{#adding-your-block-to-an-item-group}
+### 将方块添加到物品组 {#adding-your-block-to-an-item-group}
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到物品组中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
@@ -73,7 +73,7 @@ public class ModBlocks {
 
 但是还有点问题——方块物品没有命名，方块没有纹理、方块模型和物品模型。
 
-## 添加方块翻译{#adding-block-translations}
+## 添加方块翻译 {#adding-block-translations}
 
 要添加翻译，必须在你的翻译文件——`assets/<mod id here>/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/<0>/lang/zh_cn.json`。）
 
@@ -85,9 +85,9 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 }
 ```
 
-你可以重启游戏，或者构建你的模组，然后在游戏里按 <kbd>F3</kbd> + <kbd>T</kbd> 以重新加载资源文件——你将会看到方块在创造模式物品栏里或者其他地方（例如统计屏幕）中有个名字了。
+你可以重启游戏，或者构建你的模组，然后在游戏里按 <kbd>F3</kbd>+<kbd>T</kbd> 以重新加载资源文件——你将会看到方块在创造模式物品栏里或者其他地方（例如统计屏幕）中有个名字了。
 
-## 模型和纹理{#models-and-textures}
+## 模型和纹理 {#models-and-textures}
 
 所有方块纹理都可以在 `assets/<mod id here>/textures/block` 文件夹中找到——“Condensed Dirt”方块的示例纹理可以自由使用。
 
@@ -108,7 +108,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
 
-## 创建方块状态定义{#creating-the-block-state-definition}
+## 创建方块状态定义 {#creating-the-block-state-definition}
 
 方块状态定义用于指示游戏基于当前方块的状态要渲染哪个模型。
 
@@ -120,11 +120,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
 
-重启游戏，或者按下<kbd>F3</kbd> + <kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
+重启游戏，或者按下<kbd>F3</kbd>+<kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
 
 ![世界内有适当的纹理和模型的方块](/assets/develop/blocks/first_block_4.png)
 
-## 添加方块掉落物{#adding-block-drops}
+## 添加方块掉落物 {#adding-block-drops}
 
 在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/<mod id here>/loot_table/blocks/` 文件夹中。
 
@@ -136,7 +136,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个战利品表提供了方块在被破坏以及被爆炸破坏时掉落的单个方块物品。
 
-## 推荐挖掘工具{#recommending-a-harvesting-tool}
+## 推荐挖掘工具 {#recommending-a-harvesting-tool}
 
 你可能也想要让方块只能被特定类型的方块挖掘——例如，可能想让你的方块用锹挖掘更快。
 
@@ -155,7 +155,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 如果应使用工具来挖掘此方块，则需要在方块属性（`Block.Settings`）中添加`.requiresTool()`，并添加相应的挖掘标签。
 
-## 挖掘等级{#mining-levels}
+## 挖掘等级 {#mining-levels}
 
 类似地，`data/minecraft/tags/block/` 文件夹内也可以找到挖掘等级，并遵循以下格式：
 
@@ -165,6 +165,6 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 文件与挖掘工具文件的格式相同——要添加到标签中的物品的列表。
 
-## 备注{#extra-notes}
+## 备注 {#extra-notes}
 
 如果将多个方块添加到你的模组中，可能需要考虑使用[数据生成](https://fabricmc.net/wiki/tutorial:datagen_setup)来自动化创建方块和物品模型、方块状态定义和战利品表。

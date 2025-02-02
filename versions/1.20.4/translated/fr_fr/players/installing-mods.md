@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Installer des mods
-
 Ce guide explique en détail le processus d'installation de mods pour Fabric avec le launcher Minecraft officiel.
 
 Pour les lanceurs tiers, vous devriez consulter leur documentation.

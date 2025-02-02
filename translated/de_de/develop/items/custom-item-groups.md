@@ -17,8 +17,6 @@ Es ist überaschend einfach eine Itemgruppe zu erstellen. Erstell einfach ein ne
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-<hr />
-
 Du solltest sehen, dass die Itemgruppe jetzt im kreativen Inventar ist. Es ist jedoch unübersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie du dein erstes Item übersetzt hast.
 
 ![Itemgruppe ohne Übersetzungsschlüssel im kreativen Menü](/assets/develop/items/itemgroups_0.png)

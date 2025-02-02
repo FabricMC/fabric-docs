@@ -20,8 +20,6 @@ authors-nogithub:
 search: false
 ---
 
-# Configurando tu entorno de desarrollo
-
 Para empezar a desarollar mods usando Fabric, necesitarás configurar un entorno de desarrollo usando IntelliJ IDEA.
 
 ## Instalar Java 17

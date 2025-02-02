@@ -10,8 +10,6 @@ authors-nogithub:
 search: false
 ---
 
-# Introducción a Fabric y el desarrollo de Mods
-
 ## Requisitos Previos
 
 Antes de empezar, deberías tener un entendimiento básico de programación en Java, y conocimiento de Programación Orientada a Objetos (POO).

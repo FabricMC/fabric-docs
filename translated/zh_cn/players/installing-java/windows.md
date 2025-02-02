@@ -11,11 +11,11 @@ authors:
 
 Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想使用 Fabric 的 `.jar` 安装器，或者你想使用 Minecraft 服务器的 `.jar` 时有关。
 
-## 1. 检查 Java 是否已经安装{#1-check-if-java-is-already-installed}
+## 1. 检查 Java 是否已经安装 {#1-check-if-java-is-already-installed}
 
 要检查 Java 是否已安装，你首先必须打开命令提示符。
 
-你可以通过按下 <kbd>Win</kbd> + <kbd>R</kbd> 并在出现的对话框中输入 `cmd.exe` 来实现它。
+你可以通过按下 <kbd>Win</kbd>+<kbd>R</kbd> 并在出现的对话框中输入 `cmd.exe` 来实现它。
 
 ![Windows运行对话框中的「cmd.exe」](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -29,7 +29,7 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 要使用 Minecraft 1.21，你需要安装至少 Java 21。 如果运行该命令后显示 Java 版本低于 21，你需要更新设备上现有 Java。
 :::
 
-## 2. 下载 Java 21 安装程序{#2-download-the-java-installer}
+## 2. 下载 Java 21 安装程序 {#2-download-the-java-installer}
 
 要安装 Java 21，你需要从 [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21) 下载安装程序。
 
@@ -52,7 +52,7 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 完成后，你可以按 `下一步` 继续安装。
 
-## 4. 验证是否已安装 Java 21{#4-verify-that-java-is-installed}
+## 4. 验证是否已安装 Java 21 {#4-verify-that-java-is-installed}
 
 安装完成后，您可以打开命令提示符并输入 `java -version` 来验证 Java 21 是否已安装。
 

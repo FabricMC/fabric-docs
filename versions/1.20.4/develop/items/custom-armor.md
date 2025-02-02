@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Custom Armor {#custom-armor}
-
 Armor provides the player with increased defense against attacks from mobs and other players.
 
 ## Creating an Armor Material {#creating-an-armor-material}

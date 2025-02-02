@@ -16,8 +16,6 @@ authors-nogithub:
   - macrafterzz
 ---
 
-# Einrichten der Dtaengenerierung {#data-generation-setup}
-
 ## Was ist Datengenerierung? {#what-is-data-generation}
 
 Datengenerierung (oder datagen) ist eine API für das programmatische generieren von Rezepten, Fortschritten, Tags, Itemmodellen, Sprachdateien, Beutetabllen und im Grunde allem auf JSON Basis.

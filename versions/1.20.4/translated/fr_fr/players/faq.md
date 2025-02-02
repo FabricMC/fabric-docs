@@ -5,8 +5,6 @@ description: Foire aux questions pour les joueurs et les administrateurs de serv
 search: false
 ---
 
-# Foire Aux Questions
-
 Certaines questions sont posées très fréquemment, donc en voici une liste.
 
 ## Questions générales

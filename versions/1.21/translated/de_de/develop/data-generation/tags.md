@@ -9,8 +9,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Generierung von Tags {#tag-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::

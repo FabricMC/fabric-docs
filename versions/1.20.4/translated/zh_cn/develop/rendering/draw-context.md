@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 使用绘制上下文
-
 本文假设您已经看过[基本渲染概念](./basic-concepts)。
 
 `DrawContext` 是控制渲染的核心类。 它提供了诸多渲染图形、文字、纹理的方法，此外还用来操纵 `MatrixStack` 和 `BufferBuilder`。
@@ -61,7 +59,7 @@ search: false
 
 ## 绘制纹理
 
-注意，不存在唯一“正确”的绘制纹理的方法，因为 `drawTexture` 有很多重载。 本节内容只会涵盖最常用的方法。
+注意，不存在唯一"正确"的绘制纹理的方法，因为 `drawTexture` 有很多重载。 本节内容只会涵盖最常用的方法。
 
 ### 绘制整个纹理
 

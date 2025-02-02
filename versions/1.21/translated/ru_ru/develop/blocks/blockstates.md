@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Состояния блока {#block-states}
-
 Состояния блока — это фрагмент данных, привязанный к одному блоку в мире Minecraft, содержащий информацию о блоке в виде свойств. Вот несколько примеров свойств, которые стандартный Minecraft хранит в состояниях блока:
 
 - Rotation: В основном используется для древесины и других природных блоков.
@@ -15,7 +13,7 @@ authors:
 
 Вы, вероятно, понимаете, почему они полезны — они позволяют избежать необходимости хранения данных NBT в сущности блока, что уменьшает размер мира и предотвращает проблемы с TPS!
 
-Определения состояний блока можно найти в папке `assets/<mod id here>/blockstates`.
+Определения состояний блока можно найти в папке `assets/mod-id/blockstates`.
 
 ## Пример: Блок Колонна {#pillar-block}
 
@@ -29,7 +27,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Колоновые блоки имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
 
-Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/<mod id here>/textures/block`
+Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/mod-id/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстуры</DownloadEntry>
 
@@ -42,10 +40,8 @@ Minecraft уже имеет несколько пользовательских 
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Для более подробного изучения всех доступных модификаторов в файле состояний блоков, ознакомьтесь со страницей [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
@@ -108,8 +104,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
----
-
 Поскольку пример блока представляет собой лампу, нам также необходимо заставить ее излучать свет, когда свойство `activated` имеет значение true. Это можно сделать с помощью настроек блока, передаваемых конструктору при регистрации блока.
 
 Вы можете использовать метод `luminance` для установки уровня освещенности, излучаемой блоком. Мы можем создать статический метод в классе `PrismarineLampBlock` для возврата уровня освещенности на основе свойства `activated` и передать его как ссылку на метод `luminance`:
@@ -117,8 +111,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 @[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

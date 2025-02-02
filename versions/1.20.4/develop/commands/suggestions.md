@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Command Suggestions {#command-suggestions}
-
 Minecraft has a powerful command suggestion system that's used in many places, such as the `/give` command. This system allows you to suggest values for command arguments to the user, which they can then select from - it's a great way to make your commands more user-friendly and ergonomic.
 
 ## Suggestion Providers {#suggestion-providers}

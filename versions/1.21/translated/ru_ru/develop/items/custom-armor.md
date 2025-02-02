@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Собственная броня {#custom-armor}
-
 Броня дает игроку повышенную защиту от атак мобов и других игроков.
 
 ## Создание класса для материалов брони {#creating-an-armor-materials-class}
@@ -30,8 +28,6 @@ public void onInitialize() {
   ModArmorMaterials.initialize();
 }
 ```
-
----
 
 Внутри класса `ModArmorMaterials` необходимо создать статический метод для регистрации материалов брони. Этот метод должен возвращать запись материала в реестре, которая в дальнейшем будет использована в конструкторе `ArmorItem` для создания предмета брони.
 
@@ -142,14 +138,14 @@ public void onInitialize() {
 
 Когда сущность носит вашу броню, в настоящее время отображается отсутствующая текстура:
 
-![Сломанная модель брони на игроке](/assets/develop/items/armor_2.png).
+![Сломанная модель брони на игроке](/assets/develop/items/armor_2.png)
 
 Для текстуры брони есть два слоя, оба должны присутствовать.
 
 Поскольку в нашем случае имя материала брони — `guidite`, то расположение текстур будет следующим:
 
-- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
-- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
 
@@ -157,4 +153,4 @@ public void onInitialize() {
 
 При наличии этих текстур вы сможете увидеть свою броню на существах, которые ее носят:
 
-![Рабочая модель брони на игроке](/assets/develop/items/armor_3.png).
+![Рабочая модель брони на игроке](/assets/develop/items/armor_3.png)

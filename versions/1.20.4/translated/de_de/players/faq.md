@@ -5,8 +5,6 @@ description: Häufig gestellte Fragen für Spieler und Serveradministratoren in 
 search: false
 ---
 
-# Häufig gestellte Fragen
-
 Es gibt viele Fragen, die häufig gestellt werden, deshalb haben wir hier eine Liste dieser Fragen zusammengestellt.
 
 ## Allgemeine Fragen

@@ -6,8 +6,6 @@ authors:
   - Cactooz
 ---
 
-# 프로젝트 만들기 {#creating-a-project}
-
 페브릭에는 템플릿 생성기를 사용하여 새 모드를 생성하는 쉬운 방법이 있습니다. 원하는 경우 예제 모드 저장소를 사용하여 수동으로 새 프로젝트를 생성할 수 있습니다. [수동으로 프로젝트 생성](#manual-project -creation).
 
 ## 프로젝트 생성하기 {#generating-a-project}

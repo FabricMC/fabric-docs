@@ -8,8 +8,6 @@ authors:
   - its-miroma
 ---
 
-# Block Model Generation {#block-model-generation}
-
 ::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
@@ -94,7 +92,7 @@ Doors and trapdoors are a little different. Here, you have to make three new tex
 1. The door:
     - It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
     - The `registerDoor()` method will create models for all orientations of the door, both open and closed.
-    - **You also need an item texture!** Put it in `assets/<mod_id>/textures/item/` folder.
+    - **You also need an item texture!** Put it in `assets/mod_id/textures/item/` folder.
 2. The trapdoor:
    - Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
    - Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable". Otherwise, it will look the same no matter the direction it's facing.

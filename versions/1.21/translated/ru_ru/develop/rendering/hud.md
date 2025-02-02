@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Рендеринг в HUD {#rendering-in-the-hud}
-
 Мы уже кратко затронули тему рендеринга объектов в HUD на странице [Основные концепции рендеринга](./basic-concepts) и [Использование контекста рисования](./draw-context), поэтому на этой странице мы остановимся на событии `HudRenderCallback` и параметре `deltaTick`.
 
 ## HudRenderCallback {#hudrendercallback}

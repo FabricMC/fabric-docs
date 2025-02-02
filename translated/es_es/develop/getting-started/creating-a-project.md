@@ -63,6 +63,6 @@ Una vez que el proyecto ha sido importado, deberías poder modificar los detalle
 
 - Modifica el archivo de `gradle.properties` de tu proyecto para cambiar las propiedades de `maven_group` (grupo de maven) y `archive_base_name` (nombre base del archivo) para que sean los de tu mod.
 - Modifica el archivo de `fabric.mod.json` para cambiar las propiedades de `id`, `name`, y `description` para que sean los de tu mod.
-- Asegúrate de actualizar las versiones de Minecraft, los mapeos, el cargador de Fabric y Loom - todos ellos pueden ser consultados en https://fabricmc.net/develop/ - para tener las versiones deseadas.
+- Asegúrate de actualizar las versiones de Minecraft, los mapeos, el cargador de Fabric y Loom - todos ellos pueden ser consultados en <https://fabricmc.net/develop/> - para tener las versiones deseadas.
 
 Obviamente también puedes cambiar el nombre del paquete y la clase principal para que sean las de tu mod.

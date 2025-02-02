@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# Codec
-
 Codec 是一个为了简单地解析 Java 对象的系统，它被包含在 Mojang 的 DataFixerUpper (DFU) 库中，DFU 被包含在 Minecraft 中。 在模组环境中，当读取和写入自定义 JSON 文件时，codec 可用作 GSON 和 Jankson 的替代品，尽管这些开始越来越相关，因为 Mojang 正在重写大量旧代码以使用 Codec。
 
 Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 codec 定义一个对象的结构，而 dynamic ops 用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
@@ -65,7 +63,7 @@ Codec API 自己包含了一些 基础类型的 codec，就像 `Codec.INT` 和 `
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -291,7 +289,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```
@@ -396,7 +394,7 @@ Codec<ListNode> codec = Codecs.createRecursive(
 }
 ```
 
-## 参考{#references}
+## 参考 {#references}
 
 - 关于编解码器及相关API的更全面的文档，可以在[非官方DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec)中找到。
 - 本指南的总体结构受到了 [Forge 社区 Wiki 关于 Codec 的页面](https://forge.gemwire.uk/wiki/Codecs)的重大启发，这是对同一主题的更具 Forge 特色的解读。

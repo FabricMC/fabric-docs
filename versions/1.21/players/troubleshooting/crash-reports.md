@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Crash Reports {#crash-reports}
-
 ::: tip
 If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
 :::

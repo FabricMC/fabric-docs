@@ -152,7 +152,7 @@ Una `SoundInstance` può essere molto più potente rispetto a una semplice ripro
 Dai un'occhiata alla classe `AbstractSoundInstance` e a quali tipi di valori può tenere in considerazione.
 A parte le solite variabili di volume e tono, memorizza anche le coordinate XYZ, e un'opzione perché si ripeta dopo aver finito il `SoundEvent`.
 
-Poi, dando un'occhiata alla sua sottoclasse `MovingSoundInstance, viene anche introdotta l'interfaccia `TickableSoundInstance`, che aggiunge funzionalità legate ai tick alla `SoundInstance\`.
+Poi, dando un'occhiata alla sua sottoclasse `MovingSoundInstance`, viene anche introdotta l'interfaccia `TickableSoundInstance`, che aggiunge funzionalità legate ai tick alla `SoundInstance`.
 
 Per cui per sfruttare queste utilità, basta creare una nuova classe per la tua `SoundInstance` personalizzata ed estendere `MovingSoundInstance`.
 
@@ -217,7 +217,7 @@ Questo è solo un esempio su come ci si può approcciare ad argomenti del genere
 Se scegli di creare una nuova classe `AbstractDynamicSoundInstance` personalizzata e più modulare, da usare come superclasse, potresti voler fare riferimento non solo ad un tipo singolo di `Entity` ma a più tipi diversi, o anche ad un `BlockEntity`.
 
 In quel caso la chiave è sfruttare l'astrazione.
-Invece di fare riferimento, per esempio, direttamente a un `BlockEntity` personalizzato, tener solo conto di un'interfaccia che fornisce i dati risolve quel problema.
+Invece di fare riferimento, per esempio, direttamente a un `BlockEntity` personalizzato, tener solo conto di un'interfaccia che fornisce i dati risolve quel problema.
 
 D'ora in poi useremo un'interfaccia personalizzata chiamata `DynamicSoundSource`. È da implementare in tutte le classi che vogliono sfruttare quelle funzionalità di suoni dinamici, come il tuo `BlockEntity` personalizzato, le entità o addirittura, usando Mixin, su classi preesistenti come `ZombieEntity`. In pratica contiene solo i dati necessari della fonte di suono.
 
@@ -250,7 +250,7 @@ public enum TransitionState {
 }
 ```
 
-Ma quando quei valori vengono inviati tramite rete, potresti voler definire un `Identifier` per esse o anche aggiungere altri valori personalizzati.
+Ma quando quei valori vengono inviati tramite rete, potresti voler definire un `Identifier` per esse o anche aggiungere altri valori personalizzati.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 
@@ -271,7 +271,7 @@ Implementa quest'interfaccia in qualsiasi classe che deve poter gestire segnali 
 
 ### Classe `AbstractDynamicSoundInstance` {#abstractdynamicsoundinstance-class}
 
-Finalmente cominciamo a lavorare sul cuore del sistema di `SoundInstance` dinamiche. `AbstractDynamicSoundInstance` è la classe `abstract` che dobbiamo creare.
+Finalmente cominciamo a lavorare sul cuore del sistema di `SoundInstance` dinamiche. `AbstractDynamicSoundInstance` è la classe `abstract` che dobbiamo creare.
 Essa implementa le funzioni e utilità predefinite caratteristiche della nostra `SoundInstance` personalizzata, che da essa erediterà.
 
 Possiamo considerare la `CustomSoundInstance` di [poco fa](#using-a-soundinstance) e migliorarla.

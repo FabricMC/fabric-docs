@@ -36,7 +36,7 @@ Se la datagen è attiva, dovresti avere una configurazione di esecuzione "Data G
 
 ### Manualmente {#manually-enabling-data-generation}
 
-Anzitutto, dobbiamo attivare la datagen nel file `build.gradle`.
+Anzitutto, dobbiamo attivare la datagen nel file `build.gradle`.
 
 @[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 

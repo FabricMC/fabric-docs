@@ -7,13 +7,11 @@ authors:
 search: false
 ---
 
-# 安装 Fabric{#installing-fabric}
-
 本指南将引导你在官方 Minecraft 启动器上安装 Fabric。
 
 对于第三方启动器，你应该查阅它们的文档。
 
-## 1. 下载 Fabric 安装程序{#1-download-the-fabric-installer}
+## 1. 下载 Fabric 安装程序 {#1-download-the-fabric-installer}
 
 可以从 [Fabric 网站](https://fabricmc.net/use/) 下载 Fabric 的安装程序。
 
@@ -21,7 +19,7 @@ search: false
 
 对于 macOS 和 Linux，您应该下载 `.jar` 版本。 有时，此步骤之前需要安装 Java。
 
-## 2. 运行 Fabric 安装程序{#2-run-the-fabric-installer}
+## 2. 运行 Fabric 安装程序 {#2-run-the-fabric-installer}
 
 :::warning
 在安装之前，请先关闭 Minecraft 和 Minecraft Launcher。
@@ -33,7 +31,7 @@ search: false
 
 ![Fabric 安装程序中的 MacOS 上下文菜单](/assets/players/installing-fabric/macos-downloads.png)
 
-问到“Are you sure you want to open it?”时，再次点击 `Open`。
+问到"Are you sure you want to open it?"时，再次点击 `Open`。
 :::
 
 打开安装器后，应该会看到这样的屏幕：

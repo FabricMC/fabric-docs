@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Custom Armor {#custom-armor}
-
 Armor provides the player with increased defense against attacks from mobs and other players.
 
 ## Creating an Armor Materials Class {#creating-an-armor-materials-class}
@@ -32,8 +30,6 @@ public void onInitialize() {
   ModArmorMaterials.initialize();
 }
 ```
-
----
 
 Within this `ModArmorMaterials` class, you will need to create a static method which will register the armor material. This method should return a registry entry of the material, as this entry will be used by the ArmorItem constructor to create the armor items.
 
@@ -150,8 +146,8 @@ There are two layers for the armor texture, both must be present.
 
 Since the armor material name in our case is `guidite`, the locations of the textures will be:
 
-- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
-- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Armor Model Textures</DownloadEntry>
 

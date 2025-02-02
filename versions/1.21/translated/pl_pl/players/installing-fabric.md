@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Instalowanie Fabric {#installing-fabric}
-
 Ten przewodnik pokaże ci, jak zainstalować Fabric dla oficjalnego launchera Minecrafta.
 
 W przypadku innych launcherów należy zapoznać się z ich dokumentacją.
@@ -33,12 +31,12 @@ Na systemie macOS do uruchomienia pliku `.jar` może być konieczne kliknięcie 
 
 ![Menu kontekstowe macOS z instalatorem Fabric](/assets/players/installing-fabric/macos-downloads.png)
 
-Gdy pojawi się komunikat „Czy na pewno chcesz otworzyć ten plik?”, ponownie kliknij `Otwórz`.
+Gdy pojawi się komunikat „Czy na pewno chcesz otworzyć ten plik?", ponownie kliknij `Otwórz`.
 :::
 
 Po otworzeniu instalatora powinno pojawić się takie okno:
 
-![Instalator Fabric z wyróżnionym tekstem „Zainstaluj”](/assets/players/installing-fabric/installer-screen.png)
+![Instalator Fabric z wyróżnionym tekstem „Zainstaluj"](/assets/players/installing-fabric/installer-screen.png)
 
 Aby zainstalować Fabric, wystarczy po prostu wybrać wersję gry z rozwijanej listy i kliknąć `Zainstaluj`.
 
