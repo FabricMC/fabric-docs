@@ -70,9 +70,9 @@
   padding: 0 24px;
 }
 
-/* Override default padding on the VitePress Home component */
+/* Override default margin on the VitePress Home component */
 .VPHome {
-  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 /* Responsive Adjustments - Increase padding for wider screens. */
