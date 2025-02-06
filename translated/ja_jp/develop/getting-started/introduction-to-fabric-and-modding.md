@@ -1,5 +1,5 @@
 ---
-title: Fabric と Modding への入門
+title: Fabric と Mod 開発への入門
 description: "Fabric と Minecraft: Java 版における Modding への入門"
 authors:
   - IMB11
