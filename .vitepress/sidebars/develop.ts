@@ -266,6 +266,24 @@ export default [
         text: "develop.misc.automatic-testing",
         link: "/develop/automatic-testing",
       },
+      {
+        text: "develop.misc.loom",
+        link: "/develop/loom",
+        items: [
+          {
+            text: "develop.misc.loom.fabric-api",
+            link: "/develop/loom/fabric-api",
+          },
+          {
+            text: "develop.misc.loom.options",
+            link: "/develop/loom/options",
+          },
+          {
+            text: "develop.misc.loom.prod",
+            link: "/develop/loom/production-run-tasks",
+          }
+        ]
+      },
     ],
   },
 ] as Fabric.SidebarItem[];
