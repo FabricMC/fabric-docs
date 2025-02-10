@@ -32,7 +32,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
     // Specify the Java toolchain to use when running the game.
     // Defaults to the Java version being used to run Gradle.
     // See https://docs.gradle.org/current/userguide/toolchains.html#sec:plugins_toolchains
-    javaLauncher = javaToolchains.launcherFor { 
+    javaLauncher = javaToolchains.launcherFor {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
