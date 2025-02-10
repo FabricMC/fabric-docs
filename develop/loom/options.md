@@ -49,7 +49,7 @@ loom {
    defaultMainClass = ""
    // The run directory for this configuration, relative to the root project directory.
    runDir = "run"
-   // The sourceset to run, commonly set to sourceSets.test
+   // The source set to run, commonly set to sourceSets.test
    source = sourceSets.main
    // When true a run configuration file will be generated for IDE's. By default only set to true for the root project.
    ideConfigGenerated = true
@@ -86,18 +86,18 @@ loom {
   // Set the default refmap name
   defaultRefmapName = "example.refmap.json"
 
-  // See https://github.com/FabricMC/fabric-loom/blob/dev/0.11/src/main/java/net/fabricmc/loom/api/MixinExtensionAPI.java for options to add additional sourcesets
+  // See https://github.com/FabricMC/fabric-loom/blob/dev/0.11/src/main/java/net/fabricmc/loom/api/MixinExtensionAPI.java for options to add additional source sets
  }
 
  // Configure or add new decompilers
  decompilers {
-  // Configure a default decompiler, either cfr or fernflower
+  // Configure a default decompiler, either cfr, fernflower or vineflower
   cfr {
    // Pass additional options to the decompiler
    options += [
     key: "value"
    ]
-   // Set the amount of memory in meagabytes used when forking the JVM
+   // Set the amount of memory in megabytes used when forking the JVM
    memory = 4096
    // Set the maximum number of threads that the decompiler can use.
    maxThreads = 8
@@ -105,18 +105,18 @@ loom {
  }
 
  interfaceInjection {
-  // When enabled injected interfaces from dependecies will be applied.
+  // When enabled injected interfaces from dependencies will be applied.
   enableDependencyInterfaceInjection = true
  }
 
- // Splits the Minecraft jar and incoming dependencies across the main (common) and client only sourcesets.
+ // Splits the Minecraft jar and incoming dependencies across the main (common) and client only source sets.
  // This provides compile time safety for accessing client only code.
  splitEnvironmentSourceSets()
 
- // This mods block is used group mods that are made up of multiplue classpath entries.
+ // This mods block is used group mods that are made up of multiple classpath entries.
  mods {
   modid {
-   // When using split sources you should add the main and client sourceset
+   // When using split sources you should add the main and client source set
    sourceSet sourceSets.main
    sourceSet sourceSets.client
   }
@@ -143,52 +143,52 @@ remapJar {
 }
 
 dependencies {
- // Set the minecraft version.
+ // Set the Minecraft version.
  minecraft "com.mojang:minecraft:1.18.1"
 
  // Use mappings from maven.
  mappings "net.fabricmc:yarn:1.18.1+build.22:v2"
 
- // Use the offical mojang mappings
+ // Use the official Mojang mappings
  mappings loom.officialMojangMappings()
 
- // Layered mappings using official mojang mappings and parchment.
+ // Layered mappings using official Mojang mappings and Parchment.
  mappings loom.layered() {
   officialMojangMappings()
-  // Use parchment mappings. NOTE: Parchment maven must be manually added. (https://maven.parchmentmc.org)
+  // Use Parchment mappings. NOTE: Parchment maven must be manually added. (https://maven.parchmentmc.org)
   parchment("org.parchmentmc.data:parchment-1.17.1:2021.09.05@zip")
  }
 
- // Remap a mod from maven and apply to gradle's implementation configuration
+ // Remap a mod from maven and apply to Gradle's implementation configuration
  // (Minor detail: it's not exactly applied *to* the configuration, but a clone of it intended for mod dependencies)
  modImplementation "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
- // Remap a mod from maven and apply to gradle's api configuration
+ // Remap a mod from maven and apply to Gradle's api configuration
  modApi "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
- // Remap a mod from maven and apply to gradle's compileOnly configuration
+ // Remap a mod from maven and apply to Gradle's compileOnly configuration
  modCompileOnly "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
- // Remap a mod from maven and apply to gradle's compileOnlyApi configuration
+ // Remap a mod from maven and apply to Gradle's compileOnlyApi configuration
  modCompileOnlyApi "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
- // Remap a mod from maven and apply to gradle's runtimeOnly configuration
+ // Remap a mod from maven and apply to Gradle's runtimeOnly configuration
  modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
  // Remap a mod from maven and apply to loom's localRuntime configuration.
  // Behaves like runtimeOnly but is not exposed in to dependents. A bit like testRuntimeOnly but for mods.
  modLocalRuntime "net.fabricmc.fabric-api:fabric-api:0.46.2+1.18"
 
- // Include a mod jar in the remapped jar. None transitive.
+ // Include a mod jar in the remapped jar. Not transitive.
  include "example:example-mod:1.1.1"
 
- // Include a none mod library jar in the remapped jar. A dummy mod will be generated. None transitive.
+ // Include a non-mod library jar in the remapped jar. A dummy mod will be generated. Not transitive.
  include "example:example-lib:1.1.1"
 
- // Helper to aid with depending on a specific fabric api version.
+ // Helper to aid with depending on a specific Fabric API version.
  modImplementation fabricApi.module("fabric-api-base", "0.46.2+1.18")
 
- // Depend on a loom sub project by using the namedElements configuration.
+ // Depend on a loom subproject by using the namedElements configuration.
  implementation project(path: ":name", configuration: "namedElements")
 }
 ```

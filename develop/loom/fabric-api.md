@@ -38,14 +38,14 @@ fabricApi {
   createSourceSet = true
 
   // Contains a string representing the mod ID associated with the data generation process. This must be set if `createSourceSet` is true.
-  // This must be the mod id of the mod used for datagen in the datagen sourceset and not your main mod id.
+  // This must be the mod id of the mod used for datagen in the datagen source set and not your main mod id.
   modId = "example-datagen"
 
   // Contains a boolean indicating whether strict validation is enabled.
   // Defaults to `false`
   strictValidation = true
 
-  // Contains a boolean indicating whether the generated resources will be automatically added to the main sourceset.
+  // Contains a boolean indicating whether the generated resources will be automatically added to the main source set.
   // Defaults to `true`
   addToResources = true
 
@@ -76,7 +76,7 @@ fabricApi {
   createSourceSet = true
 
   // Contains a string representing the mod ID associated with the tests. This must be set if `createSourceSet` is true.
-  // This must be the mod id of the mod used for tests in the gametest sourceset and not your main mod id.
+  // This must be the mod id of the mod used for tests in the gametest source set and not your main mod id.
   modId = "example-tests"
 
   // Contains a boolean indicating whether a run configuration will be created for the server side game tests, using Vanilla Game Test framework.
