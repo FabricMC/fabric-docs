@@ -11,9 +11,9 @@ Fabric Loom, or just Loom for short, is a [Gradle](https://gradle.org/|Gradle) p
 
 If you are just getting started please see the [Getting Started](getting-started/setting-up-a-development-environment) page, this page here is a reference to all of the options and features of Loom. The documentation for Fabric Loom is minecraft version independent, Loom supports ALL versions of Minecraft even ones not officialy supported by Fabric-API.
 
-## Depending on Sub Projects {#subprojects}
+## Depending on Subprojects {#subprojects}
 
-When setting up a multi-project build that depenends on another loom project you should use the `namedElements` configuration when depending on the other project. By default a projects "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project ouputs that have not been remapped.
+When setting up a multi-project build that depenends on another Loom project you should use the `namedElements` configuration when depending on the other project. By default a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
 
 ```groovy
 dependencies {
@@ -21,7 +21,7 @@ dependencies {
 }
 ```
 
-If you are using splitsource sets in a multi-project build, you will also need to add a dependency for the other projects client sourceset.
+If you are using splitsource sets in a multi-project build, you will also need to add a dependency for the other project's client source set.
 
 ```groovy
 dependencies {
@@ -31,9 +31,9 @@ dependencies {
 
 ## Split Client & Common Code {#split-sources}
 
-For years a common source of server crashes has been from mods accidentally calling client only code when installed on a server. The latest loom and loader verions provide an option to require all client code to be moved into its own sourceset. This is done to provide a compile-time guarantee against calling client only Minecraft code or client only API on the server. A single jar file that works on both the client and server is still built from the two sourcesets.
+For years a common source of server crashes has been from mods accidentally calling client only code when installed on a server. The latest Loom and Loader versions provide an option to require all client code to be moved into its own source set. This is done to provide a compile-time guarantee against calling client only Minecraft code or client only API on the server. A single jar file that works on both the client and server is still built from the two source sets.
 
-The following snippet from a build.gradle file shows how you can enable this for your mod. As your mod will now be split across two sourcesets, you will need to use the new DSL to define your mods sourcesets. This enables Fabric Loader to group your mods classpath together. This is also useful for some other complex multi-project setups.
+The following snippet from a build.gradle file shows how you can enable this for your mod. As your mod will now be split across two source sets, you will need to use the new DSL to define your mods source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
 
 Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
 
@@ -52,7 +52,7 @@ loom {
 
 ## Resolving Issues {#issues}
 
-Loom and/or gradle can sometimes fail due to corrupted cache files. Running `./gradlew build --refresh-dependencies` will force gradle and loom to re-download and recreate all of the files. This may take a few minutes but is usually quite successful with resolving cache related issues.
+Loom and/or Gradle can sometimes fail due to corrupted cache files. Running `./gradlew build --refresh-dependencies` will force Gradle and Loom to re-download and recreate all of the files. This may take a few minutes but is usually quite successful with resolving cache related issues.
 
 ## Development Environment Setup {#setup}
 
@@ -97,4 +97,4 @@ Loom is designed to work out of the box by simply setting up a workspace in the 
 - For each MavenPublication (from the `maven-publish` plugin):
 - Manually appends dependencies to the POM for mod-augmented dependency configurations, provided the dependency configuration has a Maven scope.
 
-All run configurations have the run directory `${projectDir}/run` and the VM argument `-Dfabric.development=true`. The main classes for run configurations is usually defined by a `fabric-installer.json` file in the root of Fabric Loader's JAR file when it is included as a mod dependency, but the file can be defined by any mod dependency. If no such file is found, the main classes defaults to `net.fabricmc.loader.launch.knot.KnotClient` and `net.fabricmc.loader.launch.knot.KnotServer`.
+All run configurations have the run directory `${projectDir}/run` and the VM argument `-Dfabric.development=true`. The main classes for run configurations are usually defined by a `fabric-installer.json` file in the root of Fabric Loader's JAR file when it is included as a mod dependency, but the file can be defined by any mod dependency. If no such file is found, the main classes default to `net.fabricmc.loader.launch.knot.KnotClient` and `net.fabricmc.loader.launch.knot.KnotServer`.

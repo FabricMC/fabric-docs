@@ -7,11 +7,11 @@ authors:
 
 # Production Run Tasks {#options}
 
-When building your mod to distrubute to users it gets remapped to intermediary mappings, this presents some small diffrences between the development environment and production (e.g the vanilla launcher). While its rare for their to be issues, it makes sense to test your mod in a production environment before releasing it.
+When building your mod to distribute to users it gets remapped to intermediary mappings, this presents some small diffrences between the development environment and production (e.g the vanilla launcher). While it's rare for there to be issues, it makes sense to test your mod in a production environment before releasing it.
 
 ## Common Options {#common}
 
-The server and client tasks both inherit from the same `AbstractProductionRunTask` class, this means they share the following options:
+The server and client tasks both inherit from the same `AbstractProductionRunTask` class. This means they share the following options:
 
 ```groovy
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {
