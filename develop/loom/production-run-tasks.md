@@ -10,6 +10,7 @@ authors:
 When building your mod to distrubute to users it gets remapped to intermediary mappings, this presents some small diffrences between the development environment and production (e.g the vanilla launcher). While its rare for their to be issues, it makes sense to test your mod in a production environment before releasing it.
 
 ## Common Options {#common}
+
 The server and client tasks both inherit from the same `AbstractProductionRunTask` class, this means they share the following options:
 
 ```groovy
@@ -55,6 +56,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
     minecraftVersion = "1.21.4"
 }
 ```
+
 The server task has the unique abbility to run your mod with a different version of Minecraft, this might be useful if you are developing a cross version mod.
 
 ## Client {#client}
