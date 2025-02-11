@@ -1,13 +1,19 @@
 ---
-title: Production run tasks.
+title: Production Run Tasks
 description: Documentation for the production run tasks in the Fabric Loom Gradle plugin.
 authors:
   - modmuss50
+  - kb-1000
+  - Juuxel
+  - Atakku
+  - SolidBlock-cn
+authors-nogithub:
+  - jamieswhiteshirt
+  - daomephsta
+  - caoimhe
 ---
 
-# Production Run Tasks {#options}
-
-When building your mod to distribute to users it gets remapped to intermediary mappings, this presents some small diffrences between the development environment and production (e.g the vanilla launcher). While it's rare for there to be issues, it makes sense to test your mod in a production environment before releasing it.
+When building your mod to distribute to users, it gets remapped to intermediary mappings, which cause slight inconsistencies between the development environment and production (like the vanilla launcher). Although such issues are rare, it makes sense to test your mod in a production environment before releasing it.
 
 ## Common Options {#common}
 
@@ -57,7 +63,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 }
 ```
 
-The server task has the unique abbility to run your mod with a different version of Minecraft, this might be useful if you are developing a cross version mod.
+The server task has the unique ability to run your mod with a different version of Minecraft, this might be useful if you are developing a cross-versions mod.
 
 ## Client {#client}
 

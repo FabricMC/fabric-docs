@@ -3,9 +3,15 @@ title: Fabric API DSL
 description: Documentation for the Fabric API support in the Fabric Loom Gradle plugin.
 authors:
   - modmuss50
+  - kb-1000
+  - Juuxel
+  - Atakku
+  - SolidBlock-cn
+authors-nogithub:
+  - jamieswhiteshirt
+  - daomephsta
+  - caoimhe
 ---
-
-# Fabric API DSL {#dsl}
 
 Loom has a DSL to help configure certain aspects of Fabric API such as data generation and tests.
 
@@ -49,7 +55,7 @@ fabricApi {
   // Defaults to `true`
   addToResources = true
 
-  // Contains a boolean indicating whether data generation will be compiled and ran with the client.
+  // Contains a boolean indicating whether data generation will be compiled and run with the client.
   // Defaults to `false`
   client = true
  }
@@ -58,7 +64,7 @@ fabricApi {
 
 ## Tests {#tests}
 
-As with data generation a basic testing setup can be achieved with the following:
+As with data generation you can set up basic testing with the following:
 
 ```groovy
 fabricApi {
