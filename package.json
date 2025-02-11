@@ -17,10 +17,12 @@
     "tsx": "^4.20.6"
   },
   "dependencies": {
+    "@crowdin/crowdin-api-client": "^1.48.3",
     "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^12.8.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "medium-zoom": "^1.1.0",
+    "octokit": "^5.0.5",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#458827b",
     "tinyglobby": "^0.2.15",
     "vidstack": "^1.12.13",
