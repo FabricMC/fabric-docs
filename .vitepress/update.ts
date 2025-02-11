@@ -84,6 +84,7 @@ import players from "./sidebars/players";
     ignore: [
       "README.md",
       "contributing.md",
+      "credits.md",
       "versions/**/*.md",
       "node_modules/**/*",
     ],
