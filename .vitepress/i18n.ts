@@ -223,7 +223,9 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     footer: {
       copyright: websiteResolver("footer.copyright").replace(
         "%s",
-        `<a href=\"https://github.com/FabricMC/fabric-docs/blob/main/LICENSE\" target=\"_blank\" rel=\"noreferrer\">${websiteResolver("footer.license")}</a>`
+        `<a href=\"https://github.com/FabricMC/fabric-docs/blob/main/LICENSE\" target=\"_blank\" rel=\"noreferrer\">${websiteResolver(
+          "footer.license"
+        )}</a>`
       ),
       message: websiteResolver("footer.message"),
     },
