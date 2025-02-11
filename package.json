@@ -1,5 +1,6 @@
 {
   "name": "fabric-docs",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
@@ -21,10 +22,13 @@
     "@rollup/rollup-linux-x64-gnu": "4.21.3"
   },
   "dependencies": {
+    "@crowdin/crowdin-api-client": "^1.41.1",
     "@vueuse/core": "^12.4.0",
+    "axios": "^1.7.9",
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "medium-zoom": "^1.1.0",
+    "octokit": "^4.1.1",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#458827b",
     "vidstack": "^1.12.12",
     "vitepress": "^1.3.4",
