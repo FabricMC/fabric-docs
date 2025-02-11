@@ -1,18 +1,7 @@
-* @FabricMC/documentation
+* @FabricMC/developers
 
-.gitattributes @FabricMC/developers
-.github/ @FabricMC/developers
-.gitignore @FabricMC/developers
-.markdownlint-cli2.yaml @FabricMC/developers
-.nvmrc @FabricMC/developers
-.vitepress/ @FabricMC/developers
+*_translations.json @FabricMC/documentation
+**/*.md @FabricMC/documentation
 .vitepress/sidebars/ @FabricMC/documentation
-.vscode/ @FabricMC/developers
-crowdin.yml @FabricMC/developers
-LICENSE @FabricMC/developers
-netlify.toml @FabricMC/developers
-package-lock.json @FabricMC/developers
-package.json @FabricMC/developers
-public/robots.txt @FabricMC/developers
-reference/ @FabricMC/developers
+public/assets/ @FabricMC/documentation
 reference/latest/ @FabricMC/documentation
