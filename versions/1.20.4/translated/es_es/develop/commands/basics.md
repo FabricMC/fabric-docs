@@ -11,7 +11,7 @@ authors:
   - modmuss50
   - technici4n
   - atakku
-  - haykam
+  - haykam821
   - mschae23
   - treeways
   - xpple
