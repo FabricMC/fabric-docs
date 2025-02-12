@@ -85,21 +85,24 @@ export default {
       translators.set(user.username, user);
     });
 
-    return Array.from(translators.values()).map(
-      (contributor) =>
-        ({
-          avatar:
-            contributor.avatar ||
-            "https://i2.wp.com/crowdin.com/images/user-picture.png?ssl=1",
-          links: [
-            {
-              icon: "crowdin",
-              link: `https://crowdin.com/profile/${contributor.username}`,
-            },
-          ],
-          name: contributor.username,
-          number: contributor.words,
-        } as DefaultTheme.TeamMember & { number: number })
-    );
+    return Array.from(translators.values())
+      .map(
+        (contributor) =>
+          ({
+            avatar:
+              contributor.avatar ||
+              "https://i2.wp.com/crowdin.com/images/user-picture.png?ssl=1",
+            links: [
+              {
+                icon: "crowdin",
+                link: `https://crowdin.com/profile/${contributor.username}`,
+              },
+            ],
+            name: contributor.username,
+            number: contributor.words,
+          } as DefaultTheme.TeamMember & { number: number })
+      )
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .sort((a, b) => b.number - a.number);
   },
 };
