@@ -18,7 +18,7 @@ import { computed } from "vue";
 
 import { data as _authors } from "/.vitepress/data/authors.data";
 import { data as _committers } from "/.vitepress/data/committers.data";
-import { data as maintainers } from "/.vitepress/data/maintainers.data";
+import { data as _maintainers } from "/.vitepress/data/maintainers.data";
 import { data as _translators } from "/.vitepress/data/translators.data";
 import { Fabric } from "/.vitepress/types";
 
@@ -48,6 +48,8 @@ const committers = _committers.map((committer) => ({
           committer.number.toString()
         ),
 }));
+
+const maintainers = _maintainers;
 
 const translators = _translators.map((translator) => ({
   ...translator,
