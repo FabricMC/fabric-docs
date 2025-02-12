@@ -6,16 +6,27 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 export default {
   async load() {
-    const contributors = await octokit.paginate(
-      octokit.rest.repos.listContributors,
-      {
-        owner: "FabricMC",
-        repo: "fabric-docs",
+    const contributors = await (async () => {
+      try {
+        return await octokit.paginate(octokit.rest.repos.listContributors, {
+          owner: "FabricMC",
+          repo: "fabric-docs",
+        });
+      } catch (e) {
+        // Allows build without internet
+        return [];
       }
-    );
-    const { data } = await octokit.rest.users.getByUsername({
-      username: "FabricMCBot",
-    });
+    })();
+    const { data } = await (async () => {
+      try {
+        return await octokit.rest.users.getByUsername({
+          username: "FabricMCBot",
+        });
+      } catch (e) {
+        // Allows build without internet
+        return { data: { avatar_url: "" } };
+      }
+    })();
 
     return contributors
       .filter(

@@ -9,7 +9,7 @@ const { sourceFilesApi, reportsApi } = (() => {
     //@ts-expect-error https://github.com/crowdin/crowdin-api-client-js/issues/98
     return new crowdin.default({ token: CROWDIN_TOKEN });
   } catch (e) {
-    // Allows build without a CROWDIN_TOKEN
+    // Allows build without a CROWDIN_TOKEN or without internet
     return { sourceFilesApi: {}, reportsApi: {} };
   }
 })();
