@@ -13,7 +13,7 @@ export default {
           team_slug: "documentation",
         });
       } catch (e) {
-        // Allows build without a GITHUB_TOKEN
+        // Allows build without a GITHUB_TOKEN or without internet
         return [];
       }
     })();
@@ -22,9 +22,16 @@ export default {
       .filter((contributor) => contributor.login !== "FabricMCBot")
       .filter(async (contributor) =>
         (
-          await octokit.paginate(octokit.rest.orgs.listForUser, {
-            username: contributor.login,
-          })
+          await (async () => {
+            try {
+              return await octokit.paginate(octokit.rest.orgs.listForUser, {
+                username: contributor.login,
+              });
+            } catch (e) {
+              // Allows build without internet
+              return [{ login: "FabricMC" }];
+            }
+          })()
         )
           .map((org) => org.login)
           .includes("FabricMC")
