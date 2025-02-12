@@ -43,14 +43,22 @@ export default {
             number: author.files,
           } as DefaultTheme.TeamMember & { number: number };
         } catch (error) {
+          // Allows build without internet
           return null;
         }
       })
     );
 
-    const { data } = await octokit.rest.users.getByUsername({
-      username: "FabricMCBot",
-    });
+    const { data } = await (async () => {
+      try {
+        return await octokit.rest.users.getByUsername({
+          username: "FabricMCBot",
+        });
+      } catch (e) {
+        // Allows build without internet
+        return { data: { avatar_url: "" } };
+      }
+    })();
     const authorsNoGitHubArray = Array.from(authorsNoGitHub.values()).map(
       (author) =>
         ({
