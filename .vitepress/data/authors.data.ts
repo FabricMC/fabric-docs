@@ -39,7 +39,7 @@ export default {
           return {
             avatar: data.avatar_url,
             links: [{ icon: "github", link: data.html_url }],
-            name: data.name || data.login,
+            name: data.login,
             number: author.files,
           } as DefaultTheme.TeamMember & { number: number };
         } catch (error) {
