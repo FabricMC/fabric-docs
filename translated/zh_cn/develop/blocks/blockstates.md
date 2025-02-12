@@ -15,7 +15,7 @@ authors:
 
 你可能看出了为什么方块状态有用——避免了在方块实体中存储 NBT 数据的需要——这既减小了世界大小，也防止产生 TPS 问题！
 
-方块状态的定义能在 `assets/<mod id here>/blockstates` 文件夹中找到。
+方块状态的定义能在 `assets/mod-id/blockstates` 文件夹中找到。
 
 ## 示例：柱方块{#pillar-block}
 
@@ -29,7 +29,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 柱方块有两个纹理，顶部（`top`）和侧面（`side`），使用 `block/cube_column` 模型。
 
-同样，纹理文件可以在 `assets/<mod id here>/textures/block` 中找到。
+同样，纹理文件可以在 `assets/mod-id/textures/block` 中找到。
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">纹理</DownloadEntry>
 
@@ -45,7 +45,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 ---
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
 :::
@@ -124,4 +124,4 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 一切完成后，最终的结果应该看起来像这样：
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">游戏内海晶灯方块</VideoPlayer>
