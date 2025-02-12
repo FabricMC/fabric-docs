@@ -16,7 +16,6 @@ permissions:
 
 jobs:
   build:
-    if: github.repository == 'FabricMC/fabric-docs'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +32,6 @@ jobs:
           path: "./.vitepress/dist"
 
   deploy:
-    if: github.repository == 'FabricMC/fabric-docs'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -43,8 +41,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  cleanup:
-    runs-on: ubuntu-24.04
-    steps:
-      - run: exit 0
