@@ -38,7 +38,7 @@ export default {
           ({
             avatar: contributor.avatar_url || data.avatar_url,
             links: [{ icon: "github", link: contributor.html_url }],
-            name: contributor.name || contributor.login,
+            name: contributor.login,
             number: contributor.contributions,
           } as DefaultTheme.TeamMember & { number: number })
       )
