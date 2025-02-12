@@ -96,10 +96,20 @@ Both server and client game tests can be set up manually or with Fabric Loom. Th
 
 To add game tests to your mod, add the following to your `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:1](@/reference/build.gradle)
 
 To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
 
 ### Writing Game Tests {#writing-game-tests}
 
-You can now create server and client game tests in the `src/gametest/java` directory. See the respective javadocs in Fabric API for more info.
+You can now create server and client game tests in the `src/gametest/java` directory. Here is a barebones example of each.
+
+Server game test:
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java
+
+Client game test:
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java
+
+See the respective javadocs in Fabric API for more info.

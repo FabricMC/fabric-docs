@@ -30,6 +30,12 @@
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
+    ],
+    "fabric-gametest": [
+      "com.example.docs.FabricDocsGameTest"
+    ],
+    "fabric-client-gametest": [
+      "com.example.docs.FabricDocsClientGameTest"
     ]
   },
   "mixins": [

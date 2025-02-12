@@ -37,12 +37,24 @@ subprojects {
 	}
 
 	// :::datagen-setup:configure
+	// :::automatic-testing:game-test:1
 	fabricApi {
+		// :::automatic-testing:game-test:1
 		configureDataGeneration() {
 			client = true
 		}
+		// :::datagen-setup:configure
+
+		// :::automatic-testing:game-test:1
+		configureTests {
+			createSourceSet = true
+			modId = base.archivesName
+			eula = true
+		}
+		// :::datagen-setup:configure
 	}
 	// :::datagen-setup:configure
+	// :::automatic-testing:game-test:1
 
 	tasks.withType(JavaCompile).configureEach {
 		it.options.release = 21

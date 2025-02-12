@@ -1,6 +1,6 @@
 def minecraftVersion = "1.21.4"
 def yarnVersion = "1.21.4+build.4"
-def fabricApiVersion = "0.114.0+1.21.4"
+def fabricApiVersion = "0.116.1+1.21.4"
 
 dependencies {
   minecraft "com.mojang:minecraft:${minecraftVersion}"
@@ -13,13 +13,3 @@ test {
 	useJUnitPlatform()
 }
 // :::automatic-testing:2
-
-// :::automatic-testing:game-test:1
-fabricApi {
-	configureTests {
-		createSourceSet = true
-		modId = "example-test"
-		eula = true
-	}
-}
-// :::automatic-testing:game-test:1
