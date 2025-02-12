@@ -18,30 +18,34 @@ export default {
       }
     })();
 
-    return members
-      .filter((contributor) => contributor.login !== "FabricMCBot")
-      .filter(async (contributor) =>
-        (
-          await (async () => {
+    return (
+      await Promise.all(
+        members.map(async (member) => ({
+          val: await (async () => {
             try {
               return await octokit.paginate(octokit.rest.orgs.listForUser, {
-                username: contributor.login,
+                username: member.login,
               });
             } catch (e) {
               // Allows build without internet
               return [{ login: "FabricMC" }];
             }
-          })()
-        )
-          .map((org) => org.login)
-          .includes("FabricMC")
+          })(),
+          member,
+        }))
+      )
+    )
+      .filter(
+        (result) =>
+          result.val.map((org) => org.login).includes("FabricMC") &&
+          result.member.login !== "FabricMCBot"
       )
       .map(
-        (member) =>
+        (result) =>
           ({
-            avatar: member.avatar_url,
-            links: [{ icon: "github", link: member.html_url }],
-            name: member.name || member.login,
+            avatar: result.member.avatar_url,
+            links: [{ icon: "github", link: result.member.html_url }],
+            name: result.member.login,
           } as DefaultTheme.TeamMember)
       )
       .sort((a, b) => a.name.localeCompare(b.name));
