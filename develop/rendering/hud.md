@@ -13,7 +13,7 @@ We already briefly touched on rendering things to the hud in the [Basic Renderin
 ## `HudRenderCallback` {#hudrendercallback}
 
 ::: warning
-Previously, Fabric provided `HudRenderCallback` to render to the hud. Due to changes to hud rendering, this event became extremely limited and is now deprecated. Usage is strongly discouraged. Deprecated events may be removed in the future.
+Previously, Fabric provided `HudRenderCallback` to render to the hud. Due to changes to hud rendering, this event became extremely limited and is deprecated since Fabric API 0.116. Usage is strongly discouraged. Deprecated events may be removed in the future.
 :::
 
 ## `HudLayerRegistrationCallback` {#hud-layer-registration-callback}
