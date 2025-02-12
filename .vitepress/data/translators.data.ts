@@ -68,7 +68,6 @@ export default {
         languages: Set<string>;
         avatar: string;
         username: string;
-        fullName?: string;
       }
     >();
 
@@ -80,9 +79,6 @@ export default {
         languages: new Set<string>(),
         avatar: entry.user.avatarUrl,
         username: entry.user.username,
-        fullName:
-          entry.user.fullName ||
-          `${entry.user.firstName} ${entry.user.lastName}`,
       };
       user.words += entry.translated;
       user.languages.add(entry.language.name);
@@ -101,7 +97,7 @@ export default {
               link: `https://crowdin.com/profile/${contributor.username}`,
             },
           ],
-          name: contributor.fullName || contributor.username,
+          name: contributor.username,
           number: contributor.words,
         } as DefaultTheme.TeamMember & { number: number })
     );
