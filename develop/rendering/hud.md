@@ -1,23 +1,28 @@
 ---
 title: Rendering in the Hud
-description: Learn how to use the HudRenderCallback event to render to the hud.
+description: Learn how to use the Fabric Hud API to render to the hud.
 authors:
   - IMB11
+  - kevinthegreat1
 ---
 
 # Rendering in the Hud {#rendering-in-the-hud}
 
-We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the `HudRenderCallback` event and the `tickDelta` parameter.
+We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
 
-## HudRenderCallback {#hudrendercallback}
+## `HudRenderCallback` {#hudrendercallback}
 
-The `HudRenderCallback` event - provided by Fabric API - is called every frame, and is used to render things to the HUD.
+::: warning
+Previously, Fabric provided `HudRenderCallback` to render to the hud. Due to changes to hud rendering, this event became extremely limited and is now deprecated. Usage is strongly discouraged. Deprecated events may be removed in the future.
+:::
 
-To register to this event, you can simply call `HudRenderCallback.EVENT.register` and pass in a lambda that takes a `DrawContext` and a `RenderTickCounter` instance as parameters.
+## `HudLayerRegistrationCallback` {#hud-layer-registration-callback}
 
-The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack.
+Fabric provides the Hud API to render and layer elements on the hud.
 
-You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
+To start, we need to register a listener to `HudLayerRegistrationCallback` which registers your layers. Each layer takes a `DrawContext` and a `RenderTickCounter` instance as parameters. See the `HudLayerRegistrationCallback` and related Javadocs for more details on how to use the API.
+
+The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
 ### Render Tick Counter {#render-tick-counter}
 
@@ -27,18 +32,19 @@ The `RenderTickCounter` class allows you to retrieve the current `tickDelta` val
 
 For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 10 frames, you might see:
 
-| Frame | tickDelta                                    |
-|-------|----------------------------------------------|
-| 1     | `1.0` (new tick)                             |
-| 2     | `0.11 (1÷9)` - The next tick is in 9 frames. |
-| 3     | `0.22 (2÷9)`                                 |
-| 4     | `0.33 (3÷9)`                                 |
-| 5     | `0.44 (4÷9)`                                 |
-| 6     | `0.55 (5÷9)`                                 |
-| 7     | `0.66 (6÷9)`                                 |
-| 8     | `0.77 (7÷9)`                                 |
-| 9     | `0.88 (8÷9)`                                 |
-| 10    | `1.0 (9÷9)` (new tick)                       |
+| Frame | tickDelta                                     |
+|-------|-----------------------------------------------|
+| 1     | `1.0` (new tick)                              |
+| 2     | `0.1 (1÷10)` - The next tick is in 10 frames. |
+| 3     | `0.2 (2÷10)`                                  |
+| 4     | `0.3 (3÷10)`                                  |
+| 5     | `0.4 (4÷10)`                                  |
+| 6     | `0.5 (5÷10)`                                  |
+| 7     | `0.6 (6÷10)`                                  |
+| 8     | `0.7 (7÷10)`                                  |
+| 9     | `0.8 (8÷10)`                                  |
+| 10    | `0.9 (9÷10)`                                  |
+| 11    | `1.0 (10÷10)` (new tick)                      |
 
 Practically, you should only use `tickDelta` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
 
