@@ -6,6 +6,8 @@ authors:
   - its-miroma
 ---
 
+<!-- markdownlint-disable-file MD033 -->
+
 <script setup lang="ts">
 import { useData } from "vitepress";
 import {
