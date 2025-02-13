@@ -16,7 +16,25 @@ config:
     punctuation: ".,;:。，；："
   MD029:
     style: ordered
-  MD033: false # TODO: remove
+  MD033:
+    allowed_elements:
+      - audio
+      - b
+      - Badge
+      - ColorSwatch
+      - DownloadEntry
+      - i
+      - kbd
+      - s
+      - source
+      - table
+      - tbody
+      - td
+      - th
+      - thead
+      - tr
+      - u
+      - VideoPlayer
   MD035:
     # This is not made redundant by `no-horizontal-rules`, as the latter relies on this
     style: "***"
@@ -71,16 +89,8 @@ config:
         searchScope: text
       - name: no-horizontal-rules
         message: "Don't use horizontal rules"
-        searchPattern:
-          - "/<hr[^>]*\\/>|<hr>[^>]*<\\/hr *>/g"
-          - "/^\\*{3}$/gm"
-        replace:
-          - ""
-          - ""
-        searchScope: text
-      - name: no-html-line-breaks
-        message: "Don't use <br> elements"
-        searchPattern: "/<br[^>]*\\/>|<br>[^>]*<\\/br *>/g"
+        searchPattern: "/^\\*{3}$/gm"
+        replace: ""
         searchScope: text
       - name: no-github-flavored-alerts
         message: "Don't use GitHub-favored Alerts"
