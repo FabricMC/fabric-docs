@@ -11,75 +11,22 @@ authors:
 
 ## 创建工具材料{#creating-a-tool-material}
 
-::: info
-If you're creating multiple tool materials, consider using an `Enum` to store them. Vanilla does this in the `ToolMaterials` class, which stores all the tool materials that are used in the game.
+你可以通过实例化一个`ToolMaterial`对象来创建一个工具材料，并将其储存在一个之后可以用该材料创建工具物品的字段内。
 
-此类还可用于确定你的工具原型相较于原版工具原型不同的的属性。
-:::
+@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-为了创建一个工具材料，你可以创建一个继承它的、新的类——在此示例中，将创建 Guidite 质的工具：
+`ToolMaterial`接口的构造函数接受以下参数（按顺序排列）：
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+| 参数                        | 描述                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------ |
+| `incorrectBlocksForDrops` | 如果一个方块具有incorrectBlocksForDrops标签，这就意味着当你对这个方块使用由这个`ToolMaterial`创建的工具，这个方块不会有任何掉落物。 |
+| `durability`              | 该`ToolMaterial`的耐久度。                                                                 |
+| `speed`                   | 该`ToolMaterial`的挖掘速度。                                                                |
+| `attackDamageBonus`       | 该`ToolMaterial`的额外攻击伤害。                                                              |
+| `enchantmentValue`        | 该`ToolMaterial`在附魔时得到更好附魔的概率。                                                        |
+| `repairItems`             | 任何具有这个标签的物品可以被用来在铁砧中修复该`ToolMaterial`。                                               |
 
-创建了工具原型并根据自己的喜好对其进行了调整后，你就可以创建它的一个实例以用于工具物品构造函数。
-
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-工具原型向游戏告知以下信息：
-
-### 耐久 - `getDurability()` {#durability}
-
-该工具在损坏前可被使用多少次：
-
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### 挖掘速度 - `getMiningSpeedMultiplier()` {#mining-speed}
-
-如果该工具用来破坏方块，那么它破坏方块的速度应该多快？
-
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-作为参考，钻石工具材料的挖掘速度为 `8.0F`，而石质工具材料的挖掘速度为 `4.0F`。
-
-### 攻击伤害 - `getAttackDamage()` {#attack-damage}
-
-将工具作为武器攻击别的实体时，应该造成多少点伤害？
-
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### 反向标签 - `getMiningLevel()` {#inverse-tag}
-
-反向标签显示工具 _**无法**_ 挖掘的内容。 例如，使用 `BlockTags.INCORRECT_FOR_WOODEN_TOOL` 标签可阻止工具挖掘某些方块：
-
-```json
-{
-  "values": [
-    "#minecraft:needs_diamond_tool",
-    "#minecraft:needs_iron_tool",
-    "#minecraft:needs_stone_tool"
-  ]
-}
-```
-
-这意味着该工具无法开采需要钻石、铁或石质工具才能开采的方块。
-
-我们使用铁制工具标签。 铁制工具标签会阻止 Guidite 工具开采需要用比铁制工具更强的的工具来开采的方块。
-
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-如果你想自定义标签，可以使用 `TagKey.of(...)` 来创建自定义标签键。
-
-### 附魔能力 - `getEnchantability()` {#enchantability}
-
-这个物品在附魔台中附上更好、更高级的附魔有多轻松？ 作为参考和比较，金质的附魔等级为 22，而下界合金的附魔等级为 15。
-
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
-
-### 修复原料 - `getRepairIngredient()` {#repair-ingredient}
-
-使用什么物品来修理该工具？
-
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
+如果你不确定怎么给上述参数设置一个平衡的数值，你可以考虑参考原版材料的数值，比如`ToolMaterial.STONE`或者`ToolMaterial.DIAMOND`。
 
 ## 创建工具物品{#creating-tool-items}
 
@@ -87,15 +34,17 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+两个浮点数值 (`1f, 1f`) 分别表示工具的攻击伤害以及攻击速度。
+
 如果你想从创造物品栏中访问它们，请记得将它们添加到物品组中！
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你需要使用 `item/handheld` 模型作为你的父级。
+你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用`item/handheld`模型作为父级而非通常的`item/generaterd`模型。
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">纹理</DownloadEntry>
 
