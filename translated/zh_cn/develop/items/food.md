@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 食物物品{#food-items}
-
 食物是生存 Minecraft 的核心方面，所以创建可食用的物品时，需要考虑食物的用途以及其他可食用物品。
 
 除非是在制作有过于强的物品的模型，否则应该考虑：
@@ -15,7 +13,7 @@ authors:
 - 会给予什么药水效果？
 - 是在游戏早期还是末期可用的？
 
-## 添加食物组件{#adding-the-food-component}
+## 添加食物组件 {#adding-the-food-component}
 
 要为物品添加食物组件，可以先传递到 `Item.Settings` 实例：
 
