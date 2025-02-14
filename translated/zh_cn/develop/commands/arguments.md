@@ -3,14 +3,12 @@ title: 命令参数
 description: 学习如何创建带有复杂参数的命令。
 ---
 
-# 命令参数 {#command-arguments}
-
 大多数命令都使用了参数。 有时参数是可选的，也就是说如果你不提供此参数，命令仍能运行。 一个节点可以有多个参数类型，但是注意有可能出现二义性，这是需要避免的。
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-在这个例子中，在命令文本 `/command_with_arg` 之后，你需要输入一个整数。 例如，如果运行 `/command_with_arg 3`，会收到反馈消息：
+在这个例子中，在命令文本 `/command_with_arg` 之后，你需要输入一个整数。 例如，如果运行 `/command_with_arg 3`，会收到反馈消息： 例如，如果运行 `/command_with_arg 3`，会收到反馈消息：
 
 > 调用了 /command_with_arg 其中 value = 3
 
@@ -57,8 +55,8 @@ description: 学习如何创建带有复杂参数的命令。
 
 运行命令，我们可以测试参数类型是否生效：
 
+![命令结果](/assets/develop/commands/custom-arguments_result.png)
+
 ![无效参数](/assets/develop/commands/custom-arguments_fail.png)
 
 ![有效参数](/assets/develop/commands/custom-arguments_valid.png)
-
-![命令结果](/assets/develop/commands/custom-arguments_result.png)
