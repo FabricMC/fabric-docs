@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Rüstung {#custom-armor}
-
 Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mobs und anderen Spielern.
 
 ## Eine Rüstungsmaterial Klasse erstellen {#creating-an-armor-materials-class}
@@ -39,16 +37,16 @@ Um unser Material zu erstellen, müssen wir eine neue Instanz des `ArmorMaterial
 
 Der `ArmorMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spezifischen Reihenfolge:
 
-| Parameter             | Beschreibung                                                                                                                                                                                                                                                                                        |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `durability`          | Die Grundhaltbarkeit aller Rüstungsteile. Sie wird bei der Berechnung der Gesamthaltbarkeit jedes einzelnen Rüstungsteils verwendet, das dieses Material verwendet. Dies sollte die Basis-Haltbarkeitskonstante sein, die Sie zuvor erstellt haben. |
-| `defense`             | Eine Map von `EquipmentType` (eine Aufzählung, die jeden Rüstungsplatz darstellt) zu einem ganzzahligen Wert, der den Verteidigungswert des Materials angibt, wenn es im entsprechenden Rüstungsplatz verwendet wird.                                            |
-| `enchantmentValue`    | Die "Verzauberbarkeit" von Rüstungsitems, die dieses Material verwenden.                                                                                                                                                                                                            |
-| `equipSound`          | Ein Registrierungsschlüssel für ein Sound-Event, das abgespielt wird, wenn man eine Rüstung aus diesem Material anlegt. Weitere Informationen zu Sounds findest du auf der Seite [Custom Sounds](../sounds/custom).                                                 |
-| `toughness`           | Ein Float-Wert, der das Attribut "Häte" des Rüstungsmaterials darstellt - im Wesentlichen, wie gut die Rüstung Schaden absorbiert.                                                                                                                                                  |
-| `knockbackResistance` | Ein Float-Wert, der den Grad der Rückstoßfestigkeit angibt, den das Rüstungsmaterial dem Träger gewährt.                                                                                                                                                                            |
-| `repairIngredient`    | Ein Item-Tag, das alle Items repräsentiert, die zur Reparatur von Rüstungsteilen aus diesem Material in einem Amboss verwendet werden können.                                                                                                                                       |
-| `assetId`             | Ein `EquipmentAsset`-Registrierungsschlüssel; dies sollte die zuvor erstellte Registrierungsschlüsselkonstante Rüstungsasset sein.                                                                                                                                                  |
+| Parameter             | Beschreibung                                                                                                                                                                                                                                             |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `durability`          | Sie wird bei der Berechnung der Gesamthaltbarkeit jedes einzelnen Rüstungsteils verwendet, das dieses Material verwendet. Dies sollte die Basis-Haltbarkeitskonstante sein, die Sie zuvor erstellt haben.                |
+| `defense`             | Eine Map von `EquipmentType` (eine Aufzählung, die jeden Rüstungsplatz darstellt) zu einem ganzzahligen Wert, der den Verteidigungswert des Materials angibt, wenn es im entsprechenden Rüstungsplatz verwendet wird. |
+| `enchantmentValue`    | Die "Verzauberbarkeit" von Rüstungsitems, die dieses Material verwenden.                                                                                                                                                                 |
+| `equipSound`          | Ein Registrierungsschlüssel für ein Sound-Event, das abgespielt wird, wenn man eine Rüstung aus diesem Material anlegt. Weitere Informationen zu Sounds findest du auf der Seite [Custom Sounds](../sounds/custom).      |
+| `toughness`           | Ein Float-Wert, der das Attribut "Häte" des Rüstungsmaterials darstellt - im Wesentlichen, wie gut die Rüstung Schaden absorbiert.                                                                                                       |
+| `knockbackResistance` | Ein Float-Wert, der den Grad der Rückstoßfestigkeit angibt, den das Rüstungsmaterial dem Träger gewährt.                                                                                                                                 |
+| `repairIngredient`    | Ein Item-Tag, das alle Items repräsentiert, die zur Reparatur von Rüstungsteilen aus diesem Material in einem Amboss verwendet werden können.                                                                                            |
+| `assetId`             | Ein `EquipmentAsset`-Registrierungsschlüssel; dies sollte die zuvor erstellte Registrierungsschlüsselkonstante Rüstungsasset sein.                                                                                                       |
 
 Wenn du Schwierigkeiten hast, die Werte für einen der Parameter zu bestimmen, kannst du die Vanilla-Instanzen von `ArmorMaterial` zu Rate ziehen, die in dem Interface `ArmorMaterials` zu finden sind.
 
@@ -70,7 +68,7 @@ Wie bei allen Items solltest du auch für diese Übersetzungsschlüssel erstelle
 
 ## Texturen und Modelle {#textures-and-models}
 
-Du musst eine Reihe von Texturen für die Items und eine Reihe von Texturen für die eigentliche Rüstung erstellen, wenn sie von einer "humanoiden" Entität (Spieler, Zombies, Skelette, etc.) getragen wird.
+Benutzerdefinierte Rüstung {#custom-armor}
 
 ### Itemtexturen und Modell {#item-textures-and-model}
 
