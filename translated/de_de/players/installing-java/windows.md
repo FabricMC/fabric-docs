@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Java auf Windows installieren {#installing-java-on-windows}
-
 Diese Anleitung führt Sie durch die Installation von Java 21 auf Windows.
 
 Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese Sektion ist also nur relevant, wenn Sie den Fabric `.jar` basierten Installer verwenden möchten oder wenn Sie die Minecraft Server `.jar` verwenden möchten.
@@ -31,7 +29,7 @@ Um Minecraft 1.21 zu nutzen, muss mindestens Java 21 installiert sein. Wenn der 
 
 ## 2. Herunterladen des Java 21 Installer {#2-download-the-java-installer}
 
-Um Java 21 zu installieren, musst du das Installationsprogramm von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21) herunterladen.
+Um Java 21 zu installieren, musst du das Installationsprogramm von [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21) herunterladen.
 
 Sie müssen die Version "Windows Installer (.msi)" herunterladen:
 
@@ -48,7 +46,7 @@ Folge den Schritten des Installationsprogramms, um Java 21 zu installieren. Wenn
 - `JAVA_HOME Umgebungsvariable setzen` - Diese wird zu Ihrem PATH hinzugefügt.
 - JavaSoft (Oracle)-Registrierungsschlüssel
 
-![Java 21-Installationsprogramm mit "JAVA\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 21-Installationsprogramm mit "JAVA\\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Wenn Sie das getan haben, können Sie `Weiter` klicken und mit der Installation fortfahren.
 
@@ -59,7 +57,5 @@ Sobald die Installation abgeschlossen ist, kannst du überprüfen, ob Java 21 in
 Wenn der Befehl erfolgreich ausgeführt wird, wird die Java-Version wie zuvor gezeigt angezeigt:
 
 ![Kommandozeile mit "java -version"](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Sollten Sie auf Probleme stoßen, können Sie im [Fabric Discord](https://discord.gg/v6v4pMv) im Channel `#player-support` um Hilfe bitten.
