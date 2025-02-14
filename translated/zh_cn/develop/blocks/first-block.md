@@ -49,21 +49,26 @@ public class ModBlocks {
 
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
+- 我们需要一个 `RegistryKey<Block>` 作为方块的唯一标识符，这个标识符将在前面的工具方法中传入到 `Registry.register` 中。
+- `AbstractBlock.Settings` 构建器也需要使用 `RegistryKey<Block>`。
+
 :::tip
 可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-我们上一步创建过 `regisger` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
+我们上一步创建过 `register` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
 
-### 将方块添加到物品组{#adding-your-block-to-an-item-group}
+### 将方块的物品添加到物品组中 {#adding-your-block-s-item-to-an-item-group}
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到物品组中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
 例如，我们使用在[自定义物品组](../items/custom-item-groups)页面中创建的自定义物品组。
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+
+你应将其置于类的 `initialize()` 函数中。
 
 ---
 
@@ -75,7 +80,7 @@ public class ModBlocks {
 
 ## 添加方块翻译{#adding-block-translations}
 
-要添加翻译，必须在你的翻译文件——`assets/<mod id here>/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/<0>/lang/zh_cn.json`。）
+要添加翻译，必须在你的翻译文件——`assets/mod-id/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/mod-id/lang/zh_cn.json`。）
 
 Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地方（例如命令反馈）中显示这个翻译。
 
@@ -89,22 +94,21 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 模型和纹理{#models-and-textures}
 
-所有方块纹理都可以在 `assets/<mod id here>/textures/block` 文件夹中找到——“Condensed Dirt”方块的示例纹理可以自由使用。
+所有方块纹理都可以在 `assets/mod-id/textures/block` 文件夹中找到——“Condensed Dirt”方块的示例纹理可以自由使用。
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
-要确保模型在游戏内显示，必须创建方块和物品模型，“Condensed Dirt”方块的方块和物品模型分别可以在下列地方找到：
+要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/mod-id/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-物品模型很简单，只需要继承方块模型即可，因为大多数方块模型都支持在 GUI 中渲染。
+为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/mod-id/items/condensed_dirt.json` 中找到。
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
-但是，在我们的例子中，方块模型就必须继承 `block/cube_all` 模型。
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+:::tip
+只有在注册方块的同时注册了 `BlockItem` 时，才需要创建项目模型描述！
+:::
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
 
@@ -114,11 +118,13 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/mod_id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/mod-id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
-方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
+:::tip
+方块状态非常复杂，因此接下来将在 [单独页面](./blockstates) 中介绍。
+:::
 
 重启游戏，或者按下<kbd>F3</kbd> + <kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
 
@@ -126,7 +132,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 添加方块掉落物{#adding-block-drops}
 
-在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/<mod id here>/loot_table/blocks/` 文件夹中。
+在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/mod-id/loot_table/blocks/` 文件夹中。
 
 :::info
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
@@ -153,7 +159,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-如果应使用工具来挖掘此方块，则需要在方块属性（`Block.Settings`）中添加`.requiresTool()`，并添加相应的挖掘标签。
+如果你希望玩家需要使用工具来挖掘这个方块，则需要在方块设置中添加 `.requiresTool()`，并添加相应的挖掘等级标签。
 
 ## 挖掘等级{#mining-levels}
 
@@ -167,4 +173,4 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 备注{#extra-notes}
 
-如果将多个方块添加到你的模组中，可能需要考虑使用[数据生成](https://fabricmc.net/wiki/tutorial:datagen_setup)来自动化创建方块和物品模型、方块状态定义和战利品表。
+如果将多个方块添加到你的模组中，可能需要考虑使用[数据生成](../data-generation/setup)来自动化创建方块和物品模型、方块状态定义和战利品表。
