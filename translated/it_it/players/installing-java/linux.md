@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Installare Java su Linux {#installing-java-on-linux}
-
 Questa guida ti spiegherà come installare Java 21 su Linux.
 
 ## 1. Controlla Se Java È Già Installato {#1-check-if-java-is-already-installed}
