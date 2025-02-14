@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Werkzeuge {#tools}
-
 Werkzeuge sind für das Überleben und das Vorankommen unerlässlich, denn sie ermöglichen es den Spielern, Ressourcen zu sammeln, Gebäude zu bauen und sich zu verteidigen.
 
 ## Ein Werkzeugmaterial erstellen {#creating-a-tool-material}
