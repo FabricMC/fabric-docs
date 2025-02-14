@@ -5,8 +5,6 @@ authors:
   - Superkat32
 ---
 
-# Benutzerdefinierte Partikel erstellen {#creating-custom-particles}
-
 Partikel sind ein mächtiges Werkzeug. Sie können einer schönen Szene Atmosphäre oder einem spannenden Kampf gegen einen Endgegner mehr Spannung verleihen. Lasst uns einen hinzufügen!
 
 ## Einen benutzerdefinierten Partikel registrieren {#register-a-custom-particle}

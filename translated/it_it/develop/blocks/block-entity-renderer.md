@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Renderer dei Blocchi-Entità {#block-entity-renderers}
-
 A volte non basta usare il formato del modello di Minecraft. Se devi aggiungere del rendering dinamico all'aspetto del tuo blocco, dovrai usare un `BlockEntityRenderer`.
 
 Per esempio, facciamo in modo che il Blocco Contatore dell'[articolo sui Blocchi-Entità](../blocks/block-entities) mostri il numero di clic sulla sua faccia superiore.

@@ -9,8 +9,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Генерація теґів {#tag-generation}
-
 :::info ПЕРЕДУМОВИ
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
 :::
@@ -21,7 +19,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
-:::info ПРИМІТКА
+:::tip
 Вам знадобиться інший постачальник для кожного типу теґу (наприклад, один `FabricTagProvider<EntityType<?>>` і один `FabricTagProvider<Item>`).
 :::
 

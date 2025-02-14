@@ -3,8 +3,6 @@ title: 기여 가이드라인
 description: Fabric 문서 기여 가이드라인
 ---
 
-# 기여 가이드라인 {#contributing}
-
 이 웹사이트는 [VitePress](https://vitepress.dev/)를 사용해 다양한 마크다운 파일에서 정적 HTML을 생성합니다. [여기](https://vitepress.dev/guide/markdown#features)에서 VitePress가 지원하는 마크다운 확장 기능에 익숙해져야 합니다.
 
 이 웹사이트에 기여하실 수 있는 세 가지의 방법이 있습니다:
@@ -156,17 +154,13 @@ git push
 
 Markdown 파일의 frontmatter에 있는 `authors`에 GitHub 사용자 이름을 추가하는 것을 잊지 마세요! 이렇게 하면, 저희는 당신에게 적당한 크레딧을 제공할 수 있습니다.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### 제목에 앵커 추가하기 {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 각 제목은 해당 제목에 연결하는 데 쓰이는 앵커가 있어야 합니다:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 앵커에는 반드시 소문자, 숫자 및 대시를 사용해야 합니다.

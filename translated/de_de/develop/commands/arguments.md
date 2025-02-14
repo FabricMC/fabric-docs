@@ -3,8 +3,6 @@ title: Befehlsargumente
 description: Lerne, wie man Befehle mit komplexen Parametern erstellt.
 ---
 
-# Befehlsargumente {#command-arguments}
-
 Parameter werden in den meisten Befehlen verwendet. Manchmal sind sie optional, das heißt, wenn du diesen Parameter nicht angibst, wird der Befehl dennoch ausgeführt. Ein Knoten kann mehrere Parametertypen haben, aber es ist zu beachten, dass die Möglichkeit einer
 Mehrdeutigkeit besteht, die vermieden werden sollte.
 
@@ -58,8 +56,8 @@ Wir können unseren benutzerdefinierten Argumenttyp in einem Befehl verwenden, i
 
 Durch das Ausführen des Befehls, können wir testen, ob der Argumenttyp funktioniert oder nicht:
 
+![Ergebnis des Befehls](/assets/develop/commands/custom-arguments_result.png)
+
 ![Ungültiges Argument](/assets/develop/commands/custom-arguments_fail.png)
 
 ![Gültiges Argument](/assets/develop/commands/custom-arguments_valid.png)
-
-![Ergebnis des Befehls](/assets/develop/commands/custom-arguments_result.png)

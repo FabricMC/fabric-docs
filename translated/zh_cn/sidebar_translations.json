@@ -49,6 +49,7 @@
   "develop.dataGeneration.advancements": "进度生成",
   "develop.dataGeneration.recipes": "配方生成",
   "develop.dataGeneration.lootTables": "战利品表生成",
+  "develop.dataGeneration.blockModels": "方块模型生成",
   "develop.rendering": "渲染",
   "develop.rendering.basicConcepts": "基本的渲染概念",
   "develop.rendering.drawContext": "使用绘图上下文",

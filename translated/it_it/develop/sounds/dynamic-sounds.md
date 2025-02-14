@@ -5,9 +5,7 @@ authors:
   - JR1811
 ---
 
-# Suoni Dinamici {#create-dynamic-and-interactive-sounds}
-
-:::info
+:::info PREREQUISITI
 Questa pagina è basata sulle pagine [Riprodurre Suoni](../sounds/using-sounds) e [Creare Suoni Personalizzati](../sounds/custom)!
 :::
 
@@ -19,7 +17,7 @@ Questo modo di pensare è corretto. Tecnicamente è il lato client che dovrebbe 
 
 Usare il suono sul lato logico server risolverà il problema della trasmissione dei `SoundEvent`. Per farla semplice, a ogni client (`ClientPlayerEntity`) nel raggio tracciato viene inviato un pacchetto di rete per riprodurre un certo suono specifico. L'evento audio viene praticamente trasmesso dal lato logico server, a ogni client partecipante, senza che tu te ne debba preoccupare. Il suono è riprodotto una volta sola, con i valori di volume e tono specificati.
 
-Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
+Ma, e se questo non bastasse? Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
 
 La semplice strategia di usare i `SoundEvent` sul lato logico server non basta in questo caso.
 
@@ -144,8 +142,6 @@ Se provassi ad usarla in un contesto logico lato server, potresti non notare ini
 Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template)
 attivando l'opzione `Split client and common sources`.
 :::
-
----
 
 Una `SoundInstance` può essere molto più potente rispetto a una semplice riproduzione di un suono una volta.
 

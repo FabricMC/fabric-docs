@@ -7,11 +7,9 @@ authors:
   - modmuss50
 ---
 
-# 安装 Fabric {#installing-fabric}
-
 <!-- #region common -->
 
-本指南仅适用于官方的 Minecraft Launcher。 对于第三方启动器，应该参考它们的文档。
+本指南仅适用于官方的 Minecraft Launcher。 对于第三方启动器，应该参考它们的文档。 对于第三方启动器，应该参考它们的文档。
 
 ## 1. 下载 Fabric 安装器 {#1-download-the-fabric-installer}
 
@@ -52,8 +50,8 @@ authors:
 
 安装器完成后，可以打开 Minecraft Launcher，从左下角的下拉列表中选择 Fabric 配置文件，然后按下 `Play`！
 
-![选中了 Fabric 配置的 Minecraft Launcher](/assets/players/installing-fabric/launcher-screen.png)
+安装器完成后，可以打开 Minecraft Launcher，从左下角的下拉列表中选择 Fabric 配置文件，然后按下 `Play`！
 
-现在安装好了 Fabric，就可以向你的游戏添加模组了！ 更多信息请查看[寻找可信的模组](./finding-mods)指南。
+现在安装好了 Fabric，就可以向你的游戏添加模组了！ 更多信息请查看[寻找可信的模组](./finding-mods)指南。 更多信息请查看[寻找可信的模组](./finding-mods)指南。
 
 如果在遵循本指南时遇到任何问题，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道中寻求帮助。

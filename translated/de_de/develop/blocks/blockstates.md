@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Blockzustände {#block-states}
-
 Ein Blockzustand entspricht ein wenig Daten, die einem einzelnen Block in der Minecraft-Welt zugeordnet sind und Informationen über den Block in Form von Eigenschaften enthält - einige Beispiele für Eigenschaften, die Vanilla in Blockzuständen speichert:
 
 - Rotation: Hauptsächlich für Baumstämme und andere natürliche Blöcke verwendet.
@@ -41,8 +39,6 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
-
----
 
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -108,8 +104,6 @@ Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigens
 Vergiss nicht eine [Item-Model Beschreibung](../items/first-item#creating-the-item-model-description) für den Block zu erstellen, damit er im Inventar angezeigt wird!
 :::
 
----
-
 Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür sorgen, dass sie Licht ausstrahlt, wenn die Eigenschaft `activated` true ist. Dies kann über die Blockeinstellungen erfolgen, die bei der Registrierung des Blocks an den Konstruktor übergeben werden.
 
 Du kannst die `luminance`-Methode verwenden, um die vom Block ausgestrahlte Lichtstärke einzustellen. Wir können eine statische Methode in der `PrismarineLampBlock`-Klasse erstellen, um die Lichtstärke auf der Grundlage der `activated`-Eigenschaft zurückzugeben, und sie als Methodenreferenz an die `luminance`-Methode übergeben:
@@ -117,8 +111,6 @@ Du kannst die `luminance`-Methode verwenden, um die vom Block ausgestrahlte Lich
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

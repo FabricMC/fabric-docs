@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Blocchi-Entità {#block-entities}
-
 I blocchi-entità sono un modo per memorizzare dati aggiuntivi per un blocco, che non siano parte dello stato del blocco: contenuti dell'inventario, nome personalizzato e così via.
 Minecraft usa i blocchi-entità per blocchi come bauli, fornaci, e blocchi dei comandi.
 

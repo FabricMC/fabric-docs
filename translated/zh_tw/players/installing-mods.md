@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 安裝模組 {#installing-mods}
-
 這個指南將引導你使用 Minecraft 啟動器安裝 Fabric 模組。
 
 對於第三方啟動器，您應該查閱他們的文件。
@@ -14,14 +12,14 @@ authors:
 ## 1. 下載模組 {#1-download-the-mod}
 
 :::warning
-你應該只從你信任的來源下載模組。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods)指南。
+你應該只從你信任的來源下載模組。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods)指南。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods.md)指南。
 :::
 
 大部分的模組都需要 Fabric API，它可以從 [Modrinth](https://modrinth.com/mod/fabric-api) 或 [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)下載。
 
 下載模組時，請確保：
 
-- 它們能在你想玩的 Minecraft 版本上執行。 例如，一個在 1.20 上執行的模組可能無法在 1.20.2 上執行。
+- 它們能在你想玩的 Minecraft 版本上執行。 例如，一個在 1.20 上執行的模組可能無法在 1.20.2 上執行。 例如，一個在 1.20 上執行的模組可能無法在 1.20.2 上執行。
 - 它是為 Fabric 製作，而不是其他模組載入器。
 - 此外，它們適用於正確的 Minecraft 版本（Java 版）。
 
@@ -51,11 +49,11 @@ authors:
 
 ![mods 資料夾中已安裝的模組](/assets/players/installing-mods.png)
 
-## 3. 你完成了！ {#3-you-re-done}
-
-將模組移動到 `mods` 資料夾後，您可以開啟 Minecraft 啟動器，並從左下方的下拉式選單中選擇 Fabric 設定檔，然後按下開始遊戲！
+## 3. 你完成了！ 你完成了！ {#3-you-re-done}
 
 ![已選擇 Fabric 設定檔的 Minecraft 啟動器](/assets/players/installing-fabric/launcher-screen.png)
+
+將模組移動到 `mods` 資料夾後，您可以開啟 Minecraft 啟動器，並從左下方的下拉式選單中選擇 Fabric 設定檔，然後按下開始遊戲！
 
 ## 疑難排解 {#troubleshooting}
 

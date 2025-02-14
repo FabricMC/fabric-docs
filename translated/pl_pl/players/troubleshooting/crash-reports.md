@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Raporty awarii {#crash-reports}
-
 :::tip
 Jeśli masz jakiekolwiek problemy ze znalezieniem przyczyny awarii, możesz poprosić o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support` lub `#server-admin-support`.
 :::

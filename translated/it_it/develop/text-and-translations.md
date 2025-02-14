@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# Testo e Traduzioni {#text-and-translations}
-
 Ogni volta che Minecraft mostra testo nel gioco, è con tutta probabilità definito da un oggetto `Text`.
 Questo tipo personalizzato è preferito ad una `String` per permettere formattazione più avanzata, che comprende colori, grassetto, offuscamento, ed eventi ai clic. Permettono inoltre accesso più semplice al sistema di traduzione, rendendo semplice la traduzione di qualsiasi elemento dell'interfaccia.
 
@@ -125,8 +123,8 @@ MutableText result = Text.literal("Hello World!")
     <tr><td><ColorSwatch color="#FFFFFF" /></td><td>Bianco (white)</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
     <tr><td></td><td>Resetta</td><td>§r</td><td></td><td></td></tr>
     <tr><td></td><td><b>Grassetto</b></td><td>§l</td><td></td><td></td></tr>
-    <tr><td></td><td><s>Barrato</s></td><td>§m</td><td></td><td></td></tr>
+    <tr><td></td><td><i>Corsivo</i></td><td>§m</td><td></td><td></td></tr>
     <tr><td></td><td><u>Sottolineato</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><i>Corsivo</i></td><td>§o</td><td></td><td></td></tr>
+    <tr><td></td><td><s>Barrato</s></td><td>§o</td><td></td><td></td></tr>
     <tr><td></td><td>Offuscato</td><td>§k</td><td></td><td></td></tr>
 </tbody></table>

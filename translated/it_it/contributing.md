@@ -3,8 +3,6 @@ title: Linee Guida per la Contribuzione
 description: Linee guida per le contribuzioni alla Documentazione di Fabric.
 ---
 
-# Linee Guida per la Contribuzione {#contributing}
-
 Questo sito usa [VitePress](https://vitepress.dev/) per generare HTML statico da vari file Markdown. Dovresti familiarizzare con le estensioni per Markdown che VitePress supporta [qui](https://vitepress.dev/guide/markdown#features).
 
 Ci sono tre modi per contribuire a questo sito:
@@ -156,17 +154,13 @@ Ogni pagina deve avere un titolo (`title`) e una descrizione (`description`) nel
 
 Ricordati anche di aggiungere il tuo nome utente GitHub ad `authors` nel frontmatter del file Markdown! In questo modo possiamo darti l'attribuzione che meriti.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Aggiungi Ancore alle Intestazioni {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 Ogni intestazione deve avere un'ancora, che viene usata per collegarsi a quell'intestazione:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 L'ancora deve usare caratteri minuscoli, numeri e trattini.

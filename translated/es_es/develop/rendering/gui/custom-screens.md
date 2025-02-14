@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Pantallas Personalizadas
-
 :::info
 Esta página se refiere a pantallas normales, y no pantallas manejadas - estas pantallas son las que son abiertas por el jugador en el cliente, no las que son manejadas por el servidor.
 :::

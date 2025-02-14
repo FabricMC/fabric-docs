@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# Impostare un Ambiente di Sviluppo {#setting-up-a-development-environment}
-
 Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo usando IntelliJ IDEA.
 
 ## Installare JDK 21 {#installing-jdk-21}
@@ -52,4 +50,4 @@ Il plugin Minecraft Development fornisce supporto per il modding con Fabric, ed 
 
 Puoi installarlo aprendo IntelliJ IDEA, e poi navigando a `File > Impostazioni > Plugin > Scheda Marketplace` - cerca `Minecraft Development` nella barra di ricerca, e poi clicca il pulsante `Installa`.
 
-In alternativa, puoi scaricarlo dalla [pagina del plugin](https://plugins.jetbrains.com/plugin/8327-minecraft-development) e poi installarlo navigando a `File > Impostazioni > Plugin > Installa Plugin Dal Disco`.
+Puoi installarlo aprendo IntelliJ IDEA, e poi navigando a `File > Impostazioni > Plugin > Scheda Marketplace` - cerca `Minecraft Development` nella barra di ricerca, e poi clicca il pulsante `Installa`.

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Використання контексту малювання {#using-the-drawing-context}
-
 Ця сторінка передбачає, що ви переглянули сторінку [основні концепції промальовування](./basic-concepts).
 
 Клас `DrawContext` є основним класом, який використовується для промальовування в грі. Він використовується для промальовування форм, тексту та текстур, і, як бачили раніше, використовується для маніпулювання `MatrixStack` і використання `BufferBuilder`.
@@ -55,9 +53,9 @@ authors:
 
 ![Область ножиць у дії](/assets/develop/rendering/draw-context-scissor.png)
 
-Як бачите, хоча ми наказуємо грі промальовувати градієнт по всьому екрану, він відтворює лише область ножиць.
+![Область ножиць у дії](/assets/develop/rendering/draw-context-scissor.png)
 
-## Малювання текстур {#drawing-textures}
+## Малювання текстур{#drawing-textures}
 
 Не існує єдиного «правильного» способу намалювати текстури на екрані, оскільки метод `drawTexture(...)` має багато різних перевантажень. У цьому розділі розглядаються найпоширеніші випадки використання.
 
@@ -77,9 +75,9 @@ authors:
 
 Візьмемо цю текстуру як приклад.
 
-![Текстура книги рецептів](/assets/develop/rendering/draw-context-recipe-book-background.png)
+Візьмемо цю текстуру як приклад.
 
-Якщо ми хочемо намалювати лише область, яка містить збільшувальне скло, ми можемо використовувати наступні значення `u`, `v`, `regionWidth` і `regionHeight`:
+![Текстура книги рецептів](/assets/develop/rendering/draw-context-recipe-book-background.png)
 
 @[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
