@@ -5,15 +5,13 @@ authors:
   - IMB11
 ---
 
-# Встановлення Java у Linux {#installing-java-on-linux}
-
 Цей посібник допоможе вам встановити Java 21 на Linux.
 
 ## 1. Перевірте, чи Java вже встановлено {#1-check-if-java-is-already-installed}
 
 Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
-![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
+Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
 :::warning
 Щоб використовувати Minecraft 1.21, вам знадобиться встановити принаймні Java 21. Якщо ця команда показує будь-яку версію, нижчу за 21, вам потрібно буде оновити встановлювач Java.
@@ -80,12 +78,12 @@ sudo dnf install java-21-openjdk-devel
 
 Якщо вашого дистрибутиву немає в списку вище, ви можете завантажити останню версію JRE з [Adoptium](https://adoptium.net/temurin/)
 
-Вам слід звернутися до альтернативного посібника для вашого дистрибутиву, якщо ви плануєте розробляти моди.
+Якщо вашого дистрибутиву немає в списку вище, ви можете завантажити останню версію JRE з [Adoptium](https://adoptium.net/temurin/)
 
 ## 3. Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}
 
 Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}.
 
-Якщо команда виконана успішно, ви побачите щось подібне до показаного раніше, де показана версія Java:
+Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}.
 
-![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
+Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
