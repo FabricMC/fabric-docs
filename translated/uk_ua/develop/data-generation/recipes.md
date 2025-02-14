@@ -9,8 +9,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Генерація рецептів {#recipe-generation}
-
 :::info ПЕРЕДУМОВА
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
 :::
