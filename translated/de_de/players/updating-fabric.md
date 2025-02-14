@@ -6,8 +6,6 @@ authors:
   - modmuss50
 ---
 
-# Aktualisieren von Fabric {#updating-fabric}
-
 Diese Anleitung wird das Aktualisieren von Fabric detailliert für den Minecraft-Launcher erklären.
 
 Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
@@ -38,4 +36,4 @@ Ersetze die Version durch die neue Version von Fabric Loader, die du gerade inst
 
 Sobald du die Schritte abgeschlossen hast, kannst du zur Registerkarte `Spielen` zurückkehren, das Fabric-Profil aus dem Dropdown-Menü in der linken unteren Ecke auswählen und auf `Spielen` drücken!
 
-Wenn du beim Befolgen dieses Leitfadens auf Probleme stößt, kannst du im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal ´#player-support\` um Hilfe bitten.
+Wenn du beim Befolgen dieses Leitfadens auf Probleme stößt, kannst du im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal ´#player-support\\` um Hilfe bitten.
