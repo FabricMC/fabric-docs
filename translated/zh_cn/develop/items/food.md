@@ -48,4 +48,4 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 - 总是可食用，无论饥饿值均可以吃。
 - 吃完会总会给予 6 秒中毒 II。
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />
+<VideoPlayer src="/assets/develop/items/food_0.webm">吃 Poisonous Apple</VideoPlayer>
