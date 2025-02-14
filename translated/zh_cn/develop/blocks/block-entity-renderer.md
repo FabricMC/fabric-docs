@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# 方块实体渲染器 {#block-entity-renderers}
-
 有的时候，用 Minecraft 自带的模型格式和渲染器并不足够。 如果需要为你的方块的视觉效果添加动态渲染，则需要使用 `BlockEntityRenderer`。
 
 举个例子，让我们来制作一个在 [方块实体](../blocks/block-entities) 文章中出现的 Counter Block，这个方块会在方块顶部显示点击次数。
