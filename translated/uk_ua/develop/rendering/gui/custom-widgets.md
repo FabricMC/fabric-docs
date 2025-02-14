@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Власні віджети {#custom-widgets}
-
 Віджети — це, по суті, контейнерні компоненти візуалізації, які можна додавати на екран і з якими гравець може взаємодіяти за допомогою різних подій, таких як натискання мишкою, клавіш тощо.
 
 ## Створення віджету {#creating-a-widget}
@@ -32,7 +30,7 @@ authors:
 
 Ви можете обробляти такі події, як натискання мишею, клавіш, перевизначаючи `onMouseClicked`, `onMouseReleased`, `onKeyPressed` та інші методи.
 
-Наприклад, ви можете змусити віджет змінювати колір, коли на нього наводите курсор, використовуйте метод `isHovered()`, наданий класом `ClickableWidget`:
+Ви можете обробляти такі події, як натискання мишею, клавіш, перевизначаючи `onMouseClicked`, `onMouseReleased`, `onKeyPressed` та інші методи.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
