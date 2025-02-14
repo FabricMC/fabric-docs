@@ -3,8 +3,6 @@ title: 명령어 인수
 description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아보세요.
 ---
 
-# 명령어 인수 {#command-arguments}
-
 인수는 대부분의 명령어에서 사용됩니다. 인수는 항상 필수적이진 않습니다. 다시 말해, 어떤 인수는 값을 입력하지 않더라도 명령어가 정상 작동한다는 의미입니다. 하나의 노드는 여러 개의 타입을 가질 수 있지만, 타입이 모호해지면 오류의 원인이 될 수 있으므로 그런 경우는 최대한 피해야 합니다.
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -57,8 +55,8 @@ description: 복잡한 인수를 가진 명령어를 만드는 방법을 알아�
 
 명령어를 실행하여 인수 형태가 작동하는지 여부를 확인할 수 있습니다.
 
+![명령어 결과](/assets/develop/commands/custom-arguments_result.png)
+
 ![올바르지 않은 인수](/assets/develop/commands/custom-arguments_fail.png)
 
 ![올바른 인수](/assets/develop/commands/custom-arguments_valid.png)
-
-![명령어 결과](/assets/develop/commands/custom-arguments_result.png)
