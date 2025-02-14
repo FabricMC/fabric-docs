@@ -3,8 +3,6 @@ title: Foire Aux Questions pour les joueurs
 description: Foire aux questions pour les joueurs et les administrateurs de serveur liés à Fabric.
 ---
 
-# Questions générales
-
 Certaines questions sont posées très fréquemment, donc en voici une liste.
 
 ## Quelles versions de Minecraft sont supportées par Fabric ? Foire Aux Questions

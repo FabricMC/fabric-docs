@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# 첫 번째 블록 만들기 {#creating-your-first-block}
-
 블록은 Minecraft에서의 건축 블록입니다 (말장난 아님). Minecraft의 다른 모든 것들처럼, 마찬가지로 레지스트리에 저장됩니다.
 
 ## 블록 클래스 준비하기 {#preparing-your-blocks-class}

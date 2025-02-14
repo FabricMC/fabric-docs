@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 建立專案 {#creating-a-project}
-
 Fabric 提供了使用 Fabric 模組模板生成器創建新模組專案的簡單方法。 —— 如果你願意，也可以使用範例模組儲存庫手動創建一個新專案，請參閱 [手動創建專案](#manual-project-creation) 章節。
 
 ## 生成專案 {#generating-a-project}

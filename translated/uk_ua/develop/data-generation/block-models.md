@@ -8,8 +8,6 @@ authors:
   - its-miroma
 ---
 
-# Генерація моделей блоків {#block-model-generation}
-
 :::info ПЕРЕДУМОВИ
 Спершу переконайтеся, що ви виконали [налаштування datagen](./setup).
 :::

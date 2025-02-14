@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# Erstelle dynamische und interaktive Sounds {#create-dynamic-and-interactive-sounds}
-
 :::info
 Diese Seite baut auf den Seiten [Sounds abspielen](../sounds/using-sounds) und [Benutzerdefinierte Sounds erstellen](../sounds/custom) auf!
 :::

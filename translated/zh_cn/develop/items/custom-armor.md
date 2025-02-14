@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 自定义盔甲 {#custom-armor}
-
 盔甲增强玩家的防御，抵御来自生物和其他玩家的攻击。
 
 ## 创建盔甲材料类 {#creating-an-armor-materials-class}

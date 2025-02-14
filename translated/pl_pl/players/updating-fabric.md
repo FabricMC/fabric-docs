@@ -6,8 +6,6 @@ authors:
   - modmuss50
 ---
 
-# Aktualizowanie Fabric {#updating-fabric}
-
 Ten przewodnik pokaże ci, jak zaktualizować Fabric dla oficjalnego launchera Minecrafta.
 
 W przypadku innych launcherów należy zapoznać się z ich dokumentacją.

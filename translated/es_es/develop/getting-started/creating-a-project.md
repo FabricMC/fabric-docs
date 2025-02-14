@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Creando un Proyecto
-
 Fabric provee una manera fácil de crear un nuevo proyecto de mod usando el Generador de Plantillas de Mods de Fabric - si quieres, puedes crear un nuevo proyecto manualmelnte usando el repositorio del mod de ejemplo, deberías visitar la sección de [Creación Manual de Proyectos](#manual-project-creation).
 
 ## Generando un Proyecto

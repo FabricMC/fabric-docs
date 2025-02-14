@@ -6,8 +6,6 @@ authors:
   - dicedpixels
 ---
 
-# Maak Je Eerste Voorwerp {#creating-your-first-item}
-
 Op deze pagina maak je kennis met enkele belangrijke concepten met betrekking tot voorwerpen, en hoe je ze kunt registreren, texturen, modelleren en benoemen.
 
 Als je het nog niet wist: alles in Minecraft wordt opgeslagen in registers, en voorwerpen vormen daarop geen uitzondering.

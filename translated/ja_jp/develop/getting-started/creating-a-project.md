@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# プロジェクトの作成 {#creating-a-project}
-
 Fabric は、Mod プロジェクトを簡単に作成することを可能にする Fabric テンプレート Mod ジェネレータを提供しています。手動でプロジェクトを作成したい場合は、サンプルの Mod リポジトリを使用することができます。[手動で作成する](#manual-project-creation) セクションを参照してください。
 
 ## プロジェクトの生成 {#generating-a-project}
