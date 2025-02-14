@@ -5,8 +5,6 @@ authors:
   - krizh-p
 ---
 
-# Benutzerdefinierte Verzauberungen {#custom-enchantments}
-
 Ab der Version 1.21 verwenden benutzerdefinierte Verzauberungen in Minecraft einen "datengesteuerten" Ansatz. Das macht es einfacher, einfache Verzauberungen hinzuzufügen, wie z. B. die Erhöhung des Angriffsschadens, aber schwieriger, komplexe Verzauberungen zu erstellen. Dabei werden die Verzauberungen in _Effektkomponenten_ zerlegt.
 
 Eine Effektkomponente enthält den Code, der die speziellen Effekte einer Verzauberung definiert. Minecraft unterstützt verschiedene Standardeffekte, wie z. B. Schaden, Rückschlag und Erfahrung.
