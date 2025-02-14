@@ -1,11 +1,9 @@
 ---
-title: 自訂畫面元件
+title: 自訂畫面元件 {#custom-widgets}
 description: 了解如何為你的畫面建立自訂畫面元件。
 authors:
   - IMB11
 ---
-
-# 自訂畫面元件 {#custom-widgets}
 
 畫面元件就是包裝過的圖形，他們可以被加到畫面上，也可以讀取來自玩家的互動（例如：點選，按鍵等）。
 
@@ -22,7 +20,7 @@ authors:
 
 ## 讓元件顯示在畫面上 {#adding-the-widget-to-the-screen}
 
-就像其他畫面元件一樣，你會需要用 `Screen` 類別提供ㄉ的 `addDrawableChild` 函式來將元件顯示在畫面上。 請確保這是在 `init` 函式裡執行的。
+就像其他畫面元件一樣，你會需要用 `Screen` 類別提供ㄉ的 `addDrawableChild` 函式來將元件顯示在畫面上。 請確保這是在 `init` 函式裡執行的。 請確保這是在 `init` 函式裡執行的。
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
