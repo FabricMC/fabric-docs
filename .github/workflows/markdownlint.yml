@@ -2,15 +2,11 @@ name: Lint
 
 on:
   pull_request:
-    branches:
-      - main
-      - port/**
     paths:
       - "**/*.md"
       - "!README.md"
       - "!translated/**"
-      - "!versions/*/translated/**"
-  workflow_dispatch: # Manual run
+      - "!versions/**"
 
 concurrency:
   group: markdownlint-${{ github.event.pull_request.number || github.ref }}
@@ -38,8 +34,8 @@ jobs:
           config: .markdownlint-cli2.yaml
           globs: |
             **/*.md
-            !README.md
-            !**/node_modules
             !**/.git
+            !**/node_modules
+            !README.md
             !translated/**
-            !versions/*/translated/**
+            !versions/**
