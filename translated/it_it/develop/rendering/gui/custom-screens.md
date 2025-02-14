@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Schermate Personalizzate {#custom-screens}
-
 :::info
 Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gestite dal server.
 :::
