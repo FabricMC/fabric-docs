@@ -6,8 +6,6 @@ authors:
   - "0x3C50"
 ---
 
-# Concetti Base del Rendering {#basic-rendering-concepts}
-
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
 
@@ -67,7 +65,7 @@ La modalità di disegno definisce come sono disegnati i dati. Sono disponibili l
 | `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                                                |
 | `DrawMode.TRIANGLES`        | Ogni elemento è fatto da 3 vertici, formando un triangolo.                                                                                          |
 | `DrawMode.TRIANGLE_STRIP`   | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un nuovo triangolo con gli ultimi due vertici.           |
-| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un triangolo con il primo e l'ultimo vertice.            |
+| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Inizia con 3 vertici per il primo triangolo.                                           |
 | `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertici, formando un quadrilatero.                                                                                       |
 
 ### Scrivere al `BufferBuilder` {#writing-to-the-bufferbuilder}
