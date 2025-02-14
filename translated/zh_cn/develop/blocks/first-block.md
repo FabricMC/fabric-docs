@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# 创建你的第一个方块 {#creating-your-first-block}
-
 方块是构成 Minecraft 世界的主要组成部分——和 Minecraft 的其他一切一样，是储存在注册表中的。
 
 ## 准备你的 Blocks 类 {#preparing-your-blocks-class}
@@ -21,14 +19,12 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 
 你可以添加一个 `initialize` 方法，并在模组的[初始化](./getting-started/project-structure#entrypoints)中调用以进行静态初始化。
 
 :::info
-如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
+如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
 :::
 
 ```java
@@ -49,13 +45,16 @@ public class ModBlocks {
 
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
+- 我们需要一个 `RegistryKey<Block>` 作为方块的唯一标识符，这个标识符将在前面的工具方法中传入到 `Registry.register` 中。
+- `AbstractBlock.Settings` 构建器也需要使用 `RegistryKey<Block>`。
+
 :::tip
 可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-我们上一步创建过 `regisger` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
+我们上一步创建过 `register` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
 
 ### 将方块添加到物品组 {#adding-your-block-to-an-item-group}
 
@@ -65,7 +64,7 @@ public class ModBlocks {
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
+你应将其置于类的 `initialize()` 函数中。
 
 你应该注意到，你的方块现在在创造模式物品栏中，并且可以放在世界中！
 
@@ -93,18 +92,17 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
-要确保模型在游戏内显示，必须创建方块和物品模型，“Condensed Dirt”方块的方块和物品模型分别可以在下列地方找到：
+要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/mod-id/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 但是，在我们的例子中，方块模型就必须继承 `block/cube_all` 模型。
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-物品模型很简单，只需要继承方块模型即可，因为大多数方块模型都支持在 GUI 中渲染。
+为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 `assets/<mod id here>/models/block/condensed_dirt.json`
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
 
-但是，在我们的例子中，方块模型就必须继承 `block/cube_all` 模型。
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+:::tip
+要确保模型在游戏内显示，必须创建方块和物品模型，“Condensed Dirt”方块的方块和物品模型分别可以在下列地方找到：
+:::
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
 
@@ -114,11 +112,13 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/mod_id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/mod_id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
+:::tip
 方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
+:::
 
 重启游戏，或者按下<kbd>F3</kbd>+<kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
 
