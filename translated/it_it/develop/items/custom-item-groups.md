@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Gruppi di Oggetti Personalizzati {#custom-item-groups}
-
 I gruppi di oggetti sono le schede nell'inventario in creativa che memorizzano oggetti. Puoi creare il tuo gruppo di oggetti personalizzato per memorizzare i tuoi oggetti in una scheda separata. Questo è piuttosto utile se la tua mod aggiunge molti oggetti e vuoi tenerli organizzati in una sola posizione per facilitarne l'accesso per i giocatori.
 
 ## Creare il Gruppo di Oggetti {#creating-the-item-group}
