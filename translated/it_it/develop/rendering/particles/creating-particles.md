@@ -5,8 +5,6 @@ authors:
   - Superkat32
 ---
 
-# Creare Particelle Personalizzate {#creating-custom-particles}
-
 Le particelle sono uno strumento potente. Possono aggiungere atmosfera a una bella scena, o aggiungere tensione durante una battaglia contro il boss. Aggiungiamone una!
 
 ## Registrare una Particella Personalizzata {#register-a-custom-particle}
