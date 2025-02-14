@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalowanie modów {#installing-mods}
-
 Ten przewodnik pokaże ci, jak zainstalować mody do Fabric dla oficjalnego launchera Minecrafta.
 
 W przypadku innych launcherów należy zapoznać się z ich dokumentacją.
@@ -53,9 +51,9 @@ Po znalezieniu folderu `mods`, przenieś do niego pliki `.jar` modów.
 
 ## 3. I to tyle! {#3-you-re-done}
 
-Po przeniesieniu modów do folderu `mods` możesz otworzyć launcher Minecrafta i wybrać z rozwijanej listy w lewym dolnym rogu profil Fabric, a następnie zacząć grać!
-
 ![Launcher Minecrafta z wybranym profilem Fabric](/assets/players/installing-fabric/launcher-screen.png)
+
+Po przeniesieniu modów do folderu `mods` możesz otworzyć launcher Minecrafta i wybrać z rozwijanej listy w lewym dolnym rogu profil Fabric, a następnie zacząć grać!
 
 ## Rozwiązywanie problemów {#troubleshooting}
 
