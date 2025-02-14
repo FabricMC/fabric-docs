@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generazione di Traduzioni {#translation-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::
@@ -24,7 +22,7 @@ Anzitutto, creeremo il nostro **fornitore**. Ricorda: i fornitori sono ciò che 
 
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
 
-:::info NOTA
+:::tip
 Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempio un `ExampleEnglishLangProvider` e un `ExamplePirateLangProvider`).
 :::
 
