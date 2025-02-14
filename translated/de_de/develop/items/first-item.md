@@ -7,8 +7,6 @@ authors:
   - RaphProductions
 ---
 
-# Dein erstes Item erstellen {#creating-your-first-item}
-
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
 
 Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, genauso wie Items.
@@ -93,9 +91,9 @@ Als Beispiel kannst du diese Textur für `suspicious_substance.png` verwenden.
 
 <DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">Textur</DownloadEntry>
 
-Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer noch keine Textur hat, weil du ein Modell hinzufügen musst, das diese Textur verwendet.
-
 Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur und sonst nichts enthält.
+
+Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer noch keine Textur hat, weil du ein Modell hinzufügen musst, das diese Textur verwendet.
 
 Erzeuge das Modell JSON im Ordner `assets/mod-id/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
