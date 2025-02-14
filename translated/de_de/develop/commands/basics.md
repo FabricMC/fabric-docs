@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# Befehle erstellen {#creating-commands}
-
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 ::: info
@@ -53,7 +51,7 @@ Du kannst auf die Befehlsquelle von einem Befehlskontext aus zugreifen, indem du
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource();
+    ServerCommandSource source = context.getSource(); 
     return 0;
 };
 ```
@@ -145,8 +143,8 @@ Brigadier [wird nur Befehlsknoten mit Argumenten umleiten](https://github.com/Mo
 
 ### Warum kompiliert mein Code nicht? {#why-does-my-code-not-compile}
 
-- Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Wenn du sie auslöst, sollte sie in Methoden ausgelöst werden, die `CommandSyntaxException` in den Methodensignaturen auslösen, oder sie sollte abgefangen werden.
-  Brigadier wird die checked Exceptions behandeln und die entsprechende Fehlermeldung im Spiel für dich weiterleiten.
+- Abfangen oder Auslösen einer `CommandSyntaxException` - `CommandSyntaxException` ist keine `RuntimeException`. Brigadier wird die checked Exceptions behandeln und die entsprechende Fehlermeldung im Spiel für dich weiterleiten.
+  Wenn du sie auslöst, sollte sie in Methoden ausgelöst werden, die `CommandSyntaxException` in den Methodensignaturen auslösen, oder sie sollte abgefangen werden.
 
 - Probleme mit generischen Typen - Es kann sein, dass du hin und wieder ein Problem mit generischen Typen hast. Wenn du Serverbefehle registrierst (was in den meisten Fällen der Fall ist), stelle sicher, dass du `CommandManager.literal` oder `CommandManager.argument` anstelle von `LiteralArgumentBuilder.literal` oder `RequiredArgumentBuilder.argument` benutzt.
 
