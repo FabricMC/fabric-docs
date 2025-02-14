@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalando Java no Linux
-
 Este guia o orientará na instalação do Java 17 no Linux.
 
 ## 1. Verificar Se o Java Já Está Instalado
@@ -26,7 +24,7 @@ Recomendamos usar o OpenJDK 17, que está disponível para a maioria das distrib
 ### Arch Linux
 
 :::info
-Para mais informações na instalação do Java no Arch Linux, veja a [Wiki do Arch Linux](https://wiki.archlinux.org/title/Java_(Portugu%C3%AAs)).
+Para mais informações na instalação do Java no Arch Linux, veja a [Wiki do Arch Linux](https://wiki.archlinux.org/title/Java_\(Portugu%C3%AAs\)).
 :::
 
 Você pode instalar a JRE mais recente através de repositórios oficiais:
