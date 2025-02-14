@@ -3,8 +3,6 @@ title: Parametri dei Comandi
 description: Impara come creare comandi con parametri complessi.
 ---
 
-# Parametri dei Comandi {#command-arguments}
-
 La maggior parte dei comandi usa i parametri. A volte possono essere opzionali, il che significa che se non viene fornito quel parametri, il comando verrà eseguito comunque. Ogni nodo può avere tipi di parametri multipli, ma ricorda che c'è una possibilità di ambiguità, che dovrebbe essere evitata.
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -57,8 +55,8 @@ Possiamo usare il nostro tipo di parametro personalizzato in un comando - passan
 
 Eseguendo il comando possiamo testare se il tipo di parametro funziona o meno:
 
+![Risultato del Comando](/assets/develop/commands/custom-arguments_result.png)
+
 ![Parametro non valido](/assets/develop/commands/custom-arguments_fail.png)
 
 ![Parametro valido](/assets/develop/commands/custom-arguments_valid.png)
-
-![Risultato del Comando](/assets/develop/commands/custom-arguments_result.png)
