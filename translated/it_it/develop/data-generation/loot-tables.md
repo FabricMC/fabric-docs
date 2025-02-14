@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generazione di Loot Table {#loot-table-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::
