@@ -6,8 +6,6 @@ authors:
   - "0x3C50"
 ---
 
-# 基本渲染概念{#basic-rendering-concepts}
-
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
 
@@ -18,21 +16,21 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 尽管 Minecraft 的许多渲染都通过 `DrawContext` 中的各种方法抽象出来，且您很可能并不需要接触这里提到的任何内容，但是了解渲染的基础实现依然很重要。
 
-## 镶嵌器 `Tessellator`{#the-tessellator}
+## 镶嵌器 `Tessellator` {#the-tessellator}
 
 镶嵌器 `Tessellator` 是 Minecraft 中用于渲染东西的主类。 它是一个单例，这意味着游戏中只有它的一个实例。 您可以通过 `Tessellator.getInstance()` 获取这个实例。
 
-## 缓冲构建器 `BufferBuilder`{#the-bufferbuilder}
+## 缓冲构建器 `BufferBuilder` {#the-bufferbuilder}
 
 缓冲构建器 `BufferBuilder` 是用来将渲染数据格式化并上传到 OpenGL 的类。 用于创建缓冲，随后也会将这个缓冲上传到 OpenGL 用于绘制。
 
-镶嵌器 `Tessellator` 负责创建一个缓冲构建器 `BufferBuilder`，用于将渲染数据格式化并上传到 OpenGL。
+缓冲构建器 `BufferBuilder` 是用来将渲染数据格式化并上传到 OpenGL 的类。 用于创建缓冲，随后也会将这个缓冲上传到 OpenGL 用于绘制。
 
-### 初始化 `BufferBuilder`{#initializing-the-bufferbuilder}
+### 初始化 `BufferBuilder` {#initializing-the-bufferbuilder}
 
-必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 方法就是使用 `Tessellator#begin(...)` 方法，接收一个 `VertexFormat` 和绘制模式，并返回 `BufferBuilder`。
+必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 方法就是使用 `Tessellator#begin(...)` 方法，接收一个 `VertexFormat` 和绘制模式，并返回 `BufferBuilder`。
 
-#### 顶点格式{#vertex-formats}
+#### 顶点格式 {#vertex-formats}
 
 顶点格式 `VertexFormat` 定义了我们在我们的数据缓冲中包含的元素，并规定了这些元素将如何被转发到 OpenGL。
 
@@ -55,7 +53,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 | `POSITION_TEXTURE_LIGHT_COLOR`                | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEXTURE_COLOR_NORMAL`               | `{ position, uv, color, normal }`                                                       |
 
-#### 绘制模式{#draw-modes}
+#### 绘制模式 {#draw-modes}
 
 绘制模式定义了如何绘制数据。 可用的绘制模式如下：
 
@@ -92,7 +90,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 drawContext.getMatrices().peek().getPositionMatrix();
 ```
 
-#### 渲染三角条纹{#rendering-a-triangle-strip}
+#### 渲染三角条纹 {#rendering-a-triangle-strip}
 
 用实际案例来解释如何向 `BufferBuilder` 写入会更轻松一些。 不妨让我们尝试用绘制模式 `DrawMode.TRIANGLE_STRIP` 和顶点格式 `POSITION_COLOR` 来渲染一些东西。
 
@@ -121,7 +119,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 尝试给顶点随机的颜色和位置，看看会发生什么！ 您也可以尝试使用不同的绘制模式和顶点格式。
 :::
 
-## 矩阵栈 `MatrixStack`{#the-matrixstack}
+## 矩阵栈 `MatrixStack` {#the-matrixstack}
 
 在学习完如何向 `BufferBuilder` 写入后，您可能会好奇如何变换你的模型——或者甚至让它动起来。 这时就需要引入 `MatrixStack` 类。
 
@@ -135,19 +133,20 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 您也可以使用四元数对栈顶的矩阵做叉乘，这些内容会在下一节讲到。
 
-从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#tick-delta) 页面中澄清这一点。
+从我们上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让我们的菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#tick-delta) 页面中澄清这一点。
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 在获取变换矩阵前，请确保向矩阵栈压入一个新的矩阵！
 :::
+:::
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![一段展示菱形放大和缩小的视频](/assets/develop/rendering/concepts-matrix-stack.webp)
 
-## 四元数 `Quaternion`（旋转物体）{#quaternions-rotating-things}
+## 四元数 `Quaternion`（旋转物体） {#quaternions-rotating-things}
 
 四元数是三维空间中的旋转的一种表示方法， 用于通过 `multiply(Quaternion, x, y, z)` 方法旋转 `MatrixStack` 栈顶的矩阵。
 
