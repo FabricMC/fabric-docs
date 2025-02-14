@@ -5,13 +5,11 @@ authors:
   - IMB11
 ---
 
-# 안전한 모드 찾기 {#finding-mods}
-
 먼저, 신뢰는 주관적이므로, 항상 모드를 다운로드 하기 전 직접 판단해야 합니다. 그럼에도, 안전한 모드를 찾는 데 도움이 될 수 있는 여러 가지 방법이 있습니다.
 
 ## 1. 안전하다고 알려진 소스를 사용하기 {#trustworthy-source}
 
-대부분의 모드 개발자는 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4) 에 모드를 업로드 합니다.
+대부분의 모드 개발자는 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4) 에 모드를 업로드 합니다.
 
 이러한 서비스는 모드와 설명이 같은지, 모드에 악성 코드가 포함되어 있지 않은지 확인합니다. 공유되고 있는 악성 모드를 신고할 수도 있습니다. 빠르게 행동을 취할 것입니다.
 
