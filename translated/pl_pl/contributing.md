@@ -3,8 +3,6 @@ title: Wytyczne współtworzenia
 description: Wytyczne dotyczące współtworzenia i wnoszenia wkładu do dokumentacji Fabric.
 ---
 
-# Wytyczne współtworzenia {#contributing}
-
 Ta strona używa [VitePress](https://vitepress.dev/) do generowania statycznego HTML-a z różnych plików Markdown. Warto zapoznać się z rozszerzeniami Markdown, które obsługuje VitePress, [tutaj](https://vitepress.dev/guide/markdown.html#features).
 
 Istnieją trzy sposoby, w jakie możesz pomóc współtworzyć tę stronę:
@@ -71,7 +69,7 @@ npm install
 
 #### Uruchamianie serwera deweloperskiego {#run-the-development-server}
 
-Serwer ten pozwala na podglądanie w czasie rzeczywistym wprowadzonych zmian lokalnie pod adresem `localhost:5173`, automatycznie przeładowując stronę po wprowadzeniu zmian. Uruchamia się go za pomocą:
+Serwer ten pozwala na podglądanie w czasie rzeczywistym wprowadzonych zmian lokalnie pod adresem `localhost:5173`, automatycznie przeładowując stronę po wprowadzeniu zmian.
 
 ```sh
 npm run dev
@@ -156,17 +154,13 @@ Każda strona musi zawierać tytuł (`title`) oraz opis (`description`) w segmen
 
 Pamiętaj również dodać swoją nazwę użytkownika na GitHubie w polu `authors`! W ten sposób będziemy mogli przyznać Ci należne wyróżnienie.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Dodaj zakotwiczenia do nagłówków {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 Każdy nagłówek być zakotwiczony, aby można było go zlinkować:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 Zakotwiczenie może składać się tylko z małych liter, myślników i cyfr.
