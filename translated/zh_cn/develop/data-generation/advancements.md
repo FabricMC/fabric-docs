@@ -10,8 +10,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# 进度生成 {#advancement-generation}
-
 :::info 前提
 首先，请确保你已完成 [Datagen 设置](./setup) 。
 :::
