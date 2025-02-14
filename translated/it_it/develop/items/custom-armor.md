@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Armature Personalizzate {#custom-armor}
-
 Un'armatura fornisce al giocatore una difesa migliore contro attacchi di mob e di altri giocatori.
 
 ## Creare una Classe per un Materiale delle Armature {#creating-an-armor-materials-class}
@@ -113,7 +111,7 @@ Poi, dovrai creare una definizione del modello indossato ad essa associata. Ques
 
 La costante `RegistryKey<EquipmentAsset>` creata più sopra determinerà il nome del file JSON. In questo caso sarà `guidite.json`.
 
-Poiché vogliamo solo aggiungere i pezzi d'armatura "umanoidi" (elmo, corazza, gambiere, stivali...), la definizione del nostro modello indossato sarà come segue:
+Poiché vogliamo solo aggiungere i pezzi d'armatura "umanoidi" (elmo, corazza, gambiere, stivali...), la definizione del nostro modello indossato sarà come segue: la definizione del nostro modello indossato sarà come segue:
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
 
