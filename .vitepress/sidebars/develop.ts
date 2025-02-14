@@ -82,7 +82,7 @@ export default [
       },
       {
         text: "develop.items.custom-enchantment-effects",
-        link: "/develop/items/custom-enchantment-effects"
+        link: "/develop/items/custom-enchantment-effects",
       },
       {
         text: "develop.items.custom-data-components",
@@ -113,9 +113,9 @@ export default [
           {
             text: "develop.blocks.block-entity-renderer",
             link: "/develop/blocks/block-entity-renderer",
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
   },
   {
@@ -209,38 +209,38 @@ export default [
     ],
   },
   {
-	  text: "develop.dataGeneration",
-	  collapsed: true,
-	  items: [
-		{
-			text: "develop.dataGeneration.setup",
-			link: "/develop/data-generation/setup"
-		},
-		{
-			text: "develop.dataGeneration.tags",
-			link: "/develop/data-generation/tags"
-		},
-		{
-			text: "develop.dataGeneration.translations",
-			link: "/develop/data-generation/translations"
-		},
-		{
-			text: "develop.dataGeneration.advancements",
-			link: "/develop/data-generation/advancements"
-		},
-		{
-			text: "develop.dataGeneration.recipes",
-			link: "/develop/data-generation/recipes"
-		},
-		{
-			text: "develop.dataGeneration.lootTables",
-			link: "/develop/data-generation/loot-tables"
-		},
-        {
-            text: "develop.dataGeneration.blockModels",
-            link: "/develop/data-generation/block-models"
-        }
-	  ]
+    text: "develop.dataGeneration",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.dataGeneration.setup",
+        link: "/develop/data-generation/setup",
+      },
+      {
+        text: "develop.dataGeneration.tags",
+        link: "/develop/data-generation/tags",
+      },
+      {
+        text: "develop.dataGeneration.translations",
+        link: "/develop/data-generation/translations",
+      },
+      {
+        text: "develop.dataGeneration.advancements",
+        link: "/develop/data-generation/advancements",
+      },
+      {
+        text: "develop.dataGeneration.recipes",
+        link: "/develop/data-generation/recipes",
+      },
+      {
+        text: "develop.dataGeneration.lootTables",
+        link: "/develop/data-generation/loot-tables",
+      },
+      {
+        text: "develop.dataGeneration.blockModels",
+        link: "/develop/data-generation/block-models",
+      },
+    ],
   },
   {
     text: "develop.misc",

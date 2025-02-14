@@ -98,7 +98,7 @@ If you have multiple properties on a block, you'll need to account for all possi
 
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 ::: tip
 Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
