@@ -5,8 +5,6 @@ authors:
   - Superkat32
 ---
 
-# Creando Partículas Personalizadas
-
 Las partículas son una poderosa herramienta. Pueden agregar atmósfera a una hermosa escena, o agregar tensión durante una pelea contra un jefe. ¡Agreguemos una!
 
 ## Registrar una partícula personalizada
