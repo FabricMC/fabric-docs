@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Creare il Tuo Primo Blocco {#creating-your-first-block}
-
 I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in registry.
 
 ## Preparare la Tua Classe dei Blocchi {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ Dovresti mettere questo metodo in una classe chiamata `ModBlocks` (o qualsiasi a
 Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla classe `Blocks` per sapere come fanno loro.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
@@ -58,19 +54,17 @@ Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
+Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a un gruppo di oggetti devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
 
 ### Aggiungere l'Oggetto del Tuo Blocco a un Gruppo di Oggetti {#adding-your-block-s-item-to-an-item-group}
 
-Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a un gruppo di oggetti devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
+Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
 Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo creato nella pagina [Gruppi di Oggetti Personalizzati](../items/custom-item-groups).
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Dovresti mettere questo nella funzione `initialize()` della tua classe.
-
----
 
 Dovresti ora notare che il tuo blocco è nell'inventario in creativa, e può essere posizionato nel mondo!
 
