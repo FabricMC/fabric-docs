@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalowanie oprogramowania Java na Windows {#installing-java-on-windows}
-
 Ten przewodnik pokaże ci, jak zainstalować Javę 21 na systemie Windows.
 
 Launcher Minecrafta zawiera własną instalację Javy, więc ta sekcja jest istotna tylko, jeśli chcesz użyć instalatora Fabric w formacie `.jar` lub jeśli chcesz użyć pliku `.jar` serwera Minecraft.
@@ -31,7 +29,7 @@ Aby używać Minecrafta w wersji 1.21, musisz mieć zainstalowaną co najmniej J
 
 ## 2. Pobierz instalator Javy 21 {#2-download-the-java-installer}
 
-Do zainstalowania Javy 21 wymagane jest pobranie instalatora ze strony [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21).
+Do zainstalowania Javy 21 wymagane jest pobranie instalatora ze strony [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
 
 Pobierz wersję `Windows Installer (.msi)`:
 
@@ -48,7 +46,7 @@ Aby zainstalować Javę 21, postępuj zgodnie z instrukcjami w instalatorze. Gdy
 - `Set JAVA_HOME environment variable` - zostanie to dodane do PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Instalator Javy 21 wyróżnionymi polami "Set JAVA\_HOME variable" i "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Instalator Javy 21 wyróżnionymi polami "Set JAVA\\_HOME variable" i "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Po zrobieniu tego kliknij `Next` i kontynuuj instalację.
 
@@ -59,7 +57,5 @@ Po zakończeniu instalacji możesz zweryfikować czy Java 21 została zainstalow
 Jeśli polecenie zostanie uruchomione pomyślnie, to zobaczysz coś takiego, gdzie wyświetlana jest wersja Javy:
 
 ![Wiersz poleceń z wpisanym poleceniem "java -version"](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Jeśli napotkasz jakiś problem, śmiało możesz poprosić o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support`.
