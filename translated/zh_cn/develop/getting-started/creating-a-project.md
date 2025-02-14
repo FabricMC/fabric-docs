@@ -6,11 +6,9 @@ authors:
   - Cactooz
 ---
 
-# 创建项目 {#creating-a-project}
-
 Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考 [手动创建项目](#manual-project-creation) 章节。
 
-## 生成项目 {#generating-a-project}
+## 生成项目{#generating-a-project}
 
 你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如模组称和包名，以及你想要基于其开发的 Minecraft 版本。
 
