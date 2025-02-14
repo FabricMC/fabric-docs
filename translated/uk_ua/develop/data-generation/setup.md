@@ -16,15 +16,13 @@ authors-nogithub:
   - macrafterzz
 ---
 
-# Генерація даних налаштування {#data-generation-setup}
-
 ## Що таке генерація даних? {#what-is-data-generation}
 
 Генерація даних (або datagen) — це API для програмної генерації рецептів, досягнень, теґів, моделей предметів, мовних файлів, таблиць здобичі та всього, що базується на JSON.
 
 ## Увімкнення генерації даних {#enabling-data-generation}
 
-### Під час створення проєкту {#enabling-data-generation-at-project-creation}
+### Увімкнення генерації даних {#enabling-data-generation}
 
 Найпростіший спосіб увімкнути datagen – під час створення проєкту. Поставте прапорець «Увімкнути генерацію даних» під час використання [генератора шаблонів](https://fabricmc.net/develop/template/).
 
