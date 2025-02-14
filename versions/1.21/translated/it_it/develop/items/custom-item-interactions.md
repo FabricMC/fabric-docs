@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Interazioni tra Oggetti Personalizzate {#custom-item-interactions}
-
 Gli oggetti basilari non possono arrivare lontano - prima o poi ti servirà un oggetto che interagisce con il mondo quando lo si usa.
 
 Ci sono alcune classi chiave che devi comprendere prima di dare un'occhiata agli eventi degli oggetti vanilla.

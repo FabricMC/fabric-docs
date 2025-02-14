@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Corriendo tu Juego
-
 Fabric Loom provee una variedad de perfiles de lanzamiento para ayudarte a correr y depurar tus mods en un entorno de juego en vivo. Esta guía cubrirá los perfiles de lanzamiento varios y como usarlos para depurar y probar tus mods.
 
 ## Perfiles de Lanzamiento

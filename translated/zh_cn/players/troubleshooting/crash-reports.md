@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# 崩溃报告{#crash-reports}
+# 崩溃报告 {#crash-reports}
 
 :::tip
 如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
@@ -13,7 +13,7 @@ authors:
 
 崩溃报告是解决游戏或服务器问题的重要部分， 包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
 
-## 寻找崩溃报告{#finding-crash-reports}
+## 寻找崩溃报告 {#finding-crash-reports}
 
 崩溃报告存储在游戏目录中的 `crash-reports` 文件夹中。 如果是服务器，则存储在服务器目录中的 `crash-reports` 文件夹中。
 
@@ -37,7 +37,7 @@ authors:
 
 :::
 
-## 阅读崩溃报告{#reading-crash-reports}
+## 阅读崩溃报告 {#reading-crash-reports}
 
 崩溃报告的篇幅很长，读起来可能十分费解， 然而包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
 
@@ -49,7 +49,7 @@ authors:
 
 :::
 
-### 崩溃报告的各部分{#crash-report-sections}
+### 崩溃报告的各部分 {#crash-report-sections}
 
 崩溃报告由几个部分组成，每个部分用标题分隔：
 
@@ -58,13 +58,13 @@ authors:
 - `-- System Details --`，本部分包含有关系统的信息，如操作系统、Java 版本和分配给游戏的内存量。 该部分有助于确定你使用的 Java 版本是否正确，以及是否为游戏分配了足够的内存。
   - 在此部分中，Fabric 将插入一些自定义内容，其标题为 `Fabric Mods:`，后面是所有已安装模组的列表。 该部分有助于判断模组之间是否可能已发生冲突。
 
-### 分解崩溃报告{#breaking-down-the-crash-report}
+### 分解崩溃报告 {#breaking-down-the-crash-report}
 
 既然已经知道崩溃报告的每个部分是什么，就可以开始分解崩溃报告并找出崩溃原因。
 
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
-在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
+在这个情形中，`---- Minecraft Crash Report ----` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
 
 :::details 显示错误详情
 
@@ -78,7 +78,7 @@ authors:
 
 不过，提到的模组有很多，可能意味着模组之间存在一些兼容性问题，导致崩溃的模组可能并不是出错的模组。 在这种情况下，最好向模组作者报告崩溃情况，让他们调查崩溃原因。
 
-## Mixin 崩溃{#mixin-crashes}
+## Mixin 崩溃 {#mixin-crashes}
 
 :::info
 Mixin 是一种修改游戏而无需修改游戏的源代码的方式。 许多模组都用了 mixin，这对于开发者来说是非常强大的工具。
@@ -94,7 +94,7 @@ Mixin 是一种修改游戏而无需修改游戏的源代码的方式。 许多�
 
 你可以使用此信息找到导致崩溃的模组，并向模组作者报告崩溃情况。
 
-## 如何处理崩溃报告{#what-to-do-with-crash-reports}
+## 如何处理崩溃报告 {#what-to-do-with-crash-reports}
 
 处理崩溃报告的最佳方法是将其上传到在线粘贴板网站，然后将链接分享给模组作者，可以是在他们的问题追踪器，或通过某种联系方式（Discord 等）。
 

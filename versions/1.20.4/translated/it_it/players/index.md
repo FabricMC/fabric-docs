@@ -5,8 +5,6 @@ description: Una collezione di guide per giocatori e admin di server riguardo al
 search: false
 ---
 
-# Guide per Giocatori
-
 Questa sezione della Documentazione di Fabric è dedicata ai giocatori e agli admin di server che vogliono imparare a installare e usare Fabric e risolverne i problemi.
 
 Dovresti fare riferimento alla barra laterale per una lista di tutte le guide disponibili.

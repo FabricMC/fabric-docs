@@ -9,8 +9,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Tag Generation {#tag-generation}
-
 ::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
@@ -21,7 +19,7 @@ First, create your own class that `extends FabricTagProvider<T>`, where `T` is t
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
-::: info NOTE
+::: tip
 You will need a different provider for each type of tag (eg. one `FabricTagProvider<EntityType<?>>` and one `FabricTagProvider<Item>`).
 :::
 

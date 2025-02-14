@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-# 自定义物品交互{#custom-item-interactions}
+# 自定义物品交互 {#custom-item-interactions}
 
 基础物品的功能是有限的——你还是需要个能在使用时与世界交互的物品。
 

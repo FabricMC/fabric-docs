@@ -82,7 +82,7 @@ Maak een nieuw JSON-bestand in: `src/main/resources/assets/<mod id here>/lang/nl
 }
 ```
 
-Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd> + <kbd>T</kbd> drukken om de wijzigingen toe te passen.
+Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kbd> drukken om de wijzigingen toe te passen.
 
 ## Een Textuur en Model Toevoegen {#adding-a-texture-and-model}
 

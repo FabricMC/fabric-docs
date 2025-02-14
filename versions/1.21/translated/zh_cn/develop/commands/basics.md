@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# 创建命令 {#creating-commands}
-
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 ::: info
@@ -27,7 +25,7 @@ you build a tree of commands and arguments.
 
 Brigadier 是开源的：<https://github.com/Mojang/brigadier>
 
-## `Command` 接口{#the-command-interface}
+## `Command` 接口 {#the-command-interface}
 
 `com.mojang.brigadier.Command` 是一个可以执行指定行为的函数式接口，在某些情况下会抛出 `CommandSyntaxException` 异常。 命令有一个泛型 `S`，定义了_命令来源_的类型。
 命令来源提供了命令运行的上下文。 在 Minecraft 中，命令来源通常是 `ServerCommandSource`，代表服务器、命令方块、远程连接（RCON）、玩家或者实体。
@@ -52,12 +50,12 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
 
-## 注册一个基本命令{#registering-a-basic-command}
+## 注册一个基本命令 {#registering-a-basic-command}
 
 可以通过 Fabric API 提供的 `CommandRegistrationCallback` 来注册命令 。
 
@@ -91,14 +89,14 @@ Command<ServerCommandSource> command = context -> {
 这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后给 `.execute()` 传入方法引用。 这样做是为了更清晰。
 :::
 
-### 注册环境{#registration-environment}
+### 注册环境 {#registration-environment}
 
 如有需要，你可以确保命令仅在一些特定情况下注册，例如仅在专用的环境中：
 
 @[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### 命令要求{#command-requirements}
+### 命令要求 {#command-requirements}
 
 假如说你希望命令只有管理员可以执行， 这时就要用到 `requires()` 方法。 `requires()` 方法有一个 `Predicate<S>` 参数，提供一个 `ServerCommandSource` 以检测并确定 `CommandSource` 能否执行命令。
 
@@ -109,7 +107,7 @@ Command<ServerCommandSource> command = context -> {
 
 这样做的副作用就是，非 2 级管理员会看到命令不会被 tab 补全， 这也就是为什么没有启用作弊时不能够 tab 补全大多数命令。
 
-### 子命令{#sub-commands}
+### 子命令 {#sub-commands}
 
 要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
@@ -121,13 +119,13 @@ Command<ServerCommandSource> command = context -> {
 @[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## 客户端命令{#client-commands}
+## 客户端命令 {#client-commands}
 
 Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.client.command.v2` 包中，可用于注册客户端命令。 代码应该仅存在于客户端的代码中。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
-## 命令重定向{#command-redirects}
+## 命令重定向 {#command-redirects}
 
 命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
@@ -138,7 +136,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 @[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## 常见问题{#faq}
+## 常见问题 {#faq}
 
 ### 为什么我的代码为什么不编译？ {#why-does-my-code-not-compile}
 

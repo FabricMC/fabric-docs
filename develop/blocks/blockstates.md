@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Block States {#block-states}
-
 A block state is a piece of data attached to a singular block in the Minecraft world containing information on the block in the form of properties - some examples of properties vanilla stores in block states:
 
 - Rotation: Mostly used for logs and other natural blocks.
@@ -42,15 +40,13 @@ An example of the `condensed_oak_log_horizontal.json` file:
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
 :::
 
-Next, we need to create a blockstate file. The blockstate file is where the magic happens—pillar blocks have three axes, so we'll use specific models for the following situations:
+Next, we need to create a blockstate file, which is where the magic happens. Pillar blocks have three axes, so we'll use specific models for the following situations:
 
 - `axis=x` - When the block is placed along the X axis, we will rotate the model to face the positive X direction.
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
@@ -108,8 +104,6 @@ Since this block only has two possible variants, as it only has one property (`a
 Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
 :::
 
----
-
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
 
 You can use the `luminance` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `luminance` method:
@@ -117,8 +111,6 @@ You can use the `luminance` method to set the light level emitted by the block, 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

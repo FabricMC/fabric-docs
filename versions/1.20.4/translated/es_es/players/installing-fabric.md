@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Instalar Fabric
-
 Esta guía te enseñará sobre como instalar Fabric usando el launcher oficial de Minecraft.
 
 Para launchers o lanzadores de terceros, deberías consultar su documentación.

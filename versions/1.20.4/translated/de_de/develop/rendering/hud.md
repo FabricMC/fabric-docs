@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Rendering im Hud
-
 Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [Den Zeichenkontext verwenden](./draw-context) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf das Event `HudRenderCallback` und den Parameter `deltaTick`.
 
 ## HudRenderCallback

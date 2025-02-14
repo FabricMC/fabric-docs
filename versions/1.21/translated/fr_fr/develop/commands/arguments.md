@@ -3,8 +3,6 @@ title: Paramètres de Commandes
 description: Apprenez comment créer des commandes avec des paramètres complexes.
 ---
 
-# Paramètres de commandes {#command-arguments}
-
 La notion de paramètres (`Argument`) est utilisée dans la plupart des commandes. Des fois, ces paramètres peuvent être optionnels, ce qui veut dire que si vous ne donnez pas ce paramètre, la commande va quand même s'exécuter. Un nœud peut avoir plusieurs types de paramètres, mais n'oubliez pas qu'il y a une possibilité d'ambiguïté, qui devrait toujours être évitée.
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

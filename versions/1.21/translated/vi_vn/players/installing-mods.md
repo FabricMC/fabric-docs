@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Cài Đặt Mod
-
 Bài hướng dẫn này sẽ giúp bạn cài đặt các bản mod Fabric cho trình Launcher Minecraft chính thức.
 
 Đối với các trình launcher bên thứ ba, bạn nên tham khảo tài liệu của họ.

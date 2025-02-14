@@ -20,10 +20,4 @@ features:
 search: false
 ---
 
-<div class="vp-doc homepage-container">
-
-## 이 프로젝트에 기여하고 싶으신가요?
-
 Fabric 문서에 기여하고 싶다면, [GitHub](https://github.com/FabricMC/fabric-docs)에서 소스 코드를 볼 수 있으며, 기여시에는 [기여 가이드라인](./contributing)을 준수하시기 바랍니다.
-
-</div>

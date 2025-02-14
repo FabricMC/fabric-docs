@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Vertrauenswürdige Mods finden
-
 Zu Beginn, Vertrauen ist subjektiv, du solltest beim Herunterladen von Mods immer nach eigenem Ermessen handeln. Hier sind ein paar Dinge, die dir helfen können, vertrauenswürdige Mods zu finden.
 
 ## 1. Nutze eine Quelle, die bekanntermaßen vertrauenswürdig ist

@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Block Entity Renderers {#block-entity-renderers}
-
 Sometimes, using Minecraft's model format is not enough. If you need to add dynamic rendering to your block's visuals, you will need to use a `BlockEntityRenderer`.
 
 For example, let's make the Counter Block from the [Block Entities article](../blocks/block-entities) show the number of clicks on its top side.

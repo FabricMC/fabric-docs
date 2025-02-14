@@ -15,7 +15,7 @@ Minecraft 啟動器附帶了自己的 Java 安裝，因此這部分只在你想�
 
 要檢查 Java 是否已安裝，你首先必須開啟命令提示字元。
 
-你可以透過按下 <kbd>Win</kbd> + <kbd>R</kbd> 並在出現的對話方塊中輸入 `cmd.exe` 來執行這項操作。
+你可以透過按下 <kbd>Win</kbd>+<kbd>R</kbd> 並在出現的對話方塊中輸入 `cmd.exe` 來執行這項操作。
 
 ![Windows執行對話方塊中的「cmd.exe」](/assets/players/installing-java/windows-run-dialog.png)
 

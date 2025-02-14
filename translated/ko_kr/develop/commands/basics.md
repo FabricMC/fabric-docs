@@ -52,7 +52,7 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -116,7 +116,7 @@ Command<ServerCommandSource> command = context -> {
 @[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-인수처럼, 하위 명령어 노드도 필수적이진 않습니다. 아래와 같은 상황에선, `/command_two`와 `/command_two sub_command_two`  모두 올바른 명령어가 되게 됩니다.
+인수처럼, 하위 명령어 노드도 필수적이진 않습니다. 아래와 같은 상황에선, `/command_two`와 `/command_two sub_command_two` 모두 올바른 명령어가 되게 됩니다.
 
 @[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

@@ -6,11 +6,11 @@ authors:
   - Cactooz
 ---
 
-# 创建项目{#creating-a-project}
+# 创建项目 {#creating-a-project}
 
 Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考 [手动创建项目](#manual-project-creation) 章节。
 
-## 生成项目{#generating-a-project}
+## 生成项目 {#generating-a-project}
 
 你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，比如模组称和包名，以及你想要基于其开发的 Minecraft 版本。
 
@@ -28,7 +28,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 ![打开项目按钮提示](/assets/develop/getting-started/open-project.png)
 
-## 导入项目{#importing-the-project}
+## 导入项目 {#importing-the-project}
 
 在 IntelliJ IDEA 中打开该项目之后，IDEA 会自动加载项目的 Gradle 配置并执行必要的初始化任务。
 
@@ -38,7 +38,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 项目导入好之后，你可以在项目资源管理器中看到项目的文件，就能够开始开发你的模组了。
 
-## 手动创建项目{#manual-project-creation}
+## 手动创建项目 {#manual-project-creation}
 
 :::warning
 你需要安装 [Git](https://git-scm.com/) 来克隆示例模组代码仓库。
@@ -60,7 +60,7 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 强调一遍，如上所述，如果你收到一个关于 Gradle 构建脚本的通知，你应该点击 `Import Gradle Project` 按钮：
 
-### 修改模板{#modifying-the-template}
+### 修改模板 {#modifying-the-template}
 
 项目导入好后，你需要修改项目的详细信息，以匹配你的模组的信息:
 

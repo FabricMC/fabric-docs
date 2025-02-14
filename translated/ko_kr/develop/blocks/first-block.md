@@ -50,7 +50,7 @@ public class ModBlocks {
 예시로, 흙의 속성을 가지고 있지만, 다른 재질의 간단한 블록을 만들어 볼 것입니다.
 
 :::tip
-또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
+또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)` 을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT` 를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
@@ -69,7 +69,7 @@ public class ModBlocks {
 
 이제 크리에이티브 인벤토리에 블록이 있고, 세계에 설치할 수 있음을 알 수 있습니다!
 
-![적합한 모델이나 텍스처가 없는 세계의 블록](/assets/develop/blocks/first_block_0.png).
+![적합한 모델이나 텍스처가 없는 세계의 블록](/assets/develop/blocks/first_block_0.png)
 
 여기엔 몇가지 문제가 있습니다. 블록의 이름이 없으며, 텍스처도 없고 블록 모델이나 아이템 모델도 없습니다.
 
@@ -85,7 +85,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 }
 ```
 
-모드를 빌드하기 위하여 게임을 다시 시작하거나 <kbd>F3</kbd> + <kbd>T</kbd>를 눌러 변경 사항을 적용할 수 있습니다. 그러면 크리에이티브 인벤토리나 통계 화면과 같은 다른 곳에 블록의 이름이 있는 것이 보일 것입니다.
+모드를 빌드하기 위하여 게임을 다시 시작하거나 <kbd>F3</kbd>+<kbd>T</kbd>를 눌러 변경 사항을 적용할 수 있습니다. 그러면 크리에이티브 인벤토리나 통계 화면과 같은 다른 곳에 블록의 이름이 있는 것이 보일 것입니다.
 
 ## 모델 및 텍스처 {#models-and-textures}
 
@@ -120,7 +120,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 블록 상태는 정말 복잡합니다. 그러므로, [블록 상태](./blockstates) 페이지에서 다루겠습니다.
 
-게임을 다시 시작하거나, <kbd>F3</kbd> + <kbd>T</kbd>을 통해 다시 불러와 변경 사항을 적용하세요. 블록 텍스처가 인벤토리 안과 실제 세계에서 볼 수 있을 것입니다.
+게임을 다시 시작하거나, <kbd>F3</kbd>+<kbd>T</kbd>을 통해 다시 불러와 변경 사항을 적용하세요. 블록 텍스처가 인벤토리 안과 실제 세계에서 볼 수 있을 것입니다.
 
 ![적합한 모델이나 텍스처가 있는 세계의 블록](/assets/develop/blocks/first_block_4.png)
 

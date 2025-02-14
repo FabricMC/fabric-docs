@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Creating Custom Particles {#creating-custom-particles}
-
 Particles are a powerful tool. They can add ambience to a beautiful scene, or add tension to an edge of your seat boss battle. Let's add one!
 
 ## Register a Custom Particle {#register-a-custom-particle}
@@ -38,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Creating a JSON File and Adding Textures {#creating-a-json-file-and-adding-textures}
 
-You will need to create 2 folders in your `resources/assets/<mod id here>/` folder.
+You will need to create 2 folders in your `resources/assets/mod-id/` folder.
 
 | Folder Path          | Explanation                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------ |
@@ -62,7 +60,7 @@ Once you have completed the JSON file and saved your work, you are good to load 
 You can see if everything has worked by typing the following command:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![Showcase of the particle](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

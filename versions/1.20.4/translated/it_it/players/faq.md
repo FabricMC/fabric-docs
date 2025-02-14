@@ -5,8 +5,6 @@ description: Domande frequenti riguardanti Fabric per giocatori e admin di serve
 search: false
 ---
 
-# Domande Frequenti (FAQ)
-
 Ci sono molte domande che vengono poste di frequente, quindi ne abbiamo compilato una lista qui.
 
 ## Domande Generali

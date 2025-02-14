@@ -6,8 +6,6 @@ authors:
   - AnAwesomGuy
 ---
 
-# Trucchi Riguardanti l'IDE {#ide-tips-and-tricks}
-
 Questa pagina fornisce un po' di informazioni utili, per velocizzare e facilitare il workflow degli sviluppatori. Integrale nel tuo lavoro, se desideri.
 Potrebbe servire del tempo per imparare e abituarsi alle scorciatoie e alle altre opzioni. Puoi usare questa pagina come riferimento per questo.
 

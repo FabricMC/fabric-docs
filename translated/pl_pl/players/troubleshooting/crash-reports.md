@@ -54,13 +54,13 @@ W tym przewodniku będziemy wykorzystywać [ten raport awarii](/assets/players/c
 Raporty awarii składają się z kilku sekcji, a każda z nich oddzielona jest nagłówkiem:
 
 - `---- Minecraft Crash Report ----`, podsumowanie raportu. Ta sekcja zawiera główny błąd, który spowodował awarię, godzinę jego wystąpienia oraz powiązany ślad stosu. Jest to najważniejsza sekcja raportu awarii, ponieważ ślad stosu zazwyczaj zawiera odniesienia do moda, który spowodował awarię.
-- `-- Last Reload --`, ta sekcja nie jest szczególnie przydatna, chyba że awaria wystąpiła podczas przeładowywania zasobów (<kbd>F3</kbd> + <kbd>T</kbd>). Zawiera ona godzinę ostatniego przeładowania i powiązany ślad stosu wszelkich błędów, które wystąpiły podczas procesu przeładowywania. Błędy te są zazwyczaj powodowane przez paczki zasobów i można je zignorować, chyba że powodują problemy z grą.
+- `-- Last Reload --`, ta sekcja nie jest szczególnie przydatna, chyba że awaria wystąpiła podczas przeładowywania zasobów (<kbd>F3</kbd>+<kbd>T</kbd>). Zawiera ona godzinę ostatniego przeładowania i powiązany ślad stosu wszelkich błędów, które wystąpiły podczas procesu przeładowywania. Błędy te są zazwyczaj powodowane przez paczki zasobów i można je zignorować, chyba że powodują problemy z grą.
 - `-- System Details --`, ta sekcja zawiera informacje o Twoim systemie, takie jak system operacyjny, wersja Javy i ilość pamięci przydzielonej grze. Jest przydatna do określenia, czy używasz odpowiedniej wersji Javy oraz czy grze została przydzielona wystarczająca ilość pamięci.
   - W tej sekcji Fabric doda niestandardową linijkę `Fabric Mods`, a po niej listę wszystkich zainstalowanych modów. Ta sekcja jest przydatna do określenia, czy między modami mogły wystąpić jakiekolwiek konflikty.
 
 ### Analizowanie raportu awarii {#breaking-down-the-crash-report}
 
-Teraz, gdy już wiemy, co zawiera każda sekcja raportu awarii, możemy zacząć go analizować i znaleźć przyczynę awarii.
+Teraz, gdy już wiemy, co zawiera każda sekcja raportu awarii, możemy zacząć go analizować i znaleźć przyczynę awarii.
 
 Korzystając z powyższego przykładu, możemy przeanalizować raport awarii i znaleźć jej przyczynę, w tym mody, które ją spowodowały.
 

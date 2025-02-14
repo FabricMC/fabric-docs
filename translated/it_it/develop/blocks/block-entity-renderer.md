@@ -37,7 +37,7 @@ Ora che abbiamo un renderer, possiamo disegnare. Il metodo `render` viene chiama
 Anzitutto, dobbiamo bilanciare e ruotare il testo in modo che sia sul lato superiore del blocco.
 
 :::info
-Come suggerisce il nome, il `MatrixStack` è uno _stack_, il che significa che puoi inserirci (push) ed estrarne (pop) le trasformazioni.
+Come suggerisce il nome, il `MatrixStack` è uno _stack_, il che significa che puoi inserirci (push) ed estrarne (pop) le trasformazioni.
 Una buona regola di base è inserirne uno nuovo all'inizio del metodo `render` ed estrarlo alla fine, in modo che il rendering di un blocco non influenzi gli altri.
 
 Si possono trovare maggiori informazioni riguardo al `MatrixStack` nell'[articolo sui Concetti Base del Rendering](../rendering/basic-concepts).

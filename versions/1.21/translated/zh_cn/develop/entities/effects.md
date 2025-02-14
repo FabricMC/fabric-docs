@@ -13,29 +13,27 @@ authors-nogithub:
   - tao0lu
 ---
 
-# 状态效果{#status-effects}
-
 状态效果，又称效果，是一种可以影响实体的状况， 可以是正面、负面或中性的。 游戏本体通过许多不同的方式应用这些效果，如食物和药水等等。
 
 命令 `/effect` 可用来给实体应用效果。
 
-## 自定义状态效果{#custom-status-effects}
+## 自定义状态效果 {#custom-status-effects}
 
 在这篇教程中我们将加入一个叫 _土豆_ 的新状态效果，每游戏刻给你 1 点经验。
 
-### 继承 `StatusEffect`{#extend-statuseffect}
+### 继承 `StatusEffect` {#extend-statuseffect}
 
 让我们通过继承所有状态效果的基类 `StatusEffect` 来创建一个自定义状态效果类。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
 
-### 注册你的自定义状态效果{#registering-your-custom-effect}
+### 注册你的自定义状态效果 {#registering-your-custom-effect}
 
 与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的初始化器内完成。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
-### 纹理{#texture}
+### 纹理 {#texture}
 
 状态效果的图片是一个 18x18 的 PNG，显示在玩家的背包中。 将你的自定义图标放在：
 
@@ -45,9 +43,9 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">示例纹理</DownloadEntry>
 
-### 翻译{#translations}
+### 翻译 {#translations}
 
-像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.<mod-id>.<effect-identifier>": "Value"`。
+像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.mod-id.<effect-identifier>": "Value"`。
 
 ```json
 {
@@ -55,7 +53,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 }
 ```
 
-### 应用效果{#applying-the-effect}
+### 应用效果 {#applying-the-effect}
 
 不妨看看你会如何将效果应用到实体。
 

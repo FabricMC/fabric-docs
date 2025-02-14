@@ -7,8 +7,6 @@ authors:
   - mattidragon
 ---
 
-# Tipi di Danno {#damage-types}
-
 I tipi di danno definiscono tipi di danno che le entità possono subire. A partire da Minecraft 1.19.4, la creazione di nuovi tipi di danno è basata sui dati, per cui essi sono creati tramite file JSON.
 
 ## Creare un Tipo di Danno {#creating-a-damage-type}

@@ -47,8 +47,7 @@ Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
-Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)]
-(https://minecraft.wiki/w/Tutorials/Models#Block_states).
+Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
 
 Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la magia—i pilastri hanno tre assi e quindi useremo modelli specifici per i seguenti casi:

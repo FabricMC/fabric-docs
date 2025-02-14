@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Project Structure {#project-structure}
-
 This page will go over the structure of a Fabric mod project, and the purpose of each file and folder in the project.
 
 ## `fabric.mod.json` {#fabric-mod-json}

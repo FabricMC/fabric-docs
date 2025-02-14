@@ -6,7 +6,7 @@ authors:
   - modmuss50
 ---
 
-# 更新 Fabric{#updating-fabric}
+# 更新 Fabric {#updating-fabric}
 
 这篇指南将引导您在 Minecraft 启动器中更新 Fabric。
 
@@ -26,7 +26,7 @@ authors:
 **运行安装程序时，请确保没有选中“创建新的启动器配置”，否则将创建新的配置文件，而这种情况下我们不需要。**
 :::
 
-## 3. 在 Minecraft 启动器中打开配置{#3-open-the-profile-in-the-minecraft-launcher}
+## 3. 在 Minecraft 启动器中打开配置 {#3-open-the-profile-in-the-minecraft-launcher}
 
 安装器完成后，可以打开 Minecraft 启动器并前往 `Installations（安装）` 选项。 您应当前往您的 Fabric 配置并打开编辑界面。
 

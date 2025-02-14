@@ -5,11 +5,9 @@ authors:
   - Superkat32
 ---
 
-# 创建自定义粒子{#creating-custom-particles}
-
 粒子是一种强大的工具， 可以为美丽的场景增添氛围，也可以为你的 boss 战添加紧张感。 让我们创建一个自定义粒子吧！
 
-## 注册自定义粒子{#register-a-custom-particle}
+## 注册自定义粒子 {#register-a-custom-particle}
 
 我们会添加新的火花粒子，模仿末地烛的粒子移动。
 
@@ -17,9 +15,9 @@ authors:
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
 
-小写字母“sparkle_particle”是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。
+小写字母"sparkle_particle"是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。
 
-## 客户端注册{#client-side-registration}
+## 客户端注册 {#client-side-registration}
 
 在模组的初始化器中注册粒子后，还需要在客户端的初始化器中注册粒子。
 
@@ -34,9 +32,9 @@ You can see all the particle factories by looking at all the implementations of 
 - Visual Studio Code 的快捷键：Ctrl+F12
   :::
 
-## 创建 JSON 文件并添加纹理{#creating-a-json-file-and-adding-textures}
+## 创建 JSON 文件并添加纹理 {#creating-a-json-file-and-adding-textures}
 
-你需要在你的 `resources/assets/<mod id here>/` 文件夹中创建两个文件夹。
+你需要在你的 `resources/assets/mod-id/` 文件夹中创建两个文件夹。
 
 | 文件夹路径                | 说明                            |
 | -------------------- | ----------------------------- |
@@ -53,14 +51,14 @@ You can see all the particle factories by looking at all the implementations of 
 可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。
 :::
 
-## 测试新的粒子{#testing-the-new-particle}
+## 测试新的粒子 {#testing-the-new-particle}
 
 完成了 JSON 文件并保存你的作品后，就能够载入 Minecraft 并测试好一切了！
 
 可以输入以下命令，看看是否一切正常：
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

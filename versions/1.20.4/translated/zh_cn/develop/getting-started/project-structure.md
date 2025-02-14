@@ -7,11 +7,9 @@ authors:
 search: false
 ---
 
-# 项目结构{#project-structure}
-
 本页将介绍 Fabric 模组项目的结构以及项目中每个文件和文件夹的用途。
 
-## `fabric.mod.json`{#fabric-mod-json}
+## `fabric.mod.json` {#fabric-mod-json}
 
 `fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要文件， 包含模组的 ID、版本、依赖等信息。
 
@@ -30,7 +28,7 @@ search: false
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
-## 入口点{#entrypoints}
+## 入口点 {#entrypoints}
 
 如前所述，`fabric.mod.json` 文件包含一个名为 `entrypoints` 的字段——该字段用于指定你的模组提供的入口点。
 
@@ -40,7 +38,7 @@ search: false
 
 上面是一个简单的 `main` 入口点的使用示例，会在游戏开始时记录一条消息到控制台。
 
-## `src/main/resources`{#src-main-resources}
+## `src/main/resources` {#src-main-resources}
 
 `src/main/resources` 用于存储模组的资源文件，例如纹理、模型和声音。
 
@@ -48,14 +46,14 @@ search: false
 
 资源文件存储在与资源包结构相似的结构中——例如，方块的纹理会存放在 `assets/modid/textures/block/block.png` 中。
 
-## `src/client/resources`{#src-client-resources}
+## `src/client/resources` {#src-client-resources}
 
 `src/client/resources` 文件夹用于存储客户端特定的资源，例如仅在客户端使用的纹理、模型和音效。
 
-## `src/main/java`{#src-main-java}
+## `src/main/java` {#src-main-java}
 
 `src/main/java` 文件夹用于存储模组的 Java 源代码——在客户端和服务端环境中都存在。
 
-## `src/client/java`{#src-client-java}
+## `src/client/java` {#src-client-java}
 
 `src/client/java` 文件夹用于存储客户端专属的 Java 源代码，例如渲染代码或客户端逻辑——例如方块颜色提供程序。

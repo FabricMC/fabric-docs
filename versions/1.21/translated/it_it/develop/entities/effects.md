@@ -13,8 +13,6 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Effetti di Stato {#status-effects}
-
 Gli effetti di stato, anche noti come effetti, sono una condizione che interessa un'entità. Possono essere positivi, negativi o neutrali in natura. Il gioco base applica questi effetti in vari modi, come cibi, pozioni ecc.
 
 Il comando `/effect` può essere usato per applicare effetti su un'entità.
@@ -47,7 +45,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### Traduzioni {#translations}
 
-Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mod-id>.<effect-identifier>": "Valore"` al file di lingua.
+Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.mod-id.<effect-identifier>": "Valore"` al file di lingua.
 
 ```json
 {

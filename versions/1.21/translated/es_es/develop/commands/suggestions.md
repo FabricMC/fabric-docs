@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Sugerencias de Comandos
-
 Minecraft tiene un poderoso sistema de sugerencias de comandos que es usado en muchos lugares, como en el comanado de `/give`. Este sistema te permite sugerir valores para argumentos de comandos al usuario, donde este puede escoger de estos valores - es una buena manera de hacer tus comandos más ergonómicos y amigables al usuario.
 
 ## Proveedores de Sugerencias

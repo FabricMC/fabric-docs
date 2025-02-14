@@ -13,8 +13,6 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Status Effects {#status-effects}
-
 Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
 applies these effects in various ways such as food, potions etc.
 

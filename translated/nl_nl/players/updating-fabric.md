@@ -6,7 +6,7 @@ authors:
   - modmuss50
 ---
 
-# Fabric Updaten{#updating-fabric}
+# Fabric Updaten {#updating-fabric}
 
 Deze gids begeleidt u bij het updaten van Fabric voor de Minecraft Launcher.
 

@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# 文本和翻译{#text-and-translations}
-
 Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象定义的。
 使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 
@@ -15,7 +13,7 @@ Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象�
 
 制作模组时，最好直接在代码中构造你的 `Text` 对象，并随时利用翻译。
 
-## 字面文本{#text-literals}
+## 字面文本 {#text-literals}
 
 这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
 
@@ -28,7 +26,7 @@ MutableText mutable = Text.literal("Hello, world!");
 Text mutableAsText = mutable;
 ```
 
-## 可翻译文本{#translatable-text}
+## 可翻译文本 {#translatable-text}
 
 给相同的文本字符串提供多个翻译时，可以使用 `Text.translatable` 方法，引用语言文件中的任意翻译键。 如果翻译键不存在，则字面转换翻译键。
 
@@ -78,7 +76,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 }
 ```
 
-## 序列化文本{#serializing-text}
+## 序列化文本 {#serializing-text}
 
 <!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
 
@@ -88,13 +86,13 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 这会产生可用于数据包、命令和其他接受 JSON 格式文本而非字面或可翻译文本的地方的 JSON。
 
-## 反序列化文本{#deserializing-text}
+## 反序列化文本 {#deserializing-text}
 
 要将 JSON 文本对象反序列化为 `Text` 类，还是使用 codec。
 
 @[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
 
-## 格式化文本{#formatting-text}
+## 格式化文本 {#formatting-text}
 
 你应该熟悉 Minecraft 的格式化标准：
 

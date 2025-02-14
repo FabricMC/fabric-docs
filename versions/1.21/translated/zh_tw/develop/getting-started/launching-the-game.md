@@ -6,8 +6,6 @@ authors:
   - Tenneb22
 ---
 
-# 啟動遊戲 {#launching-the-game}
-
 Fabric Loom 提供了多種啟動配置檔案，以幫助你在實時遊戲環境中啟動模組和進行除錯。 本指南將介紹各種啟動配置檔案以及如何用它們來除錯和在遊戲中測試你的模組。
 
 ## 啟動配置檔案 {#launch-profiles}

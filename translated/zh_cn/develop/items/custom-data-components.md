@@ -5,7 +5,7 @@ authors:
   - Romejanic
 ---
 
-# 自定义数据组件{#custom-data-components}
+# 自定义数据组件 {#custom-data-components}
 
 物品越来越复杂，你会发现自己需要存储与每个物品关联的自定义数据。 游戏需要你将持久的数据存储在 `ItemStack`（物品堆）中，在 1.20.5 中，方法就是使用**数据组件**。
 
@@ -13,7 +13,7 @@ authors:
 
 除了注册自定义组件外，本页还介绍了组件 API 的一般用法，这些也可用于原版的组件。 你可以在 `DataComponentTypes` 类中查看并访问所有原版组件的定义。
 
-## 注册组件{#registering-a-component}
+## 注册组件 {#registering-a-component}
 
 就你模组中的其他东西一样，你需要使用 `ComponentType` 注册自定义的组件。 这个组件类型接受一个泛型参数，包含你的组件的值的类型。 之后在讲[基本](#basic-data-components)和[高级](#advanced-data-components)组件时会更深入研究。
 
@@ -37,7 +37,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`ComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
-## 基本数据组件{#basic-data-components}
+## 基本数据组件 {#basic-data-components}
 
 基本数据组件（例如 `minecraft:damagae`）包含单个数据值，例如 `int`、`float`、`boolean` 或 `String`。
 
@@ -53,7 +53,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 运行命令时，你应该能收到一个包含组件的物品。 但是，现在还没使用这个组件做些有用的事情。 先开始以我们能看到的方式读取组件的值吧。
 
-## 读取组件的值{#reading-component-value}
+## 读取组件的值 {#reading-component-value}
 
 添加新物品，每次右键点击时都会增加计数器。 可以阅读[自定义物品交互](./custom-item-interactions)页面以了解我们在这个教程中使用的技巧。
 
@@ -113,7 +113,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 
 解决这个问题有三种方法。
 
-### 设置默认组件值{#setting-default-value}
+### 设置默认组件值 {#setting-default-value}
 
 当你注册你的物品并传递 `Item.Settings` 对象到你的物品构造器中，你还可以提供应用于所有新物品的默认组件的列表。 如果回到我们的 `ModItems` 类，注册 `CounterItem` 的地方，就可以为我们的自定义组件添加默认值。 添加这个，这样新物品会显示计数为 `0`。
 
@@ -125,7 +125,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 使用命令有可能会从 `ItemStack` 中移除默认组件。 当组件不存在于新的物品时，可以参考接下来两个章节，以适当处理这种情况。
 :::
 
-### 带有默认值读取{#reading-default-value}
+### 带有默认值读取 {#reading-default-value}
 
 此外，添加组件值时，可以对 `ItemStack` 对象使用 `getOrDefault()` 方法，当组件不存在于物品堆中时，返回指定的默认值。 这可以避免任何由缺失组件导致的错误。 我们可以像这样调整物品提示代码：
 
@@ -135,7 +135,7 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 正如你所见，方法接受两个参数：和之前一样的组件类型，还有一个默认值，组件不存在时就返回默认值。
 
-### 检查组件是否存在{#checking-if-component-exists}
+### 检查组件是否存在 {#checking-if-component-exists}
 
 你也可以使用 `contains()` 方法检查 `ItemStack` 中是否存在特定的组件。 这会接收一个组件类型作为参数，并返回 `true` 或 `false`，取决于物品堆是否包含组件。
 
@@ -143,7 +143,7 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-### 修复错误{#fixing-the-error}
+### 修复错误 {#fixing-the-error}
 
 我们现在以第三个选项开始。 添加了默认的组件值，还需要检测组件是否存在于物品堆中，只有存在时才显示提示。
 
@@ -163,7 +163,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 
 ![没有提示的计数器物品](/assets/develop/items/custom_component_7.png)
 
-## 更新组件值{#setting-component-value}
+## 更新组件值 {#setting-component-value}
 
 现在尝试更新我们的组件值。 我们尝试在每次使用我们的计数器物品时增加点击次数。 要改变 `ItemStack` 的组件的值，使用 `set()` 方法，就像这样：
 
@@ -185,7 +185,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 ![显示“使用了 8 次”的物品提示](/assets/develop/items/custom_component_3.png)
 
-## 移除组件值{#removing-component-value}
+## 移除组件值 {#removing-component-value}
 
 如果不再需要组件，可以将其从 `ItemStack` 移除， 方法就是使用 `remove()` 方法，接收你的组件的类型。
 
@@ -199,7 +199,7 @@ stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 int oldCount = stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-## 高级数据组件{#advanced-data-components}
+## 高级数据组件 {#advanced-data-components}
 
 你可能需要将多个属性存储在单个组件中。 原版有些例子，比如 `minecraft:food` 组件存在几个和食品相关的值，例如 `nutrition`（营养）、`saturation`（饱和度）、`eat_seconds`（食用所需秒数）等。 本教程中我们将其称为“合成”组件。
 
@@ -236,7 +236,7 @@ public record MyCustomComponent() {
 
 ![有效的 give 命令，显示两个属性](/assets/develop/items/custom_component_5.png)
 
-### 获取、设置和移除高级的组件{#getting-setting-removing-advanced-comps}
+### 获取、设置和移除高级的组件 {#getting-setting-removing-advanced-comps}
 
 在代码中使用组件和之前都是一样的。 使用 `stack.get()` 会返回你的 `record` 类的实例，可以用于读取值。 不过由于 `record` 都是只读的，所以要更新值时，需要创建你的 record 的新的实例。
 

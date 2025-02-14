@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Memuat Naik Log
-
 Apabila menyelesaikan masalah, anda selalunya perlu menyediakan log untuk membantu mengenal pasti punca isu tersebut.
 
 ## Mengapa saya perlu memuat naik log?

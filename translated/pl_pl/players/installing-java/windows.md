@@ -15,7 +15,7 @@ Launcher Minecrafta zawiera własną instalację Javy, więc ta sekcja jest isto
 
 Aby sprawdzić, czy masz już zainstalowaną Javę, musisz najpierw otworzyć wiersz poleceń.
 
-Możesz to zrobić poprzez wciśnięcie klawiszy <kbd>Win</kbd> + <kbd>R</kbd> i wpisanie `cmd.exe` w wyświetlonym oknie.
+Możesz to zrobić poprzez wciśnięcie klawiszy <kbd>Win</kbd>+<kbd>R</kbd> i wpisanie `cmd.exe` w wyświetlonym oknie.
 
 ![Okno dialogowe Uruchamiania w systemie Windows z wpisanym tekstem "cmd.exe" w pasku uruchamiania](/assets/players/installing-java/windows-run-dialog.png)
 

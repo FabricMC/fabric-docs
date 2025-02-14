@@ -3,8 +3,6 @@ title: Contribution Guidelines
 description: Guidelines for contributions to the Fabric Documentation.
 ---
 
-# Contribution Guidelines {#contributing}
-
 This website uses [VitePress](https://vitepress.dev/) to generate static HTML from various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here](https://vitepress.dev/guide/markdown#features).
 
 There are three ways you can contribute to this website:
@@ -155,17 +153,13 @@ Each page must have a `title` and a `description` in the frontmatter.
 
 Remember to also add your GitHub username to `authors` in the frontmatter of the Markdown file! This way we can give you proper credit.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Add Anchors to Headings {#add-anchors-to-headings}
@@ -173,7 +167,7 @@ authors:
 Each heading must have an anchor, which is used to link to that heading:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 The anchor must use lowercase characters, numbers and dashes.

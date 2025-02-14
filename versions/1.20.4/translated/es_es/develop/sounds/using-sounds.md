@@ -5,8 +5,6 @@ description: Aprende a reproducir eventos de sonido.
 search: false
 ---
 
-# Reproducir SoundEvents (Eventos de Sonido)
-
 Minecraft tiene una gran selección de sonidos para elegir. Mira la clase de `SoundEvents` para ver todas las instancias de eventos de sonido vanilla que Mojang provee.
 
 ## Usando Sonidos en Tu Mod

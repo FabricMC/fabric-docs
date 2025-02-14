@@ -12,8 +12,6 @@ authors-nogithub:
   - tao0lu
 ---
 
-# 상태 효과
-
 이펙트, 효과로도 알려진 상태 효과는 엔티티에게 영향을 줄 수 있는 조건을 의미합니다. 이는 자연적으로 좋거나, 나쁘거나, 중립적일 수 있습니다. 기본 게임은 이러한 효과를 음식, 물약 등 다양한 방법으로 적용합니다.
 
 `/effect` 명령어를 통해 엔티티에게 효과를 부여할 수도 있습니다.
@@ -46,7 +44,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### 번역 {#translations}
 
-다른 현지화처럼, 간단히 언어 파일에 `"effect.<mod-id>.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
+다른 현지화처럼, 간단히 언어 파일에 `"effect.mod-id.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
 
 ```json
 {

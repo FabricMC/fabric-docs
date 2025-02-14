@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Custom Item Interactions {#custom-item-interactions}
-
 Basic items can only go so far - eventually you will need an item that interacts with the world when it is used.
 
 There are some key classes you must understand before taking a look at the vanilla item events.

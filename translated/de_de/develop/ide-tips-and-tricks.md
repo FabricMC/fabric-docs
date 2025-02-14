@@ -16,7 +16,7 @@ Tastenkombinationen im Text beziehen sich auf die Standardtastaturbelegung von I
 Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders nach dieser Funktion, wenn du ein anderes Tastaturlayout verwendest.
 :::
 
-## Fortbewegung in Projekten{#traversing-projects}
+## Fortbewegung in Projekten {#traversing-projects}
 
 ### Manuell {#manually}
 
@@ -135,7 +135,7 @@ Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt un
 
 Du kannst den Code auch entsprechend deinem Codestil umformatieren.
 Wähle dazu den Code aus, den du neu formatieren möchtest (wenn nichts ausgewählt ist, wird die gesamte Datei neu formatiert) und drücke <kbd>⌘/STRG</kbd>+<kbd>⌥/ALT</kbd>+<kbd>L</kbd>.
-Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java `.
+Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java`.
 
 #### Kontextaktionen {#context-actions}
 

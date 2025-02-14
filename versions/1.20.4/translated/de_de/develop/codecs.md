@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# Codecs
-
 Ein Codec ist ein System zur einfachen Serialisierung von Java-Objekten und ist in Mojangs DataFixerUpper (DFU)
 Bibliothek enthalten, die in Minecraft enthalten ist. In einem Modding-Kontext können sie als Alternative zu GSON und Jankson verwendet werden, wenn man benutzerdefinierte JSON-Dateien liest und schreibt, wobei sie mehr und mehr an Bedeutung gewinnen, da Mojang eine Menge alten Code umschreibt, um Codecs zu verwenden.
 

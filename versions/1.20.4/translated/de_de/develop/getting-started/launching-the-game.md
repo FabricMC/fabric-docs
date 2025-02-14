@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Starten des Spiels
-
 Fabric Loom bietet eine Vielzahl von Startprofilen, die dir helfen, deine Mods in einer Live-Spielumgebung zu starten und zu debuggen. Dieser Leitfaden behandelt die verschiedenen Startprofile und wie man sie zum Debuggen und Testen der Mods verwendet.
 
 ## Startprofile

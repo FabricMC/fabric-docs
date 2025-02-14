@@ -18,10 +18,4 @@ features:
     linkText: Zjistit více
 ---
 
-<div class="vp-doc homepage-container">
-
-## Chcete nám pomoct?
-
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
-
-</div>

@@ -8,15 +8,15 @@ authors:
   - JaaiDead
 ---
 
-# 药水{#potions}
+# 药水 {#potions}
 
 药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取。
 
-## 自定义药水{#custom-potions}
+## 自定义药水 {#custom-potions}
 
 和物品和方块一样，药水需要注册。
 
-### 创建物品{#creating-the-potion}
+### 创建物品 {#creating-the-potion}
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用 `ModInitializer`——实现这个类来持有这个字段。
 
@@ -32,7 +32,7 @@ authors:
 要创建自己的药水效果，请使用[效果](../entities/effects)指南。
 :::
 
-### 注册药水{#registering-the-potion}
+### 注册药水 {#registering-the-potion}
 
 在我们的初始化器中，我们将使用 `FabricBrewingRecipeRegistryBuilder.BUILD` 事件，使用 `BrewingRecipeRegistry.registerPotionRecipe` 方法注册我们的药水。
 
