@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Codec {#codecs}
-
 Un codec è un sistema per serializzare facilmente oggetti Java, ed è incluso nella libreria DataFixerUpper (DFU) di Mojang, che è inclusa in Minecraft. Nel contesto del modding essi possono essere usati come un'alternativa a GSON e Jankson quando si leggono e si scrivono file json personalizzati, anche se hanno cominciato a diventare sempre più rilevanti, visto che Mojang sta riscrivendo molto suo codice in modo che usi i Codec.
 
 I Codec vengono usati assieme a un'altra API da DFU, `DynamicOps`. Un codec definisce la struttura di un oggetto, mentre i dynamic ops vengono usati per definire un formato da cui e a cui essere serializzato, come json o NBT. Questo significa che qualsiasi codec può essere usato con qualsiasi dynamic ops, e viceversa, permettendo una grande flessibilità.
@@ -95,7 +93,7 @@ Possiamo creare un codec per questa classe mettendo insieme tanti codec più pic
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Mentre il secondo può essere ottenuto dalla registry `Registries.ITEM`, che ha un metodo `getCodec()` che restituisce un `Codec<Item>`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`.
+Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`. Mentre il secondo può essere ottenuto dalla registry `Registries.ITEM`, che ha un metodo `getCodec()` che restituisce un `Codec<Item>`.
 
 ### Liste {#lists}
 
@@ -183,8 +181,8 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Coppia {#pair}
 
-`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
-Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
+`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
+Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
 
 Per esempio, eseguire questo codice:
 
