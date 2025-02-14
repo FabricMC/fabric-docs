@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Генерація таблиць здобичі {#loot-table-generation}
-
 :::info ПЕРЕДУМОВИ
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
 :::
