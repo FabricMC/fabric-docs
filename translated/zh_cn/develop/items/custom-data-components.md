@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 有几点需要注意。 在第一行，你看到了一个 `?`， 这将被替换成你的组件的值的类型， 我们稍后完成。
 
-其次，你需要提供一个 `Identifier`，包含你的组件的 ID， 其命名空间就是你的模组的 ID。
+其次，你需要提供一个 `Identifier`，包含你的组件的 ID， 其命名空间就是你模组的 ID。
 
 最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`ComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
@@ -82,7 +82,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-不要忘记更新你的语言文件（`/assets/<mod id>/lang/en_us.json` 和 `/assets/<0>/lang/zh_cn.json`），并添加这两行：
+不要忘记更新你的语言文件（`/assets/mod-id/lang/en_us.json` 和 `/assets/mod-id/lang/zh_cn.json`），并添加这两行：
 
 ```json
 {
