@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Listen {#codecs}
-
 Ein Codec ist ein System zur einfachen Serialisierung von Java-Objekten und ist in Mojangs DataFixerUpper (DFU)
 Bibliothek enthalten, die in Minecraft enthalten ist. In einem Modding-Kontext können sie als Alternative zu GSON und Jankson verwendet werden, wenn man benutzerdefinierte JSON-Dateien liest und schreibt, wobei sie mehr und mehr an Bedeutung gewinnen, da Mojang eine Menge alten Code umschreibt, um Codecs zu verwenden.
 
@@ -64,7 +62,7 @@ Nachdem wir nun gesehen haben, wie man Codecs verwendet, wollen wir uns ansehen,
 
 ```java
 public class CoolBeansClass {
-
+    
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -96,7 +94,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 - ein `Codec<Item>`
 - ein `Codec<List<BlockPos>>`
 
-Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
+Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt.
 
 ### Listen {#lists}
 
@@ -184,8 +182,8 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Paar {#pair}
 
-`Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
-Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
+`Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
+Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
 
 Beispielsweise wird beim Ausführen dieses Codes:
 
@@ -287,7 +285,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-
+    
     // ...
 }
 ```
