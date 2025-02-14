@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Fabric 설치하기 {#installing-fabric}
-
 <!-- #region common -->
 
 이 가이드는 오직 공식 Minecraft 런처용 Fabric 설치 방법을 안내합니다. 서드 파티 런처의 경우, 해당 런처의 설명서를 참조하여 주세요.
@@ -52,7 +50,7 @@ Fabric을 설치하기 위하여 드롭다운에서 게임 버전을 선택하�
 
 설치가 완료되면 Minecraft 런처를 열고 왼쪽 하단의 드롭다운에서 Fabric 프로필을 선택한 후 플레이를 누르면 됩니다!
 
-![Fabric 프로필을 선택한 Minecraft 런처](/assets/플레이어/설치-패브릭/런처 화면.png)
+설치가 완료되면 Minecraft 런처를 열고 왼쪽 하단의 드롭다운에서 Fabric 프로필을 선택한 후 플레이를 누르면 됩니다!
 
 이제 Fabric을 설치했으니 게임에 모드를 추가할 수 있습니다! [안전한 모드 찾기](./finding-mods) 에서 더 많은 정보를 확인할 수 있습니다.
 
