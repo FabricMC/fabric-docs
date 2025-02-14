@@ -5,11 +5,9 @@ authors:
   - IMB11
 ---
 
-# 使用绘制上下文 {#using-the-drawing-context}
-
 本文假设您已经看过[基本渲染概念](./basic-concepts)。
 
-`DrawContext` 类是用于在游戏内渲染的主类。 用于渲染图形、文字、纹理，而且之前也见过，用于操纵 `MatrixStack` 和使用 `BufferBuilder`。
+`DrawContext` 类是用于在游戏内渲染的主类。 用于渲染图形、文字、纹理，而且之前也见过，用于操纵 `MatrixStack` 和使用 `BufferBuilder`。 用于渲染图形、文字、纹理，而且之前也见过，用于操纵 `MatrixStack` 和使用 `BufferBuilder`。
 
 ## 绘制图形 {#drawing-shapes}
 
@@ -49,7 +47,7 @@ authors:
 裁剪区域可以嵌套！ 但是请一定配对 `enableScissor` 和 `disableScissor`，否则错误的裁剪区域将影响到其他界面元素。
 :::
 
-要启用裁剪管理器，只需使用 `DrawContext.enableScissor(...)` 方法。 同样地，要禁用裁剪管理器，使用 `DrawContext.disableScissor()` 方法。
+要启用裁剪管理器，只需使用 `DrawContext.enableScissor(...)` 方法。 要启用裁剪管理器，只需使用 `DrawContext.enableScissor(...)` 方法。 同样地，要禁用裁剪管理器，使用 `DrawContext.disableScissor()` 方法。
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -65,7 +63,7 @@ authors:
 
 一般来说，我们推荐您使用需要指定 `textureWidth` 和 `textureHeight` 参数的 `drawTexture` 方法重载。 因为如果使用不指定的重载， `DrawContext` 会假设您的纹理文件尺寸是 256x256，而您的纹理文件不一定是这个尺寸，于是渲染结果就不一定正确。
 
-你还需要指定绘制纹理的渲染层。 对于基本纹理，这通常始终是 `RenderLayer::getGuiTextured`。
+你还需要指定绘制纹理的渲染层。 你还需要指定绘制纹理的渲染层。 对于基本纹理，这通常始终是 `RenderLayer::getGuiTextured`。
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
