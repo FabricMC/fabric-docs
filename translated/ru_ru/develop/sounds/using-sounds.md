@@ -1,11 +1,9 @@
 ---
-title: Воспроизведение SoundEvents
+title: Воспроизведение SoundEvents {#playing-sounds}
 description: Научитесь воспроизводить звуковые события.
 authors:
   - JR1811
 ---
-
-# Воспроизведение SoundEvents {#playing-sounds}
 
 Minecraft имеет большой выбор звуков которые вы можете воспроизвести. Просмотрите класс `SoundEvents`, чтобы увидеть все ванильные звуки события, предоставленные Mojang.
 
