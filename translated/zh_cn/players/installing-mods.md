@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 安装模组 {#installing-mods}
-
 这个指南将引导你使用 Minecraft 启动器安装 Fabric 模组。
 
 对于第三方启动器，应该参见这些第三方启动器的文档。
@@ -51,11 +49,11 @@ authors:
 
 ![已在模组文件夹中安装模组](/assets/players/installing-mods.png)
 
-## 3. 搞定！ {#3-you-re-done}
+## 3. 搞定！ 搞定！ {#3-you-re-done}
+
+能在你想玩的 Minecraft 版本上运行。 例如，在 1.20 运行的模组在 1.20.2 可能无法运行。
 
 将模组移入 `mods` 文件夹后，你可以打开 Minecraft 启动器，从左下角的下拉菜单中选择 Fabric 配置文件，然后按下 `Play`！
-
-![选择了 Fabric 配置的官方启动器](/assets/players/installing-fabric/launcher-screen.png)
 
 ## 疑难解答 {#troubleshooting}
 
