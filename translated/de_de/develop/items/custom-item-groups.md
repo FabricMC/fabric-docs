@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Itemgruppen {#custom-item-groups}
-
 Itemgruppen sind die Registerkarten im kreativen Inventar, in denen Items gespeichert werden. Du kannst deine eigenen Itemgruppen erstellen und deine Items in einem speraten Tab speichern. Das ist ziemlich nützlich, wenn dein Mod viele Items hinzufügt und du sie an einem Ort organisieren möchtest, damit deine Spieler leicht darauf zugreifen können.
 
 ## Die Itemgruppe erstellen {#creating-the-item-group}
