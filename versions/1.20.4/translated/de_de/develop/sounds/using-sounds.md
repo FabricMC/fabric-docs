@@ -5,8 +5,6 @@ description: Lerne, wie man Sound Events abspielt.
 search: false
 ---
 
-# SoundEvents abspielen
-
 Minecraft hat eine große Auswahl an Sounds, aus denen du wählen kannst. Schau dir die Klasse `SoundEvents` an, um alle von Mojang bereitgestellten Vanilla-Sound-Event-Instanzen zu sehen.
 
 ## Sounds in deinem Mod verwenden

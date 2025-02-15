@@ -5,8 +5,6 @@ description: Frequently asked questions for players and server administrators re
 search: false
 ---
 
-# Frequently Asked Questions {#faq}
-
 There are a lot of questions that are asked frequently, so we've compiled a list of them here.
 
 ## What Minecraft Versions Does Fabric Support? {#what-minecraft-versions-does-fabric-support}

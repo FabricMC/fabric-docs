@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# Creare Comandi {#creating-commands}
-
 Creare comandi può permettere a uno sviluppatore di mod di aggiungere funzionalità che possono essere usate attraverso un comando. Questo tutorial ti insegnerà come registrare comandi e qual è la struttura generale dei comandi di Brigadier.
 
 ::: info

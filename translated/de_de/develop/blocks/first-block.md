@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Deinen ersten Block erstellen {#creating-your-first-block}
-
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
 
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auc
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -62,15 +58,13 @@ Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegi
 
 ### Hinzufügen deines Block-Items zu einer Itemgruppe {#adding-your-block-s-item-to-an-item-group}
 
-Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um ihn zu einer Itemgruppe hinzuzufügen, die Methode `Block.asItem()` verwenden, um die `BlockItem`-Instanz zu erhalten.
+Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
 In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf der Seite [Benutzerdefinierte Itemgruppe](../items/custom-item-groups) erstellt wurde.
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Du solltest dies innerhalb deiner `initialize()`-Funktion deiner Klasse hinzufügen.
-
----
 
 Du solltest nun feststellen, dass sich dein Block im Kreativ-Inventar befindet und in der Welt platziert werden kann!
 

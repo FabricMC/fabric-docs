@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Tools {#tools}
-
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.
 
 ## Creating a Tool Material {#creating-a-tool-material}

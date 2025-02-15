@@ -5,8 +5,6 @@ authors:
   - kevinthegreat1
 ---
 
-# Testing Automatizzato {#automated-testing}
-
 Questa pagina spiega come scrivere codice che testi parti della tua mod automaticamente. Ci sono due modi per testare la tua mod automaticamente: unit test con Fabric Loader JUnit o test nel gioco con il framework Gametest di Minecraft.
 
 Gli unit test dovrebbero essere usato per testare le componenti del tuo codice, come i metodi e le classi ausiliarie, mentre test nel gioco avviano un client e un server Minecraft reali per eseguire i tuoi test, il che li rende appropriati per testare funzionalità e gameplay.

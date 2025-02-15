@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Armature Personalizzate {#custom-armor}
-
 Un'armatura fornisce al giocatore una difesa migliore contro attacchi di mob e di altri giocatori.
 
 ## Creare una Classe per un Materiale delle Armature {#creating-an-armor-materials-class}
@@ -30,8 +28,6 @@ public void onInitialize() {
   ModArmorMaterials.initialize();
 }
 ```
-
----
 
 All'interno di questa classe `ModArmorMaterials`, dovrai creare un metodo statico che registrerà il materiale dell'armatura. Questo metodo dovrebbe restituire una voce di registry per il materiale, perché questa voce verrà usata dal costruttore di ArmorItem per creare le componenti dell'armatura.
 
@@ -148,8 +144,8 @@ Ci sono due strati per le texture dell'armatura, entrambi devono essere presenti
 
 Poiché il nome del materiale dell'armatura è nel nostro caso `guidite`, i percorsi delle texture saranno:
 
-- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
-- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Texture dei Modelli delle Armature</DownloadEntry>
 

@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Suggerimenti dei Comandi
-
 Minecraft ha un potente sistema di suggerimento comandi che viene usato in molti posti, come nel comando `/give`. Questo sistema ti permette di suggerire valori per argomenti dei comandi all'utente, da cui possono poi selezionare - è un ottimo modo per rendere i tuoi comandi più user-friendly ed ergonomici.
 
 ## Provider di Suggerimenti

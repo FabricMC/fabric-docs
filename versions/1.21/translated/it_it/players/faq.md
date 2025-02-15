@@ -3,8 +3,6 @@ title: Domande Frequenti per Giocatori (FAQ)
 description: Domande frequenti riguardanti Fabric per giocatori e admin di server.
 ---
 
-# Domande Frequenti (FAQ) {#faq}
-
 Ci sono molte domande che vengono poste di frequente, quindi ne abbiamo compilato una lista qui.
 
 ## Quali Versioni di Minecraft Supporta Fabric? {#what-minecraft-versions-does-fabric-support}

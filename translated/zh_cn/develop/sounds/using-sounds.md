@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# 播放声音{#playing-sounds}
-
 Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mojang 提供的所有原版声音事件实例。
 
 ## 在您的模组中使用声音{#using-sounds}

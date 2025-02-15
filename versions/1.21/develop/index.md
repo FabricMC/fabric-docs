@@ -5,8 +5,6 @@ description: Our community-written developer guides cover everything from settin
 search: false
 ---
 
-# Developer Guides {#developer-guides}
-
 Written by the community, these guides cover a wide range of topics, from setting up your development environment to more advanced areas like rendering and networking.
 
 Check out the sidebar for a list of all available guides. If you're searching for something specific, the search bar at the top of the page is your best friend.

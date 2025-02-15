@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Znajdowanie wiarygodnych modów {#finding-mods}
-
 Na wstępie warto wspomnieć, że zaufanie jest subiektywne, dlatego zawsze należy kierować się własnym rozsądkiem podczas pobierania modów. Jest jednak kilka rzeczy, które możesz zrobić, aby znaleźć wiarygodne mody.
 
 ## 1. Korzystaj ze źródła, które jest powszechnie uznane za wiarygodne {#trustworthy-source}

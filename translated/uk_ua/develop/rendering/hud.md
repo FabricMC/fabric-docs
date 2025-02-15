@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Промальовування в HUD {#rendering-in-the-hud}
-
 Ми вже коротко торкалися промальовування речей у hud на сторінці [основних концепцій промальовування](./basic-concepts) і [використання контексту малювання](./draw-context), тому на цій сторінці ми дотримуватимемося події `HudRenderCallback` і параметра `tickDelta`.
 
 ## HudRenderCallback {#hudrendercallback}

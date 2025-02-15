@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 自定义物品组{#custom-item-groups}
-
 物品组是创造模式物品栏内存储物品的标签页。 你可以创建自己的物品组，从而在单独的标签页内存储物品。 如果你的模组添加许多物品，需要保持组织在你的玩家容易访问的一个位置中，这就非常有用。
 
 ## 创建物品组{#creating-the-item-group}
@@ -16,8 +14,6 @@ authors:
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-<hr />
 
 你现在应该可以在物品栏菜单内看到物品组了。 然而还没有翻译——必须给你的翻译文件添加翻译键——类似于翻译你的第一个物品的方式。
 

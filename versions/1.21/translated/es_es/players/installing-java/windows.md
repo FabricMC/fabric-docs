@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalar en Java en Windows
-
 Esta guía te enseñará como instalar Java 17 en Windows.
 
 El launcher de Minecraft viene con su propia instalación de Java, por lo que esta sección solo es relevante si quieres usar el instalador de Fabric `.jar`, o si quieres usar el `.jar` del Servidor de Minecraft.
@@ -15,7 +13,7 @@ El launcher de Minecraft viene con su propia instalación de Java, por lo que es
 
 Para comprobar si Java ya está instalado, primero debes abrir la línea de comandos.
 
-Puedes abrirla presionando <kbd>Win</kbd> + <kbd>R</kbd> y escribiendo `cmd.exe` en la caja de texto que aparece.
+Puedes abrirla presionando <kbd>Win</kbd>+<kbd>R</kbd> y escribiendo `cmd.exe` en la caja de texto que aparece.
 
 ![Diálogo de Ejecución de Windows con "cmd.exe" en la barra de ejecución](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -59,7 +57,5 @@ Una vez terminada la instalación, puedes verificar si Java 17 está instalado a
 Si el comando corre exitosamente, verás algo similar a lo mostrado antes, donde la versión de Java se muestra:
 
 ![Línea de comandos con "java -version" escrito](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Si encuentras problemas, puedes pedir ayuda en el canal de `#player-support` en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv).

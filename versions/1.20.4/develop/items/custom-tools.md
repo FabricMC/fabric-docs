@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Tools {#tools}
-
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.
 
 ## Creating a Tool Material {#creating-a-tool-material}
@@ -98,8 +96,6 @@ For this example, I will be using the following model and texture for the "Guidi
 @[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
-
----
 
 That's pretty much it! If you go in-game you should see your tool item(s) in the tools tab of the creative inventory menu.
 

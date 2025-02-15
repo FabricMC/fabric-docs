@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# 设置开发环境{#setting-up-a-development-environment}
-
 要开始使用 Fabric 开发模组，需要使用 IntelliJ IDEA 设置开发环境。
 
 ## 安装 JDK 21 {#installing-jdk-21}

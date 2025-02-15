@@ -6,8 +6,6 @@ authors:
   - AnAwesomGuy
 ---
 
-# Tipps und Tricks für die Entwicklungsumgebung {#ide-tips-and-tricks}
-
 Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so schnell und angenehm wie möglich zu gestalten, bereit. Benutze diese je nach Bedarf.
 Es kann eine gewisse Einarbeitungszeit brauchen, um sich an die Tastenkombinationen und anderen Optionen zu gewöhnen. Diese Seite kann dafür als eine Hilfe dafür genutzt werden.
 
@@ -16,7 +14,7 @@ Tastenkombinationen im Text beziehen sich auf die Standardtastaturbelegung von I
 Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders nach dieser Funktion, wenn du ein anderes Tastaturlayout verwendest.
 :::
 
-## Fortbewegung in Projekten{#traversing-projects}
+## Fortbewegung in Projekten {#traversing-projects}
 
 ### Manuell {#manually}
 
@@ -135,7 +133,7 @@ Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt un
 
 Du kannst den Code auch entsprechend deinem Codestil umformatieren.
 Wähle dazu den Code aus, den du neu formatieren möchtest (wenn nichts ausgewählt ist, wird die gesamte Datei neu formatiert) und drücke <kbd>⌘/STRG</kbd>+<kbd>⌥/ALT</kbd>+<kbd>L</kbd>.
-Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java `.
+Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java`.
 
 #### Kontextaktionen {#context-actions}
 

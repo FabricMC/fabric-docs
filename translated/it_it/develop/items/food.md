@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Alimenti {#food-items}
-
 Gli alimenti sono un aspetto cruciale di sopravvivenza in Minecraft, per cui quando si creano oggetti edibili devi considerare l'uso del cibo con altri oggetti edibili.
 
 A meno che tu non voglia creare una mod con oggetti troppo potenti, dovresti tenere in considerazione:

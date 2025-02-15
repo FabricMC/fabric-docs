@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Encontrando Mods Confiáveis
-
 Primeiramente, a confiança é subjetiva, e você sempre deve usar seu próprio julgamento ao baixar mods. No entanto, há algumas coisas que você pode fazer para te ajudar a encontrar mods confiáveis.
 
 ## 1. Usar uma Fonte que Seja Reconhecidamente Confiável

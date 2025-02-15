@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Schermate Personalizzate
-
 :::info
 Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gestite dal server.
 :::

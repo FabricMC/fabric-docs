@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Befehlsvorschläge {#command-suggestions}
-
 Minecraft hat ein mächtiges System für Befehlsvorschläge, das an vielen Stellen verwendet wird, wie zum Beispiel beim Befehl `/give`. Mit diesem System kannst du dem Spieler Werte für Befehlsargumente vorschlagen, aus denen er dann auswählen kann - eine großartige Möglichkeit, um deine Befehle benutzerfreundlicher und ergonomischer zu gestalten.
 
 ## Vorschlaganbieter {#suggestion-providers}

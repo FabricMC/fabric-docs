@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 食物物品{#food-items}
-
 食物是生存 Minecraft 的核心方面，所以创建可食用的物品时，需要考虑食物的用途以及其他可食用物品。
 
 除非是在制作有过于强的物品的模型，否则应该考虑：
@@ -48,4 +46,4 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 - 总是可食用，无论饥饿值均可以吃。
 - 吃完会总会给予 6 秒中毒 II。
 
-<VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Poisonous Apple" />
+<VideoPlayer src="/assets/develop/items/food_0.webm">吃 Poisonous Apple</VideoPlayer>

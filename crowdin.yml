@@ -6,22 +6,20 @@ files:
       - README.md
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
     excluded_target_languages:
-      - es-CL # Spanish, Chile
-      - fr-CA # French, Canada
-      - es-VE # Spanish, Venezuela
-      - es-UY # Spanish, Uruguay
-      - es-EC # Spanish, Ecuador
-      - es-AR # Spanish, Argentina
-      - es-MX # Spanish, Mexico
+      - es-AR
+      - es-CL
+      - es-EC
+      - es-MX
+      - es-UY
+      - es-VE
+      - fr-CA
   - source: /*_translations.json
-    ignore:
-      - /translated/**/*
     translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
     excluded_target_languages:
-      - es-CL
-      - fr-CA
-      - es-VE
-      - es-UY
-      - es-EC
       - es-AR
+      - es-CL
+      - es-EC
       - es-MX
+      - es-UY
+      - es-VE
+      - fr-CA

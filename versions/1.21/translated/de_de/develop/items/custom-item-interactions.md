@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Item-Interaktionen {#custom-item-interactions}
-
 Mit einfachen Items ist es nicht getan - irgendwann braucht man ein Item, das mit der Welt interagiert, wenn es benutzt wird.
 
 Es gibt einige Schlüsselklassen, die du verstehen musst, bevor du einen Blick auf die Vanilla-Item-Events wirfst.

@@ -3,8 +3,6 @@ title: Często zadawane pytania dla graczy
 description: Często zadawane pytania dla graczy i administratorów serwerów dotyczące Fabric.
 ---
 
-# Często zadawane pytania {#faq}
-
 Istnieje wiele często zadawanych pytań, więc zebraliśmy je tutaj w listę.
 
 ## Jakie wersje Minecrafta obsługuje Fabric? {#what-minecraft-versions-does-fabric-support}

@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# Crear Sonidos Personalizados
-
 ## Preparando el archivo del sonido
 
 Tus archivos de sonido tienen que estar formateados de una manera específica. OGG Vorbis es un formato de contenedor abierto para datos multimedia, como audio, y es usado para los archivos de sonido de Minecraft. Para evitar problemas con la manera en que Minecraft maneja el distanciamiento, tu audio tiene que tener solo un canal (Mono).

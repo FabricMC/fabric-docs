@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# Riprodurre Suoni {#playing-sounds}
-
 Minecraft ha una grande selezione di suoni da cui puoi scegliere. Controlla la classe `SoundEvents` per vedere tutte le istanze di eventi sonori vanilla che Mojang ha predisposto.
 
 ## Usare Suoni nella Tua Mod {#using-sounds}

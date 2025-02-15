@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# 基本渲染概念
-
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
 
@@ -80,7 +78,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 这个方法返回一个顶点构建器（vertex builder），我们可以用它来向这个顶点指定附加信息。 按照我们先前定义的顶点格式 `VertexFormat` 在附加这些信息时是至关重要的。 如果我们不这么做的话，OpenGL 将无法正确地解释我们的数据。 当我们构建完一个顶点后，我们调用 `.next()` 方法。 这将完成当前的顶点并准备好下一个顶点的构建器。
 
-“剔除”的概念也值得我们理解。 剔除是从 3D 形状中移除那些在观察者视角不可见的面的过程。 如果一个面的顶点以错误的顺序被指定，这个面可能会因为被剔除而无法正确地渲染。
+"剔除"的概念也值得我们理解。 剔除是从 3D 形状中移除那些在观察者视角不可见的面的过程。 如果一个面的顶点以错误的顺序被指定，这个面可能会因为被剔除而无法正确地渲染。
 
 #### 什么是变换矩阵？
 

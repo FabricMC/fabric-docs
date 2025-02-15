@@ -3,8 +3,6 @@ title: Beitragsrichtlinen
 description: Richtlinien zur Beitragserstellung für die Fabric-Dokumentation
 ---
 
-# Wie man beiträgt {#contributing}
-
 Diese Website nutzt [VitePress](https://vitepress.dev/) um statisches HTML von den verschiedenen Markdown-Dateien zu generrieren. Du solltest dich mit den Markdown-Erweiterungen vertraut machen, die VitePress [hier](https://vitepress.dev/guide/markdown#features) unterstützt.
 
 Du hast drei Möglichkeiten, zu dieser Website beizutragen:
@@ -97,7 +95,7 @@ npm run preview
 
 #### Einen Pull Request öffnen {#opening-a-pull-request}
 
-Wenn du mit deinen Änderungen zufrieden bist, kannst du sie \`push´en:
+Wenn du mit deinen Änderungen zufrieden bist, kannst du sie \\`push´en:
 
 ```sh
 git add .
@@ -156,17 +154,13 @@ Alle Seiten müssen einen Titel und eine Beschreibung im Frontmatter haben.
 
 Vergiss nicht, auch deinen GitHub-Benutzernamen zu `authors` im Frontmatter der Markdown-Datei hinzuzufügen! Auf diese Weise können wir dir angemessene Anerkennung geben.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Füge Anker zu den Überschriften hinzu {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 Jede Überschrift muss einen Anker haben, der als Link zu dieser Überschrift dient:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 Der Anker muss Kleinbuchstaben, Zahlen und Bindestriche enthalten.

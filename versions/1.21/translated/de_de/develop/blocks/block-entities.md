@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Block Entitäten {#block-entities}
-
 Block Entitäten sind ein Weg für Blöcke zusätzliche Daten, die nicht Teil des Blockzustands sind, zu speichern: Inventarinhalte, benutzerdefinierter Name und so weiter.
 Minecraft nutzt Block Entitäten für Blöcke, wie Kisten, Öfen und Befehlsblöcke.
 

@@ -7,8 +7,6 @@ authors:
   - RaphProductions
 ---
 
-# Creare il Tuo Primo Oggetto {#creating-your-first-item}
-
 Questa pagina ti presenterà alcuni concetti chiave legati agli oggetti, e come registrargli e aggiungere loro texture, modello e nome.
 
 Se non ne sei al corrente, tutto in Minecraft è memorizzato in registry, e gli oggetti non fanno eccezione.
@@ -95,7 +93,7 @@ Per questo esempio, puoi usare questa texture di esempio per `suspicious_substan
 
 Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non ha texture, questo perché devi aggiungere un modello che usi questa texture.
 
-Creeremo un semplice modello `item/generated`, che prende come input solo una texture.
+Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non ha texture, questo perché devi aggiungere un modello che usi questa texture.
 
 Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 

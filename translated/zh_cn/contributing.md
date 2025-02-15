@@ -3,8 +3,6 @@ title: 贡献指南
 description: Fabric 文档贡献指南
 ---
 
-# 贡献指南{#contributing}
-
 此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
 
 贡献此网站有三种方法：
@@ -156,17 +154,13 @@ git push
 
 记得还要在 Markdown 文件的 frontmatter 中的 `authors` 添加你的 GitHub 用户名！ 这种方式可以给你适当的致谢。
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### 给标题添加锚点{#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 每个标题都必须要有个锚点，用于链接至那个标题：
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 锚点必须使用小写字母、数字和横杠

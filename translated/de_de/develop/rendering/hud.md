@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Rendering im Hud {#rendering-in-the-hud}
-
 Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [Den Zeichenkontext verwenden](./draw-context) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf das Event `HudRenderCallback` und den Parameter `tickDelta`.
 
 ## HudRenderCallback {#hudrendercallback}
@@ -27,18 +25,18 @@ Die `RenderTickCounter` Klasse erlaubt es dir, den aktuellen `tickDelta` Wert ab
 
 Wenn wir zum Beispiel von einem Szenario mit 200 FPS ausgehen, führt das Spiel ungefähr alle 10 Bilder einen neuen Tick aus. In jedem Frame gibt `tickDelta` an, wie weit der letzte Tick vom nächsten entfernt ist. Bei mehr als 10 Bildern könntest du folgendes sehen:
 
-| Frame | tickDelta                                                        |
-| ----- | ---------------------------------------------------------------- |
-| 1     | `1.0` (neuer Tick)                            |
-| 2     | `0.11 (1÷9)` - Der nächste Tick ist in 9 Frames. |
-| 3     | `0.22 (2÷9)`                                                     |
-| 4     | `0.33 (3÷9)`                                                     |
-| 5     | `0.44 (4÷9)`                                                     |
-| 6     | `0.55 (5÷9)`                                                     |
-| 7     | `0.66 (6÷9)`                                                     |
-| 8     | `0.77 (7÷9)`                                                     |
-| 9     | `0.88 (8÷9)`                                                     |
-| 10    | `1.0 (9÷9)` (neuer Tick)                      |
+| Frame | tickDelta                       |
+| :---: | ------------------------------- |
+|   1   | `1`: Neuer Tick |
+|   2   | `0.11 (1÷9)`                    |
+|   3   | `0.22 (2÷9)`                    |
+|   4   | `0.33 (3÷9)`                    |
+|   5   | `0.44 (4÷9)`                    |
+|   6   | `0.55 (5÷9)`                    |
+|   7   | `0.66 (6÷9)`                    |
+|   8   | `0.77 (7÷9)`                    |
+|   9   | `0.88 (8÷9)`                    |
+|   10  | `1`: Neuer Tick |
 
 Praktischerweise solltest du `tickDelta` nur verwenden, wenn deine Animationen von Minecrafts Ticks abhängen. Für zeitbasierte Animationen verwende `Util.getMeasuringTimeMs()`, das die Zeit in der realen Welt misst.
 

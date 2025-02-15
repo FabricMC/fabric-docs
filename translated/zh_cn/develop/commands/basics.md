@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# 创建命令 {#creating-commands}
-
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 ::: info
@@ -52,7 +50,7 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```

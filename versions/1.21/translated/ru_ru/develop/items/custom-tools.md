@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Инструменты {#tools}
-
 Инструменты необходимы для выживания и развития, позволяя игрокам собирать ресурсы, строить здания и защищаться.
 
 ## Создание Материала Инструмента {#creating-a-tool-material}
@@ -110,8 +108,6 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
-
----
 
 Вот и все! Если вы зайдете в игру, вы увидите свой(и) инструмент(ы) на вкладке инструментов в меню творческого инвентаря.
 

@@ -5,8 +5,6 @@ description: Our curated developer guides, written by the community, span a wide
 search: false
 ---
 
-# Developer Guides {#developer-guides}
-
 Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
 
 Take a look at the sidebar for a list of all the developer guides available. If you're looking for something specific, you can use the search bar at the top of the page to find what you need.

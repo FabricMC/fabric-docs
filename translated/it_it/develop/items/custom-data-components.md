@@ -5,8 +5,6 @@ authors:
   - Romejanic
 ---
 
-# Componenti di Dati Personalizzate {#custom-data-components}
-
 Più i tuoi oggetti crescono in complessità, più troverai la necessità di memorizzare dati personalizzati associati con ogni oggetto. Il gioco permette di memorizzare dati persistenti in un `ItemStack`, e a partire da 1.20.5 il modo di fare ciò è usare le **Componenti di Dati**.
 
 Le Componenti di Dati sostituiscono i dati NBT di versioni precedenti, con tipi di dati strutturati che possono essere applicati a un `ItemStack` per memorizzare dati su quello stack. Le componenti di dati sfruttano namespace, il che significa che possiamo implementare le nostre componenti di dati per memorizzare dati personalizzati su un `ItemStack` e accederci successivamente. Una lista completa delle componenti di dati vanilla si trova su questa [pagina della Minecraft Wiki](https://minecraft.wiki/w/Data_component_format#List_of_components).

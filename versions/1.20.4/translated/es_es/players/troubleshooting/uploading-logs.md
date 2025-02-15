@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Subir Logs
-
 Durante la solución de problemas, muchas veces es necesario proveer los logs para ayudar a identificar la causa del problema.
 
 ## ¿Porqué debería subir los logs?

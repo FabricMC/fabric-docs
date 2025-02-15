@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Logs hochladen {#uploading-logs}
-
 Wenn man versucht, Fehler zu beheben, ist es oft nötig, Logs bereitzustellen, die beim Identifizieren der Ursache des Fehlers helfen.
 
 ## Warum sollte ich Logs hochladen? {#why-should-i-upload-logs}

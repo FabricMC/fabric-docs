@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Maak Je Eerste Blok {#creating-your-first-block}
-
 Blokken vormen de basis van Minecraft – letterlijk en figuurlijk. Net als alles in de game, worden ze netjes opgeborgen in registers.
 
 ## Je Blokken-klasse Voorbereiden {#preparing-your-blocks-class}
@@ -69,7 +67,7 @@ Voor dit voorbeeld gebruiken we een aangepaste artikelgroep die is gemaakt op de
 
 Je zou nu moeten merken dat jouw blok in de creatieve inventaris staat en in de wereld kan worden geplaatst!
 
-![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png).
+![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png)
 
 Er zijn wel een paar problemen: het blokvoorwerp heeft geen naam en het blok heeft geen textuur, blokmodel of voorwerpmodel.
 
@@ -85,7 +83,7 @@ Minecraft zal deze vertaling gebruiken in de creatieve inventaris en op andere p
 }
 ```
 
-Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd> + <kbd>T</kbd> drukken om de wijzigingen toe te passen - en je zou moeten zien dat het blok een naam heeft in de creatieve inventaris en op andere plaatsen zoals het statistiekenscherm.
+Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kbd> drukken om de wijzigingen toe te passen - en je zou moeten zien dat het blok een naam heeft in de creatieve inventaris en op andere plaatsen zoals het statistiekenscherm.
 
 ## Modellen en Texturen {#models-and-textures}
 
@@ -120,7 +118,7 @@ Dit bestand moet zich in de map `assets/mod_id/blockstates` bevinden en de naam 
 
 Blockstaten zijn erg complex en daarom worden ze op een volgende pagina behandeld: [Blockstaten](./blockstates)
 
-Als je het spel opnieuw start, of herlaadt via <kbd>F3</kbd> + <kbd>T</kbd> om wijzigingen toe te passen, zou je de bloktextuur in de inventaris en fysiek in de wereld moeten kunnen zien:
+Als je het spel opnieuw start, of herlaadt via <kbd>F3</kbd>+<kbd>T</kbd> om wijzigingen toe te passen, zou je de bloktextuur in de inventaris en fysiek in de wereld moeten kunnen zien:
 
 ![Block in world with suitable texture and model](/assets/develop/blocks/first_block_4.png)
 

@@ -6,8 +6,6 @@ authors:
   - dicedpixels
 ---
 
-# Creare il Tuo Primo Oggetto {#creating-your-first-item}
-
 Questa pagina ti presenterà alcuni concetti chiave legati agli oggetti, e come registrargli e aggiungere loro texture, modello e nome.
 
 Se non ne sei al corrente, tutto in Minecraft è memorizzato in registry, e gli oggetti non fanno eccezione.
@@ -74,7 +72,7 @@ Tuttavia, gli manca il seguente:
 
 L'oggetto per ora non ha una traduzione, per cui dovrai aggiungerne una. La chiave di traduzione è già stata fornita da Minecraft: `item.mod_id.suspicious_substance`.
 
-Crea un nuovo file JSON presso: `src/main/resources/assets/<mod id here>/lang/en_us.json` e mettici la chiave di traduzione, e il suo valore:
+Crea un nuovo file JSON presso: `src/main/resources/assets/mod-id/lang/en_us.json` e mettici la chiave di traduzione, e il suo valore:
 
 ```json
 {
@@ -86,7 +84,7 @@ Puoi riavviare il gioco, o ricostruire la tua mod e premere <kbd>F3</kbd>+<kbd>T
 
 ## Aggiungere Texture e Modello {#adding-a-texture-and-model}
 
-Per dare al tuo oggetto una texture e un modello, ti basta creare un'immagine 16x16 come texture per il tuo oggetto e salvarla nella cartella `assets/<mod id here>/textures/item`. Il nome del file è l'identificatore dell'oggetto, con estensione `.png`.
+Per dare al tuo oggetto una texture e un modello, ti basta creare un'immagine 16x16 come texture per il tuo oggetto e salvarla nella cartella `assets/mod-id/textures/item`. Il nome del file è l'identificatore dell'oggetto, con estensione `.png`.
 
 Per questo esempio, puoi usare questa texture di esempio per `suspicious_substance.png`
 
@@ -96,7 +94,7 @@ Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non 
 
 Creeremo un semplice modello `item/generated`, che prende come input solo una texture.
 
-Crea il modello JSON nella cartella `assets/<mod id here>/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
+Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -129,7 +127,7 @@ In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare la class
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Se vuoi aggiungere una ricetta per il tuo oggetto, devi posizione un file JSON della ricetta nella cartella `data/<mod id here>/recipe`.
+Se vuoi aggiungere una ricetta per il tuo oggetto, devi posizione un file JSON della ricetta nella cartella `data/mod-id/recipe`.
 
 Per maggiori informazioni sul formato delle ricette, consulta queste risorse:
 

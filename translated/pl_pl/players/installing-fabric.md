@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Instalowanie Fabric {#installing-fabric}
-
 Ten przewodnik pokaże ci, jak zainstalować Fabric dla oficjalnego launchera Minecrafta.
 
 W przypadku innych launcherów należy zapoznać się z ich dokumentacją.

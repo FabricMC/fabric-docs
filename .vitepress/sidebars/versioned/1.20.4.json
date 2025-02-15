@@ -73,13 +73,13 @@
         },
         {
           "text": "Yarn GitHub",
-       	  "processSidebarURLs": false,
+          "processSidebarURLs": false,
           "translatable": false,
           "link": "https://github.com/FabricMC/yarn"
         },
         {
           "text": "Loom GitHub",
-       	  "processSidebarURLs": false,
+          "processSidebarURLs": false,
           "translatable": false,
           "link": "https://github.com/FabricMC/fabric-loom"
         }

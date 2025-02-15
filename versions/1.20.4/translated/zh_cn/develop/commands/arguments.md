@@ -5,8 +5,6 @@ description: 学习如何创建带有复杂参数的命令。
 search: false
 ---
 
-# 命令参数
-
 大多数的命令都有参数。 有些时候他们是可选的，这意味着如果你不提供这些参数命令照样可以工作 一个节点可能有多种参数类型，此时有可能使用户困惑，请注意避免这个问题。
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

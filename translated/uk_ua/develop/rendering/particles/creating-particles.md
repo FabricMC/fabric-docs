@@ -5,15 +5,13 @@ authors:
   - Superkat32
 ---
 
-# Створення власних частинок {#creating-custom-particles}
-
 Частинки — це потужний інструмент. Вони можуть додати атмосфери красивій сцені або додати напруги в битву з босом. Нумо додаймо одну!
 
 ## Реєстрація власних частинок {#register-a-custom-particle}
 
 Ми додамо нову частинку блиску, яка імітуватиме рух частинки стрижня Енду.
 
-Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID моду.
+Ми додамо нову частинку блиску, яка імітуватиме рух частинки стрижня Енду.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -57,7 +55,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 Після того, як ви завершите файл JSON і збережете свою роботу, ви можете завантажити Minecraft і перевірити все!
 
-Ви можете перевірити, чи все працює, ввівши таку команду:
+Після того, як ви завершите файл JSON і збережете свою роботу, ви можете завантажити Minecraft і перевірити все!
 
 ```mcfunction
 /particle fabric-docs-reference:sparkle_particle ~ ~1 ~

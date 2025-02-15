@@ -5,8 +5,6 @@ description: Aprende a crear comandos con argumentos complejos.
 search: false
 ---
 
-# Argumentos de Comandos
-
 Los argumentos son usados en la mayoría de los comandos. Algunas veces pueden ser opcionales, lo que significa que el usuario no tiene que dar un argumento para que el comando corra. Un nodo puede tener múltiples tipos de argumentos, pero ten cuidado de no crear ambigüedades.
 
 @[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

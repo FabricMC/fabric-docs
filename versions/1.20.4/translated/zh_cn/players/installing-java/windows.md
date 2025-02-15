@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 在 Windows 上安装 Java
-
 这个指南将会指引您在 Windows 上安装 Java 17。
 
 Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想使用 Fabric 的 `.jar` 安装程序，或者你想使用 Minecraft 服务器的 `.jar` 时有关。
@@ -17,7 +15,7 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 要检查 Java 是否已安装，你首先必须打开命令提示符。
 
-你可以通过按下 <kbd>Win</kbd> + <kbd>R</kbd> 并在出现的对话框中输入 `cmd.exe` 来实现它。
+你可以通过按下 <kbd>Win</kbd>+<kbd>R</kbd> 并在出现的对话框中输入 `cmd.exe` 来实现它。
 
 ![Windows运行对话框中的「cmd.exe」](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -61,7 +59,5 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 如果命令成功执行，你可以看到类似前文所示的内容，Java 版本被显示出来：
 
 ![命令提示符中输入了「java -version」](/assets/players/installing-java/windows-java-version.png)
-
----
 
 如果遇到任何问题，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道中寻求帮助。

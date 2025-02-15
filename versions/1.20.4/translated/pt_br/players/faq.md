@@ -5,8 +5,6 @@ description: Dúvidas mais frequentes dos jogadores e administradores de servido
 search: false
 ---
 
-# Perguntas Frequentes (FAQ)
-
 Há muitas perguntas feitas com frequência, então compilamos uma lista delas aqui.
 
 ## Perguntas Gerais

@@ -6,8 +6,6 @@ authors:
   - modmuss50
 ---
 
-# Mettre à jour Fabric
-
 Ce guide explique en détail le processus de mise à jour de Fabric pour le launcher Minecraft.
 
 Pour les lanceurs tiers, vous devriez consulter leur documentation.

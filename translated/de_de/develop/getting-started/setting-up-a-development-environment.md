@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# Entwicklungsumgebung einrichten {#setting-up-a-development-environment}
-
 Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklungsumgebung mit IntelliJ IDEA einrichten.
 
 ## JDK 17 installieren {#installing-jdk-21}
@@ -52,4 +50,4 @@ Das Minecraft Development Plugin bietet Unterstützung für das Modding mit Fabr
 
 Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
 
-Alternativ kannst du es von der [Plugin-Seite](https://plugins.jetbrains.com/plugin/8327-minecraft-development) herunterladen und dann installieren, indem du zu `File > Settings > Plugins > Install Plugin From Disk` navigierst.
+Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
