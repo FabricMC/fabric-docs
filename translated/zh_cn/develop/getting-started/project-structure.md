@@ -9,7 +9,7 @@ authors:
 
 ## `fabric.mod.json`{#fabric-mod-json}
 
-`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要文件， 包含模组的 ID、版本、依赖等信息。 包含模组的 ID、版本、依赖等信息。
+`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要文件， 包含模组的 ID、版本、依赖等信息。
 
 `fabric.mod.json` 文件最重要的字段是：
 
@@ -26,7 +26,7 @@ authors:
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
-## 入口点 {#entrypoints}
+## 入口点{#entrypoints}
 
 如前所述，`fabric.mod.json` 文件包含一个名为 `entrypoints` 的字段——该字段用于指定你的模组提供的入口点。
 
