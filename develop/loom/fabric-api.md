@@ -64,7 +64,7 @@ fabricApi {
 
 ## Tests {#tests}
 
-As with data generation you can set up basic testing with the following:
+As with data generation, you can set up basic testing with the following:
 
 ```groovy
 fabricApi {

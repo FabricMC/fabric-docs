@@ -23,7 +23,7 @@ This page is a reference of all options and features of Loom. If you are just ge
 
 ## Depending on Subprojects {#subprojects}
 
-While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
+While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default, a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
 
 ```groovy
 dependencies {
@@ -41,7 +41,7 @@ dependencies {
 
 ## Split Client & Common Code {#split-sources}
 
-For years a common source of server crashes had been mods accidentally calling client-only code when installed on a server. Newer Loom and Loader versions provide an option to require all client code to be moved into its own source set. This is to stop the problem at compile time, but the build will still result in a single jar file which works on either side.
+For years, a common source of server crashes had been mods accidentally calling client-only code when installed on a server. Newer Loom and Loader versions provide an option to require all client code to be moved into its own source set. This is to stop the problem at compile time, but the build will still result in a single jar file which works on either side.
 
 The following snippet from a `build.gradle` file shows how you can enable this for your mod. As your mod will now be split across two source sets, you will need to use the new DSL to define your mod's source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
 
@@ -62,7 +62,7 @@ loom {
 
 ## Resolving Issues {#issues}
 
-Loom and/or Gradle can sometimes fail due to corrupted cache files. Running `./gradlew build --refresh-dependencies` will force Gradle and Loom to re-download and recreate all files. This may take a few minutes but is usually enough to resolve cache-related issues.
+Loom and/or Gradle can sometimes fail due to corrupted cache files. Running `./gradlew build --refresh-dependencies` will force Gradle and Loom to re-download and recreate all files. This may take a few minutes, but is usually enough to resolve cache-related issues.
 
 ## Development Environment Setup {#setup}
 
