@@ -30,19 +30,19 @@ The `RenderTickCounter` class allows you to retrieve the current `tickDelta` val
 
 For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 10 frames, you might see:
 
-| Frame | tickDelta                                     |
-|-------|-----------------------------------------------|
-| 1     | `1.0` (new tick)                              |
-| 2     | `0.1 (1÷10)` - The next tick is in 10 frames. |
-| 3     | `0.2 (2÷10)`                                  |
-| 4     | `0.3 (3÷10)`                                  |
-| 5     | `0.4 (4÷10)`                                  |
-| 6     | `0.5 (5÷10)`                                  |
-| 7     | `0.6 (6÷10)`                                  |
-| 8     | `0.7 (7÷10)`                                  |
-| 9     | `0.8 (8÷10)`                                  |
-| 10    | `0.9 (9÷10)`                                  |
-| 11    | `1.0 (10÷10)` (new tick)                      |
+| Frame | `tickDelta`   |
+|:-----:|---------------|
+|  `1`  | `1`: New tick |
+|  `2`  | `1/10 = 0.1`  |
+|  `3`  | `2/10 = 0.2`  |
+|  `4`  | `3/10 = 0.3`  |
+|  `5`  | `4/10 = 0.4`  |
+|  `6`  | `5/10 = 0.5`  |
+|  `7`  | `6/10 = 0.6`  |
+|  `8`  | `7/10 = 0.7`  |
+|  `9`  | `8/10 = 0.8`  |
+| `10`  | `9/10 = 0.9`  |
+| `11`  | `1`: New tick |
 
 Practically, you should only use `tickDelta` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
 
