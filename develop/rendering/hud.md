@@ -1,22 +1,22 @@
 ---
-title: Rendering in the Hud
-description: Learn how to use the Fabric Hud API to render to the hud.
+title: Rendering in the HUD
+description: Learn how to use the Fabric Hud API to render to the HUD.
 authors:
   - IMB11
   - kevinthegreat1
 ---
 
-We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
+We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
 
 ## `HudRenderCallback` {#hudrendercallback}
 
 ::: warning
-Previously, Fabric provided `HudRenderCallback` to render to the hud. Due to changes to hud rendering, this event became extremely limited and is deprecated since Fabric API 0.116. Usage is strongly discouraged.
+Previously, Fabric provided `HudRenderCallback` to render to the HUD. Due to changes to HUD rendering, this event became extremely limited and is deprecated since Fabric API 0.116. Usage is strongly discouraged.
 :::
 
-## `HudLayerRegistrationCallback` {#hud-layer-registration-callback}
+## `HudLayerRegistrationCallback` {#hudlayerregistrationcallback}
 
-Fabric provides the Hud API to render and layer elements on the hud.
+Fabric provides the Hud API to render and layer elements on the HUD.
 
 To start, we need to register a listener to `HudLayerRegistrationCallback` which registers your layers. Each layer is an `IdentifiedLayer`, which is a vanilla `LayeredDrawer.Layer` with an `Identifier` attached. A `LayeredDrawer.Layer` instance is usually a lambda that takes a `DrawContext` and a `RenderTickCounter` instance as parameters. See `HudLayerRegistrationCallback` and related Javadocs for more details on how to use the API.
 
@@ -26,7 +26,7 @@ The draw context can be used to access the various rendering utilities provided 
 
 The `RenderTickCounter` class allows you to retrieve the current `tickDelta` value. `tickDelta` is the "progress" between the last game tick and the next game tick.
 
-For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 10 frames, you might see:
+For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 11 frames, you might see:
 
 | Frame | `tickDelta`   |
 |:-----:|---------------|
@@ -42,9 +42,9 @@ For example, if we assume a 200 FPS scenario, the game runs a new tick roughly e
 | `10`  | `9/10 = 0.9`  |
 | `11`  | `1`: New tick |
 
-Practically, you should only use `tickDelta` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
+In practice, you should only use `tickDelta` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
 
-You can retrieve `tickDelta` using the `renderTickCounter.getTickDelta(false);` function, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
+You can retrieve `tickDelta` by calling `renderTickCounter.getTickDelta(false)`, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
 
 In this example, we'll use `Util.getMeasuringTimeMs()` to linearly interpolate the color of a square that is being rendered to the HUD.
 
