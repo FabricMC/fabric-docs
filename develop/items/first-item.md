@@ -7,8 +7,6 @@ authors:
   - RaphProductions
 ---
 
-# Creating Your First Item {#creating-your-first-item}
-
 This page will introduce you into some key concepts relating to items, and how you can register, texture, model and name them.
 
 If you aren't aware, everything in Minecraft is stored in registries, and items are no exception to that.
@@ -41,7 +39,7 @@ This will not work if you've marked the item as damageable, as the stack size is
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
-To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
+To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](../getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

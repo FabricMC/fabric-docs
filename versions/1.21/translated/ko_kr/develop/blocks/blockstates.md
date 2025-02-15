@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 블록 상태 {#block-states}
-
 블록 상태는 속성의 형태로 한 블록의 모든 정보를 포함하는 Minecraft 세계에서 단일 블록에 등록된 데이터의 조각입니다. 바닐라가 블록 상태에 저장하는 몇 가지 속성의 예시입니다:
 
 - Rotation: 주로 원목이나 기타 자연 블록에 사용됩니다.
@@ -15,7 +13,7 @@ authors:
 
 세계의 용량을 줄이고, TPS 문제를 막아주기 때문에 — 또한 블록 엔티티 안에 NBT 데이터를 저장하는 것의 필요가 없습니다. — 아마도 이것들이 왜 유용한지 알 수 있습니다.
 
-블록 상태 정의는 `assets/<mod id here>/blockstates` 폴더에서 찾을 수 있습니다.
+블록 상태 정의는 `assets/mod-id/blockstates` 폴더에서 찾을 수 있습니다.
 
 ## 예시: 기둥 블록 {#pillar-block}
 
@@ -29,7 +27,7 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 기둥 블록은 두 가지의 텍스처 — 윗면과 옆면 — 이 있습니다. `block/cube_column` 모델을 사용합니다.
 
-언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/<mod id here>/textures/block` 에서 찾을 수 있습니다.
+언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/mod-id/textures/block` 에서 찾을 수 있습니다.
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">텍스처</DownloadEntry>
 
@@ -42,10 +40,8 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 모든 블록 상태 파일 안의 수정자에 대한 더 자세한 보기는 [Minecraft 위키 - 모델 문단 (Block States) (영어)](https://minecraft.wiki/w/Tutorials/Models#Block_states)에 있습니다.
 :::
@@ -108,8 +104,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
----
-
 예시 블록이 바다 랜턴이기 때문에, 또한 `activated` 속성이 true (참)일 때 발광하도록 만들어야 합니다. 이는 블록을 등록할 때 생성자로 전달된 블록 설정을 통하여 완료될 수 있습니다.
 
 `luminance` 메서드를 통하여 블록이 발광할 때의 빛 단계를 조정할 수 있고, `activated` 속성에 기반한 빛 단계를 반환하기 위하여 `PrismarineLampBlock` 클래스에 정적 메서드를 만들 수 있으며, 메서드 참조로서 `luminance` 메서드에 대하여 전달할 수도 있습니다:
@@ -117,8 +111,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 @[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

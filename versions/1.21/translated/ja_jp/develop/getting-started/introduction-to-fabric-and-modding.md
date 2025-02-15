@@ -8,8 +8,6 @@ authors-nogithub:
   - basil4088
 ---
 
-# Fabric と Modding への入門 {#introduction-to-fabric-and-modding}
-
 ## 前提条件 {#prerequisites}
 
 Fabric と Minecraft の Modding を始めるには、Java の基礎文法と、オブジェクト指向プログラミング（OOP）の理解が必要です。

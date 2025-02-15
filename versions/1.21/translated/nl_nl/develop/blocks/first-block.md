@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Maak Je Eerste Blok {#creating-your-first-block}
-
 Blokken vormen de basis van Minecraft – letterlijk en figuurlijk. Net als alles in de game, worden ze netjes opgeborgen in registers.
 
 ## Je Blokken-klasse Voorbereiden {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ Je kunt deze methode het beste in een soort klasse genaamd `ModBlokken` (of wat 
 Mojang doet iets soortgelijks als dit met vanilla blokken; je kunt de klasse `Blocks` raadplegen om te zien hoe zij het doen.
 
 @[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Net als bij items moet je ervoor zorgen dat de klasse wordt geladen, zodat alle statische velden die je blokinstanties bevatten, worden geïnitialiseerd.
 
@@ -65,17 +61,15 @@ Voor dit voorbeeld gebruiken we een aangepaste artikelgroep die is gemaakt op de
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 Je zou nu moeten merken dat jouw blok in de creatieve inventaris staat en in de wereld kan worden geplaatst!
 
-![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png).
+![Block in world without suitable model or texture](/assets/develop/blocks/first_block_0.png)
 
 Er zijn wel een paar problemen: het blokvoorwerp heeft geen naam en het blok heeft geen textuur, blokmodel of voorwerpmodel.
 
 ## Blokvertalingen toevoegen {#adding-block-translations}
 
-Om een ​​vertaling toe te voegen, moet je een vertaalsleutel aanmaken in je vertaalbestand - `assets/<mod id here>/lang/nl_nl.json` (`us_en.json` voor Engels).
+Om een ​​vertaling toe te voegen, moet je een vertaalsleutel aanmaken in je vertaalbestand - `assets/mod-id/lang/nl_nl.json` (`us_en.json` voor Engels).
 
 Minecraft zal deze vertaling gebruiken in de creatieve inventaris en op andere plaatsen waar de bloknaam wordt weergegeven, zoals bij commandofeedback.
 
@@ -85,18 +79,18 @@ Minecraft zal deze vertaling gebruiken in de creatieve inventaris en op andere p
 }
 ```
 
-Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd> + <kbd>T</kbd> drukken om de wijzigingen toe te passen - en je zou moeten zien dat het blok een naam heeft in de creatieve inventaris en op andere plaatsen zoals het statistiekenscherm.
+Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kbd> drukken om de wijzigingen toe te passen - en je zou moeten zien dat het blok een naam heeft in de creatieve inventaris en op andere plaatsen zoals het statistiekenscherm.
 
 ## Modellen en Texturen {#models-and-textures}
 
-Alle bloktexturen zijn te vinden in de map `assets/<mod id here>/textures/block` - een voorbeeldtextuur voor het blok "Condensed Dirt" is gratis te gebruiken.
+Alle bloktexturen zijn te vinden in de map `assets/mod-id/textures/block` - een voorbeeldtextuur voor het blok "Condensed Dirt" is gratis te gebruiken.
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
 
 Om de textuur in het spel te laten verschijnen, moet je een blok- en voorwerpmodel maken dat je kunt vinden op de respectievelijke locaties voor het blok "Condensed Dirt":
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+- `assets/mod-id/models/block/condensed_dirt.json`
+- `assets/mod-id/models/item/condensed_dirt.json`
 
 Het voorwerpmodel is vrij eenvoudig, het kan gewoon het blokmodel als ouder gebruiken - aangezien de meeste blokmodellen ondersteuning bieden voor weergave in een GUI:
 
@@ -120,7 +114,7 @@ Dit bestand moet zich in de map `assets/mod_id/blockstates` bevinden en de naam 
 
 Blockstaten zijn erg complex en daarom worden ze op een volgende pagina behandeld: [Blockstaten](./blockstates)
 
-Als je het spel opnieuw start, of herlaadt via <kbd>F3</kbd> + <kbd>T</kbd> om wijzigingen toe te passen, zou je de bloktextuur in de inventaris en fysiek in de wereld moeten kunnen zien:
+Als je het spel opnieuw start, of herlaadt via <kbd>F3</kbd>+<kbd>T</kbd> om wijzigingen toe te passen, zou je de bloktextuur in de inventaris en fysiek in de wereld moeten kunnen zien:
 
 ![Block in world with suitable texture and model](/assets/develop/blocks/first_block_4.png)
 

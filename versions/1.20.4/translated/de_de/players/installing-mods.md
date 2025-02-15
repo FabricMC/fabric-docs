@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Mods installieren
-
 Diese Anleitung wird die Installation von Mods für Fabric detailliert für den Minecraft-Launcher erklären.
 
 Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Przesyłanie logów {#uploading-logs}
-
 Podczas rozwiązywania problemów często konieczne jest udostępnienie logów, aby móc zidentyfikować przyczynę problemu.
 
 ## Dlaczego warto przesyłać logi? {#why-should-i-upload-logs}

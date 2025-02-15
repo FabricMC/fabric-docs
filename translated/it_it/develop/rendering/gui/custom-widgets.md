@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Widget Personalizzati {#custom-widgets}
-
 I Widget sono essenzialmente componenti di rendering containerizzate che possono essere aggiunti a una schermata, e i giocatori possono interagirci attraverso vari eventi come clic del mouse, pressione di tasti, e altro.
 
 ## Creare un Widget {#creating-a-widget}

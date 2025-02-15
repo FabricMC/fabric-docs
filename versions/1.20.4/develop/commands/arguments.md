@@ -5,8 +5,6 @@ description: Learn how to create commands with complex arguments.
 search: false
 ---
 
-# Command Arguments {#command-arguments}
-
 Arguments are used in most of the commands. Sometimes they can be optional, which means if you do not provide that
 argument,
 the command will also run. One node may have multiple argument types, but be aware that there is a possibility of

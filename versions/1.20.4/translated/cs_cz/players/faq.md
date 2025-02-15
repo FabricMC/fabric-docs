@@ -5,8 +5,6 @@ description: Často kladené otázky hráčů a administrátorů ohledně Fabric
 search: false
 ---
 
-# Často kladené dotazy
-
 Je hodně otázek, které jsou často kladeny, proto jsme je shromáždili sem do listu.
 
 ## Všeobecné otázky

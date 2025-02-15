@@ -6,8 +6,6 @@ authors:
   - dicedpixels
 ---
 
-# Maak Je Eerste Voorwerp {#creating-your-first-item}
-
 Op deze pagina maak je kennis met enkele belangrijke concepten met betrekking tot voorwerpen, en hoe je ze kunt registreren, texturen, modelleren en benoemen.
 
 Als je het nog niet wist: alles in Minecraft wordt opgeslagen in registers, en voorwerpen vormen daarop geen uitzondering.
@@ -74,7 +72,7 @@ Echter mist het het volgende:
 
 Momenteel heeft het voorwerp geen vertaling, dus je zult er een moeten toevoegen. De vertaalsleutel is al door Minecraft verstrekt: `item.mod_id.suspicious_substance`.
 
-Maak een nieuw JSON-bestand in: `src/main/resources/assets/<mod id here>/lang/nl_nl.json` (`en_us.json` voor Engels) en plaats de vertaalsleutel en de waarde ervan:
+Maak een nieuw JSON-bestand in: `src/main/resources/assets/mod-id/lang/nl_nl.json` (`en_us.json` voor Engels) en plaats de vertaalsleutel en de waarde ervan:
 
 ```json
 {
@@ -82,11 +80,11 @@ Maak een nieuw JSON-bestand in: `src/main/resources/assets/<mod id here>/lang/nl
 }
 ```
 
-Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd> + <kbd>T</kbd> drukken om de wijzigingen toe te passen.
+Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kbd> drukken om de wijzigingen toe te passen.
 
 ## Een Textuur en Model Toevoegen {#adding-a-texture-and-model}
 
-Om je voorwerp een ​​textuur en model te geven, maak je eenvoudig een textuurafbeelding van 16x16 pixels voor uw item en slaat u deze op in de map `assets/<mod id here>/textures/item`. Geef het textuurbestand dezelfde naam als de ID van het voorwerp, maar met de extensie `.png`.
+Om je voorwerp een ​​textuur en model te geven, maak je eenvoudig een textuurafbeelding van 16x16 pixels voor uw item en slaat u deze op in de map `assets/mod-id/textures/item`. Geef het textuurbestand dezelfde naam als de ID van het voorwerp, maar met de extensie `.png`.
 
 Je kunt deze voorbeeldtextuur bijvoorbeeld gebruiken voor `suspicious_substance.png`
 
@@ -96,7 +94,7 @@ Bij het herstarten/herladen van het spel zou je moeten zien dat het voorwerp nog
 
 Je gaat een eenvoudig `item/generated`-model maken, dat een invoertextuur bevat en niets anders.
 
-Maak de model-JSON in de map `assets/<mod id here>/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
+Maak de model-JSON in de map `assets/mod-id/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -129,7 +127,7 @@ Als je van je voorwerp een ​​brandstof wilt maken, kun je ook de klasse `Fue
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Als u een recept voor uw item wilt toevoegen, moet u een JSON-receptbestand in de map `data/<mod id here>/recipe` plaatsen.
+Als u een recept voor uw item wilt toevoegen, moet u een JSON-receptbestand in de map `data/mod-id/recipe` plaatsen.
 
 Voor meer informatie over het receptformaat kunt u deze bronnen raadplegen:
 

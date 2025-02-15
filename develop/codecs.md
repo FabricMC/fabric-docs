@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Codecs {#codecs}
-
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative
 to GSON and Jankson when reading and writing custom json files, though they're starting to become

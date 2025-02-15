@@ -7,17 +7,15 @@ authors:
 search: false
 ---
 
-# 创建自定义音效
-
 ## 准备音频文件
 
 你的音频文件需要转化为特定格式。 你的音频文件需要转化为特定格式。 OGG Vorbis 是一种用于音频等多媒体数据的开放式容器格式，Minecraft 的声音文件就使用了这种格式。 为了避免 Minecraft 处理声音传播距离的问题，你的音频必须只有单声道 (Mono)。 为了避免 Minecraft 处理声音传播距离的问题，你的音频必须只有单声道 (Mono)。
 
-整理工作 大部分现代 DAW (数字音频工作站) 软件都可以使用这种格式进行导入和导出。 在下面的例子中，我们将使用免费开源软件“[Audacity](https://www.audacityteam.org/)”将音频文件转换成规定的格式，当然其他的 DAW 也可以做到。
+整理工作 大部分现代 DAW (数字音频工作站) 软件都可以使用这种格式进行导入和导出。 在下面的例子中，我们将使用免费开源软件"[Audacity](https://www.audacityteam.org/)"将音频文件转换成规定的格式，当然其他的 DAW 也可以做到。
 
 ![Audacity 中未准备好的音频文件](/assets/develop/sounds/custom_sounds_0.png)
 
-在本例中，[哨声](https://freesound.org/people/strongbot/sounds/568995/) 被作为例子导入 Audacity。 它目前被保存为`.wav`格式的文件，有两个音频通道 (立体声) 。 按照自己的需求编辑音频，并确保使用“音轨头”顶部的下拉元素删除其中一个音频通道。 它目前被保存为`.wav`格式的文件，有两个音频通道 (立体声) 。 按照自己的需求编辑音频，并确保使用“音轨头”顶部的下拉元素删除其中一个音频通道。
+在本例中，[哨声](https://freesound.org/people/strongbot/sounds/568995/) 被作为例子导入 Audacity。 它目前被保存为`.wav`格式的文件，有两个音频通道 (立体声) 。 按照自己的需求编辑音频，并确保使用"音轨头"顶部的下拉元素删除其中一个音频通道。 它目前被保存为`.wav`格式的文件，有两个音频通道 (立体声) 。 按照自己的需求编辑音频，并确保使用"音轨头"顶部的下拉元素删除其中一个音频通道。
 
 ![分割立体声轨](/assets/develop/sounds/custom_sounds_1.png)
 
@@ -31,13 +29,13 @@ search: false
 
 ## 加载音频文件
 
-要在你的模组中使用音频文件，要添加新的 `resources/assets/<mod id here>/sounds` 目录，并将导出的音频文件 `metal_whistle.ogg` 放入该目录中。
+要在你的模组中使用音频文件，要添加新的 `resources/assets/mod-id/sounds` 目录，并将导出的音频文件 `metal_whistle.ogg` 放入该目录中。
 
-如果 `resources/assets/<mod id here>/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
+如果 `resources/assets/mod-id/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕翻译键会在 `resources/assets/<mod id here>/lang` 目录下的语言文件中用到，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示该翻译键在语言文件内对应的值，如果找不到，那么会直接显示该声音字幕的翻译键。
+声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕翻译键会在 `resources/assets/mod-id/lang` 目录下的语言文件中用到，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示该翻译键在语言文件内对应的值，如果找不到，那么会直接显示该声音字幕的翻译键。
 
 ## 注册自定义音效
 

@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Creando Partículas Personalizadas
-
 Las partículas son una poderosa herramienta. Pueden agregar atmósfera a una hermosa escena, o agregar tensión durante una pelea contra un jefe. ¡Agreguemos una!
 
 ## Registrar una partícula personalizada
@@ -38,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Crear el archivo JSON y añadir texturas
 
-Tienes que crear 2 folders in tu folder de `resources/assets/<mod id here>/`.
+Tienes que crear 2 folders in tu folder de `resources/assets/mod-id/`.
 
 | Dirección del Folder | Explicación                                                                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -62,7 +60,7 @@ Puedes agregar más texturas al array de `texturas` para crear una animación de
 Puedes ver si todo ha funcionado correctamente con el siguiente comando:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
 ```
 
 ![La partícula siendo mostrada](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

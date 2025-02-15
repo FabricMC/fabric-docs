@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Encontrar Mods Confiables
-
 En primer lugar, el término "confiable" es subjetivo, así que siempre usa tu propio juicio y sentido común a la hora de descargar mods. Sin embargo, hay algunas cosas que puedes hacer para encontrar mods confiables.
 
 ## 1. Usa una fuente conocida por su confiabilidad y seguridad

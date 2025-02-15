@@ -9,8 +9,6 @@ authors:
 search: false
 ---
 
-# Installing Fabric {#installing-fabric}
-
 <!-- #region common -->
 
 This guide only applies for the official Minecraft Launcher. For third party launchers, you should consult their documentation.

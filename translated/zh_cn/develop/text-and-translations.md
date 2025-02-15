@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# 文本和翻译{#text-and-translations}
-
 Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象定义的。
 使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 

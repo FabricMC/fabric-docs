@@ -9,8 +9,6 @@ authors:
 search: false
 ---
 
-# Tränke
-
 Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. Spieler können Tränke erlangen, indem sie diese mit einem Braustand brauen oder sie durch andere Spielmechaniken erhalten.
 
 ## Benutzerdefinierte Tränke

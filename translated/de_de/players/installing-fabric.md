@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Installation von Fabric {#installing-fabric}
-
 <!-- #region common -->
 
 Dieser Leitfaden bezieht sich ausschließlich auf den offiziellen Minecraft Launcher. Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
@@ -52,7 +50,7 @@ Stelle sicher, dass die Option 'Profil erstellen' aktiviert ist.
 
 Sobald das Installationsprogramm fertig ist, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
-![Minecraft-Launcher mit ausgewähltem Fabric-Profil](/assets/players/installing-fabric/launcher-screen.png)
+Sobald das Installationsprogramm fertig ist, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
 Jetzt, nachdem du Fabric installiert hast, kannst du dem Spiel Mods hinzufügen! Weitere Informationen zum Finden von Mods findest du in dem Leitfaden [Vertrauenswürdige Mods finden](./finding-mods).
 

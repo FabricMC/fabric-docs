@@ -14,8 +14,6 @@ authors-nogithub:
 search: false
 ---
 
-# Status Effects {#status-effects}
-
 Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
 applies these effects in various ways such as food, potions etc.
 
@@ -50,7 +48,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ### Translations {#translations}
 
-Like any other translation, you can add an entry with ID format `"effect.<mod-id>.<effect-identifier>": "Value"` to the
+Like any other translation, you can add an entry with ID format `"effect.mod-id.<effect-identifier>": "Value"` to the
 language file.
 
 ```json

@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generierung von Übersetzungen {#translation-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::
@@ -24,7 +22,7 @@ Zuerst werden wir unseren **Provider** vorbereiten. Denke daran, dass es die Pro
 
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
 
-:::info HINWEIS
+:::tip
 Du wirst für jede Sprache, die du generieren möchtest, einen eigenen Provider benötigen (z. B. einen `ExampleEnglishLangProvider` und einen `ExamplePirateLangProvider`).
 :::
 

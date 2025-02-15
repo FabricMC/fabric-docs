@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# Aggiornare Fabric
-
 Questa guida ti aiuterà nell'aggiornare Fabric per quanto riguarda il Launcher di Minecraft.
 
 Per launcher di terze parti, dovresti consultare la loro documentazione.

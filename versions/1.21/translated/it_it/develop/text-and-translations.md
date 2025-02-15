@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# Testo e Traduzioni {#text-and-translations}
-
 Ogni volta che Minecraft mostra testo nel gioco, è con tutta probabilità definito da un oggetto `Text`.
 Questo tipo personalizzato è preferito ad una `String` per permettere formattazione più avanzata, che comprende colori, grassetto, offuscamento, ed eventi ai clic. Permettono inoltre accesso più semplice al sistema di traduzione, rendendo semplice la traduzione di qualsiasi elemento dell'interfaccia.
 

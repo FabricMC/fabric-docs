@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# IDE Tips and Tricks {#ide-tips-and-tricks}
-
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
 
@@ -178,7 +176,6 @@ Selecting some text and using <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>↑ Up /
 In IntelliJ, the keybind for `Redo` may not be the usual <kbd>⌘/CTRL</kbd>+<kbd>Y</kbd> (Delete Line).
 Instead, it may be <kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>. You can change this in the **Keymap**.
 
-<!-- markdownlint-disable-next-line search-replace -->
 For even more keyboard shortcuts, you can see [IntelliJ's documentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
 
 ## Comments {#comments}

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalowanie oprogramowania Java na Windows {#installing-java-on-windows}
-
 Ten przewodnik pokaże ci, jak zainstalować Javę 21 na systemie Windows.
 
 Launcher Minecrafta zawiera własną instalację Javy, więc ta sekcja jest istotna tylko, jeśli chcesz użyć instalatora Fabric w formacie `.jar` lub jeśli chcesz użyć pliku `.jar` serwera Minecraft.
@@ -15,7 +13,7 @@ Launcher Minecrafta zawiera własną instalację Javy, więc ta sekcja jest isto
 
 Aby sprawdzić, czy masz już zainstalowaną Javę, musisz najpierw otworzyć wiersz poleceń.
 
-Możesz to zrobić poprzez wciśnięcie klawiszy <kbd>Win</kbd> + <kbd>R</kbd> i wpisanie `cmd.exe` w wyświetlonym oknie.
+Możesz to zrobić poprzez wciśnięcie klawiszy <kbd>Win</kbd>+<kbd>R</kbd> i wpisanie `cmd.exe` w wyświetlonym oknie.
 
 ![Okno dialogowe Uruchamiania w systemie Windows z wpisanym tekstem "cmd.exe" w pasku uruchamiania](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -59,7 +57,5 @@ Po zakończeniu instalacji możesz zweryfikować czy Java 21 została zainstalow
 Jeśli polecenie zostanie uruchomione pomyślnie, to zobaczysz coś takiego, gdzie wyświetlana jest wersja Javy:
 
 ![Wiersz poleceń z wpisanym poleceniem "java -version"](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Jeśli napotkasz jakiś problem, śmiało możesz poprosić o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support`.

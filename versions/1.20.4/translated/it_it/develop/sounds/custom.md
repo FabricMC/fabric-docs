@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Creare Suoni Personalizzati
-
 ## Preparare il File Audio
 
 I tuoi file audio devono essere formattati in un modo specifico. OGG Vorbis è un formato container aperto per dati multimediali, tra cui audio, e viene usato per i file audio di Minecraft. Per evitare problemi nel modo in cui Minecraft gestisce le distanze, il tuo audio deve essere solo su un singolo canale (Mono).
@@ -31,13 +29,13 @@ Inoltre tieni a mente che un file audio può aumentare drasticamente le dimensio
 
 ## Caricare il File Audio
 
-Aggiungi un nuovo percorso `resources/assets/<mod id here>/sounds` per i suoni della tua mod, e trasferisci qui il file audio esportato `metal_whistle.ogg`.
+Aggiungi un nuovo percorso `resources/assets/mod-id/sounds` per i suoni della tua mod, e trasferisci qui il file audio esportato `metal_whistle.ogg`.
 
-Se non esiste ancora, crea il file `resources/assets/<mod id here>/sounds.json` e aggiungici i tuoi suoni.
+Se non esiste ancora, crea il file `resources/assets/mod-id/sounds.json` e aggiungici i tuoi suoni.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
-La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/<mod id here>/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
+La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/mod-id/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
 ## Registrare il Suono Personalizzato
 

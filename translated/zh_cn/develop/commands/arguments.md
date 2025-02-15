@@ -3,8 +3,6 @@ title: 命令参数
 description: 学习如何创建带有复杂参数的命令。
 ---
 
-# 命令参数{#command-arguments}
-
 大多数命令都使用了参数。 有时参数是可选的，也就是说如果你不提供此参数，命令仍能运行。 一个节点可以有多个参数类型，但是注意有可能出现二义性，这是需要避免的。
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

@@ -19,8 +19,6 @@ authors-nogithub:
 search: false
 ---
 
-# Eventos
-
 El Fabric API provee un sistema que le permite a los mods reaccionar a ciertas acciones u ocurrencias, definidas como _eventos_ que ocurren en el juego.
 
 Los eventos son enganches que satisfacen usos comunes y/o proveen mejor compatibilidad y rendimiento entre diferentes mods que se enganchan a las mismas áreas del código. El uso de eventos substituye el uso de mixins.

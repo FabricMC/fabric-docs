@@ -5,8 +5,6 @@ authors:
   - Romejanic
 ---
 
-# Benutzerdefinierte Datenkomponenten {#custom-data-components}
-
 Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vielleicht für jedes Item speichern. Das Spiel erlaubt es, persistente Daten in einem `ItemStack` zu speichern, und seit der Version 1.20.5 tun wir das mit Hilfe von **Datenkomponenten**.
 
 Datenkomponenten ersetzen NBT-Daten aus früheren Versionen durch strukturierte Datentypen, die auf einen `ItemStack` angewendet werden können, um dauerhafte Daten über diesen Stack zu speichern. Datenkomponenten sind namensgebunden, was bedeutet, dass wir unsere eigenen Datenkomponenten implementieren können, um benutzerdefinierte Daten über einen `ItemStack` zu speichern und später darauf zuzugreifen. Eine vollständige Liste der Vanilla-Datenkomponenten kann auf dieser [Minecraft-Wiki-Seite](https://minecraft.wiki/w/Data_component_format#List_of_components) gefunden werden.
@@ -82,7 +80,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-Vergiss nicht, deine Sprachdatei (`/assets/<mod id>/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
+Vergiss nicht, deine Sprachdatei (`/assets/mod-id/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
 
 ```json
 {

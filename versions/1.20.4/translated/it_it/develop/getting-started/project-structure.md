@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Struttura del Progetto
-
 Questa pagina analizzerà la struttura di un progetto per una mod Fabric, e l'utilità di ogni file e cartella nel progetto.
 
 ## `fabric.mod.json`

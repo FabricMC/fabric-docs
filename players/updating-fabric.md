@@ -6,8 +6,6 @@ authors:
   - modmuss50
 ---
 
-# Updating Fabric {#updating-fabric}
-
 This guide will walk you through updating Fabric for the Minecraft Launcher.
 
 For third party launchers, you should consult their documentation.

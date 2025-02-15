@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Установка Java на Windows {#installing-java-on-windows}
-
 Это руководство поможет вам установить Java 21 на Windows.
 
 Это руководство понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
@@ -15,7 +13,7 @@ authors:
 
 Чтобы проверить, что Java уже установлена, вам нужно сначала открыть командную строку.
 
-Вы можете сделать это, нажав <kbd>Win</kbd> + <kbd>R</kbd> и написав `cmd.exe` в появившемся окне.
+Вы можете сделать это, нажав <kbd>Win</kbd>+<kbd>R</kbd> и написав `cmd.exe` в появившемся окне.
 
 ![Окно "Выполнить" с введённым "cmd.exe"](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -31,7 +29,7 @@ authors:
 
 ## 2. Загрузите установщик Java 21 {#2-download-the-java-installer}
 
-Чтобы установить Java 21, вам необходимо загрузить загрузчик из [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21).
+Чтобы установить Java 21, вам необходимо загрузить загрузчик из [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 
@@ -48,7 +46,7 @@ authors:
 - `Set JAVA_HOME environment variable` - будет добавлено в PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Установщик Java 21 c выделенными "Set JAVA\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Установщик Java 21 c выделенными "Set JAVA\\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 После этого нажмите на `Next` и продолжите установку.
 
@@ -59,7 +57,5 @@ authors:
 Если команда будет выполнена успешно, вы увидите что-то вроде показанного ранее, где отображается версия Java:
 
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Если вы столкнулись с какими-либо проблемами, попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в канале `#player-support`.

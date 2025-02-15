@@ -5,8 +5,6 @@ authors:
   - Romejanic
 ---
 
-# 自定义数据组件{#custom-data-components}
-
 物品越来越复杂，你会发现自己需要存储与每个物品关联的自定义数据。 游戏需要你将持久的数据存储在 `ItemStack`（物品堆）中，在 1.20.5 中，方法就是使用**数据组件**。
 
 数据组件替代了之前版本中的 NBT 数据，替换成能应用在 `ItemStack` 的结构化的数据，从而存储物品堆的持久数据。 数据组件是有命名空间的，也就是说，我们可以实现自己的数据组件，存储 `ItemStack` 的自定义数据，并稍后再访问。 所有原版可用的数据组件可以见于此 [Minecraft wiki 页面](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E5%A0%86%E5%8F%A0%E7%BB%84%E4%BB%B6#%E7%BB%84%E4%BB%B6%E6%A0%BC%E5%BC%8F)。
@@ -33,7 +31,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 有几点需要注意。 在第一行，你看到了一个 `?`， 这将被替换成你的组件的值的类型， 我们稍后完成。
 
-其次，你需要提供一个 `Identifier`，包含你的组件的 ID， 其命名空间就是你的模组的 ID。
+其次，你需要提供一个 `Identifier`，包含你的组件的 ID， 其命名空间就是你模组的 ID。
 
 最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`ComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
@@ -82,7 +80,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-不要忘记更新你的语言文件（`/assets/<mod id>/lang/en_us.json` 和 `/assets/<0>/lang/zh_cn.json`），并添加这两行：
+不要忘记更新你的语言文件（`/assets/mod-id/lang/en_us.json` 和 `/assets/mod-id/lang/zh_cn.json`），并添加这两行：
 
 ```json
 {

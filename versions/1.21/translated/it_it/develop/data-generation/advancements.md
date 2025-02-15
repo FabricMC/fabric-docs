@@ -10,8 +10,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Generazione di Progressi {#advancement-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::

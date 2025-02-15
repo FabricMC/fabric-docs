@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Створення вашого першого блоку {#creating-your-first-block}
-
 Блоки є будівельними блоками Minecraft (без каламбуру) - як і все інше в Minecraft, вони зберігаються в реєстрах.
 
 ## Підготовка вашого класу блоків {#preparing-your-blocks-class}

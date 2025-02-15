@@ -5,13 +5,11 @@ authors:
   - IMB11
 ---
 
-# Encontrando Mods Confiáveis
-
 Primeiramente, a confiança é subjetiva, e você sempre deve usar seu próprio julgamento ao baixar mods. No entanto, há algumas coisas que você pode fazer para te ajudar a encontrar mods confiáveis.
 
 ## 1. Usar uma Fonte que Seja Reconhecidamente Confiável
 
-A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4).
+A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
 
 Estes sites verificam se os mods são o que dizem ser e se não contêm código malicioso. Você também pode denunciar mods maliciosos nestes sites, e eles tomarão providência quanto antes.
 

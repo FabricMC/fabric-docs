@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Deinen ersten Block erstellen {#creating-your-first-block}
-
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
 
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auc
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
 @[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -65,8 +61,6 @@ In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf de
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 Du solltest nun feststellen, dass sich dein Block im Kreativ-Inventar befindet und in der Welt platziert werden kann!
 
 ![Block in der Welt ohne passendes Modell oder Textur](/assets/develop/blocks/first_block_0.png)
@@ -75,7 +69,7 @@ Es gibt jedoch ein paar Probleme - das Blockitem ist nicht benannt, und der Bloc
 
 ## Blockübersetzungen hinzufügen {#adding-block-translations}
 
-Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/<mod id here>/lang/en_us.json`.
+Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/mod-id/lang/en_us.json`.
 
 Minecraft verwendet diese Übersetzung im Kreativ-Inventar und an anderen Stellen, an denen der Blockname angezeigt wird, wie z. B. bei der Befehlsrückmeldung.
 
@@ -89,14 +83,14 @@ Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</
 
 ## Modelle und Texturen {#models-and-textures}
 
-Alle Blocktexturen befinden sich im Ordner `assets/<mod id here>/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
+Alle Blocktexturen befinden sich im Ordner `assets/mod-id/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texturen</DownloadEntry>
 
 Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodell erstellen, die du an den entsprechenden Stellen für den "Condensed Dirt"-Block finden kannst:
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+- `assets/mod-id/models/block/condensed_dirt.json`
+- `assets/mod-id/models/item/condensed_dirt.json`
 
 Das Itemmodell ist ziemlich einfach, es kann einfach das Blockmodell als Elternteil verwenden - da die meisten Blockmodelle Unterstützung für die Darstellung in einer grafischen Benutzeroberfläche haben:
 
@@ -126,7 +120,7 @@ Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die �
 
 ## Blockdrops hinzufügen {#adding-block-drops}
 
-Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/<mod id here>/loot_table/blocks/` abgelegt werden.
+Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/mod-id/loot_table/blocks/` abgelegt werden.
 
 :::info
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.

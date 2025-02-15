@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 崩溃报告
-
 :::tip
 如果你在查找崩溃原因时遇到困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
 :::

@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Benutzerdefinierte Widgets
-
 Widgets sind im Wesentlichen in Containern untergebrachte Rendering-Komponenten, die zu einer Oberfläche hinzugefügt werden können und mit denen der Spieler durch verschiedene Ereignisse wie Mausklicks, Tastendruck usw.
 
 ## Ein Widget erstellen

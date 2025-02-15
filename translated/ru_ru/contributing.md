@@ -3,15 +3,13 @@ title: Руководство по внесению вклада
 description: Руководство по внесению вклада в документацию Fabric
 ---
 
-# Руководство по внесению вклада {#contributing}
-
 Этот сайт использует [VitePress](https://vitepress.dev/) для генерации статического HTML-кода из различных Markdown-файлов. Вы можете ознакомиться с Markdown-расширениями для VitePress [здесь](https://vitepress.dev/guide/markdown#features).
 
 Есть три пути для внесения своего вклада для сайта:
 
 - [Перевод документации](#translating-documentation)
 - [Вклад в содержимое](#contributing-content)
-- [Как внести свой вклад](#how-to-contribute)
+- Руководство по внесению вклада {#contributing}
 
 Все материалы должны соответствовать нашим [рекомендациям по стилю](#style-guidelines).
 
@@ -156,17 +154,13 @@ git push
 
 Не забывайте также добавлять ваше имя пользователя GitHub в поле `authors` в начале Markdown-файла! Таким образом, мы сможем отдать вам должное.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Добавьте "Якорь" к заголовкам {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 Каждый заголовок должен иметь якорь, который используется для создания ссылки на этот заголовок:
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 Якорь должен использовать строчные буквы, цифры и дефисы.

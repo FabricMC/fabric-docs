@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 项目结构{#project-structure}
-
 本页将介绍 Fabric 模组项目的结构以及项目中每个文件和文件夹的用途。
 
 ## `fabric.mod.json`{#fabric-mod-json}

@@ -6,8 +6,6 @@ authors:
   - dicedpixels
 ---
 
-# Dein erstes Item erstellen {#creating-your-first-item}
-
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
 
 Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, genauso wie Items.
@@ -74,7 +72,7 @@ Es fehlen jedoch folgende Punkte:
 
 Für das Item gibt es derzeit keine Übersetzung, du musst also eine hinzufügen. Der Übersetzungsschlüssel wurde bereits von Minecraft bereitgestellt: `item.mod_id.suspicious_substance`.
 
-Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/<mod id here>/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
+Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/mod-id/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
 
 ```json
 {
@@ -86,7 +84,7 @@ Du kannst entweder das Spiel neu starten oder deinen Mod bauen und <kbd>F3</kbd>
 
 ## Eine Textur und ein Modell hinzufügen {#adding-a-texture-and-model}
 
-Um deinem Item eine Textur und ein Modell zu geben, erstelle einfach ein 16x16 Texturbild für dein Item und speichere es im Ordner `assets/<mod id here>/textures/item`. Benenne die Texturdatei genauso wie den Bezeichner des Items, aber mit der Erweiterung `.png`.
+Um deinem Item eine Textur und ein Modell zu geben, erstelle einfach ein 16x16 Texturbild für dein Item und speichere es im Ordner `assets/mod-id/textures/item`. Benenne die Texturdatei genauso wie den Bezeichner des Items, aber mit der Erweiterung `.png`.
 
 Als Beispiel kannst du diese Textur für `suspicious_substance.png` verwenden.
 
@@ -96,7 +94,7 @@ Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer no
 
 Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur und sonst nichts enthält.
 
-Erzeuge das Modell JSON im Ordner `assets/<mod id here>/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
+Erzeuge das Modell JSON im Ordner `assets/mod-id/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -129,7 +127,7 @@ Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du alter
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Wenn du ein Crafting-Rezept für deine Items hinzufügen möchtest, musst du eine Rezept-JSON-Datei in den Ordner `data/<mod id here>/recipe` legen.
+Wenn du ein Crafting-Rezept für deine Items hinzufügen möchtest, musst du eine Rezept-JSON-Datei in den Ordner `data/mod-id/recipe` legen.
 
 Weitere Informationen über das Rezeptformat findest du in diesen Ressourcen:
 

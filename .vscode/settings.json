@@ -1,9 +1,17 @@
 {
+  "explorer.autoRevealExclude": {
+    "versions/**": true
+  },
+  "explorer.excludeGitIgnore": true,
+  "files.exclude": {
+    "translated/**": true,
+    "versions/**": true
+  },
   "markdownlint.lintWorkspaceGlobs": [
     "**/*.md",
-    "!**/node_modules",
-    "!versions/*/translated/**",
+    "!node_modules/**",
+    "!README.md",
     "!translated/**",
-    "!README.md"
+    "!versions/**"
   ]
 }

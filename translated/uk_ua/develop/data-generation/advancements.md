@@ -10,8 +10,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Генерація досягнень {#advancement-generation}
-
 :::info ПЕРЕДУМОВИ
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
 :::
@@ -40,7 +38,7 @@ authors-nogithub:
 
 Ось просте досягнення для отримання ґрунту:
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+Ось просте досягнення для отримання ґрунту:
 
 :::warning
 Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!

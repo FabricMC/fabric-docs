@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 崩潰報告
-
 :::tip
 如果你在尋找崩潰原因時遇到任何困難，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 頻道中尋求幫助。
 :::

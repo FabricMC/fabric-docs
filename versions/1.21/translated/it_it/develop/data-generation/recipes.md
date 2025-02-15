@@ -9,8 +9,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generazione di Ricette {#recipe-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 崩溃报告{#crash-reports}
-
 :::tip
 如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
 :::

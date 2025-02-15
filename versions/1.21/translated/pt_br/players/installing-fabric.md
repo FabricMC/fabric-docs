@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalando Fabric
-
 Este guia o orientará na instalação do Fabric para o Launcher oficial do Minecraft.
 
 Para launchers de terceiros, você deve consultar suas devidas documentações.

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Przesyłanie logów {#uploading-logs}
-
 Podczas rozwiązywania problemów często konieczne jest udostępnienie logów, aby móc zidentyfikować przyczynę problemu.
 
 ## Dlaczego warto przesyłać logi? {#why-should-i-upload-logs}
@@ -23,7 +21,7 @@ Więcej informacji na temat raportów awarii znajdziesz w przewodniku [Raporty a
 
 ## Znajdowanie logów {#locating-logs}
 
-Ten przewodnik dotyczy oficjalnego launchera Minecrafta (powszechnie określanego jako „vanilla launcher”) — w przypadku innych launcherów należy zapoznać się z ich dokumentacją.
+Ten przewodnik dotyczy oficjalnego launchera Minecrafta (powszechnie określanego jako „vanilla launcher") — w przypadku innych launcherów należy zapoznać się z ich dokumentacją.
 
 Logi znajdują się w folderze `logs` w katalogu gry, który można znaleźć w następujących lokalizacjach dla poszczególnych systemów operacyjnych:
 

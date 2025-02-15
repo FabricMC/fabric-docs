@@ -7,14 +7,6 @@ authors:
 search: false
 ---
 
-at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
-at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
-...
-at me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockOcclusionCache.shouldDrawSide(BlockOcclusionCache.java:52)
-at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(TerrainBlockRenderInfo.java:31)
-...
-===================================================
-
 :::tip
 Si estás teniendo dificultades encontrando la causa del crasheo, puedes pedir ayuda en el servidor de [Discord de Fabric](https://discord.gg/v6v4pMv), en el canal de `#player-support` o `server-admin-support`.
 :::
@@ -108,6 +100,6 @@ Esto le permitirá al autor investigar el crasheo, potencialmente reproducir el 
 
 Algunos sitios comunes para pegar texto de reportes de crasheo son:
 
-- [GitHub Gist](https://gist.github.com/)
+- [GitHub Gist](https://gist.github.com/),
 - [mclo.gs](https://mclo.gs/)
 - [Pastebin](https://pastebin.com/)

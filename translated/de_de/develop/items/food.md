@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Nahrungsmittel Items {#food-items}
-
 Nahrung ist ein zentraler Aspekt des Überlebens in Minecraft. Wenn du also essbare Items erstellst, musst du die Verwendung der Nahrung mit anderen essbaren Gegenständen berücksichtigen.
 
 Es sei denn, du machst einen Mod mit übermächtigen Gegenständen, solltest du folgendes in Betracht ziehen:

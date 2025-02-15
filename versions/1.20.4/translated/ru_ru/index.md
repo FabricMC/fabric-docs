@@ -20,10 +20,4 @@ features:
 search: false
 ---
 
-<div class="vp-doc homepage-container">
-
-## Хотите внести свой вклад?
-
 Если вы хотите внести свой вклад в документацию Fabric, вы можете найти её исходный код на [GitHub](https://github.com/FabricMC/fabric-docs) и ознакомиться с соответствующим [руководством по внесению вклада](./contributing).
-
-</div>

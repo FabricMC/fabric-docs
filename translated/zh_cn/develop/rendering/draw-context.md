@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 使用绘制上下文{#using-the-drawing-context}
-
 本文假设您已经看过[基本渲染概念](./basic-concepts)。
 
 `DrawContext` 类是用于在游戏内渲染的主类。 用于渲染图形、文字、纹理，而且之前也见过，用于操纵 `MatrixStack` 和使用 `BufferBuilder`。

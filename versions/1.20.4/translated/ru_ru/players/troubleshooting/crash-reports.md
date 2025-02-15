@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Краш-репорты
-
 :::tip
 Если у вас возникли какие-либо трудности с поиском причины краша, вы можете обратиться за помощью в [дискорд Fabric](https://discord.gg/v6v4pMv) в каналах `#player-support` или `#server-admin-support`.
 :::

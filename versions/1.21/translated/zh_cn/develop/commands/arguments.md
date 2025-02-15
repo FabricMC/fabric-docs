@@ -3,8 +3,6 @@ title: 命令参数
 description: 学习如何创建带有复杂参数的命令。
 ---
 
-# 命令参数{#command-arguments}
-
 大多数命令都使用了参数。 有时参数是可选的，也就是说如果你不提供此参数，命令仍能运行。 一个节点可以有多个参数类型，但是注意有可能出现二义性，这是需要避免的。
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -28,7 +26,7 @@ description: 学习如何创建带有复杂参数的命令。
 @[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_common](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-## 自定义参数类型{#custom-argument-types}
+## 自定义参数类型 {#custom-argument-types}
 
 如果原版没有你想要的参数类型，可以自己创建一个。 为此，创建一个类并继承 `ArgumentType<T>` 接口，其中 `T` 是参数的类型。
 
@@ -38,7 +36,7 @@ description: 学习如何创建带有复杂参数的命令。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
 
-### 注册自定义参数类型{#registering-custom-argument-types}
+### 注册自定义参数类型 {#registering-custom-argument-types}
 
 :::warning
 您需要在服务端和客户端都注册自定义参数类型，否则命令不会生效！
@@ -48,7 +46,7 @@ description: 学习如何创建带有复杂参数的命令。
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-### 使用自定义参数类型{#using-custom-argument-types}
+### 使用自定义参数类型 {#using-custom-argument-types}
 
 我们可以在命令中使用我们的自定义参数类型──通过在 command builder 中传递实例到 `.argument` 方法。
 

@@ -10,7 +10,7 @@ export namespace Fabric {
     /**
      * @default "%s (not on GitHub)"
      */
-    nogithub: string;
+    noGitHub: string;
   }
 
   export interface BannerOptions {
@@ -60,7 +60,7 @@ export namespace Fabric {
     /**
      * Set custom Crowdin link text.
      *
-     * @default "Localise on Crowdin"
+     * @default "Localize on Crowdin"
      */
     crowdinLinkText: string;
 

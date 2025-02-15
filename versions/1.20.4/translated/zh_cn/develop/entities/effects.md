@@ -14,8 +14,6 @@ authors-nogithub:
 search: false
 ---
 
-# 状态效果
-
 状态效果，又称效果，是一种可以影响实体的条件。 它们的性质可以是正面的，负面的或者中性的。 游戏本体通过许多不同的方式应用这些效果，如食物和药水等等。
 
 命令 `/effect` 可被用于给实体应用效果。
@@ -52,7 +50,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 #### **翻译**
 
-像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.<mod-id>.<effect-identifier>": "Value"` 到语言文件中。
+像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.mod-id.<effect-identifier>": "Value"` 到语言文件中。
 
 ::: code-group
 

@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Food Items {#food-items}
-
 Food is a core aspect of survival Minecraft, so when creating edible items you have to consider the food's usage with other edible items.
 
 Unless you're making a mod with overpowered items, you should consider:

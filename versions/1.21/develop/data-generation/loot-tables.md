@@ -14,8 +14,6 @@ authors-nogithub:
 search: false
 ---
 
-# Loot Table Generation {#loot-table-generation}
-
 ::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
 :::

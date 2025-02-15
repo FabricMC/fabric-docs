@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Den Zeichenkontext verwenden
-
 Diese Seite setzt voraus, dass du einen Blick auf die Seite [Grundlegende Rendering-Konzepte](./basic-concepts) geworfen hast.
 
 Die Klasse `DrawContext` ist die Hauptklasse, die für das Rendering im Spiel verwendet wird. Sie wird für das Rendern von Formen, Text und Texturen verwendet und, wie zuvor gesehen, für die Bearbeitung von `MatrixStack`s und die Verwendung von `BufferBuilder`n.

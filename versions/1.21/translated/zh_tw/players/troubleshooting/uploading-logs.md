@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 上傳記錄檔 {#uploading-logs}
-
 在進行疑難排解時，通常需要提供記錄檔以幫助尋找問題的原因。
 
 ## 為什麼我應該上傳記錄檔？ {#why-should-i-upload-logs}
