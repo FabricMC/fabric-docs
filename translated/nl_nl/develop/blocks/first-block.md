@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Maak Je Eerste Blok {#creating-your-first-block}
-
 Blokken vormen de basis van Minecraft – letterlijk en figuurlijk. Net als alles in de game, worden ze netjes opgeborgen in registers.
 
 ## Je Blokken-klasse Voorbereiden {#preparing-your-blocks-class}

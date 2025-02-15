@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalar en Java en Windows
-
 Esta guía te enseñará como instalar Java 17 en Windows.
 
 El launcher de Minecraft viene con su propia instalación de Java, por lo que esta sección solo es relevante si quieres usar el instalador de Fabric `.jar`, o si quieres usar el `.jar` del Servidor de Minecraft.

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Blok Staten {#block-states}
-
 Een block staat is een stukje data gekoppeld aan een enkel blok in de Minecraft wereld, wat informatie bevat over het blok in de vorm van eigenschappen - hier een paar voorbeelden van eigenschappen die vanilla opslaat:
 
 - Rotatie: Het meest gebruikt voor boomstammen en andere natuur gerelateerde blokken.
