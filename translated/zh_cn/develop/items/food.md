@@ -13,7 +13,7 @@ authors:
 - 会给予什么药水效果？
 - 是在游戏早期还是末期可用的？
 
-## 添加食物组件 {#adding-the-food-component}
+## 添加食物组件{#adding-the-food-component}
 
 要为物品添加食物组件，可以先传递到 `Item.Settings` 实例：
 

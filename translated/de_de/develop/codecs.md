@@ -62,7 +62,7 @@ Nachdem wir nun gesehen haben, wie man Codecs verwendet, wollen wir uns ansehen,
 
 ```java
 public class CoolBeansClass {
-    
+
     private final int beansAmount;
     private final Item beanType;
     private final List<BlockPos> beanPositions;
@@ -285,7 +285,7 @@ public class Identifier {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
-    
+
     // ...
 }
 ```

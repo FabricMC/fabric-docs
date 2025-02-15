@@ -26,7 +26,7 @@ authors-nogithub:
 
 如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
 
-## 安装 IntelliJ IDEA {#installing-intellij-idea}
+## 安装 IntelliJ IDEA{#installing-intellij-idea}
 
 :::info
 你显然可以使用其他 IDE， 比如 Eclipse 或 Visual Studio Code，但本文档站点上的大多数页面都假定你使用的是 IntelliJ IDEA - 如果你使用的是其他 IDE，则应参考那些 IDE 的文档。
@@ -40,7 +40,7 @@ IntelliJ IDEA 的社区版是免费且开源的，是使用 Fabric 开发模组�
 
 ![IDEA 社区版下载提示](/assets/develop/getting-started/idea-community.png)
 
-## 安装 IDEA 插件 {#installing-idea-plugins}
+## 安装 IDEA 插件{#installing-idea-plugins}
 
 这些插件虽然不是绝对必要的，但可以让使用 Fabric 开发模组更容易 - 应该要考虑安装。
 
