@@ -6,8 +6,6 @@ authors:
   - Tenneb22
 ---
 
-# 启动游戏{#launching-the-game}
-
 Fabric Loom 提供了各种启动配置文件，可以帮助你在实时游戏环境中启动以及调试你的模组。 本指南将介绍各种启动配置文件以及如何用它们来调试和在游戏中测试你的模组。
 
 ## 启动配置文件{#launch-profiles}

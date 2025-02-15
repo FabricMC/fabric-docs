@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Itemgruppen {#custom-item-groups}
-
 Itemgruppen sind die Registerkarten im kreativen Inventar, in denen Items gespeichert werden. Du kannst deine eigenen Itemgruppen erstellen und deine Items in einem speraten Tab speichern. Das ist ziemlich nützlich, wenn dein Mod viele Items hinzufügt und du sie an einem Ort organisieren möchtest, damit deine Spieler leicht darauf zugreifen können.
 
 ## Die Itemgruppe erstellen {#creating-the-item-group}
@@ -16,8 +14,6 @@ Es ist überaschend einfach eine Itemgruppe zu erstellen. Erstell einfach ein ne
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 @[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-<hr />
 
 Du solltest sehen, dass die Itemgruppe jetzt im kreativen Inventar ist. Es ist jedoch unübersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie du dein erstes Item übersetzt hast.
 

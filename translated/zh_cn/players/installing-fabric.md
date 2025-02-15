@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# 安装 Fabric{#installing-fabric}
-
 <!-- #region common -->
 
 本指南仅适用于官方的 Minecraft Launcher。 对于第三方启动器，应该参考它们的文档。

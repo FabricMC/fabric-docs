@@ -1,13 +1,11 @@
 ---
-title: Dynamic Sounds
+title: Dynamic and Interactive Sounds
 description: Create more dynamic and interactive sounds
 authors:
   - JR1811
 ---
 
-# Create Dynamic and Interactive Sounds {#create-dynamic-and-interactive-sounds}
-
-::: info
+::: info PREREQUISITES
 This page builds on top of the [Playing Sounds](../sounds/using-sounds) and the [Creating Custom Sounds](../sounds/custom) pages!
 :::
 
@@ -141,8 +139,6 @@ but a server in a Multiplayer environment will crash, since it won't be able to 
 If you struggle with those issues, it is recommended to create your mod from the [Online template generator](https://fabricmc.net/develop/template/)
 with the `Split client and common sources` option turned on.
 :::
-
----
 
 A `SoundInstance` can be more powerful than just playing sounds once.
 

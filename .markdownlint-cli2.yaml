@@ -1,5 +1,7 @@
 # Available configuration options: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 config:
+  max-one-sentence-per-line:
+    ignored_words:
   MD003:
     style: atx
   MD004:
@@ -9,16 +11,33 @@ config:
   MD013: false
   MD024:
     siblings_only: true
-  MD025:
-    front_matter_title: ""
   MD026:
     # Allow headings to end with `!`
     punctuation: ".,;:。，；："
   MD029:
     style: ordered
-  MD033: false
+  MD033:
+    allowed_elements:
+      - audio
+      - b
+      - Badge
+      - ColorSwatch
+      - DownloadEntry
+      - i
+      - kbd
+      - s
+      - source
+      - table
+      - tbody
+      - td
+      - th
+      - thead
+      - tr
+      - u
+      - VideoPlayer
   MD035:
-    style: ---
+    # This is not made redundant by `no-horizontal-rules`, as the latter relies on this
+    style: "***"
   MD046:
     style: fenced
   MD048:
@@ -39,13 +58,16 @@ config:
     style: leading_and_trailing
   search-replace:
     rules:
+      - name: incorrect-mod-id
+        message: "Use either `mod-id` or `mod_id` without angle brackets"
+        searchPattern: "/<mod[-_ ]id(?:[-_ ]here)?>/g"
       - name: missing-heading-anchor
         message: "Add anchors to headings. Use lowercase characters, numbers and dashes"
         information: https://vitepress.dev/guide/markdown#header-anchors
         searchPattern: "/^#+ .*$(?<!\\{#[a-z0-9-]+\\})/gm"
         searchScope: text
       - name: missing-space-before-anchor
-        message: "Add a space before the heading's anchor."
+        message: "Add a space before the heading's anchor"
         information: https://vitepress.dev/guide/markdown#header-anchors
         searchPattern: "/^(#+ .*)(?<! )(\\{#[a-z0-9-]+\\})$/gm"
         replace: "$1 $2"
@@ -62,8 +84,13 @@ config:
       - name: no-file-extension-in-links
         message: "Don't add the file extension to links"
         information: https://vitepress.dev/guide/routing#linking-between-pages
-        searchPattern: "/(\\[[^\\]]*\\])\\(([^\\)]*)\\.(?:md|html)((?:#[a-z0-9-]+)?)\\)/g"
+        searchPattern: "/(\\[[^\\]]*\\])\\(([.\\/][^\\)]*)\\.(?:md|html)((?:#[a-z0-9-]+)?)\\)/g"
         replace: "$1($2$3)"
+        searchScope: text
+      - name: no-horizontal-rules
+        message: "Don't use horizontal rules"
+        searchPattern: "/^\\*{3}$/gm"
+        replace: ""
         searchScope: text
       - name: no-github-flavored-alerts
         message: "Don't use GitHub-favored Alerts"
@@ -88,7 +115,7 @@ config:
       - name: no-invalid-containers
         message: "Don't use invalid containers"
         information: https://vitepress.dev/guide/markdown#custom-containers
-        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre)(?: |$))/gm"
+        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre)(?: |$))/gim"
         replace: "::: info "
         searchScope: text
       - name: no-links-to-public
@@ -102,7 +129,7 @@ config:
         searchPattern: "/(?<!\\n|\\|| )  +(?! |\\|)/g"
         replace: " "
         searchScope: text
-      - name: no-nbsp
+      - name: no-no-break-spaces
         message: "Don't use no-break spaces"
         searchPattern: "/\\xa0/gu"
         replace: " "
@@ -122,11 +149,17 @@ config:
         searchPattern: "/(?<!@)\\[([^\\]]*)([.,:;?!]+)\\]\\(([^\\)]*)\\)/g"
         replace: "[$1]($3)$2"
         searchScope: text
+      - name: no-trailing-punctuation-in-lists
+        message: "Don't add trailing punctuation in lists"
+        searchPattern: "/^( *- .*)[^a-z0-9?!`\"\\)]$/gi"
+        replace: "$1"
+        searchScope: text
       - name: no-trailing-whitespace
         message: "Don't use trailing whitespace"
         searchPattern: "/ +$/gm"
         replace: ""
         searchScope: code
 customRules:
+  # TODO: add      markdownlint-rule-max-one-sentence-per-line/rule.js
   - ./node_modules/markdownlint-rule-search-replace/rule.js
   - ./node_modules/markdownlint-rule-titlecase/rule.js

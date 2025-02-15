@@ -9,8 +9,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Generazione di Tag {#tag-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::

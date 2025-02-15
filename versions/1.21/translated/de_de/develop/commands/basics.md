@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# Befehle erstellen {#creating-commands}
-
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 ::: info
@@ -53,7 +51,7 @@ Du kannst auf die Befehlsquelle von einem Befehlskontext aus zugreifen, indem du
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```

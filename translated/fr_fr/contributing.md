@@ -3,8 +3,6 @@ title: Lignes directrices pour les contributions
 description: Lignes directrices pour les contributions à la documentation de Fabric.
 ---
 
-# Lignes directrices pour les contributions {#contributing}
-
 Ce site utilise [VitePress](https://vitepress.dev/) pour générer du HTML statique à partir de divers fichiers Markdown. Vous devriez vous familiariser avec les extensions Markdown que VitePress supporte [ici](https://vitepress.dev/guide/markdown#features).
 
 Il y a trois façons de contribuer à ce site web :
@@ -156,17 +154,13 @@ Chaque page doit avoir un `title` et une `description` dans le frontmatter.
 
 N'oubliez pas d'ajouter également votre nom d'utilisateur GitHub à `authors` dans le frontmatter du fichier Markdown ! De cette manière, nous pouvons vous attribuer le mérite qui vous revient.
 
-```md
+```yaml
 ---
 title: Title of the Page
 description: This is the description of the page.
 authors:
   - your-username
 ---
-
-# Title of the Page {#title-of-the-page}
-
-...
 ```
 
 ### Ajouter des ancres aux titres {#add-anchors-to-headings}
@@ -174,7 +168,7 @@ authors:
 Chaque titre doit avoir une ancre, qui est utilisée pour créer un lien vers ce titre :
 
 ```md
-# This Is a Heading {#this-is-a-heading}
+## This Is a Heading {#this-is-a-heading}
 ```
 
 L'ancre doit utiliser des caractères en minuscules, des chiffres et des tirets.

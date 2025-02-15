@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Ein Projekt erstellen
-
 Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric Template Mod Generator zu erstellen - wenn du möchtest, kannst du ein neues Projekt auch manuell erstellen, indem du das Beispiel-Mod-Repository verwendest, dann solltest du den Abschnitt [Manuelle Projekterstellung](#manuelle-projekterstellung) lesen.
 
 ## Erstellung eines Projekts

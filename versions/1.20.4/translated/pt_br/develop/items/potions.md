@@ -9,8 +9,6 @@ authors:
 search: false
 ---
 
-# Poções
-
 Poções são consumíveis que concedem efeitos a uma entidade. Um jogador pode preparar poções usando um Suporte de Poções ou obtê-las como itens através de várias outras mecânicas do jogo.
 
 ## Poções Personalizadas

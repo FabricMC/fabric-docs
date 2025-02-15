@@ -7,8 +7,6 @@ authors:
   - mattidragon
 ---
 
-# Damage Types {#damage-types}
-
 Damage types define types of damage that entities can take. Since Minecraft 1.19.4, the creation of new damage types has
 become data-driven, meaning they are created using JSON files.
 

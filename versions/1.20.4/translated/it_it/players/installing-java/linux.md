@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Installare Java su Linux
-
 Questa guida ti spiegherà come installare Java 17 su Linux.
 
 ## 1. Controlla se Java è già installato

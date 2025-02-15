@@ -6,8 +6,6 @@ authors:
   - modmuss50
 ---
 
-# 更新 Fabric{#updating-fabric}
-
 这篇指南将引导您在 Minecraft 启动器中更新 Fabric。
 
 对于第三方启动器，应该参见这些第三方启动器的文档。

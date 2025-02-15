@@ -76,14 +76,6 @@ import players from "./sidebars/players";
 
   fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
-  // Add `include "{oldVersion}"` to the end of settings.gradle
-  const settingsGradle = fs.readFileSync(
-    "./reference/settings.gradle",
-    "utf-8"
-  );
-  const newSettingsGradle = settingsGradle + `\ninclude "${oldVersion}"`;
-  fs.writeFileSync("./reference/settings.gradle", newSettingsGradle);
-
   console.log("Reference mod has been bumped successfully.");
   console.log("Migrating content to versioned/" + oldVersion + "...");
 
@@ -148,6 +140,7 @@ import players from "./sidebars/players";
           "---",
           "",
           "::: warning",
+          // TODO: localize this text
           `You are currently viewing the documentation for Minecraft ${oldVersion}. If you are looking for the documentation for a different version, please select the version you are using from the dropdown on the navigation bar.`,
           ":::",
           "",

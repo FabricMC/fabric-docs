@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# Text und Übersetzungen {#text-and-translations}
-
 Wann immer Minecraft Text im Spiel anzeigt, wird dieser wahrscheinlich mit einem `Text`-Objekt definiert.
 Dieser benutzerdefinierte Typ wird anstelle eines `String` verwendet, um eine erweiterte Formatierung zu ermöglichen, einschließlich Farben, Fettdruck, Verschleierung und Klickereignisse. Sie ermöglichen auch einen einfachen Zugriff auf das Übersetzungssystem, so dass beliebige Elemente der Benutzeroberfläche problemlos in verschiedene Sprachen übersetzt werden können.
 

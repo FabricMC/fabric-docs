@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Fabric 설치하기 {#installing-fabric}
-
 <!-- #region common -->
 
 이 가이드는 오직 공식 Minecraft 런처용 Fabric 설치 방법을 안내합니다. 서드 파티 런처의 경우, 해당 런처의 설명서를 참조하여 주세요.

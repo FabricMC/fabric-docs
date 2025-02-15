@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Caricare i Log {#uploading-logs}
-
 Quando stai tentando di risolvere problemi, spesso è necessario fornire i log per aiutare a identificare la causa del problema.
 
 ## Perché Dovrei Caricare i Log? {#why-should-i-upload-logs}

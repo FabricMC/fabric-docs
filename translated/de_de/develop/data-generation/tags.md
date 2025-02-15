@@ -9,8 +9,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Generierung von Tags {#tag-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::
@@ -21,7 +19,7 @@ Erstelle zunächst eine eigene Klasse, die `extends FabricTagProvider<T>`, wobei
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 
-:::info HINWEIS
+:::tip
 Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `FabricTagProvider<EntityType<?>>` und einen `FabricTagProvider<Item>`).
 :::
 

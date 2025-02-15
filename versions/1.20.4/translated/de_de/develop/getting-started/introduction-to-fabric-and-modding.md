@@ -10,8 +10,6 @@ authors-nogithub:
 search: false
 ---
 
-# Einführung in Fabric und Modding
-
 ## Voraussetzungen
 
 Bevor du anfängst, solltest du ein Grundverständnis für die Entwicklung mit Java und ein Verständnis für objektorientierte Programmierung (OOP) haben.

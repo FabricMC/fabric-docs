@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# 開発環境のセットアップ {#setting-up-a-development-environment}
-
 Fabric を使って Mod を開発するためには、IntelliJ IDEA を使用した開発環境を設定する必要があります。
 
 ## JDK 21 のインストール {#installing-jdk-21}

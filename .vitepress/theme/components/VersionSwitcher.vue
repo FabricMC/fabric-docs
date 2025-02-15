@@ -68,10 +68,16 @@ function buildRoutePath(
     // e.g. /en/ -> /en/1.2.0/ or /en/1.2.0/ -> /en/1.3.0/
     if (!isOnLatest) {
       if (version === props.versioningPlugin.latestVersion) {
-        return currentPath.replace(`/${locale}/${currentVersion.value}/`, `/${locale}/`);
+        return currentPath.replace(
+          `/${locale}/${currentVersion.value}/`,
+          `/${locale}/`
+        );
       } else {
         // Replace any existing version segment with the new one
-        return currentPath.replace(`/${locale}/${currentVersion.value}/`, `/${locale}/${version}/`);
+        return currentPath.replace(
+          `/${locale}/${currentVersion.value}/`,
+          `/${locale}/${version}/`
+        );
       }
     } else {
       // If currently on latest, just add the new version segment
@@ -95,12 +101,15 @@ function buildRoutePath(
 // Navigate to the selected version
 function visitVersion(version: string) {
   const localeKeys = Object.keys(data.site.value.locales);
-  const isLocalized = localeKeys.some((key) => router.route.path.startsWith(`/${key}/`));
+  const isLocalized = localeKeys.some((key) =>
+    router.route.path.startsWith(`/${key}/`)
+  );
   const locale = isLocalized
     ? localeKeys.find((key) => router.route.path.startsWith(`/${key}/`)) || null
     : null;
 
-  const isOnLatest = currentVersion.value === props.versioningPlugin.latestVersion;
+  const isOnLatest =
+    currentVersion.value === props.versioningPlugin.latestVersion;
   const route = buildRoutePath(router.route.path, locale, version, isOnLatest);
 
   router.go(route);

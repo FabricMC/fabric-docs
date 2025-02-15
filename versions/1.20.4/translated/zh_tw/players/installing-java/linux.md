@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 在 Linux 上安裝 Java
-
 這個指南將引導你在 Linux 上安裝 Java 17。
 
 ## 1. 驗證 Java 是否安裝

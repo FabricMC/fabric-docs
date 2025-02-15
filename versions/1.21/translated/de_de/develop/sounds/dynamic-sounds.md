@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# Erstelle dynamische und interaktive Sounds {#create-dynamic-and-interactive-sounds}
-
 :::info
 Diese Seite baut auf den Seiten [Sounds abspielen](../sounds/using-sounds) und [Benutzerdefinierte Sounds erstellen](../sounds/custom) auf!
 :::
@@ -35,7 +33,7 @@ Unser [Startsound](https://freesound.org/people/el-bee/sounds/644881/) wird von 
 
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_0.wav" type="audio/wav">
-    
+
     Dein Browser unterstützt das Audioelement nicht.
 </audio>
 
@@ -84,7 +82,7 @@ Im Originalton ist ein deutliches Brummen und Piepen zu hören, das möglicherwe
 
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_5_first.ogg" type="audio/ogg">
-    
+
     Dein Browser unterstützt das Audioelement nicht.
 </audio>
 
@@ -92,7 +90,7 @@ Mit einem EQ-Filter konnten wir ihn fast vollständig entfernen. Es ist auf jede
 
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_5_second.ogg" type="audio/ogg">
-    
+
     Dein Browser unterstützt das Audioelement nicht.
 </audio>
 
@@ -120,7 +118,7 @@ Dies ist nun die fertige Audioschleife des Motors für das `SoundEvent` namens `
 
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_8.ogg" type="audio/ogg">
-    
+
     Dein Browser unterstützt das Audioelement nicht.
 </audio>
 
@@ -144,8 +142,6 @@ Wenn du versuchst, das in einem logischen serverseitigen Kontext zu verwenden, w
 Wenn du mit diesen Problemen zu kämpfen hast, ist es empfehlenswert, deinen Mod mit dem [Online Vorlagen-Generator](https://fabricmc.net/develop/template/)
 zu erstellen, wobei die Option `Split client and common sources` aktiviert ist.
 :::
-
----
 
 Eine `SoundInstance` kann mächtiger sein als nur das einmalige Abspielen von Sounds.
 

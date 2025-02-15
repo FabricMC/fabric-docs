@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Генерація перекладу {#translation-generation}
-
 :::info ПЕРЕДУМОВИ
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
 :::
@@ -24,7 +22,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
 
-:::info ПРИМІТКА
+:::tip
 Вам знадобиться окремий постачальник для кожної мови, яку ви хочете створити (наприклад, один `ExampleEnglishLangProvider` і один `ExamplePirateLangProvider`).
 :::
 

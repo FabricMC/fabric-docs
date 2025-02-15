@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# 食物物品{#food-items}
-
 食物是生存 Minecraft 的核心方面，所以创建可食用的物品时，需要考虑食物的用途以及其他可食用物品。
 
 除非是在制作有过于强的物品的模型，否则应该考虑：
@@ -17,7 +15,7 @@ search: false
 - 会给予什么药水效果？
 - 是在游戏早期还是末期可用的？
 
-## 添加食物组件{#adding-the-food-component}
+## 添加食物组件 {#adding-the-food-component}
 
 要为物品添加食物组件，可以先传递到 `FabricItemSettings` 实例：
 
@@ -47,7 +45,7 @@ new FabricItemSettings().food(new FoodComponent.Builder().build())
 这会让物品：
 
 - 总是可食用，无论饥饿值均可以吃。
-- 是“零食”。
+- 是"零食"。
 - 吃完会总会给予 6 秒中毒 II。
 
 <VideoPlayer src="/assets/develop/items/food_0.webm" title="Eating the Suspicious Substance" />

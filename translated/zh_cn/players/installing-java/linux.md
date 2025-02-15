@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 在 Linux 上安装 Java{#installing-java-on-linux}
-
 这个指南将会指引您在 Linux 上安装 Java 21。
 
 ## 1. 检查 Java 是否已经安装{#1-check-if-java-is-already-installed}

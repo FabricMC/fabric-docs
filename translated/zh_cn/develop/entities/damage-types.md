@@ -7,8 +7,6 @@ authors:
   - mattidragon
 ---
 
-# 伤害类型{#damage-types}
-
 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
 
 ## 创建伤害类型{#creating-a-damage-type}

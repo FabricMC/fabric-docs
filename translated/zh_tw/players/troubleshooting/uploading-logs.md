@@ -5,11 +5,9 @@ authors:
   - IMB11
 ---
 
-# 上傳記錄檔 {#uploading-logs}
-
 在進行疑難排解時，通常需要提供記錄檔以幫助尋找問題的原因。
 
-## 為什麼我應該上傳記錄檔？ {#why-should-i-upload-logs}
+## 為什麼我應該上傳記錄檔？ 為什麼我應該上傳記錄檔？ {#why-should-i-upload-logs}
 
 上傳記錄檔而不是只在論壇貼文中貼上記錄檔，讓其他人更快地解決你的問題。 它還允許你與他人分享你的記錄檔，而無需複製和貼上它們。
 
@@ -45,7 +43,7 @@ authors:
 
 最新的記錄檔名為 `latest.log`，以及先前的記錄檔使用命名模式 `yyyy-mm-dd_number.log.gz`。
 
-## 將記錄檔上傳至線上服務 {#uploading-logs-online}
+## 上傳記錄檔 {#uploading-logs}
 
 記錄檔可以上傳到各種服務，例如：
 

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 方块状态{#block-states}
-
 方块状态是附加到 Minecraft 世界中的单个方块上的一段数据，包含属性形式的方块块信息——原版存储在方块状态中的属性的一些示例：
 
 - Rotation：主要用于原木方块和其他自然方块中。
@@ -15,13 +13,13 @@ authors:
 
 你可能看出了为什么方块状态有用——避免了在方块实体中存储 NBT 数据的需要——这既减小了世界大小，也防止产生 TPS 问题！
 
-方块状态的定义能在 `assets/<mod id here>/blockstates` 文件夹中找到。
+方块状态的定义能在 `assets/mod-id/blockstates` 文件夹中找到。
 
-## 示例：柱方块{#pillar-block}
+## 示例：柱方块 {#pillar-block}
 
 <!-- Note: This example could be used for a custom recipe types guide, a condensor machine block with a custom "Condensing" recipe? -->
 
-Minecraft 已经有些自定义的类，允许你快速创建特定类型的方块——这个例子会通过创建“Condensed Oak Log”方块来带你创建带有 `axis` 属性的方块。
+Minecraft 已经有些自定义的类，允许你快速创建特定类型的方块——这个例子会通过创建"Condensed Oak Log"方块来带你创建带有 `axis` 属性的方块。
 
 原版的 `PillarBlock` 允许方块按 X、Y 或 Z 轴放置。
 
@@ -29,7 +27,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 柱方块有两个纹理，顶部（`top`）和侧面（`side`），使用 `block/cube_column` 模型。
 
-同样，纹理文件可以在 `assets/<mod id here>/textures/block` 中找到。
+同样，纹理文件可以在 `assets/mod-id/textures/block` 中找到。
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">纹理</DownloadEntry>
 
@@ -42,10 +40,8 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
 :::
@@ -62,13 +58,13 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 ![游戏内的柱方块的示例](/assets/develop/blocks/blockstates_1.png)
 
-## 自定义方块状态{#custom-block-states}
+## 自定义方块状态 {#custom-block-states}
 
 如果你的方块有独特的属性，那么自定义方块状态会非常不错——有时你会发现你的方块可以复用原版的属性。
 
 这个例子会创建一个叫做 `activated` 的独特属性——玩家右键单击方块时，方块会由 `activated=false` 变成 `activated-true` 并相应改变纹理。
 
-### 创建属性{#creating-the-property}
+### 创建属性 {#creating-the-property}
 
 首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.of` 方法。
 
@@ -86,13 +82,13 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 别忘了注册方块时使用自定义的类而不是 `Block`！
 :::
 
-### 使用属性{#using-the-property}
+### 使用属性 {#using-the-property}
 
 这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法：
 
 @[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### 视觉呈现属性{#visualizing-the-property}
+### 视觉呈现属性 {#visualizing-the-property}
 
 创建方块状态前，我们需要为方块的激活的和未激活的状态都提供纹理，以及方块模型。
 
@@ -108,8 +104,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
----
-
 因为这个示例方块是灯，所以还需要让它在 `activated` 属性为 true 时发光。 可以通过在注册方块时传入构造器的 block settings 来完成。
 
 可以使用 `luminance` 方法设置方块放出的光，可以在 `PrismarineLampBlock` 类中创建一个静态方法，从而根据 `activated` 属性返回光照等级，并将其作为方法引入传入 `luminance` 方法中。
@@ -117,8 +111,6 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 @[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

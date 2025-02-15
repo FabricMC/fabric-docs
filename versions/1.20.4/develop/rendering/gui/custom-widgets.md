@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Custom Widgets {#custom-widgets}
-
 Widgets are essentially containerized rendering components that can be added to a screen, and can be interacted with by the player through various events such as mouse clicks, key presses, and more.
 
 ## Creating a Widget {#creating-a-widget}

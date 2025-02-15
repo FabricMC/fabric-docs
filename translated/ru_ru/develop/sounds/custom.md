@@ -5,9 +5,7 @@ authors:
   - JR1811
 ---
 
-# Создание своих звуков {#creating-custom-sounds}
-
-## Подготовка аудиофайла {#preparing-the-audio-file}
+## Создание своих звуков {#creating-custom-sounds}
 
 Нужно отформатировать ваш аудиофайл определённым образом. OGG Vorbis - это открытый формат для мультимедийных данных, например аудио, и используется в качестве звуковых файлов Minecraft. Чтобы избежать проблем с тем, как Minecraft обрабатывает дистанцию, вашему аудио нужно иметь только один канал (Mono).
 
@@ -17,9 +15,9 @@ authors:
 
 В этом примере звук [свисток](https://freesound.org/people/strongbot/sounds/568995/) был импортирован в Audacity. Обычно он сохраняется как файл `.wav` и имеет два аудио канала (Stereo). Отредактируйте звук по своему вкусу и удалите один из каналов, используя раскрывающийся элемент наверху "track head".
 
-![Разделение Стерео трека](/assets/develop/sounds/custom_sounds_1.png)
-
 ![Удаление одного из каналов](/assets/develop/sounds/custom_sounds_2.png)
+
+![Разделение Стерео трека](/assets/develop/sounds/custom_sounds_1.png)
 
 Когда вы экспортируете или рендерите аудиофайл, выберите формат файла OGG. Некоторые ЦЗРС, например REAPER, могут поддерживать несколько форматов слоёв OGG. В этом случае OGG Vorbis должен работать нормально.
 
@@ -29,9 +27,9 @@ authors:
 
 ## Загрузка аудиофайла {#loading-the-audio-file}
 
-Добавьте новую директорию `resources/assets/mod-id/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
-
 Дальше создайте файл `resources/assets/mod-id/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
+
+Добавьте новую директорию `resources/assets/mod-id/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 

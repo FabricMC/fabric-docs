@@ -30,6 +30,9 @@ export default defineVersionedConfig(
         // Use the snippet plugin (transclusion, etc.)
         md.use(snippetPlugin);
       },
+      image: {
+        lazyLoading: true,
+      },
       languages: [
         async () =>
           // Adds support for mcfunction language to shiki.
@@ -37,11 +40,11 @@ export default defineVersionedConfig(
             with: { type: "json" },
           }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
       ],
+      lineNumbers: true,
+      math: true,
       async shikiSetup(shiki) {
         await shiki.loadTheme("github-light", "github-dark");
       },
-      lineNumbers: true,
-      math: true,
     },
 
     rewrites: {

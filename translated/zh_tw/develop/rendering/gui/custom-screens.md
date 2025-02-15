@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 自訂畫面 {#custom-screens}
-
 :::info
 這篇教學只包含一般介面，不包含同步介面 `HandledScreen`，一般畫面只會在客戶端顯示，不會與伺服器同步。
 :::

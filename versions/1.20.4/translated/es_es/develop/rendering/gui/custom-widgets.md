@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Widgets Personalizados
-
 Los widgets son esencialmente componentes renderizados que pueden ser agregados a una pantalla, y que pueden ser usados por el jugador mediante varios eventos como un click del mouse, presionar una tecla, y más.
 
 ## Crear un Widget

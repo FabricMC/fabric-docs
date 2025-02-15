@@ -5,8 +5,6 @@ authors:
   - krizh-p
 ---
 
-# Incantesimi Personalizzati {#custom-enchantments}
-
 A partire dalla versione 1.21, gli incantesimi personalizzati in Minecraft usano un approccio basato sui dati. Questo rende l'aggiunta d'incantesimi semplici, come aumentare il danno da attacco, più semplice, ma complica la creazione d'incantesimi più complessi. Il processo prevede la suddivisione degli incantesimi in _componenti degli effetti_.
 
 Una componente di un effetto contiene il codice che definisce gli effetti speciali di un incantesimo. Minecraft supporta vari effetti predefiniti, come danno degli oggetti, contraccolpo, ed esperienza.

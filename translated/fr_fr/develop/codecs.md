@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Codecs
-
 Les codecs sont un système de sérialisation facile d'objets Java, et est inclus dans la librairie DataFixerUpper (DFU) de Mojang, qui vient avec Minecraft. Dans la création de mods, ils peuvent être utilisés comme une alternative à GSON et Jankson pour lire des fichiers JSON personnalisés.
 
 Les codecs sont utilisés en tandem avec une autre API de DFU, `DynamicOps`. Un codec définit la structure d'un objet, et les `DynamicOps` (litt. 'opérations dynamiques') définissent un format de (dé)sérialisation, comme JSON ou NBT. Cela signifie que n'importe quel codec peut être utilisé avec n'importe quelles `DynamicOps`, et vice versa, pour une flexibilité accrue.

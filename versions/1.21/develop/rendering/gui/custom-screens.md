@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Custom Screens {#custom-screens}
-
 ::: info
 This page refers to normal screens, not handled ones - these screens are the ones that are opened by the player on the client, not the ones that are handled by the server.
 :::

@@ -8,8 +8,6 @@ authors-nogithub:
   - basil4088
 ---
 
-# Fabric 和模组简介 {#introduction-to-fabric-and-modding}
-
 ## 先决条件 {#prerequisites}
 
 在开始学习之前，你应该对 Java 开发有基本的了解，并对面向对象编程（OOP）有所认识。

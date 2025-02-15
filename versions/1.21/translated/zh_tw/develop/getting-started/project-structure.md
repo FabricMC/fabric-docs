@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 專案結構 {#project-structure}
-
 本頁將介紹 Fabric 模組專案的結構和專案中每個檔案和資料夾的用途。
 
 ## `fabric.mod.json` {#fabric-mod-json}

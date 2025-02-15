@@ -5,11 +5,9 @@ authors:
   - IMB11
 ---
 
-# 渲染 Hud{#rendering-in-the-hud}
-
 在 [基本渲染概念](./basic-concepts) 页面和[使用绘制上下文](./draw-context) 中，我们已经简要介绍了如何将内容渲染到 Hud，因此在本页中，我们将重点介绍 `HudRenderCallback` 事件和 `deltaTick` 参数。
 
-## HudRenderCallback{#hudrendercallback}
+## HudRenderCallback {#hudrendercallback}
 
 由 Fabric API 提供的 `HudRenderCallback` 事件每帧都会被调用，用于向 HUD 渲染内容。
 
@@ -19,7 +17,7 @@ authors:
 
 要了解有关绘制上下文的更多信息，应该查看[使用绘制上下文](./draw-context)页面。
 
-### DeltaTick{#deltatick}
+### DeltaTick {#deltatick}
 
 `deltaTick` 是指距上一帧的时间，单位为秒。 这可以用来制作动画和其他基于时间的效果。
 

@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Trouver des mods fiables
-
 La fiabilité d'une source est subjective, et vous devriez toujours juger de par vous-même lorsque vous téléchargez des mods. Mais voici quelques astuces pour vous aider à trouver des mods fiables.
 
 ## 1. Utiliser une source connue pour être fiable

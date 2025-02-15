@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generazione di Traduzioni {#translation-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::

@@ -5,9 +5,7 @@ authors:
   - JR1811
 ---
 
-# Erstelle dynamische und interaktive Sounds {#create-dynamic-and-interactive-sounds}
-
-:::info
+:::info VORAUSSETZUNGEN
 Diese Seite baut auf den Seiten [Sounds abspielen](../sounds/using-sounds) und [Benutzerdefinierte Sounds erstellen](../sounds/custom) auf!
 :::
 
@@ -36,7 +34,7 @@ Unser [Startsound](https://freesound.org/people/el-bee/sounds/644881/) wird von 
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_0.wav" type="audio/wav">
     
-    Dein Browser unterstützt das Audioelement nicht.
+    Dein Browser untersützt das Audioelement nicht.
 </audio>
 
 Laden wir die Datei in die DAW unserer Wahl.
@@ -85,7 +83,7 @@ Im Originalton ist ein deutliches Brummen und Piepen zu hören, das möglicherwe
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_5_first.ogg" type="audio/ogg">
     
-    Dein Browser unterstützt das Audioelement nicht.
+    Dein Browser untersützt das Audioelement nicht.
 </audio>
 
 Mit einem EQ-Filter konnten wir ihn fast vollständig entfernen. Es ist auf jeden Fall angenehmer anzuhören.
@@ -93,7 +91,7 @@ Mit einem EQ-Filter konnten wir ihn fast vollständig entfernen. Es ist auf jede
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_5_second.ogg" type="audio/ogg">
     
-    Dein Browser unterstützt das Audioelement nicht.
+    Dein Browser untersützt das Audioelement nicht.
 </audio>
 
 ### Eine Audioschleife erstellen {#making-it-loop}
@@ -121,7 +119,7 @@ Dies ist nun die fertige Audioschleife des Motors für das `SoundEvent` namens `
 <audio controls>
     <source src="/assets/develop/sounds/dynamic-sounds/step_8.ogg" type="audio/ogg">
     
-    Dein Browser unterstützt das Audioelement nicht.
+    Dein Browser untersützt das Audioelement nicht.
 </audio>
 
 ## Eine `SoundInstance` nutzen {#using-a-soundinstance}
@@ -144,8 +142,6 @@ Wenn du versuchst, das in einem logischen serverseitigen Kontext zu verwenden, w
 Wenn du mit diesen Problemen zu kämpfen hast, ist es empfehlenswert, deinen Mod mit dem [Online Vorlagen-Generator](https://fabricmc.net/develop/template/)
 zu erstellen, wobei die Option `Split client and common sources` aktiviert ist.
 :::
-
----
 
 Eine `SoundInstance` kann mächtiger sein als nur das einmalige Abspielen von Sounds.
 
@@ -217,7 +213,7 @@ Dies ist nur ein Beispiel dafür, wie du dich solchen Themen annähern kannst.
 Wenn du dich dafür entscheidest, eine neue, modularer, benutzerdefinierte `AbstractDynamicSoundInstance`-Klasse als Superklasse zu erstellen, möchtest du vielleicht nicht nur auf einen einzigen Typ von `Entity` verweisen, sondern auf verschiedene, oder sogar auch auf eine `BlockEntity`.
 
 In diesem Fall ist das Nutzen von Abstraktion der Schlüssel.
-Anstatt z.B. eine benutzerdefinierte `BlockEntity` direkt zu referenzieren, reicht es aus, ein Interface zu verfolgen, das die Daten bereitstellt, um dieses Problem zu lösen.
+eine benutzerdefinierte `BlockEntity` direkt zu referenzieren, reicht es aus, ein Interface zu verfolgen, das die Daten bereitstellt, um dieses Problem zu lösen.
 
 In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `ZombieEntity`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
 
@@ -268,7 +264,7 @@ Dieses Interface wird als Callback genutzt. Im Moment brauchen wir nur eine `onF
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
 
-Implementiere dieses Interface in jeder Klasse, die in der Lage sein sollte, die eingehenden Signale zu verarbeiten, z. B. in der `AbstractDynamicSoundInstance`, die wir in Kürze erstellen werden, um die Funktionalität in der benutzerdefinierten `SoundInstance` selbst zu erzeugen.
+Erstelle dynamische und interaktive Sounds {#create-dynamic-and-interactive-sounds}
 
 ### `AbstractDynamicSoundInstance` Klasse {#abstractdynamicsoundinstance-class}
 
@@ -283,7 +279,7 @@ Zusätzlich, werden wir mehr Eigenschaften definieren.
 - Tick-Dauer, wie lange die Start- und Endphasen dauern sollen
 - minimum und maximum Werte für die Lautstärke und Tonhöhe
 - boolescher Wert, um mitzuteilen, ob diese Instanz beendet wurde und aufgeräumt werden kann
-- Tick-Halter, um den Fortschritt des aktuellen Sounds zu verfolgen.
+- Tick-Holder, um den Fortschritt des aktuellen Sounds zu verfolgen.
 - ein Callback, welcher für das finale Aufräumen ein Signal zurück zu dem `DynamicSoundManager` sendet, wenn die `SoundInstance` tatsächlich fertig ist
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
@@ -338,7 +334,7 @@ Wenn die Grundstruktur stimmt, kannst du die Methoden hinzufügen, die für die 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
 
 Anstatt nur eine Liste aller aktuell spielenden `SoundInstances` zu haben, könnte man auch verfolgen, welche Soundquellen welche Sounds spielen.
-So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `Liste<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer AbstractDynamicSoundInstance\` eine bessere Wahl sein.
+So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `Liste<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer AbstractDynamicSoundInstance\\` eine bessere Wahl sein.
 
 ### Ein fortgeschrittenes Sound System nutzen {#using-the-advanced-sound-system}
 

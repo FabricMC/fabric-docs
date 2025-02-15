@@ -8,8 +8,6 @@ authors:
 search: false
 ---
 
-# Atualizando o Fabric
-
 Este guia o orientará na atualização do Fabric para o Minecraft Launcher.
 
 Para launchers de terceiros, você deve consultar suas devidas documentações.

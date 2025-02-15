@@ -12,8 +12,6 @@ authors-nogithub:
   - jmanc3
 ---
 
-# Generierung von Übersetzungen {#translation-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::

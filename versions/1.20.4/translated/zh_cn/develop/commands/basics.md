@@ -19,8 +19,6 @@ authors:
 search: false
 ---
 
-# 创建命令
-
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 :::info
@@ -126,8 +124,6 @@ Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 常见问题
-
-<br>
 
 ### 为什么我的代码不可以被编译？
 

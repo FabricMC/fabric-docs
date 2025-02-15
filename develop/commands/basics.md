@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# Creating Commands {#creating-commands}
-
 Creating commands can allow a mod developer to add functionality that can be used through a command. This tutorial will
 teach you how to register commands and the general command structure of Brigadier.
 

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Estructura de Proyecto
-
 Esta página cubrirá la estructura de un proyecto de mod de Fabric, y el propósito de cada archivo y folder en el proyecto.
 
 ## `fabric.mod.json`

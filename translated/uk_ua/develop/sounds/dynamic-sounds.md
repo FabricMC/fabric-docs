@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# Створіть динамічні й інтерактивні звуки {#create-dynamic-and-interactive-sounds}
-
 :::info
 Ця сторінка доповнює сторінки [відтворення звуків](../sounds/using-sounds) і [створення власних звуків](../sounds/custom)!
 :::

@@ -8,8 +8,6 @@ authors:
   - its-miroma
 ---
 
-# Generazione di Modelli di Blocchi {#block-model-generation}
-
 :::info PREREQUISITI
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
 :::

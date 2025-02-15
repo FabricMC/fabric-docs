@@ -5,8 +5,6 @@ authors:
   - Superkat32
 ---
 
-# Creating Custom Particles {#creating-custom-particles}
-
 Particles are a powerful tool. They can add ambience to a beautiful scene, or add tension to an edge of your seat boss battle. Let's add one!
 
 ## Register a Custom Particle {#register-a-custom-particle}

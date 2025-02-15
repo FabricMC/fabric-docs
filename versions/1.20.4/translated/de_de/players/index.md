@@ -5,8 +5,6 @@ description: Eine Sammlung von Anleitungen für Spieler und Serveradministratore
 search: false
 ---
 
-# Leitfäden für Spieler
-
 Dieser Abschnitt der Fabric-Dokumentation ist an Spieler und Serveradministratoren gerichtet, die lernen wollen, wie Fabric installiert und genutzt wird und wie Probleme mit Fabric behoben werden können.
 
 Die Seitenleiste enthält eine Liste mit allen verfügbaren Anleitungen.

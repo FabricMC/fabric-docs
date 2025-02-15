@@ -18,8 +18,6 @@ authors:
 search: false
 ---
 
-# 명령어 만들기
-
 "명령어 만들기"에서는 모드 개발자가 명령어를 통한 기능을 추가하는 방법에 대해 설명합니다. 이 튜토리얼에서는 Brigadier의 일반적인 명령어 구조는 무엇이며, 어떻게 명령어를 등록하는지 알아볼 것입니다.
 
 :::info
@@ -125,8 +123,6 @@ Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## 자주 묻는 질문
-
-<br>
 
 ### 코드가 컴파일되지 않습니다
 

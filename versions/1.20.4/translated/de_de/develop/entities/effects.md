@@ -14,8 +14,6 @@ authors-nogithub:
 search: false
 ---
 
-# Statuseffekte
-
 Statuseffekte, auch Effekte genannt, sind ein Zustand, der eine Entität beeinflussen kann. Sie können positiver, negativer oder neutraler Natur sein. Das Basisspiel wendet diese Effekte auf verschiedene Weise an, zum Beispiel durch Nahrung, Tränke usw.
 
 Der Befehl `/effect` kann verwendet werden, um Effekte auf eine Entität anzuwenden.
@@ -52,7 +50,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 #### **Übersetzungen**
 
-Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.<mod-id>.<effect-identifier>": "Wert"` zur Sprachdatei hinzufügen.
+Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.mod-id.<effect-identifier>": "Wert"` zur Sprachdatei hinzufügen.
 
 ::: code-group
 
