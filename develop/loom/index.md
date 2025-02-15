@@ -13,8 +13,6 @@ authors-nogithub:
   - caoimhe
 ---
 
-# Fabric Loom {#loom}
-
 Fabric Loom, or just Loom for short, is a [Gradle](https://gradle.org/) plugin for development of mods in the Fabric ecosystem.
 
 Loom provides utilities to install Minecraft and mods in a development environment so that you can link against them with respect to Minecraft obfuscation and its differences between distributions and versions. It also provides run configurations for use with Fabric Loader, Mixin compile processing and utilities for Fabric Loader's jar-in-jar system.
