@@ -12,7 +12,7 @@ authors:
 ## 1. 下載模組 {#1-download-the-mod}
 
 :::warning
-你應該只從你信任的來源下載模組。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods)指南。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods.md)指南。
+你應該只從你信任的來源下載模組。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods)指南。 如需更多關於尋找模組的資訊，請參閱[尋找模組](./finding-mods)指南。
 :::
 
 大部分的模組都需要 Fabric API，它可以從 [Modrinth](https://modrinth.com/mod/fabric-api) 或 [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api)下載。
@@ -49,7 +49,7 @@ authors:
 
 ![mods 資料夾中已安裝的模組](/assets/players/installing-mods.png)
 
-## 3. 你完成了！ 你完成了！ {#3-you-re-done}
+## 3. 你完成了！ {#3-you-re-done}
 
 ![已選擇 Fabric 設定檔的 Minecraft 啟動器](/assets/players/installing-fabric/launcher-screen.png)
 

@@ -8,17 +8,16 @@ authors:
 
 Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象定义的。
 使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
-使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 
-如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Text` 对象的 json 呈现，可以使用 `Text.Serializer` 互相转换。
+如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Text` 对象的 json 呈现，可以使用 `Text.Serializer` 互相转换。
 
 制作模组时，最好直接在代码中构造你的 `Text` 对象，并随时利用翻译。
 
-## 字面文本 {#text-literals}
+## 字面文本{#text-literals}
 
-这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。 这就是会照样显示的字符串，默认没有任何格式化。
+这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
 
-这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的子类，可以轻易地格式化和连接。 这个后面会有更多。 这个后面会有更多。
+这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的子类，可以轻易地格式化和连接。 这个后面会有更多。
 
 ```java
 Text literal = Text.of("Hello, world!");
@@ -27,9 +26,9 @@ MutableText mutable = Text.literal("Hello, world!");
 Text mutableAsText = mutable;
 ```
 
-## 可翻译文本 {#translatable-text}
+## 可翻译文本{#translatable-text}
 
-给相同的文本字符串提供多个翻译时，可以使用 `Text.translatable` 方法，引用语言文件中的任意翻译键。 如果翻译键不存在，则字面转换翻译键。 如果翻译键不存在，则字面转换翻译键。
+给相同的文本字符串提供多个翻译时，可以使用 `Text.translatable` 方法，引用语言文件中的任意翻译键。 如果翻译键不存在，则字面转换翻译键。
 
 ```java
 Text translatable = Text.translatable("my_mod.text.hello");
@@ -47,7 +46,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 }
 ```
 
-如果想在翻译中使用变量（类似于在死亡消息中可以在翻译中使用涉及的玩家和物品），可以将这些变量作为参数添加进去。 想添加多少参数都可以。 想添加多少参数都可以。
+如果想在翻译中使用变量（类似于在死亡消息中可以在翻译中使用涉及的玩家和物品），可以将这些变量作为参数添加进去。 想添加多少参数都可以。
 
 ```java
 Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
@@ -61,15 +60,15 @@ Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName
 }
 ```
 
-在游戏中，%1\$s 会被替换为你在代码中引用的玩家的名字。 在游戏中，%1\$s 会被替换为你在代码中引用的玩家的名字。 使用 `player.getDisplayName()` 会使用鼠标悬停在聊天消息中的名字上时，以提示框形式出现实体的额外信息，相比之下使用 `player.getName()` 只会得到名字但不显示额外细节。 对物品堆也是类似，使用 `stack.toHoverableText()`。 对物品堆也是类似，使用 `stack.toHoverableText()`。
+在游戏中，%1\$s 会被替换为你在代码中引用的玩家的名字。 使用 `player.getDisplayName()` 会使用鼠标悬停在聊天消息中的名字上时，以提示框形式出现实体的额外信息，相比之下使用 `player.getName()` 只会得到名字但不显示额外细节。 对物品堆也是类似，使用 `stack.toHoverableText()`。
 
-至于 %1\$s 都是指什么，你要知道的就是数字对应的你尝试使用的哪个变量。 比如说你有使用三个变量。 比如说你有使用三个变量。
+至于 %1\$s 都是指什么，你要知道的就是数字对应的你尝试使用的哪个变量。 比如说你有使用三个变量。
 
 ```java
 Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
-如果要引用，比如在这里是引用谁是攻击者，应该使用 %2\$s，因为这是我们传入的第二个变量。 类似地，%3\$s 引用的是物品堆。 有这些额外参数的翻译可能会像这样： 类似地，%3\$s 引用的是物品堆。 有这些额外参数的翻译可能会像这样：
+如果要引用，比如在这里是引用谁是攻击者，应该使用 %2\$s，因为这是我们传入的第二个变量。 类似地，%3\$s 引用的是物品堆。 有这些额外参数的翻译可能会像这样：
 
 ```json
 {
@@ -77,23 +76,23 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 }
 ```
 
-## 序列化文本 {#serializing-text}
+## 序列化文本{#serializing-text}
 
 <!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
 
-前面提到过，可以使用 text codec 将文本序列化为 JSON。 更多关于 codec 的信息，请看 [Codec](./codecs) 页面。 更多关于 codec 的信息，请看 [Codec](./codecs) 页面。
+前面提到过，可以使用 text codec 将文本序列化为 JSON。 更多关于 codec 的信息，请看 [Codec](./codecs) 页面。
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
 这会产生可用于数据包、命令和其他接受 JSON 格式文本而非字面或可翻译文本的地方的 JSON。
 
-## 反序列化文本 {#deserializing-text}
+## 反序列化文本{#deserializing-text}
 
 要将 JSON 文本对象反序列化为 `Text` 类，还是使用 codec。
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
-## 格式化文本 {#formatting-text}
+## 格式化文本{#formatting-text}
 
 你应该熟悉 Minecraft 的格式化标准：
 
