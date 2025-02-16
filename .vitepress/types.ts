@@ -71,7 +71,7 @@ export namespace Fabric {
 
     maintainers: {
       /**
-       * @default "Fabric Maintenance"
+       * @default "Maintenance"
        */
       title: string;
     };
