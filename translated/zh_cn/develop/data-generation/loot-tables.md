@@ -46,7 +46,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
 
-我们需要一个 `RegistryKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用分割源，请确保它位于你的 `main` 源集中。
+我们需要一个 `RegistryKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 
