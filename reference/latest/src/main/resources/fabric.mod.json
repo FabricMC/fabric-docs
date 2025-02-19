@@ -20,13 +20,15 @@
       "com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
       "com.example.docs.component.FabricDocsReferenceComponents",
       "com.example.docs.advancement.FabricDocsReferenceDatagenAdvancement",
-      "com.example.docs.networking.FabricDocsReferenceNetworking"
+      "com.example.docs.networking.FabricDocsReferenceNetworking",
+      "com.example.docs.entity.FabricDocsReferenceEntity"
     ],
     "client": [
       "com.example.docs.FabricDocsReferenceClient",
       "com.example.docs.client.command.FabricDocsReferenceClientCommands",
       "com.example.docs.FabricDocsDynamicSound",
-      "com.example.docs.FabricDocsBlockEntityRenderer"
+      "com.example.docs.FabricDocsBlockEntityRenderer",
+      "com.example.docs.FabricDocsCustomEntityClient"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
