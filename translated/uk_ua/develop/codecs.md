@@ -15,7 +15,7 @@ authors:
 
 ## Використання кодеків {#using-codecs}
 
-### Серіалізація та десеріалізація {#serializing-and-deserializing}
+### Використання кодеків {#using-codecs}
 
 Основним використанням кодека є серіалізація та десеріалізація об’єктів у певний формат і з нього.
 
@@ -177,7 +177,7 @@ MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPo
 
 ### Константи, обмеження та композиція {#constants-constraints-composition}
 
-#### Юніт {#unit}
+#### Константи, обмеження та композиція {#constants-constraints-composition}
 
 `Codec.unit` можна використовувати для створення кодека, який завжди десеріалізується до постійного значення, незалежно від вхідних даних. Під час серіалізації це нічого не робитиме.
 
