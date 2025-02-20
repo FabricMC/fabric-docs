@@ -3,7 +3,6 @@ package com.example.docs.block.custom;
 import com.mojang.serialization.MapCodec;
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -72,11 +71,6 @@ public class EngineBlock extends BlockWithEntity {
 		}
 
 		return ActionResult.PASS;
-	}
-
-	@Override
-	protected BlockRenderType getRenderType(BlockState state) {
-		return BlockRenderType.MODEL;
 	}
 
 	private static void playSound(World world, SoundEvent soundEvent, BlockPos pos) {

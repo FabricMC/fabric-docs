@@ -3,7 +3,6 @@ package com.example.docs.block.custom;
 import com.mojang.serialization.MapCodec;
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -28,11 +27,6 @@ public class CounterBlock extends BlockWithEntity {
 	@Override
 	protected MapCodec<? extends BlockWithEntity> getCodec() {
 		return createCodec(CounterBlock::new);
-	}
-
-	@Override
-	protected BlockRenderType getRenderType(BlockState state) {
-		return BlockRenderType.MODEL;
 	}
 
 	@Nullable
