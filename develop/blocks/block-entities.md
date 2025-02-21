@@ -32,7 +32,7 @@ Next, to actually use the block entity, we need a block that implements `BlockEn
 ::: tip
 There's two ways to approach this:
 
-- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method (_and_ the `getRenderType` method, since `BlockWithEntity` makes it invisible by default)
+- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method
 - create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
 
 We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.
