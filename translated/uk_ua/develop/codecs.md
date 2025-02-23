@@ -135,7 +135,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 Ви також можете використовувати `Codec#optionalFieldOf` у цьому контексті, щоб зробити поле необов’язковим, як пояснюється в розділі [необов’язкові поля](#optional-fields).
 
-### MapCodec, не плутати з Codec&amp;lt;Map&amp;gt; {#mapcodec}
+### MapCodec, не плутати з Codec&lt;Map&gt; {#mapcodec}
 
 Виклик `Codec#fieldOf` перетворить `Codec<T>` на `MapCodec<T>`, який є варіантом, але не прямої реалізація `Codec<T>`. `MapCodec`s, як випливає з їх назви, гарантовано серіалізуються в ключ до мапи значень або його еквівалент у `DynamicOps`. Для деяких функцій може знадобитися використання звичайного кодека.
 

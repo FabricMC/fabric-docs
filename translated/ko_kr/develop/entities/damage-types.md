@@ -61,7 +61,13 @@ JSON 파일 구조에 대한 자세한 내용은 [Minecraft 위키 (영문)](htt
 
 `en_us.json` 파일의 `death.attack.<message_id>` 키를 수정해 사용자 정의 피해 유형의 사망 메시지를 수정할 수 있습니다.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 이제 사용자 정의 피해 유형으로 사망하면, 다음 사망 메시지를 보게 될 것입니다.
 

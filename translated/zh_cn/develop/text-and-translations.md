@@ -37,7 +37,7 @@ Text translatable = Text.translatable("my_mod.text.hello");
 MutableText mutable = Text.translatable("my_mod.text.bye");
 ```
 
-语言文件，`en_us.json`，看上去应该像这样：
+语言文件 `en_us.json`（简体中文为 `zh_cn.json`），看上去应该像这样：
 
 ```json
 {

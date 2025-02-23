@@ -1,6 +1,6 @@
 ---
-title: Fabric と Mod 開発への入門
-description: "Fabric と Minecraft: Java 版における Modding への入門"
+title: Fabric と Modding への入門
+description: "Fabric と Minecraft: Java 版での Modding に関するイントロダクション。"
 authors:
   - IMB11
   - itsmiir
@@ -12,7 +12,7 @@ authors-nogithub:
 
 Fabric と Minecraft の Modding を始めるには、Java の基礎文法と、オブジェクト指向プログラミング（OOP）の理解が必要です。
 
-Fabric と Minecraft の Modding を始めるには、Java の基礎文法と、オブジェクト指向プログラミング（OOP）の理解が必要です。
+これらの知識がない方は、Java と OOP に関する以下のチュートリアルをご覧いただけます。
 
 - [W3: Java Tutorials](https://www.w3schools.com/java/)
 - [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
@@ -25,36 +25,36 @@ Fabric と Minecraft の Modding を始めるには、Java の基礎文法と、
 
 - **Mod**: 新しい機能の追加や既存の機能の変更といった、ゲームに加える変更。
 - **Mod ローダー**: Fabric Loader のような、Mod をゲームに読み込ませるツール。
-- **Mixin**: 実行時にゲームのプログラムを変更するツール。詳細は [Mixin Introduction](https://fabricmc.net/wiki/tutorial:mixin_introduction) を参照してください。
+- **Mixin**: 実行時にゲームのプログラムを変更するツール。詳細は [Mixin の概要](https://fabricmc.net/wiki/ja:tutorial:mixin_introduction) を参照してください。
 - **Gradle**: Mod のビルドとコンパイルを自動化するツール。Fabric では Mod のビルドに使用している。
-- **マッピング（Mappings）**: 難読化されたプログラムと人間が読めるプログラムの間における対応。
+- **マッピング（Mappings）**: 難読化されたコードと人間が読めるコードの間における対応。
 - **難読化（Obfuscation）**: プログラムを読みづらくする処理。Mojang が Minecraft のプログラムを守るために行う。
 - **再マッピング**: 難読化されたプログラムを人間が読めるプログラムに変更する処理。
 
-## Fabric とは {#what-is-fabric} {#what-is-fabric}
+## Fabric とは {#what-is-fabric}
 
-Fabric は Minecraft: Java 版向けの軽量な Modding ツールです。
+Fabric は Minecraft: Java 版向けの軽量な Modding ツール郡です。
 
-Fabric はシンプルで扱いやすい Modding プラットフォームを目指して設計されています。 Fabric はシンプルで扱いやすい Modding プラットフォームを目指して設計されています。 開発はコミュニティによって行われており、オープンソースです。つまり、誰でもプロジェクトに貢献することができます。
+Fabric はシンプルで扱いやすい Modding プラットフォームを目指して設計されています。 開発はコミュニティによって行われており、オープンソースです。つまり、誰でもプロジェクトに貢献することができます。
 
 Fabric には 4 つの主要なコンポーネントがあります:
 
 - **Fabric Loader**: Minecraft やその他のゲームやアプリケーション向けに設計された、柔軟でプラットフォームに依存しない Mod ローダー。
 - **Fabric Loom**: Mod の開発とデバッグを簡単にする Gradle プラグイン。
-- **Fabric API**: Modding をする際に使用する API とツールのセット。
+- **Fabric API**: Mod の開発に使用する API とツールのセット。
 - **Yarn**: オープンな Minecraft のマッピング。Creative Commons Zero ライセンスのもと、誰でも自由に使うことができる。
 
-## Fabric が Minecraft の Modding に必要である理由 {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft}
+## Fabric が Minecraft の Modding に必要である理由 {#why-is-fabric-necessary-to-mod-minecraft}
 
 > Modding とは、挙動を変更したり、新しい機能を追加したりするためにゲームを改造することです。Minecraft の場合、新しいアイテム、ブロック、エンティティの追加から、ゲームの仕様の変更、新しいゲームモードの追加まで、あらゆることが含まれます。
 
-Minecraft: Java 版は Mojang によって難読化されており、単独での Modding は困難です。 しかし、Fabric のような Modding ツールを使うことで、簡単に変更を加えることができます。 ツールの中には、Modding を支援するいくつかのマッピングシステムが存在します。 しかし、Fabric のような Modding ツールを使うことで、簡単に変更を加えることができます。 ツールの中には、Modding を支援するいくつかのマッピングシステムが存在します。
+Minecraft: Java 版は Mojang によって難読化されており、単独での Modding は困難です。 しかし、Fabric のような Modding ツールを使うことで、簡単に変更を加えることができます。 ツールの中には、Modding を支援するいくつかのマッピングが存在します。
 
-Loom はマッピングを用いて、難読化されたプログラムを人間が読める形式に再マッピングします。これにより、Mod 開発者が簡単にゲームのプログラムを理解し、変更を加えることができるようになります。 Yarn は人気があり、Modding に非常に優れたマッピングです。しかし、別のマッピングも存在します。 マッピングにはそれぞれ独自の強みや目的があります。 Yarn は人気があり、Modding に非常に優れたマッピングです。しかし、別のマッピングも存在します。 マッピングにはそれぞれ独自の強みや目的があります。
+Loom はマッピングを用いて、難読化されたプログラムを人間が読める形式に再マッピングします。これにより、Mod 開発者が簡単にゲームのプログラムを理解し、変更を加えることができるようになります。 Yarn は人気で非常に優れたマッピングですが、別のマッピングも使用できます。 マッピングにはそれぞれ独自の強みや目的があります。
 
-Loom は再マッピングされたプログラムにおける開発とコンパイルを容易にします。また、Fabric Loader はこれらの Mod をゲームに読み込ませることを可能にします。
+Loom を用いることで、再マッピングされたコードに対する Mod の開発・コンパイルを容易に行え、 Fabric Loader はこれらの Mod をゲームに読み込むことを可能にします。
 
-## Fabric API が提供するものと、必要である理由 {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed}
+## Fabric API が提供するものと、必要である理由 {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API は Modding をする際に使用する API とツールのセットです。
 

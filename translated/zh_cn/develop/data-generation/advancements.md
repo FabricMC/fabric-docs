@@ -1,6 +1,6 @@
 ---
 title: 进度生成
-description: 一份如何使用 datagen 生成进度的指南。
+description: 使用 Datagen 设置进度生成的指南。
 authors:
   - skycatminepokie
   - MattiDragon
