@@ -11,7 +11,7 @@ authors:
 - Activated: 레드스톤 장치 및 화로나 훈연기와 같은 블록에 사용됩니다.
 - Age: 작물, 식물, 묘목, 켈프 등에 사용됩니다.
 
-세계의 용량을 줄이고, TPS 문제를 막아주기 때문에 — 또한 블록 엔티티 안에 NBT 데이터를 저장하는 것의 필요가 없습니다. — 아마도 이것들이 왜 유용한지 알 수 있습니다.
+세계의 용량을 줄이고, 블록 엔티티 안에 NBT 데이터를 저장할 필요를 없게 하고, TPS 문제를 막는 데 유용하기에 블록 상태가 유용한 이유를 알 수 있을 겁니다!
 
 블록 상태 정의는 `assets/<mod id here>/blockstates` 폴더에서 찾을 수 있습니다.
 
@@ -25,13 +25,13 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-기둥 블록은 두 가지의 텍스처 — 윗면과 옆면 — 이 있습니다. `block/cube_column` 모델을 사용합니다.
+기둥 블록은 윗면과 옆면으로 된 두 가지의 텍스처가 있습니다. `block/cube_column` 모델을 사용합니다.
 
 언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/<mod id here>/textures/block` 에서 찾을 수 있습니다.
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">텍스처</DownloadEntry>
 
-기둥 블록이 두 개의 위치 — 수평과 수직 — 가 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다.
+기둥 블록이 수평과 수직, 두 개의 위치가 있기 때문에, 분리된 각각의 모델 파일을 만들어야 합니다:
 
 - `block/cube_column_horizontal` 모델을 확장하는 `condensed_oak_log_horizontal.json`.
 - `block/cube_column` 모델을 확장하는 `condensed_oak_log.json`.
@@ -40,10 +40,8 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 모든 블록 상태 파일 안의 수정자에 대한 더 자세한 보기는 [Minecraft 위키 - 모델 문단 (Block States) (영어)](https://minecraft.wiki/w/Tutorials/Models#Block_states)에 있습니다.
 :::
@@ -80,17 +78,13 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-:::warning
-`Block` 대신 사용자 지정 클래스를 이용하여 블록을 등록하는 것을 잊지 마세요!
-:::
-
-### 속성 사용하기 {#using-the-property}
+### 속성 시각화하기 {#visualizing-the-property}
 
 이 예시는 플레이어가 블록과 상호작용을 할 때 불 `activated` 속성을 뒤집습니다. 이를 위하여 `onUse` 메서드를 재정의할 수 있습니다:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### 속성 시각화하기 {#visualizing-the-property}
+### 속성 사용하기 {#using-the-property}
 
 블록 상태 파일을 만들기 전, 블록 모델과 같이 블록이 활성화되었을 때와 비활성화되었을 때의 텍스처를 제공하여야 합니다.
 
@@ -106,7 +100,9 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
----
+:::tip
+블록에 보관함 안에 표시될 수 있도록 [아이템 모델 설명](../items/first-item#creating-the-item-model-description)을 추가하는 것을 잊지 마세요!
+:::
 
 예시 블록이 바다 랜턴이기 때문에, 또한 `activated` 속성이 true (참)일 때 발광하도록 만들어야 합니다. 이는 블록을 등록할 때 생성자로 전달된 블록 설정을 통하여 완료될 수 있습니다.
 
@@ -116,10 +112,8 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
 모든 작업을 완료하면, 최종 결과는 다음과 같이 보일 것입니다:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">게임 내에서의 바다 랜턴 블록</VideoPlayer>
