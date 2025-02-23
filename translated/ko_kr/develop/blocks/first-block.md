@@ -19,8 +19,6 @@ Mojang은 바닐라 블록과 매우 비슷한 무언가를 수행합니다. `Bl
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 아이템처럼, 블록 인스턴스가 포함된 모든 정적 필드가 초기화되도록 클래스가 불러와졌음을 확인하여야 합니다.
 
 이것을 정적 초기화를 트리거하기 위해 모드 이니셜라이저에서 호출될 수 있는 더미 `initialize` 메서드를 만듦으로써 할 수도 있습니다.
@@ -47,6 +45,9 @@ public class ModBlocks {
 
 예시로, 흙의 속성을 가지고 있지만, 다른 재질의 간단한 블록을 만들어 볼 것입니다.
 
+- 블록의 고유 식별자로 사용되는 `RegistryKey<Block>`이 필요합니다. 이는 이전 유틸리티 메서드에서 `Registry.register`로 전달됩니다.
+- `RegistryKey<Block>`는 `AbstractBlock.Settings` 빌더에도 필요합니다.
+
 :::tip
 또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)` 을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT` 를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
 :::
@@ -63,7 +64,7 @@ public class ModBlocks {
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
+이것을 `initialize()` 함수 내에 배치하여야 합니다.
 
 이제 크리에이티브 인벤토리에 블록이 있고, 세계에 설치할 수 있음을 알 수 있습니다!
 
@@ -79,7 +80,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.mod_id.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -89,20 +90,19 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 모든 블록의 텍스처는 `assets/<mod id here>/textures/block` 폴더에서 찾을 수 있습니다. 예시 텍스처인 "거친 흙" 블록은 무료로 사용할 수 있습니다.
 
-<DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">텍스처</DownloadEntry>
 
-텍스처가 게임 안에서 보이게 하려면, "거친 흙" 블록의 다음 위치에서 찾을 수 있는 블록 및 아이템 모델을 만들어야 합니다:
+텍스처가 게임 안에서 보이게 하려면, "거친 흙" 블록의 다음 위치에서 찾을 수 있는 블록 및 아이템 모델을 만들어야 합니다: 이 블록에서, `block/cube_all`모델 타입을 사용할 것입니다.
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-이 아이템 모델은 꽤 단순합니다. 대부분의 블록 모델이 GUI에서 렌더되는 것을 지원하기 때문에그저 상위 모델로 블록 모델을 사용할 수 있습니다:
+보관함에 블록을 보이게 하려면 블록 모델을 보여주는 [아이템 모드 설명](../items/first-item#creating-the-item-model-description)을 만들어야 합니다. `assets/<mod id here>/models/block/condensed_dirt.json`
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
 
-하지만, 이 블록 모델은, 이 상황에서, `block/cube_all` 모델의 상위 모델이어야 합니다:
-
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+:::tip
+블록과 함께 `BlockItem`을 등록했다면 오직 아이템 모드 설명만 만들어도 됩니다!
+:::
 
 게임으로 불러왔을 때, 여전히 텍스처가 없을 수도 있습니다. 왜냐하면 블록 상태 정의를 추가해야 하기 때문입니다.
 
@@ -116,7 +116,9 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
+:::tip
 블록 상태는 정말 복잡합니다. 그러므로, [블록 상태](./blockstates) 페이지에서 다루겠습니다.
+:::
 
 게임을 다시 시작하거나, <kbd>F3</kbd>+<kbd>T</kbd>을 통해 다시 불러와 변경 사항을 적용하세요. 블록 텍스처가 인벤토리 안과 실제 세계에서 볼 수 있을 것입니다.
 
@@ -138,7 +140,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 아마 특정한 도구만을 이용하여 블록을 부술 수 있도록 하고 싶을 수 있습니다. 예시로 삽을 이용해 블록을 더 빠르게 부술 수 있도록 하고 싶게 할 수 있습니다.
 
-모든 도구 태그는 `data/minecraft/tags/block/mineable/` 폴더에 있을 것입니다. 파일 이름은 사용한 도구에 따라 다르며, 다음을 따라 달라집니다:
+하지만, 이 블록 모델은, 이 상황에서, `block/cube_all` 모델의 상위 모델이어야 합니다:
 
 - `hoe.json` (괭이)
 - `axe.json` (도끼)
