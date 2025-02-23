@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Playing Sounds {#playing-sounds}
-
 Minecraft has a big selection of sounds which you can choose from. Check out the `SoundEvents` class to view all the vanilla sound event instances that Mojang has provided.
 
 ## Using Sounds in Your Mod {#using-sounds}

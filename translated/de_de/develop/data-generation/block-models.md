@@ -8,8 +8,6 @@ authors:
   - its-miroma
 ---
 
-# Generation von Blockmodellen {#block-model-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::
@@ -203,7 +201,7 @@ Aber für was sind die Parameter?
 
 Zunächst erhalten wir den `Identifier` des einzelnen Stufenmodell mit `VERTICAL_SLAB.upload()`. Dann erhalten wir den `Identifier` des vollen Blockmodells mit `ModelIds.getBlockModelId()`, und übergeben diese beiden Modelle an `createVerticalSlabBlockStates`.
 Der `BlockStateSupplier` wird an den `blockStateCollector` übergeben, so dass die JSON-Dateien tatsächlich generiert werden.
-Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit BlockStateModelGenerator.registerParentedItemModel()\`.
+Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit BlockStateModelGenerator.registerParentedItemModel()\\`.
 
 Und dies ist alles! Jetzt müssen wir nur noch unsere Methode in unserem `ModelProvider` aufrufen:
 

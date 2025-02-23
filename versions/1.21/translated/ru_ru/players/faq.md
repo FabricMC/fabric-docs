@@ -3,8 +3,6 @@ title: Часто задаваемые вопросы для игроков
 description: Ответы на часто задаваемые вопросы касательно Fabric, поступающие от игроков и администраторов серверов.
 ---
 
-# Часто задаваемые вопросы {#faq}
-
 Есть множество вопросов, которые часто задают, поэтому мы составили их список здесь.
 
 ## Какие версии Minecraft поддерживает Fabric? {#what-minecraft-versions-does-fabric-support}
@@ -19,7 +17,7 @@ description: Ответы на часто задаваемые вопросы к
 
 Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4), однако некоторые могут размещать их на своих личных сайтах или на других платформах, таких как репозитории GitHub.
 
-## Где я могу найти готовые сборки модов для Fabric?  {#where-can-i-find-premade-fabric-modpacks}
+## Где я могу найти готовые сборки модов для Fabric? {#where-can-i-find-premade-fabric-modpacks}
 
 Вы можете найти готовые сборки модов для Fabric на различных платформах, таких как:
 

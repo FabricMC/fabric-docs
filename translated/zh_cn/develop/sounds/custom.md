@@ -5,8 +5,6 @@ authors:
   - JR1811
 ---
 
-# 创建自定义声音{#creating-custom-sounds}
-
 ## 准备音频文件{#preparing-the-audio-file}
 
 你的音频文件需要转化为特定格式。 OGG Vorbis 是一种用于音频等多媒体数据的开放式容器格式，Minecraft 的声音文件就使用了这种格式。 为了避免 Minecraft 处理声音传播距离的问题，你的音频必须只有单声道（Mono）。

@@ -9,8 +9,6 @@ authors:
 search: false
 ---
 
-# Pozioni
-
 Le pozioni sono oggetti consumabili che conferiscono un effetto a un'entità. Un giocatore può preparare delle pozioni usando l'Alambicco oppure ottenerle come oggetti attraverso varie meccaniche di gioco.
 
 ## Pozioni Personalizzate

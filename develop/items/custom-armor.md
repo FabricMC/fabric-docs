@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Custom Armor {#custom-armor}
-
 Armor provides the player with increased defense against attacks from mobs and other players.
 
 ## Creating an Armor Materials Class {#creating-an-armor-materials-class}

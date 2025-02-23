@@ -19,8 +19,6 @@ authors:
 search: false
 ---
 
-# Befehle erstellen
-
 Durch das Erstellen von Befehlen kann ein Mod-Entwickler Funktionen hinzufügen, die durch einen Befehl verwendet werden können. Dieses Tutorial wird dir erklären, wie man Befehle registriert und die allgemeine Befehlsstruktur von Brigadier.
 
 :::info
@@ -128,8 +126,6 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## FAQ
-
-<br>
 
 ### Warum kompiliert mein Code nicht?
 

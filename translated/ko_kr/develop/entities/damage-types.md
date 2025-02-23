@@ -7,8 +7,6 @@ authors:
   - mattidragon
 ---
 
-# 피해 유형 {#damage-types}
-
 피해 유형은 엔티티가 입을 수 있는 피해(대미지)의 종류를 의미합니다. Minecraft 1.19.4 부터, 새로운 피해 유형의 추가는 데이터 기반이 되어, JSON 파일을 통해 생성됩니다.
 
 ## 피해 유형 추가하기 {#creating-a-damage-type}

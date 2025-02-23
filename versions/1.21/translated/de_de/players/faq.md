@@ -3,8 +3,6 @@ title: Häufig gestellte Fragen für Spieler
 description: Häufig gestellte Fragen für Spieler und Serveradministratoren in Bezug auf Fabric.
 ---
 
-# Häufig gestellte Fragen {#faq}
-
 Es gibt viele Fragen, die häufig gestellt werden, deshalb haben wir hier eine Liste dieser Fragen zusammengestellt.
 
 ## Welche Minecraft Versionen werden von Fabric unterstützt? {#what-minecraft-versions-does-fabric-support}

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 命令建议{#command-suggestions}
-
 Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give` 命令中。 该系统允许您向用户建议命令参数的值，然后他们可以从中选择——这是使你的命令更加用户友好且用起来舒适的好办法。
 
 ## 建议提供器{#suggestion-providers}

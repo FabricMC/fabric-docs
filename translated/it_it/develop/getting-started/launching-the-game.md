@@ -6,8 +6,6 @@ authors:
   - Tenneb22
 ---
 
-# Avviare il Gioco {#launching-the-game}
-
 Loom di Fabric fornisce una varietà di profili d'avvio che ti aiutano ad avviare ed effettuare debug delle tue mod in un ambiente di gioco live. Questa guida tratterà dei vari profili d'avvio e di come usarli per effettuare debug e per testare le tue mod nel gioco.
 
 ## Profili d'Avvio {#launch-profiles}

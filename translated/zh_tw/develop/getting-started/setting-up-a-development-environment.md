@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# 建置開發環境 {#setting-up-a-development-environment}
-
 要開始用 Fabric 開發模組，需要使用 IntelliJ IDEA 建置開發環境。
 
 ## 安裝 JDK 21 {#installing-jdk-21}
@@ -52,4 +50,4 @@ Minecraft Development 插件提供對 Fabric 模組開發提供支援，是要�
 
 你可以通過打開IntelliJ IDEA，然後前往 `File > Settings > Plugins > Marketplace Tab` - 在搜索欄中搜尋 `Minecraft Development`，然後點擊 `Install` 按鈕來安裝它。
 
-或者你可以從 [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) 下載它，然後點擊 `File > Settings > Plugins > Install Plugin From Disk` 來安裝。
+你可以通過打開IntelliJ IDEA，然後前往 `File > Settings > Plugins > Marketplace Tab` - 在搜索欄中搜尋 `Minecraft Development`，然後點擊 `Install` 按鈕來安裝它。

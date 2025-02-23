@@ -6,8 +6,6 @@ authors:
   - LordEnder-Kitty
 ---
 
-# Текст і переклади {#text-and-translations}
-
 Щоразу, коли Minecraft промальовує текст у грі, він, ймовірно, визначається за допомогою об’єкта `Text`.
 Цей власний тип використовується замість `String` для більш розширеного форматування,
 включаючи кольори, жирний, зашифрований і події натискання. Вони також забезпечують легкий доступ
@@ -109,7 +107,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Ви можете бути знайомі зі стандартами форматування Minecraft:
 
-Ви можете застосувати ці стилі форматування за допомогою переліку `Formatting` класу `MutableText`:
+Ви можете бути знайомі зі стандартами форматування Minecraft:
 
 ```java
 MutableText result = Text.literal("Hello World!")

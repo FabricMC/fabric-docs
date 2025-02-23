@@ -5,13 +5,11 @@ authors:
   - IMB11
 ---
 
-# Поиск безопасных модов {#finding-mods}
-
 Во-первых, доверие субъективно, и вы всегда должны руководствоваться своим собственным мнением при загрузке модов. Тем не менее есть некоторые вещи, которые вы можете сделать, чтобы найти заслуживающие доверия моды.
 
 ## 1. Используйте безопасные источники {#trustworthy-source}
 
-Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
+Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\\&gameVersionTypeId=4).
 
 Эти сайты проверяют, являются ли моды тем, за что они себя выдают, и что они не содержат вредоносного кода. Вы также можете сообщить о вредоносных модах на этих сайтах, и они примут меры относительно быстро.
 

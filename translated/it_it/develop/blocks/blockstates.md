@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Stati dei Blocchi {#block-states}
-
 Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Minecraft che contiene informazioni riguardanti il blocco sotto forma di proprietà - ecco alcuni esempi di proprietà che in vanilla sono memorizzate come stati:
 
 - Rotazione: Usato principalmente per i tronchi e per altri blocchi naturali.
@@ -35,20 +33,17 @@ Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella
 
 Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare due file di modelli separati:
 
-- 'condensed_oak_log_horizontal.json`che estende il modello`block/cube_column_horizontal\`.
+- 'condensed_oak_log_horizontal.json`che estende il modello`block/cube_column_horizontal\\`.
 - `condensed_oak_log.json` che estende il modello `block/cube_column`.
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
-Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)]
-(https://minecraft.wiki/w/Tutorials/Models#Block_states).
+Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
 
 Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la magia—i pilastri hanno tre assi e quindi useremo modelli specifici per i seguenti casi:
@@ -109,8 +104,6 @@ Poiché questo blocco ha solo due possibili varianti, dato che ha solo una propr
 Non dimenticare di aggiungere una [Descrizione del Modello d'Oggetto](../items/first-item#creating-the-item-model-description) per il blocco così che appaia nell'inventario!
 :::
 
----
-
 Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luce quando la proprietà `activated` è `true`. Questo si può ottenere tramite le impostazioni del blocco, passate al costruttore durante la registrazione del blocco.
 
 Puoi usare il metodo `luminance` per impostare il livello di luce emessa dal blocco, possiamo creare un metodo statico nella classe `PrismarineLampBlock` per restituire il livello di luce in base alla proprietà `activated`, e passarlo come riferimento a un metodo nel metodo `luminance`:
@@ -118,8 +111,6 @@ Puoi usare il metodo `luminance` per impostare il livello di luce emessa dal blo
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

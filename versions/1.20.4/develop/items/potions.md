@@ -9,8 +9,6 @@ authors:
 search: false
 ---
 
-# Potions {#potions}
-
 Potions are consumables that grants an entity an effect. A player can brew potions using a Brewing Stand or obtain them
 as items through various other game mechanics.
 

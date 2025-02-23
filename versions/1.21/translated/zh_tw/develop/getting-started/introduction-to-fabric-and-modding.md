@@ -8,8 +8,6 @@ authors-nogithub:
   - basil4088
 ---
 
-# Fabric 與模組開發簡介 {#introduction-to-fabric-and-modding}
-
 ## 先決條件 {#prerequisites}
 
 在開始之前，您應該具備 Java 開發的基礎知識，以及對物件導向程式設計 (OOP) 的理解。

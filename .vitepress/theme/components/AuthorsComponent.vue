@@ -11,7 +11,7 @@ const labelNoGitHub = ref<string>("");
 
 function refreshOptions() {
   heading.value = data.theme.value.authors.heading;
-  labelNoGitHub.value = data.theme.value.authors.nogithub;
+  labelNoGitHub.value = data.theme.value.authors.noGitHub;
 
   authors.value = [];
   if (data.frontmatter.value["authors"]) {

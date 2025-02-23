@@ -12,8 +12,6 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Efectos de Estado
-
 Los efectos de estado, o simplemente estados, son una condición que puede afectar a una entidad. Pueden ser positivos, negativos o neutrales en naturaleza. El juego base aplica estos efectos de varias maneras como comida, pociones, etc.
 
 El comando `/effect` puede ser usado para aplicar efectos en una entidad.

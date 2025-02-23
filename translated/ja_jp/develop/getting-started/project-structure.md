@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# プロジェクトの構成 {#project-structure}
-
 このページでは、Fabric Mod プロジェクトの構成と、各ファイルやフォルダの目的について説明します。
 
 ## `fabric.mod.json` {#fabric-mod-json}

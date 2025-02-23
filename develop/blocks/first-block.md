@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Creating Your First Block {#creating-your-first-block}
-
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
 
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ You should put this method in a class called `ModBlocks` (or whatever you want t
 Mojang does something extremely similar like this with vanilla blocks; you can refer to the `Blocks` class to see how they do it.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 
@@ -45,7 +41,7 @@ public class ModBlocks {
 
 Similarly to items, blocks take a `Blocks.Settings` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
 
-We will not cover all the options here—you can view the class yourself to see the various options, which should be self-explanatory.
+We will not cover all the options here: you can view the class yourself to see the various options, which should be self-explanatory.
 
 For example purposes, we will be creating a simple block that has the properties of dirt, but is a different material.
 
@@ -69,8 +65,6 @@ For this example, we'll use a custom item group created in the [Custom Item Grou
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 You should place this within the `initialize()` function of your class.
-
----
 
 You should now notice that your block is in the creative inventory, and can be placed in the world!
 

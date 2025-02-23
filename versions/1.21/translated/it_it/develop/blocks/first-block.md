@@ -7,8 +7,6 @@ authors:
   - its-miroma
 ---
 
-# Creare il Tuo Primo Blocco {#creating-your-first-block}
-
 I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in registry.
 
 ## Preparare la Tua Classe dei Blocchi {#preparing-your-blocks-class}
@@ -20,8 +18,6 @@ Dovresti mettere questo metodo in una classe chiamata `ModBlocks` (o qualsiasi a
 Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla classe `Blocks` per sapere come fanno loro.
 
 @[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
-
----
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
@@ -65,8 +61,6 @@ Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo cre
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 Dovresti ora notare che il tuo blocco è nell'inventario in creativa, e può essere posizionato nel mondo!
 
 ![Blocco nel mondo senza né modello né texture](/assets/develop/blocks/first_block_0.png)
@@ -75,7 +69,7 @@ Ci sono alcuni problemi tuttavia - il blocco non ha nome, non ha texture e non h
 
 ## Aggiungere Traduzioni del Blocco {#adding-block-translations}
 
-Per aggiungere una traduzione, devi creare una chiave di traduzione nel tuo file di traduzioni - `assets/<mod id here>/lang/en_us.json`.
+Per aggiungere una traduzione, devi creare una chiave di traduzione nel tuo file di traduzioni - `assets/mod-id/lang/en_us.json`.
 
 Minecraft userà questa traduzione nell'inventario in creativa e in altri posti in cui il nome del blocco viene mostrato, come nel feedback dei comandi.
 
@@ -89,14 +83,14 @@ Per applicare le modifiche, puoi riavviare il gioco o costruire la tua mod e pre
 
 ## Modelli e Texture {#models-and-textures}
 
-Tutte le texture dei blocchi si trovano nella cartella `assets/<mod id here>/textures/block` - ti forniamo una texture di esempio del blocco di "Terra Condensata", che sei libero di usare.
+Tutte le texture dei blocchi si trovano nella cartella `assets/mod-id/textures/block` - ti forniamo una texture di esempio del blocco di "Terra Condensata", che sei libero di usare.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
 Per fare in modo che la texture sia visibile nel gioco, devi creare un blocco e un modello di oggetto, presenti nelle posizioni appropriate al blocco di "Terra Condensata":
 
-- `assets/<mod id here>/models/block/condensed_dirt.json`
-- `assets/<mod id here>/models/item/condensed_dirt.json`
+- `assets/mod-id/models/block/condensed_dirt.json`
+- `assets/mod-id/models/item/condensed_dirt.json`
 
 Il modello dell'oggetto è piuttosto semplice, basta che usi il modello del blocco come genitore - poiché la GUI supporta il rendering della maggior parte dei modelli dei blocchi:
 
@@ -126,7 +120,7 @@ Riavviando il gioco o ricaricando con <kbd>F3</kbd>+<kbd>T</kbd> per applicare l
 
 ## Aggiungere Drop al Blocco {#adding-block-drops}
 
-Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non droppa - potresti volere questa funzionalità, ma per fare in modo che il blocco droppi come oggetto quando viene rotto devi implementarne la loot table - il file della loot table dovrebbe essere nella cartella `data/<mod id here>/loot_table/blocks/`.
+Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non droppa - potresti volere questa funzionalità, ma per fare in modo che il blocco droppi come oggetto quando viene rotto devi implementarne la loot table - il file della loot table dovrebbe essere nella cartella `data/mod-id/loot_table/blocks/`.
 
 :::info
 Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).

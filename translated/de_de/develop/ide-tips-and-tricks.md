@@ -6,8 +6,6 @@ authors:
   - AnAwesomGuy
 ---
 
-# Tipps und Tricks für die Entwicklungsumgebung {#ide-tips-and-tricks}
-
 Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so schnell und angenehm wie möglich zu gestalten, bereit. Benutze diese je nach Bedarf.
 Es kann eine gewisse Einarbeitungszeit brauchen, um sich an die Tastenkombinationen und anderen Optionen zu gewöhnen. Diese Seite kann dafür als eine Hilfe dafür genutzt werden.
 
@@ -16,7 +14,7 @@ Tastenkombinationen im Text beziehen sich auf die Standardtastaturbelegung von I
 Schaue unter `Datei > Einstellungen > Tastaturbelegung` nach oder suche woanders nach dieser Funktion, wenn du ein anderes Tastaturlayout verwendest.
 :::
 
-## Fortbewegung in Projekten{#traversing-projects}
+## Fortbewegung in Projekten {#traversing-projects}
 
 ### Manuell {#manually}
 
@@ -24,14 +22,14 @@ IntelliJ bietet mehrere Möglichkeiten, sich im Projekt fortzubewegen. Falls die
 
 ![Gradle Tasks](/assets/develop/misc/using-the-ide/traversing_01.png)
 
-Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters Externe Bibliotheken gefunden werden.
+Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
 Wenn dein Projekt geteilte Quellen aus dem Online [Template Modgenerator](https://fabricmc.net/develop/template) verwendet, gibt es zwei Quellen, wie durch den Namen (client/common) angegeben.
 Zusätzlich werden auch andere Quellen von Projekten, Bibliotheken und Abhängigkeiten, die über die Datei `build.gradle` importiert werden, verfügbar sein.
-Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
-
-![Externe Bibliothek](/assets/develop/misc/using-the-ide/traversing_02_1.png)
+Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters Externe Bibliotheken gefunden werden.
 
 ![Geteilte Quellen](/assets/develop/misc/using-the-ide/traversing_02_2.png)
+
+![Externe Bibliothek](/assets/develop/misc/using-the-ide/traversing_02_1.png)
 
 ### Suchen {#search}
 
@@ -72,9 +70,9 @@ Es ist möglich, im Fenster `Bookmarks` mehrere Lesezeichenlisten gleichzeitig z
 
 ![Lesezeichen Fenster](/assets/develop/misc/using-the-ide/traversing_06.png)
 
-## Klassen analysieren {#analyzing-classes}
+## Klassenstruktur {#structure-of-a-class}
 
-### Klassenstruktur {#structure-of-a-class}
+### Klassen analysieren {#analyzing-classes}
 
 Durch das Öffnen des Fensters `Struktur` (<kbd>⌘/Alt</kbd>+<kbd>7</kbd>) erhältst du einen Überblick über deine aktuell aktive Klasse. Du kannst sehen, welche Klassen und Enums sich in dieser Datei befinden, welche Methoden implementiert wurden und welche Felder und Variablen deklariert sind.
 
@@ -88,9 +86,9 @@ Indem du den Cursor auf einen Klassennamen setzt und <kbd>⌘/STRG</kbd>+<kbd>H<
 
 ![Typenhierachie Fenster](/assets/develop/misc/using-the-ide/analyzing_02.png)
 
-## Code-Utility {#code-utility}
+## Code Vervollständigung {#code-completion}
 
-### Code Vervollständigung {#code-completion}
+### Code-Utility {#code-utility}
 
 Die Code-Vervollständigung sollte standardmäßig aktiviert sein. Du bekommst die Empfehlungen automatisch beim Schreiben deines Codes.
 Wenn du sie versehentlich geschlossen oder den Mauszeiger an eine neue Stelle bewegt hast, kannst du sie mit <kbd>⌘/STRG</kbd>+<kbd>Leertaste</kbd> wieder öffnen.
@@ -135,7 +133,7 @@ Mit dieser Funktion wird jedes Code-Vorkommen des umbenannten Codes umbenannt un
 
 Du kannst den Code auch entsprechend deinem Codestil umformatieren.
 Wähle dazu den Code aus, den du neu formatieren möchtest (wenn nichts ausgewählt ist, wird die gesamte Datei neu formatiert) und drücke <kbd>⌘/STRG</kbd>+<kbd>⌥/ALT</kbd>+<kbd>L</kbd>.
-Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java `.
+Um zu ändern, wie IntelliJ Code formatiert, siehst du die Einstellungen unter `Datei > Einstellungen > Editor > Codestil > Java`.
 
 #### Kontextaktionen {#context-actions}
 
@@ -143,9 +141,9 @@ Mit Hilfe von Kontextaktionen können bestimmte Codeabschnitte kontextabhängig 
 Bewege dazu einfach den Mauszeiger auf den Bereich, den du überarbeiten möchtest, und drücke <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> oder klicke Sie auf die Glühbirne auf der linken Seite.
 Es erscheint ein Popup-Fenster mit Kontextaktionen, die für den ausgewählten Code verwendet werden können.
 
-![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_01.png)
-
 ![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_02.png)
+
+![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_01.png)
 
 ### Suchen und Ersetzen von Dateiinhalten {#search-and-replace-file-content}
 
@@ -168,8 +166,6 @@ Wenn du einen Text markierst und <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>↑ N
 
 In IntelliJ ist die Tastenkombination für `Redo` nicht unbedingt die übliche <kbd>⌘/STRG</kbd>+<kbd>Y</kbd> (Zeile löschen).
 Stattdessen kann es <kbd>⌘/STRG</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> sein. Du kannst dies in der **Tastaturbelegung** ändern.
-
-<!-- markdownlint-disable-next-line search-replace -->
 
 Weitere Tastenkombinationen findest du in der [IntelliJ-Dokumentation](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html).
 
@@ -259,11 +255,11 @@ Wenn du merkst, dass du zu viele Warnungen unterdrückst, solltest du deinen Cod
 
 Bei der Arbeit am Code kann es hilfreich sein, Notizen zu hinterlassen, was noch zu erledigen ist. Manchmal entdeckst du auch ein potenzielles Problem im Code, aber du willst nicht aufhören, dich auf das aktuelle Problem zu konzentrieren. Verwende in diesem Fall die Kommentare `TODO` oder `FIXME`.
 
-![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_03.png)
+![TODO und FIXME Kommentar](/assets/develop/misc/using-the-ide/comments_04.png)
 
 IntelliJ behält sie im `TODO`-Fenster im Auge und kann dich benachrichtigen, wenn du Code committen willst, der diese Art von Kommentaren verwendet.
 
-![TODO und FIXME Kommentar](/assets/develop/misc/using-the-ide/comments_04.png)
+![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_03.png)
 
 ![Kommentar mit TODO](/assets/develop/misc/using-the-ide/comments_05.png)
 

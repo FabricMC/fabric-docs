@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalar Java en Linux
-
 Esta guía te enseñará como instalar Java 17 en Linux.
 
 ## 1. Verifica si Java ya está instalado

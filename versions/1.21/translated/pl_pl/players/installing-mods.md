@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Instalowanie modów {#installing-mods}
-
 Ten przewodnik pokaże ci, jak zainstalować mody do Fabric dla oficjalnego launchera Minecrafta.
 
 W przypadku innych launcherów należy zapoznać się z ich dokumentacją.

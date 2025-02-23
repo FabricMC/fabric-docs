@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 自定义物品交互{#custom-item-interactions}
-
 基础物品的功能是有限的——你还是需要个能在使用时与世界交互的物品。
 
 有些关键的类你必须理解，然后才能看看原版的物品事件。
@@ -42,7 +40,7 @@ TypedActionResult.success(heldStack);
 `Item` 类有许多方法可以被重写，从而为物品添加额外的功能。
 
 :::info
-[Playing SoundEvents](../sounds/using-sounds) 这里有一个比较好的例子, 他通过重写`useOnBlock` 实现了在玩家右击方块时播放声音的功能。
+[播放声音事件](../sounds/using-sounds) 这里有一个比较好的例子，它通过重写 `useOnBlock` 实现了在玩家右击方块时播放声音的功能。
 :::
 
 | 方法              | 信息                                                 |
@@ -68,4 +66,4 @@ TypedActionResult.success(heldStack);
 
 正如你所见，闪电应该在你（玩家）面前 10 个方块远处产生。
 
-<VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />
+<VideoPlayer src="/assets/develop/items/custom_items_0.webm">使用 Lightning Stick</VideoPlayer>

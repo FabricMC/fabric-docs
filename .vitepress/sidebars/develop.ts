@@ -82,7 +82,7 @@ export default [
       },
       {
         text: "develop.items.custom-enchantment-effects",
-        link: "/develop/items/custom-enchantment-effects"
+        link: "/develop/items/custom-enchantment-effects",
       },
       {
         text: "develop.items.custom-data-components",
@@ -113,9 +113,9 @@ export default [
           {
             text: "develop.blocks.block-entity-renderer",
             link: "/develop/blocks/block-entity-renderer",
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
   },
   {
@@ -209,38 +209,38 @@ export default [
     ],
   },
   {
-	  text: "develop.dataGeneration",
-	  collapsed: true,
-	  items: [
-		{
-			text: "develop.dataGeneration.setup",
-			link: "/develop/data-generation/setup"
-		},
-		{
-			text: "develop.dataGeneration.tags",
-			link: "/develop/data-generation/tags"
-		},
-		{
-			text: "develop.dataGeneration.translations",
-			link: "/develop/data-generation/translations"
-		},
-		{
-			text: "develop.dataGeneration.advancements",
-			link: "/develop/data-generation/advancements"
-		},
-		{
-			text: "develop.dataGeneration.recipes",
-			link: "/develop/data-generation/recipes"
-		},
-		{
-			text: "develop.dataGeneration.lootTables",
-			link: "/develop/data-generation/loot-tables"
-		},
-        {
-            text: "develop.dataGeneration.blockModels",
-            link: "/develop/data-generation/block-models"
-        }
-	  ]
+    text: "develop.dataGeneration",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.dataGeneration.setup",
+        link: "/develop/data-generation/setup",
+      },
+      {
+        text: "develop.dataGeneration.tags",
+        link: "/develop/data-generation/tags",
+      },
+      {
+        text: "develop.dataGeneration.translations",
+        link: "/develop/data-generation/translations",
+      },
+      {
+        text: "develop.dataGeneration.advancements",
+        link: "/develop/data-generation/advancements",
+      },
+      {
+        text: "develop.dataGeneration.recipes",
+        link: "/develop/data-generation/recipes",
+      },
+      {
+        text: "develop.dataGeneration.lootTables",
+        link: "/develop/data-generation/loot-tables",
+      },
+      {
+        text: "develop.dataGeneration.blockModels",
+        link: "/develop/data-generation/block-models",
+      },
+    ],
   },
   {
     text: "develop.misc",
@@ -265,6 +265,24 @@ export default [
       {
         text: "develop.misc.automatic-testing",
         link: "/develop/automatic-testing",
+      },
+      {
+        text: "develop.misc.loom",
+        link: "/develop/loom",
+        items: [
+          {
+            text: "develop.misc.loom.fabric-api",
+            link: "/develop/loom/fabric-api",
+          },
+          {
+            text: "develop.misc.loom.options",
+            link: "/develop/loom/options",
+          },
+          {
+            text: "develop.misc.loom.prod",
+            link: "/develop/loom/production-run-tasks",
+          }
+        ]
       },
     ],
   },

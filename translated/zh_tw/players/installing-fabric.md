@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# 安裝 Fabric {#installing-fabric}
-
 這個指南將引導你在官方 Minecraft 啟動器上安裝 Fabric。
 
 對於第三方啟動器，你應該參考它們的文件。

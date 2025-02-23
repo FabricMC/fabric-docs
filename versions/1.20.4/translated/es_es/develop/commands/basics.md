@@ -19,8 +19,6 @@ authors:
 search: false
 ---
 
-# Crear Comandos
-
 La creación de comandos le permite a desarrolladores de mods añadir funcionalidad que puede ser usada mediante un comando. Este tutorial te enseñará como registrar comandos y la estructura general de comandos de Brigadier.
 
 :::info
@@ -126,8 +124,6 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 @[code lang=java transcludeWith=:::12](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
 
 ## Preguntas Frequentes
-
-<br>
 
 ### ¿Por qué mi código no compila?
 

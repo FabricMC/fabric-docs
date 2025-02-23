@@ -8,8 +8,6 @@ authors:
   - JaaiDead
 ---
 
-# Tränke {#potions}
-
 Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. Spieler können Tränke mit einem Braustand brauen oder durch andere Spielmechaniken erhalten.
 
 ## Benutzerdefinierte Tränke {#custom-potions}

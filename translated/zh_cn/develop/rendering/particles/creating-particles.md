@@ -5,8 +5,6 @@ authors:
   - Superkat32
 ---
 
-# 创建自定义粒子{#creating-custom-particles}
-
 粒子是一种强大的工具， 可以为美丽的场景增添氛围，也可以为你的 boss 战添加紧张感。 让我们创建一个自定义粒子吧！
 
 ## 注册自定义粒子{#register-a-custom-particle}

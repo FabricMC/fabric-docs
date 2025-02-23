@@ -18,8 +18,6 @@ authors-nogithub:
   - siglong
 ---
 
-# Настройка среды разработки {#setting-up-a-development-environment}
-
 Для начала разработки модов с использованием Fabric вам нужно настроить среду разработки в IntelliJ IDEA.
 
 ## Установка JDK 21 {#installing-jdk-21}

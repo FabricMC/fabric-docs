@@ -19,7 +19,7 @@ function getTranslationsResolver(
     fileName
   );
 
-  const strings = existsSync(file)
+  const strings: { [key: string]: string } = existsSync(file)
     ? JSON.parse(readFileSync(file, "utf-8"))
     : {};
 
@@ -73,11 +73,11 @@ export function processExistingEntries(
       JSON.stringify(sidebar[`/${version}/develop/`])
     );
 
-    sidebar[`/${locale}/${version}/players/`] = getLocalisedSidebar(
+    sidebar[`/${locale}/${version}/players/`] = getLocalizedSidebar(
       playersToCopy,
       locale
     );
-    sidebar[`/${locale}/${version}/develop/`] = getLocalisedSidebar(
+    sidebar[`/${locale}/${version}/develop/`] = getLocalizedSidebar(
       developToCopy,
       locale
     );
@@ -87,11 +87,11 @@ export function processExistingEntries(
   }
 
   for (const version of versionsMet) {
-    sidebar[`/${version}/players/`] = getLocalisedSidebar(
+    sidebar[`/${version}/players/`] = getLocalizedSidebar(
       sidebar[`/${version}/players/`] as Fabric.SidebarItem[],
       "root"
     );
-    sidebar[`/${version}/develop/`] = getLocalisedSidebar(
+    sidebar[`/${version}/develop/`] = getLocalizedSidebar(
       sidebar[`/${version}/develop/`] as Fabric.SidebarItem[],
       "root"
     );
@@ -100,14 +100,14 @@ export function processExistingEntries(
   return sidebar;
 }
 
-export function getLocalisedSidebar(
+export function getLocalizedSidebar(
   sidebar: Fabric.SidebarItem[],
   localeCode: string
 ): Fabric.SidebarItem[] {
   const sidebarResolver = getSidebarResolver(localeCode);
-  const localisedSidebar = JSON.parse(JSON.stringify(sidebar));
+  const localizedSidebar = JSON.parse(JSON.stringify(sidebar));
 
-  for (const item of localisedSidebar) {
+  for (const item of localizedSidebar) {
     if (item.translatable === false) {
       continue;
     }
@@ -119,11 +119,11 @@ export function getLocalisedSidebar(
     }
 
     if (item.items) {
-      item.items = getLocalisedSidebar(item.items, localeCode);
+      item.items = getLocalizedSidebar(item.items, localeCode);
     }
   }
 
-  return localisedSidebar;
+  return localizedSidebar;
 }
 
 /**
@@ -141,7 +141,7 @@ export function generateTranslatedSidebars(
 
   for (const key of Object.keys(sidebars)) {
     const sidebar = sidebars[key];
-    translatedSidebars[key] = getLocalisedSidebar(sidebar, "root");
+    translatedSidebars[key] = getLocalizedSidebar(sidebar, "root");
   }
 
   const translatedFolder = resolve(dirname, "..", "translated");
@@ -151,7 +151,7 @@ export function generateTranslatedSidebars(
     .map((dirent) => dirent.name)) {
     for (const key of Object.keys(sidebars)) {
       const sidebar = sidebars[key];
-      translatedSidebars["/" + folder + key] = getLocalisedSidebar(
+      translatedSidebars["/" + folder + key] = getLocalizedSidebar(
         sidebar,
         folder
       );
@@ -191,7 +191,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     // https://vitepress.dev/reference/default-theme-config
     authors: {
       heading: websiteResolver("authors.heading"),
-      nogithub: websiteResolver("authors.nogithub"),
+      noGitHub: websiteResolver("authors.no_github"),
     },
 
     banner: {
@@ -219,6 +219,16 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     },
 
     externalLinkIcon: true,
+
+    footer: {
+      copyright: websiteResolver("footer.copyright").replace(
+        "%s",
+        `<a href=\"https://github.com/FabricMC/fabric-docs/blob/main/LICENSE\" target=\"_blank\" rel=\"noreferrer\">${websiteResolver(
+          "footer.license"
+        )}</a>`
+      ),
+      message: websiteResolver("footer.message"),
+    },
 
     langMenuLabel: websiteResolver("lang_switcher"),
 
@@ -392,7 +402,7 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
           " - " +
           regionNameInEnglish.of(region);
 
-    const localisedName =
+    const localizedName =
       localeNameInLocale.of(language)![0].toUpperCase() +
       localeNameInLocale.of(language)!.slice(1);
 
@@ -402,7 +412,7 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
 
     locales[localeCode] = {
       description: websiteResolver("description"),
-      label: `${countryFlag} ${localisedName} (${englishName})`,
+      label: `${countryFlag} ${localizedName} (${englishName})`,
       lang: localeCode,
       link: `/${localeCode}/`,
       themeConfig: generateTranslatedThemeConfig(localeCode),

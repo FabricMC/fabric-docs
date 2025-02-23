@@ -7,8 +7,6 @@ authors:
   - modmuss50
 ---
 
-# Installation von Fabric {#installing-fabric}
-
 <!-- #region common -->
 
 Dieser Leitfaden bezieht sich ausschließlich auf den offiziellen Minecraft Launcher. Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.

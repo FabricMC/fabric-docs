@@ -5,21 +5,19 @@ authors:
   - IMB11
 ---
 
-# Встановлення Java у Windows {#installing-java-on-windows}
+Інструкція по тому як встановити Java 21 у Windows.
 
 Інструкція по тому як встановити Java 21 у Windows.
 
-Запускач Minecraft постачається з власною інсталяцією Java, тому цей розділ актуальний, лише якщо ви хочете використовувати встановлювач на основі Fabric `.jar` або якщо ви хочете використовувати сервер Minecraft `.jar`.
-
 ## 1. Перевірте, чи Java уже встановлено {#1-check-if-java-is-already-installed}
+
+Щоб перевірити, чи Java вже встановлено, потрібно спочатку відкрити командний рядок.
 
 Щоб перевірити, чи Java вже встановлено, потрібно спочатку відкрити командний рядок.
 
 Ви можете зробити це, натиснувши <kbd>Win</kbd> <kbd>R</kbd> і ввівши `cmd.exe` у поле, що з’явиться.
 
 ![Діалогове вікно запуску Windows із "cmd.exe" на панелі запуску](/assets/players/installing-java/windows-run-dialog.png)
-
-Відкривши командний рядок, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
 Якщо команда виконана успішно, ви побачите щось подібне. Якщо команда не вдалася, перейдіть до наступного кроку.
 
@@ -33,11 +31,11 @@ authors:
 
 Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21).
 
+Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
+
 Ви захочете завантажити версію `Windows Installer (.msi)`:
 
 ![Сторінка завантаження Adoptium із виділеним встановлювачем Windows (.msi)](/assets/players/installing-java/windows-download-java.png)
-
-Вам слід вибрати «x86», якщо у вас 32-розрядна операційна система, або «x64», якщо у вас 64-розрядна операційна система.
 
 Більшість сучасних комп’ютерів матиме 64-розрядну операційну систему. Якщо ви не впевнені, спробуйте скористатися 64-розрядним завантаженням.
 
@@ -50,16 +48,14 @@ authors:
 
 ![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA\_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
 
-Зробивши це, ви можете натиснути `Next` і продовжити встановлення.
+![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA\\_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 ## 4. Перевірте, чи встановлено Java 21 {#4-verify-that-java-is-installed}
 
 Після завершення встановлення ви можете переконатися, що Java 21 встановлено, знову відкривши командний рядок і ввівши `java -version`.
 
-Якщо команда виконана успішно, ви побачите щось подібне до показаного раніше, де показана версія Java:
+Після завершення встановлення ви можете переконатися, що Java 21 встановлено, знову відкривши командний рядок і ввівши `java -version`.
 
 ![Командний рядок із введеним "java -version"](/assets/players/installing-java/windows-java-version.png)
 
----
-
-Якщо у вас виникнуть проблеми, не соромтеся звертатися по допомогу до [Fabric Discord](https://discord.gg/v6v4pMv) на каналі #player-support.
+![Командний рядок із введеним "java -version"](/assets/players/installing-java/windows-java-version.png)

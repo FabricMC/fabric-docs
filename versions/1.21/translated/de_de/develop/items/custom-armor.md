@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Benutzerdefinierte Rüstung {#custom-armor}
-
 Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mobs und anderen Spielern.
 
 ## Eine Rüstungsmaterial Klasse erstellen {#creating-an-armor-materials-class}
@@ -30,8 +28,6 @@ public void onInitialize() {
   ModArmorMaterials.initialize();
 }
 ```
-
----
 
 Innerhalb dieser `ModArmorMaterials` Klasse, musst du eine statische Methode erstellen, welche das Rüstungsmaterial registrieren wird. Diese Methode sollte einen Registrierungseintrag für das Material zurückgeben, da dieser Eintrag vom Rüstungsitem-Konstruktor zur Erstellung des Rüstungsitem verwendet wird.
 
@@ -148,8 +144,8 @@ Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
 Da der Name des Rüstungsmaterial in unserem Fall `guidite` lautet, werden die Texturen wie folgt angeordnet:
 
-- `assets/<mod-id>/textures/models/armor/guidite_layer_1.png`
-- `assets/<mod-id>/textures/models/armor/guidite_layer_2.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
+- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Rüstungsmodell Texturen</DownloadEntry>
 

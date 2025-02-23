@@ -7,8 +7,6 @@ authors:
 search: false
 ---
 
-# Installation von Fabric
-
 Diese Anleitung wird die Installation von Fabric detailliert für den offiziellen Minecraft-Launcher erklären.
 
 Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.

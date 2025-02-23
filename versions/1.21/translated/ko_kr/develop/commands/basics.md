@@ -17,8 +17,6 @@ authors:
   - xpple
 ---
 
-# 명령어 만들기 {#creating-commands}
-
 "명령어 만들기"에서는 모드 개발자가 명령어를 통한 기능을 추가하는 방법에 대해 설명합니다. 이 튜토리얼에서는 Brigadier의 일반적인 명령어 구조는 무엇이며, 어떻게 명령어를 등록하는지 알아볼 것입니다.
 
 ::: info
@@ -52,7 +50,7 @@ Command<ServerCommandSource> command = context -> {
 
 ```java
 Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource(); 
+    ServerCommandSource source = context.getSource();
     return 0;
 };
 ```
@@ -116,7 +114,7 @@ Command<ServerCommandSource> command = context -> {
 @[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-인수처럼, 하위 명령어 노드도 필수적이진 않습니다. 아래와 같은 상황에선, `/command_two`와 `/command_two sub_command_two`  모두 올바른 명령어가 되게 됩니다.
+인수처럼, 하위 명령어 노드도 필수적이진 않습니다. 아래와 같은 상황에선, `/command_two`와 `/command_two sub_command_two` 모두 올바른 명령어가 되게 됩니다.
 
 @[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -151,7 +149,7 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 
 - 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메서드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
-### 런타임에서 명령어를 등록할 수 있나요? <br>
+### 런타임에서 명령어를 등록할 수 있나요?
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands

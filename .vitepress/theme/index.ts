@@ -16,26 +16,33 @@ import "./style.css";
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    // Vidstack Videoplayer Component
+    // VidStack VideoPlayer Component
     app.config.compilerOptions.isCustomElement = (tag) =>
       tag.startsWith("media-");
-    app.component("VideoPlayer", VideoPlayer);
 
     // Custom Components for Pages
-    app.component("DownloadEntry", DownloadEntry);
     app.component("ColorSwatch", ColorSwatch);
+    app.component("DownloadEntry", DownloadEntry);
+    app.component("VideoPlayer", VideoPlayer);
 
     // Versioning Plugin Components
     app.component("VersionSwitcher", VersionSwitcher);
   },
   Layout() {
+    const { page, frontmatter } = useData();
+
     const children = {
-      "doc-before": () => h(VersionReminder),
+      "doc-before": () => [
+        frontmatter.value.title
+          ? h("h1", { class: "vp-doc" }, frontmatter.value.title)
+          : null,
+        h(VersionReminder),
+      ],
       "aside-outline-before": () => h(VersionReminder),
       "aside-outline-after": () => h(AuthorsComponent),
     };
 
-    if (useData().page.value.isNotFound) {
+    if (page.value.isNotFound) {
       children["not-found"] = () => h(NotFoundComponent);
     }
 

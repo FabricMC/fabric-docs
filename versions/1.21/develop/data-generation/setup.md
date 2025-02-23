@@ -18,8 +18,6 @@ authors-nogithub:
 search: false
 ---
 
-# Data Generation Setup {#data-generation-setup}
-
 ## What Is Data Generation? {#what-is-data-generation}
 
 Data generation (or datagen) is an API for programmatically generating recipes, advancements, tags, item models, language files, loot tables, and basically anything JSON-based.

@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Rendering in the Hud {#rendering-in-the-hud}
-
 We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the `HudRenderCallback` event and the `tickDelta` parameter.
 
 ## HudRenderCallback {#hudrendercallback}
@@ -27,18 +25,18 @@ The `RenderTickCounter` class allows you to retrieve the current `tickDelta` val
 
 For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 10 frames, you might see:
 
-| Frame | tickDelta                                    |
-|-------|----------------------------------------------|
-| 1     | `1.0` (new tick)                             |
-| 2     | `0.11 (1÷9)` - The next tick is in 9 frames. |
-| 3     | `0.22 (2÷9)`                                 |
-| 4     | `0.33 (3÷9)`                                 |
-| 5     | `0.44 (4÷9)`                                 |
-| 6     | `0.55 (5÷9)`                                 |
-| 7     | `0.66 (6÷9)`                                 |
-| 8     | `0.77 (7÷9)`                                 |
-| 9     | `0.88 (8÷9)`                                 |
-| 10    | `1.0 (9÷9)` (new tick)                       |
+| Frame | tickDelta     |
+|:-----:|---------------|
+|  `1`  | `1`: New tick |
+|  `2`  | `1/9 ~ 0.11`  |
+|  `3`  | `2/9 ~ 0.22`  |
+|  `4`  | `3/9 ~ 0.33`  |
+|  `5`  | `4/9 ~ 0.44`  |
+|  `6`  | `5/9 ~ 0.55`  |
+|  `7`  | `6/9 ~ 0.66`  |
+|  `8`  | `7/9 ~ 0.77`  |
+|  `9`  | `8/9 ~ 0.88`  |
+| `10`  | `1`: New tick |
 
 Practically, you should only use `tickDelta` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
 

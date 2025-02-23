@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 上传日志{#uploading-logs}
-
 在进行疑难解答时，通常需要提供日志以帮助寻找问题的原因。
 
 ## 为什么我应该上传日志？ {#why-should-i-upload-logs}

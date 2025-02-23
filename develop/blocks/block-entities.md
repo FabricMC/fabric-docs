@@ -5,8 +5,6 @@ authors:
   - natri0
 ---
 
-# Block Entities {#block-entities}
-
 Block entities are a way to store additional data for a block, that is not part of the block state: inventory contents, custom name and so on.
 Minecraft uses block entities for blocks like chests, furnaces, and command blocks.
 
@@ -34,7 +32,7 @@ Next, to actually use the block entity, we need a block that implements `BlockEn
 ::: tip
 There's two ways to approach this:
 
-- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method (_and_ the `getRenderType` method, since `BlockWithEntity` makes it invisible by default)
+- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method
 - create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
 
 We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.

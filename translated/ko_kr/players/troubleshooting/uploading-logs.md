@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# 로그 업로드 {#uploading-logs}
-
 문제를 해결할 때, 원인을 파악하기 위해 개발자에게 로그를 전송해야 하는 경우가 자주 있습니다.
 
 ## 왜 로그를 업로드해야 하나요? {#why-should-i-upload-logs}

@@ -10,8 +10,6 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-# Generierung von Fortschritten {#advancement-generation}
-
 :::info VORAUSSETZUNGEN
 Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
 :::
