@@ -15,7 +15,7 @@ authors:
 
 ## Використання кодеків {#using-codecs}
 
-### Використання кодеків {#using-codecs}
+### Серіалізація та десеріалізація {#serializing-and-deserializing}
 
 Основним використанням кодека є серіалізація та десеріалізація об’єктів у певний формат і з нього.
 
@@ -135,7 +135,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 Ви також можете використовувати `Codec#optionalFieldOf` у цьому контексті, щоб зробити поле необов’язковим, як пояснюється в розділі [необов’язкові поля](#optional-fields).
 
-### MapCodec, не плутати з Codec&amp;lt;Map&amp;gt; {#mapcodec}
+### MapCodec, не плутати з Codec&lt;Map&gt; {#mapcodec}
 
 Виклик `Codec#fieldOf` перетворить `Codec<T>` на `MapCodec<T>`, який є варіантом, але не прямої реалізація `Codec<T>`. `MapCodec`s, як випливає з їх назви, гарантовано серіалізуються в ключ до мапи значень або його еквівалент у `DynamicOps`. Для деяких функцій може знадобитися використання звичайного кодека.
 
@@ -177,7 +177,7 @@ MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPo
 
 ### Константи, обмеження та композиція {#constants-constraints-composition}
 
-#### Константи, обмеження та композиція {#constants-constraints-composition}
+#### Юніт {#unit}
 
 `Codec.unit` можна використовувати для створення кодека, який завжди десеріалізується до постійного значення, незалежно від вхідних даних. Під час серіалізації це нічого не робитиме.
 
