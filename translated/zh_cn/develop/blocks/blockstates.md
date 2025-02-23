@@ -15,7 +15,7 @@ authors:
 
 方块状态的定义能在 `assets/mod-id/blockstates` 文件夹中找到。
 
-## 示例：柱方块{#pillar-block}
+## 示例：柱方块 {#pillar-block}
 
 <!-- Note: This example could be used for a custom recipe types guide, a condensor machine block with a custom "Condensing" recipe? -->
 
@@ -58,13 +58,13 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 ![游戏内的柱方块的示例](/assets/develop/blocks/blockstates_1.png)
 
-## 自定义方块状态{#custom-block-states}
+## 自定义方块状态 {#custom-block-states}
 
 如果你的方块有独特的属性，那么自定义方块状态会非常不错——有时你会发现你的方块可以复用原版的属性。
 
 这个例子会创建一个叫做 `activated` 的独特属性——玩家右键单击方块时，方块会由 `activated=false` 变成 `activated-true` 并相应改变纹理。
 
-### 创建属性{#creating-the-property}
+### 创建属性 {#creating-the-property}
 
 首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.of` 方法。
 
@@ -78,13 +78,13 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### 使用属性{#using-the-property}
+### 使用属性 {#using-the-property}
 
 这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法：
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### 视觉呈现属性{#visualizing-the-property}
+### 视觉呈现属性 {#visualizing-the-property}
 
 创建方块状态前，我们需要为方块的激活的和未激活的状态都提供纹理，以及方块模型。
 
