@@ -5,7 +5,7 @@
       "conditions": {
         "requiredTimes": 5
       },
-      "trigger": "minecraft:fabric-docs-reference/parameterized_use_tool"
+      "trigger": "fabric-docs-reference:parameterized_use_tool"
     }
   },
   "display": {

@@ -1,5 +1,7 @@
 package com.example.docs.potion;
 
+import com.example.docs.FabricDocsReference;
+
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
@@ -18,7 +20,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
 					Registries.POTION,
-					Identifier.of("fabric-docs-reference", "tater"),
+					Identifier.of(FabricDocsReference.MOD_ID, "tater"),
 					new Potion("tater",
 							new StatusEffectInstance(
 									FabricDocsReferenceEffects.TATER,

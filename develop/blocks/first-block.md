@@ -39,14 +39,14 @@ public class ModBlocks {
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
-Similarly to items, blocks take a `Blocks.Settings` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
+Similarly to items, blocks take a `AbstractBlock.Settings` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
 
 We will not cover all the options here: you can view the class yourself to see the various options, which should be self-explanatory.
 
 For example purposes, we will be creating a simple block that has the properties of dirt, but is a different material.
 
-- We need a `RegistryKey<Block>` which is used as a unique identifier for our block, this is passed into `Registry.register` in the previous utility method.
-- The `RegistryKey<Block>` is also required by the `AbstractBlock.Settings` builder.
+- We create our block settings in a similar way to how we created item settings in the item tutorial.
+- We tell the `register` method to create a `Block` instance from the block settings by calling the `Block` constructor.
 
 ::: tip
 You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
