@@ -1,7 +1,5 @@
 package com.example.docs.potion;
 
-import com.example.docs.FabricDocsReference;
-
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
@@ -13,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 
+import com.example.docs.FabricDocsReference;
 import com.example.docs.effect.FabricDocsReferenceEffects;
 
 // :::1

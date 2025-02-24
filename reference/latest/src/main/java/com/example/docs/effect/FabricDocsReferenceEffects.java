@@ -1,7 +1,5 @@
 package com.example.docs.effect;
 
-import com.example.docs.FabricDocsReference;
-
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -9,6 +7,8 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+
+import com.example.docs.FabricDocsReference;
 
 // :::1
 public class FabricDocsReferenceEffects implements ModInitializer {

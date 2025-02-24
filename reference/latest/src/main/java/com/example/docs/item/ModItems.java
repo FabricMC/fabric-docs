@@ -1,5 +1,7 @@
 package com.example.docs.item;
 
+import java.util.function.Function;
+
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
@@ -32,8 +34,6 @@ import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
-
-import java.util.function.Function;
 
 // :::1
 public class ModItems {
