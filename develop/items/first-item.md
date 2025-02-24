@@ -30,10 +30,10 @@ Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/doc
 
 You can now register an item using the method now.
 
-The register method takes in an instance of the `Items.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
+The register method takes in an instance of the `Item.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
