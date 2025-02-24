@@ -23,7 +23,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-This method uses the [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will allow us to specify how we want our item to be created from the item settings using a [lambda expression](https://www.w3schools.com/java/java_lambda.asp) or a method reference such as `Item::new`, like we do below.
+Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`.
 
 ## Registering an Item {#registering-an-item}
 
