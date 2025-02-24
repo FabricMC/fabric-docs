@@ -8,13 +8,12 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
 
+import com.example.docs.FabricDocsReference;
+
 // :::1
 public class FabricDocsReferenceEffects implements ModInitializer {
-	public static final RegistryEntry<StatusEffect> TATER;
-
-	static {
-		TATER = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("fabric-docs-reference", "tater"), new TaterEffect());
-	}
+	public static final RegistryEntry<StatusEffect> TATER =
+			Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(FabricDocsReference.MOD_ID, "tater"), new TaterEffect());
 
 	@Override
 	public void onInitialize() {

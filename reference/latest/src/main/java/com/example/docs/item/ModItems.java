@@ -1,5 +1,7 @@
 package com.example.docs.item;
 
+import java.util.function.Function;
+
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
@@ -49,32 +51,44 @@ public class ModItems {
 	// :::guidite_tool_material
 
 	// :::6
-	public static final RegistryKey<Item> GUIDITE_HELMET_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_helmet"));
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET, new Item.Settings().registryKey(GUIDITE_HELMET_KEY).maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_HELMET_KEY);
+	public static final Item GUIDITE_HELMET = register(
+			"guidite_helmet",
+			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET, settings),
+			new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
+	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
+			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE, settings),
+			new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
 
-	public static final RegistryKey<Item> GUIDITE_CHESTPLATE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_chestplate"));
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE, new Item.Settings().registryKey(GUIDITE_CHESTPLATE_KEY).maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_CHESTPLATE_KEY);
+	public static final Item GUIDITE_LEGGINGS = register(
+			"guidite_leggings",
+			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS, settings),
+			new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
 
-	public static final RegistryKey<Item> GUIDITE_LEGGINGS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_leggings"));
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS, new Item.Settings().registryKey(GUIDITE_LEGGINGS_KEY).maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_LEGGINGS_KEY);
-
-	public static final RegistryKey<Item> GUIDITE_BOOTS_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_boots"));
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS, new Item.Settings().registryKey(GUIDITE_BOOTS_KEY).maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))), GUIDITE_BOOTS_KEY);
+	public static final Item GUIDITE_BOOTS = register(
+			"guidite_boots",
+			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS, settings),
+			new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
 	// :::6
-	public static final RegistryKey<Item> LIGHTNING_STICK_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "lightning_stick"));
-	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings().registryKey(LIGHTNING_STICK_KEY)), LIGHTNING_STICK_KEY);
+	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Settings());
 	// :::7
-	public static final RegistryKey<Item> GUIDITE_SWORD_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "guidite_sword"));
-	public static final Item GUIDITE_SWORD = register(new SwordItem(GUIDITE_TOOL_MATERIAL, 1f, 1f, new Item.Settings().registryKey(GUIDITE_SWORD_KEY)), GUIDITE_SWORD_KEY);
+	public static final Item GUIDITE_SWORD = register(
+			"guidite_sword",
+			settings -> new SwordItem(GUIDITE_TOOL_MATERIAL, 1f, 1f, settings),
+			new Item.Settings()
+	);
 	// :::7
 	// :::_13
-	public static final RegistryKey<Item> COUNTER_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "counter"));
-	public static final Item COUNTER = register(new CounterItem(
-		new Item.Settings()
-				.registryKey(COUNTER_KEY)
-				// Initialize the click count component with a default value of 0
-				.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
-	), COUNTER_KEY);
+	public static final Item COUNTER = register(
+			"counter",
+			CounterItem::new,
+			new Item.Settings()
+					// Initialize the click count component with a default value of 0
+					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
+	);
 	// :::_13
 	// :::9
 	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "item_group"));
@@ -94,27 +108,28 @@ public class ModItems {
 	// :::5
 
 	// :::poisonous_apple
-	public static final RegistryKey<Item> POISONOUS_APPLE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "poisonous_apple"));
 	public static final Item POISONOUS_APPLE = register(
-			new Item(new Item.Settings().registryKey(POISONOUS_APPLE_KEY).food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)),
-			POISONOUS_APPLE_KEY
+			"poisonous_apple",
+			Item::new,
+			new Item.Settings().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
 	// :::poisonous_apple
 
 	// :::2
-	public static final RegistryKey<Item> SUSPICIOUS_SUBSTANCE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "suspicious_substance"));
-	public static final Item SUSPICIOUS_SUBSTANCE = register(
-			new Item(new Item.Settings().registryKey(SUSPICIOUS_SUBSTANCE_KEY)),
-			SUSPICIOUS_SUBSTANCE_KEY
-	);
+	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
 	// :::2
 	// :::1
-	public static Item register(Item item, RegistryKey<Item> registryKey) {
-		// Register the item.
-		Item registeredItem = Registry.register(Registries.ITEM, registryKey.getValue(), item);
+	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+		// Create the item key.
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
 
-		// Return the registered item!
-		return registeredItem;
+		// Create the item instance.
+		Item item = itemFactory.apply(settings.registryKey(itemKey));
+
+		// Register the item.
+		Registry.register(Registries.ITEM, itemKey, item);
+
+		return item;
 	}
 
 	// :::1

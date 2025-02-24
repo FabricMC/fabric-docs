@@ -2,8 +2,6 @@ package com.example.docs.block;
 
 import java.util.function.Function;
 
-import org.jetbrains.annotations.NotNull;
-
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSetType;
@@ -37,45 +35,31 @@ public class ModBlocks {
 	// :::1
 
 	// :::2
-	public static final RegistryKey<Block> CONDENSED_DIRT_KEY = RegistryKey.of(
-			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "condensed_dirt")
-	);
-
 	public static final Block CONDENSED_DIRT = register(
-			new Block(AbstractBlock.Settings.create().registryKey(CONDENSED_DIRT_KEY).sounds(BlockSoundGroup.GRASS)),
-			CONDENSED_DIRT_KEY,
+			"condensed_dirt",
+			Block::new,
+			AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS),
 			true
 	);
 
 	// :::2
 	// :::3
-	public static final RegistryKey<Block> CONDENSED_OAK_LOG_KEY = RegistryKey.of(
-			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "condensed_oak_log")
-	);
-
 	public static final Block CONDENSED_OAK_LOG = register(
-			new PillarBlock(
-					AbstractBlock.Settings.create()
-							.registryKey(CONDENSED_OAK_LOG_KEY)
-							.sounds(BlockSoundGroup.WOOD)
-			), CONDENSED_OAK_LOG_KEY, true
+			"condensed_oak_log",
+			PillarBlock::new,
+			AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD),
+			true
 	);
 
 	// :::3
 	// :::4
-	public static final RegistryKey<Block> PRISMARINE_LAMP_KEY = RegistryKey.of(
-			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "prismarine_lamp")
-	);
 	public static final Block PRISMARINE_LAMP = register(
-			new PrismarineLampBlock(
-					AbstractBlock.Settings.create()
-							.registryKey(PRISMARINE_LAMP_KEY)
-							.sounds(BlockSoundGroup.LANTERN)
-							.luminance(PrismarineLampBlock::getLuminance)
-			), PRISMARINE_LAMP_KEY, true
+			"prismarine_lamp",
+			PrismarineLampBlock::new,
+			AbstractBlock.Settings.create()
+					.sounds(BlockSoundGroup.LANTERN)
+					.luminance(PrismarineLampBlock::getLuminance),
+			true
 	);
 	// :::4
 	public static final RegistryKey<Block> ENGINE_BLOCK_KEY = RegistryKey.of(
@@ -83,48 +67,51 @@ public class ModBlocks {
 			Identifier.of(FabricDocsReference.MOD_ID, "engine")
 	);
 	public static final Block ENGINE_BLOCK = register(
-			new EngineBlock(AbstractBlock.Settings.create().registryKey(ENGINE_BLOCK_KEY)), ENGINE_BLOCK_KEY, true
+			"engine",
+			EngineBlock::new,
+			AbstractBlock.Settings.create().registryKey(ENGINE_BLOCK_KEY),
+			true
 	);
 
 	// :::5
-	public static final RegistryKey<Block> COUNTER_BLOCK_KEY = RegistryKey.of(
-			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "counter_block")
-	);
 	public static final Block COUNTER_BLOCK = register(
-			new CounterBlock(AbstractBlock.Settings.create().registryKey(COUNTER_BLOCK_KEY)), COUNTER_BLOCK_KEY, true
+			"counter_block",
+			CounterBlock::new,
+			AbstractBlock.Settings.create(),
+			true
 	);
 	// :::5
 
-	public static final Block STEEL_BLOCK = registerBlock(
-			"steel_block", PillarBlock::new, AbstractBlock.Settings.create()
+	public static final Block STEEL_BLOCK = register(
+			"steel_block", PillarBlock::new, AbstractBlock.Settings.create(), true
 	);
-	public static final Block PIPE_BLOCK = registerBlock(
-			"pipe_block", Block::new, AbstractBlock.Settings.create()
-	);
-
-	public static final Block RUBY_BLOCK = registerBlock(
-			"ruby_block", Block::new, AbstractBlock.Settings.create()
-	);
-	public static final Block RUBY_STAIRS = registerBlock(
-			"ruby_stairs", settings -> new StairsBlock(RUBY_BLOCK.getDefaultState(), settings), AbstractBlock.Settings.create()
-	);
-	public static final Block RUBY_SLAB = registerBlock(
-			"ruby_slab", SlabBlock::new, AbstractBlock.Settings.create()
-	);
-	public static final Block RUBY_FENCE = registerBlock(
-			"ruby_fence", FenceBlock::new, AbstractBlock.Settings.create()
+	public static final Block PIPE_BLOCK = register(
+			"pipe_block", Block::new, AbstractBlock.Settings.create(), true
 	);
 
-	public static final Block RUBY_DOOR = registerBlock(
-			"ruby_door", settings -> new DoorBlock(BlockSetType.STONE, settings), AbstractBlock.Settings.create()
+	public static final Block RUBY_BLOCK = register(
+			"ruby_block", Block::new, AbstractBlock.Settings.create(), true
 	);
-	public static final Block RUBY_TRAPDOOR = registerBlock(
-			"ruby_trapdoor", settings -> new TrapdoorBlock(BlockSetType.STONE, settings), AbstractBlock.Settings.create()
+	public static final Block RUBY_STAIRS = register(
+			"ruby_stairs", settings -> new StairsBlock(RUBY_BLOCK.getDefaultState(), settings), AbstractBlock.Settings.create(), true
+	);
+	public static final Block RUBY_SLAB = register(
+			"ruby_slab", SlabBlock::new, AbstractBlock.Settings.create(), true
+	);
+	public static final Block RUBY_FENCE = register(
+			"ruby_fence", FenceBlock::new, AbstractBlock.Settings.create(), true
 	);
 
-	public static final Block VERTICAL_OAK_LOG_SLAB = registerBlock(
-			"vertical_oak_log_slab", VerticalSlabBlock::new, AbstractBlock.Settings.create());
+	public static final Block RUBY_DOOR = register(
+			"ruby_door", settings -> new DoorBlock(BlockSetType.STONE, settings), AbstractBlock.Settings.create(), true
+	);
+	public static final Block RUBY_TRAPDOOR = register(
+			"ruby_trapdoor", settings -> new TrapdoorBlock(BlockSetType.STONE, settings), AbstractBlock.Settings.create(), true
+	);
+
+	public static final Block VERTICAL_OAK_LOG_SLAB = register(
+			"vertical_oak_log_slab", VerticalSlabBlock::new, AbstractBlock.Settings.create(), true
+	);
 
 	// :::datagen-model:family-declaration
 	public static final BlockFamily RUBY_FAMILY =
@@ -136,13 +123,18 @@ public class ModBlocks {
 	// :::datagen-model:family-declaration
 
 	// :::1
-	public static Block register(Block block, RegistryKey<Block> blockKey, boolean shouldRegisterItem) {
+	private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
+		// Create a registry key for the block
+		RegistryKey<Block> blockKey = keyOfBlock(name);
+		// Create the block instance
+		Block block = blockFactory.apply(settings.registryKey(blockKey));
+
 		// Sometimes, you may not want to register an item for the block.
-		// Eg: if it's a technical block like `minecraft:air` or `minecraft:end_gateway`
+		// Eg: if it's a technical block like `minecraft:moving_piston` or `minecraft:end_gateway`
 		if (shouldRegisterItem) {
 			// Items need to be registered with a different type of registry key, but the ID
 			// can be the same.
-			RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
+			RegistryKey<Item> itemKey = keyOfItem(name);
 
 			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
 			Registry.register(Registries.ITEM, itemKey, blockItem);
@@ -151,27 +143,15 @@ public class ModBlocks {
 		return Registry.register(Registries.BLOCK, blockKey, block);
 	}
 
-	// :::1
-
-	/** Helper methods for registering blocks (Fellteros). <br>
-	* Block would look like this:
-	 * <blockquote><pre>
-	 *     public static final Block TEST = registerBlock("test", Block::new, AbstractBlock.Settings.create());
-	 * </pre></blockquote>
-	 * */
-	private static Block registerBlock(String name, @NotNull Function<AbstractBlock.Settings, Block> function, AbstractBlock.@NotNull Settings settings) {
-		Block block = function.apply(settings.registryKey(keyOfBlock(name)));
-		Registry.register(Registries.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name), new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(keyOfItem(name))));
-		return Registry.register(Registries.BLOCK, keyOfBlock(name), block);
+	private static RegistryKey<Block> keyOfBlock(String name) {
+		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FabricDocsReference.MOD_ID, name));
 	}
 
 	private static RegistryKey<Item> keyOfItem(String name) {
 		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
 	}
 
-	private static RegistryKey<Block> keyOfBlock(String name) {
-		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FabricDocsReference.MOD_ID, name));
-	}
+	// :::1
 
 	public static void initialize() {
 		setupItemGroups();
