@@ -5,6 +5,7 @@ authors:
   - IMB11
   - xEobardThawne
   - its-miroma
+  - Earthcomputer
 ---
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
