@@ -5,6 +5,7 @@ authors:
   - IMB11
   - dicedpixels
   - RaphProductions
+  - Earthcomputer
 ---
 
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
@@ -13,7 +14,7 @@ Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, gena
 
 ## Deine Item-Klasse vorbereiten {#preparing-your-items-class}
 
-Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die eine Instanz eines Items und einen String-Bezeichner akzeptiert.
+Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die einen String Identifikator, einige Itemeinstellungen und eine Factory zur Erstellung der `Item`-Instanz akzeptiert.
 
 Diese Methode erstellt einen Item mit dem angegebenen Bezeichner und registriert ihn in der Item Registry des Spiels.
 
@@ -23,19 +24,23 @@ Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Beachte die Verwendung einer [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) Schnittstelle für die Factory, die es uns später ermöglichen wird, zu spezifizieren, wie wir unser Item aus den Itemeinstellungen mit `Item::new` erstellen wollen.
+
 ## Ein Item registrieren {#registering-an-item}
 
 Mit der Methode kannst du nun ein Item registrieren.
 
-Der Item-Konstruktor nimmt eine Instanz der Klasse `Items.Settings` als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
+Die register-Methode nimmt eine Instanz von der `Item.Settings` Klasse als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast, da die Stackgröße für beschädigungsfähige Gegenstände immer 1 ist, um Duplikations-Exploits zu verhindern.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+`Item::new` weist die register-Funktion an, eine Item-Instanz aus einer `Item.Settings`-Instanz zu erzeugen, indem sie den Item-Konstruktor (`new Item(...)`) aufruft, der eine `Item.Settings`-Instanz als Parameter entgegennimmt.
 
 Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du sehen, dass unser Item im Spiel noch nicht existiert! Der Grund dafür ist, dass du die Klasse nicht statisch initialisiert hast.
 
