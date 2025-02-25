@@ -32,7 +32,7 @@ Um als Nächstes die Block Entität zu nutzen, brauchen wir einen Block, der `Bl
 :::tip
 Es gibt zwei Wege, um das zu machen:
 
-- Einen Block erstellen, der `BlockWithEntity` erweitert und die `createBlockEntity` Methode implementiert (_und_ die `getRenderType` Methode, da `BlockWithEntity` den Block standardmäßig Unsichtbar macht)
+- Einen Block erstellen, der von `BlockWithEntity` erbt und die Methode `createBlockEntity` implementiert
 - Einen Block erstellen, der `BlockEntityProvider` implementiert und die `createBlockEntity` Methode überschreibt
 
 Wir werden in diesem Beispiel den ersten Weg nutzen, da `BlockWithEntity` ein paar nützliche Funktionen anbietet.
