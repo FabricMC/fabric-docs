@@ -5,6 +5,7 @@ authors:
   - IMB11
   - dicedpixels
   - RaphProductions
+  - Earthcomputer
 ---
 
 Questa pagina ti presenterà alcuni concetti chiave legati agli oggetti, e come registrargli e aggiungere loro texture, modello e nome.
@@ -13,7 +14,7 @@ Se non ne sei al corrente, tutto in Minecraft è memorizzato in registry, e gli 
 
 ## Preparare la Tua Classe dei Oggetti {#preparing-your-items-class}
 
-Per semplificare la registrazione degli oggetti, puoi creare un metodo che accetta un'istanza di un oggetto e una stringa come identificatore.
+Per semplificare la registrazione degli oggetti, puoi creare un metodo che accetta una stringa come identificatore, delle impostazioni dell'oggetto e una fabbrica per creare l'istanza `Item`.
 
 Questo metodo creerà un oggetto con l'identificatore fornito e lo registrano nella registry degli oggetti del gioco.
 
@@ -23,19 +24,23 @@ Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `I
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Nota l'utilizzo di un'interfaccia [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) per la fabbrica, il che ci permetterà successivamente di specificare come vogliamo creare il nostro oggetto date le impostazioni tramite `Item::new`.
+
 ## Registrare un Oggetto {#registering-an-item}
 
 Puoi ora registrare un oggetto con il metodo.
 
-Il costruttore dell'oggetto prende come parametro un'istanza della classe `Items.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
+Il metodo di registrazione prende come parametro un'istanza della classe `Item.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la dimensione di uno stack è sempre 1 per oggetti danneggiabili per evitare duplicazioni.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che prende `Item.Settings` come parametro.
 
 Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
