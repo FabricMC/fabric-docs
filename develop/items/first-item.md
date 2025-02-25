@@ -5,6 +5,7 @@ authors:
   - IMB11
   - dicedpixels
   - RaphProductions
+  - Earthcomputer
 ---
 
 This page will introduce you into some key concepts relating to items, and how you can register, texture, model and name them.
@@ -13,7 +14,7 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 ## Preparing Your Items Class {#preparing-your-items-class}
 
-To simplify the registering of items, you can create a method that accepts an instance of an item and a string identifier.
+To simplify the registering of items, you can create a method that accepts a string identifier, some item settings and a factory to create the `Item` instance.
 
 This method will create an item with the provided identifier and register it with the game's item registry.
 
@@ -23,19 +24,23 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`.
+
 ## Registering an Item {#registering-an-item}
 
 You can now register an item using the method now.
 
-The item constructor takes in an instance of the `Items.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
+The register method takes in an instance of the `Item.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+`Item::new` tells the register function to create an `Item` instance from an `Item.Settings` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Settings` as a parameter.
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 

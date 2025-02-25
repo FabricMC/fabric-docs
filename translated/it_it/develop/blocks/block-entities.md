@@ -32,7 +32,7 @@ Dopo di che, per usare effettivamente il blocco-entità, ci serve un blocco che 
 :::tip
 Ci sono due modi per approcciarsi a questo:
 
-- Creare un blocco che estenda `BlockWithEntity` e implementi il metodo `createBlockEntity` (_e_ il metodo `getRenderType`, poiché `BlockWithEntity` li rende invisibili in maniera predefinita)
+- Creare un blocco che estenda `BlockWithEntity` e implementi il metodo `createBlockEntity`
 - Creare un blocco che implementi `BlockEntityProvider` da solo e faccia override del metodo `createBlockEntity`
 
 Useremo il primo approccio in questo esempio, poiché `BlockWithEntity` fornisce anche alcune utilità comode.

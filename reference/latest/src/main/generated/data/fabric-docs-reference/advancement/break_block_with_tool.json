@@ -2,7 +2,7 @@
   "parent": "fabric-docs-reference:get_dirt",
   "criteria": {
     "break_block_with_tool": {
-      "trigger": "minecraft:fabric-docs-reference/use_tool"
+      "trigger": "fabric-docs-reference:use_tool"
     }
   },
   "display": {

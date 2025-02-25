@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 
+import com.example.docs.FabricDocsReference;
 import com.example.docs.effect.FabricDocsReferenceEffects;
 
 // :::1
@@ -18,7 +19,7 @@ public class FabricDocsReferencePotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
 					Registries.POTION,
-					Identifier.of("fabric-docs-reference", "tater"),
+					Identifier.of(FabricDocsReference.MOD_ID, "tater"),
 					new Potion("tater",
 							new StatusEffectInstance(
 									FabricDocsReferenceEffects.TATER,
