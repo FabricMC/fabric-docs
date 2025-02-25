@@ -16,7 +16,7 @@ Fabric은 Fabric 템플릿 모드 생성기를 사용하여 간단하게 새로�
 
 ![생성기 미리보기](/assets/develop/getting-started/template-generator.png)
 
-Kotlin을 사용하고자 한다면, Yarn 매핑 보다는 Mojang의 공식 매핑을 사용하거나, 데이터 생성기를 추가하고 싶은 경우 `고급 옵션`에서 적절한 옵션을 선택할 수 있습니다.
+Kotlin을 사용하거나, Mojang의 공식 매핑을 사용하거나, 데이터 생성기를 사용하고 싶은 경우 `고급 옵션`에서 적절한 옵션을 선택할 수 있습니다.
 
 ![고급 옵션 섹션](/assets/develop/getting-started/template-generator-advanced.png)
 
