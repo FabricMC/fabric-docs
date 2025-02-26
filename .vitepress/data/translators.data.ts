@@ -1,5 +1,4 @@
 import crowdin from "@crowdin/crowdin-api-client";
-import axios from "axios";
 import { DefaultTheme } from "vitepress";
 
 const CROWDIN_TOKEN = process.env.CROWDIN_TOKEN || "";
@@ -8,8 +7,7 @@ const { sourceFilesApi, reportsApi } = (() => {
   try {
     //@ts-expect-error https://github.com/crowdin/crowdin-api-client-js/issues/98
     return new crowdin.default({ token: CROWDIN_TOKEN });
-  } catch (e) {
-    // Allows build without a CROWDIN_TOKEN or without internet
+  } catch (error) {
     return { sourceFilesApi: {}, reportsApi: {} };
   }
 })();
@@ -17,7 +15,6 @@ const { sourceFilesApi, reportsApi } = (() => {
 export default {
   async load() {
     if (!CROWDIN_TOKEN) return [];
-
     const { data: directories } = await sourceFilesApi.listProjectDirectories(
       PROJECT_ID,
       {
@@ -53,13 +50,15 @@ export default {
       }
 
       report = (
-        await axios.get(
-          (
-            await reportsApi.downloadReport(PROJECT_ID, identifier)
-          ).data.url
-        )
-      ).data.data;
-    } catch (e) {}
+        await (
+          await fetch(
+            (
+              await reportsApi.downloadReport(PROJECT_ID, identifier)
+            ).data.url
+          )
+        ).json()
+      ).data;
+    } catch (error) {}
 
     const translators = new Map<
       string,
@@ -89,9 +88,7 @@ export default {
       .map(
         (contributor) =>
           ({
-            avatar:
-              contributor.avatar ||
-              "https://i2.wp.com/crowdin.com/images/user-picture.png?ssl=1",
+            avatar: contributor.avatar,
             links: [
               {
                 icon: "crowdin",
