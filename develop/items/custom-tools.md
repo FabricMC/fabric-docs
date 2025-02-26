@@ -2,16 +2,15 @@
 title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
+  - 0xJoeMama
+  - BoogieMonster1O1
+  - Daomephsta
+  - Drakonkinst
+  - Draylar
   - IMB11
-authors-nogithub:
-  - solidblock
-  - drakonkinst
-  - haykam
-  - daomephsta
-  - metaltxus
-  - kaloyankys
-  - draylar
-  - boogiemonster1o1
+  - SolidBlock-cn
+  - haykam821
+  - jesuscc1993
   - shedaniel
 ---
 

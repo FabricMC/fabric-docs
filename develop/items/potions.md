@@ -2,12 +2,11 @@
 title: Potions
 description: Learn how to add a custom potion for various status effects.
 authors:
-  - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
+  - dicedpixels
 authors-nogithub:
-  - drakonkinst
   - pandoricavi
 ---
 

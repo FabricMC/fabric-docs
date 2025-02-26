@@ -2,29 +2,27 @@
 title: Events
 description: A guide for using events provided by the Fabric API.
 authors:
-  - dicedpixels
-  - mkpoli
+  - Daomephsta
+  - Draylar
+  - JamiesWhiteShirt
+  - Juuxel
+  - NebelNidas
+  - PhoenixVX
+  - SolidBlock-cn
+  - YanisBft
   - daomephsta
-  - solidblock
+  - dicedpixels
   - draylar
   - jamieswhiteshirt
-  - PhoenixVX
-  - Juuxel
-  - YanisBft
   - liach
+  - mkpoli
   - natanfudge
-authors-nogithub:
-  - stormyfabric
-  - nebelnidas
-  - nokko
+  - nok-ko
   - radstevee
   - skycatminepokie
   - solidblock
-  - daomephsta
-  - mkpoli
-  - pheonixvx
-  - draylar
-  - jamieswhiteshirt
+authors-nogithub:
+  - stormyfabric
 ---
 
 Fabric API provides a system that allows mods to react to actions or occurrences, also defined as _events_ that occur in the game.

@@ -3,11 +3,10 @@ title: Uploading Logs
 description: How to upload logs for troubleshooting.
 authors:
   - IMB11
+  - NebelNidas
+  - skycatminepokie
 authors-nogithub:
   - poopooracoocoo
-  - nebelnidas
-  - skycatminepokie
-  - mineblock11
 ---
 
 When troubleshooting issues, it is often necessary to provide logs to help identify the cause of the issue.

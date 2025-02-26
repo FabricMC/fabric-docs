@@ -2,16 +2,14 @@
 title: Block Model Generation
 description: A guide to generating block models and blockstates via datagen.
 authors:
+  - Daomephsta
   - Fellteros
-  - natri0
   - IMB11
+  - MCrafterzz
+  - SolidBlock-cn
+  - Spinoscythe
   - its-miroma
-authors-nogithub:
-  - mcrafterzz
-  - solidblock
-  - daomephsta
-  - nexus-dino
-  - mineblock11
+  - natri0
 ---
 
 ::: info PREREQUISITES

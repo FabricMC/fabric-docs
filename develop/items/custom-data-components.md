@@ -2,10 +2,10 @@
 title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
+  - MattiDragon
   - Romejanic
+  - SolidBlock-cn
 authors-nogithub:
-  - solidblock
-  - mattidragon
   - terra
 ---
 

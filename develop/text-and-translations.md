@@ -2,21 +2,21 @@
 title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
+  - Arbee4ever
+  - Daomephsta
+  - Draylar
   - IMB11
+  - JamiesWhiteShirt
   - LordEnder-Kitty
+  - MattiDragon
+  - MrLucky974
+  - Mysterious-Dev
+  - RawDiamondMC
+  - SolidBlock-cn
+  - YTG1234
+  - natanfudge
 authors-nogithub:
-  - arbee
-  - daomephsta
-  - draylar
-  - fudge
-  - jamieswhiteshirt
-  - luckius974
-  - mattidragon
-  - mysterious_dev
-  - rawdiamondmc
-  - solidblock
   - stormyfabric
-  - ytg1234
 ---
 
 Whenever Minecraft displays text in-game, it's probably defined using a `Text` object.

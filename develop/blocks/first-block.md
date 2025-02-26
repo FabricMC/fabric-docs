@@ -2,36 +2,35 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
-  - IMB11
+  - Ayutac
+  - Draylar
   - Earthcomputer
+  - IMB11
+  - JamiesWhiteShirt
+  - MCrafterzz
+  - MattiDragon
+  - RedGrapefruit09
+  - Ryhon0
+  - Sleet827
+  - SolidBlock-cn
+  - Technici4n
+  - UpcraftLP
+  - baka4n
+  - haykam821
   - its-miroma
+  - liach
+  - natanfudge
   - xEobardThawne
 authors-nogithub:
-  - ayutac
-  - baka4n
   - bitman
   - darthjake
-  - draylar
-  - fudge
-  - haykam
-  - jamieswhiteshirt
-  - legiblesleet827
   - legol
   - leocth2
-  - liach
   - luo_tian_wy
-  - mattidragon
-  - mcrafterzz
-  - mineblock11
-  - redgrapefruit
   - rodriguezrrp
-  - ryhon
   - s1lverposting
   - siglong
-  - solidblock
   - suicuiune
-  - technici4n
-  - upcraftlp
 ---
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.

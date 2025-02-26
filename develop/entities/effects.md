@@ -2,19 +2,17 @@
 title: Status Effects
 description: Learn how to add custom status effects.
 authors:
-  - dicedpixels
-  - YanisBft
   - FireBlast
   - Friendly-Banana
-  - SattesKrokodil
   - Manchick0
+  - SattesKrokodil
+  - TheFireBlast
+  - Yanis48
+  - YanisBft
+  - dicedpixels
 authors-nogithub:
   - siglong
   - tao0lu
-  - sattes
-  - banana
-  - fireblast
-  - yanis48
 ---
 
 Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game

@@ -2,13 +2,13 @@
 title: Basic Rendering Concepts
 description: Learn about the basic concepts of rendering using Minecraft's rendering engine.
 authors:
+  - '0x3C50'
+  - Dev0Louis
   - IMB11
-  - "0x3C50"
-authors-nogithub:
-  - nebelnidas
-  - louis
-  - jamieswhiteshirt
+  - JamiesWhiteShirt
+  - NebelNidas
   - falseresync
+authors-nogithub:
   - grondag
 ---
 

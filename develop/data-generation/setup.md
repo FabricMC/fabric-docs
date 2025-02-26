@@ -2,27 +2,22 @@
 title: Data Generation Setup
 description: A guide to setting up Data Generation with Fabric API.
 authors:
-  - skycatminepokie
-  - modmuss50
-  - earthcomputer
-  - shnupbups
+  - ArkoSammy12
+  - Earthcomputer
+  - IMB11
+  - Jab125
+  - MCrafterzz
+  - Shnupbups
+  - SolidBlock-cn
   - arkosammy12
+  - earthcomputer
   - haykam821
   - matthewperiut
-  - SolidBlock-cn
-  - Jab125
-authors-nogithub:
-  - arkosammy12
-  - earthcomputer
-  - haykam
-  - jab125
-  - jmanc3
-  - mcrafterzz
-  - mineblock11
   - modmuss50
   - shnupbups
-  - slainlight
-  - solidblock
+  - skycatminepokie
+authors-nogithub:
+  - jmanc3
 ---
 
 ## What Is Data Generation? {#what-is-data-generation}

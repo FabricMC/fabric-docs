@@ -2,12 +2,10 @@
 title: Damage Types
 description: Learn how to add custom damage types.
 authors:
+  - MattiDragon
   - dicedpixels
   - hiisuuii
   - mattidragon
-authors-nogithub:
-  - mattidragon
-  - hiisuuii
 ---
 
 Damage types define types of damage that entities can take. Since Minecraft 1.19.4, the creation of new damage types has

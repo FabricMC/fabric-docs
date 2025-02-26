@@ -2,15 +2,14 @@
 title: Playing Sounds
 description: Learn how to play sound events.
 authors:
+  - Earthcomputer
   - JR1811
-authors-nogithub:
-  - slainlight
+  - JamiesWhiteShirt
+  - Yanis48
+  - hYdos
   - magistermaks
-  - hydos
-  - yanis48
-  - earthcomputer
-  - fudge
-  - jamieswhiteshirt
+  - matthewperiut
+  - natanfudge
 ---
 
 Minecraft has a big selection of sounds which you can choose from. Check out the `SoundEvents` class to view all the vanilla sound event instances that Mojang has provided.

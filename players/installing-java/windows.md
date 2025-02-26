@@ -3,15 +3,14 @@ title: Installing Java on Windows
 description: A step by step guide on how to install Java on Windows.
 authors:
   - IMB11
-authors-nogithub:
-  - poopooracoocoo
-  - skycatminepokie
-  - mineblock11
-  - kennas
-  - modmuss50
-  - phoenix_iv
+  - K3nnas
   - calloatti
   - comp500
+  - modmuss50
+  - skycatminepokie
+authors-nogithub:
+  - phoenix_iv
+  - poopooracoocoo
 ---
 
 This guide will walk you through installing Java 21 on Windows.

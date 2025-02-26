@@ -2,20 +2,20 @@
 title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
+  - Daomephsta
   - IMB11
-authors-nogithub:
-  - daomephsta
-  - descuddlebat
-  - florens
-  - furnygo
+  - Juuxel
+  - SolidBlock-cn
+  - Technici4n
+  - des-cuddlebat
+  - florensie
   - ggtylerr
-  - haykam
-  - juuz
+  - haykam821
+authors-nogithub:
+  - furnygo
   - merry
   - rodriguezrrp
   - sakira
-  - solidblock
-  - technici4n
   - terantai
   - wjz_p
 ---

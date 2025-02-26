@@ -2,30 +2,29 @@
 title: Creating Your First Item
 description: Learn how to register a simple item and how to texture, model and name it.
 authors:
-  - dicedpixels
-  - IMB11
-  - RaphProductions
+  - Daomephsta
+  - Draylar
   - Earthcomputer
+  - IMB11
+  - JamiesWhiteShirt
+  - MCrafterzz
+  - Mysterious-Dev
+  - RaphProductions
+  - Ryhon0
+  - SolidBlock-cn
+  - YTG1234
+  - dicedpixels
+  - haykam821
+  - i509VCB
+  - liach
+  - natanfudge
+  - ramidzkh
 authors-nogithub:
   - asie
-  - daomephsta
   - darthjake
-  - draylar
-  - fudge
-  - haykam
-  - i509vcb
-  - jamieswhiteshirt
   - leocth2
-  - liach
   - m4x
-  - mcrafterzz
-  - mineblock11
-  - mysterious_dev
-  - ramidzkh
-  - ryhon
   - siglong
-  - solidblock
-  - ytg1234
 ---
 
 This page will introduce you into some key concepts relating to items, and how you can register, texture, model and name them.

@@ -2,29 +2,27 @@
 title: Installing Fabric
 description: A step by step guide on how to install Fabric.
 authors:
-  - IMB11
-  - Benonardo
-  - modmuss50
-authors-nogithub:
-  - poopooracoocoo
-  - skycatminepokie
-  - mineblock11
-  - modmuss50
-  - solidblock
-  - player
-  - phoenix_iv
-  - ytg1234
-  - juuz
-  - prospector
-  - calloatti
   - 2xsaiko
-  - jamieswhiteshirt
+  - Benonardo
+  - Draylar
+  - IMB11
+  - JamiesWhiteShirt
+  - Juuxel
+  - K3nnas
+  - Prospector
+  - SolidBlock-cn
+  - YTG1234
+  - calloatti
+  - comp500
   - falseresync
   - liach
+  - modmuss50
+  - sfPlayer1
+  - skycatminepokie
+authors-nogithub:
   - asie
-  - draylar
-  - kennas
-  - comp500
+  - phoenix_iv
+  - poopooracoocoo
 ---
 
 <!-- #region common -->

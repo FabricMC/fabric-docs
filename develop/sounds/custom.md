@@ -2,15 +2,14 @@
 title: Creating Custom Sounds
 description: Learn how to add and use a new sound with the registry.
 authors:
+  - Earthcomputer
   - JR1811
-authors-nogithub:
-  - slainlight
+  - JamiesWhiteShirt
+  - Yanis48
+  - hYdos
   - magistermaks
-  - hydos
-  - yanis48
-  - earthcomputer
-  - fudge
-  - jamieswhiteshirt
+  - matthewperiut
+  - natanfudge
 ---
 
 ## Preparing the Audio File {#preparing-the-audio-file}
