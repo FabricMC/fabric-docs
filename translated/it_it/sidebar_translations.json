@@ -53,7 +53,7 @@
   "develop.rendering": "Rendering",
   "develop.rendering.basicConcepts": "Concetti Base del Rendering",
   "develop.rendering.drawContext": "Usare il Contesto di Disegno",
-  "develop.rendering.hud": "Rendering nel Hud",
+  "develop.rendering.hud": "Rendering nel HUD",
   "develop.rendering.gui": "Interfacce Grafiche e Schermate",
   "develop.rendering.gui.customScreens": "Schermate Personalizzate",
   "develop.rendering.gui.customWidgets": "Widget Personalizzati",

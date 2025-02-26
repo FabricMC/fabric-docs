@@ -53,7 +53,7 @@
   "develop.rendering": "Промальовування",
   "develop.rendering.basicConcepts": "Базові концепції промальовування",
   "develop.rendering.drawContext": "Використання DrawContext",
-  "develop.rendering.hud": "Промальовування інтерфейсу гри",
+  "develop.rendering.hud": "Промальовування у HUD",
   "develop.rendering.gui": "Графічні інтерфейси та екрани",
   "develop.rendering.gui.customScreens": "Власні екрани",
   "develop.rendering.gui.customWidgets": "Власні віджети",
