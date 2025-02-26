@@ -8,23 +8,14 @@ export default {
   async load() {
     const contributors = await (async () => {
       try {
+        if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
         return await octokit.paginate(octokit.rest.repos.listContributors, {
           owner: "FabricMC",
           repo: "fabric-docs",
         });
-      } catch (e) {
-        // Allows build without internet
+      } catch (error) {
+        console.error("Error: ", error);
         return [];
-      }
-    })();
-    const { data } = await (async () => {
-      try {
-        return await octokit.rest.users.getByUsername({
-          username: "FabricMCBot",
-        });
-      } catch (e) {
-        // Allows build without internet
-        return { data: { avatar_url: "" } };
       }
     })();
 
@@ -36,7 +27,7 @@ export default {
       .map(
         (contributor) =>
           ({
-            avatar: contributor.avatar_url || data.avatar_url,
+            avatar: contributor.avatar_url,
             links: [{ icon: "github", link: contributor.html_url }],
             name: contributor.login,
             number: contributor.contributions,
