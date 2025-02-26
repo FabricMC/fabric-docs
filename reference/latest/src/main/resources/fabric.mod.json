@@ -24,11 +24,13 @@
       "com.example.docs.entity.FabricDocsReferenceEntity"
     ],
     "client": [
-      "com.example.docs.FabricDocsReferenceClient",
       "com.example.docs.client.command.FabricDocsReferenceClientCommands",
+      "com.example.docs.FabricDocsBlockEntityRenderer",
       "com.example.docs.FabricDocsDynamicSound",
       "com.example.docs.FabricDocsBlockEntityRenderer",
-      "com.example.docs.FabricDocsCustomEntityClient"
+      "com.example.docs.FabricDocsCustomEntityClient",
+      "com.example.docs.FabricDocsReferenceClient",
+      "com.example.docs.rendering.HudRenderingEntrypoint"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
