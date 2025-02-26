@@ -8,13 +8,13 @@ export default {
   async load() {
     const contributors = await (async () => {
       try {
-        if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
+        if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset");
         return await octokit.paginate(octokit.rest.repos.listContributors, {
           owner: "FabricMC",
           repo: "fabric-docs",
         });
       } catch (error) {
-        console.error("Error: ", error);
+        console.error(error);
         return [];
       }
     })();

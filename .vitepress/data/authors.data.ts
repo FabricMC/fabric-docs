@@ -32,7 +32,7 @@ export default {
     const authorsArray = await Promise.all(
       Array.from(authors.values()).map(async (author) => {
         try {
-          if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
+          if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset");
           const { data } = await octokit.rest.users.getByUsername({
             username: author.login,
           });
@@ -44,7 +44,7 @@ export default {
             number: author.files,
           } as DefaultTheme.TeamMember & { number: number };
         } catch (error) {
-          console.error("Error: ", error);
+          console.error(error);
           return null;
         }
       })
