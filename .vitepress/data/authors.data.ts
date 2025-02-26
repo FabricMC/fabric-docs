@@ -32,6 +32,7 @@ export default {
     const authorsArray = await Promise.all(
       Array.from(authors.values()).map(async (author) => {
         try {
+          if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
           const { data } = await octokit.rest.users.getByUsername({
             username: author.login,
           });
@@ -43,26 +44,15 @@ export default {
             number: author.files,
           } as DefaultTheme.TeamMember & { number: number };
         } catch (error) {
-          // Allows build without internet
+          console.error("Error: ", error);
           return null;
         }
       })
     );
 
-    const { data } = await (async () => {
-      try {
-        return await octokit.rest.users.getByUsername({
-          username: "FabricMCBot",
-        });
-      } catch (e) {
-        // Allows build without internet
-        return { data: { avatar_url: "" } };
-      }
-    })();
     const authorsNoGitHubArray = Array.from(authorsNoGitHub.values()).map(
       (author) =>
         ({
-          avatar: data.avatar_url,
           name: author.login,
           number: author.files,
         } as DefaultTheme.TeamMember & { number: number })
