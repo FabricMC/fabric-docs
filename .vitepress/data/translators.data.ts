@@ -1,4 +1,7 @@
-import crowdin from "@crowdin/crowdin-api-client";
+import {
+  default as Client,
+  default as crowdin,
+} from "@crowdin/crowdin-api-client";
 import { DefaultTheme } from "vitepress";
 
 const CROWDIN_TOKEN = process.env.CROWDIN_TOKEN || "";
@@ -6,9 +9,9 @@ const PROJECT_ID = 647524;
 const { sourceFilesApi, reportsApi } = (() => {
   try {
     //@ts-expect-error https://github.com/crowdin/crowdin-api-client-js/issues/98
-    return new crowdin.default({ token: CROWDIN_TOKEN });
+    return new crowdin.default({ token: CROWDIN_TOKEN }) as Client;
   } catch (error) {
-    return { sourceFilesApi: {}, reportsApi: {} };
+    return { sourceFilesApi: {}, reportsApi: {} } as Client;
   }
 })();
 
@@ -58,7 +61,9 @@ export default {
           )
         ).json()
       ).data;
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error: ", error);
+    }
 
     const translators = new Map<
       string,
