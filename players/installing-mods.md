@@ -3,6 +3,14 @@ title: Installing Mods
 description: A step by step guide on how to install mods for Fabric.
 authors:
   - IMB11
+authors-nogithub:
+  - solidblock
+  - skycatminepokie
+  - mineblock11
+  - poopooracoocoo
+  - kennas
+  - jp79194
+  - falseresync
 ---
 
 This guide will walk you through installing mods for Fabric using the Minecraft Launcher.

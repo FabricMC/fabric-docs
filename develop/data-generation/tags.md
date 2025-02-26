@@ -7,6 +7,9 @@ authors:
   - Spinoscythe
 authors-nogithub:
   - mcrafterzz
+  - skycatminepokie
+  - nexus-dino
+  - mineblock11
 ---
 
 ::: info PREREQUISITES

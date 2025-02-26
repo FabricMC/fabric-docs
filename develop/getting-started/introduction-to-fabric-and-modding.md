@@ -6,6 +6,10 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
+  - daomephsta
+  - elisezerotwo
+  - layl
+  - miir
 ---
 
 ## Prerequisites {#prerequisites}

@@ -4,6 +4,19 @@ description: Learn how to utilize the various launch profiles to start and debug
 authors:
   - IMB11
   - Tenneb22
+authors-nogithub:
+  - amymialee
+  - andrew6rant
+  - banana
+  - draylar
+  - fracturedcode
+  - fudge
+  - jamieswhiteshirt
+  - mineblock11
+  - mkpoli
+  - modmuss50
+  - solidblock
+  - ytg1234
 ---
 
 Fabric Loom provides a variety of launch profiles to help you start and debug your mods in a live game environment. This guide will cover the various launch profiles and how to use them to debug and playtest your mods.

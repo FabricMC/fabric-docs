@@ -3,6 +3,8 @@ title: Custom Screens
 description: Learn how to create custom screens for your mod.
 authors:
   - IMB11
+authors-nogithub:
+  - solidblock
 ---
 
 ::: info

@@ -4,6 +4,7 @@ description: Useful information to handle and traverse your project using the ID
 authors:
   - JR1811
   - AnAwesomGuy
+  - IMB11
 ---
 
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.

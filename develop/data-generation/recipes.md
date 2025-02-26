@@ -7,6 +7,7 @@ authors:
 authors-nogithub:
   - mcrafterzz
   - jmanc3
+  - nexus-dino
 ---
 
 ::: info PREREQUISITES

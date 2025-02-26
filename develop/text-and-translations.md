@@ -4,6 +4,19 @@ description: Comprehensive documentation for Minecraft's handling of formatted t
 authors:
   - IMB11
   - LordEnder-Kitty
+authors-nogithub:
+  - arbee
+  - daomephsta
+  - draylar
+  - fudge
+  - jamieswhiteshirt
+  - luckius974
+  - mattidragon
+  - mysterious_dev
+  - rawdiamondmc
+  - solidblock
+  - stormyfabric
+  - ytg1234
 ---
 
 Whenever Minecraft displays text in-game, it's probably defined using a `Text` object.

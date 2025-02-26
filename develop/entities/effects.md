@@ -11,6 +11,10 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+  - sattes
+  - banana
+  - fireblast
+  - yanis48
 ---
 
 Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game

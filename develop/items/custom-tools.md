@@ -3,6 +3,16 @@ title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
   - IMB11
+authors-nogithub:
+  - solidblock
+  - drakonkinst
+  - haykam
+  - daomephsta
+  - metaltxus
+  - kaloyankys
+  - draylar
+  - boogiemonster1o1
+  - shedaniel
 ---
 
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.

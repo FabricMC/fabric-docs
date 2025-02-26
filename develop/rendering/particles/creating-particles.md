@@ -3,6 +3,8 @@ title: Creating Custom Particles
 description: Learn how to create a custom particle using Fabric API.
 authors:
   - Superkat32
+authors-nogithub:
+  - luligabi1
 ---
 
 Particles are a powerful tool. They can add ambience to a beautiful scene, or add tension to an edge of your seat boss battle. Let's add one!

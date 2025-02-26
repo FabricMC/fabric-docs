@@ -5,6 +5,26 @@ authors:
   - IMB11
   - Benonardo
   - modmuss50
+authors-nogithub:
+  - poopooracoocoo
+  - skycatminepokie
+  - mineblock11
+  - modmuss50
+  - solidblock
+  - player
+  - phoenix_iv
+  - ytg1234
+  - juuz
+  - prospector
+  - calloatti
+  - 2xsaiko
+  - jamieswhiteshirt
+  - falseresync
+  - liach
+  - asie
+  - draylar
+  - kennas
+  - comp500
 ---
 
 <!-- #region common -->

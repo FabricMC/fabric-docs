@@ -8,6 +8,8 @@ authors:
 authors-nogithub:
   - jmanc3
   - mcrafterzz
+  - mattidragon
+  - nexus-dino
 ---
 
 ::: info PREREQUISITES

@@ -3,6 +3,21 @@ title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
   - IMB11
+authors-nogithub:
+  - daomephsta
+  - descuddlebat
+  - florens
+  - furnygo
+  - ggtylerr
+  - haykam
+  - juuz
+  - merry
+  - rodriguezrrp
+  - sakira
+  - solidblock
+  - technici4n
+  - terantai
+  - wjz_p
 ---
 
 Armor provides the player with increased defense against attacks from mobs and other players.

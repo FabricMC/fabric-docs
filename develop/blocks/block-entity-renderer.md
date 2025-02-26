@@ -3,6 +3,18 @@ title: Block Entity Renderers
 description: Learn how to spice rendering up with block entity renderers.
 authors:
   - natri0
+authors-nogithub:
+  - daomephsta
+  - fudge
+  - haykam
+  - hydos
+  - jamieswhiteshirt
+  - juuz
+  - miir
+  - mschae23
+  - outercloudstudio
+  - solidblock
+  - starchild
 ---
 
 Sometimes, using Minecraft's model format is not enough. If you need to add dynamic rendering to your block's visuals, you will need to use a `BlockEntityRenderer`.

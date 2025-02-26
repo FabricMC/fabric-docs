@@ -10,6 +10,10 @@ authors-nogithub:
   - sjk1949
   - mcrafterzz
   - jmanc3
+  - skycatminepokie
+  - mattidragon
+  - nexus-dino
+  - mineblock11
 ---
 
 ::: info PREREQUISITES

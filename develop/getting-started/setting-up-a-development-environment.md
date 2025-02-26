@@ -15,7 +15,36 @@ authors:
   - falseresync
   - asiekierka
 authors-nogithub:
+  - 2xsaiko
+  - andrew6rant
+  - asie
+  - comp500
+  - daomephsta
+  - draylar
+  - emmaffle
+  - falseresync
+  - florens
+  - fudge
+  - jamieswhiteshirt
+  - jeffreyg1228
+  - legiblesleet827
+  - liach
+  - linguardium
+  - mcrafterzz
+  - mineblock11
+  - mkpoli
+  - modmuss50
+  - outercloudstudio
+  - player
+  - poopooracoocoo
   - siglong
+  - smushytaco
+  - solidblock
+  - technici4n
+  - telepathicgrunt
+  - upcraftlp
+  - yanis48
+  - ytg1234
 ---
 
 To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA.

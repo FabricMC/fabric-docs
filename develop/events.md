@@ -15,6 +15,16 @@ authors:
   - natanfudge
 authors-nogithub:
   - stormyfabric
+  - nebelnidas
+  - nokko
+  - radstevee
+  - skycatminepokie
+  - solidblock
+  - daomephsta
+  - mkpoli
+  - pheonixvx
+  - draylar
+  - jamieswhiteshirt
 ---
 
 Fabric API provides a system that allows mods to react to actions or occurrences, also defined as _events_ that occur in the game.

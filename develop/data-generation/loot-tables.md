@@ -10,6 +10,10 @@ authors:
 authors-nogithub:
   - mcrafterzz
   - jmanc3
+  - lunathegaymer
+  - slainlight
+  - justinhuprime
+  - nexus-dino
 ---
 
 ::: info PREREQUISITES

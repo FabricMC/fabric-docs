@@ -12,8 +12,17 @@ authors:
   - SolidBlock-cn
   - Jab125
 authors-nogithub:
+  - arkosammy12
+  - earthcomputer
+  - haykam
+  - jab125
   - jmanc3
-  - macrafterzz
+  - mcrafterzz
+  - mineblock11
+  - modmuss50
+  - shnupbups
+  - slainlight
+  - solidblock
 ---
 
 ## What Is Data Generation? {#what-is-data-generation}

@@ -6,6 +6,9 @@ authors:
   - PandoricaVi
   - Drakonkinst
   - JaaiDead
+authors-nogithub:
+  - drakonkinst
+  - pandoricavi
 ---
 
 Potions are consumables that grants an entity an effect. A player can brew potions using a Brewing Stand or obtain them

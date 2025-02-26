@@ -3,6 +3,14 @@ title: Finding Trustworthy Mods
 description: A guide on how to find Fabric mods using trustworthy sources.
 authors:
   - IMB11
+authors-nogithub:
+  - solidblock
+  - skycatminepokie
+  - mineblock11
+  - poopooracoocoo
+  - kennas
+  - jp79194
+  - falseresync
 ---
 
 Firstly, trust is subjective, and you should always use your own judgement when downloading mods. However, there are some things you can do to help you find trustworthy mods.

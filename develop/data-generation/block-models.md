@@ -6,6 +6,12 @@ authors:
   - natri0
   - IMB11
   - its-miroma
+authors-nogithub:
+  - mcrafterzz
+  - solidblock
+  - daomephsta
+  - nexus-dino
+  - mineblock11
 ---
 
 ::: info PREREQUISITES

@@ -4,6 +4,8 @@ description: A comprehensive guide for understanding and using Mojang's codec sy
 authors:
   - enjarai
   - Syst3ms
+authors-nogithub:
+  - solidblock
 ---
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)

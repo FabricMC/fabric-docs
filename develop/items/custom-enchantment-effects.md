@@ -3,6 +3,14 @@ title: Custom Enchantment Effects
 description: Learn how to create your enchantment effects.
 authors:
   - krizh-p
+authors-nogithub:
+  - solidblock
+  - datsuns
+  - haykam
+  - outercloudstudio
+  - draylar
+  - sirwindfield
+  - modmuss50
 ---
 
 Starting from version 1.21, custom enchantments in Minecraft use a "data-driven" approach. This makes it easier to add simple enchantments, like increasing attack damage, but more challenging to create complex ones. The process involves breaking down enchantments into _effect components_.

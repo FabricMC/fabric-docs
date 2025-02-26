@@ -3,6 +3,17 @@ title: Block States
 description: Learn why blockstates are a great way to add visual functionality to your blocks.
 authors:
   - IMB11
+authors-nogithub:
+  - b0undarybreaker
+  - fireblast
+  - fudge
+  - jamieswhiteshirt
+  - juuz
+  - mineblock11
+  - solidblock
+  - technici4n
+  - terra
+  - tsunaminal
 ---
 
 A block state is a piece of data attached to a singular block in the Minecraft world containing information on the block in the form of properties - some examples of properties vanilla stores in block states:
