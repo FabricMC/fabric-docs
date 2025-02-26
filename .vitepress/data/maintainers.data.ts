@@ -29,7 +29,7 @@ export default {
                 username: member.login,
               });
             } catch (error) {
-              //console.error(error);
+              console.error(error);
               return [{ login: "FabricMC" }];
             }
           })(),
