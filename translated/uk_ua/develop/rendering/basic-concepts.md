@@ -133,7 +133,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 Ви також можете помножити верхню матрицю в стеці за допомогою кватерніонів, які ми розглянемо в наступному розділі.
 
-Беручи з нашого прикладу вище, ми можемо збільшити та зменшити масштаб ромбу за допомогою `MatrixStack` і `tickDelta` - це "прогрес" між останнім ігровим тиком і наступним ігровим тиком. Ми роз’яснимо це пізніше на сторінці [промальовування в Hud](./hud#tick-delta).
+Беручи з нашого прикладу вище, ми можемо збільшити та зменшити масштаб ромбу за допомогою `MatrixStack` і `tickDelta` - це "прогрес" між останнім ігровим тиком і наступним ігровим тиком. Ми роз’яснимо це пізніше на сторінці [промальовування в HUD](./hud#render-tick-counter).
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
