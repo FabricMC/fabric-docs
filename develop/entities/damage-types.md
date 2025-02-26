@@ -70,7 +70,13 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 You can define a death message for the damage type in the format of `death.attack.message_id` in our
 mod's `en_us.json` file.
 
-@[code lang=json transclude={5-5}](@/reference/latest/src/main/generated/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 Upon death from our damage type, you'll see the following death message:
 
