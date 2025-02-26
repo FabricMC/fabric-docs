@@ -2,31 +2,31 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
-  - Ayutac
-  - Draylar
-  - Earthcomputer
-  - IMB11
-  - JamiesWhiteShirt
-  - MCrafterzz
-  - MattiDragon
-  - RedGrapefruit09
-  - Ryhon0
-  - Sleet827
-  - SolidBlock-cn
-  - Technici4n
-  - UpcraftLP
+  - ayutac
   - baka4n
+  - draylar
+  - earthcomputer
   - haykam821
+  - imb11
   - its-miroma
+  - jamieswhiteshirt
   - liach
+  - mattidragon
   - natanfudge
-  - xEobardThawne
+  - ryhon0
+  - sleet827
+  - solidblock-cn
+  - technici4n
+  - upcraftlp
+  - xeobardthawne
 authors-nogithub:
   - bitman
   - darthjake
   - legol
   - leocth2
   - luo_tian_wy
+  - mcrafterzz
+  - redgrapefruit
   - rodriguezrrp
   - s1lverposting
   - siglong

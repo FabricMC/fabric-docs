@@ -2,13 +2,13 @@
 title: Project Structure
 description: An overview of the structure of a Fabric mod project.
 authors:
-  - IMB11
-  - JamiesWhiteShirt
-  - Juuxel
-  - SolidBlock-cn
   - falseresync
-  - i509VCB
+  - i509vcb
+  - imb11
+  - jamieswhiteshirt
+  - juuxel
   - natanfudge
+  - solidblock-cn
 ---
 
 This page will go over the structure of a Fabric mod project, and the purpose of each file and folder in the project.

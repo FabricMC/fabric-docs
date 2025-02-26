@@ -2,7 +2,7 @@
 title: Rendering in the HUD
 description: Learn how to use the Fabric Hud API to render to the HUD.
 authors:
-  - IMB11
+  - imb11
   - kevinthegreat1
 ---
 

@@ -2,7 +2,6 @@
 title: Damage Types
 description: Learn how to add custom damage types.
 authors:
-  - MattiDragon
   - dicedpixels
   - hiisuuii
   - mattidragon

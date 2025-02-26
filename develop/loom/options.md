@@ -2,14 +2,14 @@
 title: Loom Options
 description: Reference for all options of the Fabric Loom Gradle plugin.
 authors:
-  - Atakku
-  - Daomephsta
-  - JamiesWhiteShirt
-  - Juuxel
-  - SolidBlock-cn
+  - atakku
   - caoimhebyrne
+  - daomephsta
+  - jamieswhiteshirt
+  - juuxel
   - kb-1000
   - modmuss50
+  - solidblock-cn
 ---
 
 This page contains a reference for all options present in the `loom` Gradle extension. Please see the [Fabric API DSL](./fabric-api) page for options related to Fabric API specific features.

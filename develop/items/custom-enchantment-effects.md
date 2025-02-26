@@ -2,12 +2,12 @@
 title: Custom Enchantment Effects
 description: Learn how to create your enchantment effects.
 authors:
-  - Draylar
-  - SolidBlock-cn
+  - draylar
   - haykam821
   - krizh-p
   - modmuss50
   - outercloudstudio
+  - solidblock-cn
 authors-nogithub:
   - datsuns
   - sirwindfield

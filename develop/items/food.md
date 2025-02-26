@@ -2,11 +2,11 @@
 title: Food Items
 description: Learn how to add a FoodComponent to an item to make it edible, and configure it.
 authors:
-  - Draylar
-  - IMB11
-  - Mysterious-Dev
-  - SolidBlock-cn
+  - draylar
   - haykam821
+  - imb11
+  - mysterious-dev
+  - solidblock-cn
 authors-nogithub:
   - leocth2
 ---

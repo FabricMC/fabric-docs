@@ -3,40 +3,37 @@ title: Setting up a Development Environment
 description: A step-by-step guide on how to set up a development environment to create mods using Fabric.
 authors:
   - 2xsaiko
-  - Andrew6rant
-  - Daomephsta
-  - Draylar
-  - IMB11
-  - JamiesWhiteShirt
-  - Jeffreyg1228
-  - Linguardium
-  - MCrafterzz
-  - Sleet827
-  - SmushyTaco
-  - SolidBlock-cn
-  - Technici4n
-  - UpcraftLP
-  - YTG1234
-  - Yanis48
   - andrew6rant
   - asiekierka
   - comp500
   - daomephsta
+  - draylar
   - falseresync
   - florensie
+  - imb11
+  - jamieswhiteshirt
+  - jeffreyg1228
   - liach
+  - linguardium
   - mkpoli
   - modmuss50
   - natanfudge
   - outercloudstudio
-  - sfPlayer1
+  - sfplayer1
+  - sleet827
+  - smushytaco
+  - solidblock-cn
+  - technici4n
   - telepathicgrunt
   - triphora
+  - upcraftlp
+  - yanisbft
+  - ytg1234
 authors-nogithub:
   - asie
+  - mcrafterzz
   - poopooracoocoo
   - siglong
-  - telepathicgrunt
 ---
 
 To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA.

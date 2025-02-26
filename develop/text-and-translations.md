@@ -2,19 +2,19 @@
 title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
-  - Arbee4ever
-  - Daomephsta
-  - Draylar
-  - IMB11
-  - JamiesWhiteShirt
-  - LordEnder-Kitty
-  - MattiDragon
-  - MrLucky974
-  - Mysterious-Dev
-  - RawDiamondMC
-  - SolidBlock-cn
-  - YTG1234
+  - arbee4ever
+  - daomephsta
+  - draylar
+  - imb11
+  - jamieswhiteshirt
+  - lordender-kitty
+  - mattidragon
+  - mrlucky974
+  - mysterious-dev
   - natanfudge
+  - rawdiamondmc
+  - solidblock-cn
+  - ytg1234
 authors-nogithub:
   - stormyfabric
 ---

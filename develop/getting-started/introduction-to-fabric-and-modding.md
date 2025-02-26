@@ -2,13 +2,13 @@
 title: Introduction to Fabric and Modding
 description: "A brief introduction to Fabric and modding in Minecraft: Java Edition."
 authors:
-  - Daomephsta
-  - IMB11
-  - LaylConway
+  - daomephsta
+  - imb11
   - itsmiir
 authors-nogithub:
   - basil4088
   - elisezerotwo
+  - layl
 ---
 
 ## Prerequisites {#prerequisites}

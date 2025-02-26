@@ -2,12 +2,12 @@
 title: Finding Trustworthy Mods
 description: A guide on how to find Fabric mods using trustworthy sources.
 authors:
-  - IMB11
-  - John-Paul-R
-  - K3nnas
-  - SolidBlock-cn
   - falseresync
+  - imb11
+  - john-paul-r
+  - k3nnas
   - skycatminepokie
+  - solidblock-cn
 authors-nogithub:
   - poopooracoocoo
 ---

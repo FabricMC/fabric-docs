@@ -2,15 +2,16 @@
 title: Custom Item Groups
 description: Learn how to create your own item group and add items to it.
 authors:
-  - Daomephsta
-  - Draylar
-  - IMB11
-  - MCrafterzz
-  - SolidBlock-cn
-  - Virtuoel
-  - Yanis48
+  - daomephsta
   - dayo05
+  - draylar
   - haykam821
+  - imb11
+  - solidblock-cn
+  - virtuoel
+  - yanisbft
+authors-nogithub:
+  - mcrafterzz
 ---
 
 Item groups are the tabs in the creative inventory that store items. You can create your own item group to store your items in a separate tab. This is pretty useful if your mod adds a lot of items and you want to keep them organized in one location for your players to easily access.

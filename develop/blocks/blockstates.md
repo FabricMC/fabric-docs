@@ -2,15 +2,15 @@
 title: Block States
 description: Learn why blockstates are a great way to add visual functionality to your blocks.
 authors:
-  - Boundarybreaker
-  - IMB11
-  - JamiesWhiteShirt
-  - Juuxel
-  - SolidBlock-cn
-  - Technici4n
-  - TheFireBlast
+  - imb11
+  - jamieswhiteshirt
+  - juuxel
   - natanfudge
+  - solidblock-cn
+  - technici4n
+  - thefireblast
 authors-nogithub:
+  - b0undarybreaker
   - terra
   - tsunaminal
 ---

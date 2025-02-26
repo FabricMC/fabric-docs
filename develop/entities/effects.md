@@ -2,14 +2,13 @@
 title: Status Effects
 description: Learn how to add custom status effects.
 authors:
-  - FireBlast
-  - Friendly-Banana
-  - Manchick0
-  - SattesKrokodil
-  - TheFireBlast
-  - Yanis48
-  - YanisBft
   - dicedpixels
+  - fireblast
+  - friendly-banana
+  - manchick0
+  - satteskrokodil
+  - thefireblast
+  - yanisbft
 authors-nogithub:
   - siglong
   - tao0lu

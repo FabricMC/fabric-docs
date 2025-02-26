@@ -7,13 +7,13 @@ authors-nogithub:
   - mounderfod
   - poopooracoocoo
 authors:
-  - Clomclem
-  - Earthcomputer
-  - SolidBlock-cn
+  - clomclem
   - comp500
+  - earthcomputer
   - haykam821
   - liach
   - ramidzkh
+  - solidblock-cn
 ---
 
 There are a lot of questions that are asked frequently, so we've compiled a list of them here.

@@ -2,10 +2,11 @@
 title: Tag Generation
 description: A guide to setting up tag generation with datagen.
 authors:
-  - IMB11
-  - MCrafterzz
-  - Spinoscythe
+  - imb11
   - skycatminepokie
+  - spinoscythe
+authors-nogithub:
+  - mcrafterzz
 ---
 
 ::: info PREREQUISITES

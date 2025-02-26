@@ -2,8 +2,8 @@
 title: Custom Widgets
 description: Learn how to create custom widgets for your screens.
 authors:
-  - IMB11
-  - SolidBlock-cn
+  - imb11
+  - solidblock-cn
 ---
 
 Widgets are essentially containerized rendering components that can be added to a screen, and can be interacted with by the player through various events such as mouse clicks, key presses, and more.
