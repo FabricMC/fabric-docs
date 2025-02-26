@@ -42,11 +42,6 @@ public class CustomEntity extends AnimalEntity {
 
     }
 
-    /*
-    protected void initCustomGoals(){
-       // this.goalSelector.add(2,new ZombieAttackGoal(this,1D,false)); //TODO:Custom Goals?
-    }*/
-
     public static DefaultAttributeContainer.Builder createAttribute(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH,20)
@@ -54,7 +49,7 @@ public class CustomEntity extends AnimalEntity {
                 .add(EntityAttributes.FOLLOW_RANGE,10);
     }
 
-    private void setupAAnimationStates(){
+    private void setupAnimationStates(){
         if (this.idelAnimationTimeout <= 0) {
             this.idelAnimationTimeout = 50;
             this.idelAnimationState.start(this.age);
@@ -68,7 +63,7 @@ public class CustomEntity extends AnimalEntity {
         super.tick();
 
         if(this.getWorld().isClient()){
-            this.setupAAnimationStates();
+            this.setupAnimationStates();
         }
     }
 
