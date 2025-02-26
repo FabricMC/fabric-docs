@@ -133,7 +133,7 @@ La classe `MatrixStack` ha i seguenti metodi:
 
 Puoi anche moltiplicare la matrice in cima allo stack usando i quaternioni, che tratteremo nella prossima sezione.
 
-Usando l'esempio di prima, possiamo ingrandire e rimpicciolire il nostro diamante usando la `MatrixStack` e il `tickDelta` - che è l'"avanzamento" tra il tick di gioco precedente e quello successivo. Chiariremo questo ulteriormente nella pagina [Rendering nel Hud](./hud#tick-delta).
+Usando l'esempio di prima, possiamo ingrandire e rimpicciolire il nostro diamante usando la `MatrixStack` e il `tickDelta` - che è l'"avanzamento" tra il tick di gioco precedente e quello successivo. Chiariremo questo ulteriormente nella pagina [Rendering nel HUD](./hud#render-tick-counter).
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
