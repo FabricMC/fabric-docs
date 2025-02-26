@@ -13,7 +13,7 @@ export default {
           username: LOGIN,
         });
       } catch (error) {
-        console.error("Error: ", error);
+        console.error(error);
         return { data: { avatar_url: `https://github.com/${LOGIN}.png` } };
       }
     })();

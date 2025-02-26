@@ -62,7 +62,7 @@ export default {
         ).json()
       ).data;
     } catch (error) {
-      console.error("Error: ", error);
+      console.error(error);
     }
 
     const translators = new Map<
