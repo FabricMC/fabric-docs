@@ -44,8 +44,11 @@ export default {
             number: author.files,
           } as DefaultTheme.TeamMember & { number: number };
         } catch (error) {
-          console.error(error);
-          return null;
+          //console.error(error);
+          return {
+            name: author.login,
+            number: author.files,
+          };
         }
       })
     );
