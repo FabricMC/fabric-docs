@@ -8,13 +8,13 @@ export default {
   async load() {
     const members = await (async () => {
       try {
-        if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
+        if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset");
         return await octokit.paginate(octokit.rest.teams.listMembersInOrg, {
           org: "FabricMC",
           team_slug: "documentation",
         });
       } catch (error) {
-        console.error("Error: ", error);
+        console.error(error);
         return [];
       }
     })();
@@ -24,12 +24,12 @@ export default {
         members.map(async (member) => ({
           val: await (async () => {
             try {
-              if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset")
+              if (!GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is unset");
               return await octokit.paginate(octokit.rest.orgs.listForUser, {
                 username: member.login,
               });
             } catch (error) {
-              console.error("Error: ", error);
+              //console.error(error);
               return [{ login: "FabricMC" }];
             }
           })(),
