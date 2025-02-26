@@ -32,7 +32,7 @@ const options = computed(
 
 const authors = _authors.map((author) => ({
   ...author,
-  avatar: author.avatar || _bot.avatar;
+  avatar: author.avatar || _bot.avatar,
   title:
     author.number === 1
       ? options.value.authors.description.singular
@@ -44,7 +44,7 @@ const authors = _authors.map((author) => ({
 
 const committers = _committers.map((committer) => ({
   ...committer,
-  avatar: committer.avatar || _bot.avatar;
+  avatar: committer.avatar || _bot.avatar,
   title:
     committer.number === 1
       ? options.value.committers.description.singular
@@ -58,7 +58,7 @@ const maintainers = _maintainers;
 
 const translators = _translators.map((translator) => ({
   ...translator,
-  avatar: translator.avatar || _bot.avatar;
+  avatar: translator.avatar || _bot.avatar,
   title:
     translator.number === 1
       ? options.value.translators.description.singular
