@@ -37,6 +37,7 @@ export default {
           ? h("h1", { class: "vp-doc" }, frontmatter.value.title)
           : null,
         h(VersionReminder),
+        h(AuthorsComponent),
       ],
       "aside-outline-before": () => h(VersionReminder),
       "aside-outline-after": () => h(AuthorsComponent),
