@@ -98,7 +98,7 @@ To add game tests to your mod, add the following to your `build.gradle`:
 
 To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
 
-#### Setting up Game Test Directory
+#### Setting up Game Test Directory {#setting-up-game-test-directory}
 
 ::: info
 You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own gradle magic, but you'll be on your own.
