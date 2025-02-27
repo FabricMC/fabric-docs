@@ -2,7 +2,8 @@
 title: Using the Drawing Context
 description: Learn how to use the DrawContext class to render various shapes, text and textures.
 authors:
-  - IMB11
+  - imb11
+  - solidblock-cn
 ---
 
 This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.

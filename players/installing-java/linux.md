@@ -2,7 +2,15 @@
 title: Installing Java on Linux
 description: A step by step guide on how to install Java on Linux.
 authors:
-  - IMB11
+  - 2xsaiko
+  - ancurio
+  - calloatti
+  - imb11
+  - skycatminepokie
+authors-nogithub:
+  - existingexpert
+  - poopooracoocoo
+  - zacki
 ---
 
 This guide will walk you through installing Java 21 on Linux.

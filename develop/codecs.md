@@ -3,7 +3,8 @@ title: Codecs
 description: A comprehensive guide for understanding and using Mojang's codec system for serializing and deserializing objects.
 authors:
   - enjarai
-  - Syst3ms
+  - solidblock-cn
+  - syst3ms
 ---
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)

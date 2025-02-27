@@ -2,6 +2,7 @@
 title: Automated Testing
 description: A guide to writing automatic tests with Fabric Loader JUnit.
 authors:
+  - florensie
   - kevinthegreat1
 ---
 

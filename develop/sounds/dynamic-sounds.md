@@ -2,7 +2,7 @@
 title: Dynamic and Interactive Sounds
 description: Create more dynamic and interactive sounds
 authors:
-  - JR1811
+  - jr1811
 ---
 
 ::: info PREREQUISITES

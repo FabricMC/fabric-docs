@@ -2,14 +2,14 @@
 title: Translation Generation
 description: A guide to setting up translation generation with datagen.
 authors:
+  - imb11
+  - mattidragon
   - skycatminepokie
-  - MattiDragon
-  - IMB11
-  - Spinoscythe
+  - spinoscythe
 authors-nogithub:
-  - sjk1949
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
+  - sjk1949
 ---
 
 ::: info PREREQUISITES

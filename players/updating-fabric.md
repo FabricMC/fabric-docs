@@ -2,8 +2,13 @@
 title: Updating Fabric
 description: A step by step guide on how to update Fabric.
 authors:
-  - IMB11
+  - calloatti
+  - imb11
+  - k3nnas
   - modmuss50
+  - skycatminepokie
+authors-nogithub:
+  - poopooracoocoo
 ---
 
 This guide will walk you through updating Fabric for the Minecraft Launcher.

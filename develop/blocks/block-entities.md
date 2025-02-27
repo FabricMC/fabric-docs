@@ -2,7 +2,27 @@
 title: Block Entities
 description: Learn how to create block entities for your custom blocks.
 authors:
+  - boogiemonster1o1
+  - chloedawn
+  - draylar
+  - earthcomputer
+  - falseresync
+  - frqnny
+  - haykam821
+  - juuxel
+  - modmuss50
+  - natanfudge
   - natri0
+  - outercloudstudio
+  - psjahn
+  - solidblock-cn
+  - technici4n
+  - thefireblast
+  - yanisbft
+authors-nogithub:
+  - moheng
+  - s1lverposting
+  - terra
 ---
 
 Block entities are a way to store additional data for a block, that is not part of the block state: inventory contents, custom name and so on.

@@ -2,19 +2,23 @@
 title: Creating Commands
 description: Create commands with complex arguments and actions.
 authors:
-  - dicedpixels
-  - i509VCB
-  - pyrofab
-  - natanfudge
-  - Juuxel
-  - solidblock
-  - modmuss50
-  - technici4n
   - atakku
-  - haykam
+  - dicedpixels
+  - haykam821
+  - i509vcb
+  - juuxel
+  - liach
+  - modmuss50
   - mschae23
+  - natanfudge
+  - pyrofab
+  - solidblock-cn
+  - spinoscythe
+  - technici4n
   - treeways
   - xpple
+authors-nogithub:
+  - allen1210
 ---
 
 Creating commands can allow a mod developer to add functionality that can be used through a command. This tutorial will

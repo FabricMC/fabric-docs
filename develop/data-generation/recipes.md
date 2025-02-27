@@ -3,10 +3,10 @@ title: Recipe Generation
 description: A guide to setting up recipe generation with datagen.
 authors:
   - skycatminepokie
-  - Spinoscythe
+  - spinoscythe
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 ::: info PREREQUISITES
