@@ -9,10 +9,6 @@ This page explains how to write code to automatically test parts of your mod. Th
 
 Unit tests should be used to test components of your code, such as methods and helper classes, while game tests spin up an actual Minecraft client and server to run your tests, which makes it suitable for testing features and gameplay.
 
-::: warning
-Currently, this guide only covers unit testing.
-:::
-
 ## Unit Testing {#unit-testing}
 
 Since Minecraft modding relies on runtime byte-code modification tools such as Mixin, simply adding and using JUnit normally would not work. That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
@@ -87,3 +83,43 @@ Add this to your `.github/workflows/build.yml` file, below the `./gradlew build`
       **/build/reports/
       **/build/test-results/
 ```
+
+## Game Tests {#game-tests}
+
+Minecraft provides the game test framework for testing server-side features. Fabric additionally provides client game tests for testing client-side features, similar to an end-to-end test.
+
+### Setting up Game Tests with Fabric Loom {#setting-up-game-tests-with-fabric-loom}
+
+Both server and client game tests can be set up manually or with Fabric Loom. This guide will use Loom.
+
+To add game tests to your mod, add the following to your `build.gradle`:
+
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+
+To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
+
+#### Setting up Game Test Directory {#setting-up-game-test-directory}
+
+::: info
+You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own gradle magic, but you'll be on your own.
+:::
+
+If you enabled `createSourceSet` like the example above, your gametest will be in a separate source set with a separate `fabric.mod.json`. The module name defaults to `gametest`. Create a new `fabric.mod.json` in `src/gametest/resources/` as shown:
+
+<<< @/reference/latest/src/gametest/resources/fabric.mod.json
+
+Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/FabricDocsGameTest`, and a client game test at `src/gametest/java/com/example/docs/FabricDocsClientGameTest`.
+
+### Writing Game Tests {#writing-game-tests}
+
+You can now create server and client game tests in the `src/gametest/java` directory. Here is a barebones example of each.
+
+Server game test:
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java
+
+Client game test:
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java
+
+See the respective javadocs in Fabric API for more info.
