@@ -37,9 +37,7 @@ function refreshOptions() {
   }
 }
 
-watchEffect(() => {
-  refreshOptions();
-});
+watchEffect(refreshOptions);
 </script>
 
 <template>
