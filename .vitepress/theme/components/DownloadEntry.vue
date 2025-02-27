@@ -21,9 +21,7 @@ function refreshText() {
   }
 }
 
-onContentUpdated(() => {
-  refreshText();
-});
+onContentUpdated(refreshText);
 </script>
 
 <template>
