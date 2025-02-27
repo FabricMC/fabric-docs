@@ -18,7 +18,7 @@ test {
 fabricApi {
 	configureTests {
 		createSourceSet = true
-		modId = base.archivesName // Your mod id here
+		modId = "fabric-docs-reference-test-${project.name}"
 		eula = true
 	}
 }
