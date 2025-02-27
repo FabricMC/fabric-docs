@@ -98,6 +98,18 @@ To add game tests to your mod, add the following to your `build.gradle`:
 
 To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
 
+#### Setting up Game Test Directory
+
+::: info
+You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own gradle magic, but you'll be on your own.
+:::
+
+If you enabled `createSourceSet` like the example above, your gametest will be in a separate source set with a separate `fabric.mod.json`. The module name defaults to `gametest`. Create a new `fabric.mod.json` in `src/gametest/resources/` as shown:
+
+<<< @/reference/latest/src/gametest/resources/fabric.mod.json
+
+Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/FabricDocsGameTest`, and a client game test at `src/gametest/java/com/example/docs/FabricDocsClientGameTest`.
+
 ### Writing Game Tests {#writing-game-tests}
 
 You can now create server and client game tests in the `src/gametest/java` directory. Here is a barebones example of each.
