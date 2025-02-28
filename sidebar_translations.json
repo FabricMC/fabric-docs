@@ -38,6 +38,7 @@
   "develop.entities": "Entities",
   "develop.entities.effects": "Status Effects",
   "develop.entities.damage-types": "Damage Types",
+  "develop.entities.custom-entities": "Custom Entities",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
   "develop.commands.arguments": "Command Arguments",
