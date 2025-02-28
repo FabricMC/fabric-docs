@@ -38,15 +38,14 @@ nearby players:
 ```java
 public class HighlightingWandItem extends Item {
     public HighlightingWandItem(Item.Settings settings) {
-        super(settings)
+        super(settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        // Raycast and find the block the user is facing at
         BlockPos target = ...
 
-        // BAD CODE: DON'T EVER DO THIS!
-        ClientBlockHighlighting.highlightBlock(MinecraftClient.getInstance(), target);
+        // BAD CODE: DON'T EVER DO THIS! // [!code error]
+        ClientBlockHighlighting.highlightBlock(MinecraftClient.getInstance(), target); // [!code error]
         return super.use(world, user, hand);
     }
 }
@@ -57,7 +56,7 @@ friend, you boot up a dedicated server and invite your friend on with the mod in
 
 You use the item and the server crashes. You will probably notice in the crash log an error similar to this:
 
-```text
+```log
 [Server thread/FATAL]: Error executing task on Server
 java.lang.RuntimeException: Cannot load class net.minecraft.client.MinecraftClient in environment type SERVER
 ```
@@ -81,7 +80,7 @@ The diagram above shows that the game client and dedicated server are separate s
 _packets_. Packets can contain data which we refer to as the _payload_.
 
 This packet bridge does not only exist between a game client and dedicated server, but also between your client and
-another client connected over LAN. The packet bridge is also present even in single-player. This is because the game
+another client connected over LAN. The packet bridge is also present even in singleplayer. This is because the game
 client will spin up a special integrated server instance to run the game on.
 
 The key difference between the three types of connections that are shown in the table below:
@@ -90,14 +89,14 @@ The key difference between the three types of connections that are shown in the 
 |-------------------------------|----------------------------|
 | Connected to dedicated Server | None (Server crash)        |
 | Connected over LAN            | Yes (Not host game client) |
-| Single-player (or LAN host)   | Yes (Full access)          |
+| singleplayer (or LAN host)    | Yes (Full access)          |
 
 It may seem complicated to have communication with the server in three different ways. However, you don't need to
 communicate in three different ways with the game client. Since all three connection types communicate with the game
 client using packets, you only need to communicate with the game client like you're always running on a dedicated
 server.
 
-Connection to a server over LAN or single-player can also be treated like the server is a remote, dedicated server; so
+Connection to a server over LAN or singleplayer can also be treated like the server is a remote, dedicated server; so
 your game client can't directly access the server instance.
 
 ## An Introduction to Networking {#an-introduction-to-networking}
@@ -136,14 +135,16 @@ We have also overridden `getId` to return our payload ID.
 
 Before we send a packet with our custom payload, we need to register it.
 
+::: info
+`S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.
+:::
+
 This can be done in our **common initializer** by `PayloadTypeRegistry.playS2C().register` which takes in a
 `CustomPayload.Id` and a `PacketCodec`.
 
 @[code lang=java transclude={28-28}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
 
 A similar method exists to register client-to-server payloads: `PayloadTypeRegistry.playC2S().register`.
-
-`S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.
 
 ### Sending a Packet to the Client {#sending-a-packet-to-the-client}
 
