@@ -20,4 +20,4 @@ Entities are a movable object in a world with logic attached to them. A few exam
 
 The MiniGolemEntity is a custom mob based on `PathAwareEntity`.
 
-@[code lang=java transcludeWith=:::1](@reference\latest\src\main\java\com\example\docs\entity\MiniGolemEntity.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
