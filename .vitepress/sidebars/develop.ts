@@ -130,6 +130,10 @@ export default [
         text: "develop.entities.damage-types",
         link: "/develop/entities/damage-types",
       },
+      {
+        text: "develop.entities.custom-entities",
+        link: "/develop/entities/custom-entities",
+      },
     ],
   },
   {
