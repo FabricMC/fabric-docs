@@ -97,7 +97,7 @@ public class CoolBeansClass {
 
 第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `Registries.ITEM` 注册表中获取，它有 `getCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
 
-### 列表{#lists}
+### 列表 {#lists}
 
 `Codec#listOf` 可用于创建任意 codec 的列表版本。
 
