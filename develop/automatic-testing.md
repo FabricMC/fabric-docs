@@ -57,7 +57,7 @@ For an explanation of what this code actually does, see [Codecs](./codecs#regist
 
 Great, the first test worked! But wait, the second test failed? In the logs, we get one of the following errors.
 
-@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=log transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 This is because we're trying to access the registry or a class that depends on the registry (or, in rare cases, depends on other Minecraft classes such as `SharedConstants`), but Minecraft has not been initialized. We just need to initialize it a little bit to have registries working. Simply add the following code to the beginning of your `beforeAll` method.
 
