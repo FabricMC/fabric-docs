@@ -112,14 +112,14 @@ Note that this `fabric.mod.json` expects a server game test at `src/gametest/jav
 
 ### Writing Game Tests {#writing-game-tests}
 
-You can now create server and client game tests in the `src/gametest/java` directory. Here is a barebones example of each.
+You can now create server and client game tests in the `src/gametest/java` directory. Here is a basic example for each:
 
-Server game test:
+::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java [Server]
 
-Client game test:
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java [Client]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java
+:::
 
-See the respective javadocs in Fabric API for more info.
+See the respective Javadocs in Fabric API for more info.
