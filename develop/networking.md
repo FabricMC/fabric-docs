@@ -2,23 +2,23 @@
 title: Networking
 description: A general guide on networking using Fabric API.
 authors:
-  - dicedpixels
-  - FlooferLand
-  - skycatminepokie
-  - fxmorin
-  - netuserget
-  - wxffel
   - daomephsta
+  - dicedpixels
+  - earthcomputer
+  - flooferland
+  - fxmorin
+  - i509vcb
+  - modmuss50
+  - natanfudge
+  - netuserget
+  - nshak
+  - parzivail
+  - skycatminepokie
   - solidblock
   - voleil
-  - daomephsta
-  - YTG123-Mods
+  - wxffel
+  - ytg123-mods
   - zulrang
-  - i509VCB
-  - nshak
-  - earthcomputer
-  - natanfudge
-  - modmuss50
 ---
 
 Networking in Minecraft is used so the client and server can communicate with each other. Networking is a broad topic,
@@ -72,7 +72,7 @@ In a development environment, client-only classes are indicated by the `@Environ
 ### How Do We Fix the Crash? {#how-do-we-fix-the-crash}
 
 To fix this issue, you need to understand how Minecraft communicates between the game client and dedicated
-server.
+server:
 
 ![Sides](/assets/develop/networking/sides.png)
 
