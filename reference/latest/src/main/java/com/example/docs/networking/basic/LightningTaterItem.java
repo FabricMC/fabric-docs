@@ -23,7 +23,7 @@ public class LightningTaterItem extends Item {
 			return ActionResult.PASS;
 		}
 
-		SummonLightningPayload payload = new SummonLightningPayload(user.getBlockPos());
+		SummonLightningS2CPayload payload = new SummonLightningS2CPayload(user.getBlockPos());
 
 		for (ServerPlayerEntity player : PlayerLookup.world((ServerWorld) world)) {
 			ServerPlayNetworking.send(player, payload);
