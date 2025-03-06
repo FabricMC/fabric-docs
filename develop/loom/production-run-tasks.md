@@ -2,15 +2,14 @@
 title: Production Run Tasks
 description: Documentation for the production run tasks in the Fabric Loom Gradle plugin.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 When building your mod to distribute to users, it gets remapped to intermediary mappings, which cause slight inconsistencies between the development environment and production (like the vanilla launcher). Although such issues are rare, it makes sense to test your mod in a production environment before releasing it.

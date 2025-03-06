@@ -2,17 +2,17 @@
 title: Events
 description: A guide for using events provided by the Fabric API.
 authors:
+  - Daomephsta
   - dicedpixels
-  - mkpoli
-  - daomephsta
-  - solidblock
-  - draylar
-  - jamieswhiteshirt
-  - PhoenixVX
+  - Draylar
+  - JamiesWhiteShirt
   - Juuxel
-  - YanisBft
   - liach
+  - mkpoli
   - natanfudge
+  - PhoenixVX
+  - solidblock
+  - YanisBft
 authors-nogithub:
   - stormyfabric
 ---
