@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { onContentUpdated, useData } from "vitepress";
-import { computed, ref } from "vue";
+import { useData } from "vitepress";
+import { computed } from "vue";
 
 const data = useData();
 const heading = computed(() => data.theme.value.authors.heading);
 const labelNoGitHub = computed(() => data.theme.value.authors.noGitHub);
 
-const combinedAuthors = ref<{ name: string; noGitHub?: true }[]>([]);
-
-function refreshAuthors() {
+const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
   const authors: string[] = data.frontmatter.value["authors"] || [];
   const authorsNoGitHub: string[] =
     data.frontmatter.value["authors-nogithub"] || [];
@@ -18,19 +16,21 @@ function refreshAuthors() {
     name,
     noGitHub: true,
   }));
-  combinedAuthors.value = [...withGitHub, ...withoutGitHub].sort((a, b) =>
+
+  return [...withGitHub, ...withoutGitHub].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
-}
-
-onContentUpdated(refreshAuthors);
+});
 </script>
 
 <template>
   <div v-if="combinedAuthors.length" class="authors-section">
     <h2>{{ heading }}</h2>
     <div class="page-authors">
-      <template v-for="author in combinedAuthors">
+      <template
+        v-for="author in combinedAuthors"
+        :key="author.noGitHub ? ':' : '' + author"
+      >
         <img
           v-if="author.noGitHub"
           loading="lazy"
