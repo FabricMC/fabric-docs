@@ -32,9 +32,7 @@ you know it or not. For example, when you jump in the game, a packet is sent to 
 sends a packet to all the other clients to tell them that you jumped.
 
 One imporant thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
-the client and server even when no one else is playing with you. We usually call this the logicial client/server or the client/server thread.
-This is diffrent from the client/server code split, that prevents you from being able to use client only classes in common (shared between
-the client and server) code.
+the client and server even when no one else is playing with you. When talking about sides in networking, the terms "**logical** client" and "**logical** server" are used. The integrated singleplayer/LAN server and the dedicated server are both **logical** servers, but only the dedicated server can be considered a **physical** server.
 
 When state is not synced between the client and server, you can run into issues where the server or other clients don't agree with what another
 client is doing. This is often known as a "desync". When writing your own mod you may need to send a packet of data to notify the server,
