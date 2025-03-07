@@ -13,8 +13,10 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 
 import com.example.docs.FabricDocsReference;
 
+//:::1
 
 public class ModEntityTypes {
+
 	public static final EntityType<MiniGolemEntity> MINI_GOLEM = register(
 			"mini_golem",
 			EntityType.Builder.<MiniGolemEntity>create(MiniGolemEntity::new, SpawnGroup.MISC)
@@ -33,4 +35,7 @@ public class ModEntityTypes {
 	public static void registerAttributes() {
 		FabricDefaultAttributeRegistry.register(MINI_GOLEM, MiniGolemEntity.createCubeAttributes());
 	}
+
 }
+
+//:::1
