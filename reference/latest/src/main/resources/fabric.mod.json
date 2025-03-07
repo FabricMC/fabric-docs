@@ -20,14 +20,16 @@
       "com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
       "com.example.docs.component.FabricDocsReferenceComponents",
       "com.example.docs.advancement.FabricDocsReferenceDatagenAdvancement",
-      "com.example.docs.networking.FabricDocsReferenceNetworking"
+      "com.example.docs.networking.FabricDocsReferenceNetworking",
+      "com.example.docs.networking.basic.FabricDocsReferenceNetworkingBasic"
     ],
     "client": [
       "com.example.docs.client.command.FabricDocsReferenceClientCommands",
       "com.example.docs.FabricDocsBlockEntityRenderer",
       "com.example.docs.FabricDocsDynamicSound",
       "com.example.docs.FabricDocsReferenceClient",
-      "com.example.docs.rendering.HudRenderingEntrypoint"
+      "com.example.docs.rendering.HudRenderingEntrypoint",
+      "com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicClient"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
