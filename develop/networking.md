@@ -71,8 +71,7 @@ In a development environment, client-only classes are indicated by the `@Environ
 
 ### How Do We Fix the Crash? {#how-do-we-fix-the-crash}
 
-To fix this issue, you need to understand how Minecraft communicates between the game client and dedicated
-server:
+To fix this issue, you need to understand how the game client and dedicated server communicate:
 
 ![Sides](/assets/develop/networking/sides.png)
 
@@ -82,19 +81,6 @@ _packets_. Packets can contain data which we refer to as the _payload_.
 This packet bridge does not only exist between a game client and dedicated server, but also between your client and
 another client connected over LAN. The packet bridge is also present even in singleplayer. This is because the game
 client will spin up a special integrated server instance to run the game on.
-
-The key difference between the three types of connections that are shown in the table below:
-
-| Connection Type               | Access to Game Client      |
-|-------------------------------|----------------------------|
-| Connected to dedicated Server | None (Server crash)        |
-| Connected over LAN            | Yes (Not host game client) |
-| singleplayer (or LAN host)    | Yes (Full access)          |
-
-It may seem complicated to have communication with the server in three different ways. However, you don't need to
-communicate in three different ways with the game client. Since all three connection types communicate with the game
-client using packets, you only need to communicate with the game client like you're always running on a dedicated
-server.
 
 Connection to a server over LAN or singleplayer can also be treated like the server is a remote, dedicated server; so
 your game client can't directly access the server instance.
@@ -196,11 +182,11 @@ Let's examine the code above.
 We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
 can be used to get the `x`, `y` and `z` positions.
 
-@[code lang=java transclude={37-37}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we create a `LightningEntity` and add it to the world.
 
-@[code lang=java transclude={38-43}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-37}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
@@ -230,16 +216,16 @@ on the logical client.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
-We create and instance of our `GiveGlowingEffectC2SPayload` with the necessary arguments. In this case, the network ID
+We create an instance of our `GiveGlowingEffectC2SPayload` with the necessary arguments. In this case, the network ID
 of
 the targeted entity.
 
-@[code lang=java transclude={56-56}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={50-50}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we send a packet to the server by calling `ClientPlayNetworking.send` with the instance of our
 `UsePoisonousPotatoPayload`.
 
-@[code lang=java transclude={57-57}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 ### Receiving a Packet on the Server {#receiving-a-packet-on-the-server}
 
