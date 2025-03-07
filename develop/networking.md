@@ -27,7 +27,7 @@ so this page is split up into a few categories.
 ## Why Is Networking Important? {#why-is-networking-important}
 
 Packets are the core concept of networking in Minecraft. Packets are made up of arbitrary data that can be sent either from
-the server to the client or from the client to the server. Almost everything you do in the game involves networking in some way, whether
+server to client or from client to server. Almost everything you do in the game involves networking in some way, whether
 you know it or not. For example, when you jump in the game, a packet is sent to the server to tell it that you jumped. The server then
 sends a packet to all the other clients to tell them that you jumped.
 
