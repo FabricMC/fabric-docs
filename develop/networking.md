@@ -36,7 +36,7 @@ the client and server even when no one else is playing with you. We usually call
 This is diffrent from the client/server code split, that prevents you from being able to use client only classes in common (shared between
 the client and server) code.
 
-When state is not synced between the client and server, you can run into issues where the server or other clients dont agree with what the
+When state is not synced between the client and server, you can run into issues where the server or other clients don't agree with what another
 client is doing. This is often known as a "desync". When writing your own mod you may need to send a packet of data to notify the server,
 client or any other connected clients that something has happened.
 
