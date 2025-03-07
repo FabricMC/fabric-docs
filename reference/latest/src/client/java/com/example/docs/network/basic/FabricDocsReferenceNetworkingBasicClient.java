@@ -3,6 +3,7 @@ package com.example.docs.network.basic;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -46,7 +47,7 @@ public class FabricDocsReferenceNetworkingBasicClient implements ClientModInitia
 
 			ItemStack usedItemStack = player.getStackInHand(hand);
 
-			if (usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
+			if (entity instanceof LivingEntity && usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
 				GiveGlowingEffectC2SPayload payload = new GiveGlowingEffectC2SPayload(hitResult.getEntity().getId());
 				ClientPlayNetworking.send(payload);
 

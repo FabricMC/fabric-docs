@@ -122,7 +122,7 @@ Before we send a packet with our custom payload, we need to register it.
 `S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.
 :::
 
-This can be done in our **common initializer** by `PayloadTypeRegistry.playS2C().register` which takes in a
+This can be done in our **common initializer** by using `PayloadTypeRegistry.playS2C().register` which takes in a
 `CustomPayload.Id` and a `PacketCodec`.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
@@ -134,8 +134,8 @@ A similar method exists to register client-to-server payloads: `PayloadTypeRegis
 To send a packet with our custom payload, we can use `ServerPlayNetworking.send` which takes in a `ServerPlayerEntity`
 and a `CustomPayload`.
 
-Let's start by creating our Lightning Tater item. You can override `use` to add trigger an action when the item is used.
-In this case, let's send packets to all the players in the server world.
+Let's start by creating our Lightning Tater item. You can override `use` to trigger an action when the item is used.
+In this case, let's send packets to the players in the server world.
 
 @[code lang=java transcludeWith=:::lightning_tater_item](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -149,7 +149,7 @@ We create an instance of the payload with the user's position:
 
 @[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
-Finally, we get all the players in the server world through `PlayerLookup` and send a packet to each player.
+Finally, we get the players in the server world through `PlayerLookup` and send a packet to each player.
 
 @[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -182,11 +182,11 @@ Let's examine the code above.
 We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
 can be used to get the `x`, `y` and `z` positions.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we create a `LightningEntity` and add it to the world.
 
-@[code lang=java transclude={32-37}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
@@ -220,12 +220,12 @@ We create an instance of our `GiveGlowingEffectC2SPayload` with the necessary ar
 of
 the targeted entity.
 
-@[code lang=java transclude={50-50}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 Finally, we send a packet to the server by calling `ClientPlayNetworking.send` with the instance of our
-`UsePoisonousPotatoPayload`.
+`GiveGlowingEffectC2SPayload`.
 
-@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
 
 ### Receiving a Packet on the Server {#receiving-a-packet-on-the-server}
 
