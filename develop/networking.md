@@ -2,22 +2,22 @@
 title: Networking
 description: A general guide on networking using Fabric API.
 authors:
-  - daomephsta
+  - Daomephsta
   - dicedpixels
-  - earthcomputer
-  - flooferland
-  - fxmorin
-  - i509vcb
+  - Earthcomputer
+  - FlooferLand
+  - FxMorin
+  - i509VCB
   - modmuss50
   - natanfudge
-  - netuserget
-  - nshak
+  - NetUserGet
+  - NShak
   - parzivail
   - skycatminepokie
-  - solidblock
-  - voleil
-  - wxffel
-  - ytg123-mods
+  - SolidBlock-cn
+  - Voleil
+  - Wxffel
+  - YTG123-Mods
   - zulrang
 ---
 
