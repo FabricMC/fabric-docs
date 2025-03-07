@@ -31,7 +31,7 @@ server to client or from client to server. Almost everything you do in the game 
 you know it or not. For example, when you jump in the game, a packet is sent to the server to tell it that you jumped. The server then
 sends a packet to all the other clients to tell them that you jumped.
 
-One imporant thing to keep in mind is even in single player there is still a server running, Packets are still used to communicate between
+One imporant thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
 the client and server even when no one else is playing with you. We usually call this the logicial client/server or the client/server thread.
 This is diffrent from the client/server code split, that prevents you from being able to use client only classes in common (shared between
 the client and server) code.
