@@ -23,6 +23,9 @@ export default defineVersionedConfig(
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
 
+    // Disable the single page application, each new page will require a reload.
+    mpa: true,
+
     locales: loadLocales(__dirname),
 
     markdown: {
