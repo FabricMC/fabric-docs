@@ -21,7 +21,7 @@ authors-nogithub:
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Безформні рецепти {#shapeless-recipes}
 
