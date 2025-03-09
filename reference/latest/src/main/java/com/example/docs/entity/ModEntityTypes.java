@@ -8,15 +8,10 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-
 import com.example.docs.FabricDocsReference;
-
-//:::1
-
+//:::types
 public class ModEntityTypes {
-
 	public static final EntityType<MiniGolemEntity> MINI_GOLEM = register(
 			"mini_golem",
 			EntityType.Builder.<MiniGolemEntity>create(MiniGolemEntity::new, SpawnGroup.MISC)
@@ -35,7 +30,5 @@ public class ModEntityTypes {
 	public static void registerAttributes() {
 		FabricDefaultAttributeRegistry.register(MINI_GOLEM, MiniGolemEntity.createCubeAttributes());
 	}
-
 }
-
-//:::1
+//:::types

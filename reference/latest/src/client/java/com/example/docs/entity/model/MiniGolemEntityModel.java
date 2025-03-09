@@ -12,7 +12,7 @@ import net.minecraft.util.math.MathHelper;
 
 import com.example.docs.entity.animation.MiniGolemAnimations;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
-
+//:::model
 public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState> {
 	private final ModelPart head;
 	private final ModelPart leftLeg;
@@ -67,3 +67,4 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		}
 	}
 }
+//:::model
