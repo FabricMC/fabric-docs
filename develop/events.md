@@ -11,7 +11,7 @@ authors:
   - mkpoli
   - natanfudge
   - PhoenixVX
-  - solidblock
+  - SolidBlock-cn
   - YanisBft
 authors-nogithub:
   - stormyfabric
