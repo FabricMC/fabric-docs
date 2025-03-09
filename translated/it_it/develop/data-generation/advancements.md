@@ -22,7 +22,7 @@ Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che `extends Fab
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Struttura dei Progressi {#advancement-structure}
 
