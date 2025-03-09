@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onContentUpdated, useData, useRouter } from "vitepress";
+import { useData, useRouter } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { onBeforeMount, ref } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 
 // Define component properties
 const props = defineProps<{
@@ -13,15 +13,11 @@ const props = defineProps<{
 const data = useData();
 const router = useRouter();
 
+const text = computed(() => data.theme.value.version.switcher);
+
 // State refs
 const currentVersion = ref<string>(props.versioningPlugin.latestVersion);
-const text = ref<string>("");
 const isOpen = ref(false);
-
-// Syncs the version switcher label text with theme data
-function refreshText() {
-  text.value = data.theme.value.version.switcher;
-}
 
 // Helper function to find the matching version from the current route path
 function getVersionFromPath(path: string): string {
@@ -32,9 +28,6 @@ function getVersionFromPath(path: string): string {
   }
   return props.versioningPlugin.latestVersion;
 }
-
-// Called after content updates to refresh label text
-onContentUpdated(refreshText);
 
 // Before route change, update the current version
 router.onBeforeRouteChange = (to: string) => {
@@ -190,9 +183,7 @@ function visitVersion(version: string) {
   font-weight: 500;
   color: var(--vp-c-text-1);
   white-space: nowrap;
-  transition:
-    background-color 0.25s,
-    color 0.25s;
+  transition: background-color 0.25s, color 0.25s;
 }
 .link:hover {
   color: var(--vp-c-brand-1);
