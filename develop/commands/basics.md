@@ -11,7 +11,7 @@ authors:
   - mschae23
   - natanfudge
   - Pyrofab
-  - solidblock
+  - SolidBlock-cn
   - Technici4n
   - Treeways
   - xpple
