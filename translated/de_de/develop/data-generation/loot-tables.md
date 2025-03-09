@@ -18,7 +18,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 Du wirst unterschiedliche Provider (Klassen) für Blöcke, Truhen und Entitäten benötigen. Vergesse nicht, alle diese zu deinem Pack in deinem `DataGeneratorEntrypoint` innerhalb der `onInitializeDataGenerator` Methode hinzuzufügen.
 
-@[code lang=java transclude={32-33}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Beutetabellen erklärt {#loot-tables-explained}
 

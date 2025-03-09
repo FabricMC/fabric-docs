@@ -18,7 +18,7 @@ authors-nogithub:
 
 Вам знадобляться різні постачальники (класи) для блоків, скринь і сутностей. Не забувайте додати їх усі до свого пакета у вашій `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={32-33}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Пояснення таблиць здобичі {#loot-tables-explained}
 
