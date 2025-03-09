@@ -23,19 +23,19 @@ The first step in creating a custom entity is defining its class and registering
 
 Now , add attributes to the entity in the class `MiniGolemEntity`
 
-Attributes decide how much  max health , movement speed an entity can have 
+Attributes decide the Health , Speed & Tempt Range.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+@[code transcludeWith=:::registerclass](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
 To register your entity, you create a separate class `ModEntityTypes` where you register the entity type, set its dimensions, and register its attributes.
 
 ### Adding Goals {#adding-goals}
 
-  Goals are objective/aim of a entity which provides an defined set of behaviour to an entity. Goals have a certain priority it ranges from `0` being the highest and subsequently reducing in priority as the number increases. Eg: 1,2,3,4,5
+Goals are objective/aim of a entity which provides an defined set of behaviour to an entity. Goals have a certain priority it ranges from `0` being the highest and subsequently reducing in priority as the number increases. Eg: 1,2,3,4,5
 
 To add goals to the entity , you need to create `initGoals` class which will contain the goals for the entity.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+@[code transcludeWith=:::goals](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
 ::: info
 
@@ -48,4 +48,3 @@ To add goals to the entity , you need to create `initGoals` class which will con
 
 ### Creating Rendering {#creating-rendering}
 
-Test

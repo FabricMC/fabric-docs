@@ -17,7 +17,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.world.World;
-//:::1
+//:::registerclass
 public class MiniGolemEntity extends PathAwareEntity {
 	private static final TrackedData<Boolean> DANCING = DataTracker.registerData(MiniGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public final AnimationState dancingAnimationState = new AnimationState();
@@ -38,9 +38,9 @@ public class MiniGolemEntity extends PathAwareEntity {
 				.add(EntityAttributes.TEMPT_RANGE, 10)
 				.add(EntityAttributes.MOVEMENT_SPEED, 0.3);
 	}
-//:::1
+//:::registerclass
 
-//:::3
+//:::goals
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new TemptGoal(this, 1, Ingredient.ofItems(Items.WHEAT), false));
@@ -48,7 +48,7 @@ public class MiniGolemEntity extends PathAwareEntity {
 		this.goalSelector.add(2, new LookAtEntityGoal(this, CowEntity.class, 4));
 		this.goalSelector.add(3, new LookAroundGoal(this));
 	}
-//:::3
+//:::goals
 
 	@Override
 	protected void initDataTracker(DataTracker.Builder builder) {
