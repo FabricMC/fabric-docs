@@ -62,6 +62,7 @@
   "develop.misc": "Pagine Varie",
   "develop.misc.codecs": "Codec",
   "develop.misc.events": "Eventi",
+  "develop.misc.networking": "Networking",
   "develop.misc.text-and-translations": "Testo e Traduzioni",
   "develop.misc.ideTipsAndTricks": "Trucchi Riguardanti l'IDE",
   "develop.misc.automatic-testing": "Testing Automatizzato",
