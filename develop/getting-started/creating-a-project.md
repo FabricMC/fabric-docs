@@ -4,6 +4,7 @@ description: A step-by-step guide on how to create a new mod project using the F
 authors:
   - IMB11
   - Cactooz
+  - radstevee
 ---
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
