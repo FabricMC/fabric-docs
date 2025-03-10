@@ -16,7 +16,7 @@ The package name should be lowercase, separated by dots, and unique to avoid con
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
 
-If you want to either use Kotlin, Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
+If you either want to use Kotlin, or Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
 
 ![Advanced options section](/assets/develop/getting-started/template-generator-advanced.png)
 
