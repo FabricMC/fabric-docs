@@ -29,7 +29,7 @@ const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
     <div class="page-authors">
       <template
         v-for="author in combinedAuthors"
-        :key="author.noGitHub ? ':' : '' + author"
+        :key="(author.noGitHub ? ':' : '') + author.name"
       >
         <img
           v-if="author.noGitHub"
