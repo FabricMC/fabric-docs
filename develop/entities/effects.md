@@ -3,10 +3,10 @@ title: Status Effects
 description: Learn how to add custom status effects.
 authors:
   - dicedpixels
-  - fireblast
   - Friendly-Banana
   - Manchick0
   - SattesKrokodil
+  - TheFireBlast
   - YanisBft
 authors-nogithub:
   - siglong
