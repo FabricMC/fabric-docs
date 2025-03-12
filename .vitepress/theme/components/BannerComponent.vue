@@ -8,6 +8,7 @@ import { Fabric } from "../../types";
 const data = useData();
 
 const el = ref<HTMLElement>();
+const { height } = useElementSize(el);
 const options = computed(() => data.theme.value.banner as Fabric.BannerOptions);
 const text = computed(() => {
   const text = options.value.text.split("%s", 3);
@@ -18,11 +19,10 @@ const text = computed(() => {
 });
 
 watchEffect(() => {
-  const elementSize = useElementSize(el);
-  if (elementSize.height.value) {
+  if (height.value) {
     document.documentElement.style.setProperty(
       "--vp-layout-top-height",
-      `${elementSize.height.value}px`
+      `${height.value}px`
     );
   }
 });

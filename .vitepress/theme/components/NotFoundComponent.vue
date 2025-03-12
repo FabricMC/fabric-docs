@@ -11,11 +11,6 @@ const options = computed(
   () => data.theme.value.notFound as Fabric.NotFoundOptions
 );
 
-const path = computed(() => {
-  let currentPath = route.path;
-  return currentPath.includes("//") ? currentPath.split("//")[1] : currentPath;
-});
-
 const urls = computed(() => {
   const locale = data.localeIndex.value;
   const urls: { [key: string]: string } = {};
@@ -26,7 +21,10 @@ const urls = computed(() => {
   } else {
     urls["home"] = `/${locale}/`;
     // TODO: hide if English=404
-    urls["english"] = path.value.replace(urls["home"], "/");
+    urls["english"] = (route.path.split("//")[1] ?? route.path).replace(
+      urls["home"],
+      "/"
+    );
     // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
     urls["crowdin"] =
       "https://crowdin.com/project/fabricmc/" + options.value.crowdinCode;
