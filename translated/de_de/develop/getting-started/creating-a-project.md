@@ -4,6 +4,7 @@ description: Eine Schritt-für-Schritt-Anleitung, wie man ein neues Mod-Projekt 
 authors:
   - IMB11
   - Cactooz
+  - radstevee
 ---
 
 Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric Template Mod Generator zu erstellen - wenn du möchtest, kannst du ein neues Projekt auch manuell erstellen, indem du das Beispiel-Mod-Repository verwendest, dann solltest du den Abschnitt [Manuelle Projekterstellung](#manuelle-projekterstellung) lesen.
@@ -16,7 +17,7 @@ Der Paketname sollte klein geschrieben, durch Punkte getrennt und eindeutig sein
 
 ![Vorschau des Generators](/assets/develop/getting-started/template-generator.png)
 
-Wenn du Kotlin verwenden, die offiziellen Mappings von Mojang anstelle der Yarn-Mappings nutzen oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
+Wenn du entweder Kotlin, oder die offiziellen Mappings von Mojang anstelle der Yarn-Mappings verwenden willst oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
 
 ![Der Abschnitt "Advanced options"](/assets/develop/getting-started/template-generator-advanced.png)
 
