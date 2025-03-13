@@ -1,44 +1,35 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
-import { ref, watchEffect } from "vue";
+import { computed } from "vue";
 
 import { Fabric } from "../../types";
 
 const data = useData();
 const route = useRoute();
 
-const options = ref<Fabric.NotFoundOptions>();
-const path = ref<string>("");
-const urls = ref<{ [key: string]: string }>({});
+const options = computed(
+  () => data.theme.value.notFound as Fabric.NotFoundOptions
+);
 
-function refreshOptions() {
+const urls = computed(() => {
   const locale = data.localeIndex.value;
-
-  if (route.path !== path.value) {
-    path.value = route.path;
-    if (path.value.split("//").length !== 1) {
-      path.value = path.value.split("//")[1];
-    }
-
-    options.value = data.theme.value.notFound as Fabric.NotFoundOptions;
-
-    if (locale === "root") {
-      urls.value["home"] = "/";
-      urls.value["english"] = "";
-      urls.value["crowdin"] = "";
-    } else {
-      urls.value["home"] = `/${locale}/`;
-      // TODO: hide if English=404
-      urls.value["english"] = path.value.replace(urls.value["home"], "/");
-      // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
-      urls.value["crowdin"] =
-        "https://crowdin.com/project/fabricmc/" + options.value.crowdinCode;
-    }
+  const urls: { [key: string]: string } = {};
+  if (locale === "root") {
+    urls["home"] = "/";
+    urls["english"] = "";
+    urls["crowdin"] = "";
+  } else {
+    urls["home"] = `/${locale}/`;
+    // TODO: hide if English=404
+    urls["english"] = (route.path.split("//")[1] ?? route.path).replace(
+      urls["home"],
+      "/"
+    );
+    // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
+    urls["crowdin"] =
+      "https://crowdin.com/project/fabricmc/" + options.value.crowdinCode;
   }
-}
-
-watchEffect(() => {
-  refreshOptions();
+  return urls;
 });
 </script>
 
@@ -129,9 +120,7 @@ watchEffect(() => {
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-brand-1);
-  transition:
-    border-color 0.25s,
-    color 0.25s;
+  transition: border-color 0.25s, color 0.25s;
 }
 
 .link:hover {
