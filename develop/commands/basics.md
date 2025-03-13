@@ -2,18 +2,18 @@
 title: Creating Commands
 description: Create commands with complex arguments and actions.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 ---
 
