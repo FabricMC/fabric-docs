@@ -6,29 +6,22 @@ authors:
   - LordEnder-Kitty
 ---
 
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
+
 Щоразу, коли Minecraft промальовує текст у грі, він, ймовірно, визначається за допомогою об’єкта `Text`.
-Цей власний тип використовується замість `String` для більш розширеного форматування,
-включаючи кольори, жирний, зашифрований і події натискання. Вони також забезпечують легкий доступ
+Цей настроюваний тип використовується замість `String`, щоб уможливити розширене форматування, включаючи кольори, жирність, обфускацію та події натискання. Вони також забезпечують легкий доступ
 до системи перекладу, що полегшує переклад будь-якого елемента інтерфейсу
 різними мовами.
 
-Якщо ви раніше працювали з пакетами даних або функціями, ви можете побачити паралелі з текстовим форматом
-json, який використовується для показу імен, книг та табличок, і не тільки. Як ти
-мабуть, можна здогадатися, це просто представлення json об’єкта `Text`, і його можна
-конвертувати в і з використанням `Text.Serializer`.
+Якщо ви раніше працювали з пакетами даних або функціями, ви можете побачити паралелі з текстовим форматом json, який використовується серед іншого для показуваних імен, книг і табличок. Як ви, мабуть, здогадалися, це лише json-представлення об’єкта `Text`, і його можна перетворити в і з нього за допомогою `Text.Serializer`.
 
-Коли створюєте мод, зазвичай краще створювати об’єкти `Текст` безпосередньо
-у коді, використовуючи переклади, коли це можливо.
+Коли створюєте мод, зазвичай краще створювати об’єкти `Текст` безпосередньо у коді, використовуючи переклади, коли це можливо.
 
 ## Текстові літерали {#text-literals}
 
-Найпростіший спосіб створити об’єкт `Текст` — створити літерал. Це просто рядок
-який промальовуватиме як є, за замовчуванням без жодного форматування.
+Найпростіший спосіб створити об’єкт `Text` — створити літерал. Це просто рядок, який промальовуватиметься як є, за замовчуванням без жодного форматування.
 
-Вони створюються за допомогою методів `Text.of` або `Text.literal`, які обидва діють трохи
-інакше. `Text.of` приймає нульові значення як вхідні дані та повертає екземпляр `Text`. На відміну від цього, `Text.literal` не має мати значення null, але повертає `MutableText`,
-це підклас `Text`, який можна легко стилізувати та об'єднувати. Детальніше про
-це пізніше.
+Вони створюються за допомогою методів `Text.of` або `Text.literal`, які обидва діють трохи по різному. `Text.of` приймає нульові значення як вхідні дані та повертає екземпляр `Text`. На відміну від цього, `Text.literal` не повинен мати нульовий вхід, але повертає `MutableText`, це підклас `Text`, який можна легко стилізувати та об’єднувати. Про це пізніше.
 
 ```java
 Text literal = Text.of("Hello, world!");
@@ -37,7 +30,7 @@ MutableText mutable = Text.literal("Hello, world!");
 Text mutableAsText = mutable;
 ```
 
-## Можливість перекладати {#translatable-text}
+## Текст, який можна перекласти {#translatable-text}
 
 Якщо ви хочете надати кілька перекладів для одного рядка тексту, ви можете використовувати метод `Text.translatable` для посилання на ключ перекладу в будь-якому мовному файлі. Якщо ключ не існує, ключ перекладу перетворюється на літерал.
 
@@ -48,7 +41,7 @@ Text translatable = Text.translatable("my_mod.text.hello");
 MutableText mutable = Text.translatable("my_mod.text.bye");
 ```
 
-Мовний файл `en_us.json` (для української треба `uk_ua.json`) виглядає так:
+Мовний файл `en_us.json`, виглядає так:
 
 ```json
 {
@@ -71,7 +64,7 @@ Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName
 }
 ```
 
-У грі %1\$s буде замінено іменем гравця, якого ви згадали в коді. Використання `player.getDisplayName()` зробить так, що додаткова інформація про сутність з’явиться у спливаючій підказці під час наведення вказівника мишки на ім’я в повідомленні чату, на відміну від використання `player.getName()`, який все одно отримає назву; однак він не відображатиме додаткових деталей. Подібне можна зробити з itemStacks, використовуючи `stack.toHoverableText()`.
+У грі %1\$s буде замінено іменем гравця, якого ви згадали в коді. Використання `player.getDisplayName()` зробить так, що додаткова інформація про сутність з’явиться у спливній підказці під час наведення курсора на ім’я в повідомленні чату, на відміну від використання `player.getName()`, який все одно отримає назву; однак він не показуватиме додаткових деталей. Подібне можна зробити з itemStacks, використовуючи `stack.toHoverableText()`.
 
 Щодо того, що взагалі означає %1\$s, все, що вам справді потрібно знати, це те, що число відповідає змінній, яку ви намагаєтеся використати. Припустімо, у вас є три змінні, які ви використовуєте.
 
@@ -91,7 +84,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 <!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
 
-Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. на сторінці [Codec](./codecs).
+Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. на сторінці [Кодек](./codecs).
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -99,7 +92,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 ## Десеріалізація тексту {#deserializing-text}
 
-Крім того, щоб десеріалізувати текстовий об’єкт JSON у фактичний клас `Text`, знову скористайтеся кодеком.
+Крім того, щоб десеріалізувати текстовий об’єкт JSON у справжній клас `Text`, знову скористайтеся кодеком.
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -107,35 +100,34 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Ви можете бути знайомі зі стандартами форматування Minecraft:
 
-Ви можете бути знайомі зі стандартами форматування Minecraft:
+Ви можете застосувати ці стилі форматування за допомогою переліку `Formatting` класу `MutableText`:
 
 ```java
 MutableText result = Text.literal("Hello World!")
   .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
 ```
 
-<table>
-    <tbody><tr><th>Колір</th><th>Назва</th><th>Чат-код</th><th>Код MOTD</th><th>Hex код</th></tr>
-    <tr><td><ColorSwatch color="#000000" /></td><td>Чорний (black)</td><td>§0</td><td>\u00A70</td><td>#000000</td></tr>
-    <tr><td><ColorSwatch color="#0000AA" /></td><td>Темно-синій (dark_blue)</td><td>§1</td><td>\u00A71</td><td>#0000AA</td></tr>
-    <tr><td><ColorSwatch color="#00AA00" /></td><td>Темно-зелений (dark_green)</td><td>§2</td><td>\u00A72</td><td>#00AA00</td></tr>
-    <tr><td><ColorSwatch color="#00AAAA" /></td><td>Темно-водянистий (dark_aqua)</td><td>§3</td><td>\u00A73</td><td>#00AAAA</td></tr>
-    <tr><td><ColorSwatch color="#AA0000" /></td><td>Багряний (dark_red)</td><td>§4</td><td>\u00A74</td><td>#AA0000</td></tr>
-    <tr><td><ColorSwatch color="#AA00AA" /></td><td>Темно-фіолетовий (dark_purple)</td><td>§5</td><td>\u00A75</td><td>#AA00AA</td></tr>
-    <tr><td><ColorSwatch color="#FFAA00" /></td><td>Золотий (gold)</td><td>§6</td><td>\u00A76</td><td>#FFAA00</td></tr>
-    <tr><td><ColorSwatch color="#AAAAAA"/></td><td>Сірий (gray)</td><td>§7</td><td>\u00A77</td><td>#AAAAAA</td></tr>
-    <tr><td><ColorSwatch color="#555555" /></td><td>Темно-сірий (dark_gray)</td><td>§8</td><td>\u00A78</td><td>#555555</td></tr>
-    <tr><td><ColorSwatch color="#5555FF" /></td><td>Синій (blue)</td><td>§9</td><td>\u00A79</td><td>#5555FF</td></tr>
-    <tr><td><ColorSwatch color="#55FF55" /></td><td>Зелений (green)</td><td>§a</td><td>\u00A7a</td><td>#55FF55</td></tr>
-    <tr><td><ColorSwatch color="#55FFFF" /></td><td>Водянистий (aqua)</td><td>§b</td><td>\u00A7b</td><td>#55FFFF</td></tr>
-    <tr><td><ColorSwatch color="#FF5555" /></td><td>Червоний (red)</td><td>§c</td><td>\u00A7c</td><td>#FF5555</td></tr>
-    <tr><td><ColorSwatch color="#FF55FF" /></td><td>Світло-фіолетовий (light_purple)</td><td>§d</td><td>\u00A7d</td><td>#FF55FF</td></tr>
-    <tr><td><ColorSwatch color="#FFFF55" /></td><td>Жовтий (yellow)</td><td>§e</td><td>\u00A7e</td><td>#FFFF55</td></tr>
-    <tr><td><ColorSwatch color="#FFFFFF" /></td><td>Білий (white)</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
-    <tr><td></td><td>Скидання форматування</td><td>§r</td><td></td><td></td></tr>
-    <tr><td></td><td><b>Жирний</b></td><td>§l</td><td></td><td></td></tr>
-    <tr><td></td><td><s>Зачеркнутий</s></td><td>§m</td><td></td><td></td></tr>
-    <tr><td></td><td><u>Підкреслений</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><i>Курсив</i></td><td>§o</td><td></td><td></td></tr>
-    <tr><td></td><td>Зашифрований</td><td>§k</td><td></td><td></td></tr>
-</tbody></table>
+|              Колір              | Назва                                               | Код чату |  MOTD-код  |  Hex-код  |
+| :-----------------------------: | --------------------------------------------------- | :------: | :--------: | :-------: |
+|              <br />             | Чорний<0/>`black`          |   `§0`   | `\u00A70` | `#000000` |
+| <ColorSwatch color="#0000AA" /> | Темно-синій<0/>`dark_blue` |   `§1`   | `\u00A71` | `#0000AA` |
+| <ColorSwatch color="#00AA00" /> | Темно-зелений<br />`dark_green`                     |   `§2`   | `\u00A72` | `#00AA00` |
+| <ColorSwatch color="#00AAAA" /> | Темно-водянистий                                    |   `§3`   | `\u00A73` | `#00AAAA` |
+| <ColorSwatch color="#AA0000" /> | Темно-червоний<br />`dark_red`                      |   `§4`   | `\u00A74` | `#AA0000` |
+| <ColorSwatch color="#AA00AA" /> | Темно-<br />`dark_purple`                           |   `§5`   | `\u00A75` | `#AA00AA` |
+| <ColorSwatch color="#FFAA00" /> | Золотий<br />`gold`                                 |   `§6`   | `\u00A76` | `#FFAA00` |
+| <ColorSwatch color="#AAAAAA" /> | Сірий<br />`gray`                                   |   `§7`   | `\u00A77` | `#AAAAAA` |
+| <ColorSwatch color="#555555" /> | Темно-сірий<br />`dark_gray`                        |   `§8`   | `\u00A78` | `#555555` |
+| <ColorSwatch color="#5555FF" /> | Синій<br />`blue`                                   |   `§9`   | `\u00A79` | `#5555FF` |
+| <ColorSwatch color="#55FF55" /> | Зелений<br />`green`                                |   `§a`   | `\u00A7a` | `#55FF55` |
+| <ColorSwatch color="#55FFFF" /> | Водянистий<br />`aqua`                              |   `§b`   | `\u00A7b` | `#55FFFF` |
+| <ColorSwatch color="#FF5555" /> | Червоний<br />`red`                                 |   `§c`   | `\u00A7c` | `#FF5555` |
+| <ColorSwatch color="#FF55FF" /> | Світло-фіолетовий<br />`light_purple`               |   `§d`   | `\u00A7d` | `#FF55FF` |
+| <ColorSwatch color="#FFFF55" /> | Жовтий<br />`yellow`                                |   `§e`   | `\u00A7e` | `#FFFF55` |
+| <ColorSwatch color="#FFFFFF" /> | Білий<br />`white`                                  |   `§f`   | `\u00A7f` | `#FFFFFF` |
+|                                 | Скидання форматування                               |   `§r`   |            |           |
+|                                 | **Жирний**                                          |   `§l`   |            |           |
+|                                 | ~~Закреслення~~                                     |   `§m`   |            |           |
+|                                 | <u>Підкреслений</u>                                 |   `§n`   |            |           |
+|                                 | _Курсив_                                            |   §o\`   |            |           |
+|                                 | Зашифрований                                        |   `§k`   |            |           |
