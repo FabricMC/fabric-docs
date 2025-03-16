@@ -29,7 +29,7 @@ jobs:
       - run: npm install
 
       - id: lint
-        uses: DavidAnson/markdownlint-cli2-action@v16
+        uses: FabricMCBot/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
         with:
           config: .markdownlint-cli2.yaml
           globs: |
