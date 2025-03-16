@@ -30,7 +30,7 @@ Mojang에서도 아이템에 이러한 작업을 수행합니다! 영감을 얻�
 아이템 생성자는 `Items.Settings` 클래스의 인스턴스를 매개변수로 입력받습니다. 이 클래스는 다양한 빌더 메소드를 사용하여 아이템의 속성을 구성할 수 있도록 합니다.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+아이템의 최대 스택 크기를 변경하려면 `Items.Settings` 또는 `FabricItemSettings` 클래스의 `maxCount` 메소드를 사용할 수 있습니다.
 
 다만 아이템을 손상 가능하게(damageable) 설정하면 작동하지 않습니다. 손상 가능한 아이템은 복사 취약점을 막기 위하여 항상 최대 스택 크기가 1로 고정되기 때문입니다.
 :::
@@ -140,7 +140,7 @@ Fabric API는 아이템 속성에 추가적인 속성을 적용할 수 있는 �
 
 ## 기본적인 제작법 추가하기 {#adding-a-basic-crafting-recipe}
 
-<!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
+<!-- 향후 레시피 및 레시피 유형에 대한 전체 섹션이 만들어져야 합니다. 하지만 지금은 이 정도로 충분합니다. -->
 
 아이템에 제작법을 추가하고자 한다면, `src/main/resources/data/mod-id/recipe` 폴더에 제작법 JSON을 추가해야 합니다.
 
