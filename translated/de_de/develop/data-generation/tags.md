@@ -2,8 +2,8 @@
 title: Generierung von Tags
 description: Ein Leitfaden zur Einrichtung der Generierung von Tags mit dem Datengenerator.
 authors:
-  - skycatminepokie
   - IMB11
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - mcrafterzz
