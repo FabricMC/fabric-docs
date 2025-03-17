@@ -2,14 +2,14 @@
 title: Генерація перекладу
 description: Посібник із налаштування створення перекладу за допомогою datagen.
 authors:
-  - skycatminepokie
-  - MattiDragon
   - IMB11
+  - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - sjk1949
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
+  - sjk1949
 ---
 
 :::info ПЕРЕДУМОВИ
