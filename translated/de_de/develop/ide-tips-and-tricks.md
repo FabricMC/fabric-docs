@@ -2,8 +2,8 @@
 title: Tipps und Tricks für die Entwicklungsumgebung
 description: Nützliche Informationen, um dein Projekt mit der IDE effizient zu bearbeiten und zu durchsuchen.
 authors:
-  - JR1811
   - AnAwesomGuy
+  - JR1811
 ---
 
 Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so schnell und angenehm wie möglich zu gestalten, bereit. Benutze diese je nach Bedarf.
