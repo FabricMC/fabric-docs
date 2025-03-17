@@ -2,15 +2,14 @@
 title: Налаштування Loom
 description: Довідник для всіх налаштувань плаґіна Fabric Loom Gradle.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Ця сторінка містить посилання на всі параметри, присутні в розширенні `loom` Gradle. Перегляньте сторінку [Fabric API DSL](./fabric-api), щоб дізнатися про налаштування, пов’язані з функціями Fabric API.
