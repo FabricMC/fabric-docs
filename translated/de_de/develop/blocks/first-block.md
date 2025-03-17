@@ -2,10 +2,10 @@
 title: Deinen ersten Block erstellen
 description: Lerne, wie du deinen ersten benutzerdefinierten Block in Minecraft erstellen kannst.
 authors:
-  - IMB11
-  - xEobardThawne
-  - its-miroma
   - Earthcomputer
+  - IMB11
+  - its-miroma
+  - xEobardThawne
 ---
 
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
