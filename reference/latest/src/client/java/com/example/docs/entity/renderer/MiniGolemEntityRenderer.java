@@ -9,27 +9,31 @@ import com.example.docs.entity.MiniGolemEntity;
 import com.example.docs.entity.model.MiniGolemEntityModel;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
-
+//:::renderer
 public class MiniGolemEntityRenderer extends MobEntityRenderer<MiniGolemEntity, MiniGolemEntityRenderState, MiniGolemEntityModel> {
+
 	private static final Identifier TEXTURE = Identifier.of(FabricDocsReference.MOD_ID, "textures/entity/mini_golem.png");
 
 	public MiniGolemEntityRenderer(EntityRendererFactory.Context context) {
-		super(context, new MiniGolemEntityModel(context.getPart(ModEntityModelLayers.MINI_GOLEM)), 0.375f);
+		super(context, new MiniGolemEntityModel(context.getPart(ModEntityModelLayers.MINI_GOLEM)), 0.375f); // 0.375 shaowd radius 
 	}
 
 	@Override
 	public MiniGolemEntityRenderState createRenderState() {
 		return new MiniGolemEntityRenderState();
 	}
+//:::renderer
 
 	@Override
 	public void updateRenderState(MiniGolemEntity entity, MiniGolemEntityRenderState state, float tickProgress) {
 		super.updateRenderState(entity, state, tickProgress);
 		state.dancingAnimationState.copyFrom(entity.dancingAnimationState);
 	}
+//:::renderer
 
 	@Override
 	public Identifier getTexture(MiniGolemEntityRenderState state) {
 		return TEXTURE;
 	}
 }
+//:::renderer

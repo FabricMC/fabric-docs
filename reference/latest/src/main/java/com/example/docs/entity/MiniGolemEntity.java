@@ -19,10 +19,11 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.world.World;
 //:::registerclass
 public class MiniGolemEntity extends PathAwareEntity {
+	//:::registerclass
 	private static final TrackedData<Boolean> DANCING = DataTracker.registerData(MiniGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public final AnimationState dancingAnimationState = new AnimationState();
 	private int dancingTimeLeft;
-
+	//:::registerclass
 	public MiniGolemEntity(World world) {
 		this(ModEntityTypes.MINI_GOLEM, world);
 	}

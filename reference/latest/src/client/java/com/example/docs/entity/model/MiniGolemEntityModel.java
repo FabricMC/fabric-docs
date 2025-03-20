@@ -1,5 +1,8 @@
 package com.example.docs.entity.model;
 
+import com.example.docs.entity.animation.MiniGolemAnimations;
+import com.example.docs.entity.state.MiniGolemEntityRenderState;
+
 import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.ModelPartBuilder;
@@ -9,10 +12,7 @@ import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.util.math.MathHelper;
-
-import com.example.docs.entity.animation.MiniGolemAnimations;
-import com.example.docs.entity.state.MiniGolemEntityRenderState;
-//:::model
+//:::model1
 public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState> {
 	private final ModelPart head;
 	private final ModelPart leftLeg;
@@ -24,13 +24,15 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		leftLeg = root.getChild(EntityModelPartNames.LEFT_LEG);
 		rightLeg = root.getChild(EntityModelPartNames.RIGHT_LEG);
 	}
+//:::model1
 
+//:::model_texture_data
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData root = modelData.getRoot();
 		root.addChild(
 				EntityModelPartNames.BODY,
-				ModelPartBuilder.create().cuboid(-6, -6, -6, 12, 12, 12),
+				ModelPartBuilder.create().cuboid(-6, -6, -6, 12, 12, 12), // x , y ,z  is the dimensions  |  width, height, depth
 				ModelTransform.pivot(0, 8, 0)
 		);
 		root.addChild(
@@ -50,21 +52,26 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		);
 		return TexturedModelData.of(modelData, 64, 32);
 	}
+//:::model_texture_data
 
+//:::model_animation
 	@Override
 	public void setAngles(MiniGolemEntityRenderState state) {
 		super.setAngles(state);
-
+		//:::model_animation
 		if (state.dancingAnimationState.isRunning()) {
 			this.animate(state.dancingAnimationState, MiniGolemAnimations.DANCING, state.age);
 		} else {
+			//:::model_animation
 			head.pitch = state.pitch * MathHelper.RADIANS_PER_DEGREE;
 			head.yaw = state.yawDegrees * MathHelper.RADIANS_PER_DEGREE;
 			float limbSwingAmplitude = state.limbAmplitudeMultiplier;
 			float limbSwingAnimationProgress = state.limbFrequency;
 			leftLeg.pitch = MathHelper.cos(limbSwingAnimationProgress * 0.2f + MathHelper.PI) * 1.4f * limbSwingAmplitude;
 			rightLeg.pitch = MathHelper.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
-		}
+			//:::model_animation
+		}  
+		//:::model_animation
 	}
 }
-//:::model
+//:::model_animation
