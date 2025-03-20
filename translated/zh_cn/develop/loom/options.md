@@ -2,15 +2,14 @@
 title: Loom 选项
 description: Fabric Loom Gradle 插件所有选项的参考。
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 本页包含 `loom` Gradle 扩展中所有选项的参考。 请参阅 [Fabric API DSL](./fabric-api) 页面，了解与 Fabric API 特定功能相关的选项。
