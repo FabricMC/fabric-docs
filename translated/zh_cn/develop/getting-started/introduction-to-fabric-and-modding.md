@@ -31,7 +31,7 @@ authors-nogithub:
 - **混淆（Obfuscation）**： 使代码无法被人类阅读的过程，Mojang 用其来保护 Minecraft 的源代码。
 - **重映射（Remapping）**： 将混淆代码映射为人类可读代码的过程。
 
-## Fabric 是什么？ {#what-is-fabric}
+## Fabric 是什么？ {#what-is-fabric} {#what-is-fabric}
 
 Fabric 是用于 Minecraft: Java Edition 的轻量级模组开发工具链。
 
@@ -44,7 +44,7 @@ Fabric 旨在成为简单易用的模组开发平台。 Fabric 是由社区驱�
 - **Fabric API**：一套 API 和工具，供模组开发者在创建模组时使用。
 - **Yarn**： 一套开放的 Minecraft 映射表，在 Creative Commons Zero 许可证下供所有人任意使用。
 
-## 为什么开发 Minecraft 模组需要 Fabric？ {#why-is-fabric-necessary-to-mod-minecraft}
+## 为什么开发 Minecraft 模组需要 Fabric？ {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft}
 
 > “模组（Modding）”是指修改游戏以改变其行为或添加新功能的过程，就 Minecraft 而言，这可以是添加新物品、方块或实体，也可以是改变游戏机制或添加新的游戏模式。
 
@@ -54,7 +54,7 @@ Loom 使用这些映射将混淆代码重映射为人类可读的格式，使模
 
 Loom 可让你轻松开发且编译重映射模组的代码，而 Fabric Loader 可让你将这些模组加载到游戏中。
 
-## Fabric API 提供哪些功能，为什么需要它？ {#what-does-fabric-api-provide-and-why-is-it-needed}
+## Fabric API 提供哪些功能，为什么需要它？ {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API 是一套 API 和工具，供模组开发者在创建模组时使用。
 
