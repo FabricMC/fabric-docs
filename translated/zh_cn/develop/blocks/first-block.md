@@ -25,7 +25,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 你可以添加一个 `initialize` 方法，并在模组的[初始化](./getting-started/project-structure#entrypoints)中调用以进行静态初始化。
 
 :::info
-如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
+如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
 :::
 
 ```java
@@ -93,11 +93,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
-要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/mod-id/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
+要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/mod-id/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
 
-为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/mod-id/items/condensed_dirt.json` 中找到。
+为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/mod-id/items/condensed_dirt.json` 中找到。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/mod-id/items/condensed_dirt.json` 中找到。
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
 
@@ -113,7 +113,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/mod-id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/mod-id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
 
