@@ -33,7 +33,7 @@ Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella
 
 Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare due file di modelli separati:
 
-- 'condensed_oak_log_horizontal.json`che estende il modello`block/cube_column_horizontal\\`.
+- 'condensed_oak_log_horizontal.json`che estende il modello`block/cube_column_horizontal\\\`.
 - `condensed_oak_log.json` che estende il modello `block/cube_column`.
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
