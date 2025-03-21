@@ -341,6 +341,13 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
         link: "https://discord.gg/v6v4pMv",
         ariaLabel: websiteResolver("social.discord"),
       },
+      {
+        icon: "crowdin",
+        link:
+          "https://crowdin.com/project/fabricmc" +
+          (localeCode === "root" ? "" : `/${localeCode}`),
+        ariaLabel: websiteResolver("social.crowdin"),
+      },
     ],
 
     version: {
