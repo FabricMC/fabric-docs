@@ -2,17 +2,17 @@
 title: Создание команд
 description: Создавайте команды со сложными аргументами и действиями.
 authors:
-  - dicedpixels
-  - i509VCB
-  - pyrofab
-  - natanfudge
-  - Juuxel
-  - solidblock
-  - modmuss50
-  - technici4n
   - atakku
+  - dicedpixels
   - haykam
+  - i509VCB
+  - Juuxel
+  - modmuss50
   - mschae23
+  - natanfudge
+  - pyrofab
+  - solidblock
+  - technici4n
   - treeways
   - xpple
 ---
@@ -43,7 +43,7 @@ Command<ServerCommandSource> command = context -> {
 
 Целое число может быть результатом команды. Обычно значения меньше или равные нулю означают, что команда не выполнена и ничего не сделает. Позитивные значения означают, что команда успешно выполнилась и что-то выполнила. Brigadier предоставляет константу для обозначения успеха; `Command#SINGLE_SUCCESS`.
 
-### Что может делать \\`ServerCommandSource? {#what-can-the-servercommandsource-do}
+### Что может делать \\\`ServerCommandSource? {#what-can-the-servercommandsource-do}
 
 `ServerCommandSource` предоставляет дополнительный контекст когда команда выполняется. Это добавляет возможность получить сущность которая выполнила команду, мир в котором команда выполнилась команда или сервер на котором запустилась команда.
 
