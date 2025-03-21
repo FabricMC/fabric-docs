@@ -19,11 +19,12 @@ import {
 import { computed } from "vue";
 
 import { data as _authors } from "/.vitepress/data/authors.data";
-import { data as _bot } from "/.vitepress/data/bot.data";
 import { data as _committers } from "/.vitepress/data/committers.data";
 import { data as _maintainers } from "/.vitepress/data/maintainers.data";
 import { data as _translators } from "/.vitepress/data/translators.data";
 import { Fabric } from "/.vitepress/types";
+
+const FALLBACK_AVATAR = "/assets/avatater.png";
 
 const data = useData();
 const options = computed(
@@ -32,7 +33,7 @@ const options = computed(
 
 const authors = _authors.map((author) => ({
   ...author,
-  avatar: author.avatar || _bot.avatar,
+  avatar: author.avatar || FALLBACK_AVATAR,
   title:
     author.number === 1
       ? options.value.authors.description.singular
@@ -44,7 +45,7 @@ const authors = _authors.map((author) => ({
 
 const committers = _committers.map((committer) => ({
   ...committer,
-  avatar: committer.avatar || _bot.avatar,
+  avatar: committer.avatar || FALLBACK_AVATAR,
   title:
     committer.number === 1
       ? options.value.committers.description.singular
@@ -58,7 +59,7 @@ const maintainers = _maintainers;
 
 const translators = _translators.map((translator) => ({
   ...translator,
-  avatar: translator.avatar || _bot.avatar,
+  avatar: translator.avatar || FALLBACK_AVATAR,
   title:
     translator.number === 1
       ? options.value.translators.description.singular
