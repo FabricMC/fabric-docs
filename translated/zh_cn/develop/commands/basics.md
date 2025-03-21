@@ -42,7 +42,7 @@ Command<ServerCommandSource> command = context -> {
 
 这个整数相当于命令的结果。 通常，小于或等于零的值表示命令失败，什么也不做。 正数则表示命令执行成功并做了一些事情。 Brigadier 提供了一个常量来表示执行成功：`Command#SINGLE_SUCCESS`。
 
-### `ServerCommandSource` 可以做什么？ {#what-can-the-servercommandsource-do}
+### `ServerCommandSource` 可以做什么？ {#what-can-the-servercommandsource-do} {#what-can-the-servercommandsource-do}
 
 `ServerCommandSource` 提供了命令运行时的一些额外的上下文，有特定实现， 包括获取运行这个命令的实体、命令执行时所在的世界以及服务器。
 
@@ -60,7 +60,9 @@ Command<ServerCommandSource> command = context -> {
 可以通过 Fabric API 提供的 `CommandRegistrationCallback` 来注册命令 。
 
 :::info
+:::info
 关于如何注册回调，请查看[事件](../events) 指南。
+:::
 :::
 
 该事件应要在你的模组的[入口点](./getting-started/project-structure#entrypoints)中注册。
@@ -86,7 +88,7 @@ Command<ServerCommandSource> command = context -> {
 要执行这个命令，必须输入 `/test_command`，这是大小写敏感的。
 
 :::info
-这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后给 `.execute()` 传入方法引用。 这样做是为了更清晰。
+这里也说下，我们会把写在传入 `.execute()` 构造器中的 lambda 中的逻辑，写到单独的方法中。 然后给 `.execute()` 传入方法引用。 这样做是为了更清晰。 然后给 `.execute()` 传入方法引用。 这样做是为了更清晰。
 :::
 
 ### 注册环境{#registration-environment}
@@ -109,12 +111,12 @@ Command<ServerCommandSource> command = context -> {
 
 ### 子命令{#sub-commands}
 
-要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
+要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
 @[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 
-类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
+类似于参数，子命令节点也可以设置为可选的。 类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
 
 @[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -130,7 +132,7 @@ Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.clien
 命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 
 :::warning
-Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/brigadier/issues/46)。 如果需要重定向没有参数的命令节点，给 `.execute()` 构造器提供一个到相同逻辑的引用，就像这个例子中。
+Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/brigadier/issues/46)。 如果需要重定向没有参数的命令节点，给 `.execute()` 构造器提供一个到相同逻辑的引用，就像这个例子中。 如果需要重定向没有参数的命令节点，给 `.execute()` 构造器提供一个到相同逻辑的引用，就像这个例子中。
 :::
 
 @[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -138,18 +140,19 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 
 ## 常见问题{#faq}
 
-### 为什么我的代码为什么不编译？ {#why-does-my-code-not-compile}
+### 为什么我的代码为什么不编译？ 为什么我的代码为什么不编译？ {#why-does-my-code-not-compile}
 
-- 捕捉或抛出 `CommandSyntaxException` - `CommandSyntaxException` 不是 `RuntimeException`， 如果抛出，则抛出的地方所在方法必须在方法签名中也抛出 `CommandSyntaxException`，或者捕获。
+- 通常抛出 `CommandSyntaxException` 异常来指示命令或参数中的语法错误。 你也可以实现你自己的异常。 捕捉或抛出 `CommandSyntaxException` - `CommandSyntaxException` 不是 `RuntimeException`， 如果抛出，则抛出的地方所在方法必须在方法签名中也抛出 `CommandSyntaxException`，或者捕获。
+  Brigadier 会处理已检查的异常，并在游戏内为你转发适当的错误消息。
   Brigadier 会处理已检查的异常，并在游戏内为你转发适当的错误消息。
 
-- 泛型问题 -你可能遇到了泛型问题。 如果你在注册服务器命令（大多数情况都是如此），确保你在静态导入中使用 `CommandManager.literal` 或 `CommandManager.argument` 而不是`LiteralArgumentBuilder.literal` 或 `RequiredArgumentBuilder.argument`。
+- 泛型问题 -你可能遇到了泛型问题。 泛型问题 -你可能遇到了泛型问题。 如果你在注册服务器命令（大多数情况都是如此），确保你在静态导入中使用 `CommandManager.literal` 或 `CommandManager.argument` 而不是`LiteralArgumentBuilder.literal` 或 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Text`。
 
-- 命令应该返回整数：注册命令时，`executes()` 方法接受一个 `Command` 对象，通常是 lambda。 这个 lambda 应该返回整数，而不是其他的类型。
+- 命令应该返回整数：注册命令时，`executes()` 方法接受一个 `Command` 对象，通常是 lambda。 这个 lambda 应该返回整数，而不是其他的类型。 这个 lambda 应该返回整数，而不是其他的类型。
 
-### 可以运行时注册命令吗？ {#can-i-register-commands-at-runtime}
+### 可以运行时注册命令吗？ 可以运行时注册命令吗？ {#can-i-register-commands-at-runtime}
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -160,13 +163,14 @@ you wish to its `CommandDispatcher`.
 这是必需的，因为客户端已经缓存了命令树并在登录过程中（或发出管理员数据包时）使用，以用于本地的补全和错误消息。
 :::
 
-### 可以在运行时取消注册命令吗？ {#can-i-unregister-commands-at-runtime}
+### 可以在运行时取消注册命令吗？ {#can-i-unregister-commands-at-runtime} {#can-i-unregister-commands-at-runtime}
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayerEntity)` 向每个玩家发送命令树。
+为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayerEntity)` 向每个玩家发送命令树。
 
 如果不发送更新的命令树，客户端可能还是会认为命令依然存在，即使服务器无法执行。
+:::
 :::
