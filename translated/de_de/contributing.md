@@ -95,7 +95,7 @@ npm run preview
 
 #### Einen Pull Request öffnen {#opening-a-pull-request}
 
-Wenn du mit deinen Änderungen zufrieden bist, kannst du sie \\`push´en:
+Wenn du mit deinen Änderungen zufrieden bist, kannst du sie \\\`push´en:
 
 ```sh
 git add .
