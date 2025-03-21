@@ -35,7 +35,7 @@ authors-nogithub:
 
 ### 纹理{#texture}
 
-状态效果图标是 18x18 的 PNG，出现在玩家的物品栏屏幕中。 将你的自定义图标放在：
+状态效果图标是 18x18 的 PNG，出现在玩家的物品栏屏幕中。 将你的自定义图标放在： 将你的自定义图标放在：
 
 ```:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
@@ -70,14 +70,14 @@ effect give @p fabric-docs-reference:tater
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 
-| 参数          | 类型                            | 描述                                                                          |
-| ----------- | ----------------------------- | --------------------------------------------------------------------------- |
-| `effect`    | `RegistryEntry<StatusEffect>` | 代表效果的注册表项。                                                                  |
-| `duration`  | `int`                         | 效果的时长，单位为**刻**，而非**秒**                                                      |
-| `amplifier` | `int`                         | 效果等级的倍率。 不是与效果的**等级**直接对应，而是有增加的。 比如，`amplifier` 为 `4` => 等级为 `5`           |
-| `ambient`   | `boolean`                     | 这个有些棘手， 基本上是指定效果是由环境（比如**信标**）施加的，没有直接原因。 如果是 `true`，HUD内的效果图标会以青色覆盖层的形式出现。 |
-| `particles` | `boolean`                     | 是否显示粒子。                                                                     |
-| `icon`      | `boolean`                     | 是否在 HUD 中显示效果的图标。 效果会在物品栏中显示，无论其设置的属性。                                      |
+| 参数          | 类型                            | 描述                                                                                                                         |
+| ----------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `effect`    | `RegistryEntry<StatusEffect>` | 代表效果的注册表项。                                                                                                                 |
+| `duration`  | `int`                         | 效果的时长，单位为**刻**，而非**秒**                                                                                                     |
+| `amplifier` | `int`                         | 效果等级的倍率。 不是与效果的**等级**直接对应，而是有增加的。 比如，`amplifier` 为 `4` => 等级为 `5` 不是与效果的**等级**直接对应，而是有增加的。 比如，`amplifier` 为 `4` => 等级为 `5` |
+| `ambient`   | `boolean`                     | 这个有些棘手， 基本上是指定效果是由环境（比如**信标**）施加的，没有直接原因。 这个有些棘手， 基本上是指定效果是由环境（比如**信标**）施加的，没有直接原因。 如果是 `true`，HUD内的效果图标会以青色覆盖层的形式出现。      |
+| `particles` | `boolean`                     | 是否显示粒子。                                                                                                                    |
+| `icon`      | `boolean`                     | 是否在 HUD 中显示效果的图标。 效果会在物品栏中显示，无论其设置的属性。 效果会在物品栏中显示，无论其设置的属性。                                                                |
 
 :::info
 要创建使用此效果的药水，请参阅[药水](../items/potions)指南。
