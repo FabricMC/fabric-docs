@@ -16,7 +16,7 @@ authors-nogithub:
 首先，请确保你已完成 [Datagen 设置](./setup) 。
 :::
 
-需要针对方块、箱子和实体提供不同的提供程序（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将它们全部添加到包中。
+需要针对方块、箱子和实体提供不同的提供程序（类）。 需要针对方块、箱子和实体提供不同的提供程序（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将它们全部添加到包中。
 
 @[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
@@ -28,7 +28,7 @@ authors-nogithub:
 
 ## 方块 {#blocks}
 
-为了让方块掉落物品（包括本身），我们需要制作一个战利品表。 创建一个 `extends FabricBlockLootTableProvider` 的类：
+为了让方块掉落物品（包括本身），我们需要制作一个战利品表。 创建一个 `extends FabricBlockLootTableProvider` 的类： 创建一个 `extends FabricBlockLootTableProvider` 的类：
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
 
@@ -42,11 +42,11 @@ authors-nogithub:
 
 ## 箱子 {#chests}
 
-箱子的战利品比方块的战利品稍微复杂一些。 创建一个类似于下面示例的 `extends SimpleFabricLootTableProvider` 类**并将其添加到您的包中**。
+箱子的战利品比方块的战利品稍微复杂一些。 箱子的战利品比方块的战利品稍微复杂一些。 创建一个类似于下面示例的 `extends SimpleFabricLootTableProvider` 类**并将其添加到您的包中**。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
 
-我们需要一个 `RegistryKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
+我们需要一个 `RegistryKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 
