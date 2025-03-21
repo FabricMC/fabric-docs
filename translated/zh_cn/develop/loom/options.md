@@ -12,7 +12,7 @@ authors:
   - SolidBlock-cn
 ---
 
-本页包含 `loom` Gradle 扩展中所有选项的参考。 请参阅 [Fabric API DSL](./fabric-api) 页面，了解与 Fabric API 特定功能相关的选项。
+本页包含 `loom` Gradle 扩展中所有选项的参考。 本页包含 `loom` Gradle 扩展中所有选项的参考。 请参阅 [Fabric API DSL](./fabric-api) 页面，了解与 Fabric API 特定功能相关的选项。
 
 ```groovy
 loom {
