@@ -45,8 +45,9 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
 :::
+:::
 
-接下来，我们需要创建一个方块状态文件，这就是神奇的事情发生的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
+接下来，我们需要创建一个方块状态文件，这就是神奇的事情发生的地方。 接下来，我们需要创建一个方块状态文件，这就是神奇的事情发生的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
 
 - `axis=x` - 方块沿 X 轴放置时，旋转模型以朝向正 X 方向。
 - `axis=y` - 方块沿 Y 轴旋转时，使用正常的垂直模型。
@@ -70,7 +71,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-然后，需要在 `appendProperties` 方法中将属性添加到 blockstate manager\` 中。 需要覆盖此方法以访问 builder：
+然后，需要在 `appendProperties` 方法中将属性添加到 blockstate manager\\` 中。 需要覆盖此方法以访问 builder： 需要覆盖此方法以访问 builder：
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +81,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 ### 使用属性 {#using-the-property}
 
-这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法：
+这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法： 我们可以为此覆盖 `onUse` 方法：
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -90,7 +91,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">纹理</DownloadEntry>
 
-用你的方块模型知识，创建方块的两个模型：一个用于激活的状态，一个用于未激活的状态。 完成后，就可以开始创建方块状态文件了。
+用你的方块模型知识，创建方块的两个模型：一个用于激活的状态，一个用于未激活的状态。 完成后，就可以开始创建方块状态文件了。 完成后，就可以开始创建方块状态文件了。
 
 因为创建了新的属性，所以需要为方块更新方块状态文件以使用那个属性。
 
@@ -104,7 +105,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 不要忘记为方块添加[物品模型描述](../items/first-item#creating-the-item-model-description)，以便它在物品栏中显示！
 :::
 
-因为这个示例方块是灯，所以还需要让它在 `activated` 属性为 true 时发光。 可以通过在注册方块时传入构造器的 block settings 来完成。
+因为这个示例方块是灯，所以还需要让它在 `activated` 属性为 true 时发光。 可以通过在注册方块时传入构造器的 block settings 来完成。 可以通过在注册方块时传入构造器的 block settings 来完成。
 
 可以使用 `luminance` 方法设置方块放出的光，可以在 `PrismarineLampBlock` 类中创建一个静态方法，从而根据 `activated` 属性返回光照等级，并将其作为方法引入传入 `luminance` 方法中。
 
