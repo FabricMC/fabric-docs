@@ -5,8 +5,8 @@ authors:
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 ::: info PREREQUISITES

@@ -2,10 +2,10 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
-  - IMB11
-  - xEobardThawne
-  - its-miroma
   - Earthcomputer
+  - IMB11
+  - its-miroma
+  - xEobardThawne
 ---
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
