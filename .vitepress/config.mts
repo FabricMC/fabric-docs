@@ -30,6 +30,7 @@ export default defineVersionedConfig(
         // Use the snippet plugin (transclusion, etc.)
         md.use(snippetPlugin);
       },
+      gfmAlerts: false,
       image: {
         lazyLoading: true,
       },
