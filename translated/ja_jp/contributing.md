@@ -107,9 +107,9 @@ git push
 
 ### 2. <Badge type="tip">stage:expansion</Badge> 必要に応じて拡張するためのガイダンス {#2-guidance-for-expansion-if-needed}
 
-ドキュメンテーションチームがPull Requestを拡張できると判断した場合、チームのメンバーがPull Requestに <Badge type="tip">stage:expansion</Badge> ラベルを追加し、拡張できると思われる内容を説明するコメントをします。 提案に同意する場合は、Pull Requestを拡張できます。 提案に同意する場合は、Pull Requestを拡張できます。
+ドキュメンテーションチームがPull Requestを拡張できると判断した場合、チームのメンバーがPull Requestに <Badge type="tip">stage:expansion</Badge> ラベルを追加し、拡張できると思われる内容を説明するコメントをします。 提案に同意する場合は、Pull Requestを拡張できます。 提案に同意する場合は、Pull Requestを拡張できます。 提案に同意する場合は、Pull Requestを拡張できます。
 
-自分でPull Requestを拡張するつもりはないが、後日他のユーザーが拡張しても構わない場合は、[Issueページ](https://github.com/FabricMC/fabric-docs/issues) で新しいIssueを作成し、拡張が必要と思われる内容を説明してください。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。
+自分でPull Requestを拡張するつもりはないが、後日他のユーザーが拡張しても構わない場合は、[Issueページ](https://github.com/FabricMC/fabric-docs/issues) で新しいIssueを作成し、拡張が必要と思われる内容を説明してください。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。
 
 ### 3. <Badge type="tip">stage:verification</Badge> コンテンツの検証 {#3-content-verification}
 
@@ -152,7 +152,7 @@ git push
 
 それぞれのページは`titile`と`description`をfrontmatterに含んでいる必要があります。
 
-Markdownファイルのfrontmatterの`authors`にあなたのGitHubのユーザー名も忘れずに追加してください！ そうすればあなたに適切なクレジットを付与することができます。 そうすればあなたに適切なクレジットを付与することができます。
+Markdownファイルのfrontmatterの`authors`にあなたのGitHubのユーザー名も忘れずに追加してください！ そうすればあなたに適切なクレジットを付与することができます。 そうすればあなたに適切なクレジットを付与することができます。 そうすればあなたに適切なクレジットを付与することができます。
 
 ```yaml
 ---
@@ -175,7 +175,7 @@ authors:
 
 ### コードを`/reference`のModに配置する {#place-code-within-the-reference-mod}
 
-コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 そして、[VitePressが提供するコードスニペット機能](https://vitepress.dev/guide/markdown#import-code-snippets)を使ってコードを埋め込みます。
+コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 そして、[VitePressが提供するコードスニペット機能](https://vitepress.dev/guide/markdown#import-code-snippets)を使ってコードを埋め込みます。 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 そして、[VitePressが提供するコードスニペット機能](https://vitepress.dev/guide/markdown#import-code-snippets)を使ってコードを埋め込みます。
 
 たとえば、`FabricDocsReference.java`ファイルの15行目から21行目をリファレンスモッドからハイライトするには
 
@@ -219,9 +219,9 @@ authors:
 
 画像は`/public/assets`内の適切な場所に配置してください。
 
-### 相対リンクを使う！ 相対リンクを使う！ {#use-relative-links}
+### 相対リンクを使う！ 相対リンクを使う！ 相対リンクを使う！ {#use-relative-links}
 
-これはバージョン管理が導入されているためで、リンクはあらかじめバージョンを追加するように処理されます。 これはバージョン管理が導入されているためで、リンクはあらかじめバージョンを追加するように処理されます。 絶対リンクを使う場合、バージョン番号はリンクに追加されません。
+これはバージョン管理が導入されているためで、リンクはあらかじめバージョンを追加するように処理されます。 これはバージョン管理が導入されているためで、リンクはあらかじめバージョンを追加するように処理されます。 これはバージョン管理が導入されているためで、リンクはあらかじめバージョンを追加するように処理されます。 絶対リンクを使う場合、バージョン番号はリンクに追加されません。
 
 また、リンクにファイルの拡張子を追加しないでください。
 
