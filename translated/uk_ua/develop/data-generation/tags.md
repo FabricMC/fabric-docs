@@ -2,8 +2,8 @@
 title: Генерація теґів
 description: Інструкція з налаштування генерації теґів.
 authors:
-  - skycatminepokie
   - IMB11
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - mcrafterzz

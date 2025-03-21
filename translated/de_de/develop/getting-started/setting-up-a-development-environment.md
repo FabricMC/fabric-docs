@@ -2,18 +2,18 @@
 title: Entwicklungsumgebung einrichten
 description: Ein Schritt-für-Schritt-Leitfaden, wie man eine Entwicklungsumgebung für die Erstellung von Mods mit Fabric einrichtet.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
   - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---

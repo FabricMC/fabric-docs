@@ -2,8 +2,8 @@
 title: Creare un Progetto
 description: Una guida passo per passo su come creare un nuovo progetto per una mod con il generatore di mod modello di Fabric.
 authors:
-  - IMB11
   - Cactooz
+  - IMB11
   - radstevee
 ---
 

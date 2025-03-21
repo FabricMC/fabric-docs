@@ -2,10 +2,10 @@
 title: Dein erstes Item erstellen
 description: Lerne, wie man ein einfaches Item registriert und wie man es texturiert, modelliert und benennt.
 authors:
-  - IMB11
   - dicedpixels
-  - RaphProductions
   - Earthcomputer
+  - IMB11
+  - RaphProductions
 ---
 
 Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.

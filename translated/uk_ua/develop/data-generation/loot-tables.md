@@ -2,14 +2,14 @@
 title: Генерація таблиць здобичі
 description: Посібник із налаштування генерації таблиць здобичі.
 authors:
+  - Alphagamer47
+  - JustinHuPrime
+  - matthewperiut
   - skycatminepokie
   - Spinoscythe
-  - Alphagamer47
-  - matthewperiut
-  - JustinHuPrime
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 :::info ПЕРЕДУМОВИ

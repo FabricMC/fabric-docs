@@ -2,8 +2,8 @@
 title: 进度生成
 description: 使用 Datagen 设置进度生成的指南。
 authors:
-  - skycatminepokie
   - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
@@ -22,9 +22,9 @@ authors-nogithub:
 
 要完成设置，请将此提供程序添加到 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint`。
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
-## 进度结构{#advancement-structure}
+## 进度结构 {#advancement-structure}
 
 一项进度是由几个不同的部分组成的。 除了称为“准则”的要求外，它可能还具有：
 
@@ -34,7 +34,7 @@ authors-nogithub:
 - `CriterionMerger` 告诉进度如何处理多个准则，以及
 - 父级 `Advancement`，用于组织您在“进度”屏幕上看到的层次结构。
 
-## 简单进度{#simple-advancements}
+## 简单进度 {#simple-advancements}
 
 以下是获取土块的简单进度：
 
@@ -48,19 +48,19 @@ authors-nogithub:
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
 :::
 
-## 另一个示例{#one-more-example}
+## 另一个示例 {#one-more-example}
 
 为了掌握要领，我们再添加一项进度。 我们将练习添加奖励、使用多项准则以及指定父级：
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
-## 自定义准则{#custom-criteria}
+## 自定义准则 {#custom-criteria}
 
 :::warning
 虽然 datagen 可以在客户端，但是 `Criterion` 和 `Predicate` 位于主源集（双方）中，因为服务器需要触发和评估它们。
 :::
 
-### 定义{#definitions}
+### 定义 {#definitions}
 
 **准则**（英语：criterion/criteria）是指玩家可以做的事情（或可能发生在玩家身上的事情），这些事情可以被计入进度的达成。 游戏附带许多[准则](https://zh.minecraft.wiki/w/%E8%BF%9B%E5%BA%A6%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F#%E5%87%86%E5%88%99%E8%A7%A6%E5%8F%91%E5%99%A8)，可以在 `net.minecraft.advancement.criterion` 包中找到。 一般来说，仅当您在游戏中实现自定义机制时才需要新的准则。
 
@@ -68,7 +68,7 @@ authors-nogithub:
 
 **谓词**是一种接受值并返回 `boolean` 的东西。 例如，如果物品是钻石，则 `Predicate<Item>` 可能返回 `true`，而如果实体与村民不敌对，则 `Predicate<LivingEntity>` 可能返回 `true`。
 
-### 创建自定义准则{#creating-custom-criteria}
+### 创建自定义准则 {#creating-custom-criteria}
 
 首先，我们需要实现一个新的机制。 让我们告诉玩家每次破坏方块时他们使用了什么工具。
 
@@ -120,7 +120,7 @@ authors-nogithub:
 
 再次运行 datagen 任务，您就可以获得新的进度了！
 
-## 带参数的条件{#conditions-with-parameters}
+## 带参数的条件 {#conditions-with-parameters}
 
 这一切都很好，但是如果我们只想在做了 5 次之后才授予进度该怎么办呢？ 那为什么不再来一个 10 次的呢？ 为此，我们需要为条件提供一个参数。 您可以继续使用 `UseToolCriterion`，也可以遵循新的 `ParameterizedUseToolCriterion`。 实际上，您应该只拥有一个参数化版本，但在本教程中我们将保留这两个版本。
 

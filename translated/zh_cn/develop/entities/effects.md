@@ -3,11 +3,11 @@ title: 状态效果
 description: 学习如何添加自定义状态效果。
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
-  - SattesKrokodil
   - Manchick0
+  - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu

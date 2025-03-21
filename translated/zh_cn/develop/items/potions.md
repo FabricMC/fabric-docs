@@ -3,9 +3,9 @@ title: 药水
 description: 学习如何加入多种状态效果的自定义药水。
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 ---
 
 药水是能为实体提供效果的消耗品。 玩家可以使用酿造台酿造药水，或者从其他游戏机制中以物品形式获取。

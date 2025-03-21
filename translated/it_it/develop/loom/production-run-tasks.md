@@ -2,15 +2,14 @@
 title: Attività d'Avvio in Produzione
 description: Documentazione per le attività d'avvio in produzione in Loom, il plugin Gradle di Fabric.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Quando costruisci la tua mod per distribuirla agli utenti, viene rimappata a mapping intermediari, che causano inconsistenze lievi tra l'ambiente di sviluppo e la produzione (per esempio il launcher vanilla). Anche se problematiche del genere sono rare, ha senso testare la tua mod in un ambiente di produzione prima di rilasciarla.

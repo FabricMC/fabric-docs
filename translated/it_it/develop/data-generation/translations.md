@@ -2,14 +2,14 @@
 title: Generazione di Traduzioni
 description: Una guida per configurare la generazione di traduzioni con datagen.
 authors:
-  - skycatminepokie
-  - MattiDragon
   - IMB11
+  - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - sjk1949
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
+  - sjk1949
 ---
 
 :::info PREREQUISITI
