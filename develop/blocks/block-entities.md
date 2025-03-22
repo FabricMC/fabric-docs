@@ -80,6 +80,17 @@ Reading is similar, but instead of saving to the `NbtCompound` you get the value
 
 Now, if we save and reload the game, the counter block should continue from where it left off when saved.
 
+While `writeNbt` and `readNbt` handle saving and loading to and from disk, there is still an issue:
+- The server knows the correct `clicks` value.
+- The client does not receive the correct value when loading a chunk.
+
+To fix this, we override `toInitialChunkDataNbt`:
+
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+
+Now, when a player logs in or moves into a chunk where the block exists, they will see the correct counter value right away.
+
+
 ## Tickers {#tickers}
 
 The `BlockEntityProvider` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
