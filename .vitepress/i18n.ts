@@ -343,9 +343,9 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
       },
       {
         icon: "crowdin",
-        link:
-          "https://crowdin.com/project/fabricmc" +
-          (localeCode === "root" ? "" : `/${localeCode}`),
+        link: `https://crowdin.com/project/fabricmc/${
+          crowdinCode(localeCode) ?? ""
+        }`,
         ariaLabel: websiteResolver("social.crowdin"),
       },
     ],
