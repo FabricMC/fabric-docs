@@ -200,6 +200,33 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
       github: websiteResolver("social.github"),
     },
 
+    credits: {
+      authors: {
+        description: {
+          plural: websiteResolver("credits.authors.description.plural"),
+          singular: websiteResolver("credits.authors.description.singular"),
+        },
+        title: websiteResolver("credits.authors"),
+      },
+      committers: {
+        description: {
+          plural: websiteResolver("credits.committers.description.plural"),
+          singular: websiteResolver("credits.committers.description.singular"),
+        },
+        title: websiteResolver("credits.committers"),
+      },
+      maintainers: {
+        title: websiteResolver("credits.maintainers"),
+      },
+      translators: {
+        description: {
+          plural: websiteResolver("credits.translators.description.plural"),
+          singular: websiteResolver("credits.translators.description.singular"),
+        },
+        title: websiteResolver("credits.translators"),
+      },
+    },
+
     darkModeSwitchLabel: websiteResolver("mode_switcher"),
 
     darkModeSwitchTitle: websiteResolver("mode_dark"),
