@@ -2,18 +2,18 @@
 title: Настройка среды разработки
 description: Пошаговое руководство по настройке среды разработки для создания модов с помощью Fabric.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
   - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - andrew6rant
   - asiekierka
+  - daomephsta
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - telepathicgrunt
 authors-nogithub:
   - siglong
 ---

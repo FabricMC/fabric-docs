@@ -96,7 +96,7 @@ Loom ist so konzipiert, dass es sofort einsatzbereit ist, indem du einfach einen
 - Fügt die folgenden Maven Repositories hinzu: [Fabric](https://maven.fabricmc.net/), [Mojang](https://libraries.minecraft.net/) und Maven Central
 - Konfiguriert die `eclipse` Aufgabe, um durch die Aufgabe `genEclipseRuns` finalisiert zu werden.
 - Wenn ein `.idea`-Ordner im Stammprojekt vorhanden ist, lädt er Assets herunter (falls nicht aktuell) und installiert die Laufkonfiguration in `.idea/runConfigurations`.
-- Fügt `net.fabricmc:fabric-mixin-compile-extensions und dessen Abhängigkeiten mit der `annotationProcessor\` Konfiguration für Abhängigkeiten hinzu.
+- Fügt `net.fabricmc:fabric-mixin-compile-extensions und dessen Abhängigkeiten mit der `annotationProcessor\\` Konfiguration für Abhängigkeiten hinzu.
 - Konfiguriert alle nicht-Test JavaCompile Aufgaben mit der Konfiguration für den Mixin Annotationsprozessor.
 - Konfiguriert die Aufgabe `remapJar` so, dass sie eine JAR mit demselben Namen wie die Aufgabe `jar` ausgibt, und fügt dann eine "dev"-Kennzeichnung zur Aufgabe `jar` hinzu.
 - Konfiguriert die Aufgabe `remapSourcesJar`, um die Ausgabe der Aufgabe `sourcesJar` zu verarbeiten, wenn die Aufgabe existiert.

@@ -14,7 +14,7 @@ authors:
 ![終端機中輸入了「java -version」](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
-要使用 Minecraft 1.21，你至少需要安裝 Java 21。 如果這個指令顯示任何低於 21 的版本，則需要更新現有的 Java 安裝。 如果這個指令顯示任何低於 21 的版本，則需要更新現有的 Java 安裝。
+要使用 Minecraft 1.21，你至少需要安裝 Java 21。 如果這個指令顯示任何低於 21 的版本，則需要更新現有的 Java 安裝。 如果這個指令顯示任何低於 21 的版本，則需要更新現有的 Java 安裝。 如果這個指令顯示任何低於 21 的版本，則需要更新現有的 Java 安裝。
 :::
 
 ## 2. 下載和安裝 Java 21 {#2-downloading-and-installing-java}

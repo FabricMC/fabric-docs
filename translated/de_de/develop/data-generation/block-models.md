@@ -99,13 +99,13 @@ Türen und Falltüren sein ein wenig anders. Hier musst du drei neue Texturen er
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Rubintür und Falltür</DownloadEntry>
 
-## Benutzerdefinierte Blockmodelle {#custom-block-models}
+## Benutzerdefinierte Blockklasse {#custom-block-class}
 
 In diesem Abschnitt werden wir die Modelle für eine vertikale Eichenstammstufe, mit einer Eichenstamm-Textur, erstellen.
 
 _Punkte 2. - 6. werden in einer inneren, statischen Hilfsklasse namens `CustomBlockStateModelGenerator` deklariert._
 
-### Benutzerdefinierte Blockklasse {#custom-block-class}
+### Benutzerdefinierte Blockmodelle {#custom-block-models}
 
 Erstelle einen Block `VerticalSlab` mit einer Eigenschaft `FACING` und einer boolean-Eigenschaft `SINGLE`, wie in dem Tutorial [Block States](../blocks/blockstates) beschrieben. `SINGLE` zeigt an, ob beide Stufen sind.
 Dann solltest du `getOutlineShape` und `getCollisionShape` überschreiben, so dass die Umrandung korrekt gerendert wird und der Block die richtige Kollisionsform hat.
@@ -201,7 +201,7 @@ Aber für was sind die Parameter?
 
 Zunächst erhalten wir den `Identifier` des einzelnen Stufenmodell mit `VERTICAL_SLAB.upload()`. Dann erhalten wir den `Identifier` des vollen Blockmodells mit `ModelIds.getBlockModelId()`, und übergeben diese beiden Modelle an `createVerticalSlabBlockStates`.
 Der `BlockStateSupplier` wird an den `blockStateCollector` übergeben, so dass die JSON-Dateien tatsächlich generiert werden.
-Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit BlockStateModelGenerator.registerParentedItemModel()\\`.
+Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit BlockStateModelGenerator.registerParentedItemModel()\\\`.
 
 Und dies ist alles! Jetzt müssen wir nur noch unsere Methode in unserem `ModelProvider` aufrufen:
 

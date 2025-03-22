@@ -29,7 +29,7 @@ Aby używać Minecrafta w wersji 1.21, musisz mieć zainstalowaną co najmniej J
 
 ## 2. Pobierz instalator Javy 21 {#2-download-the-java-installer}
 
-Do zainstalowania Javy 21 wymagane jest pobranie instalatora ze strony [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
+Do zainstalowania Javy 21 wymagane jest pobranie instalatora ze strony Adoptium.
 
 Pobierz wersję `Windows Installer (.msi)`:
 

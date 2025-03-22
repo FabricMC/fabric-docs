@@ -7,7 +7,7 @@ authors:
   - MattiDragon
 ---
 
-伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
+伤害类型定义了实体能受到的伤害的种类。 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
 
 ## 创建伤害类型{#creating-a-damage-type}
 
@@ -21,7 +21,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
 
-这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随世界难度而变化。
+这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随世界难度而变化。 此外，造成的伤害量将随世界难度而变化。
 
 ::: info
 

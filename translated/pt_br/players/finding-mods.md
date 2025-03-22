@@ -9,7 +9,7 @@ Primeiramente, a confiança é subjetiva, e você sempre deve usar seu próprio 
 
 ## 1. Usar uma Fonte que Seja Reconhecidamente Confiável
 
-A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
+A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no CurseForge.
 
 Estes sites verificam se os mods são o que dizem ser e se não contêm código malicioso. Você também pode denunciar mods maliciosos nestes sites, e eles tomarão providência quanto antes.
 

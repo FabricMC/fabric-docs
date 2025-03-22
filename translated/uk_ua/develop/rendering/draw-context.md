@@ -15,7 +15,7 @@ authors:
 
 ### Малювання прямокутників {#drawing-rectangles}
 
-Щоб намалювати прямокутник із заливкою, можна використати метод DrawContext.fill(...)\`.
+Щоб намалювати прямокутник із заливкою, можна використати метод DrawContext.fill(...)\\`.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

@@ -39,11 +39,11 @@ Il [suono da cui partiamo](https://freesound.org/people/el-bee/sounds/644881/) p
 
 Carichiamo il file nella DAW che abbiamo scelto.
 
-![Reaper in cui si è caricato il file audio](/assets/develop/sounds/dynamic-sounds/step_0.png)
+![File audio tagliato](/assets/develop/sounds/dynamic-sounds/step_1.png)
 
 Possiamo sentire e notare che il motore viene avviato all'inizio e interrotto alla fine, il che non è ottimo per i suoni in loop. Tagliamo via quelle parti e regoliamo le maniglie della selezione del tempo perché corrispondano con la nuova lunghezza. Attiva anche la modalità `Toggle Repeat` così che l'audio vada in loop mentre lo regoliamo.
 
-![File audio tagliato](/assets/develop/sounds/dynamic-sounds/step_1.png)
+![Reaper in cui si è caricato il file audio](/assets/develop/sounds/dynamic-sounds/step_0.png)
 
 ### Rimuovere Elementi Audio Dirompenti {#removing-disruptive-audio-elements}
 
@@ -57,16 +57,16 @@ Se sei sicuro che la tua DAW non disponga di un filtro EQ, cerca alternative VST
 
 In Reaper usa la Finestra Effetti per aggiungere l'effetto audio "ReaEQ", o altri EQ.
 
-![Aggiungere un filtro EQ](/assets/develop/sounds/dynamic-sounds/step_2.png)
+![Frequenza problematica abbassata](/assets/develop/sounds/dynamic-sounds/step_4.png)
 
 Riproducendo adesso l'audio, tenendo la finestra del filtro EQ aperta, il filtro EQ mostrerà l'audio in entrata sul display.
 Lì si notano tante protuberanze.
 
-![Identificazione del problema](/assets/develop/sounds/dynamic-sounds/step_3.png)
+![Aggiungere un filtro EQ](/assets/develop/sounds/dynamic-sounds/step_2.png)
 
 Se non sei un ingegnere audio allenato, questa parte è abbastanza sperimentazione, andando a tentativi. C'è una protuberanza piuttosto notevole tra i nodi 2 e 3. Muoviamo i nodi in modo che si abbassi la frequenza solo per quella parte.
 
-![Frequenza problematica abbassata](/assets/develop/sounds/dynamic-sounds/step_4.png)
+![Identificazione del problema](/assets/develop/sounds/dynamic-sounds/step_3.png)
 
 Inoltre altri effetti si possono ottenere con un semplice filtro EQ. Per esempio, tagliare le frequenze alte e/o basse può dare l'impressione di suoni trasmessi via audio.
 

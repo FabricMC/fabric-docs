@@ -2,15 +2,14 @@
 title: Loom
 description: Gradle용 Fabric Loom 플러그인에 대한 문서입니다.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
-  - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
   - caoimhe
+  - daomephsta
+  - jamieswhiteshirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
+  - SolidBlock-cn
 ---
 
 Fabric Loom(약칭 'Loom')은 Fabric 생태계의 모드 개발을 위한 [Gradle](https://gradle.org/) 플러그인입니다.

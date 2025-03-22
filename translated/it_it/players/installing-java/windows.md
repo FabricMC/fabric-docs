@@ -29,7 +29,7 @@ Per usare Minecraft 1.21, ti servirà almeno Java 21 installato. Se questo coman
 
 ## 2. Scarica l'Installer per Java 21 {#2-download-the-java-installer}
 
-Per installare Java 21, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
+Per installare Java 21, dovrai scaricare l'installer da Adoptium.
 
 Dovrai scaricare la versione `Windows Installer (.msi)`:
 

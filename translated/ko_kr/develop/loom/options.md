@@ -2,15 +2,14 @@
 title: Loom 확장 옵션
 description: Gradle용 Fabric Loom 플러그인의 전체 확장 옵션 리퍼런스입니다.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
-  - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
   - caoimhe
+  - daomephsta
+  - jamieswhiteshirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
+  - SolidBlock-cn
 ---
 
 이 페이지는 `loom` Gradle 확장의 모든 옵션의 리퍼런스입니다. Fabric API와 관련된 확장은 [Fabric API DSL](./fabric-api)을 참조하십시오.

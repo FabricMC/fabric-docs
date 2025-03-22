@@ -30,7 +30,7 @@ Nota l'utilizzo di un'interfaccia [`Function`](https://docs.oracle.com/en/java/j
 
 Puoi ora registrare un oggetto con il metodo.
 
-Il metodo di registrazione prende come parametro un'istanza della classe `Item.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
+Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori. Il metodo di registrazione prende come parametro un'istanza della classe `Item.Settings`.
 
 ::: tip
 If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.

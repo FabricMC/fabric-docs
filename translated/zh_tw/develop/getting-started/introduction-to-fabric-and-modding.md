@@ -31,7 +31,7 @@ authors-nogithub:
 - **混淆 (Obfuscation)**：使程式碼難以理解的過程，Mojang 使用它來保護 Minecraft 的程式碼。
 - **重新映射 (Remapping)**：將混淆程式碼映射到人類可讀程式碼的過程。
 
-## 什麼是 Fabric？ {#what-is-fabric} {#what-is-fabric}
+## 什麼是 Fabric？ {#what-is-fabric} {#what-is-fabric} {#what-is-fabric}
 
 Fabric 是一個輕量級的 Minecraft Java 版模組開發工具鏈。
 
@@ -44,17 +44,17 @@ Fabric 是一個輕量級的 Minecraft Java 版模組開發工具鏈。
 - **Fabric API**：一組供模組開發人員在建立模組時使用的 API 和工具。
 - **Yarn**：一組開放的 Minecraft 映射，任何人都可以在 Creative Commons Zero 授權條款下免費使用。
 
-## 為什麼需要 Fabric 來修改 Minecraft？ {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft}
+## 為什麼需要 Fabric 來修改 Minecraft？ {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft}
 
 > 模組開發是指修改遊戲以改變其行為或添加新功能的過程。對於 Minecraft 來說，這涵蓋的範圍很廣，從加入新的物品、方塊或實體，到改變遊戲的機制或加入新的遊戲模式，都在其中。
 
-Minecraft Java 版的程式碼被 Mojang 混淆，使得單獨修改變得困難。 然而，借助 Fabric 等模組開發工具，模組開發變得更加容易。 有幾個映射系統可以協助這個過程。 然而，借助 Fabric 等模組開發工具，模組開發變得更加容易。 有幾個映射系統可以協助這個過程。
+Minecraft Java 版的程式碼被 Mojang 混淆，使得單獨修改變得困難。 然而，借助 Fabric 等模組開發工具，模組開發變得更加容易。 有幾個映射系統可以協助這個過程。 然而，借助 Fabric 等模組開發工具，模組開發變得更加容易。 有幾個映射系統可以協助這個過程。 然而，借助 Fabric 等模組開發工具，模組開發變得更加容易。 有幾個映射系統可以協助這個過程。
 
 Loom 使用這些映射將混淆的程式碼重新映射為人類可讀的格式，使模組開發人員更容易理解和修改遊戲的程式碼。 Yarn 是一個流行且優秀的映射選擇，但也有其他的選擇。 每個映射專案可能有其自身的優勢或重點。
 
 Loom 允許您輕鬆地針對重新映射的程式碼開發和編譯模組，而 Fabric Loader 允許您將這些模組載入到遊戲中。
 
-## Fabric API 提供了什麼，為什麼需要它？ {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed}
+## Fabric API 提供了什麼，為什麼需要它？ {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API 是一組供模組開發人員在建立模組時使用的 API 和工具。
 

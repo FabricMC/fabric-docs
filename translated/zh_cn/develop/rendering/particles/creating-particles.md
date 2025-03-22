@@ -15,7 +15,7 @@ authors:
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
-小写字母“sparkle_particle”是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。
+小写字母“sparkle_particle”是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。 稍后就会以这个名字，创建新的 JSON 文件。
 
 ## 客户端注册{#client-side-registration}
 
@@ -23,7 +23,7 @@ authors:
 
 @[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
 
-在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
+在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
 
 ::: tip
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
@@ -43,12 +43,12 @@ You can see all the particle factories by looking at all the implementations of 
 
 例如，我们在 `textures/particle` 中只有一个纹理，叫做 `sparkle_particle_texture.png`。
 
-然后，在 `particles` 中创建新的 JSON 文件，名称与用于创建你的 ParticleType 的 JSON 路径相同。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。
+然后，在 `particles` 中创建新的 JSON 文件，名称与用于创建你的 ParticleType 的 JSON 路径相同。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
 
 :::tip
-可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。
+可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。 粒子会在这个数组中循环纹理，以第一个纹理开始。
 :::
 
 ## 测试新的粒子{#testing-the-new-particle}
@@ -64,7 +64,7 @@ You can see all the particle factories by looking at all the implementations of 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
 :::info
-用这个命令，粒子会生成在玩家内。 你可能需要往后走才能实际看到。
+用这个命令，粒子会生成在玩家内。 你可能需要往后走才能实际看到。 你可能需要往后走才能实际看到。
 :::
 
 你也可以使用相同命令，用命令方块召唤粒子。

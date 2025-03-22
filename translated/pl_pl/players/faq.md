@@ -15,7 +15,7 @@ Oficjalnie, Fabric obsługuje wszystkie wersje Minecraft począwszy od snapshota
 Upewniaj się zawsze czy mody pochodzą z wiarygodnego źródła. Po więcej informacji sprawdź przewodnik na temat [znajdowania wiarygodnych modów](./finding-mods).
 :::
 
-Większość twórców publikuje swoje mody na [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) i [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4), niektórzy mogą jednak zdecydować się na opublikowanie ich na swojej własnej stronie internetowej lub innych platformach, takich jak repozytorium GitHub.
+Większość twórców publikuje swoje mody na [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) i CurseForge, niektórzy mogą jednak zdecydować się na opublikowanie ich na swojej własnej stronie internetowej lub innych platformach, takich jak repozytorium GitHub.
 
 ## Gdzie mogę znaleźć gotowe paczki modów dla Fabric? {#where-can-i-find-premade-fabric-modpacks}
 
