@@ -17,9 +17,9 @@ description: Ответы на часто задаваемые вопросы к
 
 Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и CurseForge, однако некоторые могут размещать их на своих личных сайтах или на других платформах, таких как репозитории GitHub.
 
-## Где Я Могу Найти Готовые Fabric Модпаки? {#where-can-i-find-pre-made-fabric-modpacks}
+## Где я могу найти готовые сборки на Fabric? {#where-can-i-find-pre-made-fabric-modpacks}
 
-Вы можете найти готовые Fabric модпаки на различных платформах, таких как:
+Вы можете найти готовые сборки модов на основе Fabric на множестве платформ, таких как:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
