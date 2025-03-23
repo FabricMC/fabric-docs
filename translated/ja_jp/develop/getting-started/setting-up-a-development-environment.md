@@ -36,13 +36,13 @@ Java のインストールでお困りの場合、[プレイヤーガイド](../
 
 Community 版の IntelliJ IDEA は無料かつオープンソースであり、Fabric を使った Modding に推奨されています。
 
-Community 版のダウンロードリンクを見つけるにはページをスクロールする必要があるかもしれません。リンクは以下のようになっています:
+Community 版のダウンロードリンクを見つけるにはページをスクロールする必要があるかもしれません。リンクは以下のようになっています。
 
 ![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-community.png)
 
 ## IDEA プラグインのインストール {#installing-idea-plugins}
 
-このプラグインは必須ではありません。しかし、Fabric を使った Modding を非常に簡単にします。インストールを検討してください。
+このプラグインは必須ではありませんが、Fabric での Modding を大幅に簡単にすることができるので、インストールを検討する価値があります。
 
 ### Minecraft Development {#minecraft-development}
 
