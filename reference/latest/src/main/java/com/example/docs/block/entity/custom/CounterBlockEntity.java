@@ -61,7 +61,7 @@ public class CounterBlockEntity extends BlockEntity {
 	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
 		super.readNbt(nbt, registryLookup);
 
-		clicks = nbt.getInt("clicks");
+		clicks = nbt.getInt("clicks", 0);
 	}
 
 	// :::4
