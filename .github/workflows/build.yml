@@ -32,7 +32,7 @@ jobs:
         run: |
           git status
           if [ -n "$(git status --porcelain)" ]; then exit 1; fi
-      - uses: FabricMCBot/publish-checkstyle-report@2ed34a273aa5e916c12bb3dc584a5297b0916c16
+      - uses: FabricMCBot/publish-checkstyle-report@4627c82002aa370b6cb2a3140f34c7a8c55a5297
         if: ${{ failure() }}
         with:
           reports: |
