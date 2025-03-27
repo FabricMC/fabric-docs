@@ -26,10 +26,15 @@ so this page is split up into a few categories.
 
 ## Why Is Networking Important? {#why-is-networking-important}
 
-Packets are the core concept of networking in Minecraft. Packets are made up of arbitrary data that can be sent either from
-server to client or from client to server. Almost everything you do in the game involves networking in some way, whether
-you know it or not. For example, when you send a chat message, a packet is sent to the server with the content. The server then
-sends another packet to all the other clients with your message.
+Packets are the core concept of networking in Minecraft.
+Packets are made up of arbitrary data that can be sent either from server to client or from client to server.
+Check out the diagram below, which provides a visual representation of the networking architecture in Fabric:
+
+![Sided Architecture](/assets/develop/networking/sides.png)
+
+Notice how packets are the bridge between the server and the client; that's because almost everything you do in the game involves networking in some way, whether you know it or not.
+For example, when you send a chat message, a packet is sent to the server with the content.
+The server then sends another packet to all the other clients with your message.
 
 One important thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
 the client and server even when no one else is playing with you. When talking about sides in networking, the terms "**logical** client" and "**logical** server" are used. The integrated singleplayer/LAN server and the dedicated server are both **logical** servers, but only the dedicated server can be considered a **physical** server.
