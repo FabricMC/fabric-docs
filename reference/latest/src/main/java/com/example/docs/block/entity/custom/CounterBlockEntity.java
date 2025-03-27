@@ -73,6 +73,14 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::5
 
+	// :::7
+	@Override
+	public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+		return createNbt(registryLookup);
+	}
+
+	// :::7
+
 	// :::1
 }
 // :::1
