@@ -91,7 +91,6 @@ To fix this, we override `toInitialChunkDataNbt`:
 
 Now, when a player logs in or moves into a chunk where the block exists, they will see the correct counter value right away.
 
-
 ## Tickers {#tickers}
 
 The `BlockEntityProvider` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
