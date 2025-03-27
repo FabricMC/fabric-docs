@@ -3,9 +3,9 @@ title: Mikstury
 description: Dowiedz się, jak stworzyć własne mikstury dla różnych efektów.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 ---
 
 Mikstury, to materiały możliwe do spożycia, które przyznają istocie efekt. Gracz może warzyć mikstury używając statywu alchemicznego, lub otrzymując je jako przedmioty (itemy) z innych mechanik w grze.

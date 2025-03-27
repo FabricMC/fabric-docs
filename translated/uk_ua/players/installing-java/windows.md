@@ -29,9 +29,9 @@ authors:
 
 ## 2. Завантажити завантажувач Java 21 {#2-download-the-java-installer}
 
-Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21).
+Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з Adoptium.
 
-Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
+Щоб установити Java 21, вам потрібно буде завантажити програму встановлення з Adoptium.
 
 Ви захочете завантажити версію `Windows Installer (.msi)`:
 
@@ -46,9 +46,9 @@ authors:
 - `Установити змінну середовища JAVA_HOME` - її буде додано до вашого ШЛЯХУ.
 - `JavaSoft (Oracle) registry keys`
 
-![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA\_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
 
-![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA\\_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Встановлювач Java 21 із виділеними параметрами «Встановити змінну JAVA\_HOME» і «ключами реєстру JavaSoft (Oracle)»](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 ## 4. Перевірте, чи встановлено Java 21 {#4-verify-that-java-is-installed}
 

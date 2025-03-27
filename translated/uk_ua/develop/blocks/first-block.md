@@ -2,10 +2,10 @@
 title: Створення вашого першого блоку
 description: Навчіться як створювати власні блоки в Minecraft.
 authors:
-  - IMB11
-  - xEobardThawne
-  - its-miroma
   - Earthcomputer
+  - IMB11
+  - its-miroma
+  - xEobardThawne
 ---
 
 Блоки є будівельними блоками Minecraft (без каламбуру) - як і все інше в Minecraft, вони зберігаються в реєстрах.

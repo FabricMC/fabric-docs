@@ -2,8 +2,8 @@
 title: Generazione di Tag
 description: Una guida per configurare la generazione di tag con datagen.
 authors:
-  - skycatminepokie
   - IMB11
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - mcrafterzz
@@ -25,7 +25,7 @@ Ti servirà un fornitore diverso per ogni tipo di tag (per esempio un `FabricTag
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creare un Tag {#creating-a-tag}
 

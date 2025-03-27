@@ -2,9 +2,10 @@
 title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
+  - Earthcomputer
   - IMB11
-  - xEobardThawne
   - its-miroma
+  - xEobardThawne
 ---
 
 方块是构成 Minecraft 世界的主要组成部分——和 Minecraft 的其他一切一样，是储存在注册表中的。
@@ -45,8 +46,8 @@ public class ModBlocks {
 
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
-- 我们需要一个 `RegistryKey<Block>` 作为方块的唯一标识符，这个标识符将在前面的工具方法中传入到 `Registry.register` 中。
-- `AbstractBlock.Settings` 构建器也需要使用 `RegistryKey<Block>`。
+- 我们以与在物品教程中创建物品设置类似的方式创建方块设置。
+- 我们通过调用 `Block` 构造函数来告诉 `register` 方法从方块设置中创建一个 `Block` 实例。
 
 :::tip
 可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。

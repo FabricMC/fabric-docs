@@ -6,10 +6,9 @@ import "vidstack/player/styles/default/theme.css";
 import "vidstack/player/ui";
 import { useSlots } from "vue";
 
-const props = defineProps<{
-  src: string;
-}>();
+const props = defineProps<{ src: string }>();
 
+// @ts-expect-error
 const title = (useSlots().default?.() ?? [""])[0].children ?? "";
 </script>
 

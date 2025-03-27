@@ -2,8 +2,8 @@
 title: 标签生成
 description: 使用 Datagen 设置标签生成的指南。
 authors:
-  - skycatminepokie
   - IMB11
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - mcrafterzz
@@ -13,7 +13,7 @@ authors-nogithub:
 首先，请确保你已完成 [Datagen 设置](./setup) 。
 :::
 
-## 设置{#setup}
+## 设置 {#setup}
 
 首先，创建你自己的 `extends FabricTagProvider<T>` 类，其中 `T` 是您希望提供标签的类型。 这是你的**提供程序**。 在这里我们将展示如何创建 `Item` 标签，但同样的原则对其他场景也适用。 让你的 IDE 填充所需的代码，然后用你的类型的 `RegistryKey` 替换 `registryKey` 构造函数参数：
 
@@ -25,9 +25,9 @@ authors-nogithub:
 
 要完成设置，将此提供程序添加到 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint`。
 
-@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
-## 创建标签{#creating-a-tag}
+## 创建标签 {#creating-a-tag}
 
 现在你创建了提供程序，让我们为其添加一个标签。 首先，创建一个 `TagKey<T>`：
 

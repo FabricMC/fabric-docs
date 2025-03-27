@@ -148,7 +148,7 @@ Finally, we create a `LightningEntity` and add it to the world.
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm" title="Summon lightning using Lightning Tater" />
+<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Summon lightning using Lightning Tater</VideoPlayer>
 
 ### Sending a Packet to the Server {#sending-a-packet-to-the-server}
 
@@ -206,4 +206,4 @@ player to 5.
 
 Now when any player tries to use a Poisonous Potato on a living entity, the glowing effect will be applied to it.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm" title="Glowing effect is applied when a Poisonous Potato is used on a living entity." />
+<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Glowing effect is applied when a Poisonous Potato is used on a living entity</VideoPlayer>

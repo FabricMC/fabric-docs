@@ -2,15 +2,14 @@
 title: Loom
 description: Documentazione per Loom, il plugin Gradle di Fabric.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Loom di Fabric, o semplicemente Loom, è un plugin [Gradle](https://gradle.org/) per lo sviluppo di mod nell'ecosistema Fabric.

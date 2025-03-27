@@ -2,8 +2,8 @@
 title: 基本渲染概念
 description: 学习 Minecraft 渲染引擎的基本概念。
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
 
 ::: warning
@@ -133,7 +133,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 您也可以使用四元数对栈顶的矩阵做叉乘，这些内容会在下一节讲到。
 
-从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#tick-delta) 页面中澄清这一点。
+从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#render-tick-counter) 页面中澄清这一点。
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.

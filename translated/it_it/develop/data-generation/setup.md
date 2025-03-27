@@ -2,18 +2,18 @@
 title: Configurazione della Generazione di Dati
 description: Una guida per configurare la Generazione di Dati con l'API di Fabric.
 authors:
-  - skycatminepokie
-  - modmuss50
-  - earthcomputer
-  - shnupbups
-  - arkosammy12
+  - ArkoSammy12
+  - Earthcomputer
   - haykam821
-  - matthewperiut
-  - SolidBlock-cn
   - Jab125
+  - matthewperiut
+  - modmuss50
+  - Shnupbups
+  - skycatminepokie
+  - SolidBlock-cn
 authors-nogithub:
   - jmanc3
-  - macrafterzz
+  - mcrafterzz
 ---
 
 ## Cos'è la Generazione di Dati? {#what-is-data-generation}

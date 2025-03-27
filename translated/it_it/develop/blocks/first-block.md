@@ -2,10 +2,10 @@
 title: Creare il Tuo Primo Blocco
 description: Impara come creare il tuo primo blocco personalizzato in Minecraft.
 authors:
-  - IMB11
-  - xEobardThawne
-  - its-miroma
   - Earthcomputer
+  - IMB11
+  - its-miroma
+  - xEobardThawne
 ---
 
 I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in registry.

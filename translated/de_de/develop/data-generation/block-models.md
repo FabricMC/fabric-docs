@@ -3,9 +3,9 @@ title: Generation von Blockmodellen
 description: Ein Leitfaden zur Generierung von Blockmodellen und Blockzuständen mit dem Datengenerator.
 authors:
   - Fellteros
-  - natri0
   - IMB11
   - its-miroma
+  - natri0
 ---
 
 :::info VORAUSSETZUNGEN
@@ -90,12 +90,12 @@ Du kannst auch eine `BlockFamily` anhängen, die Modelle für alle ihre "Kinder"
 Türen und Falltüren sein ein wenig anders. Hier musst du drei neue Texturen erstellen - zwei für die Türe, und eine für die Falltüre.
 
 1. Die Tür:
-   - Sie hat zwei Teile - die obere und die untere Hälfte. **Jede benötigt ihre eigene Textur:** In diesem Fall `ruby_door_top` für die obere und `ruby_door_bottom` für die untere Hälfte.
-   - Die Methode `registerDoor()` wird Modelle für alle Ausrichtungen der Tür, sowohl offen als auch geschlossen erstellen.
-   - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/<mod_id>/textures/item/` ab.
+  - Sie hat zwei Teile - die obere und die untere Hälfte. **Jede benötigt ihre eigene Textur:** In diesem Fall `ruby_door_top` für die obere und `ruby_door_bottom` für die untere Hälfte.
+  - Die Methode `registerDoor()` wird Modelle für alle Ausrichtungen der Tür, sowohl offen als auch geschlossen erstellen.
+  - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/<mod_id>/textures/item/` ab.
 2. Die Falltür:
-   - Hier benötigst du nur eine Textur, die in diesem Fall `ruby_trapdoor` heißt. Diese wird für alle Seiten genutzt.
-   - Da `TrapdoorBlock` eine Eigenschaft `FACING` hat, kannst du die auskommentierte Methode verwenden, um Modell-Dateien mit rotierten Texturen zu generieren = Die Falltüre wird "orientierbar" sein. Andernfalls sieht sie immer gleich aus, egal in welche Richtung sie gerichtet ist.
+  - Hier benötigst du nur eine Textur, die in diesem Fall `ruby_trapdoor` heißt. Diese wird für alle Seiten genutzt.
+  - Da `TrapdoorBlock` eine Eigenschaft `FACING` hat, kannst du die auskommentierte Methode verwenden, um Modell-Dateien mit rotierten Texturen zu generieren = Die Falltüre wird "orientierbar" sein. Andernfalls sieht sie immer gleich aus, egal in welche Richtung sie gerichtet ist.
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Rubintür und Falltür</DownloadEntry>
 

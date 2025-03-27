@@ -2,15 +2,14 @@
 title: DSL dell'API di Fabric
 description: Documentazione per il supporto dell'API di Fabric in Loom, il plugin Gradle di Fabric.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Loom ha un DSL (Linguaggio Specifico del Dominio) che permette di configurare certi aspetti dell'API di Fabric come la generazione di dati e i test.

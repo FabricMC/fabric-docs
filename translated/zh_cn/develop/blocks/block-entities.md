@@ -32,7 +32,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 :::tip
 有两种方法来实现这个：
 
-- 创建一个扩展 `BlockWithEntity` 的方块并实现 `createBlockEntity` 方法（_以及_ `getRenderType` 方法，因为 `BlockWithEntity` 默认使其不可见）
+- 创建一个扩展 `BlockWithEntity` 的方块并实现 `createBlockEntity` 方法
 - 创建一个自行实现 `BlockEntityProvider` 的方块并重写 `createBlockEntity` 方法
 
 我们将在本例中使用第一种方法，因为 `BlockWithEntity` 也提供了一些不错的实用程序。
@@ -48,7 +48,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-## 使用方块实体{#using-the-block-entity}
+## 使用方块实体 {#using-the-block-entity}
 
 现在我们有了一个方块实体，我们可以用它来存储该方块被右键单击的次数。 我们通过向 `CounterBlockEntity` 类添加 `clicks` 字段来实现这一点：
 
@@ -64,7 +64,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ![右键单击后屏幕上显示“You've clicked the block for the 6th time”消息](/assets/develop/blocks/block_entities_1.png)
 
-## 保存和加载数据{#saving-loading}
+## 保存和加载数据 {#saving-loading}
 
 现在我们有了一个功能方块，我们应该使计数器在游戏重启时不会重置。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。
 

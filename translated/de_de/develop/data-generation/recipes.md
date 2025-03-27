@@ -5,8 +5,8 @@ authors:
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 :::info VORAUSSETZUNGEN
@@ -21,7 +21,7 @@ Zuerst benötigen wir unseren Provider. Erstelle eine Klasse, die `extends Fabri
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Formlose Rezepte {#shapeless-recipes}
 

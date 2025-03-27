@@ -2,10 +2,10 @@
 title: Creare il Tuo Primo Oggetto
 description: Impara come registrare un semplice oggetto e come aggiungergli texture, modello e nome.
 authors:
-  - IMB11
   - dicedpixels
-  - RaphProductions
   - Earthcomputer
+  - IMB11
+  - RaphProductions
 ---
 
 Questa pagina ti presenterà alcuni concetti chiave legati agli oggetti, e come registrargli e aggiungere loro texture, modello e nome.

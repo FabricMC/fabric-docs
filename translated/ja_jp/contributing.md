@@ -3,7 +3,7 @@ title: 貢献ガイドライン
 description: Fabricドキュメントへの貢献ガイドライン
 ---
 
-このWebサイトは、Markdownファイルから静的HTMLを生成するのに [VitePress](https://vitepress.dev/) を使っています。 VitePress がサポートする Markdown 拡張機能については、[こちら](https://vitepress.dev/guide/markdown#features)でよく理解しておく必要があります。 VitePress がサポートする Markdown 拡張機能については、[こちら](https://vitepress.dev/guide/markdown#features)でよく理解しておく必要があります。
+このWebサイトは、Markdownファイルから静的HTMLを生成するのに [VitePress](https://vitepress.dev/) を使っています。 VitePress がサポートする Markdown 拡張機能については、[こちら](https://vitepress.dev/guide/markdown#features)でよく理解しておく必要があります。
 
 この Web サイトに貢献するには、次の 3 つの方法があります。
 
@@ -19,7 +19,7 @@ description: Fabricドキュメントへの貢献ガイドライン
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 
-## <0>new-content</0> コンテンツの寄稿 {#contributing-content}
+## <Badge type="tip">new-content</Badge> コンテンツの寄稿 {#contributing-content}
 
 コンテンツの寄稿は、Fabric ドキュメントに貢献する主な方法です。
 

@@ -2,8 +2,8 @@
 title: Fabric 설치
 description: Fabric을 설치하는 방법에 대한 단계별 가이드입니다.
 authors:
-  - IMB11
   - Benonardo
+  - IMB11
   - modmuss50
 ---
 
