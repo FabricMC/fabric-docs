@@ -81,6 +81,7 @@ Reading is similar, but instead of saving to the `NbtCompound` you get the value
 Now, if we save and reload the game, the counter block should continue from where it left off when saved.
 
 While `writeNbt` and `readNbt` handle saving and loading to and from disk, there is still an issue:
+
 - The server knows the correct `clicks` value.
 - The client does not receive the correct value when loading a chunk.
 
