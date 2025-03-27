@@ -29,6 +29,7 @@
       "com.example.docs.FabricDocsDynamicSound",
       "com.example.docs.FabricDocsReferenceClient",
       "com.example.docs.rendering.HudRenderingEntrypoint",
+      "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicClient"
     ],
     "fabric-datagen": [
