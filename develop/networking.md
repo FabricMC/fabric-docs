@@ -26,68 +26,30 @@ so this page is split up into a few categories.
 
 ## Why Is Networking Important? {#why-is-networking-important}
 
-The importance of networking can be shown by a simple code example.
+Packets are the core concept of networking in Minecraft.
+Packets are made up of arbitrary data that can be sent either from server to client or from client to server.
+Check out the diagram below, which provides a visual representation of the networking architecture in Fabric:
 
-::: warning
-Below code is for demonstration purposes only.
-:::
+![Sided Architecture](/assets/develop/networking/sides.png)
 
-Say you had a Wand which highlights the block you're looking, which will be visible to all
-nearby players:
+Notice how packets are the bridge between the server and the client; that's because almost everything you do in the game involves networking in some way, whether you know it or not.
+For example, when you send a chat message, a packet is sent to the server with the content.
+The server then sends another packet to all the other clients with your message.
 
-```java
-public class HighlightingWandItem extends Item {
-    public HighlightingWandItem(Item.Settings settings) {
-        super(settings);
-    }
+One important thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
+the client and server even when no one else is playing with you. When talking about sides in networking, the terms "**logical** client" and "**logical** server" are used. The integrated singleplayer/LAN server and the dedicated server are both **logical** servers, but only the dedicated server can be considered a **physical** server.
 
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        BlockPos target = ...
-
-        // BAD CODE: DON'T EVER DO THIS! // [!code error]
-        ClientBlockHighlighting.highlightBlock(MinecraftClient.getInstance(), target); // [!code error]
-        return super.use(world, user, hand);
-    }
-}
-```
-
-Upon testing, you will see a lightning bolt being summoned and nothing crashes. Now you want to show the mod to your
-friend, you boot up a dedicated server and invite your friend on with the mod installed.
-
-You use the item and the server crashes. You will probably notice in the crash log an error similar to this:
-
-```log
-[Server thread/FATAL]: Error executing task on Server
-java.lang.RuntimeException: Cannot load class net.minecraft.client.MinecraftClient in environment type SERVER
-```
-
-### Why Does the Server Crash? {#why-does-the-server-crash}
-
-The code calls logic only present on the client distribution of the Minecraft. The reason for Mojang distributing the
-game in this way is to cut down on the size of the Minecraft Server JAR file. There isn't really a reason to include an
-entire rendering engine when your own machine will render the world.
-
-In a development environment, client-only classes are indicated by the `@Environment(EnvType.CLIENT)` annotation.
-
-### How Do We Fix the Crash? {#how-do-we-fix-the-crash}
-
-To fix this issue, you need to understand how the game client and dedicated server communicate:
-
-![Sides](/assets/develop/networking/sides.png)
-
-The diagram above shows that the game client and dedicated server are separate systems, bridged together using
-_packets_. Packets can contain data which we refer to as the _payload_.
-
-This packet bridge does not only exist between a game client and dedicated server, but also between your client and
-another client connected over LAN. The packet bridge is also present even in singleplayer. This is because the game
-client will spin up a special integrated server instance to run the game on.
-
-Connection to a server over LAN or singleplayer can also be treated like the server is a remote, dedicated server; so
-your game client can't directly access the server instance.
+When state is not synced between the client and server, you can run into issues where the server or other clients don't agree with what another
+client is doing. This is often known as a "desync". When writing your own mod you may need to send a packet of data to keep the state of the server
+and all clients in sync.
 
 ## An Introduction to Networking {#an-introduction-to-networking}
 
 ### Defining a Payload {#defining-a-payload}
+
+::: info
+A payload is the data that is sent within a packet.
+:::
 
 This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPayload`.
 
