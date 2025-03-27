@@ -31,7 +31,7 @@ server to client or from client to server. Almost everything you do in the game 
 you know it or not. For example, when you send a chat message, a packet is sent to the server with the content. The server then
 sends another packet to all the other clients with your message.
 
-One imporant thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
+One important thing to keep in mind is there is always a server running, even in singleplayer and LAN. Packets are still used to communicate between
 the client and server even when no one else is playing with you. When talking about sides in networking, the terms "**logical** client" and "**logical** server" are used. The integrated singleplayer/LAN server and the dedicated server are both **logical** servers, but only the dedicated server can be considered a **physical** server.
 
 When state is not synced between the client and server, you can run into issues where the server or other clients don't agree with what another
