@@ -13,3 +13,13 @@ test {
 	useJUnitPlatform()
 }
 // :::automatic-testing:2
+
+// :::automatic-testing:game-test:1
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "fabric-docs-reference-test-${project.name}"
+		eula = true
+	}
+}
+// :::automatic-testing:game-test:1
