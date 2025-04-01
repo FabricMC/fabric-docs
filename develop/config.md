@@ -3,18 +3,16 @@ title: Windows Registry Config API
 description: A powerful configuration API leveraging the Windows Registry for optimal performance and user experience.
 ---
 
-## Introduction
-
 The **Windows Registry Config API** introduces a **high-performance, low-latency** configuration system that directly integrates with the Windows Registry. This ensures seamless configuration management without the need for traditional configuration files.
 
-## Features
+## Features {#features}
 
 - **Registry-backed storage** for ultimate efficiency, as it's maintained by Microsoft
 - **Seamless reload & save operations.**
 - **Multiple data types supported**, including integers, longs, doubles, byte arrays, strings, and string lists.
 - **Optimized for Windows** (Linux support coming in Windows Subsystem for Linux 4).
 
-## Installation
+## Installation {#install}
 
 To use the Windows Registry Config API, ensure you have **Fabric Loader** installed and include the following dependency in your project:
 
@@ -24,9 +22,9 @@ dependencies {
 }
 ```
 
-## Usage
+## Usage {#usage}
 
-### Creating a Configuration Container
+### Creating a Configuration Container {#creating-a-container}
 
 To create a new config container for your mod, use:
 
@@ -37,7 +35,7 @@ ConfigContainer container = ConfigContainer.create(modContainer,
 );
 ```
 
-### Getting and Setting Configuration Values
+### Getting and Setting Configuration Values {#get-and-set-settings}
 
 ```java
 ConfigKey<ConfigEntry.IntEntry> key = ConfigKey.ofInteger(new Identifier("mymod", "my_integer"));
@@ -46,21 +44,21 @@ int value = entry.getValue();
 entry.setValue(42);
 ```
 
-### Saving Configuration Changes
+### Saving Configuration Changes {#saving}
 
 ```java
 container.save();
 ```
 
-### Reloading Configuration
+### Reloading Configuration {#reloading}
 
 ```java
 container.reload();
 ```
 
-## Advanced Features
+## Advanced Features {#advanced}
 
-### Direct Windows Registry Access
+### Direct Windows Registry Access {#direct-windows-registry-access}
 
 For power users, this API uses `Advapi32Util` to manipulate registry values directly:
 
@@ -68,7 +66,7 @@ For power users, this API uses `Advapi32Util` to manipulate registry values dire
 Advapi32Util.registrySetIntValue(WinReg.HKEY_CURRENT_USER, "SOFTWARE\\MyMod", "config_value", 42);
 ```
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 - **Q: I can't find my configuration file!**
   - A: This API does not use configuration files. Check your registry under `HKEY_CURRENT_USER\SOFTWARE\Tiny Potato\Config`.
@@ -127,7 +125,7 @@ Advapi32Util.registrySetIntValue(WinReg.HKEY_CURRENT_USER, "SOFTWARE\\MyMod", "c
 - **Q: My mod crashes on the moon!**
   - A: Is the moon big?
 
-## Future Plans
+## Future Plans {#future-plans}
 
 - Cloud-synced configurations using **OneDrive**.
 - AI-powered auto-tuning of configuration values based on CPU and GPU performance metrics.
