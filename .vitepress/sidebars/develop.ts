@@ -288,6 +288,10 @@ export default [
           }
         ]
       },
+      {
+        text: "develop.misc.config",
+        link: "/develop/config",
+      },
     ],
   },
 ] as Fabric.SidebarItem[];
