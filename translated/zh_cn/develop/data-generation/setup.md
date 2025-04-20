@@ -24,7 +24,7 @@ authors-nogithub:
 
 ### 在项目创建时 {#enabling-data-generation-at-project-creation}
 
-启用数据生成的最简单方法是在创建项目时。 启用数据生成的最简单方法是在创建项目时。 使用[模板生成器](https://fabricmc.net/develop/template/)时，勾选“启用数据生成”框。
+启用数据生成的最简单方法是在创建项目时。 使用[模板生成器](https://fabricmc.net/develop/template/)时，勾选“启用数据生成”框。
 
 ![模板生成器上勾选的“数据生成”框](/assets/develop/data-generation/data_generation_setup_01.png)
 
@@ -38,7 +38,7 @@ authors-nogithub:
 
 @[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`。
+接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`。
 
 @[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
@@ -67,13 +67,13 @@ authors-nogithub:
 
 ## 创建包 {#creating-a-pack}
 
-在 datagen 入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。 稍后，你将添加**提供程序**，将生成的数据放入此 `Pack` 中。 稍后，你将添加**提供程序**，将生成的数据放入此 `Pack` 中。
+在 datagen 入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。 稍后，你将添加**提供程序**，将生成的数据放入此 `Pack` 中。
 
 @[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## 运行数据生成 {#running-data-generation}
 
-要运行 datagen，请使用 IDE 中的运行配置，或者在控制台中运行 `./gradlew runDatagen`。 生成的文件将创建在 `src/main/generated` 中。 生成的文件将创建在 `src/main/generated` 中。
+要运行 datagen，请使用 IDE 中的运行配置，或者在控制台中运行 `./gradlew runDatagen`。 生成的文件将创建在 `src/main/generated` 中。
 
 ## 下一步 {#next-steps}
 
