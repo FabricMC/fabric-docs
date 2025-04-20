@@ -109,7 +109,7 @@ git push
 
 ドキュメンテーションチームがPull Requestを拡張できると判断した場合、チームのメンバーがPull Requestに <Badge type="tip">stage:expansion</Badge> ラベルを追加し、拡張できると思われる内容を説明するコメントをします。 提案に同意する場合は、Pull Requestを拡張できます。 提案に同意する場合は、Pull Requestを拡張できます。 提案に同意する場合は、Pull Requestを拡張できます。
 
-自分でPull Requestを拡張するつもりはないが、後日他のユーザーが拡張しても構わない場合は、[Issueページ](https://github.com/FabricMC/fabric-docs/issues) で新しいIssueを作成し、拡張が必要と思われる内容を説明してください。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。
+自分でPull Requestを拡張するつもりはないが、後日他のユーザーが拡張しても構わない場合は、[Issueページ](https://github.com/FabricMC/fabric-docs/issues) で新しいIssueを作成し、拡張が必要と思われる内容を説明してください。 ドキュメンテーションチームは、あなたのPull Requestに <Badge type="tip">help-wanted</Badge> ラベルを追加します。
 
 ### 3. <Badge type="tip">stage:verification</Badge> コンテンツの検証 {#3-content-verification}
 
