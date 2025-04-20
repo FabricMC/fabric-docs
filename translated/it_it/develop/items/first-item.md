@@ -30,7 +30,7 @@ Nota l'utilizzo di un'interfaccia [`Function`](https://docs.oracle.com/en/java/j
 
 Puoi ora registrare un oggetto con il metodo.
 
-Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori. Il metodo di registrazione prende come parametro un'istanza della classe `Item.Settings`.
+Il metodo di registrazione accetta come parametro un'istanza della classe `Item.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
 
 ::: tip
 If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
@@ -40,11 +40,11 @@ Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che prende `Item.Settings` come parametro.
+`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Settings` come parametro.
 
 Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
-Per fare questo puoi aggiungere un metodo `initialize()` pubblico e statico alla tua classe e richiamarlo dall'[initializer della tua mod](./getting-started/project-structure#entrypoints). Per ora il metodo non deve contenere nulla.
+Per fare questo puoi aggiungere un metodo `initialize` pubblico e statico alla tua classe e richiamarlo dall'[initializer della tua mod](../getting-started/project-structure#entrypoints). Per ora il metodo non deve contenere nulla.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -98,7 +98,7 @@ Per questo esempio, puoi usare questa texture di esempio per `suspicious_substan
 
 Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non ha texture, questo perché devi aggiungere un modello che usi questa texture.
 
-Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non ha texture, questo perché devi aggiungere un modello che usi questa texture.
+Creeremo un semplice modello `item/generated`, che accetti come input solo una texture.
 
 Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
