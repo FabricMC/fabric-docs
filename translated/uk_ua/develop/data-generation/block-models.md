@@ -72,7 +72,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 :::warning
 Він також створить [просту модель куба з усіма JSON](#simple-cube-all) для «base block», щоб переконатися, що він має модель блоку.
 
-Він також створить [просту модель куба з усіма JSON](#simple-cube-all) для «base block», щоб переконатися, що він має модель блоку.
+Зверніть увагу на це, якщо ви змінюєте модель блоку цього конкретного блоку, оскільки це призведе до помилки.
 :::
 
 Ви також можете додати `BlockFamily`, який генеруватиме моделі для всіх своїх «children».
@@ -105,7 +105,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Точка 2. - 6. оголошуються у внутрішньому статичному допоміжному класі під назвою `CustomBlockStateModelGenerator`._
 
-### Власні моделі блоку
+### Власний клас блоку {#custom-block-class}
 
 Створіть блок `VerticalSlab` з властивостями `FACING` і булевою властивістю `SINGLE`, як у підручнику [Block States](../blocks/blockstates). `SINGLE` вкаже, чи є обидві плити.
 Тоді вам слід перевизначити `getOutlineShape` і `getCollisionShape`, щоб контур промальовувався правильно, а блок мав правильну форму колізії.
@@ -174,7 +174,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ### Власний метод `BlockStateSupplier` {#custom-supplier-method}
 
-Для `нижньої` та `верхньої` граней використовуватиметься `oak_log_top.png`, а з боків — `oak_log.png`.
+`BlockStateSupplier` містить усі варіанти стану блоку, їх rotation та інші параметри, як-от uvlock.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
@@ -192,9 +192,9 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 Останній крок – створення фактичного методу, який можна викликати, і який генеруватиме JSON.
 Але для чого ці параметри?
 
-1. На першому рядку блок дивиться на північ і є єдиним => ми використовуємо модель без повороту.
-2. На четвертому рядку блок дивиться на захід і є одинарним => ми повертаємо модель по осі Y на 270°.
-3. На шостому рядку блок дивиться на схід, але не одинарний => він виглядає як звичайна дубова колода => нам не потрібно його обертати.
+1. `Generator BlockStateModelGenerator`, той самий, який передано в `generateBlockStateModels`.
+2. `Block vertSlabBlock` — це блок, для якого ми будемо генерувати файли JSON.
+3. `Block fullBlock` - це модель, яка використовується, коли властивість `SINGLE` має значення false = блок плити виглядає як повний блок.
 4. `TextureMap textures` визначає фактичні текстури, які використовує модель. Див. розділ [використання мапи текстур](#using-texture-map).
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
