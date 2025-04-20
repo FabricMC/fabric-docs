@@ -15,7 +15,7 @@ authors-nogithub:
 
 ## 设置 {#setup}
 
-首先，我们需要提供程序。 首先，我们需要提供程序。 创建一个 `extends FabricRecipeProvider` 的类。 我们所有的配方生成都将在提供程序的 `generate` 方法中进行。 我们所有的配方生成都将在提供程序的 `generate` 方法中进行。
+首先，我们需要提供程序。 创建一个 `extends FabricRecipeProvider` 的类。 我们所有的配方生成都将在提供程序的 `generate` 方法中进行。
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceRecipeProvider.java)
 
@@ -41,7 +41,7 @@ authors-nogithub:
 
 ## 其他配方 {#other-recipes}
 
-其他配方的工作原理类似，但需要一些额外的参数。 比如烧炼配方需要了解奖励多少经验。 比如烧炼配方需要了解奖励多少经验。
+其他配方的工作原理类似，但需要一些额外的参数。 比如烧炼配方需要了解奖励多少经验。
 
 @[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceRecipeProvider.java)
 
