@@ -27,9 +27,9 @@ Se il tuo progetto usa sorgenti suddivise dal [Generatore di Mod Modello](https:
 Inoltre altre sorgenti di progetti, librerie e dipendenze, importate con il file `build.gradle`, saranno anche disponibili.
 Questo metodo si usa spesso mentre si cercano media, tag e altri file.
 
-![Sorgenti Suddivise](/assets/develop/misc/using-the-ide/traversing_02_2.png)
-
 ![Libreria Esterna](/assets/develop/misc/using-the-ide/traversing_02_1.png)
+
+![Sorgenti Suddivise](/assets/develop/misc/using-the-ide/traversing_02_2.png)
 
 ### Ricerca {#search}
 
@@ -41,8 +41,8 @@ Puoi anche usare le scorciatoie <kbd>⌘/CTRL</kbd>+<kbd>N</kbd> per cercare cla
 
 ### Finestra Recenti {#recent-window}
 
-Un altro strumento utile in IntelliJ è la finestra `Recent`. Lì puoi saltare ai file che hai già visitato, e aprire finestre degli strumenti, come [Struttura](#structure-of-a-class) o [Preferiti](#bookmarks).
-Puoi aprirla con la scorciatoia <kbd>⌘/CTRL</kbd>+<kbd>E</kbd>.
+Un altro strumento utile in IntelliJ è la finestra `Recent`. Puoi aprirla con la scorciatoia <kbd>⌘/CTRL</kbd>+<kbd>E</kbd>.
+Lì puoi saltare ai file che hai già visitato, e aprire finestre degli strumenti, come [Struttura](#structure-of-a-class) o [Preferiti](#bookmarks).
 
 ![Finestra Recenti](/assets/develop/misc/using-the-ide/traversing_04.png)
 
@@ -141,9 +141,9 @@ Le azioni contestuali permettono di effettuare refactoring di sezioni di codice 
 Per usarle, basta muovere il cursore sull'area di cui si vuol fare refactoring, e premere <kbd>⌥/ALT</kbd>+<kbd>Invio</kbd> o cliccare la lampadina a sinistra.
 Ci sarà un popup che mostrerà azioni contestuali che si possono usare per il codice selezionato.
 
-![Esempi di azioni contestuali](/assets/develop/misc/using-the-ide/context_actions_02.png)
-
 ![Esempi di azioni contestuali](/assets/develop/misc/using-the-ide/context_actions_01.png)
+
+![Esempi di azioni contestuali](/assets/develop/misc/using-the-ide/context_actions_02.png)
 
 ### Trova e Sostituisci i Contenuti di un File {#search-and-replace-file-content}
 
@@ -255,11 +255,11 @@ Se noti che stai sopprimendo troppi avvisi, considera una riscrittura del codice
 
 Lavorando sul codice, può tornarti utile lasciare note su ciò che devi ancora completare. A volte potresti notare un problema nel codice, ma vuoi continuare a lavorare su ciò che stai facendo. In questi casi, usa i commenti `TODO` o `FIXME`.
 
-![Commenti TODO e FIXME](/assets/develop/misc/using-the-ide/comments_04.png)
+![Commenti TODO e FIXME](/assets/develop/misc/using-the-ide/comments_03.png)
 
 IntelliJ terrà conto di essi nella finestra `TODO` e ti notificherà se stai per fare commit di codice che usa questo tipo di commento.
 
-![Commenti TODO e FIXME](/assets/develop/misc/using-the-ide/comments_03.png)
+![Commenti TODO e FIXME](/assets/develop/misc/using-the-ide/comments_04.png)
 
 ![Commit con TODO](/assets/develop/misc/using-the-ide/comments_05.png)
 
