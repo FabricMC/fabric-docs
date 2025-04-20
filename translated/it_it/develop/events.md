@@ -37,7 +37,7 @@ Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono ess
 
 ## Ascoltare gli Eventi {#listening-to-events}
 
-Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando egli colpisce dei blocchi che non droppano un oggetto se rotti senza utensili.
+Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando colpisce dei blocchi che non droppano un oggetto se rotti senza utensili.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 
