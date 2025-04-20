@@ -22,6 +22,6 @@ Die meisten Autoren veröffentlichen ihre Mods auf [Modrinth](https://modrinth.c
 Du kannst vorgefertigte Fabric-Modpacks auf einer Vielzahl von Plattformen finden, wie beispielsweise:
 
 - [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
-- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks\\&gameVersionTypeId=4)
+- [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
 - [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
 - [Technic](https://www.technicpack.net/modpacks)
