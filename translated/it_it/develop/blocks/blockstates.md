@@ -33,7 +33,7 @@ Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella
 
 Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare due file di modelli separati:
 
-- 'condensed_oak_log_horizontal.json`che estende il modello`block/cube_column_horizontal\\\`.
+- `condensed_oak_log_horizontal.json` che estende il modello `block/cube_column_horizontal`.
 - `condensed_oak_log.json` che estende il modello `block/cube_column`.
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
@@ -98,7 +98,7 @@ Se hai proprietà multiple su un blocco, dovrai tenere in conto tutte le possibi
 
 Poiché questo blocco ha solo due possibili varianti, dato che ha solo una proprietà (`activated`), il file JSON degli stati del blocco avrà il seguente aspetto:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
 
 :::tip
 Non dimenticare di aggiungere una [Descrizione del Modello d'Oggetto](../items/first-item#creating-the-item-model-description) per il blocco così che appaia nell'inventario!
