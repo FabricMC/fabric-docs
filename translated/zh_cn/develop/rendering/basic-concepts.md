@@ -28,7 +28,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 ### 初始化 `BufferBuilder`{#initializing-the-bufferbuilder}
 
-必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 方法就是使用 `Tessellator#begin(...)` 方法，接收一个 `VertexFormat` 和绘制模式，并返回 `BufferBuilder`。
+必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 方法就是使用 `Tessellator#begin(...)` 方法，接收一个 `VertexFormat` 和绘制模式，并返回 `BufferBuilder`。
 
 #### 顶点格式{#vertex-formats}
 
@@ -133,13 +133,12 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 您也可以使用四元数对栈顶的矩阵做叉乘，这些内容会在下一节讲到。
 
-从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#render-tick-counter) 页面中澄清这一点。
+从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#render-tick-counter) 页面中澄清这一点。
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
 
 在获取变换矩阵前，请确保向矩阵栈压入一个新的矩阵！
-:::
 :::
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
