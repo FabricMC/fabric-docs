@@ -17,7 +17,7 @@ authors:
 
 ![Розділення стереотреку](/assets/develop/sounds/custom_sounds_1.png)
 
-![Розділення стереотреку](/assets/develop/sounds/custom_sounds_1.png)
+![Видалення одного з каналів](/assets/develop/sounds/custom_sounds_2.png)
 
 Експортуючи або відтворюючи аудіофайл, переконайтеся, що вибрано формат файлу OGG. Деякі DAW, наприклад REAPER, можуть підтримувати декілька форматів аудіошару OGG. У цьому випадку OGG Vorbis має працювати нормально.
 
@@ -29,7 +29,7 @@ authors:
 
 Додайте новий каталог `resources/assets/mod-id/sounds` для звуків у вашому моді та помістіть туди експортований аудіофайл `metal_whistle.ogg`.
 
-Додайте новий каталог `resources/assets/mod-id/sounds` для звуків у вашому моді та помістіть туди експортований аудіофайл `metal_whistle.ogg`.
+Продовжте створення файлу `resources/assets/mod-id/sounds.json`, якщо він ще не існує, і додайте свій звук до звукових записів.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 
