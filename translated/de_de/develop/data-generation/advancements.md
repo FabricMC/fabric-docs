@@ -124,7 +124,7 @@ Führe den Datengenerator Task erneut aus und du hast einen neuen Fortschritt be
 
 Das ist alles schön und gut, aber was ist, wenn wir einen Fortschritt nur dann gewähren wollen, wenn wir etwas fünfmal getan haben? Und warum nicht noch einen bei zehn Mal? Hierfür müssen wir unserer Bedingung einen Parameter geben. Du kannst bei `UseToolCriterion` bleiben, oder du kannst mit einem neuen `ParameterizedUseToolCriterion` nachziehen. In der Praxis solltest du nur die parametrisierte Variante haben, aber für dieses Tutorial werden wir beide behalten.
 
-Lass uns von unten nach oben arbeiten. Wir müssen prüfen, ob die Anforderungen erfüllt sind, also bearbeiten wir unsere Methode \\\`Conditions#requirementsMet:
+Lass uns von unten nach oben arbeiten. Wir müssen prüfen, ob die Anforderungen erfüllt sind, also bearbeiten wir unsere Methode `Conditions#requirementsMet`:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
