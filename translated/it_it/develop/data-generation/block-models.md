@@ -99,13 +99,13 @@ Le porte e botole funzionano un po' diversamente. Qui, dovrai creare tre nuove t
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Porta e Botola di Rubino</DownloadEntry>
 
-## Classe dei Blocchi Personalizzati {#custom-block-class}
+## Modelli del Blocco Personalizzati {#custom-block-models}
 
 In questa sezione creeremo i modelli per una Lastra Verticale di Quercia, con texture di un Tronco di Quercia.
 
 _I punti 2. - 6. sono dichiarati in una classe ausiliaria interna chiamata `CustomBlockStateModelGenerator`._
 
-### Modelli del Blocco Personalizzati {#custom-block-models}
+### Classe dei Blocchi Personalizzati {#custom-block-class}
 
 Crea un blocco `VerticalSlab` con una proprietà `FACING` e una proprietà booleana `SINGLE`, come nel tutorial degli [Stati dei Blocchi](../blocks/blockstates). `SINGLE` indicherà se ci sono entrambe le lastre.
 Poi dovresti fare override di `getOutlineShape` e `getCollisionShape`, cosicché il contorno sia renderizzato correttamente, e il blocco abbia la forma di collisione corretta.
