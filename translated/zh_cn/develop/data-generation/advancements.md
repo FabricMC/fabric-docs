@@ -16,7 +16,7 @@ authors-nogithub:
 
 ## 设置 {#setup}
 
-首先，我们需要创建 Provider。 首先，我们需要创建 Provider。 创建一个继承 `FabricAdvancementProvider` 的类，并填入基本方法：
+首先，我们需要创建 Provider。 创建一个继承 `FabricAdvancementProvider` 的类，并填入基本方法：
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
@@ -50,7 +50,7 @@ authors-nogithub:
 
 ## 另一个示例 {#one-more-example}
 
-为了掌握要领，我们再添加一项进度。 为了掌握要领，我们再添加一项进度。 我们将练习添加奖励、使用多项准则以及指定父级：
+为了掌握要领，我们再添加一项进度。 我们将练习添加奖励、使用多项准则以及指定父级：
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
@@ -64,33 +64,33 @@ authors-nogithub:
 
 **准则**（英语：criterion/criteria）是指玩家可以做的事情（或可能发生在玩家身上的事情），这些事情可以被计入进度的达成。 游戏附带许多[准则](https://zh.minecraft.wiki/w/%E8%BF%9B%E5%BA%A6%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F#%E5%87%86%E5%88%99%E8%A7%A6%E5%8F%91%E5%99%A8)，可以在 `net.minecraft.advancement.criterion` 包中找到。 一般来说，仅当您在游戏中实现自定义机制时才需要新的准则。
 
-**条件**是根据准则来评估的。 只有满足所有相关条件时，准则才会被计入。 条件通常用谓词来表达。 只有满足所有相关条件时，准则才会被计入。 条件通常用谓词来表达。
+**条件**是根据准则来评估的。 只有满足所有相关条件时，准则才会被计入。 条件通常用谓词来表达。
 
-**谓词**是一种接受值并返回 `boolean` 的东西。 例如，如果物品是钻石，则 `Predicate<Item>` 可能返回 `true`，而如果实体与村民不敌对，则 `Predicate<LivingEntity>` 可能返回 `true`。 例如，如果物品是钻石，则 `Predicate<Item>` 可能返回 `true`，而如果实体与村民不敌对，则 `Predicate<LivingEntity>` 可能返回 `true`。
+**谓词**是一种接受值并返回 `boolean` 的东西。 例如，如果物品是钻石，则 `Predicate<Item>` 可能返回 `true`，而如果实体与村民不敌对，则 `Predicate<LivingEntity>` 可能返回 `true`。
 
 ### 创建自定义准则 {#creating-custom-criteria}
 
-首先，我们需要实现一个新的机制。 首先，我们需要实现一个新的机制。 让我们告诉玩家每次破坏方块时他们使用了什么工具。
+首先，我们需要实现一个新的机制。 让我们告诉玩家每次破坏方块时他们使用了什么工具。
 
 @[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
-请注意，这个代码确实很烂。 请注意，这个代码确实很烂。 `HashMap` 没有存储在任何持久位置，因此每次重新启动游戏时它都会被重置。 这只是为了展示 `Criterion`。 开始游戏并且试一下吧！ 这只是为了展示 `Criterion`。 开始游戏并且试一下吧！
+请注意，这个代码确实很烂。 `HashMap` 没有存储在任何持久位置，因此每次重新启动游戏时它都会被重置。 这只是为了展示 `Criterion`。 开始游戏并且试一下吧！
 
-接下来，让我们创建自定义准则 `UseToolCriterion`。 接下来，让我们创建自定义准则 `UseToolCriterion`。 它将需要自己的 `Conditions` 类来配合它，因此我们将同时创建它们：
+接下来，让我们创建自定义准则 `UseToolCriterion`。 它将需要自己的 `Conditions` 类来配合它，因此我们将同时创建它们：
 
 @[code lang=java transcludeWith=:::datagen-advancements:criterion-base](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
 哇，好多呀！ 让我们分解一下。
 
 - `UseToolCriterion` 是一个 `AbstractCriterion`，`Conditions` 可以应用于它。
-- `Conditions` 有一个 `playerPredicate` 字段。 所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 LootContextPredicate\`）。 所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 LootContextPredicate`）。
-- `Conditions` 也有一个 `CODEC`。 `Conditions` 也有一个 `CODEC`。 这个 `Codec` 只是其一个字段 `playerPredicate` 的 codec，带有在它们之间进行转换的额外指令（`xmap`）。
+- `Conditions` 有一个 `playerPredicate` 字段。 所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 LootContextPredicate\`）。
+- `Conditions` 也有一个 `CODEC`。 这个 `Codec` 只是其一个字段 `playerPredicate` 的 codec，带有在它们之间进行转换的额外指令（`xmap`）。
 
 :::info
 要了解有关 codec 的更多信息，请参阅 [Codec](../codecs) 页面。
 :::
 
-我们需要一种方法来检查条件是否满足。 我们需要一种方法来检查条件是否满足。 我们向 `Conditions` 添加一个辅助方法：
+我们需要一种方法来检查条件是否满足。 我们向 `Conditions` 添加一个辅助方法：
 
 @[code lang=java transcludeWith=:::datagen-advancements:conditions-test](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
@@ -98,7 +98,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:criterion-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
-快完成了！ 接下来，我们需要一个可以使用的准则实例。 快完成了！ 接下来，我们需要一个可以使用的准则实例。 我们把它放入一个名为 `ModCriteria` 的新类中。
+快完成了！ 接下来，我们需要一个可以使用的准则实例。 我们把它放入一个名为 `ModCriteria` 的新类中。
 
 @[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
@@ -110,7 +110,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
-最后，我们需要触发我们的准则。 最后，我们需要触发我们的准则。 将其添加到我们在主模组类中向玩家发送消息的地方。
+最后，我们需要触发我们的准则。 将其添加到我们在主模组类中向玩家发送消息的地方。
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
 
@@ -124,7 +124,7 @@ authors-nogithub:
 
 这一切都很好，但是如果我们只想在做了 5 次之后才授予进度该怎么办呢？ 那为什么不再来一个 10 次的呢？ 为此，我们需要为条件提供一个参数。 您可以继续使用 `UseToolCriterion`，也可以遵循新的 `ParameterizedUseToolCriterion`。 实际上，您应该只拥有一个参数化版本，但在本教程中我们将保留这两个版本。
 
-让我们自下而上地开展工作。 让我们自下而上地开展工作。 我们需要检查要求是否满足，因此让我们编辑 `Conditions#requirementsMet` 方法：
+让我们自下而上地开展工作。 我们需要检查要求是否满足，因此让我们编辑 `Conditions#requirementsMet` 方法：
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
@@ -132,7 +132,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
-现在我们的 codec 在报错。 现在我们的 codec 在报错。 让我们为新的变更编写一个新的 codec：
+现在我们的 codec 在报错。 让我们为新的变更编写一个新的 codec：
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
