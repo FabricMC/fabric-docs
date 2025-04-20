@@ -5,15 +5,15 @@ authors:
   - IMB11
 ---
 
-Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give` 命令中。 该系统允许您向用户建议命令参数的值，然后他们可以从中选择——这是使你的命令更加用户友好且用起来舒适的好办法。 该系统允许您向用户建议命令参数的值，然后他们可以从中选择——这是使你的命令更加用户友好且用起来舒适的好办法。
+Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give` 命令中。 该系统允许您向用户建议命令参数的值，然后他们可以从中选择——这是使你的命令更加用户友好且用起来舒适的好办法。
 
 ## 建议提供器{#suggestion-providers}
 
-`SuggestionProvider` 用于制作将会发送至客户端的建议的列表。 `SuggestionProvider` 用于制作将会发送至客户端的建议的列表。 建议提供器是一个函数式接口，接收一个 `CommandContext` 和 `SuggestionBuilder` 并返回 `Suggestions`。 `SuggestionProvider` 返回 `CompletableFuture`，因为这些建议并不一定立即可用。 `SuggestionProvider` 返回 `CompletableFuture`，因为这些建议并不一定立即可用。
+`SuggestionProvider` 用于制作将会发送至客户端的建议的列表。 建议提供器是一个函数式接口，接收一个 `CommandContext` 和 `SuggestionBuilder` 并返回 `Suggestions`。 `SuggestionProvider` 返回 `CompletableFuture`，因为这些建议并不一定立即可用。
 
 ## 使用建议提供器{#using-suggestion-providers}
 
-要使用建议提供器，你需要在 argument builder 中调用 `suggests` 方法。 此方法接收一个 `SuggestionProvider`，返回一个附加了新的建议提供器的 argument builder。 此方法接收一个 `SuggestionProvider`，返回一个附加了新的建议提供器的 argument builder。
+要使用建议提供器，你需要在 argument builder 中调用 `suggests` 方法。 此方法接收一个 `SuggestionProvider`，返回一个附加了新的建议提供器的 argument builder。
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -31,7 +31,7 @@ Minecraft 有个强大的命令建议系统，用在很多地方，例如 `/give
 
 ## 创建自定义的建议提供器{#creating-a-custom-suggestion-provider}
 
-如果内置的建议提供器无法满足你的需要，可以创建自己的建议提供器。 为此，需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。 为此，需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。
+如果内置的建议提供器无法满足你的需要，可以创建自己的建议提供器。 为此，需要创建一个实现 `SuggestionProvider` 接口的类，并重写 `getSuggestions` 方法。
 
 对此示例，我们需要制作一个建议提供器，建议所有在服务器上的玩家的名称。
 
