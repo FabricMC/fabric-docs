@@ -9,7 +9,7 @@ authors:
 
 ## `fabric.mod.json`{#fabric-mod-json}
 
-`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要文件， 包含模组的 ID、版本、依赖等信息。 包含模组的 ID、版本、依赖等信息。
+`fabric.mod.json` 是向 Fabric Loader 描述你的模组的主要文件， 包含模组的 ID、版本、依赖等信息。
 
 `fabric.mod.json` 文件最重要的字段是：
 
