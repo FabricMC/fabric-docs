@@ -22,14 +22,14 @@ IntelliJ bietet mehrere Möglichkeiten, sich im Projekt fortzubewegen. Falls die
 
 ![Gradle Tasks](/assets/develop/misc/using-the-ide/traversing_01.png)
 
-Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
+Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters Externe Bibliotheken gefunden werden.
 Wenn dein Projekt geteilte Quellen aus dem Online [Template Modgenerator](https://fabricmc.net/develop/template) verwendet, gibt es zwei Quellen, wie durch den Namen (client/common) angegeben.
 Zusätzlich werden auch andere Quellen von Projekten, Bibliotheken und Abhängigkeiten, die über die Datei `build.gradle` importiert werden, verfügbar sein.
-Die Quelldaten von Minecraft können mit dem Suchbegriff `net.minecraft` im Projektfensters Externe Bibliotheken gefunden werden.
-
-![Geteilte Quellen](/assets/develop/misc/using-the-ide/traversing_02_2.png)
+Diese Methode wird häufig bei der Suche nach Assets, Tags und anderen Dateien verwendet.
 
 ![Externe Bibliothek](/assets/develop/misc/using-the-ide/traversing_02_1.png)
+
+![Geteilte Quellen](/assets/develop/misc/using-the-ide/traversing_02_2.png)
 
 ### Suchen {#search}
 
@@ -141,9 +141,9 @@ Mit Hilfe von Kontextaktionen können bestimmte Codeabschnitte kontextabhängig 
 Bewege dazu einfach den Mauszeiger auf den Bereich, den du überarbeiten möchtest, und drücke <kbd>⌥/ALT</kbd>+<kbd>Enter</kbd> oder klicke Sie auf die Glühbirne auf der linken Seite.
 Es erscheint ein Popup-Fenster mit Kontextaktionen, die für den ausgewählten Code verwendet werden können.
 
-![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_02.png)
-
 ![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_01.png)
+
+![Beispiel von Kontextaktionen](/assets/develop/misc/using-the-ide/context_actions_02.png)
 
 ### Suchen und Ersetzen von Dateiinhalten {#search-and-replace-file-content}
 
@@ -255,11 +255,11 @@ Wenn du merkst, dass du zu viele Warnungen unterdrückst, solltest du deinen Cod
 
 Bei der Arbeit am Code kann es hilfreich sein, Notizen zu hinterlassen, was noch zu erledigen ist. Manchmal entdeckst du auch ein potenzielles Problem im Code, aber du willst nicht aufhören, dich auf das aktuelle Problem zu konzentrieren. Verwende in diesem Fall die Kommentare `TODO` oder `FIXME`.
 
-![TODO und FIXME Kommentar](/assets/develop/misc/using-the-ide/comments_04.png)
+![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_03.png)
 
 IntelliJ behält sie im `TODO`-Fenster im Auge und kann dich benachrichtigen, wenn du Code committen willst, der diese Art von Kommentaren verwendet.
 
-![TODO und FIXME Kommentare](/assets/develop/misc/using-the-ide/comments_03.png)
+![TODO und FIXME Kommentar](/assets/develop/misc/using-the-ide/comments_04.png)
 
 ![Kommentar mit TODO](/assets/develop/misc/using-the-ide/comments_05.png)
 
