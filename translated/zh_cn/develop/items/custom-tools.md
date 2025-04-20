@@ -38,7 +38,7 @@ authors:
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用`item/handheld`模型作为父级而非通常的`item/generaterd`模型。 然而，对于物品模型，你应该使用`item/handheld`模型作为父级而非通常的`item/generaterd`模型。
+你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用`item/handheld`模型作为父级而非通常的`item/generaterd`模型。
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 
@@ -46,6 +46,6 @@ authors:
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">纹理</DownloadEntry>
 
-这样就差不多了！ 这样就差不多了！ 如果你进入游戏，你应该会在创造物品栏菜单的工具选项栏中看到你的工具物品。
+这样就差不多了！ 如果你进入游戏，你应该会在创造物品栏菜单的工具选项栏中看到你的工具物品。
 
 ![物品栏中的成品工具](/assets/develop/items/tools_1.png)
