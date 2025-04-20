@@ -17,7 +17,7 @@ Questo modo di pensare è corretto. Tecnicamente è il lato client che dovrebbe 
 
 Usare il suono sul lato logico server risolverà il problema della trasmissione dei `SoundEvent`. Per farla semplice, a ogni client (`ClientPlayerEntity`) nel raggio tracciato viene inviato un pacchetto di rete per riprodurre un certo suono specifico. L'evento audio viene praticamente trasmesso dal lato logico server, a ogni client partecipante, senza che tu te ne debba preoccupare. Il suono è riprodotto una volta sola, con i valori di volume e tono specificati.
 
-Ma, e se questo non bastasse? Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
+Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
 
 La semplice strategia di usare i `SoundEvent` sul lato logico server non basta in questo caso.
 
@@ -39,11 +39,11 @@ Il [suono da cui partiamo](https://freesound.org/people/el-bee/sounds/644881/) p
 
 Carichiamo il file nella DAW che abbiamo scelto.
 
-![File audio tagliato](/assets/develop/sounds/dynamic-sounds/step_1.png)
+![Reaper in cui si è caricato il file audio](/assets/develop/sounds/dynamic-sounds/step_0.png)
 
 Possiamo sentire e notare che il motore viene avviato all'inizio e interrotto alla fine, il che non è ottimo per i suoni in loop. Tagliamo via quelle parti e regoliamo le maniglie della selezione del tempo perché corrispondano con la nuova lunghezza. Attiva anche la modalità `Toggle Repeat` così che l'audio vada in loop mentre lo regoliamo.
 
-![Reaper in cui si è caricato il file audio](/assets/develop/sounds/dynamic-sounds/step_0.png)
+![File audio tagliato](/assets/develop/sounds/dynamic-sounds/step_1.png)
 
 ### Rimuovere Elementi Audio Dirompenti {#removing-disruptive-audio-elements}
 
@@ -57,16 +57,16 @@ Se sei sicuro che la tua DAW non disponga di un filtro EQ, cerca alternative VST
 
 In Reaper usa la Finestra Effetti per aggiungere l'effetto audio "ReaEQ", o altri EQ.
 
-![Frequenza problematica abbassata](/assets/develop/sounds/dynamic-sounds/step_4.png)
+![Aggiungere un filtro EQ](/assets/develop/sounds/dynamic-sounds/step_2.png)
 
 Riproducendo adesso l'audio, tenendo la finestra del filtro EQ aperta, il filtro EQ mostrerà l'audio in entrata sul display.
 Lì si notano tante protuberanze.
 
-![Aggiungere un filtro EQ](/assets/develop/sounds/dynamic-sounds/step_2.png)
+![Identificazione del problema](/assets/develop/sounds/dynamic-sounds/step_3.png)
 
 Se non sei un ingegnere audio allenato, questa parte è abbastanza sperimentazione, andando a tentativi. C'è una protuberanza piuttosto notevole tra i nodi 2 e 3. Muoviamo i nodi in modo che si abbassi la frequenza solo per quella parte.
 
-![Identificazione del problema](/assets/develop/sounds/dynamic-sounds/step_3.png)
+![Frequenza problematica abbassata](/assets/develop/sounds/dynamic-sounds/step_4.png)
 
 Inoltre altri effetti si possono ottenere con un semplice filtro EQ. Per esempio, tagliare le frequenze alte e/o basse può dare l'impressione di suoni trasmessi via audio.
 
@@ -137,9 +137,9 @@ Si prega di notare che la classe `AbstractSoundInstance`, da cui le `SoundInstan
 
 Questo significa che questa classe (e tutte le sue sottoclassi) saranno disponibili solo lato client.
 
-Se provassi ad usarla in un contesto logico lato server, potresti non notare inizialmente il problema in Giocatore Singolo, ma un server in ambiente Multiplayer crasherà, poiché non riuscirà a trovare quella parte del codice.
+Se provassi ad usarla in un contesto logico lato server, potresti non notare inizialmente il problema in singleplayer, ma un server in ambiente Multiplayer crasherà, poiché non riuscirà a trovare quella parte del codice.
 
-Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template)
+Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template/)
 attivando l'opzione `Split client and common sources`.
 :::
 
@@ -219,7 +219,7 @@ D'ora in poi useremo un'interfaccia personalizzata chiamata `DynamicSoundSource`
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
-Dopo aver creato questa interfaccia, assicurati di implementarla anche nelle classi ove necessario.
+Dopo aver creato questa interfaccia, assicurati d'implementarla anche nelle classi ove necessario.
 
 :::info
 Questa è un'utilità che potrebbe essere usata sia lato client sia lato logico server.
