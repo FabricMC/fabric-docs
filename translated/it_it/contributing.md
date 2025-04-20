@@ -146,7 +146,7 @@ Se fossi incerto riguardo a qualsiasi cosa, puoi chiedere nel [Discord di Fabric
 
 ### Scrivi l'Originale in Inglese Americano {#write-the-original-in-american-english}
 
-Tutta la documentazione originale è scritta in inglese, seguendo le regole grammaticali americane.
+Tutta la documentazione originale è scritta in Inglese, seguendo le regole grammaticali americane.
 
 ### Aggiungi i Dati al Frontmatter {#add-data-to-the-frontmatter}
 
