@@ -19,12 +19,12 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 打开命令提示符后，输入 `java -version` 并按下 <kbd>Enter</kbd> 键。
 
-如果命令成功运行，你会看到类似这样的内容。 如果命令运行失败，请继续进行下一步。 如果命令运行失败，请继续进行下一步。
+如果命令成功运行，你会看到类似这样的内容。 如果命令运行失败，请继续进行下一步。
 
 ![命令提示符中输入了「java -version」](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-要使用 Minecraft 1.21，你需要安装至少 Java 21。 如果运行该命令后显示 Java 版本低于 21，你需要更新设备上现有 Java。 如果运行该命令后显示 Java 版本低于 21，你需要更新设备上现有 Java。
+要使用 Minecraft 1.21，你需要安装至少 Java 21。 如果运行该命令后显示 Java 版本低于 21，你需要更新设备上现有 Java。
 :::
 
 ## 2. 下载 Java 21 安装程序{#2-download-the-java-installer}
@@ -37,16 +37,16 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 如果你有 32 位操作系统，应该选择 `x86`；如果你有 64 位操作系统，则应该选择 `x64`。
 
-现代大多数电脑都运行 64 位操作系统。 如果你不确定，请尝试使用 64 位的下载。 如果你不确定，请尝试使用 64 位的下载。
+现代大多数电脑都运行 64 位操作系统。 如果你不确定，请尝试使用 64 位的下载。
 
 ## 3. 运行安装程序！ 运行安装程序！ {#3-run-the-installer}
 
-按照安装程序的步骤安装 Java 21。 当你到达这个页面时，你应该将以下功能设置为「整个功能将安装在本机硬盘上」： 当你到达这个页面时，你应该将以下功能设置为「整个功能将安装在本机硬盘上」：
+按照安装程序的步骤安装 Java 21。 当你到达这个页面时，你应该将以下功能设置为「整个功能将安装在本机硬盘上」：
 
 - `Set JAVA_HOME environment variable` - 这将加入到你的PATH中。
 - `JavaSoft (Oracle) registry keys`
 
-![Java 21 安装程序，具有「Set JAVA\_HOME variable」和「JavaSoft (Oracle) registry keys」](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 21 安装程序，具有「Set JAVA_HOME variable」和「JavaSoft (Oracle) registry keys」](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 完成后，你可以按 `下一步` 继续安装。
 
