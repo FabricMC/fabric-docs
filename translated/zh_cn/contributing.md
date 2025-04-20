@@ -3,7 +3,7 @@ title: 贡献指南
 description: Fabric 文档贡献指南
 ---
 
-此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown#features)。
 
 贡献此网站有三种方法：
 
@@ -59,7 +59,7 @@ git clone https://github.com/your-username/fabric-docs.git
 
 #### 安装依赖{#install-dependencies}
 
-**如果想要本地预览更改，需要安装 [Node.js 18+](https://nodejs.org/en/)**
+如果想要本地预览更改，需要安装 [Node.js 18+](https://nodejs.org/en/)。
 
 然后，确保用以下代码安装所有依赖：
 
@@ -107,9 +107,9 @@ git push
 
 ### 2. <Badge type="tip">stage:expansion</Badge> 需要时扩展指南{#2-guidance-for-expansion-if-needed}
 
-如果文档团队认为您需要拓展您的拉去请求，团队成员将添加 <Badge type="tip">stage:expansion</Badge> 标签到您的拉去请求，并附上一条评论解释为什么他认为可以拓展。 如果同意建议，可以扩展你的拉取请求。 如果同意建议，可以扩展你的拉取请求。
+如果文档团队认为您需要拓展您的拉去请求，团队成员将添加 <Badge type="tip">stage:expansion</Badge> 标签到您的拉去请求，并附上一条评论解释为什么他认为可以拓展。 如果同意建议，可以扩展你的拉取请求。
 
-如果不想扩展您的拉取请求，但乐于让其他人在未来扩展它，最好在[议题页面](https://github.com/FabricMC/fabric-docs/issues)创建议题，并解释您想如何扩展。 之后文档制作团队将会在你的PR中加入<Badge type="tip">帮助-追踪</Badge>标签 之后文档制作团队将会在你的PR中加入<Badge type="tip">帮助-追踪</Badge>标签
+如果不想扩展您的拉取请求，但乐于让其他人在未来扩展它，最好在[议题页面](https://github.com/FabricMC/fabric-docs/issues)创建议题，并解释您想如何扩展。 之后文档制作团队将会在你的PR中加入<Badge type="tip">帮助-追踪</Badge>标签
 
 ### 3. <Badge type="tip">stage:verification</Badge> 内容验证{#3-content-verification}
 
@@ -152,7 +152,7 @@ git push
 
 所有页面必须在 frontmatter 中有 `title` 和 `description`。
 
-记得还要在 Markdown 文件的 frontmatter 中的 `authors` 添加你的 GitHub 用户名！ 这种方式可以给你适当的致谢。 这种方式可以给你适当的致谢。
+记得还要在 Markdown 文件的 frontmatter 中的 `authors` 添加你的 GitHub 用户名！ 这种方式可以给你适当的致谢。
 
 ```yaml
 ---
@@ -175,7 +175,7 @@ authors:
 
 ### 将代码置于 `/reference` 模组中{#place-code-within-the-reference-mod}
 
-如果创建或修改包含代码的页面，将代码置于参考模组（位于目录的 `/reference` 文件夹内）的适当位置。 如果创建或修改包含代码的页面，将代码置于参考模组（位于目录的 `/reference` 文件夹内）的适当位置。 然后，使用[由 VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)来嵌入代码。
+如果创建或修改包含代码的页面，将代码置于参考模组（位于目录的 `/reference` 文件夹内）的适当位置。 然后，使用[由 VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)来嵌入代码。
 
 例如，高亮参考模组中的 `FabricDocsReference.java` 的第 15-21 行：
 
