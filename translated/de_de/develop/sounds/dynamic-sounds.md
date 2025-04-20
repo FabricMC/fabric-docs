@@ -334,7 +334,7 @@ Wenn die Grundstruktur stimmt, kannst du die Methoden hinzufügen, die für die 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
 
 Anstatt nur eine Liste aller aktuell spielenden `SoundInstances` zu haben, könnte man auch verfolgen, welche Soundquellen welche Sounds spielen.
-So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `Liste<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer AbstractDynamicSoundInstance\\\` eine bessere Wahl sein.
+So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `List<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer `AbstractDynamicSoundInstance` eine bessere Wahl sein.
 
 ### Ein fortgeschrittenes Sound System nutzen {#using-the-advanced-sound-system}
 
