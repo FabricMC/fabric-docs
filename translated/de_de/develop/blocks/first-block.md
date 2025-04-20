@@ -59,7 +59,7 @@ Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegi
 
 ### Hinzufügen deines Block-Items zu einer Itemgruppe {#adding-your-block-s-item-to-an-item-group}
 
-Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
+Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um ihn zu einer Itemgruppe hinzuzufügen, die Methode `Block.asItem()` verwenden, um die `BlockItem`-Instanz zu erhalten.
 
 In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf der Seite [Benutzerdefinierte Itemgruppe](../items/custom-item-groups) erstellt wurde.
 
