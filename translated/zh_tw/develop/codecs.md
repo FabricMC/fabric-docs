@@ -1,6 +1,6 @@
 ---
 title: Codec
-description: 一份理解和使用 Mojang 的編解碼系統來序列化和反序列化物件的綜合指南。
+description: 用於理解和使用 Mojang 編解碼器系統來序列化和反序列化物件的綜合指南。
 authors:
   - enjarai
   - Syst3ms
