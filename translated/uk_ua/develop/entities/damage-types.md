@@ -39,8 +39,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 Коли нам потрібно отримати доступ до нашого спеціального типу пошкодження через код, ми будемо використовувати його `RegistryKey` для створення екземпляра
 з `DamageSource`.
 
-Коли нам потрібно отримати доступ до нашого спеціального типу пошкодження через код, ми будемо використовувати його `RegistryKey` для створення екземпляра
-з `DamageSource`.
+`RegistryKey` можна отримати таким чином:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
@@ -51,7 +50,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Ви можете перевизначити `onSteppedOn`, щоб завдати цієї шкоди.
 
-Ви можете перевизначити `onSteppedOn`, щоб завдати цієї шкоди.
+Ми починаємо зі створення `DamageSource` нашого спеціального типу шкоди.
 
 @[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
@@ -80,7 +79,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Після смерті від нашого типу шкоди ви побачите таке повідомлення про смерть:
 
-Після смерті від нашого типу шкоди ви побачите таке повідомлення про смерть:
+![Ефект в інвентарі гравця](/assets/develop/tater-damage-death.png)
 
 ### Теґи типу шкоди {#damage-type-tags}
 
@@ -96,7 +95,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Додамо наш тип шкоди Tater до теґу типу шкоди `bypasses_armor`.
 
-Додамо наш тип шкоди Tater до теґу типу шкоди `bypasses_armor`.
+Щоб додати наш тип шкоди до одного з цих теґів, ми створюємо файл JSON у просторі імен `minecraft`.
 
 ```:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
