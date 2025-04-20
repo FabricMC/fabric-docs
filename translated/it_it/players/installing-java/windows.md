@@ -46,7 +46,7 @@ Segui le istruzioni per installare Java 21. Quando arrivi a questa pagina, dovre
 - `Imposta JAVA_HOME come variabile d'ambiente` - Questo verrà aggiunto al tuo PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Installer Java 21 con "Set JAVA\\_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Installer Java 21 con "Set JAVA_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Quando hai finito, puoi cliccare su `Avanti` e continuare con l'installazione.
 
