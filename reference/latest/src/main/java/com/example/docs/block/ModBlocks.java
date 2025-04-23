@@ -136,7 +136,7 @@ public class ModBlocks {
 			// can be the same.
 			RegistryKey<Item> itemKey = keyOfItem(name);
 
-			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey).useItemPrefixedTranslationKey());
 			Registry.register(Registries.ITEM, itemKey, blockItem);
 		}
 
@@ -169,13 +169,13 @@ public class ModBlocks {
 			itemGroup.add(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.add(ModBlocks.COUNTER_BLOCK.asItem());
 			itemGroup.add(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.add(RUBY_BLOCK);
-			itemGroup.add(RUBY_STAIRS);
-			itemGroup.add(RUBY_SLAB);
-			itemGroup.add(RUBY_FENCE);
-			itemGroup.add(RUBY_DOOR);
-			itemGroup.add(RUBY_TRAPDOOR);
-			itemGroup.add(VERTICAL_OAK_LOG_SLAB);
+			itemGroup.add(RUBY_BLOCK.asItem());
+			itemGroup.add(RUBY_STAIRS.asItem());
+			itemGroup.add(RUBY_SLAB.asItem());
+			itemGroup.add(RUBY_FENCE.asItem());
+			itemGroup.add(RUBY_DOOR.asItem());
+			itemGroup.add(RUBY_TRAPDOOR.asItem());
+			itemGroup.add(VERTICAL_OAK_LOG_SLAB.asItem());
 		});
 	}
 

@@ -58,15 +58,21 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP.asItem(), "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK.asItem(), "Engine Block");
 
-		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
-		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");
-		translationBuilder.add(ModBlocks.RUBY_BLOCK, "Ruby Block");
-		translationBuilder.add(ModBlocks.RUBY_STAIRS, "Ruby Stairs");
-		translationBuilder.add(ModBlocks.RUBY_SLAB, "Ruby Slab");
-		translationBuilder.add(ModBlocks.RUBY_FENCE, "Ruby Fence");
-		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
-		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
-		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
+		translationBuilder.add(ModBlocks.STEEL_BLOCK.asItem(), "Steel Block");
+		translationBuilder.add(ModBlocks.PIPE_BLOCK.asItem(), "Pipe Block");
+		translationBuilder.add(ModBlocks.RUBY_BLOCK.asItem(), "Ruby Block");
+		translationBuilder.add(ModBlocks.RUBY_STAIRS.asItem(), "Ruby Stairs");
+		translationBuilder.add(ModBlocks.RUBY_SLAB.asItem(), "Ruby Slab");
+		translationBuilder.add(ModBlocks.RUBY_FENCE.asItem(), "Ruby Fence");
+		translationBuilder.add(ModBlocks.RUBY_DOOR.asItem(), "Ruby Door");
+		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR.asItem(), "Ruby Trapdoor");
+		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB.asItem(), "Vertical Oak Log Slab");
+
+		translationBuilder.add(ModItems.RUBY, "Ruby");
+		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
+		translationBuilder.add(ModItems.SUSPICIOUS_EGG, "Suspicious Egg");
+		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
+		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
 		// :::datagen-translations:provider
 	}
 }

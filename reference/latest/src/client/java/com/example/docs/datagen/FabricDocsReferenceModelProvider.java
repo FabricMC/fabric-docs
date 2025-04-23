@@ -9,14 +9,17 @@ import net.minecraft.client.data.BlockStateSupplier;
 import net.minecraft.client.data.BlockStateVariant;
 import net.minecraft.client.data.BlockStateVariantMap;
 import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.ItemModels;
 import net.minecraft.client.data.Model;
 import net.minecraft.client.data.ModelIds;
+import net.minecraft.client.data.Models;
 import net.minecraft.client.data.TextureKey;
 import net.minecraft.client.data.TextureMap;
 import net.minecraft.client.data.TexturedModel;
 import net.minecraft.client.data.VariantSetting;
 import net.minecraft.client.data.VariantSettings;
 import net.minecraft.client.data.VariantsBlockStateSupplier;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
@@ -26,6 +29,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
+import com.example.docs.item.ModItems;
+
+import org.spongepowered.asm.mixin.extensibility.IEnvironmentTokenProvider;
 
 // :::datagen-model:provider
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
@@ -86,14 +92,55 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 		// :::datagen-model:provider
 
-		//TODO Since I have little experience with generating item models, I will leave this to someone more experienced (Fellteros)
+		//:::datagen-model:generated
+		itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
+		//:::datagen-model:generated
+
+		//:::datagen-model:handheld
+		itemModelGenerator.register(ModItems.GUIDITE_AXE, Models.HANDHELD);
+		//:::datagen-model:handheld
+
+		//:::datagen-model:spawn-egg
+		itemModelGenerator.registerSpawnEgg(ModItems.SUSPICIOUS_EGG, 0, 16777215);
+		//:::datagen-model:spawn-egg
+
+		//:::datagen-model:dyeable
+		itemModelGenerator.registerDyeable(ModItems.LEATHER_GLOVES, -6265536);
+		//:::datagen-model:dyeable
+
+		//:::datagen-model:condition
+		itemModelGenerator.registerCondition(ModItems.FLASHLIGHT,
+				ItemModels.usingItemProperty(),
+				ItemModels.basic(ModelIds.getItemSubModelId(ModItems.FLASHLIGHT, "_lit")),
+				ItemModels.basic(ModelIds.getItemModelId(ModItems.FLASHLIGHT)));
+		//:::datagen-model:condition
+
+		//:::datagen-model-custom:balloon
+
+		//:::datagen-model-custom:balloon
 
 		// :::datagen-model:provider
 	}
 
 	// :::datagen-model:provider
 
+	// Inner class containing custom objects for item model generation.
+//	@SuppressWarnings("ALL")
+	public static class CustomItemModelGenerator {
+		public static final Model BALLOON = item("balloon", TextureKey.LAYER0);
+
+		public static void registerBalloon(Item item, ItemModelGenerator generator) {
+			Identifier identifier = BALLOON.upload(item, TextureMap.of(TextureKey.LAYER0, ModelIds.getItemModelId(item)), generator.modelCollector);
+			generator.output.accept(item, ItemModels.basic(identifier));
+		}
+
+		private static Model item(String parent, TextureKey... requiredTextureKeys) {
+			return new Model(Optional.of(Identifier.of(FabricDocsReference.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
+		}
+	}
+
 	// Inner class containing all Objects needed for the custom datagen tutorial.
+	@SuppressWarnings("ALL")
 	public static class CustomBlockStateModelGenerator {
 		// :::datagen-model-custom:model
 		public static final Model VERTICAL_SLAB = block("vertical_slab", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
