@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import {Fabric} from "../types";
 
 export default [
   {
@@ -59,6 +59,10 @@ export default [
       {
         text: "develop.items.first-item",
         link: "/develop/items/first-item",
+      },
+      {
+        text: "develop.items.item-models",
+        link: "/develop/items/item-models",
       },
       {
         text: "develop.items.food",
