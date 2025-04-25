@@ -67,7 +67,7 @@ Every block model file has a defined structure that has to be followed. It all s
 
 Loads a different model with all its attributes from the given path, as a resource location (`namespace:path`).
 
-Can be set to `builtin/generated` to use a model created out of the specified icon. Only the first layer is supported, and rotation can be achieved via [blockstates](./blockstates.md).
+Can be set to `builtin/generated` to use a model created out of the specified icon. Only the first layer is supported, and rotation can be achieved via [blockstates](./blockstates).
 
 ### Ambient Occlusion {#ambient-occlusion}
 
