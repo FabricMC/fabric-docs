@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import {Fabric} from "../types";
 
 export default [
   {
@@ -101,6 +101,10 @@ export default [
       {
         text: "develop.blocks.first-block",
         link: "/develop/blocks/first-block",
+      },
+      {
+        text: "develop.blocks.block-models",
+        link: "/develop/blocks/block-models",
       },
       {
         text: "develop.blocks.blockstates",

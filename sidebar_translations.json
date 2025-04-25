@@ -32,6 +32,7 @@
   "develop.items.custom-data-components": "Custom Data Components",
   "develop.blocks": "Blocks",
   "develop.blocks.first-block": "Creating Your First Block",
+  "develop.blocks.block-models": "Block Models",
   "develop.blocks.blockstates": "Block States",
   "develop.blocks.block-entities": "Block Entities",
   "develop.blocks.block-entity-renderer": "Block Entity Renderers",
