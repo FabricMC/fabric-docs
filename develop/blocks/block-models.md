@@ -104,7 +104,7 @@ This tag is responsible for setting the model translation, rotation and scale in
 | ``gui``                   | GUI, inventory.                                 |
 | ``head``                  | When put above player's head (e.g., banner).    |
 | ``ground``                | On the ground.                                  |
-| ``fixed``                 | When put in block frame.                        |
+| ``fixed``                 | When put in item frame.                         |
 
 Furthermore, each position can contain these three values, each in the form of an array of floats:
 
