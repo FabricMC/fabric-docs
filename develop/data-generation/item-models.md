@@ -87,7 +87,7 @@ _**assets/modid/items/suspicious_egg.json**_
 
 @[code lang=java transcludeWith=:::datagen-model:dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value is ``-6265536``)
+The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value for leather is ``-6265536``)
 It generates a simple item model JSON and an item model definition file specifying the tint color.
 
 _**assets/modid/items/leather_gloves.json**_
@@ -128,8 +128,6 @@ First, let's create a parent item model that defines how does the item look in-g
 This will make the model roughly twice as big as the normal ones. Feel free to experiment with the values until you get the desired output.
 
 ### Custom Model {#custom-model}
-
-
 
 ## Sources and Links {#sources-and-links}
 

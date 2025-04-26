@@ -31,8 +31,6 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
 
-import org.spongepowered.asm.mixin.extensibility.IEnvironmentTokenProvider;
-
 // :::datagen-model:provider
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	public FabricDocsReferenceModelProvider(FabricDataOutput output) {
@@ -111,8 +109,8 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		//:::datagen-model:condition
 		itemModelGenerator.registerCondition(ModItems.FLASHLIGHT,
 				ItemModels.usingItemProperty(),
-				ItemModels.basic(ModelIds.getItemSubModelId(ModItems.FLASHLIGHT, "_lit")),
-				ItemModels.basic(ModelIds.getItemModelId(ModItems.FLASHLIGHT)));
+				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED)),
+				ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.FLASHLIGHT, "_lit", Models.GENERATED)));
 		//:::datagen-model:condition
 
 		//:::datagen-model-custom:balloon
