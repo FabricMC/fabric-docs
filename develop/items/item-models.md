@@ -14,7 +14,7 @@ Models are stored as JSON files in your ``resources`` folder.
 
 ## File Structure {#file-structure}
 
-Every item model file has a defined structure that has to be followed. It all starts with empty curly brackets = the **root tag** of the model. Here's a brief scheme of how item models are structured.
+Every item model file has a defined structure that has to be followed. It all starts with empty curly brackets = the **root tag** of the model. Here's a brief scheme of how item models are structured:
 
 ```json
 {
@@ -68,7 +68,7 @@ Every item model file has a defined structure that has to be followed. It all st
 
 Loads a different model with all its attributes from the given path, as a resource location (`namespace:path`).
 
-Can be set to `item/generated` to use a model that is created out of the specified icon or to `builtin/generated` to use the model without any translation, rotation or scaling.
+Can be set to `item/generated` to use a model created out of the specified icon or to `builtin/generated` to use the model without any translation, rotation or scaling.
 
 ### Display {#display}
 
@@ -97,7 +97,7 @@ This tag is responsible for setting the model translation, rotation and scale in
 | ``ground``                | On the ground.                                  |
 | ``fixed``                 | When put in item frame.                         |
 
-Furthermore, each position can contain these three values, each in the form of an array of doubles:
+Furthermore, each position can contain these three values, each in the form of an array of floats:
 
 ```json
 {
@@ -200,7 +200,7 @@ The values of both must be between **-16** and **32**, which means that every it
 
 1. ``origin``: _Three floats_. Sets the center of the rotation according to the scheme `[x, y, z]`.
 2. ``axis``: _String_. Specifies the direction of rotation, and may be one of these: `x`, `y` and `z`.
-3. ``angle``: _Float_. Specifies the angle of rotation. Can range from **-45** to **45** in 22.5 degree increments.
+3. ``angle``: _Float_. Specifies the angle of rotation. Ranges from **-45** to **45** in 22.5 degree increments.
 4. ``rescale``: _Boolean_. Specifies whether to scale the faces across the whole block. Defaults to false.
 
 ```json
