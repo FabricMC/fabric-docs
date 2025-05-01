@@ -28,7 +28,13 @@ You should extract this zip file to a location of your choice, and then open the
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
 
 ::: warning
-Do not create your project folder in a cloud storage directory (for example, OneDrive), and avoid using paths with non-ASCII characters.
+You should follow these rules when choosing the path to your project: 
+
+- Avoid cloud storage directories (for example Microsoft Onedrive)
+- Avoid non-ASCII characters (for example emoji, accented letters)
+- Avoid spaces
+
+An example of a "good" path may be: `C:\Projects\YourProjectName`
 :::
 
 ## Importing the Project {#importing-the-project}
