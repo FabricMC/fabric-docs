@@ -15,7 +15,7 @@ authors:
 
 ## 自定义魔咒效果 {#custom-enchantment-effects}
 
-先创建 `enchanyments` 文件夹，然后在里面创建 `effect` 文件夹。 在里面，创建记录类 `LightningEnchantmentEffect`。
+先创建 `enchantments` 文件夹，然后在里面创建 `effect` 文件夹。 在里面，创建记录类 `LightningEnchantmentEffect`。
 
 现在，创建构造器，并覆盖 `EnchantmentEntityEffect` 接口的方法。 还要创建 `CODEC` 变量以编码解码我们的效果，可以了解更多[关于 codec 的信息](../codecs)。
 
