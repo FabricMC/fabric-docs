@@ -80,5 +80,5 @@ effect give @p fabric-docs-reference:tater
 | `icon`      | `boolean`                     | 是否在 HUD 中显示效果的图标。 效果会在物品栏中显示，无论其设置的属性。                                      |
 
 :::info
-要创建使用此效果的药水，请参阅[药水](../items/potions)指南。
+要创建使用此效果的药水，请参阅[药水](../items/potions) 指南。
 :::

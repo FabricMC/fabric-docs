@@ -31,7 +31,7 @@ Brigadier è open-source: <https://github.com/Mojang/brigadier>
 `com.mojang.brigadier.Command` è un'interfaccia funzionale, che esegue del codice specifico, e lancia una `CommandSyntaxException` in determinati casi. Ha un tipo generico `S`, che definisce il tipo della _sorgente del comando_.
 La sorgente del comando fornisce del contesto in cui un comando è stato eseguito. In Minecraft, la sorgente del comando è tipicamente una `ServerCommandSource` che potrebbe rappresentare un server, un blocco comandi, una connessione remota (RCON), un giocatore o un'entità.
 
-L'unico metodo di `Command`, `run(CommandContext<S>)` prende un `CommandContext<S>` come unico parametro e restituisce un intero. Il contesto del comando contiene la tua sorgente del comando di `S` e ti permette di ottenere parametri, osservare i nodi di un comando di cui è stato effettuato il parsing e vedere l'input usato in questo comando.
+L'unico metodo di `Command`, `run(CommandContext<S>)` accetta un `CommandContext<S>` come unico parametro e restituisce un intero. Il contesto del comando contiene la tua sorgente del comando di `S` e ti permette di ottenere parametri, osservare i nodi di un comando di cui è stato effettuato il parsing e vedere l'input usato in questo comando.
 
 Come altre interfacce funzionali, viene solitamente usata come una lambda o come un riferimento a un metodo:
 

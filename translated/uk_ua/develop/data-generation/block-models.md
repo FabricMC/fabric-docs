@@ -72,7 +72,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 :::warning
 Він також створить [просту модель куба з усіма JSON](#simple-cube-all) для «base block», щоб переконатися, що він має модель блоку.
 
-Він також створить [просту модель куба з усіма JSON](#simple-cube-all) для «base block», щоб переконатися, що він має модель блоку.
+Зверніть увагу на це, якщо ви змінюєте модель блоку цього конкретного блоку, оскільки це призведе до помилки.
 :::
 
 Ви також можете додати `BlockFamily`, який генеруватиме моделі для всіх своїх «children».

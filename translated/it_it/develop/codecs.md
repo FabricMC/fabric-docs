@@ -93,7 +93,7 @@ Possiamo creare un codec per questa classe mettendo insieme tanti codec più pic
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`. Mentre il secondo può essere ottenuto dalla registry `Registries.ITEM`, che ha un metodo `getCodec()` che restituisce un `Codec<Item>`.
+Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Mentre il secondo può essere ottenuto dalla registry `Registries.ITEM`, che ha un metodo `getCodec()` che restituisce un `Codec<Item>`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`.
 
 ### Liste {#lists}
 
@@ -124,7 +124,7 @@ Ogni linea nel gruppo specifica un codec, il nome di un attributo, e un metodo g
 
 Puoi anche usare `Codec#optionalFieldOf` in questo contesto per rendere un attributo opzionale, come spiegato nella sezione [Attributi Opzionali](#attributi-opzionali).
 
-### MapCodec, Da Non Confondere Con Codec&amp;lt;Map&amp;gt; {#mapcodec}
+### MapCodec, Da Non Confondere Con Codec&lt;Map&gt; {#mapcodec}
 
 La chiamata a `Codec#fieldOf` convertirà un `Codec<T>` in un `MapCodec<T>`, che è una variante, ma non una diretta implementazione di `Codec<T>`. I `MapCodec`, come suggerisce il loro nome garantiscono la serializzazione a una mappa chiave-valore, o al suo equivalente nella `DynamicOps` usata. Alcune funzioni ne potrebbero richiedere uno invece di un codec normale.
 
@@ -181,8 +181,8 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 
 #### Coppia {#pair}
 
-`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
-Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#unire-i-codec-per-classi-simili-ai-record).
+`Codec.pair` unisce due codec, `Codec<A>` e `Codec<B>`, in un `Codec<Pair<A, B>>`. Tieni a mente che funziona correttamente soltanto con codec che serializzano a un attributo specifico, come [MapCodec convertiti](#mapcodec) oppure [Codec di Record](#merging-codecs-for-record-like-classes).
+Il codec risultante serializzerà a una mappa contenente gli attributi di entrambi i codec usati.
 
 Per esempio, eseguire questo codice:
 
@@ -240,7 +240,7 @@ Questo restituirà il json seguente:
 
 Come puoi vedere, questo funziona perché `Identifier.CODEC` serializza direttamente a un valore di tipo stringa. Un effetto simile può essere ottenuto per oggetti semplici che non serializzano a stringhe usando [xmap e compagnia](#tipi-convertibili-mutualmente-e-tu) per convertirli.
 
-### Tipi Convertibili Mutualmente e Tu {#mutually-convertible-types}
+### Tipi Convertibili Mutualmente {#mutually-convertible-types}
 
 #### `xmap` {#xmap}
 

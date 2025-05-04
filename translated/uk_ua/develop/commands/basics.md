@@ -74,7 +74,7 @@ Command<ServerCommandSource> command = context -> {
 
 Подія має бути зареєстрована у вашому [ініціалізаторі мода](./getting-started/project-structure#entrypoints).
 
-Подія має бути зареєстрована у вашому [ініціалізаторі мода](./getting-started/project-structure#entrypoints).
+Зворотний виклик має три параметри:
 
 - `CommandDispatcher<ServerCommandSource> dispatcher` - використовується для реєстрації, аналізу та виконання команд. `S` - це тип
   джерела команди, яке підтримує диспетчер команд.

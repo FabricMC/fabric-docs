@@ -9,11 +9,11 @@ Minecraft ha un potente sistema di suggerimento comandi che viene usato in molti
 
 ## Provider di Suggerimenti {#suggestion-providers}
 
-Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che verrà mandata al client. Un provider di suggerimenti è un'interfaccia funzionale che prende un `CommandContext` e un `SuggestionBuilder` e restituisce alcune `Suggestions`. Il `SuggestionProvider` restituisce un `CompletableFuture` siccome i suggerimenti potrebbero non essere disponibili immediatamente.
+Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che verrà mandata al client. Un provider di suggerimenti è un'interfaccia funzionale che accetta un `CommandContext` e un `SuggestionBuilder` e restituisce alcune `Suggestions`. Il `SuggestionProvider` restituisce un `CompletableFuture` siccome i suggerimenti potrebbero non essere disponibili immediatamente.
 
 ## Usare i Provider di Suggerimenti {#using-suggestion-providers}
 
-Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo prende un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
+Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo accetta un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)

@@ -98,8 +98,8 @@ authors:
 
 Ранее мы создали константу `RegistryKey<EquipmentAsset>` с именем `GUIDITE_ARMOR_MATERIAL_KEY`, которую мы передали в наш конструктор `ArmorMaterial`. Рекомендуется называть текстуру аналогичным образом, поэтому в нашем случае это `guidite.png`
 
-- `assets/<mod_id>/textures/entity/equipment/humanoid/guid item.png` - Содержит текстуры верхней части тела и ботинок.
-- `assets/<mod_id>/textures/entity/equipment/humanoid_leggings/guid item.png` - Содержит текстуры ног.
+- `assets/mod-id/textures/entity/equipment/humanoid/guid item.png` - Содержит текстуры верхней части тела и ботинок.
+- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guid item.png` - Содержит текстуры ног.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Текстуры моделей брони Guidite</DownloadEntry>
 
@@ -107,7 +107,7 @@ authors:
 Если вы обновляетесь до версии 1.21.4 со старой версии игры, то текстура брони `layer0.png` будет помещена в папку `humanoid`, а текстура брони `layer1.png` - в папку `humanoid_leggings`.
 :::
 
-Далее вам нужно будет создать соответствующее определение модели оборудования. Они находятся в папке `/assets/<mod_id>/equipment/`.
+Далее вам нужно будет создать соответствующее определение модели оборудования. Они находятся в папке `/assets/mod-id/equipment/`.
 
 Константа `RegistryKey<EquipmentAsset>`, которую мы создали ранее, будет определять имя файла JSON. В данном случае это будет `guidite.json`.
 

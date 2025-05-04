@@ -50,4 +50,4 @@ Das Minecraft Development Plugin bietet Unterstützung für das Modding mit Fabr
 
 Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
 
-Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
+Alternativ kannst du es von der [Plugin-Seite](https://plugins.jetbrains.com/plugin/8327-minecraft-development) herunterladen und dann installieren, indem du zu `File > Settings > Plugins > Install Plugin From Disk` navigierst.
