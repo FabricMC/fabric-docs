@@ -28,7 +28,7 @@ You should extract this zip file to a location of your choice, and then open the
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
 
 ::: warning
-You should follow these rules when choosing the path to your project: 
+You should follow these rules when choosing the path to your project:
 
 - Avoid cloud storage directories (for example Microsoft Onedrive)
 - Avoid non-ASCII characters (for example emoji, accented letters)
