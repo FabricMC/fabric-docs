@@ -46,7 +46,7 @@ Folge den Schritten des Installationsprogramms, um Java 21 zu installieren. Wenn
 - `JAVA_HOME Umgebungsvariable setzen` - Diese wird zu Ihrem PATH hinzugefügt.
 - JavaSoft (Oracle)-Registrierungsschlüssel
 
-![Java 21-Installationsprogramm mit "JAVA\_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 21-Installationsprogramm mit "JAVA_HOME-Variable setzen" und "JavaSoft (Oracle) Registrierungsschlüssel" hervorgehoben](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Wenn Sie das getan haben, können Sie `Weiter` klicken und mit der Installation fortfahren.
 

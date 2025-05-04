@@ -13,7 +13,7 @@ Assieme alla registrazione delle componenti personalizzate, questa pagina tratta
 
 ## Registrare una Componente {#registering-a-component}
 
-Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `ComponentType`. Questo tipo di componente prende un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
+Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `ComponentType`. Questo tipo di componente accetta un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
 
 Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di richiamare `ModComponents.initialize()` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
@@ -131,11 +131,11 @@ Inoltre, leggendo il valore della componente, possiamo usare il metodo `getOrDef
 int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 ```
 
-Come puoi notare, questo metodo prende due parametri: il tipo della nostra componente come prima, e un valore predefinito restituito se la componente non esiste.
+Come puoi notare, questo metodo accetta due parametri: il tipo della nostra componente come prima, e un valore predefinito restituito se la componente non esiste.
 
 ### Controllare se una Componente Esiste {#checking-if-component-exists}
 
-Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `contains()`. Questo prende il tipo della componente come parametro e restituisce `true` o `false` se lo stack contiene o meno quella componente.
+Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `contains()`. Questo accetta il tipo della componente come parametro, e restituisce `true` o `false` se lo stack contiene o meno quella componente.
 
 ```java
 boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
@@ -169,7 +169,7 @@ Ora proviamo ad aggiornare il valore della nostra componente. Aumenteremo il con
 stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 ```
 
-Questo prende il tipo della nostra componente e il valore che le vogliamo assegnare. In questo caso sarà il nuovo conto dei clic. Questo metodo restituisce anche il vecchio valore della componente (se ne esiste uno), e questo potrebbe essere utile in alcune situazioni. Per esempio:
+Questo accetta il tipo della nostra componente e il valore che le vogliamo assegnare. In questo caso sarà il nuovo conto dei clic. Questo metodo restituisce anche il vecchio valore della componente (se ne esiste uno), e questo potrebbe essere utile in alcune situazioni. Per esempio:
 
 ```java
 int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
@@ -185,7 +185,7 @@ Ora prova ad avviare il gioco e a cliccare con il tasto destro l'oggetto Counter
 
 ## Rimuovere il Valore della Componente {#removing-component-value}
 
-Puoi anche rimuovere una componente dal tuo `ItemStack` se non serve più. Questo si fa usando il metodo `remove()`, che prende il tipo della componente.
+Puoi anche rimuovere una componente dal tuo `ItemStack` se non serve più. Questo si fa usando il metodo `remove()`, che accetta come parametro il tipo della componente.
 
 ```java
 stack.remove(ModComponents.CLICK_COUNT_COMPONENT);

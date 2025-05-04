@@ -42,7 +42,7 @@ Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
 ## Truhen {#chests}
 
-Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb \*\* und füge sie zu deinem Pack hinzu\*\*.
+Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
 

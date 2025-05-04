@@ -80,6 +80,17 @@ Das Lesen ist ähnlich, aber anstatt in dem `NbtCompound` zu speichern, holt man
 
 Wenn wir nun speichern und das Spiel neu laden, sollte der Zählerblock dort weitermachen, wo er beim Speichern aufgehört hat.
 
+Obwohl `writeNbt` und `readNbt` das Speichern und Laden auf und von der Festplatte regeln, gibt es noch ein Problem:
+
+- Der Server weiß den korrekten `clicks` Wert.
+- Der Client erhält nicht den korrekten Wert, wenn der Chunk geladen wird.
+
+Um dies zu beheben, überschreiben wir `toInitialChunkDataNbt`:
+
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+
+Wenn sich nun ein Spieler anmeldet oder in einen Chunk geht, in dem der Block vorhanden ist, sieht er sofort den korrekten Zählerwert.
+
 ## Ticker {#tickers}
 
 Das Interface `BlockEntityProvider` definiert auch eine Methode namens `getTicker`, mit der für jede Instanz des Blocks bei jedem Tick Code ausgeführt werden kann. Wir können das implementieren, indem wir eine statische Methode erstellen, die als `BlockEntityTicker` verwendet wird:

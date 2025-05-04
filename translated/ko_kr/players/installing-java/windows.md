@@ -29,7 +29,7 @@ Minecraft: Java Edition 1.21을 플레이 하려면, 적어도 Java 21 이상의
 
 ## 2. Java 21 설치기 다운로드 {#2-download-the-java-installer}
 
-Java 21을 설치하려면, 먼저 [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21)에서 설치기를 다운로드해야 합니다.
+Java 21을 설치하려면, 먼저 Adoptium에서 설치기를 다운로드해야 합니다.
 
 아래와 같이 `Windows Installer (.msi)`를 선택하여 주세요:
 
@@ -39,7 +39,7 @@ Java 21을 설치하려면, 먼저 [Adoptium](https://adoptium.net/en-GB/temurin
 
 대부분의 최신 PC(Windows 10/11)는 64비트 운영 체제를 사용합니다. 잘 모르겠다면, 64비트를 다운로드해 보세요.
 
-## 3. 설치기 실행하기 {#3-run-the-installer}
+## 3. 설치기 실행하기 설치기 실행하기 {#3-run-the-installer}
 
 Java 21을 설치하려면 다음 단계를 수행하세요. 설치기에서 아래와 같은 단계에 도달했다면, 아래 기능을 "Entire feature will be installed on local hard drive"로 설정해야 합니다:
 

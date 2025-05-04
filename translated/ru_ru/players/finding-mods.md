@@ -9,7 +9,7 @@ authors:
 
 ## 1. Используйте безопасные источники {#trustworthy-source}
 
-Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\\&gameVersionTypeId=4).
+Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и CurseForge.
 
 Эти сайты проверяют, являются ли моды тем, за что они себя выдают, и что они не содержат вредоносного кода. Вы также можете сообщить о вредоносных модах на этих сайтах, и они примут меры относительно быстро.
 

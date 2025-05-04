@@ -6,22 +6,16 @@ hero:
   name: Fabric Dokumentace
   tagline: Oficiální dokumentace pro Fabric, modovací toolchain pro Minecraft.
 features:
-  - title: Developer Guides
-    icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: /develop/
-    linkText: Začít
   - title: Hráčské Návody
     icon: 📚
     details: Jste hráč snícím o používání Fabric modů? Naše hráčské návody vám mohou pomoct. Tyto návody pomůžou se stahování, instalací a spravení Fabric modů.
-    link: /players/
+    link: /cs_cz/players/
+    linkText: Začít
+  - title: Návody pro vývojáře
+    icon: 🛠️
+    details: Naše komunitou psané příručky pro vývojáře pokrývají vše od nastavení vývojového prostředí až po pokročilá témata, jako je renderování a síťování.
+    link: /cs_cz/develop/
     linkText: Zjistit více
 ---
 
-<div class="vp-doc homepage-container">
-
-## Chcete nám pomoct?
-
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
-
-</div>
+Pokud chcete přispět do dokumentace Fabricu, zdrojový kód najdete na [GitHubu](https://github.com/FabricMC/fabric-docs), a související pokyny pro [přispívání](./contributing).

@@ -38,7 +38,7 @@ Oltre a creare traduzioni crude, traduzioni da `Identifier`, e copiarli da un al
 
 ## Usare le Traduzioni {#using-translations}
 
-Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usare ovunque dove usi un oggetto `Text`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Text.translatable` invece di `Text.of`:
+Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usarle in ogni punto in cui usi un oggetto `Text`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Text.translatable` invece di `Text.of`:
 
 ```java
 ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();

@@ -15,7 +15,7 @@ description: Поширені запитання для гравців і адм
 Ви завжди маєте перевіряти чи моди з надійного джерела. Перегляньте посібник [пошуку надійних модів](./finding-mods), щоб дізнатися більше.
 :::
 
-Більшість авторів публікують свої моди на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) та CurseForge сторінки або інші платформи, такі як репозиторії GitHub.
+Більшість авторів публікують свої моди на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) та CurseForge або інші платформи, такі як репозиторії GitHub.
 
 ## Де я можу знайти готові пакети модів для Fabric? {#where-can-i-find-pre-made-fabric-modpacks}
 

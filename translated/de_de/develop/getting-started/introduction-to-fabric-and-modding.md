@@ -12,7 +12,7 @@ authors-nogithub:
 
 Bevor du anfängst, solltest du ein Grundverständnis für die Entwicklung mit Java und ein Verständnis für objektorientierte Programmierung (OOP) haben.
 
-Bevor du anfängst, solltest du ein Grundverständnis für die Entwicklung mit Java und ein Verständnis für objektorientierte Programmierung (OOP) haben.
+Wenn du mit diesen Konzepten nicht vertraut bist, solltest du dir einige Tutorials zu Java und OOP ansehen, bevor du mit dem Modding beginnst. Hier sind einige der Ressourcen, die du nutzen kannst, um Java und OOP zu lernen:
 
 - [W3: Java Tutorials](https://www.w3schools.com/java/)
 - [Codecademy: Java lernen](https://www.codecademy.com/learn/learn-java)

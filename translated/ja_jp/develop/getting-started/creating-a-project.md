@@ -2,14 +2,18 @@
 title: プロジェクトの作成
 description: Fabric テンプレート Mod ジェネレータを使用した Mod 作成の段階的なガイド。
 authors:
+  - Cactooz
   - IMB11
+  - radstevee
 ---
 
-Fabric は、Mod プロジェクトを簡単に作成することを可能にする Fabric テンプレート Mod ジェネレータを提供しています。手動でプロジェクトを作成したい場合は、サンプルの Mod リポジトリを使用することができます。[手動で作成する](#manual-project-creation) セクションを参照してください。
+Fabric は、Mod プロジェクトを簡単に作成することを可能にする Fabric Template Mod Generator を提供しています。手動でプロジェクトを作成したい場合は、サンプルの Mod リポジトリを使用することができます。[手動で作成する](#manual-project-creation) セクションを参照してください。
 
 ## プロジェクトの生成 {#generating-a-project}
 
-[Fabric テンプレート Mod ジェネレータ](https://fabricmc.net/develop/template/) を使用すると新しいプロジェクトを生成することができます。パッケージ名、Mod 名、Mod が対応する Minecraft バージョンの入力が必要です。
+[Fabric Template Mod Generator](https://fabricmc.net/develop/template/) を使用すると新しいプロジェクトを生成することができます。パッケージ名、Mod 名、Mod が対応する Minecraft バージョンの入力が必要です。
+
+パッケージ名は小文字で、ドットで区切り、一意であることが求められます。他のプログラマーのパッケージと競合しないようにしてください。 通常、`com.example.mod-id` のように、インターネットドメインを逆順にした形式で記述されます。
 
 ![ジェネレータのプレビュー](/assets/develop/getting-started/template-generator.png)
 
@@ -49,7 +53,7 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 このコマンドは、リポジトリを `my-mod-project` という名前のフォルダにクローンします。
 
-続いて、フォルダ内の `.git` フォルダを削除し、IntelliJ IDEA でプロジェクトを開いてください。 `.git` フォルダが表示されない場合は、ファイルマネージャで隠しファイルの表示を有効にする必要があります。
+続いて、フォルダ内の `.git` フォルダを削除し、IntelliJ IDEA でプロジェクトを開いてください。 `.git` フォルダが表示されない場合は、ファイルマネージャで隠しファイルの表示を有効にする必要があります。 `.git` フォルダが表示されない場合は、ファイルマネージャで隠しファイルの表示を有効にする必要があります。
 
 プロジェクトを IntelliJ IDEA で開くと、IDE は自動で Gradle 設定を読み込み、セットアップに必要なタスクを行います。
 
