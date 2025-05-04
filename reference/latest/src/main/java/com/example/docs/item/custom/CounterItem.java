@@ -1,7 +1,8 @@
 package com.example.docs.item.custom;
 
-import java.util.List;
+import java.util.function.Consumer;
 
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -43,10 +44,10 @@ public class CounterItem extends Item {
 
 	@Override
 	//::3
-	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+	public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
 		if (stack.contains(ModComponents.CLICK_COUNT_COMPONENT)) {
 			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-			tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+			textConsumer.accept(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
 		}
 	}
 
