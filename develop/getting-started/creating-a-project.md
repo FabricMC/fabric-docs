@@ -27,6 +27,16 @@ You should extract this zip file to a location of your choice, and then open the
 
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
 
+::: warning
+You should follow these rules when choosing the path to your project:
+
+- Avoid cloud storage directories (for example Microsoft Onedrive)
+- Avoid non-ASCII characters (for example emoji, accented letters)
+- Avoid spaces
+
+An example of a "good" path may be: `C:\Projects\YourProjectName`
+:::
+
 ## Importing the Project {#importing-the-project}
 
 Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.
