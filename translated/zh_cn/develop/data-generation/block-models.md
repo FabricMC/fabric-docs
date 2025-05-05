@@ -99,13 +99,13 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">红宝石门和活板门</DownloadEntry>
 
-## 自定义方块模型 {#custom-block-models}
+## 自定义方块类 {#custom-block-class}
 
 在本节中，我们将创建具有橡木原木纹理的垂直橡木原木台阶模型。
 
 _点 2. - 6. 在名为 `CustomBlockStateModelGenerator` 的内部静态辅助类中声明。_
 
-### 自定义方块类 {#custom-block-class}
+### 自定义方块模型 {#custom-block-models}
 
 创建一个具有 `FACING` 属性和 `SINGLE` 布尔属性的 `VerticalSlab` 方块，类似于 [方块状态](../blocks/blockstates) 教程中的那样。 `SINGLE` 将指示是否存在两块台阶。
 然后你应该重写 `getOutlineShape` 和 `getCollisionShape`，以便正确渲染轮廓，并且方块具有正确的碰撞形状。

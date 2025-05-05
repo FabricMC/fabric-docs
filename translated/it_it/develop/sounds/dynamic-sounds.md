@@ -17,7 +17,7 @@ Questo modo di pensare è corretto. Tecnicamente è il lato client che dovrebbe 
 
 Usare il suono sul lato logico server risolverà il problema della trasmissione dei `SoundEvent`. Per farla semplice, a ogni client (`ClientPlayerEntity`) nel raggio tracciato viene inviato un pacchetto di rete per riprodurre un certo suono specifico. L'evento audio viene praticamente trasmesso dal lato logico server, a ogni client partecipante, senza che tu te ne debba preoccupare. Il suono è riprodotto una volta sola, con i valori di volume e tono specificati.
 
-Ma, e se questo non bastasse? Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
+Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
 
 La semplice strategia di usare i `SoundEvent` sul lato logico server non basta in questo caso.
 
@@ -137,9 +137,9 @@ Si prega di notare che la classe `AbstractSoundInstance`, da cui le `SoundInstan
 
 Questo significa che questa classe (e tutte le sue sottoclassi) saranno disponibili solo lato client.
 
-Se provassi ad usarla in un contesto logico lato server, potresti non notare inizialmente il problema in Giocatore Singolo, ma un server in ambiente Multiplayer crasherà, poiché non riuscirà a trovare quella parte del codice.
+Se provassi ad usarla in un contesto logico lato server, potresti non notare inizialmente il problema in singleplayer, ma un server in ambiente Multiplayer crasherà, poiché non riuscirà a trovare quella parte del codice.
 
-Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template)
+Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template/)
 attivando l'opzione `Split client and common sources`.
 :::
 
@@ -219,7 +219,7 @@ D'ora in poi useremo un'interfaccia personalizzata chiamata `DynamicSoundSource`
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
-Dopo aver creato questa interfaccia, assicurati di implementarla anche nelle classi ove necessario.
+Dopo aver creato questa interfaccia, assicurati d'implementarla anche nelle classi ove necessario.
 
 :::info
 Questa è un'utilità che potrebbe essere usata sia lato client sia lato logico server.

@@ -40,7 +40,7 @@ public class ModBlocks {
 
 ## Creare e Registrare il Tuo Blocco {#creating-and-registering-your-block}
 
-In maniera del tutto simile agli oggetti, i blocchi prendono la classe `AbstractBlock.Settings` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
+In maniera del tutto simile agli oggetti, i blocchi accettano delle `AbstractBlock.Settings` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
 
 Non tratteremo tutte le opzioni qui—puoi vedere la classe da solo per capirne le varie opzioni, che dovrebbero essere chiaramente comprensibili.
 
@@ -55,11 +55,11 @@ Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a un gruppo di oggetti devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
+Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
 ### Aggiungere l'Oggetto del Tuo Blocco a un Gruppo di Oggetti {#adding-your-block-s-item-to-an-item-group}
 
-Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
+Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a un gruppo di oggetti devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
 
 Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo creato nella pagina [Gruppi di Oggetti Personalizzati](../items/custom-item-groups).
 

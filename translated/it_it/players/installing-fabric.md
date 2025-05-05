@@ -50,7 +50,7 @@ Assicurati che `Crea Profilo` sia selezionato.
 
 Una volta che l'installer ha finito, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina in basso a sinistra e premere Gioca!
 
-Una volta che l'installer ha finito, puoi aprire il Launcher di Minecraft e selezionare il profilo Fabric dal menu a tendina in basso a sinistra e premere Gioca!
+![Launcher di Minecraft con il profilo Fabric selezionato](/assets/players/installing-fabric/launcher-screen.png)
 
 Ora che hai installato Fabric, puoi aggiungere le mod al tuo gioco! Dai un occhiata alla guida [Trovare Mod Affidabili](./finding-mods) per più informazioni.
 

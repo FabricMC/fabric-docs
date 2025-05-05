@@ -15,7 +15,7 @@ description: Дізнайтеся, як створювати команди зі
 
 Якщо ввести `/command_with_arg` без аргументів, команду неможливо правильно проаналізувати.
 
-Якщо ввести `/command_with_arg` без аргументів, команду неможливо правильно проаналізувати.
+Потім ми додаємо необов'язковий другий аргумент:
 
 @[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
 @[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -34,7 +34,7 @@ description: Дізнайтеся, як створювати команди зі
 
 Вам потрібно буде реалізувати метод `parse`, який аналізуватиме вхідний рядок у потрібний тип.
 
-Вам потрібно буде реалізувати метод `parse`, який аналізуватиме вхідний рядок у потрібний тип.
+Наприклад, ви можете створити тип аргументу, який аналізує `BlockPos` із рядка в такому форматі: `{x, y, z}`
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
 
@@ -57,8 +57,8 @@ description: Дізнайтеся, як створювати команди зі
 
 Виконуючи команду, ми можемо перевірити, чи працює тип аргументу:
 
-Виконуючи команду, ми можемо перевірити, чи працює тип аргументу:
+![Недійсний аргумент](/assets/develop/commands/custom-arguments_fail.png)
 
 ![Недійсний аргумент](/assets/develop/commands/custom-arguments_valid.png)
 
-![Дійсний аргумент](/assets/develop/commands/custom-arguments_valid.png)
+![Результат команди](/assets/develop/commands/custom-arguments_result.png)

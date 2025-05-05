@@ -46,7 +46,7 @@ authors:
 | `toughness`           | 갑옷 재료의 "방어 강도" 속성을 나타내는 실수 값. 사실상 갑옷이 흡수하는 피해량입니다.                                                                       |
 | `knockbackResistance` | 이 재료로 만들어진 갑옷을 착용했을 때 증가할 밀치기 저항 실수 값.                                                                                                   |
 | `repairIngredient`    | 모루에서 이 재료로 만들어진 갑옷을 수리할 때 사용할 수 있는 아이템의 태그.                                                                                              |
-| `assetId`             | `EquipmentAsset` 레지스트리 키. 위에서 만들었던 장리 어셋 레지스트리 키가 입력되어야 합니다.                                                             |
+| `assetId`             | 레지스트리 키는 나중에 `ArmorMaterial` 생성자에 입력할 것입니다.                                                                                              |
 
 매개 변수의 값을 결정하는 것이 어렵다면, 위에서 언급한 것 처럼 `ArmorMaterials` 인터페이스에 있는 바닐라 `ArmorMaterial` 인스턴스를 참고할 수 있습니다.
 

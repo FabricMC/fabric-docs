@@ -21,7 +21,7 @@ Wenn du entweder Kotlin, oder die offiziellen Mappings von Mojang anstelle der Y
 
 ![Der Abschnitt "Advanced options"](/assets/develop/getting-started/template-generator-advanced.png)
 
-Der Generator erstellt dann ein neues Projekt in Form einer ZIP-Datei für dich.
+Nachdem du die erforderlichen Felder ausgefüllt hast, klickst du auf die Schaltfläche `Generate`. Der Generator erstellt dann ein neues Projekt in Form einer ZIP-Datei für dich.
 
 Du solltest diese ZIP-Datei an einem Ort deiner Wahl entpacken und dann den entpackten Ordner in IntelliJ IDEA öffnen:
 

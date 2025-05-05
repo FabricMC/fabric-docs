@@ -105,27 +105,27 @@ MutableText result = Text.literal("Hello World!")
   .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
 ```
 
-|              Farbe              | Name                                                    | Chat Code |  MOTD Code |  Hex Code |
-| :-----------------------------: | ------------------------------------------------------- | :-------: | :--------: | :-------: |
-| <ColorSwatch color="#000000" /> | Schwarz<br />`black`                                    |    `§0`   | `\u00A70` | `#000000` |
-| <ColorSwatch color="#0000AA" /> | Dunkelblau<br />`dark_blue`                             |    `§1`   | `\u00A71` | `#0000AA` |
-| <ColorSwatch color="#00AA00" /> | Dunkelgrün<br />`dark_green`                            |    `§2`   | `\u00A72` | `#00AA00` |
-| <ColorSwatch color="#00AAAA" /> | Dunkles Aquamarin<br />\`dark_aqua |    `§3`   | `\u00A73` | `#00AAAA` |
-| <ColorSwatch color="#AA0000" /> | Dunkelrot<br />`dark_red`                               |    `§4`   | `\u00A74` | `#AA0000` |
-| <ColorSwatch color="#AA00AA" /> | Dunkelviolett<br />`dark_purple`                        |    `§5`   | `\u00A75` | `#AA00AA` |
-| <ColorSwatch color="#FFAA00" /> | Gold<br />`gold`                                        |    `§6`   | `\u00A76` | `#FFAA00` |
-| <ColorSwatch color="#AAAAAA" /> | Grau<br />`gray`                                        |    `§7`   | `\u00A77` | `#AAAAAA` |
-| <ColorSwatch color="#555555" /> | Dunkelgrau<br />`dark_gray`                             |    `§8`   | `\u00A78` | `#555555` |
-| <ColorSwatch color="#5555FF" /> | Blau<br />`blue`                                        |    `§9`   | `\u00A79` | `#5555FF` |
-| <ColorSwatch color="#55FF55" /> | Grün<br />`green`                                       |    `§a`   | `\u00A7a` | `#55FF55` |
-| <ColorSwatch color="#55FFFF" /> | Aquamarin<br />`aqua`                                   |    `§b`   | `\u00A7b` | `#55FFFF` |
-| <ColorSwatch color="#FF5555" /> | Rot<br />`red`                                          |    `§c`   | `\u00A7c` | `#FF5555` |
-| <ColorSwatch color="#FF55FF" /> | Hellviolett<br />`light_purple`                         |    `§d`   | `\u00A7d` | `#FF55FF` |
-| <ColorSwatch color="#FFFF55" /> | Gelb<br />`yellow`                                      |    `§e`   | `\u00A7e` | `#FFFF55` |
-| <ColorSwatch color="#FFFFFF" /> | Weiß<br />`white`                                       |    `§f`   | `\u00A7f` | `#FFFFFF` |
-|                                 | Zurücksetzen                                            |    `§r`   |            |           |
-|                                 | **Fett**                                                |    `§l`   |            |           |
-|                                 | ~~Durchgestrichen~~                                     |    `§m`   |            |           |
-|                                 | <u>Unterstrichen</u>                                    |    `§n`   |            |           |
-|                                 | _Kursiv_                                                |    `§o`   |            |           |
-|                                 | Verschleiert                                            |    `§k`   |            |           |
+|              Farbe              | Name                               | Chat Code |  MOTD Code |  Hex Code |
+| :-----------------------------: | ---------------------------------- | :-------: | :--------: | :-------: |
+| <ColorSwatch color="#000000" /> | Schwarz<br />`black`               |    `§0`   | `\u00A70` | `#000000` |
+| <ColorSwatch color="#0000AA" /> | Dunkelblau<br />`dark_blue`        |    `§1`   | `\u00A71` | `#0000AA` |
+| <ColorSwatch color="#00AA00" /> | Dunkelgrün<br />`dark_green`       |    `§2`   | `\u00A72` | `#00AA00` |
+| <ColorSwatch color="#00AAAA" /> | Dunkles Aquamarin<br />`dark_aqua` |    `§3`   | `\u00A73` | `#00AAAA` |
+| <ColorSwatch color="#AA0000" /> | Dunkelrot<br />`dark_red`          |    `§4`   | `\u00A74` | `#AA0000` |
+| <ColorSwatch color="#AA00AA" /> | Dunkelviolett<br />`dark_purple`   |    `§5`   | `\u00A75` | `#AA00AA` |
+| <ColorSwatch color="#FFAA00" /> | Gold<br />`gold`                   |    `§6`   | `\u00A76` | `#FFAA00` |
+| <ColorSwatch color="#AAAAAA" /> | Grau<br />`gray`                   |    `§7`   | `\u00A77` | `#AAAAAA` |
+| <ColorSwatch color="#555555" /> | Dunkelgrau<br />`dark_gray`        |    `§8`   | `\u00A78` | `#555555` |
+| <ColorSwatch color="#5555FF" /> | Blau<br />`blue`                   |    `§9`   | `\u00A79` | `#5555FF` |
+| <ColorSwatch color="#55FF55" /> | Grün<br />`green`                  |    `§a`   | `\u00A7a` | `#55FF55` |
+| <ColorSwatch color="#55FFFF" /> | Aquamarin<br />`aqua`              |    `§b`   | `\u00A7b` | `#55FFFF` |
+| <ColorSwatch color="#FF5555" /> | Rot<br />`red`                     |    `§c`   | `\u00A7c` | `#FF5555` |
+| <ColorSwatch color="#FF55FF" /> | Hellviolett<br />`light_purple`    |    `§d`   | `\u00A7d` | `#FF55FF` |
+| <ColorSwatch color="#FFFF55" /> | Gelb<br />`yellow`                 |    `§e`   | `\u00A7e` | `#FFFF55` |
+| <ColorSwatch color="#FFFFFF" /> | Weiß<br />`white`                  |    `§f`   | `\u00A7f` | `#FFFFFF` |
+|                                 | Zurücksetzen                       |    `§r`   |            |           |
+|                                 | **Fett**                           |    `§l`   |            |           |
+|                                 | ~~Durchgestrichen~~                |    `§m`   |            |           |
+|                                 | <u>Unterstrichen</u>               |    `§n`   |            |           |
+|                                 | _Kursiv_                           |    `§o`   |            |           |
+|                                 | Verschleiert                       |    `§k`   |            |           |

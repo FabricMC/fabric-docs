@@ -51,7 +51,7 @@ Sobald du das `mods`-Verzeichnis gefunden hast, kannst du die `.jar`-Dateien der
 
 ## 3. Du hast es geschafft! {#3-you-re-done}
 
-![Minecraft-Launcher mit ausgewähltem Fabric-Profil](/assets/players/installing-fabric/launcher-screen.png)
+Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 
 Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 

@@ -14,7 +14,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 На цій сторінці описано основи промальовування за допомогою нової системи, а також ключову термінологію та поняття.
 
-На цій сторінці описано основи промальовування за допомогою нової системи, а також ключову термінологію та поняття.
+Хоча більша частина промальовування в Minecraft абстрагується за допомогою різних методів `DrawContext`, і вам, ймовірно, не потрібно чіпати нічого, згаданого тут, все одно важливо розуміти основи того, як працює промальовування.
 
 ## `Tessellator` {#the-tessellator}
 
@@ -34,7 +34,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 `VertexFormat` визначає елементи, які ми включаємо в наш буфер даних, і описує, як ці елементи мають бути передані в OpenGL.
 
-`VertexFormat` визначає елементи, які ми включаємо в наш буфер даних, і описує, як ці елементи мають бути передані в OpenGL.
+Доступні такі елементи `VertexFormat`:
 
 | Елемент                                       | Формат                                                                                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 Її іноді називають матрицею позиції або матрицею моделі.
 
-Її іноді називають матрицею позиції або матрицею моделі.
+Зазвичай його отримують за допомогою класу `MatrixStack`, який можна отримати за допомогою об’єкта `DrawContext`:
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -105,15 +105,15 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 Це має дати нам чудовий ромб - оскільки ми використовуємо режим малювання `TRIANGLE_STRIP`, промальовування виконає наступні кроки:
 
-Це має дати нам чудовий ромб - оскільки ми використовуємо режим малювання `TRIANGLE_STRIP`, промальовування виконає наступні кроки:
-
 ![Чотири кроки, які показують розташування вершин на екрані для утворення двох трикутників](/assets/develop/rendering/concepts-practical-example-draw-process.png)
+
+Оскільки в цьому прикладі ми малюємо HUD, ми використаємо подію `HudRenderCallback`:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 Це призводить до того, що на HUD малюється наступне:
 
-Це призводить до того, що на HUD малюється наступне:
+![Фінальний результат](/assets/develop/rendering/concepts-practical-example-final-result.png)
 
 :::tip
 Спробуйте повозитися з кольорами та розташуванням вершин, щоб побачити, що вийде! Ви також можете спробувати використовувати різні режими малювання та формати вершин.
@@ -157,4 +157,4 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 Результатом цього є наступне:
 
-Результатом цього є наступне:
+![Відео, на якому показано, як ромб обертається навколо осі z](/assets/develop/rendering/concepts-quaternions.webp)
