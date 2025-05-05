@@ -16,7 +16,7 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-## 数据生成是什么？ {#what-is-data-generation}
+## 数据生成是什么？ 数据生成是什么？ {#what-is-data-generation}
 
 数据生成 (又称 Datagen) 是一种 API，用于以编程方式生成配方、进度、标签、物品模型、语言文件、战利品表以及基本上任何基于 JSON 的内容。
 

@@ -15,7 +15,7 @@ authors:
 
 ### Малювання прямокутників {#drawing-rectangles}
 
-Щоб намалювати прямокутник із заливкою, можна використати метод DrawContext.fill(...)\`.
+Щоб намалювати прямокутник із заливкою, можна використати метод `DrawContext.fill(...)`.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -53,7 +53,7 @@ authors:
 
 ![Область ножиць у дії](/assets/develop/rendering/draw-context-scissor.png)
 
-![Область ножиць у дії](/assets/develop/rendering/draw-context-scissor.png)
+Як бачите, хоча ми наказуємо грі промальовувати градієнт по всьому екрану, він відтворює лише область ножиць.
 
 ## Малювання текстур{#drawing-textures}
 
@@ -75,9 +75,9 @@ authors:
 
 Візьмемо цю текстуру як приклад.
 
-Візьмемо цю текстуру як приклад.
-
 ![Текстура книги рецептів](/assets/develop/rendering/draw-context-recipe-book-background.png)
+
+Якщо ми хочемо намалювати лише область, яка містить збільшувальне скло, ми можемо використовувати наступні значення `u`, `v`, `regionWidth` і `regionHeight`:
 
 @[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

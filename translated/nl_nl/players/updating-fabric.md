@@ -16,9 +16,7 @@ Het updaten van Fabric lijkt sterk op het installeren van Fabric, dus delen van 
 
 Nieuwere mods hebben misschien een nieuwere versie van de Fabric Loader nodig om te werken, het is dus belangerijk om het up to date te houden om ervoor te zorgen dat je de nieuwste mods kan gebruiken.
 
-<!-- Include steps from installing guide, no need to repeat them. -->
-
-<!--@include: ./installing-fabric.md{12,41}-->
+<!--@include: ./installing-fabric.md#common-->
 
 Om Fabric te updaten, moet je ervoor zorgen dat de spel versie en Fabric Loader versie correct is, en dat op `Install` te klikken.
 

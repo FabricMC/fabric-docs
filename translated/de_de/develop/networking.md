@@ -25,60 +25,27 @@ In Minecraft wird Networking verwendet, damit Client und Server miteinander komm
 
 ## Warum ist Networking wichtig? {#why-is-networking-important}
 
-Die Bedeutung von Networking lässt sich anhand eines einfachen Code-Beispiels verdeutlichen.
+Pakete sind das Kernkonzept von Minecraft Networking.
+Pakete bestehen aus beliebigen Daten, die entweder vom Server zum Client oder vom Client zum Server gesendet werden können.
+Das folgende Diagramm zeigt eine visuelle Darstellung der Networkingarchitektur in Fabric:
 
-:::warning
-Der nachstehende Code dient nur zu Demonstrationszwecken.
-:::
+![Geteilte Architektur](/assets/develop/networking/sides.png)
 
-Angenommen, du hättest einen Zauberstab, der den Block, den du ansiehst, hervorhebt – und das für alle nahegelegenen Spieler sichtbar macht:
+Beachte, dass die Pakete die Brücke zwischen dem Server und dem Client bilden. Das liegt daran, dass fast alles, was du im Spiel tust, in irgendeiner Weise mit Networking zu tun hat, ob du es weißt oder nicht.
+Wenn du zum Beispiel eine Chat-Nachricht sendest, wird ein Paket mit dem Inhalt an den Server geschickt.
+Der Server sendet dann ein weiteres Paket mit deiner Nachricht an alle anderen Clients.
 
-```java
-public class HighlightingWandItem extends Item {
-    public HighlightingWandItem(Item.Settings settings) {
-        super(settings);
-    }
+Wichtig ist, dass immer ein Server läuft, auch im Einzelspielermodus und im LAN. Pakete werden immer noch zur Kommunikation zwischen dem Client und dem Server verwendet, auch wenn niemand anderes mit dir spielt. Wenn von Seiten bei Networking die Rede ist, werden die Begriffe "**logischer** Client" und "**logischer** Server" verwendet. Der integrierte Singleplayer/LAN-Server und der dedizierte Server sind beide **logische** Server, aber nur der dedizierte Server kann als **physischer** Server betrachtet werden.
 
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        BlockPos target = ...
-
-        // BAD CODE: DON'T EVER DO THIS! // [!code error]
-        ClientBlockHighlighting.highlightBlock(MinecraftClient.getInstance(), target); // [!code error]
-        return super.use(world, user, hand);
-    }
-}
-```
-
-Beim Testen wirst du sehen, dass ein Blitz beschworen wird und nichts abstürzt. Wenn du jetzt deinem Freund den Mod zeigen willst, startest du einen dedizierten Server und lädst deinen Freund mit dem installierten Mod ein.
-
-Du verwendest das Item und der Server stürzt ab. Im Absturzprotokoll wird wahrscheinlich ein ähnlicher Fehler wie dieser angezeigt:
-
-```log
-[Server thread/FATAL]: Error executing task on Server
-java.lang.RuntimeException: Cannot load class net.minecraft.client.MinecraftClient in environment type SERVER
-```
-
-### Warum stürzt der Server ab? {#why-does-the-server-crash}
-
-Der Code ruft eine Logik auf, die nur in der Client-Distribution von Minecraft vorhanden ist. Der Grund für Mojang, das Spiel auf diese Weise zu verteilen, ist die Verringerung der Größe der Minecraft Server JAR-Datei. Es gibt eigentlich keinen Grund, eine ganze Rendering-Engine einzubinden, wenn dein eigener Rechner die Welt rendert.
-
-In einer Entwicklungsumgebung werden reine Client-Klassen durch die Annotation `@Environment(EnvType.CLIENT)` gekennzeichnet.
-
-### Wie beheben wir den Absturz? {#how-do-we-fix-the-crash}
-
-Um dieses Problem zu beheben, musst du verstehen, wie der Spiel-Client und der dedizierte Server kommunizieren:
-
-![Seiten](/assets/develop/networking/sides.png)
-
-Das obige Diagramm zeigt, dass der Spiel-Client und der dedizierte Server separate Systeme sind, die über_Pakete_ verbunden sind. Pakete können Daten enthalten, die wir als _Payload_ bezeichnen.
-
-Diese Paketbrücke besteht nicht nur zwischen einem Spielclient und einem dedizierten Server, sondern auch zwischen deinem Client und einem anderen über LAN verbundenen Client. Die Paketbrücke ist auch im Einzelspielermodus vorhanden. Der Grund dafür ist, dass der Spielclient eine spezielle integrierte Serverinstanz zum Ausführen des Spiels ausführt.
-
-Die Verbindung zu einem Server über LAN oder den Einzelspielermodus kann auch so behandelt werden, als wäre der Server ein entfernter, dedizierter Server; Dein Spielclient kann also nicht direkt auf die Serverinstanz zugreifen.
+Wenn der Status zwischen dem Client und dem Server nicht synchronisiert wird, kann es zu Problemen kommen, wenn der Server oder andere Clients nicht mit dem übereinstimmen, was ein anderer macht. Dies wird oft als "Desync" bezeichnet. Wenn du deinen eigenen Mod schreibst, musst du eventuell ein Datenpaket senden, um den Status des Servers und aller Clients synchron zu halten.
 
 ## Eine Einführung in Networking {#an-introduction-to-networking}
 
 ### Einen Payload definieren {#defining-a-payload}
+
+:::info
+Eine Payload sind die Daten, die innerhalb eines Pakets gesendet werden.
+:::
 
 Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPayload` implementiert, gelöst werden.
 
@@ -171,7 +138,7 @@ Schließlich erstellen wir eine `LightningEntity` und fügen sie der Welt hinzu.
 
 Wenn du nun diesen Mod auf einem Server installierst und ein Spieler dein Item "Lightning Tater" benutzt, sehen alle Spieler Blitze, die an der Position des Users einschlagen.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm" title="Summon lightning using Lightning Tater" />
+<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Erzeugen eines Blitzes mit dem Lightning Tater</VideoPlayer>
 
 ### Senden eines Pakets an den Server {#sending-a-packet-to-the-server}
 
@@ -220,4 +187,4 @@ Außerdem muss es sich bei der Zielentität um eine lebende Entität handeln, un
 
 Wenn ein Spieler nun versucht, eine giftige Kartoffel auf einer lebenden Entität zu verwenden, wird der Leuchten-Effekt auf diese angewendet.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm" title="Glowing effect is applied when a Poisonous Potato is used on a living entity." />
+<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Der Leucht-Effekt wird angewendet, wenn die giftige Kartoffel von einer lebenden Entität genutzt wird</VideoPlayer>

@@ -20,9 +20,9 @@ authors-nogithub:
 
 La generazione di dati (datagen) è un'API per generare programmaticamente ricette, progressi, tag, modelli di oggetti, file di lingua, loot table, e praticamente qualsiasi cosa basata su JSON.
 
-## Configurazione della Generazione di Dati {#data-generation-setup}
+## Attivare la Generazione di Dati {#enabling-data-generation}
 
-### Attivare la Generazione di Dati {#enabling-data-generation}
+### Durante la Creazione del Progetto {#enabling-data-generation-at-project-creation}
 
 Il modo più semplice per attivare la datagen è durante la creazione del progetto. Attiva la casella "Enable Data Generation" mentre usi il [generatore di mod modello](https://fabricmc.net/develop/template).
 

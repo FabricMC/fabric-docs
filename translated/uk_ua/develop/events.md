@@ -61,7 +61,7 @@ API Fabric має подію, яка запускається під час за
 
 Ми можемо створити пул за допомогою `LootPool#builder` і додати його до таблиці здобичі.
 
-Ми можемо створити пул за допомогою `LootPool#builder` і додати його до таблиці здобичі.
+У нашому пулі також немає елементів, тому ми зробимо запис про елемент за допомогою `ItemEntry#builder` і додамо його до пулу.
 
 @[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
 

@@ -3,11 +3,11 @@ title: 상태 효과
 description: 사용자 정의 상태 효과를 만드는 방법을 알아보세요.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
-  - SattesKrokodil
   - Manchick0
+  - SattesKrokodil
+  - FireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
