@@ -3,6 +3,7 @@ title: Item Models
 description: A guide to writing and understanding item models.
 authors:
   - Fellteros
+  - VatinMc
 ---
 
 This page will guide you through writing your own item models and understanding all their options and possibilities.
