@@ -22,9 +22,9 @@ Every item model file has a defined structure that has to be followed. It all st
   "parent": "...",
   "display": {
     "<position>": {
-      "rotation": [0, 0, 0],
-      "translation": [0, 0, 0],
-      "scale": [0, 0, 0]
+      "rotation": [0.0, 0.0, 0.0],
+      "translation": [0.0, 0.0, 0.0],
+      "scale": [0.0, 0.0, 0.0]
     }
   },
   "textures": {
@@ -35,10 +35,10 @@ Every item model file has a defined structure that has to be followed. It all st
   "gui_light": "...",
   "elements": [
     {
-      "from": [0, 0, 0],
-      "to": [0, 0, 0],
+      "from": [0.0, 0.0, 0.0],
+      "to": [0.0, 0.0, 0.0],
       "rotation": {
-        "origin": [0, 0, 0],
+        "origin": [0.0, 0.0, 0.0],
         "axis": "...",
         "angle": "...",
         "rescale": "true/false"
@@ -77,9 +77,9 @@ Can be set to `item/generated` to use a model created out of the specified icon 
 {
   "display": {
     "<position>": {
-      "rotation": [0, 0, 0],
-      "translation": [0, 0, 0],
-      "scale": [0, 0, 0]
+      "rotation": [0.0, 0.0, 0.0],
+      "translation": [0.0, 0.0, 0.0],
+      "scale": [0.0, 0.0, 0.0]
     }
   }
 }
@@ -102,9 +102,9 @@ Furthermore, each position can contain these three values, each in the form of a
 
 ```json
 {
-  "rotation": [0, 0, 0],
-  "translation": [0, 0, 0],
-  "scale": [0, 0, 0]
+  "rotation": [0.0, 0.0, 0.0],
+  "translation": [0.0, 0.0, 0.0],
+  "scale": [0.0, 0.0, 0.0]
 }
 ```
 
@@ -150,10 +150,10 @@ This tag defines the direction from which the item model is illuminated. Can be 
 {
   "elements": [
     {
-      "from": [0, 0, 0],
-      "to": [0, 0, 0],
+      "from": [0.0, 0.0, 0.0],
+      "to": [0.0, 0.0, 0.0],
       "rotation": {
-        "origin": [0, 0, 0],
+        "origin": [0.0, 0.0, 0.0],
         "axis": "...",
         "angle": "...",
         "rescale": "true/false"
@@ -178,8 +178,8 @@ Contains all the elements of the model, which can only be cubic. If both `parent
 
 ```json
 {
-  "from": [0, 0, 0],
-  "to": [0, 0, 0]
+  "from": [0.0, 0.0, 0.0],
+  "to": [0.0, 0.0, 0.0]
 }
 ```
 
@@ -189,7 +189,7 @@ The values of both must be between **-16** and **32**, which means that every it
 ```json
 {
   "rotation": {
-    "origin": [0, 0, 0],
+    "origin": [0.0, 0.0, 0.0],
     "axis": "...",
     "angle": "...",
     "rescale": "true/false"
