@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import {Fabric} from "../types";
 
 export default [
   {
@@ -92,6 +92,10 @@ export default [
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },
+      {
+        text: "develop.items.spawn-egg",
+        link: "/develop/items/spawn-egg",
+      }
     ],
   },
   {

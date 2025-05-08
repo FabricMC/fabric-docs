@@ -3,6 +3,7 @@ title: Item Model Generation
 description: A guide to generating item models via datagen.
 authors:
   - Fellteros
+  - VatinMc
 ---
 
 :::info PREREQUISITES
@@ -75,17 +76,15 @@ _**assets/modid/models/item/guidite_axe.json**_
 
 @[code lang=java transcludeWith=:::datagen-model:spawn-egg](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Spawn eggs have a little different approach when it comes to defining their looks. Since all spawn eggs use the same texture, we only need to specify its colors by passing in two **decimal** int values.
+Since spawn eggs use a template model, we can use the `registerSpawnEgg()` method of the `ItemModelGenerator` instance, to assign the colors and link the model to the `SpawnEggItem`. After running datagen, it should look like this:
 
-The first value is the base color, the second is for the spots.
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/custom_spawn_egg.json)
 
-:::tip
-If you're struggling with finding the right decimal value for a color, search for "int-to-color convertor" and use one of the many calculators out there.
+::: info
+Minecraft uses signed 32-bit Integers to store ARGB color values. Java is able to convert RGB hexadecimal color values like shown above.
+
+If you don't want to worry about the conversion, you can use tools like [Spawn Egg Color Picker](https://vatinmc.github.io/spawn-egg-color-picker/).
 :::
-
-_**assets/modid/items/suspicious_egg.json**_
-
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_egg.json)
 
 ### Dyeable Items {#dyeable-items}
 

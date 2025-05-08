@@ -99,7 +99,9 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		//:::datagen-model:handheld
 
 		//:::datagen-model:spawn-egg
-		itemModelGenerator.registerSpawnEgg(ModItems.SUSPICIOUS_EGG, 0, 16777215);
+		int shellColor = 0x000000;
+		int spotsColor = 0xffffff;
+		itemModelGenerator.registerSpawnEgg(ModItems.CUSTOM_SPAWN_EGG, shellColor, spotsColor);
 		//:::datagen-model:spawn-egg
 
 		//:::datagen-model:dyeable

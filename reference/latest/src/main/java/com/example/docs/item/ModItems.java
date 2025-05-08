@@ -5,8 +5,10 @@ import java.util.function.Function;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -14,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
@@ -131,7 +134,13 @@ public class ModItems {
 	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Settings());
 
 	//spawn egg
-	public static final Item SUSPICIOUS_EGG = register("suspicious_egg", Item::new, new Item.Settings());
+	// :::spawn_egg_register_item
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG = registerSpawnEgg(
+			"custom_spawn_egg",
+			EntityType.FROG,
+			new Item.Settings()
+	);
+	// :::spawn_egg_register_item
 
 	//dyeable
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Settings());
@@ -147,6 +156,22 @@ public class ModItems {
 
 	//custom
 	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
+
+	// :::spawn_egg_register_method
+	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends MobEntity> entityType, Item.Settings settings) {
+		// Create the item key.
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+
+		// Create the spawn egg item instance.
+		SpawnEggItem spawnEggItem = new SpawnEggItem(entityType, settings.registryKey(itemKey));
+
+		// Register the spawn egg item.
+		Registry.register(Registries.ITEM, itemKey, spawnEggItem);
+
+		return spawnEggItem;
+	}
+
+	// :::spawn_egg_register_method
 
 	// :::1
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
@@ -187,6 +212,11 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
 		// :::8
 
+		// :::spawn_egg_item_group
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
+				.register(itemGroup -> itemGroup.add(ModItems.CUSTOM_SPAWN_EGG));
+		// :::spawn_egg_item_group
+
 		// :::_12
 		// Register the group.
 		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
@@ -208,7 +238,6 @@ public class ModItems {
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.add(ModItems.RUBY);
 			itemGroup.add(ModItems.GUIDITE_AXE);
-			itemGroup.add(ModItems.SUSPICIOUS_EGG);
 			itemGroup.add(ModItems.LEATHER_GLOVES);
 			itemGroup.add(ModItems.FLASHLIGHT);
 			itemGroup.add(ModItems.BALLOON);

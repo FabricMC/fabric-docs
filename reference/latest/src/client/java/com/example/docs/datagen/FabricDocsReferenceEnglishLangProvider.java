@@ -70,10 +70,11 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 
 		translationBuilder.add(ModItems.RUBY, "Ruby");
 		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
-		translationBuilder.add(ModItems.SUSPICIOUS_EGG, "Suspicious Egg");
 		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
 		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
 		translationBuilder.add(ModItems.BALLOON, "Balloon");
+
+		translationBuilder.add(ModItems.CUSTOM_SPAWN_EGG, "Custom Spawn Egg");
 		// :::datagen-translations:provider
 	}
 }
