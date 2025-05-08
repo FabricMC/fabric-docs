@@ -73,6 +73,7 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModItems.SUSPICIOUS_EGG, "Suspicious Egg");
 		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
 		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
+		translationBuilder.add(ModItems.BALLOON, "Balloon");
 		// :::datagen-translations:provider
 	}
 }

@@ -117,17 +117,45 @@ The third and fourth parameters are the models used when the property is true or
 
 ## Custom Item Models {#custom-item-models}
 
-Generating item models isn't limited to only these methods; you can, of course, create your own. In this section, we will be creating a custom model for a balloon item.
+Generating item models isn't limited to only vanilla methods; you can, of course, create your own. In this section, we will be creating a custom model for a balloon item.
 
 ### Parent Item Model {#parent-item-model}
 
 First, let's create a parent item model that defines how does the item look in-game. We want the balloon to look the same as simple item models, but scaled up. That's pretty straight-forward; we set the parent to be the `item/generated` model, and then override the scaling.
+Put this JSON file in the `resources/assets/mod_id/models/item` folder.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/balloon.json)
+**_models/item/scaled2x.json_**
 
-This will make the model roughly twice as big as the normal ones. Feel free to experiment with the values until you get the desired output.
+@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/scaled2x.json)
+
+This will make the model twice as big as the normal ones. Feel free to experiment with the values until you get the desired output.
 
 ### Custom Model {#custom-model}
+
+Next, we need to create an instance of the `Model` class. It will represent the actual [parent item model](#parent-item-model) inside our mod.
+
+@[code lang=java transcludeWith=:::datagen-model-custom:item-model](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
+
+The `item()` method creates a new `Model` instance, pointing to the `scaled2x.json` file inside the `resources/assets/mod_id/models/item` folder.
+
+TextureKey `LAYER0` represents the `#layer0` texture variable, which will then be replaced by an identifier pointing to a texture.
+
+### Custom Datagen Method {#custom-datagen-method}
+
+The last step is creating a custom method, which will be called in the `generateItemModels()` method and will be responsible for generating our item models.
+
+@[code lang=java transcludeWith=:::datagen-model-custom:item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
+
+Let's go over what the parameters are for:
+1. ``Item item``: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
+2. ``ItemModelGenerator generator``: the same that get passed into the `generateItemModels()` method. Used for its fields.
+
+First, we get the ``Identifier`` of the item with `BALLOON.upload()`, passing in a ``TextureMap`` and the `modelCollector` from our `generator` parameter.
+Then, we'll use another of its fields, the `output` (which essentially works as a supplier), and use the `accept()` method, so that the models are actually generated.
+
+And that's all! Now, we only need to call our method in the `generateItemModels()` method.
+
+@[code lang=java transcludeWith=:::datagen-model-custom:balloon](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
 ## Sources and Links {#sources-and-links}
 

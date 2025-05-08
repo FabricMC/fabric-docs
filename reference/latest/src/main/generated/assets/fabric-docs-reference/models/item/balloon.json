@@ -1,0 +1,6 @@
+{
+  "parent": "fabric-docs-reference:item/scaled2x",
+  "textures": {
+    "layer0": "fabric-docs-reference:item/balloon"
+  }
+}

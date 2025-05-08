@@ -109,12 +109,12 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		//:::datagen-model:condition
 		itemModelGenerator.registerCondition(ModItems.FLASHLIGHT,
 				ItemModels.usingItemProperty(),
-				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED)),
-				ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.FLASHLIGHT, "_lit", Models.GENERATED)));
+				ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.FLASHLIGHT, "_lit", Models.GENERATED)),
+				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED)));
 		//:::datagen-model:condition
 
 		//:::datagen-model-custom:balloon
-
+		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		//:::datagen-model-custom:balloon
 
 		// :::datagen-model:provider
@@ -125,16 +125,25 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	// Inner class containing custom objects for item model generation.
 //	@SuppressWarnings("ALL")
 	public static class CustomItemModelGenerator {
-		public static final Model BALLOON = item("balloon", TextureKey.LAYER0);
+		//:::datagen-model-custom:item-model
+		public static final Model SCALED2X = item("scaled2x", TextureKey.LAYER0);
+		//:::datagen-model-custom:item-model
 
-		public static void registerBalloon(Item item, ItemModelGenerator generator) {
-			Identifier identifier = BALLOON.upload(item, TextureMap.of(TextureKey.LAYER0, ModelIds.getItemModelId(item)), generator.modelCollector);
-			generator.output.accept(item, ItemModels.basic(identifier));
+		//:::datagen-model-custom:item-datagen-method
+		public static void registerScaled2x(Item item, ItemModelGenerator generator) {
+			Identifier itemModel = SCALED2X.upload(item, TextureMap.of(TextureKey.LAYER0, ModelIds.getItemModelId(item)), generator.modelCollector);
+			generator.output.accept(item, ItemModels.basic(itemModel));
 		}
+		//:::datagen-model-custom:item-datagen-method
+
+
+		@SuppressWarnings("SameParameterValue")
+		//:::datagen-model-custom:item-model
 
 		private static Model item(String parent, TextureKey... requiredTextureKeys) {
 			return new Model(Optional.of(Identifier.of(FabricDocsReference.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
+		//:::datagen-model-custom:item-model
 	}
 
 	// Inner class containing all Objects needed for the custom datagen tutorial.

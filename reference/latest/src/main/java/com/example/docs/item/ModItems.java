@@ -145,6 +145,9 @@ public class ModItems {
 		}
 	}, new Item.Settings());
 
+	//custom
+	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
+
 	// :::1
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		// Create the item key.
@@ -208,6 +211,7 @@ public class ModItems {
 			itemGroup.add(ModItems.SUSPICIOUS_EGG);
 			itemGroup.add(ModItems.LEATHER_GLOVES);
 			itemGroup.add(ModItems.FLASHLIGHT);
+			itemGroup.add(ModItems.BALLOON);
 		});
 
 		// :::_10
