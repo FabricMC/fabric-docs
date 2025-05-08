@@ -10,6 +10,7 @@ Visit [Creating Your First Item](./first-item) to understand the references made
 :::
 
 Spawn eggs are items, which are used to spawn the corresponding mob. When creating spawn eggs, the following questions needs to be answered:
+
 - Which `MobEntity` should be spawned?
 - What colors should shell and dots be?
 - What should your spawn egg item be named?
@@ -58,7 +59,7 @@ Create the item description JSON in the `assets/mod-id/items` directory, with th
 
 The spawn egg item is now textured. Name and item group are still missing.
 
-## Naming The Spawn Egg{#naming-the-spawn-egg}
+## Naming The Spawn Egg {#naming-the-spawn-egg}
 
 To name the spawn egg, the translation key `item.mod_id.custom_spawn_egg` must be assigned a value. This process is similar to [Naming The Item](./first-item#naming-the-item).
 
@@ -70,7 +71,7 @@ Create or edit JSON file at: `src/main/resources/assets/mod-id/lang/en_us.json` 
 }
 ```
 
-## Adding To An Item Group{#adding-to-an-item-group}
+## Adding To An Item Group {#adding-to-an-item-group}
 
 Check out [Adding The Item To An Item Group](./first-item#adding-the-item-to-an-item-group) for more detailed information.
 
@@ -80,20 +81,20 @@ The spawn egg is added to the spawn egg `ItemGroup`, in the `initialize()` metho
 
 ![spawn egg item with name and item group](/assets/develop/items/spawn_egg_3.png)
 
-## Troubleshooting{#troubleshooting}
+## Troubleshooting {#troubleshooting}
 
 ::: info
 If this is your first item you need some parts of [Creating Your First Item](./first-item) to make this work.
 :::
 
-### Not Registered
+### Not Registered {#not-registered}
 
 If you aren't able to access your spawn egg ingame, you most likely didn't statically initialize the item class. Check out [Registering Your First Item](first-item#registering-an-item) to get the needed information.
 
-### Texture Missing
+### Texture Missing {#texture-missing}
 
 - Minecraft uses Identifiers to handle information like textures of items. It is very important, to stay constant with naming items, folders, and so on. When using the mod-id it must be the same as specified in your `fabric.mod.json` file.
-- JSON files are very sensitive, e.g. a misplaced comma  will corrupt them. Check the [Item Model Description](#creating-the-item-model-description) for errors. This concept for spawn eggs only works for version 1.21.4.
+- JSON files are very sensitive, e.g. a misplaced comma will corrupt them. Check the [Item Model Description](#creating-the-item-model-description) for errors. This concept for spawn eggs only works for version 1.21.4.
 
 ::: tip
 If you plan on adding multiple spawn eggs, consider using [data generation](../data-generation/spawn-egg-model) to avoid making mistakes.
