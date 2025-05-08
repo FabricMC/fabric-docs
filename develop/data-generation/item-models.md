@@ -57,6 +57,8 @@ _**assets/modid/items/ruby.json**_
 Search for `generated.json` file to see the exact rotation, scaling and positioning of the model.
 :::
 
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/ruby_big.png" downloadURL="/assets/develop/data-generation/item-model/ruby.png">Ruby</DownloadEntry>
+
 ### Handheld Item Models {#handheld-item-models}
 
 @[code lang=java transcludeWith=:::datagen-model:handheld](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
@@ -66,6 +68,8 @@ This type of item model is generally used by tools and weapons (axes, swords, tr
 _**assets/modid/models/item/guidite_axe.json**_
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_axe.json)
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe</DownloadEntry>
 
 ### Spawn Eggs {#spawn-eggs}
 
@@ -98,6 +102,8 @@ _**assets/modid/items/leather_gloves.json**_
 You have to add your item to the ``ItemTags.DYEABLE`` Tag so you can dye it in your inventory!
 :::
 
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/leather_gloves_big.png" downloadURL="/assets/develop/data-generation/item-model/leather_gloves.png">Leather Gloves</DownloadEntry>
+
 ### Conditional Item Models {#conditional-item-models}
 
 @[code lang=java transcludeWith=:::datagen-model:condition](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
@@ -115,6 +121,8 @@ Of course, this isn't all of them. There is plenty more that will almost certain
 
 The third and fourth parameters are the models used when the property is true or false respectively.
 
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/flashlight_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/flashlight_textures.zip">Flashlight</DownloadEntry>
+
 ## Custom Item Models {#custom-item-models}
 
 Generating item models isn't limited to only vanilla methods; you can, of course, create your own. In this section, we will be creating a custom model for a balloon item.
@@ -129,6 +137,8 @@ Put this JSON file in the `resources/assets/mod_id/models/item` folder.
 @[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/scaled2x.json)
 
 This will make the model twice as big as the normal ones. Feel free to experiment with the values until you get the desired output.
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/balloon_big.png" downloadURL="/assets/develop/data-generation/item-model/balloon.png">Balloon</DownloadEntry>
 
 ### Custom Model {#custom-model}
 
