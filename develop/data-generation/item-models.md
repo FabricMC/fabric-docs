@@ -157,6 +157,7 @@ The last step is creating a custom method, which will be called in the `generate
 @[code lang=java transcludeWith=:::datagen-model-custom:item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
 Let's go over what the parameters are for:
+
 1. ``Item item``: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
 2. ``ItemModelGenerator generator``: the same that get passed into the `generateItemModels()` method. Used for its fields.
 

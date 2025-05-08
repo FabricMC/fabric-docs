@@ -123,7 +123,6 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	// :::datagen-model:provider
 
 	// Inner class containing custom objects for item model generation.
-//	@SuppressWarnings("ALL")
 	public static class CustomItemModelGenerator {
 		//:::datagen-model-custom:item-model
 		public static final Model SCALED2X = item("scaled2x", TextureKey.LAYER0);
@@ -134,8 +133,8 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 			Identifier itemModel = SCALED2X.upload(item, TextureMap.of(TextureKey.LAYER0, ModelIds.getItemModelId(item)), generator.modelCollector);
 			generator.output.accept(item, ItemModels.basic(itemModel));
 		}
-		//:::datagen-model-custom:item-datagen-method
 
+		//:::datagen-model-custom:item-datagen-method
 
 		@SuppressWarnings("SameParameterValue")
 		//:::datagen-model-custom:item-model
@@ -143,6 +142,7 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		private static Model item(String parent, TextureKey... requiredTextureKeys) {
 			return new Model(Optional.of(Identifier.of(FabricDocsReference.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
+
 		//:::datagen-model-custom:item-model
 	}
 
