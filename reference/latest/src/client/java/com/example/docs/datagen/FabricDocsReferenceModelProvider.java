@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.Optional;
 
+import com.example.docs.item.ModItems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.data.BlockStateModelGenerator;
@@ -87,6 +89,12 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		// :::datagen-model:provider
 
 		//TODO Since I have little experience with generating item models, I will leave this to someone more experienced (Fellteros)
+
+		// :::datagen-model:spawn-egg
+		int shellColor = 0x000000;
+		int spotsColor = 0xffffff;
+		itemModelGenerator.registerSpawnEgg(ModItems.CUSTOM_SPAWN_EGG_DATA_GEN, shellColor, spotsColor);
+		// :::datagen-model:spawn-egg
 
 		// :::datagen-model:provider
 	}
