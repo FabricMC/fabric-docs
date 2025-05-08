@@ -5,13 +5,16 @@ import java.util.function.Function;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
@@ -97,6 +100,34 @@ public class ModItems {
 			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
 			.build();
 	// :::9
+	// :::spawn_egg_register_method
+	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends MobEntity> entityType, Item.Settings settings){
+		// Create the item key.
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+
+		// Create the spawn egg item instance.
+		SpawnEggItem spawnEggItem = new SpawnEggItem(entityType, settings.registryKey(itemKey));
+
+		// Register the spawn egg item.
+		Registry.register(Registries.ITEM, itemKey, spawnEggItem);
+
+		return spawnEggItem;
+	}
+	// :::spawn_egg_register_method
+	// :::spawn_egg_register_item
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG = registerSpawnEgg(
+			"custom_spawn_egg",
+			EntityType.FROG,
+			new Item.Settings()
+	);
+	// :::spawn_egg_register_item
+	// :::spawn_egg_register_item_data_gen
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG_DATA_GEN = registerSpawnEgg(
+			"custom_spawn_egg_data_gen",
+			EntityType.IRON_GOLEM,
+			new Item.Settings()
+	);
+	// :::spawn_egg_register_item_data_gen
 	// :::5
 	public static final ConsumableComponent POISON_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
 			// The duration is in ticks, 20 ticks = 1 second
@@ -157,6 +188,11 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
 		// :::8
 
+		// :::spawn_egg_item_group
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
+				.register(itemGroup -> itemGroup.add(ModItems.CUSTOM_SPAWN_EGG));
+		// :::spawn_egg_item_group
+
 		// :::_12
 		// Register the group.
 		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
@@ -171,6 +207,7 @@ public class ModItems {
 			itemGroup.add(ModItems.GUIDITE_LEGGINGS);
 			itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
 			itemGroup.add(ModItems.LIGHTNING_STICK);
+			itemGroup.add(ModItems.CUSTOM_SPAWN_EGG);
 			// ...
 		});
 		// :::_12
