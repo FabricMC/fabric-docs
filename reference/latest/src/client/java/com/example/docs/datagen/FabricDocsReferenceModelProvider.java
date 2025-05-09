@@ -1,5 +1,6 @@
 package com.example.docs.datagen;
 
+import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.block.Block;
@@ -19,9 +20,13 @@ import net.minecraft.client.data.TexturedModel;
 import net.minecraft.client.data.VariantSetting;
 import net.minecraft.client.data.VariantSettings;
 import net.minecraft.client.data.VariantsBlockStateSupplier;
+import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.property.numeric.CountProperty;
+import net.minecraft.client.render.item.property.select.ContextDimensionProperty;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -109,11 +114,56 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		//:::datagen-model:dyeable
 
 		//:::datagen-model:condition
-		itemModelGenerator.registerCondition(ModItems.FLASHLIGHT,
+		itemModelGenerator.registerCondition(
+				ModItems.FLASHLIGHT,
 				ItemModels.usingItemProperty(),
 				ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.FLASHLIGHT, "_lit", Models.GENERATED)),
-				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED)));
+				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED))
+		);
 		//:::datagen-model:condition
+
+		//:::datagen-model:composite
+		ItemModel.Unbaked hoe = ItemModels.basic(itemModelGenerator.upload(ModItems.ENHANCED_HOE, Models.GENERATED));
+		ItemModel.Unbaked hoePlus = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.ENHANCED_HOE, "_plus", Models.GENERATED));
+
+		itemModelGenerator.output.accept(
+				ModItems.ENHANCED_HOE,
+				ItemModels.composite(hoe, hoePlus)
+		);
+		//:::datagen-model:composite
+
+		//:::datagen-model:select
+		ItemModel.Unbaked crystalOverworld = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_overworld", Models.GENERATED));
+		ItemModel.Unbaked crystalNether = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_nether", Models.GENERATED));
+		ItemModel.Unbaked crystalEnd = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_end", Models.GENERATED));
+
+		itemModelGenerator.output.accept(
+				ModItems.DIMENSIONAL_CRYSTAL,
+				ItemModels.select(new ContextDimensionProperty(),
+						ItemModels.switchCase(World.OVERWORLD, crystalOverworld),
+						ItemModels.switchCase(World.NETHER, crystalNether),
+						ItemModels.switchCase(World.END, crystalEnd)
+				)
+		);
+		//:::datagen-model:select
+
+		//:::datagen-model:range-dispatch
+		ItemModel.Unbaked knifeOne = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_one", Models.GENERATED));
+		ItemModel.Unbaked knifeTwo = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_two", Models.GENERATED));
+		ItemModel.Unbaked knifeThree = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_three", Models.GENERATED));
+
+		itemModelGenerator.output.accept(
+				ModItems.THROWING_KNIVES,
+				ItemModels.rangeDispatch(
+						new CountProperty(false),
+						List.of(
+							ItemModels.rangeDispatchEntry(knifeOne, 1.0F),
+							ItemModels.rangeDispatchEntry(knifeTwo, 2.0F),
+							ItemModels.rangeDispatchEntry(knifeThree, 3.0F)
+						)
+				)
+		);
+		//:::datagen-model:range-dispatch
 
 		//:::datagen-model-custom:balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);

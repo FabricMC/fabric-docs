@@ -73,6 +73,9 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
 		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
 		translationBuilder.add(ModItems.BALLOON, "Balloon");
+		translationBuilder.add(ModItems.THROWING_KNIVES, "Throwing Knives");
+		translationBuilder.add(ModItems.ENHANCED_HOE, "Enhanced Hoe");
+		translationBuilder.add(ModItems.DIMENSIONAL_CRYSTAL, "Dimensional Crystal");
 
 		translationBuilder.add(ModItems.CUSTOM_SPAWN_EGG, "Custom Spawn Egg");
 		// :::datagen-translations:provider

@@ -1,0 +1,29 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/dimensional_crystal_overworld"
+        },
+        "when": "minecraft:overworld"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/dimensional_crystal_nether"
+        },
+        "when": "minecraft:the_nether"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/dimensional_crystal_end"
+        },
+        "when": "minecraft:the_end"
+      }
+    ],
+    "property": "minecraft:context_dimension"
+  }
+}

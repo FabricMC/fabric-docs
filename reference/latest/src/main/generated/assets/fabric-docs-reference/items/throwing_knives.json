@@ -1,0 +1,30 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "entries": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/throwing_knives_one"
+        },
+        "threshold": 1.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/throwing_knives_two"
+        },
+        "threshold": 2.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fabric-docs-reference:item/throwing_knives_three"
+        },
+        "threshold": 3.0
+      }
+    ],
+    "normalize": false,
+    "property": "minecraft:count"
+  }
+}

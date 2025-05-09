@@ -107,7 +107,7 @@ You have to add your item to the ``ItemTags.DYEABLE`` Tag so you can dye it in y
 
 @[code lang=java transcludeWith=:::datagen-model:condition](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Lastly, we'll look into generating item models that change their visual based when a specific criteria is met; in this case, when the second parameter ``BooleanProperty`` is true. Here are some of them:
+Next, we'll look into generating item models that change their visual based when a specific boolean is true; in this case, the second parameter ``BooleanProperty``. Here are some of them:
 
 | Property               | Description                                                                    |
 |------------------------|--------------------------------------------------------------------------------|
@@ -120,7 +120,70 @@ Of course, this isn't all of them. There is plenty more that will almost certain
 
 The third and fourth parameters are the models used when the property is true or false respectively.
 
+_**assets/modid/items/flashlight.json**_
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/flashlight.json)
+
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/flashlight_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/flashlight_textures.zip">Flashlight</DownloadEntry>
+
+:::warning IMPORTANT
+When obtaining `Identifier`s for the `ItemModels.basic()`, always use `itemModelGenerator.upload()` or any other method using it, otherwise your item model files won't generate, only item model definitions!
+:::
+
+### Composite Item Models {#composite-item-models}
+
+@[code lang=java transcludeWith=:::datagen-model:composite](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
+
+These item models are composed of one or more textures layered on top of each other. There isn't any vanilla method for this, you have to use `ItemModelGenerator`'s `output` field and then `accept()` for it to be working.
+Here's the item model definition JSON:
+
+_**assets/modid/items/enhanced_hoe.json**_
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/enhanced_hoe.json)
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures.zip">Enhanced Hoe</DownloadEntry>
+
+### Select Item Models {#select-item-models}
+
+@[code lang=java transcludeWith=:::datagen-model:select](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
+
+Renders an item model based on the value of a specific property. These are some of them:
+
+| Property                    | Description                                                                                        |
+|-----------------------------|----------------------------------------------------------------------------------------------------|
+| `ContextDimensionProperty`  | Renders an item model based on the dimension in which the player is (Overworld, Nether, End).      |
+| `MainHandProperty`          | Renders an item model when the item is equipped in player's main hand.                             |
+| `DisplayContextProperty`    | Renders an item model based on the position in which the item is (`ground`, `fixed`, `head`, ...). |
+| `ContextEntityTypeProperty` | Renders an item model based on the entity holding the item.                                        |
+
+In this example, the item changes texture when traveling between dimensions; green in Overworld, red in the Nether and black in the End.
+
+_**assets/modid/items/dimensional_crystal.json**_
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/dimensional_crystal.json)
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures.zip">Dimensional Crystal</DownloadEntry>
+
+### Range Dispatch Item Models {#range-dispatch-item-models}
+
+@[code lang=java transcludeWith=:::datagen-model:range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
+
+Renders an item model based on the value of a numeric property. Take in an item and list of variants paired with a value. There are quite a few, here are some examples:
+
+| Property              | Description                                                                  |
+|-----------------------|------------------------------------------------------------------------------|
+| `CooldownProperty`    | Renders an item model based on item's remaining cooldown.                    |
+| `CountPropery`        | Renders an item model based on stack size.                                   |
+| `UseDurationProperty` | Renders an item model based on how long the item is being used.              |
+| `DamageProperty`      | Renders an item model based on attack damage (`minecraft:damage` component). |
+
+This example uses the ``CountProperty``, changing the texture from one knife up to three based on the stack size.
+
+_**assets/modid/items/throwing_knives.json**_
+
+@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/throwing_knives.json)
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/throwing_knives_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/throwing_knives_textures.zip">Throwing Knives</DownloadEntry>
 
 ## Custom Item Models {#custom-item-models}
 

@@ -12,6 +12,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -157,6 +158,15 @@ public class ModItems {
 	//custom
 	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
 
+	//composite
+	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Settings());
+
+	//select
+	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Settings());
+
+	//range dispatch
+	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Settings().maxCount(3));
+
 	// :::spawn_egg_register_method
 	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends MobEntity> entityType, Item.Settings settings) {
 		// Create the item key.
@@ -241,6 +251,9 @@ public class ModItems {
 			itemGroup.add(ModItems.LEATHER_GLOVES);
 			itemGroup.add(ModItems.FLASHLIGHT);
 			itemGroup.add(ModItems.BALLOON);
+			itemGroup.add(ModItems.ENHANCED_HOE);
+			itemGroup.add(ModItems.DIMENSIONAL_CRYSTAL);
+			itemGroup.add(ModItems.THROWING_KNIVES);
 		});
 
 		// :::_10
