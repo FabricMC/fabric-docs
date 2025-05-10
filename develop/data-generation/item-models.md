@@ -93,6 +93,8 @@ If you don't want to worry about the conversion, you can use tools like [Spawn E
 The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value for leather is ``-6265536``)
 It generates a simple item model JSON and an item model definition file specifying the tint color.
 
+![Dyeing leather gloves](/assets/develop/data-generation/item-model/leather_gloves_dyeing.png)
+
 _**assets/modid/items/leather_gloves.json**_
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/leather_gloves.json)
@@ -119,6 +121,8 @@ Next, we'll look into generating item models that change their visual based when
 Of course, this isn't all of them. There is plenty more that will almost certainly cover your needs.
 
 The third and fourth parameters are the models used when the property is true or false respectively.
+
+<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Flashlight turning on and off</VideoPlayer>
 
 _**assets/modid/items/flashlight.json**_
 
@@ -158,6 +162,8 @@ Renders an item model based on the value of a specific property. These are some 
 
 In this example, the item changes texture when traveling between dimensions; green in Overworld, red in the Nether and black in the End.
 
+![Dimensional crystal changing texture based on dimension](/assets/develop/data-generation/item-model/crystal.png)
+
 _**assets/modid/items/dimensional_crystal.json**_
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/dimensional_crystal.json)
@@ -178,6 +184,8 @@ Renders an item model based on the value of a numeric property. Take in an item 
 | `DamageProperty`      | Renders an item model based on attack damage (`minecraft:damage` component). |
 
 This example uses the ``CountProperty``, changing the texture from one knife up to three based on the stack size.
+
+![Throwing knives changing texture based on count](/assets/develop/data-generation/item-model/throwing_knives_example.png)
 
 _**assets/modid/items/throwing_knives.json**_
 
@@ -224,7 +232,7 @@ Let's go over what the parameters are for:
 2. ``ItemModelGenerator generator``: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
 First, we get the ``Identifier`` of the item with `BALLOON.upload()`, passing in a ``TextureMap`` and the `modelCollector` from our `generator` parameter.
-Then, we'll use another of its fields, the `output` (which essentially works as a supplier), and use the `accept()` method, so that the models are actually generated.
+Then, we'll use another of its fields, the `output` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 
 And that's all! Now, we only need to call our method in the `generateItemModels()` method.
 
