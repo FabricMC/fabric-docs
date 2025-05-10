@@ -86,6 +86,8 @@ Minecraft uses signed 32-bit Integers to store ARGB color values. Java is able t
 If you don't want to worry about the conversion, you can use tools like [Spawn Egg Color Picker](https://vatinmc.github.io/spawn-egg-color-picker/).
 :::
 
+
+
 ### Dyeable Items {#dyeable-items}
 
 @[code lang=java transcludeWith=:::datagen-model:dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
