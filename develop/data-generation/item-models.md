@@ -195,6 +195,10 @@ _**assets/modid/items/throwing_knives.json**_
 
 ## Custom Item Models {#custom-item-models}
 
+:::info
+All fields and methods for this part of the tutorial are declared in a static inner class called `CustomItemModelGenerator`.
+:::
+
 Generating item models isn't limited to only vanilla methods; you can, of course, create your own. In this section, we will be creating a custom model for a balloon item.
 
 ### Parent Item Model {#parent-item-model}
