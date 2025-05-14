@@ -123,13 +123,8 @@ public class ModBlocks {
 			.build();
 	// :::datagen-model:family-declaration
 
-	public static final RegistryKey<Block> DUPLICATOR_BLOCK_KEY = RegistryKey.of(
-			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "duplicator")
-	);
-
 	public static final Block DUPLICATOR_BLOCK = register(
-			new DuplicatorBlock(AbstractBlock.Settings.create().registryKey(DUPLICATOR_BLOCK_KEY)), DUPLICATOR_BLOCK_KEY, true
+			"duplicator", DuplicatorBlock::new, AbstractBlock.Settings.create(), true
 	);
 
 	// :::1
