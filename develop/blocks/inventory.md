@@ -7,7 +7,7 @@ authors:
 
 # Block Inventories {#inventories}
 
-In Minecraft, all blocks that can store items have an `Inventory`. This includes blocks like chests, furnaces, and hoppers.
+In Minecraft, a best practice when creating blocks that can store items is to implement `Inventory`. It is implemented by blocks like chests and furnaces. This makes it possible to, for example, interact with the block using hoppers.
 
 In this tutorial we'll create a block that uses its inventory to duplicate any items placed in it.
 
@@ -41,13 +41,15 @@ To do that, we need to override the `onUseWithItem` method in the `DuplicatorBlo
 
 Here, if the player is holding an item and there is an empty slot, we move the item from the player's hand to the block's inventory and return `ItemActionResult.SUCCESS`.
 
-Now, when you right-click the block with an item, you'll no longer have an item! If you run `/data get block` on the block, you'll see the item in the `Items` field in the NBT.
+Now, when you right-click the block with an item, you'll no longer have it! If you run `/data get block` on the block, you'll see the item in the `Items` field in the NBT.
 
-![Duplicator block & /data get block output showing the item in the inventory](/assets/develop/blocks/inventory_1.png)
+![Duplicator block and output of `/data get block` showing the item in the inventory](/assets/develop/blocks/inventory_1.png)
 
 ### Duplicating Items {#duplicating-items}
 
-Actually, on second thought, shouldn't a _duplicator_ block duplicate items? Let's add a `tick` method to the `DuplicatorBlockEntity` that duplicates any item in the input slot and throws it out.
+Actually, on second thought, shouldn't a _duplicator_ block duplicate items? Let's make it so that the block duplicates the stack you threw in it, but only two items at a time. And let's make it wait a second every time to not spam the player with items!
+
+To do this, we'll add a `tick` function to the `DuplicatorBlockEntity`, and a field to store how much we've been waiting:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
 
@@ -55,7 +57,8 @@ The `DuplicatorBlock` should now have a `getTicker` method that returns a refere
 
 <VideoPlayer src="/assets/develop/blocks/inventory_2.mp4" />
 
-## Sided Inventories
+
+## Sided Inventories {#sided-inventories}
 
 By default, you can insert and extract items from the inventory from any side. However, this might not be the desired behavior sometimes: for example, a furnace only accepts fuel from the side and items from the top.
 

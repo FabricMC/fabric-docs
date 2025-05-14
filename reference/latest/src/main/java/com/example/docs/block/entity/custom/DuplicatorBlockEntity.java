@@ -31,6 +31,11 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 
 	private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
+	// :::3
+	private int timeSinceDropped = 0;
+
+	// :::3
+
 	public DuplicatorBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.DUPLICATOR_BLOCK_ENTITY, pos, state);
 	}
@@ -60,11 +65,15 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 	// :::3
 	public static void tick(World world, BlockPos blockPos, BlockState blockState, DuplicatorBlockEntity duplicatorBlockEntity) {
 		if (!duplicatorBlockEntity.isEmpty()) {
-			ItemStack stack = duplicatorBlockEntity.getStack(0);
-			duplicatorBlockEntity.clear();
+			duplicatorBlockEntity.timeSinceDropped++;
 
-			Block.dropStack(world, blockPos, stack);
-			Block.dropStack(world, blockPos, stack);
+			if (duplicatorBlockEntity.timeSinceDropped < 10) return;
+			duplicatorBlockEntity.timeSinceDropped = 0;
+
+			ItemStack duplicate = duplicatorBlockEntity.getStack(0).split(1);
+
+			Block.dropStack(world, blockPos, Direction.UP, duplicate);
+			Block.dropStack(world, blockPos, Direction.UP, duplicate);
 		}
 	}
 
