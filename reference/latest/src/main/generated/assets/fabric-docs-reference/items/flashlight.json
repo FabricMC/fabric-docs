@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "fabric-docs-reference:item/flashlight"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "fabric-docs-reference:item/flashlight_lit"
+    },
+    "property": "minecraft:using_item"
+  }
+}
