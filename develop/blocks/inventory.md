@@ -1,11 +1,9 @@
 ---
-title: Inventories
+title: Block Inventories
 description: Learn how to add inventories to your blocks.
 authors:
   - natri0
 ---
-
-# Block Inventories {#inventories}
 
 In Minecraft, a best practice when creating blocks that can store items is to implement `Inventory`. It is implemented by blocks like chests and furnaces. This makes it possible to, for example, interact with the block using hoppers.
 
@@ -55,8 +53,7 @@ To do this, we'll add a `tick` function to the `DuplicatorBlockEntity`, and a fi
 
 The `DuplicatorBlock` should now have a `getTicker` method that returns a reference to `DuplicatorBlockEntity::tick`.
 
-<VideoPlayer src="/assets/develop/blocks/inventory_2.mp4" />
-
+<VideoPlayer src="/assets/develop/blocks/inventory_2.mp4">Duplicator block duplicating an oak log</VideoPlayer>
 
 ## Sided Inventories {#sided-inventories}
 
@@ -80,4 +77,4 @@ Also, we should modify the `onUseWithItem` method of the `DuplicatorBlock` to ac
 
 Now, if we try to insert items from the side instead of the top, it won't work!
 
-<VideoPlayer src="/assets/develop/blocks/inventory_3.webm" />
+<VideoPlayer src="/assets/develop/blocks/inventory_3.webm">The Duplicator only activating when interacting with its top side</VideoPlayer>
