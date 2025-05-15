@@ -6,6 +6,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
@@ -23,7 +24,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 	}
 
 	@Override
-	public void render(CounterBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+	public void render(CounterBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
 		// :::1
 
 		// :::2
