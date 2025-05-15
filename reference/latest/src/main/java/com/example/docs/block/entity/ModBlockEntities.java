@@ -14,7 +14,6 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
-import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 
 public class ModBlockEntities {
 	public static final BlockEntityType<EngineBlockEntity> ENGINE_BLOCK_ENTITY =
