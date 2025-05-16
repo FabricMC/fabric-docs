@@ -66,7 +66,7 @@ It is recommended to clean up the `LOGGER` usage as much as possible to prevent 
 
 The logger prints the `MOD-ID` in front of the line. The search function <kbd>CTRL / CMD + F</kbd> can be used to highlight it, making it easier to spot the problem. Missing assets, such as the Purple & Black placeholder when a texture is missing, also print their errors in the console and usually mention expected values. You can also use the search function here and look for the asset name in question.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Minecraft_missing_texture_block.svg/1024px-Minecraft_missing_texture_block.svg.png" alt="missin asset texture" width="150" height="150" style="margin-left: auto; margin-right: auto;"/>
+![missing asset](/assets/develop/problem-solving/missing_asset.png)
 
 ![logger output](/assets/develop/problem-solving/debug_02.png)
 
