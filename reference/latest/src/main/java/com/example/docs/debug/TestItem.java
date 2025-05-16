@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
 public class TestItem extends Item {
-	public static final int test = 1;
 	public TestItem(Settings settings) {
 		super(settings);
 	}
@@ -25,12 +24,14 @@ public class TestItem extends Item {
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 		World world = user.getWorld();
+
 		// ::::::problems:logger-usage-example
 		if (world.isClient()) {
 			// :::problems:using-logger
 			FabricDocsReferenceDebug.LOGGER.info("You interacted with an Entity!");
 			// :::problems:using-logger
 		}
+
 		// ::::::problems:logger-usage-example
 
 		// Values are used in a String to provide more information in the console
@@ -40,7 +41,8 @@ public class TestItem extends Item {
 		FabricDocsReferenceDebug.LOGGER.info(output);
 
 		if (!user.getWorld().isClient()) {
-			// non-critical errors can be printed in a different color using the warning Logger
+			// non-critical errors can be printed in a different color using the warning
+			// Logger
 			FabricDocsReferenceDebug.LOGGER.warn("Don't touch that!");
 
 			// The LOGGER can print the Stacktrace too in addition to the logging message
@@ -49,12 +51,12 @@ public class TestItem extends Item {
 				FabricDocsReferenceDebug.LOGGER.error("Error while interacting with an entity occurred", exception);
 				throw exception;
 			}
-
 		}
+
 		return ActionResult.SUCCESS;
 	}
-	// ::::::problems:logger-usage-example
 
+	// ::::::problems:logger-usage-example
 
 	// :::problems:breakpoints
 	@Override
@@ -68,13 +70,16 @@ public class TestItem extends Item {
 		if (state.isIn(ConventionalBlockTags.STONES) || state.isIn(ConventionalBlockTags.COBBLESTONES)) {
 			Text newName = Text.literal("[").append(state.getBlock().getName()).append(Text.literal("]"));
 			itemStack.set(DataComponentTypes.CUSTOM_NAME, newName);
+
 			if (user != null) {
 				user.sendMessage(Text.literal("Changed Item Name"), true);
 			}
+
 			return ActionResult.SUCCESS;
 		}
 
 		return ActionResult.PASS;
 	}
+
 	// :::problems:breakpoints
 }
