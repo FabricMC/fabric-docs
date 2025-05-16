@@ -1,9 +1,7 @@
 package com.example.docs.debug;
 
-// :::problems:basic-logger-definition
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// :::problems:basic-logger-definition
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
@@ -17,7 +15,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 // :::problems:basic-logger-definition
-
 public class FabricDocsReferenceDebug implements ModInitializer {
 	public static final String MOD_ID = "i-am-your-mod-id";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
