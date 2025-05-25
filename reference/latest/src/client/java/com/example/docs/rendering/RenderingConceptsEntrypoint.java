@@ -1,10 +1,7 @@
 package com.example.docs.rendering;
 
-import org.joml.Matrix4f;
-
 import net.minecraft.client.gui.LayeredDrawer;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;

@@ -53,7 +53,6 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		// :::datagen-model:door-and-trapdoor
 		blockStateModelGenerator.registerDoor(ModBlocks.RUBY_DOOR);
 		blockStateModelGenerator.registerTrapdoor(ModBlocks.RUBY_TRAPDOOR);
-		// blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RUBY_TRAPDOOR);
 		// :::datagen-model:door-and-trapdoor
 
 		// :::datagen-model-custom:method-call
@@ -74,8 +73,13 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockStateModelGenerator blockStateModelGenerator) {
 		// :::datagen-model:block-texture-pool-family
-		blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBY_BLOCK).family(ModBlocks.RUBY_FAMILY);
+		blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBY_BLOCK)
+				.family(ModBlocks.RUBY_FAMILY);
 		// :::datagen-model:block-texture-pool-family
+
+		// :::datagen-model:door-and-trapdoor
+		blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RUBY_TRAPDOOR);
+		// :::datagen-model:door-and-trapdoor
 	}
 
 	// :::datagen-model:provider
