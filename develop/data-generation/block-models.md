@@ -40,7 +40,7 @@ This is the most commonly used function. It generates a JSON model file for a no
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
 
-It also generates a blockstate JSON file. Since we have no blockstate properties (e.g. Axis, Facing, ...), one variant is sufficient, and is used every time the block is placed.
+It also generates a blockstate JSON file. Since we have no blockstate properties (e.g., Axis, Facing, ...), only one variant is needed, and is used every time the block is placed.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/steel_block.json)
 
@@ -66,16 +66,16 @@ If you're stuck choosing which `TextureModel` you should use, open the `Textured
 
 @[code lang=java transcludeWith=:::datagen-model:block-texture-pool-normal](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Another useful method is `registerCubeAllModelTexturePool`: define the textures by passing in the "base block", and then append the "children", which will have the same textures.
+Another useful method is `registerCubeAllModelTexturePool`: define the textures by passing in the "base block," and then append the "children," which will have the same textures.
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
 
 ::: warning
 It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.
 
-Be aware of this, if you're changing block model of this particular block, as it will result in en error.
+Be aware of this if you're changing a block model of this particular block, as it will result in en error.
 :::
 
-You can also append a `BlockFamily`, which will generate models for all of its "children".
+You can also append a `BlockFamily`, which will generate models for all of its "children."
 
 @[code lang=java transcludeWith=:::datagen-model:family-declaration](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -87,15 +87,15 @@ You can also append a `BlockFamily`, which will generate models for all of its "
 
 @[code lang=java transcludeWith=:::datagen-model:door-and-trapdoor](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Doors and trapdoors are a little different. Here, you have to make three new textures - two for the door, and one for the trapdoor.
+Doors and trapdoors are a little different. Here, you have to make three new textures—two for the door, and one for the trapdoor.
 
 1. The door:
-    - It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
+    - It has two parts—the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
     - The `registerDoor()` method will create models for all orientations of the door, both open and closed.
     - **You also need an item texture!** Put it in `assets/mod_id/textures/item/` folder.
 2. The trapdoor:
    - Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
-   - Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable". Otherwise, it will look the same no matter the direction it's facing.
+   - Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable." Otherwise, it will look the same no matter the direction it's facing.
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Ruby Door and Trapdoor</DownloadEntry>
 
@@ -103,7 +103,7 @@ Doors and trapdoors are a little different. Here, you have to make three new tex
 
 In this section, we'll create the models for a Vertical Oak Log Slab, with Oak Log textures.
 
-_Points 2. - 6. are declared in an inner static helper class called `CustomBlockStateModelGenerator`._
+_Points 2. — 6. are declared in an inner static helper class called `CustomBlockStateModelGenerator`._
 
 ### Custom Block Class {#custom-block-class}
 
@@ -154,7 +154,7 @@ The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Ob
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with an `Identifier` (Value).
+What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map—you associate a `TextureKey` (Key) with an `Identifier` (Value).
 
 You can either use the vanilla ones, like `TextureMap.all()`(which associates all TextureKeys with the same Identifier), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
@@ -172,20 +172,20 @@ The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use 
 All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
 :::
 
-### Custom `BlockStateSupplier` Method {#custom-supplier-method}
+### Custom `BlockModelDefinitionCreator` Method {#custom-supplier-method}
 
-The `BlockStateSupplier` contains all blockstate variants, their rotation, and other options like uvlock.
+The `BlockModelDefinitionCreator` contains all blockstate variants, their rotation, and other options like uvlock.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
-Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
-Specify which model and which transformations (uvlock, rotation) is used when using `.register()`.
+First, we create a new `VariantsBlockModelDefinitionCreator` using `VariantsBlockModelDefinitionCreator.create()`.
+Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockModelDefinitionCreator`.
+Specify which model and which transformations (uvlock, rotation) are used when using `.register()`.
 For example:
 
-- On the first line, the block is facing north, and is single => we use the model with no rotation.
-- On the fourth line, the block is facing west, and is single => we rotate the model on the Y axis by 270°.
-- On the sixth line, the block is facing east, but isn't single => it looks like a normal oak log => we don't have to rotate it.
+- On the first line, the block is facing north, and is single ⇒ we use the model with no rotation.
+- On the fourth line, the block is facing west, and is single ⇒ we rotate the model on the Y axis by 270°.
+- On the sixth line, the block is facing east, but it isn't single ⇒ it looks like a normal oak log ⇒ we don't have to rotate it.
 
 ### Custom Datagen Method {#custom-datagen-method}
 
@@ -211,4 +211,4 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.4/fabric-data-generation-api-v1/src/) and this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
 
-You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.
+You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example, [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.
