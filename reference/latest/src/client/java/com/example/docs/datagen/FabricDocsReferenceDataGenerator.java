@@ -41,9 +41,9 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 
 		pack.addProvider(FabricDocsReferenceModelProvider::new);
 
-		// :::datagen-setup:generator
-
 		pack.addProvider(FabricDocsReferenceNetworkingBasicModelProvider::new);
+
+		// :::datagen-setup:generator
 	}
 
 	// :::datagen-setup:generator
