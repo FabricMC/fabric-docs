@@ -1,20 +1,10 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "fabric-docs-reference:block/prismarine_lamp_on"
-      },
-      "when": {
-        "activated": "true"
-      }
+  "variants": {
+    "activated=false": {
+      "model": "fabric-docs-reference:block/prismarine_lamp"
     },
-    {
-      "apply": {
-        "model": "fabric-docs-reference:block/prismarine_lamp"
-      },
-      "when": {
-        "activated": "false"
-      }
+    "activated=true": {
+      "model": "fabric-docs-reference:block/prismarine_lamp_on"
     }
-  ]
+  }
 }
