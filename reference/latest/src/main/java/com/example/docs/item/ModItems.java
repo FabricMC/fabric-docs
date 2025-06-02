@@ -5,13 +5,19 @@ import java.util.function.Function;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
@@ -22,7 +28,10 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -118,6 +127,62 @@ public class ModItems {
 	// :::2
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
 	// :::2
+
+	//generated
+	public static final Item RUBY = register("ruby", Item::new, new Item.Settings());
+
+	//handheld
+	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Settings());
+
+	//spawn egg
+	// :::spawn_egg_register_item
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG = registerSpawnEgg(
+			"custom_spawn_egg",
+			EntityType.FROG,
+			new Item.Settings()
+	);
+	// :::spawn_egg_register_item
+
+	//dyeable
+	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Settings());
+
+	//condition
+	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
+		@Override
+		public ActionResult use(World world, PlayerEntity user, Hand hand) {
+			user.setCurrentHand(hand);
+			return ActionResult.CONSUME;
+		}
+	}, new Item.Settings());
+
+	//custom
+	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
+
+	//composite
+	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Settings());
+
+	//select
+	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Settings());
+
+	//range dispatch
+	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Settings().maxCount(3));
+
+	// :::spawn_egg_register_method
+	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends MobEntity> entityType, Item.Settings settings) {
+		// Create the item key.
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+
+		// Create the spawn egg item instance.
+		SpawnEggItem spawnEggItem = new SpawnEggItem(entityType, settings.registryKey(itemKey));
+
+		// Register the spawn egg item.
+		Registry.register(Registries.ITEM, itemKey, spawnEggItem);
+
+		return spawnEggItem;
+	}
+
+	// :::spawn_egg_register_method
+
 	// :::1
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		// Create the item key.
@@ -157,6 +222,11 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
 		// :::8
 
+		// :::spawn_egg_item_group
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
+				.register(itemGroup -> itemGroup.add(ModItems.CUSTOM_SPAWN_EGG));
+		// :::spawn_egg_item_group
+
 		// :::_12
 		// Register the group.
 		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
@@ -174,6 +244,17 @@ public class ModItems {
 			// ...
 		});
 		// :::_12
+
+		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
+			itemGroup.add(ModItems.RUBY);
+			itemGroup.add(ModItems.GUIDITE_AXE);
+			itemGroup.add(ModItems.LEATHER_GLOVES);
+			itemGroup.add(ModItems.FLASHLIGHT);
+			itemGroup.add(ModItems.BALLOON);
+			itemGroup.add(ModItems.ENHANCED_HOE);
+			itemGroup.add(ModItems.DIMENSIONAL_CRYSTAL);
+			itemGroup.add(ModItems.THROWING_KNIVES);
+		});
 
 		// :::_10
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
