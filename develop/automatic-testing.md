@@ -128,7 +128,7 @@ See the respective Javadocs in Fabric API for more info.
 
 Server game tests will be run automatically with the `build` Gradle task. You can run client game tests with the `runClientGameTest` Gradle task.
 
-### Setting Up GitHub Actions {#setting-up-github-actions-game-tests}
+### Run Game Tests on GitHub Actions {#run-game-tests-on-github-actions}
 
 Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following job to your workflow:
 
