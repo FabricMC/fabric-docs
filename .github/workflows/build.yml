@@ -50,12 +50,10 @@ jobs:
           distribution: 'microsoft'
           java-version: '21'
 
-      - name: Run client gametest with Xvfb
-        uses: modmuss50/xvfb-action@v1
-        with:
-          run: ./gradlew runClientGametest
+      - name: Run client gametest
+        run: ./gradlew runClientGametest
 # :::automatic-testing:game-test:run-client-game-test
-          working-directory: ./reference
+        working-directory: ./reference
 # :::automatic-testing:game-test:run-client-game-test
       - name: Upload test screenshots
         uses: actions/upload-artifact@v4
