@@ -7,6 +7,8 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -24,8 +26,10 @@ public class FabricDocsReferenceDebug implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "test_item"),
-				new TestItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)
+		Identifier identifier = Identifier.of(MOD_ID, "test_item");
+		RegistryKey<Item> testItemKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+		Registry.register(Registries.ITEM, identifier,
+				new TestItem(new Item.Settings().registryKey(testItemKey).maxCount(1).rarity(Rarity.EPIC)
 						.component(DataComponentTypes.CUSTOM_NAME, Text.literal("[Use on Stone Block]"))));
 	}
 
