@@ -1,5 +1,5 @@
 ---
-title: Basic Problem Solving
+title: Debugging Mods
 description: Learn all about Logging, Breakpointing and other useful Debugging features.
 authors:
   - JR1811
@@ -43,7 +43,7 @@ When, in this case, the `TestItem` is used on an entity while the game is runnin
 
 @[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
 
-![logger output](/assets/develop/problem-solving/debug_01.png)
+![logger output](/assets/develop/debugging/debug_01.png)
 
 In the logged line, you can find:
 
@@ -66,9 +66,9 @@ It is recommended to clean up the `LOGGER` usage as much as possible to prevent 
 
 The logger prints the `MOD-ID` in front of the line. The search function <kbd>CTRL / CMD + F</kbd> can be used to highlight it, making it easier to spot the problem. Missing assets, such as the Purple & Black placeholder when a texture is missing, also print their errors in the console and usually mention expected values. You can also use the search function here and look for the asset name in question.
 
-![missing asset](/assets/develop/problem-solving/missing_asset.png)
+![missing asset](/assets/develop/debugging/missing_asset.png)
 
-![logger output](/assets/develop/problem-solving/debug_02.png)
+![logger output](/assets/develop/debugging/debug_02.png)
 
 ## Debugging {#debugging}
 
@@ -78,7 +78,7 @@ A more "sophisticated" way of debugging is the usage of breakpoints in an IDE. A
 
 When working with breakpoints, the instance needs to be executed using the `Debug` option instead of the `Run` option.
 
-![logger output](/assets/develop/problem-solving/debug_03.png)
+![logger output](/assets/develop/debugging/debug_03.png)
 
 Let's use a custom item as an example again. The item is supposed to change its `CUSTOM_NAME` DataComponentType if it is used on any Stone block. But in this example the item
 always does a "success" hand animation, and cobblestone doesn't seem to change the name. How can those two issues be resolved? Let's investigate...
@@ -115,13 +115,13 @@ public class TestItem extends Item {
 
 Place a breakpoint by clicking on the line number. You can place more than one at once if needed. The breakpoint will stop right before executing the selected line.
 
-![basic breakpoint](/assets/develop/problem-solving/debug_04.png)
+![basic breakpoint](/assets/develop/debugging/debug_04.png)
 
 Then let the running Minecraft instance execute this part of the code. You can place breakpoints while the game is running, too. In this case, the custom item needs to be used on a block. The Minecraft window should freeze, and in IntelliJ a yellow arrow right next to the Breakpoint appears. This indicates at which point the Debugger is currently.
 
 At the bottom, a `Debug` window should open, and the `Threads & Variables` view should be selected automatically. In the `Debug` window the controls can be used to move the current execution point using the arrow icons. This way the code can be processed step by step.
 
-![debug actions](/assets/develop/problem-solving/debug_05.png)
+![debug actions](/assets/develop/debugging/debug_05.png)
 
 There are also more actions in the "More" sub-menu (three dots icon).
 
@@ -148,15 +148,15 @@ If you are interested in specific object content, you can use the small arrow ic
 
 Values are obviously not loaded if the execution point didn't pass by them or if they are located in a completely different context.
 
-![loaded values](/assets/develop/problem-solving/debug_06.png)
+![loaded values](/assets/develop/debugging/debug_06.png)
 
 The text input line above the currently loaded objects and values in the `Debug` window can be used for many different things. For example, you have access for the currently loaded objects, which allows you to use methods on them. This will add a new entry below, showing the requested data.
 
-![object analysis](/assets/develop/problem-solving/debug_07.png)
+![object analysis](/assets/develop/debugging/debug_07.png)
 
 Let's step over in our example so that the BlockState variable is loaded. We can now check if the BlockState of the targeted block is actually in the given Block Tag. On the right side of the text input field, the `+` icon adds the result permanently for the current debug session.
 
-![boolean expression](/assets/develop/problem-solving/debug_08.png)
+![boolean expression](/assets/develop/debugging/debug_08.png)
 
 As we can see, the `ConventionalBlockTags.STONES` tag does not include cobblestone, since there is a separate tag for that.
 
@@ -168,22 +168,22 @@ Hollow breakpoint icons symbolize inactive breakpoints. They won't stop the acti
 
 All breakpoints will be listed in IntelliJ's `Bookmarks` window.
 
-![breakpoint menu](/assets/develop/problem-solving/debug_09.png)
+![breakpoint menu](/assets/develop/debugging/debug_09.png)
 
-![breakpoints in bookmarks](/assets/develop/problem-solving/debug_10.png)
+![breakpoints in bookmarks](/assets/develop/debugging/debug_10.png)
 
 ### Reloading An Active Instance {#hotswap}
 
 It is possible to make limited changes to the code, while a Minecraft instance is running, using the `Build > Build Project` action (Hammer icon). If you right-click in the empty space of IntelliJ's top menu bar, you can also put the icon next to the `Run Configuration` drop-down element.
 
-![add build icon](/assets/develop/problem-solving/debug_11.png)
+![add build icon](/assets/develop/debugging/debug_11.png)
 
 This process, also called "Hotswapping", requires the Minecraft instance to be started in `Debug` mode instead of the `Run` mode (see [above](./problem-solving#breakpoint)).
 
 This way, the Minecraft instance doesn't need to be restarted again. It also makes testing screen element alignment and other feature balancing faster.
 IntelliJ will notify you if the "hotswap" was successful.
 
-![hotswap notifications](/assets/develop/problem-solving/debug_12.png)
+![hotswap notifications](/assets/develop/debugging/debug_12.png)
 
 Mixins are an exception. You can set up your Run Configuration to allow them to change at runtime too.
 For more information, check out [Launching the Game](./getting-started/launching-the-game#hotswapping-classes).

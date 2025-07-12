@@ -263,8 +263,8 @@ export default [
         link: "/develop/text-and-translations",
       },
       {
-        text: "develop.misc.problem-solving",
-        link: "/develop/problem-solving",
+        text: "develop.misc.debugging",
+        link: "/develop/debugging",
       },
       {
         text: "develop.misc.ideTipsAndTricks",
