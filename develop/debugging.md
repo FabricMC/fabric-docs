@@ -1,87 +1,90 @@
 ---
 title: Debugging Mods
-description: Learn all about Logging, Breakpointing and other useful Debugging features.
+description: Learn all about logging, breakpoints and other useful debugging features.
 authors:
   - JR1811
 ---
 
-Issues, mistakes, and bugs can happen even to the best programmer. You can develop a basic set of steps to potentially identify and resolve those issues without the help of others. Problems solved on your own can teach you many things and also feel rewarding. However, if you are stuck without being able to fix the problems by yourself, there is no shame in asking others for help.
+In programming, even the best are bound to encounter issues, bugs and mistakes.
 
-This page focuses mostly on functionality that is provided by IntelliJ (and many other IDEs) such as logging and how to use the Debugger.
+This guide outlines some general steps that you can take to potentially identify and resolve those, even without the help of others. Solving problems on your own can teach you many things, and will also feel rewarding.
+
+However, if you are stuck, unable to find fixes by yourself, there is no problem in asking others for help!
 
 ## Console and LOGGER {#console-and-logger}
 
-The most basic but also the fastest tool to identify problems is the console. Values can be printed there at "run-time" which can inform the developer about the current state of the code and makes it easy to analyze changes and potential mistakes.
+The simplest and fastest way to locate problems is logging to the console.
 
-In the `ModInitializer` implementing entry point class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
+Values can be printed there at runtime, informing the developer about the current state of the code, and making it easy to analyze changes and potential mistakes.
+
+In the `ModInitializer`-implementing entrypoint class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
 
 @[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/FabricDocsReferenceDebug.java)
 
-Whenever you need to know a value for something at a specific point in the code, use this `LOGGER` by passing the `String` value to its methods.
+Whenever you need to know a value for something at any point in the code, use this `LOGGER` by passing a `String` to its methods.
 
 @[code lang=java transcludeWith=:::problems:using-logger](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
 
 The logger has different modes of printing text to the console. Depending on which method you used for the logger, the logged line can be displayed in different colors.
 
 ```java
-FabricDocsReferenceDebug.LOGGER.info("Example Text");
-FabricDocsReferenceDebug.LOGGER.warn("Example Text");
-FabricDocsReferenceDebug.LOGGER.error("Example Text");
+FabricDocsReferenceDebug.LOGGER.info("Neutral, informative text...");
+FabricDocsReferenceDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
+FabricDocsReferenceDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 ```
 
-| Color | Use case | Explanation |
-| -- | -- | -- |
-| Green | Info | For basic information text |
-| Orange | Warning | For non-critical problems and issues |
-| Red | Errors, Exceptions, Issues | For critical problems like bugs, unexpected game states, etc. |
-
 ::: info
-The logger methods all have different overloads. This way you can provide more information, like a Stacktrace or other things!
+All logger modes support multiple overloads; this way you can provide more information like a stack trace!
 :::
 
 When, in this case, the `TestItem` is used on an entity while the game is running, it will provide the values at this current state of the mod in the console of the currently used instance.
 
 @[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
 
-![logger output](/assets/develop/debugging/debug_01.png)
+![Console showing logged output](/assets/develop/debugging/debug_01.png)
 
 In the logged line, you can find:
 
-- `Logged Time` - The time when the logged information was printed
-- `Thread` - The thread in which it was printed. You will see the _**server thread**_ and _**render thread**_ pretty often. This can tell you on which side the code had been executed.
-- `Name` - The name of the logger. It is best practice to use your mod id here so that logs and crashes see which mod caused the log to be printed
-- `Stacktrace` - If provided, the error logging can also print the exception's Stacktrace
+- `Time` - The time when the logged information was printed
+- `Thread` - The thread in which it was printed. You will often see a _**server thread**_ and a _**render thread**_; this tells you on which side the code had been executed
+- `Name` - The name of the logger. It is best practice to use your mod id here, so that logs and crashes show which mod logged
+- `Message` - This should be concise but descriptive. Include relevant values or context
+- `Stack Trace` - If provided with an exception's stack trace, the logger can print that too
 
 ### Keeping The Console Clean {#clean-console}
 
-Keep in mind that this will also be printed if the mod is used in any other environment. This is completely optional, but I like to create a custom `LOGGER` method and use that instead of the `LOGGER` itself to prevent printing data, which is only needed in a development environment.
+Keep in mind that all of these will also be printed if the mod is used in any other environment.
+
+The following is completely optional, but I like to create a custom `LOGGER` method and use it to avoid printing data in production, when it is only needed during development.
 
 @[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/FabricDocsReferenceDebug.java)
 
 If you are not sure if you should print something outside a debugging session, the basic rule of thumb is to only print to the logger if something went wrong. Modpack devs and users don't care too much about, e.g., if your mod's items have been initialized, but they would like to know if a datapack wasn't loaded correctly due to typos etc.
 
-It is recommended to clean up the `LOGGER` usage as much as possible to prevent causing a headache for modpack developers and other users.
+### Locating Issues {#locating-issues}
 
-### Locating The Issues {#locating-the-issues}
+The logger prints your mod's ID in front of the line. You can search (<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>) for it to highlight it.
 
-The logger prints the `MOD-ID` in front of the line. The search function <kbd>CTRL / CMD + F</kbd> can be used to highlight it, making it easier to spot the problem. Missing assets, such as the Purple & Black placeholder when a texture is missing, also print their errors in the console and usually mention expected values. You can also use the search function here and look for the asset name in question.
+Missing assets and textures (the Purple & Black placeholder) also log a warning to the console, and usually mention the expected values.
 
-![missing asset](/assets/develop/debugging/missing_asset.png)
+![Missing asset](https://minecraft.wiki/images/Missing_Texture_JE4.png)
 
-![logger output](/assets/develop/debugging/debug_02.png)
+![Logger output](/assets/develop/debugging/debug_02.png)
 
-## Debugging {#debugging}
+## Breakpoints {#breakpoints}
 
-### Breakpoint {#breakpoint}
+A more sophisticated way of debugging is using breakpoints in an IDE. As their name suggests, they are used to halt the executed code at specific points to allow for inspecting and modifying the state of the software.
 
-A more "sophisticated" way of debugging is the usage of breakpoints in an IDE. As their name suggests, they are used to halt the executed code at specific locations and make it possible to inspect and modify the state of the software with a variety of tools.
+::: tip
+To use breakpoints, you must execute the instance using the `Debug` option instead of the `Run` option:
 
-When working with breakpoints, the instance needs to be executed using the `Debug` option instead of the `Run` option.
+![Debug button](/assets/develop/debugging/debug_03.png)
+:::
 
-![logger output](/assets/develop/debugging/debug_03.png)
+Let's use our custom item as an example again. The item's `CUSTOM_NAME` `DataComponentType` is supposed to change if it is used on any Stone block.
+However, in this example, the item always seems to trigger a "success" hand animation, yet cobblestone doesn't seem to change the name.
 
-Let's use a custom item as an example again. The item is supposed to change its `CUSTOM_NAME` DataComponentType if it is used on any Stone block. But in this example the item
-always does a "success" hand animation, and cobblestone doesn't seem to change the name. How can those two issues be resolved? Let's investigate...
+How can we resolve these two issues? Let's investigate...
 
 ```java
 // problematic example code:
@@ -115,85 +118,91 @@ public class TestItem extends Item {
 
 Place a breakpoint by clicking on the line number. You can place more than one at once if needed. The breakpoint will stop right before executing the selected line.
 
-![basic breakpoint](/assets/develop/debugging/debug_04.png)
+![Breakpoint set](/assets/develop/debugging/debug_04.png)
 
-Then let the running Minecraft instance execute this part of the code. You can place breakpoints while the game is running, too. In this case, the custom item needs to be used on a block. The Minecraft window should freeze, and in IntelliJ a yellow arrow right next to the Breakpoint appears. This indicates at which point the Debugger is currently.
+Then let the running Minecraft instance execute this part of the code. You can place breakpoints while the game is running, too.
 
-At the bottom, a `Debug` window should open, and the `Threads & Variables` view should be selected automatically. In the `Debug` window the controls can be used to move the current execution point using the arrow icons. This way the code can be processed step by step.
+In this case, the custom item needs to be used on a block. The Minecraft window should freeze, and in IntelliJ a yellow arrow will appear right next to the breakpoint, indicating that the debugger has reached that point.
 
-![debug actions](/assets/develop/debugging/debug_05.png)
+At the bottom, a `Debug` window should open, and the `Threads & Variables` view should be selected automatically. You can use the arrow controls in the `Debug` window to move the execution point. This way of moving through the code is called "stepping".
 
-There are also more actions in the "More" sub-menu (three dots icon).
+![Debug controls](/assets/develop/debugging/debug_05.png)
 
 | Action | Description |
 | -- | -- |
 | Step Over | Steps to the next executed line, basically moving the instance along in the logic |
-| Step Into | Steps into methods to show what is happening inside. If multiple methods are in one line, you can choose them by clicking the specific method that you want to check out. This is also necessary for lambdas. |
-| Run To Cursor | Steps through the logic until it reaches the point where you placed your cursor, e.g. with your mouse, in the code. This is useful for skipping large chunks of code. |
+| Step Into | Steps into a method to show what is happening inside. If there are multiple methods on one line, you can choose which to step into by clicking it. This is also necessary for lambdas. |
+| Run To Cursor | Steps through the logic until it reaches your cursor in the code. This is useful for skipping large chunks of code. |
 | Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs. |
 
 ::: info
-The "Step Over" <kbd>(F8)</kbd> and "Step Into" <kbd>(F7)</kbd> actions are the most common ones, so try to get used to their Key binds!
+The "Step Over" <kbd>F8</kbd> and "Step Into" <kbd>F7</kbd> actions are the most common ones, so try to get used to the shortcuts!
 :::
 
-If you are done with the current inspection, you can press the `Resume Program` button (green resume icon next to the arrows) or press <kbd>F9</kbd>. This will unfreeze the Minecraft instance, and further testing can be done until another Breakpoint is being executed. But let's continue looking at the `Debug` window for now.
+If you are done with the current inspection, you can press the green `Resume Program` button (<kbd>F9</kbd>). This will unfreeze the Minecraft instance, and further testing can be done until another breakpoint is hit. But let's keep looking at the `Debug` window for now.
 
-On the top, you can see all currently running instances. You can switch between a client instance and a server instance, if you are running them at the same time. Below that, you have the debug actions and controls. You can also switch the tab to the `Console` view if you need to take a look at the logs.
+On the top, you can see all currently running instances. If both are running, you can switch between the client and the server instance. Below that, you have the debug actions and controls. You can also switch to the `Console` view if you need to take a look at the logs.
 
-On the left side, you can see the currently active thread and below that the Stacktrace.
+On the left side, you can see the currently active thread, and the stack trace below that.
 
-On the right side, you can inspect and manipulate loaded values and objects. You can also hover with the mouse cursor over the values in the code. If they are in scope and are still loaded, a pop-up window will show their specific values too.
+On the right side, you can inspect and manipulate loaded values and objects. You can also hover over the values in the code: if they are in scope and are still loaded, a pop-up window will show their specific values too.
 
-If you are interested in specific object content, you can use the small arrow icon next to them. This will unfold all their stored data.
+If you are interested in the content of a specific object, you can use the small arrow icon next to it. This will unfold all nested data.
 
 Values are obviously not loaded if the execution point didn't pass by them or if they are located in a completely different context.
 
-![loaded values](/assets/develop/debugging/debug_06.png)
+![A loaded value](/assets/develop/debugging/debug_06.png)
 
 The text input line above the currently loaded objects and values in the `Debug` window can be used for many different things. For example, you have access for the currently loaded objects, which allows you to use methods on them. This will add a new entry below, showing the requested data.
 
-![object analysis](/assets/develop/debugging/debug_07.png)
+![Object analysis](/assets/develop/debugging/debug_07.png)
 
-Let's step over in our example so that the BlockState variable is loaded. We can now check if the BlockState of the targeted block is actually in the given Block Tag. On the right side of the text input field, the `+` icon adds the result permanently for the current debug session.
+Let's step over in our example, so that the `BlockState` variable is loaded. We can now check if the `BlockState` of the targeted block is actually in the `Block` tag.
 
-![boolean expression](/assets/develop/debugging/debug_08.png)
+::: tip
 
-As we can see, the `ConventionalBlockTags.STONES` tag does not include cobblestone, since there is a separate tag for that.
+Press the `+` icon on the right side of the input line to pin the result for the current debug session.
+
+:::
+
+![Boolean expression](/assets/develop/debugging/debug_08.png)
+
+As we can see, the `ConventionalBlockTags.STONES` tag does not include cobblestone because there is a separate tag for that.
 
 ### Breakpoint Toggle and Conditions {#breakpoint-condition-toggle}
 
-Sometimes it is necessary to only halt the code when certain conditions are met. Create a basic Breakpoint and right-click it to open the Breakpoint's settings. In there, you can use boolean statements for the condition.
+Sometimes you only need to halt code when certain conditions are met. For that, create a breakpoint and right-click it to open its settings. In there you can set a boolean statement as the condition.
 
-Hollow breakpoint icons symbolize inactive breakpoints. They won't stop the active Minecraft instance. You can toggle breakpoints either in the Breakpoint's settings pop-up window or by simply using <kbd>Middle Mouse Button</kbd> on the Breakpoint itself.
+Hollow breakpoint icons indicate inactive breakpoints, which won't halt the active Minecraft instance. You can toggle breakpoints either in the breakpoint's settings pop-up window or simply by middle-clicking the breakpoint itself.
 
 All breakpoints will be listed in IntelliJ's `Bookmarks` window.
 
-![breakpoint menu](/assets/develop/debugging/debug_09.png)
+![Breakpoint menu](/assets/develop/debugging/debug_09.png)
 
-![breakpoints in bookmarks](/assets/develop/debugging/debug_10.png)
+![Breakpoints in bookmarks](/assets/develop/debugging/debug_10.png)
 
-### Reloading An Active Instance {#hotswap}
+### Hotswapping An Active Instance {#hotswapping}
 
-It is possible to make limited changes to the code, while a Minecraft instance is running, using the `Build > Build Project` action (Hammer icon). If you right-click in the empty space of IntelliJ's top menu bar, you can also put the icon next to the `Run Configuration` drop-down element.
+You can make limited changes to the code while an instance is running, using the `Build > Build Project` action with the hammer icon. You can also put the icon next to the `Run Configuration` drop-down element by right-clicking the empty space on IntelliJ's top menu bar.
 
-![add build icon](/assets/develop/debugging/debug_11.png)
+![Adding build button to the top bar](/assets/develop/debugging/debug_11.png)
 
-This process, also called "Hotswapping", requires the Minecraft instance to be started in `Debug` mode instead of the `Run` mode (see [above](./problem-solving#breakpoint)).
+This process, also called "hotswapping", requires the Minecraft instance to be started in `Debug` mode instead of the `Run` mode (see [above](#breakpoints)).
 
-This way, the Minecraft instance doesn't need to be restarted again. It also makes testing screen element alignment and other feature balancing faster.
+With this, you don't need to restart the Minecraft instance again. It also makes testing screen element alignment and other feature balancing faster.
 IntelliJ will notify you if the "hotswap" was successful.
 
-![hotswap notifications](/assets/develop/debugging/debug_12.png)
+![Hotswap status notifications](/assets/develop/debugging/debug_12.png)
 
 Mixins are an exception. You can set up your Run Configuration to allow them to change at runtime too.
-For more information, check out [Launching the Game](./getting-started/launching-the-game#hotswapping-classes).
+For more information, check out [Hotswapping Mixins](./getting-started/launching-the-game#hotswapping-mixins).
 
 Other changes can be reloaded in-game.
 
-- changes to the `assets/` folder -> press `[F3 + T]`
+- changes to the `assets/` folder -> press <kbd>F3</kbd>+<kbd>T</kbd>
 - changes to the `data/` folder -> use the `/reload` command
 
-To finish up the example from earlier, we can simply add the new condition to the statement. And if "breakpointed" correctly, we can see that we always get a "success" hand animation since we never returned anything else.
+To finish up with the example from earlier, let's add a condition to the statement. Once we hit the breakpoint, we can see that we always get a "success" hand animation because we never returned anything else.
 
 Apply the fixes and use hotswapping to see the changes in the game instantly.
 
@@ -201,16 +210,14 @@ Apply the fixes and use hotswapping to see the changes in the game instantly.
 
 ## Logs And Crashes {#logs-and-crashes}
 
-The console of a previously executed instance helps with finding the issues. They are exported into the log files, located in the Minecraft instance's `logs` directory. The newest log is usually called `latest.log`. Users can send this file, for further inspection, to the mod developer or host the file content on code-hosting websites.
-For example [mclo.gs](https://mclo.gs/) will keep the logs as anonymous as possible and makes it easy to analyze and share the issues.
+Consoles of previously executed instances are exported as log files, located in the Minecraft instance's `logs` directory. The newest log is usually called `latest.log`.
 
-In the development environment, you can find the logs in the `Project` window's `run > logs` folder and the crash reports in the `run > crash-reports` folder.
+Users will be able to share this file with the mod's developer for further inspection, as explained in [Uploading Logs](../players/troubleshooting/uploading-logs).
 
-[see also](../players/troubleshooting/uploading-logs)
+In the development environment, you can find previous logs in the `Project` window's `run > logs` folder, and crash reports in the `run > crash-reports` folder.
 
-## Still Couldn't Solve The Problem? {#join-the-community}
+## Ask The Community! {#ask-the-community}
 
-Join the community and ask for help!
+Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.com/invite/v6v4pMv) and have a chat with the community!
 
-- [Official Fabric Wiki](https://fabricmc.net/wiki/start)
-- [Discord server](https://discord.com/invite/v6v4pMv)
+You may also want to check out the [Official Fabric Wiki](https://fabricmc.net/wiki/start) for more advanced queries.
