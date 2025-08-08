@@ -35,7 +35,7 @@ public class FabricDocsReferenceDebug implements ModInitializer {
 
 	// :::problems:dev-logger
 	// This method will only log if the Minecraft instance
-    // is running in a Development Environment, like your IDE
+	// is running in a Development Environment, like your IDE
 	public static void devLogger(String loggerInput) {
 		if (!FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			return;
