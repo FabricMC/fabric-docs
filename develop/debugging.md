@@ -25,7 +25,7 @@ Whenever you need to know a value for something at any point in the code, use th
 
 @[code lang=java transcludeWith=:::problems:using-logger](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
 
-The logger has different modes of printing text to the console. Depending on which method you used for the logger, the logged line can be displayed in different colors.
+The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
 ```java
 FabricDocsReferenceDebug.LOGGER.info("Neutral, informative text...");
@@ -37,7 +37,7 @@ FabricDocsReferenceDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code
 All logger modes support multiple overloads; this way you can provide more information like a stack trace!
 :::
 
-When, in this case, the `TestItem` is used on an entity while the game is running, it will provide the values at this current state of the mod in the console of the currently used instance.
+For example, let's make sure that, when the `TestItem` is used on an entity, it will output its current state in console.
 
 @[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
 
@@ -59,7 +59,7 @@ The following is completely optional, but I like to create a custom `LOGGER` met
 
 @[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/FabricDocsReferenceDebug.java)
 
-If you are not sure if you should print something outside a debugging session, the basic rule of thumb is to only print to the logger if something went wrong. Modpack devs and users don't care too much about, e.g., if your mod's items have been initialized, but they would like to know if a datapack wasn't loaded correctly due to typos etc.
+If you are unsure whether to log outside a debugging session, a good rule of thumb is to only log if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
 
 ### Locating Issues {#locating-issues}
 
@@ -153,7 +153,7 @@ Values are obviously not loaded if the execution point didn't pass by them or if
 
 ![A loaded value](/assets/develop/debugging/debug_06.png)
 
-The text input line above the currently loaded objects and values in the `Debug` window can be used for many different things. For example, you have access for the currently loaded objects, which allows you to use methods on them. This will add a new entry below, showing the requested data.
+You can use the input line in the `Debug` window for many different things, for example you can access currently loaded objects and use methods on them. This will add a new entry below, showing the requested data.
 
 ![Object analysis](/assets/develop/debugging/debug_07.png)
 
