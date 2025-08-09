@@ -68,7 +68,7 @@ The logger prints your mod's ID in front of the line. You can search (<kbd>⌘/C
 
 Missing assets and textures (the Purple & Black placeholder) also log a warning to the console, and usually mention the expected values.
 
-![Missing asset](https://minecraft.wiki/images/Missing_Texture_JE4.png)
+![Missing asset](/assets/develop/debugging/missing_asset.png)
 
 ![Logger output](/assets/develop/debugging/debug_02.png)
 
