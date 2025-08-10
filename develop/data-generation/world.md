@@ -63,9 +63,6 @@ registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, FabricDocsReferencePlac
 If you don't already have the `buildRegistry` method, create it and annotate it with an `@Override`.
 
 ## Configured Features
-::: info
-This example is going to make a ore-like vein of Diamond Blocks
-:::
 
 To make a feature naturally spawn in our world we should start by defining the configured feature in our Configured Features class. 
 
@@ -75,11 +72,14 @@ First register the key for the `ConfiguredFeature` by:
 public static final RegistryKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
     RegistryKey.of(
         RegistryKeys.CONFIGURED_FEATURE,
-        Identifier.of(FabricDocsReference.MOD_ID, "diamond_block_vein_configured")
+        Identifier.of(FabricDocsReference.MOD_ID, "diamond_block_vein") 
     );
 ```
+::: tip
+The second argument to the `Identifier` (`diamond_block_vien` in this example) is what you would use to spawn in the structure with the `/place` command, which is helpful for debugging.
+:::
 
-
+### Ores
 Then you need to make a `RuleTest` for what blocks your feature can replace
 
 This `RuleTest` allows the replacement for every block with the tag `DEEP_SLATE_ORE_REPLACEABLES`; another common tag for ores is `STONE_ORE_REPLACEABLES`
@@ -87,7 +87,6 @@ This `RuleTest` allows the replacement for every block with the tag `DEEP_SLATE_
 ```java
 RuleTest deepslateReplaceableRule = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 ```
-
 
 Next we need to create the `OreFeatureConfig`. The `OreFeatureConfig` tells the game what to replace blocks with.
 
@@ -108,7 +107,6 @@ List<OreFeatureConfig.Target> diamondBlockOreConfig =
     );
 ```
 
-
 Lastly we need to register our configured feature to our game!
 
 ```java
@@ -120,9 +118,47 @@ context.register(
     )
 ```
 
+### Trees
+
+To make a custom tree you need to first create a `TreeFeatureConfig`:
+
+```java
+TreeFeatureConfig diamondTree = new TreeFeatureConfig.Builder(
+        // Trunk / Logs
+        BlockStateProvider.of(Blocks.DIAMOND_BLOCK), 
+        new StraightTrunkPlacer(4, 2, 0), 
+        // Leaves
+        BlockStateProvider.of(Blocks.GOLD_BLOCK), 
+        new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), 
+
+        new TwoLayersFeatureSize(0, 0, 0) 
+).build();
+```
+- **What block to use as the logs** — Specifies the block type for the tree trunk (in this case, diamond blocks).
+- **How to generate the trunk** — Configures the trunk shape and height behavior using a trunk placer.
+- **What block to use for the leaves** — Specifies the block type for the tree leaves (in this case, gold blocks).
+- **Leaves shape** — Defines the foliage's shape and size using a foliage placer.
+- **Used for larger trunk thicknesses to dictate when to taper off** — Controls how the tree trunk tapers at different heights, primarily for larger trunks.
+
+:::tip
+We *highly* recommend that you play around with these values to create a tree that **you** are happy with! 
+
+There are a few of built-in placers for the Trunk and Foliage from the vanilla trees
+:::
+
+Next we need to register our tree:
+```java
+context.register(DIAMOND_TREE_KEY, new ConfiguredFeature<>(Feature.TREE, diamondTree));
+
+```
 
 ## Placement Features
-The next step in adding a feature to the game is creating its Placement Feature
+The next step in adding a feature to the game is creating its Placement Feature.
+
+In your Placed Features class's method with the argument of `Registerable<PlacedFeature>` create a variable like the one below:
+```java
+RegistryEntryLookup<ConfiguredFeature<?,?>> configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+```
 
 In your Placed Features class define a `RegistryKey<PlacedFeature>`.
 
@@ -164,7 +200,11 @@ The function of each modifier listed is as follows:
    Uses a logarithmic scale where lower `y` values are more common for the feature, starting from a minimum `y` coordinate below which the feature never spawns. The second argument is the max height that the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip 
-If you're unsure which HeightRangePlacementModifier to use, just use Uniform.
+If you're unsure which `HeightRangePlacementModifier` to use, just use Uniform.
+:::
+
+::: tip
+Trees and other surface structures should include the modifier `PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP` instead of `HeightRangePlacementModifier` to make the tree to spawn at the surface
 :::
 
 Now that we have the modifiers we can register our Placed Feature with:
@@ -189,6 +229,10 @@ BiomeModifications.addFeature(
     PlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
 );
 ```
+
+::: tip
+Trees should have the `GenerationStep.Feature` of `GenerationStep.Feature.VEGETAL_DECORATION,`
+:::
 
 ### Biome Exclusivity
 By changing the BiomeSelectors argument we can have our feature only spawn in a specific biome or type of biome.
@@ -231,7 +275,7 @@ Now when you run datagen you should see a `.json` file in `src/main/generated/da
 ### Example Placed Feature .json file
 ```json
 {
-  "feature": "template-mod:diamond_block_vein_configured",
+  "feature": "template-mod:diamond_block_vein",
   "placement": [
     {
       "type": "minecraft:count",
