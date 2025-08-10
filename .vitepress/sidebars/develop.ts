@@ -239,6 +239,10 @@ export default [
       {
         text: "develop.dataGeneration.blockModels",
         link: "/develop/data-generation/block-models",
+      },      
+      {
+        text: "develop.dataGeneration.world",
+        link: "/develop/data-generation/world ",
       },
     ],
   },
