@@ -1,13 +1,13 @@
 package com.example.docs.datagen;
 
 import static com.example.docs.datagen.FabricDocsReferenceDamageTypesProvider.TATER_DAMAGE_TYPE;
-
+import com.example.docs.worldgen.FabricDocsReferenceWorldConfiguredFeatures;
+import com.example.docs.worldgen.FabricDocsReferenceWorldPlacedFeatures;
+import com.example.docs.worldgen.FabricDocsReferenceWorldgenProvider;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
-
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-
 import com.example.docs.damage.FabricDocsReferenceDamageTypes;
 import com.example.docs.datagen.internal.FabricDocsReferenceInternalModelProvider;
 import com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicModelProvider;
@@ -43,6 +43,8 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 
 		pack.addProvider(FabricDocsReferenceNetworkingBasicModelProvider::new);
 
+		pack.addProvider(FabricDocsReferenceWorldgenProvider::new);
+
 		// :::datagen-setup:generator
 	}
 
@@ -52,6 +54,11 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 		registryBuilder.addRegistry(RegistryKeys.DAMAGE_TYPE, registerable -> {
 			registerable.register(FabricDocsReferenceDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+		
+		// :::datagen-world:registries
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, FabricDocsReferenceWorldConfiguredFeatures::configure);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, FabricDocsReferenceWorldPlacedFeatures::configure);
+		// :::datagen-world:registries
 	}
 
 	// :::datagen-setup:generator
