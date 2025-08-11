@@ -3,7 +3,6 @@ title: World Generation
 description: A guide to setting up world generation with datagen.
 authors:
   - Wind292
-authors-nogithub:
 ---
 ::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) process first.
