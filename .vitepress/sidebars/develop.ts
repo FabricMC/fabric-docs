@@ -242,7 +242,7 @@ export default [
       },      
       {
         text: "develop.dataGeneration.world",
-        link: "/develop/data-generation/world ",
+        link: "/develop/data-generation/world",
       },
     ],
   },
