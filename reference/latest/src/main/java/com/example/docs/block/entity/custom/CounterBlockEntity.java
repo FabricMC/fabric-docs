@@ -2,8 +2,8 @@ package com.example.docs.block.entity.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -48,20 +48,20 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::3
 	@Override
-	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		nbt.putInt("clicks", clicks);
+	protected void writeData(WriteView writeView) {
+		writeView.putInt("clicks", clicks);
 
-		super.writeNbt(nbt, registryLookup);
+		super.writeData(writeView);
 	}
 
 	// :::3
 
 	// :::4
 	@Override
-	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		super.readNbt(nbt, registryLookup);
+	protected void readData(ReadView readView) {
+		super.readData(readView);
 
-		clicks = nbt.getInt("clicks", 0);
+		clicks = readView.getInt("clicks", 0);
 	}
 
 	// :::4

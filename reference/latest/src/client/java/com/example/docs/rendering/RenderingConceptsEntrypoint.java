@@ -1,19 +1,15 @@
 package com.example.docs.rendering;
 
-import org.joml.Matrix4f;
+//import net.minecraft.client.render.VertexConsumer;
+//import net.minecraft.client.util.math.MatrixStack;
 
-import net.minecraft.client.gui.LayeredDrawer;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.Tessellator;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
+//import net.minecraft.util.math.MathHelper;
+//import net.minecraft.util.math.RotationAxis;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
-import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 
 import com.example.docs.FabricDocsReference;
 
@@ -24,14 +20,14 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudLayerRegistrationCallback.EVENT.register(layeredDrawer -> {
-			layeredDrawer.addLayer(IdentifiedLayer.of(Identifier.of(FabricDocsReference.MOD_ID, "layer"), hudLayer()));
-		});
+		HudElementRegistry.addLast(Identifier.of(FabricDocsReference.MOD_ID, "last_element"), hudLayer());
 		// :::1
 	}
 
-	private LayeredDrawer.Layer hudLayer() {
+	private HudElement hudLayer() {
 		return (drawContext, tickCounter) -> {
+			// TODO: fix advanced hud rendering example
+			/*
 			// :::1
 			if (false) {
 				return;
@@ -82,6 +78,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			matrices.pop();
 			// :::2
 			// :::1
+			 */
 		};
 	}
 }

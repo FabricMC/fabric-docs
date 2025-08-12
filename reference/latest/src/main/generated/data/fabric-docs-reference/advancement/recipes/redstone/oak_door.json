@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:oak_door"
+        "recipe": "fabric-docs-reference:oak_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:oak_door"
+      "fabric-docs-reference:oak_door"
     ]
   }
 }
