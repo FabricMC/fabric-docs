@@ -84,3 +84,4 @@ Now that datagen is set up, we need to add **providers**. These are what generat
 - [Recipes](./recipes)
 - [Tags](./tags)
 - [Translations](./translations)
+- [Block Models](./block-models.md)
