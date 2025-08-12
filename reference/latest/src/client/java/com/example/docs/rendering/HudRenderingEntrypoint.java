@@ -15,7 +15,6 @@ import com.example.docs.FabricDocsReference;
 
 // :::1
 public class HudRenderingEntrypoint implements ClientModInitializer {
-	private static final Identifier EXAMPLE_LAYER = Identifier.of(FabricDocsReference.MOD_ID, "hud-example-layer");
 
 	@Override
 	public void onInitializeClient() {

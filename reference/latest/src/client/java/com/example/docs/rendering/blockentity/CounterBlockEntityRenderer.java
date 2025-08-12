@@ -43,7 +43,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 		textRenderer.draw(
 				text,
 				-width/2, -4f,
-				0xffffff,
+				0xffffffff,
 				false,
 				matrices.peek().getPositionMatrix(),
 				vertexConsumers,
