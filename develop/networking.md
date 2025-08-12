@@ -116,7 +116,7 @@ We have also overridden `getId` to return our payload ID.
 
 ### Registering a Payload {#registering-a-payload}
 
-Before we send a packet with our custom payload, we need to register it.
+Before we send a packet with our custom payload, we need to register it on both physical sides.
 
 ::: info
 `S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.

@@ -172,14 +172,14 @@ The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use 
 All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
 :::
 
-### Custom `BlockStateSupplier` Method {#custom-supplier-method}
+### Custom `BlockModelDefinitionCreator` Method {#custom-supplier-method}
 
-The `BlockStateSupplier` contains all blockstate variants, their rotation, and other options like uvlock.
+The `BlockModelDefinitionCreator` contains all blockstate variants, their rotation, and other options like UV lock.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
-Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
+First, we create a new `BlockModelDefinitionCreator` using `VariantsBlockModelDefinitionCreator.of()`.
+Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockModelDefinitionCreator`.
 Specify which model and which transformations (uvlock, rotation) is used when using `.register()`.
 For example:
 
@@ -209,6 +209,6 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.4/fabric-data-generation-api-v1/src/) and this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.8/fabric-data-generation-api-v1/src/) and this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
 
 You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.
