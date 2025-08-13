@@ -5,7 +5,8 @@ authors:
   - IMB11
 ---
 
-This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.
+<!-- TODO: Enable this line once the reference mod is fixed. -->
+<!-- This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page. -->
 
 The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.
 
@@ -89,7 +90,9 @@ The `DrawContext` class has various self-explanatory text rendering methods - fo
 
 Let's say we want to draw "Hello World" onto the screen. We can use the `DrawContext.drawText(...)` method to do this.
 
-Note that 1.21.6 and above change text colour to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+::: info
+Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+:::
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
