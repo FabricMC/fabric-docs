@@ -89,6 +89,8 @@ The `DrawContext` class has various self-explanatory text rendering methods - fo
 
 Let's say we want to draw "Hello World" onto the screen. We can use the `DrawContext.drawText(...)` method to do this.
 
+Note that 1.21.6 and above change text colour to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Drawing text](/assets/develop/rendering/draw-context-text.png)
