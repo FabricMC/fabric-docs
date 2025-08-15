@@ -8,25 +8,27 @@ authors:
 Make sure you've completed the [datagen setup](./setup) process first.
 :::
 
-## World Generation Structure
-The generation for features of Minecraft worlds is broken down into 3 parts.
-* **Configured Features** This defines what features themselves are; this would be like a single tree in a forest.
-* **Placement Features** This defines how the features should be laid out, what direction, relative location, and so on; this would be like the forest.
-* **Biome Modifications** This defines where in the world the features are placed on a global scale; this would be like what coordinates the forest would be at.
+## World Generation Structure {#world-generation-structure}
 
-::: info 
+The generation for features of Minecraft worlds is broken down into 3 parts.
+
+- **Configured Features** This defines what features themselves are; this would be like a single tree in a forest.
+- **Placement Features** This defines how the features should be laid out, what direction, relative location, and so on; this would be like the forest.
+- **Biome Modifications** This defines where in the world the features are placed on a global scale; this would be like what coordinates the forest would be at.
+
+::: info
 Features in Minecraft are natural or generated objects in the world like trees, ores, lakes, caves, and structures (villages, temples, ...etc).
 :::
 
-## Setup
-First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` and fill out the base methods: 
+## Setup {#setup}
+
+First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldgenProvider.java)
 
 Then add this provider to `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method:
 
 @[code lang=java transclude={46-46}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
-
 
 Next make a class for your Configured Features and a class for your Placed Features, these don't need to extend anything.
 
@@ -38,10 +40,9 @@ In your Data Generator class add the lines below to your `buildRegistry` method 
 
 @[code lang=java transcludeWith=:::datagen-world:registries](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
-
 If you don't already have the `buildRegistry` method, create it and annotate it with an `@Override`.
 
-## Configured Features
+## Configured Features {#configured-features}
 
 To make a feature naturally spawn in our world we should start by defining the Configured Feature in our Configured Features class.
 
@@ -53,7 +54,8 @@ First register the key for the `ConfiguredFeature` in your Configured Feature cl
 The second argument to the `Identifier` (`diamond_block_vein` in this example) is what you would use to spawn in the structure with the `/place` command, which is helpful for debugging.
 :::
 
-### Ores
+### Ores {#ores}
+
 Then you need to make a `RuleTest` for what blocks your feature can replace
 
 This `RuleTest` allows the replacement for every block with the tag `DEEP_SLATE_ORE_REPLACEABLES`; another useful tag for ores is `STONE_ORE_REPLACEABLES`
@@ -72,8 +74,7 @@ Lastly we need to register our Configured Feature to our game!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldConfiguredFeatures.java)
 
-
-### Trees
+### Trees {#trees}
 
 To make a custom tree you need to first create a `TreeFeatureConfig`:
 
@@ -86,7 +87,7 @@ To make a custom tree you need to first create a `TreeFeatureConfig`:
 - Argument 5 — Controls how the tree trunk tapers at different heights, primarily for larger trunks.
 
 :::tip
-We *highly* recommend that you play around with these values to create a custom tree that **you** are happy with! 
+We _highly_ recommend that you play around with these values to create a custom tree that **you** are happy with!
 
 There are a few of built-in placers for the Trunk and Foliage from the vanilla trees
 :::
@@ -95,7 +96,8 @@ Next we need to register our tree:
 
 @[code lang=java transcludeWith=:::datagen-world:tree-register](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldConfiguredFeatures.java)
 
-## Placement Features
+## Placement Features {#placement-features}
+
 The next step in adding a feature to the game is creating its Placement Feature.
 
 In your Placed Features class's method with the argument of `Registerable<PlacedFeature>` create a variable like the one below:
@@ -106,7 +108,7 @@ In your Placed Features class define the key for your Placed Feature.
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldPlacedFeatures.java)
 
-### Placement Modifiers
+### Placement Modifiers {#placement-modifiers}
 
 Next we need to define our Placement Modifiers. Placement Modifiers are attributes that you add to the spawning of the feature in the game; this can be anything from how often it spawns to what `y` level it spawns at.
 
@@ -115,20 +117,22 @@ You can have as few or as many modifiers as you like.
 @[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldPlacedFeatures.java)
 
 The function of each modifier listed is as follows:
-* **CountPlacementModifier** - Roughly the amount of instances of this feature per chunk (in this case veins per chunk)
-* **BiomePlacementModifier** - Allows us to control what biomes/dimensions it spawns (we'll do more on this later)
-* **SquarePlacementModifier** - Disperses the features more pseudo-randomly
-* **HeightRangePlacementModifier** - Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
-1. **Uniform:**  
+
+- **CountPlacementModifier** - Roughly the amount of instances of this feature per chunk (in this case veins per chunk)
+- **BiomePlacementModifier** - Allows us to control what biomes/dimensions it spawns (we'll do more on this later)
+- **SquarePlacementModifier** - Disperses the features more pseudo-randomly
+- **HeightRangePlacementModifier** - Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
+
+1. **Uniform:**
    All `y` values within the range are equally likely to contain the feature.
 
-2. **Trapezoid:**  
+2. **Trapezoid:**
    `y` values closer to the median `y` value have a higher probability of containing the feature.
 
-3. **Biased-Bottom:**  
+3. **Biased-Bottom:**
    Uses a logarithmic scale where lower `y` values are more common for the feature, starting from a minimum `y` coordinate below which the feature never spawns. The second argument is the max height that the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
-::: tip 
+::: tip
 If you're unsure which `HeightRangePlacementModifier` to use for your ore, just use Uniform.
 :::
 
@@ -140,7 +144,8 @@ Now that we have the modifiers we can register our Placed Feature with:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/FabricDocsReferenceWorldPlacedFeatures.java)
 
-## Biome Modifications
+## Biome Modifications {#biome-modifications}
+
 Lastly we need to add our Placed Feature to `BiomeModifications` during mod initialization, we can do this with
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
@@ -149,27 +154,22 @@ Lastly we need to add our Placed Feature to `BiomeModifications` during mod init
 Trees should have the `GenerationStep.Feature` of `GenerationStep.Feature.VEGETAL_DECORATION,`
 :::
 
-### Biome Exclusivity
+### Biome Specific Generation {#biome-specific-generation}
+
 By changing the BiomeSelectors argument we can have our feature only spawn in a specific biome or type of biome.
 
 @[code lang=java transcludeWith=:::datagen-world:selective-biome-modifications](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 This would only spawn in biomes tagged with the `is_forest` tag.
 
-## Running Datagen
-Now when you run datagen you should see a `.json` file in `src/main/generated/data/<modid>/worldgen/configured_feature` for  each Configured Feature you added and a file in `src/main/generated/data/<modid>/worldgen/placed_feature` for each Placed Feature you added!
+## Running Datagen {#running-datagen}
 
+Now when you run datagen you should see a `.json` file in `src/main/generated/data/<modid>/worldgen/configured_feature` for each Configured Feature you added and a file in `src/main/generated/data/<modid>/worldgen/placed_feature` for each Placed Feature you added!
 
-### Example Configured Feature .json file
+### Example Configured Feature `.json` File {#example-configured-features}
+
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/worldgen/configured_feature/diamond_block_vein.json)
 
-
-
-### Example Placed Feature .json file
+### Example Placed Feature `.json` File {#example-placed-feature}
 
 @[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/worldgen/placed_feature/diamond_block_ore_placed.json)
-
-
-## Results
-
-Now when you run your game you should see your feature generating in the world!
