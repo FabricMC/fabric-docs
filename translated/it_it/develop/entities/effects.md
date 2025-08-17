@@ -35,7 +35,7 @@ Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per re
 
 ### Texture {#texture}
 
-L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
+L'icona dell'effetto è un PNG 18x18 che apparirà nella schermata dell'inventario del giocatore. Posiziona la tua icona personalizzata in:
 
 ```:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
@@ -66,7 +66,7 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addStatusEffect`, che prende una `StatusEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
+Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addStatusEffect`, che accetta una `StatusEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 
@@ -80,6 +80,5 @@ Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addS
 | `icon`      | `boolean`                     | Se si mostra un'icona dell'effetto nel HUD. L'effetto sarà mostrato nell'inventario indipendentemente da questo valore.                                                                                                                                 |
 
 :::info
-::: info
 Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions).
 :::

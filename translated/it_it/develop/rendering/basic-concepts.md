@@ -28,7 +28,7 @@ Il `Tessellator` viene usato per creare un `BufferBuilder`, che viene usato per 
 
 ### Inizializzare il `BufferBuilder` {#initializing-the-bufferbuilder}
 
-Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `Tessellator#begin(...)`, che prende un `VertexFormat` e una modalità di disegno e restituisce un `BufferBuilder`.
+Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `Tessellator#begin(...)`, che accetta un `VertexFormat` e una modalità di disegno e restituisce un `BufferBuilder`.
 
 #### Formati dei Vertici {#vertex-formats}
 
@@ -65,7 +65,7 @@ La modalità di disegno definisce come sono disegnati i dati. Sono disponibili l
 | `DrawMode.DEBUG_LINE_STRIP` | Come `DrawMode.LINE_STRIP`, ma le linee sono sempre larghe un pixel.                                                                                |
 | `DrawMode.TRIANGLES`        | Ogni elemento è fatto da 3 vertici, formando un triangolo.                                                                                          |
 | `DrawMode.TRIANGLE_STRIP`   | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un nuovo triangolo con gli ultimi due vertici.           |
-| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Inizia con 3 vertici per il primo triangolo.                                           |
+| `DrawMode.TRIANGLE_FAN`     | Inizia con 3 vertici per il primo triangolo. Ogni vertice aggiuntivo forma un triangolo con il primo e l'ultimo vertice.            |
 | `DrawMode.QUADS`            | Ogni elemento è fatto da 4 vertici, formando un quadrilatero.                                                                                       |
 
 ### Scrivere al `BufferBuilder` {#writing-to-the-bufferbuilder}
@@ -143,7 +143,7 @@ Assicurati di spingere lo stack di matrici prima di prendere una matrice di tras
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
-![Un video che mostra il diamante ingrandito e rimpicciolito](/assets/develop/rendering/concepts-matrix-stack.webp)
+![Un video che mostra il diamante ingrandirsi e rimpicciolirsi](/assets/develop/rendering/concepts-matrix-stack.webp)
 
 ## Quaternioni (Cose che Ruotano) {#quaternions-rotating-things}
 

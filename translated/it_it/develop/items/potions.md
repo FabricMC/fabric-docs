@@ -20,7 +20,7 @@ Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Userem
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
+Passiamo una istanza di `StatusEffectInstance`, che accetta 3 parametri:
 
 - `RegistryEntry<StatusEffect> type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso la classe vanilla `StatusEffects`.
 - `int duration` - Durata dell'effetto espressa in tick di gioco.
@@ -36,7 +36,7 @@ Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUI
 
 @[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-`registerPotionRecipe` prende 3 parametri:
+`registerPotionRecipe` accetta 3 parametri:
 
 - `RegistryEntry<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.

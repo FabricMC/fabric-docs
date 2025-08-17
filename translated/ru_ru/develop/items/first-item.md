@@ -78,7 +78,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Сейчас у предмета нет перевода, поэтому вам необходимо его добавить. Ключ перевода уже предоставлен Minecraft: `item.mod_id.suspicious_substance`.
 
-Создайте новый файл JSON: `src/main/resources/assets/<mod id here>/lang/en_us.json` и введите ключ перевода, а также его значение:
+Создайте новый файл JSON: `src/main/resources/assets/mod-id/lang/en_us.json` и введите ключ перевода, а также его значение:
 
 ```json
 {
@@ -100,7 +100,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Вы собираетесь создать простую модель «item/generated», которая принимает на входе только текстуру и ничего больше.
 
-Создайте модель JSON в папке `assets/<mod id here>/models/item` с тем же именем, что и у элемента; `suspicious_substance.json`
+Создайте модель JSON в папке `assets/mod-id/models/item` с тем же именем, что и у элемента; `suspicious_substance.json`
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -117,7 +117,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Minecraft автоматически не узнает, где можно найти файлы модели вашего предмета, вам нужно предоставить описание модели предмета.
 
-Создайте JSON-файл описания предмета в `assets/<mod id here>/items` с тем же именем файла, что и идентификатор предмета; `suspicious_substance.json`.
+Создайте JSON-файл описания предмета в `assets/mod-id/items` с тем же именем файла, что и идентификатор предмета: `suspicious_substance.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
 
@@ -125,7 +125,7 @@ Minecraft автоматически не узнает, где можно най
 
 - `model`: это свойство, содержащее ссылку на нашу модель.
   - `type`: это тип нашей модели. Для большинства предметов это должно быть `minecraft:model`
-  - `model`: это идентификатор модели. Он должен иметь следующую форму: `<mod id here>:item/<item name here>`
+  - `model`: это идентификатор модели. Он должен иметь следующую форму: `mod-id:item/item_name`
 
 Теперь ваш предмет в игре должен выглядеть так:
 

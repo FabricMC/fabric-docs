@@ -38,7 +38,7 @@ authors-nogithub:
 
 Ось просте досягнення для отримання ґрунту:
 
-Ось просте досягнення для отримання ґрунту:
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
 Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!

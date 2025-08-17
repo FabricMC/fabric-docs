@@ -45,7 +45,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## Сервер {#server}
 
-Завдання виконання робочого сервера використовує той самий запускач сервера, який ви завантажуєте зі сторінки Fabric, гарантуючи, що середовище максимально наближене до робочого.
+Завдання виконання робочого сервера використовує той самий запускач сервера, який ви завантажуєте із сайту Fabric, гарантуючи, що середовище максимально наближене до робочого.
 
 ```groovy
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {

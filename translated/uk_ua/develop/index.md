@@ -9,4 +9,4 @@ description: Наші посібники для розробників, напи
 
 Пам’ятайте: повністю робочий мод з усім кодом для цієї документації доступний у теці[`/reference` на GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest).
 
-Пам’ятайте: повністю робочий мод з усім кодом для цієї документації доступний у теці[`/reference` на GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest).
+Якщо ви хочете зробити свій внесок у документацію Fabric, ви можете знайти вихідний код на [GitHub](https://github.com/FabricMC/fabric-docs), а також відповідні [правила внеску](../contributing).

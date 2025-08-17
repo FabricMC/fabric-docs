@@ -9,7 +9,7 @@ Na wstępie warto wspomnieć, że zaufanie jest subiektywne, dlatego zawsze nale
 
 ## 1. Korzystaj ze źródła, które jest powszechnie uznane za wiarygodne {#trustworthy-source}
 
-Większość twórców publikuje swoje mody na [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) i [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4).
+Większość twórców publikuje swoje mody na [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) i CurseForge.
 
 Strony te sprawdzają, czy mody są tym, za co się podają i czy nie zawierają żadnego złośliwego kodu. Możesz również zgłaszać szkodliwe mody na tych stronach, a one podejmą działania stosunkowo szybko.
 

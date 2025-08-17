@@ -39,11 +39,11 @@ Unser [Startsound](https://freesound.org/people/el-bee/sounds/644881/) wird von 
 
 Laden wir die Datei in die DAW unserer Wahl.
 
-![Reaper mit der geladenen Audiodatei](/assets/develop/sounds/dynamic-sounds/step_0.png)
+![Gekürzte Audiodatei](/assets/develop/sounds/dynamic-sounds/step_1.png)
 
 Wir können hören und sehen, dass der Motor am Anfang gestartet und am Ende gestoppt wird, was für wiederholende Sounds nicht gut ist. Schneiden wir diese raus und passen wir die Zeitauswahlgriffe an die neue Länge an. Aktiviere auch den Modus `Toggle Repeat`, damit der Ton in einer Schleife abgespielt wird, während wir ihn anpassen.
 
-![Gekürzte Audiodatei](/assets/develop/sounds/dynamic-sounds/step_1.png)
+![Reaper mit der geladenen Audiodatei](/assets/develop/sounds/dynamic-sounds/step_0.png)
 
 ### Störende Audioelemente entfernen {#removing-disruptive-audio-elements}
 
@@ -57,16 +57,16 @@ Wenn du sicher bist, dass dein DAW keinen EQ-Filter zur Verfügung stellt, suche
 
 Verwende in Reaper das Effektfenster, um den Audioeffekt "ReaEQ" oder einen anderen EQ hinzuzufügen.
 
-![Einen EQ-Filter hinzufügen](/assets/develop/sounds/dynamic-sounds/step_2.png)
+![Die schlechte Frequenz gesenkt](/assets/develop/sounds/dynamic-sounds/step_4.png)
 
 Wenn wir die Audio jetzt abspielen, während das EQ-Filter-Fenster geöffnet bleibt, zeigt der EQ-Filter das eingehende Audio in seiner Anzeige an.
 Wir können dort viele Unebenheiten sehen.
 
-![Das Problem identifizieren](/assets/develop/sounds/dynamic-sounds/step_3.png)
+![Einen EQ-Filter hinzufügen](/assets/develop/sounds/dynamic-sounds/step_2.png)
 
 Wenn du kein ausgebildeter Tontechniker bist, geht es in diesem Teil vor allem um Experimente und "Versuch und Irrtum". Zwischen den Knoten 2 und 3 gibt es einen ziemlich harten Sprung. Verschieben wir die Knoten so, dass wir die Frequenz nur für diesen Teil senken.
 
-![Die schlechte Frequenz gesenkt](/assets/develop/sounds/dynamic-sounds/step_4.png)
+![Das Problem identifizieren](/assets/develop/sounds/dynamic-sounds/step_3.png)
 
 Auch andere Effekte können mit einem einfachen EQ-Filter erzielt werden. So kann z. B. durch das Abschneiden hoher und/oder niedriger Frequenzen der Eindruck von über Funk übertragenen Sounds entstehen.
 
@@ -334,7 +334,7 @@ Wenn die Grundstruktur stimmt, kannst du die Methoden hinzufügen, die für die 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
 
 Anstatt nur eine Liste aller aktuell spielenden `SoundInstances` zu haben, könnte man auch verfolgen, welche Soundquellen welche Sounds spielen.
-So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `Liste<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer AbstractDynamicSoundInstance\\` eine bessere Wahl sein.
+So würde es beispielsweise keinen Sinn machen, wenn ein Motor zwei Motorengeräusche gleichzeitig abspielt, während mehrere Motoren, die ihre jeweiligen Motorengeräusche abspielen, einen zulässigen Sonderfall darstellen. Der Einfachheit halber haben wir nur eine `List<AbstractDynamicSoundInstance>` erstellt, aber in vielen Fällen könnte eine `HashMap` aus `DynamicSoundSource` und einer `AbstractDynamicSoundInstance` eine bessere Wahl sein.
 
 ### Ein fortgeschrittenes Sound System nutzen {#using-the-advanced-sound-system}
 
