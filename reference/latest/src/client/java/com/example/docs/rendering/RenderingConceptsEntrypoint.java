@@ -1,11 +1,6 @@
 package com.example.docs.rendering;
 
-//import net.minecraft.client.render.VertexConsumer;
-//import net.minecraft.client.util.math.MatrixStack;
-
 import net.minecraft.util.Identifier;
-//import net.minecraft.util.math.MathHelper;
-//import net.minecraft.util.math.RotationAxis;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
