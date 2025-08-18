@@ -15,7 +15,6 @@ import com.example.docs.FabricDocsReference;
 
 // :::1
 public class HudRenderingEntrypoint implements ClientModInitializer {
-
 	@Override
 	public void onInitializeClient() {
 		// Attach our rendering code to before the chat hud layer. Our layer will render right before the chat. The API will take care of z spacing.
@@ -39,4 +38,5 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 		context.fill(0, 0, 10, 10, lerpedColor);
 	}
 }
+
 // :::1
