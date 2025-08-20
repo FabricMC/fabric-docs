@@ -8,16 +8,30 @@ const failMark = '\x1b[31m✗\x1b[0m'
 
 const configPath = path.resolve(".vitepress/config.mts");
 const versionsDir = path.resolve("versions");
+const distDir = path.resolve(".vitepress/dist");
+const distTmpDir = path.resolve(".vitepress/dist-tmp")
 
-function injectSrcExclude(srcExclude: string[]) {
-  let updatedConfig = fs.readFileSync(configPath, "utf8").replace(/srcExclude:\s*\[.*?]/s, `srcExclude: ` + JSON.stringify(srcExclude));
-  fs.writeFileSync(configPath, updatedConfig, "utf8");
+function injectConfig(srcExclude: string[], outDir?: string) {
+  let config = fs.readFileSync(configPath, "utf8");
+  if (outDir) {
+    if (config.includes("outDir")) {
+      config = config.replace(/srcExclude:\s*\[.*?]/s, `srcExclude: ` + JSON.stringify(srcExclude));
+      config = config.replace(/outDir:\s*['"].*?['"]/, `outDir: "${outDir}"`);
+    } else {
+      config = config.replace(/srcExclude:\s*\[.*?]/s, `srcExclude: ` + JSON.stringify(srcExclude) + `, outDir: "${outDir}"`);
+    }
+  } else {
+    config = config.replace(/srcExclude:\s*\[.*?]/s, `srcExclude: ` + JSON.stringify(srcExclude));
+    // Remove outDir if it exists by matching the previous comma and the entire ourDir property.
+    config = config.replace(/,\s*outDir:\s*['"].*?['"]/, "");
+  }
+  fs.writeFileSync(configPath, config, "utf8");
 }
 
-async function excludeAndBuild(message: string, srcExclude: string[]) {
+async function configureAndBuild(message: string, srcExclude: string[], outDir?: string) {
   const spinner = ora(message).start();
   try {
-    injectSrcExclude(srcExclude);
+    injectConfig(srcExclude, outDir);
     await build();
   } catch (e) {
     spinner.stopAndPersist({symbol: failMark});
@@ -26,10 +40,18 @@ async function excludeAndBuild(message: string, srcExclude: string[]) {
   spinner.stopAndPersist({symbol: checkMark});
 }
 
-async function run() {
-  // Build the latest version first, excluding all files under the versions directory
-  await excludeAndBuild("Building docs for latest version...", ["versions/**", "README.md"]);
+// Copies all files recursively from src to dest, without overwriting existing files
+function copyDir(src: string, dest: string) {
+  fs.mkdirSync(dest, {recursive: true});
+  for (const entry of fs.readdirSync(src, {withFileTypes: true})) {
+    const s = path.join(src, entry.name);
+    const d = path.join(dest, entry.name);
+    if (entry.isDirectory()) copyDir(s, d);
+    else if (!fs.existsSync(d)) fs.copyFileSync(s, d, fs.constants.COPYFILE_EXCL);
+  }
+}
 
+async function run() {
   // Read all versions (subdirectories inside versions)
   const versions = fs.readdirSync(versionsDir, {withFileTypes: true})
     .filter(dirent => dirent.isDirectory())
@@ -37,14 +59,28 @@ async function run() {
 
   for (const version of versions) {
     // Exclude the latest and all other versions except the current one
-    await excludeAndBuild(`Building docs for version: ${version}...`, ["develop/**", "players/**", "translated/**", "index.md", "README.md", ...versions.filter(ver => ver !== version).map(ver => `versions/${ver}/**`)]);
+    // Build in a separate outDir for each version to prevent overwriting
+    await configureAndBuild(`Building docs for version: ${version}...`, ["develop/**", "players/**", "translated/**", "index.md", "README.md", ...versions.filter(ver => ver !== version).map(ver => `versions/${ver}/**`)], `${distTmpDir}/${version}`);
   }
+
+  // Build the latest version last, excluding all files under the versions directory
+  await configureAndBuild("Building docs for latest version...", ["versions/**", "README.md"]);
+  // Reset srcExclude to default
+  injectConfig(["README.md"]);
+
+  // Copy all other versions to dist
+  for (const version of versions) {
+    copyDir(`${distTmpDir}/${version}`, distDir);
+  }
+
+  // Delete dist-tmp
+  fs.rmSync(distTmpDir, {recursive: true, force: true});
 }
 
 run().catch(err => {
+  // Reset srcExclude to default
+  injectConfig(["README.md"]);
+
   console.error(err);
   process.exit(1);
-}).finally(() => {
-  // Reset srcExclude to default
-  injectSrcExclude(["README.md"]);
 });
