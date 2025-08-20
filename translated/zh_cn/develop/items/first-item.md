@@ -33,7 +33,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 物品的注册方法会接收一个 `Item.Settings` 类的实例作为参数。 这个类允许你通过一系列构造器方法配置物品的属性。
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+如果想要改变你的物品的堆叠数量，可以使用 `Item.Settings` 类中的 `maxCount` 方法。
 
 如果将物品标记为可被破坏，那么这就不会生效，因为可被破坏的物品的堆叠大小永远是 1 以避免重复损坏。
 :::
