@@ -23,7 +23,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: npm i
-      - run: npm run build
+      - run: npm run build_by_version
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
