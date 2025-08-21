@@ -15,6 +15,13 @@ You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/tem
 
 The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.mod-id`.
 
+::: warning
+Make sure you remember your mod's ID!
+
+Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own. For example, if your mode id is 'my-first-mod', and some path shoud be `resources/assets/my-first-mod`, not `resources/assets/mod-id`.
+:::
+
+
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
 
 If you either want to use Kotlin, or Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
