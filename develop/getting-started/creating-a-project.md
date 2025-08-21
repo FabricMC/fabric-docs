@@ -18,7 +18,7 @@ The package name should be lowercase, separated by dots, and unique to avoid con
 ::: warning
 Make sure you remember your mod's ID!
 
-Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own. For example, if your mode id is 'my-first-mod', and some path shoud be `resources/assets/my-first-mod`, not `resources/assets/mod-id`.
+Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own. For example, if your mod's id is 'my-first-mod', and some path shoud be `resources/assets/my-first-mod`, not `resources/assets/mod-id`. 
 :::
 
 
