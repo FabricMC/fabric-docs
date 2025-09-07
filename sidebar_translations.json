@@ -65,6 +65,7 @@
   "develop.misc.networking": "Networking",
   "develop.misc.text-and-translations": "Text and Translations",
   "develop.misc.ideTipsAndTricks": "IDE Tips and Tricks",
+  "develop.misc.debugging": "Debugging Mods",
   "develop.misc.automatic-testing": "Automated Testing",
   "develop.misc.loom": "Loom Gradle Plugin",
   "develop.misc.loom.fabric-api": "Fabric API DSL",

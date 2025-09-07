@@ -264,6 +264,10 @@ export default [
         link: "/develop/text-and-translations",
       },
       {
+        text: "develop.misc.debugging",
+        link: "/develop/debugging",
+      },
+      {
         text: "develop.misc.ideTipsAndTricks",
         link: "/develop/ide-tips-and-tricks",
       },
