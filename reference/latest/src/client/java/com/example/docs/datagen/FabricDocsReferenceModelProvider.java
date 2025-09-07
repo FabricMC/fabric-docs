@@ -4,9 +4,8 @@ import java.util.Optional;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.data.BlockModelDefinitionCreator;
 import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.BlockStateSupplier;
-import net.minecraft.client.data.BlockStateVariant;
 import net.minecraft.client.data.BlockStateVariantMap;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Model;
@@ -14,9 +13,8 @@ import net.minecraft.client.data.ModelIds;
 import net.minecraft.client.data.TextureKey;
 import net.minecraft.client.data.TextureMap;
 import net.minecraft.client.data.TexturedModel;
-import net.minecraft.client.data.VariantSetting;
-import net.minecraft.client.data.VariantSettings;
-import net.minecraft.client.data.VariantsBlockStateSupplier;
+import net.minecraft.client.data.VariantsBlockModelDefinitionCreator;
+import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
@@ -121,18 +119,20 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		// :::datagen-model-custom:texture-map
 
 		// :::datagen-model-custom:supplier
-		private static BlockStateSupplier createVerticalSlabBlockStates(Block vertSlabBlock, Identifier vertSlabId, Identifier fullBlockId) {
-			VariantSetting<Boolean> uvlock = VariantSettings.UVLOCK;
-			VariantSetting<VariantSettings.Rotation> yRot = VariantSettings.Y;
-			return VariantsBlockStateSupplier.create(vertSlabBlock).coordinate(BlockStateVariantMap.create(VerticalSlabBlock.FACING, VerticalSlabBlock.SINGLE)
-					.register(Direction.NORTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, vertSlabId).put(uvlock, true))
-					.register(Direction.EAST, true, BlockStateVariant.create().put(VariantSettings.MODEL, vertSlabId).put(uvlock, true).put(yRot, VariantSettings.Rotation.R90))
-					.register(Direction.SOUTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, vertSlabId).put(uvlock, true).put(yRot, VariantSettings.Rotation.R180))
-					.register(Direction.WEST, true, BlockStateVariant.create().put(VariantSettings.MODEL, vertSlabId).put(uvlock, true).put(yRot, VariantSettings.Rotation.R270))
-					.register(Direction.NORTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true))
-					.register(Direction.EAST, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true))
-					.register(Direction.SOUTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true))
-					.register(Direction.WEST, false, BlockStateVariant.create().put(VariantSettings.MODEL, fullBlockId).put(uvlock, true)));
+		private static BlockModelDefinitionCreator createVerticalSlabBlockStates(Block vertSlabBlock, Identifier vertSlabId, Identifier fullBlockId) {
+			WeightedVariant vertSlabModel = BlockStateModelGenerator.createWeightedVariant(vertSlabId);
+			WeightedVariant fullBlockModel = BlockStateModelGenerator.createWeightedVariant(fullBlockId);
+			return VariantsBlockModelDefinitionCreator.of(vertSlabBlock)
+					.with(BlockStateVariantMap.models(VerticalSlabBlock.FACING, VerticalSlabBlock.SINGLE)
+						.register(Direction.NORTH, true, vertSlabModel.apply(BlockStateModelGenerator.UV_LOCK))
+						.register(Direction.EAST, true, vertSlabModel.apply(BlockStateModelGenerator.UV_LOCK).apply(BlockStateModelGenerator.ROTATE_Y_90))
+						.register(Direction.SOUTH, true, vertSlabModel.apply(BlockStateModelGenerator.UV_LOCK).apply(BlockStateModelGenerator.ROTATE_Y_180))
+						.register(Direction.WEST, true, vertSlabModel.apply(BlockStateModelGenerator.UV_LOCK).apply(BlockStateModelGenerator.ROTATE_Y_270))
+						.register(Direction.NORTH, false, fullBlockModel.apply(BlockStateModelGenerator.UV_LOCK))
+						.register(Direction.EAST, false, fullBlockModel.apply(BlockStateModelGenerator.UV_LOCK))
+						.register(Direction.SOUTH, false, fullBlockModel.apply(BlockStateModelGenerator.UV_LOCK))
+						.register(Direction.WEST, false, fullBlockModel.apply(BlockStateModelGenerator.UV_LOCK))
+					);
 		}
 
 		// :::datagen-model-custom:supplier

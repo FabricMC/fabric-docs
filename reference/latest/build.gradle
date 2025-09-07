@@ -1,6 +1,6 @@
-def minecraftVersion = "1.21.4"
-def yarnVersion = "1.21.4+build.4"
-def fabricApiVersion = "0.116.1+1.21.4"
+def minecraftVersion = "1.21.8"
+def yarnVersion = "1.21.8+build.1"
+def fabricApiVersion = "0.131.0+1.21.8"
 
 dependencies {
   minecraft "com.mojang:minecraft:${minecraftVersion}"
