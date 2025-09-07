@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
+    "build_by_version": "tsx .vitepress/build.mts",
     "preview": "vitepress preview",
     "bump": "tsx ./.vitepress/update.ts"
   },
@@ -14,6 +15,7 @@
     "markdownlint": "^0.37.4",
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
+    "ora": "^8.2.0",
     "prompts": "^2.4.2",
     "tsx": "^4.19.2"
   },
