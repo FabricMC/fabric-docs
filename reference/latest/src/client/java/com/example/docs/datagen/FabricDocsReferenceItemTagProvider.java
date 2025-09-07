@@ -16,25 +16,25 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import com.example.docs.FabricDocsReference;
 
 // :::datagen-tags:provider
-public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> {
+public class FabricDocsReferenceItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	// :::datagen-tags:provider
 	// :::datagen-tags:tag-key
 	public static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "smelly_items"));
 	// :::datagen-tags:tag-key
 	// :::datagen-tags:provider
 	public FabricDocsReferenceItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-		super(output, RegistryKeys.ITEM, registriesFuture);
+		super(output, registriesFuture);
 	}
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 		// :::datagen-tags:provider
 		// :::datagen-tags:build
-		getOrCreateTagBuilder(SMELLY_ITEMS)
+		valueLookupBuilder(SMELLY_ITEMS)
 				.add(Items.SLIME_BALL)
 				.add(Items.ROTTEN_FLESH)
 				.addOptionalTag(ItemTags.DIRT)
-				.add(Identifier.ofVanilla("oak_planks"))
+				.add(Items.OAK_PLANKS)
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:build

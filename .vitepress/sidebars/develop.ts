@@ -172,10 +172,11 @@ export default [
     text: "develop.rendering",
     collapsed: true,
     items: [
-      {
-        text: "develop.rendering.basicConcepts",
-        link: "/develop/rendering/basic-concepts",
-      },
+      // TODO: Enable this page once the reference mod is fixed.
+      // {
+      //   text: "develop.rendering.basicConcepts",
+      //   link: "/develop/rendering/basic-concepts",
+      // },
       {
         text: "develop.rendering.drawContext",
         link: "/develop/rendering/draw-context",

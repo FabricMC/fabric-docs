@@ -84,7 +84,7 @@ A transformation matrix is a 4x4 matrix that is used to transform a vector. In M
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
-It's usually obtained via the `MatrixStack` class, which can be obtained via the `DrawContext` object:
+It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `DrawContext` object:
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -107,7 +107,7 @@ This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` dr
 
 ![Four steps that show the placement of the vertices on the screen to form two triangles](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
-Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
+Since we're drawing on the HUD in this example, we'll use the `HudElementRegistry`:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

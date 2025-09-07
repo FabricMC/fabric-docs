@@ -1,13 +1,11 @@
 package com.example.docs.datagen.internal;
 
 import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.BlockStateVariant;
 import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.ModelIds;
 import net.minecraft.client.data.Models;
-import net.minecraft.client.data.MultipartBlockStateSupplier;
-import net.minecraft.client.data.VariantSettings;
-import net.minecraft.client.data.When;
+import net.minecraft.client.data.TextureMap;
+import net.minecraft.client.data.TexturedModel;
+import net.minecraft.client.data.VariantsBlockModelDefinitionCreator;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -32,14 +30,12 @@ public class FabricDocsReferenceInternalModelProvider extends FabricModelProvide
 
 		// TODO: This would be a good example for the model generation page. Move when needed.
 		// TODO: Actually make the model for the prismarine lamp - not sure how to do it via datagen.
-		blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(ModBlocks.PRISMARINE_LAMP)
-				.with(When.create().set(PrismarineLampBlock.ACTIVATED, true),
-						BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.PRISMARINE_LAMP, "_on")))
-				.with(When.create().set(PrismarineLampBlock.ACTIVATED, false),
-						BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(ModBlocks.PRISMARINE_LAMP)))
-		);
+		blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.PRISMARINE_LAMP)
+				.with(BlockStateModelGenerator.createBooleanModelMap(PrismarineLampBlock.ACTIVATED,
+						BlockStateModelGenerator.createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.PRISMARINE_LAMP, "_on", Models.CUBE_ALL, TextureMap::all)),
+						BlockStateModelGenerator.createWeightedVariant(TexturedModel.CUBE_ALL.upload(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelCollector)))));
 
-		blockStateModelGenerator.registerLog(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
+		blockStateModelGenerator.createLogTexturePool(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
 	}
 
 	@Override

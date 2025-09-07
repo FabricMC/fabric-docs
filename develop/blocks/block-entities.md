@@ -68,13 +68,19 @@ Since the `BlockEntity` is not passed into the method, we use `world.getBlockEnt
 
 Now that we have a functional block, we should make it so that the counter doesn't reset between game restarts. This is done by serializing it into NBT when the game saves, and deserializing when it's loading.
 
-Serialization is done with the `writeNbt` method:
+Saving to NBT is done through `ReadView`s and `WriteView`s. These views are responsible for storing errors from encoding/decoding, and keeping track of registries throughout the serialization process.
+
+You can read from a `ReadView` using the `read` method, passing in a `Codec` for the desired type. Likewise, you can write to a `WriteView` by using the `put` method, passing in a Codec for the type, and the value.
+
+There are also methods for primitives, such as `getInt`, `getShort`, `getBoolean` etc. for reading and `putInt`, `putShort`, `putBoolean` etc. for writing. The View also provides methods for working with lists, nullable types, and nested objects.
+
+Serialization is done with the `writeData` method:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Here, we add the fields that should be saved into the passed `NbtCompound`: in the case of the counter block, that's the `clicks` field.
+Here, we add the fields that should be saved into the passed `WriteView`: in the case of the counter block, that's the `clicks` field.
 
-Reading is similar, but instead of saving to the `NbtCompound` you get the values you saved previously, and save them in the BlockEntity's fields:
+Reading is similar, you get the values you saved previously from the `ReadView`, and save them in the BlockEntity's fields:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
