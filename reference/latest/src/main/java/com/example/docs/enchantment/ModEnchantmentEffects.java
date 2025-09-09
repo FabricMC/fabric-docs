@@ -1,6 +1,5 @@
 package com.example.docs.enchantment;
 
-import com.example.docs.ExampleMod;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.enchantment.Enchantment;
@@ -11,6 +10,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
+import com.example.docs.ExampleMod;
 import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
 
 //#entrypoint

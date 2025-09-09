@@ -1,6 +1,5 @@
 package com.example.docs.sound;
 
-import com.example.docs.ExampleMod;
 import org.slf4j.Logger;
 
 import net.minecraft.registry.Registries;
@@ -9,6 +8,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+
+import com.example.docs.ExampleMod;
 
 // :::2
 public class ExampleModSounds implements ModInitializer {

@@ -1,12 +1,12 @@
 package com.example.docs.rendering;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import com.example.docs.ExampleMod;
 
 public class DrawContextExampleScreen extends Screen {
 	public DrawContextExampleScreen() {

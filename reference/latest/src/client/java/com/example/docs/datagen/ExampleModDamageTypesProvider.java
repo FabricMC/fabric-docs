@@ -2,8 +2,6 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.ExampleMod;
-
 import com.google.gson.JsonObject;
 
 import net.minecraft.data.DataOutput;
@@ -19,6 +17,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
+import com.example.docs.ExampleMod;
 import com.example.docs.damage.ExampleModDamageTypes;
 
 public class ExampleModDamageTypesProvider {

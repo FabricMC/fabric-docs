@@ -1,12 +1,13 @@
 package com.example.docs.component;
 
-import com.example.docs.ExampleMod;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.component.ComponentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import com.example.docs.ExampleMod;
 
 //::1
 public class ModComponents {
