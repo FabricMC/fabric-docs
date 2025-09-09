@@ -123,3 +123,14 @@ You can now create server and client game tests in the `src/gametest/java` direc
 :::
 
 See the respective Javadocs in Fabric API for more info.
+
+### Running Game Tests {#running-game-tests}
+
+Server game tests will be run automatically with the `build` Gradle task. You can run client game tests with the `runClientGameTest` Gradle task.
+
+### Run Game Tests on GitHub Actions {#run-game-tests-on-github-actions}
+
+Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
+
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)
