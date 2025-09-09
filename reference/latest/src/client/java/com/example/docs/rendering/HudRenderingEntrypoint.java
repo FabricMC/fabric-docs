@@ -11,14 +11,14 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::1
 public class HudRenderingEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// Attach our rendering code to before the chat hud layer. Our layer will render right before the chat. The API will take care of z spacing.
-		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Identifier.of(FabricDocsReference.MOD_ID, "before_chat"), HudRenderingEntrypoint::render);
+		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Identifier.of(ExampleMod.MOD_ID, "before_chat"), HudRenderingEntrypoint::render);
 	}
 
 	private static void render(DrawContext context, RenderTickCounter tickCounter) {

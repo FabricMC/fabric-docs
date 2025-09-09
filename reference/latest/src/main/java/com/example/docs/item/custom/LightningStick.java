@@ -46,7 +46,7 @@ public class LightningStick extends Item {
 	// :::3
 	@Override
 	public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-		textConsumer.accept(Text.translatable("itemTooltip.fabric-docs-reference.lightning_stick").formatted(Formatting.GOLD));
+		textConsumer.accept(Text.translatable("itemTooltip.example-mod.lightning_stick").formatted(Formatting.GOLD));
 	}
 
 	// :::3

@@ -47,7 +47,7 @@ public class CounterItem extends Item {
 	public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
 		if (stack.contains(ModComponents.CLICK_COUNT_COMPONENT)) {
 			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-			textConsumer.accept(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+			textConsumer.accept(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 		}
 	}
 

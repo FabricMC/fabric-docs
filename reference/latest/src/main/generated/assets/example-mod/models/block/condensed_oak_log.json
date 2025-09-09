@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "example-mod:block/condensed_oak_log_top",
+    "side": "example-mod:block/condensed_oak_log"
+  }
+}
