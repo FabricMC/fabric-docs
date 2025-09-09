@@ -2,7 +2,7 @@ package com.example.docs.sound;
 
 import net.minecraft.util.Identifier;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::1
 public enum TransitionState {
@@ -13,7 +13,7 @@ public enum TransitionState {
 	private final Identifier identifier;
 
 	TransitionState(String name) {
-		this.identifier = Identifier.of(FabricDocsReference.MOD_ID, name);
+		this.identifier = Identifier.of(ExampleMod.MOD_ID, name);
 	}
 
 	public Identifier getIdentifier() {

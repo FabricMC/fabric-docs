@@ -33,14 +33,14 @@ Let's create a custom effect class by extending `StatusEffect`, which is the bas
 Similar to block and item registration, we use `Registry.register` to register our custom effect into the
 `STATUS_EFFECT` registry. This can be done in our initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Texture {#texture}
 
 The status effect icon is a 18x18 PNG which will appear in the player's inventory screen. Place your custom icon in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Example Texture</DownloadEntry>
@@ -52,7 +52,7 @@ language file.
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -64,7 +64,7 @@ It's worth taking a look at how you'd typically apply an effect to an entity.
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

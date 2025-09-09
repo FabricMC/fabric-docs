@@ -3,14 +3,14 @@
   "id": "fabric-docs-reference-test",
   "version": "1.0.0",
   "name": "Fabric docs reference",
-  "icon": "assets/fabric-docs-reference/icon.png",
+  "icon": "assets/example-mod/icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-gametest": [
-      "com.example.docs.FabricDocsGameTest"
+        "com.example.docs.ExampleModGameTest"
     ],
     "fabric-client-gametest": [
-      "com.example.docs.FabricDocsClientGameTest"
+        "com.example.docs.ExampleModClientGameTest"
     ]
   }
 }

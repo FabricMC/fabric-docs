@@ -36,7 +36,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
@@ -95,11 +95,11 @@ All block textures can be found in the `assets/mod-id/textures/block` folder - a
 
 To make the texture show up in-game, you must create a block model which can be found in the `assets/mod-id/models/block/condensed_dirt.json` file for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/mod-id/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 ::: tip
 You only need to create an item model description if you've registered a `BlockItem` along with your block!
@@ -115,7 +115,7 @@ For the example block, which doesn't have a complex blockstate, only one entry i
 
 This file should be located in the `assets/mod-id/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 ::: tip
 Blockstates are incredibly complex, which is why they will be covered next in [their own separate page](./blockstates).
@@ -133,7 +133,7 @@ When breaking the block in survival, you may see that the block does not drop - 
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 This loot table provides a single item drop of the block item when the block is broken, and when it is blown up by an explosion.
 

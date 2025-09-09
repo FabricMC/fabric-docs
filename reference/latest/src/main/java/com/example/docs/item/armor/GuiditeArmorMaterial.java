@@ -13,7 +13,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 public class GuiditeArmorMaterial {
 	// :::base_durability
@@ -21,11 +21,11 @@ public class GuiditeArmorMaterial {
 	// :::base_durability
 
 	// :::material_key
-	public static final RegistryKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(FabricDocsReference.MOD_ID, "guidite"));
+	public static final RegistryKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(ExampleMod.MOD_ID, "guidite"));
 	// :::material_key
 
 	// :::repair_tag
-	public static final TagKey<Item> REPAIRS_GUIDITE_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "repairs_guidite_armor"));
+	public static final TagKey<Item> REPAIRS_GUIDITE_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(ExampleMod.MOD_ID, "repairs_guidite_armor"));
 	// :::repair_tag
 
 	// :::guidite_armor_material

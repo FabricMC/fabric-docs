@@ -1,48 +1,48 @@
 {
-  "schemaVersion": 1,
-  "id": "fabric-docs-reference",
-  "version": "1.0.0",
-  "name": "Fabric docs reference",
-  "icon": "assets/fabric-docs-reference/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.example.docs.FabricDocsReference",
-      "com.example.docs.event.FabricDocsReferenceEvents",
-      "com.example.docs.command.FabricDocsReferenceCommands",
-      "com.example.docs.effect.FabricDocsReferenceEffects",
-      "com.example.docs.potion.FabricDocsReferencePotions",
-      "com.example.docs.sound.FabricDocsReferenceSounds",
-      "com.example.docs.damage.FabricDocsReferenceDamageTypes",
-      "com.example.docs.item.FabricDocsReferenceItems",
-      "com.example.docs.enchantment.FabricDocsReferenceEnchantments",
-      "com.example.docs.block.FabricDocsReferenceBlocks",
-      "com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
-      "com.example.docs.component.FabricDocsReferenceComponents",
-      "com.example.docs.advancement.FabricDocsReferenceDatagenAdvancement",
-      "com.example.docs.networking.FabricDocsReferenceNetworking",
-      "com.example.docs.networking.basic.FabricDocsReferenceNetworkingBasic",
-      "com.example.docs.debug.FabricDocsReferenceDebug"
+    "schemaVersion": 1,
+    "id": "example-mod",
+    "version": "1.0.0",
+    "name": "Fabric docs reference",
+    "icon": "assets/example-mod/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.example.docs.ExampleMod",
+            "com.example.docs.event.ExampleModEvents",
+            "com.example.docs.command.ExampleModCommands",
+            "com.example.docs.effect.ExampleModEffects",
+            "com.example.docs.potion.ExampleModPotions",
+            "com.example.docs.sound.ExampleModSounds",
+            "com.example.docs.damage.ExampleModDamageTypes",
+            "com.example.docs.item.ExampleModItems",
+            "com.example.docs.enchantment.ExampleModEnchantments",
+            "com.example.docs.block.ExampleModBlocks",
+            "com.example.docs.block.entity.ExampleModEntities",
+            "com.example.docs.component.ExampleModComponents",
+            "com.example.docs.advancement.ExampleModDatagenAdvancement",
+            "com.example.docs.networking.ExampleModNetworking",
+            "com.example.docs.networking.basic.ExampleModNetworkingBasic",
+            "com.example.docs.debug.ExampleModDebug"
+        ],
+        "client": [
+            "com.example.docs.client.command.ExampleModClientCommands",
+            "com.example.docs.ExampleModBlockEntityRenderer",
+            "com.example.docs.ExampleModDynamicSound",
+            "com.example.docs.ExampleModClient",
+            "com.example.docs.rendering.HudRenderingEntrypoint",
+            "com.example.docs.rendering.RenderingConceptsEntrypoint",
+            "com.example.docs.network.basic.ExampleModNetworkingBasicClient"
+        ],
+        "fabric-datagen": [
+            "com.example.docs.datagen.ExampleModDataGenerator"
+        ]
+    },
+    "mixins": [
+        "example-mod.mixins.json",
+        {
+            "config": "example-mod.client.mixins.json",
+            "environment": "client"
+        }
     ],
-    "client": [
-      "com.example.docs.client.command.FabricDocsReferenceClientCommands",
-      "com.example.docs.FabricDocsBlockEntityRenderer",
-      "com.example.docs.FabricDocsDynamicSound",
-      "com.example.docs.FabricDocsReferenceClient",
-      "com.example.docs.rendering.HudRenderingEntrypoint",
-      "com.example.docs.rendering.RenderingConceptsEntrypoint",
-      "com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicClient"
-    ],
-    "fabric-datagen": [
-      "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
-    ]
-  },
-  "mixins": [
-    "fabric-docs-reference.mixins.json",
-    {
-      "config": "fabric-docs-reference.client.mixins.json",
-      "environment": "client"
-    }
-  ],
-  "depends": {}
+    "depends": {}
 }

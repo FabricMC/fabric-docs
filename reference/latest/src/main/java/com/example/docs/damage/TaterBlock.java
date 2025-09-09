@@ -22,7 +22,7 @@ public class TaterBlock extends Block {
 			DamageSource damageSource = new DamageSource(
 					world.getRegistryManager()
 							.getOrThrow(RegistryKeys.DAMAGE_TYPE)
-							.getEntry(FabricDocsReferenceDamageTypes.TATER_DAMAGE.getValue()).get()
+							.getEntry(ExampleModDamageTypes.TATER_DAMAGE.getValue()).get()
 			);
 			entity.damage(serverWorld, damageSource, 5.0f);
 		}

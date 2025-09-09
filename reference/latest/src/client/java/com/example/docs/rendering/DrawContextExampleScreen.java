@@ -6,6 +6,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import com.example.docs.ExampleMod;
+
 public class DrawContextExampleScreen extends Screen {
 	public DrawContextExampleScreen() {
 		super(Text.empty());
@@ -62,7 +64,7 @@ public class DrawContextExampleScreen extends Screen {
 		// :::5
 
 		// :::6
-		Identifier texture2 = Identifier.of("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
+		Identifier texture2 = Identifier.of(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// renderLayer, texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
 		context.drawTexture(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);

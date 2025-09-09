@@ -6,7 +6,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public float totalTickProgress = 0F;
@@ -15,7 +15,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudElementRegistry.addLast(Identifier.of(FabricDocsReference.MOD_ID, "last_element"), hudLayer());
+		HudElementRegistry.addLast(Identifier.of(ExampleMod.MOD_ID, "last_element"), hudLayer());
 		// :::1
 	}
 

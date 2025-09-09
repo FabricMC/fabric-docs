@@ -8,8 +8,8 @@ argument,
 the command will also run. One node may have multiple argument types, but be aware that there is a possibility of
 ambiguity, which should be avoided.
 
-@[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 In this case, after the command text `/command_with_arg`, you should type an integer. For example, if you
 run `/command_with_arg 3`, you will get the feedback message:
@@ -20,8 +20,8 @@ If you type `/command_with_arg` without arguments, the command cannot be correct
 
 Then we add an optional second argument:
 
-@[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Now you can type one or two integers. If you give one integer, a feedback text with a single value is printed. If you
 provide two integers, a feedback text with two values will be printed.
@@ -29,8 +29,8 @@ provide two integers, a feedback text with two values will be printed.
 You may find it unnecessary to specify similar executions twice. Therefore, we can create a method that will be used in
 both executions.
 
-@[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_common](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_common](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Custom Argument Types {#custom-argument-types}
 
@@ -50,14 +50,14 @@ You need to register the custom argument type on both the server and the client 
 
 You can register your custom argument type in the `onInitialize` method of your [mod's initializer](./getting-started/project-structure#entrypoints) using the `ArgumentTypeRegistry` class:
 
-@[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Using Custom Argument Types {#using-custom-argument-types}
 
 We can use our custom argument type in a command - by passing an instance of it into the `.argument` method on the command builder.
 
-@[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Running the command, we can test whether or not the argument type works:
 

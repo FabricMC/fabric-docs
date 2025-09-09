@@ -108,7 +108,7 @@ If you enabled `createSourceSet` like the example above, your gametest will be i
 
 <<< @/reference/latest/src/gametest/resources/fabric.mod.json
 
-Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/FabricDocsGameTest`, and a client game test at `src/gametest/java/com/example/docs/FabricDocsClientGameTest`.
+Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/ExampleModGameTest`, and a client game test at `src/gametest/java/com/example/docs/ExampleModClientGameTest`.
 
 ### Writing Game Tests {#writing-game-tests}
 
@@ -116,9 +116,9 @@ You can now create server and client game tests in the `src/gametest/java` direc
 
 ::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java [Server]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java [Server]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java [Client]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java [Client]
 
 :::
 

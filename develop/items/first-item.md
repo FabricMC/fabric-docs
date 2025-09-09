@@ -48,7 +48,7 @@ To do this, you can add a public static initialize method to your class and call
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
@@ -102,7 +102,7 @@ You're going to create a simple `item/generated` model, which takes in an input 
 
 Create the model JSON in the `assets/mod-id/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
@@ -119,7 +119,7 @@ Minecraft doesn't automatically know where your items' model files can be found,
 
 Create the item description JSON in the `assets/mod-id/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Breaking Down the Item Model Description JSON {#breaking-down-the-item-model-description-json}
 

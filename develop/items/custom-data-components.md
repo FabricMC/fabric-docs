@@ -24,7 +24,7 @@ This is the basic template to register a component type:
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    Identifier.of(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -76,7 +76,7 @@ This will return the current component value as the type we defined when we regi
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
@@ -84,15 +84,15 @@ Don't forget to update your lang file (`/assets/mod-id/lang/en_us.json`) and add
 
 ```json
 {
-  "item.fabric-docs-reference.counter": "Counter",
-  "item.fabric-docs-reference.counter.info": "Used %1$s times"
+  "item.example-mod.counter": "Counter",
+  "item.example-mod.counter.info": "Used %1$s times"
 }
 ```
 
 Start up the game and run this command to give yourself a new Counter item with a count of 5.
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+/give @p example-mod:counter[example-mod:click_count=5]
 ```
 
 When you hover over this item in your inventory, you should see the count displayed in the tooltip!
@@ -154,7 +154,7 @@ Start the game again and hover over the item without the component, you should s
 Try giving yourself a Counter with our custom component removed. You can use this command to do so:
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+/give @p example-mod:counter[!example-mod:click_count]
 ```
 
 When hovering over this item, the tooltip should be missing.
