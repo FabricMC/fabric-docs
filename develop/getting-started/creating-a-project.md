@@ -5,6 +5,7 @@ authors:
   - Cactooz
   - IMB11
   - radstevee
+  - Thomas1034
 ---
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
@@ -26,6 +27,16 @@ Once you've filled in the required fields, click the `Generate` button, and the 
 You should extract this zip file to a location of your choice, and then open the extracted folder in IntelliJ IDEA:
 
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
+
+::: warning
+You should follow these rules when choosing the path to your project:
+
+- Avoid cloud storage directories (for example Microsoft Onedrive)
+- Avoid non-ASCII characters (for example emoji, accented letters)
+- Avoid spaces
+
+An example of a "good" path may be: `C:\Projects\YourProjectName`
+:::
 
 ## Importing the Project {#importing-the-project}
 
