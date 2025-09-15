@@ -51,7 +51,7 @@ jobs:
           java-version: '21'
 
       - name: Run production client gametest
-        run: ./gradlew prodClient
+        run: ./gradlew runProductionClientGameTest
 # :::automatic-testing:game-test:3
         working-directory: ./reference
 # :::automatic-testing:game-test:3
