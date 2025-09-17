@@ -252,6 +252,10 @@ export default [
         link: "/develop/codecs",
       },
       {
+        text: "develop.misc.data-attachments",
+        link: "/develop/data-attachments",
+      },
+      {
         text: "develop.misc.events",
         link: "/develop/events",
       },
