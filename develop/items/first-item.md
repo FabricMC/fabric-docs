@@ -78,41 +78,19 @@ However, it's missing the following:
 
 The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
 
-
-Create a new JSON file at: `src/main/resources/assets/fabric-docs-reference/lang/en_us.json` and put in the translation key, and its value:
-
-::: tip
-Your should notice that location of JSON file is in form `item.<mod-id>.<mod-name>`, and mod-id shoud be replace to mod-id and mod-name of your mod. You specified
-mod-name in static variable of your mod class: `public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());` and you call the static `register()` method of your 
-mod class, and pass mod-name as argument. So if your mod-id is MyMod and name of mod is 'my-first-mod', you should create a new JSON file at `/src/main/resources/assets/MyMod/lang/en_us.json`. 
-:::
-
+Create a new JSON file at: `src/main/resources/assets/mod-id/lang/en_us.json` and put in the translation key, and its value:
 
 ```json
 {
-  "item.fabric-docs-reference.suspicious_substance": "Suspicious Substance"
+  "item.mod_id.suspicious_substance": "Suspicious Substance"
 }
 ```
-
-::: tip
-the key of json is `tem.fabric-docs-reference.suspicious_substance` because your specified the mod_id in static variable of initializer class `public static final String MOD_ID = "fabric-docs-reference";`
-For mod whose mod-id is `MyMod` and mod name is `my-first-mod`, json should be:
-```json
-{
-  "item.MyMod.my-first-mod": "name for mod"
-}
-```
-:::
-
-
 
 You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
 ## Adding a Texture and Model {#adding-a-texture-and-model}
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/mod-id/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
-
-Your shoud replace `mod-id` using `fabric-docs-reference` for this tutorial or mod-id your specified in initializer class.
 
 For example purposes, you can use this example texture for `suspicious_substance.png`
 
@@ -122,7 +100,7 @@ When restarting/reloading the game - you should see that the item still has no t
 
 You're going to create a simple `item/generated` model, which takes in an input texture and nothing else.
 
-Create the model JSON in the `assets/fabric-docs-reference/models/item` folder, with the same name as the item; `suspicious_substance.json`
+Create the model JSON in the `assets/mod-id/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -139,7 +117,7 @@ There are alternatives, such as `item/handheld` which is used for items that are
 
 Minecraft doesn't automatically know where your items' model files can be found, we need to provide an item model description.
 
-Create the item description JSON in the `assets/fabric-docs-reference/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
+Create the item description JSON in the `assets/mod-id/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
 
