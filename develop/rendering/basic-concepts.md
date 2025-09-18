@@ -12,6 +12,14 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 To summarize, you have to use Minecraft's rendering system, or build your own that utilizes `GL.glDrawElements()`.
 :::
 
+::: warning IMPORTANT UPDATE FOR 1.21.8+
+Since 1.21.6, large changes are being implemented to the rendering pipeline, such as moving towards `RenderLayer`s and `RenderPipeline`s and more importantly, `RenderState`s, with the ultimate goal of being able to "prepare" the next frame while drawing the current frame. In the "preparation" phase, all game data used for rendering is extracted to `RenderState`s, so another thread can work on drawing that frame while the next frame is being extracted.
+
+For example, in 1.21.8, GUI rendering adopted this model, and `DrawContext` methods simply add to the render state. Actual uploading to the `BufferBuilder` happens at the end of the "prepare" phase, after all elements have been added to the `RenderState`. See `GuiRenderer#prepare`.
+
+This article covers the basics of rendering and should still be relevant, but most of the time, there are higher level abstractions that you can use for better performance and compatibility.
+:::
+
 This page will cover the basics of rendering using the new system, going over key terminology and concepts.
 
 Although much of rendering in Minecraft is abstracted through the various `DrawContext` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
@@ -109,6 +117,14 @@ This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` dr
 
 Since we're drawing on the HUD in this example, we'll use the `HudElementRegistry`:
 
+::: warning IMPORTANT UPDATE FOR 1.21.8+
+Since Minecraft 1.21.8, the matrix stack passed for HUD rendering has been changed from `MatrixStack` to `Matrix3x2fStack`. Most methods are slightly different and no longer take a `z` parameter, but the concepts are the same.
+
+Additionally, the example code below is detached from the explanation above, since you do not need to manually write to the `BufferBuilder`. `DrawContext` methods automatically writes to the HUD's `BufferBuilder` for you during preparation.
+
+See the important update at the beginning of this page for more information.
+:::
+
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 This results in the following being drawn on the HUD:
@@ -120,6 +136,10 @@ Try mess around with the colors and positions of the vertices to see what happen
 :::
 
 ## The `MatrixStack` {#the-matrixstack}
+
+::: warning IMPORTANT UPDATE FOR 1.21.8+
+The code example for this section uses `Matrix3x2fStack`, which is used for HUD rendering since 1.21.8. The methods are slightly different. See the important update above for more information.
+:::
 
 After learning how to write to the `BufferBuilder`, you might be wondering how to transform your model - or even animate it. This is where the `MatrixStack` class comes in.
 
@@ -147,11 +167,15 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 ## Quaternions (Rotating Things) {#quaternions-rotating-things}
 
+::: warning IMPORTANT UPDATE FOR 1.21.8+
+Similar to above, the code example is slightly different than the explanation. The explanation discusses rendering in 3D world space, while the code example renders on the HUD.
+:::
+
 Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `MatrixStack` via the `multiply(Quaternion, x, y, z)` method.
 
 It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `RotationAxis` utility class.
 
-Let's say we want to rotate our diamond around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
+Let's say we want to rotate our square around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
