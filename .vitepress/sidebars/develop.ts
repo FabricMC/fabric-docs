@@ -61,6 +61,10 @@ export default [
         link: "/develop/items/first-item",
       },
       {
+        text: "develop.items.item-models",
+        link: "/develop/items/item-models",
+      },
+      {
         text: "develop.items.food",
         link: "/develop/items/food",
       },
