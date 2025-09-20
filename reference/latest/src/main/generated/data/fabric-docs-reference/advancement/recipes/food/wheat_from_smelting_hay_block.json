@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wheat_from_smelting_hay_block"
+        "recipe": "fabric-docs-reference:wheat_from_smelting_hay_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wheat_from_smelting_hay_block"
+      "fabric-docs-reference:wheat_from_smelting_hay_block"
     ]
   }
 }

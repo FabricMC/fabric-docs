@@ -7,12 +7,10 @@ import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
@@ -53,32 +51,36 @@ public class ModItems {
 	// :::6
 	public static final Item GUIDITE_HELMET = register(
 			"guidite_helmet",
-			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET, settings),
-			new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET)
+					.maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
-			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE, settings),
-			new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE)
+					.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
 			"guidite_leggings",
-			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS, settings),
-			new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS)
+					.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
 			"guidite_boots",
-			settings -> new ArmorItem(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS, settings),
-			new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS)
+					.maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	// :::6
 	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Settings());
 	// :::7
 	public static final Item GUIDITE_SWORD = register(
 			"guidite_sword",
-			settings -> new SwordItem(GUIDITE_TOOL_MATERIAL, 1f, 1f, settings),
-			new Item.Settings()
+			Item::new,
+			new Item.Settings().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// :::7
 	// :::_13

@@ -5,6 +5,7 @@ authors:
   - Cactooz
   - IMB11
   - radstevee
+  - Thomas1034
 ---
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
@@ -14,6 +15,12 @@ Fabric provides an easy way to create a new mod project using the Fabric Templat
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the mod name, package name, and the Minecraft version that you want to develop for.
 
 The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.mod-id`.
+
+::: warning
+Make sure you remember your mod's ID! Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own.
+
+For example, if your mod ID was **`fabric-docs-reference`**, instead of _`resources/assets/mod-id`_ use **`resources/assets/fabric-docs-reference`**.
+:::
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
 
@@ -26,6 +33,16 @@ Once you've filled in the required fields, click the `Generate` button, and the 
 You should extract this zip file to a location of your choice, and then open the extracted folder in IntelliJ IDEA:
 
 ![Open Project Prompt](/assets/develop/getting-started/open-project.png)
+
+::: warning
+You should follow these rules when choosing the path to your project:
+
+- Avoid cloud storage directories (for example Microsoft Onedrive)
+- Avoid non-ASCII characters (for example emoji, accented letters)
+- Avoid spaces
+
+An example of a "good" path may be: `C:\Projects\YourProjectName`
+:::
 
 ## Importing the Project {#importing-the-project}
 

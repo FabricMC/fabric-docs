@@ -1,31 +1,30 @@
 package com.example.docs.rendering;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import org.joml.Matrix4f;
-
-import net.minecraft.client.gl.ShaderProgramKeys;
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.BufferRenderer;
-import net.minecraft.client.render.Tessellator;
-import net.minecraft.client.render.VertexFormat;
-import net.minecraft.client.render.VertexFormats;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+
+import com.example.docs.FabricDocsReference;
 
 public class RenderingConceptsEntrypoint implements ClientModInitializer {
-	public float totalTickDelta = 0F;
+	public float totalTickProgress = 0F;
 
 	@Override
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudRenderCallback.EVENT.register((drawContext, tickDeltaManager) -> {
+		HudElementRegistry.addLast(Identifier.of(FabricDocsReference.MOD_ID, "last_element"), hudLayer());
+		// :::1
+	}
+
+	private HudElement hudLayer() {
+		return (drawContext, tickCounter) -> {
+			// TODO: fix advanced hud rendering example
+			/*
 			// :::1
-			if (true) {
+			if (false) {
 				return;
 			}
 
@@ -33,20 +32,15 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			MatrixStack matrices = drawContext.getMatrices();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickDelta += tickDeltaManager.getTickDelta(true);
+			totalTickProgress += tickCounter.getTickProgress(true);
 
 			// Push a new matrix onto the stack.
 			matrices.push();
 			// :::2
-			// :::1
-			// Get the transformation matrix from the matrix stack, alongside the tessellator instance and a new buffer builder.
-			Matrix4f transformationMatrix = drawContext.getMatrices().peek().getPositionMatrix();
-			Tessellator tessellator = Tessellator.getInstance();
 
-			// :::1
 			// :::2
 			// Scale the matrix by 0.5 to make the triangle smaller and larger over time.
-			float scaleAmount = MathHelper.sin(totalTickDelta / 10F) / 2F + 1.5F;
+			float scaleAmount = MathHelper.sin(totalTickProgress / 10F) / 2F + 1.5F;
 
 			// Apply the scaling amount to the matrix.
 			// We don't need to scale the Z axis since it's on the HUD and 2D.
@@ -56,29 +50,20 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			matrices.translate(60f, 60f, 0f);
 			// :::3
 			// Lerp between 0 and 360 degrees over time.
-			float rotationAmount = (float) (totalTickDelta / 50F % 360);
+			float rotationAmount = (float) (totalTickProgress / 50F % 360);
 			matrices.multiply(RotationAxis.POSITIVE_Z.rotation(rotationAmount));
 			// Shift entire diamond so that it rotates in its center.
 			matrices.translate(-20f, -40f, 0f);
 			// :::3
 
 			// :::1
-			// Begin a triangle strip buffer using the POSITION_COLOR vertex format.
-			BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_COLOR);
-
-			// Write our vertices, Z doesn't really matter since it's on the HUD.
-			buffer.vertex(transformationMatrix, 20, 20, 5).color(0xFF414141);
-			buffer.vertex(transformationMatrix, 5, 40, 5).color(0xFF000000);
-			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000);
-			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141);
-
-			// Make sure the correct shader for your chosen vertex format is set!
-			// You can find all the shaders in the ShaderProgramKeys class.
-			RenderSystem.setShader(ShaderProgramKeys.POSITION_COLOR);
-			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-
-			// Draw the buffer onto the screen.
-			BufferRenderer.drawWithGlobalProgram(buffer.end());
+			drawContext.draw(vertexConsumerProvider -> {
+				VertexConsumer buffer = vertexConsumerProvider.getBuffer(RenderLayer.getGui());
+				buffer.vertex(20, 20, 5).color(0xFF414141);
+				buffer.vertex(5, 40, 5).color(0xFF000000);
+				buffer.vertex(35, 40, 5).color(0xFF000000);
+				buffer.vertex(20, 60, 5).color(0xFF414141);
+			});
 			// :::1
 			// :::2
 
@@ -88,7 +73,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			matrices.pop();
 			// :::2
 			// :::1
-		});
-		// :::1
+			 */
+		};
 	}
 }
