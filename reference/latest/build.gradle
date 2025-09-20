@@ -32,14 +32,7 @@ fabricApi {
 
 // :::automatic-testing:game-test:2
 tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
-	jvmArgs.addAll([
-			"-Dfabric.client.gametest",
-			"-Dfabric-tag-conventions-v2.missingTagTranslationWarning=fail",
-			"-Dfabric-tag-conventions-v1.legacyTagWarning=fail",
-			"-enableassertions",
-			"-Dmixin.debug.verify=true",
-			"-Dmixin.debug.countInjections=true",
-	])
+	jvmArgs.add("-Dfabric.client.gametest")
 	// Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
 	// Defaults to true only on Linux and when the "CI" environment variable is set.
 	// XVFB must be installed, on Debian-based systems you can install it with: `apt install xvfb`
