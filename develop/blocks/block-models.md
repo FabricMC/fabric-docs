@@ -3,6 +3,7 @@ title: Block Models
 description: A guide to writing and understanding block models.
 authors:
   - Fellteros
+  - its-miroma
 ---
 
 This page will guide you through writing your own block models and understanding all their options and possibilities.
@@ -58,15 +59,8 @@ Every block model file has a defined structure that has to be followed. It start
 }
 ```
 
-### Parent {#parent}
 
-```json
-{
-  "parent": "..."
-}
-```
-
-Loads a different model with all its attributes from the given path, as an identifier (`namespace:path`).
+<!--@include: ..\items\item-models.md#parent-->
 
 Set this tag to `builtin/generated` to use a model created from the specified icon. Rotation can be achieved via [blockstates](./blockstates).
 
@@ -80,48 +74,7 @@ Set this tag to `builtin/generated` to use a model created from the specified ic
 
 This tag specifies whether to use [ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion). Defaults to `true`.
 
-### Display {#display}
-
-```json
-{
-  "display": {
-    "<position>": {
-      "rotation": [0, 0, 0],
-      "translation": [0, 0, 0],
-      "scale": [0, 0, 0]
-    }
-  }
-}
-```
-
-This tag is responsible for setting the model translation, rotation and scale in a specified position.
-
- The position object can be one of the following strings, which define what the model will look like in different positions:
-
-| Value                   | Description                                         |
-|-------------------------|-----------------------------------------------------|
-| `firstperson_righthand` | Right hand, as seen in first-person                 |
-| `firstperson_lefthand`  | Left hand, as seen in first-person                  |
-| `thirdperson_righthand` | Right hand, as seen in third-person (<kbd>F5</kbd>) |
-| `thirdperson_lefthand`  | Left hand, as seen in third-person (<kbd>F5</kbd>)  |
-| `gui`                   | When in a GUI, for example the inventory            |
-| `head`                  | When put on the player's head, for example a banner |
-| `ground`                | When on the ground                                  |
-| `fixed`                 | When put in an item frame                           |
-
-Furthermore, each position can contain these three values, in the form of an array of floats:
-
-```json
-{
-  "rotation": [0.0, 0.0, 0.0],
-  "translation": [0.0, 0.0, 0.0],
-  "scale": [0.0, 0.0, 0.0]
-}
-```
-
-1. `rotation`: _Three floats_. Specifies the rotation of the model according to the scheme `[x, y, z]`.
-2. `translation`: _Three floats_. Specifies the translation of the model according to the scheme `[x, y, z]`. Values must be between `-80` and `80`; anything outside of this range is set to the closest extremum.
-3. `scale`: _Three floats_. Specifies the scale of the model according to the scheme `[x, y, z]`. The maximum value is `4`, bigger values are treated as `4`.
+<!--@include: ..\items\item-models.md#display-->
 
 ### Textures {#textures}
 
@@ -136,61 +89,17 @@ Furthermore, each position can contain these three values, in the form of an arr
 
 The `textures` tag holds the textures of the model, in the form of an identifier or a texture variable. It contains three additional objects:
 
-1. `particle`: _String_. Defines the texture to load particles from. This texture is also used as an overlay if you are in a nether portal, and used for water and lava's still textures. Is also considered a texture variable that can be referenced as `#particle`
-2. `<texture_variable>`: _String_. It creates a variable and assigns a texture. Can be further referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
+1. `particle`: _String_. Defines the texture to load particles from. This texture is also used as an overlay if you are in a nether portal, and used for water and lava's still textures. Is also considered a texture variable that can be referenced as `#particle`.
+2. `<texture_variable>`: _String_. It creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
 
-### Elements {#elements}
+<!--@include: ..\items\item-models.md#elements-->
 
-```json
-{
-  "elements": [
-    {
-      "from": [0.0, 0.0, 0.0],
-      "to": [0.0, 0.0, 0.0],
-      "rotation": {
-        "origin": [0.0, 0.0, 0.0],
-        "axis": "...",
-        "angle": "...",
-        "rescale": "true/false"
-      },
-      "shade": "true/false",
-      "light_emission": "...",
-      "faces": {
-        "<face>": {
-          "uv": [0, 0, 0, 0],
-          "texture": "...",
-          "cullface": "...",
-          "rotation": "...",
-          "tintindex": "..."
-        }
-      }
-    }
-  ]
-}
-```
-
-Contains all the elements of the model, which can only be cubic. If both `parent` and `elements` tags are set, this file's `elements` tag overrides the parent's one.
-
-```json
-{
-  "from": [0.0, 0.0, 0.0],
-  "to": [0.0, 0.0, 0.0]
-}
-```
+<!--@include: ..\items\item-models.md#from-->
 
 `from` specifies the starting point of the cuboid according to the scheme `[x, y, z]`, relative to the lower left corner. `to` specifies the ending point. A cuboid as big as a standard block would start at `[0, 0, 0]` and end at `[16, 16, 16]`.
-The values of both must be between **-16** and **32**, which means that every block model can be at most 3x3 blocks big.
+The values of both must be between **-16** and **32**, which means that every block model can be at most 3×3 blocks big.
 
-```json
-{
-  "rotation": {
-    "origin": [0.0, 0.0, 0.0],
-    "axis": "...",
-    "angle": "...",
-    "rescale": "true/false"
-  }
-}
-```
+<!--@include: ..\items\item-models.md#rotation-->
 
 `rotation` defines the rotation of an element. It contains four more values:
 
@@ -199,37 +108,7 @@ The values of both must be between **-16** and **32**, which means that every bl
 3. `angle`: _Float_. Specifies the angle of rotation. Ranges from **-45** to **45**.
 4. `rescale`: _Boolean_. Specifies whether to scale the faces across the whole block. Defaults to `false`.
 
-```json
-{
-  "shade": "true/false"
-}
-```
-
-`shade` defines if shadows are rendered. Defaults to `true`.
-
-```json
-{
-  "light_emission": "..."
-}
-```
-
-`light_emission` defines the minimum light level that the element can receive. It can range between **0** and **15**. Defaults to 0.
-
-```json
-{
-  "faces": {
-    "<face>": {
-      "uv": [0, 0, 0, 0],
-      "texture": "...",
-      "cullface": "...",
-      "rotation": 0,
-      "tintindex": 0
-    }
-  }
-}
-```
-
-`faces` holds all the faces of the cuboid. If a face is not set, it will not be rendered. Its keys can be one of: `down`, `up`, `north`, `south`, `west` or `east`. Each key contains the properties for that face:
+<!--@include: ..\items\item-models.md#shade-to-faces-->
 
 1. `uv`: _Four integers_. Defines the area of the texture to use according to the scheme `[x1, y1, x2, y2]`. If unset, it defaults to values equal to xyz position of the element.
   Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.
@@ -243,4 +122,4 @@ Any other number is provided to `BlockColors` to get the tint value correspondin
 
 ## Sources and Links {#sources-and-links}
 
-You can visit Minecraft Wiki's [Item Models page](https://minecraft.wiki/w/Model#Item_models) for a more detailed walkthrough. A lot of information here is from that page.
+You can visit Minecraft Wiki's [Block Models page](https://minecraft.wiki/w/Model#Block_models) for a more detailed walkthrough. A lot of information here is from that page.

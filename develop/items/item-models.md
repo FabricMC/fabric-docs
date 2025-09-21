@@ -3,6 +3,7 @@ title: Item Models
 description: A guide to writing and understanding item models.
 authors:
   - Fellteros
+  - its-miroma
   - VatinMc
 ---
 
@@ -60,6 +61,8 @@ Every item model file has a defined structure that has to be followed. It starts
 }
 ```
 
+<!-- #region parent -->
+
 ### Parent {#parent}
 
 ```json
@@ -70,7 +73,11 @@ Every item model file has a defined structure that has to be followed. It starts
 
 Loads a different model with all its attributes from the given path, as an identifier (`namespace:path`).
 
+<!-- #endregion parent -->
+
 Set this tag to `item/generated` to use a model created from the specified icon, or set it to `builtin/generated` to use the model without any translation, rotation, or scaling.
+
+<!-- #region display -->
 
 ### Display {#display}
 
@@ -115,6 +122,8 @@ Furthermore, each position can contain these three values, in the form of an arr
 2. `translation`: _Three floats_. Specifies the translation of the model according to the scheme `[x, y, z]`. Values must be between `-80` and `80`; anything outside of this range is set to the closest extremum.
 3. `scale`: _Three floats_. Specifies the scale of the model according to the scheme `[x, y, z]`. The maximum value is `4`, bigger values are treated as `4`.
 
+<!-- #endregion display -->
+
 ### Textures {#textures}
 
 ```json
@@ -146,6 +155,8 @@ The `textures` tag holds the textures of the model, in the form of an identifier
 ```
 
 This tag defines the direction from which the item model is illuminated. Can be either `front` or `side`, with the latter being the default. If set to `front`, the model is rendered like a flat item, if set `side`, the item is rendered like a block.
+
+<!-- #region elements -->
 
 ### Elements {#elements}
 
@@ -179,6 +190,10 @@ This tag defines the direction from which the item model is illuminated. Can be 
 
 Contains all the elements of the model, which can only be cubic. If both `parent` and `elements` tags are set, this file's `elements` tag overrides the parent's one.
 
+<!-- #endregion elements -->
+
+<!-- #region from -->
+
 ```json
 {
   "from": [0.0, 0.0, 0.0],
@@ -186,8 +201,12 @@ Contains all the elements of the model, which can only be cubic. If both `parent
 }
 ```
 
+<!-- #endregion from -->
+
 `from` specifies the starting point of the cuboid according to the scheme `[x, y, z]`, relative to the lower left corner. `to` specifies the ending point. A cuboid as big as a standard block would start at `[0, 0, 0]` and end at `[16, 16, 16]`.
 The values of both must be between **-16** and **32**, which means that every item model can be at most 3×3 blocks big.
+
+<!-- #region rotation -->
 
 ```json
 {
@@ -200,12 +219,16 @@ The values of both must be between **-16** and **32**, which means that every it
 }
 ```
 
+<!-- #endregion rotation -->
+
 `rotation` defines the rotation of an element. It contains four more values:
 
 1. `origin`: _Three floats_. Sets the center of the rotation according to the scheme `[x, y, z]`.
 2. `axis`: _String_. Specifies the direction of rotation, and must be one of these: `x`, `y` and `z`.
 3. `angle`: _Float_. Specifies the angle of rotation. Ranges from **-45** to **45** in 22.5 degree increments.
 4. `rescale`: _Boolean_. Specifies whether to scale the faces across the whole block. Defaults to `false`.
+
+<!-- #region shade-to-faces -->
 
 ```json
 {
@@ -237,7 +260,9 @@ The values of both must be between **-16** and **32**, which means that every it
 }
 ```
 
-`faces` holds all the faces of the cuboid. If a face is not set, it will not be rendered. Its keys can be one of: `down`, `up`, `north`, `south`, `west` or `east`. Each keys contains the properties for that face:
+`faces` holds all the faces of the cuboid. If a face is not set, it will not be rendered. Its keys can be one of: `down`, `up`, `north`, `south`, `west` or `east`. Each key contains the properties for that face:
+
+<!-- #endregion shade-to-faces -->
 
 1. `uv`: _Four integers_. Defines the area of the texture to use according to the scheme `[x1, y1, x2, y2]`. If unset, it defaults to values equal to xyz position of the element.
   Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.
