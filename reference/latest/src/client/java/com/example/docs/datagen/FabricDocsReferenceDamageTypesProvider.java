@@ -29,7 +29,7 @@ public class FabricDocsReferenceDamageTypesProvider {
 
 		@Override
 		protected void configure(RegistryWrapper.WrapperLookup arg) {
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("minecraft:bypasses_armor"))).add(FabricDocsReferenceDamageTypes.TATER_DAMAGE);
+			builder(TagKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("minecraft:bypasses_armor"))).add(FabricDocsReferenceDamageTypes.TATER_DAMAGE);
 		}
 	}
 

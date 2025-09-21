@@ -88,13 +88,27 @@ Create a new JSON file at: `src/main/resources/assets/mod-id/lang/en_us.json` an
 
 You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
-## Adding a Texture and Model {#adding-a-texture-and-model}
+## Adding an Item Model Description, Texture and Model {#adding-a-item-model-definition-texture-and-model}
+
+For your item to have a proper appearance, it requires:
+
+- [An item texture](https://minecraft.wiki/w/Textures#Items)
+- [An item model](https://minecraft.wiki/w/Model#Item_models)
+- [An item model description](https://minecraft.wiki/w/Items_model_definition)
+
+### Adding a Texture {#adding-a-texture}
+
+:::info
+For more information on this topic, see the [Item Models](item-models) page.
+:::
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/mod-id/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
 
 For example purposes, you can use this example texture for `suspicious_substance.png`
 
 <DownloadEntry visualURL="/assets/develop/items/first_item_1.png" downloadURL="/assets/develop/items/first_item_1_small.png">Texture</DownloadEntry>
+
+### Adding a Model {#adding-a-model}
 
 When restarting/reloading the game - you should see that the item still has no texture, that's because you will need to add a model that uses this texture.
 
@@ -104,7 +118,7 @@ Create the model JSON in the `assets/mod-id/models/item` folder, with the same n
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
-### Breaking Down the Model JSON {#breaking-down-the-model-json}
+#### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
 - `parent`: This is the parent model that this model will inherit from. In this case, it's the `item/generated` model.
 - `textures`: This is where you define the textures for the model. The `layer0` key is the texture that the model will use.
@@ -113,7 +127,7 @@ Most items will use the `item/generated` model as their parent, as it's a simple
 
 There are alternatives, such as `item/handheld` which is used for items that are "held" in the player's hand, such as tools.
 
-## Creating the Item Model Description {#creating-the-item-model-description}
+### Creating the Item Model Description {#creating-the-item-model-description}
 
 Minecraft doesn't automatically know where your items' model files can be found, we need to provide an item model description.
 
@@ -121,7 +135,7 @@ Create the item description JSON in the `assets/mod-id/items`, with the same fil
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
 
-### Breaking Down the Item Model Description JSON {#breaking-down-the-item-model-description-json}
+#### Breaking Down the Item Model Description JSON {#breaking-down-the-item-model-description-json}
 
 - `model`: This is the property that contains the reference to our model.
   - `type`: This is the type of our model. For most items, this should be `minecraft:model`
