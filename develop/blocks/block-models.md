@@ -59,7 +59,6 @@ Every block model file has a defined structure that has to be followed. It start
 }
 ```
 
-
 <!--@include: ..\items\item-models.md#parent-->
 
 Set this tag to `builtin/generated` to use a model created from the specified icon. Rotation can be achieved via [blockstates](./blockstates).
