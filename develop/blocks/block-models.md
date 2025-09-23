@@ -6,6 +6,8 @@ authors:
   - its-miroma
 ---
 
+<!-- markdownlint-disable search-replace -->
+
 This page will guide you through writing your own block models and understanding all their options and possibilities.
 
 ## What Are Block Models? {#what-are-block-models}
