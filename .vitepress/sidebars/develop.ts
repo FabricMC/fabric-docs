@@ -37,6 +37,16 @@ export default [
       {
         text: "develop.gettingStarted.devEnvSetup",
         link: "/develop/getting-started/setting-up-a-development-environment",
+        items: [
+          {
+            text: "develop.gettingStarted.devEnvSetupIntelliJ",
+            link: "/develop/getting-started/setting-up-intellij-idea",
+          },
+          {
+            text: "develop.gettingStarted.devEnvSetupVSCode",
+            link: "/develop/getting-started/setting-up-vscode",
+          }
+        ]
       },
       {
         text: "develop.gettingStarted.creatingProject",

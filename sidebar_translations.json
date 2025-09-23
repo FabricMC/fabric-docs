@@ -16,6 +16,8 @@
   "develop.gettingStarted": "Getting Started",
   "develop.gettingStarted.introduction": "Introduction to Fabric and Modding",
   "develop.gettingStarted.devEnvSetup": "Setting up a Development Environment",
+  "develop.gettingStarted.devEnvSetupIntelliJ": "Setting up IntelliJ IDEA",
+  "develop.gettingStarted.devEnvSetupVSCode": "Setting up Visual Studio Code",
   "develop.gettingStarted.creatingProject": "Creating a Project",
   "develop.gettingStarted.projectStructure": "Project Structure",
   "develop.gettingStarted.launchGame": "Launching the Game",
