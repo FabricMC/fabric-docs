@@ -106,6 +106,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private GpuBuffer upload(BuiltBuffer.DrawParameters drawParameters, VertexFormat format, BuiltBuffer builtBuffer) {
 		// Calculate the size needed for the vertex buffer
 		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
+
 		// Initialize or resize the vertex buffer as needed
 		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
 			vertexBuffer = new MappableRingBuffer(() -> FabricDocsReference.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
@@ -113,15 +114,18 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		// Copy vertex data into the vertex buffer
 		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
+
 		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(vertexBuffer.getBlocking().slice(0, builtBuffer.getBuffer().remaining()), false, true)) {
 			MemoryUtil.memCopy(builtBuffer.getBuffer(), mappedView.data());
 		}
+
 		return vertexBuffer.getBlocking();
 	}
 
 	private static void draw(MinecraftClient client, RenderPipeline pipeline, BuiltBuffer builtBuffer, BuiltBuffer.DrawParameters drawParameters, GpuBuffer vertices, VertexFormat format) {
 		GpuBuffer indices;
 		VertexFormat.IndexType indexType;
+
 		if (pipeline.getVertexFormatMode() == VertexFormat.DrawMode.QUADS) {
 			// Sort the quads if there is translucency
 			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().getVertexSorter());
@@ -165,6 +169,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	// :::custom-pipelines:clean-up
 	public void close() {
 		allocator.close();
+
 		if (vertexBuffer != null) {
 			vertexBuffer.close();
 			vertexBuffer = null;
