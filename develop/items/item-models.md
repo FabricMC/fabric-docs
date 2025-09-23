@@ -7,6 +7,8 @@ authors:
   - VatinMc
 ---
 
+<!-- markdownlint-disable search-replace -->
+
 This page will guide you through writing your own item models and understanding all their options and possibilities.
 
 ## What Are Item Models? {#what-are-item-models}
