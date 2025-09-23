@@ -5,8 +5,6 @@ authors:
   - dicedpixels
 ---
 
-Visual Studio Code is a free, extensible and lightweight code editor.
-
 ::: warning IMPORTANT
 While it is possible to develop mods using Visual Studio Code, we recommend against it.
 Consider using [IntelliJ IDEA](./setting-up-intellij-idea), which has dedicated Java tooling, advanced features and useful community-created plugins such as **Minecraft Development**.
