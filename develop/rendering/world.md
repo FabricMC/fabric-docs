@@ -6,7 +6,7 @@ authors:
 ---
 
 ::: tip
-It is recommended to read [Rendering Concepts](./basic-concepts.md) first. This page builds on those concepts and discusses how to render objects in the world.
+It is recommended to read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 
 This page also contains more modern rendering concepts, and you can read this page to get a better understanding of the "extraction" and "drawing/rendering" split.
 :::
@@ -17,7 +17,7 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 ## The Extraction and Drawing Phases {#the-extraction-and-drawing-phases}
 
-As mentioned in [Rendering Concepts](./basic-concepts.md), Minecraft rendering is in the process of being split into "extraction" and "rendering" phases.
+As mentioned in [Rendering Concepts](./basic-concepts), Minecraft rendering is in the process of being split into "extraction" and "rendering" phases.
 
 All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. When calling a render method, such as `VertexRedering.drawFilledBox`, it is writing vertices to the buffered builder, and is part of the "extraction" phase. You should add all elements you want to render during this phase.
 
