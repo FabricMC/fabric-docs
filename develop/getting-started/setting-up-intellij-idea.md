@@ -33,14 +33,14 @@ You may have to scroll down to find the Community edition download link - it loo
 
 ![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-community.png)
 
-## Installing IDEA Plugins {#installing-idea-plugins}
-
-Although these plugins aren't strictly necessary, they can make modding with Fabric much easier - you should consider installing them.
-
-### Minecraft Development {#minecraft-development}
+## Installing "Minecraft Development" Plugin {#installing-idea-plugins}
 
 The Minecraft Development plugin provides support for modding with Fabric, and it is the most important plugin to install.
 
-You can install it by opening IntelliJ IDEA, and then navigating to `File > Settings > Plugins > Marketplace Tab` - search for `Minecraft Development` in the search bar, and then click the `Install` button.
+::: tip
+Although this plugin isn't strictly necessary, it can make modding with Fabric much easier - you should consider installing it.
+:::
 
-Alternatively, you can download it from the [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) and then install it by navigating to `File > Settings > Plugins > Install Plugin From Disk`.
+You can install it by opening IntelliJ IDEA, and then navigating to **File** > **Settings** > **Plugins** > **Marketplace** tab, then search for `Minecraft Development` in the search bar, and click the **Install** button.
+
+Alternatively, you can download it from the [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) and then install it by navigating to **File** > **Settings** > **Plugins** > **Install Plugin From Disk**.
