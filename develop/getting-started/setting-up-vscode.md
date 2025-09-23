@@ -7,8 +7,9 @@ authors:
 
 Visual Studio Code is a free, extensible and lightweight code editor.
 
-:::info
-While it is possible to develop mods using Visual Studio Code, we recommend IntelliJ IDEA for it's dedicated Java tooling, advanced features and community created plugins such as **Minecraft Development**.
+::: warning IMPORTANT
+While it is possible to develop mods using Visual Studio Code, we recommend against it.
+Consider using [IntelliJ IDEA](./setting-up-intellij-idea), which has dedicated Java tooling, advanced features and useful community-created plugins such as **Minecraft Development**.
 :::
 
 ::: info PREREQUISITES
@@ -51,24 +52,19 @@ You should see an indicator and a notification of the project import progress.
 
 ## Generating Launch Targets {#generating-launch-targets}
 
-To run the game with debugging support enabled, you will need to generate launch targets. This can be done by running the `vscode` Gradle task, either from the Gradle view or from the terminal.
+To run the game with debugging support enabled, you will need to generate launch targets by running the `vscode` Gradle task.
 
-<!-- markdownlint-disable MD036-->
-**Terminal**
+This can be done from the Gradle View from within Visual Studio Code: open it and navigate to the `vscode` task in **Tasks** > **`ide`**. Double click or use the **Run Task** button to execute the task.
 
-Open a new terminal through **Terminal** > **New Terminal** and run:
+![`vscode` Task in Gradle View](/assets/develop/getting-started/vscode/gradle-vscode.png)
+
+Alternatively you can use the terminal directly: open a new terminal through **Terminal** > **New Terminal** and run:
 
 ```sh:no-line-numbers
 ./gradlew vscode
 ```
 
-![vscode in Terminal](/assets/develop/getting-started/vscode/terminal-vscode.png)
-
-**Gradle View**
-
-Open the Gradle view and navigate to the `vscode` task in **Tasks** > **ide**. Double click or use the **Run Task** button to execute the task.
-
-![vscode in Gradle View](/assets/develop/getting-started/vscode/gradle-vscode.png)
+![`vscode` Task in Terminal](/assets/develop/getting-started/vscode/terminal-vscode.png)
 
 ### Using Launch Targets {#using-launch-targets}
 
@@ -78,25 +74,18 @@ Once launch targets are generated, you can use them by opening the **Run and Deb
 
 ## Generating Minecraft Sources {#generating-minecraft-sources}
 
-The Fabric toolchain lets you access the Minecraft source code by generating it locally. You can use Visual Studio Code to conveniently navigate through this generated source code.
+The Fabric toolchain lets you access the Minecraft source code by generating it locally, and you can use Visual Studio Code to conveniently navigate through it. To generate sources, you need to run the `genSources` Gradle task.
 
-To generate sources, you need to run the `genSources` Gradle task.
+This can be done from the Gradle View like above, by running the `genSources` task in **Tasks** > **`fabric`**:
+![`genSources` Task in Gradle View](/assets/develop/getting-started/vscode/gradle-gensources.png)
 
-**Terminal**
+Or you can also run the command from the terminal:
 
-Open a terminal and run:
-
-```powershell:no-line-numbers
+```sh:no-line-numbers
 ./gradlew genSources
 ```
 
-![genSources in Terminal](/assets/develop/getting-started/vscode/terminal-gensources.png)
-
-**Gradle View**
-
-Open the Gradle view and run the `genSources` task in **Tasks** > **fabric**.
-
-![genSources Gradle Task](/assets/develop/getting-started/vscode/gradle-gensources.png)
+![`genSources` Task in Terminal](/assets/develop/getting-started/vscode/terminal-gensources.png)
 
 ## Searching for a Minecraft Class {#searching-for-a-minecraft-class}
 
@@ -104,15 +93,11 @@ Once sources are generated. it should be possible for you to search or view Mine
 
 ### Viewing Class Definitions {#viewing-class-definitions}
 
-**Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>):
-
-Type `#` followed by the class name (e.g. `#Identifier`).
+**Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>): Type `#` followed by the class name (e.g. `#Identifier`).
 
 ![Quick Open](/assets/develop/getting-started/vscode/quick-open.png)
 
-**Go to Definition**:
-
-From source code, you can navigate to a class definition by <kbd>Ctrl</kbd> + clicking on the class name or by right-clicking on it and selecting "Go to Definition" (<kbd>F12</kbd>).
+**Go to Definition** (<kbd>F12</kbd>): From source code, navigate to a class definition by <kbd>Ctrl</kbd> + clicking on its name, or by right-clicking it and selecting "Go to Definition".
 
 ![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
