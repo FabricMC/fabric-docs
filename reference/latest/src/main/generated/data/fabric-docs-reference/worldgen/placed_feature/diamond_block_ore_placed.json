@@ -1,0 +1,28 @@
+{
+  "feature": "fabric-docs-reference:diamond_block_vein",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 6
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:biased_to_bottom",
+        "inner": 3,
+        "max_inclusive": {
+          "absolute": 0
+        },
+        "min_inclusive": {
+          "above_bottom": 0
+        }
+      }
+    }
+  ]
+}
