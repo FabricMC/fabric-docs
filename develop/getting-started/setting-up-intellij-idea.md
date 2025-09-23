@@ -6,6 +6,7 @@ authors:
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dicedpixels
   - falseresync
   - IMB11
   - liach
@@ -14,10 +15,13 @@ authors:
   - natanfudge
   - SolidBlock-cn
   - TelepathicGrunt
-  - dicedpixels
 authors-nogithub:
   - siglong
 ---
+
+::: info PREREQUISITES
+Make sure you've [installed a JDK](./setting-up-a-development-environment#installing-jdk-21) first.
+:::
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}
 

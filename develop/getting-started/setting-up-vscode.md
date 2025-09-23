@@ -8,7 +8,11 @@ authors:
 Visual Studio Code is a free, extensible and lightweight code editor.
 
 :::info
-While it is possible to develop mods using Visual Studio Code, we recommend IntelliJ IDEA for it's dedicated Java tooling and advanced features.
+While it is possible to develop mods using Visual Studio Code, we recommend IntelliJ IDEA for it's dedicated Java tooling, advanced features and community created plugins such as **Minecraft Development**.
+:::
+
+::: info PREREQUISITES
+Make sure you've [installed a JDK](./setting-up-a-development-environment#installing-jdk-21) first.
 :::
 
 ## Installation {#installation}
@@ -49,21 +53,22 @@ You should see an indicator and a notification of the project import progress.
 
 To run the game with debugging support enabled, you will need to generate launch targets. This can be done by running the `vscode` Gradle task, either from the Gradle view or from the terminal.
 
-- **Terminal**:
+<!-- markdownlint-disable MD036-->
+**Terminal**
 
-    Open a new terminal through **Terminal** > **New Terminal** and run:
+Open a new terminal through **Terminal** > **New Terminal** and run:
 
-    ```powershell:no-line-numbers
-    ./gradlew vscode
-    ```
+```sh:no-line-numbers
+./gradlew vscode
+```
 
 ![vscode in Terminal](/assets/develop/getting-started/vscode/terminal-vscode.png)
 
-- **Gradle View**:
+**Gradle View**
 
-    Open the Gradle view and navigate to the `vscode` task in **Tasks** > **ide**. Double click or use the **Run Task** button to execute the task.
+Open the Gradle view and navigate to the `vscode` task in **Tasks** > **ide**. Double click or use the **Run Task** button to execute the task.
 
-![vscode Gradle Task](/assets/develop/getting-started/vscode/gradle-vscode.png)
+![vscode in Gradle View](/assets/develop/getting-started/vscode/gradle-vscode.png)
 
 ### Using Launch Targets {#using-launch-targets}
 
@@ -77,19 +82,19 @@ The Fabric toolchain lets you access the Minecraft source code by generating it 
 
 To generate sources, you need to run the `genSources` Gradle task.
 
-- **Terminal**:
+**Terminal**
 
-    Open a terminal and run:
+Open a terminal and run:
 
-    ```powershell:no-line-numbers
-    ./gradlew genSources
-    ```
+```powershell:no-line-numbers
+./gradlew genSources
+```
 
 ![genSources in Terminal](/assets/develop/getting-started/vscode/terminal-gensources.png)
 
-- **Gradle View**:
+**Gradle View**
 
-    Open the Gradle view and run the `genSources` task in **Tasks** > **fabric**.
+Open the Gradle view and run the `genSources` task in **Tasks** > **fabric**.
 
 ![genSources Gradle Task](/assets/develop/getting-started/vscode/gradle-gensources.png)
 
@@ -99,32 +104,32 @@ Once sources are generated. it should be possible for you to search or view Mine
 
 ### Viewing Class Definitions {#viewing-class-definitions}
 
-- **Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>):
+**Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>):
 
-    Type `#` followed by the class name (e.g. `#Identifier`).
+Type `#` followed by the class name (e.g. `#Identifier`).
 
 ![Quick Open](/assets/develop/getting-started/vscode/quick-open.png)
 
-- **Go to Definition**:
+**Go to Definition**:
 
-    From source code, you can navigate to a class definition by <kbd>Ctrl</kbd>+ clicking on the class name or pressing <kbd>F12</kbd> while the cursor is placed on a class name. The same option is available through the RMB menu.
+From source code, you can navigate to a class definition by <kbd>Ctrl</kbd> + clicking on the class name or by right-clicking on it and selecting "Go to Definition" (<kbd>F12</kbd>).
 
 ![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### Finding References {#finding-references}
 
-You can find all usages of a class by invoking the RMB menu while a cursor is placed on a class name and clicking **Find All References**.
+You can find all usages of a class by right-clicking on a class name and clicking **Find All References**.
 
 ![Find All References](/assets/develop/getting-started/vscode/find-all-references.png)
 
 :::info
-If it above functions do not work as expected, it's like that sources are not attached properly. This can generally be fixed by cleaning up the workspace cache.
+If the functions above do not work as expected, it's likely that sources are not attached properly. This can generally be fixed by cleaning up the workspace cache.
 
-- Click **the Show Java Status Menu** button in the status bar.
+- Click the **Show Java Status Menu** button in the status bar.
 
 ![Show Java Status](/assets/develop/getting-started/vscode/java-ready.png)
 
-- In the menu that was open, click **Clean Workspace Cache...** and confirm the operation.
+- In the menu that just opened, click **Clean Workspace Cache...** and confirm the operation.
 
 ![Clear Workspace](/assets/develop/getting-started/vscode/clear-workspace.png)
 
@@ -134,7 +139,7 @@ If it above functions do not work as expected, it's like that sources are not at
 
 ## Viewing Bytecode {#viewing-bytecode}
 
-Viewing bytecode is necessary when writing mixins. However, Visual Studio Code lacks support for bytecode viewing, other than a few extensions which might not work.
+Viewing bytecode is necessary when writing mixins. However, Visual Studio Code lacks native support for bytecode viewing, and the few extensions which add it might not work.
 
 In such case, you can use Java's inbuilt `javap` to view bytecode.
 
@@ -142,10 +147,10 @@ In such case, you can use Java's inbuilt `javap` to view bytecode.
 
     Open the Explorer view, expand the **Java Projects** section. Expand the **Reference Libraries** node in the project tree and locate a JAR with `minecraft-` in its name. Right-click on the JAR and copy the full path.
 
-    It would look something like the following:
+    It might look something like this:
 
     ```:no-line-numbers
-    C:\Users\dicedpixels\Downloads\example-mod\.gradle\loom-cache\minecraftMaven\net\minecraft\minecraft-merged-503b555a3d\1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2\minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
+    C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
     ```
 
 ![Copy Path](/assets/develop/getting-started/vscode/copy-path.png)
@@ -155,7 +160,7 @@ In such case, you can use Java's inbuilt `javap` to view bytecode.
     You can then run `javap` by providing the above path as the `cp` (class path) and the fully qualified class name as the final argument.
 
     ```sh
-    javap -cp C:\Users\dicedpixels\Downloads\example-mod\.gradle\loom-cache\minecraftMaven\net\minecraft\minecraft-merged-503b555a3d\1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2\minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.Identifier
+    javap -cp C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.Identifier
     ```
 
     This will print the bytecode in your terminal output.

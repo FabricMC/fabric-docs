@@ -43,7 +43,7 @@ export default [
             link: "/develop/getting-started/setting-up-intellij-idea",
           },
           {
-            text: "develop.gettingStarted.devEnvSetupVsCode",
+            text: "develop.gettingStarted.devEnvSetupVSCode",
             link: "/develop/getting-started/setting-up-vscode",
           }
         ]

@@ -6,6 +6,7 @@ authors:
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dicedpixels
   - falseresync
   - IMB11
   - liach
@@ -14,12 +15,11 @@ authors:
   - natanfudge
   - SolidBlock-cn
   - TelepathicGrunt
-  - dicedpixels
 authors-nogithub:
   - siglong
 ---
 
-To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA or Visual Studio Code.
+To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA (recommended), or alternatively Visual Studio Code.
 
 ## Installing JDK 21 {#installing-jdk-21}
 
