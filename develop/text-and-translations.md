@@ -92,7 +92,7 @@ If you want to reference what, in our case, is the attacker, you would use %2\$s
 
 ## Serializing Text {#serializing-text}
 
-<!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
+<!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
 As mentioned before, you can serialize text to JSON using the text codec. For more information on codecs, see the [Codec](./codecs) page.
 

@@ -209,6 +209,6 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.8/fabric-data-generation-api-v1/src/) and this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.8/fabric-data-generation-api-v1/src/) and this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
 
 You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.

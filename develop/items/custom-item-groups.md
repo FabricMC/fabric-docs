@@ -25,7 +25,7 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 
 ```json
 {
-  "itemGroup.example-mod": "Fabric Docs Reference"
+  "itemGroup.example-mod": "Example Mod"
 }
 ```
 

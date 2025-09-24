@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "fabric-docs-reference-test",
+  "id": "example-mod-test",
   "version": "1.0.0",
-  "name": "Fabric docs reference",
+  "name": "Example mod",
   "icon": "assets/example-mod/icon.png",
   "environment": "*",
   "entrypoints": {

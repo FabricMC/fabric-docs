@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-<!-- TODO: Enable this line once the reference mod is fixed. -->
+<!-- TODO: Enable this line once the example mod is fixed. -->
 <!-- This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page. -->
 
 The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.

@@ -20,9 +20,9 @@ The most important fields in the `fabric.mod.json` file are:
 - `depends`: The mods that your mod depends on.
 - `mixins`: The mixins that your mod provides.
 
-You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the reference project that powers this documentation site.
+You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the mod that powers this documentation site.
 
-::: details Reference Project `fabric.mod.json`
+::: details `fabric.mod.json` of the Example Mod
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 

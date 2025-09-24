@@ -5,7 +5,7 @@ authors:
   - IMB11
   - kevinthegreat1
 ---
-<!-- TODO: Enable this paragraph once the reference mod is fixed. -->
+<!-- TODO: Enable this paragraph once the example mod is fixed. -->
 <!-- We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter. -->
 
 We already briefly touched on rendering things to the HUD in [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.

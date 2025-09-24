@@ -172,7 +172,7 @@ export default [
     text: "develop.rendering",
     collapsed: true,
     items: [
-      // TODO: Enable this page once the reference mod is fixed.
+      // TODO: Enable this page once the example mod is fixed.
       // {
       //   text: "develop.rendering.basicConcepts",
       //   link: "/develop/rendering/basic-concepts",
