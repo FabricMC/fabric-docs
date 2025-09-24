@@ -43,7 +43,7 @@ authors:
 
 마지막으로, 데이터 생성 작업에 `EnchantmentGenerator`를 추가하도록 모드에 알려야 합니다. `EnchantmentGenerator`를 `onInitializeDataGenerator` 메소드에 추가하기만 하면 됩니다.
 
-@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 이제, 모드의 데이터 생성 작업을 실행하면, `generated` 폴더에 마법 부여 JSON이 생성될 것입니다. 아마도 다음과 같이 생성되었을 것입니다:
 
@@ -52,7 +52,7 @@ authors:
 `en_us.json`에 마법 부여의 번역 키를 추가하는것도 잊지 마세요:
 
 ```json
-"enchantment.FabricDocsReference.thundering": "Thundering",
+"enchantment.ExampleMod.thundering": "Thundering",
 ```
 
 이제 사용자 지정 마법 부여 효과가 작동할 것입니다! 위에서 추가한 마법을 무기에 적용한 다음 몹을 공격해서 테스트할 수 있습니다. 아마도 다음과 같이 작동할 것입니다:

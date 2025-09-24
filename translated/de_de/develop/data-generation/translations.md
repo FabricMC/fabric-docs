@@ -20,7 +20,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 Zuerst werden wir unseren **Provider** vorbereiten. Denke daran, dass es die Provider sind, die die Daten für uns generieren. Erstelle eine Klasse, die `extends FabricLanguageProvider` beinhaltet und fülle die Basismethoden aus:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 :::tip
 Du wirst für jede Sprache, die du generieren möchtest, einen eigenen Provider benötigen (z. B. einen `ExampleEnglishLangProvider` und einen `ExamplePirateLangProvider`).
@@ -28,13 +28,13 @@ Du wirst für jede Sprache, die du generieren möchtest, einen eigenen Provider 
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Erstellen von Übersetzungen {#creating-translations}
 
 Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier` und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Statuseffekten, Itemgruppen, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ## Nutzen einer Übersetzung {#using-translations}
 

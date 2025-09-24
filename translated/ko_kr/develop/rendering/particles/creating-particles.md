@@ -13,7 +13,7 @@ authors:
 
 먼저, 모드 초기화 클래스에 모드 ID로 `ParticleType` 을 등록해 봅시다.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 소문자로 "sparkle_particle"은 이후 입자의 텍스쳐를 위한 JSON 파일의 이름이 되게 됩니다. 곧 JSON 파일을 어떻게 생성하는지 알아볼 것입니다.
 
@@ -21,7 +21,7 @@ authors:
 
 `ModInitializer` 엔트리포인트에 입자를 등록했다면, `ClientModInitializer`의 엔트리포인트에도 입자를 등록해야 합니다.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 위 예시는 입자를 클라이언트측에 등록하는 방법입니다. 이제 엔드 막대기 입자 팩토리를 통해 입자에 움직임을 줘보겠습니다. 이렇게 하면 입자가 엔드 막대기 입자와 똑같이 움직이게 됩니다.
 

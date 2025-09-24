@@ -18,11 +18,11 @@ authors-nogithub:
 
 По-перше, нам потрібно створити свого постачальника. Створіть клас, який `extends FabricAdvancementProvider`, і заповніть базові методи:
 
-@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Щоб завершити налаштування, додайте цього провайдера до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Структура досягнення {#advancement-structure}
 
@@ -38,7 +38,7 @@ authors-nogithub:
 
 Ось просте досягнення для отримання ґрунту:
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 :::warning
 Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!
@@ -52,7 +52,7 @@ authors-nogithub:
 
 Щоб зрозуміти, додамо ще одне досягнення. Ми попрактикуємося додавати нагороди, використовувати кілька критеріїв і призначати батьківські досягнення:
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ## Власні критерії {#custom-criteria}
 
@@ -72,7 +72,7 @@ authors-nogithub:
 
 По-перше, нам знадобиться нова механіка для впровадження. Скажімо гравцеві, який інструмент він використовував щоразу, коли ламав блок.
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Зауважте, що цей код дійсно поганий. `HashMap` не зберігається ніде постійно, тому він буде скидатися кожного разу, коли гра перезапускається. Це просто для того, щоб похизуватися `критеріями`. Почніть гру та спробуйте!
 
@@ -108,15 +108,15 @@ authors-nogithub:
 
 І викличте це у своєму ініціалізаторі моду:
 
-@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Нарешті, нам потрібно запустити наші критерії. Додайте це туди, де ми надіслали повідомлення гравцеві в основному класі мода.
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Ваш новий блискучий критерій готовий до використання! Нумо додамо до нашого постачальника:
 
-@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Запустіть завдання datagen ще раз, і ви отримаєте нове досягнення, з яким можна грати!
 
@@ -146,10 +146,10 @@ authors-nogithub:
 
 І назвіть це в нашому головному класі, там же, де старий:
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Додайте досягнення до свого постачальника:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Запустіть datagen ще раз, і ви нарешті закінчили!

@@ -80,7 +80,7 @@ Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络
 
 这可以在我们的**通用初始化程序**中通过使用 `PayloadTypeRegistry.playS2C().register` 来完成，它接受 `CustomPayload.Id` 和 `PacketCodec`。
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 存在类似的方法来注册客户端到服务器的有效负载：`PayloadTypeRegistry.playC2S().register`。
 
@@ -123,17 +123,17 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 本例中，我们将在 `PlayPayloadHandler` 实现中定义要触发的操作（作为 lambda 表达式）。
 
-@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 让我们检查一下上面的代码。
 
 我们可以通过调用 Record 的 getter 方法来访问来自有效负载的数据。 本例为 `payload.pos()`。 然后可以用它来获取 `x`、`y` 和 `z` 位置。
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 最后，我们创建一个 `LightningEntity` 并将其添加到世界中。
 
-@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 现在，如果你将此模组添加到服务器，当玩家使用我们的 Lightning Tater 物品时，每个玩家都会看到闪电击中用户的位置。
 
@@ -149,38 +149,38 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 然后我们在**通用初始化程序**中注册我们的有效负载。 然而，这次通过使用 `PayloadTypeRegistry.playC2S().register` 作为 _客户端到服务器_ 有效负载。
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 为了发送数据包，让我们在玩家使用毒马铃薯时添加一个动作。 我们将使用 `UseEntityCallback` 事件来保持简洁。
 
 我们在**客户端初始化程序**中注册该事件，并使用 `isClient()` 来确保该操作仅在逻辑客户端上触发。
 
-@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 我们使用必要的参数创建 `GiveGlowingEffectC2SPayload` 的实例。 本例为目标实体的网络 ID。
 
-@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 最后，我们通过使用 `GiveGlowingEffectC2SPayload` 实例调用 `ClientPlayNetworking.send` 向服务器发送一个数据包。
 
-@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### 在服务器接收数据包 {#receiving-a-packet-on-the-server}
 
 这可以在**通用初始化程序**中完成，通过调用 `ServerPlayNetworking.registerGlobalReceiver` 并传递 `CustomPayload.Id` 和 `PlayPayloadHandler`。
 
-@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::info
 在服务器端验证数据包的内容非常重要。
 
 在这种情况下，我们根据实体的网络 ID 来验证该实体是否存在。
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 此外，目标实体必须是生物实体，并且我们将目标实体的范围限制在距离玩家 5 的​​范围内。
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 :::
 
 现在，当任何玩家尝试对生物实体使用毒马铃薯时，它就会产生发光效果。

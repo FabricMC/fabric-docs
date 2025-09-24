@@ -85,7 +85,7 @@ authors:
 Це можна зробити в нашому **загальному ініціалізаторі** за допомогою `PayloadTypeRegistry.playS2C().register`, який приймає
 `CustomPayload.Id` і `PacketCodec`.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Подібний метод існує для реєстрації корисних даних клієнт-сервер: `PayloadTypeRegistry.playC2S().register`.
 
@@ -131,18 +131,18 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 У цьому випадку ми визначимо дію, яка буде запускатися в реалізації реалізації `PlayPayloadHandler` (як
 лямбда-вираз).
 
-@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Розгляньмо код вище.
 
 Ми можемо отримати доступ до даних із нашого корисного навантаження, викликавши методи отримання запису. У цьому випадку `payload.pos()`. Який потім
 можна використовувати для отримання позицій "x", "y" і "z".
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Нарешті ми створюємо `LightningEntity` і додаємо його до світу.
 
-@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Тепер, якщо ви додасте цей мод на сервер і коли гравець використовує наш блискавичний татер, кожен гравець побачить блискавку
 вражаючи позицію користувача.
@@ -161,7 +161,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 Потім ми реєструємо наше корисне навантаження в нашому **загальному ініціалізаторі**. Однак цього разу як корисне навантаження _клієнт-сервер_ за допомогою
 `PayloadTypeRegistry.playC2S().register`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Щоб надіслати пакет, додаймо дію, коли гравець використовує отруйну картоплю. Ми будемо використовувати `UseEntityCallback`
 подія, щоб зберегти речі стисло.
@@ -169,37 +169,37 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 Ми реєструємо подію в нашому **ініціалізаторі клієнта** та використаємо `isClient()`, щоб гарантувати, що дія лише запускається
 на логічному клієнті.
 
-@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Ми створимо екземпляр нашого `GiveGlowingEffectC2SPayload` з необхідними аргументами. У цьому випадку ідентифікатор мережі
 з
 цільової сутності.
 
-@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з примірником нашого
 `GiveGlowingEffectC2SPayload`.
 
-@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### Отримання пакета на сервері {#receiving-a-packet-on-the-server}
 
 Це можна зробити в **загальному ініціалізаторі**, викликавши `ServerPlayNetworking.registerGlobalReceiver` і передавши
 `CustomPayload.Id` і `PlayPayloadHandler`.
 
-@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::info
 Важливо, щоб ви перевірили вміст пакета на стороні сервера.
 
 У цьому випадку ми перевіряємо, чи існує сутність, на основі її ідентифікатора мережі.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Крім того, цільова сутність має бути живою істотою, і ми обмежуємо діапазон цільової сутності від
 гравця до 5.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 :::
 
 Тепер, коли будь-який гравець намагатиметься використати отруйну картоплю на живій істоті, до нього буде застосовано ефект світіння.

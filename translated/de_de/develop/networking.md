@@ -79,7 +79,7 @@ Bevor wir ein Paket mit unserem benutzerdefinierten Payload senden, müssen wir 
 
 Dies kann in unserem **gemeinsamen Initialisierers** mit Hilfe von `PayloadTypeRegistry.playS2C().register` erfolgen, das eine `CustomPayload.Id` und einen `PacketCodec` entgegennimmt.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Eine ähnliche Methode existiert, um Client-to-Server Payloads zu registrieren: `PayloadTypeRegistry.playC2S().register`.
 
@@ -124,17 +124,17 @@ Dies kann im **Client-Initialisierer** erfolgen, indem `ClientPlayNetworking.reg
 
 In diesem Fall definieren wir die auszulösende Aktion innerhalb der Implementierung der `PlayPayloadHandler`-Implementierung (als Lambda-Ausdruck).
 
-@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Schauen wir uns den obigen Code an.
 
 Wir können auf die Daten aus unserem Payload zugreifen, indem wir die Getter-Methoden des Records aufrufen. In diesem Fall `payload.pos()`. Welche genutzt werden können, um die `x`,- `y`- und `z`-Positionen abzurufen.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Schließlich erstellen wir eine `LightningEntity` und fügen sie der Welt hinzu.
 
-@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Wenn du nun diesen Mod auf einem Server installierst und ein Spieler dein Item "Lightning Tater" benutzt, sehen alle Spieler Blitze, die an der Position des Users einschlagen.
 
@@ -150,39 +150,39 @@ Wir übergeben den entsprechenden Codec zusammen mit einem Methodenverweis, um d
 
 Dann registrieren wir unseren Payload in unserem **gemeinsamen Initialisierer**. Diesmal jedoch als _Client-to-Server_ Payload unter Verwendung von `PayloadTypeRegistry.playC2S().register`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Um ein Paket zu senden, fügen wir eine Aktion hinzu, wenn der Spieler eine giftige Kartoffel benutzt. Wir werden das Event `UseEntityCallback` verwenden, um die Dinge übersichtlich zu halten.
 
 Wir registrieren das Event in unserem **Client-Initialisierer**, und wir verwenden `isClient()`, um sicherzustellen, dass die Aktion nur auf dem logischen Client ausgelöst wird.
 
-@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Wir erstellen eine Instanz unseres `GiveGlowingEffectC2SPayload` mit den notwendigen Argumenten. In diesem Fall, der Netzwerk ID der Zielentität.
 
-@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Schließlich senden wir ein Paket an den Server, indem wir `ClientPlayNetworking.send` mit der Instanz unseres
 `GiveGlowingEffectC2SPayload` aufrufen.
 
-@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/FabricDocsReferenceNetworkingBasicClient.java)
+@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### Empfangen eines Pakets auf dem Server {#receiving-a-packet-on-the-server}
 
 Dies kann im **gemeinsamen Initialisierer** geschehen, indem man `ServerPlayNetworking.registerGlobalReceiver` aufruft und eine `CustomPayload.Id` und einen `PlayPayloadHandler` übergibt.
 
-@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::info
 Es ist wichtig, dass du den Inhalt des Pakets auf der Serverseite validierst.
 
 In diesem Fall überprüfen wir anhand der Netzwerk-ID, ob die Entität existiert.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Außerdem muss es sich bei der Zielentität um eine lebende Entität handeln, und wir beschränken die Reichweite der Zielentität vom Spieler auf 5.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/FabricDocsReferenceNetworkingBasic.java)
+@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 :::
 
 Wenn ein Spieler nun versucht, eine giftige Kartoffel auf einer lebenden Entität zu verwenden, wird der Leuchten-Effekt auf diese angewendet.

@@ -20,7 +20,7 @@ authors-nogithub:
 
 Спочатку ми створимо нашого **постачальника**. Пам’ятайте, що фактично генерують дані для нас постачальники. Створіть клас, який `extends FabricLanguageProvider`, і заповніть базові методи:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 :::tip
 Вам знадобиться окремий постачальник для кожної мови, яку ви хочете створити (наприклад, один `ExampleEnglishLangProvider` і один `ExamplePirateLangProvider`).
@@ -28,13 +28,13 @@ authors-nogithub:
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Створення перекладу {#creating-translations}
 
 Разом зі створенням необроблених перекладів, перекладів з `Identifier` і копіюванням їх з уже існуючого файлу (передаючи `Path`), існують допоміжні методи для перекладу предметів, блоків, теґів, статистики, сутностей, статус ефектів, групи предметів, атрибути сутностей та зачарування. Просто викличте `add` у `translationBuilder` з тим, що ви хочете перекласти, і на що це має бути перекладено:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ## Використання перекладу {#using-translations}
 

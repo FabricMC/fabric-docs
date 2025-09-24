@@ -24,7 +24,7 @@ Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    Identifier.of(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```

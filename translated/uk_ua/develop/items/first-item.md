@@ -48,7 +48,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Виклик методу в класі статично ініціалізує його, якщо він не був попередньо завантажений - це означає, що всі `статичні` поля оцінюються. Ось для чого цей фіктивний метод `ініціалізації`.
 

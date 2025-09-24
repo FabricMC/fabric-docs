@@ -39,7 +39,7 @@ authors:
 
 아래는 게임이 시작되었을 때 메시지를 로그하는 간단한 `main` 진입점 구현체입니다.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 

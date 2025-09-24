@@ -43,7 +43,7 @@ authors:
 
 在最后，我们必须要告诉我们的模组去把 `EnchantmentGenerator` 加入到数据生成任务列表中。 为了实现这一点，只需要简单的把 `EnchantmentGenerator` 加入到 `onInitializeDataGenerator` 方法中。
 
-@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 现在，当你运行你的模组的数据生成任务，附魔表 JSON 将会生成在 `generated` 文件夹内。 下面是一个例子：
 
@@ -52,7 +52,7 @@ authors:
 你需要在 `zh_cn.json` 中给你的自定义魔咒添加一个有意义的名字：
 
 ```json
-"enchantment.FabricDocsReference.thundering": "Thundering",
+"enchantment.ExampleMod.thundering": "Thundering",
 ```
 
 现在你应该有了一个可以正常工作的自定义附魔效果！ 附魔一个武器，然后攻击一个生物试试吧。 下面的视频里有一个例子：

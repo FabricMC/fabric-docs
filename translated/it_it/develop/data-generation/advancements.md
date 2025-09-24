@@ -18,11 +18,11 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che `extends FabricAdvancementProvider` e compilane i metodi di base:
 
-@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Struttura dei Progressi {#advancement-structure}
 
@@ -38,7 +38,7 @@ Un progresso è composto di alcune componenti diverse. Assieme ai requisiti, det
 
 Ecco un semplice progresso per aver ottenuto un blocco di terra:
 
-@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 :::warning
 Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Identifier` del progresso nel formato `String`!
@@ -52,7 +52,7 @@ Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Iden
 
 Solo per capirne il funzionamento, aggiungiamo un altro progresso. Faremo pratica con l'aggiunta di ricompense, l'uso di criterio multiplo, e l'assegnazione di genitori:
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ## Criteri Personalizzati {#custom-criteria}
 
@@ -72,7 +72,7 @@ Un **predicato** è qualcosa che accetta un valore e restituisce un `boolean`. P
 
 Anzitutto ci serve una meccanica da implementare. Informiamo il giocatore riguardo a quale utensile ha usato ogni volta che rompe un blocco.
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Nota che questo è del codice molto brutto. La `HashMap` non viene memorizzata persistentemente, quindi sarà resettata ad ogni riavvio del gioco. È solo per mostrare i `Criterion`. Avvia il gioco e provalo!
 
@@ -108,15 +108,15 @@ Per assicurarci che i nostri criteri siano inizializzati al tempo giusto, aggiun
 
 E chiamalo nell'initializer della tua mod:
 
-@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Infine, dobbiamo innescare i nostri criteri. Aggiungi questo a dove inviamo un messaggio al giocatore nella classe main della mod.
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Il tuo criterio nuovo e luccicante è ora pronto per l'uso! Aggiungiamolo al nostro fornitore:
 
-@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Esegui l'operazione di datagen di nuovo, e avrai con te un nuovo progresso con cui giocare!
 
@@ -146,10 +146,10 @@ Se hai creato un nuov criterio, dobbiamo aggiungerlo a `ModCriteria`
 
 E chiamarlo nella nostra classe principale, proprio dove c'è quello vecchio:
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/FabricDocsReferenceDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Aggiungi il progresso al tuo fornitore:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Esegui nuovamente la datagen, e hai finalmente finito!

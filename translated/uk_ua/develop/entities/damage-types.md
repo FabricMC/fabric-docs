@@ -41,7 +41,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 `RegistryKey` можна отримати таким чином:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Використання типів шкоди {#using-damage-types}
 

@@ -35,7 +35,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 这个 `RegistryKey` 可用以下方式获取：
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### 使用伤害类型{#using-damage-types}
 

@@ -43,7 +43,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 이전에 로드되지 않은 클래스의 메소드를 호출하면 클래스가 정적으로 초기화됩니다. 다시 말하자면 모든 `static` 필드가 실행되게 됩니다. 이것이 더미 `initialize` 메소드가 필요한 이유입니다.
 

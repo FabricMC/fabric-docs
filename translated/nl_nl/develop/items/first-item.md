@@ -42,7 +42,7 @@ Om dit te doen, kunt u een openbare statische initialisatiemethode aan uw klasse
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Het aanroepen van een methode voor een klasse initialiseert deze statisch als deze nog niet eerder is geladen - dit betekent dat alle `static` velden worden geëvalueerd. Dit is waar de dummy `initialize` voor is.
 

@@ -13,7 +13,7 @@ authors:
 
 Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID моду.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 "sparkle_particle" малими літерами – це шлях JSON для текстури частинки. Пізніше ви створите новий файл JSON із такою назвою.
 
@@ -21,7 +21,7 @@ authors:
 
 Після того, як ви зареєстрували частинку в ініціалізаторі мода, вам також потрібно буде зареєструвати частинку в ініціалізаторі на стороні клієнта.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 В цьому прикладі ми реєструємо нашу частинку на стороні клієнта. Потім ми надаємо частинці деякий рух, використовуючи фабрику частинок стрижня Енду. Це означає, що наша частинка рухатиметься так само, як частинка стрижня Енду.
 

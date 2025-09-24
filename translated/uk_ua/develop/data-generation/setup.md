@@ -38,9 +38,9 @@ authors-nogithub:
 
 @[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` - у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`.
+Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` - у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Нарешті, нам потрібно повідомити Fabric про точку входу в нашому `fabric.mod.json`:
 
@@ -53,7 +53,7 @@ authors-nogithub:
       // ...
     ],
     "fabric-datagen": [ // [!code ++]
-      "com.example.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
+      "com.example.docs.datagen.ExampleModDataGenerator" // [!code ++]
     ] // [!code ++]
   }
 }
@@ -69,7 +69,7 @@ authors-nogithub:
 
 Усередині методу `onInitializeDataGenerator` вашої точки входу даних нам потрібно створити `Pack`. Пізніше ви додасте **постачальників**, які додадуть згенеровані дані в цей `Pack`.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Запуск генерації даних {#running-data-generation}
 

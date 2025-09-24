@@ -177,15 +177,15 @@ Zakotwiczenie może składać się tylko z małych liter, myślników i cyfr.
 
 Jeśli tworzysz lub modyfikujesz strony zawierające kod, umieść kod w odpowiednim miejscu w modzie referencyjnym (znajdującym się w folderze `/reference` repozytorium). Następnie użyj funkcji [importowania fragmentów kodu oferowanej przez VitePress](https://vitepress.dev/guide/markdown#import-code-snippets), aby osadzić kod.
 
-Na przykład, aby wyróżnić linie 15-21 pliku `FabricDocsReference.java` z moda referencyjnego, użyj:
+Na przykład, aby wyróżnić linie 15-21 pliku `ExampleMod.java` z moda referencyjnego, użyj:
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ Dla przykładu ten kod osadzi sekcje powyższego pliku, które są oznaczone tag
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

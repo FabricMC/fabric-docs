@@ -177,15 +177,15 @@ authors:
 
 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 そして、[VitePressが提供するコードスニペット機能](https://vitepress.dev/guide/markdown#import-code-snippets)を使ってコードを埋め込みます。 コードを含むページを作成または変更する場合は、リファレンスMOD（リポジトリの `/reference` フォルダにあります）内の適切な場所にコードを配置してください。 そして、[VitePressが提供するコードスニペット機能](https://vitepress.dev/guide/markdown#import-code-snippets)を使ってコードを埋め込みます。
 
-たとえば、`FabricDocsReference.java`ファイルの15行目から21行目をリファレンスモッドからハイライトするには
+たとえば、`ExampleMod.java`ファイルの15行目から21行目をリファレンスモッドからハイライトするには
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

@@ -48,7 +48,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 呼叫一個類別裡的方法時，如果該類別尚未載入，就會進行靜態初始化——這意味著所有`static`欄位都會計算。 這就是這個虛擬 `initialize` 方法存在的目的。
 

@@ -35,7 +35,7 @@ Quando precisarmos acessar nosso tipo de dano através de código, usaremos a su
 
 A `RegistryKey` pode ser obtida da seguinte maneira:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Usando Tipos de Dano {#using-damage-types}
 

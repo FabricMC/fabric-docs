@@ -33,7 +33,7 @@ authors-nogithub:
 Подібно до реєстрації блоків і предметів, ми використовуємо `Registry.register` для реєстрації нашого власного ефекту в
 реєстрі `STATUS_EFFECT`. Це можна зробити в нашому ініціалізаторі.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Текстура {#texture}
 

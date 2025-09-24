@@ -18,7 +18,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 Du wirst unterschiedliche Provider (Klassen) für Blöcke, Truhen und Entitäten benötigen. Vergesse nicht, alle diese zu deinem Pack in deinem `DataGeneratorEntrypoint` innerhalb der `onInitializeDataGenerator` Methode hinzuzufügen.
 
-@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Beutetabellen erklärt {#loot-tables-explained}
 
@@ -30,7 +30,7 @@ Beutepools haben **Einträge**, **Bedingungen**, Funktionen, **Rollen** und **Bo
 
 Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die `extends FabricBlockLootTableProvider`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
 Füge diesen Provider unbedingt zu deinem Pack hinzu!
 
@@ -38,13 +38,13 @@ Es gibt eine Reihe von Hilfsmethoden, die dir bei der Erstellung deiner Beutetab
 
 Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
 ## Truhen {#chests}
 
 Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
 Wir werden einen `RegistryKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
 
@@ -52,4 +52,4 @@ Wir werden einen `RegistryKey<LootTable>` für unsere Beutetabelle benötigen. L
 
 Dann können wir eine Beutetabelle innerhalb der `generate` Methode unseres Providers generieren.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
