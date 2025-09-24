@@ -321,10 +321,6 @@ export default [
         link: "/develop/debugging",
       },
       {
-        text: "develop.misc.ideTipsAndTricks",
-        link: "/develop/ide-tips-and-tricks",
-      },
-      {
         text: "develop.misc.automatic-testing",
         link: "/develop/automatic-testing",
       },
