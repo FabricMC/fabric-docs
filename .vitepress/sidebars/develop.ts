@@ -117,6 +117,10 @@ export default [
         link: "/develop/blocks/first-block",
       },
       {
+        text: "develop.blocks.block-models",
+        link: "/develop/blocks/block-models",
+      },
+      {
         text: "develop.blocks.blockstates",
         link: "/develop/blocks/blockstates",
       },
