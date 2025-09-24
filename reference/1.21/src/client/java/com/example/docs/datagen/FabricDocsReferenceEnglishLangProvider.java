@@ -43,7 +43,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.example-mod.counter", "Counter");
 		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
-		translationBuilder.add("itemGroup.example_mod", "Fabric Docs Reference");
+		translationBuilder.add("itemGroup.example_mod", "Example Mod");
 		translationBuilder.add("block.example-mod.condensed_dirt", "Condensed Dirt");
 		translationBuilder.add("block.example-mod.condensed_oak_log", "Condensed Oak Log");
 		translationBuilder.add("block.example-mod.prismarine_lamp", "Prismarine Lamp");
