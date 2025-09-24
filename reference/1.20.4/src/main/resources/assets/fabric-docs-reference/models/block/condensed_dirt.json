@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "fabric-docs-reference:block/condensed_dirt"
+    "all": "example-mod:block/condensed_dirt"
   }
 }

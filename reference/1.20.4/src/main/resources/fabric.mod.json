@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "fabric-docs-reference",
+  "id": "example-mod",
   "version": "1.0.0",
   "name": "Fabric docs reference",
-  "icon": "assets/fabric-docs-reference/icon.png",
+  "icon": "assets/example-mod/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -27,9 +27,9 @@
     ]
   },
   "mixins": [
-    "fabric-docs-reference.mixins.json",
+    "example-mod.mixins.json",
     {
-      "config": "fabric-docs-reference.client.mixins.json",
+      "config": "example-mod.client.mixins.json",
       "environment": "client"
     }
   ],

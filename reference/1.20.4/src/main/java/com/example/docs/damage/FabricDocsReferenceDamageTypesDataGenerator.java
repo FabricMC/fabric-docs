@@ -64,7 +64,7 @@ public class ExampleModDamageTypesDataGenerator implements DataGeneratorEntrypoi
 			damageTypeObject.addProperty("message_id", TATER_DAMAGE_TYPE.msgId());
 			damageTypeObject.addProperty("scaling", TATER_DAMAGE_TYPE.scaling().asString());
 
-			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(new Identifier("fabric-docs-reference", "tater")));
+			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(new Identifier("example-mod", "tater")));
 		}
 
 		@Override

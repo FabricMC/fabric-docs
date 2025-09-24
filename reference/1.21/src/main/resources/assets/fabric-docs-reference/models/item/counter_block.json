@@ -1,3 +1,3 @@
 {
-  "parent": "fabric-docs-reference:block/counter_block"
+  "parent": "example-mod:block/counter_block"
 }

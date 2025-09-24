@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:fabric-docs-reference/break_block_with_tool",
+  "parent": "minecraft:example-mod/break_block_with_tool",
   "criteria": {
     "break_block_with_tool_five_times": {
       "conditions": {
         "requiredTimes": 5
       },
-      "trigger": "minecraft:fabric-docs-reference/parameterized_use_tool"
+      "trigger": "minecraft:example-mod/parameterized_use_tool"
     }
   },
   "display": {

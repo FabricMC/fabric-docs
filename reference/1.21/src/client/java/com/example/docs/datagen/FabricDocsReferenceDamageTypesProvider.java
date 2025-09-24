@@ -48,7 +48,7 @@ public class ExampleModDamageTypesProvider {
 			damageTypeObject.addProperty("message_id", TATER_DAMAGE_TYPE.msgId());
 			damageTypeObject.addProperty("scaling", TATER_DAMAGE_TYPE.scaling().asString());
 
-			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(Identifier.of("fabric-docs-reference", "tater")));
+			return DataProvider.writeToPath(writer, damageTypeObject, path.resolveJson(Identifier.of("example-mod", "tater")));
 		}
 
 		@Override

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "fabric-docs-reference:block/counter_block"
+      "model": "example-mod:block/counter_block"
     }
   }
 }

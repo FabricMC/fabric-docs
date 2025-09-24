@@ -1,14 +1,14 @@
 {
   "metal_whistle": {
-    "subtitle": "sound.fabric-docs-reference.metal_whistle",
+    "subtitle": "sound.example-mod.metal_whistle",
     "sounds": [
-      "fabric-docs-reference:metal_whistle"
+      "example-mod:metal_whistle"
     ]
   },
   "engine": {
-    "subtitle": "sound.fabric-docs-reference.engine",
+    "subtitle": "sound.example-mod.engine",
     "sounds": [
-      "fabric-docs-reference:engine"
+      "example-mod:engine"
     ]
   }
 }

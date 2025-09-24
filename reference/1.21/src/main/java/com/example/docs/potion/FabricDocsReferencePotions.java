@@ -18,7 +18,7 @@ public class ExampleModPotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
 					Registries.POTION,
-					Identifier.of("fabric-docs-reference", "tater"),
+					Identifier.of("example-mod", "tater"),
 					new Potion(
 							new StatusEffectInstance(
 									ExampleModEffects.TATER,

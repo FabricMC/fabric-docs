@@ -1,14 +1,14 @@
 {
   "anvil_cost": 5,
   "description": {
-    "translate": "enchantment.fabric-docs-reference.thundering"
+    "translate": "enchantment.example-mod.thundering"
   },
   "effects": {
     "minecraft:post_attack": [
       {
         "affected": "victim",
         "effect": {
-          "type": "fabric-docs-reference:lightning_effect",
+          "type": "example-mod:lightning_effect",
           "amount": {
             "type": "minecraft:linear",
             "base": 0.4,

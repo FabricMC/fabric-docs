@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "fabric-docs-reference:condensed_dirt"
+          "name": "example-mod:condensed_dirt"
         }
       ],
       "conditions": [

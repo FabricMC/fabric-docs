@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "fabric-docs-reference:block/tater"
+      "model": "example-mod:block/tater"
     }
   }
 }

@@ -13,7 +13,7 @@ public class ExampleModEffects implements ModInitializer {
 	public static final RegistryEntry<StatusEffect> TATER;
 
 	static {
-		TATER = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("fabric-docs-reference", "tater"), new TaterEffect());
+		TATER = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("example-mod", "tater"), new TaterEffect());
 	}
 
 	@Override

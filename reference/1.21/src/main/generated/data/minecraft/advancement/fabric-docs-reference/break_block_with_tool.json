@@ -1,8 +1,8 @@
 {
-  "parent": "minecraft:fabric-docs-reference/get_dirt",
+  "parent": "minecraft:example-mod/get_dirt",
   "criteria": {
     "break_block_with_tool": {
-      "trigger": "minecraft:fabric-docs-reference/use_tool"
+      "trigger": "minecraft:example-mod/use_tool"
     }
   },
   "display": {

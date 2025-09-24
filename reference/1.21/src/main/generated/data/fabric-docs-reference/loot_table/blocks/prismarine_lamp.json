@@ -23,7 +23,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "fabric-docs-reference:prismarine_lamp"
+          "name": "example-mod:prismarine_lamp"
         }
       ],
       "rolls": 1.0
