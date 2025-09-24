@@ -20,7 +20,7 @@ authors-nogithub:
 ---
 
 ::: info PREREQUISITES
-Make sure you've [installed a JDK](./setting-up-a-development-environment#installing-jdk-21) first.
+Make sure you've [installed a JDK](../../setting-up-a-development-environment#installing-jdk-21) first.
 :::
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}
@@ -29,7 +29,9 @@ If you do not have IntelliJ IDEA installed, you can download it from the [offici
 
 The Community edition of IntelliJ IDEA is free and open-source, and it is the recommended version for modding with Fabric.
 
-You may have to scroll down to find the Community edition download link - it looks like the following:
+::: info DOWNLOADS
+You may have to scroll down to find the Community edition download link.
+:::
 
 ![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-community.png)
 
