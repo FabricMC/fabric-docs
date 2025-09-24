@@ -43,5 +43,5 @@ authors-nogithub:
 ```java
 ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
 chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.fabric_docs_reference.greeting")); // [!code ++]
+chatHud.addMessage(Text.translatable("text.example_mod.greeting")); // [!code ++]
 ```
