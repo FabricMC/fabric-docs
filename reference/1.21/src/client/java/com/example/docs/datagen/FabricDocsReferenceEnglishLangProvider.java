@@ -22,7 +22,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 	public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
 		// :::datagen-translations:provider
 		// :::datagen-translations:build
-		translationBuilder.add("text.fabric_docs_reference.greeting", "Hello there!");
+		translationBuilder.add("text.example_mod.greeting", "Hello there!");
 		// :::datagen-translations:build
 		translationBuilder.add(ModItems.GUIDITE_HELMET, "Guidite Helmet");
 		translationBuilder.add(ModItems.GUIDITE_CHESTPLATE, "Guidite Chestplate");
@@ -43,7 +43,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.example-mod.counter", "Counter");
 		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
-		translationBuilder.add("itemGroup.fabric_docs_reference", "Fabric Docs Reference");
+		translationBuilder.add("itemGroup.example_mod", "Fabric Docs Reference");
 		translationBuilder.add("block.example-mod.condensed_dirt", "Condensed Dirt");
 		translationBuilder.add("block.example-mod.condensed_oak_log", "Condensed Oak Log");
 		translationBuilder.add("block.example-mod.prismarine_lamp", "Prismarine Lamp");
