@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 
 // Class to contain all mod client command registrations.
-public class FabricDocsReferenceClientCommands implements ClientModInitializer {
+public class ExampleModClientCommands implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// :::1

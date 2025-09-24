@@ -17,9 +17,9 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
-import com.example.docs.damage.FabricDocsReferenceDamageTypes;
+import com.example.docs.damage.ExampleModDamageTypes;
 
-public class FabricDocsReferenceDamageTypesProvider {
+public class ExampleModDamageTypesProvider {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
 
 	public static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
@@ -29,7 +29,7 @@ public class FabricDocsReferenceDamageTypesProvider {
 
 		@Override
 		protected void configure(RegistryWrapper.WrapperLookup arg) {
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("minecraft:bypasses_armor"))).add(FabricDocsReferenceDamageTypes.TATER_DAMAGE);
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("minecraft:bypasses_armor"))).add(ExampleModDamageTypes.TATER_DAMAGE);
 		}
 	}
 

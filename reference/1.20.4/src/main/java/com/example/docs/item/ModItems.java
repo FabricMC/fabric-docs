@@ -21,7 +21,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.item.tool.GuiditeMaterial;
@@ -41,7 +41,7 @@ public class ModItems {
 	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 2, 0.5F, new FabricItemSettings()), "guidite_sword");
 	// :::7
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(FabricDocsReference.MOD_ID, "item_group"));
+	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(ExampleMod.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
@@ -67,7 +67,7 @@ public class ModItems {
 	// :::1
 	public static Item register(Item item, String id) {
 		// Create the identifier for the item.
-		Identifier itemID = new Identifier(FabricDocsReference.MOD_ID, id);
+		Identifier itemID = new Identifier(ExampleMod.MOD_ID, id);
 
 		// Register the item.
 		Item registeredItem = Registry.register(Registries.ITEM, itemID, item);

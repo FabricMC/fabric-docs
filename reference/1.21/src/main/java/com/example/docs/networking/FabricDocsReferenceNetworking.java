@@ -4,10 +4,10 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
-public class FabricDocsReferenceNetworking implements ModInitializer {
-	public static final String MOD_ID = FabricDocsReference.MOD_ID;
+public class ExampleModNetworking implements ModInitializer {
+	public static final String MOD_ID = ExampleMod.MOD_ID;
 
 	@Override
 	public void onInitialize() {

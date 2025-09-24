@@ -16,8 +16,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import com.example.docs.block.ModBlocks;
 
 // :::datagen-loot-tables:block-provider
-public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTableProvider {
-	protected FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+public class ExampleModBlockLootTableProvider extends FabricBlockLootTableProvider {
+	protected ExampleModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 

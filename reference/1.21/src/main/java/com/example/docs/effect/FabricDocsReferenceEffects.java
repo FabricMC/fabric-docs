@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.api.ModInitializer;
 
 // :::1
-public class FabricDocsReferenceEffects implements ModInitializer {
+public class ExampleModEffects implements ModInitializer {
 	public static final RegistryEntry<StatusEffect> TATER;
 
 	static {

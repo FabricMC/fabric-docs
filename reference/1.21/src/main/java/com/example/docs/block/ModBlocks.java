@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
@@ -59,7 +59,7 @@ public class ModBlocks {
 	// :::1
 	public static Block register(Block block, String name, boolean shouldRegisterItem) {
 		// Register the block and its item.
-		Identifier id = Identifier.of(FabricDocsReference.MOD_ID, name);
+		Identifier id = Identifier.of(ExampleMod.MOD_ID, name);
 
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:air` or `minecraft:end_gateway`

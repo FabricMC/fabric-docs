@@ -18,7 +18,7 @@ import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
 // Class to contain all mod command registrations.
-public class FabricDocsReferenceCommands implements ModInitializer {
+public class ExampleModCommands implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// :::_1

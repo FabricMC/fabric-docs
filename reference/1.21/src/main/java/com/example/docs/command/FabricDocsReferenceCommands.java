@@ -20,7 +20,7 @@ import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
 // Class to contain all mod command registrations.
-public class FabricDocsReferenceCommands implements ModInitializer {
+public class ExampleModCommands implements ModInitializer {
 	// :::execute_dedicated_command
 	private static int executeDedicatedCommand(CommandContext<ServerCommandSource> context) {
 		context.getSource().sendFeedback(() -> Text.literal("Called /dedicated_command."), false);
@@ -140,7 +140,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			if (environment.dedicated) {
 				dispatcher.register(CommandManager.literal("dedicated_command")
-						.executes(FabricDocsReferenceCommands::executeDedicatedCommand));
+						.executes(ExampleModCommands::executeDedicatedCommand));
 			}
 		});
 		// :::dedicated_command
@@ -149,29 +149,29 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("required_command")
 					.requires(source -> source.hasPermissionLevel(1))
-					.executes(FabricDocsReferenceCommands::executeRequiredCommand));
+					.executes(ExampleModCommands::executeRequiredCommand));
 		});
 		// :::required_command
 
 		// :::sub_command_one
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_one")
-					.then(CommandManager.literal("sub_command_one").executes(FabricDocsReferenceCommands::executeSubCommandOne)));
+					.then(CommandManager.literal("sub_command_one").executes(ExampleModCommands::executeSubCommandOne)));
 		});
 		// :::sub_command_one
 
 		// :::sub_command_two
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_two")
-					.executes(FabricDocsReferenceCommands::executeCommandTwo)
-					.then(CommandManager.literal("sub_command_two").executes(FabricDocsReferenceCommands::executeSubCommandTwo)));
+					.executes(ExampleModCommands::executeCommandTwo)
+					.then(CommandManager.literal("sub_command_two").executes(ExampleModCommands::executeSubCommandTwo)));
 		});
 		// :::sub_command_two
 
 		// :::redirect_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			var redirectedBy = dispatcher.register(CommandManager.literal("redirected_by").executes(FabricDocsReferenceCommands::executeRedirectedBy));
-			dispatcher.register(CommandManager.literal("to_redirect").executes(FabricDocsReferenceCommands::executeRedirectedBy).redirect(redirectedBy));
+			var redirectedBy = dispatcher.register(CommandManager.literal("redirected_by").executes(ExampleModCommands::executeRedirectedBy));
+			dispatcher.register(CommandManager.literal("to_redirect").executes(ExampleModCommands::executeRedirectedBy).redirect(redirectedBy));
 		});
 		// :::redirect_command
 
@@ -179,7 +179,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_with_arg")
 					.then(CommandManager.argument("value", IntegerArgumentType.integer())
-							.executes(FabricDocsReferenceCommands::executeCommandWithArg)));
+							.executes(ExampleModCommands::executeCommandWithArg)));
 		});
 		// :::command_with_arg
 
@@ -187,9 +187,9 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_with_two_args")
 					.then(CommandManager.argument("value_one", IntegerArgumentType.integer())
-							.executes(FabricDocsReferenceCommands::executeWithOneArg)
+							.executes(ExampleModCommands::executeWithOneArg)
 							.then(CommandManager.argument("value_two", IntegerArgumentType.integer())
-									.executes(FabricDocsReferenceCommands::executeWithTwoArgs))));
+									.executes(ExampleModCommands::executeWithTwoArgs))));
 		});
 		// :::command_with_two_args
 
@@ -210,7 +210,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_with_custom_arg").then(
 					CommandManager.argument("block_pos", new BlockPosArgumentType())
-							.executes(FabricDocsReferenceCommands::executeCustomArgCommand)
+							.executes(ExampleModCommands::executeCustomArgCommand)
 			));
 		});
 		// :::custom_arg_command
@@ -220,7 +220,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 			dispatcher.register(CommandManager.literal("command_with_suggestions").then(
 					CommandManager.argument("entity", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ENTITY_TYPE))
 							.suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
-							.executes(FabricDocsReferenceCommands::executeCommandWithSuggestions)
+							.executes(ExampleModCommands::executeCommandWithSuggestions)
 			));
 		});
 		// :::command_with_suggestions
@@ -230,7 +230,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 			dispatcher.register(CommandManager.literal("command_with_custom_suggestions").then(
 					CommandManager.argument("player_name", StringArgumentType.string())
 							.suggests(new PlayerSuggestionProvider())
-							.executes(FabricDocsReferenceCommands::executeCommandWithCustomSuggestions)
+							.executes(ExampleModCommands::executeCommandWithCustomSuggestions)
 			));
 		});
 		// :::command_with_custom_suggestions

@@ -13,16 +13,16 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::datagen-tags:provider
-public class FabricDocsReferenceItemTagProvider extends FabricTagProvider<Item> {
+public class ExampleModItemTagProvider extends FabricTagProvider<Item> {
 	// :::datagen-tags:provider
 	// :::datagen-tags:tag-key
-	public static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, "smelly_items"));
+	public static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, "smelly_items"));
 	// :::datagen-tags:tag-key
 	// :::datagen-tags:provider
-	public FabricDocsReferenceItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+	public ExampleModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
 		super(output, RegistryKeys.ITEM, registriesFuture);
 	}
 

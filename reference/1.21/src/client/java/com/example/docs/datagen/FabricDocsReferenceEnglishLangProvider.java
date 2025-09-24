@@ -12,8 +12,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
-public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {
-	protected FabricDocsReferenceEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
+	protected ExampleModEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}
@@ -47,7 +47,7 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add("block.fabric-docs-reference.condensed_dirt", "Condensed Dirt");
 		translationBuilder.add("block.fabric-docs-reference.condensed_oak_log", "Condensed Oak Log");
 		translationBuilder.add("block.fabric-docs-reference.prismarine_lamp", "Prismarine Lamp");
-		translationBuilder.add("enchantment.FabricDocsReference.thundering", "Thundering");
+		translationBuilder.add("enchantment.ExampleMod.thundering", "Thundering");
 		// :::datagen-translations:provider
 	}
 }

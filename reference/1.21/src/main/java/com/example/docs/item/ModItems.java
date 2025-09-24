@@ -20,7 +20,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.ModArmorMaterials;
 import com.example.docs.item.custom.CounterItem;
@@ -48,7 +48,7 @@ public class ModItems {
 	), "counter");
 	// :::_13
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "item_group"));
+	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(ExampleMod.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
@@ -80,7 +80,7 @@ public class ModItems {
 	// :::1
 	public static Item register(Item item, String id) {
 		// Create the identifier for the item.
-		Identifier itemID = Identifier.of(FabricDocsReference.MOD_ID, id);
+		Identifier itemID = Identifier.of(ExampleMod.MOD_ID, id);
 
 		// Register the item.
 		Item registeredItem = Registry.register(Registries.ITEM, itemID, item);

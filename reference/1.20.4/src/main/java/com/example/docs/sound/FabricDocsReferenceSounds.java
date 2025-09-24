@@ -9,12 +9,12 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::2
-public class FabricDocsReferenceSounds implements ModInitializer {
-	public static final String MOD_ID = FabricDocsReference.MOD_ID;
-	public static final Logger LOGGER = FabricDocsReference.LOGGER;
+public class ExampleModSounds implements ModInitializer {
+	public static final String MOD_ID = ExampleMod.MOD_ID;
+	public static final Logger LOGGER = ExampleMod.LOGGER;
 
 	@Override
 	public void onInitialize() {

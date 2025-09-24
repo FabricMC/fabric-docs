@@ -15,7 +15,7 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 
 // Class to contain all mod events.
-public class FabricDocsReferenceEvents implements ModInitializer {
+public class ExampleModEvents implements ModInitializer {
 	private static final Identifier COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableId();
 
 	@Override

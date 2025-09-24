@@ -17,14 +17,14 @@ import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.advancement.ModCriteria;
 import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
 
 // :::datagen-advancements:provider-start
-public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementProvider {
-	protected FabricDocsReferenceAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
+	protected ExampleModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup);
 	}
 
@@ -46,7 +46,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				// "got_dirt" is the name referenced by other advancements when they want to have "requirements."
 				.criterion("got_dirt", InventoryChangedCriterion.Conditions.items(Items.DIRT))
 				// Give the advancement an id
-				.build(consumer, FabricDocsReference.MOD_ID + "/get_dirt");
+				.build(consumer, ExampleMod.MOD_ID + "/get_dirt");
 		// :::datagen-advancements:simple-advancement
 		// :::datagen-advancements:second-advancement
 		AdvancementEntry appleAndBeef = Advancement.Builder.create()
@@ -63,7 +63,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 				)
 				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(Items.APPLE))
 				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(Items.COOKED_BEEF))
-				.build(consumer, FabricDocsReference.MOD_ID + "/apple_and_beef");
+				.build(consumer, ExampleMod.MOD_ID + "/apple_and_beef");
 		// :::datagen-advancements:second-advancement
 		// :::datagen-advancements:custom-criteria-advancement
 		AdvancementEntry breakBlockWithTool = Advancement.Builder.create()
@@ -79,7 +79,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						false
 				)
 				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(Optional.empty())))
-				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool");
+				.build(consumer, ExampleMod.MOD_ID + "/break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement
 		AdvancementEntry breakBlockWithToolFiveTimes = Advancement.Builder.create()
@@ -95,7 +95,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						false
 				)
 				.criterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.build(consumer, FabricDocsReference.MOD_ID + "/break_block_with_tool_five_times");
+				.build(consumer, ExampleMod.MOD_ID + "/break_block_with_tool_five_times");
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:provider-start
 	}

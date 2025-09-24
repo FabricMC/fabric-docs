@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import com.example.docs.item.armor.ModArmorMaterials;
 
 // :::1
-public class FabricDocsReferenceItems implements ModInitializer {
+public class ExampleModItems implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// :::1

@@ -7,29 +7,29 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.docs.FabricDocsReference",
-      "com.example.docs.event.FabricDocsReferenceEvents",
-      "com.example.docs.command.FabricDocsReferenceCommands",
-      "com.example.docs.effect.FabricDocsReferenceEffects",
-      "com.example.docs.potion.FabricDocsReferencePotions",
-      "com.example.docs.sound.FabricDocsReferenceSounds",
-      "com.example.docs.damage.FabricDocsReferenceDamageTypes",
-      "com.example.docs.item.FabricDocsReferenceItems",
-      "com.example.docs.enchantment.FabricDocsReferenceEnchantments",
-      "com.example.docs.block.FabricDocsReferenceBlocks",
-      "com.example.docs.block.entity.FabricDocsReferenceBlockEntities",
-      "com.example.docs.component.FabricDocsReferenceComponents",
-      "com.example.docs.advancement.FabricDocsReferenceDatagenAdvancement",
-      "com.example.docs.networking.FabricDocsReferenceNetworking"
+      "com.example.docs.ExampleMod",
+      "com.example.docs.event.ExampleModEvents",
+      "com.example.docs.command.ExampleModCommands",
+      "com.example.docs.effect.ExampleModEffects",
+      "com.example.docs.potion.ExampleModPotions",
+      "com.example.docs.sound.ExampleModSounds",
+      "com.example.docs.damage.ExampleModDamageTypes",
+      "com.example.docs.item.ExampleModItems",
+      "com.example.docs.enchantment.ExampleModEnchantments",
+      "com.example.docs.block.ExampleModBlocks",
+      "com.example.docs.block.entity.ExampleModBlockEntities",
+      "com.example.docs.component.ExampleModComponents",
+      "com.example.docs.advancement.ExampleModDatagenAdvancement",
+      "com.example.docs.networking.ExampleModNetworking"
     ],
     "client": [
-      "com.example.docs.FabricDocsReferenceClient",
-      "com.example.docs.client.command.FabricDocsReferenceClientCommands",
+      "com.example.docs.ExampleModClient",
+      "com.example.docs.client.command.ExampleModClientCommands",
       "com.example.docs.FabricDocsDynamicSound",
       "com.example.docs.FabricDocsBlockEntityRenderer"
     ],
     "fabric-datagen": [
-      "com.example.docs.datagen.FabricDocsReferenceDataGenerator"
+      "com.example.docs.datagen.ExampleModDataGenerator"
     ]
   },
   "mixins": [

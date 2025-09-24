@@ -10,7 +10,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
 // :::datagen-advancements:entrypoint
-public class FabricDocsReferenceDatagenAdvancement implements ModInitializer {
+public class ExampleModDatagenAdvancement implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// :::datagen-advancements:entrypoint

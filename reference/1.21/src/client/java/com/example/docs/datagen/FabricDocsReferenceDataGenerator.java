@@ -1,6 +1,6 @@
 package com.example.docs.datagen;
 
-import static com.example.docs.datagen.FabricDocsReferenceDamageTypesProvider.TATER_DAMAGE_TYPE;
+import static com.example.docs.datagen.ExampleModDamageTypesProvider.TATER_DAMAGE_TYPE;
 
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
@@ -8,10 +8,10 @@ import net.minecraft.registry.RegistryKeys;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-import com.example.docs.damage.FabricDocsReferenceDamageTypes;
+import com.example.docs.damage.ExampleModDamageTypes;
 
 // :::datagen-setup:generator
-public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint {
+public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		// :::datagen-setup:generator
@@ -21,19 +21,19 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 
 		pack.addProvider(EnchantmentGenerator::new);
 
-		pack.addProvider(FabricDocsReferenceAdvancementProvider::new);
+		pack.addProvider(ExampleModAdvancementProvider::new);
 
-		pack.addProvider(FabricDocsReferenceEnglishLangProvider::new);
+		pack.addProvider(ExampleModEnglishLangProvider::new);
 
-		pack.addProvider(FabricDocsReferenceItemTagProvider::new);
+		pack.addProvider(ExampleModItemTagProvider::new);
 
-		pack.addProvider(FabricDocsReferenceRecipeProvider::new);
+		pack.addProvider(ExampleModRecipeProvider::new);
 
-		pack.addProvider(FabricDocsReferenceBlockLootTableProvider::new);
-		pack.addProvider(FabricDocsReferenceChestLootTableProvider::new);
+		pack.addProvider(ExampleModBlockLootTableProvider::new);
+		pack.addProvider(ExampleModChestLootTableProvider::new);
 
-		pack.addProvider(FabricDocsReferenceDamageTypesProvider.TaterDamageTypesGenerator::new);
-		pack.addProvider(FabricDocsReferenceDamageTypesProvider.TaterDamageTypeTagGenerator::new);
+		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypesGenerator::new);
+		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		// :::datagen-setup:generator
 	}
@@ -42,7 +42,7 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.DAMAGE_TYPE, registerable -> {
-			registerable.register(FabricDocsReferenceDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
+			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
 	}
 

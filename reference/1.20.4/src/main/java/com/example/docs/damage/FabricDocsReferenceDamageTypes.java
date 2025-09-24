@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
 
-public class FabricDocsReferenceDamageTypes implements ModInitializer {
+public class ExampleModDamageTypes implements ModInitializer {
 	public static final Block TATER_BLOCK = new TaterBlock(AbstractBlock.Settings.create());
 	// :::1
 	public static final RegistryKey<DamageType> TATER_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("fabric-docs-reference", "tater"));

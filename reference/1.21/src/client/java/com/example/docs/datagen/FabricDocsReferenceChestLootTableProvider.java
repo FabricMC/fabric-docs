@@ -19,8 +19,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider
 import com.example.docs.ModLootTables;
 
 // :::datagen-loot-tables:chest-provider
-public class FabricDocsReferenceChestLootTableProvider extends SimpleFabricLootTableProvider {
-	public FabricDocsReferenceChestLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+public class ExampleModChestLootTableProvider extends SimpleFabricLootTableProvider {
+	public ExampleModChestLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup, LootContextTypes.CHEST);
 	}
 
