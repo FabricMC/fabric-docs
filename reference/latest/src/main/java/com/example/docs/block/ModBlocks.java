@@ -136,7 +136,7 @@ public class ModBlocks {
 			// can be the same.
 			RegistryKey<Item> itemKey = keyOfItem(name);
 
-			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+			BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey).useBlockPrefixedTranslationKey());
 			Registry.register(Registries.ITEM, itemKey, blockItem);
 		}
 

@@ -37,6 +37,16 @@ export default [
       {
         text: "develop.gettingStarted.devEnvSetup",
         link: "/develop/getting-started/setting-up-a-development-environment",
+        items: [
+          {
+            text: "develop.gettingStarted.devEnvSetupIntelliJ",
+            link: "/develop/getting-started/setting-up-intellij-idea",
+          },
+          {
+            text: "develop.gettingStarted.devEnvSetupVSCode",
+            link: "/develop/getting-started/setting-up-vscode",
+          }
+        ]
       },
       {
         text: "develop.gettingStarted.creatingProject",
@@ -59,6 +69,10 @@ export default [
       {
         text: "develop.items.first-item",
         link: "/develop/items/first-item",
+      },
+      {
+        text: "develop.items.item-models",
+        link: "/develop/items/item-models",
       },
       {
         text: "develop.items.food",
@@ -172,11 +186,10 @@ export default [
     text: "develop.rendering",
     collapsed: true,
     items: [
-      // TODO: Enable this page once the example mod is fixed.
-      // {
-      //   text: "develop.rendering.basicConcepts",
-      //   link: "/develop/rendering/basic-concepts",
-      // },
+      {
+        text: "develop.rendering.basicConcepts",
+        link: "/develop/rendering/basic-concepts",
+      },
       {
         text: "develop.rendering.drawContext",
         link: "/develop/rendering/draw-context",

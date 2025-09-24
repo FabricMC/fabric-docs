@@ -5,10 +5,8 @@ authors:
   - IMB11
   - kevinthegreat1
 ---
-<!-- TODO: Enable this paragraph once the example mod is fixed. -->
-<!-- We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter. -->
 
-We already briefly touched on rendering things to the HUD in [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
+We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
 
 ## `HudRenderCallback` {#hudrendercallback}
 
@@ -28,7 +26,7 @@ The draw context can be used to access the various rendering utilities provided 
 
 The `RenderTickCounter` class allows you to retrieve the current `tickProgress` value. `tickProgress` is the "progress" between the last game tick and the next game tick.
 
-For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickDelta` represents how far we are between the last tick and the next. Over 11 frames, you might see:
+For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickProgress` represents how far we are between the last tick and the next. Over 11 frames, you might see:
 
 | Frame | `tickProgress` |
 |:-----:|----------------|
@@ -54,4 +52,4 @@ In this example, we'll use `Util.getMeasuringTimeMs()` to linearly interpolate t
 
 ![Lerping a color over time](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-Why don't you try use `tickDelta` and see what happens to the animation when you run the `/tick freeze` command? You should see the animation freeze in place as `tickDelta` becomes constant (assuming you have passed `false` as the parameter to `RenderTickCounter#getTickDelta`)
+Why don't you try use `tickProgress` and see what happens to the animation when you run the `/tick freeze` command? You should see the animation freeze in place as `tickProgress` becomes constant (assuming you have passed `false` as the parameter to `RenderTickCounter#getTickProgress`)
