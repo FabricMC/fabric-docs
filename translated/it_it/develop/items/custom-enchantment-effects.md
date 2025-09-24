@@ -47,7 +47,7 @@ Infine, dobbiamo dire alla nostra mod di aggiungere il nostro `EnchantmentGenera
 
 Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli incantesimi verranno generati nella cartella `generated`. Ecco un esempio qua sotto:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 Dovresti anche aggiungere le traduzioni al tuo file `en_us.json` per dare al tuo incantesimo un nome leggibile:
 

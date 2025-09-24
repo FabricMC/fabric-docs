@@ -95,11 +95,11 @@ Minecraft використовуватиме цей переклад у твор
 
 Щоб текстура промальовувалася в грі, ви повинні створити модель блоку, яку можна знайти у файлі `assets/mod-id/models/block/condensed_dirt.json` для блоку «Condensed Dirt». Для цього блоку ми будемо використовувати тип моделі `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 Щоб блок позувався у вашому інвентарі, вам потрібно буде створити опис моделі предмета](../items/first-item#creating-the-item-model-description), який вказує на вашу модель блоку. Для цього прикладу опис моделі предмета для блоку «Condensed Dirt» можна знайти у `assets/mod-id/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Вам потрібно лише створити опис моделі предмета, якщо ви зареєстрували `BlockItem` разом зі своїм блоком!
@@ -115,7 +115,7 @@ Minecraft використовуватиме цей переклад у твор
 
 Цей файл має міститися в папці `assets/mod-id/blockstates`, а його назва має збігатися з ідентифікатором блоку, який використовується під час реєстрації вашого блоку в класі `ModBlocks`. Наприклад, якщо ID блоку `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Стани блоків неймовірно складні, тому вони будуть розглянуті далі на [їхній окремій сторінці](./blockstates).
@@ -133,7 +133,7 @@ Minecraft використовуватиме цей переклад у твор
 Щоб краще зрозуміти таблиці здобичі, ви можете звернутися до сторінки [Minecraft Wiki - Таблиці здобичі](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блоку, коли блок ламаний або підірваний вибухом.
 

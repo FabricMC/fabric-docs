@@ -42,7 +42,7 @@ Dovrai anche aggiungere una texture, una traduzione e un modello per l'oggetto. 
 
 Per questo esempio, useremo il modello e la texture seguenti per l'oggetto "Spada di Guidite":
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
 

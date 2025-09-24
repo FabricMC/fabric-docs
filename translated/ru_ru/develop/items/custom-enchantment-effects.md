@@ -47,7 +47,7 @@ authors:
 
 Теперь, когда вы запускаете задачу генерации данных вашего мода, JSON-файлы чар будут генерироваться внутри папки `generated`. Пример можно увидеть ниже:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 Вам также следует добавить переводы в файл `en_us.json`, чтобы дать вашему зачарованию читаемое имя:
 

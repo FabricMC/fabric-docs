@@ -45,7 +45,7 @@ Per questo esempio, avremo una sola texture in `textures/particle` chiamata "spa
 
 Dopo, crea un nuovo file JSON in `particles` con lo stesso nome del percorso JSON che hai usato quando hai registrato il tuo ParticleType. Per questo esempio, dovremo creare `sparkle_particle.json`. Questo file è importante perché fa conoscere a Minecraft quali texture dovrebbe usare la nostra particella.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 Puoi aggiungere altre texture al vettore `textures` per creare un animazione per la particella. La particella scorrerà attraverso le texture nel vettore, iniziando dalla prima.
@@ -58,7 +58,7 @@ Una volta completato il file JSON e salvato il tuo lavoro, puoi aprire Minecraft
 Puoi controllare se tutto ha funzionato scrivendo il comando seguente:
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![Dimostrazione della particella](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

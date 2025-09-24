@@ -82,7 +82,7 @@ authors:
 Вам знадобляться файли моделі JSON для всіх предметів, а не лише для шолома, це той самий принцип, що й інші моделі предметів.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Як бачите, в грі предмети обладунків повинні мати відповідні моделі:
 
@@ -113,7 +113,7 @@ authors:
 
 Оскільки ми плануємо додати лише «гуманоїда» (шолом, нагрудник, наголінники, чоботи тощо) обладунків, наше визначення моделі обладнання виглядатиме так:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 З наявністю текстур і визначення моделі спорядження ви зможете бачити свої обладунки на сутностях, які її носять:
 

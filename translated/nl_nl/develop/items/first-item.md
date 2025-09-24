@@ -96,7 +96,7 @@ Je gaat een eenvoudig `item/generated`-model maken, dat een invoertextuur bevat 
 
 Maak de model-JSON in de map `assets/<mod id here>/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Het Model-JSON Afbreken {#breaking-down-the-model-json}
 

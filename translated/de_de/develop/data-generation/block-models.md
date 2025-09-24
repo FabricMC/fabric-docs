@@ -38,11 +38,11 @@ Hier sind einige praktische Beispiele, die du zur Generierung deiner gewünschte
 
 Dies ist die am häufigsten verwendete Funktion. Sie generiert eine JSON-Modell-Datei für ein normales `cube_all` Blockmodell. Eine Textur wird für alle sechs Seiten genutzt, in diesem Fall nutzen wir `steel_block`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/steel_block.json)
 
 Sie generiert auch eine Blockzustand-JSON-Datei. Da wir keine Blockzustand-Eigenschaften (z. B. Achsen, Ausrichtung, ...) haben, ist eine Variante ausreichend und wird jedes Mal verwendet, wenn der Block platziert wird.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/steel_block.json)
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/steel_block_big.png" downloadURL="/assets/develop/data-generation/block-model/steel_block.png">Stahlblock</DownloadEntry>
 
@@ -54,7 +54,7 @@ Die `registerSingleton`-Methode liefert JSON-Modelldateien basierend auf dem üb
 
 Diese Methode wird Modelle für einen normalen Würfel generieren, der die Texturdatei `pipe_block` für die Seiten und die Texturdatei `pipe_block_top` für die obere und untere Seite nutzt.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/pipe_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
 :::tip
 Wenn du dich nicht entscheiden kannst, welches `TextureModel` du verwenden sollst, öffne die Klasse `TexturedModel` und sieh dir die [`TextureMaps`](#using-texture-map) an!
@@ -125,7 +125,7 @@ Und du bist fertig! Du kannst jetzt den Block austesten und im Spiel platzieren.
 Lasst und jetzt ein übergeordnetes Blockmodell erstellen. Es bestimmt die Größe, Position in der Hand oder in anderen Slots und die `x` und `y` Koordinaten der Textur.
 Es wird empfohlen für dies einen Editor, wie [Blockbench](https://www.blockbench.net/) zu verwenden, da die manuelle Erstellung ein wirklich mühsamer Prozess ist. Es sollte wie folgt aussehen:
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/vertical_slab.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/models/block/vertical_slab.json)
 
 Für weitere Informationen, siehe dir an [wie Blockzustände formatiert sind](https://minecraft.wiki/w/Blockstates_definition_format).
 Beachte die Schlüsselwörter `#bottom`, `#top`, `#side`. Sie dienen als Variablen, die von Modellen gesetzt werden können, die dieses Modell als übergeordnetes Modell haben:

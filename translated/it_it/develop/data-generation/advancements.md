@@ -45,7 +45,7 @@ Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Iden
 :::
 
 :::details Output JSON
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
 :::
 
 ## Un Altro Esempio Ancora {#one-more-example}

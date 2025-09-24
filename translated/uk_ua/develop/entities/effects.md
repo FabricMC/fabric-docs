@@ -40,7 +40,7 @@ authors-nogithub:
 Значок статусного ефекту — це PNG розміром 18x18, який з’явиться на екрані інвентарю гравця. Розмістіть ваш значок у:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Приклад текстури</DownloadEntry>
@@ -52,7 +52,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -64,7 +64,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

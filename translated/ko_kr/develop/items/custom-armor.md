@@ -82,7 +82,7 @@ authors:
 헬멧 뿐만 아니라, 모든 아이템에 대한 JSON 모델 파일을 만들어야 합니다. 다른 아이템 모델에도 똑같이 적용됩니다.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 보시다시피, 인게임에서 방어구 아이템은 적절한 모델을 가져야 합니다.
 
@@ -113,7 +113,7 @@ authors:
 
 예제에서는 "인간형" 갑옷(헬멧, 흉갑, 레깅스, 부츠 등)만 추가했기 때문에, 모델 정의는 다음과 같은 형태로 이루어집니다:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 텍스처와 착용 모델 정의를 모두 추가했다면, 개체가 갑옷을 착용하면 다음과 같이 보일 것입니다:
 

@@ -38,11 +38,11 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 这是最常用的函数。 它为普通的 `cube_all` 方块模型生成一个 JSON 模型文件。 所有六个面都使用一个纹理，在本例中我们使用 `steel_block`。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/steel_block.json)
 
 它还生成一个方块状态 JSON 文件。 由于我们没有方块状态属性（例如轴、朝向等），因此一个变体就够了，并且每次放置方块时都会使用。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/steel_block.json)
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/steel_block_big.png" downloadURL="/assets/develop/data-generation/block-model/steel_block.png">钢块</DownloadEntry>
 
@@ -54,7 +54,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 该方法将为一个普通立方体生成模型，该立方体使用纹理文件 `pipe_block` 作为侧面，使用纹理文件 `pipe_block_top` 作为顶部和底部。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/pipe_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
 :::tip
 如果您无法选择应该使用哪个 `TextureModel`，请打开 `TexturedModel` 类并查看 [`纹理映射`](#using-texture-map)！
@@ -125,7 +125,7 @@ _点 2. - 6. 在名为 `CustomBlockStateModelGenerator` 的内部静态辅助类
 现在，我们来创建一个父方块模型。 它可以确定尺寸、在手中或其他槽位中的位置以及纹理的 `x` 和 `y` 坐标。
 建议使用诸如 [Blockbench](https://www.blockbench.net/) 之类的编辑器来完成此操作，因为手动制作非常繁琐。 它看起来应该是这样的：
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/vertical_slab.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/models/block/vertical_slab.json)
 
 请参阅 [方块状态如何格式化（仅英文版）](https://minecraft.wiki/w/Blockstates_definition_format) 来了解更多信息。
 请注意 `#bottom`、`#top`、`#side` 关键字。 它们充当变量，可以由以此为父级的模型进行设置：

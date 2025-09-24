@@ -54,7 +54,7 @@ Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络
 
 同时，我们定义：
 
-- `Identifier`（标识符）用于识别数据包的有效负载。 在本例中，我们的标识符将是 `fabric-docs-reference:summon_lightning`。
+- `Identifier`（标识符）用于识别数据包的有效负载。 在本例中，我们的标识符将是 `example-mod:summon_lightning`。
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 

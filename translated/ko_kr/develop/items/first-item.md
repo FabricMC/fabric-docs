@@ -97,7 +97,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 `src/main/resources/assets/mod-id/models/item` 폴더에, 아이템과 같은 식별자(예제의 경우 `suspicious_substance.json`) 이름의 JSON 파일을 생성한 다음 아래와 같이 입력합니다:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 모델 JSON 분석하기 {#breaking-down-the-model-json}
 
@@ -114,7 +114,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 `src/main/resources/assets/mod-id/items` 폴더에, 아이템과 같은 식별자(`suspicious_substance.json`)를 이름으로 가지는 아이템 설명 JSON 파일을 생성한 다음, 다음과 같이 입력합니다:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### 아이템 모델 설명 JSON 분석하기 {#breaking-down-the-item-model-description-json}
 

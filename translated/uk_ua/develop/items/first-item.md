@@ -102,7 +102,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Створіть модель JSON в теці `assets/mod-id/models/item` з такою самою назвою, як у предмета; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Розбираємо модель JSON {#breaking-down-the-model-json}
 
@@ -119,7 +119,7 @@ Minecraft не визначає автоматично, де можна знай
 
 Створіть JSON опису предмета в `assets/mod-id/items` з тією ж назвою файлу, що й ідентифікатор предмета: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Розбір опису моделі предмета JSON {#breaking-down-the-item-model-description-json}
 

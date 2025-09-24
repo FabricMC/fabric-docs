@@ -82,7 +82,7 @@ authors:
 你需要所有物品的模型 JSON 文件，不只是头盔，这原则和其他物品模型一样。
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 可以看到，游戏内的盔甲物品应该有合适的模型：
 
@@ -113,7 +113,7 @@ authors:
 
 由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的设备模型定义会是这样的：
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 这些纹理存在时，你应该能够看到实体穿着的盔甲了：
 

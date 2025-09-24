@@ -47,7 +47,7 @@ Zum Schluss müssen wir unserem Mod sagen, dass er unseren `EnchantmentGenerator
 
 Wenn du nun die Datengenerierungsaufgabe deines Mods ausführst, werden die Verzauberungs-JSONs im Ordner `generated` generiert. Ein Beispiel ist unten zu sehen:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 Du solltest auch Übersetzungen zu deiner `en_us.json` Datei hinzufügen, um deiner Verzauberung einen lesbaren Namen zu geben:
 

@@ -45,7 +45,7 @@ Denke bei der Erstellung deiner Fortschrittseinträge daran, dass die Funktion d
 :::
 
 :::details JSON Ausgabe
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
 :::
 
 ## Ein weiteres Beispiel {#one-more-example}

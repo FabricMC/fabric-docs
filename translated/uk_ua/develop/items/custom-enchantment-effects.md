@@ -47,7 +47,7 @@ authors:
 
 Тепер, коли ви запускаєте завдання генерації даних вашого мода, у теці `generated` будуть створені JSON-файли зачарувань. Приклад можна побачити нижче:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 Ви також повинні додати переклади до свого файлу `en_us.json` (для української створіть `uk_ua.json`), щоб надати своєму зачаруванню читабельну назву:
 

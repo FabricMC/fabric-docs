@@ -14,12 +14,12 @@ I tipi di danno definiscono tipi di danno che le entità possono subire. A parti
 Creiamo un tipo di danno personalizzato chiamato _Tater_. Inizieremo creando un file JSON per il tuo danno personalizzato. Il file sarà posizionato nella cartella `data` della tua mod, in una sottocartella chiamata `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 Ha la struttura seguente:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Questo tipo di danno personalizzato causa un aumento di 0.1 nel livello di esaurimento ([exhaustion level](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase)) ogni volta che il giocatore prende danno, quando il danno è causato da una fonte vivente che non sia un giocatore (per esempio un blocco). Inoltre, la quantità di danno subita cambierà a seconda della difficoltà del mondo
 

@@ -16,12 +16,12 @@ authors:
 буде розміщено в каталозі `data` вашого мода, у підкаталозі з назвою `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 Він має таку структуру:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Цей спеціальний тип шкоди збільшує 0,1
 у [виснаженні від голоду](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) кожного разу, коли гравець отримує шкоду, коли

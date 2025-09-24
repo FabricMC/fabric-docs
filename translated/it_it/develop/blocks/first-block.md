@@ -95,11 +95,11 @@ Tutte le texture dei blocchi si trovano nella cartella `assets/mod-id/textures/b
 
 Per fare in modo che la texture sia visibile nel gioco, devi creare un modello del blocco, presenti nel file `assets/mod-id/models/block/condensed_dirt.json` per quanto riguarda il blocco di "Terra Condensata". Per questo blocco useremo il tipo di modello `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 Perché il blocco sia mostrato nell'inventario, dovrai creare una [Descrizione del Modello dell'Oggetto](../items/first-item#creating-the-item-model-description) che punti al modello del tuo blocco. Per questo esempio la descrizione del modello dell'oggetto per il blocco "Terra Condensata" si può trovare in `assets/mod-id/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Dovrai creare una descrizione del modello d'oggetto solo se hai registrato un `BlockItem` assieme al tuo blocco!
@@ -115,7 +115,7 @@ Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella 
 
 Questo file si dovrebbe trovare nella cartella `assets/mod-id/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Gli stati dei blocchi sono davvero complessi, ed è per questo che gli tratteremo successivamente in una [loro pagina a parte](./blockstates).
@@ -133,7 +133,7 @@ Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non dr
 Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 

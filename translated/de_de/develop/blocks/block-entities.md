@@ -115,7 +115,7 @@ Jetzt können wir `ticksSinceLast` verwenden, um zu prüfen, ob der Zähler in `
 Wenn die Blockentität nicht zu ticken scheint, überprüfe den Registrierungscode! Es sollte die Blöcke, die für diese Entität gültig sind, an den `BlockEntityType.Builder`, übergeben, sonst wird eine Warnung in der Konsole ausgegeben:
 
 ```text
-[13:27:55] [Server thread/WARN] (Minecraft) Block entity fabric-docs-reference:counter @ BlockPos{x=-29, y=125, z=18} state Block{fabric-docs-reference:counter_block} invalid for ticking:
+[13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 
 :::

@@ -47,7 +47,7 @@ authors:
 
 이제, 모드의 데이터 생성 작업을 실행하면, `generated` 폴더에 마법 부여 JSON이 생성될 것입니다. 아마도 다음과 같이 생성되었을 것입니다:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 `en_us.json`에 마법 부여의 번역 키를 추가하는것도 잊지 마세요:
 

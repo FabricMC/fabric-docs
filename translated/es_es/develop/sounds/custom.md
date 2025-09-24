@@ -31,7 +31,7 @@ Agrega un nuevo folder `resources/assets/<mod id here>/sounds` para los sonidos 
 
 Continúa creando el archivo `resources/assets/<mod id here>/sounds.json` si no existe todavía y agrega tu sonido a las entradas de sonido.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
 La entrada de subtítulo provee más contexto para el jugador. El nombre del subtítulo es usado en los archivos de lenguaje en el folder de `resources/assets/<mod id here>/lang` y serán mostrados si la opción de subtítulos en el juego es activada y el sonido personalizado está siendo reproducido.
 

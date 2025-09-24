@@ -45,7 +45,7 @@ authors-nogithub:
 :::
 
 :::details JSON 输出
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
 :::
 
 ## 另一个示例 {#one-more-example}

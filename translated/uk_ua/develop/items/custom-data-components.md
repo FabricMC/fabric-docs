@@ -76,7 +76,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
@@ -84,15 +84,15 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```json
 {
-  "item.fabric-docs-reference.counter": "Counter",
-  "item.fabric-docs-reference.counter.info": "Used %1$s times"
+  "item.example-mod.counter": "Counter",
+  "item.example-mod.counter.info": "Used %1$s times"
 }
 ```
 
 Запустіть гру та виконайте цю команду, щоб отримати новий лічильник із кількістю 5.
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+/give @p example-mod:counter[example-mod:click_count=5]
 ```
 
 Коли ви наведете курсор на цей предмет у своєму інвентарі, ви побачите кількість, що показується в спливаючій підказці!
@@ -154,7 +154,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 Спробуйте створити собі лічильник, видаливши наш спеціальний компонент. Для цього можна використати цю команду:
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+/give @p example-mod:counter[!example-mod:click_count]
 ```
 
 При наведенні курсора на цей предмет підказка повинна бути відсутня.

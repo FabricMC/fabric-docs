@@ -95,11 +95,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/mod-id/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/mod-id/items/condensed_dirt.json` 中找到。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 只有在注册方块的同时注册了 `BlockItem` 时，才需要创建项目模型描述！
@@ -115,7 +115,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个方块应该位于 `assets/mod-id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 方块状态非常复杂，因此接下来将在 [单独页面](./blockstates) 中介绍。
@@ -133,7 +133,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 这个战利品表提供了方块在被破坏以及被爆炸破坏时掉落的单个方块物品。
 

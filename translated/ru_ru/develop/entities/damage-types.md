@@ -16,12 +16,12 @@ authors:
 помещён в директорию вашего мода: `data`, в подпапку с названием `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 Он имеет следующую структуру:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Этот пользовательский тип урона увеличивает [истощение голодом](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) на 0,1 каждый раз, когда игрок получает урон, когда урон наносится живым, неигровым источником (например, блоком). Кроме того, количество нанесенного урона будет масштабироваться в зависимости от сложности мира
 

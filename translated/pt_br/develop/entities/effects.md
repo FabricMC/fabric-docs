@@ -37,7 +37,7 @@ Similar a registração de blocos e itens, usamos `Registry.register` para regis
 Estenda `StatusEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
@@ -48,14 +48,14 @@ Assim como outras traduções, você pode adicionar uma entrada com o formato de
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Testando
 
-Uso o comando `/effect give @p fabric-docs-reference:tater` para dar ao jogador nosso efeito Tater.
-Use `/effect clear @p fabric-docs-reference:tater` para remover o efeito.
+Uso o comando `/effect give @p example-mod:tater` para dar ao jogador nosso efeito Tater.
+Use `/effect clear @p example-mod:tater` para remover o efeito.
 
 :::info
 ::: info

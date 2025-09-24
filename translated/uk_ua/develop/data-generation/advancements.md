@@ -45,7 +45,7 @@ authors-nogithub:
 :::
 
 :::details Вивід JSON
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/advancement/get_dirt.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
 :::
 
 ## Ще один приклад {#one-more-example}

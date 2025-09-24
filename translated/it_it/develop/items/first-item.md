@@ -102,7 +102,7 @@ Creeremo un semplice modello `item/generated`, che accetti come input solo una t
 
 Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 
@@ -119,7 +119,7 @@ Minecraft non sa in automatico dove i file dei modelli dei tuoi oggetti si trovi
 
 Crea la descrizione JSON dell'oggetto in `assets/mod-id/items`, e come nome del file l'identifier dell'oggetto: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Comprendere il JSON della Descrizione del Modello d'Oggetto {#breaking-down-the-item-model-description-json}
 

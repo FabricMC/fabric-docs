@@ -94,11 +94,11 @@ Minecraft будет использовать этот перевод в тво�
 
 Чтобы текстура отображалась в игре, вы должны создать блочную модель, которую можно найти в файле `assets/mod-id/models/block/condensed_dirt.json` для блока "Condensed Dirt". Для этого блока мы будем использовать тип модели `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 Чтобы блок отображался в вашем инвентаре, вам необходимо создать [Описание модели предмета](../items/first-item#creating-the-item-model-description), которое указывает на вашу модель блока. В этом примере описание модели элемента для блока "Condensed Dirt" можно найти по адресу `assets/mod-id/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Вам нужно создать описание модели элемента только в том случае, если вы зарегистрировали `BlockItem` вместе со своим блоком!
@@ -114,7 +114,7 @@ Minecraft будет использовать этот перевод в тво�
 
 Этот файл должен находиться в папке `assets/mod-id/blockstates`, а его имя должно совпадать с идентификатором блока, использованным при регистрации вашего блока в классе `ModBlocks`. Например, если идентификатор блока — `condensed_dirt`, файл должен называться `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Состояния блоков невероятно сложны, поэтому они будут рассмотрены далее на [отдельной странице] (./blockstates).
@@ -132,7 +132,7 @@ Minecraft будет использовать этот перевод в тво�
 Для более глубокого понимания таблиц добычи вы можете обратиться к официальной странице [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 В таблице добычи указано, какой предмет выпадет из блока, когда блок сломан и когда он взорван взрывом.
 

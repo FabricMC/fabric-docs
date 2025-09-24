@@ -38,11 +38,11 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Це найпоширеніша функція. Він генерує файл моделі JSON для звичайної моделі ,kjrf `cube_all`. Одна текстура використовується для всіх шести сторін, у цьому випадку ми використовуємо `steel_block`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/steel_block.json)
 
 Він також генерує файл JSON зі станом блоку. Оскільки у нас немає властивостей стану блоку (наприклад, Axis, Facing...), достатньо одного варіанту, який використовується кожного разу, коли блок розміщується.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/steel_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/steel_block.json)
 
 <0>Блок сталі</0>
 
@@ -54,7 +54,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Цей метод створить моделі для звичайного куба, який використовує файл текстури `pipe_block` для сторін і файл текстури `pipe_block_top` для верхньої та нижньої сторін.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/pipe_block.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
 :::tip
 Якщо ви не можете вибрати, яку `TextureModel` використовувати, відкрийте клас `TexturedModel` і подивіться на [`TextureMaps`](#using-texture-map)!
@@ -125,7 +125,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 Давайте но створимо батьківську модель блоку. Він визначатиме розмір, положення в руці чи інших слотах, а також координати `x` і `y` текстури.
 Для цього рекомендується використовувати такий редактор, як [Blockbench](https://www.blockbench.net/), оскільки створення вручну є справді виснажливим процесом. Це має виглядати приблизно так:
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/vertical_slab.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/models/block/vertical_slab.json)
 
 Перегляньте [як форматуються стани блоків](https://minecraft.wiki/w/Blockstates_definition_format), щоб дізнатися більше.
 Зверніть увагу на ключові слова `#bottom`, `#top`, `#side`. Вони діють як змінні, які можуть бути встановлені моделями, які мають цю як батьківську:

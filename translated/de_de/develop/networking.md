@@ -53,7 +53,7 @@ Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter
 
 Zugleich haben wir folgendes definiert:
 
-- Einen `Identifier`, der zur Identifizierung des Payload unseres Pakets verwendet wird. In diesem Beispiel lautet der Bezeichner `fabric-docs-reference:summon_lightning`.
+- Einen `Identifier`, der zur Identifizierung des Payload unseres Pakets verwendet wird. In diesem Beispiel lautet der Bezeichner `example-mod:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 

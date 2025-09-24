@@ -47,7 +47,7 @@ authors:
 
 现在，当你运行你的模组的数据生成任务，附魔表 JSON 将会生成在 `generated` 文件夹内。 下面是一个例子：
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 你需要在 `zh_cn.json` 中给你的自定义魔咒添加一个有意义的名字：
 

@@ -31,7 +31,7 @@ authors:
 
 Продовжте створення файлу `resources/assets/mod-id/sounds.json`, якщо він ще не існує, і додайте свій звук до звукових записів.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
 Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/mod-id/lang` і показуватиметься, якщо ввімкнуто налаштування субтитрів у грі та якщо відтворюється цей спеціальний звук.
 

@@ -56,7 +56,7 @@ authors:
 Водночас ми визначили:
 
 - `Ідентифікатор`, який використовується для ідентифікації корисного навантаження нашого пакета. Для цього прикладу нашим ідентифікатором буде
-  `fabric-docs-reference:summon_lightning`.
+  `example-mod:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 

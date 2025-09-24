@@ -102,7 +102,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 在 `assets/mod-id/models/item` 資料夾中，建立模型JSON，檔名與物品ID相同；`suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 解析模型JSON{#breaking-down-the-model-json}
 
@@ -119,7 +119,7 @@ Minecraft並不知道我們把模型檔案放在哪裡，因此我們需要提�
 
 在 `assets/mod-id/items` 資料夾中建立物品模型描述JSON，檔案名稱與物品ID相同：`suspicious_substance.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### 解析物品模型映射JSON{#breaking-down-the-item-model-description-json}
 
