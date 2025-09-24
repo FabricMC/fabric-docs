@@ -105,7 +105,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 В этом примере я буду использовать следующую модель и текстуру для предмета «Меч Guidite»:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
 

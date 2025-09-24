@@ -98,7 +98,7 @@ You're going to create a simple `item/generated` model, which takes in an input 
 
 Create the model JSON in the `assets/mod-id/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Breaking Down the Model JSON {#breaking-down-the-model-json}
 

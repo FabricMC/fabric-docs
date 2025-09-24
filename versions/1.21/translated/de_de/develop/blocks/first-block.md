@@ -94,11 +94,11 @@ Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodel
 
 Das Itemmodell ist ziemlich einfach, es kann einfach das Blockmodell als Elternteil verwenden - da die meisten Blockmodelle Unterstützung für die Darstellung in einer grafischen Benutzeroberfläche haben:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Das Blockmodell muss jedoch in unserem Fall dem Modell `block/cube_all` übergeordnet sein:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Wenn du das Spiel lädst, wirst du feststellen, dass die Textur noch fehlt. Dies liegt daran, dass du eine Blockzustand-Definition hinzufügen musst.
 
@@ -110,7 +110,7 @@ Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintr
 
 Diese Datei sollte sich im Ordner `assets/mod_id/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockzustände sind sehr komplex, weshalb sie auf einer späteren Seite behandelt werden: [Blockzustände](./blockstates)
 
@@ -126,7 +126,7 @@ Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht 
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird, wenn der Block abgebaut wird und wenn er durch eine Explosion gesprengt wird.
 

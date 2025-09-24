@@ -43,7 +43,7 @@ Du kannst deinem Statuseffekt einen Namen geben und ein Textursymbol erstellen, 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![Effekt im Inventar eines Spielers](/assets/develop/tater-effect.png)
@@ -54,15 +54,15 @@ Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Testen
 
-Benutze den Befehl `/effect give @p fabric-docs-reference:tater`, um dem Spieler unseren Tater-Effekt zu geben.
+Benutze den Befehl `/effect give @p example-mod:tater`, um dem Spieler unseren Tater-Effekt zu geben.
 Verwende `/effect clear`
 um den Effekt zu entfernen.
 

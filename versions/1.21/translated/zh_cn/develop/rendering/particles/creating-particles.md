@@ -45,7 +45,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 然后，在 `particles` 中创建新的 JSON 文件，名称与用于创建你的 ParticleType 的 JSON 路径相同。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。
@@ -58,7 +58,7 @@ You can see all the particle factories by looking at all the implementations of 
 可以输入以下命令，看看是否一切正常：
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

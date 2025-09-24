@@ -94,11 +94,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 物品模型很简单，只需要继承方块模型即可，因为大多数方块模型都支持在 GUI 中渲染。
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 但是，在我们的例子中，方块模型就必须继承 `block/cube_all` 模型。
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
 
@@ -110,7 +110,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个方块应该位于 `assets/mod_id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
 
@@ -126,7 +126,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 这个战利品表提供了方块在被破坏以及被爆炸破坏时掉落的单个方块物品。
 

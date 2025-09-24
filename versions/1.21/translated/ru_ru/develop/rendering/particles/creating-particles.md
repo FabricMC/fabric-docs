@@ -45,7 +45,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 Затем создайте новый JSON-файл в `particles` с тем же именем, что и путь JSON, который вы использовали при регистрации ParticleType. Для этого примера нам потребуется создать `sparkle_particle.json`. Этот файл важен, поскольку он сообщает Minecraft, какие текстуры должна использовать наша частица.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 Вы можете добавить больше текстур в массив `textures`, чтобы создать анимацию частиц. Частица будет циклически проходить по текстурам в массиве, начиная с первой текстуры.
@@ -58,7 +58,7 @@ You can see all the particle factories by looking at all the implementations of 
 Проверить, все ли работает, можно, введя следующую команду:
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![Демонстрация частицы](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

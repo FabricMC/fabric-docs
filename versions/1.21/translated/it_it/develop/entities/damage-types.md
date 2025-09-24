@@ -14,12 +14,12 @@ I tipi di danno definiscono tipi di danno che le entità possono subire. A parti
 Creiamo un tipo di danno personalizzato chiamato _Tater_. Inizieremo creando un file JSON per il tuo danno personalizzato. Il file sarà posizionato nella cartella `data` della tua mod, in una sottocartella chiamata `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 Ha la struttura seguente:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Questo tipo di danno personalizzato causa un aumento di 0.1 nel livello di esaurimento ([exhaustion level](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase)) ogni volta che il giocatore prende danno, quando il danno è causato da una fonte vivente che non sia un giocatore (per esempio un blocco). Inoltre, la quantità di danno subita cambierà a seconda della difficoltà del mondo
 
@@ -61,7 +61,7 @@ Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 
 
 Puoi definire un messaggio di morte per il tipo di danno nel formato `death.attack.<message_id>` nel file `en_us.json` della nostra mod.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
 
 Al momento della morte dal nostro tipo di danno personalizzato, vedrete il messaggio di morte seguente:
 

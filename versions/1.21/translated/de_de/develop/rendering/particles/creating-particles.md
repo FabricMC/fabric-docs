@@ -45,7 +45,7 @@ Für dieses Beispiel werden wir nur eine Textur in `textures/particle` haben, di
 
 Als nächstes erstelle eine neue JSON-Datei in `particles` mit demselben Namen wie der JSON-Pfad, den du bei der Registrierung deines ParticleType verwendet hast. Für dieses Beispiel müssen wir `sparkle_particle.json` erstellen. Diese Datei ist wichtig, weil sie Minecraft wissen lässt, welche Texturen unsere Partikel verwenden sollen.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 Du kannst weitere Texturen in das Array `textures` einfügen, um eine Partikelanimation zu erstellen. Der Partikel durchläuft die Texturen im Array, beginnend mit der ersten Textur.
@@ -58,7 +58,7 @@ Sobald du die JSON-Datei fertiggestellt und deine Arbeit gespeichert hast, kanns
 Du kannst überprüfen, ob alles funktioniert hat, indem du den folgenden Befehl eingibst:
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![Vorführung des Partikels](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

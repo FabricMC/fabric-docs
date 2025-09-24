@@ -94,11 +94,11 @@ Om de textuur in het spel te laten verschijnen, moet je een blok- en voorwerpmod
 
 Het voorwerpmodel is vrij eenvoudig, het kan gewoon het blokmodel als ouder gebruiken - aangezien de meeste blokmodellen ondersteuning bieden voor weergave in een GUI:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Het blokmodel moet in ons geval echter als ouder het `block/cube_all`-model hebben:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Wanneer je het spel laadt, merk je misschien dat de textuur nog steeds ontbreekt. Dit komt omdat je een blockstaat-definitie moet toevoegen.
 
@@ -110,7 +110,7 @@ Voor het voorbeeldblok, dat geen complexe blokstaat heeft, is slechts één invo
 
 Dit bestand moet zich in de map `assets/mod_id/blockstates` bevinden en de naam ervan moet overeenkomen met het blok-ID dat is gebruikt bij het registreren van uw blok in de klasse `ModBlokken`. Als het blok-ID bijvoorbeeld `condensed_dirt` is, moet het bestand `condensed_dirt.json` heten.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockstaten zijn erg complex en daarom worden ze op een volgende pagina behandeld: [Blockstaten](./blockstates)
 
@@ -126,7 +126,7 @@ Wanneer je het blok breekt in overleefmodus, zie je misschien dat het blok niet 
 Voor een beter begrip van buittabellen kun je de pagina [Minecraft Wiki - Buittabellen](https://nl.minecraft.wiki/w/Buittabel) raadplegen.
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Deze buittabel biedt een eenmalige voorwerpval van het blokvoorwerp wanneer het blok wordt gebroken en wanneer het wordt opgeblazen door een explosie.
 

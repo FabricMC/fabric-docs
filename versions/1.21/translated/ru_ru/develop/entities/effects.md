@@ -37,7 +37,7 @@ authors-nogithub:
 Иконка эффекта состояния представляет собой PNG-файл размером 18×18 пикселей. Поместите свою иконку в папку:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Пример текстуры</DownloadEntry>
@@ -48,14 +48,14 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Тестирование
 
-Используйте команду `/effect give @p fabric-docs-reference:tater`, чтобы дать игроку наш эффект Tater.
-Используйте команду `/effect clear @p fabric-docs-reference:tater`, чтобы удалить эффект.
+Используйте команду `/effect give @p example-mod:tater`, чтобы дать игроку наш эффект Tater.
+Используйте команду `/effect clear @p example-mod:tater`, чтобы удалить эффект.
 
 :::info
 ::: info

@@ -42,7 +42,7 @@ Similar to block and item registration, we use `Registry.register` to register o
 The status effect icon is a 18x18 PNG which will appear in the player's inventory screen. Place your custom icon in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Example Texture</DownloadEntry>
@@ -54,7 +54,7 @@ language file.
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -66,7 +66,7 @@ It's worth taking a look at how you'd typically apply an effect to an entity.
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

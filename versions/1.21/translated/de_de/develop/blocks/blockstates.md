@@ -38,7 +38,7 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
 - `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Wie immer musst du eine Übersetzung für deinen Block und ein Objektmodell erstellen, das einem der beiden Modelle übergeordnet ist.
 
@@ -102,7 +102,7 @@ Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kom
 
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür sorgen, dass sie Licht ausstrahlt, wenn die Eigenschaft `activated` true ist. Dies kann über die Blockeinstellungen erfolgen, die bei der Registrierung des Blocks an den Konstruktor übergeben werden.
 

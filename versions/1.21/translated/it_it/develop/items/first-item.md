@@ -96,7 +96,7 @@ Creeremo un semplice modello `item/generated`, che prende come input solo una te
 
 Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 

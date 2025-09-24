@@ -94,11 +94,11 @@ To make the texture show up in-game, you must create a block and item model whic
 
 The item model is pretty simple, it can just use the block model as a parent - since most block models have support for being rendered in a GUI:
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 The block model however, in our case, must parent the `block/cube_all` model:
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
 
@@ -110,7 +110,7 @@ For the example block, which doesn't have a complex blockstate, only one entry i
 
 This file should be located in the `assets/mod_id/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
 
@@ -126,7 +126,7 @@ When breaking the block in survival, you may see that the block does not drop - 
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
 :::
 
-@[code](@/reference/1.20.4/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.20.4/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 This loot table provides a single item drop of the block item when the block is broken, and when it is blown up by an explosion.
 

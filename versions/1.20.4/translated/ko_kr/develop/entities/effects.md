@@ -43,7 +43,7 @@ search: false
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![플레이어 인벤토리에서 보여지는 효과](/assets/develop/tater-effect.png)
@@ -54,15 +54,15 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### 테스트
 
-`/effect give @s fabric-docs-reference:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요. `/effect clear`로 효과를 제거할 수 있습니다.
+`/effect give @s example-mod:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요. `/effect clear`로 효과를 제거할 수 있습니다.
 
 ::: info
 사용자 정의 효과를 부여하는 물약을 만드는 방법은 [물약](../items/potions) 가이드를 참조하세요.

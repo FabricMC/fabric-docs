@@ -96,7 +96,7 @@ Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur
 
 Erzeuge das Modell JSON im Ordner `assets/mod-id/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 

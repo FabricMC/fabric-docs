@@ -98,7 +98,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 在 `assets/mod-id/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 逐个分析模型 JSON {#breaking-down-the-model-json}
 

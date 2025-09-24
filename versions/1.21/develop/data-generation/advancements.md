@@ -43,7 +43,7 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ::: details JSON Output
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/advancement/example-mod/get_dirt.json)
 :::
 
 ## One More Example {#one-more-example}

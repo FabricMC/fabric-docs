@@ -41,7 +41,7 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 :::details JSON Ausgabe
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/advancement/example-mod/get_dirt.json)
 :::
 
 ## Ein weiteres Beispiel {#one-more-example}

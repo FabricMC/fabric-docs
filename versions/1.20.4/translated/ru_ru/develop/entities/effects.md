@@ -43,7 +43,7 @@ search: false
 Иконка эффекта состояния представляет собой PNG-файл размером 18×18 пикселей. Поместите свою иконку в папку:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![Эффект в инвентаре игрока](/assets/develop/tater-effect.png)
@@ -54,16 +54,16 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Тестирование
 
-Используйте команду `/effect give @p fabric-docs-reference:tater`, чтобы дать игроку наш эффект Tater.
-Используйте команду `/effect clear @p fabric-docs-reference:tater`, чтобы удалить эффект.
+Используйте команду `/effect give @p example-mod:tater`, чтобы дать игроку наш эффект Tater.
+Используйте команду `/effect clear @p example-mod:tater`, чтобы удалить эффект.
 
 ::: info
 Чтобы узнать, как создать зелье, накладывающее этот эффект, ознакомьтесь с руководством по [зельям](../items/potions).

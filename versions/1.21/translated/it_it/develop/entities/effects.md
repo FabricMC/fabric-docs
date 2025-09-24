@@ -38,7 +38,7 @@ Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per re
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Texture di Esempio</DownloadEntry>
@@ -49,7 +49,7 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.mod
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -61,7 +61,7 @@ Vale la pena di dare un'occhiata a come si aggiunge solitamente un effetto ad un
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

@@ -41,7 +41,7 @@ Ecco un semplice progresso per aver ottenuto un blocco di terra:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 :::details Output JSON
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/advancement/fabric-docs-reference/get_dirt.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/advancement/example-mod/get_dirt.json)
 :::
 
 ## Un Altro Esempio Ancora {#one-more-example}

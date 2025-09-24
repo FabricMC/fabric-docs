@@ -14,12 +14,12 @@ authors:
 _Tater_ 라는 이름의 사용자 정의 피해 유형을 추가해 봅시다. 이는 피해 유형의 JSON 파일을 생성하며 시작됩니다. 이 파일은 모드 리소스의 `data` 디렉토리의 `damage_type` 폴더에 저장됩니다.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 파일은 다음과 같은 구조를 가집니다.
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
 
 이 사용자 정의 피해 유형을 플레이어가 살아있는 엔티티가 아닌 것에서 피해를 입었을 때 [허기 피로](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase)를 0.1만큼 올리도록 만들어 봅시다. 참고로, 피해 크기는 세계의 난이도에 비례합니다.
 
@@ -61,7 +61,7 @@ JSON 파일 구조에 대한 자세한 내용은 [Minecraft 위키 (영문)](htt
 
 `en_us.json` 파일의 `death.attack.<message_id>` 키를 수정해 사용자 정의 피해 유형의 사망 메시지를 수정할 수 있습니다.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
 
 이제 사용자 정의 피해 유형으로 사망하면, 다음 사망 메시지를 보게 될 것입니다.
 

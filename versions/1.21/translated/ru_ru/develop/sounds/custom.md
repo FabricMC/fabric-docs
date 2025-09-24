@@ -31,7 +31,7 @@ authors:
 
 Дальше создайте файл `resources/assets/mod-id/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
 
 Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/mod-id/lang` и будет показываться, если включена настройка и звук воспроизводиться.
 

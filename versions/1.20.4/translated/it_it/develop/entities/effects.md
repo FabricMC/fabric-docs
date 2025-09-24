@@ -43,7 +43,7 @@ Puoi assegnare un nome al tuo effetto di stato e fornire un'icona che apparirà 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![Effetto nell'inventario del giocatore](/assets/develop/tater-effect.png)
@@ -54,16 +54,16 @@ Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.mod
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Fase di Test
 
-Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
-Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
+Usa il comando `/effect give @p example-mod:tater` per dare al giocatore il nostro effetto Tater.
+Usa `/effect clear @p example-mod:tater` per rimuovere l'effetto.
 
 ::: info
 Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions).

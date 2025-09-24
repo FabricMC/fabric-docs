@@ -45,7 +45,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 그리고, `particles` 폴더에는 ParticleType에 등록한 것과 같은 이름의 소문자를 이름으로 가지는 JSON 파일을 생성합니다. 이 예제에서는, `sparkle_particle.json` 으로 생성하겠습니다. 이 파일은 Minecraft가 입자에 어떠한 텍스쳐를 사용해야 하는지 정의하기 때문에 매우 중요합니다.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 입자에 애니메이션을 적용하고 싶다면 `textures` 배열 노드에 더 많은 텍스쳐를 추가하면 됩니다. 입자는 배열의 순서대로 반복될 것입니다.
@@ -58,7 +58,7 @@ You can see all the particle factories by looking at all the implementations of 
 다음의 명령어를 입력하여 입자가 정상적으로 작동하는지 확인할 수 있습니다.
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![입자 쇼케이스](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

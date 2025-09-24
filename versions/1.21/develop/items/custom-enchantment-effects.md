@@ -49,7 +49,7 @@ Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of da
 
 Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
 
-@[code](@/reference/1.21/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/1.21/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 You should also add translations to your `en_us.json` file to give your enchantment a readable name:
 

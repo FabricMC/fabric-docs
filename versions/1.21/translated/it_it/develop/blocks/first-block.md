@@ -94,11 +94,11 @@ Per fare in modo che la texture sia visibile nel gioco, devi creare un blocco e 
 
 Il modello dell'oggetto è piuttosto semplice, basta che usi il modello del blocco come genitore - poiché la GUI supporta il rendering della maggior parte dei modelli dei blocchi:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Nel nostro caso, però, il modello del blocco deve avere come genitore il modello `block/cube_all`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Quando carichi il gioco, potresti notare che la texture è ancora mancante. Questo perché devi aggiungere la definizione degli stati del blocco.
 
@@ -110,7 +110,7 @@ Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella 
 
 Questo file si dovrebbe trovare nella cartella `assets/mod_id/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Gli stati dei blocchi sono piuttosto complessi, per cui li tratteremo in un'altra pagina: [Stati dei Blocchi](./blockstates)
 
@@ -126,7 +126,7 @@ Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non dr
 Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 

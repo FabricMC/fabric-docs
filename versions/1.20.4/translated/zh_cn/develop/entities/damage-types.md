@@ -16,12 +16,12 @@ search: false
 让我们创建一种叫 _土豆_ 的伤害类型。 让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 它有以下的结构：
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。 此外，造成的伤害量将随存档难度而变化。
 
@@ -63,7 +63,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 你可以在你的模组的 `en_us.json` 文件中以 `death.attack.<message_id>` 的格式定义伤害类型的死亡信息。
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/example-mod/lang/en_us.json)
 
 当死因是我们的伤害类型时，你将会看到如下的死亡信息：
 

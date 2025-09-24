@@ -37,7 +37,7 @@ authors-nogithub:
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
@@ -48,13 +48,13 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### 테스트 {#testing}
 
-`/effect give @s fabric-docs-reference:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요.
+`/effect give @s example-mod:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요.
 `/effect clear`로 효과를 제거할 수 있습니다.
 
 :::info

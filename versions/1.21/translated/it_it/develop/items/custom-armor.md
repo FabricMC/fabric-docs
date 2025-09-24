@@ -128,7 +128,7 @@ Come esempio, puoi usare le seguenti texture e modelli JSON come riferimento.
 Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stesso principio di altri modelli di oggetti.
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
 
 Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gioco:
 

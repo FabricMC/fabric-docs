@@ -94,11 +94,11 @@ Minecraft використовуватиме цей переклад у твор
 
 Модель предмета досить проста, вона може просто використовувати модель блоку як батьківську, оскільки більшість моделей блоку підтримують відтворення в інтерфейсах:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Однак у нашому випадку модель блоку має бути батьківською для моделі `block/cube_all`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Коли ви завантажуєте гру, ви можете помітити, що текстури все ще немає. Це тому, що вам потрібно додати визначення стану блоку.
 
@@ -110,7 +110,7 @@ Minecraft використовуватиме цей переклад у твор
 
 Цей файл має міститися в папці `assets/mod_id/blockstates`, а його назва має збігатися з ідентифікатором блоку, який використовується під час реєстрації вашого блоку в класі `ModBlocks`. Наприклад, якщо ID блоку `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Стани блоку справді складні, тому вони розглядаються на наступній сторінці: [Блокові стани](./blockstates)
 
@@ -126,7 +126,7 @@ Minecraft використовуватиме цей переклад у твор
 Щоб краще зрозуміти таблиці здобичі, ви можете звернутися до сторінки [Minecraft Wiki - Таблиці здобичі](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блоку, коли блок ламаний або підірваний вибухом.
 

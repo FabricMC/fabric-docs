@@ -19,12 +19,12 @@ will
 be placed in your mod's `data` directory, in a subdirectory named `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 It has the following structure:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -72,7 +72,7 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
 mod's `en_us.json` file.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
 
 Upon death from our damage type, you'll see the following death message:
 

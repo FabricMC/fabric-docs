@@ -38,7 +38,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Пример файла `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 - `axis=y` - Когда блок помещён вдоль оси Y, мы будем использовать нормальную вертикальную модель.
 - `axis=z` - Когда блок помещён вдоль оси Z, мы повернём модель так, чтобы она была ориентирована в положительном направлении оси X.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Как всегда, вам нужно создать перевод для вашего блока и модель предмета, которая будет наследовать одну из двух моделей.
 
@@ -102,7 +102,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 Поскольку этот блок имеет только два возможных варианта, поскольку у него есть только одно свойство (`activated`), JSON-код состояния блока будет выглядеть примерно так:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Поскольку пример блока представляет собой лампу, нам также необходимо заставить ее излучать свет, когда свойство `activated` имеет значение true. Это можно сделать с помощью настроек блока, передаваемых конструктору при регистрации блока.
 
