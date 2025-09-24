@@ -13,7 +13,7 @@ authors:
 
 Сначала нам нужно зарегистрировать `ParticleType` в классе инициализатора вашего мода, используя идентификатор вашего мода.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 «sparkle_particle» строчными буквами — это путь JSON к текстуре частицы. Позже вы создадите новый JSON-файл с таким же именем.
 
@@ -21,7 +21,7 @@ authors:
 
 После регистрации частицы в точке входа `ModInitializer` вам также необходимо зарегистрировать частицу в точке входа `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/1.21/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/1.21/src/client/java/com/example/docs/ExampleModClient.java)
 
 В этом примере мы регистрируем нашу частицу на стороне клиента. Затем мы придаем частице некоторое движение, используя фабрику частиц конечного стержня. Это означает, что наша частица будет двигаться точно так же, как частица конечного стержня.
 

@@ -35,7 +35,7 @@ JSON 파일 구조에 대한 자세한 내용은 [Minecraft 위키 (영문)](htt
 
 `RegistryKey` 는 다음 코드로 불러올 수 있습니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### 피해 유형 사용하기 {#using-damage-types}
 

@@ -37,7 +37,7 @@ Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramit
 
 La `RegistryKey` può essere ottenuta nel modo seguente:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Usare i Tipi di Danno
 

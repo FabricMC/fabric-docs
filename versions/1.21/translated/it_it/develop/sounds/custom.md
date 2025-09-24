@@ -54,7 +54,7 @@ Aggiungi due nuovi metodi alla classe ausiliaria appena creata. Uno che registra
 
 Facendo così, basta che l'initializer della tua mod implementi una riga sola per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 

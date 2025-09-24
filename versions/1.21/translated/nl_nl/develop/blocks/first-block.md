@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Het Maken En Registreren Van Je Blok {#creating-and-registering-your-block}
 

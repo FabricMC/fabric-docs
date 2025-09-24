@@ -56,7 +56,7 @@ Füge zwei neue Methoden zu der neu erstellten Hilfsklasse hinzu. Eine, die alle
 
 Auf diese Weise muss die `ModInitializer` implementierende Einstiegsklasse nur eine Zeile implementieren, um alle benutzerdefinierten SoundEvents zu registrieren.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Das benutzerdefinierte SoundEvent nutzen
 

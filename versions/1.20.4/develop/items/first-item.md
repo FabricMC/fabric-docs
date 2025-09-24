@@ -44,7 +44,7 @@ To do this, you can add a public static initialize method to your class and call
 
 @[code transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 

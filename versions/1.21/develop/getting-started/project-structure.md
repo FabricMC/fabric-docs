@@ -41,7 +41,7 @@ These entrypoints are called respectively when the game starts.
 
 Here's an example of a simple `main` entrypoint that logs a message to the console when the game starts:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 

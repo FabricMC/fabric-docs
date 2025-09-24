@@ -54,7 +54,7 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 `ModInitializer` имплементируют точки входа которые нужны классу, чтобы имплементировать весь реестр с собственными SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 

@@ -32,7 +32,7 @@ Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `StatusEffec
 
 Ähnlich wie bei der Registrierung von Blöcken und Items verwenden wir `Registry.register`, um unseren benutzerdefinierten Effekt in der `STATUS_EFFECT`-Registry zu registrieren. Dies kann in unserem Initialisierer geschehen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Übersetzungen und Texturen
 

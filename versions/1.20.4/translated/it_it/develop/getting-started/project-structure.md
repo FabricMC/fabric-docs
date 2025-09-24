@@ -34,7 +34,7 @@ Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entry
 
 Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti - l'entrypoint `main` è usato per codice comune, mentre l'entrypoint `client` è usato per codice client specifico. Questi entrypoint vengono chiamati rispettivamente quando il gioco viene avviato.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 Quello sopra è un esempio di un semplice entrypoint `main` che logga un messaggio alla console quando il gioco si avvia.
 

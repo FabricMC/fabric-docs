@@ -32,7 +32,7 @@ authors:
 
 テンプレート Mod ジェネレータはデフォルトで `main` と `client` のエントリポイントを作成します。`main` エントリポイントは共通するコードに使用され、`client` エントリポイントはクライアントでのみ実行されるコードに使用されます。 これらのエントリポイントは、ゲーム開始時にそれぞれ呼び出されます。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 上記のコードは、ゲーム開始時にコンソールにログを出力する、シンプルな `main` エントリポイントの例です。
 

@@ -73,7 +73,7 @@ Command<ServerCommandSource> command = context -> {
 
 在模组的入口点中，我们只注册两个简单的命令：
 
-@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 在 `sendFeedback()` 方法之中，第一个参数是要发送的文本， 是 `Supplier<Text>`，以避免在不必要时实例化 Text 对象。
 
@@ -93,15 +93,15 @@ Command<ServerCommandSource> command = context -> {
 
 如有需要，你可以确保命令仅在一些特定情况下注册，例如仅在专用的环境中：
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### 命令要求 {#command-requirements}
 
 假如说你希望命令只有管理员可以执行， 这时就要用到 `requires()` 方法。 `requires()` 方法有一个 `Predicate<S>` 参数，提供一个 `ServerCommandSource` 以检测并确定 `CommandSource` 能否执行命令。
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行， 否则，命令不会被注册。
 
@@ -111,19 +111,19 @@ Command<ServerCommandSource> command = context -> {
 
 要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## 客户端命令 {#client-commands}
 
 Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.client.command.v2` 包中，可用于注册客户端命令。 代码应该仅存在于客户端的代码中。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
 ## 命令重定向 {#command-redirects}
 
@@ -133,8 +133,8 @@ Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.clien
 Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/brigadier/issues/46)。 如果需要重定向没有参数的命令节点，给 `.execute()` 构造器提供一个到相同逻辑的引用，就像这个例子中。
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## 常见问题 {#faq}
 

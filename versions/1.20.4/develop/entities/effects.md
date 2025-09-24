@@ -34,7 +34,7 @@ Let's create a custom effect class by extending `StatusEffect`, which is the bas
 Similar to block and item registration, we use `Registry.register` to register our custom effect into the
 `STATUS_EFFECT` registry. This can be done in our initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Texture {#texture}
 

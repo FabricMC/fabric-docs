@@ -32,7 +32,7 @@ authors:
 
 Создатель шаблонов создает обе точки входа `main` и `client` по умолчанию, точка входа `main` используется для общего кода, а точка входа `client` используется для клиентоориентированного кода. Эти точки входа вызывается, когда игра запускается.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 Выше приведён пример простой точки входа `main`, который записывает сообщение в консоль, когда игра запускается.
 

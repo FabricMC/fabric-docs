@@ -15,8 +15,8 @@ Minecraft має потужну систему пропозицій команд
 
 Для використання постачальника пропозицій треба викликати метод `suggests` в об'єкта `ArgumentBuilder`. Цей метод приймає об'єкт `SuggestionProvider` та повертає свій `ArgumentBuilder` з доданим постачальником пропозицій.
 
-@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Вбудовані постачальники пропозицій {#built-in-suggestion-providers}
 
@@ -39,8 +39,8 @@ Minecraft надає декілька вбудованих постачальн�
 
 Щоб скористатися цим постачальником, треба просто передати його об'єкт у метод `.suggests` у `ArgumentBuilder`.
 
-@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Звісно, що постачальники пропозицій можуть бути складнішими, оскільки вони також можуть зчитувати контекст команди та надавати пропозиції на основі її стану - наприклад, аргументи, що вже були надані.
 

@@ -56,7 +56,7 @@ Aggiungi due nuovi metodi alla classe di supporto appena creata. Uno che registr
 
 Facendo così, la classe entrypoint che implementa `ModInitializer` deve solo implementare una riga per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usare il SoundEvent Personalizzato
 

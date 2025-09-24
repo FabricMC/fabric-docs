@@ -23,7 +23,7 @@ Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRe
 
 `Potion` 인스턴스를 저장할 필드를 만들며 시작해 봅시다. 클래스의 생성자를 사용해 바로 저장할 것입니다.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `StatusEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
 
@@ -39,7 +39,7 @@ Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRe
 
 초기화 단계에서, `BrewingRecipeRegistry.registerPotionRecipe`를 호출해 봅시다.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe`는 세 가지 매개변수를 가집니다.
 
@@ -51,7 +51,7 @@ Fabric API를 사용 중이라면, `BrewingRecipeRegistry.registerPotionRecipe`�
 
 전체 예시는 다음과 같습니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 등록을 완료했다면, 이제 감자를 통해 Tater 물약을 만들 수 있습니다.
 

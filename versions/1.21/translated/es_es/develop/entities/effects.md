@@ -30,7 +30,7 @@ Vamos a crear una para nuestro efecto de estado personalizado extendiendo la cla
 
 Similar a la registración de bloques e items, usamos `Registry.register` para registrar nuestro efecto personalizado en el registro de `STATUS_EFFECT`. Esto se puede hacer en nuestro inicializador.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Traducciones y Texturas
 

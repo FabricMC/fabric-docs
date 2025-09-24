@@ -30,7 +30,7 @@ authors-nogithub:
 
 블록, 아이템 등록처럼, `Registry.register`를 통해 `STATUS_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### 텍스쳐 {#texture}
 

@@ -56,7 +56,7 @@ Add two new methods to the newly created helper class. One, which registers all 
 
 This way, the mod's initializer only needs to implement one line to register all custom SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 

@@ -56,7 +56,7 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
 
 如此，在实现了 `ModInitializer` 的入口点类中，只需调用一行即可注册所有的自定义 SoundEvents。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## 使用自定义的 SoundEvent
 

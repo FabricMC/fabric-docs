@@ -42,7 +42,7 @@ Per fare questo puoi aggiungere un metodo `initialize()` pubblico e statico alla
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Chiamare un metodo su una classe la inizializza staticamente se non è mai stata caricata prima - questo significa che tutti gli attributi `static` vengono calcolati. Questo è il motivo di questo metodo `initialize` fasullo.
 

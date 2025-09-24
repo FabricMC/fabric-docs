@@ -32,7 +32,7 @@ Vamos criar uma classe de efeito personalizado estendendo `StatusEffect`, sendo 
 
 Similar a registração de blocos e itens, usamos `Registry.register` para registrar nosso efeito ao registro de `STATUS_EFFECT`. Isso pode ser feito no nosso inicializador.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Traduções e Texturas
 

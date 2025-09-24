@@ -15,7 +15,7 @@ Agregaremos una nueva partícula brillante cuyo movimiento se asemejara al de la
 
 Primero tenemos que registrar un `ParticleType` (Tipo de Partícula) en nuestra clase inicializadora de mod usando nuestro _mod id_.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 El "sparkle_particle" en letras minúsculas es la dirección JSON para la textura de la partícula. Crearás un archivo JSON con ese mismo nombre más adelante.
 
@@ -23,7 +23,7 @@ El "sparkle_particle" en letras minúsculas es la dirección JSON para la textur
 
 Después de registrar la partícula en la entrada de `ModInitializer`, también necesitarás registrar la partícula en la entrada de `ClientModInitializer` (Inicializador del Mod de Cliente).
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 En este ejemplo, estamos registrando nuestra partícula en el lado del cliente. Después estamos dándole movimiento usando la fábrica de partículas de la vara del end. Esto significa que nuestra partícula se moverá exactamente como una partícula de vara del end.
 

@@ -34,7 +34,7 @@ search: false
 
 模组开发模板生成器默认创建 `main` 和 `client` 入口点——`main` 入口点用于双端共用部分，`client` 入口点用于客户端特定部分。 这些入口点将会在游戏启动时依次调用。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 上面是一个简单的 `main` 入口点的使用示例，会在游戏开始时记录一条消息到控制台。
 

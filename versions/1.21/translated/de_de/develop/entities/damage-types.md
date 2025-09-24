@@ -35,7 +35,7 @@ Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müs
 
 Der `RegistryKey` kann wie folgt ermittelt werden:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Schadensarten verwenden {#using-damage-types}
 

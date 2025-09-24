@@ -44,7 +44,7 @@ of `DamageSource`.
 
 The `RegistryKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Using Damage Types {#using-damage-types}
 

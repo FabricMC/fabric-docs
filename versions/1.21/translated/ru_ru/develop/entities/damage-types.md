@@ -37,7 +37,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 `RegistryKey` можно получить следующим образом:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Использование типов урона {#using-damage-types}
 

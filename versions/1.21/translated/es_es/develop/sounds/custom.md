@@ -54,7 +54,7 @@ Agrega dos nuevos métodos a la nueva clase ayudante creada. Uno, que registre t
 
 De esta manera, la clase implementadora de `ModInitializer` solo tiene que implementar una línea para registrar todos los SoundEvents personalizados.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usando el SoundEvent Personalizado
 

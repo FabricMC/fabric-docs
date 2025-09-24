@@ -15,7 +15,7 @@ Aggiungeremo una nuova particella "sparkle" che mimerà il movimento di una part
 
 Devi prima registrare un `ParticleType` nella classe initializer della tua mod usando l'id della mod.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 La stringa "sparkle_particle" in minuscolo è il percorso JSON per la texture della particella. Dovrai successivamente creare un nuovo file JSON con lo stesso nome.
 
@@ -23,7 +23,7 @@ La stringa "sparkle_particle" in minuscolo è il percorso JSON per la texture de
 
 Dopo aver registrato la particella nell'entrypoint `ModInitializer`, dovrai anche registrare la particella nell'entrypoint `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 In questo esempio, stiamo registrando la nostra particella dal lato client. Stiamo dando un po' di movimento alla particella usando la fabbrica della particella della barra dell'End. Questo vuol dire che la nostra particella si muoverà proprio come una particella di una barra dell'End.
 

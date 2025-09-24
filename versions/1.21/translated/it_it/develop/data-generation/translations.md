@@ -20,7 +20,7 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Anzitutto, creeremo il nostro **fornitore**. Ricorda: i fornitori sono ciò che ci genera effettivamente i dati. Crea una classe che `extends FabricLanguageProvider` e compilane i metodi di base:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 :::info NOTA
 Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempio un `ExampleEnglishLangProvider` e un `ExamplePirateLangProvider`).
@@ -28,13 +28,13 @@ Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempi
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Creare Traduzioni {#creating-translations}
 
 Oltre a creare traduzioni crude, traduzioni da `Identifier`, e copiarli da un altro file esistente (passando un `Path`), ci sono metodi ausiliari per tradurre oggetti, blocchi, tag, statistiche, entità, effetti di stato, gruppi di oggetti, attributi di entità, e incantesimi. Basta chiamare `add` sul `translationBuilder` con ciò che vuoi tradurre e ciò a cui dovrebbe essere tradotto:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
+@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ## Usare le Traduzioni {#using-translations}
 
