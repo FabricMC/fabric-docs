@@ -30,29 +30,7 @@ If you either want to use Kotlin, or Mojang's official mappings rather than the 
 
 Once you've filled in the required fields, click the `Generate` button, and the generator will create a new project for you to use in the form of a zip file.
 
-You should extract this zip file to a location of your choice, and then open the extracted folder in IntelliJ IDEA:
-
-![Open Project Prompt](/assets/develop/getting-started/open-project.png)
-
-::: warning
-You should follow these rules when choosing the path to your project:
-
-- Avoid cloud storage directories (for example Microsoft Onedrive)
-- Avoid non-ASCII characters (for example emoji, accented letters)
-- Avoid spaces
-
-An example of a "good" path may be: `C:\Projects\YourProjectName`
-:::
-
-## Importing the Project {#importing-the-project}
-
-Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.
-
-If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button:
-
-![Gradle Prompt](/assets/develop/getting-started/gradle-prompt.png)
-
-Once the project has been imported, you should see the project's files in the project explorer, and you should be able to start developing your mod.
+You should extract this zip file to a location of your choice, and then open the extracted folder in your IDE.
 
 ## Manual Project Creation {#manual-project-creation}
 
@@ -70,9 +48,9 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 This will clone the repository into a new folder called `my-mod-project`.
 
-You should then delete the `.git` folder from the cloned repository, and then open the project in IntelliJ IDEA. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
+You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
 
-Once you've opened the project in IntelliJ IDEA, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
+Once you've opened the project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
 
 Again, as previously mentioned, if you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
 

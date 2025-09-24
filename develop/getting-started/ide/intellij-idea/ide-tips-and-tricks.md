@@ -1,5 +1,5 @@
 ---
-title: IDE Tips and Tricks
+title: IDE Tips and Tricks for IntelliJ IDEA
 description: Useful information to handle and traverse your project using the IDE efficiently.
 authors:
   - AnAwesomGuy

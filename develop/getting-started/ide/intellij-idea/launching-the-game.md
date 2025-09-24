@@ -1,5 +1,5 @@
 ---
-title: Launching the Game
+title: Launching the Game in IntelliJ IDEA
 description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment.
 authors:
   - IMB11
