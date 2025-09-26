@@ -25,7 +25,7 @@ authors:
 
 ```json
 {
-  "itemGroup.example_mod": "Example Mod"
+  "itemGroup.example-mod": "Example Mod"
 }
 ```
 

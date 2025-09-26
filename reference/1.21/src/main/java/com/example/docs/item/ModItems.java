@@ -51,7 +51,7 @@ public class ModItems {
 	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(ExampleMod.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-			.displayName(Text.translatable("itemGroup.example_mod"))
+			.displayName(Text.translatable("itemGroup.example-mod"))
 			.build();
 	// :::9
 	// :::5

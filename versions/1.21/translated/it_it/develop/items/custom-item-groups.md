@@ -25,7 +25,7 @@ Se avessi per caso usato `Text.translatable` per il metodo `displayName` del cos
 
 ```json
 {
-  "itemGroup.example_mod": "Example Mod"
+  "itemGroup.example-mod": "Example Mod"
 }
 ```
 
