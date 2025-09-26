@@ -8,7 +8,7 @@ import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.rendering.blockentity.CounterBlockEntityRenderer;
 
 // :::1
-public class FabricDocsBlockEntityRenderer implements ClientModInitializer {
+public class ExampleModBlockEntityRenderer implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockEntityRendererFactories.register(ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntityRenderer::new);

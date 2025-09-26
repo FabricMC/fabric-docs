@@ -25,8 +25,8 @@
     "client": [
       "com.example.docs.ExampleModClient",
       "com.example.docs.client.command.ExampleModClientCommands",
-      "com.example.docs.FabricDocsDynamicSound",
-      "com.example.docs.FabricDocsBlockEntityRenderer"
+      "com.example.docs.ExampleModDynamicSound",
+      "com.example.docs.ExampleModBlockEntityRenderer"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.ExampleModDataGenerator"

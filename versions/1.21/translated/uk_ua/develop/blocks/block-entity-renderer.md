@@ -20,7 +20,7 @@ authors:
 Новий клас має конструктор із `BlockEntityRendererFactory.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `TextRenderer`.
 Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererFactory`:
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
 Додайте точку входу до файлу `fabric.mod.json`, щоб зареєструвати промальовування.
 

@@ -128,7 +128,7 @@ If you only want to play something like a click on a UI element, there is alread
 
 Keep in mind that this will only be played on the specific client, which executed this part of the code.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 ::: warning
 Please note that in the `AbstractSoundInstance` class, which `SoundInstance`s inherit from, has the `@Environment(EnvType.CLIENT)` annotation.
@@ -165,7 +165,7 @@ either with entity's `TrackedData`, `BlockEntity` S2C packets or complete custom
 After you have finished creating your custom `SoundInstance` It's ready to be used anywhere as long as it's been executed on the client side using the sound manager.
 In the same way, you can also stop the custom `SoundInstance` manually, if necessary.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 The sound loop will be played now only for the client, which ran that SoundInstance. In this case, the sound will follow the `ClientPlayerEntity` itself.
 

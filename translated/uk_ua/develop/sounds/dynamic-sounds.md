@@ -130,7 +130,7 @@ Reaper поставляється з уже обладнаним еквалай�
 
 Майте на увазі, що це буде відтворено лише на конкретному клієнті, який виконував цю частину коду.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 :::warning
 Зверніть увагу, що в класі `AbstractSoundInstance`, який `SoundInstance` успадковує, є анотація `@Environment(EnvType.CLIENT)`.
@@ -164,7 +164,7 @@ Reaper поставляється з уже обладнаним еквалай�
 Після того, як ви закінчили створювати свій власний `SoundInstance`, його можна використовувати будь-де, якщо його було виконано на стороні клієнта за допомогою менеджера звуку.
 Таким же чином ви також можете зупинити настроюваний `SoundInstance` вручну, якщо необхідно.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 Звуковий цикл тепер відтворюватиметься лише для клієнта, який запустив цей SoundInstance. У цьому випадку звук буде слідувати за самим `ClientPlayerEntity`.
 

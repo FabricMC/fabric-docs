@@ -130,7 +130,7 @@ Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt e
 
 Beachte, dass dies nur auf dem spezifischen Client abgespielt wird, der diesen Teil des Codes ausgeführt hat.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 :::warning
 Bitte beachte, dass die Klasse `AbstractSoundInstance`, von der `SoundInstance` erbt, die Annotation `@Environment(EnvType.CLIENT)` hat.
@@ -163,7 +163,7 @@ Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass
 Nachdem du deine benutzerdefinierte `SoundInstance` erstellt hast, kann sie überall verwendet werden, solange sie auf der Client-Seite mit dem Sound-Manager ausgeführt wurde.
 Auf die gleiche Weise kannst du die benutzerdefinierte `SoundInstance` auch manuell stoppen, falls erforderlich.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `ClientPlayerEntity` selbst.
 
