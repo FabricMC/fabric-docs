@@ -82,7 +82,7 @@ Als Beispiel dient das folgende Textur- und Modell-JSON als Referenz.
 Du benötigst JSON-Modelldateien für alle Gegenstände, nicht nur für den Helm. Es ist das gleiche Prinzip wie bei anderen Itemmodellen.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Wie du sehen kannst, sollten die Rüstungsitems im Spiel geeignete Modelle haben:
 
@@ -113,7 +113,7 @@ Die Konstante `RegistryKey<EquipmentAsset>`, die wir zuvor erstellt haben, besti
 
 Da wir nur "Humanoide" Rüstungsteile (Helm, Brustpanzer, Hose, Stiefel usw.) hinzufügen wollen , werden die Definitionen der Ausrüstungsmodelle wie folgt aussehen:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 Wenn die Texturen und die Definition des Rüstungsmodell vorhanden sind, solltest du in der Lage sein, deine Rüstung auf den Entitäten zu sehen, die sie tragen:
 

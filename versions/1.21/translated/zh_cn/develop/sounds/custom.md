@@ -31,7 +31,7 @@ authors:
 
 如果 `resources/assets/mod-id/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
 
 字幕（subtitle）条目为玩家提供了更多的关于该声音的信息。 在 `resources/assets/mod-id/lang` 目录下的语言文件中会用到声音文件，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示这个字幕。
 
@@ -54,7 +54,7 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 如此，模组的初始化器只需实现一行即可注册所有的自定义 SoundEvents。
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## 使用自定义的 SoundEvent {#using-the-custom-soundevent}
 

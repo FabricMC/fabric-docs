@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "fabric-docs-reference:block/ruby_block",
-    "side": "fabric-docs-reference:block/ruby_block",
-    "top": "fabric-docs-reference:block/ruby_block"
-  }
-}

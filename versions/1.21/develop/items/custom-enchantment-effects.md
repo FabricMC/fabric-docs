@@ -45,16 +45,16 @@ Before proceeding, you should ensure your project is configured for data generat
 
 Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` method.
 
-@[code transclude={22-22}](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={22-22}](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
 
-@[code](@/reference/1.21/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/1.21/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 You should also add translations to your `en_us.json` file to give your enchantment a readable name:
 
 ```json
-"enchantment.FabricDocsReference.thundering": "Thundering",
+"enchantment.ExampleMod.thundering": "Thundering",
 ```
 
 You should now have a working custom enchantment effect! Test it by enchanting a weapon with the enchantment and hitting a mob. An example is given in the following video:

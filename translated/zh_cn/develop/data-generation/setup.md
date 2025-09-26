@@ -38,9 +38,9 @@ authors-nogithub:
 
 @[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java`。
+接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 最后，我们需要告诉 Fabric 我们的 `fabric.mod.json` 中的入口点：
 
@@ -53,7 +53,7 @@ authors-nogithub:
       // ...
     ],
     "fabric-datagen": [ // [!code ++]
-      "com.example.docs.datagen.FabricDocsReferenceDataGenerator" // [!code ++]
+      "com.example.docs.datagen.ExampleModDataGenerator" // [!code ++]
     ] // [!code ++]
   }
 }
@@ -69,7 +69,7 @@ authors-nogithub:
 
 在 datagen 入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。 稍后，你将添加**提供程序**，将生成的数据放入此 `Pack` 中。
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## 运行数据生成 {#running-data-generation}
 

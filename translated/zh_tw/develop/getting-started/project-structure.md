@@ -32,7 +32,7 @@ authors:
 
 模板模組生成器預設會創建一個 `main` 和一個 `client` 進入點 —— `main` 進入點用於共用的程式碼，而 `client` 進入點則用於客戶端特定的程式碼。 這些進入點會在遊戲啟動時分別被調用。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 上面是一個簡單的 `main` 進入點範例，在遊戲啟動時向控制台記錄一條訊息。
 

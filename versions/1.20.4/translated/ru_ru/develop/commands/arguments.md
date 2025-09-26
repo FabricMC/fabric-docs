@@ -7,19 +7,19 @@ search: false
 
 Большинство команд используют аргументы. Иногда они могут быть необязательными, что означает, что команда выполнится, даже если вы не предоставите этот аргумент. Один узел может иметь несколько типов аргументов, но будьте внимательны, чтобы избежать неоднозначности.
 
-@[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 В этом примере после текста команды `/argtater` следует указать целое число. Например, если вы выполните команду `/argtater 3`, вы получите сообщение «Вызвано /argtater с значением = 3». Если вы выполните `/argtater` без аргументов, команда не будет правильно распознана.
 
 Далее мы добавим необязательный второй аргумент:
 
-@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Теперь вы можете указать одно или два целых числа. Если вы укажете одно число, будет выведено сообщение с одним значением. Если вы укажете два числа, будет выведено сообщение с двумя значениями.
 
 Возможно, вам покажется излишним дважды указывать схожие исполнения. Поэтому мы можем создать метод, который будет использоваться в обоих случаях.
 
-@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Собственные типы аргументов
 
@@ -39,13 +39,13 @@ search: false
 
 Вы можете зарегистрировать свой тип аргументов в методе `onInitialize` вашего инициализатора мода, используя класс `ArgumentTypeRegistry`:
 
-@[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Использование своих типов аргументов
 
 Мы можем использовать наш собственный тип аргумента в команде, передав его экземпляр в метод `.argument` при создании команды.
 
-@[code lang=java transcludeWith=:::10 highlight={3}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::10 highlight={3}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Выполнив команду, мы можем проверить, работает ли наш тип аргумента:
 

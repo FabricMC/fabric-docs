@@ -43,7 +43,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 이전에 로드되지 않은 클래스의 메소드를 호출하면 클래스가 정적으로 초기화됩니다. 다시 말하자면 모든 `static` 필드가 실행되게 됩니다. 이것이 더미 `initialize` 메소드가 필요한 이유입니다.
 
@@ -97,7 +97,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 `src/main/resources/assets/mod-id/models/item` 폴더에, 아이템과 같은 식별자(예제의 경우 `suspicious_substance.json`) 이름의 JSON 파일을 생성한 다음 아래와 같이 입력합니다:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 모델 JSON 분석하기 {#breaking-down-the-model-json}
 
@@ -114,7 +114,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 `src/main/resources/assets/mod-id/items` 폴더에, 아이템과 같은 식별자(`suspicious_substance.json`)를 이름으로 가지는 아이템 설명 JSON 파일을 생성한 다음, 다음과 같이 입력합니다:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### 아이템 모델 설명 JSON 분석하기 {#breaking-down-the-item-model-description-json}
 

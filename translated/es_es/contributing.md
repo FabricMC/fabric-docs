@@ -84,10 +84,10 @@ La guía de estilo es la siguiente:
    **Por ejemplo:**
 
    ```md
-   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21 java}
    ```
 
-   Esto adjuntará las líneas 15-21 del archivo `FabricDocsReference.java` del mod de referencia.
+   Esto adjuntará las líneas 15-21 del archivo `ExampleMod.java` del mod de referencia.
 
    El fragmento de código resultante se verá así:
 

@@ -38,7 +38,7 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 `condensed_oak_log_horizontal.json` 파일의 예시:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 - `axis=y` - 블록이 Y축을 따라 설치되면, 기본 수직 모델을 사용할 것입니다.
 - `axis=z` - 블록이 Z축을 따라 설치되면, 양의 Z축 방향을 향하도록 모델을 회전할 것입니다.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 언제나 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
 
@@ -98,7 +98,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 블록이 오직 두 개의 가능한 변형이 있고, 오직 한 개의 속성 (`activated`)가 있으므로, 블록 상태 JSON 파일은 다음과 같을 것입니다.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 :::tip
 블록에 보관함 안에 표시될 수 있도록 [아이템 모델 설명](../items/first-item#creating-the-item-model-description)을 추가하는 것을 잊지 마세요!

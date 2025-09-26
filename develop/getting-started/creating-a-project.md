@@ -19,7 +19,7 @@ The package name should be lowercase, separated by dots, and unique to avoid con
 ::: warning
 Make sure you remember your mod's ID! Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own.
 
-For example, if your mod ID was **`fabric-docs-reference`**, instead of _`resources/assets/mod-id`_ use **`resources/assets/fabric-docs-reference`**.
+For example, if your mod ID was **`example-mod`**, instead of _`resources/assets/mod-id`_ use **`resources/assets/example-mod`**.
 :::
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)

@@ -39,7 +39,7 @@ authors:
 
 上記のコードは、ゲーム開始時にコンソールにログを出力する、シンプルな `main` エントリポイントの例です。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 

@@ -82,7 +82,7 @@ Come esempio, puoi usare le seguenti texture e modelli JSON come riferimento.
 Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stesso principio di altri modelli di oggetti.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gioco:
 
@@ -113,7 +113,7 @@ La costante `RegistryKey<EquipmentAsset>` creata più sopra determinerà il nome
 
 Poiché vogliamo solo aggiungere i pezzi d'armatura "umanoidi" (elmo, corazza, gambiere, stivali...), la definizione del nostro modello indossato sarà come segue:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 Quando sia le texture sia le definizioni dei modelli indossati sono presenti, dovresti poter vedere la tua armatura sulle entità che la indossano:
 

@@ -28,7 +28,7 @@ public class TestItem extends Item {
 		// ::::::problems:logger-usage-example
 		if (world.isClient()) {
 			// :::problems:using-logger
-			FabricDocsReferenceDebug.LOGGER.info("You interacted with an entity!");
+			ExampleModDebug.LOGGER.info("You interacted with an entity!");
 			// :::problems:using-logger
 		}
 
@@ -38,16 +38,16 @@ public class TestItem extends Item {
 		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
 				.formatted(user.getWorld().isClient(), entity.getHealth(), entity.getMaxHealth(), hand.name());
 
-		FabricDocsReferenceDebug.LOGGER.info(output);
+		ExampleModDebug.LOGGER.info(output);
 
 		if (!user.getWorld().isClient()) {
 			// you can log non-critical issues differently as a warning
-			FabricDocsReferenceDebug.LOGGER.warn("Don't touch that!");
+			ExampleModDebug.LOGGER.warn("Don't touch that!");
 
 			// The LOGGER can print the Stacktrace too in addition to the logging message
 			if (stack.getCount() > 1) {
 				IllegalArgumentException exception = new IllegalArgumentException("Only one item is allowed");
-				FabricDocsReferenceDebug.LOGGER.error("Error while interacting with an entity", exception);
+				ExampleModDebug.LOGGER.error("Error while interacting with an entity", exception);
 				throw exception;
 			}
 		}

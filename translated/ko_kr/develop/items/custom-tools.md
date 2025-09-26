@@ -42,7 +42,7 @@ authors:
 
 예제에서는, 아래 모델과 텍스처를 "Guidite Sword" 아이템에 사용하겠습니다:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">텍스처</DownloadEntry>
 

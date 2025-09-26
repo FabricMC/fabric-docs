@@ -48,7 +48,7 @@ Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisieru
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 
@@ -102,7 +102,7 @@ Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur
 
 Erzeuge das Modell JSON im Ordner `assets/mod-id/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -119,7 +119,7 @@ Minecraft weiß nicht, wo deine Item-Model Dateien zu finden sind, deswegen müs
 
 Erstelle die JSON-Beschreibung des Items im Verzeichnis `assets/mod-id/items`, mit demselben Dateinamen wie der Bezeichner des Items: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Aufschlüsselung des JSON der Itemmodell-Beschreibung {#breaking-down-the-item-model-description-json}
 

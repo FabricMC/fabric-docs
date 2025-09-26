@@ -39,7 +39,7 @@ API Fabric предоставляет события для важных обл�
 
 В этом примере регистрируется `AttackBlockCallback` для нанесения урона игроку при столкновении с блоками, из которых не выпадает предмет при ручной добыче.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Добавление предмета к существующим таблицам лута {#adding-items-to-existing-loot-tables}
 
@@ -53,7 +53,7 @@ API Fabric предоставляет события для важных обл�
 
 В API Fabric есть событие, которое запускается при загрузке таблиц добычи, `LootTableEvents.MODIFY`. Вы можете зарегистрировать обратный вызов для него в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints). Давайте также проверим, что текущая таблица добычи — это таблица добычи угольной руды.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Добавление предметов в таблицу добычи {#adding-items-to-the-loot-table}
 
@@ -63,7 +63,7 @@ API Fabric предоставляет события для важных обл�
 
 В нашем пуле также нет элементов, поэтому мы создадим запись элемента с помощью `ItemEntry#builder` и добавим ее в пул.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Собственные события {#custom-events}
 
@@ -115,6 +115,6 @@ API Fabric предоставляет события для важных обл�
 
 Теперь нам нужно протестировать наше событие. Вы можете зарегистрировать слушатель в своем методе инициализации (или в другой области, если вам так удобнее) и добавить туда пользовательскую логику. Вот пример, в котором вместо шерсти к ногам овцы падает алмаз:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 Если вы зайдете в игру и пострижете овцу, вместо шерсти должен выпасть алмаз.

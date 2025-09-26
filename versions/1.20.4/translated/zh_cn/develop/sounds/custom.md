@@ -33,7 +33,7 @@ search: false
 
 如果 `resources/assets/mod-id/sounds.json` 文件还未生成，继续创建该文件，并将你的音效添加到音效条目中。
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
 声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕 (subtitle) 条目为玩家提供了更多的关于该声音的信息。 声音字幕翻译键会在 `resources/assets/mod-id/lang` 目录下的语言文件中用到，如果游戏内字幕设置已打开且正在播放自定义声音，则会显示该翻译键在语言文件内对应的值，如果找不到，那么会直接显示该声音字幕的翻译键。
 
@@ -56,7 +56,7 @@ Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"
 
 如此，在实现了 `ModInitializer` 的入口点类中，只需调用一行即可注册所有的自定义 SoundEvents。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## 使用自定义的 SoundEvent
 

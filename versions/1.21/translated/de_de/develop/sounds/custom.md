@@ -31,7 +31,7 @@ Füge das neue Verzeichnis `resources/assets/mod-id/sounds` für die Sounds in d
 
 Fahre mit der Erstellung der Datei `resources/assets/mod-id/sounds.json` fort, falls sie noch nicht existiert und füge deinen Sound zu den Sound-Einträgen hinzu.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
 
 Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels wird in den Sprachdateien im Verzeichnis `resources/assets/mod-id/lang` verwendet und wird angezeigt, wenn die Untertitel-Einstellung im Spiel aktiviert ist und dieser benutzerdefinierte Sound abgespielt wird.
 
@@ -54,7 +54,7 @@ Füge zwei neue Methoden zu der neu erstellten Hilfsklasse hinzu. Eine, die alle
 
 Auf diese Weise, muss der Mod-Initialisierer nur eine Zeile zur Registrierung aller benutzerdefinierten SoundEvents implementieren.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Das benutzerdefinierte SoundEvent nutzen {#using-the-custom-soundevent}
 

@@ -82,7 +82,7 @@ authors:
 Вам понадобятся файлы моделей JSON для всех предметов, а не только для шлема, принцип тот же, что и для других моделей предметов.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Как видите, в игре предметы брони должны иметь подходящие модели:
 
@@ -113,7 +113,7 @@ authors:
 
 Так как мы планируем добавлять только "гуманоидов" (шлем, нагрудник, поножи, ботинки и т.д.) части брони, определение модели нашего снаряжения, будут выглядеть следующим образом:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 При наличии текстур и определения модели снаряжения вы сможете увидеть свою броню на объектах, которые ее носят:
 

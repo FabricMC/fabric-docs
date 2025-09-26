@@ -105,7 +105,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 如果区块实体似乎没有打钩，请尝试检查关于注册到上下文的代码！ 如果区块实体似乎没有打钩，请尝试检查关于注册到上下文的代码！ 它应将对该实体有效的块传入到 `BlockEntityType.Builder` 中，否则会在控制台中发出警告：
 
 ```text
-[13:27:55] [Server thread/WARN] (Minecraft) Block entity fabric-docs-reference:counter @ BlockPos{x=-29, y=125, z=18} state Block{fabric-docs-reference:counter_block} invalid for ticking:
+[13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 
 :::

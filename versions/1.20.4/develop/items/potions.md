@@ -26,7 +26,7 @@ When Fabric API is present, `BrewingRecipeRegistry.registerPotionRecipe` is made
 Let's start by declaring a field to store your `Potion` instance. We will be directly using the initializer class to
 hold this.
 
-@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/1.20.4/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
 
@@ -43,7 +43,7 @@ To create your own effect, please see the [Effects](../entities/effects) guide.
 
 In our initializer, we call `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/1.20.4/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe` takes 3 parameters:
 
@@ -56,7 +56,7 @@ to `BrewingRecipeRegistry.registerPotionRecipe` can be done.
 
 The full example:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Once registered, you can brew a Tater potion using a potato.
 

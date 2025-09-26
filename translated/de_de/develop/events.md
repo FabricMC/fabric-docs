@@ -39,7 +39,7 @@ Alle Event-Callback-Interfaces, die von der Fabric API bereitgestellt werden, si
 
 Dieses Beispiel registriert einen `AttackBlockCallback`, um dem Spieler Schaden zuzufügen, wenn er Blöcke trifft, die keinen Gegenstand fallen lassen, wenn sie von Hand abgebaut werden.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Items zu existierenden Beutetabellen hinzufügen {#adding-items-to-existing-loot-tables}
 
@@ -53,7 +53,7 @@ Wir werden die Beutetabelle für Kohleerz um Eier erweitern.
 
 Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst hierfür einen Callback in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Hinzufügen von Items zur Beutetabelle {#adding-items-to-the-loot-table}
 
@@ -63,7 +63,7 @@ Wir können einen Pool mit `LootPool#builder` erstellen, und ihn zur Beutetabell
 
 Unser Pool hat auch keine Items, also erstellen wir einen Item-Eintrag mit `ItemEntry#builder` und fügen ihn dem Pool hinzu.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Benutzerdefinierte Events {#custom-events}
 
@@ -115,6 +115,6 @@ Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. 
 
 Jetzt müssen wir unser Event testen. Du kannst einen Listener in deiner Initialisierungsmethode (oder in einem anderen Bereich, wenn du das bevorzugst) registrieren und dort benutzerdefinierte Logik hinzufügen. Hier ist ein Beispiel, bei dem dem ein Diamant anstelle von Wolle auf die Füße des Schafs fällt:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 Wenn du im Spiel ein Schaf scherst, sollte anstelle von Wolle ein Diamant fallen.

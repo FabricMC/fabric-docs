@@ -25,7 +25,7 @@ authors:
 
 ```json
 {
-  "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
+  "itemGroup.example-mod": "Example Mod"
 }
 ```
 

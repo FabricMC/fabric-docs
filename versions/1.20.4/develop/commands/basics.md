@@ -90,7 +90,7 @@ The callback has three parameters:
 
 In the mod initializer, we just register a simple command:
 
-@[code lang=java transcludeWith=:::_1](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::_1](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 In the `sendFeedback()` method, the first parameter is the text to be sent, which is a `Supplier<Text>` to avoid
 instantiating Text objects when not needed.
@@ -113,7 +113,7 @@ To execute this command, you must type `/foo`, which is case-sensitive.
 If desired, you can also make sure a command is only registered under some specific circumstances, for example, only in
 the dedicated environment:
 
-@[code lang=java highlight={2} transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Command Requirements {#command-requirements}
 
@@ -121,7 +121,7 @@ Let's say you have a command that you only want operators to be able to execute.
 comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `ServerCommandSource`
 to test with and determine if the `CommandSource` can execute the command.
 
-@[code lang=java highlight={3} transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 This command will only execute if the source of the command is a level 2 operator at a minimum, including command
 blocks. Otherwise, the command is not registered.
@@ -133,24 +133,24 @@ also why you cannot tab-complete most commands when you do not enable cheats.
 
 To add a sub command, you register the first literal node of the command normally. To have a sub command, you have to append the next literal node to the existing node.
 
-@[code lang=java highlight={3} transcludeWith=:::7](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::7](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Similar to arguments, sub command nodes can also be set optional. In the following case, both `/subtater`
 and `/subtater subcommand` will be valid.
 
-@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::8](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Client Commands {#client-commands}
 
 Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.command.v2` package that can be used to register client-side commands. The code should exist only in client-side code.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
 ## Command Redirects {#command-redirects}
 
 Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
 
-@[code lang=java transcludeWith=:::12](@/reference/1.20.4/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::12](@/reference/1.20.4/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
 ## FAQ {#faq}
 

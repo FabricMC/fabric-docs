@@ -42,7 +42,7 @@ authors:
 
 В этом примере я буду использовать следующую модель и текстуру для предмета «Меч Guidite»:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Текстура</DownloadEntry>
 

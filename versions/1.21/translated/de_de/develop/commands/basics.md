@@ -76,7 +76,7 @@ Der Callback hat drei Parameter:
 
 Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 In der Methode `sendFeedback()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Text>` ist, um zu vermeiden, dass Text-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
@@ -96,15 +96,15 @@ Von diesem Punkt an werden wir die Logik, die innerhalb des Lambdas an den `.exe
 
 Falls gewünscht, kannst du auch dafür sorgen, dass ein Befehl nur unter bestimmten Umständen registriert wird, zum Beispiel nur in der dedizierten Umgebung:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Befehlsanforderungen {#command-requirements}
 
 Angenommen, du hast einen Befehl, den nur Operatoren ausführen können sollen. An dieser Stelle kommt die Methode `requires()` ins Spiel. Die Methode `requires()` hat ein Argument eines `Predicate<S>`, das eine `ServerCommandSource` liefert, mit der getestet werden kann, ob die `CommandSource` den Befehl ausführen kann.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Dieser Befehl wird nur ausgeführt, wenn die Quelle des Befehls mindestens ein Operator der Ebene 2 ist, einschließlich Befehlsblöcke. Andernfalls ist der Befehl nicht registriert.
 
@@ -114,19 +114,19 @@ Dies hat den Nebeneffekt, dass dieser Befehl in der Tab-Vervollständigung für 
 
 Um einen Unterbefehl hinzuzufügen, registriere den ersten buchstäblichen Knoten des Befehls ganz normal. Um einen Unterbefehl zu haben, musst du den nächsten buchstäblichen Knoten an den bestehenden Knoten anhängen.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Ähnlich wie die Argumente können auch die Unterbefehlsknoten auf optional gesetzt werden. Im folgenden Fall sind sowohl `/command_two` als auch `/command_two sub_command_two` gültig.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Client-Befehle {#client-commands}
 
 Die Fabric API verfügt über einen `ClientCommandManager` im Paket `net.fabricmc.fabric.api.client.command.v2`, der zur Registrierung clientseitiger Befehle verwendet werden kann. Der Code sollte nur im clientseitigen Code vorhanden sein.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
 ## Befehlsumleitungen {#command-redirects}
 
@@ -136,8 +136,8 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 Brigadier [wird nur Befehlsknoten mit Argumenten umleiten](https://github.com/Mojang/brigadier/issues/46). Wenn du einen Befehlsknoten ohne Argumente umleiten willst, gib einen `.executes()` Builder mit einem Verweis auf die gleiche Logik wie im Beispiel beschrieben an.
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## FAQ {#faq}
 

@@ -23,7 +23,7 @@ search: false
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用入口点类来持有这个字段。
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 我们传入一个 `StatusEffectInstance` 实例，它的构造方法接收以下 3 个参数：
 
@@ -39,7 +39,7 @@ search: false
 
 在我们的入口点中，我们调用 `BrewingRecipeRegistry.registerPotionRecipe`。
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe` 接收以下 3 个参数：
 
@@ -51,7 +51,7 @@ search: false
 
 完整的示例：
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 注册完成后，你就可以用马铃薯酿造土豆药水。
 

@@ -85,7 +85,7 @@ Command<ServerCommandSource> command = context -> {
 
 В ініціалізаторі мода ми просто реєструємо просту команду:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 У методі `sendFeedback()` першим параметром є текст для надсилання, який є `Supplier<Text>`, щоб уникнути
 створення екземплярів текстових об’єктів, коли вони не потрібні.
@@ -112,8 +112,8 @@ Command<ServerCommandSource> command = context -> {
 Якщо потрібно, ви також можете переконатися, що команда зареєстрована лише за певних обставин, наприклад, лише в
 виділене середовище:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Вимоги до команд {#command-requirements}
 
@@ -121,8 +121,8 @@ Command<ServerCommandSource> command = context -> {
 вступає в гру. Метод `requires()` має один аргумент `Predicate<S>`, який забезпечить `ServerCommandSource`
 щоб перевірити та визначити, чи може `CommandSource` виконати команду.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Ця команда виконуватиметься, лише якщо команду використав оператор принаймні рівня 2, включаючи командні
 блоки. Інакше команда не реєструється.
@@ -134,20 +134,20 @@ Command<ServerCommandSource> command = context -> {
 
 Щоб додати підкоманду, ви зазвичай реєструєте перший вузол літералу команди. Щоб мати підкоманду, вам потрібно додати наступний вузол літералу до існуючого вузла.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Подібно до аргументів, вузли підкоманд також можна встановити необов’язковими. У наступному випадку обидва `/command_two`
 і `/command_two sub_command_two` буде дійсним.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Клієнтські команди {#client-commands}
 
 Fabric API містить ClientCommandManager у пакеті net.fabricmc.fabric.api.client.command.v2, який можна використовувати для реєстрації команд на стороні клієнта. Код має існувати лише в коді на стороні клієнта.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/FabricDocsReferenceClientCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
 ## Перенаправлення команд {#command-redirects}
 
@@ -157,8 +157,8 @@ Fabric API містить ClientCommandManager у пакеті net.fabricmc.fabr
 Brigadier [перенаправлятиме лише командні вузли з аргументами](https://github.com/Mojang/brigadier/issues/46). Якщо ви хочете перенаправити командний вузол без аргументів, надайте конструктор `.executes()` із посиланням на ту саму логіку, що описана в прикладі.
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Часті питання {#faq}
 

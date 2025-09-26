@@ -38,7 +38,7 @@ Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare 
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -53,7 +53,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
 - `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello dell'oggetto il quale deve essere figlio di uno dei due modelli.
 
@@ -103,7 +103,7 @@ Se hai proprietà multiple su un blocco, dovrai tenere in conto tutte le possibi
 
 Poiché questo blocco ha solo due possibili varianti, dato che ha solo una proprietà (`activated`), il file JSON degli stati del blocco avrà il seguente aspetto:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luce quando la proprietà `activated` è `true`. Questo si può ottenere tramite le impostazioni del blocco, passate al costruttore durante la registrazione del blocco.
 

@@ -31,14 +31,14 @@ Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `StatusEffec
 
 Ähnlich wie bei der Registrierung von Blöcken und Items verwenden wir `Registry.register`, um unseren benutzerdefinierten Effekt in der `STATUS_EFFECT`-Registry zu registrieren. Dies kann in unserem Initialisierer geschehen.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Texturen {#texture}
 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Beispiel Textur</DownloadEntry>
@@ -49,7 +49,7 @@ Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -61,7 +61,7 @@ Es lohnt sich, einen Blick darauf zu werfen, wie man normalerweise einen Effekt 
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

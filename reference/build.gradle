@@ -10,14 +10,14 @@ subprojects {
 	apply plugin: 'com.diffplug.spotless'
 
 	base {
-		archivesName = "fabric-docs-reference-${project.name}"
+		archivesName = "example-mod-${project.name}"
 	}
 
 	loom {
 		splitEnvironmentSourceSets()
 
 		mods {
-			"fabric-docs-reference" {
+			"example-mod" {
 				sourceSet sourceSets.main
 				sourceSet sourceSets.client
 			}

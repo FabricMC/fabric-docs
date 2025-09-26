@@ -18,7 +18,7 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Ti serviranno fornitori (classi) diversi per blocchi, bauli, ed entità. Ricorda di aggiungerli tutto al tuo pack nella tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={32-33}](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={32-33}](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Loot Table Spiegate {#loot-tables-explained}
 
@@ -30,7 +30,7 @@ Le loot pool hanno **voci**, **condizioni**, funzioni, **roll** e **roll bonus**
 
 Perché i blocchi droppino oggetti - inclusi se stessi - dobbiamo creare una loot table. Crea una classe che `extends FabricBlockLootTableProvider`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
 Assicurati di aggiungere questo fornitore al tuo pack!
 
@@ -38,13 +38,13 @@ Ci sono parecchi metodi ausiliari per aiutarti a costruire le tue loot table. No
 
 Aggiungiamo alcuni drop nel metodo `generate`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceBlockLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
 ## Bauli {#chests}
 
 Il loot dei bauli è un po' più complesso del loot dei blocchi. Crea una classe che `extends SimpleFabricLootTableProvider` come nell'esempio sotto **e aggiungila al tuo pack**.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
 Ci servirà una `RegistryKey<LootTable>` per la nostra loot table. Mettiamola in una nuova classe chiamata `ModLootTables`. Assicurati che sia nel tuo insieme di sorgenti `main` se usi fonti suddivise.
 
@@ -52,4 +52,4 @@ Ci servirà una `RegistryKey<LootTable>` per la nostra loot table. Mettiamola in
 
 Poi possiamo generare una loot table nel metodo `generate` del tuo fornitore.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/1.21/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)

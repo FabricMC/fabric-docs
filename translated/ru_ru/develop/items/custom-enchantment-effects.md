@@ -43,16 +43,16 @@ authors:
 
 Наконец, мы должны указать нашему моду добавить наш `EnchantmentGenerator` в список задач генерации данных. Для этого просто добавьте `EnchantmentGenerator` внутри метода `onInitializeDataGenerator`.
 
-@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Теперь, когда вы запускаете задачу генерации данных вашего мода, JSON-файлы чар будут генерироваться внутри папки `generated`. Пример можно увидеть ниже:
 
-@[code](@/reference/latest/src/main/generated/data/fabric-docs-reference/enchantment/thundering.json)
+@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
 Вам также следует добавить переводы в файл `en_us.json`, чтобы дать вашему зачарованию читаемое имя:
 
 ```json
-"enchantment.FabricDocsReference.thundering": "Thundering",
+"enchantment.ExampleMod.thundering": "Thundering",
 ```
 
 Теперь у вас должен быть рабочий эффект зачарования! Проверьте это, зачаровав оружие чарами и ударив моба. Пример приведен в следующем видео:

@@ -95,11 +95,11 @@ Alle Blocktexturen befinden sich im Ordner `assets/mod-id/textures/block` - eine
 
 Damit die Textur im Spiel angezeigt wird, musst du ein Blockmodell erstellen, das in der Datei `assets/mod-id/models/block/condensed_dirt.json` für den "Condensed Dirt"-Block gefunden werden kann. Für diesen Block werden wir den Modelltyp `block/cube_all` verwenden.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
 Damit der Block in deinem Inventar angezeigt wird, musst du eine [Itemmodell-Beschreibung](../items/first-item#creating-the-item-model-description) erstellen, die auf dein Blockmodell verweist. In diesem Beispiel ist die Beschreibung des Itemmodells für den Block "Condensed Dirt" unter `assets/mod-id/items/condensed_dirt.json` zu finden.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Du musst nur dann eine Beschreibung des Itemmodells erstellen, wenn du ein `BlockItem` zusammen mit deinem Block registriert hast!
@@ -115,7 +115,7 @@ Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintr
 
 Diese Datei sollte sich im Ordner `assets/mod-id/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Blockstates sind unglaublich komplex, weshalb sie als Nächstes auf [einer eigenen Seite](./blockstates) behandelt werden.
@@ -133,7 +133,7 @@ Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht 
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird, wenn der Block abgebaut wird und wenn er durch eine Explosion gesprengt wird.
 

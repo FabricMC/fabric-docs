@@ -18,7 +18,7 @@ Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
 Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla.
 
-@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Passiamo una istanza di `StatusEffectInstance`, che prende 3 parametri:
 
@@ -34,7 +34,7 @@ Per creare il tuo effetto personalizzato per la pozione, per favore guarda la gu
 
 Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUILD` per registrare la nostra pozione usando il metodo `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe` prende 3 parametri:
 

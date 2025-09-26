@@ -104,7 +104,7 @@ Minecraft використовує блоки-сутності для блокі
 Якщо блок-сутність не працює, спробуйте перевірити реєстраційний код! Він має передати блоки, дійсні для цієї сутності, у `BlockEntityType.Builder`, інакше він видасть попередження на консолі:
 
 ```text
-[13:27:55] [Server thread/WARN] (Minecraft) Block entity fabric-docs-reference:counter @ BlockPos{x=-29, y=125, z=18} state Block{fabric-docs-reference:counter_block} invalid for ticking:
+[13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 
 :::

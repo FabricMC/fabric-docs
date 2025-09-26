@@ -83,10 +83,10 @@ Quy định về phong cách như sau:
    **Ví dụ:**
 
    ```md
-   <<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21 java}
+   <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21 java}
    ```
 
-   Điều này sẽ nhúng mã từ dòng 15 đến 21 của tệp `FabricDocsReference.java` trong tập tin mod có liên quan.
+   Điều này sẽ nhúng mã từ dòng 15 đến 21 của tệp `ExampleMod.java` trong tập tin mod có liên quan.
 
    Kết quả sau khi tạo định nghĩa cho mã sẽ như này:
 

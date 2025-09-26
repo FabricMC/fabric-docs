@@ -39,7 +39,7 @@ authors:
 
 Вот пример простой `main` точки входа этих логов, которая записывает сообщение на консоль при запуске игры:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 

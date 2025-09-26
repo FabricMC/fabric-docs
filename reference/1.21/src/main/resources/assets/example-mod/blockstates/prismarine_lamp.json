@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "activated=false": {
+      "model": "example-mod:block/prismarine_lamp"
+    },
+    "activated=true": {
+      "model": "example-mod:block/prismarine_lamp_on"
+    }
+  }
+}

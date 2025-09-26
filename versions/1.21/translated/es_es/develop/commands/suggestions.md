@@ -15,7 +15,7 @@ Un `SuggestionProvider` (Proveedor de Sugerencias) es usado para crear una lista
 
 Para usar un proveedor de sugerencias, tienes que llamar el método `suggests` en el constructor del argumento. Este método tiene un parámetro `SuggestionProvider` y retorna un nuevo constructor de argumento con el proveedor de sugerencias adjuntado.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.21/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Proveedores de Sugerencias Incluidos
 

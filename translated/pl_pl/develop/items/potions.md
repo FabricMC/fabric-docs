@@ -18,7 +18,7 @@ Tak samo jak przedmioty i bloki, mikstury muszą być zarejestrowane.
 
 Zacznijmy od zdeklarowania pola do przechowania twojej instancji 'Potion'. Będziemy bezpośrednio używać klasy implementującej 'ModInitializer' do przechowywania owej mikstury.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Instancja 'StatusEffectInstance' posiada 3 argumenty:
 
@@ -34,7 +34,7 @@ Aby stworzyć swój własny efekt, proszę zobacz poradnik o [Efektach](../entit
 
 W naszym inicjalizatorze będziemy używać wydarzenia 'FabricBrewingRecipeRegistryBuilder.BUILD' aby zarejestrować nasza miksturę używając metody 'BrewingRecipeRegistry.registerPotionRecipe'.
 
-@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 'registerPotionRecipe' posiada 3 argumenty:
 
