@@ -17,7 +17,7 @@ Starting from 1.21.6, large changes are being implemented to the rendering pipel
 
 For example, in 1.21.8 GUI rendering adopted this model, and `DrawContext` methods simply add to the render state. The actual uploading to the `BufferBuilder` happens at the end of the preparation phase, after all elements have been added to the `RenderState`. See `GuiRenderer#prepare`.
 
-This article covers the basics of rendering and, while still somewhat relevant, most times there are higher levels of abstractions for better performance and compatibility.
+This article covers the basics of rendering and, while still somewhat relevant, most times there are higher levels of abstractions for better performance and compatibility. For more information, see [Rendering in the World](./world).
 :::
 
 This page will cover the basics of rendering using the new system, going over key terminology and concepts.
