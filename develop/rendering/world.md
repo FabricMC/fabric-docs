@@ -8,7 +8,7 @@ authors:
 ::: info PREREQUISITES
 Make sure you've read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 
-This page also contains more modern rendering concepts, and you can read this page to get a better understanding of the "extraction" and "drawing/rendering" split.
+This page also contains more modern rendering concepts, and you can read this page to get a better understanding of the "extraction/preparation" and "drawing/rendering" split. We will refer to the "extraction/preparation" phase as the "extraction" phase and the "drawing/rendering" phase as the "drawing" phase.
 :::
 
 To render custom objects in the world, you have two choices. You can inject into existing vanilla rendering and add your code, but that limits you to existing vanilla render pipelines. If existing vanilla render pipelines don't suit your needs, you need a custom render pipeline.
@@ -17,11 +17,11 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 ## The Extraction and Drawing Phases {#the-extraction-and-drawing-phases}
 
-As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "rendering".
+As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "drawing".
 
-All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `VertexRedering.drawFilledBox`, writes vertices to the buffered builder, and is part of the "extraction" phase. You should add all elements you want to render during this phase.
+All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `VertexRedering.drawFilledBox`, writes vertices to the buffered builder, and is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
 
-When the "extraction" phase is done, the "drawing/rendering" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
+When the "extraction" phase is done, the "drawing" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
 
 Now, with these two phases in mind, let's look at how to create a custom render pipeline.
 
@@ -43,15 +43,15 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderLayer.CUTOUT_BUFFER_SIZE`.
 
-If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "rendering" phase starts, at which point the buffer builder is built.
+If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
 
 ### Render States {#render-states}
 
-Note that in the above code we are saving the `BufferBuilder` in a field. This is because we need it in the "rendering" phase. In this case, the `BufferBuilder` is our "render state" or "extracted data". If you need additional data during the "rendering" phase, you should create a custom render state class to hold the `BufferedBuilder` and any additional rendering data you need.
+Note that in the above code we are saving the `BufferBuilder` in a field. This is because we need it in the "drawing" phase. In this case, the `BufferBuilder` is our "render state" or "extracted data". If you need additional data during the "drawing" phase, you should create a custom render state class to hold the `BufferedBuilder` and any additional rendering data you need.
 
-### Rendering Phase {#rendering-phase}
+### Drawing Phase {#drawing-phase}
 
-Now we'll implement the "drawing/rendering" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
+Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
 
 @[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
