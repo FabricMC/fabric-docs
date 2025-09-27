@@ -5,8 +5,8 @@ authors:
   - kevinthegreat1
 ---
 
-::: tip
-It is recommended to read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
+::: info PREREQUISITES
+Make sure you've read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 
 This page also contains more modern rendering concepts, and you can read this page to get a better understanding of the "extraction" and "drawing/rendering" split.
 :::
@@ -17,17 +17,17 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 ## The Extraction and Drawing Phases {#the-extraction-and-drawing-phases}
 
-As mentioned in [Rendering Concepts](./basic-concepts), Minecraft rendering is in the process of being split into "extraction" and "rendering" phases.
+As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "rendering".
 
-All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. When calling a render method, such as `VertexRedering.drawFilledBox`, it is writing vertices to the buffered builder, and is part of the "extraction" phase. You should add all elements you want to render during this phase.
+All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `VertexRedering.drawFilledBox`, writes vertices to the buffered builder, and is part of the "extraction" phase. You should add all elements you want to render during this phase.
 
 When the "extraction" phase is done, the "drawing/rendering" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
 
-Now let's look at how to create a custom render pipeline, with these two phases in mind.
+Now, with these two phases in mind, let's look at how to create a custom render pipeline.
 
 ## Custom Render Pipelines {#custom-render-pipelines}
 
-Let's say we want to render waypoints, which should appear through walls. But the closest pipeline in vanilla is `RenderPipelines#DEBUG_FILLED_BOX`, which doesn't render through walls. So we will need a custom render pipeline.
+Let's say we want to render waypoints, which should appear through walls. The closest vanilla pipeline for that would be `RenderPipelines#DEBUG_FILLED_BOX`, but it doesn't render through walls, so we will need a custom render pipeline.
 
 ### Defining a Custom Render Pipeline {#defining-a-custom-render-pipeline}
 
@@ -43,9 +43,7 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderLayer.CUTOUT_BUFFER_SIZE`.
 
-::: info
-If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase BEFORE the "drawing/rendering" phase starts, at which point the buffer builder is built.
-:::
+If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "rendering" phase starts, at which point the buffer builder is built.
 
 ### Render States {#render-states}
 
@@ -53,13 +51,13 @@ Note that in the above code we are saving the `BufferBuilder` in a field. This i
 
 ### Rendering Phase {#rendering-phase}
 
-Now we implement the "drawing/rendering" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
+Now we'll implement the "drawing/rendering" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
 
 @[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
 ### Cleaning up {#cleaning-up}
 
-Finally, we need to clean up our resources when the game renderer is closed. This method should be called from `GameRenderer#close`. As of writing, you need to mixin inject into `GameRenderer#close` to do this.
+Finally, we need to clean up resources when the game renderer is closed. `GameRenderer#close` should call this method, and for that you currently need to inject into `GameRenderer#close` with a mixin.
 
 @[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 @[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
@@ -70,6 +68,6 @@ Combining all the steps from above, we get a simple class that renders a waypoin
 
 @[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
-Don't forget the `GameRendererMixin` right above as well. Here is our result:
+Don't forget the `GameRendererMixin` as well! Here is the result:
 
 ![A waypoint rendering through walls](/assets/develop/rendering/world-rendering-custom-render-pipeline-waypoint.png)
