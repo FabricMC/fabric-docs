@@ -8,7 +8,7 @@ authors:
 ::: info PREREQUISITES
 Make sure you've read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 
-This page also contains more modern rendering concepts, and you can read this page to get a better understanding of the "extraction/preparation" and "drawing/rendering" split. We will refer to the "extraction/preparation" phase as the "extraction" phase and the "drawing/rendering" phase as the "drawing" phase.
+This page explores some more modern rendering concepts. You'll learn more about the two split phases of rendering: "extraction" (or "preparation") and "drawing" (or "rendering"). In this guide, we will refer to the "extraction/preparation" phase as the "extraction" phase and the "drawing/rendering" phase as the "drawing" phase.
 :::
 
 To render custom objects in the world, you have two choices. You can inject into existing vanilla rendering and add your code, but that limits you to existing vanilla render pipelines. If existing vanilla render pipelines don't suit your needs, you need a custom render pipeline.
