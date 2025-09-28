@@ -46,7 +46,7 @@ Every block model file has a defined structure that has to be followed. It start
       "shade": "true/false",
       "light_emission": "...",
       "faces": {
-        "<face>": {
+        "<key>": {
           "uv": [0, 0, 0, 0],
           "texture": "...",
           "cullface": "...",
@@ -89,7 +89,7 @@ This tag specifies whether to use [ambient occlusion](https://en.wikipedia.org/w
 The `textures` tag holds the textures of the model, in the form of an identifier or a texture variable. It contains three additional objects:
 
 1. `particle`: _String_. Defines the texture to load particles from. This texture is also used as an overlay if you are in a nether portal, and used for water and lava's still textures. Is also considered a texture variable that can be referenced as `#particle`.
-2. `<texture_variable>`: _String_. It creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
+2. `<texture_variable>`: _String_. Creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
 
 <!--@include: ..\items\item-models.md#elements-->
 
@@ -114,7 +114,7 @@ The values of both must be between **-16** and **32**, which means that every bl
 2. `texture`: _String_. Specifies the texture of the face in the form of a [texture variable](#textures), prepended with `#`.
 3. `cullface`: _String_. Can be: `down`, `up`, `north`, `south`, `west`, or `east`. Specifies whether a face does not need to be rendered when there is a block touching it in the specified position.
 It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
-4. `rotation`: _Integer_. Rotates the texture by the specified number of degrees in 90 degree increments. Rotation does not affect which part of the texture is used.
+4. `rotation`: _Integer_. Rotates the texture clockwise by the specified number of degrees in 90 degree increments. Rotation does not affect which part of the texture is used.
 Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
 5. `tintidex`: _Integer_. Tints the texture on that face using a tint value. The default value, `-1`, indicates not to use the tint.
 Any other number is provided to `BlockColors` to get the tint value corresponding to that index (returns white when the block doesn't have a tint index defined).

@@ -48,7 +48,7 @@ Every item model file has a defined structure that has to be followed. It starts
       "shade": "true/false",
       "light_emission": "...",
       "faces": {
-        "<face>": {
+        "<key>": {
           "uv": [0, 0, 0, 0],
           "texture": "...",
           "cullface": "...",
@@ -188,7 +188,7 @@ This tag defines the direction from which the item model is illuminated. Can be 
 }
 ```
 
-Contains all the elements of the model, which can only be cubic. If both `parent` and `elements` tags are set, this file's `elements` tag overrides the parent's one.
+Contains all elements of a model, which can only be cubic. If both `parent` and `elements` tags are set, this file's `elements` tag overrides the parent's one.
 
 <!-- #endregion elements -->
 
@@ -249,7 +249,7 @@ The values of both must be between **-16** and **32**, which means that every it
 ```json
 {
   "faces": {
-    "<face>": {
+    "<key>": {
       "uv": [0, 0, 0, 0],
       "texture": "...",
       "cullface": "...",
@@ -260,7 +260,7 @@ The values of both must be between **-16** and **32**, which means that every it
 }
 ```
 
-`faces` holds all the faces of the cuboid. If a face is not set, it will not be rendered. Its keys can be one of: `down`, `up`, `north`, `south`, `west` or `east`. Each key contains the properties for that face:
+`faces` holds all faces of a cuboid. If a face is not set, it will not be rendered. Its keys (`<key>`) can be one of: `down`, `up`, `north`, `south`, `west` or `east`. Each key contains the properties for that face:
 
 <!-- #endregion shade-to-faces -->
 
