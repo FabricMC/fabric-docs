@@ -20,9 +20,11 @@ config:
     allowed_elements:
       - audio
       - Badge
+      - ChoiceComponent
       - ColorSwatch
       - DownloadEntry
       - kbd
+      - script
       - source
       - u
       - VideoPlayer

@@ -1,9 +1,10 @@
 import mediumZoom from "medium-zoom";
-import { Theme, useData, useRoute } from "vitepress";
+import { type Theme, useData, useRoute } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
+import ChoiceComponent from "./components/ChoiceComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
@@ -21,6 +22,7 @@ export default {
       tag.startsWith("media-");
 
     // Custom Components for Pages
+    app.component("ChoiceComponent", ChoiceComponent);
     app.component("ColorSwatch", ColorSwatch);
     app.component("DownloadEntry", DownloadEntry);
     app.component("VideoPlayer", VideoPlayer);
