@@ -27,80 +27,42 @@ export default [
     ],
   },
   {
-    text: "develop.gettingStarted",
+    text: "develop.getting_started",
     collapsed: false,
     items: [
       {
-        text: "develop.gettingStarted.introduction",
-        link: "/develop/getting-started/introduction-to-fabric-and-modding",
+        text: "develop.getting_started.introduction",
+        link: "/develop/getting-started/",
       },
       {
-        text: "develop.gettingStarted.devEnvSetup",
-        link: "/develop/getting-started/setting-up-a-development-environment",
-        items: [
-          {
-            text: "develop.gettingStarted.creatingProject",
-            link: "/develop/getting-started/creating-a-project",
-          },
-          {
-            text: "develop.gettingStarted.projectStructure",
-            link: "/develop/getting-started/project-structure",
-          },
-          {
-            text: "develop.gettingStarted.intelliJ",
-            collapsed: true,
-            items: [
-              {
-                text: "develop.gettingStarted.ide.intelliJ.settingUp",
-                link: "/develop/getting-started/ide/intellij-idea/setting-up"
-              },
-              {
-                text: "develop.gettingStarted.ide.intelliJ.openingAProject",
-                link: "/develop/getting-started/ide/intellij-idea/opening-a-project"
-              },
-              {
-                text: "develop.gettingStarted.ide.intelliJ.runningTheGame",
-                link: "/develop/getting-started/ide/intellij-idea/launching-the-game"
-              },
-              {
-                text: "develop.gettingStarted.ide.intelliJ.generatingSources",
-                link: "/develop/getting-started/ide/intellij-idea/generating-sources"
-              },
-              {
-                text: "develop.gettingStarted.ide.intelliJ.tipsAndTricks",
-                link: "/develop/getting-started/ide/intellij-idea/ide-tips-and-tricks"
-              }
-            ]
-          },
-          {
-            text: "develop.gettingStarted.vsCode",
-            collapsed: true,
-            items: [
-              {
-                text: "develop.gettingStarted.ide.vsCode.settingUp",
-                link: "/develop/getting-started/ide/vscode/setting-up"
-              },
-              {
-                text: "develop.gettingStarted.ide.vsCode.openingAProject",
-                link: "/develop/getting-started/ide/vscode/opening-a-project"
-              },
-              {
-                text: "develop.gettingStarted.ide.vsCode.runningTheGame",
-                link: "/develop/getting-started/ide/vscode/launching-the-game"
-              },
-              {
-                text: "develop.gettingStarted.ide.vsCode.generatingSources",
-                link: "/develop/getting-started/ide/vscode/generating-sources"
-              },
-              {
-                text: "develop.gettingStarted.ide.vsCode.tipsAndTricks",
-                link: "/develop/getting-started/ide/vscode/ide-tips-and-tricks"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+        text: "develop.getting_started.creating_project",
+        link: "/develop/getting-started/creating-a-project",
+      },
+      {
+        text: "develop.getting_started.project_structure",
+        link: "/develop/getting-started/project-structure",
+      },
+      {
+        text: "develop.getting_started.setting_up",
+        link: "/develop/getting-started/setting-up",
+      },
+      {
+        text: "develop.getting_started.opening_project",
+        link: "/develop/getting-started/opening-a-project",
+      },
+      {
+        text: "develop.getting_started.launching_game",
+        link: "/develop/getting-started/launching-the-game",
+      },
+      {
+        text: "develop.getting_started.generating_sources",
+        link: "/develop/getting-started/generating-sources",
+      },
+      {
+        text: "develop.getting_started.tips_and_tricks",
+        link: "/develop/getting-started/tips-and-tricks",
+      },
+    ],
   },
   {
     text: "develop.items",
@@ -339,8 +301,8 @@ export default [
           {
             text: "develop.misc.loom.prod",
             link: "/develop/loom/production-run-tasks",
-          }
-        ]
+          },
+        ],
       },
     ],
   },
