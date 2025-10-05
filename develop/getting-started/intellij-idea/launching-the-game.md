@@ -1,9 +1,15 @@
 ---
 title: Launching the Game in IntelliJ IDEA
-description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment.
+description: Learn how to utilize the various launch profiles to start and debug your mods in a live game environment through IntelliJ IDEA.
 authors:
   - IMB11
   - Tenneb22
+prev:
+  text: Opening a Project in IntelliJ IDEA
+  link: ./opening-a-project
+next:
+  text: Generating Sources in IntelliJ IDEA
+  link: ./generating-sources
 ---
 
 Fabric Loom provides a variety of launch profiles to help you start and debug your mods in a live game environment. This guide will cover the various launch profiles and how to use them to debug and playtest your mods.

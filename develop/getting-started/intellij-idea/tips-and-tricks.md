@@ -1,9 +1,13 @@
 ---
-title: IDE Tips and Tricks for IntelliJ IDEA
+title: Tips and Tricks for IntelliJ IDEA
 description: Useful information to handle and traverse your project using the IDE efficiently.
 authors:
   - AnAwesomGuy
   - JR1811
+prev:
+  text: Generating Sources in IntelliJ IDEA
+  link: ./generating-sources
+next: false
 ---
 
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.

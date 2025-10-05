@@ -1,8 +1,14 @@
 ---
-title: Opening a Project in Visual Studio Code
-description: How open a Minecraft mod project in Visual Studio Code.
+title: Opening a Project in VS Code
+description: How to open a Minecraft mod project in Visual Studio Code.
 authors:
   - dicedpixels
+prev:
+  text: Setting Up VS Code
+  link: ./setting-up
+next:
+  text: Launching the Game in VS Code
+  link: ./launching-the-game
 ---
 
 Assuming you already have a project, you can open it through **File** > **Open Folder**.

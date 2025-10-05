@@ -1,8 +1,12 @@
 ---
-title: IDE Tips and Tricks for Visual Studio Code
+title: Tips and Tricks for VS Code
 description: Useful tips and tricks to make your work easier.
 authors:
   - dicedpixels
+prev:
+  text: Generating Sources in VS Code
+  link: ./generating-sources
+next: false
 ---
 
 It's important to learn how to traverse the generate sources so that you can debug and get an understanding of the inner workings of Minecraft. Here we outline some common IDE usages.

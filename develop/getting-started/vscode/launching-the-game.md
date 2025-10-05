@@ -1,8 +1,14 @@
 ---
-title: Launching the Game in Visual Studio Code
-description: How to launch a Minecraft instance from Visual Studio Code.
+title: Launching the Game in VS Code
+description: Learn how to launch a Minecraft instance from Visual Studio Code.
 authors:
   - dicedpixels
+prev:
+  text: Opening a Project in VS Code
+  link: ./opening-a-project
+next:
+  text: Generating Sources in VS Code
+  link: ./generating-sources
 ---
 
 The Fabric toolchain integrates with Visual Studio Code to provide a convenient way to run a game instance to test and debug your mod.

@@ -1,5 +1,5 @@
 ---
-title: Setting up IntelliJ IDEA
+title: Setting Up IntelliJ IDEA
 description: A step-by-step guide on how to set up IntelliJ IDEA to create mods using Fabric.
 authors:
   - 2xsaiko
@@ -17,10 +17,16 @@ authors:
   - TelepathicGrunt
 authors-nogithub:
   - siglong
+prev:
+  text: Setting Up Your IDE
+  link: ../setting-up
+next:
+  text: Opening a Project in IntelliJ IDEA
+  link: ./opening-a-project
 ---
 
 ::: info PREREQUISITES
-Make sure you've [installed a JDK](../../setting-up-a-development-environment#installing-jdk-21) first.
+Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
 :::
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}

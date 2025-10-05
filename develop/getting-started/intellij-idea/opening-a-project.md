@@ -1,12 +1,18 @@
 ---
 title: Opening a Project in IntelliJ IDEA
-description: How open a Minecraft mod project in IntelliJ IDEA.
+description: How to open a Minecraft mod project in IntelliJ IDEA.
 authors:
   - Cactooz
   - dicedpixels
   - IMB11
   - radstevee
   - Thomas1034
+prev:
+  text: Setting Up IntelliJ IDEA
+  link: ./setting-up
+next:
+  text: Launching the Game in IntelliJ IDEA
+  link: ./launching-the-game
 ---
 
 Select your project in the startup dialog.

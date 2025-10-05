@@ -1,8 +1,14 @@
 ---
-title: Generating Minecraft Sources in Visual Studio Code
-description: How to generate Minecraft sources.
+title: Generating Sources in VS Code
+description: A guide to generating Minecraft sources in Visual Studio Code.
 authors:
   - dicedpixels
+prev:
+  text: Launching the Game in VS Code
+  link: ./launching-the-game
+next:
+  text: Tips and Tricks for VS Code
+  link: ./tips-and-tricks
 ---
 
 The Fabric toolchain lets you access the Minecraft source code by generating it locally, and you can use Visual Studio Code to conveniently navigate through it. To generate sources, you need to run the `genSources` Gradle task.

@@ -1,8 +1,14 @@
 ---
-title: Setting up Visual Studio Code
+title: Setting Up VS Code
 description: A step-by-step guide on how to set up Visual Studio Code to create mods using Fabric.
 authors:
   - dicedpixels
+prev:
+  text: Setting Up Your IDE
+  link: ../setting-up
+next:
+  text: Opening a Project in VS Code
+  link: ./opening-a-project
 ---
 
 ::: warning IMPORTANT
@@ -11,7 +17,7 @@ Consider using [IntelliJ IDEA](./setting-up-intellij-idea), which has dedicated 
 :::
 
 ::: info PREREQUISITES
-Make sure you've [installed a JDK](../../setting-up-a-development-environment#installing-jdk-21) first.
+Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
 :::
 
 ## Installation {#installation}
