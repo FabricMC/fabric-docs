@@ -52,3 +52,7 @@ Although this plugin isn't strictly necessary, it can make modding with Fabric m
 You can install it by opening IntelliJ IDEA, and then navigating to **File** > **Settings** > **Plugins** > **Marketplace** tab, then search for `Minecraft Development` in the search bar, and click the **Install** button.
 
 Alternatively, you can download it from the [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) and then install it by navigating to **File** > **Settings** > **Plugins** > **Install Plugin From Disk**.
+
+### About Creating a Project {#about-creating-a-project}
+
+While it is possible to create a project using this plugin, this is not recommended because the templates are often out of date. Instead, consider following [Creating a Project](../creating-a-project) to use the Fabric Template Mod Generator.
