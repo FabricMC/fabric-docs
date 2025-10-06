@@ -27,38 +27,40 @@ export default [
     ],
   },
   {
-    text: "develop.gettingStarted",
+    text: "develop.getting_started",
     collapsed: false,
     items: [
       {
-        text: "develop.gettingStarted.introduction",
-        link: "/develop/getting-started/introduction-to-fabric-and-modding",
+        text: "develop.getting_started.introduction",
+        link: "/develop/getting-started/",
       },
       {
-        text: "develop.gettingStarted.devEnvSetup",
-        link: "/develop/getting-started/setting-up-a-development-environment",
-        items: [
-          {
-            text: "develop.gettingStarted.devEnvSetupIntelliJ",
-            link: "/develop/getting-started/setting-up-intellij-idea",
-          },
-          {
-            text: "develop.gettingStarted.devEnvSetupVSCode",
-            link: "/develop/getting-started/setting-up-vscode",
-          }
-        ]
-      },
-      {
-        text: "develop.gettingStarted.creatingProject",
+        text: "develop.getting_started.creating_project",
         link: "/develop/getting-started/creating-a-project",
       },
       {
-        text: "develop.gettingStarted.projectStructure",
+        text: "develop.getting_started.project_structure",
         link: "/develop/getting-started/project-structure",
       },
       {
-        text: "develop.gettingStarted.launchGame",
+        text: "develop.getting_started.setting_up",
+        link: "/develop/getting-started/setting-up",
+      },
+      {
+        text: "develop.getting_started.opening_project",
+        link: "/develop/getting-started/opening-a-project",
+      },
+      {
+        text: "develop.getting_started.launching_game",
         link: "/develop/getting-started/launching-the-game",
+      },
+      {
+        text: "develop.getting_started.generating_sources",
+        link: "/develop/getting-started/generating-sources",
+      },
+      {
+        text: "develop.getting_started.tips_and_tricks",
+        link: "/develop/getting-started/tips-and-tricks",
       },
     ],
   },
@@ -285,10 +287,6 @@ export default [
         link: "/develop/debugging",
       },
       {
-        text: "develop.misc.ideTipsAndTricks",
-        link: "/develop/ide-tips-and-tricks",
-      },
-      {
         text: "develop.misc.automatic-testing",
         link: "/develop/automatic-testing",
       },
@@ -307,8 +305,8 @@ export default [
           {
             text: "develop.misc.loom.prod",
             link: "/develop/loom/production-run-tasks",
-          }
-        ]
+          },
+        ],
       },
     ],
   },
