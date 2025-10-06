@@ -1,11 +1,13 @@
 ---
-title: Launching the Game
-description: Learn how launch a Minecraft instance to start and debug your mods in a live game environment.
+title: Opening a Project
+description: How to open a Minecraft mod project in your IDE.
 authors:
+  - Cactooz
   - dicedpixels
   - IMB11
   - its-miroma
-  - Tenneb22
+  - radstevee
+  - Thomas1034
 outline: false
 ---
 
@@ -13,12 +15,12 @@ outline: false
 const choices = [
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/launching-the-game',
+    href: './intellij-idea/opening-a-project',
     image: '/assets/develop/getting-started/intellij/logo.svg',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/launching-the-game',
+    href: './vscode/opening-a-project',
     image: '/assets/develop/getting-started/vscode/logo.svg',
   },
 ];
