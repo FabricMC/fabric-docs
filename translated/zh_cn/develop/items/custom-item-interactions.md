@@ -52,7 +52,7 @@ TypedActionResult.success(heldStack);
 | `useOnBlock`    | 当玩家手持物品右键方块时调用(确切的说是对着方块按下使用按键) |
 | `use`           | 当玩家手持物品按下右键时调用(确切的说是按下使用按键)     |
 
-## 以使用(use) 事件为例 {#use-event}
+## 以使用(use) 事件为例{#use-event}
 
 假设你想制作一个在玩家面前召唤闪电束的物品，这显然需要创建一个自定义的物品类。
 

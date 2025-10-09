@@ -15,7 +15,7 @@ Oficialmente, o Fabric é compatível com todas as versões do Minecraft começa
 Você deve sempre verificar se os mods são de fontes confiáveis. Visite o guia [Encontrando Mods Confiáveis](./finding-mods) para mais informações.
 :::
 
-A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4), no entando, alguns preferem publicá-los em seus sites pessoais, ou em outras plataformas, como um repositório GitHub.
+A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e no CurseForge, no entando, alguns preferem publicá-los em seus sites pessoais, ou em outras plataformas, como um repositório GitHub.
 
 ## Onde eu posso achar modpacks pré-feitos para Fabric? {#where-can-i-find-premade-fabric-modpacks}
 

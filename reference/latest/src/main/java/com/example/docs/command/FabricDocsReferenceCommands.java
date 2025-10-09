@@ -219,7 +219,7 @@ public class FabricDocsReferenceCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("command_with_suggestions").then(
 					CommandManager.argument("entity", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ENTITY_TYPE))
-							.suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
+							.suggests(SuggestionProviders.cast(SuggestionProviders.SUMMONABLE_ENTITIES))
 							.executes(FabricDocsReferenceCommands::executeCommandWithSuggestions)
 			));
 		});

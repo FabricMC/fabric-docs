@@ -2,15 +2,14 @@
 title: Laufaufgaben für die Produktionsumgebung
 description: Dokumentation für Laufaufgaben für die Produktionsumgebung mit dem Fabric Loom Gradle Plugin.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Wenn du deinen Mod für die Verteilung an die Benutzer erstellst, wird er auf Zwischenmappings umgestellt, die leichte Inkonsistenzen zwischen der Entwicklungsumgebung und der Produktion (wie dem Vanilla Launcher) verursachen. Obwohl solche Probleme selten sind, ist es sinnvoll, deinen Mod in einer Produktionsumgebung zu testen, bevor du ihn freigibst.

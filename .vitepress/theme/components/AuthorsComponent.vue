@@ -1,64 +1,61 @@
 <script setup lang="ts">
-import { onContentUpdated, useData } from "vitepress";
-import { ref } from "vue";
+import { useData } from "vitepress";
+import { computed } from "vue";
 
 const data = useData();
+const heading = computed(() => data.theme.value.authors.heading);
+const labelNoGitHub = computed(() => data.theme.value.authors.noGitHub);
 
-const authors = ref<string[]>([]);
-const authorsNoGitHub = ref<string[]>([]);
-const heading = ref<string>("");
-const labelNoGitHub = ref<string>("");
+const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
+  const authors: string[] = data.frontmatter.value["authors"] || [];
+  const authorsNoGitHub: string[] =
+    data.frontmatter.value["authors-nogithub"] || [];
 
-function refreshOptions() {
-  heading.value = data.theme.value.authors.heading;
-  labelNoGitHub.value = data.theme.value.authors.noGitHub;
+  const withGitHub = authors.map((name) => ({ name }));
+  const withoutGitHub = authorsNoGitHub.map((name) => ({
+    name,
+    noGitHub: true,
+  }));
 
-  authors.value = [];
-  if (data.frontmatter.value["authors"]) {
-    authors.value = data.frontmatter.value["authors"];
-  }
-
-  authorsNoGitHub.value = [];
-  if (data.frontmatter.value["authors-nogithub"]) {
-    authorsNoGitHub.value = data.frontmatter.value["authors-nogithub"];
-  }
-}
-
-onContentUpdated(() => {
-  refreshOptions();
+  return [...withGitHub, ...withoutGitHub].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 });
 </script>
 
 <template>
-  <div v-if="authors.length > 0" class="authors-section">
+  <div v-if="combinedAuthors.length" class="authors-section">
     <h2>{{ heading }}</h2>
     <div class="page-authors">
-      <a
-        v-for="author in authors"
-        :href="`https://github.com/${author}`"
-        target="_blank"
-        class="author-link"
-        :title="author"
+      <template
+        v-for="author in combinedAuthors"
+        :key="(author.noGitHub ? ':' : '') + author.name"
       >
         <img
+          v-if="author.noGitHub"
           loading="lazy"
           class="author-avatar"
-          :src="`https://wsrv.nl/?url=${encodeURIComponent(
-            `https://github.com/${author}.png?size=32`
-          )}&af&maxage=7d`"
-          :alt="author"
+          src="/assets/avatater.png"
+          :alt="author.name"
+          :title="labelNoGitHub.replace('%s', author.name)"
         />
-      </a>
-      <img
-        v-for="author in authorsNoGitHub"
-        loading="lazy"
-        class="author-avatar"
-        :src="`https://wsrv.nl/?url=${encodeURIComponent(
-          'https://github.com/FabricMC.png?size=32'
-        )}&af`"
-        :alt="author"
-        :title="labelNoGitHub.replace('%s', author)"
-      />
+        <a
+          v-else
+          :href="`https://github.com/${author.name}`"
+          target="_blank"
+          class="author-link"
+          :title="author.name"
+        >
+          <img
+            loading="lazy"
+            class="author-avatar"
+            :src="`https://wsrv.nl/?url=${encodeURIComponent(
+              `https://github.com/${author.name}.png?size=32`
+            )}&af&maxage=7d`"
+            :alt="author.name"
+          />
+        </a>
+      </template>
     </div>
   </div>
 </template>
@@ -81,6 +78,7 @@ onContentUpdated(() => {
   align-items: center;
   margin-top: 8px;
   gap: 8px;
+  padding-bottom: 8px;
 }
 
 .author-avatar {
@@ -93,5 +91,11 @@ onContentUpdated(() => {
 
 .page-authors > a:hover > .author-avatar {
   filter: brightness(1.2);
+}
+
+@media (min-width: 1280px) {
+  .content-container > .authors-section {
+    display: none;
+  }
 }
 </style>

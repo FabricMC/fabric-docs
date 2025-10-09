@@ -11,7 +11,7 @@ authors:
 
 Ми додамо нову частинку блиску, яка імітуватиме рух частинки стрижня Енду.
 
-Ми додамо нову частинку блиску, яка імітуватиме рух частинки стрижня Енду.
+Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID моду.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
@@ -55,7 +55,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 Після того, як ви завершите файл JSON і збережете свою роботу, ви можете завантажити Minecraft і перевірити все!
 
-Після того, як ви завершите файл JSON і збережете свою роботу, ви можете завантажити Minecraft і перевірити все!
+Ви можете перевірити, чи все працює, ввівши таку команду:
 
 ```mcfunction
 /particle fabric-docs-reference:sparkle_particle ~ ~1 ~

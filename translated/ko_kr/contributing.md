@@ -107,9 +107,9 @@ git push
 
 ### 2. <Badge type="tip">stage:expansion</Badge> 콘텐츠 확장 {#2-guidance-for-expansion-if-needed}
 
-만약 문서 팀이 끌어오기 요청을 확장할 수 있다고 판단하면, 팀원이 끌어오기 요청에 <Badge type="tip">stage:expansion</Badge> 라벨과 함께 확장할 수 있는 내용을 댓글로 설명할 것입니다. 제안에 동의하신다면, 문서 내용을 확장하시면 됩니다.
+추후 문서팀은 끌어오기 요청에 <Badge type="tip">help-wanted</Badge> 라벨을 추가할 것입니다. 끌어오기 요청을 확장하길 원치 않지만 이후에 다른 사람이 확장하길 바란다면, [Issues 탭](https://github.com/FabricMC/fabric-docs/issues)에 이슈를 생성하고 확장할 수 있는 내용을 설명하면 됩니다.
 
-끌어오기 요청을 확장하길 원치 않지만 이후에 다른 사람이 확장하길 바란다면, [Issues 탭](https://github.com/FabricMC/fabric-docs/issues)에 이슈를 생성하고 확장할 수 있는 내용을 설명하면 됩니다. 추후 문서팀은 끌어오기 요청에 <Badge type="tip">help-wanted</Badge> 라벨을 추가할 것입니다.
+끌어오기 요청을 확장하길 원치 않지만 이후에 다른 사람이 확장하길 바란다면, [Issues 탭](https://github.com/FabricMC/fabric-docs/issues)에 이슈를 생성하고 확장할 수 있는 내용을 설명하면 됩니다. 만약 문서 팀이 끌어오기 요청을 확장할 수 있다고 판단하면, 팀원이 끌어오기 요청에 <Badge type="tip">stage:expansion</Badge> 라벨과 함께 확장할 수 있는 내용을 댓글로 설명할 것입니다.
 
 ### 3. <Badge type="tip">stage:verification</Badge> 콘텐츠 인증 {#3-content-verification}
 
@@ -219,7 +219,7 @@ authors:
 
 모든 이미지는 `/public/assets` 폴더의 적당한 위치에 배치되어야 합니다.
 
-### 상대적 링크를 사용할 것 {#use-relative-links}
+### 상대적 링크를 사용할 것 상대적 링크를 사용할 것 {#use-relative-links}
 
 이렇게 해야 버전 관리 시스템이 링크를 미리 처리하여 버전을 추가할 수 있습니다. 절대 링크를 사용하면, 버전 번호가 링크에 추가되지 않습니다.
 

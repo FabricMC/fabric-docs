@@ -13,15 +13,15 @@ Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mo
 
 在此示例中，自定义交互项的 `useOnEntity()` 和 `useOnBlock()` 方法用于播放“放置铜块”和掠夺者声音。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
-播放声音事件（SoundEvent） 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 `playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 您还可以使用世界实例中的 `playSound()` 方法以获得更高级别的控制。
+`playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 播放声音事件（SoundEvent） 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 `playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 您还可以使用世界实例中的 `playSound()` 方法以获得更高级别的控制。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
 ### 声音事件与声音组（SoundCategory）{#soundevent-and-soundcategory}
 
-播放声音事件（SoundEvent） 声音事件定义了播放哪个声音。 您也可以[注册您自己的声音事件](./custom)以包含您自己的声音。
+声音事件定义了播放哪个声音。 播放声音事件（SoundEvent） 声音事件定义了播放哪个声音。 您也可以[注册您自己的声音事件](./custom)以包含您自己的声音。
 
 Minecraft 在游戏设置中有多个音频滑块。 `SoundCategory` 枚举类用于确定哪个滑块可以调整您声音的音量。
 

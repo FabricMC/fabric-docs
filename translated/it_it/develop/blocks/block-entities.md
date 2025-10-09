@@ -21,8 +21,8 @@ La registrazione di un `BlockEntity` produce un `BlockEntityType` come il `COUNT
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java)
 
 :::tip
-Nota come il costruttore del `CounterBlockEntity` prenda due parametri, ma il costruttore del `BlockEntity` ne prenda tre: il `BlockEntityType`, la `BlockPos`, e lo `BlockState`.
-Se non fissassimo nel codice il `BlockEntityType`, la classe `ModBlockEntities` non compilerebbe! Questo perché la `BlockEntityFactory`, che è un'interfaccia funzionale, descrive una funzione che prende solo due parametri, proprio come il nostro costruttore.
+Nota come il costruttore del `CounterBlockEntity` accetti due parametri, ma il costruttore del `BlockEntity` ne accetti tre: il `BlockEntityType`, la `BlockPos`, e lo `BlockState`.
+Se non fissassimo nel codice il `BlockEntityType`, la classe `ModBlockEntities` non compilerebbe! Questo perché la `BlockEntityFactory`, che è un'interfaccia funzionale, descrive una funzione che accetta solo due parametri, proprio come il nostro costruttore.
 :::
 
 ## Creare il Blocco {#creating-the-block}
@@ -42,7 +42,7 @@ Useremo il primo approccio in questo esempio, poiché `BlockWithEntity` fornisce
 
 Usare `BlockWithEntity` come classe genitore significa che dobbiamo anche implementare il metodo `createCodec`, il che è piuttosto semplice.
 
-A differenza dei blocchi, che sono dei singleton, viene creato un nuovo blocco-entità per ogni istanza del blocco. Questo viene fatto con il metodo `createBlockEntity`, che prende la posizione e il `BlockState`, e restituisce un `BlockEntity`, o `null` se non ce ne dovrebbe essere uno.
+A differenza dei blocchi, che sono dei singleton, viene creato un nuovo blocco-entità per ogni istanza del blocco. Questo viene fatto con il metodo `createBlockEntity`, che accetta la posizione e il `BlockState`, e restituisce un `BlockEntity`, o `null` se non ce ne dovrebbe essere uno.
 
 Non dimenticare di registrare il blocco nella classe `ModBlocks`, proprio come nella guida [Creare il Tuo Primo Blocco](../blocks/first-block):
 
@@ -79,6 +79,17 @@ La lettura è simile, ma invece di salvare nel `NbtCompound` si ottengono i valo
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Ora, salvando e ricaricando il gioco, il blocco contatore dovrebbe riprendere da dove è stato salvato.
+
+Anche se `writeNbt` e `readNbt` gestiscono il salvataggio e il caricamento al disco, c'è ancora un problema:
+
+- Il server conosce il valore corretto di `clicks`.
+- Il client non riceve il valore corretto quando carica un chunk.
+
+Per risolvere questo, facciamo override di `toInitialChunkDataNbt`:
+
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+
+Ora, quando un giocatore accede o si muove in un chunk in cui il blocco esiste, vedrà subito il valore corretto del contatore.
 
 ## Ticker {#tickers}
 

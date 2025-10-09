@@ -9,7 +9,7 @@ authors:
 
 ## 1. 신뢰 가능한 것으로 알려진 서비스 사용하기 {#trustworthy-source}
 
-대부분의 모드 개발자는 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4) 에 모드를 게시합니다.
+대부분의 모드 개발자는 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 또는 CurseForge 에 모드를 게시합니다.
 
 이러한 서비스에서는 모드가 설명대로 작동하는지, 악성 코드가 포함되어 있지 않은지 검증합니다. 공유되고 있는 악성 모드를 신고할 수도 있습니다. 서비스에서 빠르게 조치할 것입니다.
 

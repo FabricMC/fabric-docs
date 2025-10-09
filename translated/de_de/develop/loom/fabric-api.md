@@ -2,15 +2,14 @@
 title: Fabric API DSL
 description: Dokumentation für die Fabric API Unterstützung beim Fabric Loom Gradle Plugin.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Loom verfügt über eine DSL, die bei der Konfiguration bestimmter Aspekte der Fabric-API hilft, z. B. bei der Datengenerierung und bei Tests.

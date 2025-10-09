@@ -2,14 +2,14 @@
 title: Генерація таблиць здобичі
 description: Посібник із налаштування генерації таблиць здобичі.
 authors:
+  - Alphagamer47
+  - JustinHuPrime
+  - matthewperiut
   - skycatminepokie
   - Spinoscythe
-  - Alphagamer47
-  - matthewperiut
-  - JustinHuPrime
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 :::info ПЕРЕДУМОВИ
@@ -18,7 +18,7 @@ authors-nogithub:
 
 Вам знадобляться різні постачальники (класи) для блоків, скринь і сутностей. Не забувайте додати їх усі до свого пакета у вашій `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={32-33}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Пояснення таблиць здобичі {#loot-tables-explained}
 

@@ -11,7 +11,7 @@ authors:
 
 Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
-Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
+![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
 
 :::warning
 Щоб використовувати Minecraft 1.21, вам знадобиться встановити принаймні Java 21. Якщо ця команда показує будь-яку версію, нижчу за 21, вам потрібно буде оновити встановлювач Java.
@@ -78,7 +78,7 @@ sudo dnf install java-21-openjdk-devel
 
 Якщо вашого дистрибутиву немає в списку вище, ви можете завантажити останню версію JRE з [Adoptium](https://adoptium.net/temurin/)
 
-Якщо вашого дистрибутиву немає в списку вище, ви можете завантажити останню версію JRE з [Adoptium](https://adoptium.net/temurin/)
+Вам слід звернутися до альтернативного посібника для вашого дистрибутиву, якщо ви плануєте розробляти моди.
 
 ## 3. Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}
 
@@ -86,4 +86,4 @@ sudo dnf install java-21-openjdk-devel
 
 Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}.
 
-Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
+![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)

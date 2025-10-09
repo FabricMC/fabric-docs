@@ -9,10 +9,6 @@ This page explains how to write code to automatically test parts of your mod. Th
 
 Unit tests should be used to test components of your code, such as methods and helper classes, while game tests spin up an actual Minecraft client and server to run your tests, which makes it suitable for testing features and gameplay.
 
-::: warning
-Currently, this guide only covers unit testing.
-:::
-
 ## Unit Testing {#unit-testing}
 
 Since Minecraft modding relies on runtime byte-code modification tools such as Mixin, simply adding and using JUnit normally would not work. That's why Fabric provides Fabric Loader JUnit, a JUnit plugin that enables unit testing in Minecraft.
@@ -61,7 +57,7 @@ For an explanation of what this code actually does, see [Codecs](./codecs#regist
 
 Great, the first test worked! But wait, the second test failed? In the logs, we get one of the following errors.
 
-@[code lang=java transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+@[code lang=log transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
 
 This is because we're trying to access the registry or a class that depends on the registry (or, in rare cases, depends on other Minecraft classes such as `SharedConstants`), but Minecraft has not been initialized. We just need to initialize it a little bit to have registries working. Simply add the following code to the beginning of your `beforeAll` method.
 
@@ -87,3 +83,54 @@ Add this to your `.github/workflows/build.yml` file, below the `./gradlew build`
       **/build/reports/
       **/build/test-results/
 ```
+
+## Game Tests {#game-tests}
+
+Minecraft provides the game test framework for testing server-side features. Fabric additionally provides client game tests for testing client-side features, similar to an end-to-end test.
+
+### Setting up Game Tests with Fabric Loom {#setting-up-game-tests-with-fabric-loom}
+
+Both server and client game tests can be set up manually or with Fabric Loom. This guide will use Loom.
+
+To add game tests to your mod, add the following to your `build.gradle`:
+
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+
+To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
+
+#### Setting up Game Test Directory {#setting-up-game-test-directory}
+
+::: info
+You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own gradle magic, but you'll be on your own.
+:::
+
+If you enabled `createSourceSet` like the example above, your gametest will be in a separate source set with a separate `fabric.mod.json`. The module name defaults to `gametest`. Create a new `fabric.mod.json` in `src/gametest/resources/` as shown:
+
+<<< @/reference/latest/src/gametest/resources/fabric.mod.json
+
+Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/FabricDocsGameTest`, and a client game test at `src/gametest/java/com/example/docs/FabricDocsClientGameTest`.
+
+### Writing Game Tests {#writing-game-tests}
+
+You can now create server and client game tests in the `src/gametest/java` directory. Here is a basic example for each:
+
+::: code-group
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java [Server]
+
+<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java [Client]
+
+:::
+
+See the respective Javadocs in Fabric API for more info.
+
+### Running Game Tests {#running-game-tests}
+
+Server game tests will be run automatically with the `build` Gradle task. You can run client game tests with the `runClientGameTest` Gradle task.
+
+### Run Game Tests on GitHub Actions {#run-game-tests-on-github-actions}
+
+Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
+
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)

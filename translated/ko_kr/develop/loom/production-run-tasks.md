@@ -2,15 +2,14 @@
 title: 배포 환경에서 실행
 description: Gradle용 Fabric Loom 플러그인의 배포 환경 실행 작업에 대한 문서입니다.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
-  - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
   - caoimhe
+  - daomephsta
+  - jamieswhiteshirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
+  - SolidBlock-cn
 ---
 
 사용자에게 모드를 배포하기 위해 빌드하면 모드는 Intermediary 매핑으로 리맵되고, 이는 개발 환경과 실제 배포 환경의 약간의 차이를 발생시킵니다. 이로 인한 문제는 매우 드물지만, 모드를 배포하기 전에 배포 환경에서 미리 테스트하는 것이 좋습니다.

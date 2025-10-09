@@ -3,9 +3,9 @@ title: 물약
 description: 여러 상태 효과를 부여하는 사용자 정의 물약을 만드는 방법을 알아보세요.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 ---
 
 물약은 엔티티에게 효과를 주는 소모품입니다. 플레이어는 양조대에서 물약을 제조하거나 여러 게임 메커니즘을 통해 아이템을 얻을 수 있습니다.

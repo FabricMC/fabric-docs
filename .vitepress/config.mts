@@ -30,6 +30,7 @@ export default defineVersionedConfig(
         // Use the snippet plugin (transclusion, etc.)
         md.use(snippetPlugin);
       },
+      gfmAlerts: false,
       image: {
         lazyLoading: true,
       },
@@ -77,7 +78,7 @@ export default defineVersionedConfig(
 
     // Versioning plugin configuration.
     versioning: {
-      latestVersion: "1.21.4",
+      latestVersion: "1.21.8",
       rewrites: {
         localePrefix: "translated",
       },

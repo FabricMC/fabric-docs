@@ -2,8 +2,9 @@
 title: Создание вашего первого предмета
 description: Узнайте, как зарегистрировать предмет, добавить текстуру, модель и название.
 authors:
-  - IMB11
   - dicedpixels
+  - Earthcomputer
+  - IMB11
   - RaphProductions
 ---
 
@@ -13,7 +14,7 @@ authors:
 
 ## Подготовка класса вашего предмета {#preparing-your-items-class}
 
-Для упрощения регистрации предмета вы можете создать метод, принимающий экземпляр предмета и строковый идентификатор.
+Для упрощения регистрации предметов вы можете создать метод, принимающий строковый идентификатор, некоторые настройки предмета и фабрику для создания экземпляра `Item`.
 
 Этот метод будет создавать предмет с данным идентификатором и регистрировать его с помощью реестра предметов игры.
 
@@ -23,23 +24,27 @@ Mojang уже сделали это со своими предметами! За
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+Обратите внимание на использование интерфейса [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) в качестве фабрики, которая позже позволит нам указать, как мы хотим создать наш предмет из настроек с помощью `Item::new`.
+
 ## Регистрация предмета {#registering-an-item}
 
 Теперь вы можете зарегистрировать предмет, используя метод.
 
-Конструктор предмета принимает экземпляр класса `Items.Settings` в качестве параметра. Этот класс позволяет вам настраивать параметры предмета через различные методы.
+Метод регистрации принимает экземпляр класса `Item.Settings` в качестве параметра. Этот класс позволяет вам настраивать свойства предмета через различные методы.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 Это не сработает, если вы пометили предмет как повреждаемый, потому что размер для повреждаемых предметов всегда равен 1, для предотвращения эксплойтов дублирования.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+`Item::new` говорит функции регистрации создать экземпляр `Item` из `Item.Settings`, вызывая конструктор `Item` (`new Item(...)`), принимающий `Item.Settings` в качестве параметра.
+
 Однако, если вы сейчас попытаетесь запустить измененный клиент, то увидите, что наш предмет еще не существует в игре! Это происходит потому, что вы не инициализировали класс статически.
 
-Чтобы сделать это, вы можете добавить в свой класс общедоступный статический метод инициализации и вызвать его из вашего класса [инициализатор мода] (./getting-started/project-structure#entrypoints). В настоящее время этот метод не принимает никаких аргументов.
+Чтобы сделать это, вы можете добавить в свой класс общедоступный статический метод инициализации и вызвать его из вашего класса [инициализатор мода](../getting-started/project-structure#entrypoints). На данный момент этот метод может остаться пустым.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -50,10 +55,10 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 ## Добавление предмета к группе предметов {#adding-the-item-to-an-item-group}
 
 :::info
-Если вы хотите добавить предмет в собственную "ItemGroup", ознакомьтесь со страницей [Собственные группы предмета](./custom-item-groups) для получения дополнительной информации.
+Если вы хотите добавить предмет в собственную `ItemGroup`, ознакомьтесь со страницей [Собственные группы предмета](./custom-item-groups) для получения дополнительной информации.
 :::
 
-Для примера мы добавим этот элемент в ингредиенты `ItemGroup`, вам нужно будет использовать события группы элементов Fabric API, а именно `ItemGroupEvents.modifyEntriesEvent`
+Для примера мы добавим этот элемент в `ItemGroup` "ингредиенты", вам нужно будет использовать события групп предметов из Fabric API, а именно `ItemGroupEvents.modifyEntriesEvent`
 
 Это может быть сделано в методе `initialize` вашего класса.
 
@@ -61,7 +66,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Запустив игру, вы можете увидеть, что наш предмет зарегистрирован и находится в категории предметов "ингредиенты":
 
-![Предмет в категории ингридиентов](/assets/develop/items/first_item_0.png)
+![Предмет в группе ингредиентов](/assets/develop/items/first_item_0.png)
 
 Однако, не хватает следующего:
 
@@ -73,7 +78,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Сейчас у предмета нет перевода, поэтому вам необходимо его добавить. Ключ перевода уже предоставлен Minecraft: `item.mod_id.suspicious_substance`.
 
-Создайте новый файл JSON: `src/main/resources/assets/<mod id here>/lang/en_us.json` и введите ключ перевода, а также его значение:
+Создайте новый файл JSON: `src/main/resources/assets/mod-id/lang/en_us.json` и введите ключ перевода, а также его значение:
 
 ```json
 {
@@ -95,7 +100,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Вы собираетесь создать простую модель «item/generated», которая принимает на входе только текстуру и ничего больше.
 
-Создайте модель JSON в папке `assets/<mod id here>/models/item` с тем же именем, что и у элемента; `suspicious_substance.json`
+Создайте модель JSON в папке `assets/mod-id/models/item` с тем же именем, что и у элемента; `suspicious_substance.json`
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
 
@@ -112,7 +117,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Minecraft автоматически не узнает, где можно найти файлы модели вашего предмета, вам нужно предоставить описание модели предмета.
 
-Создайте JSON-файл описания предмета в `assets/<mod id here>/items` с тем же именем файла, что и идентификатор предмета; `suspicious_substance.json`.
+Создайте JSON-файл описания предмета в `assets/mod-id/items` с тем же именем файла, что и идентификатор предмета: `suspicious_substance.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
 
@@ -120,7 +125,7 @@ Minecraft автоматически не узнает, где можно най
 
 - `model`: это свойство, содержащее ссылку на нашу модель.
   - `type`: это тип нашей модели. Для большинства предметов это должно быть `minecraft:model`
-  - `model`: это идентификатор модели. Он должен иметь следующую форму: `<mod id here>:item/<item name here>`
+  - `model`: это идентификатор модели. Он должен иметь следующую форму: `mod-id:item/item_name`
 
 Теперь ваш предмет в игре должен выглядеть так:
 

@@ -30,7 +30,7 @@ authors:
 
 Ви можете обробляти такі події, як натискання мишею, клавіш, перевизначаючи `onMouseClicked`, `onMouseReleased`, `onKeyPressed` та інші методи.
 
-Ви можете обробляти такі події, як натискання мишею, клавіш, перевизначаючи `onMouseClicked`, `onMouseReleased`, `onKeyPressed` та інші методи.
+Наприклад, ви можете змусити віджет змінювати колір, коли на нього наводите курсор, використовуйте метод `isHovered()`, наданий класом `ClickableWidget`:
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 

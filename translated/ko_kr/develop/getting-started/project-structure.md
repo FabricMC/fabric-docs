@@ -13,7 +13,7 @@ authors:
 
 여기 `fabric.mod.json` 파일에서 가장 중요한 필드 몇 가지가 있습니다:
 
-- `id`: 모드의 식별자. 고유해야 합니다.
+- `depends`: 모드가 종속하는 다른 모드의 식별자.
 - `name`: 모드의 이름.
 - `environment`: 모드가 동작할 환경. `client` 또는 `server`, 어디서나 동작한다면 `*`을 입력할 수 있습니다.
 - `entrypoints`: 모드에서 제공하는 진입점.

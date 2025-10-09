@@ -15,9 +15,9 @@ Viele moderne DAWs (Digital Audio Workstation) können dieses Dateiformat import
 
 In diesem Beispiel wird ein [Pfeifton](https://freesound.org/people/strongbot/sounds/568995/) in Audacity importiert. Sie ist derzeit als `.wav`-Datei gespeichert und hat zwei Audiokanäle (Stereo). Bearbeite den Sound nach deinem Geschmack und stelle sicher, dass du einen der Kanäle mit dem Dropdown-Element oben im "Spurkopf" löschst.
 
-![Löschen von einem der Kanäle](/assets/develop/sounds/custom_sounds_2.png)
-
 ![Aufteilung der Stereospur](/assets/develop/sounds/custom_sounds_1.png)
+
+![Löschen von einem der Kanäle](/assets/develop/sounds/custom_sounds_2.png)
 
 Achte beim Exportieren oder Rendern der Audio-Datei darauf, dass du das Dateiformat OGG wählst. REAPER, unterstützen mehrere OGG-Audio-Layer-Formate. In diesem Fall sollte OGG Vorbis sehr gut funktionieren.
 
@@ -27,9 +27,9 @@ Denke auch daran, dass Audio-Dateien die Dateigröße deines Mods drastisch erh�
 
 ## Laden der Audio-Datei {#loading-the-audio-file}
 
-Fahre mit der Erstellung der Datei `resources/assets/mod-id/sounds.json` fort, falls sie noch nicht existiert und füge deinen Sound zu den Sound-Einträgen hinzu.
-
 Füge das neue Verzeichnis `resources/assets/mod-id/sounds` für die Sounds in deinem Mod hinzu, und lege die exportierte Audio-Datei `metal_whistle.ogg` dort hinein.
+
+Fahre mit der Erstellung der Datei `resources/assets/mod-id/sounds.json` fort, falls sie noch nicht existiert und füge deinen Sound zu den Sound-Einträgen hinzu.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
 

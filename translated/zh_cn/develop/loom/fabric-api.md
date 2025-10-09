@@ -2,20 +2,19 @@
 title: Fabric API DSL
 description: Fabric Loom Gradle 插件中 Fabric API 支持的文档。
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Loom 有一个 DSL 来帮助配置 Fabric API 的某些方面，例如数据生成和测试。
 
-## 数据生成{#data-gen}
+## 数据生成 {#data-gen}
 
 有关如何使用数据生成的分步指南，请参阅[数据生成设置](data-generation/setup)页面。 最基本的数据生成设置可以用以下代码来配置：
 
@@ -62,7 +61,7 @@ fabricApi {
 }
 ```
 
-## 测试{#tests}
+## 测试 {#tests}
 
 与数据生成一样，你可以使用以下命令设置基本测试：
 

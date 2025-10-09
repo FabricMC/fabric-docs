@@ -2,8 +2,8 @@
 title: Generazione di Progressi
 description: Una guida per configurare la generazione di progressi con datagen.
 authors:
-  - skycatminepokie
   - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
@@ -22,7 +22,7 @@ Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che `extends Fab
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Struttura dei Progressi {#advancement-structure}
 
@@ -66,7 +66,7 @@ Un **criterio** (in inglese _criterion_, plurale _criteria_) è qualcosa che un 
 
 Le **condizioni** sono valutate dai criteri. Un criterio viene preso in considerazione solo se tutte le condizioni rilevanti sono soddisfatte. Le condizioni di solito si esprimono come predicati.
 
-Un **predicato** è qualcosa che prende un valore e restituisce un `boolean`. Per esempio, un `Predicate<Item>` potrebbe restituire `true` se l'oggetto è un diamante, mentre un `Predicate<LivingEntity>` potrebbe restituire `true` se l'entità non è ostile ai villici.
+Un **predicato** è qualcosa che accetta un valore e restituisce un `boolean`. Per esempio, un `Predicate<Item>` potrebbe restituire `true` se l'oggetto è un diamante, mentre un `Predicate<LivingEntity>` potrebbe restituire `true` se l'entità non è ostile ai villici.
 
 ### Creare Criteri Personalizzati {#creating-custom-criteria}
 

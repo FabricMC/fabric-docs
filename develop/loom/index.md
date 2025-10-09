@@ -2,15 +2,14 @@
 title: Loom
 description: Documentation for the Fabric Loom Gradle plugin.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Fabric Loom, or just Loom for short, is a [Gradle](https://gradle.org/) plugin for development of mods in the Fabric ecosystem.
@@ -19,7 +18,7 @@ Loom provides utilities to install Minecraft and mods in a development environme
 
 Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent.
 
-This page is a reference of all options and features of Loom. If you are just getting started, please see the [Getting Started](getting-started/setting-up-a-development-environment) page.
+This page is a reference of all options and features of Loom. If you are just getting started, please see the [Getting Started](../getting-started/setting-up-a-development-environment) page.
 
 ## Depending on Subprojects {#subprojects}
 

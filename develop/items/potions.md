@@ -3,9 +3,9 @@ title: Potions
 description: Learn how to add a custom potion for various status effects.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 ---
 
 Potions are consumables that grants an entity an effect. A player can brew potions using a Brewing Stand or obtain them

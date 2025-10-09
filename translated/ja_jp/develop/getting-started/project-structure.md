@@ -9,7 +9,7 @@ authors:
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-`fabric.mod.json` ファイルは Mod の情報を Fabric Loader に伝えます。 ファイルには Mod の ID、バージョン、依存関係などの情報が書かれます。
+`fabric.mod.json` ファイルは Mod の情報を Fabric Loader に伝えます。 ファイルには Mod の ID、バージョン、依存関係などの情報が書かれます。 ファイルには Mod の ID、バージョン、依存関係などの情報が書かれます。
 
 `fabric.mod.json` 内の最も重要なフィールドは次の通りです:
 
@@ -32,9 +32,14 @@ authors:
 
 テンプレート Mod ジェネレータはデフォルトで `main` と `client` のエントリポイントを作成します。`main` エントリポイントは共通するコードに使用され、`client` エントリポイントはクライアントでのみ実行されるコードに使用されます。 これらのエントリポイントは、ゲーム開始時にそれぞれ呼び出されます。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+- `main` エントリポイントはクライアントとサーバの両方の環境で共通するコードに使用され、そのクラスは `ModInitializer` を実装します
+- `client` エントリポイントはクライアント固有のコードに使用され、そのクラスは `ClientModInitializer` を実装します
+
+これらのエントリポイントは、ゲーム開始時にそれぞれ呼び出されます。
 
 上記のコードは、ゲーム開始時にコンソールにログを出力する、シンプルな `main` エントリポイントの例です。
+
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -50,8 +55,8 @@ authors:
 
 ## `src/main/java` {#src-main-java}
 
-`src/main/java` フォルダは、クライアントとサーバの両方の環境で共通する Java コードを格納するために使用されます。
+`src/client/java` フォルダは、クライアント固有の Java コードを格納するために使用されます。クライアント固有のコードとは、描画処理を行うコードや、クライアントサイドにのみ存在するロジックのコード（ブロックカラープロバイダなど）を指します。
 
 ## `src/client/java` {#src-client-java}
 
-`src/client/java` フォルダは、クライアント固有の Java コードを格納するために使用されます。クライアント固有のコードとは、描画処理を行うコードや、クライアントサイドにのみ存在するロジックのコード（ブロックカラープロバイダなど）を指します。
+`src/main/java` フォルダは、クライアントとサーバの両方の環境で共通する Java コードを格納するために使用されます。

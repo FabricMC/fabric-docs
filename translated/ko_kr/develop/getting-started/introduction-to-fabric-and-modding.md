@@ -44,7 +44,7 @@ Fabric은 크게 네 가지의 주요 구성 요소로 이루어집니다:
 - **Fabric API**: 모드를 개발하기 위해 사용되는 API와 도구 모음입니다.
 - **Yarn**: 오픈 소스 Minecraft 매핑으로, 크리에이티브 커먼즈 제로 라이선스 아래 누구나 사용할 수 있습니다.
 
-## Fabric이 필요한 이유 {#why-is-fabric-necessary-to-mod-minecraft}
+## Fabric이 필요한 이유 {#why-is-fabric-necessary-to-mod-minecraft} {#why-is-fabric-necessary-to-mod-minecraft}
 
 > '모딩'은 게임의 작동 방식을 수정하고 새로운 기능을 추가하는 과정입니다. Minecraft에서는 아이템, 블록, 엔티티를 추가하거나 게임 메커니즘을 수정하고 새로운 게임 모드를 추가하는 등의 행위를 말합니다.
 
@@ -54,7 +54,7 @@ Loom은 난독화된 코드를 해석하여, 모더가 코드를 더 쉽게 이�
 
 Loom은 리맵된 코드로 모드를 쉽게 개발하고 컴파일할 수 있게 하며, Fabric 로더가 이를 게임에 적용합니다.
 
-## Fabric API가 제공하는 것과, 필요한 이유 {#what-does-fabric-api-provide-and-why-is-it-needed}
+## Fabric API가 제공하는 것과, 필요한 이유 {#what-does-fabric-api-provide-and-why-is-it-needed} {#what-does-fabric-api-provide-and-why-is-it-needed}
 
 > Fabric API는 모더가 모드를 개발할 때 사용하는 API와 도구의 모음입니다.
 

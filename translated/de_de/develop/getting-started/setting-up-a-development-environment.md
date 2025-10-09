@@ -2,18 +2,18 @@
 title: Entwicklungsumgebung einrichten
 description: Ein Schritt-für-Schritt-Leitfaden, wie man eine Entwicklungsumgebung für die Erstellung von Mods mit Fabric einrichtet.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
   - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -50,4 +50,4 @@ Das Minecraft Development Plugin bietet Unterstützung für das Modding mit Fabr
 
 Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
 
-Du kannst es installieren, indem du IntelliJ IDEA öffnest und dann zu `File > Settings > Plugins > Marketplace Tab` navigierst - suche nach `Minecraft Development` in der Suchleiste und klicke dann auf die `Install` Schaltfläche.
+Alternativ kannst du es von der [Plugin-Seite](https://plugins.jetbrains.com/plugin/8327-minecraft-development) herunterladen und dann installieren, indem du zu `File > Settings > Plugins > Install Plugin From Disk` navigierst.

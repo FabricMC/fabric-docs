@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onContentUpdated, useData } from "vitepress";
+import { useData } from "vitepress";
 import { VPButton } from "vitepress/theme";
-import { ref, useSlots } from "vue";
+import { computed, useSlots } from "vue";
 
 const data = useData();
 const props = defineProps<{
@@ -10,27 +10,21 @@ const props = defineProps<{
 }>();
 const slotContent = useSlots().default?.() ?? [""];
 
-const text = ref<string>("");
-
-function refreshText() {
-  text.value = data.theme.value.download.text as string;
-
+const text = computed(() => {
+  let text = data.theme.value.download.text as string;
   if (slotContent.length > 0) {
     // @ts-expect-error
-    text.value = text.value.replace("%s", slotContent[0].children ?? "");
+    text = text.replace("%s", slotContent[0].children ?? "");
   }
-}
-
-onContentUpdated(() => {
-  refreshText();
+  return text;
 });
 </script>
 
 <template>
   <div class="container">
     <img
-      v-if="$props.visualURL"
-      :src="$props.visualURL ?? $props.downloadURL"
+      v-if="props.visualURL"
+      :src="props.visualURL ?? props.downloadURL"
       style="max-width: 100%; max-height: 300px"
     />
     <VPButton
@@ -38,7 +32,7 @@ onContentUpdated(() => {
       size="medium"
       theme="brand"
       :text="text"
-      :href="$props.downloadURL"
+      :href="props.downloadURL"
       download
     />
   </div>

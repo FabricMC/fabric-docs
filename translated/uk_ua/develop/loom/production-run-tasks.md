@@ -2,15 +2,14 @@
 title: Запуск виробничих завдань
 description: Документація для виробничих завдань у плаґіні Fabric Loom Gradle.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Під час створення мода для розповсюдження серед користувачів його буде переназначено на проміжному показу, що спричинить невеликі невідповідності між середовищем розробки та робочим середовищем (як-от запускач). Хоча такі проблеми трапляються рідко, має сенс перевірити мод у робочому середовищі, перш ніж випускати її.
@@ -46,7 +45,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## Сервер {#server}
 
-Завдання виконання робочого сервера використовує той самий запускач сервера, який ви завантажуєте зі сторінки Fabric, гарантуючи, що середовище максимально наближене до робочого.
+Завдання виконання робочого сервера використовує той самий запускач сервера, який ви завантажуєте із сайту Fabric, гарантуючи, що середовище максимально наближене до робочого.
 
 ```groovy
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {

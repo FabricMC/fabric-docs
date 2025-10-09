@@ -2,14 +2,14 @@
 title: Generierung von Beutetabellen
 description: Ein Leitfaden zur Einrichtung der Generierung von Beutetabellen mit dem Datengenerator.
 authors:
+  - Alphagamer47
+  - JustinHuPrime
+  - matthewperiut
   - skycatminepokie
   - Spinoscythe
-  - Alphagamer47
-  - matthewperiut
-  - JustinHuPrime
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
 ---
 
 :::info VORAUSSETZUNGEN
@@ -18,7 +18,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 Du wirst unterschiedliche Provider (Klassen) für Blöcke, Truhen und Entitäten benötigen. Vergesse nicht, alle diese zu deinem Pack in deinem `DataGeneratorEntrypoint` innerhalb der `onInitializeDataGenerator` Methode hinzuzufügen.
 
-@[code lang=java transclude={32-33}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Beutetabellen erklärt {#loot-tables-explained}
 
@@ -42,7 +42,7 @@ Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
 ## Truhen {#chests}
 
-Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb \*\* und füge sie zu deinem Pack hinzu\*\*.
+Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
 

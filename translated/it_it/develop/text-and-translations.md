@@ -6,6 +6,8 @@ authors:
   - LordEnder-Kitty
 ---
 
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
+
 Ogni volta che Minecraft mostra testo nel gioco, è con tutta probabilità definito da un oggetto `Text`.
 Questo tipo personalizzato è preferito ad una `String` per permettere formattazione più avanzata, che comprende colori, grassetto, offuscamento, ed eventi ai clic. Permettono inoltre accesso più semplice al sistema di traduzione, rendendo semplice la traduzione di qualsiasi elemento dell'interfaccia.
 
@@ -103,28 +105,27 @@ MutableText result = Text.literal("Hello World!")
   .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
 ```
 
-<table>
-    <tbody><tr><th>Colore</th><th>Nome</th><th>Codice in Chat</th><th>Codice MOTD</th><th>Codice Hex</th></tr>
-    <tr><td><ColorSwatch color="#000000" /></td><td>Nero (black)</td><td>§0</td><td>\u00A70</td><td>#000000</td></tr>
-    <tr><td><ColorSwatch color="#0000AA" /></td><td>Blu Scuro (dark_blue)</td><td>§1</td><td>\u00A71</td><td>#0000AA</td></tr>
-    <tr><td><ColorSwatch color="#00AA00" /></td><td>Verde Scuro (dark_green)</td><td>§2</td><td>\u00A72</td><td>#00AA00</td></tr>
-    <tr><td><ColorSwatch color="#00AAAA" /></td><td>Ciano Scuro (dark_aqua)</td><td>§3</td><td>\u00A73</td><td>#00AAAA</td></tr>
-    <tr><td><ColorSwatch color="#AA0000" /></td><td>Rosso Scuro (dark_red)</td><td>§4</td><td>\u00A74</td><td>#AA0000</td></tr>
-    <tr><td><ColorSwatch color="#AA00AA" /></td><td>Viola Scuro (dark_purple)</td><td>§5</td><td>\u00A75</td><td>#AA00AA</td></tr>
-    <tr><td><ColorSwatch color="#FFAA00" /></td><td>Oro (gold)</td><td>§6</td><td>\u00A76</td><td>#FFAA00</td></tr>
-    <tr><td><ColorSwatch color="#AAAAAA"/></td><td>Grigio (gray)</td><td>§7</td><td>\u00A77</td><td>#AAAAAA</td></tr>
-    <tr><td><ColorSwatch color="#555555" /></td><td>Grigio Scuro (dark_gray)</td><td>§8</td><td>\u00A78</td><td>#555555</td></tr>
-    <tr><td><ColorSwatch color="#5555FF" /></td><td>Blu (blue)</td><td>§9</td><td>\u00A79</td><td>#5555FF</td></tr>
-    <tr><td><ColorSwatch color="#55FF55" /></td><td>Verde (green)</td><td>§a</td><td>\u00A7a</td><td>#55FF55</td></tr>
-    <tr><td><ColorSwatch color="#55FFFF" /></td><td>Ciano (aqua)</td><td>§b</td><td>\u00A7b</td><td>#55FFFF</td></tr>
-    <tr><td><ColorSwatch color="#FF5555" /></td><td>Rosso (red)</td><td>§c</td><td>\u00A7c</td><td>#FF5555</td></tr>
-    <tr><td><ColorSwatch color="#FF55FF" /></td><td>Viola Chiaro (light_purple)</td><td>§d</td><td>\u00A7d</td><td>#FF55FF</td></tr>
-    <tr><td><ColorSwatch color="#FFFF55" /></td><td>Giallo (yellow)</td><td>§e</td><td>\u00A7e</td><td>#FFFF55</td></tr>
-    <tr><td><ColorSwatch color="#FFFFFF" /></td><td>Bianco (white)</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
-    <tr><td></td><td>Resetta</td><td>§r</td><td></td><td></td></tr>
-    <tr><td></td><td><b>Grassetto</b></td><td>§l</td><td></td><td></td></tr>
-    <tr><td></td><td><i>Corsivo</i></td><td>§m</td><td></td><td></td></tr>
-    <tr><td></td><td><u>Sottolineato</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><s>Barrato</s></td><td>§o</td><td></td><td></td></tr>
-    <tr><td></td><td>Offuscato</td><td>§k</td><td></td><td></td></tr>
-</tbody></table>
+|              Colore             | Nome                             | Codice in Chat | Codice MOTD | Codice Hex |
+| :-----------------------------: | -------------------------------- | :------------: | :---------: | :--------: |
+| <ColorSwatch color="#000000" /> | Nero<br />`black`                |      `§0`      |  `\u00A70` |  `#000000` |
+| <ColorSwatch color="#0000AA" /> | Blu Scuro<br />`dark_blue`       |      `§1`      |  `\u00A71` |  `#0000AA` |
+| <ColorSwatch color="#00AA00" /> | Verde Scuro<br />`dark_green`    |      `§2`      |  `\u00A72` |  `#00AA00` |
+| <ColorSwatch color="#00AAAA" /> | Ciano Scuro<br />`dark_aqua`     |      `§3`      |  `\u00A73` |  `#00AAAA` |
+| <ColorSwatch color="#AA0000" /> | Rosso Scuro<br />`dark_red`      |      `§4`      |  `\u00A74` |  `#AA0000` |
+| <ColorSwatch color="#AA00AA" /> | Viola Scuro<br />`dark_purple`   |      `§5`      |  `\u00A75` |  `#AA00AA` |
+| <ColorSwatch color="#FFAA00" /> | Oro<br />`gold`                  |      `§6`      |  `\u00A76` |  `#FFAA00` |
+| <ColorSwatch color="#AAAAAA" /> | Grigio<br />`gray`               |      `§7`      |  `\u00A77` |  `#AAAAAA` |
+| <ColorSwatch color="#555555" /> | Grigio Scuro<br />`dark_gray`    |      `§8`      |  `\u00A78` |  `#555555` |
+| <ColorSwatch color="#5555FF" /> | Blu<br />`blue`                  |      `§9`      |  `\u00A79` |  `#5555FF` |
+| <ColorSwatch color="#55FF55" /> | Verde<br />`green`               |      `§a`      |  `\u00A7a` |  `#55FF55` |
+| <ColorSwatch color="#55FFFF" /> | Ciano<br />`aqua`                |      `§b`      |  `\u00A7b` |  `#55FFFF` |
+| <ColorSwatch color="#FF5555" /> | Rosso<br />`red`                 |      `§c`      |  `\u00A7c` |  `#FF5555` |
+| <ColorSwatch color="#FF55FF" /> | Viola Chiaro<br />`light_purple` |      `§d`      |  `\u00A7d` |  `#FF55FF` |
+| <ColorSwatch color="#FFFF55" /> | Giallo<br />`yellow`             |      `§e`      |  `\u00A7e` |  `#FFFF55` |
+| <ColorSwatch color="#FFFFFF" /> | Bianco<br />`white`              |      `§f`      |  `\u00A7f` |  `#FFFFFF` |
+|                                 | Resetta                          |      `§r`      |             |            |
+|                                 | **Grassetto**                    |      `§l`      |             |            |
+|                                 | ~~Barrato~~                      |      `§m`      |             |            |
+|                                 | <u>Sottolineato</u>              |      `§n`      |             |            |
+|                                 | _Corsivo_                        |      `§o`      |             |            |
+|                                 | Offuscato                        |      `§k`      |             |            |

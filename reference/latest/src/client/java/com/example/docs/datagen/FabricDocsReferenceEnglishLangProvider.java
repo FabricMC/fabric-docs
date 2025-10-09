@@ -55,11 +55,6 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
-		translationBuilder.add(ModBlocks.CONDENSED_DIRT.asItem(), "Condensed Dirt");
-		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG.asItem(), "Condensed Oak Log");
-		translationBuilder.add(ModBlocks.COUNTER_BLOCK.asItem(), "Counter Block");
-		translationBuilder.add(ModBlocks.PRISMARINE_LAMP.asItem(), "Prismarine Lamp");
-		translationBuilder.add(ModBlocks.ENGINE_BLOCK.asItem(), "Engine Block");
 
 		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 

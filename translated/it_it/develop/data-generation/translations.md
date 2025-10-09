@@ -2,14 +2,14 @@
 title: Generazione di Traduzioni
 description: Una guida per configurare la generazione di traduzioni con datagen.
 authors:
-  - skycatminepokie
-  - MattiDragon
   - IMB11
+  - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - sjk1949
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
+  - sjk1949
 ---
 
 :::info PREREQUISITI
@@ -28,7 +28,7 @@ Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempi
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Creare Traduzioni {#creating-translations}
 
@@ -38,7 +38,7 @@ Oltre a creare traduzioni crude, traduzioni da `Identifier`, e copiarli da un al
 
 ## Usare le Traduzioni {#using-translations}
 
-Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usare ovunque dove usi un oggetto `Text`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Text.translatable` invece di `Text.of`:
+Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usarle in ogni punto in cui usi un oggetto `Text`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Text.translatable` invece di `Text.of`:
 
 ```java
 ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();

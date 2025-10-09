@@ -8,7 +8,7 @@ authors-nogithub:
   - basil4088
 ---
 
-## 先决条件 {#prerequisites}
+## 先决条件{#prerequisites}
 
 在开始学习之前，你应该对 Java 开发有基本的了解，并对面向对象编程（OOP）有所认识。
 
@@ -19,7 +19,7 @@ authors-nogithub:
 - [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
 - [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
 
-### 术语 {#terminology}
+### 术语{#terminology}
 
 开始之前，先来看看使用 Fabric 编写模组时会遇到的一些术语：
 

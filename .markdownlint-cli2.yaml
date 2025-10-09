@@ -19,20 +19,13 @@ config:
   MD033:
     allowed_elements:
       - audio
-      - b
       - Badge
+      - ChoiceComponent
       - ColorSwatch
       - DownloadEntry
-      - i
       - kbd
-      - s
+      - script
       - source
-      - table
-      - tbody
-      - td
-      - th
-      - thead
-      - tr
       - u
       - VideoPlayer
   MD035:

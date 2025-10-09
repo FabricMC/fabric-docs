@@ -48,6 +48,10 @@ The `ArmorMaterial` constructor accepts the following parameters, in this specif
 | `repairIngredient` | An item tag that represents all items which can be used to repair the armor items of this material in an anvil. |
 | `assetId` | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier. |
 
+We define the repair ingredient tag reference as follows:
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
 ## Creating the Armor Items {#creating-the-armor-items}
@@ -104,7 +108,7 @@ Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
 ::: tip
-If you're updating to 1.21.4 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
+If you're updating to 1.21.8 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
 :::
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/mod-id/equipment/` folder.

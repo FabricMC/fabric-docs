@@ -2,10 +2,10 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
-  - IMB11
-  - xEobardThawne
-  - its-miroma
   - Earthcomputer
+  - IMB11
+  - its-miroma
+  - xEobardThawne
 ---
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
@@ -22,7 +22,7 @@ Mojang does something extremely similar like this with vanilla blocks; you can r
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 
-You can do this by creating a dummy `initialize` method, which can be called in your [mod's initializer](./getting-started/project-structure#entrypoints) to trigger the static initialization.
+You can do this by creating a dummy `initialize` method, which can be called in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the static initialization.
 
 ::: info
 If you are unaware of what static initialization is, it is the process of initializing static fields in a class. This is done when the class is loaded by the JVM, and is done before any instances of the class are created.

@@ -2,18 +2,19 @@
 title: 创建你的第一个物品
 description: 学习如何注册简单的物品，以及如何给物品添加纹理、模型和名称。
 authors:
-  - IMB11
   - dicedpixels
+  - Earthcomputer
+  - IMB11
   - RaphProductions
 ---
 
-本页会带你介绍物品的一些关键概念，以及如果注册物品、添加纹理、添加模型、命名。
+本页会带你介绍物品的一些关键概念，以及如何注册物品、添加纹理、添加模型与命名。
 
 如果你还不知道的话，Minecraft 中的一切都存储在注册表中，物品也不例外。
 
 ## 准备你的物品类 {#preparing-your-items-class}
 
-要简化物品注册，可以创建一个方法，接收一个物品实例和字符串 id。
+为了简化物品注册，可以创建一个接受字符串 id、一些物品设置和工厂方法来创建 `Item` 实例。
 
 这个方法会用提供的 id 创建物品并在游戏的物品注册表中注册。
 
@@ -23,19 +24,23 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+注意这个工厂方法使用了 [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html)，这会在稍后让我们能够指定我们如何让物品被从物品设置使用 `Item::new` 注册。
+
 ## 注册物品{#registering-an-item}
 
 你现在可以用这个方法注册物品
 
-物品的构造方法会接收一个 `Items.Settings` 类的实例作为参数。 这个类允许你通过一系列构造器方法配置物品的属性。
+物品的注册方法会接收一个 `Item.Settings` 类的实例作为参数。 这个类允许你通过一系列构造器方法配置物品的属性。
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
 
 如果将物品标记为可被破坏，那么这就不会生效，因为可被破坏的物品的堆叠大小永远是 1 以避免重复损坏。
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+`Item::new` 会告诉注册方法，从 `Item.Settings` 中创建一个实例，调用的是 `Item` 的构造方法（`new Item(...)`），该构造方法接收一个 `Item.Settings` 作为参数。
 
 然而，如果现在尝试运行修改的客户端，会发现我们的物品在游戏中还不存在！ 这是因为你还没有静态初始化类。
 

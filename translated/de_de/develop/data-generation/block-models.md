@@ -3,9 +3,9 @@ title: Generation von Blockmodellen
 description: Ein Leitfaden zur Generierung von Blockmodellen und Blockzuständen mit dem Datengenerator.
 authors:
   - Fellteros
-  - natri0
   - IMB11
   - its-miroma
+  - natri0
 ---
 
 :::info VORAUSSETZUNGEN
@@ -90,22 +90,22 @@ Du kannst auch eine `BlockFamily` anhängen, die Modelle für alle ihre "Kinder"
 Türen und Falltüren sein ein wenig anders. Hier musst du drei neue Texturen erstellen - zwei für die Türe, und eine für die Falltüre.
 
 1. Die Tür:
-   - Sie hat zwei Teile - die obere und die untere Hälfte. **Jede benötigt ihre eigene Textur:** In diesem Fall `ruby_door_top` für die obere und `ruby_door_bottom` für die untere Hälfte.
-   - Die Methode `registerDoor()` wird Modelle für alle Ausrichtungen der Tür, sowohl offen als auch geschlossen erstellen.
-   - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/<mod_id>/textures/item/` ab.
+  - Sie hat zwei Teile - die obere und die untere Hälfte. **Jede benötigt ihre eigene Textur:** In diesem Fall `ruby_door_top` für die obere und `ruby_door_bottom` für die untere Hälfte.
+  - Die Methode `registerDoor()` wird Modelle für alle Ausrichtungen der Tür, sowohl offen als auch geschlossen erstellen.
+  - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/<mod_id>/textures/item/` ab.
 2. Die Falltür:
-   - Hier benötigst du nur eine Textur, die in diesem Fall `ruby_trapdoor` heißt. Diese wird für alle Seiten genutzt.
-   - Da `TrapdoorBlock` eine Eigenschaft `FACING` hat, kannst du die auskommentierte Methode verwenden, um Modell-Dateien mit rotierten Texturen zu generieren = Die Falltüre wird "orientierbar" sein. Andernfalls sieht sie immer gleich aus, egal in welche Richtung sie gerichtet ist.
+  - Hier benötigst du nur eine Textur, die in diesem Fall `ruby_trapdoor` heißt. Diese wird für alle Seiten genutzt.
+  - Da `TrapdoorBlock` eine Eigenschaft `FACING` hat, kannst du die auskommentierte Methode verwenden, um Modell-Dateien mit rotierten Texturen zu generieren = Die Falltüre wird "orientierbar" sein. Andernfalls sieht sie immer gleich aus, egal in welche Richtung sie gerichtet ist.
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_door_trapdoor_textures.zip">Rubintür und Falltür</DownloadEntry>
 
-## Benutzerdefinierte Blockmodelle {#custom-block-models}
+## Benutzerdefinierte Blockklasse {#custom-block-class}
 
 In diesem Abschnitt werden wir die Modelle für eine vertikale Eichenstammstufe, mit einer Eichenstamm-Textur, erstellen.
 
 _Punkte 2. - 6. werden in einer inneren, statischen Hilfsklasse namens `CustomBlockStateModelGenerator` deklariert._
 
-### Benutzerdefinierte Blockklasse {#custom-block-class}
+### Benutzerdefinierte Blockmodelle {#custom-block-models}
 
 Erstelle einen Block `VerticalSlab` mit einer Eigenschaft `FACING` und einer boolean-Eigenschaft `SINGLE`, wie in dem Tutorial [Block States](../blocks/blockstates) beschrieben. `SINGLE` zeigt an, ob beide Stufen sind.
 Dann solltest du `getOutlineShape` und `getCollisionShape` überschreiben, so dass die Umrandung korrekt gerendert wird und der Block die richtige Kollisionsform hat.
@@ -201,7 +201,7 @@ Aber für was sind die Parameter?
 
 Zunächst erhalten wir den `Identifier` des einzelnen Stufenmodell mit `VERTICAL_SLAB.upload()`. Dann erhalten wir den `Identifier` des vollen Blockmodells mit `ModelIds.getBlockModelId()`, und übergeben diese beiden Modelle an `createVerticalSlabBlockStates`.
 Der `BlockStateSupplier` wird an den `blockStateCollector` übergeben, so dass die JSON-Dateien tatsächlich generiert werden.
-Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit BlockStateModelGenerator.registerParentedItemModel()\\`.
+Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit `BlockStateModelGenerator.registerParentedItemModel()`.
 
 Und dies ist alles! Jetzt müssen wir nur noch unsere Methode in unserem `ModelProvider` aufrufen:
 

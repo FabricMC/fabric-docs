@@ -2,8 +2,8 @@
 title: Grundlegende Rendering-Konzepte
 description: Lerne, die grundlegenden Konzepte des Renderings mit der Rendering-Engine von Minecraft kennen.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
 
 ::: warning

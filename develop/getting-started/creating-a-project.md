@@ -2,8 +2,10 @@
 title: Creating a Project
 description: A step-by-step guide on how to create a new mod project using the Fabric template mod generator.
 authors:
-  - IMB11
   - Cactooz
+  - IMB11
+  - radstevee
+  - Thomas1034
 ---
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
@@ -14,27 +16,21 @@ You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/tem
 
 The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.mod-id`.
 
+::: warning
+Make sure you remember your mod's ID! Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own.
+
+For example, if your mod ID was **`fabric-docs-reference`**, instead of _`resources/assets/mod-id`_ use **`resources/assets/fabric-docs-reference`**.
+:::
+
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
 
-If you want to use Kotlin, use Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
+If you either want to use Kotlin, or Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
 
 ![Advanced options section](/assets/develop/getting-started/template-generator-advanced.png)
 
 Once you've filled in the required fields, click the `Generate` button, and the generator will create a new project for you to use in the form of a zip file.
 
-You should extract this zip file to a location of your choice, and then open the extracted folder in IntelliJ IDEA:
-
-![Open Project Prompt](/assets/develop/getting-started/open-project.png)
-
-## Importing the Project {#importing-the-project}
-
-Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.
-
-If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button:
-
-![Gradle Prompt](/assets/develop/getting-started/gradle-prompt.png)
-
-Once the project has been imported, you should see the project's files in the project explorer, and you should be able to start developing your mod.
+You should extract this zip file to a location of your choice, and then open the extracted folder in your IDE.
 
 ## Manual Project Creation {#manual-project-creation}
 
@@ -52,9 +48,9 @@ git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
 
 This will clone the repository into a new folder called `my-mod-project`.
 
-You should then delete the `.git` folder from the cloned repository, and then open the project in IntelliJ IDEA. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
+You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
 
-Once you've opened the project in IntelliJ IDEA, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
+Once you've opened the project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
 
 Again, as previously mentioned, if you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
 

@@ -64,7 +64,7 @@ public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementPro
 						true,
 						false
 				)
-				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(wrapperLookup.getOrThrow(RegistryKeys.ITEM), Items.APPLE))
+				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(itemLookup, Items.APPLE))
 				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(itemLookup, Items.COOKED_BEEF))
 				.build(consumer, FabricDocsReference.MOD_ID + ":apple_and_beef");
 		// :::datagen-advancements:second-advancement

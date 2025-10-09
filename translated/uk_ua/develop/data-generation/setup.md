@@ -2,18 +2,18 @@
 title: Генерація даних налаштування
 description: Посібник із генерації даних налаштування за допомогою API Fabric.
 authors:
-  - skycatminepokie
-  - modmuss50
-  - earthcomputer
-  - shnupbups
-  - arkosammy12
+  - ArkoSammy12
+  - Earthcomputer
   - haykam821
-  - matthewperiut
-  - SolidBlock
   - Jab125
+  - matthewperiut
+  - modmuss50
+  - Shnupbups
+  - skycatminepokie
+  - SolidBlock
 authors-nogithub:
   - jmanc3
-  - macrafterzz
+  - mcrafterzz
 ---
 
 ## Що таке генерація даних? {#what-is-data-generation}

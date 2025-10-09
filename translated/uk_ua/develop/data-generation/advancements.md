@@ -2,8 +2,8 @@
 title: Генерація досягнень
 description: Посібник із налаштування генерації досягнень за допомогою datagen.
 authors:
-  - skycatminepokie
   - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
@@ -22,7 +22,7 @@ authors-nogithub:
 
 Щоб завершити налаштування, додайте цього провайдера до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Структура досягнення {#advancement-structure}
 
@@ -38,7 +38,7 @@ authors-nogithub:
 
 Ось просте досягнення для отримання ґрунту:
 
-Ось просте досягнення для отримання ґрунту:
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
 Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!

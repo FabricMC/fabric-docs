@@ -19,7 +19,7 @@ Die grundlegende Verwendung eines Codecs ist die Serialisierung und Deserialisie
 
 Da einige Vanilla-Klassen bereits Codecs definiert haben, können wir diese als Beispiel verwenden. Mojang hat uns außerdem standardmäßig zwei dynamische Ops-Klassen zur Verfügung gestellt, `JsonOps` und `NbtOps`, die die meisten Anwendungsfälle abdecken.
 
-Nehmen wir nun an, wir wollen eine `BlockPos` nach JSON und zurück serialisieren. Wir können dies machen, indem wir den Codec, der statisch in `BlockPos.CODEC` gespeichert ist, mit den Methoden `Codec#encodeStart` bzw.
+Nehmen wir nun an, wir wollen eine `BlockPos` nach JSON und zurück serialisieren. Wir können dies machen, indem wir den Codec, der statisch in `BlockPos.CODEC` gespeichert ist, mit den Methoden `Codec#encodeStart` bzw. `Codec#parse` verwenden.
 
 ```java
 BlockPos pos = new BlockPos(1, 2, 3);
@@ -94,7 +94,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 - ein `Codec<Item>`
 - ein `Codec<List<BlockPos>>`
 
-Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt.
+Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `Registries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
 
 ### Listen {#lists}
 
@@ -123,7 +123,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 Jede Zeile in der Gruppe gibt einen Codec, einen Attributname und eine Getter-Methode an. Der Aufruf `Codec#fieldOf` wird verwendet, um den Codec in einen [MapCodec](#mapcodec) zu konvertieren, und der Aufruf `forGetter` spezifiziert die Getter-Methode, die verwendet wird, um den Wert des Attributs von einer Instanz der Klasse abzurufen. In der Zwischenzeit gibt der Aufruf `apply` den Konstruktor an, der zur Erzeugung neuer Instanzen verwendet wird. Beachte, dass die Reihenfolge der Attribute in der Gruppe dieselbe sein sollte wie die Reihenfolge der Argumente im Konstruktor.
 
-Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#optionale-attribute) erklärt.
+Du kannst auch `Codec#optionalFieldOf` in diesem Zusammenhang verwenden, um ein Feld optional zu machen, wie in dem Abschnitt [Optionale Attribute](#optional-fields) erklärt.
 
 ### MapCodec, nicht zu verwechseln mit Codec&amp;lt;Map&amp;gt; {#mapcodec}
 
@@ -183,7 +183,7 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 #### Paar {#pair}
 
 `Codec.pair` fasst zwei Codecs, `Codec<A>` und `Codec<B>`, zu einem `Codec<Pair<A, B>` zusammen. Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
-Denk daran, dass dies nur richtig mit Codecs funktioniert, die in ein bestimmtes Attribut serialisiert werden, wie zum Beispiel [konvertierte `MapCodec`s](#mapcodec) oder [Record Codecs](#Zusammenführung-von-Codecs-für-Record-ähnliche-Klassen).
+Der resultierende Codec wird zu einer Map serialisiert, die die Attribute der beiden verwendeten Codecs kombiniert.
 
 Beispielsweise wird beim Ausführen dieses Codes:
 

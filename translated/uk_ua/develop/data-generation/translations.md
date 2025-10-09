@@ -2,14 +2,14 @@
 title: Генерація перекладу
 description: Посібник із налаштування створення перекладу за допомогою datagen.
 authors:
-  - skycatminepokie
-  - MattiDragon
   - IMB11
+  - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - sjk1949
-  - mcrafterzz
   - jmanc3
+  - mcrafterzz
+  - sjk1949
 ---
 
 :::info ПЕРЕДУМОВИ
@@ -28,7 +28,7 @@ authors-nogithub:
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
+@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceDataGenerator.java)
 
 ## Створення перекладу {#creating-translations}
 

@@ -29,7 +29,7 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 ## 2. 下载 Java 21 安装程序{#2-download-the-java-installer}
 
-要安装 Java 21，你需要从 [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\&package=jdk\&version=21) 下载安装程序。
+要安装 Java 21，你需要从 Adoptium 下载安装程序。
 
 你需要下载 `Windows Installer (.msi)` 版本：
 
@@ -39,14 +39,14 @@ Minecraft 启动器附带了自己的 Java 安装，因此这部分只在你想�
 
 现代大多数电脑都运行 64 位操作系统。 如果你不确定，请尝试使用 64 位的下载。
 
-## 3. 运行安装程序！ {#3-run-the-installer}
+## 3. 运行安装程序！ 运行安装程序！ {#3-run-the-installer}
 
 按照安装程序的步骤安装 Java 21。 当你到达这个页面时，你应该将以下功能设置为「整个功能将安装在本机硬盘上」：
 
 - `Set JAVA_HOME environment variable` - 这将加入到你的PATH中。
 - `JavaSoft (Oracle) registry keys`
 
-![Java 21 安装程序，具有「Set JAVA\_HOME variable」和「JavaSoft (Oracle) registry keys」](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Java 21 安装程序，具有「Set JAVA_HOME variable」和「JavaSoft (Oracle) registry keys」](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 完成后，你可以按 `下一步` 继续安装。
 

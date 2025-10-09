@@ -50,6 +50,6 @@ In diesem Beispiel werden wir `Util.getMeasuringTimeMs()` verwenden, um die Farb
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
-![](/assets/develop/rendering/hud-rendering-deltatick.webp)
+![Verfall einer Farbe im Laufe der Zeit](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
 Wieso versuchst du nicht, `tickDelta` zu verwenden und zu sehen, was mit der Animation passiert, wenn du den Befehl `/tick freeze` ausführst? Du solltest sehen, wie die Animation an Ort und Stelle einfriert, wenn `tickDelta` konstant wird (vorausgesetzt, du hast `false` als Parameter an `RenderTickCounter#getTickDelta` übergeben)

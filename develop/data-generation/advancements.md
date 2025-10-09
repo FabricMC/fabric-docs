@@ -2,8 +2,8 @@
 title: Advancement Generation
 description: A guide to setting up advancement generation with datagen.
 authors:
-  - skycatminepokie
   - MattiDragon
+  - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3

@@ -9,7 +9,7 @@ Widgets sind im Wesentlichen in Containern untergebrachte Rendering-Komponenten,
 
 ## Ein Widget erstellen {#creating-a-widget}
 
-Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise durch die Erweiterung von `ClickableWidget`. Diese Klasse bietet viele nützliche Funktionen, wie beispielsweise die Verwaltung von Breite, Höhe und Position sowie die Behandlung von Events.
+Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise durch die Erweiterung von `ClickableWidget`. Diese Klasse bietet viele nützliche Funktionen, wie beispielsweise die Verwaltung von Breite, Höhe und Position sowie die Behandlung von Events. Sie implementiert die Schnittstellen `Drawable`, `Element`, `Narratable` und `Selectable`:
 
 - `Drawable` - zum Rendern - Erforderlich, um das Widget über die Methode `addDrawableChild` in der Oberfläche zu registrieren.
 - `Element` - für Events - Erforderlich, wenn du Events wie Mausklicks, Tastendrücke usw.

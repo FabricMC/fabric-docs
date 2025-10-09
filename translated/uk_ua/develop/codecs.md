@@ -411,4 +411,4 @@ Codec<ListNode> codec = Codec.recursive(
 - Набагато вичерпнішу документацію щодо кодеків і пов’язаних API можна знайти за адресою
   [неофіційний DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - Загальна структура цього посібника була значною мірою натхненна
-  [Сторінка Forge Community Wiki про кодеки](https://forge.gemwire.uk/wiki/Codecs), більш специфічний для Forge погляд на те саме тема.
+  [сторінкою Forge Community Wiki про кодеки](https://forge.gemwire.uk/wiki/Codecs), більш специфічний для Forge погляд на те саме тема.

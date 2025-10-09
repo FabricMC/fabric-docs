@@ -2,15 +2,14 @@
 title: Opzioni di Loom
 description: Schema di tutte le opzioni di Loom, il plugin Gradle di Fabric.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Questa pagina contiene uno schema di tutte le opzioni presenti nell'estensione Gradle `loom`. Si prega di leggere la pagina [DSL dell'API di Fabric](./fabric-api) per le opzioni legate a funzioni specifiche dell'API di Fabric.

@@ -1,15 +1,41 @@
-def minecraftVersion = "1.21.4"
-def yarnVersion = "1.21.4+build.4"
-def fabricApiVersion = "0.116.1+1.21.4"
+def minecraftVersion = "1.21.8"
+def yarnVersion = "1.21.8+build.1"
+def fabricApiVersion = "0.131.0+1.21.8"
 
+// :::automatic-testing:game-test:2
 dependencies {
+// :::automatic-testing:game-test:2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
   mappings "net.fabricmc:yarn:${yarnVersion}:v2"
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
+
+// :::automatic-testing:game-test:2
+  productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
+// :::automatic-testing:game-test:2
 // :::automatic-testing:2
 test {
 	useJUnitPlatform()
 }
 // :::automatic-testing:2
+
+// :::automatic-testing:game-test:1
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "fabric-docs-reference-test-${project.name}"
+		eula = true
+	}
+}
+// :::automatic-testing:game-test:1
+
+// :::automatic-testing:game-test:2
+tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
+	jvmArgs.add("-Dfabric.client.gametest")
+	// Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
+	// Defaults to true only on Linux and when the "CI" environment variable is set.
+	// XVFB must be installed, on Debian-based systems you can install it with: `apt install xvfb`
+	useXVFB = true
+}
+// :::automatic-testing:game-test:2

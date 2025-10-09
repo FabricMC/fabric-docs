@@ -2,15 +2,14 @@
 title: Loom
 description: Документація для плаґіна Fabric Loom Gradle.
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 Fabric Loom, або просто Loom, це плаґін [Gradle](https://gradle.org/) для розробки модів в екосистемі Fabric.
@@ -82,7 +81,7 @@ Loom розроблено для роботи з коробки(out-of-the-box),
 
 - `${GRADLE_HOME}/caches/fabric-loom`: Кеш користувача, кеш, спільний для всіх проєктів Loom для користувача. Використовується для кешування ресурсів Minecraft, jar-ів, об’єднаних jar-ів, проміжних jar-ів і показу jar-ів
 - `.gradle/loom-cache`: постійний кеш кореневого проєкту, спільний кеш для проєкту та його підпроєктів Використовується для кешу переназначених модів, а також створених включених jar-ів модів
-- \*\*/build/loom-cache\`: кеш збірки (під)проєктів
+- `**/build/loom-cache`: кеш збірки (під)проєктів
 
 ## Налаштування залежностей {#configurations}
 

@@ -4,7 +4,7 @@ description: Lerne, wie man benutzerdefinierte Schadensarten hinzufügt.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 ---
 
 Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können. Seit Minecraft 1.19.4 ist die Erstellung neuer Schadensarten datengesteuert, das heißt sie werden mithilfe von JSON-Dateien erstellt.

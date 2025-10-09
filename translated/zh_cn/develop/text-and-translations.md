@@ -6,7 +6,9 @@ authors:
   - LordEnder-Kitty
 ---
 
-Minecraft 在游戏内显示文本，不论何时，都是使用 `Text` 对象定义的。
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
+
+Minecraft 不论何时在游戏内显示文本，都是使用 `Text` 对象定义的。
 使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 
 如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Text` 对象的 json 呈现，可以使用 `Text.Serializer` 互相转换。
@@ -96,35 +98,34 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 你应该熟悉 Minecraft 的格式化标准：
 
-可以对 `MutableText` 类使用 `Formatting` 枚举以应用这些格式样式。
+可以对 `MutableText` 类使用 `Formatting` 枚举以应用这些格式样式：
 
 ```java
 MutableText result = Text.literal("Hello World!")
   .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
 ```
 
-<table>
-    <tbody><tr><th>颜色</th><th>名称</th><th>聊天代码</th><th>MOTD 代码</th><th>十六进制代码</th></tr>
-    <tr><td><ColorSwatch color="#000000" /></td><td>黑色（black）</td><td>§0</td><td>\u00A70</td><td>#000000</td></tr>
-    <tr><td><ColorSwatch color="#0000AA" /></td><td>深蓝色（dark_blue）</td><td>§1</td><td>\u00A71</td><td>#0000AA</td></tr>
-    <tr><td><ColorSwatch color="#00AA00" /></td><td>深绿色（dark_green）</td><td>§2</td><td>\u00A72</td><td>#00AA00</td></tr>
-    <tr><td><ColorSwatch color="#00AAAA" /></td><td>深青色（dark_aqua）</td><td>§3</td><td>\u00A73</td><td>#00AAAA</td></tr>
-    <tr><td><ColorSwatch color="#AA0000" /></td><td>深红色（dark_red）</td><td>§4</td><td>\u00A74</td><td>#AA0000</td></tr>
-    <tr><td><ColorSwatch color="#AA00AA" /></td><td>深紫色（dark_purple）</td><td>§5</td><td>\u00A75</td><td>#AA00AA</td></tr>
-    <tr><td><ColorSwatch color="#FFAA00" /></td><td>金色（gold）</td><td>§6</td><td>\u00A76</td><td>#FFAA00</td></tr>
-    <tr><td><ColorSwatch color="#AAAAAA"/></td><td>灰色（gray）</td><td>§7</td><td>\u00A77</td><td>#AAAAAA</td></tr>
-    <tr><td><ColorSwatch color="#555555" /></td><td>深灰色（dark_gray）</td><td>§8</td><td>\u00A78</td><td>#555555</td></tr>
-    <tr><td><ColorSwatch color="#5555FF" /></td><td>蓝色（blue）</td><td>§9</td><td>\u00A79</td><td>#5555FF</td></tr>
-    <tr><td><ColorSwatch color="#55FF55" /></td><td>绿色（green）</td><td>§a</td><td>\u00A7a</td><td>#55FF55</td></tr>
-    <tr><td><ColorSwatch color="#55FFFF" /></td><td>青色（aqua）</td><td>§b</td><td>\u00A7b</td><td>#55FFFF</td></tr>
-    <tr><td><ColorSwatch color="#FF5555" /></td><td>红色（red）</td><td>§c</td><td>\u00A7c</td><td>#FF5555</td></tr>
-    <tr><td><ColorSwatch color="#FF55FF" /></td><td>淡紫色（light_purple）</td><td>§d</td><td>\u00A7d</td><td>#FF55FF</td></tr>
-    <tr><td><ColorSwatch color="#FFFF55" /></td><td>黄色（yellow）</td><td>§e</td><td>\u00A7e</td><td>#FFFF55</td></tr>
-    <tr><td><ColorSwatch color="#FFFFFF" /></td><td>白色（white）</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
-    <tr><td></td><td>重置</td><td>§r</td><td></td><td></td></tr>
-    <tr><td></td><td><b>加粗</b></td><td>§l</td><td></td><td></td></tr>
-    <tr><td></td><td><s>删除线</s></td><td>§m</td><td></td><td></td></tr>
-    <tr><td></td><td><u>下划线</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><i>斜体</i></td><td>§o</td><td></td><td></td></tr>
-    <tr><td></td><td>混淆</td><td>§k</td><td></td><td></td></tr>
-</tbody></table>
+|                颜色               | 名称                                     | 聊天代码 |   MOTD 代码  |   十六进制代码  |
+| :-----------------------------: | -------------------------------------- | :--: | :--------: | :-------: |
+| <ColorSwatch color="#000000" /> | 黑色（black）                              |  §0  | `\u00A70` |  #000000  |
+| <ColorSwatch color="#0000AA" /> | 深蓝色（dark_blue）    |  §1  | `\u00A71` | `#0000AA` |
+| <ColorSwatch color="#00AA00" /> | 深绿色（dark_green）   |  §2  | `\u00A72` |  #00AA00  |
+| <ColorSwatch color="#00AAAA" /> | 深青色（dark_aqua）    |  §3  | `\u00A73` |  #00AAAA  |
+| <ColorSwatch color="#AA0000" /> | 深红色（dark_red）     |  §4  | `\u00A74` |  #AA0000  |
+| <ColorSwatch color="#AA00AA" /> | 深紫色（dark_purple）  |  §5  | `\u00A75` |  #AA00AA  |
+| <ColorSwatch color="#FFAA00" /> | 金色（gold）                               |  §6  | `\u00A76` |  #FFAA00  |
+| <ColorSwatch color="#AAAAAA" /> | 灰色（gray）                               |  §7  | `\u00A77` |  #AAAAAA  |
+| <ColorSwatch color="#555555" /> | 深灰色（dark_gray）    |  §8  | `\u00A78` |  #555555  |
+| <ColorSwatch color="#5555FF" /> | 蓝色（blue）                               |  §9  | `\u00A79` |  #5555FF  |
+| <ColorSwatch color="#55FF55" /> | 绿色（green）                              |  §a  | `\u00A7a` |  #55FF55  |
+| <ColorSwatch color="#55FFFF" /> | 青色（aqua）                               |  §b  | `\u00A7b` |  #55FFFF  |
+| <ColorSwatch color="#FF5555" /> | 红色（red）                                |  §c  | `\u00A7c` |  #FF5555  |
+| <ColorSwatch color="#FF55FF" /> | 淡紫色（light_purple） |  §d  | `\u00A7d` |  #FF55FF  |
+| <ColorSwatch color="#FFFF55" /> | 黄色（yellow）                             |  §e  | `\u00A7e` |  #FFFF55  |
+| <ColorSwatch color="#FFFFFF" /> | 白色（white）                              |  §f  | `\u00A7f` |  #FFFFFF  |
+|                                 | 重置                                     |  §r  |            |           |
+|                                 | **粗体**                                 |  §l  |            |           |
+|                                 | ~~删除线~~                                |  §m  |            |           |
+|                                 | <u>下划线</u>                             |  §n  |            |           |
+|                                 | _斜体_                                   |  §o  |            |           |
+|                                 | 混淆                                     |  §k  |            |           |

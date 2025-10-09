@@ -24,7 +24,7 @@ Raccomandiamo l'uso di OpenJDK 21, che è disponibile per la maggior parte delle
 ### Arch Linux {#arch-linux}
 
 :::info
-Per maggiori informazioni su come installare Java su Arch Linux, vedi [la Wiki di Arch Linux](https://wiki.archlinux.org/title/Java).
+Per maggiori informazioni su come installare Java su Arch Linux, vedi la [Wiki di Arch Linux](https://wiki.archlinux.org/title/Java).
 :::
 
 Puoi installare la JRE più recente dalle repository ufficiali:

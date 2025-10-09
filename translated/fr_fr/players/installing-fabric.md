@@ -2,8 +2,8 @@
 title: Installer Fabric
 description: Un guide pour installer Fabric pas à pas.
 authors:
-  - IMB11
   - Benonardo
+  - IMB11
   - modmuss50
 ---
 

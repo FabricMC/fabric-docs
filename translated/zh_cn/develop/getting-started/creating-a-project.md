@@ -2,8 +2,9 @@
 title: 创建项目
 description: 关于如何使用 Fabric 模板模组生成器创建新的模组项目的逐步指南。
 authors:
-  - IMB11
   - Cactooz
+  - IMB11
+  - radstevee
 ---
 
 Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考 [手动创建项目](#manual-project-creation) 章节。
@@ -16,7 +17,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 ![生成器预览图](/assets/develop/getting-started/template-generator.png)
 
-如果要使用 Kotlin 语言，或使用 Mojang 的官方映射而非 Yarn 映射，或需要添加数据生成，可以在 “Advanced Options”中选择适当的选项。
+如果你想使用 Kotlin 或 Mojang 的官方映射而不是 Yarn 映射，或者想要添加数据生成器，可以在 `Advanced Options` 部分中选择适当的选项。
 
 ![“Advanced Options”部分](/assets/develop/getting-started/template-generator-advanced.png)
 

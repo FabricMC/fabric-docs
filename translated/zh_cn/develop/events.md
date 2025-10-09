@@ -2,17 +2,17 @@
 title: 事件
 description: Fabric API 提供的事件的使用指南。
 authors:
+  - Daomephsta
   - dicedpixels
-  - mkpoli
-  - daomephsta
-  - solidblock
-  - draylar
-  - jamieswhiteshirt
-  - PhoenixVX
+  - Draylar
+  - JamiesWhiteShirt
   - Juuxel
-  - YanisBft
   - liach
+  - mkpoli
   - natanfudge
+  - PhoenixVX
+  - SolidBlock-cn
+  - YanisBft
 authors-nogithub:
   - stormyfabric
 ---

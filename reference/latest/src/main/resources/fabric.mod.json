@@ -23,6 +23,7 @@
       "com.example.docs.networking.FabricDocsReferenceNetworking",
       "com.example.docs.networking.basic.FabricDocsReferenceNetworkingBasic",
       "com.example.docs.entity.FabricDocsReferenceEntity"
+      "com.example.docs.debug.FabricDocsReferenceDebug"
     ],
     "client": [
       "com.example.docs.client.command.FabricDocsReferenceClientCommands",
@@ -31,7 +32,9 @@
       "com.example.docs.FabricDocsBlockEntityRenderer",
       "com.example.docs.FabricDocsCustomEntityClient",
       "com.example.docs.FabricDocsReferenceClient",
+      "com.example.docs.rendering.CustomRenderPipeline",
       "com.example.docs.rendering.HudRenderingEntrypoint",
+      "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicClient"
     ],
     "fabric-datagen": [

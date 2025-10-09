@@ -2,17 +2,17 @@
 title: 명령어 만들기
 description: 복잡한 인수와 동작을 가진 명령어를 만들어 보세요.
 authors:
-  - dicedpixels
-  - i509VCB
-  - pyrofab
-  - natanfudge
-  - Juuxel
-  - solidblock
-  - modmuss50
-  - technici4n
   - atakku
+  - dicedpixels
   - haykam
+  - i509VCB
+  - Juuxel
+  - modmuss50
   - mschae23
+  - natanfudge
+  - pyrofab
+  - solidblock
+  - technici4n
   - treeways
   - xpple
 ---
@@ -42,7 +42,7 @@ Command<ServerCommandSource> command = context -> {
 
 치트를 켜지 않으면 대부분의 명령어를 탭 자동 완성에서 볼 수 없는 이유이기도 합니다. 일반적으로 음수 값은 명령어를 실행하는데 실패했고, 아무것도 실행되지 않았음을 의미합니다. `0`은 명령어가 성공적으로 처리되었음을 의미하고, 양수 값은 명령어가 성공적으로 작동했으며 어떠한 작업이 실행되었음을 의미합니다. Brigadier는 성공을 나타내는 상수 `Command#SINGLE_SUCCESS` 를 제공하고 있습니다.
 
-### `ServerCommandSource`의 역할 `ServerCommandSource`의 역할 {#what-can-the-servercommandsource-do}
+### `ServerCommandSource`의 역할 `ServerCommandSource`의 역할 {#what-can-the-servercommandsource-do} `ServerCommandSource`의 역할 {#what-can-the-servercommandsource-do}
 
 예를 들어, 명령어가 전용 서버 환경에서만 등록되도록 해보겠습니다. `ServerCommandSource`는 명령어를 실행한 엔티티, 명령어가 실행된 세계 또는 서버 등 명령어가 실행될 때 추가적인 컨텍스트를 제공합니다.
 
@@ -59,6 +59,7 @@ Command<ServerCommandSource> command = context -> {
 
 명령어는 Fabric API에서 제공하는 `CommandRegistrationCallback` 을 통해 등록됩니다.
 
+:::info
 :::info
 :::info
 콜백을 등록하는 방법은 [이벤트](../events) 가이드를 참고하세요.
@@ -131,7 +132,7 @@ Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이
 "별칭 (Aliases)"로도 알려진 명령어 리다이렉션은 명령어의 기능을 다른 명령어로 리다이렉트(전송)하는 방법입니다. 명령어의 이름을 변경하고 싶지만, 기존 이름도 지원하고 싶을 때 유용하게 사용될 수 있습니다.
 
 :::warning
-Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입니다](https://github.com/Mojang/brigadier/issues/46). 만약 인수 없이 명령 노드를 리다이렉션하려면 예제에 설명된 것과 동일한 로직에 대한 참조와 함께 '.executes()\\` 빌더를 제공하세요.
+Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입니다](https://github.com/Mojang/brigadier/issues/46). 만약 인수 없이 명령 노드를 리다이렉션하려면 예제에 설명된 것과 동일한 로직에 대한 참조와 함께 '.executes()\\\` 빌더를 제공하세요.
 :::
 
 @[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
@@ -150,7 +151,7 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 
 - 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메서드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
-### 런타임에서 명령어를 등록 해제할 수 있나요? <br>
+### 런타임에서 명령어를 등록 해제할 수 있나요? {#can-i-unregister-commands-at-runtime}
 
 ::: warning
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
@@ -161,7 +162,7 @@ you wish to its `CommandDispatcher`.
 클라이언트는 로컬로 완료 오류를 보여주기 위해 로그인 단계 중에 (또는 관리자 패킷이 전송되었을 때) 서버로부터 명령어 트리를 받아 캐시하기 때문에 필수적인 작업입니다.
 :::
 
-### 런타임에서 명령어를 등록할 수 있나요? {#can-i-unregister-commands-at-runtime}
+### 런타임에서 명령어를 등록할 수 있나요? <br>
 
 ::: warning
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side

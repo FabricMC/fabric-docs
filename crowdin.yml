@@ -23,3 +23,7 @@ files:
       - es-UY
       - es-VE
       - fr-CA
+
+pull_request_labels:
+  - localization
+  - stage:expansion

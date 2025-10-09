@@ -2,17 +2,17 @@
 title: Events
 description: Ein Leitfaden für die Nutzung von Events, welche von der Fabric API bereitgestellt werden.
 authors:
+  - Daomephsta
   - dicedpixels
-  - mkpoli
-  - daomephsta
-  - solidblock
-  - daomephsta
-  - jamieswhiteshirt
-  - PhoenixVX
+  - Draylar
+  - JamiesWhiteShirt
   - Juuxel
-  - YanisBft
   - liach
+  - mkpoli
   - natanfudge
+  - PhoenixVX
+  - SolidBlock-cn
+  - YanisBft
 authors-nogithub:
   - stormyfabric
 ---

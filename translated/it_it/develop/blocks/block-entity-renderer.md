@@ -85,7 +85,7 @@ Il `TextRenderer` ha metodi per misurare il testo (`getWidth`), il che è utile 
 
 @[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Il metodo `draw` prende molti parametri, ma quelli più importanti sono:
+Il metodo `draw` accetta molti parametri, ma quelli più importanti sono:
 
 - Il `Text` (o `String`) da disegnare;
 - Le sue coordinate `x` e `y`;

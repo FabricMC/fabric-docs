@@ -2,20 +2,19 @@
 title: 生产运行任务
 description: Fabric Loom Gradle 插件中生产运行任务的文档。
 authors:
-  - modmuss50
-  - kb-1000
-  - Juuxel
   - Atakku
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
+  - Juuxel
+  - kb-1000
+  - modmuss50
   - SolidBlock-cn
-authors-nogithub:
-  - jamieswhiteshirt
-  - daomephsta
-  - caoimhe
 ---
 
 当构建你的模组来分发给用户时，它会被重新映射到中间映射，这会导致开发环境和生产环境（如原版启动器）之间出现轻微的不一致。 尽管这种问题很少见，但在发布之前在生产环境中测试你的模组还是有意义的。
 
-## 通用选项{#common}
+## 通用选项 {#common}
 
 服务器和客户端任务都继承自同一个 `AbstractProductionRunTask` 类。 这意味着他们共享以下选项：
 
@@ -44,7 +43,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 }
 ```
 
-## 服务器{#server}
+## 服务器 {#server}
 
 服务器生产运行任务使用您从 Fabric 网站下载的相同服务器启动器，保证环境尽可能接近生产环境。
 
@@ -65,7 +64,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 服务器任务具有使用不同版本的 Minecraft 运行模组的独特能力，如果你正在开发跨版本模组会很有用。
 
-## 客户端{#client}
+## 客户端 {#client}
 
 ```groovy
 tasks.register("prodClient", net.fabricmc.loom.task.prod.ClientProductionRunTask) {

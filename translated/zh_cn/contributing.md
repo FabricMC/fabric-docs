@@ -3,7 +3,7 @@ title: 贡献指南
 description: Fabric 文档贡献指南
 ---
 
-此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown.html#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 您应该熟悉 VitePress 所支持的 Markdown 扩展语法，参见[此链接](https://vitepress.dev/guide/markdown#features)。
 
 贡献此网站有三种方法：
 
@@ -59,7 +59,7 @@ git clone https://github.com/your-username/fabric-docs.git
 
 #### 安装依赖{#install-dependencies}
 
-**如果想要本地预览更改，需要安装 [Node.js 18+](https://nodejs.org/en/)**
+如果想要本地预览更改，需要安装 [Node.js 18+](https://nodejs.org/en/)。
 
 然后，确保用以下代码安装所有依赖：
 
@@ -219,7 +219,7 @@ authors:
 
 任何图片都应该放在 `/assets` 文件夹中的适当位置。
 
-### 使用相对链接！ {#use-relative-links}
+### 使用相对链接！ 使用相对链接！ {#use-relative-links}
 
 这是因为现有的版本控制系统会预处理链接，以便事先添加版本号。 如果您使用绝对链接，版本号将不会添加到链接中。
 

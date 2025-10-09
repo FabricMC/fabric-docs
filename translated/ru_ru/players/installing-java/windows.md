@@ -29,7 +29,7 @@ authors:
 
 ## 2. Загрузите установщик Java 21 {#2-download-the-java-installer}
 
-Чтобы установить Java 21, вам необходимо загрузить загрузчик из [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows\\&package=jdk\\&version=21).
+Чтобы установить Java 21, вам необходимо загрузить загрузчик из Adoptium.
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 
@@ -46,7 +46,7 @@ authors:
 - `Set JAVA_HOME environment variable` - будет добавлено в PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Установщик Java 21 c выделенными "Set JAVA\\_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Установщик Java 21 c выделенными "Set JAVA_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 После этого нажмите на `Next` и продолжите установку.
 

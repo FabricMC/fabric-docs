@@ -24,7 +24,7 @@ authors:
 
 Ви маєте зареєструвати промальовування блокових сутностей у своєму класі `ClientModInitializer`.
 
-Ви маєте зареєструвати промальовування блокових сутностей у своєму класі `ClientModInitializer`.
+`BlockEntityRendererFactory` — це реєстр, який зіставляє кожен `BlockEntityType` зі спеціальним кодом відтворення на відповідний `BlockEntityRenderer`.
 
 ## Малювання на блоках {#drawing-on-blocks}
 
@@ -45,11 +45,11 @@ authors:
 
 ![Позиція промальовування за замовчуванням](/assets/develop/blocks/block_entity_renderer_1.png)
 
-![Позиція промальовування за замовчуванням](/assets/develop/blocks/block_entity_renderer_1.png)
-
 Отже, спочатку нам потрібно перемістити текст наполовину блоку по осях X і Z, а потім перемістити його вгору до верхньої частини блоку по осі Y:
 
 ![Зелений блок у верхній центральній точці](/assets/develop/blocks/block_entity_renderer_2.png)
+
+Це робиться за допомогою одного виклику `translate`:
 
 ```java
 matrices.translate(0.5, 1, 0.5);
@@ -57,11 +57,11 @@ matrices.translate(0.5, 1, 0.5);
 
 Ось і _переклад_ зроблено, _обертання_ і _масштаб_ залишаються.
 
-Ось і _переклад_ зроблено, _обертання_ і _масштаб_ залишаються.
-
 За замовчуванням текст малюється на площині X-Y, тому нам потрібно повернути його на 90 градусів навколо осі X, щоб він був спрямований вгору на площині X-Z:
 
 ![Зелений блок у верхній центральній точці, спрямований догори] (/assets/develop/blocks/block_entity_renderer_3.png)
+
+`MatrixStack` не має функції `rotate`, натомість нам потрібно використовувати `multiply` і `RotationAxis.POSITIVE_X`:
 
 ```java
 matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
@@ -94,4 +94,4 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 І після всієї цієї роботи ось результат:
 
-І після всієї цієї роботи ось результат:
+![Блок лічильника з числом зверху](/assets/develop/blocks/block_entity_renderer_4.png)

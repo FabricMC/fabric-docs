@@ -2,18 +2,18 @@
 title: Створення команд
 description: Створюйте команди зі складними аргументами та діями.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 ---
 
@@ -74,7 +74,7 @@ Command<ServerCommandSource> command = context -> {
 
 Подія має бути зареєстрована у вашому [ініціалізаторі мода](./getting-started/project-structure#entrypoints).
 
-Подія має бути зареєстрована у вашому [ініціалізаторі мода](./getting-started/project-structure#entrypoints).
+Зворотний виклик має три параметри:
 
 - `CommandDispatcher<ServerCommandSource> dispatcher` - використовується для реєстрації, аналізу та виконання команд. `S` - це тип
   джерела команди, яке підтримує диспетчер команд.

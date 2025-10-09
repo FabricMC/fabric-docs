@@ -1,7 +1,5 @@
-<script setup>
-const { color } = defineProps({
-  color: String,
-});
+<script setup lang="ts">
+const { color } = defineProps<{ color: string }>();
 </script>
 
 <template>
@@ -14,7 +12,7 @@ const { color } = defineProps({
   padding: 50%;
   margin: auto;
   border-radius: 0.25rem;
-  border-color: grey;
+  border-color: gray;
   border-width: 1px;
 }
 </style>
