@@ -69,11 +69,11 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.items.first-item",
+        text: "develop.items.first_item",
         link: "/develop/items/first-item",
       },
       {
-        text: "develop.items.item-models",
+        text: "develop.items.item_models",
         link: "/develop/items/item-models",
       },
       {
@@ -81,27 +81,27 @@ export default [
         link: "/develop/items/food",
       },
       {
-        text: "develop.items.custom-tools",
+        text: "develop.items.custom_tools",
         link: "/develop/items/custom-tools",
       },
       {
-        text: "develop.items.custom-armor",
+        text: "develop.items.custom_armor",
         link: "/develop/items/custom-armor",
       },
       {
-        text: "develop.items.custom-item-groups",
+        text: "develop.items.custom_item_groups",
         link: "/develop/items/custom-item-groups",
       },
       {
-        text: "develop.items.custom-item-interactions",
+        text: "develop.items.custom_item_interactions",
         link: "/develop/items/custom-item-interactions",
       },
       {
-        text: "develop.items.custom-enchantment-effects",
+        text: "develop.items.custom_enchantment_effects",
         link: "/develop/items/custom-enchantment-effects",
       },
       {
-        text: "develop.items.custom-data-components",
+        text: "develop.items.custom_data_components",
         link: "/develop/items/custom-data-components",
       },
       {
@@ -115,11 +115,11 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.blocks.first-block",
+        text: "develop.blocks.first_block",
         link: "/develop/blocks/first-block",
       },
       {
-        text: "develop.blocks.block-models",
+        text: "develop.blocks.block_models",
         link: "/develop/blocks/block-models",
       },
       {
@@ -127,11 +127,11 @@ export default [
         link: "/develop/blocks/blockstates",
       },
       {
-        text: "develop.blocks.block-entities",
+        text: "develop.blocks.block_entities",
         link: "/develop/blocks/block-entities",
         items: [
           {
-            text: "develop.blocks.block-entity-renderer",
+            text: "develop.blocks.block_entity_renderer",
             link: "/develop/blocks/block-entity-renderer",
           },
         ],
@@ -147,7 +147,7 @@ export default [
         link: "/develop/entities/effects",
       },
       {
-        text: "develop.entities.damage-types",
+        text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
       },
     ],
@@ -157,7 +157,7 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.sounds.using-sounds",
+        text: "develop.sounds.using_sounds",
         link: "/develop/sounds/using-sounds",
       },
       {
@@ -165,7 +165,7 @@ export default [
         link: "/develop/sounds/custom",
       },
       {
-        text: "develop.sounds.dynamic-sounds",
+        text: "develop.sounds.dynamic_sounds",
         link: "/develop/sounds/dynamic-sounds",
       },
     ],
@@ -193,11 +193,11 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.rendering.basicConcepts",
+        text: "develop.rendering.basic_concepts",
         link: "/develop/rendering/basic-concepts",
       },
       {
-        text: "develop.rendering.drawContext",
+        text: "develop.rendering.draw_context",
         link: "/develop/rendering/draw-context",
       },
       {
@@ -212,11 +212,11 @@ export default [
         text: "develop.rendering.gui",
         items: [
           {
-            text: "develop.rendering.gui.customScreens",
+            text: "develop.rendering.gui.custom_screens",
             link: "/develop/rendering/gui/custom-screens",
           },
           {
-            text: "develop.rendering.gui.customWidgets",
+            text: "develop.rendering.gui.custom_widgets",
             link: "/develop/rendering/gui/custom-widgets",
           },
         ],
@@ -225,7 +225,7 @@ export default [
         text: "develop.rendering.particles",
         items: [
           {
-            text: "develop.rendering.particles.creatingParticles",
+            text: "develop.rendering.particles.creating_particles",
             link: "/develop/rendering/particles/creating-particles",
           },
         ],
@@ -233,35 +233,35 @@ export default [
     ],
   },
   {
-    text: "develop.dataGeneration",
+    text: "develop.data_generation",
     collapsed: true,
     items: [
       {
-        text: "develop.dataGeneration.setup",
+        text: "develop.data_generation.setup",
         link: "/develop/data-generation/setup",
       },
       {
-        text: "develop.dataGeneration.tags",
+        text: "develop.data_generation.tags",
         link: "/develop/data-generation/tags",
       },
       {
-        text: "develop.dataGeneration.translations",
+        text: "develop.data_generation.translations",
         link: "/develop/data-generation/translations",
       },
       {
-        text: "develop.dataGeneration.advancements",
+        text: "develop.data_generation.advancements",
         link: "/develop/data-generation/advancements",
       },
       {
-        text: "develop.dataGeneration.recipes",
+        text: "develop.data_generation.recipes",
         link: "/develop/data-generation/recipes",
       },
       {
-        text: "develop.dataGeneration.lootTables",
+        text: "develop.data_generation.loot_tables",
         link: "/develop/data-generation/loot-tables",
       },
       {
-        text: "develop.dataGeneration.blockModels",
+        text: "develop.data_generation.block_models",
         link: "/develop/data-generation/block-models",
       },
     ],
@@ -283,7 +283,7 @@ export default [
         link: "/develop/networking",
       },
       {
-        text: "develop.misc.text-and-translations",
+        text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
       {
@@ -291,7 +291,7 @@ export default [
         link: "/develop/debugging",
       },
       {
-        text: "develop.misc.automatic-testing",
+        text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
       },
       {
@@ -299,7 +299,7 @@ export default [
         link: "/develop/loom",
         items: [
           {
-            text: "develop.misc.loom.fabric-api",
+            text: "develop.misc.loom.fabric_api",
             link: "/develop/loom/fabric-api",
           },
           {
