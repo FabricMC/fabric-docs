@@ -38,7 +38,7 @@ const choices = [
 
 ## Install JDK 21 {#install-jdk-21}
 
-To develop mods for Minecraft 1.21.8, you will need JDK 21.
+To develop mods for Minecraft 1.21.10, you will need JDK 21.
 
 If you need help installing Java, you can refer to the various Java installation guides in the [player guides section](../../players/index).
 

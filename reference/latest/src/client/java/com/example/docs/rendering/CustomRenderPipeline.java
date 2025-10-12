@@ -1,39 +1,41 @@
 package com.example.docs.rendering;
 
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
+// import java.util.OptionalDouble;
+// import java.util.OptionalInt;
+//
+// import com.mojang.blaze3d.buffers.GpuBuffer;
+// import com.mojang.blaze3d.buffers.GpuBufferSlice;
+// import com.mojang.blaze3d.pipeline.RenderPipeline;
+// import com.mojang.blaze3d.platform.DepthTestFunction;
+// import com.mojang.blaze3d.systems.CommandEncoder;
+// import com.mojang.blaze3d.systems.RenderPass;
+// import com.mojang.blaze3d.systems.RenderSystem;
+// import com.mojang.blaze3d.vertex.VertexFormat;
+// import org.joml.Vector4f;
+// import org.lwjgl.system.MemoryUtil;
 
-import com.mojang.blaze3d.buffers.GpuBuffer;
-import com.mojang.blaze3d.buffers.GpuBufferSlice;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.mojang.blaze3d.platform.DepthTestFunction;
-import com.mojang.blaze3d.systems.CommandEncoder;
-import com.mojang.blaze3d.systems.RenderPass;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.VertexFormat;
-import org.joml.Vector4f;
-import org.lwjgl.system.MemoryUtil;
-
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gl.MappableRingBuffer;
-import net.minecraft.client.gl.RenderPipelines;
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.BuiltBuffer;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexFormats;
-import net.minecraft.client.render.VertexRendering;
-import net.minecraft.client.util.BufferAllocator;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
+// import net.minecraft.client.MinecraftClient;
+// import net.minecraft.client.gl.MappableRingBuffer;
+// import net.minecraft.client.gl.RenderPipelines;
+// import net.minecraft.client.render.BufferBuilder;
+// import net.minecraft.client.render.BuiltBuffer;
+// import net.minecraft.client.render.RenderLayer;
+// import net.minecraft.client.render.VertexFormats;
+// import net.minecraft.client.render.VertexRendering;
+// import net.minecraft.client.util.BufferAllocator;
+// import net.minecraft.client.util.math.MatrixStack;
+// import net.minecraft.util.Identifier;
+// import net.minecraft.util.math.Vec3d;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-
-import com.example.docs.FabricDocsReference;
+// import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
+// import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+// import com.example.docs.FabricDocsReference;
 
 public class CustomRenderPipeline implements ClientModInitializer {
+	@Override
+	public void onInitializeClient() { }
+	/*
 	private static CustomRenderPipeline instance;
 	// :::custom-pipelines:define-pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.POSITION_COLOR_SNIPPET)
@@ -176,4 +178,5 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 	}
 	// :::custom-pipelines:clean-up
+	*/
 }

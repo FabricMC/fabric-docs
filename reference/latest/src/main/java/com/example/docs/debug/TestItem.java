@@ -23,7 +23,7 @@ public class TestItem extends Item {
 	// ::::::problems:logger-usage-example
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-		World world = user.getWorld();
+		World world = user.getEntityWorld();
 
 		// ::::::problems:logger-usage-example
 		if (world.isClient()) {
@@ -36,11 +36,11 @@ public class TestItem extends Item {
 
 		// Values are used in a String to provide more information in the console
 		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
-				.formatted(user.getWorld().isClient(), entity.getHealth(), entity.getMaxHealth(), hand.name());
+				.formatted(user.getEntityWorld().isClient(), entity.getHealth(), entity.getMaxHealth(), hand.name());
 
 		FabricDocsReferenceDebug.LOGGER.info(output);
 
-		if (!user.getWorld().isClient()) {
+		if (!user.getEntityWorld().isClient()) {
 			// you can log non-critical issues differently as a warning
 			FabricDocsReferenceDebug.LOGGER.warn("Don't touch that!");
 
