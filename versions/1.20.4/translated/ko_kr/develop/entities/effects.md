@@ -50,7 +50,7 @@ resources/assets/example-mod/textures/mob_effect/tater.png
 
 #### 현지화
 
-다른 현지화처럼, 간단히 언어 파일에 `"effect.mod-id.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
+다른 현지화처럼, 간단히 언어 파일에 `"effect.example-mod.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
 
 ::: code-group
 

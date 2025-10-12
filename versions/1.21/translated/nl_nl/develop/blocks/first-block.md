@@ -69,13 +69,13 @@ Er zijn wel een paar problemen: het blokvoorwerp heeft geen naam en het blok hee
 
 ## Blokvertalingen toevoegen {#adding-block-translations}
 
-Om een ​​vertaling toe te voegen, moet je een vertaalsleutel aanmaken in je vertaalbestand - `assets/mod-id/lang/nl_nl.json` (`us_en.json` voor Engels).
+Om een ​​vertaling toe te voegen, moet je een vertaalsleutel aanmaken in je vertaalbestand - `assets/example-mod/lang/nl_nl.json` (`us_en.json` voor Engels).
 
 Minecraft zal deze vertaling gebruiken in de creatieve inventaris en op andere plaatsen waar de bloknaam wordt weergegeven, zoals bij commandofeedback.
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+    "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -83,14 +83,14 @@ Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kb
 
 ## Modellen en Texturen {#models-and-textures}
 
-Alle bloktexturen zijn te vinden in de map `assets/mod-id/textures/block` - een voorbeeldtextuur voor het blok "Condensed Dirt" is gratis te gebruiken.
+Alle bloktexturen zijn te vinden in de map `assets/example-mod/textures/block` - een voorbeeldtextuur voor het blok "Condensed Dirt" is gratis te gebruiken.
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
 
 Om de textuur in het spel te laten verschijnen, moet je een blok- en voorwerpmodel maken dat je kunt vinden op de respectievelijke locaties voor het blok "Condensed Dirt":
 
-- `assets/mod-id/models/block/condensed_dirt.json`
-- `assets/mod-id/models/item/condensed_dirt.json`
+- `assets/example-mod/models/block/condensed_dirt.json`
+- `assets/example-mod/models/item/condensed_dirt.json`
 
 Het voorwerpmodel is vrij eenvoudig, het kan gewoon het blokmodel als ouder gebruiken - aangezien de meeste blokmodellen ondersteuning bieden voor weergave in een GUI:
 
@@ -108,7 +108,7 @@ De blokstaat-definitie wordt gebruikt om het spel te instrueren op basis van de 
 
 Voor het voorbeeldblok, dat geen complexe blokstaat heeft, is slechts één invoer in de definitie nodig.
 
-Dit bestand moet zich in de map `assets/mod_id/blockstates` bevinden en de naam ervan moet overeenkomen met het blok-ID dat is gebruikt bij het registreren van uw blok in de klasse `ModBlokken`. Als het blok-ID bijvoorbeeld `condensed_dirt` is, moet het bestand `condensed_dirt.json` heten.
+Dit bestand moet zich in de map `assets/example-mod/blockstates` bevinden en de naam ervan moet overeenkomen met het blok-ID dat is gebruikt bij het registreren van uw blok in de klasse `ModBlokken`. Als het blok-ID bijvoorbeeld `condensed_dirt` is, moet het bestand `condensed_dirt.json` heten.
 
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 

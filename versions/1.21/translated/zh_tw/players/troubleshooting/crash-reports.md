@@ -82,10 +82,10 @@ Mixin 是一種讓模組無需修改遊戲原始碼即可修改遊戲的方法�
 
 當 mixin 崩潰時，堆疊追蹤通常會提到 mixin 和被修改的類。
 
-方法 mixin 將在堆疊追蹤中包含 `modid$handlerName`，其中 `modid` 是模組的 ID，`handlerName` 是 mixin 處理程序的名稱。
+方法 mixin 將在堆疊追蹤中包含 `mod-id$handlerName`，其中 `mod-id` 是模組的 ID，`handlerName` 是 mixin 處理程序的名稱。
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 你可以使用這個資訊找到導致崩潰的模組，並將崩潰報告提交給模組作者。

@@ -44,7 +44,7 @@ El folder `src/main/resources` es usado para guardar los recursos que tu mod usa
 
 Aquí también se puede encontrar el archivo `fabric.mod.json` y cualquier archivo de configuración de mixin que tu mod use.
 
-Los _assets_ o recursos son guardados en una estructura que es similar a la estructura de los paquetes de recursos - por ejemplo, una textura para un bloque sería guardada en `assets/modid/textures/block/block.png`.
+Los _assets_ o recursos son guardados en una estructura que es similar a la estructura de los paquetes de recursos - por ejemplo, una textura para un bloque sería guardada en `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources`
 

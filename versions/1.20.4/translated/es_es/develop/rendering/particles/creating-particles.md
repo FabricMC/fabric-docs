@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Crear el archivo JSON y añadir texturas
 
-Tienes que crear 2 folders in tu folder de `resources/assets/mod-id/`.
+Tienes que crear 2 folders in tu folder de `resources/assets/example-mod/`.
 
 | Dirección del Folder | Explicación                                                                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |

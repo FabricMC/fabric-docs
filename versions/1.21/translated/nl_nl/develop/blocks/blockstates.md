@@ -13,7 +13,7 @@ Een block staat is een stukje data gekoppeld aan een enkel blok in de Minecraft 
 
 Je kunt je dus wel inbeelden waarom ze zo handig zijn - ze vermijden de noodzaak om gegevens in een blok entiteit op te slaan - wat de wereld grootte verkleint en TPS-problemen voorkomt!
 
-Blok staat definities kunnen gevonden worden in de `assets/mod-id/blockstates` folder.
+Blok staat definities kunnen gevonden worden in de `assets/example-mod/blockstates` folder.
 
 ## Voorbeeld: Pilaar Blok {#pillar-block}
 
@@ -27,7 +27,7 @@ Met de vanilla class `PillarBlock` kan het blok in de X-, Y- of Z-as worden gepl
 
 Pilaren hebben twee texturen, de bovenkant en de zijkant - ze maken gebruik van het `block/cube_collumn` model.
 
-Zoals gewoonlijk, met alle blok texturen, kunnen de textuurbestanden worden gevonden in `assets/mod-id/textures/block`
+Zoals gewoonlijk, met alle blok texturen, kunnen de textuurbestanden worden gevonden in `assets/example-mod/textures/block`
 
 <DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
 
@@ -41,7 +41,7 @@ Hier een voorbeeld van het bestand `condensed_oak_log_horizontal.json`:
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Voor een meer diepgaande blik op alle modificaties die beschikbaar zijn in de blockstate-bestanden, ga naar de pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::

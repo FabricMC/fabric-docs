@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Создание JSON-файла и добавление текстур {#creating-a-json-file-and-adding-textures}
 
-Вам нужно будет создать 2 папки в папке `resources/assets/mod-id/`.
+Вам нужно будет создать 2 папки в папке `resources/assets/example-mod/`.
 
 | Путь к папке         | Обьяснение                                                                              |
 | -------------------- | --------------------------------------------------------------------------------------- |

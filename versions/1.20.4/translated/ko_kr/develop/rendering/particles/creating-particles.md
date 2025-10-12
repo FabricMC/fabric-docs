@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## JSON 파일을 만들고 텍스쳐 추가하기
 
-먼저, 모드 소스의 `resources/assets/mod-id/` 폴더에 두 가지 새로운 폴더를 생성해야 합니다.
+먼저, 모드 소스의 `resources/assets/example-mod/` 폴더에 두 가지 새로운 폴더를 생성해야 합니다.
 
 | 폴더 경로                | 설명                                                              |
 | -------------------- | --------------------------------------------------------------- |

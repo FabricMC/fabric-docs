@@ -36,7 +36,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Eine JSON Datei erstellen und Texturen hinzufügen
 
-Du musst 2 Ordner in deinem `resources/assets/mod-id/` Ordner erstellen.
+Du musst 2 Ordner in deinem `resources/assets/example-mod/` Ordner erstellen.
 
 | Ordnerpfad           | Erklärung                                                                                            |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |

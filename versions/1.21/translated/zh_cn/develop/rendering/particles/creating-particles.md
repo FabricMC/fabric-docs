@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## 创建 JSON 文件并添加纹理 {#creating-a-json-file-and-adding-textures}
 
-你需要在你的 `resources/assets/mod-id/` 文件夹中创建两个文件夹。
+你需要在你的 `resources/assets/example-mod/` 文件夹中创建两个文件夹。
 
 | 文件夹路径                | 说明                            |
 | -------------------- | ----------------------------- |

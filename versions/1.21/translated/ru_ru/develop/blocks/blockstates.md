@@ -13,7 +13,7 @@ authors:
 
 Вы, вероятно, понимаете, почему они полезны — они позволяют избежать необходимости хранения данных NBT в сущности блока, что уменьшает размер мира и предотвращает проблемы с TPS!
 
-Определения состояний блока можно найти в папке `assets/mod-id/blockstates`.
+Определения состояний блока можно найти в папке `assets/example-mod/blockstates`.
 
 ## Пример: Блок Колонна {#pillar-block}
 
@@ -27,7 +27,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Колоновые блоки имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
 
-Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/mod-id/textures/block`
+Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/example-mod/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстуры</DownloadEntry>
 
@@ -41,7 +41,7 @@ Minecraft уже имеет несколько пользовательских 
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Для более подробного изучения всех доступных модификаторов в файле состояний блоков, ознакомьтесь со страницей [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::

@@ -144,8 +144,8 @@ public void onInitialize() {
 
 Поскольку в нашем случае имя материала брони — `guidite`, то расположение текстур будет следующим:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry type="Armor Model Textures" noVisualURL="true" downloadURL="/assets/develop/items/example_armor_layer_textures.zip" />
 

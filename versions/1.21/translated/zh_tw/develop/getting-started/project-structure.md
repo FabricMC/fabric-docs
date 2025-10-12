@@ -42,7 +42,7 @@ authors:
 
 它也是 `fabric.mod.json` 和模組使用的 Mixin 配置檔案存放的位置。
 
-資源檔案儲存在與資源包結構相似的結構中－例如，方塊的材質會存放在 `assets/modid/textures/block/block.png` 中。
+資源檔案儲存在與資源包結構相似的結構中－例如，方塊的材質會存放在 `assets/example-mod/textures/block/block.png` 中。
 
 ## `src/client/resources` {#src-client-resources}
 

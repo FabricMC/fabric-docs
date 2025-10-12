@@ -144,8 +144,8 @@ Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
 Da der Name des Rüstungsmaterial in unserem Fall `guidite` lautet, werden die Texturen wie folgt angeordnet:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Rüstungsmodell Texturen</DownloadEntry>
 

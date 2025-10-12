@@ -144,8 +144,8 @@ public void onInitialize() {
 
 因为我们这个例子中，盔甲的材料名称是 `guidite`，所以文本的位置会是：
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">盔甲模型纹理</DownloadEntry>
 

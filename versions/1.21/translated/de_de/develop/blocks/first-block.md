@@ -69,13 +69,13 @@ Es gibt jedoch ein paar Probleme - das Blockitem ist nicht benannt, und der Bloc
 
 ## Blockübersetzungen hinzufügen {#adding-block-translations}
 
-Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/mod-id/lang/en_us.json`.
+Um eine Übersetzung hinzuzufügen, musst du einen Übersetzungsschlüssel in deiner Übersetzungsdatei erstellen - `assets/example-mod/lang/en_us.json`.
 
 Minecraft verwendet diese Übersetzung im Kreativ-Inventar und an anderen Stellen, an denen der Blockname angezeigt wird, wie z. B. bei der Befehlsrückmeldung.
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -83,14 +83,14 @@ Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</
 
 ## Modelle und Texturen {#models-and-textures}
 
-Alle Blocktexturen befinden sich im Ordner `assets/mod-id/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
+Alle Blocktexturen befinden sich im Ordner `assets/example-mod/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texturen</DownloadEntry>
 
 Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodell erstellen, die du an den entsprechenden Stellen für den "Condensed Dirt"-Block finden kannst:
 
-- `assets/mod-id/models/block/condensed_dirt.json`
-- `assets/mod-id/models/item/condensed_dirt.json`
+- `assets/example-mod/models/block/condensed_dirt.json`
+- `assets/example-mod/models/item/condensed_dirt.json`
 
 Das Itemmodell ist ziemlich einfach, es kann einfach das Blockmodell als Elternteil verwenden - da die meisten Blockmodelle Unterstützung für die Darstellung in einer grafischen Benutzeroberfläche haben:
 
@@ -108,7 +108,7 @@ Die Blockzustand-Definition wird verwendet, um dem Spiel mitzuteilen, welches Mo
 
 Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintrag in der Definition erforderlich.
 
-Diese Datei sollte sich im Ordner `assets/mod_id/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
+Diese Datei sollte sich im Ordner `assets/example-mod/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
@@ -120,7 +120,7 @@ Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die �
 
 ## Blockdrops hinzufügen {#adding-block-drops}
 
-Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/mod-id/loot_table/blocks/` abgelegt werden.
+Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/example-mod/loot_table/blocks/` abgelegt werden.
 
 :::info
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.

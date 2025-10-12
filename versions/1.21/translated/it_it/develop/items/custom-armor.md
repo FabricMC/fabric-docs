@@ -144,8 +144,8 @@ Ci sono due strati per le texture dell'armatura, entrambi devono essere presenti
 
 Poiché il nome del materiale dell'armatura è nel nostro caso `guidite`, i percorsi delle texture saranno:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Texture dei Modelli delle Armature</DownloadEntry>
 

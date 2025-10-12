@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Creare un File JSON e Aggiungere le Texture {#creating-a-json-file-and-adding-textures}
 
-Dovrai creare 2 cartelle all'interno della cartella `resources/assets/mod-id/`.
+Dovrai creare 2 cartelle all'interno della cartella `resources/assets/example-mod/`.
 
 | Percorso della Cartella | Spiegazione                                                                                     |
 | ----------------------- | ----------------------------------------------------------------------------------------------- |

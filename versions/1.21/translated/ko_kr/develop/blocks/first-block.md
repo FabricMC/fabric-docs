@@ -69,13 +69,13 @@ public class ModBlocks {
 
 ## 블록 번역 추가하기 {#adding-block-translations}
 
-번역을 추가하기 위하여, 번역 파일 (`assets/mod-id/lang/en_us.json`)에 번역 키를 만들어야 합니다.
+번역을 추가하기 위하여, 번역 파일 (`assets/example-mod/lang/en_us.json`)에 번역 키를 만들어야 합니다.
 
 Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드백과 같은 블록의 이름이 표시되는 다른 곳에 사용할 것입니다.
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+    "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -83,14 +83,14 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 ## 모델 및 텍스처 {#models-and-textures}
 
-모든 블록의 텍스처는 `assets/mod-id/textures/block` 폴더에서 찾을 수 있습니다. 예시 텍스처인 "거친 흙" 블록은 무료로 사용할 수 있습니다.
+모든 블록의 텍스처는 `assets/example-mod/textures/block` 폴더에서 찾을 수 있습니다. 예시 텍스처인 "거친 흙" 블록은 무료로 사용할 수 있습니다.
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png" />
 
 텍스처가 게임 안에서 보이게 하려면, "거친 흙" 블록의 다음 위치에서 찾을 수 있는 블록 및 아이템 모델을 만들어야 합니다:
 
-- `assets/mod-id/models/block/condensed_dirt.json`
-- `assets/mod-id/models/item/condensed_dirt.json`
+- `assets/example-mod/models/block/condensed_dirt.json`
+- `assets/example-mod/models/item/condensed_dirt.json`
 
 이 아이템 모델은 꽤 단순합니다. 대부분의 블록 모델이 GUI에서 렌더되는 것을 지원하기 때문에그저 상위 모델로 블록 모델을 사용할 수 있습니다:
 
@@ -108,7 +108,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 이 복잡한 상태 정의가 없는 예시 블록의 경우, 오직 한 개의 항목만이 정의에 필요합니다.
 
-파일은 `assets/mod_id/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
+파일은 `assets/example-mod/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
 
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
@@ -120,7 +120,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 ## 블록 떨굼 추가하기 {#adding-block-drops}
 
-서바이벌 모드에서 블록을 부쉈을 때, 블록이 떨어지지 않는 것을 봤을 수도 있습니다. 아마 이 기능을 원하였을 수도 있습니다. 하지만 블록을 부숴서 떨어지게 만들기 위하여 노획물 목록을 구현하여야 합니다. 노획물 목록은 `data/mod-id/loot_table/blocks/` 폴더에 위치해야 합니다.
+서바이벌 모드에서 블록을 부쉈을 때, 블록이 떨어지지 않는 것을 봤을 수도 있습니다. 아마 이 기능을 원하였을 수도 있습니다. 하지만 블록을 부숴서 떨어지게 만들기 위하여 노획물 목록을 구현하여야 합니다. 노획물 목록은 `data/example-mod/loot_table/blocks/` 폴더에 위치해야 합니다.
 
 :::info
 노획물 목록에 대하여 더 자세히 알고 싶으면, [Minecraft 위키 - 노획물 목록](https://ko.minecraft.wiki/w/%EB%85%B8%ED%9A%8D%EB%AC%BC_%EB%AA%A9%EB%A1%9D) 페이지를 참고할 수 있습니다.

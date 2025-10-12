@@ -50,7 +50,7 @@ resources/assets/example-mod/textures/mob_effect/tater.png
 
 #### **翻译**
 
-像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.mod-id.<effect-identifier>": "Value"` 到语言文件中。
+像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.example-mod.<effect-identifier>": "Value"` 到语言文件中。
 
 ::: code-group
 

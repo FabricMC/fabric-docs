@@ -42,7 +42,7 @@ authors:
 
 また、`fabric.mod.json` ファイルや Mod が使用する Mixin 構成ファイルが配置される場所でもあります。
 
-リソースは、リソースパックの構造に従って格納されます。例えば、ブロックのテクスチャは `assets/modid/textures/block/block.png` に格納されます。
+リソースは、リソースパックの構造に従って格納されます。例えば、ブロックのテクスチャは `assets/example-mod/textures/block/block.png` に格納されます。
 
 ## `src/client/resources` {#src-client-resources}
 

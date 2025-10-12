@@ -69,13 +69,13 @@ public class ModBlocks {
 
 ## 添加方块翻译 {#adding-block-translations}
 
-要添加翻译，必须在你的翻译文件——`assets/mod-id/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/<0>/lang/zh_cn.json`。）
+要添加翻译，必须在你的翻译文件——`assets/example-mod/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/<0>/lang/zh_cn.json`。）
 
 Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地方（例如命令反馈）中显示这个翻译。
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -83,14 +83,14 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 模型和纹理 {#models-and-textures}
 
-所有方块纹理都可以在 `assets/mod-id/textures/block` 文件夹中找到——"Condensed Dirt"方块的示例纹理可以自由使用。
+所有方块纹理都可以在 `assets/example-mod/textures/block` 文件夹中找到——"Condensed Dirt"方块的示例纹理可以自由使用。
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
 要确保模型在游戏内显示，必须创建方块和物品模型，"Condensed Dirt"方块的方块和物品模型分别可以在下列地方找到：
 
-- `assets/mod-id/models/block/condensed_dirt.json`
-- `assets/mod-id/models/item/condensed_dirt.json`
+- `assets/example-mod/models/block/condensed_dirt.json`
+- `assets/example-mod/models/item/condensed_dirt.json`
 
 物品模型很简单，只需要继承方块模型即可，因为大多数方块模型都支持在 GUI 中渲染。
 
@@ -108,7 +108,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/mod_id/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
 @[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
@@ -120,7 +120,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 ## 添加方块掉落物 {#adding-block-drops}
 
-在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/mod-id/loot_table/blocks/` 文件夹中。
+在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/example-mod/loot_table/blocks/` 文件夹中。
 
 :::info
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
