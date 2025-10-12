@@ -28,7 +28,7 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::2
 		// x, y, width, height, color
-		context.drawBorder(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
+		context.drawStrokedRectangle(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
 		// :::2
 
 		// :::3

@@ -1,11 +1,9 @@
 ---
-title: Launching the Game
-description: Learn how launch a Minecraft instance to start and debug your mods in a live game environment.
+title: Generating Sources
+description: A guide to generating Minecraft sources.
 authors:
   - dicedpixels
-  - IMB11
   - its-miroma
-  - Tenneb22
 outline: false
 ---
 
@@ -13,12 +11,12 @@ outline: false
 const choices = [
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/launching-the-game',
+    href: './intellij-idea/generating-sources',
     image: '/assets/develop/getting-started/intellij/logo.svg',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/launching-the-game',
+    href: './vscode/generating-sources',
     image: '/assets/develop/getting-started/vscode/logo.svg',
   },
 ];

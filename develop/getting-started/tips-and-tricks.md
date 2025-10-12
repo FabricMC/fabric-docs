@@ -1,11 +1,11 @@
 ---
-title: Launching the Game
-description: Learn how launch a Minecraft instance to start and debug your mods in a live game environment.
+title: IDE Tips and Tricks
+description: Useful and neat tips and tricks to navigate your project through your IDE efficiently.
 authors:
+  - AnAwesomGuy
   - dicedpixels
-  - IMB11
   - its-miroma
-  - Tenneb22
+  - JR1811
 outline: false
 ---
 
@@ -13,12 +13,12 @@ outline: false
 const choices = [
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/launching-the-game',
+    href: './intellij-idea/tips-and-tricks',
     image: '/assets/develop/getting-started/intellij/logo.svg',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/launching-the-game',
+    href: './vscode/tips-and-tricks',
     image: '/assets/develop/getting-started/vscode/logo.svg',
   },
 ];

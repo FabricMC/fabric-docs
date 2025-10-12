@@ -1,17 +1,22 @@
 package com.example.docs.rendering.blockentity;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.client.render.command.ModelCommandRenderer;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
+import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
 // :::1
-public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity> {
+public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity, CounterBlockEntityRenderState> {
 	// :::1
 
 	private final TextRenderer textRenderer;
@@ -19,12 +24,25 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 	// :::1
 	public CounterBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
 		// :::1
-		textRenderer = context.getTextRenderer();
+		textRenderer = context.textRenderer();
 		// :::1
 	}
 
 	@Override
-	public void render(CounterBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
+	public CounterBlockEntityRenderState createRenderState() {
+		return new CounterBlockEntityRenderState();
+	}
+
+	@Override
+	public void updateRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3d cameraPos, @Nullable ModelCommandRenderer.CrumblingOverlayCommand crumblingOverlay) {
+		// :::1
+		BlockEntityRenderer.super.updateRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
+		state.setClicks(blockEntity.getClicks());
+		// :::1
+	}
+
+	@Override
+	public void render(CounterBlockEntityRenderState state, MatrixStack matrices, OrderedRenderCommandQueue queue, CameraRenderState cameraState) {
 		// :::1
 
 		// :::2
@@ -35,21 +53,21 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 		// :::2
 
 		// :::3
-		String text = entity.getClicks() + "";
+		String text = state.getClicks() + "";
 		float width = textRenderer.getWidth(text);
 
 		// draw the text. params:
-		// text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light
-		textRenderer.draw(
-				text,
-				-width/2, -4f,
-				0xffffffff,
+		// text, x, y, color, ordered text, shadow, text layer type, light, color, background color, outline color
+		queue.submitText(
+				matrices,
+				-width / 2, -4f,
+				Text.literal(text).asOrderedText(),
 				false,
-				matrices.peek().getPositionMatrix(),
-				vertexConsumers,
 				TextRenderer.TextLayerType.SEE_THROUGH,
+				state.lightmapCoordinates,
+				0xffffffff,
 				0,
-				light
+				0
 		);
 		// :::3
 

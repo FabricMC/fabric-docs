@@ -28,7 +28,7 @@ public class LightningStick extends Item {
 	public ActionResult use(World world, PlayerEntity user, Hand hand) {
 		// Ensure we don't spawn the lightning only on the client.
 		// This is to prevent desync.
-		if (world.isClient) {
+		if (world.isClient()) {
 			return ActionResult.PASS;
 		}
 

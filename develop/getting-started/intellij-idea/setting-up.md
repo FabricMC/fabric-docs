@@ -1,5 +1,5 @@
 ---
-title: Setting up IntelliJ IDEA
+title: Setting Up IntelliJ IDEA
 description: A step-by-step guide on how to set up IntelliJ IDEA to create mods using Fabric.
 authors:
   - 2xsaiko
@@ -17,10 +17,16 @@ authors:
   - TelepathicGrunt
 authors-nogithub:
   - siglong
+prev:
+  text: Setting Up Your IDE
+  link: ../setting-up
+next:
+  text: Opening a Project in IntelliJ IDEA
+  link: ./opening-a-project
 ---
 
 ::: info PREREQUISITES
-Make sure you've [installed a JDK](./setting-up-a-development-environment#installing-jdk-21) first.
+Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
 :::
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}
@@ -29,7 +35,9 @@ If you do not have IntelliJ IDEA installed, you can download it from the [offici
 
 The Community edition of IntelliJ IDEA is free and open-source, and it is the recommended version for modding with Fabric.
 
-You may have to scroll down to find the Community edition download link - it looks like the following:
+::: info DOWNLOADS
+You may have to scroll down to find the Community edition download link.
+:::
 
 ![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-community.png)
 
@@ -44,3 +52,7 @@ Although this plugin isn't strictly necessary, it can make modding with Fabric m
 You can install it by opening IntelliJ IDEA, and then navigating to **File** > **Settings** > **Plugins** > **Marketplace** tab, then search for `Minecraft Development` in the search bar, and click the **Install** button.
 
 Alternatively, you can download it from the [plugin page](https://plugins.jetbrains.com/plugin/8327-minecraft-development) and then install it by navigating to **File** > **Settings** > **Plugins** > **Install Plugin From Disk**.
+
+### About Creating a Project {#about-creating-a-project}
+
+While it is possible to create a project using this plugin, this is not recommended because the templates are often out of date. Instead, consider following [Creating a Project](../creating-a-project) to use the Fabric Template Mod Generator.

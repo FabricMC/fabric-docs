@@ -11,9 +11,15 @@ For example, let's make the Counter Block from the [Block Entities article](../b
 
 ## Creating a BlockEntityRenderer {#creating-a-blockentityrenderer}
 
-First, we need to create a `BlockEntityRenderer` for our `CounterBlockEntity`.
+Block entity rendering uses a submit/render system where you first submit the data required to render an object to the screen, the game then renders the object using it's submitted state.
 
 When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's important to place the class in the appropriate source set, such as `src/client/`, if your project uses split source sets for client and server. Accessing rendering-related classes directly in the `src/main/` source set is not safe because those classes might be loaded on a server.
+
+First, we need to create a `BlockEntityRenderState` for our `CounterBlockEntity` to hold the data that will be used for rendering. In this case, we will need the `clicks` to be available during rendering.
+
+@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+
+Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
@@ -21,6 +27,16 @@ The new class has a constructor with `BlockEntityRendererFactory.Context` as a p
 Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+
+We will override a few methods to set up the render state along with the `render` method where the rendering logic will be set up.
+
+`createRenderState` can be used to initialize the render state.
+
+@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+
+`updateRenderState` can be used to update the render state with entity data.
+
+@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
 You should register block entity renderers in your `ClientModInitializer` class.
 
@@ -79,15 +95,15 @@ Now, the whole transformation looks like this:
 
 ### Drawing Text {#drawing-text}
 
-As mentioned earlier, the `Context` passed into the constructor of our renderer has a `TextRenderer` that we can use to draw text. For this example we'll save it in a field.
+As mentioned earlier, the `Context` passed into the constructor of our renderer has a `TextRenderer` that we can use to measure text (`getWidth`), which is useful for centering.
 
-The `TextRenderer` has methods to measure text (`getWidth`), which is useful for centering, and to draw it (`draw`).
+To draw the text, we will be submitting the necessary data to the render queue. Since we're drawing some text, we can use the `submitText` method provided through the `OrderedRenderCommandQueue` instance passed into the `render` method.
 
 @[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-The `draw` method takes a lot of parameters, but the most important ones are:
+The `submitText` method takes a lot of parameters, but the most important ones are:
 
-- the `Text` (or `String`) to draw;
+- the `OrderedText` to draw;
 - its `x` and `y` coordinates;
 - the RGB `color` value;
 - the `Matrix4f` describing how it should be transformed (to get one from a `MatrixStack`, we can use `.peek().getPositionMatrix()` to get the `Matrix4f` for the topmost entry).

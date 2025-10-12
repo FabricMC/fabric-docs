@@ -27,7 +27,7 @@ public class ExampleModNetworkingBasic implements ModInitializer {
 
 		// :::server_global_receiver
 		ServerPlayNetworking.registerGlobalReceiver(GiveGlowingEffectC2SPayload.ID, (payload, context) -> {
-			Entity entity = context.player().getWorld().getEntityById(payload.entityId());
+			Entity entity = context.player().getEntityWorld().getEntityById(payload.entityId());
 
 			if (entity instanceof LivingEntity livingEntity && livingEntity.isInRange(context.player(), 5)) {
 				livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100));
