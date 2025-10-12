@@ -136,7 +136,11 @@ export default [
           },
         ],
       },
-    ],
+      {
+        text: "develop.blocks.inventory",
+        link: "/develop/blocks/inventory",
+      }
+    ]
   },
   {
     text: "develop.entities",
