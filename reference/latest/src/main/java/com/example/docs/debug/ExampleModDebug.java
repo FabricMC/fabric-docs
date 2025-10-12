@@ -18,7 +18,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 // :::problems:basic-logger-definition
 public class ExampleModDebug implements ModInitializer {
-	public static final String MOD_ID = "i-am-your-mod-id";
+	public static final String MOD_ID = "example-mod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	// ...

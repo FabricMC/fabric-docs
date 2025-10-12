@@ -92,7 +92,7 @@ Doors and trapdoors are a little different. Here, you have to make three new tex
 1. The door:
     - It has two parts - the upper half and the lower half. **Each needs its own texture:** in this case `ruby_door_top` for the upper half and `ruby_door_bottom` for the lower.
     - The `registerDoor()` method will create models for all orientations of the door, both open and closed.
-    - **You also need an item texture!** Put it in `assets/mod_id/textures/item/` folder.
+    - **You also need an item texture!** Put it in `assets/example-mod/textures/item/` folder.
 2. The trapdoor:
    - Here, you need only one texture, in this case named `ruby_trapdoor`. It will be used for all sides.
    - Since `TrapdoorBlock` has a `FACING` property, you can use the commented out method to generate model files with rotated textures = the trapdoor will be "orientable". Otherwise, it will look the same no matter the direction it's facing.
@@ -141,7 +141,7 @@ Notice the `#bottom`, `#top`, `#side` keywords. They act as variables that can b
 }
 ```
 
-The `bottom` value will replace the `#bottom` placeholder and so on. **Put it in the `resources/assets/mod_id/models/block/` folder.**
+The `bottom` value will replace the `#bottom` placeholder and so on. **Put it in the `resources/assets/example-mod/models/block/` folder.**
 
 ### Custom Model {#custom-model}
 
@@ -149,7 +149,7 @@ Another thing we will need is an instance of the `Model` class. It will represen
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-The `block()` method creates a new `Model`, pointing to the `vertical_slab.json` file inside the `resources/assets/mod_id/models/block/` folder.
+The `block()` method creates a new `Model`, pointing to the `vertical_slab.json` file inside the `resources/assets/example-mod/models/block/` folder.
 The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Object.
 
 ### Using Texture Map {#using-texture-map}

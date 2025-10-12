@@ -75,13 +75,13 @@ There are a few issues though - the block item is not named, and the block has n
 
 ## Adding Block Translations {#adding-block-translations}
 
-To add a translation, you must create a translation key in your translation file - `assets/mod-id/lang/en_us.json`.
+To add a translation, you must create a translation key in your translation file - `assets/example-mod/lang/en_us.json`.
 
 Minecraft will use this translation in the creative inventory and other places where the block name is displayed, such as command feedback.
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -89,15 +89,15 @@ You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T
 
 ## Models and Textures {#models-and-textures}
 
-All block textures can be found in the `assets/mod-id/textures/block` folder - an example texture for the "Condensed Dirt" block is free to use.
+All block textures can be found in the `assets/example-mod/textures/block` folder - an example texture for the "Condensed Dirt" block is free to use.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
-To make the texture show up in-game, you must create a block model which can be found in the `assets/mod-id/models/block/condensed_dirt.json` file for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
+To make the texture show up in-game, you must create a block model which can be found in the `assets/example-mod/models/block/condensed_dirt.json` file for the "Condensed Dirt" block. For this block, we're going to use the `block/cube_all` model type.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/mod-id/items/condensed_dirt.json`.
+For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/example-mod/items/condensed_dirt.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
@@ -113,7 +113,7 @@ The blockstate definition is used to instruct the game on which model to render 
 
 For the example block, which doesn't have a complex blockstate, only one entry is needed in the definition.
 
-This file should be located in the `assets/mod-id/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
+This file should be located in the `assets/example-mod/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
@@ -127,7 +127,7 @@ Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply change
 
 ## Adding Block Drops {#adding-block-drops}
 
-When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/mod-id/loot_table/blocks/` folder.
+When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/example-mod/loot_table/blocks/` folder.
 
 ::: info
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
