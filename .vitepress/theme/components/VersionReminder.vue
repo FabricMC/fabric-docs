@@ -4,7 +4,7 @@ import { computed } from "vue";
 
 const data = useData();
 const route = useRoute();
-const LATEST = "1.21.8";
+const LATEST = "1.21.10";
 
 const path = computed(() => route.path);
 const text = computed(() => data.theme.value.version.reminder as string);
