@@ -70,13 +70,13 @@ Echter mist het het volgende:
 
 ## Het Voorwerp Benoemen {#naming-the-item}
 
-Momenteel heeft het voorwerp geen vertaling, dus je zult er een moeten toevoegen. De vertaalsleutel is al door Minecraft verstrekt: `item.mod_id.suspicious_substance`.
+Momenteel heeft het voorwerp geen vertaling, dus je zult er een moeten toevoegen. De vertaalsleutel is al door Minecraft verstrekt: `item.example-mod.suspicious_substance`.
 
 Maak een nieuw JSON-bestand in: `src/main/resources/assets/<mod id here>/lang/nl_nl.json` (`en_us.json` voor Engels) en plaats de vertaalsleutel en de waarde ervan:
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+    "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 

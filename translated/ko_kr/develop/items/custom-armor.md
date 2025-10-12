@@ -98,8 +98,8 @@ authors:
 
 위에서 `ArmorMaterial` 생성자에 입력했던 `RegistryKey<EquipmentAsset>` 필드 `GUIDITE_ARMOR_MATERIAL_KEY`를 사용할 때입니다. 재료와 비슷한 이름으로 설정하는 것이 좋기 때문에, 예제에서는 `guidite.png`로 설정합니다.
 
-- `assets/mod_id/textures/entity/equipment/humanoid/guidite.png` - 상의와 부츠 텍스처가 저장됩니다.
-- `assets/mod_id/textures/entity/equipment/humanoid_leggings/guidite.png` - 레깅스의 텍스처가 저장됩니다.
+- `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - 상의와 부츠 텍스처가 저장됩니다.
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - 레깅스의 텍스처가 저장됩니다.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite 갑옷 모델 텍스처</DownloadEntry>
 
@@ -107,7 +107,7 @@ authors:
 모드를 1.21.4로 업데이트하고 있다면, `humanoid` 폴더는 `layer0.png` 갑옷 텍스처, `humanoid_leggings` 폴더는 `layer1.png` 갑옷 텍스처가 저장된다고 할 수 있습니다.
 :::
 
-이제, 착용 모델 정의를 만들 차례입니다. `assets/mod_id/equipment` 폴더에 추가할 것입니다.
+이제, 착용 모델 정의를 만들 차례입니다. `assets/example-mod/equipment` 폴더에 추가할 것입니다.
 
 위에서 생성했던 `RegistryKey<EquipmentAsset>` 상수가 JSON 파일의 이름을 결정하게 됩니다. 예제에서는, `guidite.json`입니다.
 

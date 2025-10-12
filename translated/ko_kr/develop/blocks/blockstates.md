@@ -41,7 +41,7 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 @[code](@/reference/latest/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 모든 블록 상태 파일 안의 수정자에 대한 더 자세한 보기는 [Minecraft 위키 - 모델 문단 (Block States) (영어)](https://minecraft.wiki/w/Tutorials/Models#Block_states)에 있습니다.
 :::

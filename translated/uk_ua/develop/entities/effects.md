@@ -47,7 +47,7 @@ resources/assets/example-mod/textures/mob_effect/tater.png
 
 ### Переклад {#translations}
 
-Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.mod-id.effect-identifier": "Значення"`
+Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.example-mod.effect-identifier": "Значення"`
 у мовний файл.
 
 ```json

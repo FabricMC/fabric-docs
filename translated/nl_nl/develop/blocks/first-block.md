@@ -79,7 +79,7 @@ Minecraft zal deze vertaling gebruiken in de creatieve inventaris en op andere p
 
 ```json
 {
-    "block.mod_id.condensed_dirt": "Condensed Dirt"
+    "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -112,7 +112,7 @@ De blokstaat-definitie wordt gebruikt om het spel te instrueren op basis van de 
 
 Voor het voorbeeldblok, dat geen complexe blokstaat heeft, is slechts één invoer in de definitie nodig.
 
-Dit bestand moet zich in de map `assets/mod_id/blockstates` bevinden en de naam ervan moet overeenkomen met het blok-ID dat is gebruikt bij het registreren van uw blok in de klasse `ModBlokken`. Als het blok-ID bijvoorbeeld `condensed_dirt` is, moet het bestand `condensed_dirt.json` heten.
+Dit bestand moet zich in de map `assets/example-mod/blockstates` bevinden en de naam ervan moet overeenkomen met het blok-ID dat is gebruikt bij het registreren van uw blok in de klasse `ModBlokken`. Als het blok-ID bijvoorbeeld `condensed_dirt` is, moet het bestand `condensed_dirt.json` heten.
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 

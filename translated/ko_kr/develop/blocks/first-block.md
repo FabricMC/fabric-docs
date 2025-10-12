@@ -80,7 +80,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -112,7 +112,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 이 복잡한 상태 정의가 없는 예시 블록의 경우, 오직 한 개의 항목만이 정의에 필요합니다.
 
-파일은 `assets/mod_id/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
+파일은 `assets/example-mod/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 

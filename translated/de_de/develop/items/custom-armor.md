@@ -98,8 +98,8 @@ Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
 Zuvor haben wir eine Konstante `RegistryKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
 
-- `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Rüstungsmodell-Texturen</DownloadEntry>
 
@@ -107,7 +107,7 @@ Zuvor haben wir eine Konstante `RegistryKey<EquipmentAsset>` mit dem Namen `GUID
 Wenn du von einer älteren Version des Spiels auf 1.21.4 aktualisierst, ist der Ordner `humanoid` der Ort, an dem deine Rüstungstextur `layer0.png` liegt, und der Ordner `humanoid_leggings` ist der Ort, an dem deine Rüstungstextur `layer1.png` liegt.
 :::
 
-Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/mod-id/equipment/`.
+Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/example-mod/equipment/`.
 
 Die Konstante `RegistryKey<EquipmentAsset>`, die wir zuvor erstellt haben, bestimmt den Namen der JSON-Datei. In diesem Fall wird es `guidite.json` sein.
 

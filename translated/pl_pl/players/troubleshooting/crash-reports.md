@@ -84,10 +84,10 @@ Mixiny są sposobem, w jaki mody mogą modyfikować grę bez konieczności modyf
 
 Kiedy mixin ulegnie awarii, zazwyczaj zostanie wspomniany w śladzie stosu wraz z klasą, którą modyfikuje.
 
-Metody mixinów będą zawierać w śladzie stosu `modid$handlerName`, gdzie `modid` to ID moda, a `handlerName` to nazwa obsługi mixina.
+Metody mixinów będą zawierać w śladzie stosu `mod-id$handlerName`, gdzie `mod-id` to ID moda, a `handlerName` to nazwa obsługi mixina.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Możesz wykorzystać te informacje, aby znaleźć moda, który spowodował awarię, a następnie zgłosić ją autorowi moda.

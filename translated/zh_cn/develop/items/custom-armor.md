@@ -98,8 +98,8 @@ authors:
 
 之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `RegistryKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子。
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子。
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite盔甲模型纹理</DownloadEntry>
 
@@ -107,7 +107,7 @@ authors:
 如果您正在从较低游戏版本升级至1.21.4，您的 `layer0.png` 盔甲纹理将会迁移至 `humanoid` 文件夹；您的 `layer1.png` 盔甲纹理将会迁移至`humanoid_leggings` 文件夹。
 :::
 
-然后，您需要创建一个关联的装备模型定义。 这些会保存在 `/assets/mod-id/equipment/` 文件夹。
+然后，您需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
 
 我们之前创建的 `RegistryKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
 

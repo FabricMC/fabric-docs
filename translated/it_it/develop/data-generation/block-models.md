@@ -92,7 +92,7 @@ Le porte e botole funzionano un po' diversamente. Qui, dovrai creare tre nuove t
 1. La porta:
   - Ha due parti - la metà superiore e quella inferiore. **Ciascuna necessita di una texture propria**: in questo caso `ruby_door_top` per la metà superiore e `ruby_door_bottom` per l'inferiore.
   - Il metodo `registerDoor()` creerà modelli per tutte le orientazioni della porta, sia aperta che chiusa.
-  - **Servirà anche una texture per l'oggetto!** Mettila nella cartella `assets/mod-id/textures/item/`.
+  - **Servirà anche una texture per l'oggetto!** Mettila nella cartella `assets/example-mod/textures/item/`.
 2. La botola:
   - Qui ti basta una texture sola, in questo caso chiamata `ruby_trapdoor`. Verrà usata per tutti i lati.
   - Poiché il `TrapdoorBlock` ha una proprietà `FACING`, puoi usare il metodo commentato per generare file di modello con texture ruotate = la botola sarà "orientabile". Altrimenti avrà lo stesso aspetto in tutte le direzioni.
@@ -141,7 +141,7 @@ Nota le parole chiave `#bottom`, `#top`, `#side`. Queste saranno variabili impos
 }
 ```
 
-Il valore `bottom` sostituirà il segnaposto `#bottom` eccetera. **Mettilo nella cartella `resources/assets/mod-id/models/block/`.**
+Il valore `bottom` sostituirà il segnaposto `#bottom` eccetera. **Mettilo nella cartella `resources/assets/example-mod/models/block/`.**
 
 ### Modello Personalizzato {#custom-model}
 
@@ -149,7 +149,7 @@ Un'altra cosa che ci serve è un'istanza della classe `Model`. Essa rappresenter
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-Il metodo `block()` crea un nuovo `Model`, puntando al file `vertical_slab.json` nella cartella `resources/assets/mod-id/models/block/`.
+Il metodo `block()` crea un nuovo `Model`, puntando al file `vertical_slab.json` nella cartella `resources/assets/example-mod/models/block/`.
 Le `TextureKey` rappresentano i "segnaposto" (`#bottom`, `#top`, ...) come oggetti.
 
 ### Usare le Mappe di Texture {#using-texture-map}

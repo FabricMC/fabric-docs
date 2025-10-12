@@ -92,7 +92,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 1. Двері:
   - Він має дві частини - верхню половину і нижню половину. **Кожному потрібна власна текстура:** у цьому випадку `ruby_door_top` для верхньої половини та `ruby_door_bottom` для нижньої.
   - Метод registerDoor() створить моделі для всіх орієнтацій дверей, як відкритих, так і закритих.
-  - **Вам також потрібна текстура предмета!** Покладіть її в теку `assets/mod_id/textures/item/`.
+  - **Вам також потрібна текстура предмета!** Покладіть її в теку `assets/example-mod/textures/item/`.
 2. Люк:
   - Тут вам потрібна лише одна текстура, у цьому випадку під назвою `ruby_trapdoor`. Він буде використовуватися для всіх сторін.
   - Оскільки `TrapdoorBlock` має властивість `FACING`, ви можете використовувати закоментований метод для генерації файлів моделі з повернутими текстурами = люк буде "орієнтованим". В іншому випадку він виглядатиме однаково незалежно від того, у якому напрямку він дивиться.
@@ -141,7 +141,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 }
 ```
 
-Значення `bottom` замінить заповнювач `#bottom` і так далі. **Помістіть його в теку `resources/assets/mod_id/models/block/`.**
+Значення `bottom` замінить заповнювач `#bottom` і так далі. **Помістіть його в теку `resources/assets/example-mod/models/block/`.**
 
 ### Власна модель {#custom-model}
 
@@ -149,7 +149,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-Метод `block()` створює нову `модель`, вказуючи на файл `vertical_slab.json` у теці `resources/assets/mod_id/models/block/`.
+Метод `block()` створює нову `модель`, вказуючи на файл `vertical_slab.json` у теці `resources/assets/example-mod/models/block/`.
 `TextureKey` представляють "заповнювачі" (`#bottom`, `#top`, ...) як об'єкт.
 
 ### Використання мапи текстури {#using-texture-map}

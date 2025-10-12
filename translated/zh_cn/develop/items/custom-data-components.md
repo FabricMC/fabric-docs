@@ -80,7 +80,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-不要忘记更新你的语言文件（`/assets/mod-id/lang/en_us.json` 和 `/assets/mod-id/lang/zh_cn.json`），并添加这两行：
+不要忘记更新你的语言文件（`/assets/example-mod/lang/en_us.json` 和 `/assets/example-mod/lang/zh_cn.json`），并添加这两行：
 
 ```json
 {

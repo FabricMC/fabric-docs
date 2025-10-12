@@ -71,13 +71,13 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 아이템 이름 짓기 {#naming-the-item}
 
-아이템에 아직 번역이 없기 때문에, 번역을 추가해야 합니다. 번역 키는 이미 Minecraft에서 제공하고 있으며, 예제의 경우에는 `item.mod_id.suspicious_substance` 입니다.
+아이템에 아직 번역이 없기 때문에, 번역을 추가해야 합니다. 번역 키는 이미 Minecraft에서 제공하고 있으며, 예제의 경우에는 `item.example-mod.suspicious_substance` 입니다.
 
-`src/main/resources/assets/mod-id/lang/en_us.json`에 새로운 JSON 파일을 생성하고, 다음과 같이 번역 키를 추가합니다:
+`src/main/resources/assets/example-mod/lang/en_us.json`에 새로운 JSON 파일을 생성하고, 다음과 같이 번역 키를 추가합니다:
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -85,7 +85,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 텍스처와 모델 적용하기 {#adding-a-texture-and-model}
 
-아이템에 텍스처와 모델을 적용하려면, 간단히 16x16 텍스처 이미지를 만든 다음 `src/main/resources/assets/mod-id/textures/item` 폴더에 저장합니다. 텍스처 파일의 이름을 아이템의 식별자와 같게 지정하고, 파일 확장자는 `.png`로 설정합니다.
+아이템에 텍스처와 모델을 적용하려면, 간단히 16x16 텍스처 이미지를 만든 다음 `src/main/resources/assets/example-mod/textures/item` 폴더에 저장합니다. 텍스처 파일의 이름을 아이템의 식별자와 같게 지정하고, 파일 확장자는 `.png`로 설정합니다.
 
 예제에서는, 텍스처 파일의 이름을 `suspicious_substance.png`로 설정하였습니다.
 
@@ -95,7 +95,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 텍스처 입력만 받는, 간단한 `item/generated` 모델을 만들어 봅시다.
 
-`src/main/resources/assets/mod-id/models/item` 폴더에, 아이템과 같은 식별자(예제의 경우 `suspicious_substance.json`) 이름의 JSON 파일을 생성한 다음 아래와 같이 입력합니다:
+`src/main/resources/assets/example-mod/models/item` 폴더에, 아이템과 같은 식별자(예제의 경우 `suspicious_substance.json`) 이름의 JSON 파일을 생성한 다음 아래와 같이 입력합니다:
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
@@ -112,7 +112,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 마인크래프트는 아이템의 모델 파일을 어디서 찾는지 자동으로 알지 못하므로, 아이템 모델 설명을 만들어야 합니다.
 
-`src/main/resources/assets/mod-id/items` 폴더에, 아이템과 같은 식별자(`suspicious_substance.json`)를 이름으로 가지는 아이템 설명 JSON 파일을 생성한 다음, 다음과 같이 입력합니다:
+`src/main/resources/assets/example-mod/items` 폴더에, 아이템과 같은 식별자(`suspicious_substance.json`)를 이름으로 가지는 아이템 설명 JSON 파일을 생성한 다음, 다음과 같이 입력합니다:
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
@@ -120,7 +120,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 - `model`: 모델에 대한 리퍼런스가 포함되는 속성.
   - `type`: 모델의 형태. 대부분의 아이템은, `minecraft:model`이어야 합니다.
-  - `model`: 모델 식별자. `mod_id:item/item_name`과 같은 형태여야 합니다.
+  - `model`: 모델 식별자. `example-mod:item/item_name`과 같은 형태여야 합니다.
 
 이제 인게임에서 아래와 같이 아이템이 표시될 것입니다:
 
@@ -142,7 +142,7 @@ Fabric API는 아이템 속성에 추가적인 속성을 적용할 수 있는 �
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-아이템에 제작법을 추가하고자 한다면, `src/main/resources/data/mod-id/recipe` 폴더에 제작법 JSON을 추가해야 합니다.
+아이템에 제작법을 추가하고자 한다면, `src/main/resources/data/example-mod/recipe` 폴더에 제작법 JSON을 추가해야 합니다.
 
 제작법 포맷에 관한 자세한 내용은 다음 리소스를 참조하여 주십시오:
 

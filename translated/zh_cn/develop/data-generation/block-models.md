@@ -90,9 +90,9 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 门和活板门略有不同。 在这里，你必须制作三个新纹理——两个用于门，一个用于活板门。
 
 1. 门：
-  - 分为两部分——上半部分和下半部分。 \*\*每个都需要独自的纹理：\*\*在本例中，`ruby_door_top` 用于上半部分，`ruby_door_bottom` 用于下半部分。
+  - 分为两部分——上半部分和下半部分。 **每个都需要独自的纹理：**在本例中，`ruby_door_top` 用于上半部分，`ruby_door_bottom` 用于下半部分。
   - `registerDoor()` 方法将为门的所有方向（打开和关闭）创建模型。
-  - \*\*你还需要一个物品纹理！\*\*将其放在 `assets/mod_id/textures/item/` 文件夹中。
+  - **你还需要一个物品纹理！**将其放在 `assets/example-mod/textures/item/` 文件夹中。
 2. 活板门：
   - 在这里，只需要一个纹理，在本例中名为 `ruby_trapdoor`。 它将被用于所有面。
   - 由于 `TrapdoorBlock` 具有 `FACING` 属性，你可以使用注释掉的方法生成具有旋转纹理的模型文件 = 活板门将是“可定向的”。 否则，无论它面向哪个方向，看起来都会一样。
@@ -141,7 +141,7 @@ _点 2. - 6. 在名为 `CustomBlockStateModelGenerator` 的内部静态辅助类
 }
 ```
 
-`bottom` 值将替换 `#bottom` 占位符，依此类推。 **将其放在 `resources/assets/mod_id/models/block/` 文件夹中。**
+`bottom` 值将替换 `#bottom` 占位符，依此类推。 **将其放在 `resources/assets/example-mod/models/block/` 文件夹中。**
 
 ### 自定义模型 {#custom-model}
 
@@ -149,7 +149,7 @@ _点 2. - 6. 在名为 `CustomBlockStateModelGenerator` 的内部静态辅助类
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-`block()` 方法创建一个新的 `Model`，指向 `resources/assets/mod_id/models/block/` 文件夹内的 `vertical_slab.json` 文件。
+`block()` 方法创建一个新的 `Model`，指向 `resources/assets/example-mod/models/block/` 文件夹内的 `vertical_slab.json` 文件。
 `TextureKey` 将“占位符”（#bottom、#top...） 表示为一个对象。
 
 ### 使用纹理映射 {#using-texture-map}

@@ -45,7 +45,7 @@ resources/assets/example-mod/textures/mob_effect/tater.png
 
 ### Traduzioni {#translations}
 
-Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.mod-id.effect-identifier": "Valore"` al file di lingua.
+Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.example-mod.effect-identifier": "Valore"` al file di lingua.
 
 ```json
 {

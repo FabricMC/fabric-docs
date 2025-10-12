@@ -80,7 +80,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-Не забудьте оновити файл мови (`/assets/mod-id/lang/en_us.json`, для української `uk_ua.json`) і додати ці два рядки:
+Не забудьте оновити файл мови (`/assets/example-mod/lang/en_us.json`, для української `uk_ua.json`) і додати ці два рядки:
 
 ```json
 {

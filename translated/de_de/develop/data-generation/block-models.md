@@ -92,7 +92,7 @@ Türen und Falltüren sein ein wenig anders. Hier musst du drei neue Texturen er
 1. Die Tür:
   - Sie hat zwei Teile - die obere und die untere Hälfte. **Jede benötigt ihre eigene Textur:** In diesem Fall `ruby_door_top` für die obere und `ruby_door_bottom` für die untere Hälfte.
   - Die Methode `registerDoor()` wird Modelle für alle Ausrichtungen der Tür, sowohl offen als auch geschlossen erstellen.
-  - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/<mod_id>/textures/item/` ab.
+  - **Du benötigst auch eine Itemtextur!** Lege sie in dem Ordner `assets/example-mod/textures/item/` ab.
 2. Die Falltür:
   - Hier benötigst du nur eine Textur, die in diesem Fall `ruby_trapdoor` heißt. Diese wird für alle Seiten genutzt.
   - Da `TrapdoorBlock` eine Eigenschaft `FACING` hat, kannst du die auskommentierte Methode verwenden, um Modell-Dateien mit rotierten Texturen zu generieren = Die Falltüre wird "orientierbar" sein. Andernfalls sieht sie immer gleich aus, egal in welche Richtung sie gerichtet ist.
@@ -141,7 +141,7 @@ Beachte die Schlüsselwörter `#bottom`, `#top`, `#side`. Sie dienen als Variabl
 }
 ```
 
-Der Wert `bottom` wird den Platzhalter `#bottom` ersetzen und so weiter. **Füge es in den Ordner `resources/assets/mod_id/models/block/` ein.**
+Der Wert `bottom` wird den Platzhalter `#bottom` ersetzen und so weiter. **Füge es in den Ordner `resources/assets/example-mod/models/block/` ein.**
 
 ### Benutzerdefiniertes Modell {#custom-model}
 
@@ -149,7 +149,7 @@ Eine weitere Sache, die wir benötigen, ist eine Instanz der Klasse `Model`. Sie
 
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-Die Methode `block()` erstellt ein neues `Model`, das auf die Datei `vertical_slab.json` in unserem Ordner `resources/assets/mod_id/models/block/` zeigt.
+Die Methode `block()` erstellt ein neues `Model`, das auf die Datei `vertical_slab.json` in unserem Ordner `resources/assets/example-mod/models/block/` zeigt.
 Die `TextureKey`s repräsentieren die "Platzhalter" (`#bottom`, `#top`, ...) als ein Objekt.
 
 ### Die Texture Map verwenden {#using-texture-map}
