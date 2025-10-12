@@ -82,7 +82,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 }
 ```
 
-Don't forget to update your lang file (`/assets/mod-id/lang/en_us.json`) and add these two lines:
+Don't forget to update your lang file (`/assets/example-mod/lang/en_us.json`) and add these two lines:
 
 ```json
 {

@@ -146,8 +146,8 @@ There are two layers for the armor texture, both must be present.
 
 Since the armor material name in our case is `guidite`, the locations of the textures will be:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Armor Model Textures</DownloadEntry>
 
