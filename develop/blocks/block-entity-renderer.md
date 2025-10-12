@@ -15,8 +15,6 @@ Block entity rendering uses a submit/render system where you first submit the da
 
 First, we need to create a `BlockEntityRenderState` for our `CounterBlockEntity` to hold the data that will be used for rendering. In this case, we will need the `clicks` to be available during rendering.
 
- 
-
 Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 
 When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's important to place the class in the appropriate source set, such as `src/client/`, if your project uses split source sets for client and server. Accessing rendering-related classes directly in the `src/main/` source set is not safe because those classes might be loaded on a server.
