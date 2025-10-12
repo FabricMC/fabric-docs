@@ -53,8 +53,8 @@ public class FabricDocsReferenceEvents implements ModInitializer {
 
 			// Create diamond item entity at sheep's position.
 			ItemStack stack = new ItemStack(Items.DIAMOND);
-			ItemEntity itemEntity = new ItemEntity(player.getWorld(), sheep.getX(), sheep.getY(), sheep.getZ(), stack);
-			player.getWorld().spawnEntity(itemEntity);
+			ItemEntity itemEntity = new ItemEntity(player.getEntityWorld(), sheep.getX(), sheep.getY(), sheep.getZ(), stack);
+			player.getEntityWorld().spawnEntity(itemEntity);
 
 			return ActionResult.FAIL;
 		});
