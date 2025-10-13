@@ -32,7 +32,7 @@ authors:
 
 模板模組生成器預設會創建一個 `main` 和一個 `client` 進入點 —— `main` 進入點用於共用的程式碼，而 `client` 進入點則用於客戶端特定的程式碼。 這些進入點會在遊戲啟動時分別被調用。
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 上面是一個簡單的 `main` 進入點範例，在遊戲啟動時向控制台記錄一條訊息。
 
@@ -42,7 +42,7 @@ authors:
 
 它也是 `fabric.mod.json` 和模組使用的 Mixin 配置檔案存放的位置。
 
-資源檔案儲存在與資源包結構相似的結構中－例如，方塊的材質會存放在 `assets/modid/textures/block/block.png` 中。
+資源檔案儲存在與資源包結構相似的結構中－例如，方塊的材質會存放在 `assets/example-mod/textures/block/block.png` 中。
 
 ## `src/client/resources` {#src-client-resources}
 

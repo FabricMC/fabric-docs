@@ -42,7 +42,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。
 
@@ -70,13 +70,13 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 给物品命名 {#naming-the-item}
 
-物品当前还没有翻译，所以需要添加。 Minecraft 已经提供好了翻译键：`item.mod_id.suspicious_substance`。
+物品当前还没有翻译，所以需要添加。 Minecraft 已经提供好了翻译键：`item.example-mod.suspicious_substance`。
 
-创建新的 JSON 文件：`src/main/resources/assets/mod-id/lang/en_us.json`，并将翻译键和名称放在里面：
+创建新的 JSON 文件：`src/main/resources/assets/example-mod/lang/en_us.json`，并将翻译键和名称放在里面：
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -84,7 +84,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 添加纹理和模型 {#adding-a-texture-and-model}
 
-要给你的物品纹理和模型，先简单地为物品创建一个16x16的纹理图像，并存储在 `assets/mod-id/textures/item` 文件夹中。 根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
+要给你的物品纹理和模型，先简单地为物品创建一个16x16的纹理图像，并存储在 `assets/example-mod/textures/item` 文件夹中。 根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
 
 例如，将示例纹理用于 `suspicious_substance.png`。
 
@@ -94,9 +94,9 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 简单创建一个 `item/generated` 模型，接收一个输入纹理，没有其他的。
 
-在 `assets/mod-id/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
+在 `assets/example-mod/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 逐个分析模型 JSON {#breaking-down-the-model-json}
 
@@ -127,7 +127,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/mod-id/recipe` 文件夹中。
+如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/example-mod/recipe` 文件夹中。
 
 更多关于配方格式的信息，可参考以下资源：
 

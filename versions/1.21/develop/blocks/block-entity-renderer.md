@@ -22,7 +22,7 @@ When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's importa
 The new class has a constructor with `BlockEntityRendererFactory.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
 Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
 Add the entrypoint to the `fabric.mod.json` file, so that the renderer is registered.
 

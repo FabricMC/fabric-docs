@@ -39,7 +39,7 @@ Tutti le interfacce callback degli eventi fornite dall'API di Fabric possono ess
 
 Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando colpisce dei blocchi che non droppano un oggetto se rotti senza utensili.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Aggiungere Oggetti alle Loot Table Esistenti {#adding-items-to-existing-loot-tables}
 
@@ -53,7 +53,7 @@ Aggiungeremo le uova alla loot table del minerale di carbone.
 
 L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Aggiungere Oggetti alla Loot Table {#adding-items-to-the-loot-table}
 
@@ -63,7 +63,7 @@ Possiamo creare una pool con `LootPool#builder`, e aggiungerla alla loot table.
 
 La nostra pool non ha nemmeno un oggetto, quindi dovremo creare una voce oggetto usando `ItemEntry#builder` e aggiungerla alla pool.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Eventi Personalizzati {#custom-events}
 
@@ -115,6 +115,6 @@ Ora abbiamo lo scheletro di base dell'evento, ma dobbiamo anche innescarlo. Sicc
 
 Ora dobbiamo testare il nostro evento. Puoi registrare un listener nel tuo metodo d'inizializzazione (o in un'altra area, se preferisci) e aggiungere logica personalizzata lì. Qui c'è un esempio che droppa un diamante anziché lana ai piedi della pecora:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 Se entri nel gioco e tosi una pecora, un diamante dovrebbe essere droppato anziché lana.

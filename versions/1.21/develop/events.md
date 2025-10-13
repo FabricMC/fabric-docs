@@ -41,7 +41,7 @@ All event callback interfaces provided by Fabric API can be found in the `net.fa
 
 This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don't drop an item when hand-mined.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Adding Items to Existing Loot Tables {#adding-items-to-existing-loot-tables}
 
@@ -55,7 +55,7 @@ We'll be adding eggs to the coal ore loot table.
 
 Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your [mod's initializer](./getting-started/project-structure#entrypoints). Let's also check that the current loot table is the coal ore loot table.
 
-@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Adding Items to the Loot Table {#adding-items-to-the-loot-table}
 
@@ -65,7 +65,7 @@ We can make a pool with `LootPool#builder`, and add it to the loot table.
 
 Our pool doesn't have any items either, so we'll make an item entry using `ItemEntry#builder` and add it to the pool.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Custom Events {#custom-events}
 
@@ -117,6 +117,6 @@ We now have the basic event skeleton, but we need to trigger it. Because we want
 
 Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. Here's an example that drops a diamond instead of wool at the sheep's feet:
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 If you enter into your game and shear a sheep, a diamond should drop instead of wool.

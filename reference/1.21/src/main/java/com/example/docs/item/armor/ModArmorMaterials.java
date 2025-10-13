@@ -14,7 +14,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
 
 public class ModArmorMaterials {
@@ -50,12 +50,12 @@ public class ModArmorMaterials {
 			// We can just pass the armor material ID as the texture layer ID.
 			// We have no need for a suffix, so we'll pass an empty string.
 			// We'll pass the dyeable boolean we received as the dyeable parameter.
-			new ArmorMaterial.Layer(Identifier.of(FabricDocsReference.MOD_ID, id), "", dyeable)
+			new ArmorMaterial.Layer(Identifier.of(ExampleMod.MOD_ID, id), "", dyeable)
 		);
 
 		ArmorMaterial material = new ArmorMaterial(defensePoints, enchantability, equipSound, repairIngredientSupplier, layers, toughness, knockbackResistance);
 		// Register the material within the ArmorMaterials registry.
-		material = Registry.register(Registries.ARMOR_MATERIAL, Identifier.of(FabricDocsReference.MOD_ID, id), material);
+		material = Registry.register(Registries.ARMOR_MATERIAL, Identifier.of(ExampleMod.MOD_ID, id), material);
 
 		// The majority of the time, you'll want the RegistryEntry of the material - especially for the ArmorItem constructor.
 		return RegistryEntry.of(material);

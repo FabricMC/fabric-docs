@@ -86,7 +86,7 @@ For example purposes, you may use the following textures and model JSON as a ref
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 As you can see, in-game the armor items should have suitable models:
 
@@ -102,8 +102,8 @@ There are two layers for the armor texture, both must be present.
 
 Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
-- `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
+- `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
@@ -111,13 +111,13 @@ Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_
 If you're updating to 1.21.8 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
 :::
 
-Next, you'll need to create an associated equipment model definition. These go in the `/assets/mod-id/equipment/` folder.
+Next, you'll need to create an associated equipment model definition. These go in the `/assets/example-mod/equipment/` folder.
 
 The `RegistryKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 
 Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 

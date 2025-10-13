@@ -27,13 +27,13 @@ Inoltre tieni a mente che un file audio può aumentare drasticamente le dimensio
 
 ## Caricare il File Audio {#loading-the-audio-file}
 
-Aggiungi un nuovo percorso `resources/assets/mod-id/sounds` per i suoni della tua mod, e trasferisci qui il file audio esportato `metal_whistle.ogg`.
+Aggiungi un nuovo percorso `resources/assets/example-mod/sounds` per i suoni della tua mod, e trasferisci qui il file audio esportato `metal_whistle.ogg`.
 
-Se non esiste ancora, crea il file `resources/assets/mod-id/sounds.json` e aggiungici i tuoi suoni.
+Se non esiste ancora, crea il file `resources/assets/example-mod/sounds.json` e aggiungici i tuoi suoni.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
-La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/mod-id/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
+La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/example-mod/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
 ## Registrare il Suono Personalizzato {#registering-the-custom-sound}
 
@@ -54,7 +54,7 @@ Aggiungi due nuovi metodi alla classe ausiliaria appena creata. Uno che registra
 
 Facendo così, basta che l'initializer della tua mod implementi una riga sola per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 

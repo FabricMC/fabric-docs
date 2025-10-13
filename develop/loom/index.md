@@ -51,7 +51,7 @@ loom {
  splitEnvironmentSourceSets()
 
  mods {
-   modid {
+   example-mod {
      sourceSet sourceSets.main
      sourceSet sourceSets.client
    }

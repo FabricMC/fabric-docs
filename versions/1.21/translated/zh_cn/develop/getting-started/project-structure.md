@@ -39,7 +39,7 @@ authors:
 
 这是一个简单的 `main` 入口点的使用示例，会在游戏开始时记录一条消息到控制台：
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ authors:
 
 它也是 `fabric.mod.json` 和模组使用的 Mixin 配置文件的存放位置。
 
-资源文件存储在与资源包结构相似的结构中——例如，方块的纹理会存放在 `assets/modid/textures/block/block.png` 中。
+资源文件存储在与资源包结构相似的结构中——例如，方块的纹理会存放在 `assets/example-mod/textures/block/block.png` 中。
 
 ## `src/client/resources` {#src-client-resources}
 

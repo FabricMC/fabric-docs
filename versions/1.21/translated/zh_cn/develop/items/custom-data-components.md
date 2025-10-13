@@ -24,7 +24,7 @@ authors:
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    Identifier.of(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -76,23 +76,23 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
-不要忘记更新你的语言文件（`/assets/mod-id/lang/en_us.json` 和 `/assets/<0>/lang/zh_cn.json`），并添加这两行：
+不要忘记更新你的语言文件（`/assets/example-mod/lang/en_us.json` 和 `/assets/<0>/lang/zh_cn.json`），并添加这两行：
 
 ```json
 {
-  "item.fabric-docs-reference.counter": "Counter",
-  "item.fabric-docs-reference.counter.info": "Used %1$s times"
+  "item.example-mod.counter": "Counter",
+  "item.example-mod.counter.info": "Used %1$s times"
 }
 ```
 
 启动游戏，运行这个命令，给自己一个计数为 5 的新的计数器物品。
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+/give @p example-mod:counter[example-mod:click_count=5]
 ```
 
 在物品栏内鼠标悬停在这个物品上时，你可以看到物品提示中显示了计数！
@@ -154,7 +154,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 尝试给予自己一个不含自定义组件的计数器。 可以运行如下命令：
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+/give @p example-mod:counter[!example-mod:click_count]
 ```
 
 鼠标悬浮在物品上，应该不会有提示。

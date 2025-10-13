@@ -13,7 +13,7 @@ Fabric 提供了一種使用 Fabric 範本模組產生器輕鬆建立新模組�
 
 你可以使用 [Fabric 範本模組產生器](https://fabricmc.net/develop/template/) 生成你的新模組專案 —— 有一些必填的項目，例如模組名稱、套件名稱，以及你想基於其開發的 Minecraft 版本。
 
-套件名稱應是小寫字母，由點區隔；套件名稱須具有獨特性，避免和其他開發者的套件衝突。 其格式通常反向的是網域名，例如 `com.example.mod-id`。
+套件名稱應是小寫字母，由點區隔；套件名稱須具有獨特性，避免和其他開發者的套件衝突。 其格式通常反向的是網域名，例如 `com.example.example-mod`。
 
 ![生成器的預覽圖](/assets/develop/getting-started/template-generator.png)
 

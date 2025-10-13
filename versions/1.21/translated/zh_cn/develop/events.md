@@ -39,7 +39,7 @@ Fabric API 提供的所有事件回调接口，可见 `net.fabricmc.fabric.api.e
 
 这个例子注册一个 `AttackBlockCallback`，当玩家徒手击打不掉落物品的方块时，伤害玩家。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### 将物品添加到已存在的战利品表 {#adding-items-to-existing-loot-tables}
 
@@ -53,7 +53,7 @@ Fabric API 提供的所有事件回调接口，可见 `net.fabricmc.fabric.api.e
 
 Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEvents.MODIFY`。 可以在你的模组的[初始化器](./getting-started/project-structure#entrypoints)中注册回调。 我们还要检查一下监听的战利品表是否是煤炭矿石战利品表。
 
-@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### 将物品添加到战利品表 {#adding-items-to-the-loot-table}
 
@@ -63,7 +63,7 @@ Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEven
 
 我们的战利品池中没有任何项目，因此我们将使用 `ItemEntry#builder` 创建一个物品条目，并将其添加到战利品池中。
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## 自定义事件 {#custom-events}
 
@@ -115,6 +115,6 @@ Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEven
 
 现在我们需要测试一下我们的事件。 你可以在初始化方法（如果需要，在其他区域也可以）中注册监听器，并在其中添加自定义逻辑。 这里有一个例子——羊的脚上掉落的不是羊毛，而是一颗钻石：
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 如果你进入游戏并剪羊毛，掉落的应该是钻石而不是羊毛。

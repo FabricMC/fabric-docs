@@ -30,7 +30,7 @@ Vamos a crear una para nuestro efecto de estado personalizado extendiendo la cla
 
 Similar a la registración de bloques e items, usamos `Registry.register` para registrar nuestro efecto personalizado en el registro de `STATUS_EFFECT`. Esto se puede hacer en nuestro inicializador.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Traducciones y Texturas
 
@@ -41,26 +41,26 @@ Puedes asignar un nombre a tu efecto de estado y proveer una textura de ícono p
 El ícono del efecto de estado es una imagen PNG de 18x18 pixeles. Coloca tu ícono personalizado en:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![Efecto en el inventario del jugador](/assets/develop/tater-effect.png)
 
 #### Traducciones
 
-Como cualquier otra traducción, puedes agregar una entrada con el formato de ID `"effect.mod-id.<effect-identifier>": "Valor"` al archivo de idioma.
+Como cualquier otra traducción, puedes agregar una entrada con el formato de ID `"effect.example-mod.<effect-identifier>": "Valor"` al archivo de idioma.
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Probando
 
-Usa el comando `/effect give @p fabric-docs-reference:tater` para darle al jugador nuestro efecto Tater. Usa el comando `/effect clear` para remover el efecto.
+Usa el comando `/effect give @p example-mod:tater` para darle al jugador nuestro efecto Tater. Usa el comando `/effect clear` para remover el efecto.
 
 ::: info
 Para crear una poción que use este efecto, por favor visita la guía sobre [Pociones](../items/potions).

@@ -23,7 +23,7 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
@@ -64,7 +64,7 @@ public class ModBlocks {
 	// :::4
 	public static final RegistryKey<Block> ENGINE_BLOCK_KEY = RegistryKey.of(
 			RegistryKeys.BLOCK,
-			Identifier.of(FabricDocsReference.MOD_ID, "engine")
+			Identifier.of(ExampleMod.MOD_ID, "engine")
 	);
 	public static final Block ENGINE_BLOCK = register(
 			"engine",
@@ -144,11 +144,11 @@ public class ModBlocks {
 	}
 
 	private static RegistryKey<Block> keyOfBlock(String name) {
-		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FabricDocsReference.MOD_ID, name));
+		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(ExampleMod.MOD_ID, name));
 	}
 
 	private static RegistryKey<Item> keyOfItem(String name) {
-		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, name));
 	}
 
 	// :::1

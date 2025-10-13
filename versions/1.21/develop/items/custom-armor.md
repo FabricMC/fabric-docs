@@ -130,7 +130,7 @@ For example purposes, you may use the following textures and model JSON as a ref
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
 
 As you can see, in-game the armor items should have suitable models:
 
@@ -146,8 +146,8 @@ There are two layers for the armor texture, both must be present.
 
 Since the armor material name in our case is `guidite`, the locations of the textures will be:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Armor Model Textures</DownloadEntry>
 

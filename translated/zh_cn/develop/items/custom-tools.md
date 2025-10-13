@@ -42,7 +42,7 @@ authors:
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">纹理</DownloadEntry>
 

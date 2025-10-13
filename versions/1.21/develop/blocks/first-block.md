@@ -37,7 +37,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
@@ -71,13 +71,13 @@ There are a few issues though - the block item is not named, and the block has n
 
 ## Adding Block Translations {#adding-block-translations}
 
-To add a translation, you must create a translation key in your translation file - `assets/mod-id/lang/en_us.json`.
+To add a translation, you must create a translation key in your translation file - `assets/example-mod/lang/en_us.json`.
 
 Minecraft will use this translation in the creative inventory and other places where the block name is displayed, such as command feedback.
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -85,22 +85,22 @@ You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T
 
 ## Models and Textures {#models-and-textures}
 
-All block textures can be found in the `assets/mod-id/textures/block` folder - an example texture for the "Condensed Dirt" block is free to use.
+All block textures can be found in the `assets/example-mod/textures/block` folder - an example texture for the "Condensed Dirt" block is free to use.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
 To make the texture show up in-game, you must create a block and item model which can be found in the respective locations for the "Condensed Dirt" block:
 
-- `assets/mod-id/models/block/condensed_dirt.json`
-- `assets/mod-id/models/item/condensed_dirt.json`
+- `assets/example-mod/models/block/condensed_dirt.json`
+- `assets/example-mod/models/item/condensed_dirt.json`
 
 The item model is pretty simple, it can just use the block model as a parent - since most block models have support for being rendered in a GUI:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 The block model however, in our case, must parent the `block/cube_all` model:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
 
@@ -110,9 +110,9 @@ The blockstate definition is used to instruct the game on which model to render 
 
 For the example block, which doesn't have a complex blockstate, only one entry is needed in the definition.
 
-This file should be located in the `assets/mod_id/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
+This file should be located in the `assets/example-mod/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
 
@@ -122,13 +122,13 @@ Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply change
 
 ## Adding Block Drops {#adding-block-drops}
 
-When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/mod-id/loot_table/blocks/` folder.
+When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/example-mod/loot_table/blocks/` folder.
 
 ::: info
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 This loot table provides a single item drop of the block item when the block is broken, and when it is blown up by an explosion.
 

@@ -27,13 +27,13 @@ También ten en cuenta que los archivos de audio pueden aumentar el tamaño de t
 
 ## Cargando El Archivo de Audio
 
-Agrega un nuevo folder `resources/assets/mod-id/sounds` para los sonidos en tu mod, y pon el archivo de audio exportado `metal_whistle.ogg` ahí.
+Agrega un nuevo folder `resources/assets/example-mod/sounds` para los sonidos en tu mod, y pon el archivo de audio exportado `metal_whistle.ogg` ahí.
 
-Continúa creando el archivo `resources/assets/mod-id/sounds.json` si no existe todavía y agrega tu sonido a las entradas de sonido.
+Continúa creando el archivo `resources/assets/example-mod/sounds.json` si no existe todavía y agrega tu sonido a las entradas de sonido.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
 
-La entrada de subtítulo provee más contexto para el jugador. El nombre del subtítulo es usado en los archivos de lenguaje en el folder de `resources/assets/mod-id/lang` y serán mostrados si la opción de subtítulos en el juego es activada y el sonido personalizado está siendo reproducido.
+La entrada de subtítulo provee más contexto para el jugador. El nombre del subtítulo es usado en los archivos de lenguaje en el folder de `resources/assets/example-mod/lang` y serán mostrados si la opción de subtítulos en el juego es activada y el sonido personalizado está siendo reproducido.
 
 ## Registrando el Sonido Personalizado
 
@@ -54,7 +54,7 @@ Agrega dos nuevos métodos a la nueva clase ayudante creada. Uno, que registre t
 
 De esta manera, la clase implementadora de `ModInitializer` solo tiene que implementar una línea para registrar todos los SoundEvents personalizados.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usando el SoundEvent Personalizado
 

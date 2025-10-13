@@ -39,7 +39,7 @@ Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
 
 Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.21/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, 
 
 Es ist auch der Ort, an dem sich die Datei `fabric.mod.json` und alle Mixin-Konfigurationsdateien befinden, die dein Mod verwendet.
 
-Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/modid/textures/block/block.png` gespeichert werden.
+Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/example-mod/textures/block/block.png` gespeichert werden.
 
 ## `src/client/resources` {#src-client-resources}
 

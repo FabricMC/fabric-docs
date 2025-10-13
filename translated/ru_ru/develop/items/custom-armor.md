@@ -82,7 +82,7 @@ authors:
 Вам понадобятся файлы моделей JSON для всех предметов, а не только для шлема, принцип тот же, что и для других моделей предметов.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Как видите, в игре предметы брони должны иметь подходящие модели:
 
@@ -98,8 +98,8 @@ authors:
 
 Ранее мы создали константу `RegistryKey<EquipmentAsset>` с именем `GUIDITE_ARMOR_MATERIAL_KEY`, которую мы передали в наш конструктор `ArmorMaterial`. Рекомендуется называть текстуру аналогичным образом, поэтому в нашем случае это `guidite.png`
 
-- `assets/mod-id/textures/entity/equipment/humanoid/guid item.png` - Содержит текстуры верхней части тела и ботинок.
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guid item.png` - Содержит текстуры ног.
+- `assets/example-mod/textures/entity/equipment/humanoid/guid item.png` - Содержит текстуры верхней части тела и ботинок.
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guid item.png` - Содержит текстуры ног.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Текстуры моделей брони Guidite</DownloadEntry>
 
@@ -107,13 +107,13 @@ authors:
 Если вы обновляетесь до версии 1.21.4 со старой версии игры, то текстура брони `layer0.png` будет помещена в папку `humanoid`, а текстура брони `layer1.png` - в папку `humanoid_leggings`.
 :::
 
-Далее вам нужно будет создать соответствующее определение модели оборудования. Они находятся в папке `/assets/mod-id/equipment/`.
+Далее вам нужно будет создать соответствующее определение модели оборудования. Они находятся в папке `/assets/example-mod/equipment/`.
 
 Константа `RegistryKey<EquipmentAsset>`, которую мы создали ранее, будет определять имя файла JSON. В данном случае это будет `guidite.json`.
 
 Так как мы планируем добавлять только "гуманоидов" (шлем, нагрудник, поножи, ботинки и т.д.) части брони, определение модели нашего снаряжения, будут выглядеть следующим образом:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 При наличии текстур и определения модели снаряжения вы сможете увидеть свою броню на объектах, которые ее носят:
 

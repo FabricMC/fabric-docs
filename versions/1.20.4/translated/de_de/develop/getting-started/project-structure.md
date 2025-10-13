@@ -34,7 +34,7 @@ Wie bereits erwähnt, enthält die Datei `fabric.mod.json` ein Feld namens `entr
 
 Der Vorlagen-Mod-Generator erstellt standardmäßig sowohl einen `main`- als auch einen `client`-Einstiegspunkt - der `main`-Einstiegspunkt wird für allgemeinen Code verwendet, der `client`-Einstiegspunkt für Client-spezifischen Code. Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 Das obige ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet.
 
@@ -44,7 +44,7 @@ Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, 
 
 Es ist auch der Ort, an dem sich die Datei `fabric.mod.json` und alle Mixin-Konfigurationsdateien befinden, die dein Mod verwendet.
 
-Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/modid/textures/block/block.png` gespeichert werden.
+Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/example-mod/textures/block/block.png` gespeichert werden.
 
 ## `src/client/resources`
 

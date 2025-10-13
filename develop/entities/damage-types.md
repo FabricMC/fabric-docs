@@ -17,12 +17,12 @@ will
 be placed in your mod's `data` directory, in a subdirectory named `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 It has the following structure:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -42,7 +42,7 @@ of `DamageSource`.
 
 The `RegistryKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Using Damage Types {#using-damage-types}
 

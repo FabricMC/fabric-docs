@@ -18,7 +18,7 @@ authors:
 
 `Potion` 인스턴스를 저장할 필드를 만들며 시작해 봅시다. 이를 보관하기 위해 `ModInitializer` 구현 클래스를 직접 사용하겠습니다.
 
-@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/1.21/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `StatusEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
 
@@ -34,7 +34,7 @@ authors:
 
 이니셜라이저에서 `BrewingRecipeRegistry.registerPotionRecipe` 메서드를 사용해 물약 효과를 등록하기 위해 `FabricBrewingRecipeRegistryBuilder.BUILD` 이벤트를 사용할 것입니다.
 
-@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-42}](@/reference/1.21/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe`는 세 가지 매개변수를 가집니다.
 
