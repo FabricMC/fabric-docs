@@ -14,12 +14,12 @@ Fabric provides an easy way to create a new mod project using the Fabric Templat
 
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the mod name, package name, and the Minecraft version that you want to develop for.
 
-The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.mod-id`.
+The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.example-mod`.
 
 ::: warning
-Make sure you remember your mod's ID! Whenever you find `mod-id` in these docs, especially in file paths, you will have to replace it with your own.
+Make sure you remember your mod's ID! Whenever you find `example-mod` in these docs, especially in file paths, you will have to replace it with your own.
 
-For example, if your mod ID was **`fabric-docs-reference`**, instead of _`resources/assets/mod-id`_ use **`resources/assets/fabric-docs-reference`**.
+For example, if your mod ID was **`my-cool-mod`**, instead of _`resources/assets/example-mod`_ use **`resources/assets/my-cool-mod`**.
 :::
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)

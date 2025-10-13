@@ -30,32 +30,32 @@ authors-nogithub:
 
 Схожим с регистрацией блоков и предметов образом, мы используем `Registry.register`, чтобы зарегистрировать наш эффект в реестре `STATUS_EFFECT`. Это можно сделать в нашем инициализаторе.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Текстура
 
 Иконка эффекта состояния представляет собой PNG-файл размером 18×18 пикселей. Поместите свою иконку в папку:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Пример текстуры</DownloadEntry>
 
 ### Переводы {#translations}
 
-Как и с любыми другими переводами, вы можете добавить запись формата `"effect.mod-id.<effect-identifier>": "Значение"` в языковой файл.
+Как и с любыми другими переводами, вы можете добавить запись формата `"effect.example-mod.<effect-identifier>": "Значение"` в языковой файл.
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Тестирование
 
-Используйте команду `/effect give @p fabric-docs-reference:tater`, чтобы дать игроку наш эффект Tater.
-Используйте команду `/effect clear @p fabric-docs-reference:tater`, чтобы удалить эффект.
+Используйте команду `/effect give @p example-mod:tater`, чтобы дать игроку наш эффект Tater.
+Используйте команду `/effect clear @p example-mod:tater`, чтобы удалить эффект.
 
 :::info
 ::: info

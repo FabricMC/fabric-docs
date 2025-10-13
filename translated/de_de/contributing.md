@@ -177,15 +177,15 @@ Der Anker muss Kleinbuchstaben, Zahlen und Bindestriche enthalten.
 
 Wenn du Seiten erstellst oder änderst, die Code enthalten, platziere den Code an einer geeigneten Stelle innerhalb des Referenz-Mod (im Ordner `/reference` des Repository). Verwende dann die [Code-Snippet-Funktion, die von VitePress angeboten wird](https://vitepress.dev/guide/markdown#import-code-snippets), um den Code einzubetten, oder wenn du eine größere Kontrollspanne benötigst, kannst du die [transclude-Funktion von `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced) verwenden.
 
-Dies wird die Zeilen 15-21 der Datei `FabricDocsReference.java` des Referenz-Mod einbetten.
+Dies wird die Zeilen 15-21 der Datei `ExampleMod.java` des Referenz-Mod einbetten.
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ So werden beispielsweise die Abschnitte der obigen Datei eingebettet, die mit de
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

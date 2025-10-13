@@ -128,7 +128,7 @@ public void onInitialize() {
 你需要所有物品的模型 JSON 文件，不只是头盔，这原则和其他物品模型一样。
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
 
 可以看到，游戏内的盔甲物品应该有合适的模型：
 
@@ -144,8 +144,8 @@ public void onInitialize() {
 
 因为我们这个例子中，盔甲的材料名称是 `guidite`，所以文本的位置会是：
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">盔甲模型纹理</DownloadEntry>
 

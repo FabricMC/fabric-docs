@@ -61,7 +61,7 @@ public class DrawContextExampleScreen extends Screen {
 		// :::5
 
 		// :::6
-		Identifier texture2 = Identifier.of("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
+		Identifier texture2 = Identifier.of("example-mod", "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
 		context.drawTexture(texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);

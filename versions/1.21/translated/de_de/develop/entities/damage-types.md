@@ -14,12 +14,12 @@ Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können.
 Lass uns eine benutzerdefinierte Schadensart mit dem Namen _Tater_ erstellen. Wir beginnen mit der Erstellung einer JSON-Datei für deinen benutzerdefinierten Schaden. Diese Datei wird im `data`-Verzeichnis deines Mods in einem Unterverzeichnis mit dem Namen `damage_type` abgelegt.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 Sie hat folgende Struktur:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Diese benutzerdefinierte Schadensart verursacht jedes Mal, wenn ein Spieler Schaden erleidet, einen Anstieg von 0,1 an [Erschöpfung](https://de.minecraft.wiki/w/Hunger#Ersch%C3%B6pfung), wenn der Schaden von einer lebenden Nicht-Spieler-Quelle (z.B. Weiterhin skaliert sich die Höhe des verursachten Schadens mit dem Schwierigkeitsgrad der Welt.
 
@@ -35,7 +35,7 @@ Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müs
 
 Der `RegistryKey` kann wie folgt ermittelt werden:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Schadensarten verwenden {#using-damage-types}
 
@@ -61,7 +61,7 @@ Wenn nun eine lebende Entität auf unseren benutzerdefinierten Block tritt, erle
 
 Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.<message_id>` in der Datei `en_us.json` unseres Mods definieren.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
 
 Beim Tod durch unsere Schadensart wirst du die folgende Todesnachricht sehen:
 

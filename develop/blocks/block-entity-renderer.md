@@ -26,7 +26,7 @@ Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 The new class has a constructor with `BlockEntityRendererFactory.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
 Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
 We will override a few methods to set up the render state along with the `render` method where the rendering logic will be set up.
 

@@ -20,9 +20,9 @@ The most important fields in the `fabric.mod.json` file are:
 - `depends`: The mods that your mod depends on.
 - `mixins`: The mixins that your mod provides.
 
-You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the reference project that powers this documentation site.
+You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the mod that powers this documentation site.
 
-::: details Reference Project `fabric.mod.json`
+::: details `fabric.mod.json` of the Example Mod
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
@@ -39,7 +39,7 @@ These entrypoints are called respectively when the game starts.
 
 Here's an example of a simple `main` entrypoint that logs a message to the console when the game starts:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ The `src/main/resources` folder is used to store the resources that your mod use
 
 It's also the location of `fabric.mod.json` and any mixin configuration files that your mod uses.
 
-Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/mod-id/textures/block/block.png`.
+Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
@@ -27,7 +27,7 @@ public class ModBlockEntities {
 			FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
 			Block... blocks
 	) {
-		Identifier id = Identifier.of(FabricDocsReference.MOD_ID, name);
+		Identifier id = Identifier.of(ExampleMod.MOD_ID, name);
 		return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
 

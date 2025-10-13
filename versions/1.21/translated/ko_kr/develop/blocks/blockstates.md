@@ -13,7 +13,7 @@ authors:
 
 세계의 용량을 줄이고, TPS 문제를 막아주기 때문에 — 또한 블록 엔티티 안에 NBT 데이터를 저장하는 것의 필요가 없습니다. — 아마도 이것들이 왜 유용한지 알 수 있습니다.
 
-블록 상태 정의는 `assets/mod-id/blockstates` 폴더에서 찾을 수 있습니다.
+블록 상태 정의는 `assets/example-mod/blockstates` 폴더에서 찾을 수 있습니다.
 
 ## 예시: 기둥 블록 {#pillar-block}
 
@@ -27,7 +27,7 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 기둥 블록은 두 가지의 텍스처 — 윗면과 옆면 — 이 있습니다. `block/cube_column` 모델을 사용합니다.
 
-언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/mod-id/textures/block` 에서 찾을 수 있습니다.
+언제나 모든 블록 텍스처들의 경우, 텍스처 파일은 `assets/example-mod/textures/block` 에서 찾을 수 있습니다.
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">텍스처</DownloadEntry>
 
@@ -38,10 +38,10 @@ Minecraft는 이미 빠르게 특정 종류의 블록을 만들 수 있도록 �
 
 `condensed_oak_log_horizontal.json` 파일의 예시:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 모든 블록 상태 파일 안의 수정자에 대한 더 자세한 보기는 [Minecraft 위키 - 모델 문단 (Block States) (영어)](https://minecraft.wiki/w/Tutorials/Models#Block_states)에 있습니다.
 :::
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 - `axis=y` - 블록이 Y축을 따라 설치되면, 기본 수직 모델을 사용할 것입니다.
 - `axis=z` - 블록이 Z축을 따라 설치되면, 양의 Z축 방향을 향하도록 모델을 회전할 것입니다.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 언제나 블록에 대한 번역과 두 모델 중 하나의 부모격이 되는 아이템 모델을 만들어야 할 것입니다.
 
@@ -102,7 +102,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 블록이 오직 두 개의 가능한 변형이 있고, 오직 한 개의 속성 (`activated`)가 있으므로, 블록 상태 JSON 파일은 다음과 같을 것입니다.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 예시 블록이 바다 랜턴이기 때문에, 또한 `activated` 속성이 true (참)일 때 발광하도록 만들어야 합니다. 이는 블록을 등록할 때 생성자로 전달된 블록 설정을 통하여 완료될 수 있습니다.
 

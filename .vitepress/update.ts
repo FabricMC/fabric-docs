@@ -76,7 +76,7 @@ import players from "./sidebars/players";
 
   fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
-  console.log("Reference mod has been bumped successfully.");
+  console.log("Example mod has been bumped successfully.");
   console.log("Migrating content to versioned/" + oldVersion + "...");
 
   // Move all markdown files except README.md to versions/oldVersion

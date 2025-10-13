@@ -62,6 +62,6 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
 
 	@Override
 	public String getName() {
-		return "ReferenceDocEnchantmentGenerator";
+		return "ExampleModEnchantmentGenerator";
 	}
 }

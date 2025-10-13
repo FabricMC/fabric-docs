@@ -36,7 +36,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Creare e Registrare il Tuo Blocco {#creating-and-registering-your-block}
 
@@ -75,13 +75,13 @@ Ci sono alcuni problemi tuttavia - il blocco non ha nome, non ha texture e non h
 
 ## Aggiungere Traduzioni del Blocco {#adding-block-translations}
 
-Per aggiungere una traduzione, devi creare una chiave di traduzione nel tuo file di traduzioni - `assets/mod-id/lang/en_us.json`.
+Per aggiungere una traduzione, devi creare una chiave di traduzione nel tuo file di traduzioni - `assets/example-mod/lang/en_us.json`.
 
 Minecraft userà questa traduzione nell'inventario in creativa e in altri posti in cui il nome del blocco viene mostrato, come nel feedback dei comandi.
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -89,17 +89,17 @@ Per applicare le modifiche, puoi riavviare il gioco o costruire la tua mod e pre
 
 ## Modelli e Texture {#models-and-textures}
 
-Tutte le texture dei blocchi si trovano nella cartella `assets/mod-id/textures/block` - ti forniamo una texture di esempio del blocco di "Terra Condensata", che sei libero di usare.
+Tutte le texture dei blocchi si trovano nella cartella `assets/example-mod/textures/block` - ti forniamo una texture di esempio del blocco di "Terra Condensata", che sei libero di usare.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texture</DownloadEntry>
 
-Per fare in modo che la texture sia visibile nel gioco, devi creare un modello del blocco, presenti nel file `assets/mod-id/models/block/condensed_dirt.json` per quanto riguarda il blocco di "Terra Condensata". Per questo blocco useremo il tipo di modello `block/cube_all`.
+Per fare in modo che la texture sia visibile nel gioco, devi creare un modello del blocco, presenti nel file `assets/example-mod/models/block/condensed_dirt.json` per quanto riguarda il blocco di "Terra Condensata". Per questo blocco useremo il tipo di modello `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-Perché il blocco sia mostrato nell'inventario, dovrai creare una [Descrizione del Modello dell'Oggetto](../items/first-item#creating-the-item-model-description) che punti al modello del tuo blocco. Per questo esempio la descrizione del modello dell'oggetto per il blocco "Terra Condensata" si può trovare in `assets/mod-id/items/condensed_dirt.json`.
+Perché il blocco sia mostrato nell'inventario, dovrai creare una [Descrizione del Modello dell'Oggetto](../items/first-item#creating-the-item-model-description) che punti al modello del tuo blocco. Per questo esempio la descrizione del modello dell'oggetto per il blocco "Terra Condensata" si può trovare in `assets/example-mod/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Dovrai creare una descrizione del modello d'oggetto solo se hai registrato un `BlockItem` assieme al tuo blocco!
@@ -113,9 +113,9 @@ La definizione degli stati del blocco è usata dal gioco per capire quale modell
 
 Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella definizione.
 
-Questo file si dovrebbe trovare nella cartella `assets/mod-id/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
+Questo file si dovrebbe trovare nella cartella `assets/example-mod/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Gli stati dei blocchi sono davvero complessi, ed è per questo che gli tratteremo successivamente in una [loro pagina a parte](./blockstates).
@@ -127,13 +127,13 @@ Riavviando il gioco o ricaricando con <kbd>F3</kbd>+<kbd>T</kbd> per applicare l
 
 ## Aggiungere Drop al Blocco {#adding-block-drops}
 
-Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non droppa - potresti volere questa funzionalità, ma per fare in modo che il blocco droppi come oggetto quando viene rotto devi implementarne la loot table - il file della loot table dovrebbe essere nella cartella `data/mod-id/loot_table/blocks/`.
+Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non droppa - potresti volere questa funzionalità, ma per fare in modo che il blocco droppi come oggetto quando viene rotto devi implementarne la loot table - il file della loot table dovrebbe essere nella cartella `data/example-mod/loot_table/blocks/`.
 
 :::info
 Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 

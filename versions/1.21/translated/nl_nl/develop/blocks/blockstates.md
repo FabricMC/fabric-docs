@@ -13,7 +13,7 @@ Een block staat is een stukje data gekoppeld aan een enkel blok in de Minecraft 
 
 Je kunt je dus wel inbeelden waarom ze zo handig zijn - ze vermijden de noodzaak om gegevens in een blok entiteit op te slaan - wat de wereld grootte verkleint en TPS-problemen voorkomt!
 
-Blok staat definities kunnen gevonden worden in de `assets/mod-id/blockstates` folder.
+Blok staat definities kunnen gevonden worden in de `assets/example-mod/blockstates` folder.
 
 ## Voorbeeld: Pilaar Blok {#pillar-block}
 
@@ -27,7 +27,7 @@ Met de vanilla class `PillarBlock` kan het blok in de X-, Y- of Z-as worden gepl
 
 Pilaren hebben twee texturen, de bovenkant en de zijkant - ze maken gebruik van het `block/cube_collumn` model.
 
-Zoals gewoonlijk, met alle blok texturen, kunnen de textuurbestanden worden gevonden in `assets/mod-id/textures/block`
+Zoals gewoonlijk, met alle blok texturen, kunnen de textuurbestanden worden gevonden in `assets/example-mod/textures/block`
 
 <DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
 
@@ -38,10 +38,10 @@ Omdat de pilaar twee posities heeft, horizontaal en verticaal, zullen we twee ve
 
 Hier een voorbeeld van het bestand `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Voor een meer diepgaande blik op alle modificaties die beschikbaar zijn in de blockstate-bestanden, ga naar de pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
@@ -52,7 +52,7 @@ Vervolgens zullen we een blok staat bestand moeten maken. Het blok staat bestand
 - `axis=y` - Wanneer het blok langs de Y-as wordt geplaatst, gebruiken we het normale verticale model.
 - `axis=z` - Wanneer het blok langs de Z-as wordt geplaatst, roteren we het model in de positieve X-richting.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Zoals altijd moet je een vertaling voor uw blok maken, en een voorwerp model dat de "parent" is van een van de twee modellen.
 
@@ -102,7 +102,7 @@ Als je meerdere eigenschappen hebt voor een blok, moet je met alle mogelijke com
 
 Omdat dit blok maar twee mogelijke varianten heeft, omdat er maar een eigenschap is (`activated`), zal de blok staat JSON er ongeveer zo uitzien:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Omdat het voorbeeldblok een lamp is, zullen we er ook voor moeten zorgen dat het licht uitstraalt als de eigenschap `activated` waar is. Dit kan worden gedaan via de blokinstellingen die aan de constructor worden doorgegeven bij het registreren van het blok.
 

@@ -12,7 +12,7 @@ authors:
 
 [Fabric 템플릿 모드 생성기](https://fabricmc.net/develop/template/)로 새 프로젝트를 생성할 수 있습니다. 모드 이름, 패키지 이름, 그리고 개발하려면 Minecraft 버전 등의 필수 항목을 입력해야 합니다.
 
-패키지의 이름은 소문자여야 하며, 점으로 분류되고, 다른 프로그래머의 패키지와의 충돌을 피하기 위해 고유해야 합니다. 주로, `com.example.modid`같은 형식의 역순 인터넷 도메인으로 지정됩니다.
+패키지의 이름은 소문자여야 하며, 점으로 분류되고, 다른 프로그래머의 패키지와의 충돌을 피하기 위해 고유해야 합니다. 주로, `com.example.example-mod`같은 형식의 역순 인터넷 도메인으로 지정됩니다.
 
 ![생성기 미리보기](/assets/develop/getting-started/template-generator.png)
 

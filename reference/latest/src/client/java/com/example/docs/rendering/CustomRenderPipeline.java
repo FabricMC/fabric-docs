@@ -30,7 +30,7 @@ package com.example.docs.rendering;
 import net.fabricmc.api.ClientModInitializer;
 // import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 // import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-// import com.example.docs.FabricDocsReference;
+// import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
@@ -39,7 +39,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static CustomRenderPipeline instance;
 	// :::custom-pipelines:define-pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.POSITION_COLOR_SNIPPET)
-			.withLocation(Identifier.of(FabricDocsReference.MOD_ID, "pipeline/debug_filled_box_through_walls"))
+			.withLocation(Identifier.of(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
 			.withVertexFormat(VertexFormats.POSITION_COLOR, VertexFormat.DrawMode.TRIANGLE_STRIP)
 			.withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
 			.build()
@@ -111,7 +111,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		// Initialize or resize the vertex buffer as needed
 		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
-			vertexBuffer = new MappableRingBuffer(() -> FabricDocsReference.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
+			vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
 		}
 
 		// Copy vertex data into the vertex buffer
@@ -146,7 +146,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 				.write(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, RenderSystem.getModelOffset(), RenderSystem.getTextureMatrix(), 1f);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
-				.createRenderPass(() -> FabricDocsReference.MOD_ID + " example render pipeline rendering", client.getFramebuffer().getColorAttachmentView(), OptionalInt.empty(), client.getFramebuffer().getDepthAttachmentView(), OptionalDouble.empty())) {
+				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getFramebuffer().getColorAttachmentView(), OptionalInt.empty(), client.getFramebuffer().getDepthAttachmentView(), OptionalDouble.empty())) {
 			renderPass.setPipeline(pipeline);
 
 			RenderSystem.bindDefaultUniforms(renderPass);

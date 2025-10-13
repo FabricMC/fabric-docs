@@ -130,7 +130,7 @@ Se vuoi solo riprodurre qualcosa come un clic su un elemento dell'interfaccia gr
 
 Tieni a mente che questo sarà riprodotto solo sul client che ha eseguito questa parte del codice in particolare.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 :::warning
 Si prega di notare che la classe `AbstractSoundInstance`, da cui le `SoundInstance` ereditano, ha l'annotazione `@Environment(EnvType.CLIENT)`.
@@ -163,7 +163,7 @@ Se noti che i tuoi valori non si allineano, assicurati che siano sincronizzati o
 Dopo aver finito di creare la tua `SoundInstance` personalizzata, è tutto pronto per usarla ovunque, a condizione che venga eseguita lato client con il gestore di suoni.
 Allo stesso modo, puoi anche fermare la `SoundInstance` personalizzata manualmente, se necessario.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/FabricDocsDynamicSound.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 Il loop di suono sarà adesso riprodotto solo sul client che ha eseguito quella `SoundInstance`. In questo caso, il suono seguirà la `ClientPlayerEntity` stessa.
 

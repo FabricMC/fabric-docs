@@ -32,7 +32,7 @@ search: false
 
 블록, 아이템 등록처럼, `Registry.register`를 통해 `STATUS_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### 현지화와 텍스쳐
 
@@ -43,26 +43,26 @@ search: false
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![플레이어 인벤토리에서 보여지는 효과](/assets/develop/tater-effect.png)
 
 #### 현지화
 
-다른 현지화처럼, 간단히 언어 파일에 `"effect.mod-id.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
+다른 현지화처럼, 간단히 언어 파일에 `"effect.example-mod.<effect-identifier>": "값"` 포맷의 엔트리 ID를 추가하기만 하면 됩니다.
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### 테스트
 
-`/effect give @s fabric-docs-reference:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요. `/effect clear`로 효과를 제거할 수 있습니다.
+`/effect give @s example-mod:tater` 명령어를 사용해 직접 Tater 효과를 부여해 보세요. `/effect clear`로 효과를 제거할 수 있습니다.
 
 ::: info
 사용자 정의 효과를 부여하는 물약을 만드는 방법은 [물약](../items/potions) 가이드를 참조하세요.

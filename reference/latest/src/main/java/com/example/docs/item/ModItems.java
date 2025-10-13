@@ -27,7 +27,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
@@ -93,10 +93,10 @@ public class ModItems {
 	);
 	// :::_13
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "item_group"));
+	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(ExampleMod.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
+			.displayName(Text.translatable("itemGroup.example-mod"))
 			.build();
 	// :::9
 	// :::5
@@ -123,7 +123,7 @@ public class ModItems {
 	// :::1
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		// Create the item key.
-		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
 		Item item = itemFactory.apply(settings.registryKey(itemKey));

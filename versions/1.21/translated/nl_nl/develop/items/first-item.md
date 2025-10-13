@@ -42,7 +42,7 @@ Om dit te doen, kunt u een openbare statische initialisatiemethode aan uw klasse
 
 @[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Het aanroepen van een methode voor een klasse initialiseert deze statisch als deze nog niet eerder is geladen - dit betekent dat alle `static` velden worden geëvalueerd. Dit is waar de dummy `initialize` voor is.
 
@@ -70,13 +70,13 @@ Echter mist het het volgende:
 
 ## Het Voorwerp Benoemen {#naming-the-item}
 
-Momenteel heeft het voorwerp geen vertaling, dus je zult er een moeten toevoegen. De vertaalsleutel is al door Minecraft verstrekt: `item.mod_id.suspicious_substance`.
+Momenteel heeft het voorwerp geen vertaling, dus je zult er een moeten toevoegen. De vertaalsleutel is al door Minecraft verstrekt: `item.example-mod.suspicious_substance`.
 
-Maak een nieuw JSON-bestand in: `src/main/resources/assets/mod-id/lang/nl_nl.json` (`en_us.json` voor Engels) en plaats de vertaalsleutel en de waarde ervan:
+Maak een nieuw JSON-bestand in: `src/main/resources/assets/example-mod/lang/nl_nl.json` (`en_us.json` voor Engels) en plaats de vertaalsleutel en de waarde ervan:
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+    "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -84,7 +84,7 @@ Je kunt het spel opnieuw starten of je mod bouwen en op <kbd>F3</kbd>+<kbd>T</kb
 
 ## Een Textuur en Model Toevoegen {#adding-a-texture-and-model}
 
-Om je voorwerp een ​​textuur en model te geven, maak je eenvoudig een textuurafbeelding van 16x16 pixels voor uw item en slaat u deze op in de map `assets/mod-id/textures/item`. Geef het textuurbestand dezelfde naam als de ID van het voorwerp, maar met de extensie `.png`.
+Om je voorwerp een ​​textuur en model te geven, maak je eenvoudig een textuurafbeelding van 16x16 pixels voor uw item en slaat u deze op in de map `assets/example-mod/textures/item`. Geef het textuurbestand dezelfde naam als de ID van het voorwerp, maar met de extensie `.png`.
 
 Je kunt deze voorbeeldtextuur bijvoorbeeld gebruiken voor `suspicious_substance.png`
 
@@ -94,9 +94,9 @@ Bij het herstarten/herladen van het spel zou je moeten zien dat het voorwerp nog
 
 Je gaat een eenvoudig `item/generated`-model maken, dat een invoertextuur bevat en niets anders.
 
-Maak de model-JSON in de map `assets/mod-id/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
+Maak de model-JSON in de map `assets/example-mod/models/item`, met dezelfde naam als het item; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Het Model-JSON Afbreken {#breaking-down-the-model-json}
 
@@ -127,7 +127,7 @@ Als je van je voorwerp een ​​brandstof wilt maken, kun je ook de klasse `Fue
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Als u een recept voor uw item wilt toevoegen, moet u een JSON-receptbestand in de map `data/mod-id/recipe` plaatsen.
+Als u een recept voor uw item wilt toevoegen, moet u een JSON-receptbestand in de map `data/example-mod/recipe` plaatsen.
 
 Voor meer informatie over het receptformaat kunt u deze bronnen raadplegen:
 

@@ -39,7 +39,7 @@ authors:
 
 Вот пример простой `main` точки входа этих логов, которая записывает сообщение на консоль при запуске игры:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ authors:
 
 Это так же папка хранения `fabric.mod.json` и все файлы конфигурации, которые использует ваш мод.
 
-Ассеты хранятся в структуре, которая отражает структуру пакетов ресурсов — например, текстура для блока будет храниться в `assets/mod-id/textures/block/block.png`.
+Ассеты хранятся в структуре, которая отражает структуру пакетов ресурсов — например, текстура для блока будет храниться в `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

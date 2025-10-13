@@ -13,7 +13,7 @@ Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Mine
 
 Probabilmente hai capito perché sono così utili - per evitare di immagazzinare dati NBT in un blocco-entità, riducendo dunque le dimensioni del mondo e migliorando i TPS!
 
-Le definizioni degli stati dei blocchi si trovano nella cartella `assets/mod-id/blockstates`.
+Le definizioni degli stati dei blocchi si trovano nella cartella `assets/example-mod/blockstates`.
 
 ## Esempio: Pilastro {#pillar-block}
 
@@ -27,7 +27,7 @@ La classe vanilla `PillarBlock` permette di piazzare il blocco lungo gli assi X,
 
 I pilastri hanno due texture diverse, superiore e laterale - e usano il modello `block/cube_column`.
 
-Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/mod-id/textures/blocks`
+Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/example-mod/textures/blocks`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">le Texture</DownloadEntry>
 
@@ -38,10 +38,10 @@ Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare 
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)]
 (<https://minecraft.wiki/w/Tutorials/Models#Block_states>).
@@ -53,7 +53,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
 - `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello dell'oggetto il quale deve essere figlio di uno dei due modelli.
 
@@ -103,7 +103,7 @@ Se hai proprietà multiple su un blocco, dovrai tenere in conto tutte le possibi
 
 Poiché questo blocco ha solo due possibili varianti, dato che ha solo una proprietà (`activated`), il file JSON degli stati del blocco avrà il seguente aspetto:
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luce quando la proprietà `activated` è `true`. Questo si può ottenere tramite le impostazioni del blocco, passate al costruttore durante la registrazione del blocco.
 

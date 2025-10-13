@@ -27,13 +27,13 @@ authors:
 
 ## Загрузка аудиофайла {#loading-the-audio-file}
 
-Добавьте новую директорию `resources/assets/mod-id/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
+Добавьте новую директорию `resources/assets/example-mod/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
 
-Дальше создайте файл `resources/assets/mod-id/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
+Дальше создайте файл `resources/assets/example-mod/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
 
-Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/mod-id/lang` и будет показываться, если включена настройка и звук воспроизводиться.
+Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/example-mod/lang` и будет показываться, если включена настройка и звук воспроизводиться.
 
 ## Регистрация своего звука {#registering-the-custom-sound}
 
@@ -54,7 +54,7 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 `ModInitializer` имплементируют точки входа которые нужны классу, чтобы имплементировать весь реестр с собственными SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 

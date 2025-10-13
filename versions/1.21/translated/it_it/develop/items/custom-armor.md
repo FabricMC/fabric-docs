@@ -128,7 +128,7 @@ Come esempio, puoi usare le seguenti texture e modelli JSON come riferimento.
 Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stesso principio di altri modelli di oggetti.
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
 
 Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gioco:
 
@@ -144,8 +144,8 @@ Ci sono due strati per le texture dell'armatura, entrambi devono essere presenti
 
 Poiché il nome del materiale dell'armatura è nel nostro caso `guidite`, i percorsi delle texture saranno:
 
-- `assets/mod-id/textures/models/armor/guidite_layer_1.png`
-- `assets/mod-id/textures/models/armor/guidite_layer_2.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_1.png`
+- `assets/example-mod/textures/models/armor/guidite_layer_2.png`
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Texture dei Modelli delle Armature</DownloadEntry>
 
