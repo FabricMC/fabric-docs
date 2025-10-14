@@ -14,7 +14,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: npm ci
-      - run: npm run build_by_version
+      - run: npm run build
 
   mod:
     runs-on: ubuntu-24.04

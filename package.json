@@ -2,8 +2,7 @@
   "name": "fabric-docs",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
-    "build_by_version": "tsx .vitepress/build.mts",
+    "build": "tsx .vitepress/build.mts",
     "preview": "vitepress preview",
     "bump": "tsx ./.vitepress/update.ts"
   },
