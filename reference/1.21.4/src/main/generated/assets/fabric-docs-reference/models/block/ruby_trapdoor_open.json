@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_open",
+  "textures": {
+    "texture": "fabric-docs-reference:block/ruby_trapdoor"
+  }
+}
