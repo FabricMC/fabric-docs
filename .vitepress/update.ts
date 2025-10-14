@@ -13,7 +13,7 @@ import players from "./sidebars/players";
   );
   const oldVersion = buildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
 
-  const newVersion = await (
+  const newVersion: string = await (
     await prompts({
       type: "text",
       name: "version",
@@ -25,10 +25,14 @@ import players from "./sidebars/players";
   const yarnVersions: any[] = (await (
     await fetch(`https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`)
   ).json()) as any[];
-  const yarnVersion = yarnVersions.find((v) => v.stable)?.version;
+  let yarnVersion: string = yarnVersions.find((v) => v.stable)?.version;
+  // Use last version if no stable version is found.
+  if (!yarnVersion) {
+    yarnVersion = yarnVersions[yarnVersions.length - 1]?.version;
+  }
   if (!yarnVersion) {
     console.error(
-      "No stable Yarn version found for Minecraft " + newVersion.version
+      "No stable Yarn version found for Minecraft " + newVersion
     );
     process.exit(1);
   }
