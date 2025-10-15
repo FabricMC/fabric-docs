@@ -51,9 +51,6 @@ config:
     style: leading_and_trailing
   search-replace:
     rules:
-      - name: incorrect-mod-id
-        message: "Use either `mod-id` or `mod_id` without angle brackets"
-        searchPattern: "/<mod[-_ ]id(?:[-_ ]here)?>/g"
       - name: missing-heading-anchor
         message: "Add anchors to headings. Use lowercase characters, numbers and dashes"
         information: https://vitepress.dev/guide/markdown#header-anchors
@@ -86,7 +83,7 @@ config:
         replace: ""
         searchScope: text
       - name: no-github-flavored-alerts
-        message: "Don't use GitHub-favored Alerts"
+        message: "Don't use GitHub-flavored Alerts"
         information: https://vitepress.dev/guide/markdown#custom-containers
         searchPattern:
           - "/^> \\[!NOTE\\]/gm"
