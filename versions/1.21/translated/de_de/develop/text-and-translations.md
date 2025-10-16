@@ -82,7 +82,7 @@ Wenn du auf den Angreifer verweisen möchtest, würdest du %2\$s verwenden, weil
 
 Wie bereits erwähnt, kann Text mit dem Text Codec in JSON serialisiert werden. Weitere Informationen über Codecs findest du auf der Seite [Codec](./codecs).
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 Dadurch wird JSON erzeugt, das in Datenpaketen, Befehlen und an anderen Stellen verwendet werden kann, die das JSON-Format von Text anstelle von literalen oder übersetzbarem Text akzeptieren.
 
@@ -90,7 +90,7 @@ Dadurch wird JSON erzeugt, das in Datenpaketen, Befehlen und an anderen Stellen 
 
 Um ein JSON-Textobjekt in eine tatsächliche `Text`-Klasse zu deserialisieren, ist ebenfalls der Codec zu verwenden.
 
-@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 ## Text formatieren {#formatting-text}
 

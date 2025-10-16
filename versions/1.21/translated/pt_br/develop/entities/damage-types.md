@@ -19,7 +19,7 @@ resources/data/example-mod/damage_type/tater.json
 
 Ele terá a seguinte estrutura:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
+@[code lang=json](@/reference/1.21.1/src/main/generated/data/example-mod/damage_type/tater.json)
 
 Esse tipo de dano causa aumento de 0.1 na [exaustão de fome](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) toda vez que um jogador sofrer dano, quando o dano for causado por uma fonte viva que não seja um jogador (ex: um bloco). Além disso, a quantidade de dano causado escalonará com a dificuldade do mundo.
 
@@ -35,7 +35,7 @@ Quando precisarmos acessar nosso tipo de dano através de código, usaremos a su
 
 A `RegistryKey` pode ser obtida da seguinte maneira:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Usando Tipos de Dano {#using-damage-types}
 
@@ -45,15 +45,15 @@ Você pode substituir `onSteppedOn` para infligir este dano.
 
 Começaremos criando uma `DamageSource` do nosso tipo de dano customizado.
 
-@[code lang=java transclude={21-24}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={21-24}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Então, chamamos `entity.damage()` com o nosso `DamageSource`e uma quantidade.
 
-@[code lang=java transclude={25-25}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={25-25}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 A implementação completa do bloco:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Agora, quando uma entidade viva pisar no nosso bloco, ela sofrerá 5 de dano (2,5 corações) usando nosso tipo de dano personalizado.
 
@@ -61,7 +61,7 @@ Agora, quando uma entidade viva pisar no nosso bloco, ela sofrerá 5 de dano (2,
 
 Você pode definir uma mensagem de morte para o tipo de dano no formato de `death.attack.<message_id>` no arquivo `en_us.json` do mod.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21.1/src/main/resources/assets/example-mod/lang/en_us.json)
 
 Ao morrer devido ao nosso tipo de dano, você verá a seguinte mensagem:
 
@@ -89,6 +89,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 Com o seguinte conteúdo:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/1.21.1/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Certifique-se de que sua tag não substitua a tag existente definindo a chave `replace` como `false`.

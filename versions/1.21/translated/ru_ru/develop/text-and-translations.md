@@ -56,7 +56,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 
 Как было упомянуто выше, вы можете сериализовать текст в JSON используя текстовый кодек. Для большей информации об кодеках, посмотрите страницу [Codec](./codecs).
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 В результате получается JSON, который можно использовать в датапаках, командах и других местах которые принимают JSON формат текста вместо буквального или переводимого текста.
 
@@ -64,7 +64,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 
 Кроме того, чтобы десериализовать текстовый объект в реальный класс `Text`, опять же, используйте кодек.
 
-@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 ## Форматирование Текста {#formatting-text}
 

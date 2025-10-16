@@ -18,13 +18,13 @@ There are multiple ways to create a widget class, such as extending `ClickableWi
 - `Narratable` - for accessibility - Required to make your widget accessible to screen readers and other accessibility tools.
 - `Selectable` - for selection - Required if you want to make your widget selectable using the <kbd>Tab</kbd> key - this also aids in accessibility.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## Adding the Widget to the Screen {#adding-the-widget-to-the-screen}
 
 Like all widgets, you need to add it to the screen using the `addDrawableChild` method, which is provided by the `Screen` class. Make sure you do this in the `init` method.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Custom widget on screen](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -34,6 +34,6 @@ You can handle events such as mouse clicks, key presses, by overriding the `onMo
 
 For example, you can make the widget change color when it's hovered over by using the `isHovered()` method provided by the `ClickableWidget` class:
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ![Hover Event Example](/assets/develop/rendering/gui/custom-widget-events.webp)

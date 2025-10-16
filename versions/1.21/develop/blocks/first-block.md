@@ -19,7 +19,7 @@ You should put this method in a class called `ModBlocks` (or whatever you want t
 
 Mojang does something extremely similar like this with vanilla blocks; you can refer to the `Blocks` class to see how they do it.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 
@@ -37,7 +37,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
@@ -51,7 +51,7 @@ For example purposes, we will be creating a simple block that has the properties
 You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
@@ -61,7 +61,7 @@ Since the `BlockItem` is automatically created and registered, to add it to an i
 
 For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 You should now notice that your block is in the creative inventory, and can be placed in the world!
 
@@ -96,11 +96,11 @@ To make the texture show up in-game, you must create a block and item model whic
 
 The item model is pretty simple, it can just use the block model as a parent - since most block models have support for being rendered in a GUI:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 The block model however, in our case, must parent the `block/cube_all` model:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
 
@@ -112,7 +112,7 @@ For the example block, which doesn't have a complex blockstate, only one entry i
 
 This file should be located in the `assets/example-mod/blockstates` folder, and its name should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_dirt`, the file should be named `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockstates are really complex, which is why they are addressed in an upcoming page: [Block States](./blockstates)
 
@@ -128,7 +128,7 @@ When breaking the block in survival, you may see that the block does not drop - 
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 This loot table provides a single item drop of the block item when the block is broken, and when it is blown up by an explosion.
 
@@ -147,7 +147,7 @@ The contents of the file are quite simple - it is a list of items that should be
 
 This example adds the "Condensed Dirt" block to the `shovel` tag.
 
-@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21.1/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining tag.
 

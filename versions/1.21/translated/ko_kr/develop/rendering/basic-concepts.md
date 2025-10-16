@@ -109,7 +109,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 이 튜토리얼에서는 HUD에 그리고 있으므로, `HudRenderCallback` 이벤트를 사용하겠습니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 이렇게 하면 HUD에 두 삼각형이 그려지게 됩니다.
 
@@ -141,7 +141,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 행렬을 변환하기 전에 행렬 스택을 넣었는지 확인하세요!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![다이아몬드의 크기가 변화하는 모습을 보여주는 영상](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -153,7 +153,7 @@ Minecraft가 `RotationAxis` 도구 클래스에 여러 쿼터니언 인스턴스
 
 그럼 다이아몬드의 Z축을 회전해 봅시다. `MatrixStack`과 `multiply(Quaternion, x, y, z)` 메소드를 통해 회전할 수 있습니다.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 결과는 다음과 같습니다.
 

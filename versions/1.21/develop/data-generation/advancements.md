@@ -20,11 +20,11 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 First, we need to make our provider. Create a class that `extends FabricAdvancementProvider` and fill out the base methods:
 
-@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={24-24}](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={24-24}](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Advancement Structure {#advancement-structure}
 
@@ -40,17 +40,17 @@ An advancement is made up a few different components. Along with the requirement
 
 Here's a simple advancement for getting a dirt block:
 
-@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ::: details JSON Output
-@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/advancement/example-mod/get_dirt.json)
+@[code lang=json](@/reference/1.21.1/src/main/generated/data/example-mod/advancement/example-mod/get_dirt.json)
 :::
 
 ## One More Example {#one-more-example}
 
 Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Don't forget to generate them! Use the terminal command below or the run configuration in IntelliJ.
 
@@ -84,13 +84,13 @@ A **predicate** is something that takes a value and returns a `boolean`. For exa
 
 First, we'll need a new mechanic to implement. Let's tell the player what tool they used every time they break a block.
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/1.21/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Note that this code is really bad. The `HashMap` is not stored anywhere persistent, so it will be reset every time the game is restarted. It's just to show off `Criterion`s. Start the game and try it out!
 
 Next, let's create our custom criterion, `UseToolCriterion`. It's going to need its own `Conditions` class to go with it, so we'll make them both at once:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-base](@/reference/1.21/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:criterion-base](@/reference/1.21.1/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
 Whew, that's a lot! Let's break it down.
 
@@ -104,31 +104,31 @@ To learn more about codecs, see the [Codecs](../codecs) page.
 
 We're going to need a way to check if the conditions are met. Let's add a helper method to `Conditions`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:conditions-test](@/reference/1.21/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:conditions-test](@/reference/1.21.1/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
 Now that we've got a criterion and its conditions, we need a way to trigger it. Add a trigger method to `UseToolCriterion`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-trigger](@/reference/1.21/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:criterion-trigger](@/reference/1.21.1/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
 
 Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`.
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/1.21/src/main/java/com/example/docs/advancement/ModCriteria.java)
+@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
 To make sure that our criteria are initialized at the right time, add a blank `init` method:
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/1.21/src/main/java/com/example/docs/advancement/ModCriteria.java)
+@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
 And call it in your mod initializer:
 
-@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/1.21/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Finally, we need to trigger our criteria. Add this to where we sent a message to the player in the main mod class.
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/1.21/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Your shiny new criterion is now ready to use! Let's add it to our provider:
 
-@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Run the datagen task again, and you've got your new advancement to play with!
 
@@ -138,30 +138,30 @@ This is all well and good, but what if we want to only grant an advancement once
 
 Let's work bottom-up. We'll need to check if the requirements are met, so let's edit our `Condtions#requirementsMet` method:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/1.21/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
 `requiredTimes` doesn't exist, so make it a parameter of `Conditions`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/1.21/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
 Now our codec is erroring. Let's write a new codec for the new changes:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/1.21/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
 Moving on, we now need to fix our `trigger` method:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-trigger](@/reference/1.21/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-trigger](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
 
 If you've made a new criterion, we need to add it to `ModCriteria`
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/1.21/src/main/java/com/example/docs/advancement/ModCriteria.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
 And call it in our main class, right where the old one is:
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/1.21/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/1.21.1/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
 Add the advancement to your provider:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/1.21/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Run datagen again, and you're finally done!

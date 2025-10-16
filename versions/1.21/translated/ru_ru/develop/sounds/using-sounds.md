@@ -13,11 +13,11 @@ Minecraft имеет большой выбор звуков которые вы 
 
 Например, методы `useOnEntity()` и `useOnBlock()` для собственного интерактивного предмета используются для воспроизведения "поставлен медный блок" и звук мародёра.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
 Метод`playSound()` используется вместе с объектом `LivingEntity`. Необходимо указать только SoundEvent, громкость и высоту тона. Вы также можете использовать метод `playSound()` из экземпляра мира, чтобы получить более высокий уровень контроля.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
 ### SoundEvent и SoundCategory {#soundevent-and-soundcategory}
 

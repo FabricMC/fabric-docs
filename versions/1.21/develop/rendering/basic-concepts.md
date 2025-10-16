@@ -111,7 +111,7 @@ This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` dr
 
 Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 This results in the following being drawn on the HUD:
 
@@ -143,7 +143,7 @@ You must first push the matrix stack and then pop it after you're done with it. 
 Make sure to push the matrix stack before you get a transformation matrix!
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 ![A video showing the diamond scaling up and down](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -155,7 +155,7 @@ It's highly unlikely you'll need to ever use a Quaternion class directly, since 
 
 Let's say we want to rotate our diamond around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 The result of this is the following:
 

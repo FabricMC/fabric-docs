@@ -28,14 +28,14 @@ In this tutorial we'll add a new custom effect called _Tater_ which gives you on
 
 Let's create a custom effect class by extending `StatusEffect`, which is the base class for all effects.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registering Your Custom Effect {#registering-your-custom-effect}
 
 Similar to block and item registration, we use `Registry.register` to register our custom effect into the
 `STATUS_EFFECT` registry. This can be done in our initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Texture {#texture}
 
@@ -74,7 +74,7 @@ effect give @p example-mod:tater
 To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, which takes in
 a `StatusEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/ReferenceMethods.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | Argument    | Type                          | Description                                                                                                                                                                                                                   |
 |-------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

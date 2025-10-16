@@ -28,7 +28,7 @@ You should take note that:
 
 As an example, we can create a simple screen that has a button and a label above it.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 ![Custom Screen 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -52,7 +52,7 @@ MinecraftClient.getInstance().setScreen(null);
 
 If you want to be fancy, and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
 Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close` - it will return to the previous screen.
 

@@ -33,7 +33,7 @@ Add the new `resources/assets/example-mod/sounds` directory for the sounds in yo
 
 Continue with creating the `resources/assets/example-mod/sounds.json` file if it doesn't exist yet and add your sound to the sound entries.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
+@[code lang=json](@/reference/1.21.1/src/main/resources/assets/example-mod/sounds.json)
 
 The subtitle entry provides more context for the player. The subtitle name is used in the language files in the `resources/assets/example-mod/lang` directory and will be displayed if the in-game subtitle setting is turned on and this custom sound is being played.
 
@@ -52,11 +52,11 @@ Depending on how many Registry entries there are, this can get messy quickly. To
 
 Add two new methods to the newly created helper class. One, which registers all the sounds and one which is used to initialize this class in the first place. After that you can comfortably add new custom `SoundEvent` static class variables as needed.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/sound/CustomSounds.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/sound/CustomSounds.java)
 
 This way, the mod's initializer only needs to implement one line to register all custom SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 

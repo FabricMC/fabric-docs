@@ -17,7 +17,7 @@ Dovresti mettere questo metodo in una classe chiamata `ModBlocks` (o qualsiasi a
 
 Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla classe `Blocks` per sapere come fanno loro.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Creare e Registrare il Tuo Blocco {#creating-and-registering-your-block}
 
@@ -49,7 +49,7 @@ Per questo esempio, creeremo un blocco semplice, con le proprietà della terra m
 Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
@@ -59,7 +59,7 @@ Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo 
 
 Per questo esempio, useremo un gruppo di oggetti personalizzato, che abbiamo creato nella pagina [Gruppi di Oggetti Personalizzati](../items/custom-item-groups).
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Dovresti ora notare che il tuo blocco è nell'inventario in creativa, e può essere posizionato nel mondo!
 
@@ -94,11 +94,11 @@ Per fare in modo che la texture sia visibile nel gioco, devi creare un blocco e 
 
 Il modello dell'oggetto è piuttosto semplice, basta che usi il modello del blocco come genitore - poiché la GUI supporta il rendering della maggior parte dei modelli dei blocchi:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Nel nostro caso, però, il modello del blocco deve avere come genitore il modello `block/cube_all`:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Quando carichi il gioco, potresti notare che la texture è ancora mancante. Questo perché devi aggiungere la definizione degli stati del blocco.
 
@@ -110,7 +110,7 @@ Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella 
 
 Questo file si dovrebbe trovare nella cartella `assets/example-mod/blockstates`, e il suo nome dovrebbe corrispondere all'ID del blocco che hai usato quando l'hai registrato nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Gli stati dei blocchi sono piuttosto complessi, per cui li tratteremo in un'altra pagina: [Stati dei Blocchi](./blockstates)
 
@@ -126,7 +126,7 @@ Quando si rompe il blocco in sopravvivenza, potresti notare che il blocco non dr
 Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 
@@ -145,7 +145,7 @@ I contenuti del file sono piuttosto semplici - è una lista di oggetti da aggiun
 
 Questo esempio aggiunge il blocco "Terra Condensata" al tag `shovel`.
 
-@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21.1/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 Se desideri che uno strumento sia necessario per minare il blocco, dovrai aggiungere `.requiresTool()` alle impostazioni del tuo blocco, oltre che aggiungere il tag dello scavo appropriato.
 

@@ -23,7 +23,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Ванільний клас `PillarBlock` дозволяє розміщувати блок по осях X, Y або Z.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Блоки колон мають дві текстури, верхню та бічну - вони використовують модель `block/cube_column`.
 
@@ -38,7 +38,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Приклад файлу `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 - `axis=y` – коли блок розміщено вздовж осі Y, ми будемо використовувати звичайну вертикальну модель.
 - `axis=z` – коли блок розміщується вздовж осі Z, ми повертаємо модель у позитивний X.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Як завжди, вам потрібно буде створити переклад для свого блоку та модель предмета, яка є батьками будь-якої з двох моделей.
 
@@ -68,15 +68,15 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 По-перше, вам потрібно буде створити саму властивість — оскільки це логічне значення, ми використаємо метод `BooleanProperty.of`.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Далі ми маємо додати властивість до менеджера стану блоку в методі appendProperties. Щоб отримати доступ до конструктора, вам потрібно змінити метод:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Ви також повинні встановити стан за замовчуванням для властивості `activated` у конструкторі вашого спеціального блоку.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 Не забудьте зареєструвати свій блок, використовуючи спеціальний клас замість `Block`!
@@ -86,7 +86,7 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 У цьому прикладі змінюється логічна властивість `activated`, коли гравець взаємодіє з блоком. Для цього ми можемо замінити метод `onUse`:
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Візуалізація власності {#visualizing-the-property}
 
@@ -102,15 +102,15 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 Оскільки цей блок має лише два можливі варіанти, оскільки він має лише одну властивість («активовано»), стан блоку JSON виглядатиме приблизно так:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Оскільки прикладом блоку є лампа, нам також потрібно змусити її випромінювати світло, коли властивість `activated` має значення true. Це можна зробити через налаштування блоку, передані конструктору під час реєстрації блоку.
 
 Ви можете використовувати метод `luminance`, щоб установити рівень світла, випромінюваного блоком, ми можемо створити статичний метод у класі `PrismarineLampBlock`, щоб повернути рівень освітлення на основі властивості `activated`, і передати його як посилання на метод до методу `luminance`:
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

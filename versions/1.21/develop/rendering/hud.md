@@ -25,6 +25,6 @@ The `deltaTick` refers to the time since the last frame, in seconds. This can be
 
 For example, let's say you want to lerp a color over time. You can use the `deltaTickManager` to get the deltaTick, and store it over time to lerp the color:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 
 ![Lerping a color over time](/assets/develop/rendering/hud-rendering-deltatick.webp)

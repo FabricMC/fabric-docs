@@ -25,13 +25,13 @@ authors-nogithub:
 
 让我们通过继承所有状态效果的基类 `StatusEffect` 来创建一个自定义状态效果类。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### 注册你的自定义状态效果 {#registering-your-custom-effect}
 
 与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的初始化器内完成。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### 纹理 {#texture}
 
@@ -68,7 +68,7 @@ effect give @p example-mod:tater
 
 要在代码内部应用状态效果，需要使用 `LivingEntity#addStatusEffect` 方法，接收一个 `StatusEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/ReferenceMethods.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | 参数          | 类型                            | 描述                                                                          |
 | ----------- | ----------------------------- | --------------------------------------------------------------------------- |

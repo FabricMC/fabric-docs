@@ -22,7 +22,7 @@ You can put this method in a class called `ModItems` (or whatever you want to na
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Registering an Item {#registering-an-item}
 
@@ -36,15 +36,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
 To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/ExampleModItems.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
@@ -58,7 +58,7 @@ For example purposes, we will add this item to the ingredients `ItemGroup`, you 
 
 This can be done in the `initialize` method of your items class.
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 Loading into the game, you can see that our item has been registered, and is in the Ingredients item group:
 
@@ -98,7 +98,7 @@ You're going to create a simple `item/generated` model, which takes in an input 
 
 Create the model JSON in the `assets/example-mod/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
@@ -119,11 +119,11 @@ Fabric API provides various registries that can be used to add additional proper
 
 For example, if you want to make your item compostable, you can use the `CompostableItemRegistry`:
 
-@[code transcludeWith=:::_10](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_10](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 Alternatively, if you want to make your item a fuel, you can use the `FuelRegistry` class:
 
-@[code transcludeWith=:::_11](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_11](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Adding a Basic Crafting Recipe {#adding-a-basic-crafting-recipe}
 
@@ -144,7 +144,7 @@ If you want your item to have a custom tooltip, you will need to create a class 
 This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 Each call to `add()` will add one line to the tooltip.
 

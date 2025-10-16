@@ -33,7 +33,7 @@ public void onInitialize() {
 
 Within this `ModArmorMaterials` class, you will need to create a static method which will register the armor material. This method should return a registry entry of the material, as this entry will be used by the ArmorItem constructor to create the armor items.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Armor Material Properties {#armor-material-properties}
 
@@ -83,7 +83,7 @@ Now that you've created a utility method which can be used to register armor mat
 
 For this example, we'll be creating Guidite armor, with the following properties:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 ## Creating the Armor Items {#creating-the-armor-items}
 
@@ -101,11 +101,11 @@ The different armor slots have different base durabilities which are commonly mu
 
 For the Guidite armor we'll be using a shared armor multiplier stored alongside the armor material:
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/item/armor/ModArmorMaterials.java)
 
 We can then create the armor items using the durability constant:
 
-@[code transcludeWith=:::6](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::6](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 You will also need to **add the items to an item group** if you want them to be accessible from the creative inventory.
 
@@ -130,7 +130,7 @@ For example purposes, you may use the following textures and model JSON as a ref
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
 :::
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/guidite_helmet.json)
 
 As you can see, in-game the armor items should have suitable models:
 

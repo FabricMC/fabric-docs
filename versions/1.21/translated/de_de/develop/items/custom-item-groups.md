@@ -11,9 +11,9 @@ Itemgruppen sind die Registerkarten im kreativen Inventar, in denen Items gespei
 
 Es ist überaschend einfach eine Itemgruppe zu erstellen. Erstell einfach ein neues statisches finales Feld in deiner Itemklasse, um die Itemgruppe und einen Registrierungsschlüssel dafür zu speichern, dann kannst du das Itemgruppen-Ereignis ähnlich verwenden, wie du deine Items zu den Vanilla Itemgruppen hinzugefügt hast:
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 Du solltest sehen, dass die Itemgruppe jetzt im kreativen Inventar ist. Es ist jedoch unübersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie du dein erstes Item übersetzt hast.
 

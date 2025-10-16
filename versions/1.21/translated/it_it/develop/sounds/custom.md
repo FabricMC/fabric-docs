@@ -31,7 +31,7 @@ Aggiungi un nuovo percorso `resources/assets/example-mod/sounds` per i suoni del
 
 Se non esiste ancora, crea il file `resources/assets/example-mod/sounds.json` e aggiungici i tuoi suoni.
 
-@[code lang=json](@/reference/1.21/src/main/resources/assets/example-mod/sounds.json)
+@[code lang=json](@/reference/1.21.1/src/main/resources/assets/example-mod/sounds.json)
 
 La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/example-mod/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
@@ -50,11 +50,11 @@ A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfugg
 
 Aggiungi due nuovi metodi alla classe ausiliaria appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/sound/CustomSounds.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/sound/CustomSounds.java)
 
 Facendo così, basta che l'initializer della tua mod implementi una riga sola per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/sound/ExampleModSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 

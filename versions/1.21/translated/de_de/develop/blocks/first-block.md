@@ -17,7 +17,7 @@ Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auc
 
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 ## Erstellen und Registrieren deines Blocks {#creating-and-registering-your-block}
 
@@ -49,7 +49,7 @@ Als Beispiel werden wir einen einfachen Block erstellen, der die Eigenschaften v
 Du kannst auch `AbstractBlock.Settings.copy(AbstractBlock block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
@@ -59,7 +59,7 @@ Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um ihn z
 
 In diesem Beispiel wird eine benutzerdefinierte Itemgruppe verwendet, die auf der Seite [Benutzerdefinierte Itemgruppe](../items/custom-item-groups) erstellt wurde.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Du solltest nun feststellen, dass sich dein Block im Kreativ-Inventar befindet und in der Welt platziert werden kann!
 
@@ -94,11 +94,11 @@ Damit die Textur im Spiel angezeigt wird, musst du einen Block und ein Itemmodel
 
 Das Itemmodell ist ziemlich einfach, es kann einfach das Blockmodell als Elternteil verwenden - da die meisten Blockmodelle Unterstützung für die Darstellung in einer grafischen Benutzeroberfläche haben:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Das Blockmodell muss jedoch in unserem Fall dem Modell `block/cube_all` übergeordnet sein:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Wenn du das Spiel lädst, wirst du feststellen, dass die Textur noch fehlt. Dies liegt daran, dass du eine Blockzustand-Definition hinzufügen musst.
 
@@ -110,7 +110,7 @@ Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintr
 
 Diese Datei sollte sich im Ordner `assets/example-mod/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Blockzustände sind sehr komplex, weshalb sie auf einer späteren Seite behandelt werden: [Blockzustände](./blockstates)
 
@@ -126,7 +126,7 @@ Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht 
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird, wenn der Block abgebaut wird und wenn er durch eine Explosion gesprengt wird.
 
@@ -145,7 +145,7 @@ Der Inhalt der Datei ist recht einfach - es handelt sich um eine Liste von Eleme
 
 In diesem Beispiel wird der Block "Condensed Dirt" zum Tag `shovel` hinzugefügt.
 
-@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21.1/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 Wenn du möchtest, dass ein Tool zum Abbau des Blocks erforderlich ist, musst du die Blockeinstellungen um den Zusatz `.requiresTool()` erweitern und das entsprechende Mining-Tag hinzufügen.
 

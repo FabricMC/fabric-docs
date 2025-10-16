@@ -23,7 +23,7 @@ Minecraft heeft al een paar zelfgemaakte classen die je gemakkelijk bepaalde typ
 
 Met de vanilla class `PillarBlock` kan het blok in de X-, Y- of Z-as worden geplaatst.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Pilaren hebben twee texturen, de bovenkant en de zijkant - ze maken gebruik van het `block/cube_collumn` model.
 
@@ -38,7 +38,7 @@ Omdat de pilaar twee posities heeft, horizontaal en verticaal, zullen we twee ve
 
 Hier een voorbeeld van het bestand `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Vervolgens zullen we een blok staat bestand moeten maken. Het blok staat bestand
 - `axis=y` - Wanneer het blok langs de Y-as wordt geplaatst, gebruiken we het normale verticale model.
 - `axis=z` - Wanneer het blok langs de Z-as wordt geplaatst, roteren we het model in de positieve X-richting.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Zoals altijd moet je een vertaling voor uw blok maken, en een voorwerp model dat de "parent" is van een van de twee modellen.
 
@@ -68,15 +68,15 @@ Dit voorbeeld creëert een unieke boolean eigenschap met de naam `activated` - w
 
 Ten eerste moet je de eigenschap zelf maken - sinds dit een boolean is, zullen we de `BooleanProperty.of` methode gebruiken.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Vervolgens moeten we de eigenschap toevoegen aan de blok staat manager in de methode `appendProperties`. Je zult de methode moeten overschrijven om toegang te krijgen tot de builder:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Je moet ook een standaardstaat instellen voor de eigenschap `activated` in de constructor van jouw aangepaste blok.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 Vergeet niet om je blok te registreren met de zelfgemaakte class in plaats val `Block`!
@@ -86,7 +86,7 @@ Vergeet niet om je blok te registreren met de zelfgemaakte class in plaats val `
 
 In dit voorbeeld wordt de boolean eigenschap `activated` omgedraaid wanneer de speler interactie heeft met het blok. We kunnen hiervoor de `onUse` methode overschrijven:
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Het Visualiseren van De Eigenschap {#visualizing-the-property}
 
@@ -102,15 +102,15 @@ Als je meerdere eigenschappen hebt voor een blok, moet je met alle mogelijke com
 
 Omdat dit blok maar twee mogelijke varianten heeft, omdat er maar een eigenschap is (`activated`), zal de blok staat JSON er ongeveer zo uitzien:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Omdat het voorbeeldblok een lamp is, zullen we er ook voor moeten zorgen dat het licht uitstraalt als de eigenschap `activated` waar is. Dit kan worden gedaan via de blokinstellingen die aan de constructor worden doorgegeven bij het registreren van het blok.
 
 U kunt de `luminance`-methode gebruiken om het lichtniveau in te stellen dat door het blok wordt uitgezonden. We kunnen een statische methode maken in de `PrismarineLampBlock` class om het lichtniveau terug te geven op basis van de `activated`-eigenschap, en dit doorgeven als een methodereferentie naar de `luminance`-methode:
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

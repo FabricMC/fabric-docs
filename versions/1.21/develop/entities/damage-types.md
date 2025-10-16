@@ -24,7 +24,7 @@ resources/data/example-mod/damage_type/tater.json
 
 It has the following structure:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/example-mod/damage_type/tater.json)
+@[code lang=json](@/reference/1.21.1/src/main/generated/data/example-mod/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -44,7 +44,7 @@ of `DamageSource`.
 
 The `RegistryKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Using Damage Types {#using-damage-types}
 
@@ -55,15 +55,15 @@ You can override `onSteppedOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 
-@[code lang=java transclude={21-24}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={21-24}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Then, we call `entity.damage()` with our `DamageSource` and an amount.
 
-@[code lang=java transclude={25-25}](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={25-25}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 The complete block implementation:
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5 hearts) using our custom damage type.
 
@@ -72,7 +72,7 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
 mod's `en_us.json` file.
 
-@[code lang=json transclude={4-4}](@/reference/1.21/src/main/resources/assets/example-mod/lang/en_us.json)
+@[code lang=json transclude={4-4}](@/reference/1.21.1/src/main/resources/assets/example-mod/lang/en_us.json)
 
 Upon death from our damage type, you'll see the following death message:
 
@@ -102,6 +102,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 With the following content:
 
-@[code lang=json](@/reference/1.21/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+@[code lang=json](@/reference/1.21.1/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Ensure your tag does not replace the existing tag by setting the `replace` key to `false`.

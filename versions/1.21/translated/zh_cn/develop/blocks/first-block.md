@@ -17,7 +17,7 @@ authors:
 
 Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 `Blocks` 类看看他们是怎么做的。
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 
@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## 创建并注册你的方块 {#creating-and-registering-your-block}
 
@@ -49,7 +49,7 @@ public class ModBlocks {
 可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 我们上一步创建过 `regisger` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
 
@@ -59,7 +59,7 @@ public class ModBlocks {
 
 例如，我们使用在[自定义物品组](../items/custom-item-groups)页面中创建的自定义物品组。
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 你应该注意到，你的方块现在在创造模式物品栏中，并且可以放在世界中！
 
@@ -94,11 +94,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 物品模型很简单，只需要继承方块模型即可，因为大多数方块模型都支持在 GUI 中渲染。
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 但是，在我们的例子中，方块模型就必须继承 `block/cube_all` 模型。
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
 
@@ -110,7 +110,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 方块状态很复杂，会在之后的页面[方块状态](./blockstates)中详述。
 
@@ -126,7 +126,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 这个战利品表提供了方块在被破坏以及被爆炸破坏时掉落的单个方块物品。
 
@@ -145,7 +145,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个例子会将"Condensed Dirt"方块添加到 `shovel` 标签中。
 
-@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21.1/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 如果应使用工具来挖掘此方块，则需要在方块属性（`Block.Settings`）中添加`.requiresTool()`，并添加相应的挖掘标签。
 

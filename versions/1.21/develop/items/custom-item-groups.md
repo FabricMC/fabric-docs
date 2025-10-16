@@ -13,9 +13,9 @@ Item groups are the tabs in the creative inventory that store items. You can cre
 
 It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the item group and a registry key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 You should see the item group is now in the creative inventory menu. However, it is untranslated - you must add a translation key to your translations file - similarly to how you translated your first item.
 

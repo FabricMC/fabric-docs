@@ -37,11 +37,11 @@ The `FoodComponent.Builder` class has many methods that allow you to modify what
 
 When you've modified the builder to your liking, you can call the `build()` method to get the `FoodComponent`.
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 Similar to the example in the [Creating Your First Item](./first-item) page, I'll be using the above component:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::poisonous_apple](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 This makes the item:
 

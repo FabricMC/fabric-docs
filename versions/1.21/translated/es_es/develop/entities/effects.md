@@ -24,13 +24,13 @@ En este tutorial añadiremos un nuevo efecto de estado personalizado llamado _Ta
 
 Vamos a crear una para nuestro efecto de estado personalizado extendiendo la clase `StatusEffect`, el cual es la clase base para todos los efectos.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/TaterEffect.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrar tu Efecto Personalizado
 
 Similar a la registración de bloques e items, usamos `Registry.register` para registrar nuestro efecto personalizado en el registro de `STATUS_EFFECT`. Esto se puede hacer en nuestro inicializador.
 
-@[code lang=java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Traducciones y Texturas
 

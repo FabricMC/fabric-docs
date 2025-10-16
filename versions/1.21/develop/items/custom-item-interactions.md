@@ -58,11 +58,11 @@ A great example of these events being used can be found in the [Playing SoundEve
 
 Let's say you want to make an item that summons a lightning bolt infront of the player - you would need to create a custom class.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 The `use` event is probably the most useful out of them all - you can use this event to spawn our lightning bolt, you should spawn it 10 blocks in front of the players facing direction.
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/item/custom/LightningStick.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
 As usual, you should register your item, add a model and texture.
 

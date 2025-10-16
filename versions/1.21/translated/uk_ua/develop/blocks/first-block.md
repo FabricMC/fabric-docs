@@ -17,7 +17,7 @@ authors:
 
 Mojang робить щось надзвичайно подібне з ванілльними блоками; ви можете звернутися до класу `Blocks`, щоб побачити, як вони це роблять.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Як і з предметами, вам потрібно переконатися, що клас завантажено, щоб усі статичні поля, що містять екземпляри вашого блоку, були ініціалізовані.
 
@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Створення та реєстрація вашого блоку {#creating-and-registering-your-block}
 
@@ -49,7 +49,7 @@ public class ModBlocks {
 Ви також можете використовувати `AbstractBlock.Settings.copy(AbstractBlock block)`, щоб скопіювати налаштування блоку що існує, у цьому випадку ми могли б використати `Blocks.DIRT`, щоб скопіювати налаштування dirt, але для прикладу ми скористаємося конструктором.
 :::
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Щоб автоматично створити блок-предмет ми можемо передати `true` параметру `shouldRegisterItem` методу `register`, який ми створили на попередньому кроці.
 
@@ -59,7 +59,7 @@ public class ModBlocks {
 
 У цьому прикладі ми використаємо спеціальну групу предметів, створену на сторінці [Групи власних предметів](../items/custom-item-groups).
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Тепер ви повинні помітити, що ваш блок знаходиться у творчому інвентарі, і його можна розмістити у світі!
 
@@ -94,11 +94,11 @@ Minecraft використовуватиме цей переклад у твор
 
 Модель предмета досить проста, вона може просто використовувати модель блоку як батьківську, оскільки більшість моделей блоку підтримують відтворення в інтерфейсах:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 Однак у нашому випадку модель блоку має бути батьківською для моделі `block/cube_all`:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 Коли ви завантажуєте гру, ви можете помітити, що текстури все ще немає. Це тому, що вам потрібно додати визначення стану блоку.
 
@@ -110,7 +110,7 @@ Minecraft використовуватиме цей переклад у твор
 
 Цей файл має міститися в папці `assets/example-mod/blockstates`, а його назва має збігатися з ідентифікатором блоку, який використовується під час реєстрації вашого блоку в класі `ModBlocks`. Наприклад, якщо ID блоку `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 Стани блоку справді складні, тому вони розглядаються на наступній сторінці: [Блокові стани](./blockstates)
 
@@ -126,7 +126,7 @@ Minecraft використовуватиме цей переклад у твор
 Щоб краще зрозуміти таблиці здобичі, ви можете звернутися до сторінки [Minecraft Wiki - Таблиці здобичі](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/1.21/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/1.21.1/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блоку, коли блок ламаний або підірваний вибухом.
 
@@ -145,7 +145,7 @@ Minecraft використовуватиме цей переклад у твор
 
 Цей приклад додає блок «Condensed Dirt» до теґу `shovel`.
 
-@[code](@/reference/1.21/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+@[code](@/reference/1.21.1/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
 Якщо ви бажаєте, щоб для видобутку блоку був потрібен інструмент, додайте `.requiresTool()` до налаштувань блоку, а також додайте відповідний теґ видобутку.
 

@@ -11,9 +11,9 @@ authors:
 
 Процесс создания необычайно прост. Просто создайте в классе с вашими предметами новое статическое неизменяемое поле для хранения новой вкладки предметов и ключа реестра для неё. После этого можно использовать событие вкладки с предметами как при добавлении предметов в ванильную вкладку с предметами:
 
-@[code transcludeWith=:::9](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::9](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/1.21/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::_12](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
 Новая вкладка с предметами появится в творческом инвентаре. Однако, она не переведена — вам необходимо добавить ключ перевода в файл с переводами как при переводе вашего первого предмета.
 

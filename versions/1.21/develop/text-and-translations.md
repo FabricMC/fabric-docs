@@ -96,7 +96,7 @@ If you want to reference what, in our case, is the attacker, you would use %2\$s
 
 As mentioned before, you can serialize text to JSON using the text codec. For more information on codecs, see the [Codec](./codecs) page.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 This produces JSON that can be used datapacks, commands and other places that accept the JSON format of text instead of literal or translatable text.
 
@@ -104,7 +104,7 @@ This produces JSON that can be used datapacks, commands and other places that ac
 
 Furthermore, to deserialize a JSON text object into an actual `Text` class, again, use the codec.
 
-@[code transcludeWith=:::2](@/reference/1.21/src/client/java/com/example/docs/rendering/TextTests.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/TextTests.java)
 
 ## Formatting Text {#formatting-text}
 

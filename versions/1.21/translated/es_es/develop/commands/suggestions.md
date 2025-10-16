@@ -15,7 +15,7 @@ Un `SuggestionProvider` (Proveedor de Sugerencias) es usado para crear una lista
 
 Para usar un proveedor de sugerencias, tienes que llamar el método `suggests` en el constructor del argumento. Este método tiene un parámetro `SuggestionProvider` y retorna un nuevo constructor de argumento con el proveedor de sugerencias adjuntado.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.21/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/1.21.1/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Proveedores de Sugerencias Incluidos
 
@@ -34,7 +34,7 @@ Si un proveedor incluido no suficiente para tus necesidades, puedes crear tu pro
 
 Para este ejemplo, haremos un proveedor de sugerencias que sugiere todos los nombres de usuario de los jugadores en el servidor.
 
-@[code java transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+@[code java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 Para usar este proveedor de sugerencias, simplemente pasa una instancia de él en el método `.suggests` en el constructor del argumento.
 

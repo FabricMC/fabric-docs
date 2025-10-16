@@ -23,7 +23,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Стандартный класс `PillarBlock` позволяет размещать блоки вдоль осей X, Y или Z.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Колоновые блоки имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
 
@@ -38,7 +38,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Пример файла `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
 Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 - `axis=y` - Когда блок помещён вдоль оси Y, мы будем использовать нормальную вертикальную модель.
 - `axis=z` - Когда блок помещён вдоль оси Z, мы повернём модель так, чтобы она была ориентирована в положительном направлении оси X.
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Как всегда, вам нужно создать перевод для вашего блока и модель предмета, которая будет наследовать одну из двух моделей.
 
@@ -68,15 +68,15 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.of`.
 
-@[code transcludeWith=:::1](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Далее нам необходимо добавить свойство к менеджеру состояний блока в методе `appendProperties`. Вам необходимо переопределить метод для доступа к конструктору:
 
-@[code transcludeWith=:::2](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 Вам также придется установить состояние по умолчанию для свойства `activated` в конструкторе вашего пользовательского блока.
 
-@[code transcludeWith=:::3](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 :::warning
 Не забудьте зарегистрировать свой блок, используя пользовательский класс вместо `Block`!
@@ -86,7 +86,7 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 В этом примере булево свойство `activated` инвертируется, когда игрок взаимодействует с блоком. Для этого мы можем переопределить метод `onUse`:
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Визуализация недвижимости {#visualizing-the-property}
 
@@ -102,15 +102,15 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 Поскольку этот блок имеет только два возможных варианта, поскольку у него есть только одно свойство (`activated`), JSON-код состояния блока будет выглядеть примерно так:
 
-@[code](@/reference/1.21/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Поскольку пример блока представляет собой лампу, нам также необходимо заставить ее излучать свет, когда свойство `activated` имеет значение true. Это можно сделать с помощью настроек блока, передаваемых конструктору при регистрации блока.
 
 Вы можете использовать метод `luminance` для установки уровня освещенности, излучаемой блоком. Мы можем создать статический метод в классе `PrismarineLampBlock` для возврата уровня освещенности на основе свойства `activated` и передать его как ссылку на метод `luminance`:
 
-@[code transcludeWith=:::5](@/reference/1.21/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-@[code transcludeWith=:::4](@/reference/1.21/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
