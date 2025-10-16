@@ -22,7 +22,7 @@ Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklun
 
 ## JDK 17 installieren {#installing-jdk-21}
 
-Um Mods für Minecraft 1.21 zu entwickeln, benötigst du das JDK 17.
+Um Mods für Minecraft 1.21.1 zu entwickeln, benötigst du das JDK 17.
 
 Wenn du Hilfe bei der Installation von Java benötigst, kannst du die verschiedenen Java-Installationsanleitungen im Abschnitt [Leitfäden für Spieler](../../players/index) nachlesen.
 
