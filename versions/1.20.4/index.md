@@ -15,11 +15,9 @@ features:
     linkText: Read More
   - title: Developer Guides
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: Our community-written developer guides cover everything from setting up your development environment to advanced topics like rendering and networking.
     link: /1.20.4/develop/
     linkText: Get Started
-
-search: false
 ---
 
 ::: warning
