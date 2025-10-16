@@ -1,7 +1,9 @@
 * @FabricMC/developers
 
-*_translations.json @FabricMC/documentation
-**/*.md @FabricMC/documentation
-.vitepress/sidebars/ @FabricMC/documentation
+sidebar_translations.json @FabricMC/documentation
+.vitepress/sidebars/*.ts @FabricMC/documentation
 public/assets/ @FabricMC/documentation
 reference/latest/ @FabricMC/documentation
+**/*.md @FabricMC/documentation
+
+versions/ @FabricMC/developers

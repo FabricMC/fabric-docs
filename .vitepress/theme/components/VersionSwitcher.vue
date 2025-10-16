@@ -53,42 +53,26 @@ const toggle = () => {
 function buildRoutePath(
   currentPath: string,
   locale: string | null,
-  version: string,
-  isOnLatest: boolean
+  newV: string
 ) {
-  if (locale) {
-    // Replace or add version segment while keeping the locale
-    // e.g. /en/ -> /en/1.2.0/ or /en/1.2.0/ -> /en/1.3.0/
-    if (!isOnLatest) {
-      if (version === props.versioningPlugin.latestVersion) {
-        return currentPath.replace(
-          `/${locale}/${currentVersion.value}/`,
-          `/${locale}/`
-        );
-      } else {
-        // Replace any existing version segment with the new one
-        return currentPath.replace(
-          `/${locale}/${currentVersion.value}/`,
-          `/${locale}/${version}/`
-        );
-      }
-    } else {
-      // If currently on latest, just add the new version segment
-      return currentPath.replace(`/${locale}/`, `/${locale}/${version}/`);
-    }
-  } else {
-    // Non-localized routes
-    // e.g. / -> /1.2.0/ or /1.2.0/ -> /1.3.0/
-    if (!isOnLatest) {
-      if (version === props.versioningPlugin.latestVersion) {
-        return currentPath.replace(`/${currentVersion.value}/`, "/");
-      } else {
-        return currentPath.replace(`/${currentVersion.value}/`, `/${version}/`);
-      }
-    } else {
-      return currentPath.replace("/", `/${version}/`);
-    }
+  const currentV = currentVersion.value;
+  const latestV = props.versioningPlugin.latestVersion;
+  const pathParts = currentPath.split("/").filter(Boolean);
+
+  // version goes after locale, if the path starts with it
+  const versionIndex = pathParts[0] === locale ? 1 : 0;
+
+  // remove the version segment, if present after the locale
+  if (pathParts[versionIndex] === currentV) {
+    pathParts.splice(versionIndex, 1);
   }
+
+  // insert the new version segment, if needed, after the locale
+  if (newV !== latestV) {
+    pathParts.splice(versionIndex, 0, newV);
+  }
+
+  return "/" + pathParts.join("/") + "/";
 }
 
 // Navigate to the selected version
@@ -101,9 +85,7 @@ function visitVersion(version: string) {
     ? localeKeys.find((key) => router.route.path.startsWith(`/${key}/`)) || null
     : null;
 
-  const isOnLatest =
-    currentVersion.value === props.versioningPlugin.latestVersion;
-  const route = buildRoutePath(router.route.path, locale, version, isOnLatest);
+  const route = buildRoutePath(router.route.path, locale, version);
 
   router.go(route);
   currentVersion.value = version;
