@@ -190,6 +190,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
   return {
     // https://vitepress.dev/reference/default-theme-config
     authors: {
+      deletedGitHub: websiteResolver("authors.deleted_github"),
       heading: websiteResolver("authors.heading"),
       noGitHub: websiteResolver("authors.no_github"),
     },

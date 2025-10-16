@@ -38,11 +38,11 @@ export default {
         frontmatter.value.title
           ? h("h1", { class: "vp-doc" }, frontmatter.value.title)
           : null,
-        h(VersionReminder),
         h(AuthorsComponent),
+        h(VersionReminder),
       ],
-      "aside-outline-before": () => h(VersionReminder),
-      "aside-outline-after": () => h(AuthorsComponent),
+      "aside-outline-before": () => h(AuthorsComponent),
+      "aside-outline-after": () => h(VersionReminder),
     };
 
     if (page.value.isNotFound) {
