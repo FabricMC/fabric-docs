@@ -16,7 +16,7 @@ You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/tem
 
 The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.example-mod`.
 
-::: warning
+::: warning IMPORTANT
 Make sure you remember your mod's ID! Whenever you find `example-mod` in these docs, especially in file paths, you will have to replace it with your own.
 
 For example, if your mod ID was **`my-cool-mod`**, instead of _`resources/assets/example-mod`_ use **`resources/assets/my-cool-mod`**.
@@ -32,9 +32,19 @@ Once you've filled in the required fields, click the `Generate` button, and the 
 
 You should extract this zip file to a location of your choice, and then open the extracted folder in your IDE.
 
+::: tip
+You should follow these rules when choosing the path to your project:
+
+- Avoid cloud storage directories (for example Microsoft OneDrive)
+- Avoid non-ASCII characters (for example emoji, accented letters)
+- Avoid spaces
+
+An example of a "good" path may be: `C:\Projects\YourProjectName`
+:::
+
 ## Manual Project Creation {#manual-project-creation}
 
-::: warning
+::: info PREREQUISITES
 You will need [Git](https://git-scm.com/) installed in order to clone the example mod repository.
 :::
 
