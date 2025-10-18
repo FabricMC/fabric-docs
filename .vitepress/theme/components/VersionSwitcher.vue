@@ -14,6 +14,11 @@ const data = useData();
 const router = useRouter();
 
 const text = computed(() => data.theme.value.version.switcher);
+const versions = computed(() =>
+  props.versioningPlugin.versions.toSorted((a, b) =>
+    new Intl.Collator(undefined, { numeric: true }).compare(b, a)
+  )
+);
 
 // State refs
 const currentVersion = ref<string>(props.versioningPlugin.latestVersion);
@@ -21,7 +26,7 @@ const isOpen = ref(false);
 
 // Helper function to find the matching version from the current route path
 function getVersionFromPath(path: string): string {
-  for (const v of props.versioningPlugin.versions) {
+  for (const v of versions.value) {
     if (path.includes(`/${v}/`)) {
       return v;
     }
@@ -111,7 +116,7 @@ function visitVersion(version: string) {
         {{ versioningPlugin.latestVersion }}
       </VPLink>
       <!-- Render links for each version -->
-      <template v-for="version in versioningPlugin.versions" :key="version">
+      <template v-for="version in versions" :key="version">
         <VPLink
           href="#"
           :tag="'a'"
@@ -142,7 +147,7 @@ function visitVersion(version: string) {
       <VPLink href="#" @click="visitVersion(versioningPlugin.latestVersion)">
         {{ versioningPlugin.latestVersion }}
       </VPLink>
-      <template v-for="version in versioningPlugin.versions" :key="version">
+      <template v-for="version in versions" :key="version">
         <VPLink href="#" @click="visitVersion(version)">
           {{ version }}
         </VPLink>

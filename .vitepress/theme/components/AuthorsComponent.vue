@@ -1,77 +1,74 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const data = useData();
-const heading = computed(() => data.theme.value.authors.heading);
-const labelNoGitHub = computed(() => data.theme.value.authors.noGitHub);
 
-const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
-  const authors: string[] = data.frontmatter.value["authors"] || [];
-  const authorsNoGitHub: string[] =
-    data.frontmatter.value["authors-nogithub"] || [];
+const options = computed(() => data.theme.value.authors);
 
-  const withGitHub = authors.map((name) => ({ name }));
-  const withoutGitHub = authorsNoGitHub.map((name) => ({
-    name,
-    noGitHub: true,
-  }));
+const authors = computed<{ name: string; noGitHub?: true }[]>(() =>
+  [
+    ...((data.frontmatter.value["authors"] || []) as string[]).map(
+      // @error below will take care of deleted GitHub accounts
+      (name) => ({ name })
+    ),
+    ...((data.frontmatter.value["authors-nogithub"] || []) as string[]).map(
+      (name: string) => ({ name, noGitHub: true })
+    ),
+  ].sort((a, b) => a.name.localeCompare(b.name))
+);
 
-  return [...withGitHub, ...withoutGitHub].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-});
+const deletedAuthors = ref(new Set<string>());
 </script>
 
 <template>
-  <div v-if="combinedAuthors.length" class="authors-section">
-    <h2>{{ heading }}</h2>
-    <div class="page-authors">
-      <template
-        v-for="author in combinedAuthors"
-        :key="(author.noGitHub ? ':' : '') + author.name"
+  <div class="authors-component">
+    <h2 v-if="authors.length">{{ options.heading }}</h2>
+    <div class="authors">
+      <component
+        v-for="author in authors"
+        :key="
+          author.noGitHub
+            ? `${author.name}!`
+            : deletedAuthors.has(author.name)
+            ? `${author.name}?`
+            : author.name
+        "
+        :is="author.noGitHub || deletedAuthors.has(author.name) ? 'div' : 'a'"
+        :href="`https://github.com/${author.name}`"
+        target="_blank"
       >
         <img
-          v-if="author.noGitHub"
-          loading="lazy"
-          class="author-avatar"
-          src="/assets/avatater.png"
+          :title="
+            author.noGitHub
+              ? options.noGitHub.replace('%s', author.name)
+              : deletedAuthors.has(author.name)
+              ? options.deletedGitHub.replace('%s', author.name)
+              : author.name
+          "
+          :src="
+            author.noGitHub || deletedAuthors.has(author.name)
+              ? '/assets/avatater.png'
+              : `https://wsrv.nl/?url=${encodeURIComponent(
+                  `https://github.com/${author.name}.png?size=32`
+                )}&af&maxage=7d`
+          "
           :alt="author.name"
-          :title="labelNoGitHub.replace('%s', author.name)"
+          @error="deletedAuthors.add(author.name)"
         />
-        <a
-          v-else
-          :href="`https://github.com/${author.name}`"
-          target="_blank"
-          class="author-link"
-          :title="author.name"
-        >
-          <img
-            loading="lazy"
-            class="author-avatar"
-            :src="`https://wsrv.nl/?url=${encodeURIComponent(
-              `https://github.com/${author.name}.png?size=32`
-            )}&af&maxage=7d`"
-            :alt="author.name"
-          />
-        </a>
-      </template>
+      </component>
     </div>
   </div>
 </template>
 
 <style scoped>
-.authors-section {
-  margin-top: 8px;
+@media (min-width: 1280px) {
+  .content-container > .authors-component {
+    display: none;
+  }
 }
 
-.authors-section > h2 {
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  font-size: 14px;
-}
-
-.page-authors {
+.authors {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -81,21 +78,20 @@ const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
   padding-bottom: 8px;
 }
 
-.author-avatar {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-
-  transition: filter 0.2s ease-in-out;
+h2 {
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  font-size: 14px;
 }
 
-.page-authors > a:hover > .author-avatar {
+a:hover {
   filter: brightness(1.2);
 }
 
-@media (min-width: 1280px) {
-  .content-container > .authors-section {
-    display: none;
-  }
+img {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  transition: filter 0.2s ease-in-out;
 }
 </style>
