@@ -4,6 +4,7 @@ description: A guide to generating item models via datagen.
 authors:
   - Fellteros
   - VatinMc
+  - skycatminepokie
 ---
 
 :::info PREREQUISITES
@@ -90,7 +91,7 @@ If you don't want to worry about the conversion, you can use tools like [Spawn E
 
 @[code lang=java transcludeWith=:::datagen-model:dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value for leather is ``-6265536``)
+The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value for leather is `-6265536`)
 It generates a simple item model JSON and an item model definition file specifying the tint color.
 
 ![Dyeing leather gloves](/assets/develop/data-generation/item-model/leather_gloves_dyeing.png)
@@ -100,7 +101,7 @@ _**assets/modid/items/leather_gloves.json**_
 @[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/leather_gloves.json)
 
 :::warning IMPORTANT
-You have to add your item to the ``ItemTags.DYEABLE`` Tag so you can dye it in your inventory!
+You have to add your item to the `ItemTags.DYEABLE` Tag so you can dye it in your inventory!
 :::
 
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/leather_gloves_big.png" downloadURL="/assets/develop/data-generation/item-model/leather_gloves.png">Leather Gloves</DownloadEntry>
@@ -109,7 +110,7 @@ You have to add your item to the ``ItemTags.DYEABLE`` Tag so you can dye it in y
 
 @[code lang=java transcludeWith=:::datagen-model:condition](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Next, we'll look into generating item models that change their visual based when a specific boolean is true; in this case, the second parameter ``BooleanProperty``. Here are some of them:
+Next, we'll look into generating item models that change their visual based when a specific boolean is true; in this case, the second parameter `BooleanProperty`. Here are some of them:
 
 | Property               | Description                                                                    |
 |------------------------|--------------------------------------------------------------------------------|
@@ -138,7 +139,7 @@ When obtaining `Identifier`s for the `ItemModels.basic()`, always use `itemModel
 
 @[code lang=java transcludeWith=:::datagen-model:composite](@/reference/latest/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-These item models are composed of one or more textures layered on top of each other. There isn't any vanilla method for this, you have to use `ItemModelGenerator`'s `output` field and then `accept()` for it to be working.
+These item models are composed of one or more textures layered on top of each other. There aren't any vanilla methods for this, you have to use `ItemModelGenerator`'s `output` field and then `accept()` for it to work.
 Here's the item model definition JSON:
 
 _**assets/modid/items/enhanced_hoe.json**_
@@ -183,7 +184,11 @@ Renders an item model based on the value of a numeric property. Take in an item 
 | `UseDurationProperty` | Renders an item model based on how long the item is being used.              |
 | `DamageProperty`      | Renders an item model based on attack damage (`minecraft:damage` component). |
 
-This example uses the ``CountProperty``, changing the texture from one knife up to three based on the stack size.
+This example uses the `CountProperty`, changing the texture from one knife up to three based on the stack size.
+
+:::tip
+Some other examples of range dispatch item models are the compass, bow or brush.
+:::
 
 ![Throwing knives changing texture based on count](/assets/develop/data-generation/item-model/throwing_knives_example.png)
 
@@ -232,10 +237,10 @@ The last step is creating a custom method, which will be called in the `generate
 
 Let's go over what the parameters are for:
 
-1. ``Item item``: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
-2. ``ItemModelGenerator generator``: the same that get passed into the `generateItemModels()` method. Used for its fields.
+1. `Item item`: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
+2. `ItemModelGenerator generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
-First, we get the ``Identifier`` of the item with `BALLOON.upload()`, passing in a ``TextureMap`` and the `modelCollector` from our `generator` parameter.
+First, we get the `Identifier` of the item with `BALLOON.upload()`, passing in a `TextureMap` and the `modelCollector` from our `generator` parameter.
 Then, we'll use another of its fields, the `output` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 
 And that's all! Now, we only need to call our method in the `generateItemModels()` method.

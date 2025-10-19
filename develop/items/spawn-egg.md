@@ -4,6 +4,7 @@ description: Learn how to register a spawn egg item, and configure its colors.
 authors:
   - Fellteros
   - VatinMc
+  - skycatminepokie
 
 ---
 
@@ -14,7 +15,7 @@ Visit [Creating Your First Item](./first-item) to understand the references made
 Spawn eggs are items that are used to spawn the corresponding mob. When creating spawn eggs, the following questions need to be answered:
 
 - Which `MobEntity` should be spawned?
-- What colors should shell and dots be?
+- What colors should the shell and dots be?
 - What should your spawn egg item be named?
 
 ## Simplify Registering Spawn Egg Items {#simplify-registering-spawn-egg-items}
