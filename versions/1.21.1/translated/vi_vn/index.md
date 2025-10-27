@@ -9,13 +9,19 @@ features:
   - title: Developer Guides
     icon: 🛠️
     details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
-    link: /develop/
+    link: /vi_vn/1.21.1/develop/
     linkText: Khởi Đầu
   - title: Hướng Dẫn Cho Người Chơi
     icon: 📚
     details: Có phải bạn đang tìm kiếm cách chạy các bản mod dành cho Fabric? Bộ hướng dẫn của chúng tôi sẽ giúp bạn điều đó. Những cách này sẽ giúp bạn trong việc tải xuống, cài đặt và khắc phục sự cố khi dùng mod Fabric.
-    link: /players/
+    link: /vi_vn/1.21.1/players/
     linkText: Đọc Thêm
 ---
+
+::: warning
+You are currently viewing the documentation for Minecraft 1.21.1.
+Documentation for older versions may be incomplete.
+If you are looking for a different version, please select it from the dropdown on the navigation bar.
+:::
 
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
