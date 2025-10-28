@@ -25,7 +25,9 @@ fabricApi {
 	configureTests {
 		createSourceSet = true
 		modId = "example-mod-test-${project.name}"
-		eula = true
+		enableGameTests = true // Default is true
+		enableClientGameTests = true // Default is true
+		eula = true // By setting this to true, you agree to the Minecraft EULA.
 	}
 }
 // :::automatic-testing:game-test:1
