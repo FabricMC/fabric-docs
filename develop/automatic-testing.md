@@ -132,5 +132,9 @@ Server game tests will be run automatically with the `build` Gradle task. You ca
 
 Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
 
+::: warning
+Currently, game test may fail on GitHub Actions due to an error in the network synchronizer. If you encounter this error, you can add `-Dfabric.client.gametest.disableNetworkSynchronizer=true` to the JVM args in your production run task declaration.
+:::
+
 @[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
 @[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)
