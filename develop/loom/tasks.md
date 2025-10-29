@@ -54,7 +54,7 @@ The `net.fabricmc.loom.task.tool.ModEnigmaTask` is an advanced task that can be 
 
 ```groovy
 tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
-    mappingsFile = file("mappings.tiny")
+    mappingsFile = file("mappings.mapping")
 }
 ```
 
