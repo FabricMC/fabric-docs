@@ -37,7 +37,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 }
 ```
 
-You can also specify an expected SHA-1 hash which will be used to verify the integrity of the downloaded file, and a maximum age to avoid re-downloading the file if it is still fresh:
+You can also specify an expected SHA-1 hash which will be used to verify the integrity of the downloaded file, and a maximum age to require downloading again once the file is no longer fresh:
 
 ```groovy
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
