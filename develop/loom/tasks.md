@@ -48,7 +48,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 }
 ```
 
-An expected SHA-1 hash can be specified to verify the integrity of the downloaded file and a maximum age can be set to avoid re-downloading the file if it is still fresh. Gradle's built-in caching mechanisms will also be used to avoid re-downloading the file if it has not changed.
+An expected SHA-1 hash can be specified to verify the integrity of the downloaded file and a maximum age can be set to avoid re-downloading the file if it is still fresh.
 
 ## ModEnigmaTask {#modenigma-task}
 
