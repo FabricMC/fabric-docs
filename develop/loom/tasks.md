@@ -37,7 +37,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 }
 ```
 
-The above example will download the file from the specified URL and save it to `out.txt` in the project directory.
+You can also specify an expected SHA-1 hash which will be used to verify the integrity of the downloaded file, and a maximum age to avoid re-downloading the file if it is still fresh:
 
 ```groovy
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
@@ -47,8 +47,6 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
     maxAge = Duration.ofDays(1)
 }
 ```
-
-An expected SHA-1 hash can be specified to verify the integrity of the downloaded file and a maximum age can be set to avoid re-downloading the file if it is still fresh.
 
 ## ModEnigmaTask {#modenigma-task}
 
