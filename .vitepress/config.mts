@@ -42,7 +42,6 @@ export default defineVersionedConfig(
           }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
       ],
       lineNumbers: true,
-      math: true,
       async shikiSetup(shiki) {
         await shiki.loadTheme("github-light", "github-dark");
       },
