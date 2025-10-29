@@ -75,6 +75,8 @@
   "develop.misc.loom.fabric_api": "Fabric API DSL",
   "develop.misc.loom.options": "Extension Options",
   "develop.misc.loom.prod": "Production Run Tasks",
+  "develop.misc.loom.classpath_groups": "Classpath Groups",
+  "develop.misc.loom.tasks": "Other Tasks",
   "develop.sounds": "Sounds",
   "develop.sounds.using_sounds": "Playing Sounds",
   "develop.sounds.custom": "Creating Custom Sounds",

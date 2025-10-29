@@ -310,6 +310,14 @@ export default [
             text: "develop.misc.loom.prod",
             link: "/develop/loom/production-run-tasks",
           },
+          {
+            text: "develop.misc.loom.classpath_groups",
+            link: "/develop/loom/classpath-groups",
+          },
+          {
+            text: "develop.misc.loom.tasks",
+            link: "/develop/loom/tasks",
+          },
         ],
       },
     ],
