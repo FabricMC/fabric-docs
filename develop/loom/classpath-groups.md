@@ -10,7 +10,7 @@ Loom provides a DSL for configuring Fabric loader's classpath groups system prop
 ```groovy
 loom {
     mods {
-        "modid" {
+        "example-mod" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
@@ -18,23 +18,23 @@ loom {
 }
 ```
 
-In the example above, the mod with the ID `modid` is built from two source sets: `main` and `client`. Loom will configure Fabric Loader to group these source sets together under the same classpath group, ensuring that they are loaded correctly at runtime.
+In the example above, `example-mod` is built from two source sets: `main` and `client`. Loom will configure Fabric Loader to group these source sets together under the same classpath group, ensuring that they are loaded correctly at runtime.
 
 ```groovy
 loom {
     mods {
-        "modid" {
+        "example-mod" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
-        "modid-test" {
+        "example-mod-test" {
             sourceSet sourceSets.testmod
         }
     }
 }
 ```
 
-In the example above, the mod with the ID `modid-test` is built from a single source set: `testmod`. Loom will configure Fabric Loader to group this source set under its own classpath group, separate from the `modid` mod.
+In the example above, `example-mod-test` is built from a single source set: `testmod`. Loom will configure Fabric Loader to group this source set under its own classpath group, separate from the `example-mod`.
 
 ### Sub Projects {#multi-project}
 
@@ -43,7 +43,7 @@ When you wish to define mods that span multiple Gradle projects (common in multi
 ```groovy
 loom {
     mods {
-        "modid" {
+        "example-mod" {
             sourceSet sourceSets.main
             sourceSet("main", ":core")
         }
@@ -61,12 +61,12 @@ plugins {
 
 ### Shaded Dependencies {#shaded-dependencies}
 
-If you are shading dependencies into your mod jar, you should also define the configuration that contains the shaded dependencies in the `loom.mods` block. This ensures that Fabric Loader can group the shaded dependencies correctly with your mod's code. You should not do this for other mod dependencies or dependedencies that you are jar-in-jaring with `include.
+If you are shading dependencies into your mod jar, you should also define the configuration that contains the shaded dependencies in the `loom.mods` block. This ensures that Fabric Loader can group the shaded dependencies correctly with your mod's code. You should not do this for other mod dependencies or dependedencies that you are jar-in-jar-ing with `include`.
 
 ```groovy
 loom {
     mods {
-        "modid" {
+        "example-mod" {
             sourceSet sourceSets.main
             configuration configurations.shade
         }

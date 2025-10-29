@@ -1,5 +1,5 @@
 ---
-title: Other tasks
+title: Other Tasks
 description: Documentation for Fabric Loom's additional tasks.
 authors:
   - modmuss50
@@ -16,7 +16,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
     outputFile = file("fabric.mod.json")
 
     json {
-        modId = "examplemod"
+        modId = "example-mod"
         version = "1.0.0"
     }
 }
@@ -27,6 +27,8 @@ The above example is the most basic usage of the task, and will generate a `fabr
 ## Download Task {#download-task}
 
 The `net.fabricmc.loom.task.DownloadTask` is a simple task that can be used to download files from a URL to a specified location.
+
+For example, to download a file from a certain URL and save it in `out.txt` in the project directory:
 
 ```groovy
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
@@ -41,7 +43,7 @@ The above example will download the file from the specified URL and save it to `
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
     url = "https://example.com/file.txt"
     output = file("out.txt")
-    sha1 = "expectedsha1hashhere"
+    sha1 = "EXPECTED-SHA1-HASH-HERE"
     maxAge = Duration.ofDays(1)
 }
 ```
