@@ -50,7 +50,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 
 ## ModEnigmaTask {#modenigma-task}
 
-The `net.fabricmc.loom.task.tool.ModEnigmaTask` is an advanced task that can be used to launch [Enigma](https://github.com/FabricMC/Enigma) against a mappings file. This can be used to genrate mod provided javadoc.
+The `net.fabricmc.loom.task.tool.ModEnigmaTask` is an advanced task that can be used to launch [Enigma](https://github.com/FabricMC/Enigma) against a mappings file. This can be used to generate mod provided javadoc.
 
 ```groovy
 tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
