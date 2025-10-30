@@ -26,7 +26,7 @@ import players from "./sidebars/players";
   if (!newVersion) process.exit(1);
   console.log(`New version: 'Minecraft ${newVersion}'`);
 
-  console.log("Fetching Yarn version for Minecraft " + newVersion + "...");
+  console.log(`Fetching Yarn version for Minecraft ${newVersion}...`);
   const yarnVersions: any[] = (await (
     await fetch(`https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`)
   ).json()) as any[];
@@ -36,12 +36,12 @@ import players from "./sidebars/players";
     yarnVersion = yarnVersions[0]?.version;
   }
   if (!yarnVersion) {
-    console.error("No stable Yarn version found for Minecraft " + newVersion);
+    console.error(`No stable Yarn version found for Minecraft ${newVersion}`);
     process.exit(1);
   }
-  console.log("Found Yarn version " + yarnVersion);
+  console.log(`Found Yarn version ${yarnVersion}`);
 
-  console.log("Fetching Fabric API version for Minecraft " + newVersion + "...");
+  console.log(`Fetching Fabric API version for Minecraft ${newVersion}...`);
   const fabricApiVersions: any[] = (await (
     await fetch(
       `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`
@@ -49,15 +49,15 @@ import players from "./sidebars/players";
   ).json()) as any[];
   const fabricApiVersion = fabricApiVersions[0]?.version_number;
   if (!fabricApiVersion) {
-    console.error("No Fabric API version found for Minecraft " + newVersion);
+    console.error(`No Fabric API version found for Minecraft ${newVersion}`);
     process.exit(1);
   }
-  console.log("Found Fabric API version " + fabricApiVersion);
+  console.log(`Found Fabric API version ${fabricApiVersion}`);
 
-  console.log("Copying latest -> " + oldVersion + "...");
+  console.log(`Copying latest -> ${oldVersion}...`);
 
   // Copy ./reference/latest/** -> ./reference/oldVersion/**
-  fs.cpSync("./reference/latest", "./reference/" + oldVersion, {
+  fs.cpSync("./reference/latest", `./reference/${oldVersion}`, {
     recursive: true,
   });
 
@@ -73,7 +73,7 @@ import players from "./sidebars/players";
   fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
   console.log("Example mod has been bumped successfully.");
-  console.log("Migrating content to versioned/" + oldVersion + "...");
+  console.log(`Migrating content to versioned/${oldVersion}...`);
 
   // Move all markdown files except README.md to versions/oldVersion
   const markdownFiles = tinyglobby.globSync("**/*.md", {
@@ -82,8 +82,8 @@ import players from "./sidebars/players";
 
   // Copy into versions/oldVersion and respect the directory structure.
   for (const file of markdownFiles) {
-    const oldPath = "./" + file;
-    const newPath = "./versions/" + oldVersion + "/" + file;
+    const oldPath = `./${file}`;
+    const newPath = `./versions/${oldVersion}/${file}`;
     fs.cpSync(oldPath, newPath);
   }
 
@@ -96,7 +96,7 @@ import players from "./sidebars/players";
   };
 
   fs.writeFileSync(
-    "./.vitepress/sidebars/versioned/" + oldVersion + ".json",
+    `./.vitepress/sidebars/versioned/${oldVersion}.json`,
     JSON.stringify(versionedSidebar, null, 2)
   );
 
