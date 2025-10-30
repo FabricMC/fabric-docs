@@ -1,7 +1,7 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
-import { loadLocales, processExistingEntries } from "./i18n";
+import { getLocales, processExistingEntries } from "./i18n";
 import { transformItems, transformPageData } from "./transform";
 
 // https://vitepress.dev/reference/site-config
@@ -23,7 +23,7 @@ export default defineVersionedConfig(
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
 
-    locales: loadLocales(__dirname),
+    locales: getLocales(),
 
     markdown: {
       config: (md) => {
@@ -62,9 +62,9 @@ export default defineVersionedConfig(
       search: {
         options: {
           _render: (src, env, md) =>
-            env.frontmatter?.search === false ||
-            env.relativePath.startsWith("translated/") ||
-            env.relativePath.startsWith("versions/")
+            env.frontmatter?.search === false
+            || env.relativePath.startsWith("translated/")
+            || env.relativePath.startsWith("versions/")
               ? ""
               : md.render(src, env),
         },
