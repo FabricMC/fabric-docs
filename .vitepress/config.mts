@@ -1,10 +1,31 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path/posix";
+import * as process from "node:process";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
+import { Fabric } from "./types";
+
+// https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
+// https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
+const env = process.env.GITHUB_ACTIONS
+  ? "github"
+  : process.env.NETLIFY
+    ? Number(process.env.REVIEW_ID)
+    : process.env.NODE_ENV === "production"
+      ? "build"
+      : "dev";
+
+const hostname =
+  env === "github"
+    ? "https://docs.fabricmc.net/"
+    : env === "build"
+      ? "http://fabric-docs.localhost:4173/"
+      : env === "dev"
+        ? "http://fabric-docs.localhost:5173/"
+        : process.env.DEPLOY_PRIME_URL!;
 
 const latestVersion = fs
   .readFileSync(path.resolve(__dirname, "..", "reference", "latest", "build.gradle"), "utf-8")
@@ -65,13 +86,14 @@ export default defineVersionedConfig(
     rewrites: { "translated/:lang/(.*)": ":lang/(.*)" },
 
     sitemap: {
-      hostname: "https://docs.fabricmc.net/",
+      hostname,
       transformItems,
     },
 
     srcExclude: ["README.md"],
 
     themeConfig: {
+      banner: { env },
       externalLinkIcon: true,
       logo: "/logo.png",
       outline: { level: "deep" },
@@ -86,7 +108,7 @@ export default defineVersionedConfig(
         },
         provider: "local",
       },
-    },
+    } as Fabric.ThemeConfig,
 
     // Dynamic head tags
     transformHead,
