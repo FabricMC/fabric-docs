@@ -4,12 +4,12 @@ import { Versioned } from "vitepress-versioning-plugin";
 export namespace Fabric {
   export interface AuthorsOptions {
     /**
-     * @default "Page authors"
+     * @default "Page Authors"
      */
     heading: string;
 
     /**
-     * @default "%s (not on GitHub)"
+     * @default "%s (not from GitHub)"
      */
     noGitHub: string;
   }

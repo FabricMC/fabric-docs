@@ -2,93 +2,92 @@
 import { useData } from "vitepress";
 import { computed } from "vue";
 
+import { Fabric } from "../../types";
+
+type Author = { name: string; noGitHub?: true };
+
 const data = useData();
-const heading = computed(() => data.theme.value.authors.heading);
-const labelNoGitHub = computed(() => data.theme.value.authors.noGitHub);
 
-const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
-  const authors: string[] = data.frontmatter.value["authors"] || [];
-  const authorsNoGitHub: string[] = data.frontmatter.value["authors-nogithub"] || [];
+const options = computed(() => data.theme.value.authors as Fabric.AuthorsOptions);
 
-  const withGitHub = authors.map((name) => ({ name }));
-  const withoutGitHub = authorsNoGitHub.map((name) => ({ name, noGitHub: true }));
+const authors = computed<Author[]>(() =>
+  [
+    ...((data.frontmatter.value["authors"] || []) as string[]).map((name) => ({ name })),
+    ...((data.frontmatter.value["authors-nogithub"] || []) as string[]).map((name) => ({
+      name,
+      noGitHub: true,
+    })),
+  ].sort((a, b) => a.name.localeCompare(b.name))
+);
 
-  return [...withGitHub, ...withoutGitHub].sort((a, b) => a.name.localeCompare(b.name));
-});
+const getImageSrc = (author: Author) =>
+  author.noGitHub
+    ? "/assets/avatater.png"
+    : "https://wsrv.nl/?"
+      + new URLSearchParams({
+        af: "",
+        maxage: "7d",
+        url: `https://github.com/${author.name}.png?size=32`,
+        default: "https://docs.fabricmc.net/assets/avatater.png",
+      });
 </script>
 
 <template>
-  <div v-if="combinedAuthors.length" class="authors-section">
-    <h2>{{ heading }}</h2>
-    <div class="page-authors">
-      <template
-        v-for="author in combinedAuthors"
-        :key="`${author.noGitHub ? ':' : ''}${author.name}`"
-      >
-        <img
-          v-if="author.noGitHub"
-          loading="lazy"
-          class="author-avatar"
-          src="/assets/avatater.png"
-          :alt="author.name"
-          :title="labelNoGitHub.replace('%s', author.name)"
-        />
-        <a
-          v-else
-          :href="`https://github.com/${author.name}`"
-          target="_blank"
-          class="author-link"
-          :title="author.name"
-        >
-          <img
-            loading="lazy"
-            class="author-avatar"
-            :src="`https://wsrv.nl/?url=${encodeURIComponent(
-              `https://github.com/${author.name}.png?size=32`
-            )}&af&maxage=7d`"
-            :alt="author.name"
-          />
-        </a>
-      </template>
-    </div>
+  <h2 v-if="authors.length">{{ options.heading }}</h2>
+  <div>
+    <component
+      v-for="author in authors"
+      :key="author.noGitHub ? `${author.name}!` : author.name"
+      :is="author.noGitHub ? 'span' : 'a'"
+      :href="`https://github.com/${author.name}`"
+      target="_blank"
+    >
+      <img
+        :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
+        :src="getImageSrc(author)"
+        :alt="author.name"
+        loading="lazy"
+      />
+    </component>
   </div>
 </template>
 
 <style scoped>
-.authors-section {
-  margin-top: 8px;
+h2 {
+  font-weight: bold;
+  font-size: large;
+  margin-top: 16px;
 }
 
-.authors-section > h2 {
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  font-size: 14px;
+.content-container > h2 {
+  display: none;
 }
 
-.page-authors {
+div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   margin-top: 8px;
   gap: 8px;
-  padding-bottom: 8px;
-}
 
-.author-avatar {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  a {
+    transition: filter 0.2s ease-in-out;
+  }
 
-  transition: filter 0.2s ease-in-out;
-}
+  a:hover {
+    filter: brightness(120%);
+  }
 
-.page-authors > a:hover > .author-avatar {
-  filter: brightness(1.2);
+  img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
 }
 
 @media (min-width: 1280px) {
-  .content-container > .authors-section {
+  .content-container > div {
     display: none;
   }
 }
