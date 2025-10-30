@@ -264,8 +264,10 @@ export const getLocales = () => {
         ],
 
         version: {
-          reminder: resolver("version.reminder"),
-          switcher: resolver("version.switcher"),
+          reminder: {
+            latestVersion: resolver("version.reminder.latest_version"),
+            oldVersion: resolver("version.reminder.old_version"),
+          },
         },
 
         versionSwitcher: false,
