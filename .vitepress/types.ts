@@ -15,20 +15,31 @@ export namespace Fabric {
   }
 
   export interface BannerOptions {
-    /**
-     * @default "Fabric Documentation is a work in progress. Report issues on %s or on %s."
-     */
-    text: string;
+    local: {
+      /**
+       * @default "This is a local build"
+       */
+      build: string;
 
-    /**
-     * @default "Discord"
-     */
-    discord: string;
+      /**
+       * @default "This is a local preview"
+       */
+      dev: string;
+    };
 
-    /**
-     * @default "GitHub"
-     */
-    github: string;
+    pr: {
+      /**
+       * @default "This is a preview of %s"
+       */
+      text: string;
+
+      /**
+       * @default "Pull Request #%d"
+       */
+      link: string;
+    };
+
+    env: "build" | "dev" | "github" | number;
   }
 
   export interface DownloadOptions {

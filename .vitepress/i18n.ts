@@ -121,9 +121,14 @@ export const getLocales = () => {
         },
 
         banner: {
-          text: resolver("banner"),
-          discord: resolver("social.discord"),
-          github: resolver("social.github"),
+          local: {
+            build: resolver("banner.local.build"),
+            dev: resolver("banner.local.dev"),
+          },
+          pr: {
+            text: resolver("banner.pr"),
+            link: resolver("banner.pr.link"),
+          },
         },
 
         darkModeSwitchLabel: resolver("mode_switcher"),

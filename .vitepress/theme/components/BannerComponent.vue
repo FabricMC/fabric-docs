@@ -1,89 +1,67 @@
 <script setup lang="ts">
 import { useElementSize } from "@vueuse/core";
 import { useData } from "vitepress";
-import { computed, ref, watchEffect } from "vue";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { computed, ref, watch } from "vue";
 
 import { Fabric } from "../../types";
 
 const data = useData();
+const banner = ref<HTMLElement>();
+const { height } = useElementSize(banner);
 
-const el = ref<HTMLElement>();
-const { height } = useElementSize(el);
 const options = computed(() => data.theme.value.banner as Fabric.BannerOptions);
-const text = computed(() => {
-  const text = options.value.text.split("%s", 3);
-  while (text.length < 3) {
-    text.push("");
+
+const strings = computed(() => {
+  switch (options.value.env) {
+    case "github":
+      return [];
+
+    case "build":
+      return [options.value.local.build];
+
+    case "dev":
+      return [options.value.local.dev];
+
+    default: {
+      const split = options.value.pr.text.split("%s").filter(Boolean);
+      return [split[0], String(options.value.env), split.slice(1).join("%s")];
+    }
   }
-  return text;
 });
 
-watchEffect(() => {
-  if (height.value) {
-    document.documentElement.style.setProperty("--vp-layout-top-height", `${height.value}px`);
-  }
-});
+watch([height, strings], () =>
+  document.documentElement.style.setProperty(
+    "--vp-layout-top-height",
+    `${strings.value.length ? height.value + 16 : 0}px`
+  )
+);
 </script>
 
 <template>
-  <div ref="el" class="banner">
-    <div class="text">
-      {{ text[0] }}
-      <a
-        href="https://github.com/fabricmc/fabric-docs/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-        >{{ options.github }}</a
-      >
-      {{ text[1] }}
-      <a href="https://discord.gg/v6v4pMv" target="_blank" rel="noopener noreferrer">{{
-        options.discord
-      }}</a
-      >{{ text[2] }}
-    </div>
+  <div v-if="strings.length" ref="banner">
+    {{ strings[0]
+    }}<VPLink
+      v-if="strings[1]"
+      :href="`https://github.com/FabricMC/fabric-docs/pull/${strings[1]}`"
+      >{{ options.pr.link.replace("%d", strings[1]) }}</VPLink
+    >{{ strings[2] }}
   </div>
 </template>
 
-<style>
-html {
-  --vp-layout-top-height: 88px;
-}
-
-@media (min-width: 375px) {
-  html {
-    --vp-layout-top-height: 64px;
-  }
-}
-
-@media (min-width: 769px) {
-  html {
-    --vp-layout-top-height: 40px;
-  }
-}
-</style>
-
 <style scoped>
-.banner {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: var(--vp-z-index-layout-top);
-
-  font-family: monospace;
-
-  padding: 8px;
-  text-align: center;
-
+div {
+  align-items: center;
   background: rgb(207, 114, 21);
-  color: #fff;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.text {
-  flex: 1;
+  color: #ffffff;
+  font-family: monospace;
+  font-weight: 600;
+  left: 0;
+  padding: 8px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  z-index: var(--vp-z-index-layout-top);
 }
 
 a {
