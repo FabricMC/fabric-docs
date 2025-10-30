@@ -1,3 +1,4 @@
+import { DefaultTheme, UserConfig } from "vitepress";
 import { Versioned } from "vitepress-versioning-plugin";
 
 export namespace Fabric {
@@ -48,7 +49,7 @@ export namespace Fabric {
     /**
      * The locale's code on Crowdin
      */
-    crowdinCode: string | null;
+    crowdinLocale: string;
 
     /**
      * Set aria label for Crowdin link.
@@ -109,8 +110,11 @@ export namespace Fabric {
 
   export interface SidebarItem extends Versioned.SidebarItem {
     text: string;
-    translatable?: false;
     items?: SidebarItem[];
+  }
+
+  export interface Sidebar extends DefaultTheme.SidebarMulti {
+    [path: string]: SidebarItem[];
   }
 
   export interface ThemeConfig extends Versioned.ThemeConfig {
@@ -118,6 +122,7 @@ export namespace Fabric {
     banner: BannerOptions;
     download: DownloadOptions;
     notFound: NotFoundOptions;
+    sidebar: Sidebar;
     version: VersionOptions;
   }
 
@@ -136,4 +141,6 @@ export namespace Fabric {
      */
     reminder: string;
   }
+
+  export type Config = UserConfig<ThemeConfig> & Versioned.Config;
 }

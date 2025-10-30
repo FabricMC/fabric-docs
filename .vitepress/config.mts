@@ -1,7 +1,7 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
-import { getLocales, processExistingEntries } from "./i18n";
+import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
 
 const latestVersion = "1.21.10";
@@ -68,6 +68,9 @@ export default defineVersionedConfig(
     srcExclude: ["README.md"],
 
     themeConfig: {
+      externalLinkIcon: true,
+      logo: "/logo.png",
+      outline: { level: "deep" },
       search: {
         options: {
           _render: (src, env, md) =>
@@ -89,8 +92,19 @@ export default defineVersionedConfig(
       latestVersion,
       rewrites: { localePrefix: "translated" },
       sidebars: {
-        sidebarContentProcessor: processExistingEntries,
-        sidebarUrlProcessor: (url, version) => (url.startsWith("/") ? `/${version}${url}` : url),
+        sidebarContentProcessor: (s) =>
+          Object.fromEntries(
+            Object.entries(s).map(([k, v]) => [
+              (() => {
+                const split = k.split("/").filter(Boolean);
+                if (split[0] === split[2]) split.splice(2, 1);
+                return `/${split.join("/")}/`;
+              })(),
+              v,
+            ])
+          ),
+        sidebarUrlProcessor: (url, version) =>
+          url.startsWith("/") ? `/${version}${/^\/.._..\//.test(url) ? url.slice(6) : url}` : url,
       },
     },
   },
