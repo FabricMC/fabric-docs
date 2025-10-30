@@ -3,9 +3,9 @@ import { PageData, SiteConfig } from "vitepress";
 import { getWebsiteResolver } from "./i18n";
 
 /**
- * Adds open graph data (social media embed info) and tells web crawlers to not index versioned pages.
+ * Add open graph data (social media embed info) and tell web crawlers to not index versioned pages.
  */
-export function transformPageData(pageData: PageData, _context: any) {
+export const transformPageData = (pageData: PageData) => {
   pageData.frontmatter.head ??= [];
 
   const parts = pageData.relativePath.split("/");
@@ -45,9 +45,9 @@ export function transformPageData(pageData: PageData, _context: any) {
       },
     ]);
   }
-}
+};
 
-export function transformItems(items: any[]): any[] {
+export const transformItems = (items: any[]): any[] => {
   const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
   const inverseRewrites = config.rewrites.inv;
 
@@ -62,4 +62,4 @@ export function transformItems(items: any[]): any[] {
   }
 
   return itemsCopy;
-}
+};

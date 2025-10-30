@@ -16,7 +16,7 @@ import "./style.css";
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp: ({ app }) => {
     // VidStack VideoPlayer Component
     app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("media-");
 
@@ -29,7 +29,7 @@ export default {
     // Versioning Plugin Components
     app.component("VersionSwitcher", VersionSwitcher);
   },
-  Layout() {
+  Layout: () => {
     const { page, frontmatter } = useData();
 
     const children = {
@@ -48,7 +48,7 @@ export default {
 
     return h(DefaultTheme.Layout, null, children);
   },
-  setup() {
+  setup: () => {
     const route = useRoute();
     const initZoom = () => {
       mediumZoom(".main img", { background: "var(--vp-c-bg)" });

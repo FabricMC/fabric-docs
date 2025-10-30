@@ -7,7 +7,10 @@ import DevelopSidebar from "./sidebars/develop";
 import PlayersSidebar from "./sidebars/players";
 import { Fabric } from "./types";
 
-function getTranslationsResolver(localeFolder: string, fileName: string): (key: string) => string {
+const getTranslationsResolver = (
+  localeFolder: string,
+  fileName: string
+): ((key: string) => string) => {
   const file = resolve(
     __dirname,
     "..",
@@ -25,13 +28,15 @@ function getTranslationsResolver(localeFolder: string, fileName: string): (key: 
   } else {
     return (key: string) => strings[key] || getTranslationsResolver("root", fileName)(key);
   }
-}
-export const getWebsiteResolver = (localeFolder: string) =>
-  getTranslationsResolver(localeFolder, "website_translations.json");
-export const getSidebarResolver = (localeFolder: string) =>
+};
+
+const getSidebarResolver = (localeFolder: string) =>
   getTranslationsResolver(localeFolder, "sidebar_translations.json");
 
-export function processExistingEntries(sidebar: Versioned.Sidebar): Versioned.Sidebar {
+export const getWebsiteResolver = (localeFolder: string) =>
+  getTranslationsResolver(localeFolder, "website_translations.json");
+
+export const processExistingEntries = (sidebar: Versioned.Sidebar): Versioned.Sidebar => {
   // Get locales from __dirname/../translated/* folder names.
   const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), {
     withFileTypes: true,
@@ -82,12 +87,12 @@ export function processExistingEntries(sidebar: Versioned.Sidebar): Versioned.Si
   }
 
   return sidebar;
-}
+};
 
-export function getLocalizedSidebar(
+const getLocalizedSidebar = (
   sidebar: Fabric.SidebarItem[],
   localeCode: string
-): Fabric.SidebarItem[] {
+): Fabric.SidebarItem[] => {
   const sidebarResolver = getSidebarResolver(localeCode);
   const localizedSidebar = JSON.parse(JSON.stringify(sidebar));
 
@@ -108,7 +113,7 @@ export function getLocalizedSidebar(
   }
 
   return localizedSidebar;
-}
+};
 
 /**
  * Generates translated sidebars for a given root directory and sidebars.
@@ -117,10 +122,10 @@ export function getLocalizedSidebar(
  * @param dirname - The root directory to generate translated sidebars for.
  * @returns An object containing translated sidebars, keyed by locale URL.
  */
-export function generateTranslatedSidebars(
+const generateTranslatedSidebars = (
   sidebars: { [url: string]: Fabric.SidebarItem[] },
   dirname: string
-): { [localeUrl: string]: Fabric.SidebarItem[] } {
+): { [localeUrl: string]: Fabric.SidebarItem[] } => {
   const translatedSidebars: { [key: string]: Fabric.SidebarItem[] } = {};
 
   for (const key of Object.keys(sidebars)) {
@@ -140,7 +145,7 @@ export function generateTranslatedSidebars(
   }
 
   return translatedSidebars;
-}
+};
 
 /**
  * Generates a theme configuration for a given locale.
@@ -148,7 +153,7 @@ export function generateTranslatedSidebars(
  * @param localeCode - The code of the locale ("root" for English).
  * @returns A theme configuration object.
  */
-function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
+const generateTranslatedThemeConfig = (localeCode: string): Fabric.ThemeConfig => {
   const websiteResolver = getWebsiteResolver(localeCode);
 
   const crowdinCode = (localeCode: string): string | null => {
@@ -333,7 +338,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
 
     versionSwitcher: false,
   };
-}
+};
 
 /**
  * Loads locales and generates a LocaleConfig object.
@@ -341,7 +346,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
  * @param dirname - The root directory of the project.
  * @returns A LocaleConfig object with locales and their corresponding themeConfig.
  */
-export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
+export const loadLocales = (dirname: string): LocaleConfig<Fabric.ThemeConfig> => {
   const translatedFolder = resolve(dirname, "..", "translated");
   const localeFolders = readdirSync(translatedFolder, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -401,4 +406,4 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
   }
 
   return locales;
-}
+};

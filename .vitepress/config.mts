@@ -26,7 +26,7 @@ export default defineVersionedConfig(
     locales: loadLocales(__dirname),
 
     markdown: {
-      config(md) {
+      config: (md) => {
         // Use the snippet plugin (transclusion, etc.)
         md.use(snippetPlugin);
       },
@@ -42,7 +42,7 @@ export default defineVersionedConfig(
           }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
       ],
       lineNumbers: true,
-      async shikiSetup(shiki) {
+      shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
     },
@@ -61,13 +61,12 @@ export default defineVersionedConfig(
     themeConfig: {
       search: {
         options: {
-          // Removes versioned and translated pages from search.
-          _render(src, env, md) {
-            if (env.frontmatter?.search === false) return "";
-            if (env.relativePath.startsWith("translated/")) return "";
-            if (env.relativePath.startsWith("versions/")) return "";
-            return md.render(src, env);
-          },
+          _render: (src, env, md) =>
+            env.frontmatter?.search === false ||
+            env.relativePath.startsWith("translated/") ||
+            env.relativePath.startsWith("versions/")
+              ? ""
+              : md.render(src, env),
         },
         provider: "local",
       },
