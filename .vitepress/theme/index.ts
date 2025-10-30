@@ -18,8 +18,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     // VidStack VideoPlayer Component
-    app.config.compilerOptions.isCustomElement = (tag) =>
-      tag.startsWith("media-");
+    app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("media-");
 
     // Custom Components for Pages
     app.component("ChoiceComponent", ChoiceComponent);
@@ -35,9 +34,7 @@ export default {
 
     const children = {
       "doc-before": () => [
-        frontmatter.value.title
-          ? h("h1", { class: "vp-doc" }, frontmatter.value.title)
-          : null,
+        frontmatter.value.title ? h("h1", { class: "vp-doc" }, frontmatter.value.title) : null,
         h(VersionReminder),
         h(AuthorsComponent),
       ],
@@ -46,7 +43,7 @@ export default {
     };
 
     if (page.value.isNotFound) {
-      children["not-found"] = () => h(NotFoundComponent);
+      (children as any)["not-found"] = () => h(NotFoundComponent);
     }
 
     return h(DefaultTheme.Layout, null, children);

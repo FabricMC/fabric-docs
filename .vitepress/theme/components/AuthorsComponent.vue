@@ -8,18 +8,12 @@ const labelNoGitHub = computed(() => data.theme.value.authors.noGitHub);
 
 const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
   const authors: string[] = data.frontmatter.value["authors"] || [];
-  const authorsNoGitHub: string[] =
-    data.frontmatter.value["authors-nogithub"] || [];
+  const authorsNoGitHub: string[] = data.frontmatter.value["authors-nogithub"] || [];
 
   const withGitHub = authors.map((name) => ({ name }));
-  const withoutGitHub = authorsNoGitHub.map((name) => ({
-    name,
-    noGitHub: true,
-  }));
+  const withoutGitHub = authorsNoGitHub.map((name) => ({ name, noGitHub: true }));
 
-  return [...withGitHub, ...withoutGitHub].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  return [...withGitHub, ...withoutGitHub].sort((a, b) => a.name.localeCompare(b.name));
 });
 </script>
 
@@ -27,10 +21,7 @@ const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
   <div v-if="combinedAuthors.length" class="authors-section">
     <h2>{{ heading }}</h2>
     <div class="page-authors">
-      <template
-        v-for="author in combinedAuthors"
-        :key="(author.noGitHub ? ':' : '') + author.name"
-      >
+      <template v-for="author in combinedAuthors" :key="(author.noGitHub ? ':' : '') + author.name">
         <img
           v-if="author.noGitHub"
           loading="lazy"

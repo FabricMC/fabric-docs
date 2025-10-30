@@ -9,13 +9,9 @@ export function transformPageData(pageData: PageData, _context: any) {
   pageData.frontmatter.head ??= [];
 
   const parts = pageData.relativePath.split("/");
-  const websiteTitle = getWebsiteResolver(
-    parts[0][2] === "_" ? parts[0] : "root"
-  )("title");
+  const websiteTitle = getWebsiteResolver(parts[0][2] === "_" ? parts[0] : "root")("title");
   const title =
-    pageData.frontmatter.layout === "home"
-      ? websiteTitle
-      : pageData.title + " | " + websiteTitle;
+    pageData.frontmatter.layout === "home" ? websiteTitle : pageData.title + " | " + websiteTitle;
 
   const tags = [
     ["theme-color", "#2275da"],
@@ -52,7 +48,7 @@ export function transformPageData(pageData: PageData, _context: any) {
 }
 
 export function transformItems(items: any[]): any[] {
-  const config = globalThis.VITEPRESS_CONFIG as SiteConfig;
+  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
   const inverseRewrites = config.rewrites.inv;
 
   const itemsCopy = [...items];

@@ -7,10 +7,7 @@ import DevelopSidebar from "./sidebars/develop";
 import PlayersSidebar from "./sidebars/players";
 import { Fabric } from "./types";
 
-function getTranslationsResolver(
-  localeFolder: string,
-  fileName: string
-): (key: string) => string {
+function getTranslationsResolver(localeFolder: string, fileName: string): (key: string) => string {
   const file = resolve(
     __dirname,
     "..",
@@ -26,8 +23,7 @@ function getTranslationsResolver(
   if (localeFolder === "root") {
     return (key: string) => strings[key] || key;
   } else {
-    return (key: string) =>
-      strings[key] || getTranslationsResolver("root", fileName)(key);
+    return (key: string) => strings[key] || getTranslationsResolver("root", fileName)(key);
   }
 }
 export const getWebsiteResolver = (localeFolder: string) =>
@@ -35,9 +31,7 @@ export const getWebsiteResolver = (localeFolder: string) =>
 export const getSidebarResolver = (localeFolder: string) =>
   getTranslationsResolver(localeFolder, "sidebar_translations.json");
 
-export function processExistingEntries(
-  sidebar: Versioned.Sidebar
-): Versioned.Sidebar {
+export function processExistingEntries(sidebar: Versioned.Sidebar): Versioned.Sidebar {
   // Get locales from __dirname/../translated/* folder names.
   const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), {
     withFileTypes: true,
@@ -51,9 +45,9 @@ export function processExistingEntries(
   const keys = Object.keys(sidebar);
   const versionedEntries = keys.filter((key) => {
     return (
-      !key.includes("/players") &&
-      !key.includes("/develop") &&
-      localeFolders.some((locale) => key.includes(locale))
+      !key.includes("/players")
+      && !key.includes("/develop")
+      && localeFolders.some((locale) => key.includes(locale))
     );
   });
 
@@ -66,21 +60,11 @@ export function processExistingEntries(
 
     versionsMet.add(version);
 
-    const playersToCopy = JSON.parse(
-      JSON.stringify(sidebar[`/${version}/players/`])
-    );
-    const developToCopy = JSON.parse(
-      JSON.stringify(sidebar[`/${version}/develop/`])
-    );
+    const playersToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/players/`]));
+    const developToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/develop/`]));
 
-    sidebar[`/${locale}/${version}/players/`] = getLocalizedSidebar(
-      playersToCopy,
-      locale
-    );
-    sidebar[`/${locale}/${version}/develop/`] = getLocalizedSidebar(
-      developToCopy,
-      locale
-    );
+    sidebar[`/${locale}/${version}/players/`] = getLocalizedSidebar(playersToCopy, locale);
+    sidebar[`/${locale}/${version}/develop/`] = getLocalizedSidebar(developToCopy, locale);
 
     // Delete the original entry.
     delete sidebar[entry];
@@ -151,10 +135,7 @@ export function generateTranslatedSidebars(
     .map((dirent) => dirent.name)) {
     for (const key of Object.keys(sidebars)) {
       const sidebar = sidebars[key];
-      translatedSidebars["/" + folder + key] = getLocalizedSidebar(
-        sidebar,
-        folder
-      );
+      translatedSidebars["/" + folder + key] = getLocalizedSidebar(sidebar, folder);
     }
   }
 
@@ -173,7 +154,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
   const crowdinCode = (localeCode: string): string | null => {
     // https://developer.crowdin.com/language-codes
     // TODO: this is hardcoded
-    const crowdinOverrides = {
+    const crowdinOverrides: Record<string, string> = {
       es_es: "es-ES",
       pt_br: "pt-BR",
       zh_cn: "zh-CN",
@@ -252,8 +233,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
           // TODO: Expand on this later, with guidelines for loader+loom potentially?
           {
             text: websiteResolver("title"),
-            link:
-              (localeCode === "root" ? "" : `/${localeCode}`) + "/contributing",
+            link: (localeCode === "root" ? "" : `/${localeCode}`) + "/contributing",
           },
           {
             text: websiteResolver("nav.contribute.api"),
@@ -305,9 +285,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
             footer: {
               closeKeyAriaLabel: websiteResolver("search.footer.close.key"),
               closeText: websiteResolver("search.footer.close"),
-              navigateDownKeyAriaLabel: websiteResolver(
-                "search.footer.down.key"
-              ),
+              navigateDownKeyAriaLabel: websiteResolver("search.footer.down.key"),
               navigateText: websiteResolver("search.footer.navigate"),
               navigateUpKeyAriaLabel: websiteResolver("search.footer.up.key"),
               selectKeyAriaLabel: websiteResolver("search.footer.select.key"),
@@ -343,9 +321,7 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
       },
       {
         icon: "crowdin",
-        link: `https://crowdin.com/project/fabricmc/${
-          crowdinCode(localeCode) ?? ""
-        }`,
+        link: `https://crowdin.com/project/fabricmc/${crowdinCode(localeCode) ?? ""}`,
         ariaLabel: websiteResolver("social.crowdin"),
       },
     ],
@@ -405,13 +381,10 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
     const englishName =
       language === region.toLowerCase()
         ? localeNameInEnglish.of(language)!
-        : localeNameInEnglish.of(language)! +
-          " - " +
-          regionNameInEnglish.of(region);
+        : localeNameInEnglish.of(language)! + " - " + regionNameInEnglish.of(region);
 
     const localizedName =
-      localeNameInLocale.of(language)![0].toUpperCase() +
-      localeNameInLocale.of(language)!.slice(1);
+      localeNameInLocale.of(language)![0].toUpperCase() + localeNameInLocale.of(language)!.slice(1);
 
     const countryFlag = String.fromCodePoint(
       ...region.split("").map((char) => 127397 + char.charCodeAt(0))
