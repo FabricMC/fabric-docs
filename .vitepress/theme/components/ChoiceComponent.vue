@@ -13,9 +13,7 @@ const props = defineProps<{
   columns?: number;
 }>();
 
-const columns = computed(
-  () => props.columns ?? Math.min(props.choices.length, 3)
-);
+const columns = computed(() => props.columns ?? Math.min(props.choices.length, 3));
 </script>
 
 <template>
@@ -29,12 +27,7 @@ const columns = computed(
       :target="choice.target"
       :rel="choice.rel"
     >
-      <img
-        v-if="choice.image"
-        :src="choice.image"
-        :alt="choice.name"
-        class="choice-image"
-      />
+      <img v-if="choice.image" :src="choice.image" :alt="choice.name" class="choice-image" />
       <div class="choice-content">
         <h3 class="choice-name">{{ choice.name }}</h3>
         <p v-if="choice.text" class="choice-text">{{ choice.text }}</p>
@@ -59,8 +52,11 @@ const columns = computed(
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 a.choice:hover,
