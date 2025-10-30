@@ -2,7 +2,7 @@ import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
 import { getLocales, processExistingEntries } from "./i18n";
-import { transformItems, transformPageData } from "./transform";
+import { transformHead, transformItems } from "./transform";
 
 const latestVersion = "1.21.10";
 
@@ -13,8 +13,13 @@ export default defineVersionedConfig(
     // Removes .html from the end of URLs.
     cleanUrls: true,
 
-    // Mostly just for the favicon.
-    head: [["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }]],
+    // Static head tags
+    head: [
+      ["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }],
+      ["link", { rel: "license", href: "https://github.com/FabricMC/fabric-docs/blob/-/LICENSE" }],
+      ["meta", { name: "theme-color", content: "#2275da" }],
+      ["meta", { name: "twitter:card", content: "summary" }], // haha still twitter
+    ],
 
     // Ignore dead links under translated/. Allows builds with incomplete translations
     ignoreDeadLinks: [
@@ -76,7 +81,8 @@ export default defineVersionedConfig(
       },
     },
 
-    transformPageData,
+    // Dynamic head tags
+    transformHead,
 
     // Versioning plugin configuration.
     versioning: {
