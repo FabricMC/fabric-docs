@@ -3,11 +3,11 @@ const { color } = defineProps<{ color: string }>();
 </script>
 
 <template>
-  <div class="color-swatch" :style="`background-color: ${color}`" />
+  <div :style="`background-color: ${color}`" />
 </template>
 
 <style scoped>
-.color-swatch {
+div {
   width: 100%;
   padding: 50%;
   margin: auto;
