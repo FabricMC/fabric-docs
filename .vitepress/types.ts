@@ -34,14 +34,14 @@ export namespace Fabric {
     /**
      * Set custom text for download button.
      *
-     * @default 'Download %s'
+     * @default "Download %s"
      */
     text: string;
   }
 
   export interface NotFoundOptions {
     /**
-     * @default '404'
+     * @default "404"
      */
     code: string;
 
@@ -102,7 +102,7 @@ export namespace Fabric {
     /**
      * Set custom not found message.
      *
-     * @default 'Page not found'
+     * @default "Page not found"
      */
     title: string;
   }
@@ -125,14 +125,14 @@ export namespace Fabric {
     /**
      * Set custom text for switcher button.
      *
-     * @default 'Switch Version'
+     * @default "Switch Version"
      */
     switcher: string;
 
     /**
      * Set custom message for version reminder.
      *
-     * @default 'This page is written for version:'
+     * @default "This page is written for version:"
      */
     reminder: string;
   }

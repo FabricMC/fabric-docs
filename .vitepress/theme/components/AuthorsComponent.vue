@@ -21,7 +21,10 @@ const combinedAuthors = computed<{ name: string; noGitHub?: true }[]>(() => {
   <div v-if="combinedAuthors.length" class="authors-section">
     <h2>{{ heading }}</h2>
     <div class="page-authors">
-      <template v-for="author in combinedAuthors" :key="(author.noGitHub ? ':' : '') + author.name">
+      <template
+        v-for="author in combinedAuthors"
+        :key="`${author.noGitHub ? ':' : ''}${author.name}`"
+      >
         <img
           v-if="author.noGitHub"
           loading="lazy"

@@ -68,7 +68,7 @@ const buildRoutePath = (currentPath: string, locale: string | null, newV: string
     pathParts.splice(versionIndex, 0, newV);
   }
 
-  return "/" + pathParts.join("/") + "/";
+  return `/${pathParts.join("/")}/`;
 };
 
 // Navigate to the selected version

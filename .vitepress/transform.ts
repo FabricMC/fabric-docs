@@ -11,7 +11,7 @@ export const transformPageData = (pageData: PageData) => {
   const parts = pageData.relativePath.split("/");
   const websiteTitle = getWebsiteResolver(parts[0][2] === "_" ? parts[0] : "root")("title");
   const title =
-    pageData.frontmatter.layout === "home" ? websiteTitle : pageData.title + " | " + websiteTitle;
+    pageData.frontmatter.layout === "home" ? websiteTitle : `${pageData.title} | ${websiteTitle}`;
 
   const tags = [
     ["theme-color", "#2275da"],
@@ -53,7 +53,7 @@ export const transformItems = (items: any[]): any[] => {
 
   const itemsCopy = [...items];
   for (const item of items) {
-    const path = item.url.replace("https://docs.fabricmc.net/", "") + ".md";
+    const path = `${item.url.replace("https://docs.fabricmc.net/", "")}.md`;
 
     // Remove the item if it's a versioned item
     if (inverseRewrites[path]?.includes("versions")) {

@@ -128,7 +128,7 @@ const translateSidebars = (
     .map((dirent) => dirent.name)) {
     for (const key of Object.keys(sidebars)) {
       const sidebar = sidebars[key];
-      translatedSidebars["/" + folder + key] = getLocalizedSidebar(sidebar, folder);
+      translatedSidebars[`/${folder}${key}`] = getLocalizedSidebar(sidebar, folder);
     }
   }
 
@@ -226,7 +226,7 @@ const translateThemeConfig = (locale: string): Fabric.ThemeConfig => {
           // TODO: Expand on this later, with guidelines for loader+loom potentially?
           {
             text: resolver("title"),
-            link: (locale === "root" ? "" : `/${locale}`) + "/contributing",
+            link: `${locale === "root" ? "" : `/${locale}`}/contributing`,
           },
           {
             text: resolver("nav.contribute.api"),
@@ -367,10 +367,11 @@ export const getLocales = (): LocaleConfig<Fabric.ThemeConfig> => {
     const englishName =
       language === region.toLowerCase()
         ? localeNameInEnglish.of(language)!
-        : localeNameInEnglish.of(language)! + " - " + regionNameInEnglish.of(region);
+        : `${localeNameInEnglish.of(language)!} - ${regionNameInEnglish.of(region)}`;
 
-    const localizedName =
-      localeNameInLocale.of(language)![0].toUpperCase() + localeNameInLocale.of(language)!.slice(1);
+    const localizedName = `${localeNameInLocale.of(language)![0].toUpperCase()}${localeNameInLocale
+      .of(language)!
+      .slice(1)}`;
 
     const countryFlag = String.fromCodePoint(
       ...region.split("").map((char) => 127397 + char.charCodeAt(0))

@@ -21,7 +21,7 @@ const urls = computed(() => {
     // TODO: hide if English=404
     urls["english"] = (route.path.split("//")[1] ?? route.path).replace(urls["home"], "/");
     // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
-    urls["crowdin"] = "https://crowdin.com/project/fabricmc/" + options.value.crowdinCode;
+    urls["crowdin"] = `https://crowdin.com/project/fabricmc/${options.value.crowdinCode}`;
   }
   return urls;
 });
