@@ -4,6 +4,8 @@ import defineVersionedConfig from "vitepress-versioning-plugin";
 import { getLocales, processExistingEntries } from "./i18n";
 import { transformItems, transformPageData } from "./transform";
 
+const latestVersion = "1.21.10";
+
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
@@ -14,8 +16,14 @@ export default defineVersionedConfig(
     // Mostly just for the favicon.
     head: [["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }]],
 
-    // Prevent dead links from being reported as errors - allows partially translated pages to be built.
-    ignoreDeadLinks: true,
+    // Ignore dead links under translated/. Allows builds with incomplete translations
+    ignoreDeadLinks: [
+      (_, filePath) => {
+        const split = filePath.split("/");
+        if (split[0] === "versions") split.splice(0, 2);
+        return split[0] !== "translated";
+      },
+    ],
 
     // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
     lastUpdated: true,
@@ -27,13 +35,11 @@ export default defineVersionedConfig(
 
     markdown: {
       config: (md) => {
-        // Use the snippet plugin (transclusion, etc.)
+        // Use the snippet plugin for transclusions
         md.use(snippetPlugin);
       },
       gfmAlerts: false,
-      image: {
-        lazyLoading: true,
-      },
+      image: { lazyLoading: true },
       languages: [
         async () =>
           // Adds support for mcfunction language to shiki.
@@ -47,9 +53,7 @@ export default defineVersionedConfig(
       },
     },
 
-    rewrites: {
-      "translated/:lang/(.*)": ":lang/(.*)",
-    },
+    rewrites: { "translated/:lang/(.*)": ":lang/(.*)" },
 
     sitemap: {
       hostname: "https://docs.fabricmc.net/",
@@ -76,14 +80,11 @@ export default defineVersionedConfig(
 
     // Versioning plugin configuration.
     versioning: {
-      latestVersion: "1.21.10",
-      rewrites: {
-        localePrefix: "translated",
-      },
+      latestVersion,
+      rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: processExistingEntries,
-        sidebarUrlProcessor: (url: string, version: string) =>
-          url.startsWith("/") ? `/${version}${url}` : url,
+        sidebarUrlProcessor: (url, version) => (url.startsWith("/") ? `/${version}${url}` : url),
       },
     },
   },

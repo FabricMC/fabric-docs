@@ -215,7 +215,10 @@ const translateThemeConfig = (locale: string): Fabric.ThemeConfig => {
     logo: "/logo.png",
 
     nav: [
-      { text: resolver("nav.home"), link: "https://fabricmc.net/" },
+      {
+        text: resolver("nav.home"),
+        link: "https://fabricmc.net/",
+      },
       {
         text: resolver("nav.download"),
         link: "https://fabricmc.net/use",
@@ -223,7 +226,7 @@ const translateThemeConfig = (locale: string): Fabric.ThemeConfig => {
       {
         text: resolver("nav.contribute"),
         items: [
-          // TODO: Expand on this later, with guidelines for loader+loom potentially?
+          // TODO: Expand on this later, with guidelines for loader & loom potentially?
           {
             text: resolver("title"),
             link: `${locale === "root" ? "" : `/${locale}`}/contributing`,
