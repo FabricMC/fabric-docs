@@ -108,6 +108,20 @@ export namespace Fabric {
     title: string;
   }
 
+  export interface VersionOptions {
+    reminder: {
+      /**
+       * @default "This page is written for version %s."
+       */
+      latestVersion: string;
+
+      /**
+       * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
+       */
+      oldVersion: string;
+    };
+  }
+
   export interface SidebarItem extends Versioned.SidebarItem {
     text: string;
     items?: SidebarItem[];
@@ -124,22 +138,6 @@ export namespace Fabric {
     notFound: NotFoundOptions;
     sidebar: Sidebar;
     version: VersionOptions;
-  }
-
-  export interface VersionOptions {
-    /**
-     * Set custom text for switcher button.
-     *
-     * @default "Switch Version"
-     */
-    switcher: string;
-
-    /**
-     * Set custom message for version reminder.
-     *
-     * @default "This page is written for version:"
-     */
-    reminder: string;
   }
 
   export type Config = UserConfig<ThemeConfig> & Versioned.Config;

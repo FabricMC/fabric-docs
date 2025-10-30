@@ -35,11 +35,10 @@ export default {
     const children = {
       "doc-before": () => [
         frontmatter.value.title ? h("h1", { class: "vp-doc" }, frontmatter.value.title) : null,
-        h(VersionReminder),
         h(AuthorsComponent),
+        h(VersionReminder),
       ],
-      "aside-outline-before": () => h(VersionReminder),
-      "aside-outline-after": () => h(AuthorsComponent),
+      "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent)],
     };
 
     if (page.value.isNotFound) {

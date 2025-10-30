@@ -1,10 +1,14 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import * as fs from "node:fs";
+import * as path from "node:path/posix";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
 
-const latestVersion = "1.21.10";
+const latestVersion = fs
+  .readFileSync(path.resolve(__dirname, "..", "reference", "latest", "build.gradle"), "utf-8")
+  .match(/def minecraftVersion = "([^"]+)"/)![1];
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin

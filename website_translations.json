@@ -47,7 +47,7 @@
   "social.discord": "Discord",
   "social.github": "GitHub",
   "title": "Fabric Documentation",
-  "version.reminder": "This page is written for version:",
-  "version.switcher": "Switch Version",
+  "version.reminder.latest_version": "This page is written for version %s.",
+  "version.reminder.old_version": "This page is written for version %s.\nDocumentation for older versions may be incomplete.",
   "version.warning": "This documentation applies to Minecraft %s.\n\nIf you are looking for a different version, please select it from the dropdown on the navigation bar."
 }
