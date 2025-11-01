@@ -27,14 +27,7 @@ const text = computed(() => {
       :src="props.visualURL ?? props.downloadURL"
       style="max-width: 100%; max-height: 300px"
     />
-    <VPButton
-      tag="a"
-      size="medium"
-      theme="brand"
-      :text="text"
-      :href="props.downloadURL"
-      download
-    />
+    <VPButton tag="a" size="medium" theme="brand" :text="text" :href="props.downloadURL" download />
   </div>
 </template>
 

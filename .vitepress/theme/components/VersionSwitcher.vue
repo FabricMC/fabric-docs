@@ -20,14 +20,14 @@ const currentVersion = ref<string>(props.versioningPlugin.latestVersion);
 const isOpen = ref(false);
 
 // Helper function to find the matching version from the current route path
-function getVersionFromPath(path: string): string {
+const getVersionFromPath = (path: string): string => {
   for (const v of props.versioningPlugin.versions) {
     if (path.includes(`/${v}/`)) {
       return v;
     }
   }
   return props.versioningPlugin.latestVersion;
-}
+};
 
 // Before route change, update the current version
 router.onBeforeRouteChange = (to: string) => {
@@ -50,11 +50,7 @@ const toggle = () => {
 };
 
 // Constructs the appropriate route path for a given version
-function buildRoutePath(
-  currentPath: string,
-  locale: string | null,
-  newV: string
-) {
+const buildRoutePath = (currentPath: string, locale: string | null, newV: string) => {
   const currentV = currentVersion.value;
   const latestV = props.versioningPlugin.latestVersion;
   const pathParts = currentPath.split("/").filter(Boolean);
@@ -72,15 +68,13 @@ function buildRoutePath(
     pathParts.splice(versionIndex, 0, newV);
   }
 
-  return "/" + pathParts.join("/") + "/";
-}
+  return `/${pathParts.join("/")}/`;
+};
 
 // Navigate to the selected version
-function visitVersion(version: string) {
+const visitVersion = (version: string) => {
   const localeKeys = Object.keys(data.site.value.locales);
-  const isLocalized = localeKeys.some((key) =>
-    router.route.path.startsWith(`/${key}/`)
-  );
+  const isLocalized = localeKeys.some((key) => router.route.path.startsWith(`/${key}/`));
   const locale = isLocalized
     ? localeKeys.find((key) => router.route.path.startsWith(`/${key}/`)) || null
     : null;
@@ -89,7 +83,7 @@ function visitVersion(version: string) {
 
   router.go(route);
   currentVersion.value = version;
-}
+};
 </script>
 
 <template>
@@ -112,12 +106,7 @@ function visitVersion(version: string) {
       </VPLink>
       <!-- Render links for each version -->
       <template v-for="version in versioningPlugin.versions" :key="version">
-        <VPLink
-          href="#"
-          :tag="'a'"
-          v-if="currentVersion != version"
-          @click="visitVersion(version)"
-        >
+        <VPLink href="#" :tag="'a'" v-if="currentVersion != version" @click="visitVersion(version)">
           {{ version }}
         </VPLink>
       </template>
@@ -132,9 +121,7 @@ function visitVersion(version: string) {
       :aria-expanded="isOpen"
       @click="toggle"
     >
-      <span class="button-text">
-        <span class="vpi-versioning icon" />{{ text }}
-      </span>
+      <span class="button-text"> <span class="vpi-versioning icon" />{{ text }} </span>
       <span class="vpi-plus button-icon" />
     </button>
 
@@ -165,7 +152,9 @@ function visitVersion(version: string) {
   font-weight: 500;
   color: var(--vp-c-text-1);
   white-space: nowrap;
-  transition: background-color 0.25s, color 0.25s;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
 }
 .link:hover {
   color: var(--vp-c-brand-1);

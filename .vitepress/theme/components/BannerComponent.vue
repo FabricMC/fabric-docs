@@ -20,10 +20,7 @@ const text = computed(() => {
 
 watchEffect(() => {
   if (height.value) {
-    document.documentElement.style.setProperty(
-      "--vp-layout-top-height",
-      `${height.value}px`
-    );
+    document.documentElement.style.setProperty("--vp-layout-top-height", `${height.value}px`);
   }
 });
 </script>
@@ -39,11 +36,9 @@ watchEffect(() => {
         >{{ options.github }}</a
       >
       {{ text[1] }}
-      <a
-        href="https://discord.gg/v6v4pMv"
-        target="_blank"
-        rel="noopener noreferrer"
-        >{{ options.discord }}</a
+      <a href="https://discord.gg/v6v4pMv" target="_blank" rel="noopener noreferrer">{{
+        options.discord
+      }}</a
       >{{ text[2] }}
     </div>
   </div>
