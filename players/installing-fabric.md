@@ -5,6 +5,7 @@ authors:
   - Benonardo
   - IMB11
   - modmuss50
+  - ezfe
 ---
 
 <!-- #region common -->
@@ -27,11 +28,12 @@ Close Minecraft and the Minecraft Launcher first before running the installer.
 
 ::: details Information for macOS users
 
-On macOS, you may need to right click the `.jar` file in your downloads directory and click `Open` to run it.
+On macOS, you may receive a warning that Apple could not verify the `.jar` is free of malware.
 
-![MacOS context menu on Fabric Installer](/assets/players/installing-fabric/macos-downloads.png)
+To bypass this warning, you must open System Settings > Privacy & Security and click "Open Anyway." You will be asked to confirm your selection and enter your system password.
 
-When asked "Are you sure you want to open it?", click `Open` again.
+![MacOS system settings](/assets/players/installing-fabric/macos-settings.png)
+
 :::
 
 Once you've opened the installer, you should see a screen like this:
