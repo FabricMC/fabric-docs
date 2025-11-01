@@ -30,7 +30,7 @@ Close Minecraft and the Minecraft Launcher first before running the installer.
 
 On macOS, you may receive a warning that Apple could not verify the `.jar` is free of malware.
 
-To bypass this warning, you must open System Settings > Privacy & Security and click "Open Anyway." You will be asked to confirm your selection and enter your system password.
+To bypass this warning, you must open "System Settings" > "Privacy & Security", and click "Open Anyway". You will be asked to confirm your selection and enter your system password.
 
 ![MacOS system settings](/assets/players/installing-fabric/macos-settings.png)
 
