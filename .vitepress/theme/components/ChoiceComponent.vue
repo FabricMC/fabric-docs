@@ -13,31 +13,24 @@ const props = defineProps<{
   columns?: number;
 }>();
 
-const columns = computed(
-  () => props.columns ?? Math.min(props.choices.length, 3)
-);
+const columns = computed(() => props.columns ?? Math.min(props.choices.length, 3));
 </script>
 
 <template>
   <div class="choices" :style="{ '--grid-columns': columns }">
     <component
-      :is="choice.href ? 'a' : 'div'"
       v-for="(choice, key) in choices"
+      :is="choice.href ? 'a' : 'div'"
       :key
-      class="choice"
       :href="choice.href"
       :target="choice.target"
       :rel="choice.rel"
+      class="choice"
     >
-      <img
-        v-if="choice.image"
-        :src="choice.image"
-        :alt="choice.name"
-        class="choice-image"
-      />
-      <div class="choice-content">
-        <h3 class="choice-name">{{ choice.name }}</h3>
-        <p v-if="choice.text" class="choice-text">{{ choice.text }}</p>
+      <img v-if="choice.image" :src="choice.image" :alt="choice.name" />
+      <div>
+        <h3>{{ choice.name }}</h3>
+        <p v-if="choice.text">{{ choice.text }}</p>
       </div>
     </component>
   </div>
@@ -59,8 +52,11 @@ const columns = computed(
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 a.choice:hover,
@@ -75,7 +71,7 @@ div.choice {
   opacity: 0.75;
 }
 
-.choice-image {
+img {
   aspect-ratio: 1 / 1;
   flex: 0 0 100px;
   max-width: 100px;
@@ -84,7 +80,7 @@ div.choice {
   pointer-events: none;
 }
 
-.choice-content {
+.choice > div {
   flex: 1;
   padding: 1rem 1rem 1rem 0;
   display: flex;
@@ -92,14 +88,14 @@ div.choice {
   justify-content: center;
 }
 
-.choice-name {
+h3 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
   color: var(--vp-c-text-1);
 }
 
-.choice-text {
+p {
   font-size: 0.95rem;
   color: var(--vp-c-text-2);
   line-height: 1.5;

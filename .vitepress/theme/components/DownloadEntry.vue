@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { VPButton } from "vitepress/theme";
+import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vue";
 import { computed, useSlots } from "vue";
+
+import { Fabric } from "../../types";
 
 const data = useData();
 const props = defineProps<{
@@ -10,41 +12,36 @@ const props = defineProps<{
 }>();
 const slotContent = useSlots().default?.() ?? [""];
 
-const text = computed(() => {
-  let text = data.theme.value.download.text as string;
-  if (slotContent.length > 0) {
-    // @ts-expect-error
-    text = text.replace("%s", slotContent[0].children ?? "");
-  }
-  return text;
-});
+const text = computed(() =>
+  (data.theme.value.download as Fabric.DownloadOptions).text.replace(
+    "%s",
+    slotContent.length > 0 ? (slotContent[0] as any).children ?? "" : "%s"
+  )
+);
 </script>
 
 <template>
-  <div class="container">
-    <img
-      v-if="props.visualURL"
-      :src="props.visualURL ?? props.downloadURL"
-      style="max-width: 100%; max-height: 300px"
-    />
-    <VPButton
-      tag="a"
-      size="medium"
-      theme="brand"
-      :text="text"
-      :href="props.downloadURL"
-      download
-    />
+  <div>
+    <img v-if="props.visualURL" :src="props.visualURL ?? props.downloadURL" />
+    <VPButton size="medium" theme="brand" :text="text" :href="props.downloadURL" download />
   </div>
 </template>
 
 <style scoped>
-div.container {
+div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 8px;
+}
+
+img {
+  /* Disable interactions, prevent right click save. */
+  pointer-events: none;
+  max-width: 100%;
+  max-height: 300px;
+  z-index: 0;
 }
 
 a {
@@ -53,12 +50,5 @@ a {
 
 a:hover {
   cursor: pointer;
-}
-
-img {
-  /* Disable interactions, prevent right click save. */
-  pointer-events: none;
-
-  z-index: 0;
 }
 </style>
