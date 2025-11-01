@@ -2,10 +2,10 @@
 title: Installing Fabric
 description: A step by step guide on how to install Fabric.
 authors:
+  - ezfe
   - Benonardo
   - IMB11
   - modmuss50
-  - ezfe
 ---
 
 <!-- #region common -->
