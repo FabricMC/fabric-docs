@@ -110,7 +110,7 @@ If you are migrating from Mojang Mappings, you can now replace your mappings in 
 
 **`gradle.properties`**
 
-```groovy
+```properties
 yarn_mappings=1.21.10+build.2
 ```
 
