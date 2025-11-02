@@ -9,11 +9,11 @@ authors:
 For best results, it's recommended to update to Loom 1.13 or above, as it allows for migrating Mixins, Access Wideners and client source sets.
 :::
 
-Fabric Loom makes use of obfuscation mappings in order to mod the game, usually either Fabric's own Yarn Mappings or the official Mojang Mappings. As a developer, you may wish to switch your mod's mappings from Yarn to Mojang Mappings, or vice versa, especially if you are planning to updating your mod to the next Game Drop after Mounts of Mayhem, which removes the obfuscation process so all mods use Mojang's names.
+Fabric Loom makes use of obfuscation mappings in order to mod the game, with mods usually being written in either Fabric's own Yarn Mappings or the official Mojang Mappings. As a developer, you may wish to switch your mod's mappings from Yarn to Mojang Mappings, or vice versa, especially if you are planning to updating your mod to the next Game Drop after Mounts of Mayhem, which removes the obfuscation process so all mods use Mojang's names.
 
 For that purpose, Loom allows semi-automatic updating of the mappings used in a Java codebase through the `migrateMappings` task.
 
-Loom does not support migrating code written in Kotlin. [Third party tools](https://github.com/Deftu/ReplayMod-Remap) are available.
+Loom does not support migrating code written in Kotlin.
 
 ## What Are Mappings? {#mappings}
 
