@@ -3,31 +3,46 @@ title: Migrating Mappings
 description: Learn how to migrate your mod's obfuscation mappings.
 authors:
   - cassiancc
+  - florensie
+  - Friendly-Banana
+  - IMB11
+  - jamierocks
+  - JamiesWhiteShirt
+  - MildestToucan
+  - modmuss50
+  - natanfudge
+  - Spinoscythe
+  - UpcraftLP
+authors-nogithub:
+  - asie
+  - basil4088
 ---
 
 ::: info
 For best results, it's recommended to update to Loom 1.13 or above, as it allows for migrating Mixins, Access Wideners and client source sets.
 :::
 
-Fabric Loom makes use of obfuscation mappings in order to mod the game, with mods usually being written in either Fabric's own Yarn Mappings or the official Mojang Mappings. As a developer, you may wish to switch your mod's mappings from Yarn to Mojang Mappings, or vice versa, especially if you are planning to updating your mod to the next Game Drop after Mounts of Mayhem, which removes the obfuscation process so all mods use Mojang's names.
+Historically, Minecraft: Java Edition has made use of obfuscation, which led to the development of obfuscation maps that Fabric Loom uses for modding. There were two choices: either Fabric's own Yarn mappings, or the official Mojang mappings.
 
-For that purpose, Loom allows semi-automatic updating of the mappings used in a Java codebase through the `migrateMappings` task.
+Mojang have recently announced [they're removing code obfuscation from Minecraft: Java Edition](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition), and the Fabric Project followed up with [its plan for handling this change](https://fabricmc.net/2025/10/31/obfuscation.html).
+
+You may wish to migrate from Yarn to Mojang Mappings, or vice-versa, especially if you are planning on updating your mod past the Mounts of Mayhem game drop. To do this, Loom offers a semi-automated migration of the mappings through the `migrateMappings` task.
 
 Loom does not support migrating code written in Kotlin.
 
 ## What Are Mappings? {#mappings}
 
-Minecraft; Java Edition has been obfuscated since its release - replacing human friendly names like `Creeper` with something like `brc`. In order to effectively mod it, Fabric Loom makes use of obsucation maps, reference material which translates obfuscated class names like `brc` into human-friendly names like `CreeperEntity`.
+Minecraft: Java Edition has been obfuscated since its release, which means replacing human-friendly class names like `Creeper` with something like `brc`. In order to easily mod it, Fabric Loom makes use of obfuscation maps: references which translate obfuscated class names, such as `brc`, back to human-friendly names like `CreeperEntity`.
 
 As a Fabric developer, you'll encounter three main sets of names:
 
-- **Intermediary**: The mapping set used by compiled Fabric mods, making use of numbers instead of names. These names are stable, so they do not change as much between releases are other mappings, allowing mods meant for one version to work on others, as long as the game itself hasn't changed too much. An example mapping would be `class_1548`.
-- **Yarn**: An open source mapping set developed by Fabric to mod the game with. Most Fabric mods used Yarn Mappings, as they were the default prior to 2025. An example mapping would be `CreeperEntity`.
-- **Mojang Mappings**: The game's official obfuscation mappings, released by Mojang in 2019 in order to aid mod development. An example mapping would be `Creeper`.
+- **Intermediary**: The mapping set used by compiled Fabric mods; for example `brc` may become `class_1548`. The point behind Intermediary is offering a stable set of names across releases, as obfuscated class names change with each new version of Minecraft. This often allows mods built for one version to work on others, as long as the affected parts of the game haven't changed too much.
+- **Yarn**: an open-source mapping set developed by Fabric for humans to write mods. Most Fabric mods used Yarn Mappings, as they were the default before 2025. An example mapping might be `CreeperEntity`.
+- **Mojang Mappings**: The game's official obfuscation mappings, released by Mojang in 2019 to aid mod development. An example mapping might be `Creeper`.
 
 ## Migrating to Mojang Mappings {#migrating-to-mojmap}
 
-First, you'll need a `migrateMappings` command that will convert your current mappings to Mojang Mappings. For example, the following command would migrate to Mojang Mappings for 1.21.10.
+First, you need to run a `migrateMappings` command that will migrate your current mappings to Mojang Mappings. For example, the following command would migrate to Mojang Mappings for 1.21.10:
 
 ```groovy
 migrateMappings --mappings "net.minecraft:mappings:1.21.10"
@@ -39,7 +54,7 @@ You can run this command in the terminal, prefixed with `./gradlew` on Linux/Mac
 
 ### Editing Your Sources {#editing-sources-mojmap}
 
-With the default configuration, your migrated sources will appear in `remappedSrc` rather than overwriting your existing sources. You'll need to copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
+By default, the migrated source code will appear in `remappedSrc`, rather than overwriting your existing project. You'll need to copy the sources from `remappedSrc` to the original folder. Make sure to back up the original sources, just in case.
 
 If you are using Loom 1.13 or above, you can use the program argument `--overrideInputsIHaveABackup` to replace your sources directly.
 
@@ -69,7 +84,7 @@ Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shed
 
 ## Migrating to Yarn {#migrating-to-yarn}
 
-First, you'll need a `migrateMappings` command that will convert your current mappings to Yarn Mappings. This can be easily found on [the Develop site](https://fabricmc.net/develop) under Mappings Migration, and an example is given below as well.
+First, you need to run a `migrateMappings` command that will convert your current mappings to Yarn Mappings. This can be found on [the Develop site](https://fabricmc.net/develop) under Mappings Migration. For example:
 
 ```groovy
 migrateMappings --mappings "1.21.10+build.2"
@@ -81,7 +96,7 @@ You can run this command in the terminal, prefixed with `./gradlew` on Linux/Mac
 
 ### Editing Your Sources {#editing-sources-yarn}
 
-With the default configuration, your migrated sources will appear in `remappedSrc` rather than overwriting your existing sources. You'll need to copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
+By default, the migrated source code will appear in `remappedSrc`, rather than overwriting your existing project. You'll need to copy the sources from `remappedSrc` to the original folder. Make sure to back up the original sources, just in case.
 
 If you are using Loom 1.13 or above, you can use the program argument `--overrideInputsIHaveABackup` to replace your sources directly.
 
@@ -91,7 +106,7 @@ migrateMappings --mappings "1.21.10+build.2 --overrideInputsIHaveABackup"
 
 ### Updating Gradle {#updating-gradle-yarn}
 
-If you are coming from Mojang Mappings, you can now replace your mappings in your `build.gradle`'s dependencies section with Yarn Mappings. Make sure to also update your `gradle.properties` file with the Yarn version specified on [the Develop site](https://fabricmc.net/develop).
+If you are migrating from Mojang Mappings, you can now replace your mappings in your `build.gradle`'s dependencies section with Yarn Mappings. Make sure to also update your `gradle.properties` file with the Yarn version specified on [the Develop site](https://fabricmc.net/develop).
 
 **`gradle.properties`**
 
@@ -121,15 +136,17 @@ Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shed
 
 ### Migrating Split Sources {#migrating-split-sources}
 
-Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate your client sourceset to your new mappings. An example for migrating to Mojang Mappings can be seen below. If you are using an older version of Loom, see [other configurations](#other-configurations).
+Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate your client sourceset to your new mappings. For example, to migrate to Mojang Mappings: 
 
 ```groovy
 migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
 ```
 
+If you are using an older version of Loom, see [other configurations](#other-configurations).
+
 ### Migrating Access Wideners {#migrating-access-wideners}
 
-Loom 1.13 adds a new `migrateClassTweakerMappings` task that can be used to migrate your access wideners to your new mappings. An example for migrating to Mojang Mappings can be seen below.
+Loom 1.13 adds a new `migrateClassTweakerMappings` task that can be used to migrate your access wideners to your new mappings. For example, to migrate to Mojang Mappings:
 
 ```groovy
 migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
@@ -137,11 +154,11 @@ migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
 
 ### Other Configurations {#other-configurations}
 
-- Specify from where to take your Java files with `--input path/to/source`. Default: `src/main/java`. You can use this to migrate a client sourceset by passing `--input src/client/java`.
-- Specify where to output the remapped source with `--output path/to/output`. Default: `remappedSrc`. You can use `src/main/java` here to avoid having to copy the remapped classes, but make sure you have a backup.
+- Specify where to take your Java source files from with `--input path/to/source`. Default: `src/main/java`. You can use this to migrate a client sourceset by passing `--input src/client/java`.
+- Specify where to output the remapped source with `--output path/to/output`. Default: `remappedSrc`. You can use `src/main/java` here to overwrite existing sources, but make sure you have a backup.
 - Specify a custom place to retrieve the mappings from with `--mappings some_group:some_artifact:some_version:some_qualifier`. Default: `net.fabricmc:yarn:<version-you-inputted>:v2`. Use `net.minecraft:mappings:<minecraft-version>` to migrate to official Mojang mappings.
 
-A complete example that migrates a client source set to Mojang Mappings, overwriting the existing source set is below.
+For example, to migrate a client source set to Mojang Mappings in-place (overwriting the existing sources):
 
 ```groovy
 migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.10"
