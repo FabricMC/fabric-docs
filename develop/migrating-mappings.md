@@ -66,11 +66,11 @@ migrateMappings --mappings "net.minecraft:mappings:1.21.10 --overrideInputsIHave
 
 If you are coming from Yarn, you can now replace your mappings in your `build.gradle`'s dependencies section with Mojang Mappings.
 
-```groovy
+```diff
 dependencies {
     [...]
-      mappings loom.officialMojangMappings()
-//    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2"
+    mappings loom.officialMojangMappings() # [!code ++]
+    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" # [!code --]
 }
 ```
 
@@ -78,7 +78,7 @@ You can now refresh the Gradle project in your IDE to apply your changes.
 
 ### Final Changes {#final-changes-mojmap}
 
-That's the bulk of the work done! You'll now want to go through your source code to check and update any Mixin targets that may be outdated, and potentially fix any code that was not correctly remapped.
+That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
 Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) will be helpful to familiarize yourself with your new mappings.
 
@@ -116,11 +116,11 @@ yarn_mappings=1.21.10+build.2
 
 **`build.gradle`**
 
-```groovy
+```diff
 dependencies {
     [...]
-//   mappings loom.officialMojangMappings()
-     mappings "net.fabricmc:yarn${project.yarn_mappings}:v2"
+    mappings loom.officialMojangMappings() # [!code --]
+    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" # [!code ++]
 }
 ```
 
@@ -128,7 +128,7 @@ You can now refresh the Gradle project in your IDE to apply your changes.
 
 ### Final Changes {#final-changes-yarn}
 
-That's the bulk of the work done! You'll now want to go through your source code to check and update any Mixin targets that may be outdated, and potentially fix any code that was not correctly remapped.
+That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
 Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&translateMode=ns&translateAs=yarn&search=) will be helpful to familiarize yourself with your new mappings.
 
