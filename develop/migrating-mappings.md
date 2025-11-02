@@ -5,8 +5,8 @@ authors:
   - cassiancc
 ---
 
-::: warning
-This automated process does not yet handle Mixins or reflection. Updated tooling is currently in the works that will fix these errors. This tooling will be available before the mandatory switch to Mojang names in a future version of Minecraft.
+::: info
+For best results, it's recommended to update to Loom 1.13 or above, as it allows for migrating Mixins, Access Wideners and client source sets.
 :::
 
 Fabric Loom makes use of obfuscation mappings in order to mod the game, usually either Fabric's own Yarn Mappings or the official Mojang Mappings. As a developer, you may wish to switch your mod's mappings from Yarn to Mojang Mappings, or vice versa, especially if you are planning to updating your mod to the next Game Drop after Mounts of Mayhem, which removes the obfuscation process so all mods use Mojang's names.
@@ -39,9 +39,13 @@ You can run this command in the terminal, prefixed with `./gradlew` on Linux/Mac
 
 ### Editing Your Sources {#editing-sources-mojmap}
 
-Your migrated sources will appear in `remappedSrc`. Verify that the migration produced valid migrated code.
+With the default configuration, your migrated sources will appear in `remappedSrc` rather than overwriting your existing sources. You'll need to copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
 
-Copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
+If you are using Loom 1.13 or above, you can use the program argument `--overrideInputsIHaveABackup` to replace your sources directly.
+
+```groovy
+migrateMappings --mappings "net.minecraft:mappings:1.21.10 --overrideInputsIHaveABackup"
+```
 
 ### Updating Gradle {#updating-gradle-mojmap}
 
@@ -77,9 +81,13 @@ You can run this command in the terminal, prefixed with `./gradlew` on Linux/Mac
 
 ### Editing Your Sources {#editing-sources-yarn}
 
-Your migrated sources will appear in `remappedSrc`. Verify that the migration produced valid migrated code.
+With the default configuration, your migrated sources will appear in `remappedSrc` rather than overwriting your existing sources. You'll need to copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
 
-Copy the sources from `remappedSrc` to the original folder. Keep the original sources backed up just in case.
+If you are using Loom 1.13 or above, you can use the program argument `--overrideInputsIHaveABackup` to replace your sources directly.
+
+```groovy
+migrateMappings --mappings "1.21.10+build.2 --overrideInputsIHaveABackup"
+```
 
 ### Updating Gradle {#updating-gradle-yarn}
 
@@ -109,10 +117,32 @@ That's the bulk of the work done! You'll now want to go through your source code
 
 Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&translateMode=ns&translateAs=yarn&search=) will be helpful to familiarize yourself with your new mappings.
 
-## Migrating Split Sources {#migrating-split-sources}
+## Additional Configurations {#additional-configurations}
 
-At this time, users of split sources currently need to migrate their main source set with the process above, then do the process again, specifying the path to their client source set. As a reference, the command to migrate a client source set to Mojang Mappings is below.
+### Migrating Split Sources {#migrating-split-sources}
+
+Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate your client sourceset to your new mappings. An example for migrating to Mojang Mappings can be seen below. If you are using an older version of Loom, see [other configurations](#other-configurations).
 
 ```groovy
-migrateMappings --mappings "net.minecraft:mappings:1.21.10" --input src/client/java
+migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
+```
+
+### Migrating Access Wideners {#migrating-access-wideners}
+
+Loom 1.13 adds a new `migrateClassTweakerMappings` task that can be used to migrate your access wideners to your new mappings. An example for migrating to Mojang Mappings can be seen below.
+
+```groovy
+migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
+```
+
+### Other Configurations {#other-configurations}
+
+- Specify from where to take your Java files with `--input path/to/source`. Default: `src/main/java`. You can use this to migrate a client sourceset by passing `--input src/client/java`.
+- Specify where to output the remapped source with `--output path/to/output`. Default: `remappedSrc`. You can use `src/main/java` here to avoid having to copy the remapped classes, but make sure you have a backup.
+- Specify a custom place to retrieve the mappings from with `--mappings some_group:some_artifact:some_version:some_qualifier`. Default: `net.fabricmc:yarn:<version-you-inputted>:v2`. Use `net.minecraft:mappings:<minecraft-version>` to migrate to official Mojang mappings.
+
+A complete example that migrates a client source set to Mojang Mappings, overwriting the existing source set is below.
+
+```groovy
+migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.10"
 ```
