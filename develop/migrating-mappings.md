@@ -136,7 +136,7 @@ Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shed
 
 ### Migrating Split Sources {#migrating-split-sources}
 
-Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate your client sourceset to your new mappings. For example, to migrate to Mojang Mappings: 
+Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate your client sourceset to your new mappings. For example, to migrate to Mojang Mappings:
 
 ```groovy
 migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
