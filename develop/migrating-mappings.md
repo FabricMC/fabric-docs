@@ -61,7 +61,7 @@ You can now refresh the Gradle project in your IDE to apply your changes.
 
 That's the bulk of the work done! You'll now want to go through your source code to check and update any Mixin targets that may be outdated, and potentially fix any code that was not correctly remapped.
 
-Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/) will be helpful to familiarize yourself with your new mappings.
+Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) will be helpful to familiarize yourself with your new mappings.
 
 ## Migrating to Yarn {#migrating-to-yarn}
 
@@ -107,7 +107,7 @@ You can now refresh the Gradle project in your IDE to apply your changes.
 
 That's the bulk of the work done! You'll now want to go through your source code to check and update any Mixin targets that may be outdated, and potentially fix any code that was not correctly remapped.
 
-Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/) will be helpful to familiarize yourself with your new mappings.
+Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&translateMode=ns&translateAs=yarn&search=) will be helpful to familiarize yourself with your new mappings.
 
 ## Migrating Split Sources {#migrating-split-sources}
 
