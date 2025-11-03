@@ -32,7 +32,7 @@ Loom does not support migrating code written in Kotlin.
 
 ## What Are Mappings? {#mappings}
 
-Minecraft: Java Edition has been obfuscated since its release, which means that its code had human-friendly class names like `Creeper` with something like `brc`. In order to easily mod it, Fabric Loom makes use of obfuscation maps: references which translate obfuscated class names, such as `brc`, back to human-friendly names like `CreeperEntity`.
+Minecraft: Java Edition has been obfuscated since its release, which means that its code had human-friendly class names like `Creeper` replaced with gibberish like `brc`. In order to easily mod it, Fabric Loom makes use of obfuscation maps: references which translate obfuscated class names, such as `brc`, back to human-friendly names like `CreeperEntity`.
 
 As a Fabric developer, you'll encounter three main sets of names:
 
