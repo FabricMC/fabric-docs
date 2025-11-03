@@ -59,7 +59,7 @@ By default, the migrated source code will appear in `remappedSrc`, rather than o
 If you are using Loom 1.13 or above, you can use the program argument `--overrideInputsIHaveABackup` to replace your sources directly.
 
 ```groovy
-migrateMappings --mappings "net.minecraft:mappings:1.21.10 --overrideInputsIHaveABackup"
+migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
 ```
 
 ### Updating Gradle {#updating-gradle-mojmap}
