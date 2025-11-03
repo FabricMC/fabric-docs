@@ -1,41 +1,40 @@
 package com.example.docs.rendering;
 
-// import java.util.OptionalDouble;
-// import java.util.OptionalInt;
-//
-// import com.mojang.blaze3d.buffers.GpuBuffer;
-// import com.mojang.blaze3d.buffers.GpuBufferSlice;
-// import com.mojang.blaze3d.pipeline.RenderPipeline;
-// import com.mojang.blaze3d.platform.DepthTestFunction;
-// import com.mojang.blaze3d.systems.CommandEncoder;
-// import com.mojang.blaze3d.systems.RenderPass;
-// import com.mojang.blaze3d.systems.RenderSystem;
-// import com.mojang.blaze3d.vertex.VertexFormat;
-// import org.joml.Vector4f;
-// import org.lwjgl.system.MemoryUtil;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
-// import net.minecraft.client.MinecraftClient;
-// import net.minecraft.client.gl.MappableRingBuffer;
-// import net.minecraft.client.gl.RenderPipelines;
-// import net.minecraft.client.render.BufferBuilder;
-// import net.minecraft.client.render.BuiltBuffer;
-// import net.minecraft.client.render.RenderLayer;
-// import net.minecraft.client.render.VertexFormats;
-// import net.minecraft.client.render.VertexRendering;
-// import net.minecraft.client.util.BufferAllocator;
-// import net.minecraft.client.util.math.MatrixStack;
-// import net.minecraft.util.Identifier;
-// import net.minecraft.util.math.Vec3d;
+import com.mojang.blaze3d.buffers.GpuBuffer;
+import com.mojang.blaze3d.buffers.GpuBufferSlice;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.blaze3d.platform.DepthTestFunction;
+import com.mojang.blaze3d.systems.CommandEncoder;
+import com.mojang.blaze3d.systems.RenderPass;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.VertexFormat;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+import org.lwjgl.system.MemoryUtil;
+
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gl.MappableRingBuffer;
+import net.minecraft.client.gl.RenderPipelines;
+import net.minecraft.client.render.BufferBuilder;
+import net.minecraft.client.render.BuiltBuffer;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexFormats;
+import net.minecraft.client.render.VertexRendering;
+import net.minecraft.client.util.BufferAllocator;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 
 import net.fabricmc.api.ClientModInitializer;
-// import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-// import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-// import com.example.docs.ExampleMod;
+import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents;
+
+import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
-	@Override
-	public void onInitializeClient() { }
-	/*
 	private static CustomRenderPipeline instance;
 	// :::custom-pipelines:define-pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.POSITION_COLOR_SNIPPET)
@@ -62,7 +61,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		instance = this;
-		WorldRenderEvents.AFTER_TRANSLUCENT.register(this::extractAndDrawWaypoint);
+		WorldRenderEvents.BEFORE_TRANSLUCENT.register(this::extractAndDrawWaypoint);
 	}
 
 	private void extractAndDrawWaypoint(WorldRenderContext context) {
@@ -72,8 +71,8 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// :::custom-pipelines:extraction-phase
 	private void renderWaypoint(WorldRenderContext context) {
-		MatrixStack matrices = context.matrixStack();
-		Vec3d camera = context.camera().getPos();
+		MatrixStack matrices = context.matrices();
+		Vec3d camera = context.worldState().cameraRenderState.pos;
 
 		assert matrices != null;
 		matrices.push();
@@ -143,7 +142,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.write(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, RenderSystem.getModelOffset(), RenderSystem.getTextureMatrix(), 1f);
+				.write(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
 				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getFramebuffer().getColorAttachmentView(), OptionalInt.empty(), client.getFramebuffer().getDepthAttachmentView(), OptionalDouble.empty())) {
@@ -178,5 +177,4 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 	}
 	// :::custom-pipelines:clean-up
-	*/
 }
