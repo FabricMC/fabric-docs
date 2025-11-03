@@ -57,7 +57,7 @@ First, you need to run a `migrateMappings` command that will migrate your curren
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings migrateMappings --mappings "net.minecraft:mappings:1.21.10"
+migrateMappings --mappings "net.minecraft:mappings:1.21.10"
 ```
 
 :::
@@ -81,7 +81,7 @@ If you are using Loom 1.13 or above, you can use the program argument `--overrid
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
+migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
 ```
 
 :::
@@ -121,7 +121,7 @@ First, you need to run a `migrateMappings` command that will convert your curren
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings migrateMappings --mappings "1.21.10+build.2"
+migrateMappings --mappings "1.21.10+build.2"
 ```
 
 :::
