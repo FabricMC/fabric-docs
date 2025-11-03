@@ -7,21 +7,19 @@ authors:
 outline: false
 ---
 
-<script setup lang="ts">
-const choices = [
+## Choose Your IDE {#choose-your-ide}
+
+<ChoiceComponent :choices="[
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/generating-sources',
-    image: '/assets/develop/getting-started/intellij/logo.svg',
+    href: './intellij-idea/opening-a-project',
+    icon: 'simple-icons:intellijidea',
+    color: '#FE2857',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/generating-sources',
-    image: '/assets/develop/getting-started/vscode/logo.svg',
+    href: './vscode/opening-a-project',
+    icon: 'codicon:vscode',
+    color: '#007ACC',
   },
-];
-</script>
-
-## Choose Your IDE {#choose-your-ide}
-
-<ChoiceComponent :choices />
+]" />
