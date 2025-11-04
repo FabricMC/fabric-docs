@@ -61,21 +61,21 @@ Every block model file has a defined structure that has to be followed. It start
 }
 ```
 
-<!--@include: ..\items\item-models.md#parent-->
+<!--@include: ../items/item-models.md#parent-->
 
 Set this tag to `builtin/generated` to use a model created from the specified icon. Rotation can be achieved via [blockstates](./blockstates).
 
 ### Ambient Occlusion {#ambient-occlusion}
 
-````json
+```json
 {
   "ambientocclusion": "true/false"
 }
-````
+```
 
 This tag specifies whether to use [ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion). Defaults to `true`.
 
-<!--@include: ..\items\item-models.md#display-->
+<!--@include: ../items/item-models.md#display-->
 
 ### Textures {#textures}
 
@@ -93,14 +93,14 @@ The `textures` tag holds the textures of the model, in the form of an identifier
 1. `particle`: _String_. Defines the texture to load particles from. This texture is also used as an overlay if you are in a nether portal, and used for water and lava's still textures. Is also considered a texture variable that can be referenced as `#particle`.
 2. `<texture_variable>`: _String_. Creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
 
-<!--@include: ..\items\item-models.md#elements-->
+<!--@include: ../items/item-models.md#elements-->
 
-<!--@include: ..\items\item-models.md#from-->
+<!--@include: ../items/item-models.md#from-->
 
 `from` specifies the starting point of the cuboid according to the scheme `[x, y, z]`, relative to the lower left corner. `to` specifies the ending point. A cuboid as big as a standard block would start at `[0, 0, 0]` and end at `[16, 16, 16]`.
 The values of both must be between **-16** and **32**, which means that every block model can be at most 3×3 blocks big.
 
-<!--@include: ..\items\item-models.md#rotation-->
+<!--@include: ../items/item-models.md#rotation-->
 
 `rotation` defines the rotation of an element. It contains four more values:
 
@@ -109,7 +109,7 @@ The values of both must be between **-16** and **32**, which means that every bl
 3. `angle`: _Float_. Specifies the angle of rotation. Ranges from **-45** to **45**.
 4. `rescale`: _Boolean_. Specifies whether to scale the faces across the whole block. Defaults to `false`.
 
-<!--@include: ..\items\item-models.md#shade-to-faces-->
+<!--@include: ../items/item-models.md#shade-to-faces-->
 
 1. `uv`: _Four integers_. Defines the area of the texture to use according to the scheme `[x1, y1, x2, y2]`. If unset, it defaults to values equal to xyz position of the element.
   Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.

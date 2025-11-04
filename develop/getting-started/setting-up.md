@@ -25,7 +25,7 @@ outline: false
 
 To develop mods for Minecraft 1.21.10, you will need JDK 21.
 
-If you need help installing Java, you can refer to the various Java installation guides in the [player guides section](../../players/index).
+If you need help installing Java, you can refer to the [Java installation guides](../../players/installing-java/).
 
 ## Set Up Your IDE {#set-up-your-ide}
 

@@ -56,7 +56,7 @@ This method will generate models for a normal cube, that uses the texture file `
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
-:::tip
+::: tip
 If you're stuck choosing which `TextureModel` you should use, open the `TexturedModel` class and look at the [`TextureMaps`](#using-texture-map)!
 :::
 
@@ -162,11 +162,11 @@ You can either use the vanilla ones, like `TextureMap.all()`(which associates al
 `TextureMap.all()` associates all TextureKeys with the same Identifier, no matter how many of them there are!
 :::
 
-Since we want to use the Oak Log textures, but have the ``BOTTOM``, ``TOP`` and ``SIDE`` ``TextureKey``s, we need to create a new one.
+Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureKey`s, we need to create a new one.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:texture-map](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-The ``bottom`` and ``top`` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
+The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
 All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
