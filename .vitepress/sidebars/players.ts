@@ -6,31 +6,16 @@ export default [
     link: "/players/",
     items: [
       {
-        text: "players.faq",
-        link: "/players/faq",
-      },
-      {
         text: "players.installing_java",
-        collapsed: true,
-        items: [
-          {
-            text: "players.installing_java.windows",
-            link: "/players/installing-java/windows",
-          },
-          {
-            text: "players.installing_java.macos",
-            link: "https://fabricmc.net/wiki/player:tutorials:java:mac",
-            process: false,
-          },
-          {
-            text: "players.installing_java.linux",
-            link: "/players/installing-java/linux",
-          },
-        ],
+        link: "/players/installing-java/",
       },
       {
         text: "players.installing_fabric",
-        link: "/players/installing-fabric",
+        link: "/players/installing-fabric/",
+      },
+      {
+        text: "players.updating_fabric",
+        link: "/players/updating-fabric/",
       },
       {
         text: "players.finding_mods",
@@ -54,8 +39,8 @@ export default [
         ],
       },
       {
-        text: "players.updating_fabric",
-        link: "/players/updating-fabric",
+        text: "players.faq",
+        link: "/players/faq",
       },
     ],
   },
