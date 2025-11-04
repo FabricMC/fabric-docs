@@ -70,6 +70,7 @@
   "develop.misc.networking": "Networking",
   "develop.misc.text_and_translations": "Text and Translations",
   "develop.misc.debugging": "Debugging Mods",
+  "develop.misc.migrating_mappings": "Migrating Mappings",
   "develop.misc.automatic_testing": "Automated Testing",
   "develop.misc.loom": "Loom Gradle Plugin",
   "develop.misc.loom.fabric_api": "Fabric API DSL",

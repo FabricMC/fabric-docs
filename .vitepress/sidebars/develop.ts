@@ -287,6 +287,10 @@ export default [
         link: "/develop/text-and-translations",
       },
       {
+        text: "develop.misc.migrating_mappings",
+        link: "/develop/migrating-mappings",
+      },
+      {
         text: "develop.misc.debugging",
         link: "/develop/debugging",
       },
