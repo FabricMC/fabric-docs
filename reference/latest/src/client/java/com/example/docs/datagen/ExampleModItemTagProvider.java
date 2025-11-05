@@ -1,15 +1,13 @@
 package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
-
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.registry.ResourceKeys;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
@@ -19,15 +17,15 @@ import com.example.docs.ExampleMod;
 public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	// :::datagen-tags:provider
 	// :::datagen-tags:tag-key
-	public static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, "smelly_items"));
+	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(ResourceKeys.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
 	// :::datagen-tags:tag-key
 	// :::datagen-tags:provider
-	public ExampleModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+	public ExampleModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+	protected void addTags(HolderLookup.Provider wrapperLookup) {
 		// :::datagen-tags:provider
 		// :::datagen-tags:build
 		valueLookupBuilder(SMELLY_ITEMS)

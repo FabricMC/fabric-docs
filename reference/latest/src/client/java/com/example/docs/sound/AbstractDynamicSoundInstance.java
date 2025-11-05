@@ -1,12 +1,12 @@
 package com.example.docs.sound;
 
-import net.minecraft.client.sound.MovingSoundInstance;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.MathHelper;
-
+import DynamicSoundSource;
+import TransitionState;
 import com.example.docs.sound.instance.SoundInstanceCallback;
+import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 
 // :::1
 public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
@@ -31,10 +31,10 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// ...
 
 	// set up default settings of the SoundInstance in this constructor
-	protected AbstractDynamicSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundCategory soundCategory,
+	protected AbstractDynamicSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundSource soundCategory,
 										int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
 										SoundInstanceCallback callback) {
-		super(soundEvent, soundCategory, SoundInstance.createRandom());
+		super(soundEvent, soundCategory, SoundInstance.createUnseededRandom());
 
 		// store important references to other objects
 		this.soundSource = soundSource;
@@ -116,12 +116,12 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 			default -> 1.0f;
 		};
 
-		this.volume = MathHelper.lerp(normalizedTick, 0.0f, this.maxVolume);
+		this.volume = Mth.lerp(normalizedTick, 0.0f, this.maxVolume);
 	}
 
 	// increase or decrease pitch based on the sound source's stress value
 	protected void modulateSoundForStress() {
-		this.pitch = MathHelper.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
+		this.pitch = Mth.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
 	}
 
 	// :::5

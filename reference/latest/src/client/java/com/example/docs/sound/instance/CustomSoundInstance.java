@@ -1,17 +1,16 @@
 package com.example.docs.sound.instance;
 
-import net.minecraft.client.sound.MovingSoundInstance;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
+import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
 
 // :::1
 public class CustomSoundInstance extends MovingSoundInstance {
 	private final LivingEntity entity;
 
-	public CustomSoundInstance(LivingEntity entity, SoundEvent soundEvent, SoundCategory soundCategory) {
-		super(soundEvent, soundCategory, SoundInstance.createRandom());
+	public CustomSoundInstance(LivingEntity entity, SoundEvent soundEvent, SoundSource soundCategory) {
+		super(soundEvent, soundCategory, SoundInstance.createUnseededRandom());
 		// In this constructor we also add the sound source (LivingEntity) of
 		// the SoundInstance and store it in the current object
 		this.entity = entity;
@@ -25,7 +24,7 @@ public class CustomSoundInstance extends MovingSoundInstance {
 	@Override
 	public void tick() {
 		// stop sound instantly if sound source does not exist anymore
-		if (this.entity == null || this.entity.isRemoved() || this.entity.isDead()) {
+		if (this.entity == null || this.entity.isRemoved() || this.entity.isDeadOrDying()) {
 			this.setDone();
 			return;
 		}

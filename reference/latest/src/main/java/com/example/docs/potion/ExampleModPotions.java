@@ -1,16 +1,14 @@
 package com.example.docs.potion;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.item.Items;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import com.example.docs.ExampleMod;
 import com.example.docs.effect.ExampleModEffects;
 
@@ -18,10 +16,10 @@ import com.example.docs.effect.ExampleModEffects;
 public class ExampleModPotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
-					Registries.POTION,
-					Identifier.of(ExampleMod.MOD_ID, "tater"),
+					BuiltInRegistries.POTION,
+					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
 					new Potion("tater",
-							new StatusEffectInstance(
+							new MobEffectInstance(
 									ExampleModEffects.TATER,
 									3600,
 									0)));
@@ -29,13 +27,13 @@ public class ExampleModPotions implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-			builder.registerPotionRecipe(
+			builder.addMix(
 					// Input potion.
 					Potions.WATER,
 					// Ingredient
 					Items.POTATO,
 					// Output potion.
-					Registries.POTION.getEntry(TATER_POTION)
+					BuiltInRegistries.POTION.wrapAsHolder(TATER_POTION)
 			);
 		});
 	}

@@ -22,9 +22,9 @@ The `/effect` command can be used to apply effects on an entity.
 
 In this tutorial we'll add a new custom effect called _Tater_ which gives you one experience point every game tick.
 
-### Extend `StatusEffect` {#extend-statuseffect}
+### Extend `MobEffect` {#extend-mobeffect}
 
-Let's create a custom effect class by extending `StatusEffect`, which is the base class for all effects.
+Let's create a custom effect class by extending `MobEffect`, which is the base class for all effects.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
@@ -69,14 +69,14 @@ effect give @p example-mod:tater
 
 :::
 
-To apply an effect internally, you'd want to use the `LivingEntity#addStatusEffect` method, which takes in
-a `StatusEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
+To apply an effect internally, you'd want to use the `LivingEntity#addMobEffect` method, which takes in
+a `MobEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | Argument    | Type                          | Description                                                                                                                                                                                                                   |
 |-------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `effect`    | `RegistryEntry<StatusEffect>` | A registry entry that represents the effect.                                                                                                                                                                                  |
+| `effect`    | `Holder<MobEffect>` | A registry entry that represents the effect.                                                                                                                                                                                  |
 | `duration`  | `int`                         | The duration of the effect **in ticks**; **not** seconds                                                                                                                                                                      |
 | `amplifier` | `int`                         | The amplifier to the level of the effect. It doesn't correspond to the **level** of the effect, but is rather added on top. Hence, `amplifier` of `4` => level of `5`                                                         |
 | `ambient`   | `boolean`                     | This is a tricky one. It basically specifies that the effect was added by the environment (e.g. a **Beacon**) and doesn't have a direct cause. If `true`, the icon of the effect in the HUD will appear with an aqua overlay. |

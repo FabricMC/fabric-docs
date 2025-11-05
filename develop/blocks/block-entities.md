@@ -54,9 +54,9 @@ Now that we have a block entity, we can use it to store the number of times the 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-The `markDirty` method, used in `incrementClicks`, tells the game that this entity's data has been updated; this will be useful when we add the methods to serialize the counter and load it back from the save file.
+The `setChanged` method, used in `incrementClicks`, tells the game that this entity's data has been updated; this will be useful when we add the methods to serialize the counter and load it back from the save file.
 
-Next, we need to increment this field every time the block is right-clicked. This is done by overriding the `onUse` method in the `CounterBlock` class:
+Next, we need to increment this field every time the block is right-clicked. This is done by overriding the `useWithoutItem` method in the `CounterBlock` class:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
@@ -74,7 +74,7 @@ You can read from a `ReadView` using the `read` method, passing in a `Codec` for
 
 There are also methods for primitives, such as `getInt`, `getShort`, `getBoolean` etc. for reading and `putInt`, `putShort`, `putBoolean` etc. for writing. The View also provides methods for working with lists, nullable types, and nested objects.
 
-Serialization is done with the `writeData` method:
+Serialization is done with the `saveAdditional` method:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -86,12 +86,12 @@ Reading is similar, you get the values you saved previously from the `ReadView`,
 
 Now, if we save and reload the game, the counter block should continue from where it left off when saved.
 
-While `writeNbt` and `readNbt` handle saving and loading to and from disk, there is still an issue:
+While `writeAdditional` and `loadAdditional` handle saving and loading to and from disk, there is still an issue:
 
 - The server knows the correct `clicks` value.
 - The client does not receive the correct value when loading a chunk.
 
-To fix this, we override `toInitialChunkDataNbt`:
+To fix this, we override `getUpdateTag`:
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 

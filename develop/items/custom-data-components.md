@@ -61,7 +61,7 @@ Remember as usual to register the item in your `ModItems` class.
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -113,7 +113,7 @@ There are three solutions we can use to address this problem.
 
 ### Setting a Default Component Value {#setting-default-value}
 
-When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
+When you register your item and pass a `Item.Properties` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
 
 @[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-You can also set a default value for a composite component by passing a component object to your `Item.Settings`. For example:
+You can also set a default value for a composite component by passing a component object to your `Item.Properties`. For example:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

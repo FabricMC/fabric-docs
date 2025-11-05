@@ -21,7 +21,7 @@ Blockstate definitions are found in the `assets/example-mod/blockstates` folder.
 
 Minecraft has some custom classes already that allow you quickly create certain types of blocks - this example goes through the creation of a block with the `axis` property by creating a "Condensed Oak Log" block.
 
-The vanilla `PillarBlock` class allows the block to be placed in the X, Y or Z axis.
+The vanilla `RotatedPillarBlock` class allows the block to be placed in the X, Y or Z axis.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -70,7 +70,7 @@ Firstly, you'll need to create the property itself - since this is a boolean, we
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Next, we have to append the property to the blockstate manager in the `appendProperties` method. You'll need to override the method to access the builder:
+Next, we have to append the property to the blockstate manager in the `replaceBlockStateDefinition` method. You'll need to override the method to access the builder:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +80,7 @@ You'll also have to set a default state for the `activated` property in the cons
 
 ### Using The Property {#using-the-property}
 
-This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
+This example flips the boolean `activated` property when the player interacts with the block. We can override the `useWithoutItem` method for this:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -106,7 +106,7 @@ Don't forget to add an [Item Model Description](../items/first-item#creating-the
 
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
 
-You can use the `luminance` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `luminance` method:
+You can use the `luminance` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `lightLevel` method:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

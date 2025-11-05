@@ -15,10 +15,10 @@ Unless you're making a mod with overpowered items, you should consider:
 
 ## Adding the Food Component {#adding-the-food-component}
 
-To add a food component to an item, we can pass it to the `Item.Settings` instance:
+To add a food component to an item, we can pass it to the `Item.Properties` instance:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodComponent.Builder().build())
 ```
 
 Right now, this just makes the item edible and nothing more.

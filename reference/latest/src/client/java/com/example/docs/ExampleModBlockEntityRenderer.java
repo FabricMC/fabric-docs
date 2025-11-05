@@ -1,9 +1,7 @@
 package com.example.docs;
 
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-
 import net.fabricmc.api.ClientModInitializer;
-
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.rendering.blockentity.CounterBlockEntityRenderer;
 
@@ -11,7 +9,7 @@ import com.example.docs.rendering.blockentity.CounterBlockEntityRenderer;
 public class ExampleModBlockEntityRenderer implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		BlockEntityRendererFactories.register(ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntityRenderer::new);
+		BlockEntityRenderers.register(ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntityRenderer::new);
 	}
 }
 // :::1

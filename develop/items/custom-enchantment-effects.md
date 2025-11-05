@@ -52,7 +52,7 @@ Now, when you run your mod's data generation task, enchantment JSONs will be gen
 You should also add translations to your `en_us.json` file to give your enchantment a readable name:
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 You should now have a working custom enchantment effect! Test it by enchanting a weapon with the enchantment and hitting a mob. An example is given in the following video:

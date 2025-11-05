@@ -67,7 +67,7 @@ At the same time, we've defined:
 
 @[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-- A public static instance of a `PacketCodec` so that the game knows how to serialize/deserialize the contents of the
+- A public static instance of a `StreamCodec` so that the game knows how to serialize/deserialize the contents of the
   packet.
 
 @[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
@@ -85,7 +85,7 @@ Before we send a packet with our custom payload, we need to register it on both 
 :::
 
 This can be done in our **common initializer** by using `PayloadTypeRegistry.playS2C().register` which takes in a
-`CustomPayload.Id` and a `PacketCodec`.
+`CustomPayload.Id` and a `StreamCodec`.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 

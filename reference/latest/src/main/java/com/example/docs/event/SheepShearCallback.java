@@ -1,11 +1,10 @@
 package com.example.docs.event;
 
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResult;
-
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.animal.sheep.Sheep;
+import net.minecraft.world.entity.player.Player;
 /**
  * Callback for shearing a sheep.
  * Called before the sheep is sheared, items are dropped, and items are damaged.
@@ -20,16 +19,16 @@ public interface SheepShearCallback {
 	Event<SheepShearCallback> EVENT = EventFactory.createArrayBacked(SheepShearCallback.class,
 			(listeners) -> (player, sheep) -> {
 				for (SheepShearCallback listener : listeners) {
-					ActionResult result = listener.interact(player, sheep);
+					InteractionResult result = listener.interact(player, sheep);
 
-					if (result != ActionResult.PASS) {
+					if (result != InteractionResult.PASS) {
 						return result;
 					}
 				}
 
-				return ActionResult.PASS;
+				return InteractionResult.PASS;
 			});
 
-	ActionResult interact(PlayerEntity player, SheepEntity sheep);
+	InteractionResult interact(Player player, Sheep sheep);
 }
 // :::

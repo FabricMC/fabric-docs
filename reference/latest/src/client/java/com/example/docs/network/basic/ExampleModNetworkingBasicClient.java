@@ -1,20 +1,13 @@
 package com.example.docs.network.basic;
 
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import com.example.docs.networking.basic.GiveGlowingEffectC2SPayload;
 import com.example.docs.networking.basic.SummonLightningS2CPayload;
 
@@ -41,20 +34,20 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 
 		// :::use_entity_callback
 		UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-			if (!world.isClient()) {
-				return ActionResult.PASS;
+			if (!world.isClientSide()) {
+				return InteractionResult.PASS;
 			}
 
-			ItemStack usedItemStack = player.getStackInHand(hand);
+			ItemStack usedItemStack = player.getItemInHand(hand);
 
-			if (entity instanceof LivingEntity && usedItemStack.isOf(Items.POISONOUS_POTATO) && hand == Hand.MAIN_HAND) {
+			if (entity instanceof LivingEntity && usedItemStack.is(Items.POISONOUS_POTATO) && hand == InteractionHand.MAIN_HAND) {
 				GiveGlowingEffectC2SPayload payload = new GiveGlowingEffectC2SPayload(hitResult.getEntity().getId());
 				ClientPlayNetworking.send(payload);
 
-				return ActionResult.SUCCESS;
+				return InteractionResult.SUCCESS;
 			}
 
-			return ActionResult.PASS;
+			return InteractionResult.PASS;
 		});
 		// :::use_entity_callback
 	}

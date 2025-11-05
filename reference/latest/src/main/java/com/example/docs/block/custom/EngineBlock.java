@@ -1,80 +1,78 @@
 package com.example.docs.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 
-public class EngineBlock extends BlockWithEntity {
-	public static final MapCodec<EngineBlock> CODEC = createCodec(EngineBlock::new);
+public class EngineBlock extends BaseEntityBlock {
+	public static final MapCodec<EngineBlock> CODEC = simpleCodec(EngineBlock::new);
 
-	public EngineBlock(Settings settings) {
+	public EngineBlock(Properties settings) {
 		super(settings);
 	}
 
 	@Override
-	protected MapCodec<? extends BlockWithEntity> getCodec() {
+	protected MapCodec<? extends BaseEntityBlock> codec() {
 		return CODEC;
 	}
 
 	@Nullable
 	@Override
-	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new EngineBlockEntity(pos, state);
 	}
 
 	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return validateTicker(type, ModBlockEntities.ENGINE_BLOCK_ENTITY, EngineBlockEntity::tick);
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
+		return createTickerHelper(type, ModBlockEntities.ENGINE_BLOCK_ENTITY, EngineBlockEntity::tick);
 	}
 
 	@Override
-	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+	protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
 		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity)) {
-			return super.onUse(state, world, pos, player, hit);
+			return super.useWithoutItem(state, world, pos, player, hit);
 		}
 
-		if (player.getMainHandStack().isIn(ItemTags.COALS)) {
+		if (player.getMainHandItem().is(ItemTags.COALS)) {
 			if (engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() + 40)) {
-				player.getMainHandStack().decrementUnlessCreative(1, player);
-				playSound(world, SoundEvents.ITEM_AXE_STRIP, pos);
-				return ActionResult.SUCCESS;
+				player.getMainHandItem().consume(1, player);
+				playSound(world, SoundEvents.AXE_STRIP, pos);
+				return InteractionResult.SUCCESS;
 			}
 
-			return ActionResult.PASS;
+			return InteractionResult.PASS;
 		} else {
 			if (engineBlockEntity.isRunning()) {
 				engineBlockEntity.setNormalizedStress(engineBlockEntity.getNormalizedStress() + 0.2f);
-				return ActionResult.SUCCESS;
+				return InteractionResult.SUCCESS;
 			} else if (engineBlockEntity.getFuel() > 0) {
-				playSound(world, SoundEvents.BLOCK_LEVER_CLICK, pos);
+				playSound(world, SoundEvents.LEVER_CLICK, pos);
 				engineBlockEntity.turnOn();
-				return ActionResult.SUCCESS;
+				return InteractionResult.SUCCESS;
 			}
 		}
 
-		return ActionResult.PASS;
+		return InteractionResult.PASS;
 	}
 
-	private static void playSound(World world, SoundEvent soundEvent, BlockPos pos) {
-		if (world.isClient()) return;
-		world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS, 0.8f, 1f);
+	private static void playSound(Level world, SoundEvent soundEvent, BlockPos pos) {
+		if (world.isClientSide()) return;
+		world.playSound(null, pos, soundEvent, SoundSource.BLOCKS, 0.8f, 1f);
 	}
 }

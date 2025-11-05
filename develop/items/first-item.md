@@ -30,17 +30,17 @@ Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/doc
 
 You can now register an item using the method now.
 
-The register method takes in an instance of the `Item.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
+The register method takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Properties` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` tells the register function to create an `Item` instance from an `Item.Settings` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Settings` as a parameter.
+`Item::new` tells the register function to create an `Item` instance from an `Item.Properties` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Properties` as a parameter.
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
