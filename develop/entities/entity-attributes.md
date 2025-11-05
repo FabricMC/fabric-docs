@@ -37,7 +37,7 @@ To display the attribute name in a human-readable format, you must modify your r
 
 ```json
 {
-    "attribute.name.fabricdocsreference.aggro_range": "Aggro Range"
+    "attribute.name.examplemod.aggro_range": "Aggro Range"
 }
 ```
 
@@ -46,7 +46,7 @@ To display the attribute name in a human-readable format, you must modify your r
 Ensure that your custom attributes are initialized during mod startup:
 
 ```java
-public class FabricDocsReference implements ModInitializer {
+public class ExampleMod implements ModInitializer {
     @Override
     public void onInitialize() {
         ModEntityAttributes.initialize();
