@@ -8,7 +8,7 @@ authors:
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
 
-Whenever Minecraft displays text in-game, it's probably defined using a `Text` object.
+Whenever Minecraft displays text in-game, it's probably defined using a `Component` object.
 This custom type is used instead of a `String` to allow for more advanced formatting,
 including colors, boldness, obfuscation, and click events. They also allow easy access
 to the translation system, making it simple to translate any UI element into
@@ -102,7 +102,7 @@ This produces JSON that can be used datapacks, commands and other places that ac
 
 ## Deserializing Text {#deserializing-text}
 
-Furthermore, to deserialize a JSON text object into an actual `Text` class, again, use the codec.
+Furthermore, to deserialize a JSON text object into an actual `Component` class, again, use the codec.
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 

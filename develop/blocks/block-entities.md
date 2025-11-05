@@ -70,7 +70,7 @@ Now that we have a functional block, we should make it so that the counter doesn
 
 Saving to NBT is done through `ReadView`s and `WriteView`s. These views are responsible for storing errors from encoding/decoding, and keeping track of registries throughout the serialization process.
 
-You can read from a `ReadView` using the `read` method, passing in a `Codec` for the desired type. Likewise, you can write to a `WriteView` by using the `put` method, passing in a Codec for the type, and the value.
+You can read from a `ReadView` using the `read` method, passing in a `Codec` for the desired type. Likewise, you can write to a `WriteView` by using the `store` method, passing in a Codec for the type, and the value.
 
 There are also methods for primitives, such as `getInt`, `getShort`, `getBoolean` etc. for reading and `putInt`, `putShort`, `putBoolean` etc. for writing. The View also provides methods for working with lists, nullable types, and nested objects.
 

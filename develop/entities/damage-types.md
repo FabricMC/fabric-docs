@@ -49,7 +49,7 @@ The `ResourceKey` can be obtained as follows:
 To demonstrate the use of custom damage types, we will use a custom block called _Tater Block_. Let's make is so that
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
 
-You can override `onSteppedOn` to inflict this damage.
+You can override `stepOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 

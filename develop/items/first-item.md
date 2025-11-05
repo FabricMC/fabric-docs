@@ -33,7 +33,7 @@ You can now register an item using the method now.
 The register method takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Properties` class.
+If you want to change your item's stack size, you can use the `stacksTo` method in the `Item.Properties` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
@@ -170,7 +170,7 @@ For more information on the recipe format, check out these resources:
 
 ## Custom Tooltips {#custom-tooltips}
 
-If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendTooltip` method.
+If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method.
 
 ::: info
 This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.

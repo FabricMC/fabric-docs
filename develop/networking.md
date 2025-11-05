@@ -51,13 +51,13 @@ and all clients in sync.
 A payload is the data that is sent within a packet.
 :::
 
-This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPayload`.
+This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
 
 @[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
 At the same time, we've defined:
 
-- An `Identifier` used to identify our packet's payload. For this example our identifier will be
+- A `ResourceLocation` used to identify our packet's payload. For this example our identifier will be
   `example-mod:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
@@ -72,7 +72,7 @@ At the same time, we've defined:
 
 @[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-We have also overridden `getId` to return our payload ID.
+We have also overridden `type` to return our payload ID.
 
 @[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
