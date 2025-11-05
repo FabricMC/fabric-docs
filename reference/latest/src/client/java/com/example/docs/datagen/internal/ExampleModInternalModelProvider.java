@@ -35,7 +35,7 @@ public class ExampleModInternalModelProvider extends FabricModelProvider {
 						BlockModelGenerators.plainVariant(blockStateModelGenerator.createSuffixedVariant(ModBlocks.PRISMARINE_LAMP, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
 						BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelOutput)))));
 
-		blockStateModelGenerator.woodProvider(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
+		blockStateModelGenerator.woodProvider(ModBlocks.CONDENSED_OAK_LOG).logWithHorizontal(ModBlocks.CONDENSED_OAK_LOG);
 	}
 
 	@Override
