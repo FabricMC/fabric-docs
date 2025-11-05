@@ -1,0 +1,260 @@
+{
+  "/pl_pl/develop/": [
+    {
+      "text": "Przewodniki dla deweloperów",
+      "link": "/pl_pl/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Pierwsze kroki",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Wprowadzenie do Fabric i modowania",
+          "link": "/pl_pl/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "Konfiguracja środowiska programistycznego",
+          "link": "/pl_pl/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "Tworzenie projektu",
+          "link": "/pl_pl/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Struktura projektu",
+          "link": "/pl_pl/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Uruchamianie gry",
+          "link": "/pl_pl/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "Przedmioty",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tworzenie pierwszego własnego przedmiotu",
+          "link": "/pl_pl/develop/items/first-item"
+        },
+        {
+          "text": "Żywność",
+          "link": "/pl_pl/develop/items/food"
+        },
+        {
+          "text": "Niestandardowe narzędzia",
+          "link": "/pl_pl/develop/items/custom-tools"
+        },
+        {
+          "text": "Niestandardowa zbroja",
+          "link": "/pl_pl/develop/items/custom-armor"
+        },
+        {
+          "text": "Niestandardowe zakładki przedmiotów",
+          "link": "/pl_pl/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Niestandardowe interakcje przedmiotów",
+          "link": "/pl_pl/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Mikstury",
+          "link": "/pl_pl/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Bloki",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tworzenie pierwszego własnego bloku",
+          "link": "/pl_pl/develop/blocks/first-block"
+        },
+        {
+          "text": "Stany bloku",
+          "link": "/pl_pl/develop/blocks/blockstates"
+        }
+      ]
+    },
+    {
+      "text": "Byty",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Efekty statusu",
+          "link": "/pl_pl/develop/entities/effects"
+        },
+        {
+          "text": "Rodzaje obrażeń",
+          "link": "/pl_pl/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Dźwięki",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Odtwarzanie dźwięków",
+          "link": "/pl_pl/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Tworzenie niestandardowych dźwięków",
+          "link": "/pl_pl/develop/sounds/custom"
+        }
+      ]
+    },
+    {
+      "text": "Polecenia",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tworzenie poleceń",
+          "link": "/pl_pl/develop/commands/basics"
+        },
+        {
+          "text": "Argumenty polecenia",
+          "link": "/pl_pl/develop/commands/arguments"
+        },
+        {
+          "text": "Sugestie polecenia",
+          "link": "/pl_pl/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Renderowanie",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Podstawowe koncepcje renderowania",
+          "link": "/pl_pl/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Korzystanie z kontekstu rysowania",
+          "link": "/pl_pl/develop/rendering/draw-context"
+        },
+        {
+          "text": "Renderowanie w HUD",
+          "link": "/pl_pl/develop/rendering/hud"
+        },
+        {
+          "text": "GUI i ekrany",
+          "items": [
+            {
+              "text": "Niestandardowe ekrany",
+              "link": "/pl_pl/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Niestandardowe widżety",
+              "link": "/pl_pl/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Cząsteczki",
+          "items": [
+            {
+              "text": "Tworzenie niestandardowych cząsteczek",
+              "link": "/pl_pl/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Inne strony",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Kodeki",
+          "link": "/pl_pl/develop/codecs"
+        },
+        {
+          "text": "Wydarzenia",
+          "link": "/pl_pl/develop/events"
+        },
+        {
+          "text": "Tekst i tłumaczenia",
+          "link": "/pl_pl/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/pl_pl/players/": [
+    {
+      "text": "Przewodniki dla graczy",
+      "link": "/pl_pl/players/",
+      "items": [
+        {
+          "text": "Często zadawane pytania",
+          "link": "/pl_pl/players/faq"
+        },
+        {
+          "text": "Instalowanie Javy",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/pl_pl/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/pl_pl/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Instalowanie Fabric",
+          "link": "/pl_pl/players/installing-fabric"
+        },
+        {
+          "text": "Znajdowanie wiarygodnych modów",
+          "link": "/pl_pl/players/finding-mods"
+        },
+        {
+          "text": "Instalowanie modów",
+          "link": "/pl_pl/players/installing-mods"
+        },
+        {
+          "text": "Rozwiązywanie problemów",
+          "items": [
+            {
+              "text": "Przesyłanie logów",
+              "link": "/pl_pl/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Raporty awarii",
+              "link": "/pl_pl/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Aktualizowanie Fabric",
+          "link": "/pl_pl/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}
