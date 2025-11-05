@@ -32,7 +32,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 	}
 
 	@Override
-	public void updateRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
+	public void extractRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
 		// :::1
 		BlockEntityRenderer.super.extractRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
 		state.setClicks(blockEntity.getClicks());
@@ -40,7 +40,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 	}
 
 	@Override
-	public void render(CounterBlockEntityRenderState state, PoseStack matrices, SubmitNodeCollector queue, CameraRenderState cameraState) {
+	public void submit(CounterBlockEntityRenderState state, PoseStack matrices, SubmitNodeCollector queue, CameraRenderState cameraState) {
 		// :::1
 
 		// :::2

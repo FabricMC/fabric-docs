@@ -9,8 +9,8 @@ import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.ConsumeItemTrigger;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.registry.ResourceKeys;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -49,7 +49,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.save(consumer, ExampleMod.MOD_ID + ":get_dirt");
 		// :::datagen-advancements:simple-advancement
 		// :::datagen-advancements:second-advancement
-		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(ResourceKeys.ITEM);
+		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
 		AdvancementHolder appleAndBeef = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
@@ -79,7 +79,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(Optional.empty())))
+				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
 				.build(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement

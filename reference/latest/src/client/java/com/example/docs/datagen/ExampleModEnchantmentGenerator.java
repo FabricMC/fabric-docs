@@ -2,8 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.registry.ResourceKey;
-import net.minecraft.registry.ResourceKeys;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -29,7 +29,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 		// Our new enchantment, "Thundering."
 		register(entries, ModEnchantmentEffects.THUNDERING, Enchantment.enchantment(
 				Enchantment.definition(
-					registries.lookupOrThrow(ResourceKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+					registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
 					// this is the "weight" or probability of our enchantment showing up in the table
 					10,
 					// the maximum level of the enchantment
@@ -44,7 +44,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 					EquipmentSlotGroup.HAND
 				)
 			)
-					.addEffect(
+					.withEffect(
 						// enchantment occurs POST_ATTACK
 						EnchantmentEffectComponents.POST_ATTACK,
 						EnchantmentTarget.ATTACKER,
@@ -55,7 +55,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	}
 
 	private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {
-		entries.add(key, builder.build(key.getValue()), resourceConditions);
+		entries.add(key, builder.build(key.location()), resourceConditions);
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.registry.ResourceKeys;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -17,7 +17,7 @@ import com.example.docs.ExampleMod;
 public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	// :::datagen-tags:provider
 	// :::datagen-tags:tag-key
-	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(ResourceKeys.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
+	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
 	// :::datagen-tags:tag-key
 	// :::datagen-tags:provider
 	public ExampleModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {

@@ -36,7 +36,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	// :::custom-pipelines:define-pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
 			.withLocation(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
-			.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.DrawMode.TRIANGLE_STRIP)
+			.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLE_STRIP)
 			.withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
 			.build()
 	);
@@ -124,22 +124,22 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		GpuBuffer indices;
 		VertexFormat.IndexType indexType;
 
-		if (pipeline.getVertexFormatMode() == VertexFormat.DrawMode.QUADS) {
+		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
 			// Sort the quads if there is translucency
-			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().getVertexSorter());
+			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().vertexSorting());
 			// Upload the index buffer
 			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
 			indexType = builtBuffer.drawState().indexType();
 		} else {
 			// Use the general shape index buffer for non-quad draw modes
 			RenderSystem.AutoStorageIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getVertexFormatMode());
-			indices = shapeIndexBuffer.getIndexBuffer(drawParameters.indexCount());
-			indexType = shapeIndexBuffer.getIndexType();
+			indices = shapeIndexBuffer.getBuffer(drawParameters.indexCount());
+			indexType = shapeIndexBuffer.type();
 		}
 
 		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.write(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
+				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
 				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {

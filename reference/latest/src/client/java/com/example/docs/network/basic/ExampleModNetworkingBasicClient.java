@@ -3,8 +3,14 @@ package com.example.docs.network.basic;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,17 +22,17 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// :::client_global_receiver
 		ClientPlayNetworking.registerGlobalReceiver(SummonLightningS2CPayload.ID, (payload, context) -> {
-			ClientWorld world = context.client().world;
+			ClientLevel world = context.client().level;
 
 			if (world == null) {
 				return;
 			}
 
 			BlockPos lightningPos = payload.pos();
-			LightningEntity entity = EntityType.LIGHTNING_BOLT.create(world, SpawnReason.TRIGGERED);
+			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(world, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
-				entity.setPosition(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
+				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
 				world.addEntity(entity);
 			}
 		});

@@ -1,15 +1,16 @@
 package com.example.docs.sound;
 
-import DynamicSoundSource;
-import TransitionState;
+
 import com.example.docs.sound.instance.SoundInstanceCallback;
+
+import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 
 // :::1
-public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
+public abstract class AbstractDynamicSoundInstance extends AbstractTickableSoundInstance {
 	protected final DynamicSoundSource soundSource;                 // Entities, BlockEntities, ...
 	protected TransitionState transitionState;                      // current TransitionState of the SoundInstance
 
@@ -50,7 +51,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 		// set start values
 		this.volume = 0.0f;
 		this.pitch = minPitch;
-		this.repeat = true;
+		this.looping = true;
 		this.transitionState = TransitionState.STARTING;
 		this.setPositionToEntity();
 	}
@@ -60,7 +61,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 
 	// :::3
 	@Override
-	public boolean shouldAlwaysPlay() {
+	public boolean canStartSilent() {
 		// override to true, so that the SoundInstance can start
 		// or add your own condition to the SoundInstance, if necessary
 		return true;
@@ -129,9 +130,9 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// :::6
 	// moves the sound instance position to the sound source's position
 	protected void setPositionToEntity() {
-		this.x = soundSource.getPosition().getX();
-		this.y = soundSource.getPosition().getY();
-		this.z = soundSource.getPosition().getZ();
+		this.x = soundSource.getPosition().x();
+		this.y = soundSource.getPosition().y();
+		this.z = soundSource.getPosition().z();
 	}
 
 	// Sets the SoundInstance into its ending phase.

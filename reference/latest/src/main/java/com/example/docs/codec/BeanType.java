@@ -13,6 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 public record BeanType<T extends Bean>(MapCodec<T> codec) {
 	// Create a registry to map identifiers to bean types
 	public static final Registry<BeanType<?>> REGISTRY = new MappedRegistry<>(
-			ResourceKey.createResourceKey(ResourceLocation.fromNamespaceAndPath("example", "bean_types")), Lifecycle.stable());
+			ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath("example", "bean_types")), Lifecycle.stable());
 }
 // :::

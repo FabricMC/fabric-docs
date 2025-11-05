@@ -1,5 +1,7 @@
 package com.example.docs.rendering;
 
+import net.minecraft.util.Mth;
+
 import org.joml.Matrix3x2fStack;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
@@ -37,7 +39,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 
 			// :::2
 			// Scale the matrix by 0.5 to make the triangle smaller and larger over time.
-			float scaleAmount = MathHelper.sin(totalTickProgress / 10F) / 2F + 1.5F;
+			float scaleAmount = Mth.sin(totalTickProgress / 10F) / 2F + 1.5F;
 
 			// Apply the scaling amount to the matrix.
 			// We don't need to scale the Z axis since it's on the HUD and 2D.

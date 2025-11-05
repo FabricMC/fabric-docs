@@ -4,10 +4,10 @@ import java.util.concurrent.CompletableFuture;
 
 import com.google.gson.JsonObject;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.registry.ResourceKeys;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageScaling;
@@ -23,12 +23,12 @@ public class ExampleModDamageTypesProvider {
 
 	public static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
 		TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-			super(output, ResourceKeys.DAMAGE_TYPE, registriesFuture);
+			super(output, Registries.DAMAGE_TYPE, registriesFuture);
 		}
 
 		@Override
 		protected void addTags(HolderLookup.Provider arg) {
-			builder(TagKey.create(ResourceKeys.DAMAGE_TYPE, ResourceLocation.parse("minecraft:bypasses_armor"))).add(ExampleModDamageTypes.TATER_DAMAGE);
+			builder(TagKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("minecraft:bypasses_armor"))).add(ExampleModDamageTypes.TATER_DAMAGE);
 		}
 	}
 

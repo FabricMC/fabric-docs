@@ -1,12 +1,13 @@
 package com.example.docs.sound.instance;
 
+import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 
 // :::1
-public class CustomSoundInstance extends MovingSoundInstance {
+public class CustomSoundInstance extends AbstractTickableSoundInstance {
 	private final LivingEntity entity;
 
 	public CustomSoundInstance(LivingEntity entity, SoundEvent soundEvent, SoundSource soundCategory) {
@@ -17,7 +18,7 @@ public class CustomSoundInstance extends MovingSoundInstance {
 		// set up default values when the sound is about to start
 		this.volume = 1.0f;
 		this.pitch = 1.0f;
-		this.repeat = true;
+		this.looping = true;
 		this.setPositionToEntity();
 	}
 
@@ -25,7 +26,7 @@ public class CustomSoundInstance extends MovingSoundInstance {
 	public void tick() {
 		// stop sound instantly if sound source does not exist anymore
 		if (this.entity == null || this.entity.isRemoved() || this.entity.isDeadOrDying()) {
-			this.setDone();
+			this.stop();
 			return;
 		}
 
@@ -34,7 +35,7 @@ public class CustomSoundInstance extends MovingSoundInstance {
 	}
 
 	@Override
-	public boolean shouldAlwaysPlay() {
+	public boolean canStartSilent() {
 		// override to true, so that the SoundInstance can start
 		// or add your own condition to the SoundInstance, if necessary
 		return true;

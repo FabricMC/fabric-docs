@@ -71,7 +71,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
 		// :::datagen-model:block-texture-pool-family
-		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK).family(ModBlocks.RUBY_FAMILY);
+		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK).generateFor(ModBlocks.RUBY_FAMILY);
 		// :::datagen-model:block-texture-pool-family
 	}
 

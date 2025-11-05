@@ -17,7 +17,7 @@ public class ReceiveS2C {
 
 	// :::1
 	private static void handleS2CEngineSoundPacket(EngineSoundInstancePacket packet, ClientPlayNetworking.Context context) {
-		ClientLevel world = context.client().world;
+		ClientLevel world = context.client().level;
 		if (world == null) return;
 
 		DynamicSoundManager soundManager = DynamicSoundManager.getInstance();
