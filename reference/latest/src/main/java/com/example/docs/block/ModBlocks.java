@@ -1,7 +1,7 @@
 package com.example.docs.block;
 
 import java.util.function.Function;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +20,9 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;

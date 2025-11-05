@@ -1,7 +1,9 @@
 package com.example.docs;
 
-import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+
+import net.fabricmc.api.ClientModInitializer;
+
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.rendering.blockentity.CounterBlockEntityRenderer;
 

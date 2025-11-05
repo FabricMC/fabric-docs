@@ -1,9 +1,11 @@
 package com.example.docs.networking;
 
-import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+
 import com.example.docs.networking.payload.EngineSoundInstancePacket;
 
 @SuppressWarnings("SameParameterValue")

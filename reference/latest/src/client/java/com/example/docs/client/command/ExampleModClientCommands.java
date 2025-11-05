@@ -1,10 +1,10 @@
 package com.example.docs.client.command;
 
+import net.minecraft.network.chat.Component;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
-
-import net.minecraft.network.chat.Component;
 
 // Class to contain all mod client command registrations.
 public class ExampleModClientCommands implements ClientModInitializer {

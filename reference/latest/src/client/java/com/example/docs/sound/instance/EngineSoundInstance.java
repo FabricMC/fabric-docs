@@ -1,10 +1,11 @@
 package com.example.docs.sound.instance;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 import com.example.docs.sound.AbstractDynamicSoundInstance;
 import com.example.docs.sound.DynamicSoundSource;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundSource;
 
 // :::1
 public class EngineSoundInstance extends AbstractDynamicSoundInstance {

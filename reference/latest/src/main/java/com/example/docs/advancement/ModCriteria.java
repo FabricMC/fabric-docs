@@ -1,7 +1,8 @@
 package com.example.docs.advancement;
 
-import com.example.docs.ExampleMod;
 import net.minecraft.advancements.CriteriaTriggers;
+
+import com.example.docs.ExampleMod;
 
 // :::datagen-advancements:mod-criteria
 public class ModCriteria {

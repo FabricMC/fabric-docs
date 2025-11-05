@@ -1,6 +1,5 @@
 package com.example.docs.block.entity.custom;
 
-import com.example.docs.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -9,6 +8,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+
+import com.example.docs.block.entity.ModBlockEntities;
 
 // :::1
 public class CounterBlockEntity extends BlockEntity {

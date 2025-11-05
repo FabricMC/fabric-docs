@@ -1,11 +1,13 @@
 package com.example.docs.advancement;
 
 import java.util.HashMap;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
+
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
 // :::datagen-advancements:entrypoint
 public class ExampleModDatagenAdvancement implements ModInitializer {

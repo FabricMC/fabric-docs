@@ -1,12 +1,14 @@
 package com.example.docs.rendering;
 
+import org.joml.Matrix3x2fStack;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
-import org.joml.Matrix3x2fStack;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-import net.minecraft.resources.ResourceLocation;
+
 import com.example.docs.ExampleMod;
 
 public class RenderingConceptsEntrypoint implements ClientModInitializer {

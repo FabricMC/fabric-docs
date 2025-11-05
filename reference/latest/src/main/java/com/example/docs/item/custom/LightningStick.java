@@ -1,6 +1,7 @@
 package com.example.docs.item.custom;
 
 import java.util.function.Consumer;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

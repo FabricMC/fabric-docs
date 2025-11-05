@@ -1,11 +1,12 @@
 package com.example.docs.networking.basic;
 
-import com.example.docs.ExampleMod;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+
+import com.example.docs.ExampleMod;
 
 // :::give_glowing_effect_payload
 public record GiveGlowingEffectC2SPayload(int entityId) implements CustomPacketPayload {

@@ -1,6 +1,5 @@
 package com.example.docs.debug;
 
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -13,6 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
 public class TestItem extends Item {
 	public TestItem(Properties settings) {

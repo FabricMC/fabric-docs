@@ -1,11 +1,13 @@
 package com.example.docs.effect;
 
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+
+import net.fabricmc.api.ModInitializer;
+
 import com.example.docs.ExampleMod;
 
 // :::1

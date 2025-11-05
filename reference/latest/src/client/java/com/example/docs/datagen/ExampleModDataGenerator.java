@@ -3,6 +3,7 @@ package com.example.docs.datagen;
 import static com.example.docs.datagen.ExampleModDamageTypesProvider.TATER_DAMAGE_TYPE;
 
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -10,8 +11,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
 import com.example.docs.network.basic.ExampleModNetworkingBasicModelProvider;
-
-import net.minecraft.core.registries.Registries;
 
 // :::datagen-setup:generator
 public class ExampleModDataGenerator implements DataGeneratorEntrypoint {

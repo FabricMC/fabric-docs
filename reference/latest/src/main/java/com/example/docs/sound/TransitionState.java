@@ -1,7 +1,8 @@
 package com.example.docs.sound;
 
-import com.example.docs.ExampleMod;
 import net.minecraft.resources.ResourceLocation;
+
+import com.example.docs.ExampleMod;
 
 // :::1
 public enum TransitionState {

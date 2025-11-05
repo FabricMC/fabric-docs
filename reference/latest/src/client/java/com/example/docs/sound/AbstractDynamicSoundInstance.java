@@ -1,13 +1,13 @@
 package com.example.docs.sound;
 
 
-import com.example.docs.sound.instance.SoundInstanceCallback;
-
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+
+import com.example.docs.sound.instance.SoundInstanceCallback;
 
 // :::1
 public abstract class AbstractDynamicSoundInstance extends AbstractTickableSoundInstance {

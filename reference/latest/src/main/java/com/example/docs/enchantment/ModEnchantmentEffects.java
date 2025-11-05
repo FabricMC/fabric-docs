@@ -1,6 +1,7 @@
 package com.example.docs.enchantment;
 
 import com.mojang.serialization.MapCodec;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -8,6 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
+
 import com.example.docs.ExampleMod;
 import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
 

@@ -1,7 +1,9 @@
 package com.example.docs.networking;
 
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
+
+import net.fabricmc.api.ModInitializer;
+
 import com.example.docs.ExampleMod;
 
 public class ExampleModNetworking implements ModInitializer {

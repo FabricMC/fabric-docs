@@ -1,8 +1,9 @@
 package com.example.docs;
 
-import com.example.docs.effect.ExampleModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+
+import com.example.docs.effect.ExampleModEffects;
 
 /**
  * A static-first class, used solely to provide version-aware

@@ -1,10 +1,12 @@
 package com.example.docs;
 
-import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+
+import net.fabricmc.api.ClientModInitializer;
+
 import com.example.docs.network.ReceiveS2C;
 import com.example.docs.sound.CustomSounds;
 import com.example.docs.sound.instance.CustomSoundInstance;

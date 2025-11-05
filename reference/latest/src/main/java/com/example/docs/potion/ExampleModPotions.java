@@ -1,7 +1,5 @@
 package com.example.docs.potion;
 
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -9,6 +7,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
+
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+
 import com.example.docs.ExampleMod;
 import com.example.docs.effect.ExampleModEffects;
 
