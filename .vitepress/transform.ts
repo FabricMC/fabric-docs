@@ -3,19 +3,15 @@ import { PageData, SiteConfig } from "vitepress";
 import { getWebsiteResolver } from "./i18n";
 
 /**
- * Adds open graph data (social media embed info) and tells web crawlers to not index versioned pages.
+ * Add open graph data (social media embed info) and tell web crawlers to not index versioned pages.
  */
-export function transformPageData(pageData: PageData, _context: any) {
+export const transformPageData = (pageData: PageData) => {
   pageData.frontmatter.head ??= [];
 
   const parts = pageData.relativePath.split("/");
-  const websiteTitle = getWebsiteResolver(
-    parts[0][2] === "_" ? parts[0] : "root"
-  )("title");
+  const websiteTitle = getWebsiteResolver(parts[0][2] === "_" ? parts[0] : "root")("title");
   const title =
-    pageData.frontmatter.layout === "home"
-      ? websiteTitle
-      : pageData.title + " | " + websiteTitle;
+    pageData.frontmatter.layout === "home" ? websiteTitle : `${pageData.title} | ${websiteTitle}`;
 
   const tags = [
     ["theme-color", "#2275da"],
@@ -49,15 +45,15 @@ export function transformPageData(pageData: PageData, _context: any) {
       },
     ]);
   }
-}
+};
 
-export function transformItems(items: any[]): any[] {
-  const config = globalThis.VITEPRESS_CONFIG as SiteConfig;
+export const transformItems = (items: any[]): any[] => {
+  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
   const inverseRewrites = config.rewrites.inv;
 
   const itemsCopy = [...items];
   for (const item of items) {
-    const path = item.url.replace("https://docs.fabricmc.net/", "") + ".md";
+    const path = `${item.url.replace("https://docs.fabricmc.net/", "")}.md`;
 
     // Remove the item if it's a versioned item
     if (inverseRewrites[path]?.includes("versions")) {
@@ -66,4 +62,4 @@ export function transformItems(items: any[]): any[] {
   }
 
   return itemsCopy;
-}
+};

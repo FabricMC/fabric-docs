@@ -16,10 +16,9 @@ import "./style.css";
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp: ({ app }) => {
     // VidStack VideoPlayer Component
-    app.config.compilerOptions.isCustomElement = (tag) =>
-      tag.startsWith("media-");
+    app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("media-");
 
     // Custom Components for Pages
     app.component("ChoiceComponent", ChoiceComponent);
@@ -30,14 +29,12 @@ export default {
     // Versioning Plugin Components
     app.component("VersionSwitcher", VersionSwitcher);
   },
-  Layout() {
+  Layout: () => {
     const { page, frontmatter } = useData();
 
     const children = {
       "doc-before": () => [
-        frontmatter.value.title
-          ? h("h1", { class: "vp-doc" }, frontmatter.value.title)
-          : null,
+        frontmatter.value.title ? h("h1", { class: "vp-doc" }, frontmatter.value.title) : null,
         h(VersionReminder),
         h(AuthorsComponent),
       ],
@@ -46,12 +43,12 @@ export default {
     };
 
     if (page.value.isNotFound) {
-      children["not-found"] = () => h(NotFoundComponent);
+      (children as any)["not-found"] = () => h(NotFoundComponent);
     }
 
     return h(DefaultTheme.Layout, null, children);
   },
-  setup() {
+  setup: () => {
     const route = useRoute();
     const initZoom = () => {
       mediumZoom(".main img", { background: "var(--vp-c-bg)" });
