@@ -80,7 +80,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
-				.build(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
+				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
@@ -95,8 +95,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.build(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
+				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
+				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:provider-start
 	}

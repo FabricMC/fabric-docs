@@ -28,10 +28,10 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			}
 
 			// :::2
-			Matrix3x2fStack matrices = drawContext.getMatrices();
+			Matrix3x2fStack matrices = drawContext.pose();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickProgress += tickCounter.getTickProgress(true);
+			totalTickProgress += tickCounter.getGameTimeDeltaPartialTick(true);
 
 			// Push a new matrix onto the stack.
 			matrices.pushMatrix();

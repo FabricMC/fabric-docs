@@ -121,14 +121,14 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			MultiVariant fullBlockModel = BlockModelGenerators.plainVariant(fullBlockId);
 			return MultiVariantGenerator.dispatch(vertSlabBlock)
 					.with(PropertyDispatch.initial(VerticalSlabBlock.FACING, VerticalSlabBlock.SINGLE)
-						.register(Direction.NORTH, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK))
-						.register(Direction.EAST, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_90))
-						.register(Direction.SOUTH, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_180))
-						.register(Direction.WEST, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_270))
-						.register(Direction.NORTH, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
-						.register(Direction.EAST, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
-						.register(Direction.SOUTH, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
-						.register(Direction.WEST, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
+						.select(Direction.NORTH, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK))
+						.select(Direction.EAST, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_90))
+						.select(Direction.SOUTH, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_180))
+						.select(Direction.WEST, true, vertSlabModel.with(BlockModelGenerators.UV_LOCK).with(BlockModelGenerators.Y_ROT_270))
+						.select(Direction.NORTH, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
+						.select(Direction.EAST, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
+						.select(Direction.SOUTH, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
+						.select(Direction.WEST, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
 					);
 		}
 
