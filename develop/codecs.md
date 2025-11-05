@@ -272,8 +272,8 @@ Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLoca
 
 // Use it to serialize data
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new ResourceLocation("example", "number"), 23,
-    new ResourceLocation("example", "the_cooler_number"), 42
+    ResourceLocation.fromNamespaceAndPath("example", "number"), 23,
+    ResourceLocation.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -336,7 +336,7 @@ public class ResourceLocation {
 
     public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(new ResourceLocation(id));
+            return DataResult.success(ResourceLocation.parse(id));
         } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
