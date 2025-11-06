@@ -9,7 +9,7 @@ Basic items can only go so far - eventually you will need an item that interacts
 
 There are some key classes you must understand before taking a look at the vanilla item events.
 
-## InteractionResult {#actionresult}
+## InteractionResult {#interactionresult}
 
 An `InteractionResult` tells the game the status of the event, whether it was passed/ignored, failed or successful.
 

@@ -52,7 +52,7 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-## Adding the Item to an Creative Tab {#adding-the-item-to-an-item-group}
+## Adding the Item to a Creative Tab {#adding-the-item-to-a-creative-tab}
 
 ::: info
 If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.

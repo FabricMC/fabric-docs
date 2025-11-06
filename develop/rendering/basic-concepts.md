@@ -24,7 +24,7 @@ This page will cover the basics of rendering using the new system, going over ke
 
 Although much of rendering in Minecraft is abstracted through the various `GuiGraphics` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
 
-## The `Tesselator` {#the-tessellator}
+## The `Tesselator` {#the-tesselator}
 
 The `Tesselator` is the main class used to render things in Minecraft. It is a singleton, meaning that there is only one instance of it in the game. You can get the instance using `Tesselator.getInstance()`.
 
@@ -135,7 +135,7 @@ This results in the following being drawn on the HUD:
 Try mess around with the colors and positions of the vertices to see what happens! You can also try using different draw modes and vertex formats.
 :::
 
-## The `PoseStack` {#the-matrixstack}
+## The `PoseStack` {#the-posestack}
 
 ::: warning
 This section's code and the text are discussing different things!

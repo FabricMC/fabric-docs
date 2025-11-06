@@ -89,7 +89,7 @@ export default [
         link: "/develop/items/custom-armor",
       },
       {
-        text: "develop.items.custom_item_groups",
+        text: "develop.items.custom_creative_tabs",
         link: "/develop/items/custom-item-groups",
       },
       {
@@ -197,7 +197,7 @@ export default [
         link: "/develop/rendering/basic-concepts",
       },
       {
-        text: "develop.rendering.draw_context",
+        text: "develop.rendering.gui_graphics",
         link: "/develop/rendering/draw-context",
       },
       {

@@ -15,7 +15,7 @@ As we have learned in the [Using Sounds](../sounds/using-sounds) page, it is pre
 
 This way of thinking is correct. Technically the client side needs to handle the audio. However, for simple `SoundEvent` playing, the server side prepared a big step in between which might not be obvious at first glance. Which clients should be able to hear that sound?
 
-Using the sound on the logical server side will solve the issue of broadcasting `SoundEvent`s. To put simple, every client (`LocalPlayer`) in tracking range, gets sent a network packet to play this specific sound. The sound event is basically broadcasted from the logical server side, to every participating client, without you having to think about it at all. The sound is played once, with the specified volume and pitch values.
+Using the sound on the logical server side will solve the issue of broadcasting `SoundEvent`s. To put it simply, every client (`LocalPlayer`) in tracking range, gets sent a network packet to play this specific sound. The sound event is basically broadcasted from the logical server side, to every participating client, without you having to think about it at all. The sound is played once, with the specified volume and pitch values.
 
 But what if this is not enough? What if the sound needs to loop, change volume and pitch dynamically while playing and all that based on values which come from things like `Entities` or `BlockEntities`?
 
@@ -255,7 +255,7 @@ public enum TransitionState {
 }
 ```
 
-But when those values are sent over the network you might want to define an `ResourceLocation` for them or even add other custom values.
+But when those values are sent over the network you might want to define a `ResourceLocation` for them or even add other custom values.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 

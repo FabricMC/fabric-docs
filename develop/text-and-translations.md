@@ -22,7 +22,7 @@ converted to and from using `Component.Serializer`.
 When making a mod, it is generally preferred to construct your `Component` objects directly
 in code, making use of translations whenever possible.
 
-## Literal Text Components {#text-literals}
+## Literal Text Components {#literal-text-components}
 
 The simplest way to create a `Component` object is to make a literal. This is just a string
 that will be displayed as-is, by default without any formatting.
@@ -40,7 +40,7 @@ MutableComponent mutable = Component.literal("Hello, world!");
 Component mutableAsText = mutable;
 ```
 
-## Translatable Text Components {#translatable-text}
+## Translatable Text Components {#translatable-text-components}
 
 When you want to provide multiple translations for the same string of text, you can use the `Component.translatable` method to reference a translation key in any language file. If the key doesn't exist, the translation key is converted to a literal.
 

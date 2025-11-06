@@ -28,7 +28,7 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 An advancement is made up a few different components. Along with the requirements, called "criterion," it may have:
 
-- An `DisplayInfo` that tells the game how to show the advancement to players,
+- Some `DisplayInfo` that tell the game how to show the advancement to players,
 - `AdvancementRequirements`, which are lists of lists of criteria, requiring at least one criterion from each sub-list to be completed,
 - `AdvancementRewards`, which the player receives for completing the advancement.
 - A `Strategy`, which tells the advancement how to handle multiple criterion, and
@@ -62,7 +62,7 @@ While datagen can be on the client side, `Criterion`s and `Predicate`s are in th
 
 ### Definitions {#definitions}
 
-A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.critereon` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
+A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.critereon` [sic] package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
 
 **Conditions** are evaluated by criteria. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
 
@@ -82,7 +82,7 @@ Next, let's create our custom criterion, `UseToolCriterion`. It's going to need 
 
 Whew, that's a lot! Let's break it down.
 
-- `UseToolCriterion` is an `SimpleCriterionTrigger`, which `Conditions` can apply to.
+- `UseToolCriterion` is a `SimpleCriterionTrigger`, which `Conditions` can apply to.
 - `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate (technically a `LootContextPredicate`).
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 
