@@ -34,13 +34,13 @@ To start developing mods with Fabric, you will need to set up a development envi
 <ChoiceComponent :choices="[
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/opening-a-project',
+    href: './intellij-idea/setting-up',
     icon: 'simple-icons:intellijidea',
     color: '#FE2857',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/opening-a-project',
+    href: './vscode/setting-up',
     icon: 'codicon:vscode',
     color: '#007ACC',
   },

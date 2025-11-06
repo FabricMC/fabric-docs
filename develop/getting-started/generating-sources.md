@@ -12,13 +12,13 @@ outline: false
 <ChoiceComponent :choices="[
   {
     name: 'IntelliJ IDEA',
-    href: './intellij-idea/opening-a-project',
+    href: './intellij-idea/generating-sources',
     icon: 'simple-icons:intellijidea',
     color: '#FE2857',
   },
   {
     name: 'Visual Studio Code',
-    href: './vscode/opening-a-project',
+    href: './vscode/generating-sources',
     icon: 'codicon:vscode',
     color: '#007ACC',
   },

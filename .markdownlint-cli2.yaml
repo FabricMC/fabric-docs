@@ -24,7 +24,6 @@ config:
       - ColorSwatch
       - DownloadEntry
       - kbd
-      - script
       - source
       - u
       - VideoPlayer
