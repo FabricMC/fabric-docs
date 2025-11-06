@@ -52,19 +52,19 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
+## Adding the Item to an Creative Tab {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, check out the [Custom Item Groups](./custom-item-groups) page for more information.
+If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Loading into the game, you can see that our item has been registered, and is in the Ingredients item group:
+Loading into the game, you can see that our item has been registered, and is in the Ingredients creative tab:
 
 ![Item in the ingredients group](/assets/develop/items/first_item_0.png)
 

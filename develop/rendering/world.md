@@ -41,7 +41,7 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 @[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
-Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderLayer.CUTOUT_BUFFER_SIZE`.
+Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
 

@@ -146,7 +146,7 @@ can be used to get the `x`, `y` and `z` positions.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Finally, we create a `LightningEntity` and add it to the world.
+Finally, we create a `LightningBolt` and add it to the world.
 
 @[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -173,7 +173,7 @@ To send a packet, let's add an action when the player uses a Poisonous Potato. W
 event to
 keep things concise.
 
-We register the event in our **client initializer**, and we use `isClient()` to ensure that the action is only triggered
+We register the event in our **client initializer**, and we use `isClientSide()` to ensure that the action is only triggered
 on the logical client.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)

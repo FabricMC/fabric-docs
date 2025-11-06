@@ -1,6 +1,6 @@
 ---
-title: Using the Drawing Context
-description: Learn how to use the DrawContext class to render various shapes, text and textures.
+title: Using GuiGraphics
+description: Learn how to use the GuiGraphics class to render various shapes, text and textures.
 authors:
   - IMB11
 ---
