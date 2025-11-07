@@ -40,7 +40,7 @@ As a Fabric developer, you'll encounter three main sets of names:
 - **Yarn**: an open-source mapping set developed by Fabric for humans to write mods. Most Fabric mods used Yarn Mappings, as they were the default before 2025. An example mapping might be `CreeperEntity`.
 - **Mojang Mappings**: The game's official obfuscation mappings, released by Mojang in 2019 to aid mod development. Notably, Mojang's obfuscation mappings lack parameter names and Javadocs, which is why some users also layer [Parchment](https://parchmentmc.org/) over the official mappings. An example mapping might be `Creeper`.
 
-[The game drop following Mounts of Mayhem will be deobfuscated]((https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition)) and include parameter names, so there won't be a need for any obfuscation mappings. If you are updating your mod to this version, you will need to move to Mojang's obfuscation mappings first before updating.
+[The game drop following Mounts of Mayhem will be deobfuscated](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition) and include parameter names, so there won't be a need for any obfuscation mappings. If you are updating your mod to this version, you will need to move to Mojang's obfuscation mappings first before updating.
 
 ## Migrating to Mojang Mappings {#migrating-to-mojmap}
 

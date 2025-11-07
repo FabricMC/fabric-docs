@@ -3,43 +3,32 @@ import { resolve } from "path/posix";
 import { LocaleConfig } from "vitepress";
 import { Versioned } from "vitepress-versioning-plugin";
 
-import DevelopSidebar from "./sidebars/develop";
-import PlayersSidebar from "./sidebars/players";
+import Develop from "./sidebars/develop";
+import Players from "./sidebars/players";
 import { Fabric } from "./types";
 
-function getTranslationsResolver(
-  localeFolder: string,
-  fileName: string
-): (key: string) => string {
-  const file = resolve(
-    __dirname,
-    "..",
-    "translated",
-    localeFolder === "root" ? ".." : localeFolder,
-    fileName
-  );
+const getResolver = (locale: string, fileName: string): ((k: string) => string) => {
+  const file = resolve(__dirname, "..", "translated", locale === "root" ? ".." : locale, fileName);
 
-  const strings: { [key: string]: string } = existsSync(file)
+  const strings: Record<string, string> = existsSync(file)
     ? JSON.parse(readFileSync(file, "utf-8"))
     : {};
 
-  if (localeFolder === "root") {
-    return (key: string) => strings[key] || key;
+  if (locale === "root") {
+    return (k: string) => strings[k] || k;
   } else {
-    return (key: string) =>
-      strings[key] || getTranslationsResolver("root", fileName)(key);
+    return (k: string) => strings[k] || getResolver("root", fileName)(k);
   }
-}
-export const getWebsiteResolver = (localeFolder: string) =>
-  getTranslationsResolver(localeFolder, "website_translations.json");
-export const getSidebarResolver = (localeFolder: string) =>
-  getTranslationsResolver(localeFolder, "sidebar_translations.json");
+};
 
-export function processExistingEntries(
-  sidebar: Versioned.Sidebar
-): Versioned.Sidebar {
+const getSidebarResolver = (locale: string) => getResolver(locale, "sidebar_translations.json");
+
+export const getWebsiteResolver = (locale: string) =>
+  getResolver(locale, "website_translations.json");
+
+export const processExistingEntries = (sidebar: Versioned.Sidebar): Versioned.Sidebar => {
   // Get locales from __dirname/../translated/* folder names.
-  const localeFolders = readdirSync(resolve(__dirname, "..", "translated"), {
+  const locales = readdirSync(resolve(__dirname, "..", "translated"), {
     withFileTypes: true,
   })
     .filter((dirent) => dirent.isDirectory())
@@ -51,9 +40,9 @@ export function processExistingEntries(
   const keys = Object.keys(sidebar);
   const versionedEntries = keys.filter((key) => {
     return (
-      !key.includes("/players") &&
-      !key.includes("/develop") &&
-      localeFolders.some((locale) => key.includes(locale))
+      !key.includes("/players")
+      && !key.includes("/develop")
+      && locales.some((locale) => key.includes(locale))
     );
   });
 
@@ -66,21 +55,11 @@ export function processExistingEntries(
 
     versionsMet.add(version);
 
-    const playersToCopy = JSON.parse(
-      JSON.stringify(sidebar[`/${version}/players/`])
-    );
-    const developToCopy = JSON.parse(
-      JSON.stringify(sidebar[`/${version}/develop/`])
-    );
+    const playersToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/players/`]));
+    const developToCopy = JSON.parse(JSON.stringify(sidebar[`/${version}/develop/`]));
 
-    sidebar[`/${locale}/${version}/players/`] = getLocalizedSidebar(
-      playersToCopy,
-      locale
-    );
-    sidebar[`/${locale}/${version}/develop/`] = getLocalizedSidebar(
-      developToCopy,
-      locale
-    );
+    sidebar[`/${locale}/${version}/players/`] = getLocalizedSidebar(playersToCopy, locale);
+    sidebar[`/${locale}/${version}/develop/`] = getLocalizedSidebar(developToCopy, locale);
 
     // Delete the original entry.
     delete sidebar[entry];
@@ -98,13 +77,13 @@ export function processExistingEntries(
   }
 
   return sidebar;
-}
+};
 
-export function getLocalizedSidebar(
+const getLocalizedSidebar = (
   sidebar: Fabric.SidebarItem[],
-  localeCode: string
-): Fabric.SidebarItem[] {
-  const sidebarResolver = getSidebarResolver(localeCode);
+  locale: string
+): Fabric.SidebarItem[] => {
+  const resolver = getSidebarResolver(locale);
   const localizedSidebar = JSON.parse(JSON.stringify(sidebar));
 
   for (const item of localizedSidebar) {
@@ -112,68 +91,63 @@ export function getLocalizedSidebar(
       continue;
     }
 
-    item.text = sidebarResolver(item.text);
+    item.text = resolver(item.text);
 
-    if (item.link && localeCode !== "root" && item.process !== false) {
-      item.link = `/${localeCode}${item.link}`;
+    if (item.link && locale !== "root" && item.process !== false) {
+      item.link = `/${locale}${item.link}`;
     }
 
     if (item.items) {
-      item.items = getLocalizedSidebar(item.items, localeCode);
+      item.items = getLocalizedSidebar(item.items, locale);
     }
   }
 
   return localizedSidebar;
-}
+};
 
 /**
  * Generates translated sidebars for a given root directory and sidebars.
  *
  * @param sidebars - An object containing sidebars to translate, keyed by URL.
- * @param dirname - The root directory to generate translated sidebars for.
  * @returns An object containing translated sidebars, keyed by locale URL.
  */
-export function generateTranslatedSidebars(
-  sidebars: { [url: string]: Fabric.SidebarItem[] },
-  dirname: string
-): { [localeUrl: string]: Fabric.SidebarItem[] } {
-  const translatedSidebars: { [key: string]: Fabric.SidebarItem[] } = {};
+const translateSidebars = (
+  sidebars: Record<string, Fabric.SidebarItem[]>
+): Record<string, Fabric.SidebarItem[]> => {
+  const translatedSidebars: Record<string, Fabric.SidebarItem[]> = {};
 
   for (const key of Object.keys(sidebars)) {
     const sidebar = sidebars[key];
     translatedSidebars[key] = getLocalizedSidebar(sidebar, "root");
   }
 
-  const translatedFolder = resolve(dirname, "..", "translated");
+  const translatedFolder = resolve(__dirname, "..", "translated");
 
   for (const folder of readdirSync(translatedFolder, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name)) {
     for (const key of Object.keys(sidebars)) {
       const sidebar = sidebars[key];
-      translatedSidebars["/" + folder + key] = getLocalizedSidebar(
-        sidebar,
-        folder
-      );
+      translatedSidebars[`/${folder}${key}`] = getLocalizedSidebar(sidebar, folder);
     }
   }
 
   return translatedSidebars;
-}
+};
 
 /**
  * Generates a theme configuration for a given locale.
  *
- * @param localeCode - The code of the locale ("root" for English).
+ * @param locale - The code of the locale ("root" for English).
  * @returns A theme configuration object.
  */
-function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
-  const websiteResolver = getWebsiteResolver(localeCode);
+const translateThemeConfig = (locale: string): Fabric.ThemeConfig => {
+  const resolver = getWebsiteResolver(locale);
 
   const crowdinCode = (localeCode: string): string | null => {
     // https://developer.crowdin.com/language-codes
     // TODO: this is hardcoded
-    const crowdinOverrides = {
+    const crowdinOverrides: Record<string, string> = {
       es_es: "es-ES",
       pt_br: "pt-BR",
       zh_cn: "zh-CN",
@@ -190,73 +164,75 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
   return {
     // https://vitepress.dev/reference/default-theme-config
     authors: {
-      heading: websiteResolver("authors.heading"),
-      noGitHub: websiteResolver("authors.no_github"),
+      heading: resolver("authors.heading"),
+      noGitHub: resolver("authors.no_github"),
     },
 
     banner: {
-      text: websiteResolver("banner"),
-      discord: websiteResolver("social.discord"),
-      github: websiteResolver("social.github"),
+      text: resolver("banner"),
+      discord: resolver("social.discord"),
+      github: resolver("social.github"),
     },
 
-    darkModeSwitchLabel: websiteResolver("mode_switcher"),
+    darkModeSwitchLabel: resolver("mode_switcher"),
 
-    darkModeSwitchTitle: websiteResolver("mode_dark"),
+    darkModeSwitchTitle: resolver("mode_dark"),
 
     docFooter: {
-      next: websiteResolver("footer.next"),
-      prev: websiteResolver("footer.prev"),
+      next: resolver("footer.next"),
+      prev: resolver("footer.prev"),
     },
 
     download: {
-      text: websiteResolver("download"),
+      text: resolver("download"),
     },
 
     editLink: {
       pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
-      text: websiteResolver("github_edit"),
+      text: resolver("github_edit"),
     },
 
     externalLinkIcon: true,
 
     footer: {
-      copyright: websiteResolver("footer.copyright").replace(
+      copyright: resolver("footer.copyright").replace(
         "%s",
-        `<a href=\"https://github.com/FabricMC/fabric-docs/blob/main/LICENSE\" target=\"_blank\" rel=\"noreferrer\">${websiteResolver(
+        `<a href=\"https://github.com/FabricMC/fabric-docs/blob/main/LICENSE\" target=\"_blank\" rel=\"noreferrer\">${resolver(
           "footer.license"
         )}</a>`
       ),
-      message: websiteResolver("footer.message"),
+      message: resolver("footer.message"),
     },
 
-    langMenuLabel: websiteResolver("lang_switcher"),
+    langMenuLabel: resolver("lang_switcher"),
 
     lastUpdated: {
-      text: websiteResolver("last_updated"),
+      text: resolver("last_updated"),
     },
 
-    lightModeSwitchTitle: websiteResolver("mode_light"),
+    lightModeSwitchTitle: resolver("mode_light"),
 
     logo: "/logo.png",
 
     nav: [
-      { text: websiteResolver("nav.home"), link: "https://fabricmc.net/" },
       {
-        text: websiteResolver("nav.download"),
+        text: resolver("nav.home"),
+        link: "https://fabricmc.net/",
+      },
+      {
+        text: resolver("nav.download"),
         link: "https://fabricmc.net/use",
       },
       {
-        text: websiteResolver("nav.contribute"),
+        text: resolver("nav.contribute"),
         items: [
-          // TODO: Expand on this later, with guidelines for loader+loom potentially?
+          // TODO: Expand on this later, with guidelines for loader & loom potentially?
           {
-            text: websiteResolver("title"),
-            link:
-              (localeCode === "root" ? "" : `/${localeCode}`) + "/contributing",
+            text: resolver("title"),
+            link: `${locale === "root" ? "" : `/${locale}`}/contributing`,
           },
           {
-            text: websiteResolver("nav.contribute.api"),
+            text: resolver("nav.contribute.api"),
             link: "https://github.com/FabricMC/fabric/blob/1.20.4/CONTRIBUTING.md",
           },
         ],
@@ -267,130 +243,119 @@ function generateTranslatedThemeConfig(localeCode: string): Fabric.ThemeConfig {
     ],
 
     notFound: {
-      code: websiteResolver("404.code"),
-      title: websiteResolver("404.title"),
-      quote: websiteResolver("404.quote"),
+      code: resolver("404.code"),
+      title: resolver("404.title"),
+      quote: resolver("404.quote"),
 
-      crowdinCode: crowdinCode(localeCode),
-      crowdinLinkLabel: websiteResolver("404.crowdin_link.label"),
-      crowdinLinkText: websiteResolver("404.crowdin_link"),
+      crowdinCode: crowdinCode(locale),
+      crowdinLinkLabel: resolver("404.crowdin_link.label"),
+      crowdinLinkText: resolver("404.crowdin_link"),
 
-      englishLinkLabel: websiteResolver("404.english_link.label"),
-      englishLinkText: websiteResolver("404.english_link"),
+      englishLinkLabel: resolver("404.english_link.label"),
+      englishLinkText: resolver("404.english_link"),
 
-      linkLabel: websiteResolver("404.link.label"),
-      linkText: websiteResolver("404.link"),
+      linkLabel: resolver("404.link.label"),
+      linkText: resolver("404.link"),
     },
 
     outline: {
-      label: websiteResolver("outline"),
+      label: resolver("outline"),
       level: "deep",
     },
 
-    returnToTopLabel: websiteResolver("return_to_top"),
+    returnToTopLabel: resolver("return_to_top"),
 
     search: {
       provider: "local",
       options: {
         translations: {
           button: {
-            buttonAriaLabel: websiteResolver("search.button"),
-            buttonText: websiteResolver("search.button"),
+            buttonAriaLabel: resolver("search.button"),
+            buttonText: resolver("search.button"),
           },
           modal: {
-            backButtonTitle: websiteResolver("search.back"),
-            displayDetails: websiteResolver("search.display_details"),
-            noResultsText: websiteResolver("search.no_results"),
-            resetButtonTitle: websiteResolver("search.reset"),
+            backButtonTitle: resolver("search.back"),
+            displayDetails: resolver("search.display_details"),
+            noResultsText: resolver("search.no_results"),
+            resetButtonTitle: resolver("search.reset"),
             footer: {
-              closeKeyAriaLabel: websiteResolver("search.footer.close.key"),
-              closeText: websiteResolver("search.footer.close"),
-              navigateDownKeyAriaLabel: websiteResolver(
-                "search.footer.down.key"
-              ),
-              navigateText: websiteResolver("search.footer.navigate"),
-              navigateUpKeyAriaLabel: websiteResolver("search.footer.up.key"),
-              selectKeyAriaLabel: websiteResolver("search.footer.select.key"),
-              selectText: websiteResolver("search.footer.select"),
+              closeKeyAriaLabel: resolver("search.footer.close.key"),
+              closeText: resolver("search.footer.close"),
+              navigateDownKeyAriaLabel: resolver("search.footer.down.key"),
+              navigateText: resolver("search.footer.navigate"),
+              navigateUpKeyAriaLabel: resolver("search.footer.up.key"),
+              selectKeyAriaLabel: resolver("search.footer.select.key"),
+              selectText: resolver("search.footer.select"),
             },
           },
         },
       },
     },
 
-    sidebar: generateTranslatedSidebars(
-      {
-        "/players/": PlayersSidebar,
-        "/develop/": DevelopSidebar,
-      },
-      __dirname
-    ),
+    sidebar: translateSidebars({ "/players/": Players, "/develop/": Develop }),
 
-    sidebarMenuLabel: websiteResolver("sidebar_menu"),
+    sidebarMenuLabel: resolver("sidebar_menu"),
 
-    siteTitle: websiteResolver("title"),
+    siteTitle: resolver("title"),
 
     socialLinks: [
       {
         icon: "github",
         link: "https://github.com/FabricMC/fabric-docs",
-        ariaLabel: websiteResolver("social.github"),
+        ariaLabel: resolver("social.github"),
       },
       {
         icon: "discord",
         link: "https://discord.gg/v6v4pMv",
-        ariaLabel: websiteResolver("social.discord"),
+        ariaLabel: resolver("social.discord"),
       },
       {
         icon: "crowdin",
-        link: `https://crowdin.com/project/fabricmc/${
-          crowdinCode(localeCode) ?? ""
-        }`,
-        ariaLabel: websiteResolver("social.crowdin"),
+        link: `https://crowdin.com/project/fabricmc/${crowdinCode(locale) ?? ""}`,
+        ariaLabel: resolver("social.crowdin"),
       },
     ],
 
     version: {
-      reminder: websiteResolver("version.reminder"),
-      switcher: websiteResolver("version.switcher"),
+      reminder: resolver("version.reminder"),
+      switcher: resolver("version.switcher"),
     },
 
     versionSwitcher: false,
   };
-}
+};
 
 /**
  * Loads locales and generates a LocaleConfig object.
  *
- * @param dirname - The root directory of the project.
  * @returns A LocaleConfig object with locales and their corresponding themeConfig.
  */
-export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
-  const translatedFolder = resolve(dirname, "..", "translated");
+export const getLocales = (): LocaleConfig<Fabric.ThemeConfig> => {
+  const translatedFolder = resolve(__dirname, "..", "translated");
   const localeFolders = readdirSync(translatedFolder, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
-  const websiteResolver = getWebsiteResolver("root");
+  const resolver = getWebsiteResolver("root");
   const locales: LocaleConfig<Fabric.ThemeConfig> = {
     root: {
-      description: websiteResolver("description"),
+      description: resolver("description"),
       label: "🇬🇧 English",
       lang: "en",
-      themeConfig: generateTranslatedThemeConfig("root"),
-      title: websiteResolver("title"),
+      themeConfig: translateThemeConfig("root"),
+      title: resolver("title"),
     },
   };
 
-  for (const localeCode of localeFolders) {
-    const websiteResolver = getWebsiteResolver(localeCode);
+  for (const locale of localeFolders) {
+    const resolver = getWebsiteResolver(locale);
 
-    if (!existsSync(resolve(translatedFolder, localeCode, "index.md"))) {
+    if (!existsSync(resolve(translatedFolder, locale, "index.md"))) {
       continue;
     }
 
-    const language = localeCode.slice(0, 2);
-    const region = localeCode.slice(3, 5).toUpperCase();
+    const language = locale.slice(0, 2);
+    const region = locale.slice(3, 5).toUpperCase();
 
     const localeNameInLocale = new Intl.DisplayNames(language, {
       type: "language",
@@ -405,27 +370,25 @@ export function loadLocales(dirname: string): LocaleConfig<Fabric.ThemeConfig> {
     const englishName =
       language === region.toLowerCase()
         ? localeNameInEnglish.of(language)!
-        : localeNameInEnglish.of(language)! +
-          " - " +
-          regionNameInEnglish.of(region);
+        : `${localeNameInEnglish.of(language)!} - ${regionNameInEnglish.of(region)}`;
 
-    const localizedName =
-      localeNameInLocale.of(language)![0].toUpperCase() +
-      localeNameInLocale.of(language)!.slice(1);
+    const localizedName = `${localeNameInLocale.of(language)![0].toUpperCase()}${localeNameInLocale
+      .of(language)!
+      .slice(1)}`;
 
     const countryFlag = String.fromCodePoint(
       ...region.split("").map((char) => 127397 + char.charCodeAt(0))
     );
 
-    locales[localeCode] = {
-      description: websiteResolver("description"),
+    locales[locale] = {
+      description: resolver("description"),
       label: `${countryFlag} ${localizedName} (${englishName})`,
-      lang: localeCode,
-      link: `/${localeCode}/`,
-      themeConfig: generateTranslatedThemeConfig(localeCode),
-      title: websiteResolver("title"),
+      lang: locale,
+      link: `/${locale}/`,
+      themeConfig: translateThemeConfig(locale),
+      title: resolver("title"),
     };
   }
 
   return locales;
-}
+};

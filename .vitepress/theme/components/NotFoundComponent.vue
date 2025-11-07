@@ -7,9 +7,7 @@ import { Fabric } from "../../types";
 const data = useData();
 const route = useRoute();
 
-const options = computed(
-  () => data.theme.value.notFound as Fabric.NotFoundOptions
-);
+const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
 
 const urls = computed(() => {
   const locale = data.localeIndex.value;
@@ -21,13 +19,9 @@ const urls = computed(() => {
   } else {
     urls["home"] = `/${locale}/`;
     // TODO: hide if English=404
-    urls["english"] = (route.path.split("//")[1] ?? route.path).replace(
-      urls["home"],
-      "/"
-    );
+    urls["english"] = (route.path.split("//")[1] ?? route.path).replace(urls["home"], "/");
     // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
-    urls["crowdin"] =
-      "https://crowdin.com/project/fabricmc/" + options.value.crowdinCode;
+    urls["crowdin"] = `https://crowdin.com/project/fabricmc/${options.value.crowdinCode}`;
   }
   return urls;
 });
@@ -120,7 +114,9 @@ const urls = computed(() => {
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-brand-1);
-  transition: border-color 0.25s, color 0.25s;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
 }
 
 .link:hover {
