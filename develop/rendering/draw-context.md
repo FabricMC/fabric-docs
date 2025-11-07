@@ -1,5 +1,5 @@
 ---
-title: Using GuiGraphics
+title: Drawing to the GUI
 description: Learn how to use the GuiGraphics class to render various shapes, text and textures.
 authors:
   - IMB11
