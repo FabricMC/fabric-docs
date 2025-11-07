@@ -88,13 +88,13 @@ Create a new JSON file at: `src/main/resources/assets/example-mod/lang/en_us.jso
 
 You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
-## Adding an Item Model Description, Texture and Model {#adding-a-item-model-definition-texture-and-model}
+## Adding an Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
 
 For your item to have a proper appearance, it requires:
 
 - [An item texture](https://minecraft.wiki/w/Textures#Items)
 - [An item model](https://minecraft.wiki/w/Model#Item_models)
-- [An item model description](https://minecraft.wiki/w/Items_model_definition)
+- [An client item](https://minecraft.wiki/w/Items_model_definition)
 
 ### Adding a Texture {#adding-a-texture}
 
@@ -127,15 +127,15 @@ Most items will use the `item/generated` model as their parent, as it's a simple
 
 There are alternatives, such as `item/handheld` which is used for items that are "held" in the player's hand, such as tools.
 
-### Creating the Item Model Description {#creating-the-item-model-description}
+### Creating the Client Item {#creating-the-client-item}
 
-Minecraft doesn't automatically know where your items' model files can be found, we need to provide an item model description.
+Minecraft doesn't automatically know where your items' model files can be found, we need to provide an client item.
 
-Create the item description JSON in the `assets/example-mod/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
+Create the client item JSON in the `assets/example-mod/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
-#### Breaking Down the Item Model Description JSON {#breaking-down-the-item-model-description-json}
+#### Breaking Down the Client Item JSON {#breaking-down-the-client-item-json}
 
 - `model`: This is the property that contains the reference to our model.
   - `type`: This is the type of our model. For most items, this should be `minecraft:model`

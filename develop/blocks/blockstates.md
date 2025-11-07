@@ -101,7 +101,7 @@ Since this block only has two possible variants, as it only has one property (`a
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
 ::: tip
-Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
+Don't forget to add an [Client Item](../items/first-item#creating-the-client-item) for the block so that it will show in the inventory!
 :::
 
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
