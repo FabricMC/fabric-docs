@@ -71,10 +71,10 @@ We're going to add some tooltip code to display the current value of the click c
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the `CounterItem` class:
+This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendHoverText` method in the `CounterItem` class:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipFlag type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
     tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
@@ -103,8 +103,8 @@ However, if you give yourself a new Counter item _without_ the custom component,
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
-        at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
+        at net.minecraft.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
 As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`.
@@ -135,10 +135,10 @@ As you can see, this method takes two arguments: our component type like before,
 
 ### Checking if a Component Exists {#checking-if-component-exists}
 
-You can also check for the existence of a specific component on an `ItemStack` using the `contains()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
+You can also check for the existence of a specific component on an `ItemStack` using the `has()` method. This takes the component type as an argument and returns `true` or `false` depending on whether the stack contains that component.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Fixing the Error {#fixing-the-error}
