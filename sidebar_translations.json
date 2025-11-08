@@ -56,7 +56,7 @@
   "develop.data_generation.block_models": "Block Model Generation",
   "develop.rendering": "Rendering",
   "develop.rendering.basic_concepts": "Basic Rendering Concepts",
-  "develop.rendering.gui_graphics": "Using GuiGraphics",
+  "develop.rendering.gui_graphics": "Drawing to the GUI",
   "develop.rendering.hud": "Rendering in the HUD",
   "develop.rendering.world": "Rendering in the World",
   "develop.rendering.gui": "GUIs and Screens",
