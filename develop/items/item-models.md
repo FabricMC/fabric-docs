@@ -144,7 +144,7 @@ The `textures` tag holds the textures of the model, in the form of an identifier
 2. `particle`: _String_. Defines the texture to load particles from. If not defined, uses the `layer0`.
 3. `<texture_variable>`: _String_. It creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
 
-:::warning IMPORTANT
+::: warning IMPORTANT
 `<layerN>` only works if `parent` is set as `item/generated`!
 :::
 

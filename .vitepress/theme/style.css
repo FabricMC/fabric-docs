@@ -118,7 +118,7 @@
   }
 }
 
-/* Style <kbd> elements in the search popup */
+/* Style <kbd> elements except the search popup */
 kbd:not(.DocSearch-Button-Key) {
   background-color: #eee !important;
   border-radius: 3px;

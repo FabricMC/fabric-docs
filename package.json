@@ -7,6 +7,7 @@
     "bump": "tsx ./.vitepress/update.ts"
   },
   "devDependencies": {
+    "@iconify/vue": "^5.0.0",
     "@types/node": "^22.18.10",
     "@types/prompts": "^2.4.9",
     "markdownlint": "^0.37.4",
