@@ -90,7 +90,7 @@ export default defineVersionedConfig(
       transformItems,
     },
 
-    srcExclude: ["README.md"],
+    srcExclude: ["README.md", ...(typeof env === "number" ? ["versions"] : [])],
 
     themeConfig: {
       banner: { env },
