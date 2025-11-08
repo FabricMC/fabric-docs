@@ -110,7 +110,7 @@ Furthermore, to deserialize a JSON text object into an actual `Component` class,
 
 You may be familiar with Minecraft's formatting standards:
 
-You can apply these formatting styles using the `Formatting` enum on the `MutableComponent` class:
+You can apply these formatting styles using the `ChatFormatting` enum on the `MutableComponent` class:
 
 ```java
 MutableComponent result = Component.literal("Hello World!")

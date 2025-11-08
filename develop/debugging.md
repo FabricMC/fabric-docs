@@ -92,27 +92,27 @@ How can we resolve these two issues? Let's investigate...
 
 public class TestItem extends Item {
 
-    public TestItem(Settings settings) {
-        super(settings);
+    public TestItem(Properties properties) {
+        super(properties);
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        PlayerEntity user = context.getPlayer();
+    public InteractionResult useOn(UseOnContext context) {
+        Level world = context.getLevel();
+        Player user = context.getPlayer();
         BlockPos targetPos = context.getBlockPos();
-        ItemStack itemStack = context.getStack();
+        ItemStack itemStack = context.getItemInHand();
         BlockState state = world.getBlockState(targetPos);
 
-        if (state.isIn(ConventionalBlockTags.STONES)) {
-            Text newName = Text.literal("[").append(state.getBlock().getName()).append(Text.literal("]"));
-            itemStack.set(DataComponentTypes.CUSTOM_NAME, newName);
+        if (state.is(ConventionalBlockTags.STONES)) {
+            Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));
+            itemStack.set(DataComponents.CUSTOM_NAME, newName);
             if (user != null) {
-                user.sendMessage(Text.literal("Changed Item Name"), true);
+                user.displayClientMessage(Component.literal("Changed Item Name"), true);
             }
         }
 
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }
 ```
