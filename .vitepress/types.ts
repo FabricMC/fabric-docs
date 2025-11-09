@@ -38,8 +38,6 @@ export namespace Fabric {
        */
       link: string;
     };
-
-    env: "build" | "dev" | "github" | number;
   }
 
   export interface DownloadOptions {
@@ -50,6 +48,8 @@ export namespace Fabric {
      */
     text: string;
   }
+
+  export type EnvOptions = "build" | "dev" | "github" | number;
 
   export interface NotFoundOptions {
     /**
@@ -131,6 +131,18 @@ export namespace Fabric {
        */
       oldVersion: string;
     };
+
+    switcher: {
+      /**
+       * @default "Minecraft %s"
+       */
+      label: string;
+
+      /**
+       * @default "No other versions"
+       */
+      none: string;
+    };
   }
 
   export interface SidebarItem extends Versioned.SidebarItem {
@@ -146,6 +158,7 @@ export namespace Fabric {
     authors: AuthorsOptions;
     banner: BannerOptions;
     download: DownloadOptions;
+    env: EnvOptions;
     notFound: NotFoundOptions;
     sidebar: Sidebar;
     version: VersionOptions;

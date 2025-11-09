@@ -3,6 +3,7 @@ import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed, ref } from "vue";
+import { Fabric } from "../../types";
 
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };
@@ -11,6 +12,9 @@ const props = defineProps<{
 
 const data = useData();
 const collator = new Intl.Collator(undefined, { numeric: true });
+
+const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
+const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).switcher);
 
 const currentV = computed(() => {
   const split = data.page.value.filePath.split("/");
@@ -21,7 +25,9 @@ const currentV = computed(() => {
 const versions = computed(() =>
   [
     props.versioningPlugin.latestVersion,
-    ...props.versioningPlugin.versions.toSorted(collator.compare).reverse(),
+    ...(typeof env.value === "number"
+      ? []
+      : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
   ].filter((v) => v !== currentV.value)
 );
 
@@ -61,14 +67,17 @@ const getRoute = (v: string) => {
     icon="vpi-versioning"
     :class="{ open }"
     :button="currentV"
-    :label="'Minecraft ' + currentV"
+    :label="options.label.replace('%s', currentV)"
   >
     <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
-      <span><span class="vpi-versioning" />Minecraft {{ currentV }}</span>
+      <span><span class="vpi-versioning" />{{ options.label.replace("%s", currentV) }}</span>
       <span class="vpi-plus" />
     </button>
 
-    <VPLink v-for="v in versions" :key="v" :href="getRoute(v)">Minecraft {{ v }}</VPLink>
+    <VPLink v-if="versions.length" v-for="v in versions" :key="v" :href="getRoute(v)">{{
+      options.label.replace("%s", v)
+    }}</VPLink>
+    <VPLink v-else>{{ options.none }}</VPLink>
   </component>
 </template>
 
@@ -133,7 +142,11 @@ div:not(.VPFlyout) {
     color 0.25s;
 }
 
-.VPLink:hover {
+span.VPLink {
+  font-style: italic;
+}
+
+a.VPLink:hover {
   color: var(--vp-c-brand-1);
   background-color: var(--vp-c-default-soft);
 }

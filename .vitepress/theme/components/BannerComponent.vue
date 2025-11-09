@@ -10,10 +10,11 @@ const data = useData();
 const banner = ref<HTMLElement>();
 const { height } = useElementSize(banner);
 
+const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
 const options = computed(() => data.theme.value.banner as Fabric.BannerOptions);
 
 const strings = computed(() => {
-  switch (options.value.env) {
+  switch (env.value) {
     case "github":
       return [];
 
@@ -25,7 +26,7 @@ const strings = computed(() => {
 
     default: {
       const split = options.value.pr.text.split("%s").filter(Boolean);
-      return [split[0], String(options.value.env), split.slice(1).join("%s")];
+      return [split[0], String(env.value), split.slice(1).join("%s")];
     }
   }
 });

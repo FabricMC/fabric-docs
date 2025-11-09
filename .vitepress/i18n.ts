@@ -110,7 +110,7 @@ export const getLocales = () => {
     returned[locale === "en_us" ? "root" : locale] = {
       description: resolver("description"),
       label: `${flag} ${name}`,
-      lang: intlLocale,
+      lang: locale,
       link: locale === "en_us" ? "/" : `/${locale}/`,
       title: resolver("title"),
 
@@ -272,6 +272,11 @@ export const getLocales = () => {
           reminder: {
             latestVersion: resolver("version.reminder.latest_version"),
             oldVersion: resolver("version.reminder.old_version"),
+          },
+
+          switcher: {
+            label: resolver("version.switcher.label"),
+            none: resolver("version.switcher.none"),
           },
         },
 

@@ -93,7 +93,7 @@ export default defineVersionedConfig(
     srcExclude: ["README.md", ...(typeof env === "number" ? ["versions"] : [])],
 
     themeConfig: {
-      banner: { env },
+      env,
       externalLinkIcon: true,
       logo: "/logo.png",
       outline: { level: "deep" },
