@@ -137,15 +137,15 @@ If you are using Loom 1.13 or above, you can use the program argument `--overrid
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --mappings "1.21.10+build.2 --overrideInputsIHaveABackup"
+./gradlew.bat migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --mappings "1.21.10+build.2 --overrideInputsIHaveABackup"
+./gradlew migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --mappings "1.21.10+build.2 --overrideInputsIHaveABackup"
+migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
 ```
 
 :::
