@@ -54,5 +54,5 @@
   "version.reminder.old_version": "This page is written for version %s.\nDocumentation for older versions may be incomplete.",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "No other versions",
-  "version.warning": "This documentation applies to Minecraft %s.\n\nIf you are looking for a different version, please select it from the dropdown on the navigation bar."
+  "version.warning": "This documentation applies to Minecraft %s.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar."
 }

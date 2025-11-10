@@ -20,4 +20,8 @@ features:
 search: false
 ---
 
+::: warning
+Aktualnie oglądasz dokumentację dla Minecrafta w wersji 1.20.4. Jeśli szukasz innej wersji, wybierz ją z rozwijalnej listy na górnym pasku nawigacji.
+:::
+
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
