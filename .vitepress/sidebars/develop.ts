@@ -289,6 +289,16 @@ export default [
       {
         text: "develop.misc.migrating_mappings",
         link: "/develop/migrating-mappings",
+        items: [
+          {
+            text: "develop.misc.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.misc.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          }
+        ]
       },
       {
         text: "develop.misc.debugging",
