@@ -13,7 +13,7 @@ Install it from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/289
 
 ## Migrating Mappings {#migrating-mappings}
 
-::: info
+::: warning
 Commit any changes before attempting to remap your sources!
 :::
 
