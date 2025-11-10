@@ -1,61 +1,51 @@
 <script setup lang="ts">
-import { useData, useRoute } from "vitepress";
+import { useData } from "vitepress";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed } from "vue";
 
 import { Fabric } from "../../types";
 
 const data = useData();
-const route = useRoute();
 
 const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
+const removeForEnglishRegex = new RegExp(String.raw`^${data.lang.value}/|\.md$`, "g");
 
-const urls = computed(() => {
-  const locale = data.localeIndex.value;
-  const urls: { [key: string]: string } = {};
-  if (locale === "root") {
-    urls["home"] = "/";
-    urls["english"] = "";
-    urls["crowdin"] = "";
-  } else {
-    urls["home"] = `/${locale}/`;
-    // TODO: hide if English=404
-    urls["english"] = (route.path.split("//")[1] ?? route.path).replace(urls["home"], "/");
-    // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
-    urls["crowdin"] = `https://crowdin.com/project/fabricmc/${options.value.crowdinCode}`;
-  }
-  return urls;
-});
+const urls = computed(() =>
+  data.lang.value === "en_us"
+    ? {
+        home: "/",
+        english: undefined,
+        crowdin: undefined,
+      }
+    : {
+        home: `/${data.lang.value}/`,
+        // TODO: hide if English=404
+        english: data.page.value.relativePath.replace(removeForEnglishRegex, ""),
+        // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
+        crowdin: `https://crowdin.com/project/fabricmc/${options.value.crowdinLocale}`,
+      }
+);
 </script>
 
 <template>
   <div class="not-found">
-    <p class="code">{{ options!.code }}</p>
-    <h1 class="title">{{ options!.title.toUpperCase() }}</h1>
+    <p>{{ options.code }}</p>
+    <h1>{{ options.title.toUpperCase() }}</h1>
     <div class="divider" />
-    <blockquote class="quote">{{ options!.quote }}</blockquote>
+    <blockquote>{{ options.quote }}</blockquote>
 
-    <div class="action">
-      <a class="link" :href="urls['home']" :aria-label="options!.linkLabel">
-        {{ options!.linkText }}
-      </a>
+    <div>
+      <VPLink :href="urls.home" :aria-label="options.linkLabel">
+        {{ options.linkText }}
+      </VPLink>
       <br />
-      <a
-        v-if="urls['english'] !== ''"
-        class="link"
-        :href="urls['english']"
-        :aria-label="options!.englishLinkLabel"
-      >
-        {{ options!.englishLinkText }}
-      </a>
+      <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
+        {{ options.englishLinkText }}
+      </VPLink>
       <br />
-      <a
-        v-if="urls['crowdin'] !== ''"
-        class="link"
-        :href="urls['crowdin']"
-        :aria-label="options!.crowdinLinkLabel"
-      >
-        {{ options!.crowdinLinkText }}
-      </a>
+      <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
+        {{ options.crowdinLinkText }}
+      </VPLink>
     </div>
   </div>
 </template>
@@ -72,13 +62,13 @@ const urls = computed(() => {
   }
 }
 
-.code {
+p {
   line-height: 64px;
   font-size: 64px;
   font-weight: 600;
 }
 
-.title {
+h1 {
   padding-top: 12px;
   letter-spacing: 2px;
   line-height: 20px;
@@ -93,19 +83,16 @@ const urls = computed(() => {
   background-color: var(--vp-c-divider);
 }
 
-.quote {
+blockquote {
   margin: 0 auto;
   max-width: 256px;
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-2);
+  padding-bottom: 20px;
 }
 
-.action {
-  padding-top: 20px;
-}
-
-.link {
+.VPLink {
   margin: 8px;
   display: inline-block;
   border: 1px solid var(--vp-c-brand-1);
@@ -113,14 +100,19 @@ const urls = computed(() => {
   padding: 3px 16px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--vp-c-brand-1);
+}
+
+.VPLink,
+.VPLink::after {
+  color: var(--vp-c-brand-1) !important;
   transition:
     border-color 0.25s,
     color 0.25s;
 }
 
-.link:hover {
+.VPLink:hover,
+.VPLink:hover::after {
   border-color: var(--vp-c-brand-2);
-  color: var(--vp-c-brand-2);
+  color: var(--vp-c-brand-2) !important;
 }
 </style>

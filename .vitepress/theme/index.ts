@@ -4,6 +4,7 @@ import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
+import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
@@ -35,11 +36,11 @@ export default {
     const children = {
       "doc-before": () => [
         frontmatter.value.title ? h("h1", { class: "vp-doc" }, frontmatter.value.title) : null,
-        h(VersionReminder),
         h(AuthorsComponent),
+        h(VersionReminder),
       ],
-      "aside-outline-before": () => h(VersionReminder),
-      "aside-outline-after": () => h(AuthorsComponent),
+      "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent)],
+      "layout-top": () => h(BannerComponent),
     };
 
     if (page.value.isNotFound) {

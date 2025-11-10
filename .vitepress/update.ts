@@ -1,14 +1,15 @@
 import * as fs from "node:fs";
+import * as path from "node:path/posix";
 import * as process from "node:process";
 import prompts from "prompts";
 import * as tinyglobby from "tinyglobby";
 
-import develop from "./sidebars/develop";
-import players from "./sidebars/players";
+import { getLocaleNames, getResolver, getSidebar } from "./i18n";
 
-// Determine old minecraft version by reading /reference/latest/build.gradle's `def minecraftVersion = "XXXX"` line.
-const buildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8");
-const oldVersion = buildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
+process.chdir(path.resolve(__dirname, ".."));
+const oldBuildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8");
+const oldVersion = oldBuildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
+console.log(`Current version: 'Minecraft ${oldVersion}'`);
 
 const newVersion: string = (
   await prompts({
@@ -25,124 +26,80 @@ const newVersion: string = (
 if (!newVersion) process.exit(1);
 console.log(`New version: 'Minecraft ${newVersion}'`);
 
-console.log(`Fetching Yarn version for Minecraft ${newVersion}...`);
-const yarnVersions: any[] = (await (
-  await fetch(`https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`)
-).json()) as any[];
-let yarnVersion: string = yarnVersions.find((v) => v.stable)?.version;
-// Use latest version if no stable version is found.
-if (!yarnVersion) {
-  yarnVersion = yarnVersions[0]?.version;
-}
+const yarnUrl = `https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`;
+const yarnVersions: any[] = await (await fetch(yarnUrl)).json();
+const yarnVersion: string = (yarnVersions.find((v) => v.stable) ?? yarnVersions[0])?.version;
 if (!yarnVersion) {
   console.error(`No stable Yarn version found for Minecraft ${newVersion}`);
   process.exit(1);
 }
-console.log(`Found Yarn version ${yarnVersion}`);
+console.log(`Found Yarn version '${yarnVersion}'`);
 
-console.log(`Fetching Fabric API version for Minecraft ${newVersion}...`);
-const fabricApiVersions: any[] = (await (
-  await fetch(
-    `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`
-  )
-).json()) as any[];
+const fabricApiUrl = `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`;
+const fabricApiVersions: any[] = await (await fetch(fabricApiUrl)).json();
 const fabricApiVersion = fabricApiVersions[0]?.version_number;
 if (!fabricApiVersion) {
   console.error(`No Fabric API version found for Minecraft ${newVersion}`);
   process.exit(1);
 }
-console.log(`Found Fabric API version ${fabricApiVersion}`);
+console.log(`Found Fabric API version '${fabricApiVersion}'`);
 
-console.log(`Copying latest -> ${oldVersion}...`);
+console.log(`Migrating ExampleMod to 'reference/${oldVersion}/'...`);
+fs.cpSync("./reference/latest", `./reference/${oldVersion}`, { recursive: true });
 
-// Copy ./reference/latest/** -> ./reference/oldVersion/**
-fs.cpSync("./reference/latest", `./reference/${oldVersion}`, {
-  recursive: true,
-});
-
-// Update build.gradle in latest with new versions.
-// def minecraftVersion = "XXX"
-// def yarnVersion = "XXXXX"
-// def fabricApiVersion = "XXXX"
-const newBuildGradle = buildGradle
+const newBuildGradle = oldBuildGradle
   .replace(/def minecraftVersion = "([^"]+)"/, `def minecraftVersion = "${newVersion}"`)
   .replace(/def yarnVersion = "([^"]+)"/, `def yarnVersion = "${yarnVersion}"`)
   .replace(/def fabricApiVersion = "([^"]+)"/, `def fabricApiVersion = "${fabricApiVersion}"`);
-
 fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
-console.log("Example mod has been bumped successfully.");
-console.log(`Migrating content to versioned/${oldVersion}...`);
-
-// Move all markdown files except README.md to versions/oldVersion
-const markdownFiles = tinyglobby.globSync("**/*.md", {
+console.log(`Migrating content to 'versions/${oldVersion}/'...`);
+for (const file of tinyglobby.globSync("**/*.md", {
   ignore: ["README.md", "contributing.md", "versions/**/*.md", "node_modules/**/*"],
-});
+  onlyFiles: true,
+})) {
+  fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);
+}
+const locales = getLocaleNames(`versions/${oldVersion}/translated`);
 
-// Copy into versions/oldVersion and respect the directory structure.
-for (const file of markdownFiles) {
-  const oldPath = `./${file}`;
-  const newPath = `./versions/${oldVersion}/${file}`;
-  fs.cpSync(oldPath, newPath);
+console.log(`Creating sidebars at '.vitepress/sidebars/versioned/${oldVersion}.json'...`);
+for (const locale of locales) {
+  fs.writeFileSync(
+    `./.vitepress/sidebars/versioned/${oldVersion}${locale === "en_us" ? "" : `-${locale}`}.json`,
+    JSON.stringify(getSidebar(locale), null, 2)
+  );
 }
 
-console.log("Migration complete.");
-console.log("Migration sidebars...");
-
-const versionedSidebar = {
-  "/players/": players,
-  "/develop/": develop,
-};
-
-fs.writeFileSync(
-  `./.vitepress/sidebars/versioned/${oldVersion}.json`,
-  JSON.stringify(versionedSidebar, null, 2)
-);
-
-console.log("Migrated sidebars.");
-
-console.log("Updating internal links...");
-
-// Get all markdown files within versions/oldVersion
-const versionedMarkdownFiles = tinyglobby.globSync(`versions/${oldVersion}/**/*.md`);
-// Process all content
-for (const file of versionedMarkdownFiles) {
-  const content = fs.readFileSync(file, "utf-8");
-
-  // Replace all instances of /reference/latest with /reference/oldVersion
-  const newContent = content.replace(/\/reference\/latest/g, `/reference/${oldVersion}`);
-  fs.writeFileSync(file, newContent);
+console.log("Updating links in content...");
+for (const file of tinyglobby.globSync(`versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
+  const content = fs
+    .readFileSync(file, "utf-8")
+    .replace(/\/reference\/latest/g, `/reference/${oldVersion}`);
+  fs.writeFileSync(file, content);
 }
 
-console.log("Updated internal links.");
+console.log("Adding warning box to home pages...");
+for (const locale of locales) {
+  const resolver = getResolver("website_translations.json", locale);
+  const linksRegex = new RegExp(String.raw`link: ${locale === "en_us" ? "" : `/${locale}`}/`, "g");
 
-console.log("Adding warning box to index.md...");
-fs.writeFileSync(
-  `./versions/${oldVersion}/index.md`,
-  fs
-    .readFileSync(`./versions/${oldVersion}/index.md`, "utf-8")
+  const file = `versions/${oldVersion}/translated/${locale === "en_us" ? ".." : locale}/index.md`;
+  const content = fs
+    .readFileSync(file, "utf-8")
     .replace(
       /^---\n\n/m,
       [
         "---",
         "",
         "::: warning",
-        // TODO: localize this text
-        `You are currently viewing the documentation for Minecraft ${oldVersion}. If you are looking for the documentation for a different version, please select the version you are using from the dropdown on the navigation bar.`,
+        resolver("version.warning").replace("%s", oldVersion),
         ":::",
         "",
         "",
       ].join("\n")
     )
-    .replace("link: ", `link: /${oldVersion}`)
-);
-
-console.log("Setting latest version in VersionReminder...");
-fs.writeFileSync(
-  "./.vitepress/theme/components/VersionReminder.vue",
-  fs
-    .readFileSync("./.vitepress/theme/components/VersionReminder.vue", "utf-8")
-    .replace(/const LATEST = "[^"]*";/, `const LATEST = "${newVersion}";`)
-);
+    .replace(linksRegex, (m) => `${m}${oldVersion}/`);
+  fs.writeFileSync(file, content);
+}
 
 console.log("DONE! Make sure everything's good before committing.");
