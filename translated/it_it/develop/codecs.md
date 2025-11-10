@@ -224,8 +224,8 @@ Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, 
 
 // Usalo per serializzare i dati
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    Identifier.of("example", "number"), 23,
+    Identifier.of("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -280,7 +280,7 @@ public class Identifier {
 
     public static DataResult<Identifier> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
+            return DataResult.success(Identifier.of(id));
         } catch (InvalidIdentifierException e) {
             return DataResult.error("Posizione di risorsa non valida: " + id + " " + e.getMessage());
         }
