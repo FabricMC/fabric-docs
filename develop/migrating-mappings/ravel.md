@@ -1,6 +1,6 @@
 ---
 title: Migrating Mappings using Ravel
-description: Learn how to migrate your mod's obfuscation mappings.
+description: Learn how to migrate your mod's obfuscation mappings using Ravel.
 authors:
   - deirn
 ---
@@ -26,7 +26,7 @@ First, you need to get to get your mappings. For remapping from Yarn to Mojang M
 
 ### Remapping {#remapping}
 
-Next, while a file opened, right click and open **Refactor** > **Remap Using Ravel**
+Next, right click on a file open in the Editor and choose **Refactor** > **Remap Using Ravel**
 
 ![Right Click Menu](/assets/develop/misc/migrating-mappings/ravel_right_click.png)
 
@@ -45,7 +45,7 @@ Then, click **OK** and wait for it to finish remapping.
 
 ### Updating Gradle {#updating-gradle}
 
-After the remapping finished, replace your mappings in `build.gradle`.
+After the remapping finished, replace your mappings in your mod's `build.gradle`.
 
 ```groovy
 dependencies {
@@ -65,4 +65,4 @@ yarn_mappings=1.21.10+build.2 # [!code --]
 
 That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
-Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&translateMode=ns&translateAs=yarn&search=) will be helpful to familiarize yourself with your new mappings.
+Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=&version=1.21.10) will be helpful to familiarize yourself with your new mappings.

@@ -1,6 +1,6 @@
 ---
 title: Migrating Mappings using Loom
-description: Learn how to migrate your mod's obfuscation mappings.
+description: Learn how to migrate your mod's obfuscation mappings using Fabric Loom.
 authors:
   - asiekierka
   - cassiancc
@@ -18,7 +18,7 @@ authors-nogithub:
   - basil4088
 ---
 
-::: info
+::: warning
 For best results, it's recommended to update to Loom 1.13 or above, as it allows for migrating Mixins, Access Wideners and client source sets.
 :::
 
