@@ -65,4 +65,8 @@ yarn_mappings=1.21.10+build.2 # [!code --]
 
 That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
+For problems that are detected by Ravel, you can search (Ctrl+Shift+F) for `TODO(Ravel)`.
+
+![Ravel TODO Search](/assets/develop/misc/migrating-mappings/ravel_todo.png)
+
 Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=&version=1.21.10) will be helpful to familiarize yourself with your new mappings.
