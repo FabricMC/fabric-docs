@@ -19,9 +19,9 @@ features:
 ---
 
 ::: warning
-You are currently viewing the documentation for Minecraft 1.21.4.
-Documentation for older versions may be incomplete.
-If you are looking for a different version, please select it from the dropdown on the navigation bar.
+This documentation applies to Minecraft 1.21.4.
+
+Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
 :::
 
 Αν θέλετε να συνεισφέρετε στην Τεκμηρίωση Fabric, μπορείτε να βρείτε τον πηγαίο κώδικα στο [GitHub](https://github.com/FabricMC/fabric-docs), καθώς και τις σχετικές [οδηγίες συνεισφοράς](./contributing).
