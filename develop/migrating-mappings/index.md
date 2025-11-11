@@ -19,17 +19,19 @@ authors-nogithub:
   - basil4088
 ---
 
-Historically, Minecraft: Java Edition has made use of obfuscation, which led to the development of obfuscation maps that Fabric Loom uses for modding. There were two choices: either Fabric's own Yarn mappings, or the official Mojang mappings.
+You may wish to migrate from Yarn to Mojang Mappings, especially if you are planning on [updating your mod past the Mounts of Mayhem game drop](#whats-going-on-with-mappings), or vice versa.
 
-Mojang have recently announced [they're removing code obfuscation from Minecraft: Java Edition](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition), and the Fabric Project followed up with [its plan for handling this change](https://fabricmc.net/2025/10/31/obfuscation.html).
-
-You may wish to migrate from Yarn to Mojang Mappings, especially if you are planning on updating your mod past the Mounts of Mayhem game drop. There is two way to do this, or to switch to Yarn from another mapping set, either using the **Loom Gradle Plugin** or the **Ravel IntelliJ IDEA Plugin**.
+There are two ways to accomplish this: you can either use the **Loom Gradle Plugin**, or the **Ravel IntelliJ IDEA Plugin**.
 
 Loom offers a semi-automated migration of the mappings through the `migrateMappings` task, but **does not support migrating code written in Kotlin**.
 
-Ravel is a plugin for IntelliJ IDEA that adds a GUI dialog for migration. Unlike Loom however, Ravel also **supports Kotlin**. In addition, Ravel might perform better than Loom for more complex projects since it uses IDE to resolve changes. (Case in point: [Fabric API used Ravel to migrate to Mojang Mappings](https://github.com/FabricMC/fabric/pull/4960)).
+Ravel is a plugin for IntelliJ IDEA that adds a GUI dialog for migration. Unlike Loom however, Ravel also **supports Kotlin**. In addition, Ravel might perform better than Loom for more complex projects since it uses IDE to resolve changes.
 
-Neither option is perfect and you will need to check the result and make manual fixes, especially when migrating Mixins.
+::: info
+The Fabric API used Ravel to migrate from Yarn to Mojang Mappings. See [PR #4690 on the Fabric API repo](https://github.com/FabricMC/fabric/pull/4960).
+:::
+
+Neither option is perfect, and you still have to review the results and make manual fixes, especially if migrating Mixins.
 
 <ChoiceComponent :choices="[
   {
@@ -45,6 +47,12 @@ Neither option is perfect and you will need to check the result and make manual 
     color: '#FE2857',
   },
 ]" />
+
+## What's Going On with Mappings? {#whats-going-on-with-mappings}
+
+Historically, Minecraft: Java Edition has made use of obfuscation, which led to the development of obfuscation maps that Fabric Loom uses for modding. There were two choices: either Fabric's own Yarn mappings, or the official Mojang mappings.
+
+Mojang have recently announced [they're removing code obfuscation from Minecraft: Java Edition](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition), and the Fabric Project followed up with [its plan for handling this change](https://fabricmc.net/2025/10/31/obfuscation.html).
 
 ## What Are Mappings? {#mappings}
 

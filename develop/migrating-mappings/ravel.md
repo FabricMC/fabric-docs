@@ -2,6 +2,7 @@
 title: Migrating Mappings using Ravel
 description: Learn how to migrate your mod's obfuscation mappings using Ravel.
 authors:
+  - cassiancc
   - deirn
 ---
 
