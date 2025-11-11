@@ -20,7 +20,7 @@ Commit any changes before attempting to remap your sources!
 
 ### Prerequisites {#prerequisites}
 
-First, you need to get to get your mappings. For remapping from Yarn to Mojang Mappings or vice versa, you need to download both of them.
+First, you need to get your mappings. For remapping from Yarn to Mojang Mappings or vice versa, you need to download both of them.
 
 - Download Yarn mappings from [here](https://maven.fabricmc.net/net/fabricmc/yarn/), choose the `mergedv2.jar`, extract it as a ZIP. The mappings is in `mappings/mappings.tiny` file.
 - Download Mojang mappings from searching your Minecraft version on [here](https://piston-meta.mojang.com/mc/game/version_manifest_v2.json), open the JSON url, search for `client_mappings`, and download the `client.txt`
