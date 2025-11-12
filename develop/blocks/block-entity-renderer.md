@@ -23,8 +23,8 @@ Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-The new class has a constructor with `BlockEntityRendererFactory.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
-Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
+The new class has a constructor with `BlockEntityRendererProvider.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
+Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererProvider` functional interface itself:
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
@@ -40,7 +40,7 @@ We will override a few methods to set up the render state along with the `render
 
 You should register block entity renderers in your `ClientModInitializer` class.
 
-`BlockEntityRendererFactories` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
+`BlockEntityRenderers` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
 
 ## Drawing on Blocks {#drawing-on-blocks}
 
@@ -77,10 +77,10 @@ By default, the text is drawn on the XY plane, so we need to rotate it 90 degree
 
 ![Green block in the topmost center point, facing upwards](/assets/develop/blocks/block_entity_renderer_3.png)
 
-The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `RotationAxis.POSITIVE_X`:
+The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `Axis.POSITIVE_X`:
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 Now the text is in the correct position, but it's too large. The `BlockEntityRenderer` maps the whole block to a `[-0.5, 0.5]` cube, while the `TextRenderer` uses Y coordinates of `[0, 9]`. As such, we need to scale it down by a factor of 18:
