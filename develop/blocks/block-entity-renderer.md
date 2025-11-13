@@ -77,7 +77,7 @@ By default, the text is drawn on the XY plane, so we need to rotate it 90 degree
 
 ![Green block in the topmost center point, facing upwards](/assets/develop/blocks/block_entity_renderer_3.png)
 
-The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `Axis.POSITIVE_X`:
+The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `Axis.XP`:
 
 ```java
 matrices.multiply(Axis.XP.rotationDegrees(90));
