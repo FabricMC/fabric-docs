@@ -5,9 +5,8 @@ authors:
   - IMB11
 ---
 
-# Using the Drawing Context {#using-the-drawing-context}
-
-This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.
+<!-- TODO: Enable this line once the example mod is fixed. -->
+<!-- This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page. -->
 
 The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.
 
@@ -65,6 +64,8 @@ There is no one "correct" way to draw textures onto a screen, as the `drawTextur
 
 Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `DrawContext` class will assume these values if you don't provide them, which can sometimes be wrong.
 
+You will also need to specify the render layer which your texture is drawn onto. For basic textures, this will usually always be `RenderLayer::getGuiTextured`.
+
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
 ![Drawing whole texture example](/assets/develop/rendering/draw-context-whole-texture.png)
@@ -88,6 +89,10 @@ If we want to only draw a region that contains the magnifying glass, we can use 
 The `DrawContext` class has various self-explanatory text rendering methods - for the sake of brevity, they will not be covered here.
 
 Let's say we want to draw "Hello World" onto the screen. We can use the `DrawContext.drawText(...)` method to do this.
+
+::: info
+Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+:::
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

@@ -3,9 +3,9 @@ title: Установка Java на Linux
 description: Пошаговая инструкция по установке Java на Linux.
 authors:
   - IMB11
----
 
-# Установка Java на Linux
+search: false
+---
 
 Этот гайд расскажет, как установить Java 17 на Linux.
 

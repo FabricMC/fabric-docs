@@ -3,9 +3,9 @@ title: Encontrar Mods Confiables
 description: Una guía sobre como encontrar mods de Fabric usando fuentes confiables.
 authors:
   - IMB11
----
 
-# Encontrar Mods Confiables
+search: false
+---
 
 En primer lugar, el término "confiable" es subjetivo, así que siempre usa tu propio juicio y sentido común a la hora de descargar mods. Sin embargo, hay algunas cosas que puedes hacer para encontrar mods confiables.
 

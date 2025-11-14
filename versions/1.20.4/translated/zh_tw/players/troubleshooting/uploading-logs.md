@@ -3,9 +3,9 @@ title: 上傳記錄檔
 description: 如何上傳記錄檔以進行疑難排解。
 authors:
   - IMB11
----
 
-# 上傳記錄檔
+search: false
+---
 
 在進行疑難排解時，通常需要提供記錄檔以幫助尋找問題的原因。
 

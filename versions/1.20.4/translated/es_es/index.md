@@ -9,19 +9,21 @@ features:
   - title: Guías para Desarrolladores
     icon: 🛠️
     details: Nuestras guías para desarrolladores, escritas por la comunidad, cubren una amplia gama de temas, desde la configuración de un entorno de desarrollo hasta temas más avanzados como renderizado y redes.
-    link: ./develop/index
+    link: /es_es/1.20.4/develop/
     linkText: Empezar
   - title: Guías para Jugadores
     icon: 📚
     details: ¿Eres un jugador buscando mods hechos en Fabric? Nuestras guías para jugadores te tienen cubierto. Estas guías te ayudarán en la descarga, instalación, y solución de problemas de mods de Fabric.
-    link: ./players/index
+    link: /es_es/1.20.4/players/
     linkText: Leer más
+
+search: false
 ---
 
-<div class="vp-doc homepage-container">
+::: warning
+This documentation applies to Minecraft 1.20.4.
 
-## ¿Quieres contribuir?
+Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
+:::
 
 Si quieres contribuir a la Documentación de Fabric, puedes encontrar el código fuente en [GitHub](https://github.com/FabricMC/fabric-docs), y las [pautas de contribución](./contributing) relevantes.
-
-</div>

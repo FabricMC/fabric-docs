@@ -1,36 +1,48 @@
+<script setup lang="ts">
+import { useData } from "vitepress";
+import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vue";
+import { computed, useSlots } from "vue";
+
+import { Fabric } from "../../types";
+
+defineProps<{
+  downloadURL: string;
+  visualURL?: string;
+}>();
+
+const data = useData();
+
+const title = useSlots().default?.() ?? [""];
+
+const text = computed(() =>
+  (data.theme.value.download as Fabric.DownloadOptions).text.replace(
+    "%s",
+    title.length > 0 ? ((title[0] as any).children ?? "") : "%s"
+  )
+);
+</script>
+
 <template>
-  <div class="container">
-    <img v-if="!$props.noVisualURL" :src="$props.visualURL ?? $props.downloadURL" style="max-width: 100%; max-height: 300px;">
-    <VPButton 
-      tag="a" 
-      size="medium" 
-      theme="brand" 
-      :text="`Download ${$props.type}`" 
-      :href="$props.downloadURL"
-      download
-    />
+  <div>
+    <img v-if="visualURL" :src="visualURL ?? downloadURL" />
+    <VPButton size="medium" theme="brand" :text :href="downloadURL" download />
   </div>
 </template>
 
-<script setup lang="ts">
-import { VPButton } from "vitepress/theme"
-
-// downloadURL prop, visualURL prop (optional), if no visualURL, use downloadURL
-const props = defineProps<{
-  downloadURL: string;
-  visualURL?: string;
-  noVisualURL?: boolean;
-  type: string;
-}>();
-</script>
-
 <style scoped>
-div.container {
+div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 8px;
+}
+
+img {
+  pointer-events: none;
+  max-width: 100%;
+  max-height: 300px;
+  z-index: 0;
 }
 
 a {
@@ -39,12 +51,5 @@ a {
 
 a:hover {
   cursor: pointer;
-}
-
-img {
-  /* Disable interactions, prevent right click save. */
-  pointer-events: none;
-
-  z-index: 0;
 }
 </style>

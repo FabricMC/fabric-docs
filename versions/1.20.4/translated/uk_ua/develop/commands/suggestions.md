@@ -3,9 +3,9 @@ title: Пропозиції команд
 description: Дізнайтеся як пропонувати користувачам можливі значення аргументу команди.
 authors:
   - IMB11
----
 
-# Пропозиції команд
+search: false
+---
 
 Minecraft має потужну систему пропозицій команд, що використовується у багатьох місцях, таких як команда `/give`. Ця система дозволяє пропонувати гравцю значення аргументу, які вони можуть вибрати, що є гарним засобом створення більш зручних та ергономічних команд.
 
@@ -17,7 +17,7 @@ Minecraft має потужну систему пропозицій команд
 
 Для використання постачальника пропозицій треба викликати метод `suggests` в об'єкта `ArgumentBuilder`. Цей метод приймає об'єкт `SuggestionProvider` та повертає свій `ArgumentBuilder` з доданим постачальником пропозицій.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Вбудовані постачальники пропозицій
 

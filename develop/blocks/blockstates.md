@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Block States {#block-states}
-
 A block state is a piece of data attached to a singular block in the Minecraft world containing information on the block in the form of properties - some examples of properties vanilla stores in block states:
 
 - Rotation: Mostly used for logs and other natural blocks.
@@ -15,7 +13,7 @@ A block state is a piece of data attached to a singular block in the Minecraft w
 
 You can probably see why they are useful - they avoid the need to store NBT data in a block entity - reducing the world size, and preventing TPS issues!
 
-Blockstate definitions are found in the `assets/<mod id here>/blockstates` folder.
+Blockstate definitions are found in the `assets/example-mod/blockstates` folder.
 
 ## Example: Pillar Block {#pillar-block}
 
@@ -29,9 +27,9 @@ The vanilla `PillarBlock` class allows the block to be placed in the X, Y or Z a
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
-As always, with all block textures, the texture files can be found in `assets/<mod id here>/textures/block`
+As always, with all block textures, the texture files can be found in `assets/example-mod/textures/block`
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Textures</DownloadEntry>
 
 Since the pillar block has two positions, horizontal and vertical, we'll need to make two separate model files:
 
@@ -40,23 +38,21 @@ Since the pillar block has two positions, horizontal and vertical, we'll need to
 
 An example of the `condensed_oak_log_horizontal.json` file:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
-
----
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
 :::
 
-Next, we need to create a blockstate file. The blockstate file is where the magic happens—pillar blocks have three axes, so we'll use specific models for the following situations:
+Next, we need to create a blockstate file, which is where the magic happens. Pillar blocks have three axes, so we'll use specific models for the following situations:
 
 - `axis=x` - When the block is placed along the X axis, we will rotate the model to face the positive X direction.
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
 - `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 As always, you'll need to create a translation for your block, and an item model which parents either of the two models.
 
@@ -82,10 +78,6 @@ You'll also have to set a default state for the `activated` property in the cons
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-::: warning
-Don't forget to register your block using the custom class instead of `Block`!
-:::
-
 ### Using The Property {#using-the-property}
 
 This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
@@ -96,7 +88,7 @@ This example flips the boolean `activated` property when the player interacts wi
 
 Before creating the blockstate file, you will need to provide textures for both the activated and deactivated states of the block, as well as the block model.
 
-<DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip" />
+<DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">Textures</DownloadEntry>
 
 Use your knowledge of block models to create two models for the block: one for the activated state and one for the deactivated state. Once you've done that, you can begin creating the blockstate file.
 
@@ -106,9 +98,11 @@ If you have multiple properties on a block, you'll need to account for all possi
 
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
----
+::: tip
+Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
+:::
 
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
 
@@ -118,10 +112,8 @@ You can use the `luminance` method to set the light level emitted by the block, 
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
 Once you've completed everything, the final result should look something like the following:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarine Lamp Block in-game</VideoPlayer>

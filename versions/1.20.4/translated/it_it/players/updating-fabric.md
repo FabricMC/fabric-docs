@@ -4,9 +4,9 @@ description: Una guida passo per passo su come aggiornare Fabric.
 authors:
   - IMB11
   - modmuss50
----
 
-# Aggiornare Fabric
+search: false
+---
 
 Questa guida ti aiuterà nell'aggiornare Fabric per quanto riguarda il Launcher di Minecraft.
 

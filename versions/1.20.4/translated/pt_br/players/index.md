@@ -1,9 +1,9 @@
 ---
 title: Guias para jogadores
 description: Uma coleção de guias para jogadores e administradores de servidores ao instalar e usar o Fabric.
----
 
-# Guias para jogadores
+search: false
+---
 
 Esta seção da Documentação do Fabric é dedicada à jogadores e administradores de servidores que querem aprender a como instalar, usar, e diagnosticar problemas com Fabric.
 

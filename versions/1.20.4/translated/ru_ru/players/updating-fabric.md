@@ -4,9 +4,9 @@ description: Пошаговая инструкция по обновлению F
 authors:
   - IMB11
   - modmuss50
----
 
-# Обновление Fabric
+search: false
+---
 
 В этом гайде мы расскажем вам об обновлении Fabric на официальном лаунчере Minecraft.
 

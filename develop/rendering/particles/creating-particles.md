@@ -5,25 +5,23 @@ authors:
   - Superkat32
 ---
 
-# Creating Custom Particles {#creating-custom-particles}
-
 Particles are a powerful tool. They can add ambience to a beautiful scene, or add tension to an edge of your seat boss battle. Let's add one!
 
 ## Register a Custom Particle {#register-a-custom-particle}
 
 We'll be adding a new sparkle particle which will mimic the movement of an end rod particle.
 
-We first need to register a `ParticleType` in your mod initializer class using your mod id.
+We first need to register a `ParticleType` in your [mod's initializer](../../getting-started/project-structure#entrypoints) class using your mod id.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 The "sparkle_particle" in lowercase letters is the JSON path for the particle's texture. You will be creating a new JSON file with that exact name later.
 
 ## Client-Side Registration {#client-side-registration}
 
-After you have registered the particle in the `ModInitializer` entrypoint, you will also need to register the particle in the `ClientModInitializer` entrypoint.
+After you have registered the particle in the mod's initializer, you will also need to register the particle in the client-side initializer.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 In this example, we are registering our particle on the client-side. We are then giving the particle some movement using the end rod particle's factory. This means our particle will move exactly like an end rod particle.
 
@@ -36,10 +34,10 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Creating a JSON File and Adding Textures {#creating-a-json-file-and-adding-textures}
 
-You will need to create 2 folders in your `resources/assets/<mod id here>/` folder.
+You will need to create 2 folders in your `resources/assets/example-mod/` folder.
 
 | Folder Path          | Explanation                                                                          |
-|----------------------|--------------------------------------------------------------------------------------|
+| -------------------- | ------------------------------------------------------------------------------------ |
 | `/textures/particle` | The `particle` folder will contain all the textures for all of your particles.       |
 | `/particles`         | The `particles` folder will contain all of the json files for all of your particles. |
 
@@ -47,7 +45,7 @@ For this example, we will have only one texture in `textures/particle` called "s
 
 Next, create a new JSON file in `particles` with the same name as the JSON path that you used when registering your ParticleType. For this example, we will need to create `sparkle_particle.json`. This file is important because it lets Minecraft know which textures our particle should use.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 ::: tip
 You can add more textures to the `textures` array to create a particle animation. The particle will cycle through the textures in the array, starting with the first texture.
@@ -60,7 +58,7 @@ Once you have completed the JSON file and saved your work, you are good to load 
 You can see if everything has worked by typing the following command:
 
 ```mcfunction
-/particle <mod id here>:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![Showcase of the particle](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

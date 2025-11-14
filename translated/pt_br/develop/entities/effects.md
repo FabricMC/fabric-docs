@@ -12,8 +12,6 @@ authors-nogithub:
   - tao0lu
 ---
 
-# Efeitos de Estado
-
 Efeitos de estado, conhecidos como efeitos, são condições que podem afetar uma entidade. Eles podem ser de natureza positiva, negativa ou neutra. O jogo base aplica esses efeitos de vários modos, como comidas, poções, etc.
 
 O comando `/effect` pode ser usado para aplicar efeitos numa entidade.
@@ -22,7 +20,7 @@ O comando `/effect` pode ser usado para aplicar efeitos numa entidade.
 
 Neste tutorial adicionaremos um novo efeito personalizado chamado _Tater_, que lhe dará um ponto de experiência a cada tick do jogo.
 
-### Estenda `StatusEffect`
+### Estenda `StatusEffect` {#extend-statuseffect}
 
 Vamos criar uma classe de efeito personalizado estendendo `StatusEffect`, sendo uma classe base para todos os efeitos.
 
@@ -32,39 +30,34 @@ Vamos criar uma classe de efeito personalizado estendendo `StatusEffect`, sendo 
 
 Similar a registração de blocos e itens, usamos `Registry.register` para registrar nosso efeito ao registro de `STATUS_EFFECT`. Isso pode ser feito no nosso inicializador.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
-### Traduções e Texturas
+### Textura
 
-Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador.
-
-#### Textura
-
-O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
+Estenda `StatusEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
-![Efeito no inventário do jogador](/assets/develop/tater-effect.png)
+<DownloadEntry type="Example Texture" visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png" />
 
-#### Traduções
+### Traduções
 
-Assim como outras traduções, você pode adicionar uma entrada com o formato de ID `"effect.<mod-id>.<effect-identifier>": "Value"` ao arquivo de idioma.
+Assim como outras traduções, você pode adicionar uma entrada com o formato de ID `"effect.example-mod.effect-identifier": "Value"` ao arquivo de idioma.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Testando
 
-Uso o comando `/effect give @p fabric-docs-reference:tater` para dar ao jogador nosso efeito Tater.
-Use `/effect clear @p fabric-docs-reference:tater` para remover o efeito.
+Uso o comando `/effect give @p example-mod:tater` para dar ao jogador nosso efeito Tater.
+Use `/effect clear @p example-mod:tater` para remover o efeito.
 
+:::info
 ::: info
 Para criar uma poção que utiliza este efeito, consulte o [guia de Poções](../items/potions).
 :::

@@ -10,9 +10,9 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
----
 
-# Effetti di Stato
+search: false
+---
 
 Gli effetti di stato, anche noti come effetti, sono una condizione che interessa un'entità. Possono essere positivi, negativi o neutrali in natura. Il gioco base applica questi effetti in vari modi, come cibi, pozioni ecc.
 
@@ -32,7 +32,7 @@ Creiamo una classe per il nostro effetto personalizzato estendendo `StatusEffect
 
 Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per registrare i nostri effetti personalizzati nel registro `STATUS_EFFECT`. Questo può essere fatto nel nostro initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Traduzioni e Texture
 
@@ -43,27 +43,27 @@ Puoi assegnare un nome al tuo effetto di stato e fornire un'icona che apparirà 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![Effetto nell'inventario del giocatore](/assets/develop/tater-effect.png)
 
 #### **Traduzioni**
 
-Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.<mod-id>.<effect-identifier>": "Valore"` al file di lingua.
+Come ogni altra traduzione, puoi aggiungere una voce con formato ID `"effect.example-mod.<effect-identifier>": "Valore"` al file di lingua.
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### Fase di Test
 
-Usa il comando `/effect give @p fabric-docs-reference:tater` per dare al giocatore il nostro effetto Tater.
-Usa `/effect clear @p fabric-docs-reference:tater` per rimuovere l'effetto.
+Usa il comando `/effect give @p example-mod:tater` per dare al giocatore il nostro effetto Tater.
+Usa `/effect clear @p example-mod:tater` per rimuovere l'effetto.
 
 ::: info
 Per creare una pozione che usa questo effetto, per favore vedi la guida [Pozioni](../items/potions).

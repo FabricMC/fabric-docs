@@ -3,9 +3,9 @@ title: Trovare Mod Affidabili
 description: Una guida su come trovare mod Fabric attraverso fonti affidabili.
 authors:
   - IMB11
----
 
-# Trovare Mod Affidabili
+search: false
+---
 
 Anzitutto, la fiducia è soggettiva, e dovresti sempre affidarti al tuo giudizio quando scarichi mod. Tuttavia, ci sono alcune cose che puoi fare che ti aiutano a trovare mod affidabili.
 

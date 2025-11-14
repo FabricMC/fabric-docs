@@ -3,9 +3,9 @@ title: Caricare i Log
 description: Come caricare i log per la risoluzione dei problemi.
 authors:
   - IMB11
----
 
-# Caricare i Log
+search: false
+---
 
 Quando stai tentando di risolvere problemi, spesso è necessario fornire i log per aiutare a identificare la causa del problema.
 

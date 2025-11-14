@@ -1,9 +1,9 @@
 ---
 title: SoundEvents abspielen
 description: Lerne, wie man Sound Events abspielt.
----
 
-# SoundEvents abspielen
+search: false
+---
 
 Minecraft hat eine große Auswahl an Sounds, aus denen du wählen kannst. Schau dir die Klasse `SoundEvents` an, um alle von Mojang bereitgestellten Vanilla-Sound-Event-Instanzen zu sehen.
 

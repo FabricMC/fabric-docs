@@ -6,9 +6,9 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
----
 
-# Introduzione a Fabric e al Modding
+search: false
+---
 
 ## Prerequisiti
 

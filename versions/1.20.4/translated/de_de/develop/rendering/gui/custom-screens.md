@@ -3,9 +3,9 @@ title: Benutzerdefinierte Oberflächen
 description: Lerne, wie man benutzerdefinierte Oberflächen für deinen Mod erstellt.
 authors:
   - IMB11
----
 
-# Benutzerdefinierte Oberflächen
+search: false
+---
 
 :::info
 Diese Seite bezieht sich auf normale Oberflächen, nicht auf solche, die vom Spieler auf dem Client geöffnet werden, und nicht auf solche, die vom Server bearbeitet werden.

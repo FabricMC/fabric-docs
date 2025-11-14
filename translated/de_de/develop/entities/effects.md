@@ -3,68 +3,83 @@ title: Statuseffekte
 description: Lerne, wie man benutzerdefinierte Statuseffekte erstellt.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
+  - Manchick0
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
 ---
 
-# Statuseffekte
-
 Statuseffekte, auch Effekte genannt, sind ein Zustand, der eine Entität beeinflussen kann. Sie können positiver, negativer oder neutraler Natur sein. Das Basisspiel wendet diese Effekte auf verschiedene Weise an, zum Beispiel durch Nahrung, Tränke usw.
 
 Der Befehl `/effect` kann verwendet werden, um Effekte auf eine Entität anzuwenden.
 
-## Benutzerdefinierte Statuseffekte
+## Benutzerdefinierte Statuseffekte {#custom-status-effects}
 
 In diesem Tutorial fügen wir einen neuen benutzerdefinierten Effekt namens _Tater_ hinzu, der dir einen Erfahrungspunkt pro Spieltick gibt.
 
-### `StatusEffect` erweitern
+### `StatusEffect` erweitern {#extend-statuseffect}
 
 Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `StatusEffect` erweitern, die die Basisklasse für alle Effekte ist.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
-### Deinen benutzerdefinierten Effekt registrieren
+### Deinen benutzerdefinierten Effekt registrieren {#registering-your-custom-effect}
 
 Ähnlich wie bei der Registrierung von Blöcken und Items verwenden wir `Registry.register`, um unseren benutzerdefinierten Effekt in der `STATUS_EFFECT`-Registry zu registrieren. Dies kann in unserem Initialisierer geschehen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
-### Übersetzungen und Texturen
-
-Du kannst deinem Statuseffekt einen Namen geben und ein Textursymbol erstellen, das in der Inventaroberfläche des Spielers angezeigt wird.
-
-#### Texturen
+### Texturen {#texture}
 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
-![Effekt im Inventar eines Spielers](/assets/develop/tater-effect.png)
+<DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Beispiel Textur</DownloadEntry>
 
-#### **Übersetzungen**
+### Übersetzungen {#translations}
 
-Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.<mod-id>.<effect-identifier>": "Wert"` zur Sprachdatei hinzufügen.
+Wie jede andere Übersetzung kannst du einen Eintrag mit dem ID-Format `"effect.example-mod.effect-identifier": "Wert"` zur Sprachdatei hinzufügen.
 
-::: code-group
-
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
-### Testen
+### Einen Effekt anwenden {#applying-the-effect}
 
-Benutze den Befehl `/effect give @p fabric-docs-reference:tater`, um dem Spieler unseren Tater-Effekt zu geben.
-Verwende `/effect clear`
-um den Effekt zu entfernen.
+Es lohnt sich, einen Blick darauf zu werfen, wie man normalerweise einen Effekt auf eine Entität anwendet.
 
+::: tip
+For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
+
+```mcfunction
+effect give @p example-mod:tater
+```
+
+:::
+
+Um einen Effekt intern anzuwenden, sollte man die Methode `LivingEntity#addStatusEffect` verwenden, die eine
+eine `StatusEffectInstance` entgegennimmt und einen boolean zurückgibt, der angibt, ob der Effekt erfolgreich angewendet wurde.
+
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+
+| Argument    | Typ                           | Beschreibung                                                                                                                                                                                                                                                                                                                                                  |
+| ----------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `effect`    | `RegistryEntry<StatusEffect>` | Ein Registrierungseintrag, der den Effekt repräsentiert.                                                                                                                                                                                                                                                                                      |
+| `duration`  | `int`                         | Die Dauer des Effekts **in Ticks**, **nicht** in Sekunden                                                                                                                                                                                                                                                                                                     |
+| `amplifier` | `int`                         | Der Verstärker auf das Level des Effekts. Es entspricht nicht dem **Level** des Effekts, sondern wird zusätzlich zu diesem hinzugefügt. Folglich, `amplifier` von `4` => Level von `5`                                                                                                                                        |
+| `ambient`   | v                             | Dies ist ein schwieriger. Es gibt im Grunde an, dass der Effekt durch die Umgebung (z. B. ein **Leuchtfeuer**) hinzugefügt wurde und keine direkte Ursache hat. Wenn `true`, wird das Icon des Effekts im HUD mit einer türkiesen Überlagerung erscheinen. |
+| `particles` | v                             | Ob Partikel angezeigt werden sollen.                                                                                                                                                                                                                                                                                                          |
+| `icon`      | v                             | Ob das Icon des Effekts im HUD angezeigt werden soll. Der Effekt wird im Inventar unabhängig von dieser Flag angezeigt.                                                                                                                                                                                                       |
+
+:::info
 Um einen Trank zu erstellen, der diesen Effekt nutzt, lies bitte die Anleitung [Tränke](../items/potions).
 :::

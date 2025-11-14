@@ -1,6 +1,6 @@
 [*.{gradle,java}]
 indent_style = tab
 ij_continuation_indent_size = 8
-ij_java_imports_layout = $*,|,java.**,|,javax.**,|,*,|,net.fabricmc.**,com.example.**
+ij_java_imports_layout = $*,|,java.**,|,javax.**,|,*,|,net.minecraft.**,|,net.fabricmc.**,|,com.example.**
 ij_java_class_count_to_use_import_on_demand = 999
 trim_trailing_whitespace = true

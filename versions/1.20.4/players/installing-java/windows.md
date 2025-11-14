@@ -3,9 +3,9 @@ title: Installing Java on Windows
 description: A step by step guide on how to install Java on Windows.
 authors:
   - IMB11
----
 
-# Installing Java on Windows {#installing-java-on-windows}
+search: false
+---
 
 This guide will walk you through installing Java 17 on Windows.
 
@@ -59,7 +59,5 @@ Once the installation is complete, you can verify that Java 17 is installed by o
 If the command runs successfully, you will see something like shown before, where the Java version is displayed:
 
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
-
----
 
 If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.

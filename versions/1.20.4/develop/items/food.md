@@ -3,9 +3,9 @@ title: Food Items
 description: Learn how to add a FoodComponent to an item to make it edible, and configure it.
 authors:
   - IMB11
----
 
-# Food Items {#food-items}
+search: false
+---
 
 Food is a core aspect of survival Minecraft, so when creating edible items you have to consider the food's usage with other edible items.
 

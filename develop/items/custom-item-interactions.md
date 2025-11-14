@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Custom Item Interactions {#custom-item-interactions}
-
 Basic items can only go so far - eventually you will need an item that interacts with the world when it is used.
 
 There are some key classes you must understand before taking a look at the vanilla item events.
@@ -56,7 +54,7 @@ A great example of these events being used can be found in the [Playing SoundEve
 
 ## The `use()` Event {#use-event}
 
-Let's say you want to make an item that summons a lightning bolt infront of the player - you would need to create a custom class.
+Let's say you want to make an item that summons a lightning bolt in front of the player - you would need to create a custom class.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
@@ -66,6 +64,6 @@ The `use` event is probably the most useful out of them all - you can use this e
 
 As usual, you should register your item, add a model and texture.
 
-As you can see, the lightning bolt should spawn 10 blocks infront of you - the player.
+As you can see, the lightning bolt should spawn 10 blocks in front of you - the player.
 
-<VideoPlayer src="/assets/develop/items/custom_items_0.webm" title="Using the Lightning Stick" />
+<VideoPlayer src="/assets/develop/items/custom_items_0.webm">Using the Lightning Stick</VideoPlayer>

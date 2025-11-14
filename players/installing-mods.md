@@ -1,11 +1,9 @@
 ---
 title: Installing Mods
-description: A step by step guide on how to install mods for Fabric.
+description: A step-by-step guide on how to install mods for Fabric.
 authors:
   - IMB11
 ---
-
-# Installing Mods {#installing-mods}
 
 This guide will walk you through installing mods for Fabric using the Minecraft Launcher.
 
@@ -21,7 +19,7 @@ The majority of mods require Fabric API as well, which can be downloaded from [M
 
 When downloading mods, ensure that:
 
-- They work on the version of Minecraft you want to play on. A mod that works on version 1.20, for example, might not work on version 1.20.2.
+- They work on the version of Minecraft you want to play on. A mod that worked on version 1.21.8 for instance, might not work anymore on 1.21.10.
 - They are for Fabric and not another mod loader.
 - Furthermore, they are for the correct edition of Minecraft (Java Edition).
 

@@ -4,9 +4,9 @@ description: Learn about the basic concepts of rendering using Minecraft's rende
 authors:
   - IMB11
   - "0x3C50"
----
 
-# Basic Rendering Concepts {#basic-rendering-concepts}
+search: false
+---
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.

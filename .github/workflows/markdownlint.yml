@@ -2,14 +2,11 @@ name: Lint
 
 on:
   pull_request:
-    branches:
-      - main
     paths:
-      - '**/*.md'
-      - '!README.md'
-      - '!translated/**'
-      - '!versions/*/translated/**'
-  workflow_dispatch: # Manual run
+      - "**/*.md"
+      - "!README.md"
+      - "!translated/**"
+      - "!versions/**"
 
 concurrency:
   group: markdownlint-${{ github.event.pull_request.number || github.ref }}
@@ -17,7 +14,7 @@ concurrency:
 
 jobs:
   markdownlint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - id: checkout
@@ -29,16 +26,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-      - run: npm install
+      - run: npm ci
 
       - id: lint
-        uses: DavidAnson/markdownlint-cli2-action@v16
+        uses: FabricMCBot/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
         with:
           config: .markdownlint-cli2.yaml
           globs: |
             **/*.md
-            !README.md
-            !**/node_modules
             !**/.git
+            !**/node_modules
+            !README.md
             !translated/**
-            !versions/*/translated/**
+            !versions/**

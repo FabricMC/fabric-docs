@@ -3,9 +3,9 @@ title: Installation von Fabric
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Fabric.
 authors:
   - IMB11
----
 
-# Installation von Fabric
+search: false
+---
 
 Diese Anleitung wird die Installation von Fabric detailliert für den offiziellen Minecraft-Launcher erklären.
 

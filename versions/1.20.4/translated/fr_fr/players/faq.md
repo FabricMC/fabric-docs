@@ -1,9 +1,9 @@
 ---
 title: Foire Aux Questions pour les joueurs
 description: Foire aux questions pour les joueurs et les administrateurs de serveur liés à Fabric.
----
 
-# Foire Aux Questions
+search: false
+---
 
 Certaines questions sont posées très fréquemment, donc en voici une liste.
 

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT' apply false
+	id 'fabric-loom' version '1.11-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
@@ -10,14 +10,14 @@ subprojects {
 	apply plugin: 'com.diffplug.spotless'
 
 	base {
-		archivesName = "fabric-docs-reference-${project.name}"
+		archivesName = "example-mod-${project.name}"
 	}
 
 	loom {
 		splitEnvironmentSourceSets()
 
 		mods {
-			"fabric-docs-reference" {
+			"example-mod" {
 				sourceSet sourceSets.main
 				sourceSet sourceSets.client
 			}
@@ -29,12 +29,20 @@ subprojects {
 	}
 
 	dependencies {
-		modImplementation "net.fabricmc:fabric-loader:0.15.11"
+		modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+		// :::automatic-testing:1
+		testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
+		// :::automatic-testing:1
 	}
 
+	// :::datagen-setup:configure
 	fabricApi {
-		configureDataGeneration()
+		configureDataGeneration() {
+			client = true
+		}
 	}
+	// :::datagen-setup:configure
 
 	tasks.withType(JavaCompile).configureEach {
 		it.options.release = 21

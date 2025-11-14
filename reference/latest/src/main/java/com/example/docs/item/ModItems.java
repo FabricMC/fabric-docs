@@ -1,78 +1,137 @@
 package com.example.docs.item;
 
+import java.util.function.Function;
+
+import net.minecraft.component.type.ConsumableComponent;
+import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 
-import com.example.docs.FabricDocsReference;
-import com.example.docs.item.armor.ModArmorMaterials;
+import com.example.docs.ExampleMod;
+import com.example.docs.component.ModComponents;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
+import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
-import com.example.docs.item.tool.GuiditeMaterial;
 
 // :::1
 public class ModItems {
 	// :::1
 
+	// :::guidite_tool_material
+	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
+			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
+			455,
+			5.0F,
+			1.5F,
+			22,
+			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
+	);
+	// :::guidite_tool_material
+
 	// :::6
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.HELMET, new Item.Settings()), "guidite_helmet");
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.BOOTS, new Item.Settings()), "guidite_boots");
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(ModArmorMaterials.GUIDITE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
+	public static final Item GUIDITE_HELMET = register(
+			"guidite_helmet",
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET)
+					.maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
+	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE)
+					.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
+
+	public static final Item GUIDITE_LEGGINGS = register(
+			"guidite_leggings",
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS)
+					.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
+
+	public static final Item GUIDITE_BOOTS = register(
+			"guidite_boots",
+			Item::new,
+			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS)
+					.maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+	);
 	// :::6
-	public static final Item LIGHTNING_STICK = register(new LightningStick(new Item.Settings()), "lightning_stick");
+	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Settings());
 	// :::7
-	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, new Item.Settings()), "guidite_sword");
+	public static final Item GUIDITE_SWORD = register(
+			"guidite_sword",
+			Item::new,
+			new Item.Settings().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
+	);
 	// :::7
+	// :::_13
+	public static final Item COUNTER = register(
+			"counter",
+			CounterItem::new,
+			new Item.Settings()
+					// Initialize the click count component with a default value of 0
+					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
+	);
+	// :::_13
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(FabricDocsReference.MOD_ID, "item_group"));
+	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(ExampleMod.MOD_ID, "item_group"));
 	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-			.displayName(Text.translatable("itemGroup.fabric_docs_reference"))
+			.displayName(Text.translatable("itemGroup.example-mod"))
 			.build();
 	// :::9
 	// :::5
-	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
-			.alwaysEdible()
-			.snack()
+	public static final ConsumableComponent POISON_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
 			// The duration is in ticks, 20 ticks = 1 second
-			.statusEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 1), 1.0f)
+			.consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 1), 1.0f))
+			.build();
+	public static final FoodComponent POISON_FOOD_COMPONENT = new FoodComponent.Builder()
+			.alwaysEdible()
 			.build();
 	// :::5
 
-	// :::2
-	public static final Item SUSPICIOUS_SUBSTANCE = register(
-			// Ignore the food component for now, we'll cover it later in the food section.
-			new Item(new Item.Settings().food(SUSPICIOUS_FOOD_COMPONENT)),
-			"suspicious_substance"
+	// :::poisonous_apple
+	public static final Item POISONOUS_APPLE = register(
+			"poisonous_apple",
+			Item::new,
+			new Item.Settings().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
-	// :::2
+	// :::poisonous_apple
 
+	// :::2
+	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
+	// :::2
 	// :::1
-	public static Item register(Item item, String id) {
-		// Create the identifier for the item.
-		Identifier itemID = Identifier.of(FabricDocsReference.MOD_ID, id);
+	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+		// Create the item key.
+		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, name));
+
+		// Create the item instance.
+		Item item = itemFactory.apply(settings.registryKey(itemKey));
 
 		// Register the item.
-		Item registeredItem = Registry.register(Registries.ITEM, itemID, item);
+		Registry.register(Registries.ITEM, itemKey, item);
 
-		// Return the registered item!
-		return registeredItem;
+		return item;
 	}
 
 	// :::1
@@ -107,6 +166,7 @@ public class ModItems {
 		// Register items to the custom item group.
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
+			itemGroup.add(ModItems.POISONOUS_APPLE);
 			itemGroup.add(ModItems.GUIDITE_SWORD);
 			itemGroup.add(ModItems.GUIDITE_HELMET);
 			itemGroup.add(ModItems.GUIDITE_BOOTS);
@@ -123,14 +183,17 @@ public class ModItems {
 		// :::_10
 
 		// :::_11
-		// Add the suspicious substance to the flammable block registry with a burn time of 30 seconds.
+		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
-		FuelRegistry.INSTANCE.add(ModItems.GUIDITE_SWORD, 30 * 20);
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
+		});
 		// :::_11
 		// :::3
 	}
 
 	// :::3
+	// :::1
 }
 // :::1

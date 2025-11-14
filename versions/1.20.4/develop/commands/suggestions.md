@@ -3,9 +3,9 @@ title: Command Suggestions
 description: Learn how to suggest command argument values to users.
 authors:
   - IMB11
----
 
-# Command Suggestions {#command-suggestions}
+search: false
+---
 
 Minecraft has a powerful command suggestion system that's used in many places, such as the `/give` command. This system allows you to suggest values for command arguments to the user, which they can then select from - it's a great way to make your commands more user-friendly and ergonomic.
 
@@ -17,7 +17,7 @@ A `SuggestionProvider` is used to make a list of suggestions that will be sent t
 
 To use a suggestion provider, you need to call the `suggests` method on the argument builder. This method takes a `SuggestionProvider` and returns the modified argument builder with the suggestion provider attached.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Built-in Suggestion Providers {#built-in-suggestion-providers}
 

@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Codecs {#codecs}
-
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative
 to GSON and Jankson when reading and writing custom json files, though they're starting to become
@@ -274,8 +272,8 @@ Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, 
 
 // Use it to serialize data
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    Identifier.of("example", "number"), 23,
+    Identifier.of("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -338,7 +336,7 @@ public class Identifier {
 
     public static DataResult<Identifier> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
+            return DataResult.success(Identifier.of(id));
         } catch (InvalidIdentifierException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
@@ -390,7 +388,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 // And based on that, here's our registry dispatch codec for beans!
 // The first argument is the field name for the bean type.
 // When left out, it will default to "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
 Our new codec will serialize beans to json like this, grabbing only fields that are relevant to their specific type:
@@ -446,7 +444,7 @@ A serialized `ListNode` may then look like this:
   "value": 2,
   "next": {
     "value": 3,
-    "next" : {
+    "next": {
       "value": 5
     }
   }

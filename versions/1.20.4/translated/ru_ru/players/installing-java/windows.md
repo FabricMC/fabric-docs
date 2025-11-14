@@ -3,9 +3,9 @@ title: Установка Java на Windows
 description: Пошаговая инструкция по установке Java на Windows.
 authors:
   - IMB11
----
 
-# Установка Java на Windows
+search: false
+---
 
 Этот гайд расскажет, как установить Java 17 на Windows.
 
@@ -15,7 +15,7 @@ authors:
 
 Чтобы проверить, что Java уже установлена, вам нужно сначала открыть командную строку.
 
-Вы можете сделать это, нажав <kbd>Win</kbd> + <kbd>R</kbd> и написав `cmd.exe` в появившемся окне.
+Вы можете сделать это, нажав <kbd>Win</kbd>+<kbd>R</kbd> и написав `cmd.exe` в появившемся окне.
 
 ![Окно "Выполнить" с введённым "cmd.exe"](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -59,7 +59,5 @@ authors:
 Если команда будет выполнена успешно, вы увидите что-то вроде показанного ранее, где отображается версия Java:
 
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
-
----
 
 Если вы столкнулись с какими-либо проблемами, попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в канале `#player-support`.

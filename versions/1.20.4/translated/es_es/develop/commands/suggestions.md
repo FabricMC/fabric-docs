@@ -3,9 +3,9 @@ title: Sugerencias de Comandos
 description: Aprende a sugerir valores para argumentos de comandos a usuarios.
 authors:
   - IMB11
----
 
-# Sugerencias de Comandos
+search: false
+---
 
 Minecraft tiene un poderoso sistema de sugerencias de comandos que es usado en muchos lugares, como en el comanado de `/give`. Este sistema te permite sugerir valores para argumentos de comandos al usuario, donde este puede escoger de estos valores - es una buena manera de hacer tus comandos más ergonómicos y amigables al usuario.
 
@@ -17,7 +17,7 @@ Un `SuggestionProvider` (Proveedor de Sugerencias) es usado para crear una lista
 
 Para usar un proveedor de sugerencias, tienes que llamar el método `suggests` en el constructor del argumento. Este método tiene un parámetro `SuggestionProvider` y retorna un nuevo constructor de argumento con el proveedor de sugerencias adjuntado.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Proveedores de Sugerencias Incluidos
 

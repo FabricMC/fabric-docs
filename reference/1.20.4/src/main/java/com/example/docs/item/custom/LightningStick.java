@@ -49,7 +49,7 @@ public class LightningStick extends Item {
 	// :::3
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.translatable("itemTooltip.fabric-docs-reference.lightning_stick").formatted(Formatting.GOLD));
+		tooltip.add(Text.translatable("itemTooltip.example-mod.lightning_stick").formatted(Formatting.GOLD));
 	}
 
 	// :::3

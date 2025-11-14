@@ -4,9 +4,9 @@ description: Un guide pour mettre à jour Fabric pas à pas.
 authors:
   - IMB11
   - modmuss50
----
 
-# Mettre à jour Fabric
+search: false
+---
 
 Ce guide explique en détail le processus de mise à jour de Fabric pour le launcher Minecraft.
 

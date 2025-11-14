@@ -3,9 +3,9 @@ title: 在 Linux 上安裝 Java
 description: 在 Linux 上安裝 Java 的逐步指南。
 authors:
   - IMB11
----
 
-# 在 Linux 上安裝 Java
+search: false
+---
 
 這個指南將引導你在 Linux 上安裝 Java 17。
 

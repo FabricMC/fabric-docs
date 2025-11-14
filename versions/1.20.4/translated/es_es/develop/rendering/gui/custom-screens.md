@@ -3,9 +3,9 @@ title: Pantallas Personalizadas
 description: Aprende a crear pantallas y menús personalizadas para tu mod.
 authors:
   - IMB11
----
 
-# Pantallas Personalizadas
+search: false
+---
 
 :::info
 Esta página se refiere a pantallas normales, y no pantallas manejadas - estas pantallas son las que son abiertas por el jugador en el cliente, no las que son manejadas por el servidor.

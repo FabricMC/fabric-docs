@@ -5,9 +5,9 @@ authors:
   - dicedpixels
   - PandoricaVi
   - Drakonkinst
----
 
-# Pociones
+search: false
+---
 
 Las pociones son items consumibles que le dan un efecto a una entidad. Un jugador puede crear una poción usando un Soporte para Pociones u obtenerlas como items a partir de varias mecánicas del juego.
 
@@ -23,7 +23,7 @@ Cuando Fabric API está presente, `BrewingRecipeRegistry.registerPotionRecipe` s
 
 Empecemos declarando un miembro para almacenar la instancia de tu `Potion`. Estaremos usando la clase inicializadora para hacer esto.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Pasamos una instancia de `StatusEffectInstance` (Instancia de Efecto de Estado), el cual tiene 3 parámetros:
 
@@ -39,7 +39,7 @@ Para crear tu propio efecto, por favor visita la guía sobre [Efectos](../entiti
 
 En nuestro inicializador, llamamos `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe` (registrar receta de poción) tiene 3 parámetros:
 
@@ -51,7 +51,7 @@ Si usas Fabric APi, el invocador de mixin no es necesario y se puede llamar `Bre
 
 El ejemplo completo:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Una vez registrado, puedes crear una poción de Tater usando una patata.
 

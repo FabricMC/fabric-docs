@@ -3,9 +3,9 @@ title: Краш-репорты
 description: Узнайте, что делать с краш-репортами и как их читать.
 authors:
   - IMB11
----
 
-# Краш-репорты
+search: false
+---
 
 :::tip
 Если у вас возникли какие-либо трудности с поиском причины краша, вы можете обратиться за помощью в [дискорд Fabric](https://discord.gg/v6v4pMv) в каналах `#player-support` или `#server-admin-support`.
@@ -83,10 +83,10 @@ at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(
 
 Когда происходит краш миксина, в трассировке стека обычно упоминается миксин и класс, который он модифицирует.
 
-Метод миксина будет содержать `modid$handlerName` в трассировке стека, где `modid` - айди мода, а `handlerName` - название обработчика миксина.
+Метод миксина будет содержать `mod-id$handlerName` в трассировке стека, где `mod-id` - айди мода, а `handlerName` - название обработчика миксина.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Вы можете использовать эту информацию, чтобы найти мод, вызвавший краш, и сообщить о нём автору мода.

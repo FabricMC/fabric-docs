@@ -17,8 +17,6 @@ authors-nogithub:
   - stormyfabric
 ---
 
-# Eventos
-
 El Fabric API provee un sistema que le permite a los mods reaccionar a ciertas acciones u ocurrencias, definidas como _eventos_ que ocurren en el juego.
 
 Los eventos son enganches que satisfacen usos comunes y/o proveen mejor compatibilidad y rendimiento entre diferentes mods que se enganchan a las mismas áreas del código. El uso de eventos substituye el uso de mixins.
@@ -43,7 +41,7 @@ Todas las interfaces de callbacks para eventos proveídas por el Fabric API pued
 
 Este ejemplo registra un `AttackBlockCallback` para atacar el jugador cuando este golpea bloques que no sueltan un item cuando son minados con la mano.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Añadiendo Items a Loot Tables Existentes
 
@@ -57,7 +55,7 @@ Agregaremos huevos al loot table del bloque de mena de hierro.
 
 El Fabric API tiene un evento que es llamado cuando los loot tables son cargados, llamado `LootTableEvents.MODIFY`. Puedes registrar un callback para el evento en tu inicializador de mod. Verifiquemos también que el loot table actual sea el del bloque de mena de hierro.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Agregando Items al Loot Table
 
@@ -67,7 +65,7 @@ Podemos crear un grupo con `LootPool#builder`, y agregarlo al loot table.
 
 Nuestro grupo no tiene ningún item, asique haremos una entrada de item usando `ItemEntry#builder`, y la agregaremos al grupo.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Eventos Personalizados
 
@@ -119,6 +117,6 @@ Ya tenemos el esqueleto básico de nuestro evento, pero necesitamos llamarlo o a
 
 Ahora necesitamos probar nuestro evento. Puedes registrar un escuchador en tu método de inicialización (o en otro lugar, si lo prefieres) y poner tu propio código ahí. En este ejemplo, cuando la oveja es esquilada, suelta un diamante en vez de lana:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 Si entras al juego y esquilas una oveja, un diamante debería ser soltado en vez de lana.

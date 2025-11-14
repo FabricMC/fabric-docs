@@ -1,9 +1,9 @@
 ---
 title: 玩家指南
 description: 一系列的指南，供玩家和伺服器管理員安裝和使用Fabric。
----
 
-# 玩家指南
+search: false
+---
 
 這部分 Fabric 文件專門為想要學習如何安裝、使用和疑難排解 Fabric 的玩家和伺服器管理員而設。
 

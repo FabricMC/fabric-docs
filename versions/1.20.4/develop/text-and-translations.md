@@ -3,9 +3,9 @@ title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
   - IMB11
----
 
-# Text and Translations {#text-and-translations}
+search: false
+---
 
 Whenever Minecraft displays text ingame, it's probably defined using a `Text` object.
 This custom type is used instead of a `String` to allow for more advanced formatting,

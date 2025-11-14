@@ -3,9 +3,9 @@ title: Subir Logs
 description: Como subir logs para solucionar problemas.
 authors:
   - IMB11
----
 
-# Subir Logs
+search: false
+---
 
 Durante la solución de problemas, muchas veces es necesario proveer los logs para ayudar a identificar la causa del problema.
 

@@ -3,9 +3,9 @@ title: Logs hochladen
 description: Wie man Logs zur Fehlerbehebung hochlädt.
 authors:
   - IMB11
----
 
-# Logs hochladen
+search: false
+---
 
 Wenn man versucht, Fehler zu beheben, ist es oft nötig, Logs bereitzustellen, die beim Identifizieren der Ursache des Fehlers helfen.
 

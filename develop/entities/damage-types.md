@@ -2,12 +2,10 @@
 title: Damage Types
 description: Learn how to add custom damage types.
 authors:
-- dicedpixels
-- hiisuuii
-- mattidragon
+  - dicedpixels
+  - hiisuuii
+  - MattiDragon
 ---
-
-# Damage Types {#damage-types}
 
 Damage types define types of damage that entities can take. Since Minecraft 1.19.4, the creation of new damage types has
 become data-driven, meaning they are created using JSON files.
@@ -19,12 +17,12 @@ will
 be placed in your mod's `data` directory, in a subdirectory named `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 It has the following structure:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -44,7 +42,7 @@ of `DamageSource`.
 
 The `RegistryKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Using Damage Types {#using-damage-types}
 
@@ -55,11 +53,11 @@ You can override `onSteppedOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 
-@[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 Then, we call `entity.damage()` with our `DamageSource` and an amount.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
 The complete block implementation:
 
@@ -69,10 +67,16 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 
 ### Custom Death Message {#custom-death-message}
 
-You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
+You can define a death message for the damage type in the format of `death.attack.message_id` in our
 mod's `en_us.json` file.
 
-@[code lang=json transclude={4-4}](@/reference/latest/src/main/resources/assets/fabric-docs-reference/lang/en_us.json)
+```json
+{
+  // ...
+  "death.attack.tater": "%1$s died from Tater damage!",
+  // ...
+}
+```
 
 Upon death from our damage type, you'll see the following death message:
 

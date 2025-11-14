@@ -3,9 +3,9 @@ title: 命令提示
 description: 学习如何向用户提示命令参数的值。
 authors:
   - IMB11
----
 
-# 命令提示
+search: false
+---
 
 Minecraft 有一个使用在了很多地方的十分强大的命令建议系统，比如说 `/give` 命令。 该系统允许您向用户提示命令参数的值，然后他们可以从中选择 —— 这是使您的命令更加用户友好且符合人体工学的好办法。 该系统允许您向用户提示命令参数的值，然后他们可以从中选择 —— 这是使您的命令更加用户友好且符合人体工学的好办法。
 
@@ -17,7 +17,7 @@ Minecraft 有一个使用在了很多地方的十分强大的命令建议系统�
 
 要使用提示提供器，您可以在参数构造器上调用 `suggests` 方法。 此方法接受一个 `SuggestionProvider`，返回一个新的参数构造器，并附加提示提供器。 此方法接受一个 `SuggestionProvider`，返回一个新的参数构造器，并附加提示提供器。
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## 内建的提示提供器
 

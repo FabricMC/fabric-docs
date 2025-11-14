@@ -1,0 +1,370 @@
+{
+  "/el_gr/develop/": [
+    {
+      "text": "Οδηγοί Προγραμματιστών",
+      "link": "/el_gr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Ξεκινώντας",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Εισαγωγή στο Fabric και το Modding",
+          "link": "/el_gr/develop/getting-started/"
+        },
+        {
+          "text": "Δημιουργία Έργου",
+          "link": "/el_gr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Δομή του Έργου",
+          "link": "/el_gr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Ρύθμιση Περιβάλλοντος Ανάπτυξης",
+          "link": "/el_gr/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/el_gr/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Εκκίνηση του Παιχνιδιού",
+          "link": "/el_gr/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/el_gr/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Συμβουλές και Κόλπα IDE",
+          "link": "/el_gr/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Αντικείμενα",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Δημιουργώντας το Πρώτο σας Αντικείμενο",
+          "link": "/el_gr/develop/items/first-item"
+        },
+        {
+          "text": "Item Models",
+          "link": "/el_gr/develop/items/item-models"
+        },
+        {
+          "text": "Αντικείμενα Τροφής",
+          "link": "/el_gr/develop/items/food"
+        },
+        {
+          "text": "Προσαρμοσμένα Εργαλεία",
+          "link": "/el_gr/develop/items/custom-tools"
+        },
+        {
+          "text": "Προσαρμοσμένη Πανοπλία",
+          "link": "/el_gr/develop/items/custom-armor"
+        },
+        {
+          "text": "Προσαρμοσμένες Ομάδες Αντικειμένων",
+          "link": "/el_gr/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Αλληλεπιδράσεις Προσαρμοσμένων Αντικειμένων",
+          "link": "/el_gr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Προσαρμοσμένα Εφέ Μαγείας",
+          "link": "/el_gr/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Προσαρμοσμένα Στοιχεία Δεδομένων",
+          "link": "/el_gr/develop/items/custom-data-components"
+        },
+        {
+          "text": "Φίλτρα",
+          "link": "/el_gr/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Μπλοκς",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Δημιουργώντας το Πρώτο σας Μπλοκ",
+          "link": "/el_gr/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/el_gr/develop/blocks/block-models"
+        },
+        {
+          "text": "Κατάσταση Μπλοκ",
+          "link": "/el_gr/develop/blocks/blockstates"
+        },
+        {
+          "text": "Οντότητες Μπλοκ",
+          "link": "/el_gr/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Αποδοχείς Οντοτήτων Μπλοκ",
+              "link": "/el_gr/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Οντότητες",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Κατάσταση Εφέ",
+          "link": "/el_gr/develop/entities/effects"
+        },
+        {
+          "text": "Τύποι Ζημιάς",
+          "link": "/el_gr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Ήχοι",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Αναπαραγωγή Ήχων",
+          "link": "/el_gr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Δημιουργία Προσαρμοσμένων Ήχων",
+          "link": "/el_gr/develop/sounds/custom"
+        },
+        {
+          "text": "Δυναμικοί Ήχοι",
+          "link": "/el_gr/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Εντολές",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Δημιουργώντας Εντολές",
+          "link": "/el_gr/develop/commands/basics"
+        },
+        {
+          "text": "Ορίσματα Εντολής",
+          "link": "/el_gr/develop/commands/arguments"
+        },
+        {
+          "text": "Προτάσεις Εντολών",
+          "link": "/el_gr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Απεικόνιση",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Βασικές Έννοιες Απεικόνισης",
+          "link": "/el_gr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Χρήση του Πλαισίου Σχεδίασης",
+          "link": "/el_gr/develop/rendering/draw-context"
+        },
+        {
+          "text": "Απεικόνιση στο Hud",
+          "link": "/el_gr/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/el_gr/develop/rendering/world"
+        },
+        {
+          "text": "GUIs και Οθόνες",
+          "items": [
+            {
+              "text": "Προσαρμοσμένες Οθόνες",
+              "link": "/el_gr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Προσαρμοσμένα Γραφικά",
+              "link": "/el_gr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Σωματίδια",
+          "items": [
+            {
+              "text": "Δημιουργία Προσαρμοσμένων Σωματιδίων",
+              "link": "/el_gr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Παραγωγή Δεδομένων",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Ρύθμιση Δημιουργίας Δεδομένων",
+          "link": "/el_gr/develop/data-generation/setup"
+        },
+        {
+          "text": "Δημιουργία Ετικετών",
+          "link": "/el_gr/develop/data-generation/tags"
+        },
+        {
+          "text": "Δημιουργία Μετάφρασης",
+          "link": "/el_gr/develop/data-generation/translations"
+        },
+        {
+          "text": "Δημιουργία Προόδου",
+          "link": "/el_gr/develop/data-generation/advancements"
+        },
+        {
+          "text": "Δημιουργία Συνταγών",
+          "link": "/el_gr/develop/data-generation/recipes"
+        },
+        {
+          "text": "Δημιουργία Πίνακα Λαφύρων",
+          "link": "/el_gr/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "Δημιουργία Μοντέλου Μπλοκ",
+          "link": "/el_gr/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "Διάφορες Σελίδες",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Κωδικοποιητές",
+          "link": "/el_gr/develop/codecs"
+        },
+        {
+          "text": "Εκδηλώσεις",
+          "link": "/el_gr/develop/events"
+        },
+        {
+          "text": "Networking",
+          "link": "/el_gr/develop/networking"
+        },
+        {
+          "text": "Κείμενο και Μεταφράσεις",
+          "link": "/el_gr/develop/text-and-translations"
+        },
+        {
+          "text": "Βασική Επίλυση Προβλημάτων",
+          "link": "/el_gr/develop/debugging"
+        },
+        {
+          "text": "Αυτοματοποιημένες Δοκιμές",
+          "link": "/el_gr/develop/automatic-testing"
+        },
+        {
+          "text": "Loom Gradle Plugin",
+          "link": "/el_gr/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/el_gr/develop/loom/fabric-api"
+            },
+            {
+              "text": "Extension Options",
+              "link": "/el_gr/develop/loom/options"
+            },
+            {
+              "text": "Production Run Tasks",
+              "link": "/el_gr/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/el_gr/players/": [
+    {
+      "text": "Οδηγοί Παικτών",
+      "link": "/el_gr/players/",
+      "items": [
+        {
+          "text": "Συχνές Ερωτήσεις",
+          "link": "/el_gr/players/faq"
+        },
+        {
+          "text": "Εγκατάσταση της Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/el_gr/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/el_gr/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Γίνεται Εγκατάσταση Fabric",
+          "link": "/el_gr/players/installing-fabric"
+        },
+        {
+          "text": "Εύρεση Αξιόπιστων Mods",
+          "link": "/el_gr/players/finding-mods"
+        },
+        {
+          "text": "Γίνεται Εγκατάσταση Mods",
+          "link": "/el_gr/players/installing-mods"
+        },
+        {
+          "text": "Αντιμετώπιση Προβλημάτων",
+          "items": [
+            {
+              "text": "Ανέβασμα Αρχείων Καταγραφής",
+              "link": "/el_gr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Αναφορές Σφαλμάτων",
+              "link": "/el_gr/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Ενημέρωση Fabric",
+          "link": "/el_gr/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

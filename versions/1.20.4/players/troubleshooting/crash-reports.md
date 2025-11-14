@@ -3,9 +3,9 @@ title: Crash Reports
 description: Learn what to do with crash reports, and how to read them.
 authors:
   - IMB11
----
 
-# Crash Reports {#crash-reports}
+search: false
+---
 
 ::: tip
 If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
@@ -41,7 +41,7 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using [this crash report](/public/assets/players/crash-report-example.txt).
+For this guide, we will be using [this crash report](/assets/players/crash-report-example.txt).
 
 ::: details Show Crash Report
 
@@ -83,10 +83,10 @@ Mixins are a way for mods to modify the game without having to modify the game's
 
 When a mixin crashes, it will usually mention the mixin in the stack trace, and the class that the mixin is modifying.
 
-Method mixins will contain `modid$handlerName` in the stack trace, where `modid` is the mod's ID, and `handlerName` is the name of the mixin handler.
+Method mixins will contain `mod-id$handlerName` in the stack trace, where `mod-id` is the mod's ID, and `handlerName` is the name of the mixin handler.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 You can use this information to find the mod that caused the crash, and report the crash to the mod author.

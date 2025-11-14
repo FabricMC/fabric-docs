@@ -3,9 +3,9 @@ title: Widget Personalizzati
 description: Impara come creare widget personalizzati per la tua schermata.
 authors:
   - IMB11
----
 
-# Widget Personalizzati
+search: false
+---
 
 I Widget sono essenzialmente componenti di rendering containerizzate che possono essere aggiunti a una schermata, e i giocatori possono interagirci attraverso vari eventi come clic del mouse, pressione di tasti, e altro.
 

@@ -3,9 +3,9 @@ title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
   - IMB11
----
 
-# Tools {#tools}
+search: false
+---
 
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.
 
@@ -93,11 +93,9 @@ You will also have to add a texture, item translation and item model. However, f
 
 For this example, I will be using the following model and texture for the "Guidite Sword" item:
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry type="Texture" visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png" />
-
----
 
 That's pretty much it! If you go in-game you should see your tool item(s) in the tools tab of the creative inventory menu.
 

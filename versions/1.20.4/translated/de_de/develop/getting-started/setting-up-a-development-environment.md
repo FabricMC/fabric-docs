@@ -16,9 +16,9 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
----
 
-# Entwicklungsumgebung einrichten
+search: false
+---
 
 Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklungsumgebung mit IntelliJ IDEA einrichten.
 

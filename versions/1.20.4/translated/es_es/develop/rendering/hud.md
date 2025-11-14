@@ -3,9 +3,9 @@ title: Renderizar en el Hud (Pantalla de Visualización Frontal)
 description: Aprende a usar el evento de HudRenderCallback (Callback de Renderizado de Hud) para renderizar para el hud.
 authors:
   - IMB11
----
 
-# Renderizar en el Hud (Pantalla de Visualización Frontal)
+search: false
+---
 
 Ya hemos tocado brevemente el tema sobre como renderizar cosas en el Hud en la guía de [Conceptos Básicos de Renderizado](./basic-concepts) y [Usando el Contexto de Dibujado](./draw-context), así que en esta página nos enfocaremos en el evento de `HudRenderCallback` y el parametro de `deltaTick`.
 

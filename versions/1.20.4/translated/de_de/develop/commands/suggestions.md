@@ -3,9 +3,9 @@ title: Befehlsvorschläge
 description: Lerne, wie man Spielern Werte für Befehlsargumente vorschlagen kann.
 authors:
   - IMB11
----
 
-# Befehlsvorschläge
+search: false
+---
 
 Minecraft hat ein mächtiges System für Befehlsvorschläge, das an vielen Stellen verwendet wird, wie zum Beispiel beim Befehl `/give`. Mit diesem System kannst du dem Spieler Werte für Befehlsargumente vorschlagen, aus denen er dann auswählen kann - eine großartige Möglichkeit, um deine Befehle benutzerfreundlicher und ergonomischer zu gestalten.
 
@@ -17,7 +17,7 @@ Ein `SuggestionProvider` wird verwendet, um eine Liste von Vorschlägen zu erste
 
 Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` und gibt den geänderten Argument Builder mit dem angehängten Suggestion Provider zurück.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Eingebaute Vorschlaganbieter
 

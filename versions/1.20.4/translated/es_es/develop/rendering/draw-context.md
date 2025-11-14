@@ -3,9 +3,9 @@ title: Usando el Contexto de Dibujado
 description: Aprende a como usar la clase `DrawContext` para renderizar varios objectos, texto y texturas.
 authors:
   - IMB11
----
 
-# Usando el Contexto de Dibujado
+search: false
+---
 
 Esta página asume que ya has visto la página de [Conceptos Básicos de Renderizado](./basic-concepts).
 

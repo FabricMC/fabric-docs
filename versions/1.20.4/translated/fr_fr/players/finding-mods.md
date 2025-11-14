@@ -3,9 +3,9 @@ title: Trouver des mods fiables
 description: Un guide pour trouver des mods Fabric depuis des sources fiables.
 authors:
   - IMB11
----
 
-# Trouver des mods fiables
+search: false
+---
 
 La fiabilité d'une source est subjective, et vous devriez toujours juger de par vous-même lorsque vous téléchargez des mods. Mais voici quelques astuces pour vous aider à trouver des mods fiables.
 

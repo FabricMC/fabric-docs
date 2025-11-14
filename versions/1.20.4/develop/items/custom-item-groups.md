@@ -3,9 +3,9 @@ title: Custom Item Groups
 description: Learn how to create your own item group and add items to it.
 authors:
   - IMB11
----
 
-# Custom Item Groups {#custom-item-groups}
+search: false
+---
 
 Item groups are the tabs in the creative inventory that store items. You can create your own item group to store your items in a separate tab. This is pretty useful if your mod adds a lot of items and you want to keep them organized in one location for your players to easily access.
 
@@ -17,8 +17,6 @@ It's surprisingly easy to create an item group. Simply create a new static final
 
 @[code transcludeWith=:::_12](@/reference/1.20.4/src/main/java/com/example/docs/item/ModItems.java)
 
-<hr />
-
 You should see the item group is now in the creative inventory menu. However, it is untranslated - you must add a translation key to your translations file - similarly to how you translated your first item.
 
 ![Item group without translation in creative menu](/assets/develop/items/itemgroups_0.png)
@@ -29,7 +27,7 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 
 ```json
 {
-    "itemGroup.fabric_docs_reference": "Fabric Docs Reference"
+    "itemGroup.example-mod": "Example Mod"
 }
 ```
 

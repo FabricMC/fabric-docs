@@ -3,9 +3,9 @@ title: Benutzerdefinierte Widgets
 description: Lerne, wie man benutzerdefinierte Widgets für deine Oberfläche erstellt.
 authors:
   - IMB11
----
 
-# Benutzerdefinierte Widgets
+search: false
+---
 
 Widgets sind im Wesentlichen in Containern untergebrachte Rendering-Komponenten, die zu einer Oberfläche hinzugefügt werden können und mit denen der Spieler durch verschiedene Ereignisse wie Mausklicks, Tastendruck usw.
 

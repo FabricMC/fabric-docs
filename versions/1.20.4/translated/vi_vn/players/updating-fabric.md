@@ -4,9 +4,9 @@ description: Bộ hướng dẫn từng bước để cập nhật Fabric.
 authors:
   - IMB11
   - modmuss50
----
 
-# Cập Nhật Fabric
+search: false
+---
 
 Bài hướng dẫn này sẽ giúp bạn cập nhật Fabric cho trình Launcher Minecraft chính thức.
 

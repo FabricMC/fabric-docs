@@ -4,9 +4,9 @@ description: Una guía completa para entender y usar el sistema de codecs de Moj
 authors:
   - enjarai
   - Syst3ms
----
 
-# Codecs
+search: false
+---
 
 Los Codecs es un sistema para la fácil serialización de objetos de Java, el cual viene incluido en la librería de DataFixerUpper (DFU) de Mojang, el cual es incluido en Minecraft. En el contexto de desarrollo de mods, pueden ser usados como una alternativa a GSON y Jankson a la hora de leer y escribir archivos json, aunque se están haciendo cada vez más y más relevantes, a medida que Mojang reescribe bastante código viejo para que use Codecs.
 

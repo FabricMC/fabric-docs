@@ -3,9 +3,9 @@ title: Absturzberichte
 description: Erfahre, wie mit Absturzberichten umzugehen ist, und wie man sie liest.
 authors:
   - IMB11
----
 
-# Absturzberichte
+search: false
+---
 
 :::tip
 Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
@@ -83,10 +83,10 @@ Mixins sind eine Möglichkeit, das Spiel zu verändern, ohne den Quellcode des S
 
 Wenn ein Mixin abstürzt, wird normalerweise das Mixin im Stacktrace erwähnt, mit der Klasse, die das Mixin verändert.
 
-Mixins für Methoden enthalten `modid$handlerName` im Stacktrace, wobei `modid` die ID der Mod ist und `handlerName` der Name des Mixin-Handlers ist.
+Mixins für Methoden enthalten `mod-id$handlerName` im Stacktrace, wobei `mod-id` die ID der Mod ist und `handlerName` der Name des Mixin-Handlers ist.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Du kannst diese Information nutzen, um die Mod zu finden, die den Absturz verursacht und den Absturz an den Mod-Autor zu melden.

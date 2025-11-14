@@ -3,9 +3,9 @@ title: Встановлення Fabric
 description: Покрокова інструкція з встановлення Fabric.
 authors:
   - IMB11
----
 
-# Встановлення Fabric
+search: false
+---
 
 Ця інструкція допоможе вам встановити Fabric для офіційного лаунчера Minecraft.
 

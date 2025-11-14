@@ -3,9 +3,9 @@ title: Instalar Fabric
 description: Una guía paso a paso sobre como instalar Fabric.
 authors:
   - IMB11
----
 
-# Instalar Fabric
+search: false
+---
 
 Esta guía te enseñará sobre como instalar Fabric usando el launcher oficial de Minecraft.
 

@@ -3,9 +3,9 @@ title: 명령어 제안
 description: 어떻게 명령어 인수를 플레이어에게 제안하는지 알아보세요.
 authors:
   - IMB11
----
 
-# 명령어 제안
+search: false
+---
 
 Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력한 명령어 제안 체계가 잡혀 있습니다. 이 체계는 플레이어에게 명령어 인수 값을 제안하고, 유저가 제안된 값을 선택할 수 있게 해줍니다.
 
@@ -17,7 +17,7 @@ Minecraft에는 `/give` 명령어처럼 많은 경우에서 사용되는 강력�
 
 제안 공급자를 사용하려면, 인수 빌더의 `suggests` 메소드를 호출해야 합니다. 이 메드는 `SuggestionProvider`를 인수로 받고 제안 공급자가 덧붙여진 새로운 인수 빌더를 반환합니다.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## 내장된 제안 공급자
 

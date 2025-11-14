@@ -3,9 +3,9 @@ title: Memuat Naik Log
 description: Cara memuat naik log untuk menyelesaikan masalah.
 authors:
   - IMB11
----
 
-# Memuat Naik Log
+search: false
+---
 
 Apabila menyelesaikan masalah, anda selalunya perlu menyediakan log untuk membantu mengenal pasti punca isu tersebut.
 

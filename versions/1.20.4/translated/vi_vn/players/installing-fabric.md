@@ -3,9 +3,9 @@ title: Cài Đặt Fabric
 description: Bộ hướng dẫn từng bước để cài đặt Fabric.
 authors:
   - IMB11
----
 
-# Cài Đặt Fabric
+search: false
+---
 
 Bài hướng dẫn này sẽ giúp bạn cài đặt Fabric cho trình Launcher Minecraft chính thức.
 

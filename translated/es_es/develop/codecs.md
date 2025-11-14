@@ -6,8 +6,6 @@ authors:
   - Syst3ms
 ---
 
-# Codecs
-
 Los Codecs es un sistema para la fácil serialización de objetos de Java, el cual viene incluido en la librería de DataFixerUpper (DFU) de Mojang, el cual es incluido en Minecraft. En el contexto de desarrollo de mods, pueden ser usados como una alternativa a GSON y Jankson a la hora de leer y escribir archivos json, aunque se están haciendo cada vez más y más relevantes, a medida que Mojang reescribe bastante código viejo para que use Codecs.
 
 Los codecs son usandos en conjunto con otro API de DFU, llamado `DynamicOps` (Operaciones Dinámicas). Un codec define la estructura de un objeto, mientras que un "dynamic ops" es usado para definir un formato con el cual (de) serializar, como json o NBT. Esto quiere decir que un codec puede user usado con cualquier "dynamic ops" y vice versa, permitiendo mayor flexibilidad.
@@ -227,8 +225,8 @@ Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, 
 
 // Usalo para serializar datos
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    Identifier.of("example", "number"), 23,
+    Identifier.of("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -282,7 +280,7 @@ public class Identifier {
 
     public static DataResult<Identifier> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
+            return DataResult.success(Identifier.of(id));
         } catch (InvalidIdentifierException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }

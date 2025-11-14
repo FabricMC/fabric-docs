@@ -3,9 +3,9 @@ title: Java auf Linux installieren
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Java auf Linux.
 authors:
   - IMB11
----
 
-# Java auf Linux installieren
+search: false
+---
 
 Diese Anleitung führt Sie durch die Installation von Java 17 auf Linux.
 

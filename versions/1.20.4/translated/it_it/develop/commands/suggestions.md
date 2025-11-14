@@ -3,9 +3,9 @@ title: Suggerimenti dei Comandi
 description: Impara come suggerire i valori per gli argomenti dei comandi agli utenti.
 authors:
   - IMB11
----
 
-# Suggerimenti dei Comandi
+search: false
+---
 
 Minecraft ha un potente sistema di suggerimento comandi che viene usato in molti posti, come nel comando `/give`. Questo sistema ti permette di suggerire valori per argomenti dei comandi all'utente, da cui possono poi selezionare - è un ottimo modo per rendere i tuoi comandi più user-friendly ed ergonomici.
 
@@ -17,7 +17,7 @@ Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che ver
 
 Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo prende un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Provider di Suggerimenti Predefiniti
 

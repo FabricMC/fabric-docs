@@ -1,8 +1,8 @@
-* @FabricMC/documentation
+*                  @FabricMC/documentation
 
-.github/ @FabricMC/developers
-.vitepress/ @FabricMC/developers
-.vitepress/sidebars/ @FabricMC/documentation
-package-lock.json @FabricMC/developers
-package.json @FabricMC/developers
-LICENSE @FabricMC/developers
+.git*              @FabricMC/developers
+.nvmrc             @FabricMC/developers
+crowdin.yml        @FabricMC/developers
+netlify.toml       @FabricMC/developers
+package.json       @FabricMC/developers
+package-lock.json  @FabricMC/developers

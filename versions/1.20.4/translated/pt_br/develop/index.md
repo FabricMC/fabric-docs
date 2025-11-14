@@ -1,9 +1,9 @@
 ---
 title: Guias do desenvolvedor
 description: Nossos guias de desenvolvedor, escritos pela comunidade, abrangem uma variedade de tópicos desde a configuração de um ambiente de desenvolvimento até tópicos mais avançados, como renderização e networking.
----
 
-# Guias do desenvolvedor
+search: false
+---
 
 Nossos guias de desenvolvedor, escritos pela comunidade, abrangem uma variedade de tópicos desde a configuração de um ambiente de desenvolvimento até tópicos mais avançados, como renderização e networking.
 

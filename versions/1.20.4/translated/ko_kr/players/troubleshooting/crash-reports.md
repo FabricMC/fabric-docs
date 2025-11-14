@@ -3,9 +3,9 @@ title: 충돌 보고서
 description: 충돌 보고서가 어떤 역할을 가지고, 어떻게 읽는지 알아보세요.
 authors:
   - IMB11
----
 
-# 충돌 보고서
+search: false
+---
 
 :::tip
 충돌의 원인을 찾는 데 어려움이 있으시다면, [Fabric Discord (영어)](https://discord.gg/v6v4pMv) 의 `#player-support` 또는 `#server-admin-support` 채널에 도움을 요청할 수 있습니다.
@@ -83,10 +83,10 @@ Mixin은 게임의 소스 코드를 수정하지 않고 게임을 수정하는 �
 
 Mixin이 충돌하면, 스택 트레이스에는 충돌이 발생한 Mixin과, Mixin을 수정하려고 시도한 모드가 기록됩니다.
 
-메소드 Mixin은 스택트레이스에 `modId$handlerName` 로 기록되는데, `modId`는 모드의 아이디, `handlerName`은 Mixin 처리기의 이름입니다.
+메소드 Mixin은 스택트레이스에 `mod-id$handlerName` 로 기록되는데, `mod-id`는 모드의 아이디, `handlerName`은 Mixin 처리기의 이름입니다.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 이 정보를 통해 충돌을 일으킨 모드를 찾고, 모드 개발자에게 충돌을 신고할 수 있게 됩니다.

@@ -1,97 +1,94 @@
 <script setup lang="ts">
-import { onContentUpdated, useData } from "vitepress";
-import { ref } from "vue";
+import { useData } from "vitepress";
+import { computed } from "vue";
+
+import { Fabric } from "../../types";
+
+type Author = { name: string; noGitHub?: true };
 
 const data = useData();
 
-const authors = ref<string[]>([]);
-const authorsNoGitHub = ref<string[]>([]);
-const heading = ref<string>("");
-const labelNoGitHub = ref<string>("");
+const options = computed(() => data.theme.value.authors as Fabric.AuthorsOptions);
 
-function refreshOptions() {
-  heading.value = data.theme.value.authors.heading;
-  labelNoGitHub.value = data.theme.value.authors.nogithub;
+const authors = computed<Author[]>(() =>
+  [
+    ...((data.frontmatter.value["authors"] || []) as string[]).map((name) => ({ name })),
+    ...((data.frontmatter.value["authors-nogithub"] || []) as string[]).map((name) => ({
+      name,
+      noGitHub: true,
+    })),
+  ].sort((a, b) => a.name.localeCompare(b.name))
+);
 
-  authors.value = [];
-  if (data.frontmatter.value["authors"]) {
-    authors.value = data.frontmatter.value["authors"];
-  }
-
-  authorsNoGitHub.value = [];
-  if (data.frontmatter.value["authors-nogithub"]) {
-    authorsNoGitHub.value = data.frontmatter.value["authors-nogithub"];
-  }
-}
-
-onContentUpdated(() => {
-  refreshOptions();
-});
+const getImageSrc = (author: Author) =>
+  author.noGitHub
+    ? "/assets/avatater.png"
+    : "https://wsrv.nl/?"
+      + new URLSearchParams({
+        af: "",
+        maxage: "7d",
+        url: `https://github.com/${author.name}.png?size=32`,
+        default: "https://docs.fabricmc.net/assets/avatater.png",
+      });
 </script>
 
 <template>
-  <div v-if="authors.length > 0" class="authors-section">
-    <h2>{{ heading }}</h2>
-    <div class="page-authors">
-      <a
-        v-for="author in authors"
-        :href="`https://github.com/${author}`"
-        target="_blank"
-        class="author-link"
-        :title="author"
-      >
-        <img
-          loading="lazy"
-          class="author-avatar"
-          :src="`https://wsrv.nl/?url=${encodeURIComponent(
-            `https://github.com/${author}.png?size=32`
-          )}&af`"
-          :alt="author"
-        />
-      </a>
+  <h2 v-if="authors.length">{{ options.heading }}</h2>
+  <div>
+    <component
+      v-for="author in authors"
+      :key="author.noGitHub ? `${author.name}!` : author.name"
+      :is="author.noGitHub ? 'span' : 'a'"
+      :href="`https://github.com/${author.name}`"
+      target="_blank"
+    >
       <img
-        v-for="author in authorsNoGitHub"
+        :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
+        :src="getImageSrc(author)"
+        :alt="author.name"
         loading="lazy"
-        class="author-avatar"
-        :src="`https://wsrv.nl/?url=${encodeURIComponent(
-          'https://github.com/FabricMC.png?size=32'
-        )}&af`"
-        :alt="author"
-        :title="labelNoGitHub.replace('%s', author)"
       />
-    </div>
+    </component>
   </div>
 </template>
 
 <style scoped>
-.authors-section {
-  margin-top: 8px;
+h2 {
+  font-weight: bold;
+  font-size: large;
+  margin-top: 16px;
 }
 
-.authors-section > h2 {
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  font-size: 14px;
+.content-container > h2 {
+  display: none;
 }
 
-.page-authors {
+div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   margin-top: 8px;
   gap: 8px;
+
+  a {
+    transition: filter 0.2s ease-in-out;
+  }
+
+  a:hover {
+    filter: brightness(120%);
+  }
+
+  img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
 }
 
-.author-avatar {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-
-  transition: filter 0.2s ease-in-out;
-}
-
-.page-authors > a:hover > .author-avatar {
-  filter: brightness(1.2);
+@media (min-width: 1280px) {
+  .content-container > div {
+    display: none;
+  }
 }
 </style>

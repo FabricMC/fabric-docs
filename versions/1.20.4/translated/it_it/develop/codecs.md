@@ -4,9 +4,9 @@ description: Una guida esaustiva per la comprensione e l'uso del sistema di code
 authors:
   - enjarai
   - Syst3ms
----
 
-# Codec
+search: false
+---
 
 Un codec è un sistema per serializzare facilmente oggetti Java, ed è incluso nella libreria DataFixerUpper (DFU) di Mojang, che è inclusa in Minecraft. Nel contesto del modding essi possono essere usati come un'alternativa a GSON e Jankson quando si leggono e si scrivono file json personalizzati, anche se hanno cominciato a diventare sempre più rilevanti, visto che Mojang sta riscrivendo molto suo codice in modo che usi i Codec.
 

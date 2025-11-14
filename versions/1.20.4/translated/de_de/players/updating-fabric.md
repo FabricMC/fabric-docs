@@ -4,9 +4,9 @@ description: Eine Schritt-für-Schritt-Anleitung zum Aktualisieren von Fabric.
 authors:
   - IMB11
   - modmuss50
----
 
-# Aktualisieren von Fabric
+search: false
+---
 
 Diese Anleitung wird das Aktualisieren von Fabric detailliert für den Minecraft-Launcher erklären.
 

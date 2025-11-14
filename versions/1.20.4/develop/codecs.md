@@ -4,9 +4,9 @@ description: A comprehensive guide for understanding and using Mojang's codec sy
 authors:
   - enjarai
   - Syst3ms
----
 
-# Codecs {#codecs}
+search: false
+---
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative

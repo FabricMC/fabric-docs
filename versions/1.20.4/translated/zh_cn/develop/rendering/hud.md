@@ -3,9 +3,9 @@ title: 渲染Hud
 description: 学习如何使用 HudRenderCallback 事件来渲染Hud。
 authors:
   - IMB11
----
 
-# 渲染Hud
+search: false
+---
 
 在 [基本渲染概念](./basic-concepts) 页面和 [使用绘制上下文](./draw-context) 中，我们已经简要介绍了如何将内容渲染到Hud，因此在本页中，我们将重点介绍 `HudRenderCallback` 事件和 `deltaTick` 参数。
 

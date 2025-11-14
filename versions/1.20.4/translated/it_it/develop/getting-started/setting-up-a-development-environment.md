@@ -16,9 +16,9 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
----
 
-# Impostare un Ambiente di Sviluppo
+search: false
+---
 
 Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente di sviluppo usando IntelliJ IDEA.
 

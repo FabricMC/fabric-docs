@@ -4,9 +4,9 @@ description: Aprende sobre los conceptos básicos de renderización usando el mo
 authors:
   - IMB11
   - "0x3C50"
----
 
-# Conceptos Básicos de Renderización
+search: false
+---
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.

@@ -16,9 +16,9 @@ authors:
   - asiekierka
 authors-nogithub:
   - siglong
----
 
-# Setting up a Development Environment {#setting-up-a-development-environment}
+search: false
+---
 
 To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA.
 

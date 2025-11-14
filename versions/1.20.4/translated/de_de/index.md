@@ -9,19 +9,19 @@ features:
   - title: Leitfäden für Entwickler
     icon: 🛠️
     details: Unsere kuratierten, von der Community verfassten Leitfäden für Entwickler decken ein breites Spektrum an Themen ab, von der Einrichtung einer Entwicklungsumgebung bis hin zu fortgeschrittenen Themen wie Rendering und Networking.
-    link: ./develop/index
+    link: /de_de/1.20.4/develop/
     linkText: Loslegen
   - title: Leitfäden für Spieler
     icon: 📚
     details: Bist du ein Spieler, der Mods verwenden möchte, die von Fabric unterstützt werden? Unsere Spieler-Leitfäden decken alles ab. Diese Anleitungen werden dir beim Herunterladen, Installieren und Beheben von Problemen mit Fabric-Mods helfen.
-    link: ./players/index
+    link: /de_de/1.20.4/players/
     linkText: Weiterlesen
+
+search: false
 ---
 
-<div class="vp-doc homepage-container">
-
-## Möchtest du einen Beitrag leisten?
+::: warning
+Du siehst gerade die Dokumentation für Minecraft 1.20.4. Wenn du nach einer anderen Version suchst, wähle diese bitte aus dem Dropdown-Menü in der Navigationsleiste aus.
+:::
 
 Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](./contributing)
-
-</div>

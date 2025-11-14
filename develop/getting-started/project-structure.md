@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Project Structure {#project-structure}
-
 This page will go over the structure of a Fabric mod project, and the purpose of each file and folder in the project.
 
 ## `fabric.mod.json` {#fabric-mod-json}
@@ -22,9 +20,9 @@ The most important fields in the `fabric.mod.json` file are:
 - `depends`: The mods that your mod depends on.
 - `mixins`: The mixins that your mod provides.
 
-You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the reference project that powers this documentation site.
+You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the mod that powers this documentation site.
 
-::: details Reference Project `fabric.mod.json`
+::: details `fabric.mod.json` of the Example Mod
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 :::
 
@@ -32,11 +30,16 @@ You can see an example `fabric.mod.json` file below - this is the `fabric.mod.js
 
 As mentioned before, the `fabric.mod.json` file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
 
-The template mod generator creates both a `main` and `client` entrypoint by default - the `main` entrypoint is used for common code, and the `client` entrypoint is used for client-specific code. These entrypoints are called respectively when the game starts.
+The template mod generator creates both a `main` and `client` entrypoint by default:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+- The `main` entrypoint is used for common code, and it's contained in a class which implements `ModInitializer`
+- The `client` entrypoint is used for client-specific code, and its class implements `ClientModInitializer`
 
-The above is an example of a simple `main` entrypoint that logs a message to the console when the game starts.
+These entrypoints are called respectively when the game starts.
+
+Here's an example of a simple `main` entrypoint that logs a message to the console when the game starts:
+
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -44,7 +47,7 @@ The `src/main/resources` folder is used to store the resources that your mod use
 
 It's also the location of `fabric.mod.json` and any mixin configuration files that your mod uses.
 
-Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/modid/textures/block/block.png`.
+Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

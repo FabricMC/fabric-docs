@@ -3,9 +3,9 @@ title: Instalar Mods
 description: Una guía paso a paso sobre como instalar mods para Fabric.
 authors:
   - IMB11
----
 
-# Instalar Mods
+search: false
+---
 
 Esta guía te enseñará sobre como instalar mods para Fabric usando el Launcher de Minecraft.
 

@@ -4,9 +4,9 @@ description: 学习如何注册简单的物品，以及如何给物品添加纹�
 authors:
   - IMB11
   - dicedpixels
----
 
-# 创建你的第一个物品{#creating-your-first-item}
+search: false
+---
 
 本页会带你介绍物品的一些关键概念，以及如果注册物品、添加纹理、添加模型、命名。
 
@@ -24,7 +24,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-## 注册物品{#registering-an-item}
+## 注册物品 {#registering-an-item}
 
 你现在可以用这个方法注册物品
 
@@ -44,11 +44,11 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。
 
-## 将物品添加到物品组{#adding-the-item-to-an-item-group}
+## 将物品添加到物品组 {#adding-the-item-to-an-item-group}
 
 :::info
 如果想要将物品添加到自定义的 `ItemGroup`，请参阅[自定义物品组](./item-groups)页面以了解更多。
@@ -70,23 +70,23 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 - 纹理
 - 翻译（名称）
 
-## 给物品命名{#naming-the-item}
+## 给物品命名 {#naming-the-item}
 
-物品当前还没有翻译，所以需要添加。 Minecraft 已经提供好了翻译键：`item.mod_id.suspicious_substance`。
+物品当前还没有翻译，所以需要添加。 Minecraft 已经提供好了翻译键：`item.example-mod.suspicious_substance`。
 
-创建新的 JSON 文件：`src/main/resources/assets/<mod id here>/lang/en_us.json`，并将翻译键和名称放在里面：
+创建新的 JSON 文件：`src/main/resources/assets/example-mod/lang/en_us.json`，并将翻译键和名称放在里面：
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+    "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
-要应用更改，可以重启游戏，或者构建模组并按下<kbd>F3</kbd> + <kbd>T</kbd>。
+要应用更改，可以重启游戏，或者构建模组并按下<kbd>F3</kbd>+<kbd>T</kbd>。
 
-## 添加纹理和模型{#adding-a-texture-and-model}
+## 添加纹理和模型 {#adding-a-texture-and-model}
 
-要给你的物品纹理和模型，先简单地为物品创建一个16x16的纹理图像，并存储在 `assets/<mod id here>/textures/item` 文件夹中。 根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
+要给你的物品纹理和模型，先简单地为物品创建一个16x16的纹理图像，并存储在 `assets/example-mod/textures/item` 文件夹中。 根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
 
 例如，将示例纹理用于 `suspicious_substance.png`。
 
@@ -96,11 +96,11 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 简单创建一个 `item/generated` 模型，接收一个输入纹理，没有其他的。
 
-在 `assets/<mod id here>/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
+在 `assets/example-mod/models/item` 文件夹内创建模型 JSON，名称与物品相同， `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
-### 逐个分析模型 JSON{#breaking-down-the-model-json}
+### 逐个分析模型 JSON {#breaking-down-the-model-json}
 
 - `parent`：模型要继承的模型。 在这个例子中，是 `item/generated` 模型。
 - `textures`：为模型定义纹理的地方。 `layer0` 键是模型使用的纹理。
@@ -129,7 +129,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/<mod id here>/recipes` 文件夹中。
+如果要为你的物品添加合成配方，需要将配方 JSON 文件放在 `data/example-mod/recipes` 文件夹中。
 
 更多关于配方格式的信息，可参考以下资源：
 

@@ -3,9 +3,9 @@ title: Rendering nel Hud
 description: Impara a usare l'evento HudRenderCallback per renderizzare sul hud.
 authors:
   - IMB11
----
 
-# Rendering nel Hud
+search: false
+---
 
 Abbiamo già parlato brevemente di come renderizzare cose sulla Hud nelle pagine [Concetti di Rendering di Base](./basic-concepts) e [Usare il Drawing Context](./draw-context), per cui in questa pagina ci concentreremo sull'evento `HudRenderCallback` e sul parametro `deltaTick`.
 

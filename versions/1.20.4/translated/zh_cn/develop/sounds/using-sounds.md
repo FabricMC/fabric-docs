@@ -1,9 +1,9 @@
 ---
 title: 播放声音事件（SoundEvent）
 description: 学习如何播放声音事件（SoundEvent）。
----
 
-# 播放声音事件（SoundEvent）
+search: false
+---
 
 Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mojang 提供的所有原版声音事件实例。
 
@@ -11,7 +11,7 @@ Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mo
 
 使用声音时请确保在逻辑服务端执行 `playSound()` 方法。
 
-在此示例中，自定义交互项的 `useOnEntity()` 和 `useOnBlock()` 方法用于播放“放置铜块”和掠夺者声音。
+在此示例中，自定义交互项的 `useOnEntity()` 和 `useOnBlock()` 方法用于播放"放置铜块"和掠夺者声音。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 

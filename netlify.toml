@@ -2,3 +2,6 @@
   for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+[build.environment]
+  NODE_OPTIONS = "--max-old-space-size=4096"

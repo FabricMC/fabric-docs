@@ -1,9 +1,12 @@
 package com.example.docs.rendering;
 
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import com.example.docs.ExampleMod;
 
 public class DrawContextExampleScreen extends Screen {
 	public DrawContextExampleScreen() {
@@ -25,7 +28,7 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::2
 		// x, y, width, height, color
-		context.drawBorder(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
+		context.drawStrokedRectangle(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
 		// :::2
 
 		// :::3
@@ -56,15 +59,15 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::5
 		Identifier texture = Identifier.of("minecraft", "textures/block/deepslate.png");
-		// texture, x, y, u, v, width, height, textureWidth, textureHeight
-		context.drawTexture(texture, 90, 90, 0, 0, 16, 16, 16, 16);
+		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
+		context.drawTexture(RenderPipelines.GUI_TEXTURED, texture, 90, 90, 0, 0, 16, 16, 16, 16);
 		// :::5
 
 		// :::6
-		Identifier texture2 = Identifier.of("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
+		Identifier texture2 = Identifier.of(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
-		// texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
-		context.drawTexture(texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);
+		// renderLayer, texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
+		context.drawTexture(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);
 		// :::6
 
 		// :::7

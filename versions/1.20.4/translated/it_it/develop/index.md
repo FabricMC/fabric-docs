@@ -1,9 +1,9 @@
 ---
 title: Guide per Sviluppatori
 description: Le nostre guide, scritte dalla community, coprono una vasta gamma di argomenti, dal setup di un ambiente di sviluppo ad argomenti più avanzati, come il rendering e il networking.
----
 
-# Guide per Sviluppatori
+search: false
+---
 
 Le nostre guide, scritte dalla community, coprono una vasta gamma di argomenti, dal setup di un ambiente di sviluppo ad argomenti più avanzati, come il rendering e il networking.
 

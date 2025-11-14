@@ -3,9 +3,9 @@ title: Vertrauenswürdige Mods finden
 description: Eine Anleitung, wie man Fabric-Mods in vertrauenswürdigen Quellen findet.
 authors:
   - IMB11
----
 
-# Vertrauenswürdige Mods finden
+search: false
+---
 
 Zu Beginn, Vertrauen ist subjektiv, du solltest beim Herunterladen von Mods immer nach eigenem Ermessen handeln. Hier sind ein paar Dinge, die dir helfen können, vertrauenswürdige Mods zu finden.
 

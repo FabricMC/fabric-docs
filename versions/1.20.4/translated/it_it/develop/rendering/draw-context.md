@@ -3,9 +3,9 @@ title: Usare il Contesto di Disegno
 description: Impara a usare la classe DrawContext per renderizzare varie forme, testi e texture.
 authors:
   - IMB11
----
 
-# Usare il Contesto di Disegno
+search: false
+---
 
 Questa pagina suppone che tu abbia guardato la pagina [Concetti Base del Rendering](./basic-concepts).
 

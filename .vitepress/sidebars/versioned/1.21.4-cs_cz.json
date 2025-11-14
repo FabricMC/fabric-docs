@@ -1,0 +1,346 @@
+{
+  "/cs_cz/develop/": [
+    {
+      "text": "Návody pro vývojáře",
+      "link": "/cs_cz/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Začínáme",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Úvod do Fabricu a modování",
+          "link": "/cs_cz/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "Nastavení vývojářského prostředí",
+          "link": "/cs_cz/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "Vytvoření projektu",
+          "link": "/cs_cz/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Struktura projektu",
+          "link": "/cs_cz/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Spouštění hry",
+          "link": "/cs_cz/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "Předměty",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Vytvoření vašeho prvního předmětu",
+          "link": "/cs_cz/develop/items/first-item"
+        },
+        {
+          "text": "Předměty jídla",
+          "link": "/cs_cz/develop/items/food"
+        },
+        {
+          "text": "Vlastní nástroje",
+          "link": "/cs_cz/develop/items/custom-tools"
+        },
+        {
+          "text": "Vlastní brnění",
+          "link": "/cs_cz/develop/items/custom-armor"
+        },
+        {
+          "text": "Vlastní skupiny předmětů",
+          "link": "/cs_cz/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Vlastní interakce předmětů",
+          "link": "/cs_cz/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Vlastní efekty očarování",
+          "link": "/cs_cz/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Vlastní datové komponenty",
+          "link": "/cs_cz/develop/items/custom-data-components"
+        },
+        {
+          "text": "Lektvary",
+          "link": "/cs_cz/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Bloky",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Vytvoření vašeho prvního bloku",
+          "link": "/cs_cz/develop/blocks/first-block"
+        },
+        {
+          "text": "Stavy bloků",
+          "link": "/cs_cz/develop/blocks/blockstates"
+        },
+        {
+          "text": "Blokové entity",
+          "link": "/cs_cz/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Renderery blokových entit",
+              "link": "/cs_cz/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Entity",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Stavové efekty",
+          "link": "/cs_cz/develop/entities/effects"
+        },
+        {
+          "text": "Typy poškození",
+          "link": "/cs_cz/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Zvuky",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Přehrávání zvuků",
+          "link": "/cs_cz/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Vytváření vlastních zvuků",
+          "link": "/cs_cz/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamické zvuky",
+          "link": "/cs_cz/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Příkazy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Vytváření příkazů",
+          "link": "/cs_cz/develop/commands/basics"
+        },
+        {
+          "text": "Argumenty příkazů",
+          "link": "/cs_cz/develop/commands/arguments"
+        },
+        {
+          "text": "Návrhy příkazů",
+          "link": "/cs_cz/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Renderování",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Základní příklady renderování",
+          "link": "/cs_cz/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Používání kontextu vykreslování",
+          "link": "/cs_cz/develop/rendering/draw-context"
+        },
+        {
+          "text": "Renderování v HUD",
+          "link": "/cs_cz/develop/rendering/hud"
+        },
+        {
+          "text": "GUI a obrazovky",
+          "items": [
+            {
+              "text": "Vlastní obrazovky",
+              "link": "/cs_cz/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Vlastní widgety",
+              "link": "/cs_cz/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Částice",
+          "items": [
+            {
+              "text": "Vytváření vlastních částic",
+              "link": "/cs_cz/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Generování dat",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Nastavení generování dat",
+          "link": "/cs_cz/develop/data-generation/setup"
+        },
+        {
+          "text": "Generování tagů",
+          "link": "/cs_cz/develop/data-generation/tags"
+        },
+        {
+          "text": "Generování překladů",
+          "link": "/cs_cz/develop/data-generation/translations"
+        },
+        {
+          "text": "Generování pokroků",
+          "link": "/cs_cz/develop/data-generation/advancements"
+        },
+        {
+          "text": "Generování receptů",
+          "link": "/cs_cz/develop/data-generation/recipes"
+        },
+        {
+          "text": "Generování tabulek kořistí",
+          "link": "/cs_cz/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "Generování modelů bloků",
+          "link": "/cs_cz/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "Různé články",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Kodeky",
+          "link": "/cs_cz/develop/codecs"
+        },
+        {
+          "text": "Události",
+          "link": "/cs_cz/develop/events"
+        },
+        {
+          "text": "Síťování",
+          "link": "/cs_cz/develop/networking"
+        },
+        {
+          "text": "Text a překlad",
+          "link": "/cs_cz/develop/text-and-translations"
+        },
+        {
+          "text": "Tipy a triky",
+          "link": "/cs_cz/develop/ide-tips-and-tricks"
+        },
+        {
+          "text": "Automatické testování",
+          "link": "/cs_cz/develop/automatic-testing"
+        },
+        {
+          "text": "Plugin Loom Gradle",
+          "link": "/cs_cz/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/cs_cz/develop/loom/fabric-api"
+            },
+            {
+              "text": "Možnosti rozšíření",
+              "link": "/cs_cz/develop/loom/options"
+            },
+            {
+              "text": "Úkoly výrobního cyklu",
+              "link": "/cs_cz/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/cs_cz/players/": [
+    {
+      "text": "Hráčské návody",
+      "link": "/cs_cz/players/",
+      "items": [
+        {
+          "text": "Často kladené dotazy",
+          "link": "/cs_cz/players/faq"
+        },
+        {
+          "text": "Instalace Javy",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/cs_cz/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/cs_cz/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Instalace Fabricu",
+          "link": "/cs_cz/players/installing-fabric"
+        },
+        {
+          "text": "Hledání důvěryhodných módů",
+          "link": "/cs_cz/players/finding-mods"
+        },
+        {
+          "text": "Instalace modů",
+          "link": "/cs_cz/players/installing-mods"
+        },
+        {
+          "text": "Řešení problémů",
+          "items": [
+            {
+              "text": "Nahrávání logů",
+              "link": "/cs_cz/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Zprávy o pádech",
+              "link": "/cs_cz/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Aktualizace Fabricu",
+          "link": "/cs_cz/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@ title: 崩溃报告
 description: 学习如何处理崩溃报告以及如何阅读它们。
 authors:
   - IMB11
----
 
-# 崩溃报告
+search: false
+---
 
 :::tip
 如果你在查找崩溃原因时遇到困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
@@ -83,10 +83,10 @@ Mixin 是一种修改游戏的方式，使模组无需破坏性的直接修改�
 
 当有 Mixin 引起的崩溃时，通常会在堆栈跟踪中提到该 Mixin 类以及该 Mixin 类修改的类。
 
-方法 Mixin 的标识 `modid$handlerName` 将被包含在堆栈跟踪中，其中 `modid` 是模组的 ID，而 `handlerName` 是 Mixin 处理部分的名称。
+方法 Mixin 的标识 `mod-id$handlerName` 将被包含在堆栈跟踪中，其中 `mod-id` 是模组的 ID，而 `handlerName` 是 Mixin 处理部分的名称。
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 你可以使用此信息找到导致崩溃的模组，并向模组作者报告崩溃情况。

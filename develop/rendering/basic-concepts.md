@@ -2,16 +2,22 @@
 title: Basic Rendering Concepts
 description: Learn about the basic concepts of rendering using Minecraft's rendering engine.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
-
-# Basic Rendering Concepts {#basic-rendering-concepts}
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
 
 To summarize, you have to use Minecraft's rendering system, or build your own that utilizes `GL.glDrawElements()`.
+:::
+
+::: warning IMPORTANT UPDATE
+Starting from 1.21.6, large changes are being implemented to the rendering pipeline, such as moving towards `RenderLayer`s and `RenderPipeline`s and more importantly, `RenderState`s, with the ultimate goal of being able to prepare the next frame while drawing the current frame. In the "preparation" phase, all game data used for rendering is extracted to `RenderState`s, so another thread can work on drawing that frame while the next frame is being extracted.
+
+For example, in 1.21.8 GUI rendering adopted this model, and `DrawContext` methods simply add to the render state. The actual uploading to the `BufferBuilder` happens at the end of the preparation phase, after all elements have been added to the `RenderState`. See `GuiRenderer#prepare`.
+
+This article covers the basics of rendering and, while still somewhat relevant, most times there are higher levels of abstractions for better performance and compatibility. For more information, see [Rendering in the World](./world).
 :::
 
 This page will cover the basics of rendering using the new system, going over key terminology and concepts.
@@ -86,7 +92,7 @@ A transformation matrix is a 4x4 matrix that is used to transform a vector. In M
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
-It's usually obtained via the `MatrixStack` class, which can be obtained via the `DrawContext` object:
+It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `DrawContext` object:
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -98,7 +104,7 @@ It's easier to explain how to write to the `BufferBuilder` using a practical exa
 
 We're going to draw vertices at the following points on the HUD (in order):
 
-```txt
+```:no-line-numbers
 (20, 20)
 (5, 40)
 (35, 40)
@@ -109,7 +115,15 @@ This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` dr
 
 ![Four steps that show the placement of the vertices on the screen to form two triangles](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
-Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
+Since we're drawing on the HUD in this example, we'll use the `HudElementRegistry`:
+
+::: warning IMPORTANT UPDATE
+Starting from 1.21.8, the matrix stack passed for HUD rendering has been changed from `MatrixStack` to `Matrix3x2fStack`. Most methods are slightly different and no longer take a `z` parameter, but the concepts are the same.
+
+Additionally, the code below does not fully match the explanation above: you do not need to manually write to the `BufferBuilder`, because `DrawContext` methods automatically write to the HUD's `BufferBuilder` during preparation.
+
+Read the important update above for more information.
+:::
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
@@ -123,6 +137,14 @@ Try mess around with the colors and positions of the vertices to see what happen
 
 ## The `MatrixStack` {#the-matrixstack}
 
+::: warning
+This section's code and the text are discussing different things!
+
+The code showcases `Matrix3x2fStack`, which is used for HUD rendering since 1.21.8, while the text describes `MatrixStack`, which has slightly different methods.
+
+Read the important update above for more information.
+:::
+
 After learning how to write to the `BufferBuilder`, you might be wondering how to transform your model - or even animate it. This is where the `MatrixStack` class comes in.
 
 The `MatrixStack` class has the following methods:
@@ -135,7 +157,7 @@ The `MatrixStack` class has the following methods:
 
 You can also multiply the top matrix on the stack using quaternions, which we will cover in the next section.
 
-Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the time that has passed since the last frame.
+Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the "progress" between the last game tick and the next game tick. We'll clarify this later in the [Rendering in the HUD](./hud#render-tick-counter) page.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
@@ -149,11 +171,19 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 ## Quaternions (Rotating Things) {#quaternions-rotating-things}
 
+::: warning
+This section's code and the text are discussing different things!
+
+The code showcases rendering on the HUD, while the text describes rendering the 3D world space.
+
+Read the important update above for more information.
+:::
+
 Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `MatrixStack` via the `multiply(Quaternion, x, y, z)` method.
 
 It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `RotationAxis` utility class.
 
-Let's say we want to rotate our diamond around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
+Let's say we want to rotate our square around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

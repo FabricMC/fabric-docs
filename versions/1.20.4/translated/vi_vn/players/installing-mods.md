@@ -3,9 +3,9 @@ title: Cài Đặt Mod
 description: Bộ hướng dẫn từng bước để cài đặt mod cho Fabric.
 authors:
   - IMB11
----
 
-# Cài Đặt Mod
+search: false
+---
 
 Bài hướng dẫn này sẽ giúp bạn cài đặt các bản mod Fabric cho trình Launcher Minecraft chính thức.
 

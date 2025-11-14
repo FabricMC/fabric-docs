@@ -3,14 +3,15 @@ title: Text and Translations
 description: Comprehensive documentation for Minecraft's handling of formatted text and translations.
 authors:
   - IMB11
+  - LordEnder-Kitty
 ---
 
-# Text and Translations {#text-and-translations}
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
 
-Whenever Minecraft displays text ingame, it's probably defined using a `Text` object.
+Whenever Minecraft displays text in-game, it's probably defined using a `Text` object.
 This custom type is used instead of a `String` to allow for more advanced formatting,
 including colors, boldness, obfuscation, and click events. They also allow easy access
-to the translation system, making it simple to translate any interface elements into
+to the translation system, making it simple to translate any UI element into
 different languages.
 
 If you've worked with datapacks or functions before, you may see parallels with the
@@ -59,9 +60,39 @@ The language file, `en_us.json`, looks like the following:
 }
 ```
 
+If you wish to be able to use variables in the translation, similar to how death messages allow you to use the involved players and items in the translation, you may add said variables as parameters. You may add however many parameters you like.
+
+```java
+Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+```
+
+You may reference these variables in the translation like so:
+
+```json
+{
+  "my_mod.text.hello": "%1$s said hello!"
+}
+```
+
+In the game, %1\$s will be replaced with the name of the player you referenced in the code. Using `player.getDisplayName()` will make it so that additional information about the entity will appear in a tooltip when hovering over the name in the chat message as opposed to using `player.getName()`, which will still get the name; however, it will not show the extra details. Similar can be done with itemStacks, using `stack.toHoverableText()`.
+
+As for what %1\$s even means, all you really need to know is that the number corresponds to which variable you are trying to use. Let's say you have three variables that you are using.
+
+```java
+Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+```
+
+If you want to reference what, in our case, is the attacker, you would use %2\$s because it's the second variable that we passed in. Likewise, %3\$s refers to the itemStack. A translation with this many additional parameters might look like this:
+
+```json
+{
+  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
+}
+```
+
 ## Serializing Text {#serializing-text}
 
-<!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
+<!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
 As mentioned before, you can serialize text to JSON using the text codec. For more information on codecs, see the [Codec](./codecs) page.
 
@@ -79,35 +110,34 @@ Furthermore, to deserialize a JSON text object into an actual `Text` class, agai
 
 You may be familiar with Minecraft's formatting standards:
 
-You can apply these formattings using the `Formatting` enum on the `MutableText` class:
+You can apply these formatting styles using the `Formatting` enum on the `MutableText` class:
 
 ```java
 MutableText result = Text.literal("Hello World!")
   .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
 ```
 
-<table>
-    <tr><th>Color</th><th>Name</th><th>Chat Code</th><th>MOTD Code</th><th>Hex Code</th></tr>
-    <tr><td><ColorSwatch color="#000000" /></td><td>Black (black)</td><td>§0</td><td>\u00A70</td><td>#000000</td></tr>
-    <tr><td><ColorSwatch color="#0000AA" /></td><td>Dark Blue (dark_blue)</td><td>§1</td><td>\u00A71</td><td>#0000AA</td></tr>
-    <tr><td><ColorSwatch color="#00AA00" /></td><td>Dark Green (dark_green)</td><td>§2</td><td>\u00A72</td><td>#00AA00</td></tr>
-    <tr><td><ColorSwatch color="#00AAAA" /></td><td>Dark Aqua (dark_aqua)</td><td>§3</td><td>\u00A73</td><td>#00AAAA</td></tr>
-    <tr><td><ColorSwatch color="#AA0000" /></td><td>Dark Red (dark_red)</td><td>§4</td><td>\u00A74</td><td>#AA0000</td></tr>
-    <tr><td><ColorSwatch color="#AA00AA" /></td><td>Dark Purple (dark_purple)</td><td>§5</td><td>\u00A75</td><td>#AA00AA</td></tr>
-    <tr><td><ColorSwatch color="#FFAA00" /></td><td>Gold (gold)</td><td>§6</td><td>\u00A76</td><td>#FFAA00</td></tr>
-    <tr><td><ColorSwatch color="#AAAAAA"/></td><td>Gray (gray)</td><td>§7</td><td>\u00A77</td><td>#AAAAAA</td></tr>
-    <tr><td><ColorSwatch color="#555555" /></td><td>Dark Gray (dark_gray)</td><td>§8</td><td>\u00A78</td><td>#555555</td></tr>
-    <tr><td><ColorSwatch color="#5555FF" /></td><td>Blue (blue)</td><td>§9</td><td>\u00A79</td><td>#5555FF</td></tr>
-    <tr><td><ColorSwatch color="#55FF55" /></td><td>Green (green)</td><td>§a</td><td>\u00A7a</td><td>#55FF55</td></tr>
-    <tr><td><ColorSwatch color="#55FFFF" /></td><td>Aqua (aqua)</td><td>§b</td><td>\u00A7b</td><td>#55FFFF</td></tr>
-    <tr><td><ColorSwatch color="#FF5555" /></td><td>Red (red)</td><td>§c</td><td>\u00A7c</td><td>#FF5555</td></tr>
-    <tr><td><ColorSwatch color="#FF55FF" /></td><td>Light Purple (light_purple)</td><td>§d</td><td>\u00A7d</td><td>#FF55FF</td></tr>
-    <tr><td><ColorSwatch color="#FFFF55" /></td><td>Yellow (yellow)</td><td>§e</td><td>\u00A7e</td><td>#FFFF55</td></tr>
-    <tr><td><ColorSwatch color="#FFFFFF" /></td><td>White (white)</td><td>§f</td><td>\u00A7f</td><td>#FFFFFF</td></tr>
-    <tr><td></td><td>Reset</td><td>§r</td><td></td><td></td></tr>
-    <tr><td></td><td><b>Bold</b></td><td>§l</td><td></td><td></td></tr>
-    <tr><td></td><td><s>Strikethrough</s></td><td>§m</td><td></td><td></td></tr>
-    <tr><td></td><td><u>Underline</u></td><td>§n</td><td></td><td></td></tr>
-    <tr><td></td><td><i>Italic</i></td><td>§o</td><td></td><td></td></tr>
-    <tr><td></td><td>Obfuscated</td><td>§k</td><td></td><td></td></tr>
-</table>
+| Color                           | Name                             | Chat Code | MOTD Code | Hex Code  |
+|:-------------------------------:|----------------------------------|:---------:|:---------:|:---------:|
+| <ColorSwatch color="#000000" /> | Black<br />`black`               | `§0`      | `\u00A70` | `#000000` |
+| <ColorSwatch color="#0000AA" /> | Dark Blue<br />`dark_blue`       | `§1`      | `\u00A71` | `#0000AA` |
+| <ColorSwatch color="#00AA00" /> | Dark Green<br />`dark_green`     | `§2`      | `\u00A72` | `#00AA00` |
+| <ColorSwatch color="#00AAAA" /> | Dark Aqua<br />`dark_aqua`       | `§3`      | `\u00A73` | `#00AAAA` |
+| <ColorSwatch color="#AA0000" /> | Dark Red<br />`dark_red`         | `§4`      | `\u00A74` | `#AA0000` |
+| <ColorSwatch color="#AA00AA" /> | Dark Purple<br />`dark_purple`   | `§5`      | `\u00A75` | `#AA00AA` |
+| <ColorSwatch color="#FFAA00" /> | Gold<br />`gold`                 | `§6`      | `\u00A76` | `#FFAA00` |
+| <ColorSwatch color="#AAAAAA" /> | Gray<br />`gray`                 | `§7`      | `\u00A77` | `#AAAAAA` |
+| <ColorSwatch color="#555555" /> | Dark Gray<br />`dark_gray`       | `§8`      | `\u00A78` | `#555555` |
+| <ColorSwatch color="#5555FF" /> | Blue<br />`blue`                 | `§9`      | `\u00A79` | `#5555FF` |
+| <ColorSwatch color="#55FF55" /> | Green<br />`green`               | `§a`      | `\u00A7a` | `#55FF55` |
+| <ColorSwatch color="#55FFFF" /> | Aqua<br />`aqua`                 | `§b`      | `\u00A7b` | `#55FFFF` |
+| <ColorSwatch color="#FF5555" /> | Red<br />`red`                   | `§c`      | `\u00A7c` | `#FF5555` |
+| <ColorSwatch color="#FF55FF" /> | Light Purple<br />`light_purple` | `§d`      | `\u00A7d` | `#FF55FF` |
+| <ColorSwatch color="#FFFF55" /> | Yellow<br />`yellow`             | `§e`      | `\u00A7e` | `#FFFF55` |
+| <ColorSwatch color="#FFFFFF" /> | White<br />`white`               | `§f`      | `\u00A7f` | `#FFFFFF` |
+|                                 | Reset                            | `§r`      |           |           |
+|                                 | **Bold**                         | `§l`      |           |           |
+|                                 | ~~Strikethrough~~                | `§m`      |           |           |
+|                                 | <u>Underline</u>                 | `§n`      |           |           |
+|                                 | _Italic_                         | `§o`      |           |           |
+|                                 | Obfuscated                       | `§k`      |           |           |

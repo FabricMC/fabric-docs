@@ -4,9 +4,9 @@ description: Minecraft의 렌더링 엔진에 사용되는 기본적인 렌더�
 authors:
   - IMB11
   - "0x3C50"
----
 
-# 기본 렌더링 개념
+search: false
+---
 
 ::: warning
 Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.

@@ -3,9 +3,9 @@ title: Custom Item Interactions
 description: Learn how to create an item that uses built-in vanilla events.
 authors:
   - IMB11
----
 
-# Custom Item Interactions {#custom-item-interactions}
+search: false
+---
 
 Basic items can only go so far - eventually you will need an item that interacts with the world when it is used.
 

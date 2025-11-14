@@ -5,8 +5,6 @@ authors:
   - IMB11
 ---
 
-# Command Suggestions {#command-suggestions}
-
 Minecraft has a powerful command suggestion system that's used in many places, such as the `/give` command. This system allows you to suggest values for command arguments to the user, which they can then select from - it's a great way to make your commands more user-friendly and ergonomic.
 
 ## Suggestion Providers {#suggestion-providers}
@@ -17,7 +15,8 @@ A `SuggestionProvider` is used to make a list of suggestions that will be sent t
 
 To use a suggestion provider, you need to call the `suggests` method on the argument builder. This method takes a `SuggestionProvider` and returns the modified argument builder with the suggestion provider attached.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Built-in Suggestion Providers {#built-in-suggestion-providers}
 
@@ -39,6 +38,9 @@ For this example, we'll make a suggestion provider that suggests all the player 
 @[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
 
 To use this suggestion provider, you would simply pass an instance of it into the `.suggests` method on the argument builder.
+
+@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Obviously, suggestion providers can be more complex, since they can also read the command context to provide suggestions based on the command's state - such as the arguments that have already been provided.
 
