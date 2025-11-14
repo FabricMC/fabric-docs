@@ -173,21 +173,30 @@ export const getLocales = () => {
           {
             text: resolver("nav.home"),
             link: "https://fabricmc.net/",
-          },
-          {
-            text: resolver("nav.download"),
-            link: "https://fabricmc.net/use",
+            noIcon: true,
           },
           {
             text: resolver("nav.contribute"),
+            link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+          },
+          {
+            text: resolver("nav.repo"),
             items: [
               {
-                text: resolver("title"),
-                link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+                text: "Fabric API",
+                link: "https://github.com/FabricMC/fabric",
               },
               {
-                text: resolver("nav.contribute.api"),
-                link: "https://github.com/FabricMC/fabric/blob/-/CONTRIBUTING.md",
+                text: "Fabric Loader",
+                link: "https://github.com/FabricMC/fabric-loader",
+              },
+              {
+                text: "Fabric Loom",
+                link: "https://github.com/FabricMC/fabric-loom",
+              },
+              {
+                text: "Fabric Yarn",
+                link: "https://github.com/FabricMC/yarn",
               },
             ],
           },
