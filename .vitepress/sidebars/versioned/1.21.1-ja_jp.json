@@ -1,0 +1,320 @@
+{
+  "/ja_jp/develop/": [
+    {
+      "text": "デベロッパガイド",
+      "link": "/ja_jp/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "はじめに",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric と Mod 開発への入門",
+          "link": "/ja_jp/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "開発環境のセットアップ",
+          "link": "/ja_jp/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "プロジェクトの作成",
+          "link": "/ja_jp/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "プロジェクトの構成",
+          "link": "/ja_jp/develop/getting-started/project-structure"
+        },
+        {
+          "text": "ゲームの起動",
+          "link": "/ja_jp/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "アイテム",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "最初のアイテムを作る",
+          "link": "/ja_jp/develop/items/first-item"
+        },
+        {
+          "text": "食べ物のアイテム",
+          "link": "/ja_jp/develop/items/food"
+        },
+        {
+          "text": "カスタム道具",
+          "link": "/ja_jp/develop/items/custom-tools"
+        },
+        {
+          "text": "カスタム防具",
+          "link": "/ja_jp/develop/items/custom-armor"
+        },
+        {
+          "text": "カスタムアイテムグループ",
+          "link": "/ja_jp/develop/items/custom-item-groups"
+        },
+        {
+          "text": "カスタムアイテムの操作",
+          "link": "/ja_jp/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "カスタムエンチャント効果",
+          "link": "/ja_jp/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "カスタムデータコンポーネント",
+          "link": "/ja_jp/develop/items/custom-data-components"
+        },
+        {
+          "text": "ポーション",
+          "link": "/ja_jp/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "ブロック",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "最初のブロックを作る",
+          "link": "/ja_jp/develop/blocks/first-block"
+        },
+        {
+          "text": "ブロックステート",
+          "link": "/ja_jp/develop/blocks/blockstates"
+        },
+        {
+          "text": "ブロックエンティティー",
+          "link": "/ja_jp/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "ブロックエンティティレンダラー",
+              "link": "/ja_jp/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "エンティティ",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "ステータス効果",
+          "link": "/ja_jp/develop/entities/effects"
+        },
+        {
+          "text": "ダメージタイプ",
+          "link": "/ja_jp/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "サウンド",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "サウンドの再生",
+          "link": "/ja_jp/develop/sounds/using-sounds"
+        },
+        {
+          "text": "カスタムサウンドの作成",
+          "link": "/ja_jp/develop/sounds/custom"
+        },
+        {
+          "text": "動的サウンド",
+          "link": "/ja_jp/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "コマンド",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "コマンドの作成",
+          "link": "/ja_jp/develop/commands/basics"
+        },
+        {
+          "text": "コマンドの引数",
+          "link": "/ja_jp/develop/commands/arguments"
+        },
+        {
+          "text": "コマンドの補完",
+          "link": "/ja_jp/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "レンダリング",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "基本的なレンダリングの概念",
+          "link": "/ja_jp/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "描画コンテキストの使用",
+          "link": "/ja_jp/develop/rendering/draw-context"
+        },
+        {
+          "text": "Hudでのレンダリング",
+          "link": "/ja_jp/develop/rendering/hud"
+        },
+        {
+          "text": "GUIとスクリーン",
+          "items": [
+            {
+              "text": "カスタムスクリーン",
+              "link": "/ja_jp/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "カスタムウィジェット",
+              "link": "/ja_jp/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "パーティクル",
+          "items": [
+            {
+              "text": "カスタムパーティクルの作成",
+              "link": "/ja_jp/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "データ生成",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "データ生成のセットアップ",
+          "link": "/ja_jp/develop/data-generation/setup"
+        },
+        {
+          "text": "タグの生成",
+          "link": "/ja_jp/develop/data-generation/tags"
+        },
+        {
+          "text": "翻訳の生成",
+          "link": "/ja_jp/develop/data-generation/translations"
+        },
+        {
+          "text": "進捗の生成",
+          "link": "/ja_jp/develop/data-generation/advancements"
+        },
+        {
+          "text": "レシピの生成",
+          "link": "/ja_jp/develop/data-generation/recipes"
+        },
+        {
+          "text": "ルートテーブルの生成",
+          "link": "/ja_jp/develop/data-generation/loot-tables"
+        }
+      ]
+    },
+    {
+      "text": "その他のページ",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "コーデック",
+          "link": "/ja_jp/develop/codecs"
+        },
+        {
+          "text": "イベント",
+          "link": "/ja_jp/develop/events"
+        },
+        {
+          "text": "テキストと翻訳",
+          "link": "/ja_jp/develop/text-and-translations"
+        },
+        {
+          "text": "IDEのヒントとコツ",
+          "link": "/ja_jp/develop/ide-tips-and-tricks"
+        },
+        {
+          "text": "テストの自動化",
+          "link": "/ja_jp/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/ja_jp/players/": [
+    {
+      "text": "プレイヤーガイド",
+      "link": "/ja_jp/players/",
+      "items": [
+        {
+          "text": "よくある質問",
+          "link": "/ja_jp/players/faq"
+        },
+        {
+          "text": "Java のインストール",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/ja_jp/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/ja_jp/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Fabric のインストール",
+          "link": "/ja_jp/players/installing-fabric"
+        },
+        {
+          "text": "信頼できる Mod を見つける",
+          "link": "/ja_jp/players/finding-mods"
+        },
+        {
+          "text": "Mod のインストール",
+          "link": "/ja_jp/players/installing-mods"
+        },
+        {
+          "text": "トラブルシューティング",
+          "items": [
+            {
+              "text": "ログのアップロード",
+              "link": "/ja_jp/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "クラッシュレポート",
+              "link": "/ja_jp/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Fabricのアップデート",
+          "link": "/ja_jp/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

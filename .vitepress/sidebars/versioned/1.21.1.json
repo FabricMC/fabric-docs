@@ -1,176 +1,110 @@
 {
-  "/players/": [
-    {
-      "text": "players.title",
-      "link": "/players/",
-      "items": [
-        {
-          "text": "players.faq",
-          "link": "/players/faq"
-        },
-        {
-          "text": "players.installing_java",
-          "collapsed": true,
-          "items": [
-            {
-              "text": "players.installing_java.windows",
-              "link": "/players/installing-java/windows"
-            },
-            {
-              "text": "players.installing_java.macos",
-              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac",
-              "process": false
-            },
-            {
-              "text": "players.installing_java.linux",
-              "link": "/players/installing-java/linux"
-            }
-          ]
-        },
-        {
-          "text": "players.installing_fabric",
-          "link": "/players/installing-fabric"
-        },
-        {
-          "text": "players.finding_mods",
-          "link": "/players/finding-mods"
-        },
-        {
-          "text": "players.installing_mods",
-          "link": "/players/installing-mods"
-        },
-        {
-          "text": "players.troubleshooting",
-          "items": [
-            {
-              "text": "players.troubleshooting.uploading_logs",
-              "link": "/players/troubleshooting/uploading-logs"
-            },
-            {
-              "text": "players.troubleshooting.crash_reports",
-              "link": "/players/troubleshooting/crash-reports"
-            }
-          ]
-        },
-        {
-          "text": "players.updating_fabric",
-          "link": "/players/updating-fabric"
-        }
-      ]
-    }
-  ],
   "/develop/": [
     {
-      "text": "develop.title",
+      "text": "Developer Guides",
       "link": "/develop/",
       "collapsed": false,
       "items": [
         {
           "text": "Fabric API GitHub",
-          "processSidebarURLs": false,
-          "translatable": false,
           "link": "https://github.com/FabricMC/fabric"
         },
         {
           "text": "Yarn GitHub",
-          "processSidebarURLs": false,
-          "translatable": false,
           "link": "https://github.com/FabricMC/yarn"
         },
         {
           "text": "Loom GitHub",
-          "processSidebarURLs": false,
-          "translatable": false,
           "link": "https://github.com/FabricMC/fabric-loom"
         }
       ]
     },
     {
-      "text": "develop.getting_started",
+      "text": "Getting Started",
       "collapsed": false,
       "items": [
         {
-          "text": "develop.getting_started.introduction",
+          "text": "Introduction",
           "link": "/develop/getting-started/introduction-to-fabric-and-modding"
         },
         {
-          "text": "develop.getting_started.setting_up",
+          "text": "Setting Up Your IDE",
           "link": "/develop/getting-started/setting-up-a-development-environment"
         },
         {
-          "text": "develop.getting_started.creating_project",
+          "text": "Creating a Project",
           "link": "/develop/getting-started/creating-a-project"
         },
         {
-          "text": "develop.getting_started.project_structure",
+          "text": "Project Structure",
           "link": "/develop/getting-started/project-structure"
         },
         {
-          "text": "develop.getting_started.launching_game",
+          "text": "Launching the Game",
           "link": "/develop/getting-started/launching-the-game"
         }
       ]
     },
     {
-      "text": "develop.items",
+      "text": "Items",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.items.first_item",
+          "text": "Creating Your First Item",
           "link": "/develop/items/first-item"
         },
         {
-          "text": "develop.items.food",
+          "text": "Food Items",
           "link": "/develop/items/food"
         },
         {
-          "text": "develop.items.custom_tools",
+          "text": "Custom Tools",
           "link": "/develop/items/custom-tools"
         },
         {
-          "text": "develop.items.custom_armor",
+          "text": "Custom Armor",
           "link": "/develop/items/custom-armor"
         },
         {
-          "text": "develop.items.custom_item_groups",
+          "text": "Custom Item Groups",
           "link": "/develop/items/custom-item-groups"
         },
         {
-          "text": "develop.items.custom_item_interactions",
+          "text": "Custom Item Interactions",
           "link": "/develop/items/custom-item-interactions"
         },
         {
-          "text": "develop.items.custom_enchantment_effects",
+          "text": "Custom Enchantment Effects",
           "link": "/develop/items/custom-enchantment-effects"
         },
         {
-          "text": "develop.items.custom_data_components",
+          "text": "Custom Data Components",
           "link": "/develop/items/custom-data-components"
         },
         {
-          "text": "develop.items.potions",
+          "text": "Potions",
           "link": "/develop/items/potions"
         }
       ]
     },
     {
-      "text": "develop.blocks",
+      "text": "Blocks",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.blocks.first_block",
+          "text": "Creating Your First Block",
           "link": "/develop/blocks/first-block"
         },
         {
-          "text": "develop.blocks.blockstates",
+          "text": "Block States",
           "link": "/develop/blocks/blockstates"
         },
         {
-          "text": "develop.blocks.block_entities",
+          "text": "Block Entities",
           "link": "/develop/blocks/block-entities",
           "items": [
             {
-              "text": "develop.blocks.block_entity_renderer",
+              "text": "Block Entity Renderers",
               "link": "/develop/blocks/block-entity-renderer"
             }
           ]
@@ -178,89 +112,89 @@
       ]
     },
     {
-      "text": "develop.entities",
+      "text": "Entities",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.entities.effects",
+          "text": "Status Effects",
           "link": "/develop/entities/effects"
         },
         {
-          "text": "develop.entities.damage_types",
+          "text": "Damage Types",
           "link": "/develop/entities/damage-types"
         }
       ]
     },
     {
-      "text": "develop.sounds",
+      "text": "Sounds",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.sounds.using_sounds",
+          "text": "Playing Sounds",
           "link": "/develop/sounds/using-sounds"
         },
         {
-          "text": "develop.sounds.custom",
+          "text": "Creating Custom Sounds",
           "link": "/develop/sounds/custom"
         },
         {
-          "text": "develop.sounds.dynamic_sounds",
+          "text": "Dynamic Sounds",
           "link": "/develop/sounds/dynamic-sounds"
         }
       ]
     },
     {
-      "text": "develop.commands",
+      "text": "Commands",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.commands.basics",
+          "text": "Creating Commands",
           "link": "/develop/commands/basics"
         },
         {
-          "text": "develop.commands.arguments",
+          "text": "Command Arguments",
           "link": "/develop/commands/arguments"
         },
         {
-          "text": "develop.commands.suggestions",
+          "text": "Command Suggestions",
           "link": "/develop/commands/suggestions"
         }
       ]
     },
     {
-      "text": "develop.rendering",
+      "text": "Rendering",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.rendering.basic_concepts",
+          "text": "Basic Rendering Concepts",
           "link": "/develop/rendering/basic-concepts"
         },
         {
-          "text": "develop.rendering.draw_context",
+          "text": "Using the Drawing Context",
           "link": "/develop/rendering/draw-context"
         },
         {
-          "text": "develop.rendering.hud",
+          "text": "Rendering in the HUD",
           "link": "/develop/rendering/hud"
         },
         {
-          "text": "develop.rendering.gui",
+          "text": "GUIs and Screens",
           "items": [
             {
-              "text": "develop.rendering.gui.custom_screens",
+              "text": "Custom Screens",
               "link": "/develop/rendering/gui/custom-screens"
             },
             {
-              "text": "develop.rendering.gui.custom_widgets",
+              "text": "Custom Widgets",
               "link": "/develop/rendering/gui/custom-widgets"
             }
           ]
         },
         {
-          "text": "develop.rendering.particles",
+          "text": "Particles",
           "items": [
             {
-              "text": "develop.rendering.particles.creating_particles",
+              "text": "Creating Custom Particles",
               "link": "/develop/rendering/particles/creating-particles"
             }
           ]
@@ -268,58 +202,117 @@
       ]
     },
     {
-      "text": "develop.data_generation",
+      "text": "Data Generation",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.data_generation.setup",
+          "text": "Data Generation Setup",
           "link": "/develop/data-generation/setup"
         },
         {
-          "text": "develop.data_generation.tags",
+          "text": "Tag Generation",
           "link": "/develop/data-generation/tags"
         },
         {
-          "text": "develop.data_generation.translations",
+          "text": "Translation Generation",
           "link": "/develop/data-generation/translations"
         },
         {
-          "text": "develop.data_generation.advancements",
+          "text": "Advancement Generation",
           "link": "/develop/data-generation/advancements"
         },
         {
-          "text": "develop.data_generation.recipes",
+          "text": "Recipe Generation",
           "link": "/develop/data-generation/recipes"
         },
         {
-          "text": "develop.data_generation.loot_tables",
+          "text": "Loot Table Generation",
           "link": "/develop/data-generation/loot-tables"
         }
       ]
     },
     {
-      "text": "develop.misc",
+      "text": "Miscellaneous Pages",
       "collapsed": true,
       "items": [
         {
-          "text": "develop.misc.codecs",
+          "text": "Codecs",
           "link": "/develop/codecs"
         },
         {
-          "text": "develop.misc.events",
+          "text": "Events",
           "link": "/develop/events"
         },
         {
-          "text": "develop.misc.text_and_translations",
+          "text": "Text and Translations",
           "link": "/develop/text-and-translations"
         },
         {
-          "text": "develop.getting_started.tips_and_tricks",
+          "text": "IDE Tips and Tricks",
           "link": "/develop/ide-tips-and-tricks"
         },
         {
-          "text": "develop.misc.automatic_testing",
+          "text": "Automated Testing",
           "link": "/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/players/": [
+    {
+      "text": "Player Guides",
+      "link": "/players/",
+      "items": [
+        {
+          "text": "Frequently Asked Questions",
+          "link": "/players/faq"
+        },
+        {
+          "text": "Installing Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/players/installing-fabric"
+        },
+        {
+          "text": "Finding Trustworthy Mods",
+          "link": "/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/players/installing-mods"
+        },
+        {
+          "text": "Troubleshooting",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/players/updating-fabric"
         }
       ]
     }
