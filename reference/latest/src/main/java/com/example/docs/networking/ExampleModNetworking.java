@@ -1,6 +1,6 @@
 package com.example.docs.networking;
 
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -14,7 +14,7 @@ public class ExampleModNetworking implements ModInitializer {
 		NetworkPayloads.initialize();
 	}
 
-	public static Identifier getId(String input) {
-		return Identifier.of(MOD_ID, input);
+	public static ResourceLocation getId(String input) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, input);
 	}
 }

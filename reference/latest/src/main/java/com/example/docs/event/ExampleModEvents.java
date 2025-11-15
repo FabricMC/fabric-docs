@@ -1,16 +1,16 @@
 package com.example.docs.event;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.ActionResult;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
@@ -18,7 +18,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 // Class to contain all mod events.
 public class ExampleModEvents implements ModInitializer {
-	private static final RegistryKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTableKey().orElseThrow();
+	private static final ResourceKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTable().orElseThrow();
 
 	@Override
 	public void onInitialize() {
@@ -27,11 +27,11 @@ public class ExampleModEvents implements ModInitializer {
 			BlockState state = world.getBlockState(pos);
 
 			// Manual spectator check is necessary because AttackBlockCallbacks fire before the spectator check
-			if (!player.isSpectator() && player.getMainHandStack().isEmpty() && state.isToolRequired() && world instanceof ServerWorld serverWorld) {
-				player.damage(serverWorld, world.getDamageSources().generic(), 1.0F);
+			if (!player.isSpectator() && player.getMainHandItem().isEmpty() && state.requiresCorrectToolForDrops() && world instanceof ServerLevel serverWorld) {
+				player.hurtServer(serverWorld, world.damageSources().generic(), 1.0F);
 			}
 
-			return ActionResult.PASS;
+			return InteractionResult.PASS;
 		});
 		// :::1
 
@@ -41,8 +41,8 @@ public class ExampleModEvents implements ModInitializer {
 			// We also check that the loot table ID is equal to the ID we want.
 			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(key)) {
 				// We make the pool and add an item
-				LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(Items.EGG));
-				tableBuilder.pool(poolBuilder);
+				LootPool.Builder poolBuilder = LootPool.lootPool().add(LootItem.lootTableItem(Items.EGG));
+				tableBuilder.withPool(poolBuilder);
 			}
 		});
 		// :::2
@@ -53,10 +53,10 @@ public class ExampleModEvents implements ModInitializer {
 
 			// Create diamond item entity at sheep's position.
 			ItemStack stack = new ItemStack(Items.DIAMOND);
-			ItemEntity itemEntity = new ItemEntity(player.getEntityWorld(), sheep.getX(), sheep.getY(), sheep.getZ(), stack);
-			player.getEntityWorld().spawnEntity(itemEntity);
+			ItemEntity itemEntity = new ItemEntity(player.level(), sheep.getX(), sheep.getY(), sheep.getZ(), stack);
+			player.level().addFreshEntity(itemEntity);
 
-			return ActionResult.FAIL;
+			return InteractionResult.FAIL;
 		});
 		// :::3
 	}

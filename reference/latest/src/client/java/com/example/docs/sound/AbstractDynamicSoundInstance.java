@@ -1,15 +1,15 @@
 package com.example.docs.sound;
 
-import net.minecraft.client.sound.MovingSoundInstance;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
+import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 
 import com.example.docs.sound.instance.SoundInstanceCallback;
 
 // :::1
-public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
+public abstract class AbstractDynamicSoundInstance extends AbstractTickableSoundInstance {
 	protected final DynamicSoundSource soundSource;                 // Entities, BlockEntities, ...
 	protected TransitionState transitionState;                      // current TransitionState of the SoundInstance
 
@@ -31,10 +31,10 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// ...
 
 	// set up default settings of the SoundInstance in this constructor
-	protected AbstractDynamicSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundCategory soundCategory,
+	protected AbstractDynamicSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundSource soundCategory,
 										int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
 										SoundInstanceCallback callback) {
-		super(soundEvent, soundCategory, SoundInstance.createRandom());
+		super(soundEvent, soundCategory, SoundInstance.createUnseededRandom());
 
 		// store important references to other objects
 		this.soundSource = soundSource;
@@ -50,7 +50,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 		// set start values
 		this.volume = 0.0f;
 		this.pitch = minPitch;
-		this.repeat = true;
+		this.looping = true;
 		this.transitionState = TransitionState.STARTING;
 		this.setPositionToEntity();
 	}
@@ -60,7 +60,7 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 
 	// :::3
 	@Override
-	public boolean shouldAlwaysPlay() {
+	public boolean canStartSilent() {
 		// override to true, so that the SoundInstance can start
 		// or add your own condition to the SoundInstance, if necessary
 		return true;
@@ -116,12 +116,12 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 			default -> 1.0f;
 		};
 
-		this.volume = MathHelper.lerp(normalizedTick, 0.0f, this.maxVolume);
+		this.volume = Mth.lerp(normalizedTick, 0.0f, this.maxVolume);
 	}
 
 	// increase or decrease pitch based on the sound source's stress value
 	protected void modulateSoundForStress() {
-		this.pitch = MathHelper.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
+		this.pitch = Mth.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
 	}
 
 	// :::5
@@ -129,9 +129,9 @@ public abstract class AbstractDynamicSoundInstance extends MovingSoundInstance {
 	// :::6
 	// moves the sound instance position to the sound source's position
 	protected void setPositionToEntity() {
-		this.x = soundSource.getPosition().getX();
-		this.y = soundSource.getPosition().getY();
-		this.z = soundSource.getPosition().getZ();
+		this.x = soundSource.getPosition().x();
+		this.y = soundSource.getPosition().y();
+		this.z = soundSource.getPosition().z();
 	}
 
 	// Sets the SoundInstance into its ending phase.

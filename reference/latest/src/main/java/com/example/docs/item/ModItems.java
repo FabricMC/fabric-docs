@@ -2,25 +2,25 @@ package com.example.docs.item;
 
 import java.util.function.Function;
 
-import net.minecraft.component.type.ConsumableComponent;
-import net.minecraft.component.type.ConsumableComponents;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
-import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.minecraft.world.item.equipment.ArmorType;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -52,59 +52,59 @@ public class ModItems {
 	public static final Item GUIDITE_HELMET = register(
 			"guidite_helmet",
 			Item::new,
-			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.HELMET)
-					.maxDamage(EquipmentType.HELMET.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
+					.durability(ArmorType.HELMET.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
 			Item::new,
-			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.CHESTPLATE)
-					.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
+					.durability(ArmorType.CHESTPLATE.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
 			"guidite_leggings",
 			Item::new,
-			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.LEGGINGS)
-					.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
+					.durability(ArmorType.LEGGINGS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
 			"guidite_boots",
 			Item::new,
-			new Item.Settings().armor(GuiditeArmorMaterial.INSTANCE, EquipmentType.BOOTS)
-					.maxDamage(EquipmentType.BOOTS.getMaxDamage(GuiditeArmorMaterial.BASE_DURABILITY))
+			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
+					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	// :::6
-	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Settings());
+	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
 	// :::7
 	public static final Item GUIDITE_SWORD = register(
 			"guidite_sword",
 			Item::new,
-			new Item.Settings().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
+			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// :::7
 	// :::_13
 	public static final Item COUNTER = register(
 			"counter",
 			CounterItem::new,
-			new Item.Settings()
+			new Item.Properties()
 					// Initialize the click count component with a default value of 0
 					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
 	);
 	// :::_13
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(ExampleMod.MOD_ID, "item_group"));
-	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+	public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "item_group"));
+	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-			.displayName(Text.translatable("itemGroup.example-mod"))
+			.title(Component.translatable("itemGroup.example-mod"))
 			.build();
 	// :::9
 	// :::5
-	public static final ConsumableComponent POISON_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
+	public static final Consumable POISON_FOOD_CONSUMABLE_COMPONENT = Consumables.defaultFood()
 			// The duration is in ticks, 20 ticks = 1 second
-			.consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 1), 1.0f))
+			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 6 * 20, 1), 1.0f))
 			.build();
-	public static final FoodComponent POISON_FOOD_COMPONENT = new FoodComponent.Builder()
+	public static final FoodProperties POISON_FOOD_COMPONENT = new FoodProperties.Builder()
 			.alwaysEdible()
 			.build();
 	// :::5
@@ -113,23 +113,23 @@ public class ModItems {
 	public static final Item POISONOUS_APPLE = register(
 			"poisonous_apple",
 			Item::new,
-			new Item.Settings().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
+			new Item.Properties().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
 	// :::poisonous_apple
 
 	// :::2
-	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
+	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
 	// :::1
-	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+	public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
 		// Create the item key.
-		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ExampleMod.MOD_ID, name));
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
-		Item item = itemFactory.apply(settings.registryKey(itemKey));
+		Item item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
-		Registry.register(Registries.ITEM, itemKey, item);
+		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 
 		return item;
 	}
@@ -142,37 +142,37 @@ public class ModItems {
 		// :::4
 		// Get the event for modifying entries in the ingredients group.
 		// And register an event handler that adds our suspicious item to the ingredients group.
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-				.register((itemGroup) -> itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS)
+				.register((itemGroup) -> itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE));
 		// :::4
 
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((itemGroup) -> {
-					itemGroup.add(ModItems.GUIDITE_HELMET);
-					itemGroup.add(ModItems.GUIDITE_BOOTS);
-					itemGroup.add(ModItems.GUIDITE_LEGGINGS);
-					itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
+					itemGroup.accept(ModItems.GUIDITE_HELMET);
+					itemGroup.accept(ModItems.GUIDITE_BOOTS);
+					itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
+					itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
 				});
 
 		// :::8
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
-				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
 		// :::_12
 		// Register the group.
-		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
 
 		// Register items to the custom item group.
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
-			itemGroup.add(ModItems.POISONOUS_APPLE);
-			itemGroup.add(ModItems.GUIDITE_SWORD);
-			itemGroup.add(ModItems.GUIDITE_HELMET);
-			itemGroup.add(ModItems.GUIDITE_BOOTS);
-			itemGroup.add(ModItems.GUIDITE_LEGGINGS);
-			itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
-			itemGroup.add(ModItems.LIGHTNING_STICK);
+			itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE);
+			itemGroup.accept(ModItems.POISONOUS_APPLE);
+			itemGroup.accept(ModItems.GUIDITE_SWORD);
+			itemGroup.accept(ModItems.GUIDITE_HELMET);
+			itemGroup.accept(ModItems.GUIDITE_BOOTS);
+			itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
+			itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
+			itemGroup.accept(ModItems.LIGHTNING_STICK);
 			// ...
 		});
 		// :::_12

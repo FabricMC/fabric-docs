@@ -154,7 +154,7 @@ The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Ob
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with an `Identifier` (Value).
+What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with a `ResourceLocation` (Value).
 
 You can either use the vanilla ones, like `TextureMap.all()`(which associates all TextureKeys with the same Identifier), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 

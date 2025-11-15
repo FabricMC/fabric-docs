@@ -38,10 +38,10 @@ Along with creating raw translations, translations from `Identifier`s, and copyi
 
 ## Using Translations {#using-translations}
 
-Generated translations take the place of a lot of translations added in other tutorials, but you can also use them anywhere you use a `Text` object. In our example, if we wanted to allow resource packs to translate our greeting, we use `Text.translatable` instead of `Text.of`:
+Generated translations take the place of a lot of translations added in other tutorials, but you can also use them anywhere you use a `Component` object. In our example, if we wanted to allow resource packs to translate our greeting, we use `Component.translatable` instead of `Component.literal`:
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.example-mod.greeting")); // [!code ++]
+ChatComponent chatHud = Minecraft.getInstance().gui.getChat();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

@@ -51,13 +51,13 @@ and all clients in sync.
 A payload is the data that is sent within a packet.
 :::
 
-This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPayload`.
+This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
 
 @[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
 At the same time, we've defined:
 
-- An `Identifier` used to identify our packet's payload. For this example our identifier will be
+- A `ResourceLocation` used to identify our packet's payload. For this example our identifier will be
   `example-mod:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
@@ -67,12 +67,12 @@ At the same time, we've defined:
 
 @[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-- A public static instance of a `PacketCodec` so that the game knows how to serialize/deserialize the contents of the
+- A public static instance of a `StreamCodec` so that the game knows how to serialize/deserialize the contents of the
   packet.
 
 @[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-We have also overridden `getId` to return our payload ID.
+We have also overridden `type` to return our payload ID.
 
 @[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
@@ -85,7 +85,7 @@ Before we send a packet with our custom payload, we need to register it on both 
 :::
 
 This can be done in our **common initializer** by using `PayloadTypeRegistry.playS2C().register` which takes in a
-`CustomPayload.Id` and a `PacketCodec`.
+`CustomPayload.Id` and a `StreamCodec`.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
@@ -146,7 +146,7 @@ can be used to get the `x`, `y` and `z` positions.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Finally, we create a `LightningEntity` and add it to the world.
+Finally, we create a `LightningBolt` and add it to the world.
 
 @[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -173,7 +173,7 @@ To send a packet, let's add an action when the player uses a Poisonous Potato. W
 event to
 keep things concise.
 
-We register the event in our **client initializer**, and we use `isClient()` to ensure that the action is only triggered
+We register the event in our **client initializer**, and we use `isClientSide()` to ensure that the action is only triggered
 on the logical client.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)

@@ -40,7 +40,7 @@ public class ModBlocks {
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
-Similarly to items, blocks take a `AbstractBlock.Settings` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
+Similarly to items, blocks take a `BlockBehavior.Properties` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
 
 We will not cover all the options here: you can view the class yourself to see the various options, which should be self-explanatory.
 
@@ -50,7 +50,7 @@ For example purposes, we will be creating a simple block that has the properties
 - We tell the `register` method to create a `Block` instance from the block settings by calling the `Block` constructor.
 
 ::: tip
-You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
+You can also use `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
@@ -97,12 +97,12 @@ To make the texture show up in-game, you must create a block model which can be 
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-For the block to show in your inventory, you will need to create an [Item Model Description](../items/first-item#creating-the-item-model-description) that points to your block model. For this example, the item model description for the "Condensed Dirt" block can be found at `assets/example-mod/items/condensed_dirt.json`.
+For the block to show in your inventory, you will need to create an [Client Item](../items/first-item#creating-the-client-item) that points to your block model. For this example, the client item for the "Condensed Dirt" block can be found at `assets/example-mod/items/condensed_dirt.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 ::: tip
-You only need to create an item model description if you've registered a `BlockItem` along with your block!
+You only need to create an client item if you've registered a `BlockItem` along with your block!
 :::
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
