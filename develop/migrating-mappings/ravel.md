@@ -20,6 +20,10 @@ Commit any changes before attempting to remap your sources!
 
 ### Prerequisites {#prerequisites}
 
+::: info
+Ravel 0.3+ now includes downloader for Yarn and Mojang Mappings, so you can skip this section.
+:::
+
 First, you need to get your mappings. For remapping from Yarn to Mojang Mappings or vice versa, you need to download both of them.
 
 - [Find and download Yarn mappings](https://maven.fabricmc.net/net/fabricmc/yarn/), choose the `mergedv2.jar`, extract it as a ZIP. The mappings is in `mappings/mappings.tiny` file.
@@ -35,7 +39,7 @@ A dialog like this will open. You can also open the dialog by clicking **Refacto
 
 ![Ravel Dialog](/assets/develop/misc/migrating-mappings/ravel_dialog.png)
 
-Next, add the mappings by clicking the + icon.
+Next, add the mappings by clicking the + icon. Click the download option if you don't have them already.
 
 - For migrating from Yarn to Mojang Mappings, add the Yarn `mappings.tiny` file first, choose `named` as the **source** namespace and `official` as the **destination** namespace. Then, add the Mojang `client.txt` file and choose `target` as the **source** namespace and `source` as the **destination** namespace.
 - For migrating from Mojang Mappings to Yarn, add the Mojang `client.txt` first, this time choosing `source` as the **source** and `target` as the **destination**. Then, add the Yarn `mappings.tiny` and choose `official` as the **source** and `named` as the **destination**.
