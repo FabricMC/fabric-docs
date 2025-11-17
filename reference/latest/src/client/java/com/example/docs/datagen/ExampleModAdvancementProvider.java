@@ -4,17 +4,17 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementEntry;
-import net.minecraft.advancement.AdvancementFrame;
-import net.minecraft.advancement.criterion.ConsumeItemCriterion;
-import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementType;
+import net.minecraft.advancements.critereon.ConsumeItemTrigger;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -26,79 +26,79 @@ import com.example.docs.advancement.UseToolCriterion;
 
 // :::datagen-advancements:provider-start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
-	protected ExampleModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	protected ExampleModAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}
 
 	@Override
-	public void generateAdvancement(RegistryWrapper.WrapperLookup wrapperLookup, Consumer<AdvancementEntry> consumer) {
+	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
 		// :::datagen-advancements:provider-start
 		// :::datagen-advancements:simple-advancement
-		AdvancementEntry getDirt = Advancement.Builder.create()
+		AdvancementHolder getDirt = Advancement.Builder.advancement()
 				.display(
 						Items.DIRT, // The display icon
-						Text.literal("Your First Dirt Block"), // The title
-						Text.literal("Now make a house from it"), // The description
-						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
-						AdvancementFrame.TASK, // TASK, CHALLENGE, or GOAL
+						Component.literal("Your First Dirt Block"), // The title
+						Component.literal("Now make a house from it"), // The description
+						ResourceLocation.withDefaultNamespace("textures/gui/advancements/backgrounds/adventure.png"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
+						AdvancementType.TASK, // TASK, CHALLENGE, or GOAL
 						true, // Show the toast when completing it
 						true, // Announce it to chat
 						false // Hide it in the advancement tab until it's achieved
 				)
 				// "got_dirt" is the name referenced by other advancements when they want to have "requirements."
-				.criterion("got_dirt", InventoryChangedCriterion.Conditions.items(Items.DIRT))
+				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
-				.build(consumer, ExampleMod.MOD_ID + ":get_dirt");
+				.save(consumer, ExampleMod.MOD_ID + ":get_dirt");
 		// :::datagen-advancements:simple-advancement
 		// :::datagen-advancements:second-advancement
-		final RegistryWrapper.Impl<Item> itemLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
-		AdvancementEntry appleAndBeef = Advancement.Builder.create()
+		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
+		AdvancementHolder appleAndBeef = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
 						Items.APPLE,
-						Text.literal("Apple and Beef"),
-						Text.literal("Ate an apple and beef"),
+						Component.literal("Apple and Beef"),
+						Component.literal("Ate an apple and beef"),
 						null, // Children don't need a background, the root advancement takes care of that
-						AdvancementFrame.CHALLENGE,
+						AdvancementType.CHALLENGE,
 						true,
 						true,
 						false
 				)
-				.criterion("ate_apple", ConsumeItemCriterion.Conditions.item(itemLookup, Items.APPLE))
-				.criterion("ate_cooked_beef", ConsumeItemCriterion.Conditions.item(itemLookup, Items.COOKED_BEEF))
-				.build(consumer, ExampleMod.MOD_ID + ":apple_and_beef");
+				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
+				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
+				.save(consumer, ExampleMod.MOD_ID + ":apple_and_beef");
 		// :::datagen-advancements:second-advancement
 		// :::datagen-advancements:custom-criteria-advancement
-		AdvancementEntry breakBlockWithTool = Advancement.Builder.create()
+		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
 						Items.DIAMOND_SHOVEL,
-						Text.literal("Not a Shovel"),
-						Text.literal("That's not a shovel (probably)"),
+						Component.literal("Not a Shovel"),
+						Component.literal("That's not a shovel (probably)"),
 						null,
-						AdvancementFrame.GOAL,
+						AdvancementType.GOAL,
 						true,
 						true,
 						false
 				)
-				.criterion("break_block_with_tool", ModCriteria.USE_TOOL.create(new UseToolCriterion.Conditions(Optional.empty())))
-				.build(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
+				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
+				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement
-		AdvancementEntry breakBlockWithToolFiveTimes = Advancement.Builder.create()
+		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
 				.parent(breakBlockWithTool)
 				.display(
 						Items.GOLDEN_SHOVEL,
-						Text.literal("Not a Shovel Still"),
-						Text.literal("That's still not a shovel (probably)"),
+						Component.literal("Not a Shovel Still"),
+						Component.literal("That's still not a shovel (probably)"),
 						null,
-						AdvancementFrame.GOAL,
+						AdvancementType.GOAL,
 						true,
 						true,
 						false
 				)
-				.criterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.create(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.build(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
+				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
+				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:provider-start
 	}

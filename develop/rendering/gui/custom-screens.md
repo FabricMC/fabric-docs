@@ -21,7 +21,7 @@ You should take note that:
 
 - Widgets are not being created in the constructor because the screen is not yet initialized at that point - and certain variables, such as `width` and `height`, are not yet available or not yet accurate.
 - The `init` method is called when the screen is being initialized, and it is the best place to create widgets.
-  - You add widgets using the `addDrawableChild` method, which accepts any drawable widget.
+  - You add widgets using the `addRenderableWidget` method, which accepts any drawable widget.
 - The `render` method is called every frame - you can access the draw context, and the mouse position from this method.
 
 As an example, we can create a simple screen that has a button and a label above it.
@@ -32,11 +32,11 @@ As an example, we can create a simple screen that has a button and a label above
 
 ## Opening the Screen {#opening-the-screen}
 
-You can open the screen using the `MinecraftClient`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
+You can open the screen using the `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -45,7 +45,7 @@ MinecraftClient.getInstance().setScreen(
 If you want to close the screen, simply set the screen to `null`:
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 If you want to be fancy, and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
@@ -55,8 +55,8 @@ If you want to be fancy, and return to the previous screen, you can pass the cur
 Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close` - it will return to the previous screen.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

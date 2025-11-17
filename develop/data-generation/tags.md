@@ -21,7 +21,7 @@ Fabric provides several helper tag providers including one for items; `FabricTag
 
 You can create your own class that `extends FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**.
 
-Let your IDE fill in the required code, then replace the `registryKey` constructor parameter with the `RegistryKey` for your type:
+Let your IDE fill in the required code, then replace the `resourceKey` constructor parameter with the `ResourceKey` for your type:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
 

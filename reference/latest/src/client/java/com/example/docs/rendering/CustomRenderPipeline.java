@@ -10,23 +10,23 @@ import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.systems.CommandEncoder;
 import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.ByteBufferBuilder;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.MeshData;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.system.MemoryUtil;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gl.MappableRingBuffer;
-import net.minecraft.client.gl.RenderPipelines;
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.BuiltBuffer;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexFormats;
-import net.minecraft.client.render.VertexRendering;
-import net.minecraft.client.util.BufferAllocator;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.MappableRingBuffer;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.ShapeRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderContext;
@@ -37,15 +37,15 @@ import com.example.docs.ExampleMod;
 public class CustomRenderPipeline implements ClientModInitializer {
 	private static CustomRenderPipeline instance;
 	// :::custom-pipelines:define-pipeline
-	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.POSITION_COLOR_SNIPPET)
-			.withLocation(Identifier.of(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
-			.withVertexFormat(VertexFormats.POSITION_COLOR, VertexFormat.DrawMode.TRIANGLE_STRIP)
+	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
+			.withLocation(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
+			.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLE_STRIP)
 			.withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
 			.build()
 	);
 	// :::custom-pipelines:define-pipeline
 	// :::custom-pipelines:extraction-phase
-	private static final BufferAllocator allocator = new BufferAllocator(RenderLayer.CUTOUT_BUFFER_SIZE);
+	private static final ByteBufferBuilder allocator = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
 	private BufferBuilder buffer;
 
 	// :::custom-pipelines:extraction-phase
@@ -66,33 +66,33 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	private void extractAndDrawWaypoint(WorldRenderContext context) {
 		renderWaypoint(context);
-		drawFilledThroughWalls(MinecraftClient.getInstance(), FILLED_THROUGH_WALLS);
+		drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
 	}
 
 	// :::custom-pipelines:extraction-phase
 	private void renderWaypoint(WorldRenderContext context) {
-		MatrixStack matrices = context.matrices();
-		Vec3d camera = context.worldState().cameraRenderState.pos;
+		PoseStack matrices = context.matrices();
+		Vec3 camera = context.worldState().cameraRenderState.pos;
 
 		assert matrices != null;
-		matrices.push();
+		matrices.pushPose();
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
 		if (buffer == null) {
 			buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
-		VertexRendering.drawFilledBox(matrices, buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
+		ShapeRenderer.addChainedFilledBoxVertices(matrices, buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
 
-		matrices.pop();
+		matrices.popPose();
 	}
 	// :::custom-pipelines:extraction-phase
 
 	// :::custom-pipelines:drawing-phase
-	private void drawFilledThroughWalls(MinecraftClient client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
+	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
 		// Build the buffer
-		BuiltBuffer builtBuffer = buffer.end();
-		BuiltBuffer.DrawParameters drawParameters = builtBuffer.getDrawParameters();
+		MeshData builtBuffer = buffer.buildOrThrow();
+		MeshData.DrawState drawParameters = builtBuffer.drawState();
 		VertexFormat format = drawParameters.format();
 
 		GpuBuffer vertices = upload(drawParameters, format, builtBuffer);
@@ -104,7 +104,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer = null;
 	}
 
-	private GpuBuffer upload(BuiltBuffer.DrawParameters drawParameters, VertexFormat format, BuiltBuffer builtBuffer) {
+	private GpuBuffer upload(MeshData.DrawState drawParameters, VertexFormat format, MeshData builtBuffer) {
 		// Calculate the size needed for the vertex buffer
 		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
 
@@ -116,36 +116,36 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		// Copy vertex data into the vertex buffer
 		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
 
-		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(vertexBuffer.getBlocking().slice(0, builtBuffer.getBuffer().remaining()), false, true)) {
-			MemoryUtil.memCopy(builtBuffer.getBuffer(), mappedView.data());
+		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
+			MemoryUtil.memCopy(builtBuffer.vertexBuffer(), mappedView.data());
 		}
 
-		return vertexBuffer.getBlocking();
+		return vertexBuffer.currentBuffer();
 	}
 
-	private static void draw(MinecraftClient client, RenderPipeline pipeline, BuiltBuffer builtBuffer, BuiltBuffer.DrawParameters drawParameters, GpuBuffer vertices, VertexFormat format) {
+	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBuffer vertices, VertexFormat format) {
 		GpuBuffer indices;
 		VertexFormat.IndexType indexType;
 
-		if (pipeline.getVertexFormatMode() == VertexFormat.DrawMode.QUADS) {
+		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
 			// Sort the quads if there is translucency
-			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().getVertexSorter());
+			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().vertexSorting());
 			// Upload the index buffer
-			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.getSortedBuffer());
-			indexType = builtBuffer.getDrawParameters().indexType();
+			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
+			indexType = builtBuffer.drawState().indexType();
 		} else {
 			// Use the general shape index buffer for non-quad draw modes
-			RenderSystem.ShapeIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getVertexFormatMode());
-			indices = shapeIndexBuffer.getIndexBuffer(drawParameters.indexCount());
-			indexType = shapeIndexBuffer.getIndexType();
+			RenderSystem.AutoStorageIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getVertexFormatMode());
+			indices = shapeIndexBuffer.getBuffer(drawParameters.indexCount());
+			indexType = shapeIndexBuffer.type();
 		}
 
 		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.write(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
+				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
-				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getFramebuffer().getColorAttachmentView(), OptionalInt.empty(), client.getFramebuffer().getDepthAttachmentView(), OptionalDouble.empty())) {
+				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
 			renderPass.setPipeline(pipeline);
 
 			RenderSystem.bindDefaultUniforms(renderPass);

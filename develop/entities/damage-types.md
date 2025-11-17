@@ -37,10 +37,10 @@ Refer to the [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format) 
 
 ### Accessing Damage Types Through Code {#accessing-damage-types-through-code}
 
-When we need to access our custom damage type through code, we will use it's `RegistryKey` to build an instance
+When we need to access our custom damage type through code, we will use it's `ResourceKey` to build an instance
 of `DamageSource`.
 
-The `RegistryKey` can be obtained as follows:
+The `ResourceKey` can be obtained as follows:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
@@ -49,7 +49,7 @@ The `RegistryKey` can be obtained as follows:
 To demonstrate the use of custom damage types, we will use a custom block called _Tater Block_. Let's make is so that
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
 
-You can override `onSteppedOn` to inflict this damage.
+You can override `stepOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 

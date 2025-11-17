@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import net.minecraft.Bootstrap;
 import net.minecraft.SharedConstants;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.server.Bootstrap;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 // :::automatic-testing:4
 public class BeanTypeTest {
@@ -21,8 +21,8 @@ public class BeanTypeTest {
 	static void beforeAll() {
 		// :::automatic-testing:4
 		// :::automatic-testing:7
-		SharedConstants.createGameVersion();
-		Bootstrap.initialize();
+		SharedConstants.tryDetectVersion();
+		Bootstrap.bootStrap();
 		// :::automatic-testing:7
 		// :::automatic-testing:4
 		BeanTypes.register();
@@ -43,7 +43,7 @@ public class BeanTypeTest {
 		// I know this isn't related to beans, but I need an example :)
 		ItemStack diamondStack = new ItemStack(Items.DIAMOND, 65);
 
-		Assertions.assertTrue(diamondStack.isOf(Items.DIAMOND));
+		Assertions.assertTrue(diamondStack.is(Items.DIAMOND));
 		Assertions.assertEquals(65, diamondStack.getCount());
 	}
 }
