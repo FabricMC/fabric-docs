@@ -20,7 +20,7 @@ const latest = computed(() => {
 });
 
 const old = computed(() => {
-  const split = options.value.oldVersion.split("%s");
+  const split = options.value.oldVersionYarn.split("%s");
   return [split[0], version.value, split.slice(1).join("%s")];
 });
 </script>

@@ -122,14 +122,19 @@ export namespace Fabric {
   export interface VersionOptions {
     reminder: {
       /**
-       * @default "This page is written for version %s."
+       * @default "This page is written for version %s in Mojang Mappings."
        */
       latestVersion: string;
 
-      /**
-       * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
+        /**
+       * @default "This page is written for version %s in Mojang Mappings.\nDocumentation for older versions may be incomplete."
        */
-      oldVersion: string;
+      oldVersionMojang: string;
+
+      /**
+       * @default "This page is written for version %s in Yarn Mappings.\nDocumentation for older versions may be incomplete."
+       */
+      oldVersionYarn: string;
     };
 
     switcher: {

@@ -50,8 +50,9 @@
   "social.discord": "Discord",
   "social.github": "GitHub",
   "title": "Fabric Documentation",
-  "version.reminder.latest_version": "This page is written for version %s.",
-  "version.reminder.old_version": "This page is written for version %s.\nDocumentation for older versions may be incomplete.",
+  "version.reminder.latest_version": "This page is written for version %s in Mojang Mappings.",
+  "version.reminder.old_version_mojang": "This page is written for version %s in Mojang Mappings.\nDocumentation for older versions may be incomplete.",
+  "version.reminder.old_version_yarn": "This page is written for version %s in Yarn Mappings.\nDocumentation for older versions may be incomplete.",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "No other versions",
   "version.warning": "This documentation applies to Minecraft %s.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar."
