@@ -123,7 +123,7 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.entities.entity-attributes",
+        text: "develop.entities.entity_attributes",
         link: "/develop/entities/entity-attributes",
       },
       {

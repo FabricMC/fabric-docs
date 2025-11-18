@@ -36,11 +36,11 @@ public static DefaultAttributeContainer.Builder createEntityAttributes() {
 
 ### Translating Custom Attributes {#attribute-translation}
 
-To display the attribute name in a human-readable format, you must modify your mod's `assets/mod-id/lang/en_us.json` to include:
+To display the attribute name in a human-readable format, you must modify `assets/example-mod/lang/en_us.json` to include:
 
 ```json
 {
-    "attribute.name.examplemod.aggro_range": "Aggro Range"
+    "attribute.name.example-mod.aggro_range": "Aggro Range"
 }
 ```
 
