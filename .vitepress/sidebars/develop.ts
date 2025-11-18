@@ -269,7 +269,7 @@ export default [
         link: "/develop/codecs",
       },
       {
-        text: "develop.misc.data-attachments",
+        text: "develop.misc.data_attachments",
         link: "/develop/data-attachments",
       },
       {
