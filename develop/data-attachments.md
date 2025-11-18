@@ -97,7 +97,7 @@ Methods to write from a Data Attachment have been injected onto the `Entity`, `B
 
 ```java
 // Sets the data associated with the given AttachmentType, returning the previous value.
-entity.setAttached(EXAMPLE_STRING_ATTACHMENT)
+entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value")
 
 // Removes the data associated with the given AttachmentType, returning the previous value.
 entity.removeAttached(EXAMPLE_STRING_ATTACHMENT)
