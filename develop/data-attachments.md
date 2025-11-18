@@ -12,7 +12,7 @@ The Data Attachment API is a recent and experimental addition to Fabric API. It 
 You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic data attachment that does not sync or persist across restarts.
 
 ```java
-public static final AttachmentType<Integer> EXAMPLE_STRING_ATTACHMENT = AttachmentRegistry.create(
+public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_string_attachment") // The ID of your attachment.
 )
 ```
@@ -31,12 +31,12 @@ Data attachments can also be synchronized, giving you a lot of flexibility when 
 
 ```java
 // Register a type of attached data. This data can be attached to anything, this is only a type
-public static final AttachmentType<ResourceLocation> EXAMPLE_RESOURCE_LOCATION_ATTACHMENT = AttachmentRegistry.create(
-  ResourceLocation.fromNamespaceAndPath("example-mod", "example_resource_location_attachment"),
+public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
+  ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
   builder->builder // This example uses a builder chain to configure the attachment data type
-    .initializer(()->ResourceLocation.fromNamespaceAndPath("example-mod", "default-value")) // The default value of the attachment, if one has not been set.
+    .initializer(()->new BlockPos(0, 0, 0)) // The default value of the attachment, if one has not been set.
     .syncWith(
-      ResourceLocation.STREAM_CODEC,  // Dicates how to turn the data into a packet to send to players.
+      BlockPos.STREAM_CODEC,  // Dicates how to turn the data into a packet to send to players.
       AttachmentSyncPredicate.all() // Dictates who to send the data to.
     )
  );
@@ -58,11 +58,11 @@ The `persistent` method takes a `Codec` so that the game knows how to serialize 
 
 ```java
 // Register a type of attached data. This data can be attached to anything, this is only a type
-public static final AttachmentType<ResourceLocation> EXAMPLE_RESOURCE_LOCATION_ATTACHMENT = AttachmentRegistry.create(
-  ResourceLocation.fromNamespaceAndPath("example-mod", "example_resource_location_attachment"),
+public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
+  ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
   builder->builder // This example uses a builder chain to configure the attachment data type
-    .initializer(()->ResourceLocation.fromNamespaceAndPath("example-mod", "default-value")) // The default value of the attachment, if one has not been set.
-    .persistent(ResourceLocation.CODEC) // Dicates how this attachment's data should be saved and loaded.
+    .initializer(()->new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
+    .persistent(BlockPos.CODEC) // Dicates how this attachment's data should be saved and loaded.
     .copyOnDeath() // Dictates that this attachment should persist even after the entity dies.
  );
 ```
@@ -74,21 +74,21 @@ Methods to read from a Data Attachment have been injected onto the `Entity`, `Bl
 ```java
 
 // Checks if the given AttachmentType has attached data, returning a boolean.
-entity.hasAttached(EXAMPLE_STRING_ATTACHMENT)
+entity.hasAttached(EXAMPLE_STRING_ATTACHMENT);
 
 // Gets the data associated with the given AttachmentType, or null if it doesn't yet exist.
-entity.getAttached(EXAMPLE_STRING_ATTACHMENT)
+entity.getAttached(EXAMPLE_STRING_ATTACHMENT);
 
 // Gets the data associated with the given AttachmentType, throwing a `NullPointerException` if it doesn't exist.
-entity.getAttachedOrThrow(EXAMPLE_STRING_ATTACHMENT)
+entity.getAttachedOrThrow(EXAMPLE_STRING_ATTACHMENT);
 
 // Gets the data associated with the given AttachmentType, setting the value if it doesn't exist.
-entity.getAttachedOrSet(EXAMPLE_STRING_ATTACHMENT, "basic", ResourceLocation.fromNamespaceAndPath("example-mod", "basic"))
-entity.getAttachedOrSet(EXAMPLE_RESOURCE_LOCATION_ATTACHMENT, ResourceLocation.fromNamespaceAndPath("example-mod", "basic"))
+entity.getAttachedOrSet(EXAMPLE_STRING_ATTACHMENT, "basic");
+entity.getAttachedOrSet(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
 
 // Gets the data associated with the given AttachmentType, returning the provided value if it doesn't exist.
-entity.getAttachedOrElse(EXAMPLE_STRING_ATTACHMENT, "basic")
-entity.getAttachedOrElse(EXAMPLE_RESOURCE_LOCATION_ATTACHMENT, ResourceLocation.fromNamespaceAndPath("example-mod", "basic"))
+entity.getAttachedOrElse(EXAMPLE_STRING_ATTACHMENT, "basic");
+entity.getAttachedOrElse(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
 ```
 
 ## Writing To a Data Attachment {#writing-attachments}
@@ -97,8 +97,8 @@ Methods to write from a Data Attachment have been injected onto the `Entity`, `B
 
 ```java
 // Sets the data associated with the given AttachmentType, returning the previous value.
-entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value")
+entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value");
 
 // Removes the data associated with the given AttachmentType, returning the previous value.
-entity.removeAttached(EXAMPLE_STRING_ATTACHMENT)
+entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 ```
