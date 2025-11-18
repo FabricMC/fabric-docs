@@ -17,7 +17,7 @@ This page contains a reference for all options present in the `loom` Gradle exte
 ```groovy
 loom {
  // Set the access widener path, see https://fabricmc.net/wiki/tutorial:accesswideners
- accessWidenerPath = file("src/main/resources/modid.accesswidener")
+ accessWidenerPath = file("src/main/resources/example-mod.accesswidener")
 
  // Add additional log4j config files.
  log4jConfigs.from(file("log4j.xml"))
@@ -87,7 +87,7 @@ loom {
 
  // Used to configure mixin options or apply to additional source sets.
  mixin {
-  // When disabled tiny remapper will be used to remap Mixins instead of the AP. Experimental.
+  // When disabled tiny remapper will be used to remap Mixins instead of the AP. (Disabled by default in Loom 1.12+)
   useLegacyMixinAp = true
   // Set the default refmap name
   defaultRefmapName = "example.refmap.json"
@@ -121,7 +121,7 @@ loom {
 
  // This mods block is used group mods that are made up of multiple classpath entries.
  mods {
-  modid {
+  example-mod {
    // When using split sources you should add the main and client source set
    sourceSet sourceSets.main
    sourceSet sourceSets.client
@@ -130,6 +130,10 @@ loom {
 
  // Create modExampleImplementation and related configurations that remap mods.
  createRemapConfigurations(sourceSets.example)
+
+ // Specifies the fabric.mod.json file location used in injected interface processing.
+ // Defaults to src/main/resources/fabric.mod.json or src/client/resources/fabric.mod.json
+ fabricModJsonPath = file("src/custom/resources/fabric.mod.json")
 }
 
 remapJar {

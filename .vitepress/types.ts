@@ -1,54 +1,66 @@
+import { DefaultTheme, UserConfig } from "vitepress";
 import { Versioned } from "vitepress-versioning-plugin";
 
 export namespace Fabric {
   export interface AuthorsOptions {
     /**
-     * @default "Page authors"
+     * @default "Page Authors"
      */
     heading: string;
 
     /**
-     * @default "%s (not on GitHub)"
+     * @default "%s (not from GitHub)"
      */
     noGitHub: string;
   }
 
   export interface BannerOptions {
-    /**
-     * @default "Fabric Documentation is a work in progress. Report issues on %s or on %s."
-     */
-    text: string;
+    local: {
+      /**
+       * @default "This is a local build"
+       */
+      build: string;
 
-    /**
-     * @default "Discord"
-     */
-    discord: string;
+      /**
+       * @default "This is a local preview"
+       */
+      dev: string;
+    };
 
-    /**
-     * @default "GitHub"
-     */
-    github: string;
+    pr: {
+      /**
+       * @default "This is a preview of %s"
+       */
+      text: string;
+
+      /**
+       * @default "Pull Request #%d"
+       */
+      link: string;
+    };
   }
 
   export interface DownloadOptions {
     /**
      * Set custom text for download button.
      *
-     * @default 'Download %s'
+     * @default "Download %s"
      */
     text: string;
   }
 
+  export type EnvOptions = "build" | "dev" | "github" | number;
+
   export interface NotFoundOptions {
     /**
-     * @default '404'
+     * @default "404"
      */
     code: string;
 
     /**
      * The locale's code on Crowdin
      */
-    crowdinCode: string | null;
+    crowdinLocale: string;
 
     /**
      * Set aria label for Crowdin link.
@@ -102,38 +114,55 @@ export namespace Fabric {
     /**
      * Set custom not found message.
      *
-     * @default 'Page not found'
+     * @default "Page not found"
      */
     title: string;
   }
 
+  export interface VersionOptions {
+    reminder: {
+      /**
+       * @default "This page is written for version %s."
+       */
+      latestVersion: string;
+
+      /**
+       * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
+       */
+      oldVersion: string;
+    };
+
+    switcher: {
+      /**
+       * @default "Minecraft %s"
+       */
+      label: string;
+
+      /**
+       * @default "No other versions"
+       */
+      none: string;
+    };
+  }
+
   export interface SidebarItem extends Versioned.SidebarItem {
     text: string;
-    translatable?: false;
     items?: SidebarItem[];
+  }
+
+  export interface Sidebar extends DefaultTheme.SidebarMulti {
+    [path: string]: SidebarItem[];
   }
 
   export interface ThemeConfig extends Versioned.ThemeConfig {
     authors: AuthorsOptions;
     banner: BannerOptions;
     download: DownloadOptions;
+    env: EnvOptions;
     notFound: NotFoundOptions;
+    sidebar: Sidebar;
     version: VersionOptions;
   }
 
-  export interface VersionOptions {
-    /**
-     * Set custom text for switcher button.
-     *
-     * @default 'Switch Version'
-     */
-    switcher: string;
-
-    /**
-     * Set custom message for version reminder.
-     *
-     * @default 'This page is written for version:'
-     */
-    reminder: string;
-  }
+  export type Config = UserConfig<ThemeConfig> & Versioned.Config;
 }

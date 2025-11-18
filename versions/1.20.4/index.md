@@ -15,15 +15,15 @@ features:
     linkText: Read More
   - title: Developer Guides
     icon: 🛠️
-    details: Our curated developer guides, written by the community, span a wide range of topics from setting up a development environment to more advanced topics, such as rendering and networking.
+    details: Our community-written developer guides cover everything from setting up your development environment to advanced topics like rendering and networking.
     link: /1.20.4/develop/
     linkText: Get Started
-
-search: false
 ---
 
 ::: warning
-You are currently viewing the documentation for Minecraft 1.20.4. If you are looking for the documentation for a different version, please select the version you are using from the dropdown on the navigation bar.
+This documentation applies to Minecraft 1.20.4.
+
+Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
 :::
 
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).

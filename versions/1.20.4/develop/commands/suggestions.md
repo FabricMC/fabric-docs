@@ -17,7 +17,7 @@ A `SuggestionProvider` is used to make a list of suggestions that will be sent t
 
 To use a suggestion provider, you need to call the `suggests` method on the argument builder. This method takes a `SuggestionProvider` and returns the modified argument builder with the suggestion provider attached.
 
-@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code java transcludeWith=:::9 highlight={4}](@/reference/1.20.4/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Built-in Suggestion Providers {#built-in-suggestion-providers}
 

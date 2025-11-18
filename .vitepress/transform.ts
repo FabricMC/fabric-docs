@@ -1,69 +1,51 @@
-import { PageData, SiteConfig } from "vitepress";
+import { HeadConfig, SiteConfig, UserConfig } from "vitepress";
 
-import { getWebsiteResolver } from "./i18n";
+export const transformHead: SiteConfig["transformHead"] = (context) => {
+  const returned: HeadConfig[] = [];
 
-/**
- * Adds open graph data (social media embed info) and tells web crawlers to not index versioned pages.
- */
-export function transformPageData(pageData: PageData, _context: any) {
-  pageData.frontmatter.head ??= [];
+  const split = context.pageData.filePath.split("/");
+  if (split[0] === "versions") split.splice(0, 2);
+  const locale = split[0] === "translated" ? split[1] : "en_us";
 
-  const parts = pageData.relativePath.split("/");
-  const websiteTitle = getWebsiteResolver(
-    parts[0][2] === "_" ? parts[0] : "root"
-  )("title");
-  const title =
-    pageData.frontmatter.layout === "home"
-      ? websiteTitle
-      : pageData.title + " | " + websiteTitle;
+  const hostName = context.siteConfig.sitemap?.hostname ?? "";
+  const canonicalUrl = `${hostName}${context.pageData.relativePath
+    .replace(/\.md$/, "")
+    .replace(/\/index$/, "/")}`;
+  const siteName =
+    context.siteConfig.userConfig.locales![locale]?.title
+    ?? context.siteConfig.userConfig.locales!.root.title!;
 
-  const tags = [
-    ["theme-color", "#2275da"],
+  returned.push(["link", { rel: "canonical", href: canonicalUrl }]);
 
-    // https://ogp.me/
-    ["og:type", "website"],
-    ["og:title", title],
-    ["og:description", pageData.description],
-    ["og:url", `https://docs.fabricmc.net/${pageData.relativePath}`],
-    ["og:image", "/logo.png"],
-    ["og:locale", parts[0]],
-    // TODO: "og:locale:alternate"?
-
-    // https://developer.x.com/en/docs/twitter-for-websites/cards/guides/getting-started
-    // haha still twitter
-    ["twitter:card", "summary"],
-    // TODO: "twitter:site"?
+  // https://ogp.me/
+  const og: [string, string][] = [
+    ["og:site_name", siteName],
+    ["og:title", context.pageData.title],
+    ["og:description", context.pageData.description],
+    ["og:url", canonicalUrl],
+    ["og:image", `${hostName}/logo.png`],
+    ["og:type", "article"],
+    ["og:locale", locale.replace(/..$/, (m) => m.toUpperCase())],
   ];
 
+  if ((context.pageData.lastUpdated ?? 0) > 0) {
+    og.push(["article:modified_time", String(context.pageData.lastUpdated)]);
+  }
+
+  returned.push(...og.map(([property, content]) => ["meta", { property, content }] as HeadConfig));
+
   // Don't index the page if it's a versioned page.
-  if (pageData.filePath.includes("versions")) {
-    tags.push(["robots", "noindex"]);
+  if (context.pageData.filePath.startsWith("versions/")) {
+    returned.push(["meta", { name: "robots", content: "none" }]);
   }
 
-  for (const tag of tags) {
-    pageData.frontmatter.head.push([
-      "meta",
-      {
-        property: tag[0],
-        content: tag[1],
-      },
-    ]);
-  }
-}
+  return returned;
+};
 
-export function transformItems(items: any[]): any[] {
-  const config = globalThis.VITEPRESS_CONFIG as SiteConfig;
-  const inverseRewrites = config.rewrites.inv;
-
-  const itemsCopy = [...items];
-  for (const item of items) {
-    const path = item.url.replace("https://docs.fabricmc.net/", "") + ".md";
-
-    // Remove the item if it's a versioned item
-    if (inverseRewrites[path]?.includes("versions")) {
-      itemsCopy.splice(itemsCopy.indexOf(item), 1);
-    }
-  }
-
-  return itemsCopy;
-}
+export const transformItems: NonNullable<UserConfig["sitemap"]>["transformItems"] = (items) => {
+  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
+  return items.filter((i) => {
+    const relativePath = i.url.replace(config.sitemap!.hostname, "");
+    return !config.rewrites.inv[relativePath]?.startsWith("versions/");
+  });
+};

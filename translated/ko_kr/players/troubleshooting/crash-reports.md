@@ -84,10 +84,10 @@ Mixin은 모드가 게임의 소스 코드를 직접적으로 수정하지 않�
 
 Mixin이 충돌하면, 스택 추적에는 충돌한 Mixin과 그 Mixin이 수정하려고 한 클래스가 기록됩니다.
 
-메소드 Mixin은 스택 추적에 `modid$handlerName`과 같이 기록되는데, `modid`는 모드의 ID, `handlerName`은 Mixin 처리기의 이름입니다.
+메소드 Mixin은 스택 추적에 `mod-id$handlerName`과 같이 기록되는데, `mod-id`는 모드의 ID, `handlerName`은 Mixin 처리기의 이름입니다.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 이 정보를 통해 충돌을 일으킨 모드를 찾고, 모드 개발자에게 충돌을 신고할 수 있게 됩니다.

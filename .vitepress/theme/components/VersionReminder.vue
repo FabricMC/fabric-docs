@@ -1,38 +1,34 @@
 <script setup lang="ts">
-import { useData, useRoute } from "vitepress";
+import { useData } from "vitepress";
 import { computed } from "vue";
 
-const data = useData();
-const route = useRoute();
-const LATEST = "1.21.8";
+import { Fabric } from "../../types";
 
-const path = computed(() => route.path);
-const text = computed(() => data.theme.value.version.reminder as string);
+const data = useData();
+
+const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).reminder);
 
 const version = computed(() => {
-  const mcRegex = /^\d+\.\d+(\.\d+)*$/;
-  const localeRegex = /^[a-z]{2}_[a-z]{2}$/;
+  const split = data.page.value.filePath.split("/");
+  if (split[0] === "versions") return split[1];
+  return data.theme.value.nav[3].props.versioningPlugin.latestVersion as string;
+});
 
-  const segments = path.value.split("/");
-  const firstSegment = segments[1] ?? "";
-  const secondSegment = segments[2] ?? "";
+const latest = computed(() => {
+  const split = options.value.latestVersion.split("%s");
+  return [split[0], version.value, split.slice(1).join("%s")];
+});
 
-  if (mcRegex.test(firstSegment)) {
-    return firstSegment;
-  } else if (localeRegex.test(firstSegment) && mcRegex.test(secondSegment)) {
-    return secondSegment;
-  } else {
-    return LATEST;
-  }
+const old = computed(() => {
+  const split = options.value.oldVersion.split("%s");
+  return [split[0], version.value, split.slice(1).join("%s")];
 });
 </script>
 
 <template>
-  <br class="before-version-reminder" />
-  <div :class="`version-reminder ${version !== LATEST ? 'old-version' : ''}`">
-    <div class="icon">
+  <div v-if="data.page.value.filePath.startsWith('versions/')" class="old">
+    <span>
       <svg
-        v-if="version !== LATEST"
         version="1.1"
         id="Capa_1"
         width="25%"
@@ -48,20 +44,27 @@ const version = computed(() => {
               <path
                 stroke-width="7px"
                 d="M256.657,127.525h-31.9c-10.557,0-19.125,8.645-19.125,19.125v101.975c0,10.48,8.645,19.125,19.125,19.125h31.9
-                c10.48,0,19.125-8.645,19.125-19.125V146.65C275.782,136.17,267.138,127.525,256.657,127.525z"
+              c10.48,0,19.125-8.645,19.125-19.125V146.65C275.782,136.17,267.138,127.525,256.657,127.525z"
               />
               <path
                 stroke-width="7px"
                 d="M239.062,0C106.947,0,0,106.947,0,239.062s106.947,239.062,239.062,239.062c132.115,0,239.062-106.947,239.062-239.062
-                S371.178,0,239.062,0z M239.292,409.734c-94.171,0-170.595-76.348-170.595-170.596c0-94.248,76.347-170.595,170.595-170.595
-                s170.595,76.347,170.595,170.595C409.887,333.387,333.464,409.734,239.292,409.734z"
+              S371.178,0,239.062,0z M239.292,409.734c-94.171,0-170.595-76.348-170.595-170.596c0-94.248,76.347-170.595,170.595-170.595
+              s170.595,76.347,170.595,170.595C409.887,333.387,333.464,409.734,239.292,409.734z"
               />
             </g>
           </g>
         </g>
       </svg>
+    </span>
+    <p>
+      {{ old[0] }}<b>{{ old[1] }}</b
+      >{{ old[2] }}
+    </p>
+  </div>
+  <div v-else class="latest">
+    <span>
       <svg
-        v-else
         version="1.1"
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -79,88 +82,62 @@ const version = computed(() => {
           />
         </g>
       </svg>
-    </div>
-    <div class="mobile-wrapper">
-      <p>{{ text }}</p>
-      <p class="version">
-        <strong>{{ version }}</strong>
-      </p>
-    </div>
+    </span>
+    <p>
+      {{ latest[0] }}<b>{{ latest[1] }}</b
+      >{{ latest[2] }}
+    </p>
   </div>
-  <br class="after-version-reminder" />
 </template>
 
 <style scoped>
-.version-reminder {
-  border: 1px solid transparent;
+div {
+  align-items: center;
   border-radius: 8px;
-  padding: 16px;
-  border-color: var(--vp-custom-block-tip-border);
-  color: var(--vp-custom-block-tip-text);
-  background-color: var(--vp-custom-block-tip-bg);
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 16px;
+  margin-top: 16px;
+  padding: 16px;
+  white-space: pre-wrap;
 }
 
-.old-version {
-  border-color: var(--vp-custom-block-warning-border);
-  color: var(--vp-custom-block-warning-text);
+span {
+  width: 48px;
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.latest {
+  background-color: var(--vp-custom-block-tip-bg);
+  color: var(--vp-custom-block-tip-text);
+
+  svg {
+    fill: var(--vp-c-tip-1);
+  }
+}
+
+.old {
   background-color: var(--vp-custom-block-warning-bg);
-}
+  color: var(--vp-custom-block-warning-text);
 
-.old-version > .icon > svg {
-  fill: var(--vp-c-warning-1) !important;
-}
-
-.icon {
-  width: 20%;
-  height: 20%;
-}
-
-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: var(--vp-c-tip-1);
-}
-
-p {
-  margin-top: 0;
-  font-size: small;
-}
-
-p.larger {
-  font-size: larger;
-}
-
-p.version {
-  font-size: larger;
+  svg {
+    fill: var(--vp-c-warning-1);
+  }
 }
 
 @media (min-width: 1280px) {
-  .content-container > .version-reminder,
-  .content-container > .after-version-reminder,
-  .before-version-reminder {
+  .content-container > div {
     display: none;
   }
-}
 
-@media (max-width: 1279px) {
-  .icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  p.version {
-    font-size: small;
-  }
-
-  .mobile-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+  span {
+    height: 20%;
+    width: 20%;
   }
 }
 </style>

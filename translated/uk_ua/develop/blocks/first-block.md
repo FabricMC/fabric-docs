@@ -36,7 +36,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Створення та реєстрація вашого блоку {#creating-and-registering-your-block}
 
@@ -75,13 +75,13 @@ public class ModBlocks {
 
 ## Додання перекладу для блока {#adding-block-translations}
 
-Щоб додати переклад, ви повинні створити ключ перекладу у своєму файлі перекладу - `assets/mod-id/lang/en_us.json`, це англійська, для української створіть `uk_ua.json`.
+Щоб додати переклад, ви повинні створити ключ перекладу у своєму файлі перекладу - `assets/example-mod/lang/en_us.json`, це англійська, для української створіть `uk_ua.json`.
 
 Minecraft використовуватиме цей переклад у творчому інвентарі та інших місцях, де показано його назву, наприклад у повідомленнях команд.
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -89,17 +89,17 @@ Minecraft використовуватиме цей переклад у твор
 
 ## Моделі й текстури {#models-and-textures}
 
-Усі текстури блоків можна знайти в теці `assets/mod-id/textures/block` - приклад текстури для блоку «Condensed Dirt» можна використовувати безплатно.
+Усі текстури блоків можна знайти в теці `assets/example-mod/textures/block` - приклад текстури для блоку «Condensed Dirt» можна використовувати безплатно.
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Текстура</DownloadEntry>
 
-Щоб текстура промальовувалася в грі, ви повинні створити модель блоку, яку можна знайти у файлі `assets/mod-id/models/block/condensed_dirt.json` для блоку «Condensed Dirt». Для цього блоку ми будемо використовувати тип моделі `block/cube_all`.
+Щоб текстура промальовувалася в грі, ви повинні створити модель блоку, яку можна знайти у файлі `assets/example-mod/models/block/condensed_dirt.json` для блоку «Condensed Dirt». Для цього блоку ми будемо використовувати тип моделі `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-Щоб блок позувався у вашому інвентарі, вам потрібно буде створити опис моделі предмета](../items/first-item#creating-the-item-model-description), який вказує на вашу модель блоку. Для цього прикладу опис моделі предмета для блоку «Condensed Dirt» можна знайти у `assets/mod-id/items/condensed_dirt.json`.
+Щоб блок позувався у вашому інвентарі, вам потрібно буде створити опис моделі предмета](../items/first-item#creating-the-item-model-description), який вказує на вашу модель блоку. Для цього прикладу опис моделі предмета для блоку «Condensed Dirt» можна знайти у `assets/example-mod/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 :::tip
 Вам потрібно лише створити опис моделі предмета, якщо ви зареєстрували `BlockItem` разом зі своїм блоком!
@@ -113,9 +113,9 @@ Minecraft використовуватиме цей переклад у твор
 
 Для прикладу блоку, який не має складного стану блока, у визначенні потрібен лише один запис.
 
-Цей файл має міститися в папці `assets/mod-id/blockstates`, а його назва має збігатися з ідентифікатором блоку, який використовується під час реєстрації вашого блоку в класі `ModBlocks`. Наприклад, якщо ID блоку `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
+Цей файл має міститися в папці `assets/example-mod/blockstates`, а його назва має збігатися з ідентифікатором блоку, який використовується під час реєстрації вашого блоку в класі `ModBlocks`. Наприклад, якщо ID блоку `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 Стани блоків неймовірно складні, тому вони будуть розглянуті далі на [їхній окремій сторінці](./blockstates).
@@ -127,13 +127,13 @@ Minecraft використовуватиме цей переклад у твор
 
 ## Додання здобичі для блоку {#adding-block-drops}
 
-Під час розбивання блоку під час виживання ви можете побачити, що блок не падає — можливо, вам потрібна ця функція, однак, щоб ваш блок випадав як предмет під час ламання, ви повинні застосувати його таблицю здобичі — файл таблиці здобичі слід розмістити в теку `data/mod-id/loot_table/blocks/`.
+Під час розбивання блоку під час виживання ви можете побачити, що блок не падає — можливо, вам потрібна ця функція, однак, щоб ваш блок випадав як предмет під час ламання, ви повинні застосувати його таблицю здобичі — файл таблиці здобичі слід розмістити в теку `data/example-mod/loot_table/blocks/`.
 
 :::info
 Щоб краще зрозуміти таблиці здобичі, ви можете звернутися до сторінки [Minecraft Wiki - Таблиці здобичі](https://minecraft.wiki/w/Loot_table).
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блоку, коли блок ламаний або підірваний вибухом.
 

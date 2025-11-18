@@ -18,7 +18,7 @@ Genauso wie Items und Blöcke, müssen auch Tränke registriert werden.
 
 Als Erstes wird die `Potion` Instanz in einer Variable deklariert. Wir werden hierfür die `ModInitializer` implementierende Klasse nutzen.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besitzt:
 
@@ -34,7 +34,7 @@ Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](..
 
 In unserer Initialisierungsmethode benutzen wir das `FabricBrewingRecipeRegistryBuilder.BUILD` Event um unseren Trank mithilfe der `BrewingRecipeRegistry.registerPotionRecipe` Methode zu registrieren.
 
-@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 

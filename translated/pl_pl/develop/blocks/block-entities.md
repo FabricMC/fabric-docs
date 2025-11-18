@@ -104,7 +104,7 @@ Teraz możemy użyć `ticksSinceLast`, aby sprawdzić, czy licznik można zwięk
 Jeśli byt bloku nie jest zaznaczony, spróbuj sprawdzić kod rejestracyjny! Powinien przekazać bloki, które są prawidłowe dla tego bytu, do `BlockEntityType.Builder`, w przeciwnym razie w konsoli pojawi się ostrzeżenie:
 
 ```text
-[13:27:55] [Server thread/WARN] (Minecraft) Block entity fabric-docs-reference:counter @ BlockPos{x=-29, y=125, z=18} state Block{fabric-docs-reference:counter_block} invalid for ticking:
+[13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 
 :::

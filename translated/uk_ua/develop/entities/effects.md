@@ -33,26 +33,26 @@ authors-nogithub:
 Подібно до реєстрації блоків і предметів, ми використовуємо `Registry.register` для реєстрації нашого власного ефекту в
 реєстрі `STATUS_EFFECT`. Це можна зробити в нашому ініціалізаторі.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Текстура {#texture}
 
 Значок статусного ефекту — це PNG розміром 18x18, який з’явиться на екрані інвентарю гравця. Розмістіть ваш значок у:
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Приклад текстури</DownloadEntry>
 
 ### Переклад {#translations}
 
-Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.mod-id.effect-identifier": "Значення"`
+Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.example-mod.effect-identifier": "Значення"`
 у мовний файл.
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -64,7 +64,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

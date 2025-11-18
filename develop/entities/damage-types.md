@@ -17,12 +17,12 @@ will
 be placed in your mod's `data` directory, in a subdirectory named `damage_type`.
 
 ```:no-line-numbers
-resources/data/fabric-docs-reference/damage_type/tater.json
+resources/data/example-mod/damage_type/tater.json
 ```
 
 It has the following structure:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/fabric-docs-reference/damage_type/tater.json)
+@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -37,19 +37,19 @@ Refer to the [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format) 
 
 ### Accessing Damage Types Through Code {#accessing-damage-types-through-code}
 
-When we need to access our custom damage type through code, we will use it's `RegistryKey` to build an instance
+When we need to access our custom damage type through code, we will use it's `ResourceKey` to build an instance
 of `DamageSource`.
 
-The `RegistryKey` can be obtained as follows:
+The `ResourceKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
 ### Using Damage Types {#using-damage-types}
 
 To demonstrate the use of custom damage types, we will use a custom block called _Tater Block_. Let's make is so that
 when a living entity steps on a _Tater Block_, it deals _Tater_ damage.
 
-You can override `onSteppedOn` to inflict this damage.
+You can override `stepOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 

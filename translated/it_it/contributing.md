@@ -177,15 +177,15 @@ L'ancora deve usare caratteri minuscoli, numeri e trattini.
 
 Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata nella mod reference (presente nella cartella `/reference` della repository). Dopo di che, usa la [funzione code snippet fornita da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice.
 
-Per esempio, per evidenziare le linee 15-21 del file `FabricDocsReference.java` dalla mod reference:
+Per esempio, per evidenziare le linee 15-21 del file `ExampleMod.java` dalla mod reference:
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ Per esempio, questo incorporerà le sezioni del suddetto file che sono contrasse
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

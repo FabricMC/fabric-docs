@@ -46,7 +46,7 @@ You will also have to add a texture, item translation and item model. However, f
 
 For this example, I will be using the following model and texture for the "Guidite Sword" item:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
 

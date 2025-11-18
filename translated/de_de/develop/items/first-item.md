@@ -48,7 +48,7 @@ Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisieru
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 
@@ -76,13 +76,13 @@ Es fehlen jedoch folgende Punkte:
 
 ## Das Item benennen {#naming-the-item}
 
-Für das Item gibt es derzeit keine Übersetzung, du musst also eine hinzufügen. Der Übersetzungsschlüssel wurde bereits von Minecraft bereitgestellt: `item.mod_id.suspicious_substance`.
+Für das Item gibt es derzeit keine Übersetzung, du musst also eine hinzufügen. Der Übersetzungsschlüssel wurde bereits von Minecraft bereitgestellt: `item.example-mod.suspicious_substance`.
 
-Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/mod-id/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
+Erstelle eine neue JSON-Datei unter dem Pfad `src/main/resources/assets/example-mod/lang/en_us.json` und setze den Übersetzungsschlüssel und seinen Wert:
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -90,7 +90,7 @@ Du kannst entweder das Spiel neu starten oder deinen Mod bauen und <kbd>F3</kbd>
 
 ## Eine Textur und ein Modell hinzufügen {#adding-a-texture-and-model}
 
-Um deinem Item eine Textur und ein Modell zu geben, erstelle einfach ein 16x16 Texturbild für dein Item und speichere es im Ordner `assets/mod-id/textures/item`. Benenne die Texturdatei genauso wie den Bezeichner des Items, aber mit der Erweiterung `.png`.
+Um deinem Item eine Textur und ein Modell zu geben, erstelle einfach ein 16x16 Texturbild für dein Item und speichere es im Ordner `assets/example-mod/textures/item`. Benenne die Texturdatei genauso wie den Bezeichner des Items, aber mit der Erweiterung `.png`.
 
 Als Beispiel kannst du diese Textur für `suspicious_substance.png` verwenden.
 
@@ -100,9 +100,9 @@ Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer no
 
 Du wirst ein einfaches `item/generated`-Modell erstellen, das eine Eingabetextur und sonst nichts enthält.
 
-Erzeuge das Modell JSON im Ordner `assets/mod-id/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
+Erzeuge das Modell JSON im Ordner `assets/example-mod/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -117,15 +117,15 @@ Es gibt Alternativen, z. B. `item/handheld`, das für Items verwendet wird, die 
 
 Minecraft weiß nicht, wo deine Item-Model Dateien zu finden sind, deswegen müssen wir eine Item-Model-Beschreibung zur Verfügung stellen.
 
-Erstelle die JSON-Beschreibung des Items im Verzeichnis `assets/mod-id/items`, mit demselben Dateinamen wie der Bezeichner des Items: `suspicious_substance.json`.
+Erstelle die JSON-Beschreibung des Items im Verzeichnis `assets/example-mod/items`, mit demselben Dateinamen wie der Bezeichner des Items: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Aufschlüsselung des JSON der Itemmodell-Beschreibung {#breaking-down-the-item-model-description-json}
 
 - `model`: Das ist die Eigenschaft, die die Referenz zu unserem Modell beinhaltet.
   - `type`: Dies ist der Typ unseres Modell. Für die meisten Items sollte dies `minecraft:model` sein.
-  - `model`: Dies ist die Bezeichnung des Modells. Es sollte diese Form haben: `mod-id:item/item_name`
+  - `model`: Dies ist die Bezeichnung des Modells. Es sollte diese Form haben: `example-mod:item/item_name`
 
 Dein Item sollte nun im Spiel wie folgt aussehen:
 
@@ -147,7 +147,7 @@ Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das E
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Wenn du ein Crafting-Rezept für deine Items hinzufügen möchtest, musst du eine Rezept-JSON-Datei in den Ordner `data/mod-id/recipe` legen.
+Wenn du ein Crafting-Rezept für deine Items hinzufügen möchtest, musst du eine Rezept-JSON-Datei in den Ordner `data/example-mod/recipe` legen.
 
 Weitere Informationen über das Rezeptformat findest du in diesen Ressourcen:
 
