@@ -63,7 +63,7 @@
   "develop.rendering.particles.creating_particles": "Creating Custom Particles",
   "develop.misc": "Miscellaneous Pages",
   "develop.misc.codecs": "Codecs",
-  "develop.misc.data-attachments": "Data Attachments",
+  "develop.misc.data_attachments": "Data Attachments",
   "develop.misc.events": "Events",
   "develop.misc.networking": "Networking",
   "develop.misc.text_and_translations": "Text and Translations",
