@@ -31,6 +31,7 @@ public class SavedBlockData extends SavedData {
 	public SavedBlockData() {
 	}
 	// :::basic_structure
+
 	// :::ctor
 	public SavedBlockData(int count) {
 		blocksBroken = count;
