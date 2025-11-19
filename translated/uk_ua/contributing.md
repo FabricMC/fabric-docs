@@ -177,15 +177,15 @@ authors:
 
 Якщо ви створюєте або змінюєте сторінки, що містять код, розмістіть код у відповідному місці в посилання моду (розташованому в теці`/reference` сховища). Потім скористайтеся [функцією фрагмента коду, запропонованою VitePress](https://vitepress.dev/guide/markdown#import-code-snippets), щоб вставити код.
 
-Наприклад, щоб виділити рядки 15-21 файлу `FabricDocsReference.java` з посилання моду:
+Наприклад, щоб виділити рядки 15-21 файлу `ExampleMod.java` з посилання моду:
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

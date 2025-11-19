@@ -82,7 +82,7 @@ Als Beispiel dient das folgende Textur- und Modell-JSON als Referenz.
 Du benötigst JSON-Modelldateien für alle Gegenstände, nicht nur für den Helm. Es ist das gleiche Prinzip wie bei anderen Itemmodellen.
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_helmet.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
 
 Wie du sehen kannst, sollten die Rüstungsitems im Spiel geeignete Modelle haben:
 
@@ -98,8 +98,8 @@ Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
 Zuvor haben wir eine Konstante `RegistryKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
 
-- `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
-- `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Rüstungsmodell-Texturen</DownloadEntry>
 
@@ -107,13 +107,13 @@ Zuvor haben wir eine Konstante `RegistryKey<EquipmentAsset>` mit dem Namen `GUID
 Wenn du von einer älteren Version des Spiels auf 1.21.4 aktualisierst, ist der Ordner `humanoid` der Ort, an dem deine Rüstungstextur `layer0.png` liegt, und der Ordner `humanoid_leggings` ist der Ort, an dem deine Rüstungstextur `layer1.png` liegt.
 :::
 
-Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/mod-id/equipment/`.
+Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/example-mod/equipment/`.
 
 Die Konstante `RegistryKey<EquipmentAsset>`, die wir zuvor erstellt haben, bestimmt den Namen der JSON-Datei. In diesem Fall wird es `guidite.json` sein.
 
 Da wir nur "Humanoide" Rüstungsteile (Helm, Brustpanzer, Hose, Stiefel usw.) hinzufügen wollen , werden die Definitionen der Ausrüstungsmodelle wie folgt aussehen:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/equipment/guidite.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 
 Wenn die Texturen und die Definition des Rüstungsmodell vorhanden sind, solltest du in der Lage sein, deine Rüstung auf den Entitäten zu sehen, die sie tragen:
 

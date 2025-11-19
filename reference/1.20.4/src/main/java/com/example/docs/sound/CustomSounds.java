@@ -17,14 +17,14 @@ public class CustomSounds {
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {
-		Identifier identifier = new Identifier(FabricDocsReferenceSounds.MOD_ID, id);
+		Identifier identifier = new Identifier(ExampleModSounds.MOD_ID, id);
 		return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
 	}
 
 	// This static method starts class initialization, which then initializes
 	// the static class variables (e.g. ITEM_METAL_WHISTLE).
 	public static void initialize() {
-		FabricDocsReferenceSounds.LOGGER.info("Registering " + FabricDocsReferenceSounds.MOD_ID + " Sounds");
+		ExampleModSounds.LOGGER.info("Registering " + ExampleModSounds.MOD_ID + " Sounds");
 		// Technically this method can stay empty, but some developers like to notify
 		// the console, that certain parts of the mod have been successfully initialized
 	}

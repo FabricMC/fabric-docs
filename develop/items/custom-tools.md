@@ -24,6 +24,10 @@ The `ToolMaterial` constructor accepts the following parameters, in this specifi
 | `enchantmentValue` | The "Enchantability" of tools which are of this `ToolMaterial`. |
 | `repairItems` | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil. |
 
+For this example, we will use the same repair item we will be using for armor. We define the tag reference as follows:
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
 If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
 ## Creating Tool Items {#creating-tool-items}
@@ -42,7 +46,7 @@ You will also have to add a texture, item translation and item model. However, f
 
 For this example, I will be using the following model and texture for the "Guidite Sword" item:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/guidite_sword.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
 

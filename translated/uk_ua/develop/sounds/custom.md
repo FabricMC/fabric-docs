@@ -27,13 +27,13 @@ authors:
 
 ## Завантаження аудіофайлу {#loading-the-audio-file}
 
-Додайте новий каталог `resources/assets/mod-id/sounds` для звуків у вашому моді та помістіть туди експортований аудіофайл `metal_whistle.ogg`.
+Додайте новий каталог `resources/assets/example-mod/sounds` для звуків у вашому моді та помістіть туди експортований аудіофайл `metal_whistle.ogg`.
 
-Продовжте створення файлу `resources/assets/mod-id/sounds.json`, якщо він ще не існує, і додайте свій звук до звукових записів.
+Продовжте створення файлу `resources/assets/example-mod/sounds.json`, якщо він ще не існує, і додайте свій звук до звукових записів.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
-Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/mod-id/lang` і показуватиметься, якщо ввімкнуто налаштування субтитрів у грі та якщо відтворюється цей спеціальний звук.
+Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/example-mod/lang` і показуватиметься, якщо ввімкнуто налаштування субтитрів у грі та якщо відтворюється цей спеціальний звук.
 
 ## Реєстрація спеціального звуку {#registering-the-custom-sound}
 
@@ -54,7 +54,7 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 Таким чином, ініціалізатору мода потрібно реалізувати лише один рядок, щоб зареєструвати всі спеціальні звукові події.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Використання спеціальної звукової події {#using-the-custom-soundevent}
 

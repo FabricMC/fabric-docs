@@ -15,7 +15,7 @@ A block state is a piece of data attached to a singular block in the Minecraft w
 
 You can probably see why they are useful - they avoid the need to store NBT data in a block entity - reducing the world size, and preventing TPS issues!
 
-Blockstate definitions are found in the `assets/mod-id/blockstates` folder.
+Blockstate definitions are found in the `assets/example-mod/blockstates` folder.
 
 ## Example: Pillar Block {#pillar-block}
 
@@ -29,7 +29,7 @@ The vanilla `PillarBlock` class allows the block to be placed in the X, Y or Z a
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
-As always, with all block textures, the texture files can be found in `assets/mod-id/textures/block`
+As always, with all block textures, the texture files can be found in `assets/example-mod/textures/block`
 
 <DownloadEntry type="Textures" visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip" />
 
@@ -40,10 +40,10 @@ Since the pillar block has two positions, horizontal and vertical, we'll need to
 
 An example of the `condensed_oak_log_horizontal.json` file:
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
 :::
@@ -54,7 +54,7 @@ Next, we need to create a blockstate file. The blockstate file is where the magi
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
 - `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 As always, you'll need to create a translation for your block, and an item model which parents either of the two models.
 
@@ -104,7 +104,7 @@ If you have multiple properties on a block, you'll need to account for all possi
 
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
 

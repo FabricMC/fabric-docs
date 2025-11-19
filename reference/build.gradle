@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT' apply false
+	id 'fabric-loom' version '1.13-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
@@ -10,14 +10,14 @@ subprojects {
 	apply plugin: 'com.diffplug.spotless'
 
 	base {
-		archivesName = "fabric-docs-reference-${project.name}"
+		archivesName = "example-mod-${project.name}"
 	}
 
 	loom {
 		splitEnvironmentSourceSets()
 
 		mods {
-			"fabric-docs-reference" {
+			"example-mod" {
 				sourceSet sourceSets.main
 				sourceSet sourceSets.client
 			}

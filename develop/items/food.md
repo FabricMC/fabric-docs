@@ -15,15 +15,15 @@ Unless you're making a mod with overpowered items, you should consider:
 
 ## Adding the Food Component {#adding-the-food-component}
 
-To add a food component to an item, we can pass it to the `Item.Settings` instance:
+To add a food component to an item, we can pass it to the `Item.Properties` instance:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 Right now, this just makes the item edible and nothing more.
 
-The `FoodComponent.Builder` class has some methods that allow you to modify what happens when a player eats your item:
+The `FoodProperties.Builder` class has some methods that allow you to modify what happens when a player eats your item:
 
 | Method               | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -31,9 +31,9 @@ The `FoodComponent.Builder` class has some methods that allow you to modify what
 | `saturationModifier` | Sets the amount of saturation points your item will add.   |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.   |
 
-When you've modified the builder to your liking, you can call the `build()` method to get the `FoodComponent`.
+When you've modified the builder to your liking, you can call the `build()` method to get the `FoodProperties`.
 
-If you want to add status effects to the player when they eat your food, you will need to use the `ConsumableComponent` alongside the `FoodComponent` class as seen in the following example:
+If you want to add status effects to the player when they eat your food, you will need to add a `Consumable` component alongside the `FoodProperties` component as seen in the following example:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

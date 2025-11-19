@@ -12,23 +12,31 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 To summarize, you have to use Minecraft's rendering system, or build your own that utilizes `GL.glDrawElements()`.
 :::
 
+::: warning IMPORTANT UPDATE
+Starting from 1.21.6, large changes are being implemented to the rendering pipeline, such as moving towards `RenderType`s and `RenderPipeline`s and more importantly, `RenderState`s, with the ultimate goal of being able to prepare the next frame while drawing the current frame. In the "preparation" phase, all game data used for rendering is extracted to `RenderState`s, so another thread can work on drawing that frame while the next frame is being extracted.
+
+For example, in 1.21.8 GUI rendering adopted this model, and `GuiGraphics` methods simply add to the render state. The actual uploading to the `BufferBuilder` happens at the end of the preparation phase, after all elements have been added to the `RenderState`. See `GuiRenderer#prepare`.
+
+This article covers the basics of rendering and, while still somewhat relevant, most times there are higher levels of abstractions for better performance and compatibility. For more information, see [Rendering in the World](./world).
+:::
+
 This page will cover the basics of rendering using the new system, going over key terminology and concepts.
 
-Although much of rendering in Minecraft is abstracted through the various `DrawContext` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
+Although much of rendering in Minecraft is abstracted through the various `GuiGraphics` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
 
-## The `Tessellator` {#the-tessellator}
+## The `Tesselator` {#the-tesselator}
 
-The `Tessellator` is the main class used to render things in Minecraft. It is a singleton, meaning that there is only one instance of it in the game. You can get the instance using `Tessellator.getInstance()`.
+The `Tesselator` is the main class used to render things in Minecraft. It is a singleton, meaning that there is only one instance of it in the game. You can get the instance using `Tesselator.getInstance()`.
 
 ## The `BufferBuilder` {#the-bufferbuilder}
 
 The `BufferBuilder` is the class used to format and upload rendering data to OpenGL. It is used to create a buffer, which is then uploaded to OpenGL to draw.
 
-The `Tessellator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL.
+The `Tesselator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL.
 
 ### Initializing the `BufferBuilder` {#initializing-the-bufferbuilder}
 
-Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `Tessellator#begin(...)` method, which takes in a `VertexFormat` and a draw mode and returns a `BufferBuilder`.
+Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `Tesselator#begin(...)` method, which takes in a `VertexFormat` and a draw mode and returns a `BufferBuilder`.
 
 #### Vertex Formats {#vertex-formats}
 
@@ -59,14 +67,14 @@ The draw mode defines how the data is drawn. The following draw modes are availa
 
 | Draw Mode                   | Description                                                                                                                           |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `DrawMode.LINES`            | Each element is made up of 2 vertices and is represented as a single line.                                                            |
-| `DrawMode.LINE_STRIP`       | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
-| `DrawMode.DEBUG_LINES`      | Similar to `DrawMode.LINES`, but the line is always exactly one pixel wide on the screen.                                             |
-| `DrawMode.DEBUG_LINE_STRIP` | Same as `DrawMode.LINE_STRIP`, but lines are always one pixel wide.                                                                   |
-| `DrawMode.TRIANGLES`        | Each element is made up of 3 vertices, forming a triangle.                                                                            |
-| `DrawMode.TRIANGLE_STRIP`   | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
-| `DrawMode.TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
-| `DrawMode.QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
+| `Mode.LINES`            | Each element is made up of 2 vertices and is represented as a single line.                                                            |
+| `Mode.LINE_STRIP`       | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
+| `Mode.DEBUG_LINES`      | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                             |
+| `Mode.DEBUG_LINE_STRIP` | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                   |
+| `Mode.TRIANGLES`        | Each element is made up of 3 vertices, forming a triangle.                                                                            |
+| `Mode.TRIANGLE_STRIP`   | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
+| `Mode.TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
+| `Mode.QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
 
 ### Writing to the `BufferBuilder` {#writing-to-the-bufferbuilder}
 
@@ -84,10 +92,10 @@ A transformation matrix is a 4x4 matrix that is used to transform a vector. In M
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
-It's usually obtained via the `MatrixStack` class, which can be obtained via the `DrawContext` object:
+It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `GuiGraphics` object:
 
 ```java
-drawContext.getMatrices().peek().getPositionMatrix();
+guiGraphics.pose().last().pose();
 ```
 
 #### Rendering a Triangle Strip {#rendering-a-triangle-strip}
@@ -96,7 +104,7 @@ It's easier to explain how to write to the `BufferBuilder` using a practical exa
 
 We're going to draw vertices at the following points on the HUD (in order):
 
-```txt
+```:no-line-numbers
 (20, 20)
 (5, 40)
 (35, 40)
@@ -107,7 +115,15 @@ This should give us a lovely diamond - since we're using the `TRIANGLE_STRIP` dr
 
 ![Four steps that show the placement of the vertices on the screen to form two triangles](/assets/develop/rendering/concepts-practical-example-draw-process.png)
 
-Since we're drawing on the HUD in this example, we'll use the `HudRenderCallback` event:
+Since we're drawing on the HUD in this example, we'll use the `HudElementRegistry`:
+
+::: warning IMPORTANT UPDATE
+Starting from 1.21.8, the matrix stack passed for HUD rendering has been changed from `PoseStack` to `Matrix3x2fStack`. Most methods are slightly different and no longer take a `z` parameter, but the concepts are the same.
+
+Additionally, the code below does not fully match the explanation above: you do not need to manually write to the `BufferBuilder`, because `GuiGraphics` methods automatically write to the HUD's `BufferBuilder` during preparation.
+
+Read the important update above for more information.
+:::
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
@@ -119,21 +135,29 @@ This results in the following being drawn on the HUD:
 Try mess around with the colors and positions of the vertices to see what happens! You can also try using different draw modes and vertex formats.
 :::
 
-## The `MatrixStack` {#the-matrixstack}
+## The `PoseStack` {#the-posestack}
 
-After learning how to write to the `BufferBuilder`, you might be wondering how to transform your model - or even animate it. This is where the `MatrixStack` class comes in.
+::: warning
+This section's code and the text are discussing different things!
 
-The `MatrixStack` class has the following methods:
+The code showcases `Matrix3x2fStack`, which is used for HUD rendering since 1.21.8, while the text describes `PoseStack`, which has slightly different methods.
 
-- `push()` - Pushes a new matrix onto the stack.
-- `pop()` - Pops the top matrix off the stack.
-- `peek()` - Returns the top matrix on the stack.
+Read the important update above for more information.
+:::
+
+After learning how to write to the `BufferBuilder`, you might be wondering how to transform your model - or even animate it. This is where the `PoseStack` class comes in.
+
+The `PoseStack` class has the following methods:
+
+- `pushPose()` - Pushes a new matrix onto the stack.
+- `popPose()` - Pops the top matrix off the stack.
+- `last()` - Returns the top matrix on the stack.
 - `translate(x, y, z)` - Translates the top matrix on the stack.
 - `scale(x, y, z)` - Scales the top matrix on the stack.
 
 You can also multiply the top matrix on the stack using quaternions, which we will cover in the next section.
 
-Taking from our example above, we can make our diamond scale up and down by using the `MatrixStack` and the `tickDelta` - which is the "progress" between the last game tick and the next game tick. We'll clarify this later in the [Rendering in the HUD](./hud#render-tick-counter) page.
+Taking from our example above, we can make our diamond scale up and down by using the `PoseStack` and the `tickDelta` - which is the "progress" between the last game tick and the next game tick. We'll clarify this later in the [Rendering in the HUD](./hud#render-tick-counter) page.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
@@ -147,11 +171,19 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 ## Quaternions (Rotating Things) {#quaternions-rotating-things}
 
-Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `MatrixStack` via the `multiply(Quaternion, x, y, z)` method.
+::: warning
+This section's code and the text are discussing different things!
 
-It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `RotationAxis` utility class.
+The code showcases rendering on the HUD, while the text describes rendering the 3D world space.
 
-Let's say we want to rotate our diamond around the z-axis. We can do this by using the `MatrixStack` and the `multiply(Quaternion, x, y, z)` method.
+Read the important update above for more information.
+:::
+
+Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `PoseStack` via the `multiply(Quaternion, x, y, z)` method.
+
+It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `Axis` utility class.
+
+Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `multiply(Quaternion, x, y, z)` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

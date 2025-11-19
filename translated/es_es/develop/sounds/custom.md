@@ -31,7 +31,7 @@ Agrega un nuevo folder `resources/assets/<mod id here>/sounds` para los sonidos 
 
 Continúa creando el archivo `resources/assets/<mod id here>/sounds.json` si no existe todavía y agrega tu sonido a las entradas de sonido.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
 La entrada de subtítulo provee más contexto para el jugador. El nombre del subtítulo es usado en los archivos de lenguaje en el folder de `resources/assets/<mod id here>/lang` y serán mostrados si la opción de subtítulos en el juego es activada y el sonido personalizado está siendo reproducido.
 
@@ -40,8 +40,8 @@ La entrada de subtítulo provee más contexto para el jugador. El nombre del sub
 Para agregar el sonido personalizado al mod, registra un SoundEvent (Evento de Sonido) en la clase que implemente la interfaz `ModInitializer`.
 
 ```java
-Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"),
-        SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
+Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
+        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
 ```
 
 ## Limpiando El Desorden
@@ -54,7 +54,7 @@ Agrega dos nuevos métodos a la nueva clase ayudante creada. Uno, que registre t
 
 De esta manera, la clase implementadora de `ModInitializer` solo tiene que implementar una línea para registrar todos los SoundEvents personalizados.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Usando el SoundEvent Personalizado
 

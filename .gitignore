@@ -11,6 +11,7 @@
 
 # Alternative Package Locks
 pnpm-lock.yaml
+pnpm-workspace.yaml
 yarn.lock
 
 # LanguageTool Dictionaries and False Positives

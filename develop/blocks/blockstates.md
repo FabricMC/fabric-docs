@@ -13,7 +13,7 @@ A block state is a piece of data attached to a singular block in the Minecraft w
 
 You can probably see why they are useful - they avoid the need to store NBT data in a block entity - reducing the world size, and preventing TPS issues!
 
-Blockstate definitions are found in the `assets/mod-id/blockstates` folder.
+Blockstate definitions are found in the `assets/example-mod/blockstates` folder.
 
 ## Example: Pillar Block {#pillar-block}
 
@@ -21,13 +21,13 @@ Blockstate definitions are found in the `assets/mod-id/blockstates` folder.
 
 Minecraft has some custom classes already that allow you quickly create certain types of blocks - this example goes through the creation of a block with the `axis` property by creating a "Condensed Oak Log" block.
 
-The vanilla `PillarBlock` class allows the block to be placed in the X, Y or Z axis.
+The vanilla `RotatedPillarBlock` class allows the block to be placed in the X, Y or Z axis.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
-As always, with all block textures, the texture files can be found in `assets/mod-id/textures/block`
+As always, with all block textures, the texture files can be found in `assets/example-mod/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Textures</DownloadEntry>
 
@@ -38,10 +38,10 @@ Since the pillar block has two positions, horizontal and vertical, we'll need to
 
 An example of the `condensed_oak_log_horizontal.json` file:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
 :::
@@ -52,7 +52,7 @@ Next, we need to create a blockstate file, which is where the magic happens. Pil
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
 - `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 As always, you'll need to create a translation for your block, and an item model which parents either of the two models.
 
@@ -66,11 +66,11 @@ This example will create a unique boolean property called `activated` - when a p
 
 ### Creating The Property {#creating-the-property}
 
-Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.of` method.
+Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.create` method.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Next, we have to append the property to the blockstate manager in the `appendProperties` method. You'll need to override the method to access the builder:
+Next, we have to append the property to the blockstate manager in the `createBlockStateDefinition` method. You'll need to override the method to access the builder:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +80,7 @@ You'll also have to set a default state for the `activated` property in the cons
 
 ### Using The Property {#using-the-property}
 
-This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
+This example flips the boolean `activated` property when the player interacts with the block. We can override the `useWithoutItem` method for this:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -98,15 +98,15 @@ If you have multiple properties on a block, you'll need to account for all possi
 
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
 ::: tip
-Don't forget to add an [Item Model Description](../items/first-item#creating-the-item-model-description) for the block so that it will show in the inventory!
+Don't forget to add an [Client Item](../items/first-item#creating-the-client-item) for the block so that it will show in the inventory!
 :::
 
 Since the example block is a lamp, we also need to make it emit light when the `activated` property is true. This can be done through the block settings passed to the constructor when registering the block.
 
-You can use the `luminance` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `luminance` method:
+You can use the `lightLevel` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `lightLevel` method:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

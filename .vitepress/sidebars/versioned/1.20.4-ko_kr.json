@@ -1,0 +1,260 @@
+{
+  "/ko_kr/develop/": [
+    {
+      "text": "개발자 설명서",
+      "link": "/ko_kr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "시작하기",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric과 모딩 소개",
+          "link": "/ko_kr/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "개발 환경 설정하기",
+          "link": "/ko_kr/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "프로젝트 생성하기",
+          "link": "/ko_kr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "프로젝트의 구조",
+          "link": "/ko_kr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "게임 실행하기",
+          "link": "/ko_kr/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "아이템",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "첫 번째 아이템 만들기",
+          "link": "/ko_kr/develop/items/first-item"
+        },
+        {
+          "text": "음식 아이템",
+          "link": "/ko_kr/develop/items/food"
+        },
+        {
+          "text": "사용자 지정 도구",
+          "link": "/ko_kr/develop/items/custom-tools"
+        },
+        {
+          "text": "사용자 지정 갑옷",
+          "link": "/ko_kr/develop/items/custom-armor"
+        },
+        {
+          "text": "사용자 지정 아이템 그룹",
+          "link": "/ko_kr/develop/items/custom-item-groups"
+        },
+        {
+          "text": "사용자 지정 아이템 상호 작용",
+          "link": "/ko_kr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "물약",
+          "link": "/ko_kr/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "블록",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "첫 번째 블록 만들기",
+          "link": "/ko_kr/develop/blocks/first-block"
+        },
+        {
+          "text": "블록 상태",
+          "link": "/ko_kr/develop/blocks/blockstates"
+        }
+      ]
+    },
+    {
+      "text": "엔티티",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "상태 효과",
+          "link": "/ko_kr/develop/entities/effects"
+        },
+        {
+          "text": "피해 유형",
+          "link": "/ko_kr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "소리",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "소리 재생하기",
+          "link": "/ko_kr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "사용자 지정 소리 만들기",
+          "link": "/ko_kr/develop/sounds/custom"
+        }
+      ]
+    },
+    {
+      "text": "명령어",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "명령어 만들기",
+          "link": "/ko_kr/develop/commands/basics"
+        },
+        {
+          "text": "명령어 인수",
+          "link": "/ko_kr/develop/commands/arguments"
+        },
+        {
+          "text": "명령어 인수 제안",
+          "link": "/ko_kr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "렌더링",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "기본 렌더링 개념",
+          "link": "/ko_kr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "그리기 컨텍스트 사용",
+          "link": "/ko_kr/develop/rendering/draw-context"
+        },
+        {
+          "text": "HUD 렌더링",
+          "link": "/ko_kr/develop/rendering/hud"
+        },
+        {
+          "text": "GUI와 화면",
+          "items": [
+            {
+              "text": "사용자 지정 화면",
+              "link": "/ko_kr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "사용자 지정 위젯",
+              "link": "/ko_kr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "입자",
+          "items": [
+            {
+              "text": "사용자 지정 입자 만들기",
+              "link": "/ko_kr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "기타",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "코덱",
+          "link": "/ko_kr/develop/codecs"
+        },
+        {
+          "text": "이벤트",
+          "link": "/ko_kr/develop/events"
+        },
+        {
+          "text": "텍스트와 번역",
+          "link": "/ko_kr/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/ko_kr/players/": [
+    {
+      "text": "플레이어 설명서",
+      "link": "/ko_kr/players/",
+      "items": [
+        {
+          "text": "자주 묻는 질문",
+          "link": "/ko_kr/players/faq"
+        },
+        {
+          "text": "Java 설치",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/ko_kr/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/ko_kr/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Fabric 설치",
+          "link": "/ko_kr/players/installing-fabric"
+        },
+        {
+          "text": "신뢰 가능한 모드 찾기",
+          "link": "/ko_kr/players/finding-mods"
+        },
+        {
+          "text": "모드 설치",
+          "link": "/ko_kr/players/installing-mods"
+        },
+        {
+          "text": "스스로 해결",
+          "items": [
+            {
+              "text": "로그 업로드",
+              "link": "/ko_kr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "충돌 보고서",
+              "link": "/ko_kr/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Fabric 업데이트",
+          "link": "/ko_kr/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

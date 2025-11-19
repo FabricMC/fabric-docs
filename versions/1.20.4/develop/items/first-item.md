@@ -44,7 +44,7 @@ To do this, you can add a public static initialize method to your class and call
 
 @[code transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
@@ -72,13 +72,13 @@ However, it's missing the following:
 
 ## Naming The Item {#naming-the-item}
 
-The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.mod_id.suspicious_substance`.
+The item currently doesn't have a translation, so you will need to add one. The translation key has already been provided by Minecraft: `item.example-mod.suspicious_substance`.
 
-Create a new JSON file at: `src/main/resources/assets/mod-id/lang/en_us.json` and put in the translation key, and it's value:
+Create a new JSON file at: `src/main/resources/assets/example-mod/lang/en_us.json` and put in the translation key, and it's value:
 
 ```json
 {
-    "item.mod_id.suspicious_substance": "Suspicious Substance"
+    "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -86,7 +86,7 @@ You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T
 
 ## Adding a Texture and Model {#adding-a-texture-and-model}
 
-To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/mod-id/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
+To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/example-mod/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
 
 For example purposes, you can use this example texture for `suspicious_substance.png`
 
@@ -96,9 +96,9 @@ When restarting/reloading the game - you should see that the item still has no t
 
 You're going to create a simple `item/generated` model, which takes in an input texture and nothing else.
 
-Create the model JSON in the `assets/mod-id/models/item` folder, with the same name as the item; `suspicious_substance.json`
+Create the model JSON in the `assets/example-mod/models/item` folder, with the same name as the item; `suspicious_substance.json`
 
-@[code](@/reference/1.20.4/src/main/resources/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/1.20.4/src/main/resources/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Breaking Down the Model JSON {#breaking-down-the-model-json}
 
@@ -129,7 +129,7 @@ Alternatively, if you want to make your item a fuel, you can use the `FuelRegist
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/mod-id/recipes` folder.
+If you want to add a crafting recipe for your item, you will need to place a recipe JSON file in the `data/example-mod/recipes` folder.
 
 For more information on the recipe format, checkout these resources:
 

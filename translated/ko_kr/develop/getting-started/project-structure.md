@@ -39,7 +39,7 @@ authors:
 
 아래는 게임이 시작되었을 때 메시지를 로그하는 간단한 `main` 진입점 구현체입니다.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ authors:
 
 `fabric.mod.json` 파일과 모드에서 사용할 Mixin 구성 파일도 여기에 저장됩니다.
 
-어셋 파일은 리소스 팩 파일의 구조 그대로 저장됩니다. 예를 들어, `mod_block` 블록의 텍스처는 `assets/mod_id/textures/block/mod_block.png`에 저장될 수 있습니다.
+어셋 파일은 리소스 팩 파일의 구조 그대로 저장됩니다. 예를 들어, `mod_block` 블록의 텍스처는 `assets/example-mod/textures/block/mod_block.png`에 저장될 수 있습니다.
 
 ## `src/client/resources` {#src-client-resources}
 

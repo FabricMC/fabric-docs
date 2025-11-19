@@ -1,0 +1,370 @@
+{
+  "/fr_fr/develop/": [
+    {
+      "text": "Guides développeur",
+      "link": "/fr_fr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Bien débuter",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Introduction à Fabric et au modding",
+          "link": "/fr_fr/develop/getting-started/"
+        },
+        {
+          "text": "Créer un projet",
+          "link": "/fr_fr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Structure du projet",
+          "link": "/fr_fr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Mettre en place votre environnement de développement",
+          "link": "/fr_fr/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/fr_fr/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Démarrer votre jeu",
+          "link": "/fr_fr/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/fr_fr/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Astuces pour l'IDE",
+          "link": "/fr_fr/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Objets Personnalisés",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Créer Votre Premier Objet",
+          "link": "/fr_fr/develop/items/first-item"
+        },
+        {
+          "text": "Item Models",
+          "link": "/fr_fr/develop/items/item-models"
+        },
+        {
+          "text": "Nourritures Personnalisées",
+          "link": "/fr_fr/develop/items/food"
+        },
+        {
+          "text": "Outils Personnalisés",
+          "link": "/fr_fr/develop/items/custom-tools"
+        },
+        {
+          "text": "Armures Personnalisées",
+          "link": "/fr_fr/develop/items/custom-armor"
+        },
+        {
+          "text": "Groupe d'Objets Personnalisés",
+          "link": "/fr_fr/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Interactions d'Objets Personnalisées",
+          "link": "/fr_fr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/fr_fr/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Composants De Donné Personnalisés",
+          "link": "/fr_fr/develop/items/custom-data-components"
+        },
+        {
+          "text": "Potions Personnalisées",
+          "link": "/fr_fr/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Blocs",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Créer votre premier Bloc",
+          "link": "/fr_fr/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/fr_fr/develop/blocks/block-models"
+        },
+        {
+          "text": "États de bloc",
+          "link": "/fr_fr/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/fr_fr/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/fr_fr/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Entités Personnalisées",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Les effets de statut",
+          "link": "/fr_fr/develop/entities/effects"
+        },
+        {
+          "text": "Types de dégâts",
+          "link": "/fr_fr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Sons",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Jouer SoundEvents",
+          "link": "/fr_fr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Créer des sons personnalisés",
+          "link": "/fr_fr/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/fr_fr/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Les commandes",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Créer des commandes",
+          "link": "/fr_fr/develop/commands/basics"
+        },
+        {
+          "text": "Les arguments",
+          "link": "/fr_fr/develop/commands/arguments"
+        },
+        {
+          "text": "Les suggestions",
+          "link": "/fr_fr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Rendu",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Concepts élémentaires de rendu",
+          "link": "/fr_fr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Utiliser le context de dessin",
+          "link": "/fr_fr/develop/rendering/draw-context"
+        },
+        {
+          "text": "Afficher dans le Hud",
+          "link": "/fr_fr/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/fr_fr/develop/rendering/world"
+        },
+        {
+          "text": "Écrans et IHMs",
+          "items": [
+            {
+              "text": "Écrans Personnalisés",
+              "link": "/fr_fr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Widgets Personnalisés",
+              "link": "/fr_fr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Les particules",
+          "items": [
+            {
+              "text": "Créer des particules personnalisées",
+              "link": "/fr_fr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/fr_fr/develop/data-generation/setup"
+        },
+        {
+          "text": "Tag Generation",
+          "link": "/fr_fr/develop/data-generation/tags"
+        },
+        {
+          "text": "Translation Generation",
+          "link": "/fr_fr/develop/data-generation/translations"
+        },
+        {
+          "text": "Advancement Generation",
+          "link": "/fr_fr/develop/data-generation/advancements"
+        },
+        {
+          "text": "Recipe Generation",
+          "link": "/fr_fr/develop/data-generation/recipes"
+        },
+        {
+          "text": "Loot Table Generation",
+          "link": "/fr_fr/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "Block Model Generation",
+          "link": "/fr_fr/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "Pages diverses",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Les codecs",
+          "link": "/fr_fr/develop/codecs"
+        },
+        {
+          "text": "Les événements",
+          "link": "/fr_fr/develop/events"
+        },
+        {
+          "text": "Networking",
+          "link": "/fr_fr/develop/networking"
+        },
+        {
+          "text": "Textes et traductions",
+          "link": "/fr_fr/develop/text-and-translations"
+        },
+        {
+          "text": "Problèmes Usuels",
+          "link": "/fr_fr/develop/debugging"
+        },
+        {
+          "text": "Tests automatisés",
+          "link": "/fr_fr/develop/automatic-testing"
+        },
+        {
+          "text": "Loom Gradle Plugin",
+          "link": "/fr_fr/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/fr_fr/develop/loom/fabric-api"
+            },
+            {
+              "text": "Extension Options",
+              "link": "/fr_fr/develop/loom/options"
+            },
+            {
+              "text": "Production Run Tasks",
+              "link": "/fr_fr/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/fr_fr/players/": [
+    {
+      "text": "Guides des joueurs",
+      "link": "/fr_fr/players/",
+      "items": [
+        {
+          "text": "Foire Aux Questions",
+          "link": "/fr_fr/players/faq"
+        },
+        {
+          "text": "Installer Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/fr_fr/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/fr_fr/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Installer Fabric",
+          "link": "/fr_fr/players/installing-fabric"
+        },
+        {
+          "text": "Où trouver des mods fiables",
+          "link": "/fr_fr/players/finding-mods"
+        },
+        {
+          "text": "Installer des mods",
+          "link": "/fr_fr/players/installing-mods"
+        },
+        {
+          "text": "Résolution de problèmes",
+          "items": [
+            {
+              "text": "Mettre en ligne ses logs",
+              "link": "/fr_fr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Rapports de plantage",
+              "link": "/fr_fr/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Mettre à jour Fabric",
+          "link": "/fr_fr/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

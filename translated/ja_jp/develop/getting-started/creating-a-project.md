@@ -13,7 +13,7 @@ Fabric は、Mod プロジェクトを簡単に作成することを可能にす
 
 [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) を使用すると新しいプロジェクトを生成することができます。パッケージ名、Mod 名、Mod が対応する Minecraft バージョンの入力が必要です。
 
-パッケージ名は小文字で、ドットで区切り、一意であることが求められます。他のプログラマーのパッケージと競合しないようにしてください。 通常、`com.example.mod-id` のように、インターネットドメインを逆順にした形式で記述されます。
+パッケージ名は小文字で、ドットで区切り、一意であることが求められます。他のプログラマーのパッケージと競合しないようにしてください。 通常、`com.example.example-mod` のように、インターネットドメインを逆順にした形式で記述されます。
 
 ![ジェネレータのプレビュー](/assets/develop/getting-started/template-generator.png)
 

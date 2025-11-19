@@ -24,7 +24,7 @@ authors:
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    Identifier.of(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -76,23 +76,23 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
-Не забудьте обновить свой языковой файл (`/assets/mod-id/lang/en_us.json`) и добавить в него следующие две строки:
+Не забудьте обновить свой языковой файл (`/assets/example-mod/lang/en_us.json`) и добавить в него следующие две строки:
 
 ```json
 {
-  "item.fabric-docs-reference.counter": "Counter",
-  "item.fabric-docs-reference.counter.info": "Used %1$s times"
+  "item.example-mod.counter": "Counter",
+  "item.example-mod.counter.info": "Used %1$s times"
 }
 ```
 
 Запустите игру и выполните эту команду, чтобы получить новый предмет счетчик со значением 5.
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+/give @p example-mod:counter[example-mod:click_count=5]
 ```
 
 При наведении курсора на этот предмет в инвентаре вы увидите количество, отображаемое во всплывающей подсказке!
@@ -154,7 +154,7 @@ boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
 Попробуйте создать свой счетчик, удалив наш пользовательский компонент. Для этого можно использовать следующую команду:
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+/give @p example-mod:counter[!example-mod:click_count]
 ```
 
 При наведении курсора на этот элемент подсказка должна отсутствовать.
