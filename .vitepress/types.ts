@@ -126,7 +126,7 @@ export namespace Fabric {
        */
       latestVersion: string;
 
-        /**
+      /**
        * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
        */
       oldVersionMojang: string;
