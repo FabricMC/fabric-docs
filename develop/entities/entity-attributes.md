@@ -26,10 +26,10 @@ Vanilla provides attributes as well, including [max health](https://minecraft.wi
 
 ```java
 public static DefaultAttributeContainer.Builder createEntityAttributes() {
-    return MobEntity.createMobAttributes()
-        .add(EntityAttributes.MAX_HEALTH, 25.0)
-        .add(EntityAttributes.MOVEMENT_SPEED, 0.22D)
-        .add(EntityAttributes.ATTACK_DAMAGE, 3.0D)
+    return Mob.createMobAttributes()
+        .add(Attributes.MAX_HEALTH, 25.0)
+        .add(Attributes.MOVEMENT_SPEED, 0.22D)
+        .add(Attributes.ATTACK_DAMAGE, 3.0D)
         .add(ModEntityAttributes.AGGRO_RANGE, 8.0);
 }
 ```

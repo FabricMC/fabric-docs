@@ -1,16 +1,16 @@
 package com.example.docs.entity.attribute;
 
-import net.minecraft.entity.attribute.ClampedEntityAttribute;
-import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::1
 public class ModEntityAttributes {
-	public static final EntityAttribute AGGRO_RANGE = register(
+	public static final Attribute AGGRO_RANGE = register(
 			"aggro_range",
 			8.0,
 			0.0,
@@ -21,18 +21,18 @@ public class ModEntityAttributes {
 	public static void initialize() {
 	}
 
-	private static EntityAttribute register(
+	private static Attribute register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
-		Identifier identifier = Identifier.of(FabricDocsReference.MOD_ID, name);
-		EntityAttribute entityAttribute = new ClampedEntityAttribute(
-				identifier.toTranslationKey(),
+		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Attribute entityAttribute = new RangedAttribute(
+				identifier.toLanguageKey(),
 				defaultValue,
 				minValue,
 				maxValue
-		).setTracked(syncedWithClient);
+		).setSyncable(syncedWithClient);
 
-		return Registry.register(Registries.ATTRIBUTE, identifier, entityAttribute);
+		return Registry.register(BuiltInRegistries.ATTRIBUTE, identifier, entityAttribute);
 	}
 }
 // :::1
