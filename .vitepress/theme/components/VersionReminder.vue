@@ -20,8 +20,14 @@ const latest = computed(() => {
 });
 
 const old = computed(() => {
-  const split = options.value.oldVersionYarn.split("%s");
-  return [split[0], version.value, split.slice(1).join("%s")];
+  var versionSplit = version.value.split(".");
+  if (versionSplit[1] <= 21 && versionSplit[2] <= 10) {
+    const split = options.value.oldVersionYarn.split("%s");
+    return [split[0], version.value, split.slice(1).join("%s")];
+  } else {
+    const split = options.value.oldVersionMojang.split("%s");
+    return [split[0], version.value, split.slice(1).join("%s")];
+  }
 });
 </script>
 
