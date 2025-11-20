@@ -144,6 +144,10 @@ export default [
         text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
       },
+      {
+        text: "develop.entities.custom_entities",
+        link: "/develop/entities/custom-entities",
+      },
     ],
   },
   {

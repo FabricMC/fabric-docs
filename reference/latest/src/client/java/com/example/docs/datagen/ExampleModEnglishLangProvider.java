@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
@@ -48,11 +49,15 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("itemGroup.example-mod", "Example Mod");
 		translationBuilder.add("enchantment.example-mod.thundering", "Thundering");
 
+		translationBuilder.add(ModEntityTypes.MINI_GOLEM, "Mini Golem");
+
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
+
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
 		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");

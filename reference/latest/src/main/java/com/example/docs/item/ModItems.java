@@ -16,6 +16,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
@@ -29,6 +30,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.component.ModComponents;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
@@ -120,6 +122,13 @@ public class ModItems {
 	// :::2
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
+
+	public static final Item MINI_GOLEM_SPAWN_EGG = register(
+			"mini_golem_spawn_egg",
+					SpawnEggItem::new,
+			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
+	);
+
 	// :::1
 	public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
 		// Create the item key.
@@ -176,6 +185,10 @@ public class ModItems {
 			// ...
 		});
 		// :::_12
+
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
+			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
+		});
 
 		// :::_10
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
