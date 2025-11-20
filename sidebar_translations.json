@@ -37,7 +37,7 @@
   "develop.blocks.block_entities": "Block Entities",
   "develop.blocks.block_entity_renderer": "Block Entity Renderers",
   "develop.entities": "Entities",
-  "develop.entities.custom_entities": "Custom Entities",
+  "develop.entities.first_entity": "Creating your First Entity",
   "develop.entities.effects": "Mob Effects",
   "develop.entities.damage_types": "Damage Types",
   "develop.commands": "Commands",

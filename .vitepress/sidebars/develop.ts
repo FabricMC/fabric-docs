@@ -137,16 +137,16 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.entities.first_entity",
+        link: "/develop/entities/first-entity",
+      },
+      {
         text: "develop.entities.effects",
         link: "/develop/entities/effects",
       },
       {
         text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
-      },
-      {
-        text: "develop.entities.custom_entities",
-        link: "/develop/entities/custom-entities",
       },
     ],
   },
