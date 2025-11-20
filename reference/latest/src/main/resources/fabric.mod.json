@@ -22,7 +22,8 @@
       "com.example.docs.advancement.ExampleModDatagenAdvancement",
       "com.example.docs.networking.ExampleModNetworking",
       "com.example.docs.networking.basic.ExampleModNetworkingBasic",
-      "com.example.docs.debug.ExampleModDebug"
+      "com.example.docs.debug.ExampleModDebug",
+      "com.example.docs.entity.attribute.ExampleModAttributes"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",

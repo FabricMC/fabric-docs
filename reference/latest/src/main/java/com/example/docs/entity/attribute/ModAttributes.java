@@ -8,8 +8,8 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
 import com.example.docs.ExampleMod;
 
-// :::1
-public class ModEntityAttributes {
+public class ModAttributes {
+	// :::attributes
 	public static final Attribute AGGRO_RANGE = register(
 			"aggro_range",
 			8.0,
@@ -17,10 +17,14 @@ public class ModEntityAttributes {
 			Double.MAX_VALUE,
 			false
 	);
+	// :::attributes
 
+	// :::initialize
 	public static void initialize() {
 	}
+	// :::initialize
 
+	// :::register
 	private static Attribute register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
@@ -34,5 +38,5 @@ public class ModEntityAttributes {
 
 		return Registry.register(BuiltInRegistries.ATTRIBUTE, identifier, entityAttribute);
 	}
+	// :::register
 }
-// :::1
