@@ -32,7 +32,6 @@ public class MiniGolemEntity extends PathfinderMob {
 
 	public MiniGolemEntity(EntityType<? extends MiniGolemEntity> entityType, Level world) {
 		super(entityType, world);
-
 	}
 
 	public static AttributeSupplier.Builder createCubeAttributes() {
@@ -41,9 +40,9 @@ public class MiniGolemEntity extends PathfinderMob {
 				.add(Attributes.TEMPT_RANGE, 10)
 				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
-//:::registerclass
+	//:::registerclass
 
-//:::goals
+	//:::goals
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
@@ -51,8 +50,7 @@ public class MiniGolemEntity extends PathfinderMob {
 		this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Cow.class, 4));
 		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 	}
-//:::goals
-
+	//:::goals
 
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {

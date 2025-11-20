@@ -1,6 +1,5 @@
 package com.example.docs.entity.animation;
 
-
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;

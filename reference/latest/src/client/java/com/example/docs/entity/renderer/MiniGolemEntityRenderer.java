@@ -1,6 +1,5 @@
 package com.example.docs.entity.renderer;
 
-
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +12,6 @@ import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
 //:::renderer
 public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGolemEntityRenderState, MiniGolemEntityModel> {
-
 	private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/entity/mini_golem.png");
 
 	public MiniGolemEntityRenderer(EntityRendererProvider.Context context) {
@@ -24,14 +22,14 @@ public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGo
 	public MiniGolemEntityRenderState createRenderState() {
 		return new MiniGolemEntityRenderState();
 	}
-//:::renderer
+	//:::renderer
 
 	@Override
 	public void extractRenderState(MiniGolemEntity entity, MiniGolemEntityRenderState state, float tickProgress) {
 		super.extractRenderState(entity, state, tickProgress);
 		state.dancingAnimationState.copyFrom(entity.dancingAnimationState);
 	}
-//:::renderer
+	//:::renderer
 
 	@Override
 	public ResourceLocation getTextureLocation(MiniGolemEntityRenderState state) {

@@ -28,9 +28,9 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		rightLeg = root.getChild(PartNames.RIGHT_LEG);
 		this.dancing = MiniGolemAnimations.DANCING.bake(root);
 	}
-//:::model1
+	//:::model1
 
-//:::model_texture_data
+	//:::model_texture_data
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition modelData = new MeshDefinition();
 		PartDefinition root = modelData.getRoot();
@@ -56,12 +56,13 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		);
 		return LayerDefinition.create(modelData, 64, 32);
 	}
-//:::model_texture_data
+	//:::model_texture_data
 
-//:::model_animation
+	//:::model_animation
 	@Override
 	public void setupAnim(MiniGolemEntityRenderState state) {
 		super.setupAnim(state);
+
 		//:::model_animation
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);

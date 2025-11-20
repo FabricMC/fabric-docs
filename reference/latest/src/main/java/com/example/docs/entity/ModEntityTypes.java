@@ -1,6 +1,5 @@
 package com.example.docs.entity;
 
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -27,7 +26,7 @@ public class ModEntityTypes {
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
 	}
 
-	public static void registerModEntityTypes(){
+	public static void registerModEntityTypes() {
 		ExampleMod.LOGGER.info("Registering EntityTypes for " + ExampleMod.MOD_ID);
 	}
 
