@@ -31,25 +31,25 @@ authors-nogithub:
 
 与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的初始化器内完成。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### 纹理{#texture}
 
 状态效果图标是 18x18 的 PNG，出现在玩家的物品栏屏幕中。 将你的自定义图标放在：
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">示例纹理</DownloadEntry>
 
 ### 翻译{#translations}
 
-像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.mod-id.effect-identifier": "Value"`。
+像其它翻译一样，你可以在语言文件中添加一个 ID 格式的条目 `"effect.example-mod.effect-identifier": "Value"`。
 
 ```json
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
@@ -61,7 +61,7 @@ resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
-effect give @p fabric-docs-reference:tater
+effect give @p example-mod:tater
 ```
 
 :::

@@ -23,16 +23,6 @@ If you're already in the IDE, from **File** > **Open**.
 
 ![File Open](/assets/develop/getting-started/intellij/file-open.png)
 
-::: warning
-You should follow these rules when choosing the path to your project:
-
-- Avoid cloud storage directories (for example Microsoft OneDrive)
-- Avoid non-ASCII characters (for example emoji, accented letters)
-- Avoid spaces
-
-An example of a "good" path may be: `C:\Projects\YourProjectName`
-:::
-
 ## Importing the Project {#importing-the-project}
 
 Once you've opened the project in IntelliJ IDEA, the IDE should automatically load the project's Gradle configuration and perform the necessary setup tasks.

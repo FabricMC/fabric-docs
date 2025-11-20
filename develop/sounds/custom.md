@@ -27,21 +27,21 @@ Also keep in mind that audio files can increase the file size of your mod drasti
 
 ## Loading the Audio File {#loading-the-audio-file}
 
-Add the new `resources/assets/mod-id/sounds` directory for the sounds in your mod, and put the exported audio file `metal_whistle.ogg` in there.
+Add the new `resources/assets/example-mod/sounds` directory for the sounds in your mod, and put the exported audio file `metal_whistle.ogg` in there.
 
-Continue with creating the `resources/assets/mod-id/sounds.json` file if it doesn't exist yet and add your sound to the sound entries.
+Continue with creating the `resources/assets/example-mod/sounds.json` file if it doesn't exist yet and add your sound to the sound entries.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/sounds.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
-The subtitle entry provides more context for the player. The subtitle name is used in the language files in the `resources/assets/mod-id/lang` directory and will be displayed if the in-game subtitle setting is turned on and this custom sound is being played.
+The subtitle entry provides more context for the player. The subtitle name is used in the language files in the `resources/assets/example-mod/lang` directory and will be displayed if the in-game subtitle setting is turned on and this custom sound is being played.
 
 ## Registering the Custom Sound {#registering-the-custom-sound}
 
-To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](./getting-started/project-structure#entrypoints).
+To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## Cleaning up the Mess {#cleaning-up-the-mess}
@@ -54,8 +54,8 @@ Add two new methods to the newly created helper class. One, which registers all 
 
 This way, the mod's initializer only needs to implement one line to register all custom SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/FabricDocsReferenceSounds.java)
+@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
 
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 
-Use the helper class to access the custom SoundEvent. Check out the [Playing SoundEvents](./using-sounds) page to learn how to play sounds.
+Use the helper class to access the custom SoundEvent. Check out the [Playing Sounds](./using-sounds) page to learn how to play sounds.

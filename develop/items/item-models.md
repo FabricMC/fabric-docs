@@ -144,7 +144,7 @@ The `textures` tag holds the textures of the model, in the form of an identifier
 2. `particle`: _String_. Defines the texture to load particles from. If not defined, uses the `layer0`.
 3. `<texture_variable>`: _String_. It creates a variable and assigns a texture. Can be later referenced with the `#` prefix (e.g., `"top": "namespace:path"` ⇒ `#top`)
 
-:::warning IMPORTANT
+::: warning IMPORTANT
 `<layerN>` only works if `parent` is set as `item/generated`!
 :::
 
@@ -273,7 +273,7 @@ The values of both must be between **-16** and **32**, which means that every it
   It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
 4. `rotation`: _Integer_. Rotates the texture by the specified number of degrees in 90 degree increments. Rotation does not affect which part of the texture is used.
   Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
-5. `tintidex`: _Integer_. Tints the texture on that face using a tint value referenced from the item model definition. If no tint color (or white) is provided, the texture isn't tinted.
+5. `tintidex`: _Integer_. Tints the texture on that face using a tint value referenced from the client item. If no tint color (or white) is provided, the texture isn't tinted.
 
 ## Sources and Links {#sources-and-links}
 

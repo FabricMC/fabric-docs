@@ -19,7 +19,7 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "drawing".
 
-All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `VertexRedering.drawFilledBox`, writes vertices to the buffered builder, and is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
+All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `ShapeRenderer.addChainedFilledBoxVertices`, writes vertices to the buffered builder, and is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
 
 When the "extraction" phase is done, the "drawing" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
 
@@ -41,7 +41,7 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 @[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
-Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderLayer.CUTOUT_BUFFER_SIZE`.
+Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
 

@@ -73,7 +73,7 @@ Creating `Mnemonic Bookmarks` enables you to quickly switch back to those bookma
 ![set Bookmark](/assets/develop/misc/using-the-ide/traversing_05.png)
 
 It is possible to create multiple Bookmark lists at the same time if you need to separate or order them, in the `Bookmarks` window.
-[Breakpoints](./basic-problem-solving#breakpoint) will also be displayed there.
+[Breakpoints](../../debugging#breakpoints) will also be displayed there.
 
 ![Bookmark window](/assets/develop/misc/using-the-ide/traversing_06.png)
 
@@ -108,9 +108,9 @@ For example, when using lambda expressions, you can write them quickly using thi
 
 ### Code Generation {#code-generation}
 
-The Generate menu can be quickly accessed with <kbd>Alt</kbd>+<kbd>Insert</kbd> (<kbd>⌘ Command</kbd>+<kbd>N</kbd> on Mac) or by going to `Code` at the top and selecting `Generate`.
+The Generate menu can be quickly accessed with <kbd>Alt</kbd>+<kbd>Insert</kbd> (<kbd>⌘ Command</kbd>+<kbd>N</kbd> on macOS) or by going to `Code` at the top and selecting `Generate`.
 In a Java file, you will be able to generate constructors, getters, setters, and override or implement methods, and much more.
-You can also generate accessors and invokers if you have the [Minecraft Development plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installed.
+You can also generate accessors and invokers if you have the [Minecraft Development plugin](./setting-up#installing-idea-plugins) installed.
 
 In addition, you can quickly override methods with <kbd>⌘/CTRL</kbd>+<kbd>O</kbd> and implement methods with <kbd>⌘/CTRL</kbd>+<kbd>I</kbd>.
 

@@ -31,7 +31,7 @@ You can find all usages of a class by right-clicking on a class name and clickin
 
 ![Find All References](/assets/develop/getting-started/vscode/find-all-references.png)
 
-:::info
+::: info
 If the functions above do not work as expected, it's likely that sources are not attached properly. This can generally be fixed by cleaning up the workspace cache.
 
 - Click the **Show Java Status Menu** button in the status bar.

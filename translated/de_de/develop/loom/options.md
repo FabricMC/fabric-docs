@@ -17,7 +17,7 @@ Diese Seite beinhaltet eine Referenz über alle Optionen, die in der `loom` Grad
 ```groovy
 loom {
  // Set the access widener path, see https://fabricmc.net/wiki/tutorial:accesswideners
- accessWidenerPath = file("src/main/resources/modid.accesswidener")
+ accessWidenerPath = file("src/main/resources/example-mod.accesswidener")
 
  // Add additional log4j config files.
  log4jConfigs.from(file("log4j.xml"))
@@ -121,7 +121,7 @@ loom {
 
  // This mods block is used group mods that are made up of multiple classpath entries.
  mods {
-  modid {
+  example-mod {
    // When using split sources you should add the main and client source set
    sourceSet sourceSets.main
    sourceSet sourceSets.client

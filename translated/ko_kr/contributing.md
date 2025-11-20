@@ -177,15 +177,15 @@ authors:
 
 만약 코드를 포함하는 페이지를 만들거나 수정하는 경우, 코드를 리퍼런스 모드(리포지토리의 `/reference` 폴더에 위치)의 적절한 위치에 배치해야 합니다. 그런 다음, [VitePress의 코드 스니펫 기능](https://vitepress.dev/guide/markdown#import-code-snippets)을 이용하여 코드를 임베드합니다.
 
-예를 들어, 리퍼런스 모드에서 `FabricDocsReference.java` 파일의 15-21번째 줄을 강조하려면 다음과 같이 입력합니다:
+예를 들어, 리퍼런스 모드에서 `ExampleMod.java` 파일의 15-21번째 줄을 강조하려면 다음과 같이 입력합니다:
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

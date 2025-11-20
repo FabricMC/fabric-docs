@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions for Players
-description: Frequently asked questions for players and server administrators relating to Fabric.
+title: Frequently Asked Questions
+description: Questions about Fabric, frequently asked by players and server administrators.
 ---
 
 There are a lot of questions that are asked frequently, so we've compiled a list of them here.

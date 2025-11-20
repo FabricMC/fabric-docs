@@ -177,15 +177,15 @@ L'ancre doit utiliser des caractères en minuscules, des chiffres et des tirets.
 
 Si vous créez ou modifiez des pages contenant du code, placez le code à un emplacement approprié dans le mod de référence (situé dans le dossier `/reference` du dépôt). Ensuite, utilisez la [fonctionnalité d'extrait de code offerte par VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) pour intégrer le code.
 
-Par exemple, pour mettre en évidence les lignes 15-21 du fichier `FabricDocsReference.java` du mod de référence :
+Par exemple, pour mettre en évidence les lignes 15-21 du fichier `ExampleMod.java` du mod de référence :
 
 ::: code-group
 
 ```md
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}
 ```
 
-<<< @/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java{15-21}[java]
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java{15-21}[java]
 
 :::
 
@@ -196,10 +196,10 @@ Par exemple, ceci intégrera les sections du fichier ci-dessus qui sont marquée
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 :::
 

@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "got_dirt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dirt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": "Now make a house from it",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:dirt"
+    },
+    "title": "Your First Dirt Block"
+  },
+  "requirements": [
+    [
+      "got_dirt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

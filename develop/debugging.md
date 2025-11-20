@@ -20,7 +20,7 @@ Values can be printed there at runtime, informing the developer about the curren
 
 In the `ModInitializer`-implementing entrypoint class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
 
-@[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/FabricDocsReferenceDebug.java)
+@[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 Whenever you need to know a value for something at any point in the code, use this `LOGGER` by passing a `String` to its methods.
 
@@ -29,9 +29,9 @@ Whenever you need to know a value for something at any point in the code, use th
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
 ```java
-FabricDocsReferenceDebug.LOGGER.info("Neutral, informative text...");
-FabricDocsReferenceDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-FabricDocsReferenceDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
+ExampleModDebug.LOGGER.info("Neutral, informative text...");
+ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
+ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 ```
 
 ::: info
@@ -58,7 +58,7 @@ Keep in mind that all of these will also be printed if the mod is used in any ot
 
 The following is completely optional, but I like to create a custom `LOGGER` method and use it to avoid printing data in production, when it is only needed during development.
 
-@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/FabricDocsReferenceDebug.java)
+@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 If you are unsure whether to log outside a debugging session, a good rule of thumb is to only log if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
 
@@ -92,27 +92,27 @@ How can we resolve these two issues? Let's investigate...
 
 public class TestItem extends Item {
 
-    public TestItem(Settings settings) {
-        super(settings);
+    public TestItem(Properties properties) {
+        super(properties);
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        PlayerEntity user = context.getPlayer();
+    public InteractionResult useOn(UseOnContext context) {
+        Level world = context.getLevel();
+        Player user = context.getPlayer();
         BlockPos targetPos = context.getBlockPos();
-        ItemStack itemStack = context.getStack();
+        ItemStack itemStack = context.getItemInHand();
         BlockState state = world.getBlockState(targetPos);
 
-        if (state.isIn(ConventionalBlockTags.STONES)) {
-            Text newName = Text.literal("[").append(state.getBlock().getName()).append(Text.literal("]"));
-            itemStack.set(DataComponentTypes.CUSTOM_NAME, newName);
+        if (state.is(ConventionalBlockTags.STONES)) {
+            Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));
+            itemStack.set(DataComponents.CUSTOM_NAME, newName);
             if (user != null) {
-                user.sendMessage(Text.literal("Changed Item Name"), true);
+                user.displayClientMessage(Component.literal("Changed Item Name"), true);
             }
         }
 
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }
 ```

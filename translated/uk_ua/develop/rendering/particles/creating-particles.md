@@ -13,7 +13,7 @@ authors:
 
 Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID моду.
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 "sparkle_particle" малими літерами – це шлях JSON для текстури частинки. Пізніше ви створите новий файл JSON із такою назвою.
 
@@ -21,7 +21,7 @@ authors:
 
 Після того, як ви зареєстрували частинку в ініціалізаторі мода, вам також потрібно буде зареєструвати частинку в ініціалізаторі на стороні клієнта.
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/FabricDocsReferenceClient.java)
+@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 В цьому прикладі ми реєструємо нашу частинку на стороні клієнта. Потім ми надаємо частинці деякий рух, використовуючи фабрику частинок стрижня Енду. Це означає, що наша частинка рухатиметься так само, як частинка стрижня Енду.
 
@@ -34,7 +34,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 ## Створення JSON і додання текстури {#creating-a-json-file-and-adding-textures}
 
-Вам потрібно буде створити 2 теки у вашій теці `resources/assets/mod-id/`.
+Вам потрібно буде створити 2 теки у вашій теці `resources/assets/example-mod/`.
 
 | Шлях до теки         | Пояснення                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 Далі створіть новий файл JSON у `particles` з тим же ім’ям, що й шлях JSON, який ви використовували під час реєстрації свого ParticleType. Для цього прикладу нам потрібно буде створити `sparkle_particle.json`. Цей файл важливий, оскільки він дозволяє Minecraft знати, які текстури має використовувати наша частинка.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/fabric-docs-reference/particles/sparkle_particle.json)
+@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 :::tip
 Ви можете додати більше текстур до масиву `textures`, щоб створити анімацію частинок. Частинка буде циклічно переглядати текстури в масиві, починаючи з першої текстури.
@@ -58,7 +58,7 @@ You can see all the particle factories by looking at all the implementations of 
 Ви можете перевірити, чи все працює, ввівши таку команду:
 
 ```mcfunction
-/particle fabric-docs-reference:sparkle_particle ~ ~1 ~
+/particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
 ![Демонстрація частинки](/assets/develop/rendering/particles/sparkle-particle-showcase.png)

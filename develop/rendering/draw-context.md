@@ -1,22 +1,22 @@
 ---
-title: Using the Drawing Context
-description: Learn how to use the DrawContext class to render various shapes, text and textures.
+title: Drawing to the GUI
+description: Learn how to use the GuiGraphics class to render various shapes, text and textures.
 authors:
   - IMB11
 ---
 
-<!-- TODO: Enable this line once the reference mod is fixed. -->
+<!-- TODO: Enable this line once the example mod is fixed. -->
 <!-- This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page. -->
 
-The `DrawContext` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `MatrixStack`s and use `BufferBuilder`s.
+The `GuiGraphics` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `PoseStack`s and use `BufferBuilder`s.
 
 ## Drawing Shapes {#drawing-shapes}
 
-The `DrawContext` class can be used to easily draw **square-based** shapes. If you want to draw triangles, or any non-square based shape, you will need to use a `BufferBuilder`.
+The `GuiGraphics` class can be used to easily draw **square-based** shapes. If you want to draw triangles, or any non-square based shape, you will need to use a `BufferBuilder`.
 
 ### Drawing Rectangles {#drawing-rectangles}
 
-You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
+You can use the `GuiGraphics.fill(...)` method to draw a filled rectangle.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -24,7 +24,7 @@ You can use the `DrawContext.fill(...)` method to draw a filled rectangle.
 
 ### Drawing Outlines/Borders {#drawing-outlines-borders}
 
-Let's say we want to outline the rectangle we just drew. We can use the `DrawContext.drawBorder(...)` method to draw an outline.
+Let's say we want to outline the rectangle we just drew. We can use the `GuiGraphics.submitOutline(...)` method to draw an outline.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -32,7 +32,7 @@ Let's say we want to outline the rectangle we just drew. We can use the `DrawCon
 
 ### Drawing Individual Lines {#drawing-individual-lines}
 
-We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVerticalLine(...)` methods to draw lines.
+We can use the `GuiGraphics.hLine(...)` and `DrawContext.vLine(...)` methods to draw lines.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -40,7 +40,7 @@ We can use the `DrawContext.drawHorizontalLine(...)` and `DrawContext.drawVertic
 
 ## The Scissor Manager {#the-scissor-manager}
 
-The `DrawContext` class has a built-in scissor manager. This allows you to easily clip your rendering to a specific area. This is useful for rendering things like tooltips, or other elements that should not be rendered outside of a specific area.
+The `GuiGraphics` class has a built-in scissor manager. This allows you to easily clip your rendering to a specific area. This is useful for rendering things like tooltips, or other elements that should not be rendered outside of a specific area.
 
 ### Using the Scissor Manager {#using-the-scissor-manager}
 
@@ -48,7 +48,7 @@ The `DrawContext` class has a built-in scissor manager. This allows you to easil
 Scissor regions can be nested! But make sure that you disable the scissor manager the same amount of times as you enabled it.
 :::
 
-To enable the scissor manager, simply use the `DrawContext.enableScissor(...)` method. Likewise, to disable the scissor manager, use the `DrawContext.disableScissor()` method.
+To enable the scissor manager, simply use the `GuiGraphics.enableScissor(...)` method. Likewise, to disable the scissor manager, use the `GuiGraphics.disableScissor()` method.
 
 @[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -58,13 +58,13 @@ As you can see, even though we tell the game to render the gradient across the e
 
 ## Drawing Textures {#drawing-textures}
 
-There is no one "correct" way to draw textures onto a screen, as the `drawTexture(...)` method has many different overloads. This section will go over the most common use cases.
+There is no one "correct" way to draw textures onto a screen, as the `blit(...)` method has many different overloads. This section will go over the most common use cases.
 
 ### Drawing an Entire Texture {#drawing-an-entire-texture}
 
-Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `DrawContext` class will assume these values if you don't provide them, which can sometimes be wrong.
+Generally, it's recommended that you use the overload that specifies the `textureWidth` and `textureHeight` parameters. This is because the `GuiGraphics` class will assume these values if you don't provide them, which can sometimes be wrong.
 
-You will also need to specify the render layer which your texture is drawn onto. For basic textures, this will usually always be `RenderLayer::getGuiTextured`.
+You will also need to specify which render pipeline which your texture will use. For basic textures, this will usually always be `RenderPipelines.GUI_TEXTURED`.
 
 @[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -86,12 +86,12 @@ If we want to only draw a region that contains the magnifying glass, we can use 
 
 ## Drawing Text {#drawing-text}
 
-The `DrawContext` class has various self-explanatory text rendering methods - for the sake of brevity, they will not be covered here.
+The `GuiGraphics` class has various self-explanatory text rendering methods - for the sake of brevity, they will not be covered here.
 
-Let's say we want to draw "Hello World" onto the screen. We can use the `DrawContext.drawText(...)` method to do this.
+Let's say we want to draw "Hello World" onto the screen. We can use the `GuiGraphics.drawString(...)` method to do this.
 
 ::: info
-Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ARGB.opaque(...)` can be used to change RGB to ARGB while porting.
 :::
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)

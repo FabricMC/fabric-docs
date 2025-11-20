@@ -1,7 +1,8 @@
-* @FabricMC/developers
+*                  @FabricMC/documentation
 
-*_translations.json @FabricMC/documentation
-**/*.md @FabricMC/documentation
-.vitepress/sidebars/ @FabricMC/documentation
-public/assets/ @FabricMC/documentation
-reference/latest/ @FabricMC/documentation
+.git*              @FabricMC/developers
+.nvmrc             @FabricMC/developers
+crowdin.yml        @FabricMC/developers
+netlify.toml       @FabricMC/developers
+package.json       @FabricMC/developers
+package-lock.json  @FabricMC/developers

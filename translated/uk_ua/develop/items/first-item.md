@@ -48,7 +48,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Виклик методу в класі статично ініціалізує його, якщо він не був попередньо завантажений - це означає, що всі `статичні` поля оцінюються. Ось для чого цей фіктивний метод `ініціалізації`.
 
@@ -76,13 +76,13 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## Назва предмета {#naming-the-item}
 
-Предмет наразі не має перекладу, тому його потрібно буде додати. Ключ перекладу вже надав Minecraft: `item.mod_id.suspicious_substance`.
+Предмет наразі не має перекладу, тому його потрібно буде додати. Ключ перекладу вже надав Minecraft: `item.example-mod.suspicious_substance`.
 
-Створіть новий файл JSON за адресою: `src/main/resources/assets/mod-id/lang/en_us.json` і введіть ключ перекладу та його значення:
+Створіть новий файл JSON за адресою: `src/main/resources/assets/example-mod/lang/en_us.json` і введіть ключ перекладу та його значення:
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -90,7 +90,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## Додання текстури та моделі {#adding-a-texture-and-model}
 
-Щоб надати вашому предмету текстуру та модель, просто створіть зображення текстури 16x16 для свого предмета та збережіть його в теці `assets/mod-id/textures/item`. Назвіть файл текстури так само, як ідентифікатор предмета, але з розширенням `.png`.
+Щоб надати вашому предмету текстуру та модель, просто створіть зображення текстури 16x16 для свого предмета та збережіть його в теці `assets/example-mod/textures/item`. Назвіть файл текстури так само, як ідентифікатор предмета, але з розширенням `.png`.
 
 Для прикладу ви можете використовувати цей приклад текстури для `suspicious_substance.png`
 
@@ -100,9 +100,9 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Ви збираєтеся створити просту модель `item/generated`, яка приймає вхідну текстуру і нічого більше.
 
-Створіть модель JSON в теці `assets/mod-id/models/item` з такою самою назвою, як у предмета; `suspicious_substance.json`
+Створіть модель JSON в теці `assets/example-mod/models/item` з такою самою назвою, як у предмета; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Розбираємо модель JSON {#breaking-down-the-model-json}
 
@@ -117,15 +117,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Minecraft не визначає автоматично, де можна знайти файли моделей ваших предметів, нам потрібно надати опис моделі предмета.
 
-Створіть JSON опису предмета в `assets/mod-id/items` з тією ж назвою файлу, що й ідентифікатор предмета: `suspicious_substance.json`.
+Створіть JSON опису предмета в `assets/example-mod/items` з тією ж назвою файлу, що й ідентифікатор предмета: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Розбір опису моделі предмета JSON {#breaking-down-the-item-model-description-json}
 
 - `model`: це властивість, яка містить посилання на нашу модель.
   - `type`: це тип нашої моделі. Для більшості предметів це має бути `minecraft:модель`
-  - `model`: це ідентифікатор моделі. Він повинен мати таку форму: `mod-id:item/item_name`
+  - `model`: це ідентифікатор моделі. Він повинен мати таку форму: `example-mod:item/item_name`
 
 Тепер ваш предмет у грі має виглядати так:
 
@@ -147,7 +147,7 @@ API Fabric надає різні реєстри, які можна викори�
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Якщо ви хочете додати рецепт виготовлення для свого предмета, вам потрібно буде розмістити JSON-файл рецепту в теці `data/mod-id/recipe`.
+Якщо ви хочете додати рецепт виготовлення для свого предмета, вам потрібно буде розмістити JSON-файл рецепту в теці `data/example-mod/recipe`.
 
 Щоб дізнатися більше про формат рецепта, перегляньте ці ресурси:
 

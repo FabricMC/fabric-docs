@@ -84,10 +84,10 @@ authors:
 
 Коли міксин виходить з ладу, він зазвичай згадує міксин у трасуванні стосу та клас, який міксин модифікує.
 
-Міксини методів міститимуть `mod-id$handlerName` у трасуванні стосу, де `mod-id` — це ID мода, а `handlerName` — це ім’я обробника міксину.
+Міксини методів міститимуть `example-mod$handlerName` у трасуванні стосу, де `example-mod` — це ID мода, а `handlerName` — це ім’я обробника міксину.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
 ```
 
 Ви можете використовувати цю інформацію, щоб знайти мод, який спричинив збій, і повідомити про збій автору моду.

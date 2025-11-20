@@ -20,7 +20,7 @@ Nel creare un `BlockEntityRenderer` per il `CounterBlockEntity`, è importante i
 La nuova classe ha un costruttore con un `BlockEntityRendererFactory.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `TextRenderer`.
 Inoltre, includendo un costruttore come questo, è possibile usare il costruttore come interfaccia funzionale per la `BlockEntityRendererFactory`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
 Dovresti registrare i renderer dei blocchi-entità nella tua classe `ClientModInitializer`.
 
