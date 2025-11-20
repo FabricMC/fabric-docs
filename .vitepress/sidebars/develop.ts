@@ -281,6 +281,10 @@ export default [
         link: "/develop/networking",
       },
       {
+        text: "develop.misc.saved_data",
+        link: "/develop/saved-data",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
