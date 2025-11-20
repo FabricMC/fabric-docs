@@ -16,6 +16,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
@@ -124,8 +125,8 @@ public class ModItems {
 
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			"mini_golem_spawn_egg",
-			settings -> new SpawnEggItem(ModEntityTypes.MINI_GOLEM, settings),
-			new Item.Settings()
+					SpawnEggItem::new,
+			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
 
 	// :::1
@@ -185,8 +186,8 @@ public class ModItems {
 		});
 		// :::_12
 
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(itemGroup -> {
-			itemGroup.add(ModItems.MINI_GOLEM_SPAWN_EGG);
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
+			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
 		});
 
 		// :::_10

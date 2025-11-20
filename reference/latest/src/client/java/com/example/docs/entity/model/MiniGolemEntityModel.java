@@ -1,76 +1,80 @@
 package com.example.docs.entity.model;
 
+import net.minecraft.client.animation.KeyframeAnimation;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartNames;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
+
 import com.example.docs.entity.animation.MiniGolemAnimations;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
-import net.minecraft.client.model.ModelData;
-import net.minecraft.client.model.ModelPart;
-import net.minecraft.client.model.ModelPartBuilder;
-import net.minecraft.client.model.ModelPartData;
-import net.minecraft.client.model.ModelTransform;
-import net.minecraft.client.model.TexturedModelData;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
-import net.minecraft.util.math.MathHelper;
 //:::model1
 public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState> {
 	private final ModelPart head;
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
+	private final KeyframeAnimation dancing;
 
 	public MiniGolemEntityModel(ModelPart root) {
 		super(root);
-		head = root.getChild(EntityModelPartNames.HEAD);
-		leftLeg = root.getChild(EntityModelPartNames.LEFT_LEG);
-		rightLeg = root.getChild(EntityModelPartNames.RIGHT_LEG);
+		head = root.getChild(PartNames.HEAD);
+		leftLeg = root.getChild(PartNames.LEFT_LEG);
+		rightLeg = root.getChild(PartNames.RIGHT_LEG);
+		this.dancing = MiniGolemAnimations.DANCING.bake(root);
 	}
 //:::model1
 
 //:::model_texture_data
-	public static TexturedModelData getTexturedModelData() {
-		ModelData modelData = new ModelData();
-		ModelPartData root = modelData.getRoot();
-		root.addChild(
-				EntityModelPartNames.BODY,
-				ModelPartBuilder.create().cuboid(-6, -6, -6, 12, 12, 12), // x , y ,z  is the dimensions  |  width, height, depth
-				ModelTransform.pivot(0, 8, 0)
+	public static LayerDefinition getTexturedModelData() {
+		MeshDefinition modelData = new MeshDefinition();
+		PartDefinition root = modelData.getRoot();
+		root.addOrReplaceChild(
+				PartNames.BODY,
+				CubeListBuilder.create().addBox(-6, -6, -6, 12, 12, 12), // x , y ,z  is the dimensions  |  width, height, depth
+				PartPose.offset(0, 8, 0)
 		);
-		root.addChild(
-				EntityModelPartNames.HEAD,
-				ModelPartBuilder.create().uv(36, 0).cuboid(-3, -6, -3, 6, 6, 6),
-				ModelTransform.pivot(0, 2, 0)
+		root.addOrReplaceChild(
+				PartNames.HEAD,
+				CubeListBuilder.create().texOffs(36, 0).addBox(-3, -6, -3, 6, 6, 6),
+				PartPose.offset(0, 2, 0)
 		);
-		root.addChild(
-				EntityModelPartNames.LEFT_LEG,
-				ModelPartBuilder.create().uv(48, 12).cuboid(-2, 0, -2, 4, 10, 4),
-				ModelTransform.pivot(-2.5f, 14, 0)
+		root.addOrReplaceChild(
+				PartNames.LEFT_LEG,
+				CubeListBuilder.create().texOffs(48, 12).addBox(-2, 0, -2, 4, 10, 4),
+				PartPose.offset(-2.5f, 14, 0)
 		);
-		root.addChild(
-				EntityModelPartNames.RIGHT_LEG,
-				ModelPartBuilder.create().uv(48, 12).cuboid(-2, 0, -2, 4, 10, 4),
-				ModelTransform.pivot(2.5f, 14, 0)
+		root.addOrReplaceChild(
+				PartNames.RIGHT_LEG,
+				CubeListBuilder.create().texOffs(48, 12).addBox(-2, 0, -2, 4, 10, 4),
+				PartPose.offset(2.5f, 14, 0)
 		);
-		return TexturedModelData.of(modelData, 64, 32);
+		return LayerDefinition.create(modelData, 64, 32);
 	}
 //:::model_texture_data
 
 //:::model_animation
 	@Override
-	public void setAngles(MiniGolemEntityRenderState state) {
-		super.setAngles(state);
+	public void setupAnim(MiniGolemEntityRenderState state) {
+		super.setupAnim(state);
 		//:::model_animation
-		if (state.dancingAnimationState.isRunning()) {
-			this.animate(state.dancingAnimationState, MiniGolemAnimations.DANCING, state.age);
+		if (state.dancingAnimationState.isStarted()) {
+			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
 		} else {
 			//:::model_animation
-			head.pitch = state.pitch * MathHelper.RADIANS_PER_DEGREE;
-			head.yaw = state.yawDegrees * MathHelper.RADIANS_PER_DEGREE;
-			float limbSwingAmplitude = state.limbAmplitudeMultiplier;
-			float limbSwingAnimationProgress = state.limbFrequency;
-			leftLeg.pitch = MathHelper.cos(limbSwingAnimationProgress * 0.2f + MathHelper.PI) * 1.4f * limbSwingAmplitude;
-			rightLeg.pitch = MathHelper.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
+			head.xRot = state.xRot * Mth.RAD_TO_DEG;
+			head.yRot = state.yRot * Mth.RAD_TO_DEG;
+			float limbSwingAmplitude = state.walkAnimationSpeed;
+			float limbSwingAnimationProgress = state.walkAnimationPos;
+			leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
+			rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
 			//:::model_animation
-		}  
+		}
 		//:::model_animation
 	}
 }

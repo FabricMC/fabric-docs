@@ -1,76 +1,79 @@
 package com.example.docs.entity;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WanderAroundGoal;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.world.World;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.TemptGoal;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+
 //:::registerclass
-public class MiniGolemEntity extends PathAwareEntity {
+public class MiniGolemEntity extends PathfinderMob {
 	//:::registerclass
-	private static final TrackedData<Boolean> DANCING = DataTracker.registerData(MiniGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
 	public final AnimationState dancingAnimationState = new AnimationState();
 	private int dancingTimeLeft;
 	//:::registerclass
-	public MiniGolemEntity(World world) {
+	public MiniGolemEntity(Level world) {
 		this(ModEntityTypes.MINI_GOLEM, world);
 	}
 
-	public MiniGolemEntity(EntityType<? extends MiniGolemEntity> entityType, World world) {
+	public MiniGolemEntity(EntityType<? extends MiniGolemEntity> entityType, Level world) {
 		super(entityType, world);
 
 	}
 
-	public static DefaultAttributeContainer.Builder createCubeAttributes() {
-		return PathAwareEntity.createMobAttributes()
-				.add(EntityAttributes.MAX_HEALTH, 5)
-				.add(EntityAttributes.TEMPT_RANGE, 10)
-				.add(EntityAttributes.MOVEMENT_SPEED, 0.3);
+	public static AttributeSupplier.Builder createCubeAttributes() {
+		return PathfinderMob.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 5)
+				.add(Attributes.TEMPT_RANGE, 10)
+				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
 //:::registerclass
 
 //:::goals
 	@Override
-	protected void initGoals() {
-		this.goalSelector.add(0, new TemptGoal(this, 1, Ingredient.ofItems(Items.WHEAT), false));
-		this.goalSelector.add(1, new WanderAroundGoal(this, 1));
-		this.goalSelector.add(2, new LookAtEntityGoal(this, CowEntity.class, 4));
-		this.goalSelector.add(3, new LookAroundGoal(this));
+	protected void registerGoals() {
+		this.goalSelector.addGoal(0, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
+		this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1));
+		this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Cow.class, 4));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 	}
 //:::goals
 
+
 	@Override
-	protected void initDataTracker(DataTracker.Builder builder) {
-		super.initDataTracker(builder);
-		builder.add(DANCING, false);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(DANCING, false);
 	}
 
 	public boolean isDancing() {
-		return dataTracker.get(DANCING);
+		return entityData.get(DANCING);
 	}
 
 	private void setDancing(boolean dancing) {
-		dataTracker.set(DANCING, dancing);
+		entityData.set(DANCING, dancing);
 	}
 
 	@Override
-	public void onTrackedDataSet(TrackedData<?> data) {
-		super.onTrackedDataSet(data);
+	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
+		super.onSyncedDataUpdated(data);
 
 		if (data == DANCING) {
-			dancingAnimationState.setRunning(isDancing(), this.age);
+			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
 		}
 	}
 
@@ -78,7 +81,7 @@ public class MiniGolemEntity extends PathAwareEntity {
 	public void tick() {
 		super.tick();
 
-		if (!getWorld().isClient) {
+		if (!level().isClientSide()) {
 			if (isDancing()) {
 				if (dancingTimeLeft-- <= 0) {
 					setDancing(false);
@@ -93,15 +96,15 @@ public class MiniGolemEntity extends PathAwareEntity {
 	}
 
 	@Override
-	public void writeCustomDataToNbt(NbtCompound nbt) {
-		super.writeCustomDataToNbt(nbt);
-		nbt.putInt("dancing_time_left", dancingTimeLeft);
+	protected void addAdditionalSaveData(ValueOutput valueOutput) {
+		super.addAdditionalSaveData(valueOutput);
+		valueOutput.putInt("dancing_time_left", dancingTimeLeft);
 	}
 
 	@Override
-	public void readCustomDataFromNbt(NbtCompound nbt) {
-		super.readCustomDataFromNbt(nbt);
-		dancingTimeLeft = nbt.getInt("dancing_time_left");
+	protected void readAdditionalSaveData(ValueInput valueInput) {
+		super.readAdditionalSaveData(valueInput);
+		dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
 		setDancing(dancingTimeLeft > 0);
 	}
 }

@@ -7,7 +7,7 @@ import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.renderer.MiniGolemEntityRenderer;
 
-public class FabricDocsCustomEntityClient implements ClientModInitializer {
+public class ExampleModCustomEntityClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		ModEntityModelLayers.registerModelLayers();

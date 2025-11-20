@@ -22,7 +22,8 @@
       "com.example.docs.advancement.ExampleModDatagenAdvancement",
       "com.example.docs.networking.ExampleModNetworking",
       "com.example.docs.networking.basic.ExampleModNetworkingBasic",
-      "com.example.docs.debug.ExampleModDebug"
+      "com.example.docs.debug.ExampleModDebug",
+      "com.example.docs.entity.FabricDocsReferenceEntity"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
@@ -32,7 +33,8 @@
       "com.example.docs.rendering.CustomRenderPipeline",
       "com.example.docs.rendering.HudRenderingEntrypoint",
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
-      "com.example.docs.network.basic.ExampleModNetworkingBasicClient"
+      "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
+      "com.example.docs.ExampleModCustomEntityClient"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.ExampleModDataGenerator"

@@ -10,6 +10,7 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
@@ -24,6 +25,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
+import com.example.docs.item.ModItems;
 
 // :::datagen-model:provider
 public class ExampleModModelProvider extends FabricModelProvider {
@@ -87,6 +89,8 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//TODO Since I have little experience with generating item models, I will leave this to someone more experienced (Fellteros)
 
 		// :::datagen-model:provider
+
+		itemModelGenerator.generateFlatItem(ModItems.MINI_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 	}
 
 	// :::datagen-model:provider
