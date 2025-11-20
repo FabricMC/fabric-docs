@@ -21,9 +21,9 @@ public class SavedBlockData extends SavedData {
 	// :::codec
 	// :::type
 	private static final SavedDataType<SavedBlockData> TYPE = new SavedDataType<>(
-					"saved_block_data", // A Unique name for this saved data.
+					"saved_block_data", // The unique name for this saved data.
 					SavedBlockData::new, // If there's no 'SavedBlockData', yet create one and refresh fields.
-					CODEC, // The codec used serialization/deserialization.
+					CODEC, // The codec used for serialization/deserialization.
 					null // A data fixer, which is not needed here.
 	);
 	// :::type
