@@ -2,9 +2,11 @@
 title: Custom Entities
 description: Learn how to do custom entities.
 authors:
-  - JaaiDead
+  - cassiancc
   - Earthcomputer
+  - JaaiDead
 ---
+
 Entities are dynamic, interactive objects in the game that are not part of the terrain (like blocks). Entities can move around and interact with the world in various ways.
 
 ## Your First Entity {#your-first-entity}
