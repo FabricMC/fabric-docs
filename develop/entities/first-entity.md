@@ -55,7 +55,7 @@ To add goals to the entity, you need to create `registerGoals` class which will 
 
 ## Creating Rendering {#creating-rendering}
 
-Rendering refers to the process of converting game data—such as blocks, `entities``, and environments—into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
+Rendering refers to the process of converting game data such as blocks, ``entities``, and environments into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
 
 ::: tip
 
@@ -87,4 +87,66 @@ The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entit
 
 This method defines the Mini Golem's 3D model by creating its body, head, and legs as cuboids, setting their positions and texture mappings, and returning a `LayerDefinition` for rendering.
 
-Each part is added with a pivot point for proper animation and alignment, ensuring the model appears correctly in-game.
+Each part is added with a offset point for proper animation and alignment, ensuring the model appears correctly in-game.
+
+::: info
+The higher y values in the model, the lower you are in the entity. Its Upside down relative to the in-game corrdinates.
+:::
+
+Now, We need create ```ModEntityModelLayers``` in the client package.
+
+@[code transcludeWith=:::model_layer](@/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java)
+
+After creating the file we need to register it in the client initializer
+
+@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModCustomEntityClient.java)
+
+### Setting up the Texture {#setting-up-texture}
+
+Each model part / box is expecting a net on the texture in a particular location. By default, it's expecting it at 0, 0 (the top left), but this can be changed by calling the texOffs function in CubeListBuilder. In our entity it appears as so:
+![Texture of MiniGolemEntity](/assets/develop/entity/mini_golem.png)
+
+::: warning
+  Texture Size should match values in the ```LayerDefinition.create(modelData, 64, 32);``` which are 64 and 32.
+:::
+
+Now, copy the ```texture.png``` file and place it in ```resources/assets/example-mod/textures/entity/mini_golem.png``` location.
+
+### Creating the Renderer {#creating-the-renderer}
+
+The Renderer enables you to view your entity in-game.
+
+@[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
+
+We are referencing the texture in this code in line 2 from the previous step.
+
+In this class ```MiniGolemEntityRenderer```, the creation of the renderstate and the entity's model happens.
+
+The shadow radius ``.375f`` , is provied as you can view the circle under the mob which minecraft renders.
+
+### Creating the Animations {#creating-the-animations}
+
+In the ```MiniGolemEntityModel``` this code is added to make it walk.
+
+@[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+
+Most of the math is provided by blockbench.
+
+### Adding Tracked Data {#adding-tracked-data}
+
+<!-- TODO 
+
+- Create and register entity and attributes.
+  - This is the minimum amount of work to be able to run the summon command, I believe.
+
+- Add and explain goals And renderer, model and texture This will include the leg swing animation, but not the dancing animation.
+
+- Add modellayer registry thing which we forgot.
+
+- Add TrackedData for dancing, and explain how to use the data tracker for synchronizing values to the client.
+
+- Add dancingTimeLeft which will be saved and loaded from NBT, explain saving and loading entities from NBT.
+
+- Add the dancing animation.
+- Add the spawn egg. 
+-->

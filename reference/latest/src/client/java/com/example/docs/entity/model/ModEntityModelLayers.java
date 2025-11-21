@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 
 import com.example.docs.ExampleMod;
 
-//::model_layer
+//:::model_layer
 public class ModEntityModelLayers {
 	public static final ModelLayerLocation MINI_GOLEM = createMain("mini_golem");
 
