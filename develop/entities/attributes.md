@@ -22,7 +22,7 @@ First, a basic helper method to register your mod's attributes. This method will
 - A `double` that will be the default value of the attribute.
 - A `double` that will be the lowest value your attribute will reach.
 - A `double` that will be the highest value your attribute will reach.
-- A `boolean` for whether clients should know about this attribute.
+- A `boolean` that dictates whether the attribute will be synced to clients.
 
 @[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
 
@@ -63,8 +63,8 @@ As a demo, we'll include maximum health, movement speed, attack damage and the a
 public static AttributeSupplier.Builder createEntityAttributes() {
     return Mob.createMobAttributes()
         .add(Attributes.MAX_HEALTH, 25.0)
-        .add(Attributes.MOVEMENT_SPEED, 0.22D)
-        .add(Attributes.ATTACK_DAMAGE, 3.0D)
-        .add(ModEntityAttributes.AGGRO_RANGE, 8.0);
+        .add(Attributes.MOVEMENT_SPEED, 0.22)
+        .add(Attributes.ATTACK_DAMAGE, 3.0)
+        .add(ModAttributes.AGGRO_RANGE, 8.0);
 }
 ```

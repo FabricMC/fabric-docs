@@ -1,16 +1,20 @@
 package com.example.docs.entity.attribute;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
 import com.example.docs.ExampleMod;
 
 public class ModAttributes {
 	// :::attributes
-	public static final Attribute AGGRO_RANGE = register(
+	public static final Holder<Attribute> AGGRO_RANGE = register(
 			"aggro_range",
 			8.0,
 			0.0,
@@ -25,7 +29,7 @@ public class ModAttributes {
 	// :::initialize
 
 	// :::register
-	private static Attribute register(
+	private static Holder<Attribute> register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
 		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
@@ -36,7 +40,7 @@ public class ModAttributes {
 				maxValue
 		).setSyncable(syncedWithClient);
 
-		return Registry.register(BuiltInRegistries.ATTRIBUTE, identifier, entityAttribute);
+		return Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, identifier, entityAttribute);
 	}
 	// :::register
 }
