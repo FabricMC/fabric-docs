@@ -1,5 +1,5 @@
 ---
-title: Attributes
+title: Entity Attributes
 description: Learn how to add custom attributes to entities.
 authors:
 - cassiancc
