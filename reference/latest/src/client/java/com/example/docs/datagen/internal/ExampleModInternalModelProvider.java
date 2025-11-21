@@ -31,9 +31,9 @@ public class ExampleModInternalModelProvider extends FabricModelProvider {
 		// TODO: This would be a good example for the model generation page. Move when needed.
 		// TODO: Actually make the model for the prismarine lamp - not sure how to do it via datagen.
 		blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(ModBlocks.PRISMARINE_LAMP)
-						.with(BlockModelGenerators.createBooleanModelDispatch(PrismarineLampBlock.ACTIVATED,
-										BlockModelGenerators.plainVariant(blockStateModelGenerator.createSuffixedVariant(ModBlocks.PRISMARINE_LAMP, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
-										BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelOutput)))));
+				.with(BlockModelGenerators.createBooleanModelDispatch(PrismarineLampBlock.ACTIVATED,
+						BlockModelGenerators.plainVariant(blockStateModelGenerator.createSuffixedVariant(ModBlocks.PRISMARINE_LAMP, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
+						BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelOutput)))));
 
 		blockStateModelGenerator.woodProvider(ModBlocks.CONDENSED_OAK_LOG).logWithHorizontal(ModBlocks.CONDENSED_OAK_LOG);
 	}
