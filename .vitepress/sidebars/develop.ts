@@ -281,6 +281,10 @@ export default [
         link: "/develop/saved-data",
       },
       {
+        text: "develop.misc.block_and_item_appearance",
+        link: "/develop/block-and-item-appearance",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
