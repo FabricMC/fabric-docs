@@ -102,6 +102,10 @@ export default [
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },
+      {
+        text: "develop.items.item_appearance",
+        link: "/develop/items/item-appearance",
+      }
     ],
   },
   {
@@ -130,6 +134,10 @@ export default [
           },
         ],
       },
+      {
+        text: "develop.blocks.transparency_and_tinting",
+        link: "/develop/blocks/transparency-and-tinting",
+      }
     ],
   },
   {
@@ -279,10 +287,6 @@ export default [
       {
         text: "develop.misc.saved_data",
         link: "/develop/saved-data",
-      },
-      {
-        text: "develop.misc.block_and_item_appearance",
-        link: "/develop/block-and-item-appearance",
       },
       {
         text: "develop.misc.text_and_translations",
