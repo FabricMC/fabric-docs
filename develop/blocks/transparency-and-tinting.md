@@ -2,6 +2,7 @@
 title: Transparency and Tinting
 description: Manipulating Block Appearance and Dynamically Tinting Blocks.
 authors:
+  - cassiancc
   - dicedpixels
 ---
 
@@ -9,14 +10,14 @@ Blocks may need to have special ways of handling how they look in-game. For exam
 
 Let's see how we can manipulate the appearance of a block.
 
-For this example, let's register a block.
+For this example, let's register a block. If you are unfamiliar with this process, please read the [page on block registration](./first-block) first.
 
 @[code lang=java transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
 
 Make sure to add:
 
-- A block state definition (`/blockstates/waxcap.json`)
-- A model (`/models/block/waxcap.json`)
+- A [block state](./blockstates) (`/blockstates/waxcap.json`)
+- A [model](./block-models) (`/models/block/waxcap.json`)
 - A texture (`/textures/block/waxcap.png`)
 
 If everything is correct, you'll be able to see the block in-game. However, you'll notice that the block when place, doesn't look right.
@@ -31,13 +32,19 @@ Even if your block's texture is transparent or translucent, it still looks opaqu
 
 Chunk Section Layers are categories used to group different types of block surfaces for rendering. This allows the game to use the correct visual effects and optimizations for each type.
 
-We need to register our block with the correct Chunk Section Layer. Fabric API provides `BlockRenderLayerMap` to do this.
+We need to register our block with the correct Chunk Section Layer. Vanilla provides the following options.
 
-In your **client initializer**, register your block with the correct `ChunkSectionLayer`.
+- `SOLID` - The default, a solid block without any transparency.
+- `CUTOUT` and `CUTOUT_MIPPED` - A block that makes use of transparency. `CUTOUT_MIPPED` will look better at a distance. An example of this would be Glass or flowers.
+- `TRANSLUCENT` - A block that makes use of translucency - partially transparent pixels. An example of this would be Stained Glass or Water.
+
+This example has transparency, so it will use `CUTOUT`.
+
+In your **client initializer**, register your block with the correct `ChunkSectionLayer` using Fabric API's `BlockRenderLayerMap`.
 
 @[code lang=java transcludeWith=:::block_render_layer_map](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
 
-Now your block should look correct.
+Now, your block should have proper transparency.
 
 ![Correct Block Appearance](/assets/develop/transparency-and-tinting/block_appearance_1.png)
 
@@ -49,10 +56,10 @@ Fabric API provides `ColorProviderRegistry` to register a tint color provider to
 
 Let's use this API to register a tint, so that when our Waxcap block is placed on grass, it will look green, otherwise it'll look brown.
 
-In your **client initializer**, register your block, along with the appropriate logic.
+In your **client initializer**, register your block to the `ColorProviderRegistry`, along with the appropriate logic.
 
 @[code lang=java transcludeWith=:::color_provider](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
 
-Now you'll see the block have a tint based on where its placed.
+Now, the block will be tinted based on where its placed.
 
 ![Block With Color Provider](/assets/develop/transparency-and-tinting/block_appearance_2.png)
