@@ -33,7 +33,7 @@ Data attachments can also be synchronized, giving you a lot of flexibility when 
 // Register a type of attached data. This data can be attached to anything, this is only a type
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder->builder // This example uses a builder chain to configure the attachment data type
+  builder->builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
     .initializer(()->new BlockPos(0, 0, 0)) // The default value of the attachment, if one has not been set.
     .syncWith(
       BlockPos.STREAM_CODEC,  // Dicates how to turn the data into a packet to send to players.
@@ -60,7 +60,7 @@ The `persistent` method takes a `Codec` so that the game knows how to serialize 
 // Register a type of attached data. This data can be attached to anything, this is only a type
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder->builder // This example uses a builder chain to configure the attachment data type
+  builder->builder // This example uses a builder chain to configure the attachment data type.  Note that builder chains only work with `.create`! 
     .initializer(()->new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
     .persistent(BlockPos.CODEC) // Dicates how this attachment's data should be saved and loaded.
     .copyOnDeath() // Dictates that this attachment should persist even after the entity dies.
