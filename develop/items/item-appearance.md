@@ -39,7 +39,7 @@ Let's look at the code.
 
 As this is a part of the client item definition, it's possible for a tint value to be changed through a resource pack. So you need to define a Map Codec that's capable of reading your tint definition. In our case, our tint source will have a `int` value describing the color it will have when raining. We can use the built-in `ExtraCodecs.RGB_COLOR_CODEC` to compose our Codec.
 
-@[code lang=java transclude={17-19}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+@[code lang=java transclude={17-20}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
 
 We can then return this Codec in `type()`.
 
