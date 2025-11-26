@@ -1,25 +1,25 @@
 ---
 title: Item Appearance
-description: Dynamically tinting items with custom tint sources.
+description: Learn how to tint items dynamically with custom tint sources.
 authors:
   - dicedpixels
 ---
 
-An item's appearance can be manipulated through its client item. A full list of vanilla modifications can be found [here in the Minecraft Wiki](https://minecraft.wiki/w/Items_model_definition#Items_model_types).
+You can manipulate an item's appearance through its client item. There is a [list of vanilla modifications on the Minecraft Wiki](https://minecraft.wiki/w/Items_model_definition#Items_model_types).
 
-Out of these, a commonly used type is _Tint Sources_. Tint sources allow you to change the color of the item based on predefined conditions.
+Out of those, a commonly used type is _Tint Sources_, which allow you to change the color of the item based on predefined conditions.
 
-There are only a handful of [predefined tint sources](https://minecraft.wiki/w/Items_model_definition#Tint_sources_types). So, let's see how to create our own.
+There are only a handful of [predefined tint sources](https://minecraft.wiki/w/Items_model_definition#Tint_sources_types), so let's see how to create our own.
 
-For this example, let's register an item. If you are unfamiliar with this process, please read the [page on item registration](./first-item) first.
+For this example, let's register an item. If you are unfamiliar with this process, please read about [item registration](./first-item) first.
 
 @[code lang=java transcludeWith=:::item](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
 
 Make sure to add:
 
-- An [client item](./first-item#creating-the-client-item) (`/items/waxcap.json`)
-- An [item model](./item-models) (`/models/item/waxcap.json`)
-- A [texture](./first-item#adding-a-texture) (`/textures/item/waxcap.png`)
+- A [client item](./first-item#creating-the-client-item) in `/items/waxcap.json`
+- An [item model](./item-models) in `/models/item/waxcap.json`
+- A [texture](./first-item#adding-a-texture) in `/textures/item/waxcap.png`
 
 The item should appear in-game.
 
@@ -35,9 +35,7 @@ You'll first need to define a custom item tint source. This is done by implement
 
 @[code lang=java transcludeWith=:::tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
 
-Let's look at the code.
-
-As this is a part of the client item definition, it's possible for a tint value to be changed through a resource pack. So you need to define a Map Codec that's capable of reading your tint definition. In our case, our tint source will have a `int` value describing the color it will have when raining. We can use the built-in `ExtraCodecs.RGB_COLOR_CODEC` to compose our Codec.
+As this is part of the client item definition, tint values can be changed with a resource pack. So you need to define a [Map Codec](../codecs#mapcodec) that's capable of reading your tint definition. In this case, the tint source will have an `int` value describing the color it will have when raining. We can use the built-in `ExtraCodecs.RGB_COLOR_CODEC` to compose our Codec.
 
 @[code lang=java transclude={17-20}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
 
@@ -45,7 +43,7 @@ We can then return this Codec in `type()`.
 
 @[code lang=java transclude={35-38}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
 
-Finally, we can provide an implementation for `calculate` that would decide what the tint color would be. The current `color` is the color that's read from the resource pack.
+Finally, we can provide an implementation for `calculate` that would decide what the tint color would be. The value of `color` is the one coming from the resource pack.
 
 @[code lang=java transclude={26-33}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
 

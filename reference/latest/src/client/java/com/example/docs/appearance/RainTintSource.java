@@ -20,7 +20,7 @@ public record RainTintSource(int color) implements ItemTintSource {
 	);
 
 	public RainTintSource() {
-		this(ARGB.opaque(0x00BFFF)); //Color code in hex format.
+		this(ARGB.opaque(0x00BFFF)); // Color code in hex format
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public record RainTintSource(int color) implements ItemTintSource {
 			return ARGB.opaque(color);
 		}
 
-		return ARGB.opaque(0xFFEFD5); // Color code in hex format.
+		return ARGB.opaque(0xFFEFD5); // Color code in hex format
 	}
 
 	@Override
