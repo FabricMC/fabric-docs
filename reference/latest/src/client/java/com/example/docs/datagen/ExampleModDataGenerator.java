@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
+import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
 import com.example.docs.network.basic.ExampleModNetworkingBasicModelProvider;
@@ -42,6 +43,8 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModModelProvider::new);
 
 		pack.addProvider(ExampleModNetworkingBasicModelProvider::new);
+
+		pack.addProvider(ExampleModAppearanceModelProvider::new);
 
 		// :::datagen-setup:generator
 	}
