@@ -40,6 +40,6 @@ Select the file that ends with **`-sources`** and press **Open** to confirm the 
 
 ![Choose Sources Dialog](/assets/develop/getting-started/intellij/choose-sources-dialog.png)
 
-If the correct file is open, you should now be able to see Javadoc comments as well as have the ability to search for references.
+You should now have the ability to search for references. If you are using a mapping set that contains Javadocs, like [Parchment](https://parchmentmc.org/) (for Mojang Mappings) or Yarn, you should now also see Javadocs.
 
 ![Javadoc Comments in Sources](/assets/develop/getting-started/intellij/javadoc.png)
