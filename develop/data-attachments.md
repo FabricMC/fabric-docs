@@ -60,7 +60,7 @@ The `persistent` method takes a `Codec` so that the game knows how to serialize 
 // Register a type of attached data. This data can be attached to anything, this is only a type
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder->builder // This example uses a builder chain to configure the attachment data type.  Note that builder chains only work with `.create`!
+  builder->builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
     .initializer(()->new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
     .persistent(BlockPos.CODEC) // Dicates how this attachment's data should be saved and loaded.
     .copyOnDeath() // Dictates that this attachment should persist even after the entity dies.
@@ -101,4 +101,19 @@ entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value");
 
 // Removes the data associated with the given AttachmentType, returning the previous value.
 entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
+```
+
+## Larger Attachments {#larger-ttachments}
+
+While data attachments can store any form of data that you are willing to write a Codec for, they primarily make sense for synchronizing individual values. This is due to the fact that a data attachment is immutable, meaning there is no way to modify it with replacing the value entirely, which must then be synchronized in full to every player tracking it.
+
+Instead, users wishing for more detailed attachments may instead wish to split their attachments into multiple fields, which could then be organized by a helper class. In practice, this may look something like this:
+
+@[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
+
+This utility class could then be used like so:
+
+```java
+Player player = getPlayer();
+Stamina.get(player).getCurrentStamina();
 ```
