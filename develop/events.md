@@ -31,9 +31,7 @@ Callbacks are a piece of code that is passed as an argument to an event. When th
 
 ### Callback Interfaces {#callback-interfaces}
 
-Each event has a corresponding callback interface, conventionally named `<EventName>Callback`. Callbacks are registered by calling `register()` method on an event instance, with an instance of the callback interface as the argument.
-
-All event callback interfaces provided by Fabric API can be found in the `net.fabricmc.fabric.api.event` package.
+Each event has a corresponding callback interface. Callbacks are registered by calling `register()` method on an event instance, with an instance of the callback interface as the argument.
 
 ## Listening to Events {#listening-to-events}
 
