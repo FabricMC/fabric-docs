@@ -145,7 +145,7 @@ export const getLocales = () => {
         },
 
         editLink: {
-          pattern: "https://github.com/FabricMC/fabric-docs/edit/-/:path",
+          pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
           text: resolver("github_edit"),
         },
 
