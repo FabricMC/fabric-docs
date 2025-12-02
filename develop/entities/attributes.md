@@ -77,7 +77,6 @@ An attribute by itself is just data attached to an entity. For it to be useful, 
 entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
 entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the current value
 entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
-
 ```
 
 An `AttributeInstance` allows more flexibility, such as setting a temporary `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations).
@@ -87,7 +86,7 @@ attribute.addPermanentModifier(
     new AttributeModifier(
         ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
         8, // how much to modify it
-        AttributeModifier.Operation.ADD_VALUE // what operator to use, see below
+        AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
     ));
 ```
 
