@@ -79,7 +79,7 @@ entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the
 entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
 ```
 
-An `AttributeInstance` allows more flexibility, such as setting a temporary `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations).
+An `AttributeInstance` allows more flexibility, such as setting an `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations).
 
 ```java
 attribute.addPermanentModifier(
