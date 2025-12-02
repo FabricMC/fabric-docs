@@ -103,7 +103,7 @@ entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value");
 entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 ```
 
-## Larger Attachments {#larger-ttachments}
+## Larger Attachments {#larger-attachments}
 
 While data attachments can store any form of data that you are willing to write a Codec for, they primarily make sense for synchronizing individual values. This is due to the fact that a data attachment is immutable, meaning there is no way to modify it with replacing the value entirely, which must then be synchronized in full to every player tracking it.
 
