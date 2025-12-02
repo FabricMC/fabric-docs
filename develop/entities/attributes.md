@@ -68,3 +68,27 @@ public static AttributeSupplier.Builder createEntityAttributes() {
         .add(ModAttributes.AGGRO_RANGE, 8.0);
 }
 ```
+
+## Reading From and Writing to Attributes {#reading-from-attributes}
+
+As an attribute by itself is just data attached to an entity, it must be made useful by reading from and writing to it. There's two main ways to do this - getting the `AttributeInstance` on the entity, or getting the value directly.
+
+```java
+entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
+entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the current value
+entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
+
+```
+
+An `AttributeInstance` gives more flexibility, allowing you to set a temporary `AttributeModifier` on the attribute like so:
+
+```java
+attribute.addPermanentModifier(
+    new AttributeModifier(
+        ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
+        8, // how much to modify it
+        AttributeModifier.Operation.ADD_VALUE // what operator to use, should it add to the stat or multiply it
+    ));
+```
+
+Once you have access to the attribute value, you can use it in your entity's AI.
