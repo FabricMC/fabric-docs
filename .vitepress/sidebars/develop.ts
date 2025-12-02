@@ -83,7 +83,7 @@ export default [
         link: "/develop/items/custom-armor",
       },
       {
-        text: "develop.items.custom_item_groups",
+        text: "develop.items.custom_creative_tabs",
         link: "/develop/items/custom-item-groups",
       },
       {
@@ -102,6 +102,10 @@ export default [
         text: "develop.items.potions",
         link: "/develop/items/potions",
       },
+      {
+        text: "develop.items.item_appearance",
+        link: "/develop/items/item-appearance",
+      }
     ],
   },
   {
@@ -130,6 +134,10 @@ export default [
           },
         ],
       },
+      {
+        text: "develop.blocks.transparency_and_tinting",
+        link: "/develop/blocks/transparency-and-tinting",
+      }
     ],
   },
   {
@@ -191,7 +199,7 @@ export default [
         link: "/develop/rendering/basic-concepts",
       },
       {
-        text: "develop.rendering.draw_context",
+        text: "develop.rendering.gui_graphics",
         link: "/develop/rendering/draw-context",
       },
       {
@@ -277,12 +285,26 @@ export default [
         link: "/develop/networking",
       },
       {
+        text: "develop.misc.saved_data",
+        link: "/develop/saved-data",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
       {
         text: "develop.misc.migrating_mappings",
         link: "/develop/migrating-mappings",
+        items: [
+          {
+            text: "develop.misc.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.misc.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          }
+        ]
       },
       {
         text: "develop.misc.debugging",

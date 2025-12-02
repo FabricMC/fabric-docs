@@ -3,15 +3,15 @@ package com.example.docs.debug;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -26,11 +26,11 @@ public class ExampleModDebug implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Identifier identifier = Identifier.of(MOD_ID, "test_item");
-		RegistryKey<Item> testItemKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
-		Registry.register(Registries.ITEM, identifier,
-				new TestItem(new Item.Settings().registryKey(testItemKey).maxCount(1).rarity(Rarity.EPIC)
-						.component(DataComponentTypes.CUSTOM_NAME, Text.literal("[Use on Stone Block]"))));
+		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(MOD_ID, "test_item");
+		ResourceKey<Item> testItemKey = ResourceKey.create(Registries.ITEM, identifier);
+		Registry.register(BuiltInRegistries.ITEM, identifier,
+				new TestItem(new Item.Properties().setId(testItemKey).stacksTo(1).rarity(Rarity.EPIC)
+						.component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]"))));
 	}
 
 	// :::problems:dev-logger

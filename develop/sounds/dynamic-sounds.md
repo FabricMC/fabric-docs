@@ -15,7 +15,7 @@ As we have learned in the [Using Sounds](../sounds/using-sounds) page, it is pre
 
 This way of thinking is correct. Technically the client side needs to handle the audio. However, for simple `SoundEvent` playing, the server side prepared a big step in between which might not be obvious at first glance. Which clients should be able to hear that sound?
 
-Using the sound on the logical server side will solve the issue of broadcasting `SoundEvent`s. To put simple, every client (`ClientPlayerEntity`) in tracking range, gets sent a network packet to play this specific sound. The sound event is basically broadcasted from the logical server side, to every participating client, without you having to think about it at all. The sound is played once, with the specified volume and pitch values.
+Using the sound on the logical server side will solve the issue of broadcasting `SoundEvent`s. To put it simply, every client (`LocalPlayer`) in tracking range, gets sent a network packet to play this specific sound. The sound event is basically broadcasted from the logical server side, to every participating client, without you having to think about it at all. The sound is played once, with the specified volume and pitch values.
 
 But what if this is not enough? What if the sound needs to loop, change volume and pitch dynamically while playing and all that based on values which come from things like `Entities` or `BlockEntities`?
 
@@ -122,7 +122,7 @@ This is now the finished looping engine audio for the `SoundEvent` called `ENGIN
 
 To play sounds on the client side, a `SoundInstance` is needed. They still make use of `SoundEvent` though.
 
-If you only want to play something like a click on a UI element, there is already the existing `PositionedSoundInstance` class.
+If you only want to play something like a click on a UI element, there is already the existing `SimpleSoundInstance` class.
 
 Keep in mind that this will only be played on the specific client, which executed this part of the code.
 
@@ -145,7 +145,7 @@ A `SoundInstance` can be more powerful than just playing sounds once.
 Check out the `AbstractSoundInstance` class and what kind of values it can keep track of.
 Besides the usual volume and pitch variables, it also holds XYZ coordinates and if it should repeat itself after finishing the `SoundEvent`.
 
-Then taking a look at its subclass, `MovingSoundInstance` we get the `TickableSoundInstance` interface introduced too, which adds ticking functionality to the `SoundInstance`.
+Then taking a look at its subclass, `AbstractTickableSoundInstance` we get the `TickableSoundInstance` interface introduced too, which adds ticking functionality to the `SoundInstance`.
 
 So to make use of those utilities, simply create a new class for your custom `SoundInstance` and extend from `MovingSoundInstance`.
 
@@ -158,14 +158,14 @@ or even set it by hand once in the constructor only.
 Just keep in mind that all the referenced objects in the `SoundInstance` are the versions from the client side.
 In specific situations, a logical server side entity's properties can differ from its client side counterpart.
 If you notice that your values don't line up, make sure that your values are synchronized
-either with entity's `TrackedData`, `BlockEntity` S2C packets or complete custom S2C network packets.
+either with entity's `EntityDataAccessor`, `BlockEntity` S2C packets or complete custom S2C network packets.
 
 After you have finished creating your custom `SoundInstance`, it's ready to be used anywhere as long as it's been executed on the client side using the sound manager.
 In the same way, you can also stop the custom `SoundInstance` manually, if necessary.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-The sound loop will be played now only for the client, which ran that SoundInstance. In this case, the sound will follow the `ClientPlayerEntity` itself.
+The sound loop will be played now only for the client, which ran that SoundInstance. In this case, the sound will follow the `LocalPlayer` itself.
 
 This concludes the explanation of creating and using a simple custom `SoundInstance`.
 
@@ -222,7 +222,7 @@ In that case, making use of abstraction is the key.
 Instead of referencing e.g. a custom `BlockEntity` directly, only keeping track of an interface, which provides the data, solves that problem.
 
 Going forward we will make use of a custom interface called `DynamicSoundSource`. It is implemented in all classes which want to make use of that dynamic sound functionality,
-like your custom `BlockEntity`, Entities or even, using Mixins, on already existing classes, like `ZombieEntity`. It basically represents only the necessary data of the sound source.
+like your custom `BlockEntity`, Entities or even, using Mixins, on already existing classes, like `Zombie`. It basically represents only the necessary data of the sound source.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
@@ -255,7 +255,7 @@ public enum TransitionState {
 }
 ```
 
-But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values.
+But when those values are sent over the network you might want to define a `ResourceLocation` for them or even add other custom values.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 

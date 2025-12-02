@@ -2,26 +2,27 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceLocation;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
-	protected ExampleModEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	protected ExampleModEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}
 
 	@Override
-	public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
+	public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
 		// :::datagen-translations:provider
 		// :::datagen-translations:build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
@@ -33,7 +34,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
 
-		translationBuilder.add(Util.createTranslationKey("effect", Identifier.of(ExampleMod.MOD_ID, "tater")), "Tater");
+		translationBuilder.add(Util.makeDescriptionId("effect", ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
 		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
 		// to add translations from an existing language file instead of manually defining them all.
@@ -63,6 +64,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
 		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
+		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
+		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
 		// :::datagen-translations:provider
 	}
 }
