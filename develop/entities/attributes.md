@@ -69,9 +69,9 @@ public static AttributeSupplier.Builder createEntityAttributes() {
 }
 ```
 
-## Reading From and Writing to Attributes {#reading-from-attributes}
+## Reading and Modifying Attributes {#reading-modifying-attributes}
 
-As an attribute by itself is just data attached to an entity, it must be made useful by reading from and writing to it. There's two main ways to do this - getting the `AttributeInstance` on the entity, or getting the value directly.
+An attribute by itself is just data attached to an entity. For it to be useful, we need to be able to read from and write to it. There are two main ways to do this: getting the `AttributeInstance` on the entity, or getting the value directly.
 
 ```java
 entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
@@ -80,7 +80,7 @@ entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with
 
 ```
 
-An `AttributeInstance` gives more flexibility, allowing you to set a temporary `AttributeModifier` on the attribute like so:
+An `AttributeInstance` allows more flexibility, such as setting a temporary `AttributeModifier` on the attribute:
 
 ```java
 attribute.addPermanentModifier(
