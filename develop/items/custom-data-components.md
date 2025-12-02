@@ -13,7 +13,7 @@ Along with registering custom components, this page covers the general usage of 
 
 ## Registering a Component {#registering-a-component}
 
-As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
+As with anything else in your mod you will need to register your custom component using a `DataComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
 
 Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
@@ -22,10 +22,10 @@ Choose a sensible class to place this in. For this example we're going to make a
 This is the basic template to register a component type:
 
 ```java
-public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
+public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
     ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    ComponentType.<?>builder().codec(null).build()
+    DataComponentType.<?>builder().codec(null).build()
 );
 ```
 
@@ -33,7 +33,7 @@ There are a few things here worth noting. On the first and fourth lines, you can
 
 Secondly, you must provide an `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
 
-Lastly, we have a `ComponentType.Builder` that creates the actual `ComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
+Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
 ## Basic Data Components {#basic-data-components}
 
@@ -102,9 +102,9 @@ When you hover over this item in your inventory, you should see the count displa
 However, if you give yourself a new Counter item _without_ the custom component, the game will crash when you hover over the item in your inventory. You should see an error like this in the crash report:
 
 ```log
-java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.world.item.ItemStack.get(net.minecraft.core.component.DataComponentType)" is null
         at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
-        at net.minecraft.item.ItemStack.getTooltipLines(ItemStack.java:767)
+        at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
 As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`.
