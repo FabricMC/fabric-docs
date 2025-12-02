@@ -80,7 +80,7 @@ entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with
 
 ```
 
-An `AttributeInstance` allows more flexibility, such as setting a temporary `AttributeModifier` on the attribute:
+An `AttributeInstance` allows more flexibility, such as setting a temporary `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations).
 
 ```java
 attribute.addPermanentModifier(
@@ -90,11 +90,5 @@ attribute.addPermanentModifier(
         AttributeModifier.Operation.ADD_VALUE // what operator to use, see below
     ));
 ```
-
-The following operators are available:
-
-- `ADD_VALUE` - Adds the value of the modifier to the attribute's base value
-- `ADD_MULTIPLIED_BASE` - Multiplies the value of the modifier to the attribute's base value, and then adds it to the total value.
-- `ADD_MULTIPLIED_TOTAL` - Adds 1 to the value of the attribute modifier, and then multiplies the attribute's value by the total value of the attribute after addition and multiplication of the base value occur.
 
 Once you have access to the attribute value, you can use it in your entity's AI.
