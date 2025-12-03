@@ -21,7 +21,7 @@ public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = Attachmen
 
 - `AttachmentRegistry.create()` - Creates a data attachment. Restarting the game will clear the attachment.
 - `AttachmentRegistry.createPersistent()` - A helper method that creates a data attachment that will persist between game restarts.
-- `AttachmentRegistry.createDefaulted()` - A helper method that creates a data attachment with a default value. Restarting the game will reset the attachment to its default value.
+- `AttachmentRegistry.createDefaulted()` - A helper method that creates a data attachment with a default value that can be read with `getAttachedOrCreate`. Restarting the game will clear the attachment.
 
 If you need a data attachment that is both persistent and synchronized, you can also set that behaviour using the `create` method. Examples of these can be seen below.
 
