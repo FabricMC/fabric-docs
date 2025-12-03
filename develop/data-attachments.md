@@ -5,7 +5,7 @@ authors:
   - cassiancc
 ---
 
-The Data Attachment API is a recent and experimental addition to Fabric API. It allows for developers to easily attach arbitrary data to Entities, Block Entities, Worlds, and Chunks. The attached data can be stored and synchronized through [Codecs](./codecs) and Stream Codecs, so users of this API will want to be familiar with those before using this API.
+The Data Attachment API is a recent and experimental addition to Fabric API. It allows for developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synchronized through [Codecs](./codecs) and Stream Codecs, so users of this API will want to be familiar with those before using this API.
 
 ## Creating a Data Attachment {#creating-attachments}
 
@@ -69,7 +69,7 @@ public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = Atta
 
 ## Reading From a Data Attachment {#reading-attachments}
 
-Methods to read from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
+Methods to read from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
 
 ```java
 
@@ -93,7 +93,7 @@ entity.getAttachedOrElse(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
 
 ## Writing To a Data Attachment {#writing-attachments}
 
-Methods to write from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
+Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which updates the value of the attached data, returning the previous value.
 
 ```java
 // Sets the data associated with the given AttachmentType, returning the previous value.
@@ -105,9 +105,9 @@ entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 
 ## Larger Attachments {#larger-attachments}
 
-While data attachments can store any form of data that you are willing to write a Codec for, they primarily make sense for synchronizing individual values. This is due to the fact that a data attachment is immutable, meaning there is no way to modify it with replacing the value entirely, which must then be synchronized in full to every player tracking it.
+While data attachments can store any form of data that you are willing to write a Codec for, they primarily make sense for synchronizing individual values. This is due to the fact that a data attachment is immutable, meaning there is no way to modify it without replacing the value entirely, which must then be synchronized in full to every player tracking it.
 
-Instead, users wishing for more detailed attachments may instead wish to split their attachments into multiple fields, which could then be organized by a helper class. In practice, this may look something like this:
+Instead, users wishing for more detailed attachments may split their attachments into multiple fields, which could then be organized by a helper class. In practice, this may look something like this:
 
 @[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
 
