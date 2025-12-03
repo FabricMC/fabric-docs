@@ -3,6 +3,7 @@ title: Data Attachments
 description: A guide covering basic usage of Fabric's new Data Attachment API
 authors:
   - cassiancc
+  - DennisOchulor
 ---
 
 The Data Attachment API is a recent and experimental addition to Fabric API. It allows for developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synchronized through [Codecs](./codecs) and Stream Codecs, so users of this API will want to be familiar with those before using this API.
@@ -92,6 +93,10 @@ entity.getAttachedOrElse(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
 ```
 
 ## Writing To a Data Attachment {#writing-attachments}
+
+:::warning
+It is strongly encouraged to use immutable types for attachment data, and to always update attachment data by calling API methods. Doing otherwise risks attachment data not being persisted or synced properly.
+:::
 
 Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which updates the value of the attached data, returning the previous value.
 
