@@ -52,7 +52,7 @@ The example above was synced to every player, but that might not fit your use ca
 
 ### Persisting Data Attachments {#persisting-attachments}
 
-Data attachments can also be made to persist across game restarts with the `persistent` method and across the death of the entity it is attached to with the `copyOnDeath` method.
+Data attachments can also be made to persist across game restarts with the `persistent` method and across the death or conversion of the entity it is attached to with the `copyOnDeath` method.
 
 The `persistent` method takes a `Codec` so that the game knows how to serialize the data.
 
@@ -63,7 +63,7 @@ public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = Atta
   builder->builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
     .initializer(()->new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
     .persistent(BlockPos.CODEC) // Dicates how this attachment's data should be saved and loaded.
-    .copyOnDeath() // Dictates that this attachment should persist even after the entity dies.
+    .copyOnDeath() // Dictates that this attachment should persist even after the entity dies or is converted.
  );
 ```
 
@@ -98,6 +98,9 @@ Methods to write to a Data Attachment have been injected onto the `Entity`, `Blo
 ```java
 // Sets the data associated with the given AttachmentType, returning the previous value.
 entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value");
+
+// Modifies the data associated with the given AttachmentType in place, returning the currently attached value.
+entity.modifyAttached(EXAMPLE_STRING_ATTACHMENT, currentValue->currentValue+" appended new data!");
 
 // Removes the data associated with the given AttachmentType, returning the previous value.
 entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);

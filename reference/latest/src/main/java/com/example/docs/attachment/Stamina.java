@@ -32,6 +32,10 @@ public class Stamina {
 			return target.getAttachedOrElse(CURRENT_STAMINA, 0);
 		}
 
+		public int decrementCurrentStamina() {
+			return target.modifyAttached(CURRENT_STAMINA, currentStamina -> currentStamina-1);
+		}
+
 		public void setCurrentStamina(int value) {
 			target.setAttached(CURRENT_STAMINA, value);
 		}
