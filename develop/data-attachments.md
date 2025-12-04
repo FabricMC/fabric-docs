@@ -24,6 +24,8 @@ public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = Attachmen
 - `AttachmentRegistry.createPersistent()`: Creates a data attachment that will persist between game restarts.
 - `AttachmentRegistry.createDefaulted()`: Creates a data attachment with a default value, which you can read with `getAttachedOrCreate`. Restarting the game will clear the attachment.
 
+The behavior of each method can also be replicated and further customized with the `builder` parameter of `create`, through the [method chaining pattern](https://en.wikipedia.org/wiki/Method_chaining).
+
 ### Syncing a Data Attachment {#syncing-attachments}
 
 If you need a data attachment to both be persistent and synchronized between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
@@ -31,7 +33,7 @@ If you need a data attachment to both be persistent and synchronized between ser
 ```java
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder -> builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
+  builder -> builder
     .initializer(() -> new BlockPos(0, 0, 0)) // The default value of the attachment, if one has not been set.
     .syncWith(
       BlockPos.STREAM_CODEC,  // Dictates how to turn the data into a packet to send to clients.
@@ -55,7 +57,7 @@ They can be set to perdure even after the death or [conversion](https://minecraf
 ```java
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder -> builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
+  builder -> builder
     .initializer(() -> new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
     .persistent(BlockPos.CODEC) // Dictates how this attachment's data should be saved and loaded.
     .copyOnDeath() // Dictates that this attachment should persist even after the entity dies or converts.
