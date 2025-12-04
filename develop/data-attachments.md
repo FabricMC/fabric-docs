@@ -12,11 +12,7 @@ The Data Attachment API is a recent and experimental addition to Fabric API. It 
 
 You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic data attachment that does not sync or persist across restarts.
 
-```java
-public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = AttachmentRegistry.create(
-  ResourceLocation.fromNamespaceAndPath("example-mod", "example_string_attachment") // The ID of your attachment
-)
-```
+@[code lang=java transcludeWith=:::string](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
 
 `AttachmentRegistry` contains a few methods for creating basic data attachments, including:
 
@@ -30,17 +26,7 @@ The behavior of each method can also be replicated and further customized with t
 
 If you need a data attachment to both be persistent and synchronized between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
 
-```java
-public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
-  ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder -> builder
-    .initializer(() -> new BlockPos(0, 0, 0)) // The default value of the attachment, if one has not been set.
-    .syncWith(
-      BlockPos.STREAM_CODEC,  // Dictates how to turn the data into a packet to send to clients.
-      AttachmentSyncPredicate.all() // Dictates who to send the data to.
-    )
- );
-```
+@[code lang=java transcludeWith=:::pos](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
 
 The example above synced to every player, but that might not fit your use case. Here are some other default predicates, but you can also build your own by referencing the `AttachmentSyncPredicate` class.
 
@@ -54,15 +40,7 @@ Data attachments can also be set to persist across game restarts by calling the 
 
 They can be set to perdure even after the death or [conversion](https://minecraft.wiki/w/Mob_conversion) of the target with the `copyOnDeath` method.
 
-```java
-public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
-  ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder -> builder
-    .initializer(() -> new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
-    .persistent(BlockPos.CODEC) // Dictates how this attachment's data should be saved and loaded.
-    .copyOnDeath() // Dictates that this attachment should persist even after the entity dies or converts.
- );
-```
+@[code lang=java transcludeWith=:::persistent](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
 
 ## Reading From a Data Attachment {#reading-attachments}
 
