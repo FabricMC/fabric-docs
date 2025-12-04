@@ -50,6 +50,7 @@
   "develop.rendering.particles": "Particles",
   "develop.rendering.particles.creating_particles": "Creating Custom Particles",
   "develop.loom": "Loom",
+  "develop.loom.introduction": "Introduction",
   "develop.loom.fabric_api": "Fabric API DSL",
   "develop.loom.options": "Extension Options",
   "develop.loom.prod": "Production Run Tasks",

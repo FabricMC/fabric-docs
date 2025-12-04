@@ -243,6 +243,10 @@ export default [
     link: "/develop/loom",
     collapsed: true,
     items: [
+      { 
+         text: "develop.loom.introduction", 
+         link: "/develop/loom", 
+       },
       {
         text: "develop.loom.fabric_api",
         link: "/develop/loom/fabric-api",
