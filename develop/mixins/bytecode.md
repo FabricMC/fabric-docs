@@ -127,7 +127,7 @@ public int getX(int offset) {
 
 ```text
 public getX (I)I
-  iload 0  # this
+  aload 0  # this
   getfield x
   iload 1  # offset
   iadd
@@ -139,8 +139,8 @@ public getX (I)I
 
 Let's say that `getX` is called when `this.x` has the value 42, and `offset` has the value 5. We'll follow what happens instruction-by-instruction.
 
-<!-- markdownlint-disable titlecase -->
-### iload 0 {#iload-0}
+<!-- markdownlint-disable no-emphasis-as-heading -->
+**aload 0**
 
 Loads the variable in LVT slot 0 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
 
@@ -148,7 +148,7 @@ Loads the variable in LVT slot 0 and pushes its value onto the operand stack. Af
 |-------------------|
 | Pointer to `this` |
 
-### getfield x {#getfield-x}
+**getfield x**
 
 Pops the top value off the operand stack, gets the `x` field out of it and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
 
@@ -156,7 +156,7 @@ Pops the top value off the operand stack, gets the `x` field out of it and pushe
 |---------------|
 | 42            |
 
-### iload 1 {#iload-1}
+**iload 1**
 
 Loads the variable in LVT slot 1 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
 
@@ -165,7 +165,7 @@ Loads the variable in LVT slot 1 and pushes its value onto the operand stack. Af
 | 5             |
 | 42            |
 
-### iadd {#iadd}
+**iadd**
 
 Pops the top two values off the operand stack, adds them, and pushes the result onto the operand stack. After this instruction is finished, the operand stack is as follows:
 
@@ -173,11 +173,11 @@ Pops the top two values off the operand stack, adds them, and pushes the result 
 |---------------|
 | 47            |
 
-### istore 2 {#istore-2}
+**istore 2**
 
 Pops the top value of the operand stack and assigns it to the variable in LVT slot 2. After this instruction is finished, the operand stack is empty and the variable in LVT slot 2 has a value of 47.
 
-### iload 2 {#iload-2}
+**iload 2**
 
 Loads the variable in LVT slot 2 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
 
@@ -185,8 +185,78 @@ Loads the variable in LVT slot 2 and pushes its value onto the operand stack. Af
 |---------------|
 | 47            |
 
-### ireturn {#ireturn}
+**ireturn**
 
 Returns the value the top of the operand stack from the method. The value 47 is returned from the method.
 
-<!-- markdownlint-enable titlecase -->
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+## Conditional Instructions {#conditional-instructions}
+
+Most of the time, when the JVM finishes executing an instruction, it continues sequentially onto the next instruction. However, certain instructions tell the JVM to jump to a different instruction depending on a certain condition and continue from there:
+
+| Instructions   | Description                                                                                                                                                                                                                                                                                                                        |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `goto`         | Always jumps to the referenced instruction.                                                                                                                                                                                                                                                                                        |
+| `ifeq`, `ifne` | Pops the top value off the operand stack and checks if it's equal to 0. `ifeq` jumps to the referenced instruction if it is equal to 0, `ifne` jumps to the referenced instruction if it is not equal to 0.                                                                                                                        |
+| `if_icmpxx`    | Pops the top two values of the operand stack and compares them. If the comparison succeeds then the JVM jumps to the referenced instruction. For example, `if_icmpeq` succeeds if the two values are equal, `if_icmpgt` if the first is greater than the second, and `if_icmple` if the first is less than or equal to the second. |
+
+For example, consider the following Java method:
+
+```java
+static String makeFoobar(boolean cond) {
+    String result;
+    if (cond) {
+        result = "foo";
+    } else {
+        result = "bar";
+    }
+    return result;
+}
+```
+
+This would compile to something like the following:
+
+```text
+static makeFoobar (Z)Ljava/lang/String;
+  iload 0  # cond
+  ifeq L1
+  ldc "foo"
+  astore 1  # result
+  goto L2
+L1
+  ldc "bar"
+  astore 1  # result
+L2
+  aload 1  # result
+  areturn
+```
+
+The `ifeq` instruction compares the value on the top of the operand stack (which is `cond` due to the previous `iload` instruction) to 0, and jumps to `L1` if it is equal to 0 (`false`). Otherwise it continues to the next instruction. `L1` is essentially the `else` block. Otherwise, it continues onto the next instructions, which is to load the string literal `"foo"` and assign it to the `result` variable. The `goto` instruction then skips over the `else` block.
+
+These conditional instructions are how if statements, loops, ternaries, and so on are compiled. Complicated code structures can end up generating a complex web of jump instructions that are not only hard to read but also hard to target with Mixin. Take the following classic example:
+
+```java
+static void doSomething(boolean cond1, boolean cond2) {
+    if (cond1) {
+        if (cond2) {
+            System.out.println("Something is being done");
+        }
+        // inject here?
+    }
+}
+```
+
+```text
+static doSomething (ZZ)V
+  iload 0  # cond1
+  ifeq L1
+  iload 1  # cond2
+  ifeq L1
+  getstatic System.out
+  invokevirtual println
+L1
+  return
+```
+
+Because the bytecode for both if conditions jump to the exact same label, there is no place in the bytecode corresponding to the `// inject here?` comment, making it impossible to target with Mixin.
