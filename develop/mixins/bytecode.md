@@ -260,3 +260,57 @@ L1
 ```
 
 Because the bytecode for both if conditions jump to the exact same label, there is no place in the bytecode corresponding to the `// inject here?` comment, making it impossible to target with Mixin.
+
+## Common Instructions {#common-instructions}
+
+### Constants {#constant-instructions}
+
+Constant instructions push a constant value onto the operand stack.
+
+- `iconst_m1`, `iconst_0`, `iconst_1`, ..., `iconst_5`: the literal `int` values `-1` through `5`.
+- `lconst_0`, `fconst_0`, `dconst_0`: literals of `long`, `float`, and `double` respectively.
+- `bipush`, `sipush`: pushes an `int` constant, supports larger `int` values.
+- `ldc`: pushes a constant of one of several different types, including numeric types and strings. Used for even larger integers and other types.
+
+### Variables {#variable-instructions}
+
+Load instructions reads the value of a local variable and pushes it onto the oeprand stack. Store instructions pops the top value on the operand stack and writes it to a local variable.
+
+- `iload`, `istore`: loads and stores variables of type `int`, `boolean`, `byte`, `char`, and `short`.
+- `lload`, `lstore`: loads and stores variables of type `long`.
+- `fload`, `fstore`: loads and stores variables of type `float`.
+- `dload`, `dstore`: loads and stores variables of type `double`.
+- `aload`, `astore`: loads and stores variables of a non-primitive type.
+
+### Fields {#field-instructions}
+
+- `getfield`: reads a non-static field.
+- `putfield`: writes a non-static field.
+- `getstatic`: reads a static field.
+- `putstatic`: writes a static field.
+
+### Method Invocations {#method-instructions}
+
+- `invokestatic`: invokes a static method.
+- `invokevirtual`: invokes a non-static method. Takes polymorphism/inheritance into account, calling the overridden version if it is overridden.
+- `invokespecial`: invokes a non-static method, exactly the one declared without taking into account polymorphism/inheritance. Used to call constructors and superclass methods like `super.blah()`.
+- `invokeinterface`: invokes an interface method (can be non-static or static).
+
+### Conditionals {#conditional-instructions-2}
+
+See [Conditional Instructions](#conditional-instructions).
+
+### Operators {#operator-instructions}
+
+Operator instructions generally pop two values off the operand stack, perform the operation, and push the result. Here is a list of some common operator instructions:
+
+- `iadd`, `ladd`, `fadd`, `dadd`: addition.
+- `isub`, `lsub`, `fsub`, `dsub`: subtraction.
+- `imul`, `lmul`, `fmul`, `dmul`: multiplication.
+- `idiv`, `ldiv`, `fdiv`, `ddiv`: division.
+- `irem`, `lrem`, `frem`, `drem`: modulo.
+- `ineg`, `lneg`, `fneg`, `dneg`: negation. Pops one value off the stack rather than two.
+
+### Returns {#return-instructions}
+
+Return out of the method, with the value on top of the operand stack (except in the case of `void`). Prefixed with `i`, `l`, `f`, `d`, and `a` in the same way as [variable instructions](#variable-instructions), except for `void` for which the instruction is simply `return`.
