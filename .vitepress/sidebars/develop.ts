@@ -240,7 +240,6 @@ export default [
   },
   {
     text: "develop.loom",
-    link: "/develop/loom",
     collapsed: true,
     items: [
       { 
