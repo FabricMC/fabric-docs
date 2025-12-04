@@ -12,15 +12,11 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 public class Stamina {
 	private static final AttachmentType<Integer> CURRENT_STAMINA = AttachmentRegistry.create(
 					ResourceLocation.fromNamespaceAndPath("example-mod", "current_stamina"),
-					builder -> {
-					builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all());
-		}
+					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 	private static final AttachmentType<Integer> MAX_STAMINA = AttachmentRegistry.create(
 					ResourceLocation.fromNamespaceAndPath("example-mod", "max_stamina"),
-					builder -> {
-			builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all());
-		}
+					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 
 	public static StaminaData get(AttachmentTarget target) {

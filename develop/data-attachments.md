@@ -94,10 +94,6 @@ entity.getAttachedOrElse(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
 
 ## Writing To a Data Attachment {#writing-attachments}
 
-:::warning
-It is strongly encouraged to use immutable types for attachment data, and to always update attachment data by calling API methods. Doing otherwise risks attachment data not being persisted or synced properly.
-:::
-
 Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which updates the value of the attached data, returning the previous value (or null if there isn't one).
 
 ```java
@@ -110,6 +106,10 @@ entity.modifyAttached(EXAMPLE_STRING_ATTACHMENT, currentValue->currentValue+" ap
 // Removes the data associated with the given AttachmentType, returning the previous value.
 entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 ```
+
+:::warning
+It is strongly encouraged to use immutable types for attachment data, and to always update attachment data by calling API methods. Doing otherwise risks attachment data not being persisted or synced properly.
+:::
 
 ## Larger Attachments {#larger-attachments}
 
