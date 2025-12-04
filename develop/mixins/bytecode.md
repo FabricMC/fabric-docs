@@ -314,3 +314,65 @@ Operator instructions generally pop two values off the operand stack, perform th
 ### Returns {#return-instructions}
 
 Return out of the method, with the value on top of the operand stack (except in the case of `void`). Prefixed with `i`, `l`, `f`, `d`, and `a` in the same way as [variable instructions](#variable-instructions), except for `void` for which the instruction is simply `return`.
+
+## Lambdas {#lambdas}
+
+Lambda expressions are compiled by making them into a separate method, and using the `invokedynamic` instruction to instantiate the lambda instance. The details of the `invokedynamic` instruction are beyond the scope of this article, but it's useful to know what kind of code to expect. Some `invokedynamic` operands have been omitted in this section for simplicity. Here's an example:
+
+```java
+static void hello() {
+    Runnable r = () -> System.out.println("Hello, World!");
+    r.run();
+}
+```
+
+```text
+static hello ()V
+  invokedynamic run ()Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 ()V
+  astore 0  # r
+
+  aload 0  # r
+  invokeinterface run
+
+  return
+
+static lambda$hello$1 ()V
+  getstatic System.out
+  ldc "Hello, World!"
+  invokevirtual println
+
+  return
+```
+
+You can see here that the contents of the lambda has been moved into a separate method, in this case `lambda$hello$1`. If you want to target the contents of a lambda with Mixin, this is the method you'll want to be targetting. The lambda instance is then created with the `invokedynamic` instruction and then stored into the variable `r`.
+
+If the lambda captures any variables, these variables will end up as parameters to the lambda methods. For example:
+
+```java
+static void hello(String yourName) {
+    Runnable r = () -> System.out.println("Hello, " + yourName + "!");
+    r.run();
+}
+```
+
+```text
+static hello (Ljava/lang/String;)V
+  aload 0  # yourName
+  invokedynamic run (Ljava/lang/String;)Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 (Ljava/lang/String;)V ()V
+  astore 1  # r
+
+  aload 1  # r
+  invokeinterface run
+
+  return
+
+static lambda$hello$1 (Ljava/lang/String;)V
+  getstatic System.out
+  aload 0  # yourName
+  invokedynamic makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; java/lang/invoke/StringConcatFactory.makeConcatWithConstants "Hello, \1!"
+  invokevirtual println
+
+  return
+```
+
+Here, the `yourName` parameter is being passed as a parameter into the lambda. Notice also how string concatenation is implemented with `invokedynamic`.
