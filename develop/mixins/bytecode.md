@@ -11,6 +11,12 @@ Mixins operate on Java bytecode, so having a basic grasp on the fundamentals of 
 
 You can view the bytecode of a library class (such as a Minecraft class) in IntelliJ by opening the class in the editor, then selecting `Show Bytecode` inside the `View` menu. This shows you exactly what is going on there in a way the decompiled code will not.
 
+::: details Screenshots
+![Show bytecode 1](/assets/develop/mixins/show_bytecode_1.png)
+
+![Show bytecode 2](/assets/develop/mixins/show_bytecode_2.png)
+:::
+
 ## Names and Symbols {#names-and-symbols}
 
 In bytecode, many things like classes, fields, and methods, are still identified by the name (and descriptor for fields and methods, we'll get to that), just like they are in Java. However the exact format of those names differ a little bit.
