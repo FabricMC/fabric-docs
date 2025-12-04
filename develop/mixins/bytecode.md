@@ -111,3 +111,82 @@ The `x` parameter has index 1, the `y` parameter has index 3, and the `z` parame
 In static methods, there is no `this` object, so other variables start counting at 0 instead of 1.
 
 Even though local variables are identified by index, many libraries retain debug information containing the names of the local variables as well. This includes Minecraft since the unobfuscated releases started in version 26.1 (upcoming). Mixin is able to use this debug information to allow you to target local variables by name.
+
+## The Operand Stack {#the-operand-stack}
+
+While native assembly uses registers, Java bytecode uses the _operand stack_ to store temporary values. Like any stack, values are added ("pushed") to the top of the stack, and removed ("popped") from the top of the stack. The operand stack can be thought of like a stack of plates -- when you add a plate onto the stack, you put it onto the top, and when you remove a plate from the stack, you remove it from the top, such that the last plate added to the stack is the first one removed.
+
+Take the previous `getX` example again:
+
+```java
+public int getX(int offset) {
+    int result = this.x + offset;
+    return result;
+}
+```
+
+```text
+public getX (I)I
+  iload 0  # this
+  getfield x
+  iload 1  # offset
+  iadd
+  istore 2  # result
+
+  iload 2  # result
+  ireturn
+```
+
+Let's say that `getX` is called when `this.x` has the value 42, and `offset` has the value 5. We'll follow what happens instruction-by-instruction.
+
+<!-- markdownlint-disable titlecase -->
+### iload 0 {#iload-0}
+
+Loads the variable in LVT slot 0 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+
+| Operand Stack     |
+|-------------------|
+| Pointer to `this` |
+
+### getfield x {#getfield-x}
+
+Pops the top value off the operand stack, gets the `x` field out of it and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+
+| Operand Stack |
+|---------------|
+| 42            |
+
+### iload 1 {#iload-1}
+
+Loads the variable in LVT slot 1 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+
+| Operand Stack |
+|---------------|
+| 5             |
+| 42            |
+
+### iadd {#iadd}
+
+Pops the top two values off the operand stack, adds them, and pushes the result onto the operand stack. After this instruction is finished, the operand stack is as follows:
+
+| Operand Stack |
+|---------------|
+| 47            |
+
+### istore 2 {#istore-2}
+
+Pops the top value of the operand stack and assigns it to the variable in LVT slot 2. After this instruction is finished, the operand stack is empty and the variable in LVT slot 2 has a value of 47.
+
+### iload 2 {#iload-2}
+
+Loads the variable in LVT slot 2 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+
+| Operand Stack |
+|---------------|
+| 47            |
+
+### ireturn {#ireturn}
+
+Returns the value the top of the operand stack from the method. The value 47 is returned from the method.
+
+<!-- markdownlint-enable titlecase -->
