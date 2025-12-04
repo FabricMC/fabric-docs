@@ -24,7 +24,7 @@ public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = Attachmen
 - `AttachmentRegistry.createPersistent()` - A helper method that creates a data attachment that will persist between game restarts.
 - `AttachmentRegistry.createDefaulted()` - A helper method that creates a data attachment with a default value that can be read with `getAttachedOrCreate`. Restarting the game will clear the attachment.
 
-If you need a data attachment that is both persistent and synchronized, you can also set that behaviour using the `create` method. Examples of these can be seen below.
+If you need a data attachment that is both persistent and synchronized, you can also set that behavior using the `create` method. Examples of these can be seen below.
 
 ### Syncing a Data Attachment {#syncing-attachments}
 
@@ -34,7 +34,7 @@ Data attachments can also be synchronized, giving you a lot of flexibility when 
 // Register a type of attached data. This data can be attached to anything, this is only a type
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder->builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
+  builder -> builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
     .initializer(()->new BlockPos(0, 0, 0)) // The default value of the attachment, if one has not been set.
     .syncWith(
       BlockPos.STREAM_CODEC,  // Dicates how to turn the data into a packet to send to players.
@@ -61,7 +61,7 @@ The `persistent` method takes a `Codec` so that the game knows how to serialize 
 // Register a type of attached data. This data can be attached to anything, this is only a type
 public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
   ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
-  builder->builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
+  builder -> builder // This example uses a builder chain to configure the attachment data type. Note that builder chains only work with `.create`!
     .initializer(()->new BlockPos(0, 0, 0);) // The default value of the attachment, if one has not been set.
     .persistent(BlockPos.CODEC) // Dicates how this attachment's data should be saved and loaded.
     .copyOnDeath() // Dictates that this attachment should persist even after the entity dies or is converted.
