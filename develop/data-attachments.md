@@ -6,37 +6,37 @@ authors:
   - DennisOchulor
 ---
 
-The Data Attachment API is a recent and experimental addition to Fabric API. It allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synchronized through [Codecs](./codecs) and Stream Codecs, so you should familiarize yourself with those before using it.
+The Data Attachment API is a recent and experimental addition to Fabric API. It allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synced through [Codecs](./codecs) and Stream Codecs, so you should familiarize yourself with those before using it.
 
 ## Creating a Data Attachment {#creating-attachments}
 
-You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic data attachment that does not sync or persist across restarts.
+You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic Data Attachment that does not sync or persist across restarts.
 
 @[code lang=java transcludeWith=:::string](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
 
-`AttachmentRegistry` contains a few methods for creating basic data attachments, including:
+`AttachmentRegistry` contains a few methods for creating basic Data Attachments, including:
 
-- `AttachmentRegistry.create()`: Creates a data attachment. Restarting the game will clear the attachment.
-- `AttachmentRegistry.createPersistent()`: Creates a data attachment that will persist between game restarts.
-- `AttachmentRegistry.createDefaulted()`: Creates a data attachment with a default value, which you can read with `getAttachedOrCreate`. Restarting the game will clear the attachment.
+- `AttachmentRegistry.create()`: Creates a Data Attachment. Restarting the game will clear the Attachment.
+- `AttachmentRegistry.createPersistent()`: Creates a Data Attachment that will persist between game restarts.
+- `AttachmentRegistry.createDefaulted()`: Creates a Data Attachment with a default value, which you can read with `getAttachedOrCreate`. Restarting the game will clear the Attachment.
 
-The behavior of each method can also be replicated and further customized with the `builder` parameter of `create`, through the [method chaining pattern](https://en.wikipedia.org/wiki/Method_chaining).
+The behavior of each method can also be replicated and further customized with the `builder` parameter of `create`, by applying the [method chaining pattern](https://en.wikipedia.org/wiki/Method_chaining).
 
 ### Syncing a Data Attachment {#syncing-attachments}
 
-If you need a data attachment to both be persistent and synchronized between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
+If you need a Data Attachment to both be persistent and synced between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
 
 @[code lang=java transcludeWith=:::pos](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
 
 The example above synced to every player, but that might not fit your use case. Here are some other default predicates, but you can also build your own by referencing the `AttachmentSyncPredicate` class.
 
-- `AttachmentSyncPredicate.all()`: Syncs the attachment with all clients.
-- `AttachmentSyncPredicate.targetOnly()`: Syncs the attachment only with the target it is attached to. Note that the syncing can only happen if the target is a player.
-- `AttachmentSyncPredicate.allButTarget()`: Syncs the attachment with every client except the target it is attached to. Note that the exception can only apply if the target is a player.
+- `AttachmentSyncPredicate.all()`: Syncs the Attachment with all clients.
+- `AttachmentSyncPredicate.targetOnly()`: Syncs the Attachment only with the target it is attached to. Note that the syncing can only happen if the target is a player.
+- `AttachmentSyncPredicate.allButTarget()`: Syncs the Attachment with every client except the target it is attached to. Note that the exception can only apply if the target is a player.
 
 ### Persisting Data Attachments {#persisting-attachments}
 
-Data attachments can also be set to persist across game restarts by calling the `persistent` method on the builder chain. It takes in a `Codec` so that the game knows how to serialize the data.
+Data Attachments can also be set to persist across game restarts by calling the `persistent` method on the builder chain. It takes in a `Codec` so that the game knows how to serialize the data.
 
 They can be set to perdure even after the death or [conversion](https://minecraft.wiki/w/Mob_conversion) of the target with the `copyOnDeath` method.
 
@@ -81,14 +81,14 @@ entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 ```
 
 ::: warning
-You should always use immutable types for attachment data, and you should also update attachment data with API methods only. Doing otherwise may cause attachment data to not persist or sync properly.
+You should always use values with immutable types for Data Attachments, and you should also update them with API methods only. Doing otherwise may cause the Data Attachment to not persist or sync properly.
 :::
 
 ## Larger Attachments {#larger-attachments}
 
-Although data attachments could store any form of data for which a Codec can be written, they shine when syncing individual values. This is because a data attachment is immutable: modifying part of its value (for example a single field of an object) means replacing it entirely, triggering a full sync to every client tracking it.
+Although Data Attachments could store any form of data for which a Codec can be written, they shine when syncing individual values. This is because a Data Attachment is immutable: modifying part of its value (for example a single field of an object) means replacing it entirely, triggering a full sync to every client tracking it.
 
-Instead, you could achieve more intricate attachments by splitting them into multiple fields, and organizing them with a helper class. For example, if you need two fields related to a player's stamina, you may build something like this:
+Instead, you could achieve more intricate Attachments by splitting them into multiple fields, and organizing them with a helper class. For example, if you need two fields related to a player's stamina, you may build something like this:
 
 @[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
 
