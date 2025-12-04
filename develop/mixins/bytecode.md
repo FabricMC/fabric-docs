@@ -72,3 +72,46 @@ You may notice that it consists of the parameter types inside parentheses, follo
 At the bytecode level, constructors are just another method, and are special only in ways beyond the scope of this overview. A constructor's method name is `<init>` (with the `<>` angled brackets), and the return type in its descriptor is `V` (`void`). All non-static field initializers (the part after the `=` sign in a field declaration) are compiled into the `<init>` methods of a class and assigned to the field there.
 
 Static initializers are the `static {}` block in Java that is run when a class is loaded. It's also just another method, its name is `<clinit>` and its descriptor is `()V`. Just as for non-static fields and constructors, static field initializers (with some exceptions) are compiled into the `<clinit>` method of a class.
+
+## Local Variables {#local-variables}
+
+In Java code, local variables are identified by their name. In bytecode, they are instead identified by a number, or index into the Local Variable Table (LVT). Method parameters are included in the LVT, as is the `this` object in non-static methods.
+
+Consider the following method as an example:
+
+```java
+public int getX(int offset) {
+    int result = this.x + offset;
+    return result;
+}
+```
+
+This would compile to something like the following:
+
+```text
+public getX (I)I
+  iload 0  # this
+  getfield x
+  iload 1  # offset
+  iadd
+  istore 2  # result
+
+  iload 2  # result
+  ireturn
+```
+
+Here, `this` is local variable 0, `offset` is local variable 1, and `result` is local variable 2.
+
+Longs and doubles take up 2 indexes in the LVT. This means that in the following method:
+
+```java
+public Vec3 add(double x, double y, double z) {
+    // ...
+}
+```
+
+The `x` parameter has index 1, the `y` parameter has index 3, and the `z` parameter has index 5.
+
+In static methods, there is no `this` object, so other variables start counting at 0 instead of 1.
+
+Even though local variables are identified by index, many libraries retain debug information containing the names of the local variables as well. This includes Minecraft since the unobfuscated releases started in version 26.1 (upcoming). Mixin is able to use this debug information to allow you to target local variables by name.
