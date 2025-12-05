@@ -131,6 +131,33 @@ export const getLocales = () => {
           },
         },
 
+        credits: {
+          authors: {
+            description: {
+              plural: resolver("credits.authors.description.plural"),
+              singular: resolver("credits.authors.description.singular"),
+            },
+            title: resolver("credits.authors"),
+          },
+          committers: {
+            description: {
+              plural: resolver("credits.committers.description.plural"),
+              singular: resolver("credits.committers.description.singular"),
+            },
+            title: resolver("credits.committers"),
+          },
+          maintainers: {
+            title: resolver("credits.maintainers"),
+          },
+          translators: {
+            description: {
+              plural: resolver("credits.translators.description.plural"),
+              singular: resolver("credits.translators.description.singular"),
+            },
+            title: resolver("credits.translators"),
+          },
+        },
+
         darkModeSwitchLabel: resolver("mode_switcher"),
 
         darkModeSwitchTitle: resolver("mode_dark"),
