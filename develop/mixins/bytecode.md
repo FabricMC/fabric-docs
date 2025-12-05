@@ -110,7 +110,7 @@ public getX (I)I
   ireturn
 ```
 
-... the `x` parameter gets index 1, the `y` parameter gets index 3, and the `z` parameter gets index 5.
+Here, `this` is local variable 0, `offset` is local variable 1, and `result` is local variable 2.
 
 Longs and doubles take up 2 indexes in the LVT. This means that in the following method:
 
@@ -120,7 +120,7 @@ public Vec3 add(double x, double y, double z) {
 }
 ```
 
-The `x` parameter has index 1, the `y` parameter has index 3, and the `z` parameter has index 5.
+... the `x` parameter gets index 1, the `y` parameter gets index 3, and the `z` parameter gets index 5.
 
 In static methods, there is no `this` object, so other variables start counting at 0 instead of 1.
 
