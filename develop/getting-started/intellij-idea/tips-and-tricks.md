@@ -296,11 +296,11 @@ Minecraft's `ScreenHandler` class has some examples. To toggle the render view, 
 
 ## Viewing Bytecode {#viewing-bytecode}
 
-Viewing bytecode is necessary when writing mixins. You can view the bytecode of a library class (such as a Minecraft class) in IntelliJ by opening the class in the editor, then selecting `Show Bytecode` inside the `View` menu.
+Viewing bytecode is necessary when writing mixins. You can view the bytecode of a library class (such as a Minecraft class) by opening the class in the editor, then selecting `Show Bytecode` inside the `View` menu.
 
-![Show bytecode 1](/assets/develop/getting-started/intellij/show_bytecode_1.png)
+!["Show bytecode" button in the "View" menu](/assets/develop/getting-started/intellij/show_bytecode.png)
 
-![Show bytecode 2](/assets/develop/getting-started/intellij/show_bytecode_2.png)
+![Bytecode of `java/lang/String.class`](/assets/develop/getting-started/intellij/bytecode_example.png)
 
 ## Optimizing IntelliJ Further {#optimizing-intellij-further}
 

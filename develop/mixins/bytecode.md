@@ -1,35 +1,45 @@
 ---
 title: Java Bytecode
-description: Learn the basics of Java bytecode so that you can write mixins more effectively.
+description: Learn about Java bytecode, so that you can write mixins effectively.
 authors:
 - Earthcomputer
 ---
 
-Mixins operate on Java bytecode, so having a basic grasp on the fundamentals of how Java bytecode works is essential to understanding Mixins.
+Mixins operate on Java bytecode, so to understand them one needs a grasp on the fundamentals of Java bytecode.
 
 ## Viewing the Bytecode of a Class {#viewing-bytecode}
 
-If can look at the bytecode of any Minecraft/library class using your IDE. This shows you exactly what is going on there in a way the decompiled code will not.
+You can look at the bytecode of any Minecraft/library class using your IDE. This shows you exactly what is going on there, whereas the decompiled code might not.
 
-To find out how view the bytecode of a class, please consult the [tips and tricks](../getting-started/tips-and-tricks) article for your IDE.
+To find out how to see the bytecode of a class, please consult the Viewing Bytecode section of the [Tips and Tricks page](../getting-started/tips-and-tricks) for your IDE.
 
 ## Names and Symbols {#names-and-symbols}
 
-In bytecode, many things like classes, fields, and methods, are still identified by the name (and descriptor for fields and methods, we'll get to that), just like they are in Java. However the exact format of those names differ a little bit.
+In bytecode, many things like classes, fields, and methods, are still identified by the name (and the descriptor for fields and methods, we'll get to that), just like they are in source code. However the exact format of those names differs a little bit.
 
 ### Class Names {#class-names}
 
-Classes are generally referred to by their _internal name_, which is roughly equivalent to the fully qualified class name (full name including the package), except that all `.` dots are replaced with `/` slashes. For example, the internal name of the `java.lang.Object` class is `java/lang/Object`.
+Classes are generally referred to by their _internal name_, which is roughly equivalent to the fully qualified class name (full name including the package), where all dots `.` are replaced with slashes `/`. For example, the internal name of the `java.lang.Object` class is `java/lang/Object`.
 
-Nested classes use a `$` symbol to separate their name from their enclosing class. For example, if you have a class named `Inner` inside a class named `Foo` inside a package named `pkg`, then the internal name of `Inner` would be `pkg/Foo$Inner`.
+Nested classes use `$` symbols to separate their name from the enclosing classes. For example, given:
 
-Anonymous classes are similar to nested classes, except that their names are simply a number. The first anonymous class declared within a class has the name `1`, the second has the name `2`, and so on. So if there was an anonymous class inside the `Foo` class above, its name might be `pkg/Foo$1`.
+```java
+package pkg;
+class Foo {
+    class Bar {
+    }
+}
+```
+
+... the internal name of `Bar` would be `pkg/Foo$Bar`.
+
+Anonymous classes are named similarly to nested classes, and instead of a name they use numbers. For example, if there were two anonymous classes in the `Foo` class from the code block above, their internal names would be `pkg/Foo$1` and `pkg/Foo$2` respectively.
 
 Local classes (classes defined within a method), have a number followed by the name. For example, a local class name might look like `pkg/Foo$1Local`.
 
 ### Type Descriptors {#type-descriptors}
 
-Sometimes bytecode needs to refer to a type which could be a primitive type or array type, not only a class type. In this situations, _type descriptors_ are used. Here is a table of data types and how they map to their type descriptors:
+When bytecode needs to refer to primitive types or arrays, _type descriptors_ are used. Here is a table of data types and their respective type descriptors:
 
 | Type      | Descriptor                                                           |
 |-----------|----------------------------------------------------------------------|
@@ -42,14 +52,14 @@ Sometimes bytecode needs to refer to a type which could be a primitive type or a
 | `long`    | `J`                                                                  |
 | `short`   | `S`                                                                  |
 | `void`    | `V`                                                                  |
-| Arrays    | `[` + the element type, e.g. `int[]` -> `[I`                         |
-| Objects   | `L` + the internal name + `;`, e.g. `String` -> `Ljava/lang/String;` |
+| Arrays    | `[` + the element type: `int[]` -> `[I`                              |
+| Objects   | `L` + the internal name + `;`: `String` -> `Ljava/lang/String;`      |
 
 ### Field and Method Descriptors {#field-and-method-descriptors}
 
-In bytecode, fields and methods are identified by the comibination of their name and _descriptor_. A field descriptor is simply the type descriptor of the data type of the field.
+In bytecode, fields and methods are identified by combining their name and _type descriptor_.
 
-For methods, the descriptor is the combination of the parameter types and the return type of the method. Here is an example of a method descriptor for the following method:
+Descriptors for methods combine the parameter types and the return type. For example, the following method:
 
 ```java
 void drawText(int x, int y, String text, int color) {
@@ -61,13 +71,17 @@ void drawText(int x, int y, String text, int color) {
 (IILjava/lang/String;I)V
 ```
 
-You may notice that it consists of the parameter types inside parentheses, followed by the return type, in this case `V` for `void`. The descriptors for the parameter types are directly concatenated together with no separator. In this case, there are two copies of `I` for `int`, then `Ljava/lang/String;` for the `String`, and then one more `I` for the last `int`.
+... has descriptor `(IILjava/lang/String;I)V`.
+
+The descriptors for the parameter types are directly concatenated together, with no separator. In this case, there is `I` for `int` twice (both `x` and `y`), then `Ljava/lang/String;` for `String` (`text`), and one more `I` for the last `int` (`color`).
 
 ### Constructors and Static Initializers {#constructors-and-static-initializers}
 
-At the bytecode level, constructors are just another method, and are special only in ways beyond the scope of this overview. A constructor's method name is `<init>` (with the `<>` angled brackets), and the return type in its descriptor is `V` (`void`). All non-static field initializers (the part after the `=` sign in a field declaration) are compiled into the `<init>` methods of a class and assigned to the field there.
+At the bytecode level, constructors are just another method: the detailed differences between the two fall beyond the scope of this overview.
 
-Static initializers are the `static {}` block in Java that is run when a class is loaded. It's also just another method, its name is `<clinit>` and its descriptor is `()V`. Just as for non-static fields and constructors, static field initializers (with some exceptions) are compiled into the `<clinit>` method of a class.
+A constructor's method name is `<init>` (with the `<>` angled brackets), and the return type in its descriptor is `V` (`void`). All non-`static` field initializations, after compilation, will be found inside of the `<init>` methods.
+
+On the other hand, static initializers (the `static {}` block in Java), which is run when a class is loaded. It's also just another method: its name is `<clinit>`, and its descriptor is `()V`. Just like non-`static` fields and constructors, `static` field initializers (with some exceptions) are compiled into the `<clinit>` method of a class.
 
 ## Local Variables {#local-variables}
 
@@ -96,7 +110,7 @@ public getX (I)I
   ireturn
 ```
 
-Here, `this` is local variable 0, `offset` is local variable 1, and `result` is local variable 2.
+... the `x` parameter gets index 1, the `y` parameter gets index 3, and the `z` parameter gets index 5.
 
 Longs and doubles take up 2 indexes in the LVT. This means that in the following method:
 
@@ -110,7 +124,7 @@ The `x` parameter has index 1, the `y` parameter has index 3, and the `z` parame
 
 In static methods, there is no `this` object, so other variables start counting at 0 instead of 1.
 
-Even though local variables are identified by index, many libraries retain debug information containing the names of the local variables as well. This includes Minecraft since the unobfuscated releases started in version 26.1 (upcoming). Mixin is able to use this debug information to allow you to target local variables by name.
+Even though local variables are identified by index, many libraries retain debug information containing the names of the local variables as well. This does not yet include Minecraft, as it will remain obfuscated until the upcoming version 26.1. Mixin is able to use this debug information to allow you to target local variables by name.
 
 ## The Operand Stack {#the-operand-stack}
 
