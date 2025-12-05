@@ -43,9 +43,14 @@ public class SavedBlockData extends SavedData {
 		return blocksBroken;
 	}
 
+	// :::set_dirty
 	public void incrementBlocksBroken() {
 		blocksBroken++;
+
+		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
+		setDirty();
 	}
+	// :::set_dirty
 	// :::basic_structure
 	// :::method
 	public static SavedBlockData getSavedBlockData(MinecraftServer server) {
@@ -60,15 +65,7 @@ public class SavedBlockData extends SavedData {
 		// instance and stores it inside the 'DimensionDataStorage'.
 		// Subsequent calls to 'computeIfAbsent' returns the saved 'SavedBlockData' NBT on disk to the Codec in our type,
 		// using the Codec to decode the NBT into our saved data.
-		SavedBlockData savedData = level.getDataStorage().computeIfAbsent(TYPE);
-
-		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
-		// Technically it's 'cleaner' if you only mark saved data as dirty when there was actually a change,
-		// but the vast majority of mod developers are just going to be confused when their data isn't being saved,
-		// and so it's best just to 'setDirty' for them.
-		savedData.setDirty();
-
-		return savedData;
+		return level.getDataStorage().computeIfAbsent(TYPE);
 	}
 	// :::method
 	// :::basic_structure
