@@ -48,7 +48,6 @@ public class SavedBlockData extends SavedData {
 		blocksBroken++;
 
 		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
-		// You should only mark saved data as dirty when there was actually a change.
 		setDirty();
 	}
 	// :::set_dirty
