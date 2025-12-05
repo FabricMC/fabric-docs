@@ -56,7 +56,7 @@ In the logged line, you can find:
 
 Keep in mind that all of these will also be printed if the mod is used in any other environment.
 
-The following is completely optional, but I like to create a custom `LOGGER` method and use it to avoid printing data in production, when it is only needed during development.
+If the data you are logging is only relevant in development, it might be useful to create a custom `LOGGER` method and use it to avoid printing data in production.
 
 @[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
