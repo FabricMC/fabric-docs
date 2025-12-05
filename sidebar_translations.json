@@ -80,6 +80,8 @@
   "develop.misc.loom.prod": "Production Run Tasks",
   "develop.misc.loom.classpath_groups": "Classpath Groups",
   "develop.misc.loom.tasks": "Other Tasks",
+  "develop.mixins": "Mixins",
+  "develop.mixins.introduction": "Introduction to Mixins",
   "develop.sounds": "Sounds",
   "develop.sounds.using_sounds": "Playing Sounds",
   "develop.sounds.custom": "Creating Custom Sounds",

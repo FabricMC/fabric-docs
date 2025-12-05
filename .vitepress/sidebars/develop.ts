@@ -268,6 +268,16 @@ export default [
       },
     ],
   },
+    {
+    text: "develop.mixins",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.mixins.introduction",
+        link: "/develop/mixins/introduction",
+      }
+    ],
+  },
   {
     text: "develop.misc",
     collapsed: true,
