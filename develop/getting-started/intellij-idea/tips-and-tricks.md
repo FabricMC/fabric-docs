@@ -3,6 +3,7 @@ title: Tips and Tricks for IntelliJ IDEA
 description: Useful information to handle and traverse your project using the IDE efficiently.
 authors:
   - AnAwesomGuy
+  - Earthcomputer
   - JR1811
 prev:
   text: Generating Sources in IntelliJ IDEA
@@ -292,6 +293,14 @@ and the parameters but you can change them however you want. There are many cust
 Minecraft's `ScreenHandler` class has some examples. To toggle the render view, use the pen button near the line numbers.
 
 ![JavaDoc editing](/assets/develop/misc/using-the-ide/comments_07.png)
+
+## Viewing Bytecode {#viewing-bytecode}
+
+Viewing bytecode is necessary when writing mixins. You can view the bytecode of a library class (such as a Minecraft class) by opening the class in the editor, then selecting `Show Bytecode` inside the `View` menu.
+
+!["Show bytecode" button in the "View" menu](/assets/develop/getting-started/intellij/show_bytecode.png)
+
+![Bytecode of `java/lang/String.class`](/assets/develop/getting-started/intellij/bytecode_example.png)
 
 ## Optimizing IntelliJ Further {#optimizing-intellij-further}
 

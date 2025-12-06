@@ -269,6 +269,16 @@ export default [
     ],
   },
   {
+    text: "develop.mixins",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.mixins.bytecode",
+        link: "/develop/mixins/bytecode"
+      }
+    ]
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [
