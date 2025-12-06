@@ -325,6 +325,8 @@ Operator instructions generally pop two values off the operand stack, perform th
 - `irem`, `lrem`, `frem`, `drem`: modulo.
 - `ineg`, `lneg`, `fneg`, `dneg`: negation. Pops one value off the stack rather than two.
 
+There are different versions of each of these instructions depending on the data type: `i` for `int`, `l` for `long`, `f` for `float`, and `d` for `double`.
+
 ### Returns {#return-instructions}
 
 Return out of the method, with the value on top of the operand stack (except in the case of `void`). Prefixed with `i`, `l`, `f`, `d`, and `a` in the same way as [variable instructions](#variable-instructions), except for `void` for which the instruction is simply `return`.
@@ -358,7 +360,7 @@ static lambda$hello$1 ()V
   return
 ```
 
-You can see here that the contents of the lambda has been moved into a separate method, in this case `lambda$hello$1`. If you want to target the contents of a lambda with Mixin, this is the method you'll want to be targetting. The lambda instance is then created with the `invokedynamic` instruction and then stored into the variable `r`.
+You can see here that the contents of the lambda has been moved into a separate method, in this case `lambda$hello$1`. If you want to target the contents of a lambda with Mixin, this is the method you'll want to be targeting. The lambda instance is then created with the `invokedynamic` instruction and then stored into the variable `r`.
 
 If the lambda captures any variables, these variables will end up as parameters to the lambda methods. For example:
 
