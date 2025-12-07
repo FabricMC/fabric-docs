@@ -100,7 +100,7 @@ This would compile to something like the following:
 
 ```text
 public getX (I)I
-  iload 0  # this
+  aload 0  # this
   getfield x
   iload 1  # offset
   iadd
