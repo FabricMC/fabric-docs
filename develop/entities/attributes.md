@@ -16,7 +16,7 @@ Let's create a custom attribute named `AGGRO_RANGE`. This attribute will control
 
 Begin by creating a Java class to manage the definition and registration of your attributes under your mod's code structure. This example will create the following functions in a class named `ModAttributes`.
 
-First, a basic helper method to register your mod's attributes. This method will accept the following parameters and register an attribute.
+First, start with a basic helper method to register your mod's attributes. This method will accept the following parameters and register an attribute.
 
 - A `String` that will be the name of your attribute.
 - A `double` that will be the default value of the attribute.
