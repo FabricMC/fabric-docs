@@ -24,7 +24,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
-import com.example.docs.item.ModItems;
 
 // :::datagen-model:provider
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
@@ -89,7 +88,6 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 
 		// :::datagen-model:provider
 
-		itemModelGenerator.registerSpawnEgg(ModItems.MINI_GOLEM_SPAWN_EGG, 0x00FF00, 0xFA4F4F);
 	}
 
 	// :::datagen-model:provider
