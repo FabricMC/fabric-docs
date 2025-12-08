@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
@@ -68,6 +69,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
 		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
+		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
+		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
 		// :::datagen-translations:provider
 	}
 }

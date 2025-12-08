@@ -21,7 +21,7 @@ First, we'll need our provider. Make a class that `extends FabricRecipeProvider`
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={33-33}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Shapeless Recipes {#shapeless-recipes}
 
@@ -44,5 +44,3 @@ There's a lot of helper methods for creating common recipes. Check out what `Rec
 Other recipes work similarly, but require a few extra parameters. For example, smelting recipes need to know how much experience to award.
 
 @[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
-
-## Custom Recipe Types {#custom-recipe-types}
