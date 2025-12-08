@@ -18,11 +18,11 @@ Begin by creating a Java class to manage the definition and registration of your
 
 First, start with a basic helper method to register your mod's attributes. This method will accept the following parameters and register an attribute.
 
-- A `String` that will be the name of your attribute.
-- A `double` that will be the default value of the attribute.
-- A `double` that will be the lowest value your attribute will reach.
-- A `double` that will be the highest value your attribute will reach.
-- A `boolean` that dictates whether the attribute will be synced to clients.
+- A `String` that will be the name of your attribute
+- A `double` that will be the default value of the attribute
+- A `double` that will be the lowest value your attribute will reach
+- A `double` that will be the highest value your attribute will reach
+- A `boolean` that dictates whether the attribute will be synced to clients
 
 @[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
 
