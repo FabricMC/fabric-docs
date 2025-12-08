@@ -1,5 +1,5 @@
 ---
-title: Creating your First Entity
+title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
   - cassiancc
@@ -23,29 +23,27 @@ This tutorial will walk you through the creation of a `PathfinderEntity`, used b
 
 ## Peparing Your First Entity {#preparing-your-first-entity}
 
-The first step in creating a custom entity is defining its class and registering it with the game. For now, ignore the animations and tracked data we will use it later on.
+The first step in creating a custom entity is defining its class and registering it with the game.
 
-Now, add attributes to the entity in the class `MiniGolemEntity`
-
-Attributes decide the Health, Speed & Tempt Range.
+We'll create the class `MiniGolemEntity` for our entity, and start by giving it attributes. [Attributes](attributes) decide the Maximum Health, Movement Speed & Tempt Range of the entity.
 
 @[code transcludeWith=:::registerclass](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
-To register your entity, you create a separate class `ModEntityTypes` where you register the entity type, set its dimensions, and register its attributes.
+To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their dimensions, and register their attributes.
 
 @[code transcludeWith=:::types](@/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java)
 
 ## Adding Goals {#adding-goals}
 
-Goals are objective/aim of a entity which provides an defined set of behaviour to an entity. Goals have a certain priority, ranging from `0` being the highest and subsequently reducing in priority as the number increases.
+Goals are the system that handle an entity's objective/aim, providing them with a defined set of behaviour. Goals have a certain priority, ranging from `0` being the highest and subsequently reducing in priority as the number increases.
 
-To add goals to the entity, you need to create `registerGoals` class which will contain the goals for the entity.
+To add goals to the entity, you need to create a `registerGoals` method in your entity's class that defines the goals for the entity.
 
 @[code transcludeWith=:::goals](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
 ::: info
 
-1. `TemptGoal` - The entity is attacted towards a player holding an item.
+1. `TemptGoal` - The entity is attracted towards a player holding an item.
 2. `RandomStrollGoal` - Walks/Wanders around the world.
 3. `LookAtPlayerGoal` - To look at the `Cow` entity.
 4. `RandomLookAroundGoal` - To look in random directions.
@@ -55,12 +53,10 @@ To add goals to the entity, you need to create `registerGoals` class which will 
 
 ## Creating Rendering {#creating-rendering}
 
-Rendering refers to the process of converting game data such as blocks, ``entities``, and environments into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
+Rendering refers to the process of converting game data such as blocks, entities, and environments into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
 
 ::: tip
-
-The entity rendering is always handled on the client side. The server manages the entity's logic and behavior, while the client is responsible for displaying the entity's model, texture, and animations.
-
+Entity rendering is always handled on the client side. The server manages the entity's logic and behavior, while the client is responsible for displaying the entity's model, texture, and animations.
 :::
 
 Rendering has multiple steps involving their own classes, but we'll start with the `EntityRenderState` class.
@@ -71,12 +67,12 @@ The render state determines how the entity is visually represented, including an
 
 ### Setting up the Model {#setting-up-model}
 
-The `MiniGolemEntityModel` defines how your entity looks by describing its shape and parts.
+The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://web.blockbench.net), rather than being written by hand.
 
 ::: warning
-  Blockbench supports multiple mappings (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
+Blockbench supports multiple [mappings](../migrating-mappings/#mappings) (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
 
-  Mismatched mappings can cause errors when integrating Blockbench generated code.
+Mismatched mappings can cause errors when integrating Blockbench generated code.
 :::
 
 @[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
@@ -90,63 +86,75 @@ This method defines the Mini Golem's 3D model by creating its body, head, and le
 Each part is added with a offset point for proper animation and alignment, ensuring the model appears correctly in-game.
 
 ::: info
-The higher y values in the model, the lower you are in the entity. Its Upside down relative to the in-game corrdinates.
+The higher Y values in the model, the lower you are in the entity. This is the reverse compared to in-game coordinates.
 :::
 
-Now, We need create ```ModEntityModelLayers``` in the client package.
+We'll now need to create a `ModEntityModelLayers` class in the client package. This entity only has a single texture layer, but other entities may use multiple - think of the secondary skin layer on mobs like the `Player` or a `Spider`'s eyes.
 
 @[code transcludeWith=:::model_layer](@/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java)
 
-After creating the file we need to register it in the client initializer
+This class must then be initialized in the mod's client initializer.
 
 @[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModCustomEntityClient.java)
 
 ### Setting up the Texture {#setting-up-texture}
 
-Each model part / box is expecting a net on the texture in a particular location. By default, it's expecting it at 0, 0 (the top left), but this can be changed by calling the texOffs function in CubeListBuilder. In our entity it appears as so:
-![Texture of MiniGolemEntity](/assets/develop/entity/mini_golem.png)
-
 ::: warning
-  Texture Size should match values in the ```LayerDefinition.create(modelData, 64, 32);``` which are 64 and 32.
+The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32);`, 64 pixels wide and 32 pixels tall.
 :::
 
-Now, copy the ```texture.png``` file and place it in ```resources/assets/example-mod/textures/entity/mini_golem.png``` location.
+Each model part / box is expecting a net on the texture in a particular location. By default, it's expecting it at `0, 0` (the top left), but this can be changed by calling the texOffs function in CubeListBuilder.
+
+For example purposes, you can use this example texture for `assets/example-mod/textures/entity/mini_golem.png`
+
+<DownloadEntry visualURL="/assets/develop/entity/mini_golem.png" downloadURL="/assets/develop/entity/mini_golem_small.png">Texture</DownloadEntry>
 
 ### Creating the Renderer {#creating-the-renderer}
 
-The Renderer enables you to view your entity in-game.
+A mob's entity renderer enables you to view your entity in-game.
 
 @[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
 
 We are referencing the texture in this code in line 2 from the previous step.
 
-In this class ```MiniGolemEntityRenderer```, the creation of the renderstate and the entity's model happens.
+In this class `MiniGolemEntityRenderer`, the creation of the render state and the entity's model happens.
 
-The shadow radius ``.375f`` , is provied as you can view the circle under the mob which minecraft renders.
+The shadow radius `.375f`, is provided as you can view the circle under the mob which minecraft renders.
 
-### Creating the Animations {#creating-the-animations}
+### Adding Walking Animations {#walking-animations}
 
-In the ```MiniGolemEntityModel``` this code is added to make it walk.
+The following code can be added to the `MiniGolemEntityModel` class to give the entity a walking animation.
 
 @[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
-Most of the math is provided by blockbench.
+Most of the math is provided by Blockbench.
 
-### Adding Tracked Data {#adding-tracked-data}
+## Adding a Dancing Animation {#adding-a-dancing-animation}
 
-<!-- TODO 
+Let's make this entity a bit more lively by giving it a dancing animation. We'll create a `MiniGolemAnimations` class with a simple animation that allows the Mini Golem to dance.
 
-- Create and register entity and attributes.
-  - This is the minimum amount of work to be able to run the summon command, I believe.
+@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
 
-- Add and explain goals And renderer, model and texture This will include the leg swing animation, but not the dancing animation.
+### Using Synched Entity Data {#using-synched-entity-data}
 
-- Add modellayer registry thing which we forgot.
+We can store data on the entity itself by defining an `EntityDataAccessor` for it. This data will be synchronized with the client, making it a good place to define our dancing state.
 
-- Add TrackedData for dancing, and explain how to use the data tracker for synchronizing values to the client.
+@[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
-- Add dancingTimeLeft which will be saved and loaded from NBT, explain saving and loading entities from NBT.
+### Storing Data to NBT {#storing-data}
 
-- Add the dancing animation.
-- Add the spawn egg. 
--->
+For persistent data that can be saved after the game is closed, we'll start by overriding the `addAdditionalSaveData` and `readAdditionalSaveData` methods in `MiniGolemEntity`. We can use this to store the amount of time remaining in the dancing animation.
+
+@[code transcludeWith=:::savedata](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+
+Now, whenever the entity is loaded, it will restore the state that it was left in.
+
+## Adding the Spawn Egg {#adding-spawn-egg}
+
+All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, using the helper method discussed in [Creating Your First Item](../items/first-item).
+
+@[code transcludeWith=:::spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+
+From there, it just needs a [client item, item model, and texture](../items/first-item#adding-a-client-item-texture-and-model). A basic client item and item model as discussed in the linked article will work fine, and you can use this example texture for `assets/example-mod/textures/item/mini_golem_spawn_egg.png`
+
+<DownloadEntry visualURL="/assets/develop/entity/mini_golem_spawn_egg.png" downloadURL="/assets/develop/entity/mini_golem_spawn_egg_small.png">Texture</DownloadEntry>

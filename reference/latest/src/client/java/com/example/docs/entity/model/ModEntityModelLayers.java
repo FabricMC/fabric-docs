@@ -19,4 +19,4 @@ public class ModEntityModelLayers {
 		EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.MINI_GOLEM, MiniGolemEntityModel::getTexturedModelData);
 	}
 }
-//::model_layer
+//:::model_layer

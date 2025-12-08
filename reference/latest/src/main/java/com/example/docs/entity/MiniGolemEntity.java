@@ -22,9 +22,15 @@ import net.minecraft.world.level.storage.ValueOutput;
 //:::registerclass
 public class MiniGolemEntity extends PathfinderMob {
 	//:::registerclass
+
+	//:::datatracker
 	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
 	public final AnimationState dancingAnimationState = new AnimationState();
+	//:::datatracker
+	//:::savedata
 	private int dancingTimeLeft;
+	//:::savedata
+
 	//:::registerclass
 	public MiniGolemEntity(Level world) {
 		this(ModEntityTypes.MINI_GOLEM, world);
@@ -52,6 +58,7 @@ public class MiniGolemEntity extends PathfinderMob {
 	}
 	//:::goals
 
+	//:::datatracker
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
@@ -74,6 +81,7 @@ public class MiniGolemEntity extends PathfinderMob {
 			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
 		}
 	}
+	//:::datatracker
 
 	@Override
 	public void tick() {
@@ -93,6 +101,7 @@ public class MiniGolemEntity extends PathfinderMob {
 		}
 	}
 
+	//:::savedata
 	@Override
 	protected void addAdditionalSaveData(ValueOutput valueOutput) {
 		super.addAdditionalSaveData(valueOutput);
@@ -105,4 +114,5 @@ public class MiniGolemEntity extends PathfinderMob {
 		dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
 		setDancing(dancingTimeLeft > 0);
 	}
+	//:::savedata
 }

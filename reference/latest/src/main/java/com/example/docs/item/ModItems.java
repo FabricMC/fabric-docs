@@ -123,11 +123,13 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
 
+	// :::spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			"mini_golem_spawn_egg",
 					SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
+	// :::spawn_egg
 
 	// :::1
 	public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
