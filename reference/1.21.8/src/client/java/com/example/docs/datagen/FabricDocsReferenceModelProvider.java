@@ -87,7 +87,6 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 		//TODO Since I have little experience with generating item models, I will leave this to someone more experienced (Fellteros)
 
 		// :::datagen-model:provider
-
 	}
 
 	// :::datagen-model:provider
