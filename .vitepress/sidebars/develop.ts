@@ -81,10 +81,6 @@ export default [
         link: "/develop/items/potions",
       },
       {
-        text: "develop.items.spawn_egg",
-        link: "/develop/items/spawn-egg", 
-      },
-      {
         text: "develop.items.item_appearance",
         link: "/develop/items/item-appearance",
       }
@@ -137,6 +133,10 @@ export default [
       {
         text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
+      },
+      {
+        text: "develop.items.spawn_egg",
+        link: "/develop/items/spawn-egg", 
       },
     ],
   },

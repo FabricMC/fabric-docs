@@ -73,20 +73,6 @@ _**assets/example-mod/models/item/guidite_axe.json**_
 
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe</DownloadEntry>
 
-### Spawn Eggs {#spawn-eggs}
-
-@[code lang=java transcludeWith=:::datagen-model:spawn-egg](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-Since spawn eggs use a template model, we can use the `registerSpawnEgg()` method of the `ItemModelGenerator` instance, to assign the colors and link the model to the `SpawnEggItem`. After running datagen, it should look like this:
-
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/custom_spawn_egg.json)
-
-::: info
-Minecraft uses signed 32-bit Integers to store ARGB color values. Java is able to convert RGB hexadecimal color values like shown above.
-
-If you don't want to worry about the conversion, you can use tools like [Spawn Egg Color Picker](https://vatinmc.github.io/spawn-egg-color-picker/).
-:::
-
 ### Dyeable Items {#dyeable-items}
 
 @[code lang=java transcludeWith=:::datagen-model:dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)

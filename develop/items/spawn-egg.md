@@ -1,7 +1,8 @@
 ---
-title: Spawn Egg Item
+title: Spawn Egg Items
 description: Learn how to register a spawn egg item, and configure its colors.
 authors:
+  - cassiancc
   - Fellteros
   - VatinMc
   - skycatminepokie
@@ -9,12 +10,12 @@ authors:
 ---
 
 ::: info PREREQUISITES
-Visit [Creating Your First Item](./first-item) to understand the references made here. If this is your first item, you must complete the steps listed there.
+Visit [Creating Your First Item](./first-item) to understand the references made here. If this is your first item, you must complete the steps listed there first.
 :::
 
 Spawn eggs are items that are used to spawn the corresponding mob. When creating spawn eggs, the following questions need to be answered:
 
-- Which `MobEntity` should be spawned?
+- Which `Mob` should be spawned?
 - What texture should your spawn egg use?
 - What should your spawn egg item be named?
 
@@ -40,22 +41,31 @@ Change the name and `EntityType` as desired.
 
 ![spawn egg item without texture](/assets/develop/items/spawn_egg_1.png)
 
-The spawn egg item is now registered and can spawn frog entities. Texture, name and creative tab are still missing.
+The spawn egg item is now registered and can spawn Frogs, but it still needs to be textured, named and placed in a creative mode tab.
 
-## Creating The Client Item {#creating-the-client-item}
+## Adding an Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
 
-Since spawn eggs use a template model, there is no need to create an item model.
+Since 1.21.5, spawn eggs, like any other item, require a texture, item model, and client item to apply item models to items.
 
-Minecraft uses the client item to apply item models to items.
+### Adding a Texture {#adding-a-texture}
 
-If you don't want to worry about the conversion, you can use tools like [Spawn Egg Color Picker](https://vatinmc.github.io/spawn-egg-color-picker/).
-:::
+Create the 16x16 item texture in the `assets/example-mod/textures/item` directory, with the same file name as the id of the item: `custom_spawn_egg.png`. An example texture is provided below.
 
-Create the client item JSON in the `assets/example-mod/items` directory, with the same file name as the id of the item: `custom_spawn_egg.json`.
+<DownloadEntry visualURL="/assets/develop/items/spawn_egg.png" downloadURL="/assets/develop/items/spawn_egg_small.png">Texture</DownloadEntry>
+
+### Adding a Model {#adding-a-model}
+
+Create the item model in the `assets/example-mod/models/item` directory, with the same file name as the id of the item: `custom_spawn_egg.json`.
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/custom_spawn_egg.json)
+
+### Creating the Client Item {#creating-the-client-item}
+
+Create the client item JSON in the `assets/example-mod/items` directory, with the same file name as the id of the item model: `custom_spawn_egg.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/custom_spawn_egg.json)
 
-![spawn egg item with model description](/assets/develop/items/spawn_egg_2.png)
+![spawn egg item with client item](/assets/develop/items/spawn_egg_2.png)
 
 The spawn egg item is now textured, but it still needs to be named and placed in a creative mode tab.
 
