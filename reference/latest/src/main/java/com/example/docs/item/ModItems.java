@@ -9,18 +9,27 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.Level;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -122,54 +131,54 @@ public class ModItems {
 	// :::2
 
 	//generated
-	public static final Item RUBY = register("ruby", Item::new, new Item.Settings());
+	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
 	//handheld
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Settings());
+	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
 
 	//spawn egg
 	// :::spawn_egg_register_item
 	public static final SpawnEggItem CUSTOM_SPAWN_EGG = registerSpawnEgg(
 			"custom_spawn_egg",
 			EntityType.FROG,
-			new Item.Settings()
+			new Item.Properties()
 	);
 	// :::spawn_egg_register_item
 
 	//dyeable
-	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Settings());
+	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
 	//condition
 	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
 		@Override
-		public ActionResult use(World world, PlayerEntity user, Hand hand) {
-			user.setCurrentHand(hand);
-			return ActionResult.CONSUME;
+		public InteractionResult use(Level world, Player user, InteractionHand hand) {
+			user.startUsingItem(hand);
+			return InteractionResult.CONSUME;
 		}
-	}, new Item.Settings());
+	}, new Item.Properties());
 
 	//custom
-	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
+	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
 
 	//composite
-	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Settings());
+	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
 
 	//select
-	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Settings());
+	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
 
 	//range dispatch
-	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Settings().maxCount(3));
+	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
 
 	// :::spawn_egg_register_method
-	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends MobEntity> entityType, Item.Settings settings) {
+	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends Mob> entityType, Item.Properties settings) {
 		// Create the item key.
-		RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, name));
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 
 		// Create the spawn egg item instance.
-		SpawnEggItem spawnEggItem = new SpawnEggItem(entityType, settings.registryKey(itemKey));
+		SpawnEggItem spawnEggItem = new SpawnEggItem(settings.setId(itemKey).spawnEgg(entityType));
 
 		// Register the spawn egg item.
-		Registry.register(Registries.ITEM, itemKey, spawnEggItem);
+		Registry.register(BuiltInRegistries.ITEM, itemKey, spawnEggItem);
 
 		return spawnEggItem;
 	}
@@ -216,8 +225,8 @@ public class ModItems {
 		// :::8
 
 		// :::spawn_egg_item_group
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
-				.register(itemGroup -> itemGroup.add(ModItems.CUSTOM_SPAWN_EGG));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
+				.register(itemGroup -> itemGroup.accept(ModItems.CUSTOM_SPAWN_EGG));
 		// :::spawn_egg_item_group
 
 		// :::_12
@@ -239,14 +248,14 @@ public class ModItems {
 		// :::_12
 
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.add(ModItems.RUBY);
-			itemGroup.add(ModItems.GUIDITE_AXE);
-			itemGroup.add(ModItems.LEATHER_GLOVES);
-			itemGroup.add(ModItems.FLASHLIGHT);
-			itemGroup.add(ModItems.BALLOON);
-			itemGroup.add(ModItems.ENHANCED_HOE);
-			itemGroup.add(ModItems.DIMENSIONAL_CRYSTAL);
-			itemGroup.add(ModItems.THROWING_KNIVES);
+			itemGroup.accept(ModItems.RUBY);
+			itemGroup.accept(ModItems.GUIDITE_AXE);
+			itemGroup.accept(ModItems.LEATHER_GLOVES);
+			itemGroup.accept(ModItems.FLASHLIGHT);
+			itemGroup.accept(ModItems.BALLOON);
+			itemGroup.accept(ModItems.ENHANCED_HOE);
+			itemGroup.accept(ModItems.DIMENSIONAL_CRYSTAL);
+			itemGroup.accept(ModItems.THROWING_KNIVES);
 		});
 
 		// :::_10
