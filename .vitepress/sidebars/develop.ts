@@ -37,6 +37,24 @@ export default [
     ],
   },
   {
+    text: "develop.core",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.misc.events",
+        link: "/develop/events",
+      },
+      {
+        text: "develop.misc.text_and_translations",
+        link: "/develop/text-and-translations",
+      },
+      {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
+      },
+    ],
+  },
+  {
     text: "develop.items",
     collapsed: true,
     items: [
@@ -251,6 +269,24 @@ export default [
     ],
   },
   {
+    text: "develop.serialization",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.misc.codecs",
+        link: "/develop/codecs",
+      },
+      {
+        text: "develop.misc.data_attachments",
+        link: "/develop/data-attachments",
+      },
+      {
+        text: "develop.misc.saved_data",
+        link: "/develop/saved-data",
+      },
+    ],
+  },
+  {
     text: "develop.loom",
     collapsed: true,
     items: [
@@ -284,30 +320,6 @@ export default [
     text: "develop.misc",
     collapsed: true,
     items: [
-      {
-        text: "develop.misc.codecs",
-        link: "/develop/codecs",
-      },
-      {
-        text: "develop.misc.data_attachments",
-        link: "/develop/data-attachments",
-      },
-      {
-        text: "develop.misc.events",
-        link: "/develop/events",
-      },
-      {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.saved_data",
-        link: "/develop/saved-data",
-      },
-      {
-        text: "develop.misc.text_and_translations",
-        link: "/develop/text-and-translations",
-      },
       {
         text: "develop.misc.migrating_mappings",
         link: "/develop/migrating-mappings",
