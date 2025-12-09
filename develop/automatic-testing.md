@@ -37,7 +37,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./ide-tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -108,7 +108,7 @@ If you enabled `createSourceSet` like the example above, your gametest will be i
 
 <<< @/reference/latest/src/gametest/resources/fabric.mod.json
 
-Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/FabricDocsGameTest`, and a client game test at `src/gametest/java/com/example/docs/FabricDocsClientGameTest`.
+Note that this `fabric.mod.json` expects a server game test at `src/gametest/java/com/example/docs/ExampleModGameTest`, and a client game test at `src/gametest/java/com/example/docs/ExampleModClientGameTest`.
 
 ### Writing Game Tests {#writing-game-tests}
 
@@ -116,10 +116,25 @@ You can now create server and client game tests in the `src/gametest/java` direc
 
 ::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsGameTest.java [Server]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java [Server]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/FabricDocsClientGameTest.java [Client]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java [Client]
 
 :::
 
 See the respective Javadocs in Fabric API for more info.
+
+### Running Game Tests {#running-game-tests}
+
+Server game tests will be run automatically with the `build` Gradle task. You can run client game tests with the `runClientGameTest` Gradle task.
+
+### Run Game Tests on GitHub Actions {#run-game-tests-on-github-actions}
+
+Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
+
+::: warning
+Currently, game test may fail on GitHub Actions due to an error in the network synchronizer. If you encounter this error, you can add `-Dfabric.client.gametest.disableNetworkSynchronizer=true` to the JVM args in your production run task declaration.
+:::
+
+@[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)

@@ -1,21 +1,21 @@
 package com.example.docs.networking.basic;
 
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
 
-import com.example.docs.FabricDocsReference;
+import com.example.docs.ExampleMod;
 
 // :::summon_Lightning_payload
-public record SummonLightningS2CPayload(BlockPos pos) implements CustomPayload {
-	public static final Identifier SUMMON_LIGHTNING_PAYLOAD_ID = Identifier.of(FabricDocsReference.MOD_ID, "summon_lightning");
-	public static final CustomPayload.Id<SummonLightningS2CPayload> ID = new CustomPayload.Id<>(SUMMON_LIGHTNING_PAYLOAD_ID);
-	public static final PacketCodec<RegistryByteBuf, SummonLightningS2CPayload> CODEC = PacketCodec.tuple(BlockPos.PACKET_CODEC, SummonLightningS2CPayload::pos, SummonLightningS2CPayload::new);
+public record SummonLightningS2CPayload(BlockPos pos) implements CustomPacketPayload {
+	public static final ResourceLocation SUMMON_LIGHTNING_PAYLOAD_ID = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "summon_lightning");
+	public static final CustomPacketPayload.Type<SummonLightningS2CPayload> ID = new CustomPacketPayload.Type<>(SUMMON_LIGHTNING_PAYLOAD_ID);
+	public static final StreamCodec<RegistryFriendlyByteBuf, SummonLightningS2CPayload> CODEC = StreamCodec.composite(BlockPos.STREAM_CODEC, SummonLightningS2CPayload::pos, SummonLightningS2CPayload::new);
 
 	@Override
-	public Id<? extends CustomPayload> getId() {
+	public Type<? extends CustomPacketPayload> type() {
 		return ID;
 	}
 }

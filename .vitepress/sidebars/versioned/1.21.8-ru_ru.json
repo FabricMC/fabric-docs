@@ -1,0 +1,370 @@
+{
+  "/ru_ru/develop/": [
+    {
+      "text": "Руководства для разработчиков",
+      "link": "/ru_ru/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Начало работы",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Введение в Fabric и создание модов",
+          "link": "/ru_ru/develop/getting-started/"
+        },
+        {
+          "text": "Создание проекта",
+          "link": "/ru_ru/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Структура проекта",
+          "link": "/ru_ru/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Настройка среды разработки",
+          "link": "/ru_ru/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/ru_ru/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Запуск игры",
+          "link": "/ru_ru/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/ru_ru/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Советы и Трюки по IDE",
+          "link": "/ru_ru/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Предметы",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Создание вашего первого предмета",
+          "link": "/ru_ru/develop/items/first-item"
+        },
+        {
+          "text": "Item Models",
+          "link": "/ru_ru/develop/items/item-models"
+        },
+        {
+          "text": "Еда",
+          "link": "/ru_ru/develop/items/food"
+        },
+        {
+          "text": "Собственные инструменты",
+          "link": "/ru_ru/develop/items/custom-tools"
+        },
+        {
+          "text": "Собственная броня",
+          "link": "/ru_ru/develop/items/custom-armor"
+        },
+        {
+          "text": "Собственные вкладки с предметами",
+          "link": "/ru_ru/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Собственная интерактивность с предметами",
+          "link": "/ru_ru/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Пользовательские эффекты чар",
+          "link": "/ru_ru/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Пользовательские компоненты данных",
+          "link": "/ru_ru/develop/items/custom-data-components"
+        },
+        {
+          "text": "Зелья",
+          "link": "/ru_ru/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Блоки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Создание вашего первого блока",
+          "link": "/ru_ru/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/ru_ru/develop/blocks/block-models"
+        },
+        {
+          "text": "Состояние блоков",
+          "link": "/ru_ru/develop/blocks/blockstates"
+        },
+        {
+          "text": "Блокировать сущности",
+          "link": "/ru_ru/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Блокировать рендеринг сущностей",
+              "link": "/ru_ru/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Сущности",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Эффекты состояния",
+          "link": "/ru_ru/develop/entities/effects"
+        },
+        {
+          "text": "Типы урона",
+          "link": "/ru_ru/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Звуки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Воспроизведение SoundEvents",
+          "link": "/ru_ru/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Создание своих звуков",
+          "link": "/ru_ru/develop/sounds/custom"
+        },
+        {
+          "text": "Динамические звуки",
+          "link": "/ru_ru/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Команды",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Создание команд",
+          "link": "/ru_ru/develop/commands/basics"
+        },
+        {
+          "text": "Аргументы команд",
+          "link": "/ru_ru/develop/commands/arguments"
+        },
+        {
+          "text": "Подсказки к командам",
+          "link": "/ru_ru/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Отрисовка",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Основные концепции отрисовки",
+          "link": "/ru_ru/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Использование Drawing Context",
+          "link": "/ru_ru/develop/rendering/draw-context"
+        },
+        {
+          "text": "Отрисовка в HUD",
+          "link": "/ru_ru/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/ru_ru/develop/rendering/world"
+        },
+        {
+          "text": "Интерфейсы и экраны",
+          "items": [
+            {
+              "text": "Собственные экраны",
+              "link": "/ru_ru/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Собственные виджеты",
+              "link": "/ru_ru/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Частицы",
+          "items": [
+            {
+              "text": "Создание своих частиц",
+              "link": "/ru_ru/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Генерация данных",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Настройка генерации данных",
+          "link": "/ru_ru/develop/data-generation/setup"
+        },
+        {
+          "text": "Генерация тегов",
+          "link": "/ru_ru/develop/data-generation/tags"
+        },
+        {
+          "text": "Генерация перевода",
+          "link": "/ru_ru/develop/data-generation/translations"
+        },
+        {
+          "text": "Генерация прогресса",
+          "link": "/ru_ru/develop/data-generation/advancements"
+        },
+        {
+          "text": "Генерация рецептов",
+          "link": "/ru_ru/develop/data-generation/recipes"
+        },
+        {
+          "text": "Генерация таблиц добычи",
+          "link": "/ru_ru/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "Block Model Generation",
+          "link": "/ru_ru/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "Прочие страницы",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Кодеки",
+          "link": "/ru_ru/develop/codecs"
+        },
+        {
+          "text": "События",
+          "link": "/ru_ru/develop/events"
+        },
+        {
+          "text": "Networking",
+          "link": "/ru_ru/develop/networking"
+        },
+        {
+          "text": "Текст и переводы",
+          "link": "/ru_ru/develop/text-and-translations"
+        },
+        {
+          "text": "Простое решение проблем",
+          "link": "/ru_ru/develop/debugging"
+        },
+        {
+          "text": "Автоматическое тестирование",
+          "link": "/ru_ru/develop/automatic-testing"
+        },
+        {
+          "text": "Loom Gradle Plugin",
+          "link": "/ru_ru/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/ru_ru/develop/loom/fabric-api"
+            },
+            {
+              "text": "Extension Options",
+              "link": "/ru_ru/develop/loom/options"
+            },
+            {
+              "text": "Production Run Tasks",
+              "link": "/ru_ru/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/ru_ru/players/": [
+    {
+      "text": "Руководства для игроков",
+      "link": "/ru_ru/players/",
+      "items": [
+        {
+          "text": "Часто задаваемые вопросы",
+          "link": "/ru_ru/players/faq"
+        },
+        {
+          "text": "Установка Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/ru_ru/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/ru_ru/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Установка Fabric",
+          "link": "/ru_ru/players/installing-fabric"
+        },
+        {
+          "text": "Поиск безопасных модов",
+          "link": "/ru_ru/players/finding-mods"
+        },
+        {
+          "text": "Установка модов",
+          "link": "/ru_ru/players/installing-mods"
+        },
+        {
+          "text": "Устранение неполадок",
+          "items": [
+            {
+              "text": "Загрузка журналов",
+              "link": "/ru_ru/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Сообщения о сбоях",
+              "link": "/ru_ru/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Обновление Fabric",
+          "link": "/ru_ru/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

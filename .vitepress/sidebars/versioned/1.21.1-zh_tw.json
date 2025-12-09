@@ -1,0 +1,320 @@
+{
+  "/zh_tw/develop/": [
+    {
+      "text": "開發人員指南",
+      "link": "/zh_tw/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "開始使用",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric 和模組簡介",
+          "link": "/zh_tw/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "設定開發環境",
+          "link": "/zh_tw/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "建立一個專案",
+          "link": "/zh_tw/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "專案結構",
+          "link": "/zh_tw/develop/getting-started/project-structure"
+        },
+        {
+          "text": "啟動你的遊戲",
+          "link": "/zh_tw/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "物品",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "建立你的第一個物品",
+          "link": "/zh_tw/develop/items/first-item"
+        },
+        {
+          "text": "食物物品",
+          "link": "/zh_tw/develop/items/food"
+        },
+        {
+          "text": "自訂工具",
+          "link": "/zh_tw/develop/items/custom-tools"
+        },
+        {
+          "text": "自訂盔甲",
+          "link": "/zh_tw/develop/items/custom-armor"
+        },
+        {
+          "text": "自訂物品組",
+          "link": "/zh_tw/develop/items/custom-item-groups"
+        },
+        {
+          "text": "自訂物品互動",
+          "link": "/zh_tw/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "自訂附魔效果",
+          "link": "/zh_tw/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "自訂資料元件",
+          "link": "/zh_tw/develop/items/custom-data-components"
+        },
+        {
+          "text": "藥水",
+          "link": "/zh_tw/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "方塊",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "建立你的第一個方塊",
+          "link": "/zh_tw/develop/blocks/first-block"
+        },
+        {
+          "text": "方塊狀態",
+          "link": "/zh_tw/develop/blocks/blockstates"
+        },
+        {
+          "text": "方塊實體",
+          "link": "/zh_tw/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "方塊實體渲染器",
+              "link": "/zh_tw/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "實體",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "狀態效果",
+          "link": "/zh_tw/develop/entities/effects"
+        },
+        {
+          "text": "傷害類型",
+          "link": "/zh_tw/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "音效",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "播放音效",
+          "link": "/zh_tw/develop/sounds/using-sounds"
+        },
+        {
+          "text": "建立自訂音效",
+          "link": "/zh_tw/develop/sounds/custom"
+        },
+        {
+          "text": "動態聲音",
+          "link": "/zh_tw/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "指令",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "建立指令",
+          "link": "/zh_tw/develop/commands/basics"
+        },
+        {
+          "text": "指令引數",
+          "link": "/zh_tw/develop/commands/arguments"
+        },
+        {
+          "text": "指令建議",
+          "link": "/zh_tw/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "繪製",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "基礎的繪製概念",
+          "link": "/zh_tw/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "使用繪圖上下文",
+          "link": "/zh_tw/develop/rendering/draw-context"
+        },
+        {
+          "text": "在 HUD 中繪製",
+          "link": "/zh_tw/develop/rendering/hud"
+        },
+        {
+          "text": "GUI 和畫面",
+          "items": [
+            {
+              "text": "自訂畫面",
+              "link": "/zh_tw/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "自訂小工具",
+              "link": "/zh_tw/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "粒子",
+          "items": [
+            {
+              "text": "建立自訂粒子",
+              "link": "/zh_tw/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "資料生成",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "資料生成設定",
+          "link": "/zh_tw/develop/data-generation/setup"
+        },
+        {
+          "text": "標籤生成",
+          "link": "/zh_tw/develop/data-generation/tags"
+        },
+        {
+          "text": "翻譯生成",
+          "link": "/zh_tw/develop/data-generation/translations"
+        },
+        {
+          "text": "進度生成",
+          "link": "/zh_tw/develop/data-generation/advancements"
+        },
+        {
+          "text": "配方生成",
+          "link": "/zh_tw/develop/data-generation/recipes"
+        },
+        {
+          "text": "戰利品表生成",
+          "link": "/zh_tw/develop/data-generation/loot-tables"
+        }
+      ]
+    },
+    {
+      "text": "雜項頁面",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codec",
+          "link": "/zh_tw/develop/codecs"
+        },
+        {
+          "text": "事件",
+          "link": "/zh_tw/develop/events"
+        },
+        {
+          "text": "文字和翻譯",
+          "link": "/zh_tw/develop/text-and-translations"
+        },
+        {
+          "text": "IDE 使用技巧",
+          "link": "/zh_tw/develop/ide-tips-and-tricks"
+        },
+        {
+          "text": "自動化測試",
+          "link": "/zh_tw/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/zh_tw/players/": [
+    {
+      "text": "玩家指南",
+      "link": "/zh_tw/players/",
+      "items": [
+        {
+          "text": "常見問題",
+          "link": "/zh_tw/players/faq"
+        },
+        {
+          "text": "安裝 Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/zh_tw/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/zh_tw/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "安裝 Fabric",
+          "link": "/zh_tw/players/installing-fabric"
+        },
+        {
+          "text": "尋找可信賴的模組",
+          "link": "/zh_tw/players/finding-mods"
+        },
+        {
+          "text": "安裝模組",
+          "link": "/zh_tw/players/installing-mods"
+        },
+        {
+          "text": "疑難排解",
+          "items": [
+            {
+              "text": "上傳你的記錄檔",
+              "link": "/zh_tw/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "崩潰報告",
+              "link": "/zh_tw/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "更新 Fabric",
+          "link": "/zh_tw/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

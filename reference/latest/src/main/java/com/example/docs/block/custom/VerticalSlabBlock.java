@@ -4,37 +4,37 @@ import java.util.Objects;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.EnumProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 // :::datagen-model-custom:constructor
 public class VerticalSlabBlock extends Block {
 	// :::datagen-model-custom:constructor
 
 	// :::datagen-model-custom:properties
-	public static final BooleanProperty SINGLE = BooleanProperty.of("single");
-	public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
+	public static final BooleanProperty SINGLE = BooleanProperty.create("single");
+	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 	// :::datagen-model-custom:properties
 	// :::datagen-model-custom:voxels
-	public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
-	public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
-	public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 16.0, 16.0);
-	public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+	public static final VoxelShape NORTH_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
+	public static final VoxelShape SOUTH_SHAPE = Block.box(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
+	public static final VoxelShape WEST_SHAPE = Block.box(0.0, 0.0, 0.0, 8.0, 16.0, 16.0);
+	public static final VoxelShape EAST_SHAPE = Block.box(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 	// :::datagen-model-custom:voxels
 
 	// :::datagen-model-custom:constructor
-	public VerticalSlabBlock(Settings settings) {
+	public VerticalSlabBlock(Properties settings) {
 		super(settings);
 	}
 
@@ -42,46 +42,46 @@ public class VerticalSlabBlock extends Block {
 
 	// :::datagen-model-custom:collision
 	@Override
-	protected VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
-		boolean type = state.get(SINGLE);
-		Direction direction = state.get(FACING);
+	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter world, BlockPos pos) {
+		boolean type = state.getValue(SINGLE);
+		Direction direction = state.getValue(FACING);
 		VoxelShape voxelShape;
 
 		if (type) {
 			switch (direction) {
-				case WEST -> voxelShape = WEST_SHAPE.asCuboid();
-				case EAST -> voxelShape = EAST_SHAPE.asCuboid();
-				case SOUTH -> voxelShape = SOUTH_SHAPE.asCuboid();
-				case NORTH -> voxelShape = NORTH_SHAPE.asCuboid();
+				case WEST -> voxelShape = WEST_SHAPE.singleEncompassing();
+				case EAST -> voxelShape = EAST_SHAPE.singleEncompassing();
+				case SOUTH -> voxelShape = SOUTH_SHAPE.singleEncompassing();
+				case NORTH -> voxelShape = NORTH_SHAPE.singleEncompassing();
 				default -> throw new MatchException(null, null);
 			}
 
 			return voxelShape;
 		} else {
-			return VoxelShapes.fullCube();
+			return Shapes.block();
 		}
 	}
 
 	@Override
-	protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-		return this.getSidesShape(state, world, pos);
+	protected VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, world, pos);
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-		return this.getSidesShape(state, world, pos);
+	protected VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, world, pos);
 	}
 
 	// :::datagen-model-custom:collision
 
 	// :::datagen-model-custom:replace
 	@Override
-	protected boolean canReplace(BlockState state, ItemPlacementContext context) {
-		Direction direction = state.get(FACING);
+	protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+		Direction direction = state.getValue(FACING);
 
-		if (context.getStack().isOf(this.asItem()) && state.get(SINGLE)) {
-			if (context.canReplaceExisting()) {
-				return context.getSide().getOpposite() == direction;
+		if (context.getItemInHand().is(this.asItem()) && state.getValue(SINGLE)) {
+			if (context.replacingClickedOnBlock()) {
+				return context.getClickedFace().getOpposite() == direction;
 			}
 		}
 
@@ -93,26 +93,26 @@ public class VerticalSlabBlock extends Block {
 	// :::datagen-model-custom:placement
 	@Override
 	@Nullable
-	public BlockState getPlacementState(ItemPlacementContext ctx) {
-		BlockPos pos = ctx.getBlockPos();
-		Direction direction = ctx.getHorizontalPlayerFacing();
-		BlockState state = ctx.getWorld().getBlockState(pos);
-		BlockState state2 = Objects.requireNonNull(super.getPlacementState(ctx));
+	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+		BlockPos pos = ctx.getClickedPos();
+		Direction direction = ctx.getHorizontalDirection();
+		BlockState state = ctx.getLevel().getBlockState(pos);
+		BlockState state2 = Objects.requireNonNull(super.getStateForPlacement(ctx));
 
-		if (state.isOf(this) && state.get(FACING) == ctx.getSide().getOpposite()) {
-			return state.isOf(this) ? state2.with(SINGLE, false) : super.getPlacementState(ctx);
+		if (state.is(this) && state.getValue(FACING) == ctx.getClickedFace().getOpposite()) {
+			return state.is(this) ? state2.setValue(SINGLE, false) : super.getStateForPlacement(ctx);
 		}
 
-		if (direction == Direction.NORTH && ctx.getHitPos().z - pos.getZ() > 0.5) {
-			return state2.with(FACING, Direction.SOUTH).with(SINGLE, true);
-		} else if (direction == Direction.SOUTH && ctx.getHitPos().z - pos.getZ() < 0.5) {
-			return state2.with(FACING, Direction.NORTH).with(SINGLE, true);
-		} else if (direction == Direction.WEST && ctx.getHitPos().x - pos.getX() > 0.5) {
-			return state2.with(FACING, Direction.EAST).with(SINGLE, true);
-		} else if (direction == Direction.EAST && ctx.getHitPos().x - pos.getX() < 0.5) {
-			return state2.with(FACING, Direction.WEST).with(SINGLE, true);
+		if (direction == Direction.NORTH && ctx.getClickLocation().z - pos.getZ() > 0.5) {
+			return state2.setValue(FACING, Direction.SOUTH).setValue(SINGLE, true);
+		} else if (direction == Direction.SOUTH && ctx.getClickLocation().z - pos.getZ() < 0.5) {
+			return state2.setValue(FACING, Direction.NORTH).setValue(SINGLE, true);
+		} else if (direction == Direction.WEST && ctx.getClickLocation().x - pos.getX() > 0.5) {
+			return state2.setValue(FACING, Direction.EAST).setValue(SINGLE, true);
+		} else if (direction == Direction.EAST && ctx.getClickLocation().x - pos.getX() < 0.5) {
+			return state2.setValue(FACING, Direction.WEST).setValue(SINGLE, true);
 		} else {
-			return state2.with(FACING, direction);
+			return state2.setValue(FACING, direction);
 		}
 	}
 
@@ -120,7 +120,7 @@ public class VerticalSlabBlock extends Block {
 
 	// :::datagen-model-custom:append
 	@Override
-	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(SINGLE, FACING);
 	}
 

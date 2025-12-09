@@ -20,4 +20,8 @@ features:
 search: false
 ---
 
+::: warning
+您目前正在查看适用于 Minecraft 1.20.4 的文档。如果您正在寻找其他版本，请从导航栏上的下拉菜单中选择。
+:::
+
 如果您想给 Fabric 文档做贡献，您可以在[GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源码，以及相关的[贡献指南](./contributing)。

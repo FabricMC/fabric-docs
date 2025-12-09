@@ -38,7 +38,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Пример файла `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -54,7 +54,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 - `axis=y` - Когда блок помещён вдоль оси Y, мы будем использовать нормальную вертикальную модель.
 - `axis=z` - Когда блок помещён вдоль оси Z, мы повернём модель так, чтобы она была ориентирована в положительном направлении оси X.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Как всегда, вам нужно создать перевод для вашего блока и модель предмета, которая будет наследовать одну из двух моделей.
 
@@ -100,7 +100,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Поскольку этот блок имеет только два возможных варианта, поскольку у него есть только одно свойство (`activated`), JSON-код состояния блока будет выглядеть примерно так:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 :::tip
 Не забудьте добавить [описание модели предмета](../items/first-item#creating-the-item-model-description) для блока, чтобы он отображался в инвентаре!

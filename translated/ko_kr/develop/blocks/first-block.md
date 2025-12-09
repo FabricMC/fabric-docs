@@ -35,7 +35,7 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/FabricDocsReferenceBlocks.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## 블록을 추가하고 등록하기 {#creating-and-registering-your-block}
 
@@ -80,7 +80,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 ```json
 {
-  "block.mod_id.condensed_dirt": "Condensed Dirt"
+  "block.example-mod.condensed_dirt": "Condensed Dirt"
 }
 ```
 
@@ -94,11 +94,11 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 텍스처가 게임 안에서 보이게 하려면, "거친 흙" 블록의 다음 위치에서 찾을 수 있는 블록 및 아이템 모델을 만들어야 합니다: 이 블록에서, `block/cube_all`모델 타입을 사용할 것입니다.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/block/condensed_dirt.json)
 
 보관함에 블록을 보이게 하려면 블록 모델을 보여주는 [아이템 모드 설명](../items/first-item#creating-the-item-model-description)을 만들어야 합니다. `assets/<mod id here>/models/block/condensed_dirt.json`
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/item/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/condensed_dirt.json)
 
 :::tip
 블록과 함께 `BlockItem`을 등록했다면 오직 아이템 모드 설명만 만들어도 됩니다!
@@ -112,9 +112,9 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 
 이 복잡한 상태 정의가 없는 예시 블록의 경우, 오직 한 개의 항목만이 정의에 필요합니다.
 
-파일은 `assets/mod_id/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
+파일은 `assets/example-mod/blockstates` 폴더에 위치해야 하며, 이름은 `ModBlocks` 클래스를 등록했을 때 사용한 블록 ID와 일치하여야 합니다. 예시로, 만약 블록 ID가 `condensed_dirt`라면, 파일 이름은 `condensed_dirt.json`이 되어야 합니다.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/condensed_dirt.json)
 
 :::tip
 블록 상태는 정말 복잡합니다. 그러므로, [블록 상태](./blockstates) 페이지에서 다루겠습니다.
@@ -132,7 +132,7 @@ Minecraft는 이 번역을 크리에이티브 인벤토리나 명령어 피드�
 노획물 목록에 대하여 더 자세히 알고 싶으면, [Minecraft 위키 - 노획물 목록](https://ko.minecraft.wiki/w/%EB%85%B8%ED%9A%8D%EB%AC%BC_%EB%AA%A9%EB%A1%9D) 페이지를 참고할 수 있습니다.
 :::
 
-@[code](@/reference/latest/src/main/resources/data/fabric-docs-reference/loot_tables/blocks/condensed_dirt.json)
+@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
 
 이 노획물 목록은 블록이 부서질 때나 폭발할 때 단일 블록 아이템의 떨굼을 제공합니다.
 

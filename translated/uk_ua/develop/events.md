@@ -39,7 +39,7 @@ API Fabric надає події для важливих областей у к�
 
 У цьому прикладі реєструється `AttackBlockCallback`, щоб завдати шкоди гравцеві, коли він потрапляє в блоки, з яких не випадає предмет під час видобутку вручну.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ### Додавання предметів до наявних таблиць здобичі {#adding-items-to-existing-loot-tables}
 
@@ -53,7 +53,7 @@ API Fabric надає події для важливих областей у к�
 
 API Fabric має подію, яка запускається під час завантаження таблиць здобичі, `LootTableEvents.MODIFY`. Ви можете зареєструвати зворотний виклик для нього в [ініціалізаторі мода](./getting-started/project-structure#entrypoints). Давайте також перевіримо, чи поточна таблиця здобичі є таблицею здобичі вугільної руди.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 #### Додавання предметів до таблиці здобичі {#adding-items-to-the-loot-table}
 
@@ -63,7 +63,7 @@ API Fabric має подію, яка запускається під час за
 
 У нашому пулі також немає елементів, тому ми зробимо запис про елемент за допомогою `ItemEntry#builder` і додамо його до пулу.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 ## Власні події {#custom-events}
 
@@ -115,6 +115,6 @@ API Fabric має подію, яка запускається під час за
 
 Тепер нам потрібно перевірити нашу подію. Ви можете зареєструвати слухача у своєму методі ініціалізації (або в іншій області, якщо хочете) і додати туди спеціальну логіку. Ось приклад, коли замість вовни випадає діамант:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/FabricDocsReferenceEvents.java)
+@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 Якщо ви входите в гру і стрижете вівцю, замість вовни повинен випасти діамант.

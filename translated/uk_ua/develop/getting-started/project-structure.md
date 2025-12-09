@@ -39,7 +39,7 @@ authors:
 
 Ось приклад простої `main` точки входу, яка записує повідомлення на консоль під час запуску гри:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ## `src/main/resources` {#src-main-resources}
 
@@ -47,7 +47,7 @@ authors:
 
 Це також розташування `fabric.mod.json` та будь-яких налаштовуваних файлів міксинів, які використовує ваш мод.
 
-Активи зберігаються в структурі, яка показує структуру пакетів ресурсів - наприклад, текстура для блоку буде зберігатися в `assets/mod-id/textures/block/block.png`.
+Активи зберігаються в структурі, яка показує структуру пакетів ресурсів - наприклад, текстура для блоку буде зберігатися в `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

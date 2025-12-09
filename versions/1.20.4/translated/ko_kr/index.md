@@ -20,4 +20,8 @@ features:
 search: false
 ---
 
+::: warning
+Minecraft: Java Edition 1.20.4에 최적화된 문서를 보고 있습니다. 다른 버전을 찾고 계시다면, 네비게이션 바의 드롭다운 메뉴에서 선택하십시오.
+:::
+
 Fabric 문서에 기여하고 싶다면, [GitHub](https://github.com/FabricMC/fabric-docs)에서 소스 코드를 볼 수 있으며, 기여시에는 [기여 가이드라인](./contributing)을 준수하시기 바랍니다.

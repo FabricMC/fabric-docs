@@ -34,7 +34,7 @@ As mentioned before, the `fabric.mod.json` file contains a field called `entrypo
 
 The template mod generator creates both a `main` and `client` entrypoint by default - the `main` entrypoint is used for common code, and the `client` entrypoint is used for client-specific code. These entrypoints are called respectively when the game starts.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/1.20.4/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/1.20.4/src/main/java/com/example/docs/ExampleMod.java)
 
 The above is an example of a simple `main` entrypoint that logs a message to the console when the game starts.
 
@@ -44,7 +44,7 @@ The `src/main/resources` folder is used to store the resources that your mod use
 
 It's also the location of `fabric.mod.json` and any mixin configuration files that your mod uses.
 
-Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/modid/textures/block/block.png`.
+Assets are stored in a structure that mirrors the structure of resource packs - for example, a texture for a block would be stored in `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources` {#src-client-resources}
 

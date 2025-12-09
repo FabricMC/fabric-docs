@@ -13,7 +13,7 @@ authors:
 
 Ви, напевно, розумієте чому вони корисні - вони уникають необхідності зберігати дані NBT дані у блоковій сутності - зменшуючи розмір світу, та запобігаючи проблемам із TPS!
 
-Визначення станів блоку знаходиться у теці `assets/mod-id/blockstates`.
+Визначення станів блоку знаходиться у теці `assets/example-mod/blockstates`.
 
 ## Наприклад: Блок колонна {#pillar-block}
 
@@ -27,7 +27,7 @@ Minecraft має деякі користувальницькі класи, як�
 
 Блоки колон мають дві текстури, верхню та бічну - вони використовують модель `block/cube_column`.
 
-Як і зазвичай, з усіма текстурами блоків, текстури можна знайти в `assets/mod-id/textures/block`
+Як і зазвичай, з усіма текстурами блоків, текстури можна знайти в `assets/example-mod/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстури</DownloadEntry>
 
@@ -38,10 +38,10 @@ Minecraft має деякі користувальницькі класи, як�
 
 Приклад файлу `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Щоб детальніше ознайомитися з усіма модифікаторами, доступними у файлах стану блоку, перегляньте сторінку [Вікі Minecraft — Моделі (Стани блоків)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 - `axis=y` – коли блок розміщено вздовж осі Y, ми будемо використовувати звичайну вертикальну модель.
 - `axis=z` – коли блок розміщується вздовж осі Z, ми повертаємо модель у позитивний X.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Як завжди, вам потрібно буде створити переклад для свого блоку та модель предмета, яка є батьками будь-якої з двох моделей.
 
@@ -98,7 +98,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 Оскільки цей блок має лише два можливі варіанти, оскільки він має лише одну властивість («активовано»), стан блоку JSON виглядатиме приблизно так:
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
 :::tip
 Не забудьте додати [опис моделі предмета](../items/first-item#creating-the-item-model-description) для блоку, щоб він показувався в інвентарі!

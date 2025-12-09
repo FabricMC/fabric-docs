@@ -24,7 +24,7 @@ Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    Identifier.of(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -76,23 +76,23 @@ Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wi
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
 }
 ```
 
-Vergiss nicht, deine Sprachdatei (`/assets/mod-id/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
+Vergiss nicht, deine Sprachdatei (`/assets/example-mod/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
 
 ```json
 {
-  "item.fabric-docs-reference.counter": "Counter",
-  "item.fabric-docs-reference.counter.info": "Used %1$s times"
+  "item.example-mod.counter": "Counter",
+  "item.example-mod.counter.info": "Used %1$s times"
 }
 ```
 
 Starte das Spiel und führe diesen Befehl aus, um dir ein neues Zähler Item mit einer Anzahl von 5 zu geben.
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[fabric-docs-reference:click_count=5]
+/give @p example-mod:counter[example-mod:click_count=5]
 ```
 
 Wenn du den Mauszeiger über dieses Item in deinem Inventar bewegst, solltest du die Anzahl im Tooltip sehen!
@@ -154,7 +154,7 @@ Starte das Spiel erneut und fahre mit dem Mauszeiger über das Item ohne die Kom
 Versuche, dir selbst einen Counter zu geben, indem du unsere benutzerdefinierte Komponente entfernst. Du kannst diesen Befehl nutzen, um dies zu tun:
 
 ```mcfunction
-/give @p fabric-docs-reference:counter[!fabric-docs-reference:click_count]
+/give @p example-mod:counter[!example-mod:click_count]
 ```
 
 Wenn du den Mauszeiger über dieses Element bewegst, sollte der Tooltip fehlen.

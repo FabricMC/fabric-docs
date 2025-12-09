@@ -1,180 +1,134 @@
 <script setup lang="ts">
-import { useData, useRouter } from "vitepress";
+import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed, onBeforeMount, ref } from "vue";
+import { computed, ref } from "vue";
+import { Fabric } from "../../types";
 
-// Define component properties
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };
   screenMenu?: boolean;
 }>();
 
 const data = useData();
-const router = useRouter();
+const collator = new Intl.Collator(undefined, { numeric: true });
 
-const text = computed(() => data.theme.value.version.switcher);
+const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
+const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).switcher);
 
-// State refs
-const currentVersion = ref<string>(props.versioningPlugin.latestVersion);
-const isOpen = ref(false);
-
-// Helper function to find the matching version from the current route path
-function getVersionFromPath(path: string): string {
-  for (const v of props.versioningPlugin.versions) {
-    if (path.includes(`/${v}/`)) {
-      return v;
-    }
-  }
+const currentV = computed(() => {
+  const split = data.page.value.filePath.split("/");
+  if (split[0] === "versions") return split[1];
   return props.versioningPlugin.latestVersion;
-}
-
-// Before route change, update the current version
-router.onBeforeRouteChange = (to: string) => {
-  if (to === "/") {
-    currentVersion.value = props.versioningPlugin.latestVersion;
-    return true;
-  }
-  currentVersion.value = getVersionFromPath(to);
-  return true;
-};
-
-// On mount, detect the version from the router's current path
-onBeforeMount(() => {
-  currentVersion.value = getVersionFromPath(router.route.path);
 });
 
-// Toggle the open state in screen menu mode
-const toggle = () => {
-  isOpen.value = !isOpen.value;
+const versions = computed(() =>
+  [
+    props.versioningPlugin.latestVersion,
+    ...(typeof env.value === "number"
+      ? []
+      : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
+  ].filter((v) => v !== currentV.value)
+);
+
+const open = ref(false);
+
+/*
+file format:   [versions/version/] [translated/locale/] path/to/index.md
+route format:  [locale/] [version/] path/to/
+
+- notice that version and locale are flipped between file and route
+- locale/ is not added for pages in English
+- version/ is not added for the latest version
+*/
+const getRoute = (v: string) => {
+  const split = data.page.value.filePath.split("/");
+  const noVersions = split.slice(split[0] === "versions" ? 2 : 0);
+  const neither = noVersions.slice(noVersions[0] === "translated" ? 2 : 0);
+
+  const segments = [
+    "",
+    data.lang.value !== "en_us" ? data.lang.value : undefined,
+    v !== props.versioningPlugin.latestVersion ? v : undefined,
+    ...neither,
+  ]
+    .filter((s) => s !== undefined)
+    .reverse();
+
+  segments[0] = segments[0] === "index.md" ? "" : segments[0].replace(/\.md$/, "");
+
+  return segments.reverse().join("/");
 };
-
-// Constructs the appropriate route path for a given version
-function buildRoutePath(
-  currentPath: string,
-  locale: string | null,
-  version: string,
-  isOnLatest: boolean
-) {
-  if (locale) {
-    // Replace or add version segment while keeping the locale
-    // e.g. /en/ -> /en/1.2.0/ or /en/1.2.0/ -> /en/1.3.0/
-    if (!isOnLatest) {
-      if (version === props.versioningPlugin.latestVersion) {
-        return currentPath.replace(
-          `/${locale}/${currentVersion.value}/`,
-          `/${locale}/`
-        );
-      } else {
-        // Replace any existing version segment with the new one
-        return currentPath.replace(
-          `/${locale}/${currentVersion.value}/`,
-          `/${locale}/${version}/`
-        );
-      }
-    } else {
-      // If currently on latest, just add the new version segment
-      return currentPath.replace(`/${locale}/`, `/${locale}/${version}/`);
-    }
-  } else {
-    // Non-localized routes
-    // e.g. / -> /1.2.0/ or /1.2.0/ -> /1.3.0/
-    if (!isOnLatest) {
-      if (version === props.versioningPlugin.latestVersion) {
-        return currentPath.replace(`/${currentVersion.value}/`, "/");
-      } else {
-        return currentPath.replace(`/${currentVersion.value}/`, `/${version}/`);
-      }
-    } else {
-      return currentPath.replace("/", `/${version}/`);
-    }
-  }
-}
-
-// Navigate to the selected version
-function visitVersion(version: string) {
-  const localeKeys = Object.keys(data.site.value.locales);
-  const isLocalized = localeKeys.some((key) =>
-    router.route.path.startsWith(`/${key}/`)
-  );
-  const locale = isLocalized
-    ? localeKeys.find((key) => router.route.path.startsWith(`/${key}/`)) || null
-    : null;
-
-  const isOnLatest =
-    currentVersion.value === props.versioningPlugin.latestVersion;
-  const route = buildRoutePath(router.route.path, locale, version, isOnLatest);
-
-  router.go(route);
-  currentVersion.value = version;
-}
 </script>
 
 <template>
-  <!-- Flyout version switcher for desktop -->
-  <VPFlyout
-    v-if="!screenMenu"
-    class="VPVersionSwitcher"
+  <component
+    :is="screenMenu ? 'div' : VPFlyout"
     icon="vpi-versioning"
-    :button="currentVersion"
-    :label="text"
+    :class="{ open }"
+    :button="currentV"
+    :label="options.label.replace('%s', currentV)"
   >
-    <div class="items">
-      <!-- Link to the latest version if it's not the current one -->
-      <VPLink
-        href="#"
-        v-if="currentVersion != versioningPlugin.latestVersion"
-        @click="visitVersion(versioningPlugin.latestVersion)"
-      >
-        {{ versioningPlugin.latestVersion }}
-      </VPLink>
-      <!-- Render links for each version -->
-      <template v-for="version in versioningPlugin.versions" :key="version">
-        <VPLink
-          href="#"
-          :tag="'a'"
-          v-if="currentVersion != version"
-          @click="visitVersion(version)"
-        >
-          {{ version }}
-        </VPLink>
-      </template>
-    </div>
-  </VPFlyout>
-
-  <!-- Screen menu switcher (e.g. mobile) -->
-  <div v-else class="VPScreenVersionSwitcher" :class="{ open: isOpen }">
-    <button
-      class="button"
-      aria-controls="navbar-group-version"
-      :aria-expanded="isOpen"
-      @click="toggle"
-    >
-      <span class="button-text">
-        <span class="vpi-versioning icon" />{{ text }}
-      </span>
-      <span class="vpi-plus button-icon" />
+    <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
+      <span><span class="vpi-versioning" />{{ options.label.replace("%s", currentV) }}</span>
+      <span class="vpi-plus" />
     </button>
 
-    <div id="navbar-group-version" class="items">
-      <VPLink href="#" @click="visitVersion(versioningPlugin.latestVersion)">
-        {{ versioningPlugin.latestVersion }}
-      </VPLink>
-      <template v-for="version in versioningPlugin.versions" :key="version">
-        <VPLink href="#" @click="visitVersion(version)">
-          {{ version }}
-        </VPLink>
-      </template>
-    </div>
-  </div>
+    <VPLink v-if="versions.length" v-for="v in versions" :key="v" :href="getRoute(v)">{{
+      options.label.replace("%s", v)
+    }}</VPLink>
+    <VPLink v-else>{{ options.none }}</VPLink>
+  </component>
 </template>
 
 <style scoped>
-.vpi-versioning.option-icon {
-  margin-right: 2px !important;
+div:not(.VPFlyout) {
+  border-bottom: 1px solid var(--vp-c-divider);
+  height: 48px;
+  overflow: hidden;
+  transition: border-color 0.5s;
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px 11px 0;
+    width: 100%;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--vp-c-text-1);
+    transition: color 0.25s;
+
+    .vpi-versioning {
+      padding: 8px;
+      margin-right: 4px;
+    }
+
+    .vpi-plus {
+      transition: transform 0.25s;
+    }
+  }
+
+  button:hover {
+    color: var(--vp-c-brand-1);
+  }
 }
 
-.link {
+.open:not(.VPFlyout) {
+  padding-bottom: 10px;
+  height: auto;
+
+  button {
+    color: var(--vp-c-brand-1);
+  }
+
+  .vpi-plus {
+    transform: rotate(45deg);
+  }
+}
+
+.VPLink {
   display: block;
   border-radius: 6px;
   padding: 0 12px;
@@ -183,78 +137,17 @@ function visitVersion(version: string) {
   font-weight: 500;
   color: var(--vp-c-text-1);
   white-space: nowrap;
-  transition: background-color 0.25s, color 0.25s;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
 }
-.link:hover {
+
+span.VPLink {
+  font-style: italic;
+}
+
+a.VPLink:hover {
   color: var(--vp-c-brand-1);
   background-color: var(--vp-c-default-soft);
-}
-.link.active {
-  color: var(--vp-c-brand-1);
-}
-.VPVersionSwitcher {
-  display: flex;
-  align-items: center;
-}
-.icon {
-  padding: 8px;
-}
-.title {
-  padding: 0 24px 0 12px;
-  line-height: 32px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-}
-.VPScreenVersionSwitcher {
-  border-bottom: 1px solid var(--vp-c-divider);
-  height: 48px;
-  overflow: hidden;
-  transition: border-color 0.5s;
-}
-.VPScreenVersionSwitcher .items {
-  visibility: hidden;
-}
-.VPScreenVersionSwitcher.open .items {
-  visibility: visible;
-}
-.VPScreenVersionSwitcher.open {
-  padding-bottom: 10px;
-  height: auto;
-}
-.VPScreenVersionSwitcher.open .button {
-  padding-bottom: 6px;
-  color: var(--vp-c-brand-1);
-}
-.VPScreenVersionSwitcher.open .button-icon {
-  transform: rotate(45deg);
-}
-.VPScreenVersionSwitcher button .icon {
-  margin-right: 8px;
-}
-.button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 4px 11px 0;
-  width: 100%;
-  line-height: 24px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-  transition: color 0.25s;
-}
-.button:hover {
-  color: var(--vp-c-brand-1);
-}
-.button-icon {
-  transition: transform 0.25s;
-}
-.group:first-child {
-  padding-top: 0px;
-}
-.group + .group,
-.group + .item {
-  padding-top: 4px;
 }
 </style>

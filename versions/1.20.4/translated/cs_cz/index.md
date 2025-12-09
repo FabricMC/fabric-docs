@@ -20,4 +20,8 @@ features:
 search: false
 ---
 
+::: warning
+Právě prohlížíte dokumentaci pro Minecraft 1.20.4. Pokud hledáte jinou verzi, vyberte ji z seznamu na navigačním panelu.
+:::
+
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).
