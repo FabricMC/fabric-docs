@@ -37,46 +37,39 @@ export default [
     ],
   },
   {
-    text: "develop.core",
-    collapsed: true,
-    items: [
-      {
-        text: "develop.misc.events",
-        link: "/develop/events",
-      },
-      {
-        text: "develop.misc.text_and_translations",
-        link: "/develop/text-and-translations",
-      },
-      {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-    ],
-  },
-  {
     text: "develop.items",
     collapsed: true,
     items: [
       {
         text: "develop.items.first_item",
         link: "/develop/items/first-item",
+        items: [
+          {
+            text: "develop.items.food",
+            link: "/develop/items/food",
+          },
+          {
+            text: "develop.items.potions",
+            link: "/develop/items/potions",
+          },
+
+          {
+            text: "develop.items.custom_tools",
+            link: "/develop/items/custom-tools",
+          },
+          {
+            text: "develop.items.custom_armor",
+            link: "/develop/items/custom-armor",
+          },
+        ],
       },
       {
         text: "develop.items.item_models",
         link: "/develop/items/item-models",
       },
       {
-        text: "develop.items.food",
-        link: "/develop/items/food",
-      },
-      {
-        text: "develop.items.custom_tools",
-        link: "/develop/items/custom-tools",
-      },
-      {
-        text: "develop.items.custom_armor",
-        link: "/develop/items/custom-armor",
+        text: "develop.items.item_appearance",
+        link: "/develop/items/item-appearance",
       },
       {
         text: "develop.items.custom_creative_tabs",
@@ -94,14 +87,6 @@ export default [
         text: "develop.items.custom_data_components",
         link: "/develop/items/custom-data-components",
       },
-      {
-        text: "develop.items.potions",
-        link: "/develop/items/potions",
-      },
-      {
-        text: "develop.items.item_appearance",
-        link: "/develop/items/item-appearance",
-      }
     ],
   },
   {
@@ -133,7 +118,7 @@ export default [
       {
         text: "develop.blocks.transparency_and_tinting",
         link: "/develop/blocks/transparency-and-tinting",
-      }
+      },
     ],
   },
   {
@@ -243,28 +228,39 @@ export default [
         link: "/develop/data-generation/setup",
       },
       {
-        text: "develop.data_generation.tags",
-        link: "/develop/data-generation/tags",
+        text: "develop.data_generation.client",
+        items: [
+          {
+            text: "develop.data_generation.translations",
+            link: "/develop/data-generation/translations",
+          },
+          {
+            text: "develop.data_generation.block_models",
+            link: "/develop/data-generation/block-models",
+          },
+        ],
       },
       {
-        text: "develop.data_generation.translations",
-        link: "/develop/data-generation/translations",
-      },
-      {
-        text: "develop.data_generation.advancements",
-        link: "/develop/data-generation/advancements",
-      },
-      {
-        text: "develop.data_generation.recipes",
-        link: "/develop/data-generation/recipes",
-      },
-      {
-        text: "develop.data_generation.loot_tables",
-        link: "/develop/data-generation/loot-tables",
-      },
-      {
-        text: "develop.data_generation.block_models",
-        link: "/develop/data-generation/block-models",
+        text: "develop.data_generation.server",
+        items: [
+          {
+            text: "develop.data_generation.tags",
+            link: "/develop/data-generation/tags",
+          },
+
+          {
+            text: "develop.data_generation.advancements",
+            link: "/develop/data-generation/advancements",
+          },
+          {
+            text: "develop.data_generation.recipes",
+            link: "/develop/data-generation/recipes",
+          },
+          {
+            text: "develop.data_generation.loot_tables",
+            link: "/develop/data-generation/loot-tables",
+          },
+        ],
       },
     ],
   },
@@ -290,10 +286,10 @@ export default [
     text: "develop.loom",
     collapsed: true,
     items: [
-      { 
-         text: "develop.loom.introduction", 
-         link: "/develop/loom", 
-       },
+      {
+        text: "develop.loom.introduction",
+        link: "/develop/loom",
+      },
       {
         text: "develop.loom.fabric_api",
         link: "/develop/loom/fabric-api",
@@ -321,6 +317,18 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.misc.events",
+        link: "/develop/events",
+      },
+      {
+        text: "develop.misc.text_and_translations",
+        link: "/develop/text-and-translations",
+      },
+      {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
+      },
+      {
         text: "develop.misc.migrating_mappings",
         link: "/develop/migrating-mappings",
         items: [
@@ -331,8 +339,8 @@ export default [
           {
             text: "develop.misc.migrating_mappings.ravel",
             link: "/develop/migrating-mappings/ravel",
-          }
-        ]
+          },
+        ],
       },
       {
         text: "develop.misc.debugging",
