@@ -2,7 +2,7 @@ package com.example.docs.appearance;
 
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -16,7 +16,7 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// :::item_tint_source
-		ItemTintSources.ID_MAPPER.put(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "color"), RainTintSource.MAP_CODEC);
+		ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "color"), RainTintSource.MAP_CODEC);
 		// :::item_tint_source
 		// :::color_provider
 		ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> {

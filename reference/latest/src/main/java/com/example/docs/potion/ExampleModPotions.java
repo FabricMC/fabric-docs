@@ -2,7 +2,7 @@ package com.example.docs.potion;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -19,7 +19,7 @@ public class ExampleModPotions implements ModInitializer {
 	public static final Potion TATER_POTION =
 			Registry.register(
 					BuiltInRegistries.POTION,
-					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
 					new Potion("tater",
 							new MobEffectInstance(
 									ExampleModEffects.TATER,

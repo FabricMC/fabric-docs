@@ -4,7 +4,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.example.docs.ExampleMod;
 
@@ -28,7 +28,7 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::2
 		// x, y, width, height, color
-		context.submitOutline(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
+		context.renderOutline(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
 		// :::2
 
 		// :::3
@@ -58,13 +58,13 @@ public class DrawContextExampleScreen extends Screen {
 		// :::4
 
 		// :::5
-		ResourceLocation texture = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/deepslate.png");
+		Identifier texture = Identifier.fromNamespaceAndPath("minecraft", "textures/block/deepslate.png");
 		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
 		context.blit(RenderPipelines.GUI_TEXTURED, texture, 90, 90, 0, 0, 16, 16, 16, 16);
 		// :::5
 
 		// :::6
-		ResourceLocation texture2 = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
+		Identifier texture2 = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// renderLayer, texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
 		context.blit(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);

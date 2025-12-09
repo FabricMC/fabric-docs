@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cookie": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cookie"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "example-mod:wheat_from_smelting_cookie"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cookie"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "example-mod:wheat_from_smelting_cookie"
+    ]
+  }
+}

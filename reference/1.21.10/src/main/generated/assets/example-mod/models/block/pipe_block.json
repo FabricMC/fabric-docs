@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "example-mod:block/pipe_block_top",
+    "side": "example-mod:block/pipe_block"
+  }
+}

@@ -1,7 +1,7 @@
 package com.example.docs.codec;
 
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // :::
 // An empty class to hold static references to all BeanTypes
@@ -16,7 +16,7 @@ public class BeanTypes {
 
 	//:::
 	public static <T extends Bean> BeanType<T> register(String id, BeanType<T> beanType) {
-		return Registry.register(BeanType.REGISTRY, ResourceLocation.fromNamespaceAndPath("example", id), beanType);
+		return Registry.register(BeanType.REGISTRY, Identifier.fromNamespaceAndPath("example", id), beanType);
 	}
 }
 // :::

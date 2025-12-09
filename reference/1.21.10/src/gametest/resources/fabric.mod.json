@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "example-mod-test",
+  "version": "1.0.0",
+  "name": "Example mod",
+  "icon": "assets/example-mod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+        "com.example.docs.ExampleModGameTest"
+    ],
+    "fabric-client-gametest": [
+        "com.example.docs.ExampleModClientGameTest"
+    ]
+  }
+}
