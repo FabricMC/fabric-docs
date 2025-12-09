@@ -15,7 +15,7 @@ public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGo
 	private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/entity/mini_golem.png");
 
 	public MiniGolemEntityRenderer(EntityRendererProvider.Context context) {
-		super(context, new MiniGolemEntityModel(context.bakeLayer(ModEntityModelLayers.MINI_GOLEM)), 0.375f); // 0.375 shaowd radius
+		super(context, new MiniGolemEntityModel(context.bakeLayer(ModEntityModelLayers.MINI_GOLEM)), 0.375f); // 0.375 shadow radius
 	}
 
 	@Override

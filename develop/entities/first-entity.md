@@ -111,15 +111,11 @@ For example purposes, you can use this example texture for `assets/example-mod/t
 
 ### Creating the Renderer {#creating-the-renderer}
 
-A mob's entity renderer enables you to view your entity in-game.
+A mob's entity renderer enables you to view your entity in-game. We'll create a new class, `MiniGolemEntityRenderer`, which will tell Minecraft what texture, model and entity render state to use for this entity.
 
 @[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
 
-We are referencing the texture in this code in line 2 from the previous step.
-
-In this class `MiniGolemEntityRenderer`, the creation of the render state and the entity's model happens.
-
-The shadow radius `.375f`, is provided as you can view the circle under the mob which minecraft renders.
+This is also where the shadow radius is set, for this entity that will be `0.375f`.
 
 ### Adding Walking Animations {#walking-animations}
 
