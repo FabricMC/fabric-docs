@@ -124,7 +124,7 @@ public class ModBlocks {
 	// :::datagen-model:family-declaration
 
 	public static final Block DUPLICATOR_BLOCK = register(
-			"duplicator", DuplicatorBlock::new, AbstractBlock.Settings.create(), true
+			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// :::1

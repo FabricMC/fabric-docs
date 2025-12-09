@@ -2,101 +2,101 @@ package com.example.docs.block.entity.custom;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.inventory.ImplementedInventory;
 
 /*
-The following is a dummy piece of code to not have `implements SidedInventory` in the first code block where we implement `ImplementedInventory`.
+The following is a dummy piece of code to not have `implements WorldlyContainer` in the first code block where we implement `ImplementedInventory`.
 lmk if you have a better idea on how to handle this.
-// :::1
+// :::be
 public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInventory {
-// :::1
+// :::be
 */
 
-public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInventory, SidedInventory {
-	// :::1
+public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInventory, WorldlyContainer {
+	// :::be
 
-	private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
+	private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
 
-	// :::3
+	// :::tick
 	private int timeSinceDropped = 0;
 
-	// :::3
+	// :::tick
 
 	public DuplicatorBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.DUPLICATOR_BLOCK_ENTITY, pos, state);
 	}
 
 	@Override
-	public DefaultedList<ItemStack> getItems() {
+	public NonNullList<ItemStack> getItems() {
 		return items;
 	}
 
-	// :::1
+	// :::be
 
-	// :::2
+	// :::save
 	@Override
-	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		super.readNbt(nbt, registryLookup);
-		Inventories.readNbt(nbt, items, registryLookup);
+	protected void loadAdditional(ValueInput input) {
+		super.loadAdditional(input);
+		ContainerHelper.loadAllItems(input, items);
 	}
 
 	@Override
-	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		Inventories.writeNbt(nbt, items, registryLookup);
-		super.writeNbt(nbt, registryLookup);
+	protected void saveAdditional(ValueOutput output) {
+		ContainerHelper.saveAllItems(output, items);
+		super.saveAdditional(output);
 	}
 
-	// :::2
+	// :::save
 
-	// :::3
-	public static void tick(World world, BlockPos blockPos, BlockState blockState, DuplicatorBlockEntity duplicatorBlockEntity) {
+	// :::tick
+	public static void tick(Level world, BlockPos blockPos, BlockState blockState, DuplicatorBlockEntity duplicatorBlockEntity) {
 		if (!duplicatorBlockEntity.isEmpty()) {
 			duplicatorBlockEntity.timeSinceDropped++;
 
 			if (duplicatorBlockEntity.timeSinceDropped < 10) return;
 			duplicatorBlockEntity.timeSinceDropped = 0;
 
-			ItemStack duplicate = duplicatorBlockEntity.getStack(0).split(1);
+			ItemStack duplicate = duplicatorBlockEntity.getItem(0).split(1);
 
-			Block.dropStack(world, blockPos, Direction.UP, duplicate);
-			Block.dropStack(world, blockPos, Direction.UP, duplicate);
+			Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
+			Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 		}
 	}
 
-	// :::3
+	// :::tick
 
-	// :::4
+	// :::accept
 	@Override
-	public int[] getAvailableSlots(Direction side) {
+	public int[] getSlotsForFace(Direction side) {
 		return new int[]{ 0 };
 	}
 
 	@Override
-	public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction dir) {
 		return dir == Direction.UP;
 	}
 
 	@Override
-	public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction dir) {
 		return true;
 	}
 
-	// :::4
+	// :::accept
 
-	// :::1
+	// :::be
 }
-// :::1
+// :::be
