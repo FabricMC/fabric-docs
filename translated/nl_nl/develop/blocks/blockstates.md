@@ -38,7 +38,7 @@ Omdat de pilaar twee posities heeft, horizontaal en verticaal, zullen we twee ve
 
 Hier een voorbeeld van het bestand `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ---
 
@@ -54,7 +54,7 @@ Vervolgens zullen we een blok staat bestand moeten maken. Het blok staat bestand
 - `axis=y` - Wanneer het blok langs de Y-as wordt geplaatst, gebruiken we het normale verticale model.
 - `axis=z` - Wanneer het blok langs de Z-as wordt geplaatst, roteren we het model in de positieve X-richting.
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Zoals altijd moet je een vertaling voor uw blok maken, en een voorwerp model dat de "parent" is van een van de twee modellen.
 
@@ -104,7 +104,7 @@ Als je meerdere eigenschappen hebt voor een blok, moet je met alle mogelijke com
 
 Omdat dit blok maar twee mogelijke varianten heeft, omdat er maar een eigenschap is (`activated`), zal de blok staat JSON er ongeveer zo uitzien:
 
-@[code](@/reference/latest/src/main/resources/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
 
 ---
 

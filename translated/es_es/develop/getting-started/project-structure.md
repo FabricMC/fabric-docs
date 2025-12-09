@@ -32,7 +32,7 @@ Como ya fue mencionado, el archivo `fabric.mod.json` contiene un campo llamado `
 
 El generador de plantillas de mods crea los puntos de entrada `main` y `client` por defecto - el punto de entrada de `main` es usado para código común, mientras que el punto de entrada de `client` es usado para código exclusivo o específico para el cliente. Estos puntos de entrada son llamados respectivamente cuando el juego comienza.
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/FabricDocsReference.java)
+@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 Lo anterior es un ejemplo de un punto de entrada de `main` simple, el cual manda un mensaje a la consola cuando el juego empieza.
 
@@ -42,7 +42,7 @@ El folder `src/main/resources` es usado para guardar los recursos que tu mod usa
 
 Aquí también se puede encontrar el archivo `fabric.mod.json` y cualquier archivo de configuración de mixin que tu mod use.
 
-Los _assets_ o recursos son guardados en una estructura que es similar a la estructura de los paquetes de recursos - por ejemplo, una textura para un bloque sería guardada en `assets/modid/textures/block/block.png`.
+Los _assets_ o recursos son guardados en una estructura que es similar a la estructura de los paquetes de recursos - por ejemplo, una textura para un bloque sería guardada en `assets/example-mod/textures/block/block.png`.
 
 ## `src/client/resources`
 

@@ -32,7 +32,7 @@ search: false
 
 与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的模组入口点内完成。 这可以在我们的模组入口点内完成。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### 本地化与纹理
 
@@ -43,27 +43,27 @@ search: false
 状态效果图标是 18x18 的 PNG。 将您的自定义图标放在： 将您的自定义图标放在：
 
 ```:no-line-numbers
-resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
+resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
 ![在玩家背包中的效果](/assets/develop/tater-effect.png)
 
 #### **翻译**
 
-像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.mod-id.<effect-identifier>": "Value"` 到语言文件中。
+像其它翻译一样，您可以添加一个 ID 格式的条目 `"effect.example-mod.<effect-identifier>": "Value"` 到语言文件中。
 
 ::: code-group
 
-```json[assets/fabric-docs-reference/lang/en_us.json]
+```json[assets/example-mod/lang/en_us.json]
 {
-  "effect.fabric-docs-reference.tater": "Tater"
+  "effect.example-mod.tater": "Tater"
 }
 ```
 
 ### 测试
 
-使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。
-使用命令 `/effect give @p fabric-docs-reference:tater` 为玩家提供 Tater 效果。 使用 `/effect clear` 移除该效果。
+使用命令 `/effect give @p example-mod:tater` 为玩家提供 Tater 效果。
+使用命令 `/effect give @p example-mod:tater` 为玩家提供 Tater 效果。 使用 `/effect clear` 移除该效果。
 
 ::: info
 要创建使用此效果的药水，请参阅[药水](../items/potions)指南。

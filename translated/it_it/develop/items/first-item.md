@@ -40,7 +40,7 @@ Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la 
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Settings` come parametro.
+`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Settings` come parametro.
 
 Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
@@ -48,7 +48,7 @@ Per fare questo puoi aggiungere un metodo `initialize` pubblico e statico alla t
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 Chiamare un metodo su una classe la inizializza staticamente se non è mai stata caricata prima - questo significa che tutti gli attributi `static` vengono calcolati. Questo è il motivo di questo metodo `initialize` fasullo.
 
@@ -76,13 +76,13 @@ Tuttavia, gli manca il seguente:
 
 ## Dare un Nome all'Oggetto {#naming-the-item}
 
-L'oggetto per ora non ha una traduzione, per cui dovrai aggiungerne una. La chiave di traduzione è già stata fornita da Minecraft: `item.mod_id.suspicious_substance`.
+L'oggetto per ora non ha una traduzione, per cui dovrai aggiungerne una. La chiave di traduzione è già stata fornita da Minecraft: `item.example-mod.suspicious_substance`.
 
-Crea un nuovo file JSON presso: `src/main/resources/assets/mod-id/lang/en_us.json` e mettici la chiave di traduzione, e il suo valore:
+Crea un nuovo file JSON presso: `src/main/resources/assets/example-mod/lang/en_us.json` e mettici la chiave di traduzione, e il suo valore:
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -90,7 +90,7 @@ Puoi riavviare il gioco, o ricostruire la tua mod e premere <kbd>F3</kbd>+<kbd>T
 
 ## Aggiungere Texture e Modello {#adding-a-texture-and-model}
 
-Per dare al tuo oggetto una texture e un modello, ti basta creare un'immagine 16x16 come texture per il tuo oggetto e salvarla nella cartella `assets/mod-id/textures/item`. Il nome del file è l'identificatore dell'oggetto, con estensione `.png`.
+Per dare al tuo oggetto una texture e un modello, ti basta creare un'immagine 16x16 come texture per il tuo oggetto e salvarla nella cartella `assets/example-mod/textures/item`. Il nome del file è l'identificatore dell'oggetto, con estensione `.png`.
 
 Per questo esempio, puoi usare questa texture di esempio per `suspicious_substance.png`
 
@@ -100,9 +100,9 @@ Appena riavviato/ricaricato il gioco - dovresti vedere che l'oggetto ancora non 
 
 Creeremo un semplice modello `item/generated`, che accetti come input solo una texture.
 
-Crea il modello JSON nella cartella `assets/mod-id/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
+Crea il modello JSON nella cartella `assets/example-mod/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 
@@ -117,15 +117,15 @@ Ci sono alternative, tra cui `item/handheld` che si usa per oggetti che il gioca
 
 Minecraft non sa in automatico dove i file dei modelli dei tuoi oggetti si trovino, dobbiamo fornire una descrizione del modello dell'oggetto.
 
-Crea la descrizione JSON dell'oggetto in `assets/mod-id/items`, e come nome del file l'identifier dell'oggetto: `suspicious_substance.json`.
+Crea la descrizione JSON dell'oggetto in `assets/example-mod/items`, e come nome del file l'identifier dell'oggetto: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### Comprendere il JSON della Descrizione del Modello d'Oggetto {#breaking-down-the-item-model-description-json}
 
 - `model`: Questa è la proprietà che contiene il riferimento al nostro modello.
   - `type`: Questo è il tipo del nostro modello. Per la maggior parte degli oggetti dovrebbe essere `minecraft:model`
-  - `model`: Questo è l'identifier del modello. Dovrebbe seguire questo formato: `mod-id:item/item_name`
+  - `model`: Questo è l'identifier del modello. Dovrebbe seguire questo formato: `example-mod:item/item_name`
 
 Il tuo oggetto dovrebbe ora avere questo aspetto nel gioco:
 
@@ -147,7 +147,7 @@ In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare l'evento
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-Se vuoi aggiungere una ricetta per il tuo oggetto, devi posizione un file JSON della ricetta nella cartella `data/mod-id/recipe`.
+Se vuoi aggiungere una ricetta per il tuo oggetto, devi posizione un file JSON della ricetta nella cartella `data/example-mod/recipe`.
 
 Per maggiori informazioni sul formato delle ricette, consulta queste risorse:
 

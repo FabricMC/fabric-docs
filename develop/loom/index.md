@@ -18,7 +18,9 @@ Loom provides utilities to install Minecraft and mods in a development environme
 
 Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent.
 
-This page is a reference of all options and features of Loom. If you are just getting started, please see the [Getting Started](getting-started/setting-up-a-development-environment) page.
+::: warning IMPORTANT
+This page is a reference of all options and features of Loom. If you are just getting started, please read the [Introduction to Fabric](../).
+:::
 
 ## Depending on Subprojects {#subprojects}
 
@@ -51,7 +53,7 @@ loom {
  splitEnvironmentSourceSets()
 
  mods {
-   modid {
+   example-mod {
      sourceSet sourceSets.main
      sourceSet sourceSets.client
    }

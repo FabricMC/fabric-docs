@@ -1,0 +1,346 @@
+{
+  "/zh_cn/develop/": [
+    {
+      "text": "开发者指南",
+      "link": "/zh_cn/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "入门",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric 和模组简介",
+          "link": "/zh_cn/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "设置开发环境",
+          "link": "/zh_cn/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "创建项目",
+          "link": "/zh_cn/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "项目结构",
+          "link": "/zh_cn/develop/getting-started/project-structure"
+        },
+        {
+          "text": "启动游戏",
+          "link": "/zh_cn/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "物品",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "创建你的第一个物品",
+          "link": "/zh_cn/develop/items/first-item"
+        },
+        {
+          "text": "食物物品",
+          "link": "/zh_cn/develop/items/food"
+        },
+        {
+          "text": "自定义工具",
+          "link": "/zh_cn/develop/items/custom-tools"
+        },
+        {
+          "text": "自定义盔甲",
+          "link": "/zh_cn/develop/items/custom-armor"
+        },
+        {
+          "text": "自定义物品组",
+          "link": "/zh_cn/develop/items/custom-item-groups"
+        },
+        {
+          "text": "自定义物品交互",
+          "link": "/zh_cn/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "自定义魔咒效果",
+          "link": "/zh_cn/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "自定义数据组件",
+          "link": "/zh_cn/develop/items/custom-data-components"
+        },
+        {
+          "text": "药水",
+          "link": "/zh_cn/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "方块",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "创建你的第一个方块",
+          "link": "/zh_cn/develop/blocks/first-block"
+        },
+        {
+          "text": "方块状态",
+          "link": "/zh_cn/develop/blocks/blockstates"
+        },
+        {
+          "text": "方块实体",
+          "link": "/zh_cn/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "方块实体渲染器",
+              "link": "/zh_cn/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "实体",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "状态效果",
+          "link": "/zh_cn/develop/entities/effects"
+        },
+        {
+          "text": "伤害类型",
+          "link": "/zh_cn/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "声音",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "播放声音",
+          "link": "/zh_cn/develop/sounds/using-sounds"
+        },
+        {
+          "text": "创建自定义声音",
+          "link": "/zh_cn/develop/sounds/custom"
+        },
+        {
+          "text": "动态声音",
+          "link": "/zh_cn/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "命令",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "创建命令",
+          "link": "/zh_cn/develop/commands/basics"
+        },
+        {
+          "text": "命令参数",
+          "link": "/zh_cn/develop/commands/arguments"
+        },
+        {
+          "text": "命令补全",
+          "link": "/zh_cn/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "渲染",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "基本的渲染概念",
+          "link": "/zh_cn/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "使用绘图上下文",
+          "link": "/zh_cn/develop/rendering/draw-context"
+        },
+        {
+          "text": "在 HUD 中渲染",
+          "link": "/zh_cn/develop/rendering/hud"
+        },
+        {
+          "text": "GUI 与屏幕界面",
+          "items": [
+            {
+              "text": "自定义屏幕界面",
+              "link": "/zh_cn/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "自定义控件",
+              "link": "/zh_cn/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "粒子",
+          "items": [
+            {
+              "text": "创建自定义的粒子",
+              "link": "/zh_cn/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "数据生成",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "数据生成设置",
+          "link": "/zh_cn/develop/data-generation/setup"
+        },
+        {
+          "text": "标签生成",
+          "link": "/zh_cn/develop/data-generation/tags"
+        },
+        {
+          "text": "翻译生成",
+          "link": "/zh_cn/develop/data-generation/translations"
+        },
+        {
+          "text": "进度生成",
+          "link": "/zh_cn/develop/data-generation/advancements"
+        },
+        {
+          "text": "配方生成",
+          "link": "/zh_cn/develop/data-generation/recipes"
+        },
+        {
+          "text": "战利品表生成",
+          "link": "/zh_cn/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "方块模型生成",
+          "link": "/zh_cn/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "杂项",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/zh_cn/develop/codecs"
+        },
+        {
+          "text": "事件",
+          "link": "/zh_cn/develop/events"
+        },
+        {
+          "text": "网络通信",
+          "link": "/zh_cn/develop/networking"
+        },
+        {
+          "text": "文本和翻译",
+          "link": "/zh_cn/develop/text-and-translations"
+        },
+        {
+          "text": "IDE 技巧和窍门",
+          "link": "/zh_cn/develop/ide-tips-and-tricks"
+        },
+        {
+          "text": "自动化测试",
+          "link": "/zh_cn/develop/automatic-testing"
+        },
+        {
+          "text": "Loom Gradle 插件",
+          "link": "/zh_cn/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/zh_cn/develop/loom/fabric-api"
+            },
+            {
+              "text": "扩展选项",
+              "link": "/zh_cn/develop/loom/options"
+            },
+            {
+              "text": "生产运行任务",
+              "link": "/zh_cn/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/zh_cn/players/": [
+    {
+      "text": "玩家指南",
+      "link": "/zh_cn/players/",
+      "items": [
+        {
+          "text": "常见问题",
+          "link": "/zh_cn/players/faq"
+        },
+        {
+          "text": "安装 Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/zh_cn/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/zh_cn/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "安装 Fabric",
+          "link": "/zh_cn/players/installing-fabric"
+        },
+        {
+          "text": "寻找可信的模组",
+          "link": "/zh_cn/players/finding-mods"
+        },
+        {
+          "text": "安装模组",
+          "link": "/zh_cn/players/installing-mods"
+        },
+        {
+          "text": "疑难解答",
+          "items": [
+            {
+              "text": "上传日志",
+              "link": "/zh_cn/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "崩溃报告",
+              "link": "/zh_cn/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "更新 Fabric",
+          "link": "/zh_cn/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

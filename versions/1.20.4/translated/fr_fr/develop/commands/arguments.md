@@ -7,19 +7,19 @@ search: false
 
 La notion de paramètres est utilisée dans la plupart des commandes. Des fois, ces paramètres peuvent être optionnels, ce qui veut dire que si vous ne donnez pas ce paramètre, la commande va quand même s'exécuter. Un nœud peut avoir plusieurs types de paramètres, mais n'oubliez pas qu'il y a une possibilité d'ambiguïté, qui devrait toujours être évitée.
 
-@[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3} transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Dans ce cas d'exemple, après la commande textuelle `/argtater`, vous devez donner un nombre. Par exemple, si vous exécutez `/argtater 3`, vous allez avoir en retour le message `Called /argtater with value = 3`. Si vous tapez `/argater` sans arguments, la commande ne pourra pas être correctement analysée.
 
 Nous ajoutons ensuite un second paramètre optionnel :
 
-@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,13} transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Maintenant, vous pouvez donner un ou deux arguments de type nombre à la commande. Si vous donnez un seul nombre, vous allez avoir en retour un texte avec une seule valeur d'affichée. Si vous donnez deux nombres, vous allez avoir en retour un texte avec deux valeurs d'affichées.
 
 Vous pouvez penser qu'il n'est pas nécessaire de spécifier plusieurs fois des exécutions similaires. Donc, nous allons créer une méthode qui va être utilisée pour les deux cas d'exécution.
 
-@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Paramètres de Commande Personnalisés
 
@@ -39,13 +39,13 @@ Vous devez enregistrer votre paramètre de commande personnalisée à la fois su
 
 Vous pouvez enregistrer votre paramètre de commande personnalisé dans la méthode `onInitialize` de l'initialiseur de votre mod en utilisant la classe `ArgumentTypeRegistry` :
 
-@[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::11](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ### Utiliser les Paramètres de Commande Personnalisés
 
 Nous pouvons utiliser notre paramètre de commande personnalisé dans une commande, en passant une instance de ce dernier dans la méthode `.argument` du constructeur de commande.
 
-@[code lang=java transcludeWith=:::10 highlight={3}](@/reference/latest/src/main/java/com/example/docs/command/FabricDocsReferenceCommands.java)
+@[code lang=java transcludeWith=:::10 highlight={3}](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 En exécutant la commande, on peut vérifier si le paramètre de commande fonctionne ou pas :
 

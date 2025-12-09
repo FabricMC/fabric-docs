@@ -20,7 +20,7 @@ authors:
 我们的新类有一个以 `BlockEntityRendererFactory.Context` 为参数的构造函数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `TextRenderer`。
 此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererFactory` 功能接口本身：
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
+@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
 你应该在 `ClientModInitializer` 类中注册你的方块实体渲染器。
 
