@@ -178,6 +178,6 @@ This example uses the `LightningStick` class created in the [Custom Item Interac
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
-Each call to `add()` will add one line to the tooltip.
+Each call to `accept()` will add one line to the tooltip.
 
 ![Tooltip Showcase](/assets/develop/items/first_item_3.png)

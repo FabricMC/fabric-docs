@@ -24,7 +24,8 @@
       "com.example.docs.networking.basic.ExampleModNetworkingBasic",
       "com.example.docs.debug.ExampleModDebug",
       "com.example.docs.saveddata.ExampleModSavedData",
-      "com.example.docs.appearance.ExampleModAppearance"
+      "com.example.docs.appearance.ExampleModAppearance",
+      "com.example.docs.entity.attribute.ExampleModAttributes"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
