@@ -189,10 +189,6 @@ export default [
         link: "/develop/rendering/hud",
       },
       {
-        text: "develop.rendering.world",
-        link: "/develop/rendering/world",
-      },
-      {
         text: "develop.rendering.gui",
         items: [
           {

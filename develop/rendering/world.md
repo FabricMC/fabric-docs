@@ -5,6 +5,10 @@ authors:
   - kevinthegreat1
 ---
 
+::: warning
+This article has not yet been updated to 1.21.11! The information shown below should only be considered useable on 1.21.10.
+:::
+
 ::: info PREREQUISITES
 Make sure you've read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 

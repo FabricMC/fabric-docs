@@ -16,6 +16,7 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
+import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.system.MemoryUtil;
@@ -23,7 +24,6 @@ import org.lwjgl.system.MemoryUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MappableRingBuffer;
 import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.client.renderer.ShapeRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
@@ -82,7 +82,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
+		/* FIXME: This code has no equivalent in 1.21.11!
 		ShapeRenderer.addChainedFilledBoxVertices(matrices, buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
+		*/
 
 		matrices.popPose();
 	}
@@ -141,8 +143,13 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 
 		// Actually execute the draw
+		/* FIXME: This code has no known equivalent in 1.21.11! The line below has been added to ensure the game does not crash.
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
 				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
+		*/
+		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
+						.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), new Matrix4f());
+
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
 				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
@@ -162,6 +169,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			//noinspection ConstantValue
 			renderPass.drawIndexed(0 / format.getVertexSize(), 0, drawParameters.indexCount(), 1);
 		}
+
 
 		builtBuffer.close();
 	}
