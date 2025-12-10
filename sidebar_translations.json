@@ -72,7 +72,7 @@
   "develop.porting.migrating_mappings": "Migrating Mappings",
   "develop.porting.migrating_mappings.loom": "Loom (Gradle)",
   "develop.porting.migrating_mappings.ravel": "Ravel (IntelliJ IDEA)",
-  "develop.porting.automatic_testing": "Automated Testing",
+  "develop.misc.automatic_testing": "Automated Testing",
   "develop.sounds": "Sounds",
   "develop.sounds.using_sounds": "Playing Sounds",
   "develop.sounds.custom": "Creating Custom Sounds",
