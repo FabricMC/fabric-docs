@@ -83,7 +83,7 @@ export default [
       {
         text: "develop.items.item_appearance",
         link: "/develop/items/item-appearance",
-      }
+      },
     ],
   },
   {
@@ -115,7 +115,7 @@ export default [
       {
         text: "develop.blocks.transparency_and_tinting",
         link: "/develop/blocks/transparency-and-tinting",
-      }
+      },
     ],
   },
   {
@@ -258,10 +258,10 @@ export default [
     text: "develop.loom",
     collapsed: true,
     items: [
-      { 
-         text: "develop.loom.introduction", 
-         link: "/develop/loom", 
-       },
+      {
+        text: "develop.loom.introduction",
+        link: "/develop/loom",
+      },
       {
         text: "develop.loom.fabric_api",
         link: "/develop/loom/fabric-api",
@@ -323,8 +323,8 @@ export default [
           {
             text: "develop.misc.migrating_mappings.ravel",
             link: "/develop/migrating-mappings/ravel",
-          }
-        ]
+          },
+        ],
       },
       {
         text: "develop.misc.debugging",
