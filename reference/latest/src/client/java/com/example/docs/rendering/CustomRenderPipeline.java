@@ -170,6 +170,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			renderPass.drawIndexed(0 / format.getVertexSize(), 0, drawParameters.indexCount(), 1);
 		}
 
+
 		builtBuffer.close();
 	}
 	// :::custom-pipelines:drawing-phase
