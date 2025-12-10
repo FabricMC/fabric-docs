@@ -290,7 +290,7 @@ export default [
       },
       {
         text: "develop.misc.migrating_mappings",
-        link: "/develop/migrating-mappings",
+        link: "/develop/migrating-mappings/",
         items: [
           {
             text: "develop.misc.migrating_mappings.loom",
