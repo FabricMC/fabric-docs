@@ -289,15 +289,15 @@ export default [
         link: "/develop/porting/introduction",
       },
       {
-        text: "develop.misc.migrating_mappings",
+        text: "develop.porting.migrating_mappings",
         link: "/develop/migrating-mappings/",
         items: [
           {
-            text: "develop.misc.migrating_mappings.loom",
+            text: "develop.porting.migrating_mappings.loom",
             link: "/develop/migrating-mappings/loom",
           },
           {
-            text: "develop.misc.migrating_mappings.ravel",
+            text: "develop.porting.migrating_mappings.ravel",
             link: "/develop/migrating-mappings/ravel",
           },
         ],
