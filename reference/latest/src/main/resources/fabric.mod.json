@@ -32,6 +32,7 @@
       "com.example.docs.ExampleModBlockEntityRenderer",
       "com.example.docs.ExampleModDynamicSound",
       "com.example.docs.ExampleModClient",
+      "com.example.docs.rendering.CustomRenderPipeline",
       "com.example.docs.rendering.HudRenderingEntrypoint",
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
