@@ -95,7 +95,7 @@ We'll now need to create a `ModEntityModelLayers` class in the client package. T
 
 This class must then be initialized in the mod's client initializer.
 
-@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModCustomEntityClient.java)
+@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
 
 ### Setting up the Texture {#setting-up-texture}
 
@@ -124,6 +124,10 @@ The following code can be added to the `MiniGolemEntityModel` class to give the 
 @[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
 Most of the math is provided by Blockbench.
+
+Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
+
+![Spawn Egg showcase](/assets/develop/entity/mini_golem_summoned.png)
 
 ## Adding a Dancing Animation {#adding-a-dancing-animation}
 
@@ -154,3 +158,7 @@ All that's left to do now is add a Spawn Egg for our entity. We'll register it i
 From there, it just needs a [client item, item model, and texture](../items/first-item#adding-a-client-item-texture-and-model). A basic client item and item model as discussed in the linked article will work fine, and you can use this example texture for `assets/example-mod/textures/item/mini_golem_spawn_egg.png`
 
 <DownloadEntry visualURL="/assets/develop/entity/mini_golem_spawn_egg.png" downloadURL="/assets/develop/entity/mini_golem_spawn_egg_small.png">Texture</DownloadEntry>
+
+Looking into the game, you now have a spawn egg that can spawn the entity!
+
+![Spawn Egg showcase](/assets/develop/entity/mini_golem_spawned.png)

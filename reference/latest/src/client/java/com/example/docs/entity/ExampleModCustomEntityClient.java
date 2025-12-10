@@ -1,10 +1,9 @@
-package com.example.docs;
+package com.example.docs.entity;
 
 import net.minecraft.client.renderer.entity.EntityRenderers;
 
 import net.fabricmc.api.ClientModInitializer;
 
-import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.renderer.MiniGolemEntityRenderer;
 

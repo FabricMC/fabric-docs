@@ -38,7 +38,7 @@
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
       "com.example.docs.appearance.ExampleModAppearanceClient",
-      "com.example.docs.ExampleModCustomEntityClient"
+      "com.example.docs.entity.ExampleModCustomEntityClient"
     ],
     "fabric-datagen": [
       "com.example.docs.datagen.ExampleModDataGenerator"
