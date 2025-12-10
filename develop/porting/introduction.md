@@ -5,6 +5,10 @@ authors:
   - cassiancc
 ---
 
+::: tip
+These docs are focused on migrating from 1.21.10 -> 1.21.11. For changes in older versions, please use the dropdown in the top right corner for their resources.
+:::
+
 Minecraft is a game that's constantly moving, with new versions changing the game in ways that affect modders. This article covers the general steps one might follow to update their mod to a new version of Minecraft.
 
 ## Updating the Build Script {#build-script}
