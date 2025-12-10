@@ -104,7 +104,7 @@ config:
       - name: no-invalid-containers
         message: "Don't use invalid containers"
         information: https://vitepress.dev/guide/markdown#custom-containers
-        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre)(?: |$))/gim"
+        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre|tab|tabs)(?: |$))/gim"
         replace: "::: info "
         searchScope: text
       - name: no-links-to-public
