@@ -21,7 +21,7 @@ An entity is a movable object in a world with logic attached to them. A few exam
 
 This tutorial will walk you through the creation of a `PathfinderEntity`, used by most mobs with pathfinding like `Zombie` and `Villager` alike.
 
-## Peparing Your First Entity {#preparing-your-first-entity}
+## Preparing Your First Entity {#preparing-your-first-entity}
 
 The first step in creating a custom entity is defining its class and registering it with the game.
 
