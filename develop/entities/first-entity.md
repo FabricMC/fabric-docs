@@ -11,7 +11,7 @@ Entities are dynamic, interactive objects in the game that are not part of the t
 
 ## Your First Entity {#your-first-entity}
 
-This tutorial will walk you through the process of creating a custom _Mini Iron Golem_. This entity will have fun animations.
+This tutorial will walk you through the process of creating a custom _Mini Golem_. This entity will have fun animations.
 
 An entity is a movable object in a world with logic attached to them. A few examples include:
 
@@ -35,7 +35,7 @@ To register your entity, it's recommended to create a separate class, `ModEntity
 
 ## Adding Goals {#adding-goals}
 
-Goals are the system that handle an entity's objective/aim, providing them with a defined set of behaviour. Goals have a certain priority, ranging from `0` being the highest and subsequently reducing in priority as the number increases.
+Goals are the system that handle an entity's objective/aim, providing them with a defined set of behaviour. Goals have a certain priority: goals with a lower value for the priority are prioritized over goals with a higher value for the priority.
 
 To add goals to the entity, you need to create a `registerGoals` method in your entity's class that defines the goals for the entity.
 
@@ -66,7 +66,7 @@ The render state determines how the entity is visually represented, including an
 
 ### Setting up the Model {#setting-up-model}
 
-The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://web.blockbench.net), rather than being written by hand.
+The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://web.blockbench.net), rather than being written by hand. Nonetheless, this tutorial will go through a manual example to show you how it works.
 
 ::: warning
 Blockbench supports multiple [mappings](../migrating-mappings/#mappings) (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
@@ -76,7 +76,7 @@ Mismatched mappings can cause errors when integrating Blockbench generated code.
 
 @[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
-The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entity. It extends EntityModel, specifying how the entity's body parts (head, left leg, and right leg) are named.
+The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entity. It extends EntityModel, specifying how the entity's body parts (body, head, left leg, and right leg) are named.
 
 @[code transcludeWith=:::model_texture_data](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
@@ -99,7 +99,7 @@ This class must then be initialized in the mod's client initializer.
 ### Setting up the Texture {#setting-up-texture}
 
 ::: warning
-The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32);`, 64 pixels wide and 32 pixels tall.
+The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32);`, 64 pixels wide and 32 pixels tall. If you need a bigger texture, then don't forget to change the size in `LayerDefinition.create` to match.
 :::
 
 Each model part / box is expecting a net on the texture in a particular location. By default, it's expecting it at `0, 0` (the top left), but this can be changed by calling the texOffs function in CubeListBuilder.
