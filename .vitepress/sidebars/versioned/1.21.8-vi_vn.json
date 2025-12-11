@@ -1,0 +1,370 @@
+{
+  "/vi_vn/develop/": [
+    {
+      "text": "Hướng Dẫn Cho Nhà Phát Triển",
+      "link": "/vi_vn/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Khởi Đầu",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Giới thiệu về Fabric và Modding",
+          "link": "/vi_vn/develop/getting-started/"
+        },
+        {
+          "text": "Tạo một Dự án",
+          "link": "/vi_vn/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Cấu trúc Dự án",
+          "link": "/vi_vn/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Thiết lập Môi trường Phát triển",
+          "link": "/vi_vn/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/vi_vn/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Chạy Game",
+          "link": "/vi_vn/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/vi_vn/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Mẹo và thủ thuật IDE",
+          "link": "/vi_vn/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Vật Phẩm",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tạo vật phẩm đầu tiên của bạn",
+          "link": "/vi_vn/develop/items/first-item"
+        },
+        {
+          "text": "Item Models",
+          "link": "/vi_vn/develop/items/item-models"
+        },
+        {
+          "text": "Các vật phẩm thức ăn",
+          "link": "/vi_vn/develop/items/food"
+        },
+        {
+          "text": "Công cụ tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-tools"
+        },
+        {
+          "text": "Giáp tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-armor"
+        },
+        {
+          "text": "Nhóm vật phẩm tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Tương tác vật phẩm tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Hiệu ứng phù phép tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Thành phần dữ liệu tùy chỉnh",
+          "link": "/vi_vn/develop/items/custom-data-components"
+        },
+        {
+          "text": "Thuốc",
+          "link": "/vi_vn/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Khối",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tạo khối đầu tiên của bạn",
+          "link": "/vi_vn/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/vi_vn/develop/blocks/block-models"
+        },
+        {
+          "text": "Trạng thái khối",
+          "link": "/vi_vn/develop/blocks/blockstates"
+        },
+        {
+          "text": "Thực thể khối",
+          "link": "/vi_vn/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Trình kết xuất thực thể khối",
+              "link": "/vi_vn/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Thực Thể",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Trạng Thái Các Hiệu Ứng",
+          "link": "/vi_vn/develop/entities/effects"
+        },
+        {
+          "text": "Các Loại Sát Thương",
+          "link": "/vi_vn/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Âm thanh",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Chạy SoundEvent",
+          "link": "/vi_vn/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Tạo Âm thanh Tùy chỉnh",
+          "link": "/vi_vn/develop/sounds/custom"
+        },
+        {
+          "text": "Âm thanh động",
+          "link": "/vi_vn/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Lệnh",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tạo Lệnh",
+          "link": "/vi_vn/develop/commands/basics"
+        },
+        {
+          "text": "Đối số",
+          "link": "/vi_vn/develop/commands/arguments"
+        },
+        {
+          "text": "Gợi Ý",
+          "link": "/vi_vn/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Kết Xuất",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Các Khái Niệm Kết Xuất Cơ Bản",
+          "link": "/vi_vn/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Sử Dụng Bối Cảnh Vẽ",
+          "link": "/vi_vn/develop/rendering/draw-context"
+        },
+        {
+          "text": "Kết Xuất Trên Hud",
+          "link": "/vi_vn/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/vi_vn/develop/rendering/world"
+        },
+        {
+          "text": "GUI và Màn Hình",
+          "items": [
+            {
+              "text": "Màn hình Tuỳ Chỉnh",
+              "link": "/vi_vn/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Tiện Ích Tuỳ Chỉnh",
+              "link": "/vi_vn/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Hạt Hiệu Ứng",
+          "items": [
+            {
+              "text": "Tạo Các Hạt Hiệu Ứng",
+              "link": "/vi_vn/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Tạo dữ liệu",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Thiết lập tạo dữ liệu",
+          "link": "/vi_vn/develop/data-generation/setup"
+        },
+        {
+          "text": "Tạo thẻ",
+          "link": "/vi_vn/develop/data-generation/tags"
+        },
+        {
+          "text": "Tạo bản dịch",
+          "link": "/vi_vn/develop/data-generation/translations"
+        },
+        {
+          "text": "Tạo thành tựu",
+          "link": "/vi_vn/develop/data-generation/advancements"
+        },
+        {
+          "text": "Tạo công thức",
+          "link": "/vi_vn/develop/data-generation/recipes"
+        },
+        {
+          "text": "Tạo bảng lợi phẩm",
+          "link": "/vi_vn/develop/data-generation/loot-tables"
+        },
+        {
+          "text": "Block Model Generation",
+          "link": "/vi_vn/develop/data-generation/block-models"
+        }
+      ]
+    },
+    {
+      "text": "Trang Khác",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/vi_vn/develop/codecs"
+        },
+        {
+          "text": "Sự Kiện",
+          "link": "/vi_vn/develop/events"
+        },
+        {
+          "text": "Networking",
+          "link": "/vi_vn/develop/networking"
+        },
+        {
+          "text": "Văn bản và bản dịch",
+          "link": "/vi_vn/develop/text-and-translations"
+        },
+        {
+          "text": "Giải quyết vấn đề cơ bản",
+          "link": "/vi_vn/develop/debugging"
+        },
+        {
+          "text": "Kiểm tra tự động",
+          "link": "/vi_vn/develop/automatic-testing"
+        },
+        {
+          "text": "Loom Gradle Plugin",
+          "link": "/vi_vn/develop/loom",
+          "items": [
+            {
+              "text": "Fabric API DSL",
+              "link": "/vi_vn/develop/loom/fabric-api"
+            },
+            {
+              "text": "Extension Options",
+              "link": "/vi_vn/develop/loom/options"
+            },
+            {
+              "text": "Production Run Tasks",
+              "link": "/vi_vn/develop/loom/production-run-tasks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "/vi_vn/players/": [
+    {
+      "text": "Hướng Dẫn Cho Người Chơi",
+      "link": "/vi_vn/players/",
+      "items": [
+        {
+          "text": "Các Câu Hỏi Thường Gặp",
+          "link": "/vi_vn/players/faq"
+        },
+        {
+          "text": "Đang Cài Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/vi_vn/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/vi_vn/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Đang Cài Fabric",
+          "link": "/vi_vn/players/installing-fabric"
+        },
+        {
+          "text": "Đang Tìm Các Mod Đáng Tin Cậy",
+          "link": "/vi_vn/players/finding-mods"
+        },
+        {
+          "text": "Đang Cài Các Mod",
+          "link": "/vi_vn/players/installing-mods"
+        },
+        {
+          "text": "Khắc Phục Sự Cố",
+          "items": [
+            {
+              "text": "Tải Lên Tệp Log Của Bạn",
+              "link": "/vi_vn/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Báo Cáo Dừng Đột Ngột",
+              "link": "/vi_vn/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Đang Cập Nhật Fabric",
+          "link": "/vi_vn/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

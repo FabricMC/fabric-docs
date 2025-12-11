@@ -18,7 +18,7 @@ authors:
 
 Начнем с объявления поля для хранения вашего экземпляра `Potion`. Мы будем напрямую использовать `ModInitializer`-реализующий класс для хранения этого.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 Мы передаем экземпляр `StatusEffectInstance`, который принимает 3 параметра:
 
@@ -35,7 +35,7 @@ authors:
 
 В нашем инициализаторе мы будем использовать событие `FabricBrewingRecipeRegistryBuilder.BUILD` для регистрации нашего зелья с помощью метода `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
+@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
 `registerPotionRecipe` принимает 3 параметра:
 

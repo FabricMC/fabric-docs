@@ -13,7 +13,7 @@ authors:
 
 你可能看出了为什么方块状态有用——避免了在方块实体中存储 NBT 数据的需要——这既减小了世界大小，也防止产生 TPS 问题！
 
-方块状态的定义能在 `assets/mod-id/blockstates` 文件夹中找到。
+方块状态的定义能在 `assets/example-mod/blockstates` 文件夹中找到。
 
 ## 示例：柱方块{#pillar-block}
 
@@ -27,7 +27,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 柱方块有两个纹理，顶部（`top`）和侧面（`side`），使用 `block/cube_column` 模型。
 
-同样，纹理文件可以在 `assets/mod-id/textures/block` 中找到。
+同样，纹理文件可以在 `assets/example-mod/textures/block` 中找到。
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">纹理</DownloadEntry>
 
@@ -38,10 +38,10 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 `condensed_oak_log_horizontal.json` 文件的示例：
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/block/condensed_oak_log_horizontal.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/mod-id/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
 :::
@@ -52,7 +52,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 - `axis=y` - 方块沿 Y 轴旋转时，使用正常的垂直模型。
 - `axis=z` - 方块沿Z 轴放置时，旋转模型以朝向正 X 方向。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/condensed_oak_log.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 同样，需要为你的方块创建翻译，以及继承了这两个模型中的任意一个的物品模型。
 
@@ -98,7 +98,7 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 因为方块只有一个属性（`activated`），只有两个变种，所以方块状态 JSON 看起来应该像这样：
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
 :::tip
 不要忘记为方块添加[物品模型描述](../items/first-item#creating-the-item-model-description)，以便它在物品栏中显示！

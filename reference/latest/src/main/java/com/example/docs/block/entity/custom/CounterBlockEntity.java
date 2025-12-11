@@ -1,11 +1,13 @@
 package com.example.docs.block.entity.custom;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 
@@ -41,33 +43,33 @@ public class CounterBlockEntity extends BlockEntity {
 
 		// :::2
 		clicks++;
-		markDirty();
+		setChanged();
 	}
 
 	// :::2
 
 	// :::3
 	@Override
-	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		nbt.putInt("clicks", clicks);
+	protected void saveAdditional(ValueOutput writeView) {
+		writeView.putInt("clicks", clicks);
 
-		super.writeNbt(nbt, registryLookup);
+		super.saveAdditional(writeView);
 	}
 
 	// :::3
 
 	// :::4
 	@Override
-	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		super.readNbt(nbt, registryLookup);
+	protected void loadAdditional(ValueInput readView) {
+		super.loadAdditional(readView);
 
-		clicks = nbt.getInt("clicks");
+		clicks = readView.getIntOr("clicks", 0);
 	}
 
 	// :::4
 
 	// :::5
-	public static void tick(World world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
+	public static void tick(Level world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
 
@@ -75,8 +77,8 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::7
 	@Override
-	public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-		return createNbt(registryLookup);
+	public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
+		return saveWithoutMetadata(registryLookup);
 	}
 
 	// :::7

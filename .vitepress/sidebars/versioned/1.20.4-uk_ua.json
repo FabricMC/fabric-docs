@@ -1,0 +1,260 @@
+{
+  "/uk_ua/develop/": [
+    {
+      "text": "Посібник для розробників",
+      "link": "/uk_ua/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Перші кроки",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Знайомство з Fabric та створенням модів",
+          "link": "/uk_ua/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "Налаштовування середовища розробки",
+          "link": "/uk_ua/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "Створення проєкту",
+          "link": "/uk_ua/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Структура проєкту",
+          "link": "/uk_ua/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Запуск гри",
+          "link": "/uk_ua/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "Предмети",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Створення ваших перших предметів",
+          "link": "/uk_ua/develop/items/first-item"
+        },
+        {
+          "text": "Їжа",
+          "link": "/uk_ua/develop/items/food"
+        },
+        {
+          "text": "Власні інструменти",
+          "link": "/uk_ua/develop/items/custom-tools"
+        },
+        {
+          "text": "Власні обладунки",
+          "link": "/uk_ua/develop/items/custom-armor"
+        },
+        {
+          "text": "Власні групи предметів",
+          "link": "/uk_ua/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Власні інтерактивні предмети",
+          "link": "/uk_ua/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Зілля",
+          "link": "/uk_ua/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Блоки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Створення ваших перших блоків",
+          "link": "/uk_ua/develop/blocks/first-block"
+        },
+        {
+          "text": "Стани блоку",
+          "link": "/uk_ua/develop/blocks/blockstates"
+        }
+      ]
+    },
+    {
+      "text": "Істоти",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Ефекти",
+          "link": "/uk_ua/develop/entities/effects"
+        },
+        {
+          "text": "Типи ушкоджень",
+          "link": "/uk_ua/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Звуки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Відтворення звуків",
+          "link": "/uk_ua/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Створення власних звуків",
+          "link": "/uk_ua/develop/sounds/custom"
+        }
+      ]
+    },
+    {
+      "text": "Команди",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Створення команд",
+          "link": "/uk_ua/develop/commands/basics"
+        },
+        {
+          "text": "Аргументи",
+          "link": "/uk_ua/develop/commands/arguments"
+        },
+        {
+          "text": "Пропозиції",
+          "link": "/uk_ua/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Промальовування",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Базові концепції промальовування",
+          "link": "/uk_ua/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Використання DrawContext",
+          "link": "/uk_ua/develop/rendering/draw-context"
+        },
+        {
+          "text": "Промальовування у HUD",
+          "link": "/uk_ua/develop/rendering/hud"
+        },
+        {
+          "text": "Графічні інтерфейси та екрани",
+          "items": [
+            {
+              "text": "Власні екрани",
+              "link": "/uk_ua/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Власні віджети",
+              "link": "/uk_ua/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Частинки",
+          "items": [
+            {
+              "text": "Створення власних частинок",
+              "link": "/uk_ua/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Інші сторінки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Кодеки",
+          "link": "/uk_ua/develop/codecs"
+        },
+        {
+          "text": "Події",
+          "link": "/uk_ua/develop/events"
+        },
+        {
+          "text": "Текст і переклади",
+          "link": "/uk_ua/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/uk_ua/players/": [
+    {
+      "text": "Посібник для гравців",
+      "link": "/uk_ua/players/",
+      "items": [
+        {
+          "text": "Поширені питання",
+          "link": "/uk_ua/players/faq"
+        },
+        {
+          "text": "Встановлення Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/uk_ua/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/uk_ua/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Встановлення Fabric",
+          "link": "/uk_ua/players/installing-fabric"
+        },
+        {
+          "text": "Пошук надійних модів",
+          "link": "/uk_ua/players/finding-mods"
+        },
+        {
+          "text": "Встановлення модів",
+          "link": "/uk_ua/players/installing-mods"
+        },
+        {
+          "text": "Усунення проблем",
+          "items": [
+            {
+              "text": "Поширення логів",
+              "link": "/uk_ua/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Звіти про збої",
+              "link": "/uk_ua/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Оновлення Fabric",
+          "link": "/uk_ua/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

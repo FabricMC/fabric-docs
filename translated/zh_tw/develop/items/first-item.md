@@ -48,7 +48,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/FabricDocsReferenceItems.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
 
 呼叫一個類別裡的方法時，如果該類別尚未載入，就會進行靜態初始化——這意味著所有`static`欄位都會計算。 這就是這個虛擬 `initialize` 方法存在的目的。
 
@@ -76,13 +76,13 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 給物品命名{#naming-the-item}
 
-這個物品現在還沒有翻譯，所以你需要為其添加。 Minecraft本身已經提供了這個物品的翻譯鍵： `item.mod_id.suspicious_substance`。
+這個物品現在還沒有翻譯，所以你需要為其添加。 Minecraft本身已經提供了這個物品的翻譯鍵： `item.example-mod.suspicious_substance`。
 
-在 `src/main/resources/assets/mod-id/lang/` 中建立一個JSON檔案，名為 `zh_tw.json`（繁體中文，英文則是`en_us.json`），並輸入翻譯鍵及其值：
+在 `src/main/resources/assets/example-mod/lang/` 中建立一個JSON檔案，名為 `zh_tw.json`（繁體中文，英文則是`en_us.json`），並輸入翻譯鍵及其值：
 
 ```json
 {
-  "item.mod_id.suspicious_substance": "Suspicious Substance"
+  "item.example-mod.suspicious_substance": "Suspicious Substance"
 }
 ```
 
@@ -90,7 +90,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 ## 添加紋理與模型{#adding-a-texture-and-model}
 
-要為你的物品提供紋理與模型，只需要建立一個 16x16 的紋理圖像並儲存在 `assets/mod-id/textures/item` 資料夾中。 根據物品的ID命名紋理檔案。別忘了 `.png`副檔名。
+要為你的物品提供紋理與模型，只需要建立一個 16x16 的紋理圖像並儲存在 `assets/example-mod/textures/item` 資料夾中。 根據物品的ID命名紋理檔案。別忘了 `.png`副檔名。
 
 例如，你可以將這個範例紋理作為 `suspicious_substance.png`
 
@@ -100,9 +100,9 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 你可以建立一個簡單的 `item/generated` 模型——它只接受一個紋理，僅此而已。
 
-在 `assets/mod-id/models/item` 資料夾中，建立模型JSON，檔名與物品ID相同；`suspicious_substance.json`
+在 `assets/example-mod/models/item` 資料夾中，建立模型JSON，檔名與物品ID相同；`suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/models/item/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
 
 ### 解析模型JSON{#breaking-down-the-model-json}
 
@@ -117,15 +117,15 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 
 Minecraft並不知道我們把模型檔案放在哪裡，因此我們需要提供物品模型描述。
 
-在 `assets/mod-id/items` 資料夾中建立物品模型描述JSON，檔案名稱與物品ID相同：`suspicious_substance.json`。
+在 `assets/example-mod/items` 資料夾中建立物品模型描述JSON，檔案名稱與物品ID相同：`suspicious_substance.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/fabric-docs-reference/items/suspicious_substance.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
 
 ### 解析物品模型映射JSON{#breaking-down-the-item-model-description-json}
 
 - `model`：包含對我們模型的引用的屬性。
   - `type`：模型的類型。 對於大部分物品而言，它應該是 `minecraft:model`
-  - `model`：模型的ID。 它應該是這樣的形式：`mod-id:item/item_name`
+  - `model`：模型的ID。 它應該是這樣的形式：`example-mod:item/item_name`
 
 現在你的物品在遊戲內應該是長這樣的：
 
@@ -147,7 +147,7 @@ Fabric API 提供各式各樣的登錄，可以為你的物品添加額外屬性
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->
 
-如果要為你的物品添加合成配方，你需要將配方JSON檔案放在 `data/mod-id/recipe` 資料夾中。
+如果要為你的物品添加合成配方，你需要將配方JSON檔案放在 `data/example-mod/recipe` 資料夾中。
 
 更多關於合成配方格式的資訊，可參閱以下資源：
 

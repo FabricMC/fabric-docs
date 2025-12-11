@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "fabric-docs-reference:guidite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "fabric-docs-reference:guidite"
+      }
+    ]
+  }
+}

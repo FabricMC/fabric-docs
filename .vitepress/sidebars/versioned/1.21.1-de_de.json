@@ -1,0 +1,320 @@
+{
+  "/de_de/develop/": [
+    {
+      "text": "Leitfäden für Entwickler",
+      "link": "/de_de/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Fabric API GitHub",
+          "link": "https://github.com/FabricMC/fabric"
+        },
+        {
+          "text": "Yarn GitHub",
+          "link": "https://github.com/FabricMC/yarn"
+        },
+        {
+          "text": "Loom GitHub",
+          "link": "https://github.com/FabricMC/fabric-loom"
+        }
+      ]
+    },
+    {
+      "text": "Erste Schritte",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Einführung in Fabric und Modding",
+          "link": "/de_de/develop/getting-started/introduction-to-fabric-and-modding"
+        },
+        {
+          "text": "Einrichten deiner Entwicklungsumgebung",
+          "link": "/de_de/develop/getting-started/setting-up-a-development-environment"
+        },
+        {
+          "text": "Ein Projekt erstellen",
+          "link": "/de_de/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Projektstruktur",
+          "link": "/de_de/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Starten des Spiels",
+          "link": "/de_de/develop/getting-started/launching-the-game"
+        }
+      ]
+    },
+    {
+      "text": "Gegenstände",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Dein erstes Item erstellen",
+          "link": "/de_de/develop/items/first-item"
+        },
+        {
+          "text": "Nahrungsmittel",
+          "link": "/de_de/develop/items/food"
+        },
+        {
+          "text": "Benutzerdefinierte Werkzeuge",
+          "link": "/de_de/develop/items/custom-tools"
+        },
+        {
+          "text": "Benutzerdefinierte Rüstung",
+          "link": "/de_de/develop/items/custom-armor"
+        },
+        {
+          "text": "Benutzerdefinierte Itemgruppen",
+          "link": "/de_de/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Benutzerdefinierte Iteminteraktionen",
+          "link": "/de_de/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Benutzerdefinierte Verzauberungseffekte",
+          "link": "/de_de/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Benutzerdefinierte Data Components",
+          "link": "/de_de/develop/items/custom-data-components"
+        },
+        {
+          "text": "Tränke",
+          "link": "/de_de/develop/items/potions"
+        }
+      ]
+    },
+    {
+      "text": "Blöcke",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Deinen ersten Block erstellen",
+          "link": "/de_de/develop/blocks/first-block"
+        },
+        {
+          "text": "Blockzustände",
+          "link": "/de_de/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entitäten",
+          "link": "/de_de/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entitäten Renderer",
+              "link": "/de_de/develop/blocks/block-entity-renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Entitäten",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Statuseffekte",
+          "link": "/de_de/develop/entities/effects"
+        },
+        {
+          "text": "Schadensarten",
+          "link": "/de_de/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Sounds",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "SoundEvents abspielen",
+          "link": "/de_de/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Benutzerdefinierte Sounds erstellen",
+          "link": "/de_de/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamische Sounds",
+          "link": "/de_de/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Befehle",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Befehle erstellen",
+          "link": "/de_de/develop/commands/basics"
+        },
+        {
+          "text": "Argumente",
+          "link": "/de_de/develop/commands/arguments"
+        },
+        {
+          "text": "Vorschläge",
+          "link": "/de_de/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Rendering",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Grundlegende Rendering-Konzepte",
+          "link": "/de_de/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Den Zeichenkontext verwenden",
+          "link": "/de_de/develop/rendering/draw-context"
+        },
+        {
+          "text": "Auf dem HUD rendern",
+          "link": "/de_de/develop/rendering/hud"
+        },
+        {
+          "text": "GUIs und Oberflächen",
+          "items": [
+            {
+              "text": "Benutzerdefinierte Oberflächen",
+              "link": "/de_de/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Benutzerdefinierte Widgets",
+              "link": "/de_de/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Partikel",
+          "items": [
+            {
+              "text": "Erstellen von benutzerdefinierten Partikeln",
+              "link": "/de_de/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Datengenerierung",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Einrichtung der Datengenerierung",
+          "link": "/de_de/develop/data-generation/setup"
+        },
+        {
+          "text": "Generierung von Tags",
+          "link": "/de_de/develop/data-generation/tags"
+        },
+        {
+          "text": "Generierung von Übersetzungen",
+          "link": "/de_de/develop/data-generation/translations"
+        },
+        {
+          "text": "Generierung von Fortschritten",
+          "link": "/de_de/develop/data-generation/advancements"
+        },
+        {
+          "text": "Generierung von Rezepten",
+          "link": "/de_de/develop/data-generation/recipes"
+        },
+        {
+          "text": "Generierung von Beutetabellen",
+          "link": "/de_de/develop/data-generation/loot-tables"
+        }
+      ]
+    },
+    {
+      "text": "Diverse Seiten",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/de_de/develop/codecs"
+        },
+        {
+          "text": "Events",
+          "link": "/de_de/develop/events"
+        },
+        {
+          "text": "Text und Übersetzungen",
+          "link": "/de_de/develop/text-and-translations"
+        },
+        {
+          "text": "Tipps und Tricks für die Entwicklungsumgebung",
+          "link": "/de_de/develop/ide-tips-and-tricks"
+        },
+        {
+          "text": "Automatisiertes Testen",
+          "link": "/de_de/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/de_de/players/": [
+    {
+      "text": "Leitfäden für Spieler",
+      "link": "/de_de/players/",
+      "items": [
+        {
+          "text": "Häufig gestellte Fragen",
+          "link": "/de_de/players/faq"
+        },
+        {
+          "text": "Installation von Java",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Windows",
+              "link": "/de_de/players/installing-java/windows"
+            },
+            {
+              "text": "macOS",
+              "link": "https://fabricmc.net/wiki/player:tutorials:java:mac"
+            },
+            {
+              "text": "Linux",
+              "link": "/de_de/players/installing-java/linux"
+            }
+          ]
+        },
+        {
+          "text": "Installation von Fabric",
+          "link": "/de_de/players/installing-fabric"
+        },
+        {
+          "text": "Vertrauenswürdige Mods finden",
+          "link": "/de_de/players/finding-mods"
+        },
+        {
+          "text": "Mods installieren",
+          "link": "/de_de/players/installing-mods"
+        },
+        {
+          "text": "Problembehandlung",
+          "items": [
+            {
+              "text": "Deine Logs hochladen",
+              "link": "/de_de/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Absturzberichte",
+              "link": "/de_de/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Aktualisieren von Fabric",
+          "link": "/de_de/players/updating-fabric"
+        }
+      ]
+    }
+  ]
+}

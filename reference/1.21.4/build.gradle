@@ -1,0 +1,25 @@
+def minecraftVersion = "1.21.4"
+def yarnVersion = "1.21.4+build.4"
+def fabricApiVersion = "0.116.1+1.21.4"
+
+dependencies {
+  minecraft "com.mojang:minecraft:${minecraftVersion}"
+  mappings "net.fabricmc:yarn:${yarnVersion}:v2"
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
+}
+
+// :::automatic-testing:2
+test {
+	useJUnitPlatform()
+}
+// :::automatic-testing:2
+
+// :::automatic-testing:game-test:1
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "fabric-docs-reference-test-${project.name}"
+		eula = true
+	}
+}
+// :::automatic-testing:game-test:1
