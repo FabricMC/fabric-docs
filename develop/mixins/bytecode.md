@@ -54,9 +54,9 @@ When bytecode needs to refer to primitive types or arrays, _type descriptors_ ar
 
 ### Field and Method Descriptors {#field-and-method-descriptors}
 
-In bytecode, fields and methods are identified by combining their name and _type descriptor_.
+In bytecode, fields and methods are identified by combining their name and _descriptor_. For fields, that's the descriptor of their data type.
 
-Descriptors for methods combine the parameter types and the return type. For example, the following method:
+Methods, on the other hand, get theirs by combining the parameter types and the return type. For example, the following method:
 
 ```java
 void drawText(int x, int y, String text, int color) {
