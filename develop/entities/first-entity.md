@@ -49,7 +49,6 @@ To add goals to the entity, you need to create a `registerGoals` method in your 
 4. `RandomLookAroundGoal` - To look in random directions.
 
 :::
-<!-- TODO: Add stuff about the entity types ask for helpp**-->
 
 ## Creating Rendering {#creating-rendering}
 
