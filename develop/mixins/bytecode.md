@@ -1,21 +1,18 @@
 ---
 title: Java Bytecode
-description: Learn about Java bytecode, so that you can write mixins effectively.
+description: Learn about Java bytecode so that you can write mixins effectively.
 authors:
-- Earthcomputer
+  - Earthcomputer
+  - its-miroma
 ---
 
-Mixins operate on Java bytecode, so to understand them one needs a grasp on the fundamentals of Java bytecode.
+Mixins operate on Java bytecode, so to understand them one needs a grasp on their fundamentals.
 
-## Viewing the Bytecode of a Class {#viewing-bytecode}
-
-You can look at the bytecode of any Minecraft/library class using your IDE. This shows you exactly what is going on there, whereas the decompiled code might not.
-
-To find out how to see the bytecode of a class, please consult the Viewing Bytecode section of the [Tips and Tricks page](../getting-started/tips-and-tricks) for your IDE.
+To find out how to view the bytecode of a class in your IDE, please consult the Viewing Bytecode section of the [Tips and Tricks page](../getting-started/tips-and-tricks).
 
 ## Names and Symbols {#names-and-symbols}
 
-In bytecode, many things like classes, fields, and methods, are still identified by the name (and the descriptor for fields and methods, we'll get to that), just like they are in source code. However the exact format of those names differs a little bit.
+Many things in bytecode, like classes, fields, and methods, are still identified by the name (and the descriptor for fields and methods, we'll get to that), just like they are in source code. However, the exact format of those names differs a little bit.
 
 ### Class Names {#class-names}
 
@@ -33,9 +30,9 @@ class Foo {
 
 ... the internal name of `Bar` would be `pkg/Foo$Bar`.
 
-Anonymous classes are named similarly to nested classes, and instead of a name they use numbers. For example, if there were two anonymous classes in the `Foo` class from the code block above, their internal names would be `pkg/Foo$1` and `pkg/Foo$2` respectively.
+Anonymous classes use numbers instead of names. For example, if there were two anonymous classes in the `Foo` class from the code block above, their internal names would be `pkg/Foo$1` and `pkg/Foo$2` respectively.
 
-Local classes (classes defined within a method), have a number followed by the name. For example, a local class name might look like `pkg/Foo$1Local`.
+Local classes (classes defined within a method) have a number followed by their name. For example, a local class name might look like `pkg/Foo$1Local`.
 
 ### Type Descriptors {#type-descriptors}
 
@@ -67,10 +64,6 @@ void drawText(int x, int y, String text, int color) {
 }
 ```
 
-```text
-(IILjava/lang/String;I)V
-```
-
 ... has descriptor `(IILjava/lang/String;I)V`.
 
 The descriptors for the parameter types are directly concatenated together, with no separator. In this case, there is `I` for `int` twice (both `x` and `y`), then `Ljava/lang/String;` for `String` (`text`), and one more `I` for the last `int` (`color`).
@@ -79,26 +72,26 @@ The descriptors for the parameter types are directly concatenated together, with
 
 At the bytecode level, constructors are just another method: the detailed differences between the two fall beyond the scope of this overview.
 
-A constructor's method name is `<init>` (with the `<>` angled brackets), and the return type in its descriptor is `V` (`void`). All non-`static` field initializations, after compilation, will be found inside of the `<init>` methods.
+A constructor's method name is `<init>` (with the `<>` angled brackets), and the return type in its descriptor is `V` (`void`). All non-static field initializations, after compilation, will be found inside the `<init>` methods.
 
-On the other hand, static initializers (the `static {}` block in Java), which is run when a class is loaded. It's also just another method: its name is `<clinit>`, and its descriptor is `()V`. Just like non-`static` fields and constructors, `static` field initializers (with some exceptions) are compiled into the `<clinit>` method of a class.
+On the other hand, static initializers (the `static {}` block in the source code, as well as static field initializers with some exceptions) also are just another method that is run when a class is loaded: its name is `<clinit>`, and its descriptor is `()V`.
 
 ## Local Variables {#local-variables}
 
-In Java code, local variables are identified by their name. In bytecode, they are instead identified by a number, or index into the Local Variable Table (LVT). Method parameters are included in the LVT, as is the `this` object in non-static methods.
+In source code, local variables are identified by their name. In bytecode, they are instead identified by a number, or index into the Local Variable Table (LVT). Method parameters are included in the LVT, as is the `this` object in non-static methods.
 
 Consider the following method as an example:
 
-```java
+::: code-group
+
+```java [Source Code]
 public int getX(int offset) {
     int result = this.x + offset;
     return result;
 }
 ```
 
-This would compile to something like the following:
-
-```text
+```text [Bytecode]
 public getX (I)I
   aload 0  # this
   getfield x
@@ -110,36 +103,60 @@ public getX (I)I
   ireturn
 ```
 
-Here, `this` is local variable 0, `offset` is local variable 1, and `result` is local variable 2.
+:::
 
-Longs and doubles take up 2 indexes in the LVT. This means that in the following method:
+In the bytecode, `this` gets index 0, `offset` gets index 1, and `result` gets index 2.
 
-```java
-public Vec3 add(double x, double y, double z) {
-    // ...
+Static methods do not have `this` in the LVT, so the first parameter of static methods gets index 0 directly.
+
+Longs and doubles take up 2 indexes in the LVT. For example, in the following static method:
+
+::: code-group
+
+```java [Source Code]
+public static double add(double x, double y, double z) {
+    return x + y + z;
 }
 ```
 
-... the `x` parameter gets index 1, the `y` parameter gets index 3, and the `z` parameter gets index 5.
+```text [Bytecode]
+static add (DDD)D
+  dload 0  # x
+  dload 2  # y
+  dadd
+  dload 4  # z
+  dadd
+  dreturn
+```
 
-In static methods, there is no `this` object, so other variables start counting at 0 instead of 1.
+:::
 
-Even though local variables are identified by index, many libraries retain debug information containing the names of the local variables as well. This does not yet include Minecraft, as it will remain obfuscated until the upcoming version 26.1. Mixin is able to use this debug information to allow you to target local variables by name.
+... the `x` parameter gets index 0, the `y` parameter gets index 2, and the `z` parameter gets index 4.
+
+::: info
+We've seen that bytecode doesn't need the names of local variables because it identifies them by their LVT index. Despite this, many libraries will retain debug information, including the names of local variables, to ease debugging and allow you to target local variables by name when developing mixins.
+
+However, Minecraft 1.21.10 does not provide that by default and is therefore said to be obfuscated. Note that [future versions of Minecraft will be deobfuscated](../migrating-mappings/#whats-going-on-with-mappings).
+:::
 
 ## The Operand Stack {#the-operand-stack}
 
-While native assembly uses registers, Java bytecode uses the _operand stack_ to store temporary values. Like any stack, values are added ("pushed") to the top of the stack, and removed ("popped") from the top of the stack. The operand stack can be thought of like a stack of plates -- when you add a plate onto the stack, you put it onto the top, and when you remove a plate from the stack, you remove it from the top, such that the last plate added to the stack is the first one removed.
+Just like native assembly uses processor registers, Java bytecode uses the _Operand Stack_ to store temporary values.
 
-Take the previous `getX` example again:
+Like any [stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>), values are added ("pushed") to the top of the stack, and removed ("popped") from the top of the stack. Think of it like a stack of plates: when you add a plate onto the stack, you put it on top, and when you need one, you take the top one. Such a data structure is said to be _Last-In, First-Out_, because the last "plate" pushed onto the stack will be popped first.
 
-```java
+Let's take a look at the previous `getX` example again:
+
+::: code-group
+
+```java [Source Code]
 public int getX(int offset) {
     int result = this.x + offset;
     return result;
 }
 ```
 
-```text
+```text [Bytecode]
 public getX (I)I
   aload 0  # this
   getfield x
@@ -151,73 +168,111 @@ public getX (I)I
   ireturn
 ```
 
-Let's say that `getX` is called when `this.x` has the value 42, and `offset` has the value 5. We'll follow what happens instruction-by-instruction.
+:::
 
-<!-- markdownlint-disable no-emphasis-as-heading -->
-**aload 0**
+Let's imagine `getX(5)` is called when `this.x` has the value 42, and let's follow what happens, instruction by instruction:
 
-Loads the variable in LVT slot 0 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+::: tabs
 
-| Operand Stack     |
-|-------------------|
-| Pointer to `this` |
+== Start
 
-**getfield x**
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               |               |
 
-Pops the top value off the operand stack, gets the `x` field out of it and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+Navigate through the instructions by clicking on the buttons above.
 
-| Operand Stack |
-|---------------|
-| 42            |
+The diagram above will show the state of the Local Variable Table and the Operand Stack _after_ the instruction.
 
-**iload 1**
+Notice how LVT slot 0 contains `this`: that's because `getX` is not a static method.
 
-Loads the variable in LVT slot 1 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+== aload 0
 
-| Operand Stack |
-|---------------|
-| 5             |
-| 42            |
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               | `this`        |
 
-**iadd**
+Loads the variable from LVT slot 0 (`this`), and pushes its value onto the Operand Stack.
 
-Pops the top two values off the operand stack, adds them, and pushes the result onto the operand stack. After this instruction is finished, the operand stack is as follows:
+== getfield x
 
-| Operand Stack |
-|---------------|
-| 47            |
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               | 42            |
 
-**istore 2**
+Pops the top value off the Operand Stack, gets the value of its `x` field (which we said was 42), and pushes it onto the Operand Stack.
 
-Pops the top value of the operand stack and assigns it to the variable in LVT slot 2. After this instruction is finished, the operand stack is empty and the variable in LVT slot 2 has a value of 47.
+== iload 1
 
-**iload 2**
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     | `offset`: 5          | 5             |
+| 0     | `this`               | 42            |
 
-Loads the variable in LVT slot 2 and pushes its value onto the operand stack. After this instruction is finished, the operand stack is as follows:
+Loads the variable from LVT slot 1 (`offset`), and pushes its value onto the Operand Stack.
 
-| Operand Stack |
-|---------------|
-| 47            |
+== iadd
 
-**ireturn**
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               | 47            |
 
-Returns the value the top of the operand stack from the method. The value 47 is returned from the method.
+Pops the top two values off the Operand Stack, adds them up, and pushes that sum onto the Operand Stack.
 
-<!-- markdownlint-enable no-emphasis-as-heading -->
+== istore 2
+
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     | `result`: 47         |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               |               |
+
+Pops the top value off the Operand Stack, and assigns it to the local variable in LVT slot 2 (`result`, which is a [local variable](#variable-instructions)).
+
+== iload 2
+
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     | `result`: 47         |               |
+| 1     | `offset`: 5          |               |
+| 0     | `this`               | 47            |
+
+Loads the variable from LVT slot 2 (`result`), and pushes its value onto the Operand Stack.
+
+== ireturn
+
+Gets the top value of the Operand Stack, and returns it.
+
+The method returns the value 47.
+
+:::
 
 ## Conditional Instructions {#conditional-instructions}
 
-Most of the time, when the JVM finishes executing an instruction, it continues sequentially onto the next instruction. However, certain instructions tell the JVM to jump to a different instruction depending on a certain condition and continue from there:
+We've seen how the JVM follows instructions sequentially, one after the other. However, certain instructions tell the JVM to jump to a different point in the bytecode:
 
-| Instructions   | Description                                                                                                                                                                                                                                                                                                                        |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `goto`         | Always jumps to the referenced instruction.                                                                                                                                                                                                                                                                                        |
-| `ifeq`, `ifne` | Pops the top value off the operand stack and checks if it's equal to 0. `ifeq` jumps to the referenced instruction if it is equal to 0, `ifne` jumps to the referenced instruction if it is not equal to 0.                                                                                                                        |
-| `if_icmpxx`    | Pops the top two values of the operand stack and compares them. If the comparison succeeds then the JVM jumps to the referenced instruction. For example, `if_icmpeq` succeeds if the two values are equal, `if_icmpgt` if the first is greater than the second, and `if_icmple` if the first is less than or equal to the second. |
+- `goto`: Always jumps to the referenced instruction
+- `ifeq`: Pops the top value off the Operand Stack, and, if it is equal to 0, jumps to the referenced instruction
+- `ifne`: Pops the top value off the Operand Stack, and, if it is not equal to 0, jumps to the referenced instruction
+- `if_icmpXX`: Pops the top two values of the Operand Stack, and compares them. If the comparison is true, then the JVM jumps to the referenced instruction. For example:
+  - `if_icmpeq` (`==`): Succeeds if the two values are equal
+  - `if_icmpgt` (`>`): Succeeds if the first is greater than the second
+  - `if_icmple` (`<=`): Succeeds if the first is less than or equal to the second
 
-For example, consider the following Java method:
+For example, consider the following method:
 
-```java
+::: code-group
+
+```java [Source Code]
 static String makeFoobar(boolean cond) {
     String result;
     if (cond) {
@@ -229,9 +284,7 @@ static String makeFoobar(boolean cond) {
 }
 ```
 
-This would compile to something like the following:
-
-```text
+```text [Bytecode]
 static makeFoobar (Z)Ljava/lang/String;
   iload 0  # cond
   ifeq L1
@@ -246,22 +299,32 @@ L2
   areturn
 ```
 
-The `ifeq` instruction compares the value on the top of the operand stack (which is `cond` due to the previous `iload` instruction) to 0, and jumps to `L1` if it is equal to 0 (`false`). Otherwise it continues to the next instruction. `L1` is essentially the `else` block. Otherwise, it continues onto the next instructions, which is to load the string literal `"foo"` and assign it to the `result` variable. The `goto` instruction then skips over the `else` block.
+:::
 
-These conditional instructions are how if statements, loops, ternaries, and so on are compiled. Complicated code structures can end up generating a complex web of jump instructions that are not only hard to read but also hard to target with Mixin. Take the following classic example:
+Notice that jump targets are marked with `L*`.
 
-```java
+The `ifeq` instruction compares the value on the top of the Operand Stack (which is `cond` due to the previous `iload` instruction) to 0, and jumps to `L1` if it is equal to 0 (`false`).
+
+If it is not equal to 0, which means `cond` is `true`, it continues through the next instructions until it gets to the `goto` instruction, which then skips over to `L2`.
+
+The `if` block essentially becomes the lines from `ifeq L1` to `L1`, while the `else` block is `L1`-`L2`. The conditional "jump" instructions, reminiscent of [`goto`-era programming](https://xkcd.com/292/), are how `if` statements, loops, ternaries, and so on, are compiled.
+
+Compilation can end up generating complex logic that is not only hard to read, but also hard to target with mixins. Consider the following classic example:
+
+::: code-group
+
+```java [Source Code]
 static void doSomething(boolean cond1, boolean cond2) {
     if (cond1) {
         if (cond2) {
             System.out.println("Something is being done");
         }
-        // inject here?
+        // inject here? // [!code highlight]
     }
 }
 ```
 
-```text
+```text [Bytecode]
 static doSomething (ZZ)V
   iload 0  # cond1
   ifeq L1
@@ -273,42 +336,48 @@ L1
   return
 ```
 
-Because the bytecode for both if conditions jump to the exact same label, there is no place in the bytecode corresponding to the `// inject here?` comment, making it impossible to target with Mixin.
+:::
+
+Because the bytecode for both `if` conditions jumps to the exact same label, there is no place in the bytecode corresponding to the `// inject here?` comment, meaning workarounds must be used to target it with mixins.
 
 ## Common Instructions {#common-instructions}
 
+Here's a reference for the most common bytecode instructions you'll encounter while developing mixins. For a full advanced list, check out the [List of Java bytecode instructions on Wikipedia](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions).
+
 ### Constants {#constant-instructions}
 
-Constant instructions push a constant value onto the operand stack.
+Constant instructions push a constant value onto the Operand Stack.
 
-- `iconst_m1`, `iconst_0`, `iconst_1`, ..., `iconst_5`: the literal `int` values `-1` through `5`.
-- `lconst_0`, `fconst_0`, `dconst_0`: literals of `long`, `float`, and `double` respectively.
-- `bipush`, `sipush`: pushes an `int` constant, supports larger `int` values.
-- `ldc`: pushes a constant of one of several different types, including numeric types and strings. Used for even larger integers and other types.
+- `iconst_m1`, `iconst_0`, `iconst_1`, ..., `iconst_5`: the literal integers `-1` through `5`
+- `lconst_0`, `dconst_1`, `fconst_2`, and the like: the literal numbers, as `long`, `double`, and `float` respectively
+- `bipush`, `sipush`: pushes a larger integer constant
+- `ldc`: can push several different types of constants, including strings and even larger integers
 
 ### Variables {#variable-instructions}
 
-Load instructions reads the value of a local variable and pushes it onto the oeprand stack. Store instructions pops the top value on the operand stack and writes it to a local variable.
+Loading instructions read a [value from the LVT](#local-variables), and push it onto the Operand Stack.
 
-- `iload`, `istore`: loads and stores variables of type `int`, `boolean`, `byte`, `char`, and `short`.
-- `lload`, `lstore`: loads and stores variables of type `long`.
-- `fload`, `fstore`: loads and stores variables of type `float`.
-- `dload`, `dstore`: loads and stores variables of type `double`.
-- `aload`, `astore`: loads and stores variables of a non-primitive type.
+Storing instructions pop the top value off the Operand Stack, and write it to a local variable.
+
+- `iload`, `istore`: loads or stores variables of type `int`, `boolean`, `byte`, `char`, and `short`
+- `lload`, `lstore`: loads or stores variables of type `long`
+- `fload`, `fstore`: loads or stores variables of type `float`
+- `dload`, `dstore`: loads or stores variables of type `double`
+- `aload`, `astore`: loads or stores variables of non-primitive types
 
 ### Fields {#field-instructions}
 
-- `getfield`: reads a non-static field.
-- `putfield`: writes a non-static field.
-- `getstatic`: reads a static field.
-- `putstatic`: writes a static field.
+- `getfield`: reads a non-static field
+- `putfield`: writes to a non-static field
+- `getstatic`: reads a static field
+- `putstatic`: writes to a static field
 
 ### Method Invocations {#method-instructions}
 
-- `invokestatic`: invokes a static method.
-- `invokevirtual`: invokes a non-static method. Takes polymorphism/inheritance into account, calling the overridden version if it is overridden.
-- `invokespecial`: invokes a non-static method, exactly the one declared without taking into account polymorphism/inheritance. Used to call constructors and superclass methods like `super.blah()`.
-- `invokeinterface`: invokes an interface method (can be non-static or static).
+- `invokestatic`: invokes a static method
+- `invokevirtual`: invokes a non-static method. Takes polymorphism and inheritance into account, calling the overridden version where applicable
+- `invokespecial`: invokes a non-static method, exactly the one declared, without taking into account polymorphism/inheritance. Used to call constructors and superclass methods
+- `invokeinterface`: invokes an interface method, static or not
 
 ### Conditionals {#conditional-instructions-2}
 
@@ -316,33 +385,41 @@ See [Conditional Instructions](#conditional-instructions).
 
 ### Operators {#operator-instructions}
 
-Operator instructions generally pop two values off the operand stack, perform the operation, and push the result. Here is a list of some common operator instructions:
+Operator instructions generally pop two values off the Operand Stack, perform an operation, and push the result. Here is a list of some common operator instructions:
 
-- `iadd`, `ladd`, `fadd`, `dadd`: addition.
-- `isub`, `lsub`, `fsub`, `dsub`: subtraction.
-- `imul`, `lmul`, `fmul`, `dmul`: multiplication.
-- `idiv`, `ldiv`, `fdiv`, `ddiv`: division.
-- `irem`, `lrem`, `frem`, `drem`: modulo.
-- `ineg`, `lneg`, `fneg`, `dneg`: negation. Pops one value off the stack rather than two.
+- `iadd`, `ladd`, `fadd`, `dadd`: addition
+- `isub`, `lsub`, `fsub`, `dsub`: subtraction
+- `imul`, `lmul`, `fmul`, `dmul`: multiplication
+- `idiv`, `ldiv`, `fdiv`, `ddiv`: division
+- `irem`, `lrem`, `frem`, `drem`: modulo
+- `ineg`, `lneg`, `fneg`, `dneg`: negation. Pops only one value off the stack
 
-There are different versions of each of these instructions depending on the data type: `i` for `int`, `l` for `long`, `f` for `float`, and `d` for `double`.
+The prefixes `i`, `l`, `f`, `d`, as seen with [variable instructions](#variable-instructions), determine the type of data on which to apply the operator.
 
 ### Returns {#return-instructions}
 
-Return out of the method, with the value on top of the operand stack (except in the case of `void`). Prefixed with `i`, `l`, `f`, `d`, and `a` in the same way as [variable instructions](#variable-instructions), except for `void` for which the instruction is simply `return`.
+Return instructions close the method call, returning the value at the top of the Operand Stack (except for `void` methods).
+
+When prefixed with `i`, `l`, `f`, `d`, and `a`, just like [variable instructions](#variable-instructions), the method returns a value of that type. The instruction for `void` methods is simply `return`.
 
 ## Lambdas {#lambdas}
 
-Lambda expressions are compiled by making them into a separate method, and using the `invokedynamic` instruction to instantiate the lambda instance. The details of the `invokedynamic` instruction are beyond the scope of this article, but it's useful to know what kind of code to expect. Some `invokedynamic` operands have been omitted in this section for simplicity. Here's an example:
+Lambda expressions are compiled to a separate method, which is then called by a lambda instance that got instantiated by an `invokedynamic` instruction.
 
-```java
+The details of the `invokedynamic` instruction are beyond the scope of this overview, but it's useful to know what kind of code to expect. Some `invokedynamic` operands have been omitted in this section for simplicity.
+
+Here's an example:
+
+::: code-group
+
+```java [Source Code]
 static void hello() {
     Runnable r = () -> System.out.println("Hello, World!");
     r.run();
 }
 ```
 
-```text
+```text [Bytecode]
 static hello ()V
   invokedynamic run ()Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 ()V
   astore 0  # r
@@ -360,20 +437,26 @@ static lambda$hello$1 ()V
   return
 ```
 
-You can see here that the contents of the lambda has been moved into a separate method, in this case `lambda$hello$1`. If you want to target the contents of a lambda with Mixin, this is the method you'll want to be targeting. The lambda instance is then created with the `invokedynamic` instruction and then stored into the variable `r`.
+:::
+
+You can see here that the contents of the lambda have been moved into a separate method, in this case `lambda$hello$1`.
+
+If you want to target the contents of a lambda with mixins, this is the method you'll want to be targeting. The lambda instance is then created with the `invokedynamic` instruction and then stored into the variable `r`.
 
 If the lambda captures any variables, these variables will end up as parameters to the lambda methods. For example:
 
-```java
-static void hello(String yourName) {
-    Runnable r = () -> System.out.println("Hello, " + yourName + "!");
+::: code-group
+
+```java [Source Code]
+static void hello(String name) {
+    Runnable r = () -> System.out.println("Hello, " + name + "!");
     r.run();
 }
 ```
 
-```text
+```text [Bytecode]
 static hello (Ljava/lang/String;)V
-  aload 0  # yourName
+  aload 0  # name
   invokedynamic run (Ljava/lang/String;)Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 (Ljava/lang/String;)V ()V
   astore 1  # r
 
@@ -384,11 +467,13 @@ static hello (Ljava/lang/String;)V
 
 static lambda$hello$1 (Ljava/lang/String;)V
   getstatic System.out
-  aload 0  # yourName
+  aload 0  # name
   invokedynamic makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; java/lang/invoke/StringConcatFactory.makeConcatWithConstants "Hello, \1!"
   invokevirtual println
 
   return
 ```
 
-Here, the `yourName` parameter is being passed as a parameter into the lambda. Notice also how string concatenation is implemented with `invokedynamic`.
+:::
+
+Here, the `name` parameter is being passed as a parameter into the lambda. Notice also how string concatenation is implemented with `invokedynamic`.
