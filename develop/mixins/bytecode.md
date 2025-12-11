@@ -6,8 +6,6 @@ authors:
   - its-miroma
 ---
 
-<!-- markdownlint-configure-file { MD033: { allowed_elements: [br] } } -->
-
 Mixins operate on Java bytecode, so to understand them one needs a grasp on their fundamentals.
 
 To find out how to view the bytecode of a class in your IDE, please consult the Viewing Bytecode section of the [Tips and Tricks page](../getting-started/tips-and-tricks).
@@ -182,7 +180,7 @@ Let's imagine `getX(5)` is called when `this.x` has the value 42, and let's foll
 |-------|----------------------|---------------|
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 |               |
+| 0     | `this`               |               |
 
 Navigate through the instructions by clicking on the buttons above.
 
@@ -196,7 +194,7 @@ Notice how LVT slot 0 contains `this`: that's because `getX` is not a static met
 |-------|----------------------|---------------|
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 | `this`        |
+| 0     | `this`               | `this`        |
 
 Loads the variable from LVT slot 0 (`this`), and pushes its value onto the Operand Stack.
 
@@ -206,9 +204,9 @@ Loads the variable from LVT slot 0 (`this`), and pushes its value onto the Opera
 |-------|----------------------|---------------|
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 | 42            |
+| 0     | `this`               | 42            |
 
-Pops the top value off the Operand Stack, gets the value of its `x` field, and pushes it onto the Operand Stack.
+Pops the top value off the Operand Stack, gets the value of its `x` field (which we said was 42), and pushes it onto the Operand Stack.
 
 == iload 1
 
@@ -216,7 +214,7 @@ Pops the top value off the Operand Stack, gets the value of its `x` field, and p
 |-------|----------------------|---------------|
 | 2     |                      |               |
 | 1     | `offset`: 5          | 5             |
-| 0     | `this`<br>-> `x`: 42 | 42            |
+| 0     | `this`               | 42            |
 
 Loads the variable from LVT slot 1 (`offset`), and pushes its value onto the Operand Stack.
 
@@ -226,7 +224,7 @@ Loads the variable from LVT slot 1 (`offset`), and pushes its value onto the Ope
 |-------|----------------------|---------------|
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 | 47            |
+| 0     | `this`               | 47            |
 
 Pops the top two values off the Operand Stack, adds them up, and pushes that sum onto the Operand Stack.
 
@@ -236,7 +234,7 @@ Pops the top two values off the Operand Stack, adds them up, and pushes that sum
 |-------|----------------------|---------------|
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 |               |
+| 0     | `this`               |               |
 
 Pops the top value off the Operand Stack, and assigns it to the local variable in LVT slot 2 (`result`, which is a [local variable](#variable-instructions)).
 
@@ -246,7 +244,7 @@ Pops the top value off the Operand Stack, and assigns it to the local variable i
 |-------|----------------------|---------------|
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
-| 0     | `this`<br>-> `x`: 42 | 47            |
+| 0     | `this`               | 47            |
 
 Loads the variable from LVT slot 2 (`result`), and pushes its value onto the Operand Stack.
 
@@ -309,7 +307,7 @@ The `ifeq` instruction compares the value on the top of the Operand Stack (which
 
 If it is not equal to 0, which means `cond` is `true`, it continues through the next instructions until it gets to the `goto` instruction, which then skips over to `L2`.
 
-`ifeq`-`L1` is essentially the `if` block, while `L1`-`L2` is the `else` block. The conditional "jump" instructions, reminiscent of [`goto`-era programming](https://xkcd.com/292/), are how `if` statements, loops, ternaries, and so on, are compiled.
+The `if` block essentially becomes the lines from `ifeq L1` to `L1`, while the `else` block is `L1`-`L2`. The conditional "jump" instructions, reminiscent of [`goto`-era programming](https://xkcd.com/292/), are how `if` statements, loops, ternaries, and so on, are compiled.
 
 Compilation can end up generating complex logic that is not only hard to read, but also hard to target with mixins. Consider the following classic example:
 
@@ -357,7 +355,7 @@ Constant instructions push a constant value onto the Operand Stack.
 
 ### Variables {#variable-instructions}
 
-Loading instructions read the value of a variable local to a method, and push it onto the Operand Stack.
+Loading instructions read a [value from the LVT](#local-variables), and push it onto the Operand Stack.
 
 Storing instructions pop the top value off the Operand Stack, and write it to a local variable.
 
@@ -379,7 +377,7 @@ Storing instructions pop the top value off the Operand Stack, and write it to a 
 - `invokestatic`: invokes a static method
 - `invokevirtual`: invokes a non-static method. Takes polymorphism and inheritance into account, calling the overridden version where applicable
 - `invokespecial`: invokes a non-static method, exactly the one declared, without taking into account polymorphism/inheritance. Used to call constructors and superclass methods
-- `invokeinterface`: invokes an interface method, either static or non-
+- `invokeinterface`: invokes an interface method, static or not
 
 ### Conditionals {#conditional-instructions-2}
 
@@ -406,7 +404,7 @@ When prefixed with `i`, `l`, `f`, `d`, and `a`, just like [variable instructions
 
 ## Lambdas {#lambdas}
 
-Lambda expressions are compiled as a separate method, called by the `invokedynamic` instruction to instantiate the lambda instance.
+Lambda expressions are compiled to a separate method, which is then called by a lambda instance that got instantiated by an `invokedynamic` instruction.
 
 The details of the `invokedynamic` instruction are beyond the scope of this overview, but it's useful to know what kind of code to expect. Some `invokedynamic` operands have been omitted in this section for simplicity.
 
