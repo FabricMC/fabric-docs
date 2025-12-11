@@ -1,20 +1,14 @@
 package com.example.docs;
 
-import com.example.docs.worldgen.FabricDocsReferenceWorldPlacedFeatures;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.GenerationStep;
+
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 //#entrypoint
@@ -45,7 +39,6 @@ public class FabricDocsReference implements ModInitializer {
 		// Register our custom particle type in the mod initializer.
 		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
-
 		//#entrypoint
 	}
 }

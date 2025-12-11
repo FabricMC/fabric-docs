@@ -1,13 +1,13 @@
 package com.example.docs.datagen;
 
 import static com.example.docs.datagen.FabricDocsReferenceDamageTypesProvider.TATER_DAMAGE_TYPE;
-import com.example.docs.worldgen.FabricDocsReferenceWorldConfiguredFeatures;
-import com.example.docs.worldgen.FabricDocsReferenceWorldPlacedFeatures;
-import com.example.docs.worldgen.FabricDocsReferenceWorldgenProvider;
+
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
+
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+
 import com.example.docs.damage.FabricDocsReferenceDamageTypes;
 import com.example.docs.datagen.internal.FabricDocsReferenceInternalModelProvider;
 import com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicModelProvider;
@@ -42,8 +42,6 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 		pack.addProvider(FabricDocsReferenceModelProvider::new);
 
 		pack.addProvider(FabricDocsReferenceNetworkingBasicModelProvider::new);
-
-		pack.addProvider(FabricDocsReferenceWorldgenProvider::new);
 
 		// :::datagen-setup:generator
 	}
