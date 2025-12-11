@@ -410,7 +410,7 @@ In source code, you can write `new MyClass()`, which creates a new instance of `
 
 ```java [Source Code]
 static Creeper createCreeper(Level level) {
-    return new Creeper();
+    return new Creeper(level);
 }
 ```
 
