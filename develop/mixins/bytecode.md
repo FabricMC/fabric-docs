@@ -402,6 +402,31 @@ Return instructions close the method call, returning the value at the top of the
 
 When prefixed with `i`, `l`, `f`, `d`, and `a`, just like [variable instructions](#variable-instructions), the method returns a value of that type. The instruction for `void` methods is simply `return`.
 
+### New Object Creation {#new-object-creation}
+
+In source code, you can write `new MyClass()`, which creates a new instance of `MyClass` and calls the constructor. In bytecode these are two distinct operations. Take the following code, for example:
+
+::: code-group
+
+```java [Source Code]
+static Creeper createCreeper(Level level) {
+    return new Creeper();
+}
+```
+
+```text [Bytecode]
+static createCreeper (Lnet/minecraft/world/level/Level;)Lnet/mineraft/world/entity/monster/Creeper;
+  new net/minecraft/world/entity/monster/Creeper
+  dup
+  aload 0  # level
+  invokespecial net/minecraft/world/entity/monster/Creeper.<init> (Lnet/minecraft/world/level/Level;)V
+  areturn
+```
+
+:::
+
+Here, the `new` instruction creates an uninitialized instance of `Creeper`, and pushes a pointer to it onto the Operand Stack. The `dup` instruction duplicates the top of the Operand Stack so that there are two copies of the pointer to the new `Creeper` instance. Next, the arguments to the constructor are pushed onto the Operand Stack (in this case, the local variable called `level`). The `invokespecial` instruction is then used to call the constructor of the `Creeper` object. Like a regular non-static method call, this pops all the arguments and the instance the method is called on off the Operand Stack, and because the method returns `void`, nothing is pushed onto the Operand Stack afterwards. This consumes one of the pointers to `Creeper`, which is why we had to `dup` it before, as we now have one pointer remaining. Finally, we return the pointer to the `Creeper` that remains on the operand stack with the `areturn` instruction.
+
 ## Lambdas {#lambdas}
 
 Lambda expressions are compiled to a separate method, which is then called by a lambda instance that got instantiated by an `invokedynamic` instruction.
