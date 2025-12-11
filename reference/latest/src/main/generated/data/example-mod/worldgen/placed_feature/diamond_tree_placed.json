@@ -1,5 +1,5 @@
 {
-  "feature": "fabric-docs-reference:diamond_tree",
+  "feature": "example-mod:diamond_tree",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

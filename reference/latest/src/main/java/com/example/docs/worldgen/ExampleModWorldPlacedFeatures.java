@@ -44,8 +44,8 @@ public class ExampleModWorldPlacedFeatures {
 		// :::datagen-world:placement-modifiers
 		List<PlacementModifier> diamondBlockVeinModifiers = List.of(
 				CountPlacement.of(6),
-							BiomeFilter.biome(),
-							InSquarePlacement.spread(),
+					BiomeFilter.biome(),
+					InSquarePlacement.spread(),
 				HeightRangePlacement.of(BiasedToBottomHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(0), 3))
 		);
 		// :::datagen-world:placement-modifiers

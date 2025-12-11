@@ -46,24 +46,6 @@ public class FabricDocsReference implements ModInitializer {
 		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 
-        // :::datagen-world:biome-modifications
-		// Spawns everywhere in the overworld
-		BiomeModifications.addFeature(
-			BiomeSelectors.foundInOverworld(),
-			GenerationStep.Feature.UNDERGROUND_ORES,
-			FabricDocsReferenceWorldPlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
-		);
-        // :::datagen-world:biome-modifications
-
-		// :::datagen-world:selective-biome-modifications
-		// Spawns in forest biomes only
-		BiomeModifications.addFeature(
-			BiomeSelectors.tag(TagKey.of(RegistryKeys.BIOME, Identifier.of("minecraft", "is_forest"))),
-			GenerationStep.Feature.VEGETAL_DECORATION,
-			FabricDocsReferenceWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
-		);
-		// :::datagen-world:selective-biome-modifications
-
 		//#entrypoint
 	}
 }

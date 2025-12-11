@@ -1,5 +1,5 @@
 {
-  "feature": "fabric-docs-reference:diamond_block_vein",
+  "feature": "example-mod:diamond_block_vein",
   "placement": [
     {
       "type": "minecraft:count",

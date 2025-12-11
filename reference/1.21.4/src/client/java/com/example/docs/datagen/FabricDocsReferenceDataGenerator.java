@@ -54,11 +54,6 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 		registryBuilder.addRegistry(RegistryKeys.DAMAGE_TYPE, registerable -> {
 			registerable.register(FabricDocsReferenceDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
-		
-		// :::datagen-world:registries
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, FabricDocsReferenceWorldConfiguredFeatures::configure);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, FabricDocsReferenceWorldPlacedFeatures::configure);
-		// :::datagen-world:registries
 	}
 
 	// :::datagen-setup:generator
