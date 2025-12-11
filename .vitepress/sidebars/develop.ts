@@ -126,6 +126,10 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.entities.first_entity",
+        link: "/develop/entities/first-entity", 
+      },
+      {
         text: "develop.entities.attributes",
         link: "/develop/entities/attributes",
       },
