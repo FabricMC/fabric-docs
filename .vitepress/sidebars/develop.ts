@@ -43,22 +43,33 @@ export default [
       {
         text: "develop.items.first_item",
         link: "/develop/items/first-item",
+        items: [
+          {
+            text: "develop.items.food",
+            link: "/develop/items/food",
+          },
+          {
+            text: "develop.items.potions",
+            link: "/develop/items/potions",
+          },
+
+          {
+            text: "develop.items.custom_tools",
+            link: "/develop/items/custom-tools",
+          },
+          {
+            text: "develop.items.custom_armor",
+            link: "/develop/items/custom-armor",
+          },
+        ],
       },
       {
         text: "develop.items.item_models",
         link: "/develop/items/item-models",
       },
       {
-        text: "develop.items.food",
-        link: "/develop/items/food",
-      },
-      {
-        text: "develop.items.custom_tools",
-        link: "/develop/items/custom-tools",
-      },
-      {
-        text: "develop.items.custom_armor",
-        link: "/develop/items/custom-armor",
+        text: "develop.items.item_appearance",
+        link: "/develop/items/item-appearance",
       },
       {
         text: "develop.items.custom_creative_tabs",
@@ -75,14 +86,6 @@ export default [
       {
         text: "develop.items.custom_data_components",
         link: "/develop/items/custom-data-components",
-      },
-      {
-        text: "develop.items.potions",
-        link: "/develop/items/potions",
-      },
-      {
-        text: "develop.items.item_appearance",
-        link: "/develop/items/item-appearance",
       },
     ],
   },
@@ -225,28 +228,57 @@ export default [
         link: "/develop/data-generation/setup",
       },
       {
-        text: "develop.data_generation.tags",
-        link: "/develop/data-generation/tags",
+        text: "develop.data_generation.client",
+        items: [
+          {
+            text: "develop.data_generation.translations",
+            link: "/develop/data-generation/translations",
+          },
+          {
+            text: "develop.data_generation.block_models",
+            link: "/develop/data-generation/block-models",
+          },
+        ],
       },
       {
-        text: "develop.data_generation.translations",
-        link: "/develop/data-generation/translations",
+        text: "develop.data_generation.server",
+        items: [
+          {
+            text: "develop.data_generation.tags",
+            link: "/develop/data-generation/tags",
+          },
+
+          {
+            text: "develop.data_generation.advancements",
+            link: "/develop/data-generation/advancements",
+          },
+          {
+            text: "develop.data_generation.recipes",
+            link: "/develop/data-generation/recipes",
+          },
+          {
+            text: "develop.data_generation.loot_tables",
+            link: "/develop/data-generation/loot-tables",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    text: "develop.serialization",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.misc.codecs",
+        link: "/develop/codecs",
       },
       {
-        text: "develop.data_generation.advancements",
-        link: "/develop/data-generation/advancements",
+        text: "develop.misc.data_attachments",
+        link: "/develop/data-attachments",
       },
       {
-        text: "develop.data_generation.recipes",
-        link: "/develop/data-generation/recipes",
-      },
-      {
-        text: "develop.data_generation.loot_tables",
-        link: "/develop/data-generation/loot-tables",
-      },
-      {
-        text: "develop.data_generation.block_models",
-        link: "/develop/data-generation/block-models",
+        text: "develop.misc.saved_data",
+        link: "/develop/saved-data",
       },
     ],
   },
@@ -285,28 +317,16 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.codecs",
-        link: "/develop/codecs",
-      },
-      {
-        text: "develop.misc.data_attachments",
-        link: "/develop/data-attachments",
-      },
-      {
         text: "develop.misc.events",
         link: "/develop/events",
       },
       {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.saved_data",
-        link: "/develop/saved-data",
-      },
-      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
+      },
+      {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
       },
       {
         text: "develop.misc.migrating_mappings",
