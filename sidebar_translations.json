@@ -73,6 +73,8 @@
   "develop.misc.migrating_mappings.loom": "Loom (Gradle)",
   "develop.misc.migrating_mappings.ravel": "Ravel (IntelliJ IDEA)",
   "develop.misc.automatic_testing": "Automated Testing",
+  "develop.mixins": "Mixins",
+  "develop.mixins.bytecode": "Java Bytecode",
   "develop.serialization": "Serialization",
   "develop.sounds": "Sounds",
   "develop.sounds.using_sounds": "Playing Sounds",
