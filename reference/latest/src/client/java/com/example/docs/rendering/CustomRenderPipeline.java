@@ -12,10 +12,11 @@ import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
+import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.system.MemoryUtil;
@@ -23,9 +24,8 @@ import org.lwjgl.system.MemoryUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MappableRingBuffer;
 import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ShapeRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -38,8 +38,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static CustomRenderPipeline instance;
 	// :::custom-pipelines:define-pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
-			.withLocation(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
-			.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLE_STRIP)
+			.withLocation(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
 			.withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
 			.build()
 	);
@@ -51,6 +50,8 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	// :::custom-pipelines:extraction-phase
 	// :::custom-pipelines:drawing-phase
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
+	private static final Vector3f MODEL_OFFSET = new Vector3f();
+	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
 	private MappableRingBuffer vertexBuffer;
 
 	// :::custom-pipelines:drawing-phase
@@ -74,7 +75,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		PoseStack matrices = context.matrices();
 		Vec3 camera = context.worldState().cameraRenderState.pos;
 
-		assert matrices != null;
 		matrices.pushPose();
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
@@ -82,9 +82,47 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
-		ShapeRenderer.addChainedFilledBoxVertices(matrices, buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
+		renderFilledBox(matrices.last().pose(), buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
 
 		matrices.popPose();
+	}
+
+	private void renderFilledBox(Matrix4fc positionMatrix, BufferBuilder buffer, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float red, float green, float blue, float alpha) {
+		// Front Face
+		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
+
+		// Back face
+		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
+
+		// Left face
+		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
+
+		// Right face
+		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
+
+		// Top face
+		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
+
+		// Bottom face
+		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
+		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
 	// :::custom-pipelines:extraction-phase
 
@@ -142,7 +180,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, new Vector3f(), RenderSystem.getTextureMatrix(), 1f);
+				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
 				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
@@ -153,7 +191,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 			// Bind texture if applicable:
 			// Sampler0 is used for texture inputs in vertices
-			// renderPass.bindSampler("Sampler0", textureView);
+			// renderPass.bindTexture("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
 
 			renderPass.setVertexBuffer(0, vertices);
 			renderPass.setIndexBuffer(indices, indexType);

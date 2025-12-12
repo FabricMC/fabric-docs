@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
 import net.fabricmc.api.ModInitializer;
@@ -20,15 +20,15 @@ public class ExampleModSounds implements ModInitializer {
 	public void onInitialize() {
 		// This is the basic registering. Use a new class for registering sounds
 		// instead, to keep the ModInitializer implementing class clean!
-		Registry.register(BuiltInRegistries.SOUND_EVENT, ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle_simple"),
-				SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle_simple")));
+		Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle_simple"),
+				SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle_simple")));
 
 		// ... the cleaner approach. // [!code focus]
 		CustomSounds.initialize(); // [!code focus]
 	}
 
-	public static ResourceLocation identifierOf(String path) {
-		return ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
+	public static Identifier identifierOf(String path) {
+		return Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
 	}
 }
 // :::2

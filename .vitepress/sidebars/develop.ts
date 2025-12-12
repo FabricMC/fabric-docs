@@ -313,6 +313,30 @@ export default [
     ],
   },
   {
+    text: "develop.porting",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.porting.introduction",
+        link: "/develop/porting/introduction",
+      },
+      {
+        text: "develop.porting.migrating_mappings",
+        link: "/develop/migrating-mappings/",
+        items: [
+          {
+            text: "develop.porting.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.porting.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          },
+        ],
+      },
+    ],
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [
@@ -327,20 +351,6 @@ export default [
       {
         text: "develop.misc.networking",
         link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.migrating_mappings",
-        link: "/develop/migrating-mappings",
-        items: [
-          {
-            text: "develop.misc.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
-          },
-          {
-            text: "develop.misc.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
-          },
-        ],
       },
       {
         text: "develop.misc.debugging",

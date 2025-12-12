@@ -1,6 +1,6 @@
 package com.example.docs.sound;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.example.docs.ExampleMod;
 
@@ -10,13 +10,13 @@ public enum TransitionState {
 	RUNNING("idle_phase"),
 	ENDING("ending_phase");
 
-	private final ResourceLocation identifier;
+	private final Identifier identifier;
 
 	TransitionState(String name) {
-		this.identifier = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		this.identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 	}
 
-	public ResourceLocation getIdentifier() {
+	public Identifier getIdentifier() {
 		return identifier;
 	}
 }

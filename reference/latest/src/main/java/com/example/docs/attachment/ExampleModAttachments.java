@@ -1,7 +1,7 @@
 package com.example.docs.attachment;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
@@ -10,13 +10,13 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 public class ExampleModAttachments {
 	// :::string
 	public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = AttachmentRegistry.create(
-			ResourceLocation.fromNamespaceAndPath("example-mod", "example_string_attachment") // The ID of your Attachment
+			Identifier.fromNamespaceAndPath("example-mod", "example_string_attachment") // The ID of your Attachment
 	);
 	// :::string
 
 	// :::pos
 	public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
-			ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
+			Identifier.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
 			builder -> builder
 				.initializer(() -> new BlockPos(0, 0, 0)) // The default value of the Attachment, if one has not been set.
 				.syncWith(
@@ -28,7 +28,7 @@ public class ExampleModAttachments {
 
 	// :::persistent
 	public static final AttachmentType<BlockPos> EXAMPLE_PERSISTENT_ATTACHMENT = AttachmentRegistry.create(
-			ResourceLocation.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
+			Identifier.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
 			builder -> builder
 				.initializer(() -> new BlockPos(0, 0, 0)) // The default value of the Attachment, if one has not been set.
 				.persistent(BlockPos.CODEC) // Dictates how this Attachment's data should be saved and loaded.

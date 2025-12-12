@@ -6,6 +6,7 @@ import * as tinyglobby from "tinyglobby";
 
 import { getLocaleNames, getResolver, getSidebar } from "./i18n";
 
+(async () => { 
 process.chdir(path.resolve(__dirname, ".."));
 const oldBuildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8");
 const oldVersion = oldBuildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
@@ -103,3 +104,4 @@ for (const locale of locales) {
 }
 
 console.log("DONE! Make sure everything's good before committing.");
+})();
