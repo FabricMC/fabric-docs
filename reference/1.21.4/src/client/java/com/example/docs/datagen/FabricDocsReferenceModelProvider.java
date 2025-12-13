@@ -1,6 +1,5 @@
 package com.example.docs.datagen;
 
-import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.block.Block;
@@ -10,23 +9,16 @@ import net.minecraft.client.data.BlockStateSupplier;
 import net.minecraft.client.data.BlockStateVariant;
 import net.minecraft.client.data.BlockStateVariantMap;
 import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.ItemModels;
 import net.minecraft.client.data.Model;
 import net.minecraft.client.data.ModelIds;
-import net.minecraft.client.data.Models;
 import net.minecraft.client.data.TextureKey;
 import net.minecraft.client.data.TextureMap;
 import net.minecraft.client.data.TexturedModel;
 import net.minecraft.client.data.VariantSetting;
 import net.minecraft.client.data.VariantSettings;
 import net.minecraft.client.data.VariantsBlockStateSupplier;
-import net.minecraft.client.render.item.model.ItemModel;
-import net.minecraft.client.render.item.property.numeric.CountProperty;
-import net.minecraft.client.render.item.property.select.ContextDimensionProperty;
-import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -34,7 +26,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import com.example.docs.FabricDocsReference;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
-import com.example.docs.item.ModItems;
 
 // :::datagen-model:provider
 public class FabricDocsReferenceModelProvider extends FabricModelProvider {
@@ -95,111 +86,14 @@ public class FabricDocsReferenceModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 		// :::datagen-model:provider
 
-		//:::datagen-model:generated
-		itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
-		//:::datagen-model:generated
-
-		//:::datagen-model:handheld
-		itemModelGenerator.register(ModItems.GUIDITE_AXE, Models.HANDHELD);
-		//:::datagen-model:handheld
-
-		//:::datagen-model:spawn-egg
-		int shellColor = 0x000000;
-		int spotsColor = 0xffffff;
-		itemModelGenerator.registerSpawnEgg(ModItems.CUSTOM_SPAWN_EGG, shellColor, spotsColor);
-		//:::datagen-model:spawn-egg
-
-		//:::datagen-model:dyeable
-		itemModelGenerator.registerDyeable(ModItems.LEATHER_GLOVES, -6265536);
-		//:::datagen-model:dyeable
-
-		//:::datagen-model:condition
-		itemModelGenerator.registerCondition(
-				ModItems.FLASHLIGHT,
-				ItemModels.usingItemProperty(),
-				ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.FLASHLIGHT, "_lit", Models.GENERATED)),
-				ItemModels.basic(itemModelGenerator.upload(ModItems.FLASHLIGHT, Models.GENERATED))
-		);
-		//:::datagen-model:condition
-
-		//:::datagen-model:composite
-		ItemModel.Unbaked hoe = ItemModels.basic(itemModelGenerator.upload(ModItems.ENHANCED_HOE, Models.GENERATED));
-		ItemModel.Unbaked hoePlus = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.ENHANCED_HOE, "_plus", Models.GENERATED));
-
-		itemModelGenerator.output.accept(
-				ModItems.ENHANCED_HOE,
-				ItemModels.composite(hoe, hoePlus)
-		);
-		//:::datagen-model:composite
-
-		//:::datagen-model:select
-		ItemModel.Unbaked crystalOverworld = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_overworld", Models.GENERATED));
-		ItemModel.Unbaked crystalNether = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_nether", Models.GENERATED));
-		ItemModel.Unbaked crystalEnd = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DIMENSIONAL_CRYSTAL, "_end", Models.GENERATED));
-
-		itemModelGenerator.output.accept(
-				ModItems.DIMENSIONAL_CRYSTAL,
-				ItemModels.select(new ContextDimensionProperty(),
-						ItemModels.switchCase(World.OVERWORLD, crystalOverworld),
-						ItemModels.switchCase(World.NETHER, crystalNether),
-						ItemModels.switchCase(World.END, crystalEnd)
-				)
-		);
-		//:::datagen-model:select
-
-		//:::datagen-model:range-dispatch
-		ItemModel.Unbaked knifeOne = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_one", Models.GENERATED));
-		ItemModel.Unbaked knifeTwo = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_two", Models.GENERATED));
-		ItemModel.Unbaked knifeThree = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.THROWING_KNIVES, "_three", Models.GENERATED));
-
-		itemModelGenerator.output.accept(
-				ModItems.THROWING_KNIVES,
-				ItemModels.rangeDispatch(
-						new CountProperty(false),
-						List.of(
-							ItemModels.rangeDispatchEntry(knifeOne, 1.0F),
-							ItemModels.rangeDispatchEntry(knifeTwo, 2.0F),
-							ItemModels.rangeDispatchEntry(knifeThree, 3.0F)
-						)
-				)
-		);
-		//:::datagen-model:range-dispatch
-
-		//:::datagen-model-custom:balloon
-		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
-		//:::datagen-model-custom:balloon
+		//TODO Since I have little experience with generating item models, I will leave this to someone more experienced (Fellteros)
 
 		// :::datagen-model:provider
 	}
 
 	// :::datagen-model:provider
 
-	// Inner class containing custom objects for item model generation.
-	public static class CustomItemModelGenerator {
-		//:::datagen-model-custom:item-model
-		public static final Model SCALED2X = item("scaled2x", TextureKey.LAYER0);
-		//:::datagen-model-custom:item-model
-
-		//:::datagen-model-custom:item-datagen-method
-		public static void registerScaled2x(Item item, ItemModelGenerator generator) {
-			Identifier itemModel = SCALED2X.upload(item, TextureMap.of(TextureKey.LAYER0, ModelIds.getItemModelId(item)), generator.modelCollector);
-			generator.output.accept(item, ItemModels.basic(itemModel));
-		}
-
-		//:::datagen-model-custom:item-datagen-method
-
-		@SuppressWarnings("SameParameterValue")
-		//:::datagen-model-custom:item-model
-
-		private static Model item(String parent, TextureKey... requiredTextureKeys) {
-			return new Model(Optional.of(Identifier.of(FabricDocsReference.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
-		}
-
-		//:::datagen-model-custom:item-model
-	}
-
 	// Inner class containing all Objects needed for the custom datagen tutorial.
-	@SuppressWarnings("ALL")
 	public static class CustomBlockStateModelGenerator {
 		// :::datagen-model-custom:model
 		public static final Model VERTICAL_SLAB = block("vertical_slab", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);

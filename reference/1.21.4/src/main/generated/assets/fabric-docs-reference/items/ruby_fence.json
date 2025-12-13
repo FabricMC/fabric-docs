@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "fabric-docs-reference:block/ruby_fence_inventory"
+    "model": "fabric-docs-reference:block/ruby_fence"
   }
 }
