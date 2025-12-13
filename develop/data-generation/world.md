@@ -18,7 +18,7 @@ The generation for features of Minecraft worlds is broken down into 3 parts.
 - **Biome Modifications**: This defines where in the world the features are placed on a global scale; this would be like what coordinates the forest would be at.
 
 ::: info
-Features in Minecraft are natural or generated objects in the world like trees, ores, lakes, caves, and structures (villages, temples, etc.).
+Features in Minecraft are natural or generated objects in the world like trees, flowers, ores, or lakes. Features are not structures (villages, temples, etc.), and cannot be found with the `/locate` command.
 :::
 
 ## Setup {#setup}
@@ -27,17 +27,17 @@ First, we need to make our provider. Create a class that extends `FabricDynamicR
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
 
-Then add this provider to `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method:
+Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
 
 @[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
-Next make a class for your Configured Features and a class for your Placed Features, these don't need to extend anything.
+Next, make a class for your Configured Features and a class for your Placed Features, these don't need to extend anything.
 
 The Configured Feature class and Placed Feature class should both have a public method where you will register and define your Configured / Placed feature.
 
 This method should take a `BootstrapContext<ConfiguredFeature<?, ?>>` argument for the Configured Feature and a `BootstrapContext<PlacedFeature>` for the Placed Feature (both referred to as context in this example).
 
-In your Data Generator class add the lines below to your `buildRegistry` method (Replacing the placeholder methods).
+In your `DataGeneratorEntrypoint` class, add the lines below to your `buildRegistry` method (Replacing the placeholder methods).
 
 @[code lang=java transcludeWith=:::datagen-world:registries](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 

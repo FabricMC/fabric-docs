@@ -25,17 +25,17 @@ import com.example.docs.ExampleMod;
 public class ExampleModWorldConfiguredFeatures {
 	// :::datagen-world:configured-key
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
-				ResourceKey.create(
-					Registries.CONFIGURED_FEATURE,
-					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_vein")
-				);
+			ResourceKey.create(
+				Registries.CONFIGURED_FEATURE,
+				ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_vein")
+			);
 	// :::datagen-world:configured-key
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_TREE_CONFIGURED_KEY =
-				ResourceKey.create(
-						Registries.CONFIGURED_FEATURE,
-						ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
-				);
+			ResourceKey.create(
+					Registries.CONFIGURED_FEATURE,
+					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
+			);
 
 	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
