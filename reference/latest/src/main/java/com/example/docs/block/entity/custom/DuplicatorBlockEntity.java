@@ -64,17 +64,16 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInv
 
 	// :::tick
 	public static void tick(Level world, BlockPos blockPos, BlockState blockState, DuplicatorBlockEntity duplicatorBlockEntity) {
-		if (!duplicatorBlockEntity.isEmpty()) {
-			duplicatorBlockEntity.timeSinceDropped++;
+		if (duplicatorBlockEntity.isEmpty()) return;
+		duplicatorBlockEntity.timeSinceDropped++;
 
-			if (duplicatorBlockEntity.timeSinceDropped < 10) return;
-			duplicatorBlockEntity.timeSinceDropped = 0;
+		if (duplicatorBlockEntity.timeSinceDropped < 10) return;
+		duplicatorBlockEntity.timeSinceDropped = 0;
 
-			ItemStack duplicate = duplicatorBlockEntity.getItem(0).split(1);
+		ItemStack duplicate = duplicatorBlockEntity.getItem(0).split(1);
 
-			Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
-			Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
-		}
+		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
+		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 	}
 
 	// :::tick

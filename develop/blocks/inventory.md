@@ -69,9 +69,9 @@ Let's modify the `DuplicatorBlockEntity` to only accept items from the top:
 
 @[code transcludeWith=:::accept](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
 
-The `getInvAvailableSlots` returns an array of the slot _indices_ that can be interacted with from the given side. In this case, we only have a single slot (`0`), so we return an array with just that index.
+The `getSlotsForFace` returns an array of the slot _indices_ that can be interacted with from the given side. In this case, we only have a single slot (`0`), so we return an array with just that index.
 
-Also, we should modify the `onUseWithItem` method of the `DuplicatorBlock` to actually respect the new behavior:
+Also, we should modify the `useItemOn` method of the `DuplicatorBlock` to actually respect the new behavior:
 
 @[code transcludeWith=:::place](@/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java)
 
