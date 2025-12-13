@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "example-mod:item/custom_spawn_egg"
+  }
+}

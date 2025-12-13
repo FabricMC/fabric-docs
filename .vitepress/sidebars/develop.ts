@@ -52,7 +52,10 @@ export default [
             text: "develop.items.potions",
             link: "/develop/items/potions",
           },
-
+          {
+            text: "develop.items.spawn_egg",
+            link: "/develop/items/spawn-egg", 
+          },
           {
             text: "develop.items.custom_tools",
             link: "/develop/items/custom-tools",
@@ -279,6 +282,10 @@ export default [
       {
         text: "develop.misc.saved_data",
         link: "/develop/saved-data",
+      },
+      {
+        text: "develop.data_generation.item_models",
+        link: "/develop/data-generation/item-models",
       },
     ],
   },

@@ -169,13 +169,13 @@ public class ModBlocks {
 			itemGroup.accept(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.accept(ModBlocks.COUNTER_BLOCK.asItem());
 			itemGroup.accept(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.accept(RUBY_BLOCK);
-			itemGroup.accept(RUBY_STAIRS);
-			itemGroup.accept(RUBY_SLAB);
-			itemGroup.accept(RUBY_FENCE);
-			itemGroup.accept(RUBY_DOOR);
-			itemGroup.accept(RUBY_TRAPDOOR);
-			itemGroup.accept(VERTICAL_OAK_LOG_SLAB);
+			itemGroup.accept(RUBY_BLOCK.asItem());
+			itemGroup.accept(RUBY_STAIRS.asItem());
+			itemGroup.accept(RUBY_SLAB.asItem());
+			itemGroup.accept(RUBY_FENCE.asItem());
+			itemGroup.accept(RUBY_DOOR.asItem());
+			itemGroup.accept(RUBY_TRAPDOOR.asItem());
+			itemGroup.accept(VERTICAL_OAK_LOG_SLAB.asItem());
 		});
 	}
 

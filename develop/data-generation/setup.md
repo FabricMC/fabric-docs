@@ -85,3 +85,4 @@ Now that datagen is set up, we need to add **providers**. These are what generat
 - [Tags](./tags)
 - [Translations](./translations)
 - [Block Models](./block-models)
+- [Item Models](./item-models)

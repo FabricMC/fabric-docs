@@ -178,14 +178,14 @@ The `BlockModelDefinitionCreator` contains all blockstate variants, their rotati
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-First, we create a new `BlockModelDefinitionCreator` using `VariantsBlockModelDefinitionCreator.of()`.
-Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockModelDefinitionCreator`.
-Specify which model and which transformations (uvlock, rotation) is used when using `.register()`.
+First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
+Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
+Specify which model and which transformations (uvlock, rotation) are used when using `.register()`.
 For example:
 
-- On the first line, the block is facing north, and is single => we use the model with no rotation.
-- On the fourth line, the block is facing west, and is single => we rotate the model on the Y axis by 270°.
-- On the sixth line, the block is facing east, but isn't single => it looks like a normal oak log => we don't have to rotate it.
+- On the first line, the block is facing north, and is single ⇒ we use the model with no rotation.
+- On the fourth line, the block is facing west, and is single ⇒ we rotate the model on the Y axis by 270°.
+- On the sixth line, the block is facing east, but it isn't single ⇒ it looks like a normal oak log ⇒ we don't have to rotate it.
 
 ### Custom Datagen Method {#custom-datagen-method}
 

@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
 // :::datagen-tags:provider
 public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider {
@@ -38,6 +39,7 @@ public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:build
+		valueLookupBuilder(ItemTags.DYEABLE).add(ModItems.LEATHER_GLOVES);
 		// :::datagen-tags:provider
 	}
 }
