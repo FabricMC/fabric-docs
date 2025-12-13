@@ -47,7 +47,7 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 To make a feature naturally spawn in our world we should start by defining the Configured Feature in our Configured Features class.
 
-First register the key for the `ConfiguredFeature` in your Configured Feature class by:
+First, register the key for the `ConfiguredFeature` in your Configured Feature class by:
 
 @[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -57,9 +57,9 @@ The second argument to the `ResourceLocation` (`diamond_block_vein` in this exam
 
 ### Ores {#ores}
 
-Then you need to make a `RuleTest` for what blocks your feature can replace
+Next, we'll make a `RuleTest` that controls what blocks your feature can replace.
 
-This `RuleTest` allows the replacement for every block with the tag `DEEP_SLATE_ORE_REPLACEABLES`; another useful tag for ores is `STONE_ORE_REPLACEABLES`
+This `RuleTest` allows the replacement for every block with the tag `DEEP_SLATE_ORE_REPLACEABLES`; another useful tag for ores is `STONE_ORE_REPLACEABLES`.
 
 @[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -71,13 +71,13 @@ You can have multiple cases in the list for different variants of the ore, for e
 
 @[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Lastly we need to register our Configured Feature to our game!
+Lastly, we need to register our Configured Feature to our game!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 ### Trees {#trees}
 
-To make a custom tree you need to first create a `TreeFeatureConfig`:
+To make a custom tree, you need to first create a `TreeFeatureConfig`:
 
 @[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -93,7 +93,7 @@ We _highly_ recommend that you play around with these values to create a custom 
 You can use the built-in placers for the Trunk and Foliage from the vanilla trees as a reference.
 :::
 
-Next we need to register our tree:
+Next, we need to register our tree by adding the following line to the `configure` method of `ExampleModWorldConfiguredFeatures`.
 
 @[code lang=java transcludeWith=:::datagen-world:tree-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -105,7 +105,7 @@ In your Placed Features class's method with the argument of `BootstrapContext<Pl
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-In your Placed Features class define the key for your Placed Feature.
+In your Placed Features class, define the key for your Placed Feature.
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
@@ -141,13 +141,13 @@ If you're unsure which `HeightRangePlacement` to use for your ore, just use Unif
 Trees and other surface structures should include the modifier `PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP` instead of `HeightRangePlacement` to make the tree to spawn at the surface
 :::
 
-Now that we have the modifiers we can register our Placed Feature with:
+Now that we have the modifiers, we can register our Placed Feature with:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ## Biome Modifications {#biome-modifications}
 
-Lastly we need to add our Placed Feature to `BiomeModifications` during mod initialization, we can do this with
+Lastly, we need to add our Placed Feature to `BiomeModifications` during mod initialization, we can do this by adding the following line to our mod initiializer.
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -161,11 +161,11 @@ By changing the BiomeSelectors argument, we can have our feature only spawn in a
 
 @[code lang=java transcludeWith=:::datagen-world:selective-biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
-This would only spawn in biomes tagged with the `is_forest` tag.
+This would only spawn in biomes tagged with the `minecraft:is_forest` biome tag.
 
 ## Running Datagen {#running-datagen}
 
-Now when you run datagen you should see a `.json` file in `src/main/generated/data/example-mod/worldgen/configured_feature` for each Configured Feature you added and a file in `src/main/generated/data/example-mod/worldgen/placed_feature` for each Placed Feature you added!
+Now when you run datagen, you should see a `.json` file in `src/main/generated/data/example-mod/worldgen/configured_feature` for each Configured Feature you added and a file in `src/main/generated/data/example-mod/worldgen/placed_feature` for each Placed Feature you added!
 
 ### Example Configured Feature `.json` File {#example-configured-features}
 
