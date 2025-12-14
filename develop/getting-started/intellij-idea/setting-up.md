@@ -33,7 +33,7 @@ Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
 
 If you do not have IntelliJ IDEA installed, you can download it from the [official website](https://www.jetbrains.com/idea/download/) - follow the installation steps for your operating system.
 
-![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-download.png)
+![IntelliJ IDEA Download Prompt](/assets/develop/getting-started/idea-download.png)
 
 ## Installing "Minecraft Development" Plugin {#installing-idea-plugins}
 
