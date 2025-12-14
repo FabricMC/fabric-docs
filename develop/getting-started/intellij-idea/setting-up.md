@@ -33,13 +33,7 @@ Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
 
 If you do not have IntelliJ IDEA installed, you can download it from the [official website](https://www.jetbrains.com/idea/download/) - follow the installation steps for your operating system.
 
-The Community edition of IntelliJ IDEA is free and open-source, and it is the recommended version for modding with Fabric.
-
-::: info DOWNLOADS
-You may have to scroll down to find the Community edition download link.
-:::
-
-![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-community.png)
+![IDEA Community Edition Download Prompt](/assets/develop/getting-started/idea-download.png)
 
 ## Installing "Minecraft Development" Plugin {#installing-idea-plugins}
 
