@@ -24,7 +24,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`.
+Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`, and the use of a generic `T extends Item` for the type to allow creating other types of items.
 
 ## Registering an Item {#registering-an-item}
 

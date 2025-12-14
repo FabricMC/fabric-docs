@@ -19,21 +19,13 @@ Spawn eggs are items that are used to spawn the corresponding mob. When creating
 - What texture should your spawn egg use?
 - What should your spawn egg item be named?
 
-## Simplify Registering Spawn Egg Items {#simplify-registering-spawn-egg-items}
+## Registering Your Spawn Egg Item {#registering-your-spawn-egg-item}
 
-When registering spawn egg items, an `EntityType` is needed.
-
-Create a method that accepts a `String`, an `EntityType` and `Item.Properties` to create the `SpawnEggItem` instance. The method should be located in the [item class](./first-item#preparing-your-items-class).
+The `register` method from your [item class](./first-item#preparing-your-items-class) can be used to register custom spawn eggs.
 
 ::: info
 Check out the [item registration method](./first-item#preparing-your-items-class) for more information.
 :::
-
-@[code transcludeWith=:::spawn_egg_register_method](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-## Registering Your Spawn Egg Item {#registering-your-spawn-egg-item}
-
-The `registerSpawnEgg(...)` method can now be used, to register custom spawn eggs.
 
 Change the name and `EntityType` as desired.
 

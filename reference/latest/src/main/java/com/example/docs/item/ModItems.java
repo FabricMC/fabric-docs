@@ -138,10 +138,10 @@ public class ModItems {
 
 	//spawn egg
 	// :::spawn_egg_register_item
-	public static final SpawnEggItem CUSTOM_SPAWN_EGG = registerSpawnEgg(
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
 			"custom_spawn_egg",
-			EntityType.FROG,
-			new Item.Properties()
+			SpawnEggItem::new,
+			new Item.Properties().spawnEgg(EntityType.FROG)
 	);
 	// :::spawn_egg_register_item
 
@@ -169,29 +169,13 @@ public class ModItems {
 	//range dispatch
 	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
 
-	// :::spawn_egg_register_method
-	public static SpawnEggItem registerSpawnEgg(String name, EntityType<? extends Mob> entityType, Item.Properties settings) {
-		// Create the item key.
-		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
-
-		// Create the spawn egg item instance.
-		SpawnEggItem spawnEggItem = new SpawnEggItem(settings.setId(itemKey).spawnEgg(entityType));
-
-		// Register the spawn egg item.
-		Registry.register(BuiltInRegistries.ITEM, itemKey, spawnEggItem);
-
-		return spawnEggItem;
-	}
-
-	// :::spawn_egg_register_method
-
 	// :::1
-	public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
+	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
 		// Create the item key.
 		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
-		Item item = itemFactory.apply(settings.setId(itemKey));
+		T item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
