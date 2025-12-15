@@ -340,9 +340,9 @@ L1
 
 Because the bytecode for both `if` conditions jumps to the exact same label, there is no place in the bytecode corresponding to the `// inject here?` comment, meaning workarounds must be used to target it with mixins.
 
-## Common Instructions {#common-instructions}
+## Common Bytecode Patterns {#common-bytecode-patterns}
 
-Here's a reference for the most common bytecode instructions you'll encounter while developing mixins. For a full advanced list, check out the [List of Java bytecode instructions on Wikipedia](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions).
+Here's a reference for the most common bytecode instructions and patterns you'll encounter while developing mixins. For a full advanced list of instructions, check out the [List of Java bytecode instructions on Wikipedia](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions).
 
 ### Constants {#constant-instructions}
 
@@ -490,7 +490,7 @@ The method returns the pointer to the `Creeper` instance.
 
 :::
 
-## Lambdas {#lambdas}
+### Lambdas {#lambdas}
 
 Lambda expressions are compiled to a separate method, which is then called by a lambda instance that got instantiated by an `invokedynamic` instruction.
 
