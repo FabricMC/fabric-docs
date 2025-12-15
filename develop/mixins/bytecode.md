@@ -376,7 +376,7 @@ Storing instructions pop the top value off the Operand Stack, and write it to a 
 
 - `invokestatic`: invokes a static method
 - `invokevirtual`: invokes a non-static method. Takes polymorphism and inheritance into account, calling the overridden version where applicable
-- `invokespecial`: invokes a non-static method, exactly the one declared, without taking into account polymorphism/inheritance. Used to call constructors and superclass methods
+- `invokespecial`: invokes a non-static method, exactly the one declared, without taking into account polymorphism/inheritance. Uses include calling constructors and superclass methods
 - `invokeinterface`: invokes an interface method, static or not
 
 ### Conditionals {#conditional-instructions-2}
