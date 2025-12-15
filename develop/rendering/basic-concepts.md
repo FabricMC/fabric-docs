@@ -125,7 +125,13 @@ Additionally, the code below does not fully match the explanation above: you do 
 Read the important update above for more information.
 :::
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+**Element registration:**
+
+@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+
+**Implementation of `hudLayer()`:**
+
+@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 This results in the following being drawn on the HUD:
 
