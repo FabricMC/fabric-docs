@@ -404,7 +404,7 @@ When prefixed with `i`, `l`, `f`, `d`, and `a`, just like [variable instructions
 
 ### New Object Creation {#new-object-creation}
 
-In source code, you can write `new MyClass()`, which creates a new instance of `MyClass` and calls the constructor. In bytecode these are two distinct operations. Take the following code, for example:
+In source code, writing `new MyClass()` creates a new instance of `MyClass` and calls its constructor. In bytecode, these two steps become distinct operations. Take the following code, for example:
 
 ::: code-group
 
@@ -425,7 +425,70 @@ static createCreeper (Lnet/minecraft/world/level/Level;)Lnet/mineraft/world/enti
 
 :::
 
-Here, the `new` instruction creates an uninitialized instance of `Creeper`, and pushes a pointer to it onto the Operand Stack. The `dup` instruction duplicates the top of the Operand Stack so that there are two copies of the pointer to the new `Creeper` instance. Next, the arguments to the constructor are pushed onto the Operand Stack (in this case, the local variable called `level`). The `invokespecial` instruction is then used to call the constructor of the `Creeper` object. Like a regular non-static method call, this pops all the arguments and the instance the method is called on off the Operand Stack, and because the method returns `void`, nothing is pushed onto the Operand Stack afterwards. This consumes one of the pointers to `Creeper`, which is why we had to `dup` it before, as we now have one pointer remaining. Finally, we return the pointer to the `Creeper` that remains on the operand stack with the `areturn` instruction.
+Let's examine what happens on the Operand Stack.
+
+::: tabs
+== Start
+
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     |                      |               |
+| 0     | `level`              |               |
+
+LVT slot 0 contains `level`. It does not contain `this` because the method is static.
+
+== new Creeper
+
+| Index | Local Variable Table | Operand Stack    |
+|-------|----------------------|------------------|
+| 2     |                      |                  |
+| 1     |                      |                  |
+| 0     | `level`              | uninit `Creeper` |
+
+Allocates an uninitialized instance of `Creeper`, and pushes a reference to it onto the Operand Stack.
+
+== dup
+
+| Index | Local Variable Table | Operand Stack    |
+|-------|----------------------|------------------|
+| 2     |                      |                  |
+| 1     |                      | uninit `Creeper` |
+| 0     | `level`              | uninit `Creeper` |
+
+Duplicates the top value of the Operand Stack.
+
+We need the Operand Stack to contain two pointers to the same object because one will be consumed by `invokespecial <init>`, and the other will be returned by `areturn`.
+
+== aload 0
+
+| Index | Local Variable Table | Operand Stack    |
+|-------|----------------------|------------------|
+| 2     |                      | `level`          |
+| 1     |                      | uninit `Creeper` |
+| 0     | `level`              | uninit `Creeper` |
+
+Loads the variable from LVT slot 0 (`level`), and pushes its value onto the Operand Stack.
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+== invokespecial <init>
+
+| Index | Local Variable Table | Operand Stack |
+|-------|----------------------|---------------|
+| 2     |                      |               |
+| 1     |                      |               |
+| 0     | `level`              | `Creeper`     |
+
+Pops the parameters that will be fed into `Creeper.<init>` (in this case `level`), and the pointer to the object that will be initialized, off the Operand Stack, then calls the constructor.
+
+Because [constructors return `void`](#constructors-and-static-initializers), the Operand Stack loses one of the two pointers to `Creeper`.
+
+== areturn
+
+Gets the top value of the Operand Stack, and returns it.
+The method returns the pointer to the `Creeper` instance.
+
+:::
 
 ## Lambdas {#lambdas}
 
