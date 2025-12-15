@@ -196,5 +196,3 @@ Let's say we want to rotate our square around the z-axis. We can do this by usin
 The result of this is the following:
 
 ![A video showing the diamond rotating around the z-axis](/assets/develop/rendering/concepts-quaternions.webp)
-
-asssssss
