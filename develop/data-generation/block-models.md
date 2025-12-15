@@ -150,26 +150,26 @@ Another thing we will need is an instance of the `Model` class. It will represen
 @[code lang=java transcludeWith=:::datagen-model-custom:model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 The `block()` method creates a new `Model`, pointing to the `vertical_slab.json` file inside the `resources/assets/example-mod/models/block/` folder.
-The `TextureKey`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Object.
+The `TextureSlot`s represent the "placeholders" (`#bottom`, `#top`, ...) as an Object.
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMap` do? It actually provides the Identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureKey` (Key) with a `ResourceLocation` (Value).
+What does `TextureMapping` do? It actually provides the Resource Location that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (Key) with a `ResourceLocation` (Value).
 
-You can either use the vanilla ones, like `TextureMap.all()`(which associates all TextureKeys with the same Identifier), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
+You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all TextureKeys with the same Resource Location), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
-`TextureMap.all()` associates all TextureKeys with the same Identifier, no matter how many of them there are!
+`TextureMapping.cube()` associates all `TextureSlot`s with the same Resource Location, no matter how many of them there are!
 :::
 
-Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureKey`s, we need to create a new one.
+Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureSlot`s, we need to create a new one.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:texture-map](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
-All `TextureKey`s in the TextureMap **have to** match all `TextureKey`s in your parent block model!
+All `TextureSlot`s in the TextureMap **have to** match all `TextureSlot`s in your parent block model!
 :::
 
 ### Custom `BlockModelDefinitionCreator` Method {#custom-supplier-method}
@@ -178,8 +178,8 @@ The `BlockModelDefinitionCreator` contains all blockstate variants, their rotati
 
 @[code lang=java transcludeWith=:::datagen-model-custom:supplier](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-First, we create a new `VariantsBlockStateSupplier` using `VariantsBlockStateSupplier.create()`.
-Then we create a new `BlockStateVariantMap` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `VariantsBlockStateSupplier`.
+First, we create a new `BlockModelDefinitionGenerator` using `MultiVariantGenerator.dispatch()`.
+Then we create a new `PropertyDispatch` that contains parameters for all variants of the block, in this case `FACING` and `SINGLE`, and pass it into the `MultiVariantGenerator`.
 Specify which model and which transformations (uvlock, rotation) are used when using `.register()`.
 For example:
 
@@ -192,16 +192,16 @@ For example:
 The last step - creating an actual method you can call and that will generate the JSONs.
 But what are the parameters for?
 
-1. `BlockStateModelGenerator generator`, the same one that got passed into `generateBlockStateModels`.
+1. `BlockModelGenerators generator`, the same one that got passed into `generateBlockStateModels`.
 2. `Block vertSlabBlock` is the block to which we will generate the JSONs.
 3. `Block fullBlock` - is the model used when the `SINGLE` property is false = the slab block looks like a full block.
-4. `TextureMap textures` defines the actual textures the model uses. See the [Using Texture Map](#using-texture-map) chapter.
+4. `TextureMapping textures` defines the actual textures the model uses. See the [Using Texture Map](#using-texture-map) chapter.
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.upload()`. Then we get the `Identifier` of the full block model with `ModelIds.getBlockModelId()`, and pass those two models into `createVerticalSlabBlockStates`.
+First, we get the `ResourceLocation` of the single slab model with `VERTICAL_SLAB.upload()`. Then we get the `ResourceLocation` of the full block model with `ModelLocationUtils.getModelLocation()`, and pass those two models into `createVerticalSlabBlockStates`.
 The `BlockStateSupplier` gets passed into the `blockStateCollector`, so that the JSON files are actually generated.
-Also, we create a model for the vertical slab item with `BlockStateModelGenerator.registerParentedItemModel()`.
+Also, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
 
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:
 
