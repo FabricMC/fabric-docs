@@ -3,6 +3,7 @@ title: 方块状态
 description: 学习为什么方块状态是一个向你的方块添加可视化功能的好方法。
 authors:
   - IMB11
+  - PEQB1145
 ---
 
 方块状态是附加到 Minecraft 世界中的单个方块上的一段数据，包含属性形式的方块块信息——原版存储在方块状态中的属性的一些示例：
@@ -41,7 +42,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+注意，方块状态文件可在 `assets/example-mod/blockstates` 文件夹中找到，当在 `ModBlocks` 类中注册你的方块时，方块状态的文件名必须与方块 ID 相同。举个例子，如果方块的 ID 是 `condensed_oak_log`，那么文件应该名为 `condensed_oak_log.json`。
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
 :::
