@@ -15,13 +15,13 @@ authors:
   - Technici4n
   - Treeways
   - xpple
+  - PEQB1145
 ---
 
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 ::: info
-Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
-you build a tree of commands and arguments.
+Brigadier 是 Mojang 为 Minecraft 编写的一个命令解析器和调度器。它是一个基于树的命令库，你可以通过它构建由命令和参数组成的树形结构。
 
 Brigadier 是开源的：<https://github.com/Mojang/brigadier>
 :::
@@ -153,8 +153,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 ### 可以运行时注册命令吗？ {#can-i-register-commands-at-runtime}
 
 ::: warning
-You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
-you wish to its `CommandDispatcher`.
+你可以这么做，但并不建议。你需要从服务器获取 `CommandManager` 并将其中的 `CommandDispatcher` 添加你想要的任何命令。
 
 然后需要通过 `CommandManager.sendCommandTree(ServerPlayerEntity)` 向每个玩家再次发送命令树。
 
@@ -164,8 +163,7 @@ you wish to its `CommandDispatcher`.
 ### 可以在运行时取消注册命令吗？ {#can-i-unregister-commands-at-runtime}
 
 ::: warning
-You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
-effects.
+你同样可以这么做，但这种方式比在运行时注册命令的稳定性要差得多，并可能引发意料之外的副作用。
 
 为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayerEntity)` 向每个玩家发送命令树。
 
