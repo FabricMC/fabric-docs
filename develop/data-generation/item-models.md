@@ -224,9 +224,9 @@ The last step is creating a custom method, which will be called in the `generate
 Let's go over what the parameters are for:
 
 1. `Item item`: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
-2. `ItemModelGenerator generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
+2. `ItemModelGenerators generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
-First, we get the `ResourceLocation` of the item with `BALLOON.upload()`, passing in a `TextureMapper` and the `modelCollector` from our `generator` parameter.
+First, we get the `ResourceLocation` of the item with `SCALED2X.create()`, passing in a `TextureMapper` and the `modelCollector` from our `generator` parameter.
 Then, we'll use another of its fields, the `itemModelOutput` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 
 And that's all! Now, we only need to call our method in the `generateItemModels()` method.
