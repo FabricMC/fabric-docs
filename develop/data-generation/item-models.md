@@ -56,7 +56,7 @@ _**assets/example-mod/items/ruby.json**_
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/ruby.json)
 
 :::tip
-Search for `generated.json` file to see the exact rotation, scaling and positioning of the model.
+You can reference the [generated.json](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/generated.json) file to see the exact rotation, scaling and positioning of the model.
 :::
 
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/ruby_big.png" downloadURL="/assets/develop/data-generation/item-model/ruby.png">Ruby</DownloadEntry>
@@ -98,12 +98,12 @@ You have to add your item to the `ItemTags.DYEABLE` Tag so you can dye it in you
 
 Next, we'll look into generating item models that change their visual based when a specific boolean is true; in this case, the second parameter `BooleanProperty`. Here are some of them:
 
-| Property               | Description                                                                    |
-|------------------------|--------------------------------------------------------------------------------|
+| Property         | Description                                                                    |
+|------------------|--------------------------------------------------------------------------------|
 | `IsKeybindDown`  | True when a specified key is pressed.                                          |
 | `IsUsingItem`    | True when the item is being used (e.g. when blocking with a shield).           |
-| `Broken`       | True when the item has 0 durability (e.g. elytra changes texture when broken). |
-| `HasComponent` | True when the item has a certain component.                                    |
+| `Broken`         | True when the item has 0 durability (e.g. elytra changes texture when broken). |
+| `HasComponent`   | True when the item has a certain component.                                    |
 
 Of course, this isn't all of them. There is plenty more that will almost certainly cover your needs.
 
@@ -140,8 +140,8 @@ _**assets/example-mod/items/enhanced_hoe.json**_
 
 Renders an item model based on the value of a specific property. These are some of them:
 
-| Property                    | Description                                                                                        |
-|-----------------------------|----------------------------------------------------------------------------------------------------|
+| Property            | Description                                                                                        |
+|---------------------|----------------------------------------------------------------------------------------------------|
 | `ContextDimension`  | Renders an item model based on the dimension in which the player is (Overworld, Nether, End).      |
 | `MainHand`          | Renders an item model when the item is equipped in player's main hand.                             |
 | `DisplayContext`    | Renders an item model based on the position in which the item is (`ground`, `fixed`, `head`, ...). |
@@ -163,10 +163,10 @@ _**assets/example-mod/items/dimensional_crystal.json**_
 
 Renders an item model based on the value of a numeric property. Take in an item and list of variants paired with a value. There are quite a few, here are some examples:
 
-| Property              | Description                                                                  |
-|-----------------------|------------------------------------------------------------------------------|
+| Property      | Description                                                                  |
+|---------------|------------------------------------------------------------------------------|
 | `Cooldown`    | Renders an item model based on item's remaining cooldown.                    |
-| `Count`        | Renders an item model based on stack size.                                   |
+| `Count`       | Renders an item model based on stack size.                                   |
 | `UseDuration` | Renders an item model based on how long the item is being used.              |
 | `Damage`      | Renders an item model based on attack damage (`minecraft:damage` component). |
 
