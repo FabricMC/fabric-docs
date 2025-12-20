@@ -54,7 +54,7 @@ export default [
           },
           {
             text: "develop.items.spawn_egg",
-            link: "/develop/items/spawn-egg", 
+            link: "/develop/items/spawn-egg",
           },
           {
             text: "develop.items.custom_tools",
@@ -242,8 +242,8 @@ export default [
             link: "/develop/data-generation/block-models",
           },
           {
-          text: "develop.data_generation.item_models",
-          link: "/develop/data-generation/item-models",
+            text: "develop.data_generation.item_models",
+            link: "/develop/data-generation/item-models",
           },
         ],
       },
@@ -286,7 +286,7 @@ export default [
       {
         text: "develop.misc.saved_data",
         link: "/develop/saved-data",
-      }
+      },
     ],
   },
   {
