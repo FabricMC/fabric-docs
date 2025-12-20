@@ -7,232 +7,367 @@ authors:
   - skycatminepokie
 ---
 
-:::info PREREQUISITES
+::: info PREREQUISITES
 Make sure you've completed the [datagen setup](./setup) and created your [first item](../items/first-item).
 :::
 
+For each item model we want to generate, we must create two separate JSON files:
+
+1. An **item model**, which defines the textures, rotation and overall look of the item. It goes in the `generated/assets/example-mod/models/item` directory.
+2. A **client item**, which defines which model should be used based on various criteria, such as components, interactions and more. It goes in the `generated/assets/example-mod/items` directory.
+
 ## Setup {#setup}
 
-First, we will need to create our ModelProvider. Create a class that `extends FabricModelProvider`. Implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
-Lastly, create a constructor matching super.
+First, we will need to create our model provider.
 
-@[code lang=java transcludeWith=:::datagen-model:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+Create a class that extends `FabricModelProvider`, and implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
+Then, create a constructor matching `super`.
+
+@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-## Generated Files {#generated-files}
+## Built-In Item Models {#built-in}
 
-Generating item models results in creating two separate JSON files:
+For item models, we will be using the `generateItemModels` method. Its parameter `ItemModelGenerators itemModelGenerator` is responsible for generating the item models and also contains methods for doing so.
 
-1. **Item model**. File responsible for defining the textures, rotation and overall looks of the item. It's generated in the `generated/assets/example-mod/models/item` directory.
-2. **Client item**. File defining which model should be used depending on various criteria such as components, interactions and more. It's generated in the `generated/assets/example-mod/items` directory.
+Here's a reference of the most commonly used item model generator methods.
 
-## Item Models {#item-models}
+### Simple {#simple}
 
-This section covers the most used and basic methods used for generating item models.
+Simple item models are the default, and they're what most Minecraft items use. Their parent model is `GENERATED`. They use their 2D texture in the inventory, and are rendered in 3D in-game. An example would be boats, candles or dyes.
 
-```java
-@Override
-public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-}
-```
+::: tabs
 
-For item models, we will be using the `generateItemModels` method. Its parameter `ItemModelGenerator itemModelGenerator` is responsible for generating the item models and also contains methods for doing so.
+== Source Code
 
-### Simple Item Models {#simple-item-models}
+@[code transcludeWith=:::generated](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-@[code lang=java transcludeWith=:::datagen-model:generated](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+== Client Item
 
-Simple item models are the default ones, which most Minecraft items use. Their parent model is the `GENERATED` Model. They use their 2D texture, which is then rendered as 3D in-game. An example would be boats, candles or dyes.
-
-_**assets/example-mod/models/item/ruby.json**_
-
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json)
-
-Since we're using only one variant no matter the circumstances, we reference only the `ruby.json` item model file.
-
-_**assets/example-mod/items/ruby.json**_
+`generated/assets/example-mod/items/ruby.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/ruby.json)
 
-:::tip
-You can reference the [generated.json](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/generated.json) file to see the exact rotation, scaling and positioning of the model.
+== Item Model
+
+`generated/assets/example-mod/models/item/ruby.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json)
+
+You can find the exact default values for rotation, scaling and positioning of the model in the [`generated.json` file from the Minecraft assets](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/generated.json).
+
+== Texture
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/ruby_big.png" downloadURL="/assets/develop/data-generation/item-model/ruby.png">Ruby Texture</DownloadEntry>
+
 :::
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/ruby_big.png" downloadURL="/assets/develop/data-generation/item-model/ruby.png">Ruby</DownloadEntry>
+### Handheld {#handheld}
 
-### Handheld Item Models {#handheld-item-models}
+Handheld item models are generally used by tools and weapons (axes, swords, trident). They are rotated and positioned a little differently from the simple models to look more natural in hand. Other than that, they look exactly the same as the simple ones.
 
-@[code lang=java transcludeWith=:::datagen-model:handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+::: tabs
 
-This type of item model is generally used by tools and weapons (axes, swords, trident). They are rotated and positioned a little differently from the simple models to look more natural in hand. Other than that, they look exactly the same as the simple ones.
+== Source Code
 
-_**assets/example-mod/models/item/guidite_axe.json**_
+@[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+== Client Item
+
+`generated/assets/example-mod/items/guidite_axe.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json)
+
+== Item Model
+
+`generated/assets/example-mod/models/item/guidite_axe.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json)
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe</DownloadEntry>
+You can find the exact default values for rotation, scaling and positioning of the model in the [`handheld.json` file from the Minecraft assets](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/handheld.json).
 
-### Dyeable Items {#dyeable-items}
+== Texture
 
-@[code lang=java transcludeWith=:::datagen-model:dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe Texture</DownloadEntry>
 
-The `ItemModelGenerator` also provides a method for generating models for dyeable items. Here you have to pass in a default decimal color value the item uses when it isn't dyed. (default value for leather is `-6265536`)
-It generates a simple item model JSON and an client item file specifying the tint color.
+:::
 
-![Dyeing leather gloves](/assets/develop/data-generation/item-model/leather_gloves_dyeing.png)
+### Dyeable {#dyeable}
 
-_**assets/example-mod/items/leather_gloves.json**_
+Dyeable items require a default decimal color value, which is used when the item is not dyed. The default value for leather is `0xFFA06540`. The method for dyeable items generates a simple item model and a client item which specifies the tint color.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json)
+:::: tabs
 
-:::warning IMPORTANT
+== Source Code
+
+@[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+::: warning IMPORTANT
 You have to add your item to the `ItemTags.DYEABLE` Tag so you can dye it in your inventory!
 :::
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/leather_gloves_big.png" downloadURL="/assets/develop/data-generation/item-model/leather_gloves.png">Leather Gloves</DownloadEntry>
+== Client Item
 
-### Conditional Item Models {#conditional-item-models}
+`generated/assets/example-mod/items/leather_gloves.json`
 
-@[code lang=java transcludeWith=:::datagen-model:condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json)
 
-Next, we'll look into generating item models that change their visual based when a specific boolean is true; in this case, the second parameter `BooleanProperty`. Here are some of them:
+== Item Model
 
-| Property         | Description                                                                    |
-|------------------|--------------------------------------------------------------------------------|
-| `IsKeybindDown`  | True when a specified key is pressed.                                          |
-| `IsUsingItem`    | True when the item is being used (e.g. when blocking with a shield).           |
-| `Broken`         | True when the item has 0 durability (e.g. elytra changes texture when broken). |
-| `HasComponent`   | True when the item has a certain component.                                    |
+`generated/assets/example-mod/models/item/leather_gloves.json`
 
-Of course, this isn't all of them. There is plenty more that will almost certainly cover your needs.
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/leather_gloves.json)
 
-The third and fourth parameters are the models used when the property is true or false respectively.
+== Texture
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Flashlight turning on and off</VideoPlayer>
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/leather_gloves_big.png" downloadURL="/assets/develop/data-generation/item-model/leather_gloves.png">Leather Gloves Texture</DownloadEntry>
 
-_**assets/example-mod/items/flashlight.json**_
+== Preview
+
+![Dyeing leather gloves](/assets/develop/data-generation/item-model/leather_gloves_dyeing.png)
+
+::::
+
+### Conditional {#conditional}
+
+Next, we'll look into generating item models that change their visual based when a specific condition, indicated by the second parameter `BooleanProperty`, is met. Here are some of them:
+
+| Property        | Description                                                                    |
+| --------------- | ------------------------------------------------------------------------------ |
+| `IsKeybindDown` | True when a specified key is pressed.                                          |
+| `IsUsingItem`   | True when the item is being used (e.g. when blocking with a shield).           |
+| `Broken`        | True when the item has 0 durability (e.g. elytra changes texture when broken). |
+| `HasComponent`  | True when the item has a certain component.                                    |
+
+The third and fourth parameters are the models to be used when the property is `true` or `false`, respectively.
+
+:::: tabs
+
+== Source Code
+
+@[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+::: warning IMPORTANT
+To obtain the `ResourceLocation` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
+:::
+
+== Client Item
+
+`generated/assets/example-mod/items/flashlight.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/flashlight.json)
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/flashlight_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/flashlight_textures.zip">Flashlight</DownloadEntry>
+== Item Models
 
-:::warning IMPORTANT
-When obtaining `ResourceLocation`s for the `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()` or any other method using it, otherwise your item model files won't generate, only client items!
-:::
+`generated/assets/example-mod/models/item/flashlight.json`
 
-### Composite Item Models {#composite-item-models}
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight.json)
 
-@[code lang=java transcludeWith=:::datagen-model:composite](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+`generated/assets/example-mod/models/item/flashlight_lit.json`
 
-These item models are composed of one or more textures layered on top of each other. There aren't any vanilla methods for this, you have to use `ItemModelGenerator`'s `itemModelOutput` field and then `accept()` for it to work.
-Here's the client item JSON:
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight_lit.json)
 
-_**assets/example-mod/items/enhanced_hoe.json**_
+== Textures
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/flashlight_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/flashlight_textures.zip">Flashlight Textures</DownloadEntry>
+
+== Preview
+
+<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Flashlight turning on and off</VideoPlayer>
+
+::::
+
+### Composite {#composite}
+
+Composite item models are composed of one or more textures layered on top of each other. There aren't any vanilla methods for this; you have to use the `itemModelGenerator`'s `itemModelOutput` field, and call `accept()` on it.
+
+::: tabs
+
+== Source Code
+
+@[code transcludeWith=:::composite](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+== Client Item
+
+`generated/assets/example-mod/items/enhanced_hoe.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/enhanced_hoe.json)
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures.zip">Enhanced Hoe</DownloadEntry>
+== Item Models
 
-### Select Item Models {#select-item-models}
+`generated/assets/example-mod/models/item/enhanced_hoe.json`
 
-@[code lang=java transcludeWith=:::datagen-model:select](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe.json)
+
+`generated/assets/example-mod/models/item/enhanced_hoe_plus.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe_plus.json)
+
+== Textures
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/enhanced_hoe_textures.zip">Enhanced Hoe Textures</DownloadEntry>
+
+:::
+
+### Select {#select}
 
 Renders an item model based on the value of a specific property. These are some of them:
 
-| Property            | Description                                                                                        |
-|---------------------|----------------------------------------------------------------------------------------------------|
-| `ContextDimension`  | Renders an item model based on the dimension in which the player is (Overworld, Nether, End).      |
-| `MainHand`          | Renders an item model when the item is equipped in player's main hand.                             |
-| `DisplayContext`    | Renders an item model based on the position in which the item is (`ground`, `fixed`, `head`, ...). |
-| `ContextEntityType` | Renders an item model based on the entity holding the item.                                        |
+| Property            | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| `ContextDimension`  | Renders an item model based on the dimension in which the player is (Overworld, Nether, End). |
+| `MainHand`          | Renders an item model when the item is equipped in player's main hand.                        |
+| `DisplayContext`    | Renders an item model based on where the item is (`ground`, `fixed`, `head`, ...).            |
+| `ContextEntityType` | Renders an item model based on the entity holding the item.                                   |
 
-In this example, the item changes texture when traveling between dimensions; green in Overworld, red in the Nether and black in the End.
+In this example, the item changes texture when traveling between dimensions: it's green in the Overworld, red in the Nether, and black in the End.
 
-![Dimensional crystal changing texture based on dimension](/assets/develop/data-generation/item-model/crystal.png)
+::: tabs
 
-_**assets/example-mod/items/dimensional_crystal.json**_
+== Source Code
+
+@[code transcludeWith=:::select](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+== Client Item
+
+`generated/assets/example-mod/items/dimensional_crystal.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/dimensional_crystal.json)
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures.zip">Dimensional Crystal</DownloadEntry>
+== Item Models
 
-### Range Dispatch Item Models {#range-dispatch-item-models}
+`generated/assets/example-mod/models/item/dimensional_crystal_overworld.json`
 
-@[code lang=java transcludeWith=:::datagen-model:range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_overworld.json)
 
-Renders an item model based on the value of a numeric property. Take in an item and list of variants paired with a value. There are quite a few, here are some examples:
+`generated/assets/example-mod/models/item/dimensional_crystal_nether.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_nether.json)
+
+`generated/assets/example-mod/models/item/dimensional_crystal_end.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_end.json)
+
+== Textures
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/dimensional_crystal_textures.zip">Dimensional Crystal Textures</DownloadEntry>
+
+== Preview
+
+![Dimensional crystal changing texture based on dimension](/assets/develop/data-generation/item-model/crystal.png)
+
+:::
+
+### Range Dispatch {#range-dispatch}
+
+Renders an item model based on the value of a numeric property. Takes in an item and list of variants, each paired with a value. Examples include the compass, the bow, and the brush.
+
+There are quite a few supported properties, here are some examples:
 
 | Property      | Description                                                                  |
-|---------------|------------------------------------------------------------------------------|
-| `Cooldown`    | Renders an item model based on item's remaining cooldown.                    |
-| `Count`       | Renders an item model based on stack size.                                   |
+| ------------- | ---------------------------------------------------------------------------- |
+| `Cooldown`    | Renders an item model based on the item's remaining cooldown.                |
+| `Count`       | Renders an item model based on the stack size.                               |
 | `UseDuration` | Renders an item model based on how long the item is being used.              |
 | `Damage`      | Renders an item model based on attack damage (`minecraft:damage` component). |
 
 This example uses the `Count`, changing the texture from one knife up to three based on the stack size.
 
-:::tip
-Some other examples of range dispatch item models are the compass, bow or brush.
-:::
+::: tabs
 
-![Throwing knives changing texture based on count](/assets/develop/data-generation/item-model/throwing_knives_example.png)
+== Source Code
 
-_**assets/example-mod/items/throwing_knives.json**_
+@[code transcludeWith=:::range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+== Client Item
+
+`generated/assets/example-mod/items/throwing_knives.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/throwing_knives.json)
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/throwing_knives_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/throwing_knives_textures.zip">Throwing Knives</DownloadEntry>
+== Item Models
 
-## Custom Item Models {#custom-item-models}
+`generated/assets/example-mod/models/item/throwing_knives_one.json`
 
-:::info
-All fields and methods for this part of the tutorial are declared in a static inner class called `CustomItemModelGenerator`.
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_one.json)
+
+`generated/assets/example-mod/models/item/throwing_knives_two.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_two.json)
+
+`generated/assets/example-mod/models/item/throwing_knives_three.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_three.json)
+
+== Textures
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/throwing_knives_textures_big.png" downloadURL="/assets/develop/data-generation/item-model/throwing_knives_textures.zip">Throwing Knives Textures</DownloadEntry>
+
+== Preview
+
+![Throwing knives changing texture based on count](/assets/develop/data-generation/item-model/throwing_knives_example.png)
+
 :::
 
-Generating item models isn't limited to only vanilla methods; you can, of course, create your own. In this section, we will be creating a custom model for a balloon item.
+## Custom Item Models {#custom}
 
-### Parent Item Model {#parent-item-model}
+Generating item models doesn't have to be done with vanilla methods only; you can, of course, create your own. In this section, we will create a custom model for a balloon item.
 
-First, let's create a parent item model that defines how does the item look in-game. We want the balloon to look the same as simple item models, but scaled up. That's pretty straight-forward; we set the parent to be the `item/generated` model, and then override the scaling.
-Put this JSON file in the `resources/assets/mod_id/models/item` folder.
+All fields and methods for this part of the tutorial are declared in a static inner class called `CustomItemModelGenerator`.
 
-**_models/item/scaled2x.json_**
+::: details Show `CustomItemModelGenerator`
+
+@[code transcludeWith=:::custom-item-model-generator:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+:::
+
+### Creating a Custom Parent {#custom-parent}
+
+First, let's create a parent item model that defines how the item looks in-game. Let's say we want the balloon to look like simple item models, but scaled up.
+
+To do this, we'll create `resources/assets/example-mod/models/item/scaled2x.json`, set the parent to be the `item/generated` model, and then override the scaling.
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
 
-This will make the model twice as big as the normal ones. Feel free to experiment with the values until you get the desired output.
+<!-- TODO: does this not make the model eight times as big? -->
+This will make the model twice as big as the simple ones.
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/balloon_big.png" downloadURL="/assets/develop/data-generation/item-model/balloon.png">Balloon</DownloadEntry>
+### Creating the `ModelTemplate` {#custom-item-model}
 
-### Custom Model {#custom-model}
+Next, we need to create an instance of the `ModelTemplate` class. It will represent the actual [parent item model](#custom-parent) inside our mod.
 
-Next, we need to create an instance of the `ModelTemplate` class. It will represent the actual [parent item model](#parent-item-model) inside our mod.
+@[code transcludeWith=:::custom-item-model:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-@[code lang=java transcludeWith=:::datagen-model-custom:item-model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-The `item()` method creates a new `ModelTemplate` instance, pointing to the `scaled2x.json` file inside the `resources/assets/mod_id/models/item` folder.
+The `item()` method creates a new `ModelTemplate` instance, pointing to the `scaled2x.json` file we created earlier.
 
 TextureSlot `LAYER0` represents the `#layer0` texture variable, which will then be replaced by an identifier pointing to a texture.
 
-### Custom Datagen Method {#custom-datagen-method}
+### Adding a Custom Datagen Method {#custom-datagen-method}
 
 The last step is creating a custom method, which will be called in the `generateItemModels()` method and will be responsible for generating our item models.
 
-@[code lang=java transcludeWith=:::datagen-model-custom:item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code transcludeWith=:::custom-item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Let's go over what the parameters are for:
 
-1. `Item item`: The item, for which we are generating the models (in this case `ModItems.BALLOON`).
+1. `Item item`: The item, for which we are generating the models.
 2. `ItemModelGenerators generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
-First, we get the `ResourceLocation` of the item with `SCALED2X.create()`, passing in a `TextureMapper` and the `modelCollector` from our `generator` parameter.
+First, we get the `ResourceLocation` of the item with `SCALED2X.create()`, passing in a `TextureMapping` and the `modelOutput` from our `generator` parameter.
+
 Then, we'll use another of its fields, the `itemModelOutput` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 
-And that's all! Now, we only need to call our method in the `generateItemModels()` method.
+### Calling the Custom Method {#custom-call}
 
-@[code lang=java transcludeWith=:::datagen-model-custom:balloon](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+Now, we only need to call our method in the `generateItemModels()` method.
+
+@[code transcludeWith=:::custom-balloon](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+Don't forget to add a texture file!
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/balloon_big.png" downloadURL="/assets/develop/data-generation/item-model/balloon.png">Balloon Texture</DownloadEntry>
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.10/fabric-data-generation-api-v1/src/), this documentation's [Reference Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) and the [Minecraft Wiki](https://minecraft.wiki/) for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.10/fabric-data-generation-api-v1/src/), this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.

@@ -34,7 +34,7 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
 
-// :::datagen-model:provider
+// :::provider
 public class ExampleModModelProvider extends FabricModelProvider {
 	public ExampleModModelProvider(FabricDataOutput output) {
 		super(output);
@@ -42,83 +42,82 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-		// :::datagen-model:provider
+		// :::provider
 
-		// :::datagen-model:cube-all
+		// :::cube-all
 		blockStateModelGenerator.createTrivialCube(ModBlocks.STEEL_BLOCK);
-		// :::datagen-model:cube-all
+		// :::cube-all
 
-		// :::datagen-model:cube-top-for-ends
+		// :::cube-top-for-ends
 		blockStateModelGenerator.createTrivialBlock(ModBlocks.PIPE_BLOCK, TexturedModel.COLUMN_ALT);
-		// :::datagen-model:cube-top-for-ends
+		// :::cube-top-for-ends
 
-		// :::datagen-model:block-texture-pool-normal
+		// :::block-texture-pool-normal
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK)
 				.stairs(ModBlocks.RUBY_STAIRS)
 				.slab(ModBlocks.RUBY_SLAB)
 				.fence(ModBlocks.RUBY_FENCE);
-		// :::datagen-model:block-texture-pool-normal
+		// :::block-texture-pool-normal
 
-		// :::datagen-model:door-and-trapdoor
+		// :::door-and-trapdoor
 		blockStateModelGenerator.createDoor(ModBlocks.RUBY_DOOR);
 		blockStateModelGenerator.createTrapdoor(ModBlocks.RUBY_TRAPDOOR);
 		// blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RUBY_TRAPDOOR);
-		// :::datagen-model:door-and-trapdoor
+		// :::door-and-trapdoor
 
-		// :::datagen-model-custom:method-call
+		// :::custom-method-call
 		CustomBlockStateModelGenerator.registerVerticalSlab(
 				blockStateModelGenerator,
 				ModBlocks.VERTICAL_OAK_LOG_SLAB,
 				Blocks.OAK_LOG,
 				CustomBlockStateModelGenerator.blockAndTopForEnds(Blocks.OAK_LOG)
 		);
-		// :::datagen-model-custom:method-call
+		// :::custom-method-call
 
-		// :::datagen-model:provider
+		// :::provider
 	}
-
-	// :::datagen-model:provider
+	// :::provider
 
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
-		// :::datagen-model:block-texture-pool-family
+		// :::block-texture-pool-family
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK).generateFor(ModBlocks.RUBY_FAMILY);
-		// :::datagen-model:block-texture-pool-family
+		// :::block-texture-pool-family
 	}
 
-	// :::datagen-model:provider
+	// :::provider
 
 	@Override
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-		// :::datagen-model:provider
+		// :::provider
 
-		//:::datagen-model:generated
+		//:::generated
 		itemModelGenerator.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
-		//:::datagen-model:generated
+		//:::generated
 
-		//:::datagen-model:handheld
+		//:::handheld
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
-		//:::datagen-model:handheld
+		//:::handheld
 
-		//:::datagen-model:spawn-egg
+		//:::spawn-egg
 		itemModelGenerator.generateFlatItem(ModItems.CUSTOM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-		//:::datagen-model:spawn-egg
+		//:::spawn-egg
 
-		//:::datagen-model:dyeable
-		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, -6265536);
-		//:::datagen-model:dyeable
+		//:::dyeable
+		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, 0xFFA06540);
+		//:::dyeable
 
-		//:::datagen-model:condition
+		//:::condition
 		itemModelGenerator.generateBooleanDispatch(
 						ModItems.FLASHLIGHT,
 						ItemModelUtils.isUsingItem(),
 						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, "_lit", ModelTemplates.FLAT_ITEM)),
 						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, ModelTemplates.FLAT_ITEM))
 		);
-		//:::datagen-model:condition
+		//:::condition
 
-		//:::datagen-model:composite
+		//:::composite
 		ItemModel.Unbaked hoe = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked hoePlus = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, "_plus", ModelTemplates.FLAT_ITEM));
 
@@ -126,9 +125,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 						ModItems.ENHANCED_HOE,
 						ItemModelUtils.composite(hoe, hoePlus)
 		);
-		//:::datagen-model:composite
+		//:::composite
 
-		//:::datagen-model:select
+		//:::select
 		ItemModel.Unbaked crystalOverworld = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_overworld", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked crystalNether = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_nether", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked crystalEnd = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_end", ModelTemplates.FLAT_ITEM));
@@ -141,9 +140,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 										ItemModelUtils.when(Level.END, crystalEnd)
 						)
 		);
-		//:::datagen-model:select
+		//:::select
 
-		//:::datagen-model:range-dispatch
+		//:::range-dispatch
 		ItemModel.Unbaked knifeOne = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_one", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeTwo = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_two", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeThree = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_three", ModelTemplates.FLAT_ITEM));
@@ -159,44 +158,46 @@ public class ExampleModModelProvider extends FabricModelProvider {
 										)
 						)
 		);
-		//:::datagen-model:range-dispatch
+		//:::range-dispatch
 
-		//:::datagen-model-custom:balloon
+		//:::custom-balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
-		//:::datagen-model-custom:balloon
+		//:::custom-balloon
 
-		// :::datagen-model:provider
+		// :::provider
 	}
+	// :::provider
 
 	// Inner class containing custom objects for item model generation.
+	// :::custom-item-model-generator:::
 	public static class CustomItemModelGenerator {
-		//:::datagen-model-custom:item-model
+		//:::custom-item-model:::
 		public static final ModelTemplate SCALED2X = item("scaled2x", TextureSlot.LAYER0);
-		//:::datagen-model-custom:item-model
+		//:::custom-item-model:::
 
-		//:::datagen-model-custom:item-datagen-method
+		//:::custom-item-datagen-method
 		public static void registerScaled2x(Item item, ItemModelGenerators generator) {
 			ResourceLocation itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(item)), generator.modelOutput);
 			generator.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
 		}
 
-		//:::datagen-model-custom:item-datagen-method
+		//:::custom-item-datagen-method
 
 		@SuppressWarnings("SameParameterValue")
-		//:::datagen-model-custom:item-model
+		//:::custom-item-model:::
 
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
-		//:::datagen-model-custom:item-model
+		//:::custom-item-model:::
 	}
-
-	// :::datagen-model:provider
+	// :::custom-item-model-generator:::
 
 	// Inner class containing all Objects needed for the custom datagen tutorial.
+	// :::custom-blockstate-model-generator
 	public static class CustomBlockStateModelGenerator {
-		// :::datagen-model-custom:model
+		// :::custom-model
 		public static final ModelTemplate VERTICAL_SLAB = block("vertical_slab", TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
 
 		//helper method for creating Models
@@ -209,9 +210,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
 
-		// :::datagen-model-custom:model
+		// :::custom-model
 
-		// :::datagen-model-custom:texture-map
+		// :::custom-texture-map
 		public static TextureMapping blockAndTopForEnds(Block block) {
 			return new TextureMapping()
 					.put(TextureSlot.TOP, ModelLocationUtils.getModelLocation(block, "_top"))
@@ -219,9 +220,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					.put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(block));
 		}
 
-		// :::datagen-model-custom:texture-map
+		// :::custom-texture-map
 
-		// :::datagen-model-custom:supplier
+		// :::custom-supplier
 		private static BlockModelDefinitionGenerator createVerticalSlabBlockStates(Block vertSlabBlock, ResourceLocation vertSlabId, ResourceLocation fullBlockId) {
 			MultiVariant vertSlabModel = BlockModelGenerators.plainVariant(vertSlabId);
 			MultiVariant fullBlockModel = BlockModelGenerators.plainVariant(fullBlockId);
@@ -238,9 +239,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					);
 		}
 
-		// :::datagen-model-custom:supplier
+		// :::custom-supplier
 
-		// :::datagen-model-custom:gen
+		// :::custom-gen
 		public static void registerVerticalSlab(BlockModelGenerators generator, Block vertSlabBlock, Block fullBlock, TextureMapping textures) {
 			ResourceLocation slabModel = VERTICAL_SLAB.create(vertSlabBlock, textures, generator.modelOutput);
 			ResourceLocation fullBlockModel = ModelLocationUtils.getModelLocation(fullBlock);
@@ -248,13 +249,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			generator.registerSimpleItemModel(vertSlabBlock, slabModel);
 		}
 
-		// :::datagen-model-custom:gen
+		// :::custom-gen
 	}
+	// :::custom-blockstate-model-generator
 
-	// :::datagen-model:provider
+	// :::provider
+
 	@Override
 	public String getName() {
 		return "ExampleModModelProvider";
 	}
 }
-// :::datagen-model:provider
+// :::provider

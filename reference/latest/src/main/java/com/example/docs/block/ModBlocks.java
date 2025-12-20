@@ -113,14 +113,14 @@ public class ModBlocks {
 			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
-	// :::datagen-model:family-declaration
+	// :::family-declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
 			.stairs(ModBlocks.RUBY_STAIRS)
 			.slab(ModBlocks.RUBY_SLAB)
 			.fence(ModBlocks.RUBY_FENCE)
 			.getFamily();
-	// :::datagen-model:family-declaration
+	// :::family-declaration
 
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
@@ -169,13 +169,13 @@ public class ModBlocks {
 			itemGroup.accept(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.accept(ModBlocks.COUNTER_BLOCK.asItem());
 			itemGroup.accept(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.accept(RUBY_BLOCK.asItem());
-			itemGroup.accept(RUBY_STAIRS.asItem());
-			itemGroup.accept(RUBY_SLAB.asItem());
-			itemGroup.accept(RUBY_FENCE.asItem());
-			itemGroup.accept(RUBY_DOOR.asItem());
-			itemGroup.accept(RUBY_TRAPDOOR.asItem());
-			itemGroup.accept(VERTICAL_OAK_LOG_SLAB.asItem());
+			itemGroup.accept(ModBlocks.RUBY_BLOCK.asItem());
+			itemGroup.accept(ModBlocks.RUBY_STAIRS.asItem());
+			itemGroup.accept(ModBlocks.RUBY_SLAB.asItem());
+			itemGroup.accept(ModBlocks.RUBY_FENCE.asItem());
+			itemGroup.accept(ModBlocks.RUBY_DOOR.asItem());
+			itemGroup.accept(ModBlocks.RUBY_TRAPDOOR.asItem());
+			itemGroup.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB.asItem());
 		});
 	}
 

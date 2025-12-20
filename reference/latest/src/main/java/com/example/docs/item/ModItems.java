@@ -129,25 +129,20 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
 
-	//generated
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
-	//handheld
 	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
 
-	//spawn egg
-	// :::spawn_egg_register_item
+	// :::spawn_egg
 	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
 			"custom_spawn_egg",
 			SpawnEggItem::new,
 			new Item.Properties().spawnEgg(EntityType.FROG)
 	);
-	// :::spawn_egg_register_item
+	// :::spawn_egg
 
-	//dyeable
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
-	//condition
 	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
 		@Override
 		public InteractionResult use(Level world, Player user, InteractionHand hand) {
@@ -156,16 +151,12 @@ public class ModItems {
 		}
 	}, new Item.Properties());
 
-	//custom
 	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
 
-	//composite
 	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
 
-	//select
 	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
 
-	//range dispatch
 	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
 
 	// :::1
@@ -207,10 +198,10 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
-		// :::spawn_egg_item_group
+		// :::spawn_egg_creative_tab
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
 				.register(itemGroup -> itemGroup.accept(ModItems.CUSTOM_SPAWN_EGG));
-		// :::spawn_egg_item_group
+		// :::spawn_egg_creative_tab
 
 		// :::_12
 		// Register the group.
