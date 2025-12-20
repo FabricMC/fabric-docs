@@ -7,6 +7,7 @@ authors:
   - haykam821
   - i509VCB
   - Juuxel
+  - MildestToucan
   - modmuss50
   - mschae23
   - natanfudge
@@ -15,7 +16,6 @@ authors:
   - Technici4n
   - Treeways
   - xpple
-  - MildestToucan
 ---
 
 Creating commands can allow a mod developer to add functionality that can be used through a command. This tutorial will
