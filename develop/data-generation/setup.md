@@ -36,7 +36,7 @@ If datagen is enabled, you should have a "Data Generation" run configuration and
 
 First, we need to enable datagen in the `build.gradle` file.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
 Next, we need an entrypoint class. This is where our datagen starts. Place this somewhere in the `client` package - this example places it at `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 

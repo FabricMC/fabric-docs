@@ -73,6 +73,7 @@ export default defineVersionedConfig(
       },
       gfmAlerts: false,
       image: { lazyLoading: true },
+      languageAlias: { gradle: "groovy" },
       languages: [
         async () =>
           // Adds support for mcfunction language to shiki.
