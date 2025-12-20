@@ -241,6 +241,10 @@ export default [
             text: "develop.data_generation.block_models",
             link: "/develop/data-generation/block-models",
           },
+          {
+          text: "develop.data_generation.item_models",
+          link: "/develop/data-generation/item-models",
+          },
         ],
       },
       {
@@ -282,11 +286,7 @@ export default [
       {
         text: "develop.misc.saved_data",
         link: "/develop/saved-data",
-      },
-      {
-        text: "develop.data_generation.item_models",
-        link: "/develop/data-generation/item-models",
-      },
+      }
     ],
   },
   {
