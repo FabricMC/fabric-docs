@@ -178,9 +178,9 @@ The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak
 All `TextureSlot`s in the TextureMap **have to** match all `TextureSlot`s in your parent block model!
 :::
 
-### Custom `BlockModelDefinitionCreator` Method {#custom-supplier-method}
+### Custom `BlockModelDefinitionGenerator` Method {#custom-supplier-method}
 
-The `BlockModelDefinitionCreator` contains all blockstate variants, their rotation, and other options like UV lock.
+The `BlockModelDefinitionGenerator` contains all blockstate variants, their rotation, and other options like UV lock.
 
 @[code lang=java transcludeWith=:::custom-supplier](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
