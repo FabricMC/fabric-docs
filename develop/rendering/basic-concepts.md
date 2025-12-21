@@ -80,7 +80,7 @@ The draw mode defines how the data is drawn. The following draw modes are availa
 
 Once the `BufferBuilder` is initialized, you can write data to it.
 
-The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.vertex(matrix, float, float, float)` method. The `matrix` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
+The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.addVertex(Matrix4f, float, float, float)` method. The `Matrix4f` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
 This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
@@ -88,7 +88,7 @@ It's also worth understanding the concept of culling. Culling is the process of 
 
 #### What Is a Transformation Matrix? {#what-is-a-transformation-matrix}
 
-A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the vertex call. The transformations can scale our model, move it around and rotate it.
+A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the `addVertex` call. The transformations can scale our model, move it around and rotate it.
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
