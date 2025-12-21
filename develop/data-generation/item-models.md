@@ -95,7 +95,7 @@ You can find the exact default values for rotation, scaling and positioning of t
 
 ### Dyeable {#dyeable}
 
-Dyeable items require a default decimal color value, which is used when the item is not dyed. The default value for leather is `0xFFA06540`. The method for dyeable items generates a simple item model and a client item which specifies the tint color.
+The method for dyeable items generates a simple item model and a client item which specifies the tint color. This method requires a default decimal color value, which is used when the item is not dyed. The default value for leather is `0xFFA06540`.
 
 :::: tabs
 
@@ -104,7 +104,7 @@ Dyeable items require a default decimal color value, which is used when the item
 @[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
-You have to add your item to the `ItemTags.DYEABLE` Tag so you can dye it in your inventory!
+You have to add your item to the `ItemTags.DYEABLE` tag to be able to dye it in your inventory!
 :::
 
 == Client Item
