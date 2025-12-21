@@ -41,11 +41,11 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using [this crash report](/assets/players/crash-report-example.txt).
+For this guide, we will be using [this crash report](/assets/players/crash-report-example.log).
 
 ::: details Show Crash Report
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -69,7 +69,7 @@ The stack trace in the `---- Minecraft Crash Report ----` section is the most im
 With the amount of mods mentioned in the stack trace, it can be difficult to point fingers, but the first thing to do is to look for the mod that caused the crash.
 
 <!-- TODO: show part of this file -->
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
+<<< @/public/assets/players/crash-report-example.log{8-9,14-15 log}
 
 In this case, the mod that caused the crash is `snownee`, as it is the first mod mentioned in the stack trace.
 
