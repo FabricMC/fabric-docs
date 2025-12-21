@@ -159,6 +159,7 @@ The `PoseStack` class has the following methods:
 - `popPose()` - Pops the top matrix off the stack.
 - `last()` - Returns the top matrix on the stack.
 - `translate(x, y, z)` - Translates the top matrix on the stack.
+- `translate(vec3)`
 - `scale(x, y, z)` - Scales the top matrix on the stack.
 
 You can also multiply the top matrix on the stack using quaternions, which we will cover in the next section.
