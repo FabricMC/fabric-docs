@@ -63,18 +63,18 @@ The following default `VertexFormat` elements are available at `DefaultVertexFor
 
 #### Draw Modes {#draw-modes}
 
-The draw mode defines how the data is drawn. The following draw modes are available:
+The draw mode defines how the data is drawn. The following draw modes are available at `VertexFormat.Mode`:
 
 | Draw Mode                   | Description                                                                                                                           |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `Mode.LINES`            | Each element is made up of 2 vertices and is represented as a single line.                                                            |
-| `Mode.LINE_STRIP`       | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
-| `Mode.DEBUG_LINES`      | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                             |
-| `Mode.DEBUG_LINE_STRIP` | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                   |
-| `Mode.TRIANGLES`        | Each element is made up of 3 vertices, forming a triangle.                                                                            |
-| `Mode.TRIANGLE_STRIP`   | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
-| `Mode.TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
-| `Mode.QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
+| `Mode.LINES`                | Each element is made up of 2 vertices and is represented as a single line.                                                            |
+| `Mode.LINE_STRIP`           | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
+| `Mode.DEBUG_LINES`          | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                                 |
+| `Mode.DEBUG_LINE_STRIP`     | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                       |
+| `Mode.TRIANGLES`            | Each element is made up of 3 vertices, forming a triangle.                                                                            |
+| `Mode.TRIANGLE_STRIP`       | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
+| `Mode.TRIANGLE_FAN`         | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
+| `Mode.QUADS`                | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
 
 ### Writing to the `BufferBuilder` {#writing-to-the-bufferbuilder}
 
