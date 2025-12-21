@@ -65,7 +65,7 @@ You can find the exact default values for rotation, scaling and positioning of t
 
 ### Handheld {#handheld}
 
-Handheld item models are generally used by tools and weapons (axes, swords, trident). They are rotated and positioned a little differently from the simple models to look more natural in hand. Other than that, they look exactly the same as the simple ones.
+Handheld item models are generally used by tools and weapons (axes, swords, trident). They are rotated and positioned a little differently from the simple models to look more natural in hand.
 
 ::: tabs
 

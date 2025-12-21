@@ -12,7 +12,7 @@ authors:
 You must first understand [how to create an item](./first-item), which you can then turn into a spawn egg.
 :::
 
-Spawn eggs are special items that, when used, spawn their corresponding mob. You can register one with the `register` method from your [item class](./first-item#preparing-your-items-class), by passing `SpawnEggItem::new` to it.
+Spawn eggs are special items that, when used, spawn their corresponding mob. You can register one with the `register` method from your [items class](./first-item#preparing-your-items-class), by passing `SpawnEggItem::new` to it.
 
 @[code transcludeWith=:::spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -54,7 +54,7 @@ Create or edit JSON file at: `src/main/resources/assets/example-mod/lang/en_us.j
 
 ## Adding To A Creative Mode Tab {#adding-to-a-creative-mode-tab}
 
-The spawn egg is added to the spawn egg `CreativeModeTab` in the `initialize()` method of the [item class](./first-item#preparing-your-items-class).
+The spawn egg is added to the spawn egg `CreativeModeTab` in the `initialize()` method of the [items class](./first-item#preparing-your-items-class).
 
 @[code transcludeWith=:::spawn_egg_creative_tab](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
