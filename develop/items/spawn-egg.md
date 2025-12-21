@@ -4,8 +4,8 @@ description: Learn how to register a spawn egg item.
 authors:
   - cassiancc
   - Fellteros
-  - VatinMc
   - skycatminepokie
+  - VatinMc
 ---
 
 ::: info PREREQUISITES

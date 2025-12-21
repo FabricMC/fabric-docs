@@ -3,8 +3,8 @@ title: Item Model Generation
 description: A guide to generating item models via datagen.
 authors:
   - Fellteros
-  - VatinMc
   - skycatminepokie
+  - VatinMc
 ---
 
 ::: info PREREQUISITES
