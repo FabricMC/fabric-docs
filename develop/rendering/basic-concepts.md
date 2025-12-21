@@ -43,24 +43,23 @@ Before you can write anything to the `BufferBuilder`, you must initialize it. Th
 
 The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to OpenGL.
 
-The following `VertexFormat` elements are available:
+The following default `VertexFormat` elements are available at `DefaultVertexFormat`:
 
 | Element                                       | Format                                                                                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `BLIT_SCREEN`                                 | `{ position (3 floats: x, y and z), uv (2 floats), color (4 ubytes) }`                  |
-| `POSITION_COLOR_TEXTURE_LIGHT_NORMAL`         | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
-| `POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL` | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
-| `POSITION_TEXTURE_COLOR_LIGHT`                | `{ position, texture uv, color, texture light }`                                        |
+| `EMPTY`                                       | `{ }`                                                                                   |
+| `BLOCK`                                       | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
+| `NEW_ENTITY`                                  | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
+| `PARTICLE`                                    | `{ position, texture uv, color, texture light }`                                        |
 | `POSITION`                                    | `{ position }`                                                                          |
 | `POSITION_COLOR`                              | `{ position, color }`                                                                   |
-| `LINES`                                       | `{ position, color, normal }`                                                           |
-| `POSITION_COLOR_LIGHT`                        | `{ position, color, light }`                                                            |
-| `POSITION_TEXTURE`                            | `{ position, uv }`                                                                      |
-| `POSITION_COLOR_TEXTURE`                      | `{ position, color, uv }`                                                               |
-| `POSITION_TEXTURE_COLOR`                      | `{ position, uv, color }`                                                               |
-| `POSITION_COLOR_TEXTURE_LIGHT`                | `{ position, color, uv, light }`                                                        |
-| `POSITION_TEXTURE_LIGHT_COLOR`                | `{ position, uv, light, color }`                                                        |
-| `POSITION_TEXTURE_COLOR_NORMAL`               | `{ position, uv, color, normal }`                                                       |
+| `POSITION_COLOR_NORMAL`                       | `{ position, color, normal }`                                                           |
+| `POSITION_COLOR_LIGHTMAP`                     | `{ position, color, light }`                                                            |
+| `POSITION_TEX`                                | `{ position, uv }`                                                                      |
+| `POSITION_TEX_COLOR`                          | `{ position, uv, color }`                                                               |
+| `POSITION_COLOR_TEX_LIGHTMAP`                 | `{ position, color, uv, light }`                                                        |
+| `POSITION_TEX_LIGHTMAP_COLOR`                 | `{ position, uv, light, color }`                                                        |
+| `POSITION_TEX_COLOR_NORMAL`                   | `{ position, uv, color, normal }`                                                       |
 
 #### Draw Modes {#draw-modes}
 
