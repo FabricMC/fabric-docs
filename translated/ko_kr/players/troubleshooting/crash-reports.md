@@ -39,11 +39,11 @@ authors:
 
 충돌 보고서는 매우 길고, 읽기 어려울 수 있습니다. 하지만, 보고서에는 충돌에 관련된 많은 정보가 포함되어 있고, 이는 충돌의 원인을 찾는데 유용합니다.
 
-이 가이드에선, [이 충돌 보고서를](/assets/players/crash-report-example.txt) 예시로 읽어볼 것입니다.
+이 가이드에선, [이 충돌 보고서를](/assets/players/crash-report-example.log) 예시로 읽어볼 것입니다.
 
 :::details 충돌 보고서 보기
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ authors:
 
 :::details 오류 보기
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

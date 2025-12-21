@@ -39,11 +39,11 @@ Los reportes de crasheo pueden ser encontrados en los siguientes lugares:
 
 Los reportes de crasheo son muy largos, y pueden ser confusos de leer. Sin embargo, contienen mucha información sobre el crasheo, y pueden ayudarte a encontrar la causa del crasheo.
 
-Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
+Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejemplo](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log).
 
 :::details Reportes de Crasheos
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -68,7 +68,7 @@ Con la cantidad de mods mencionados en el stack trace, puede ser difícil encont
 
 <!-- TODO: show part of this file -->
 
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
+<<< @/public/assets/players/crash-report-example.log{8-9,14-15 log}
 
 En este caso, el mod que causó el crasheo es `snownee`, ya que es el primer mod mencionado en el stack trace.
 

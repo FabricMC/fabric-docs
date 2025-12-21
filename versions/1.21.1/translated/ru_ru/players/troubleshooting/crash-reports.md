@@ -39,11 +39,11 @@ authors:
 
 Краш-репорты очень большие, их чтение может быть непонятным. Однако они содержат много информации о краше и могут помочь вам найти причину краша.
 
-Для этого гайда, мы используем [этот краш-репорт в качестве примера](/assets/players/crash-report-example.txt).
+Для этого гайда, мы используем [этот краш-репорт в качестве примера](/assets/players/crash-report-example.log).
 
 :::details Показ краш-репорта
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ authors:
 
 :::details Показать ошибку
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

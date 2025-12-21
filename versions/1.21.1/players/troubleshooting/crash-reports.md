@@ -41,11 +41,11 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using [this crash report](/assets/players/crash-report-example.txt).
+For this guide, we will be using [this crash report](/assets/players/crash-report-example.log).
 
 ::: details Show Crash Report
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -68,7 +68,7 @@ The stack trace in the `---- Minecraft Crash Report ----` section is the most im
 
 ::: details Show Error
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 
