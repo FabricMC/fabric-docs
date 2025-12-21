@@ -150,9 +150,13 @@ Now, whenever the entity is loaded, it will restore the state that it was left i
 
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
+::: info
+For more information, see the full article [Creating a Spawn Egg](../items/spawn-egg).
+:::
+
 All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, using the helper method discussed in [Creating Your First Item](../items/first-item).
 
-@[code transcludeWith=:::spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 From there, it just needs a [client item, item model, and texture](../items/first-item#adding-a-client-item-texture-and-model). A basic client item and item model as discussed in the linked article will work fine, and you can use this example texture for `assets/example-mod/textures/item/mini_golem_spawn_egg.png`
 
