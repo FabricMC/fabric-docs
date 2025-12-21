@@ -17,18 +17,21 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
-		// :::1
+		// :::registration
 		HudElementRegistry.addLast(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
-		// :::1
+		// :::registration
 	}
 
+	// :::hudLayer
 	private HudElement hudLayer() {
 		return (drawContext, tickCounter) -> {
-			// :::1
+			// :::hudLayer
+
 			if (false) {
 				return;
 			}
 
+			// :::hudLayer
 			// :::2
 			Matrix3x2fStack matrices = drawContext.pose();
 
@@ -56,18 +59,17 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			// Shift entire square so that it rotates in its center.
 			matrices.translate(-20f, -40f);
 			// :::3
-
-			// :::1
+			// :::hudLayer
 			drawContext.fillGradient(5, 20, 35, 60, 0xFF414141, 0xFF000000);
-			// :::1
-			// :::2
 
+			// :::hudLayer
+			// :::2
 			// We do not need to manually write to the buffer. DrawContext methods write to GUI buffer in `GuiRenderer` at the end of preparation.
 
 			// Pop our matrix from the stack.
 			matrices.popMatrix();
 			// :::2
-			// :::1
 		};
 	}
+	// :::hudLayer
 }

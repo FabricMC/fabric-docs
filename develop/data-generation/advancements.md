@@ -16,7 +16,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, we need to make our provider. Create a class that `extends FabricAdvancementProvider` and fill out the base methods:
+First, we need to make our provider. Create a class that extends `FabricAdvancementProvider` and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 

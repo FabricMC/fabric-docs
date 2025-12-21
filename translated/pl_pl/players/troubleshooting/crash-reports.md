@@ -39,11 +39,11 @@ Raporty awarii znajdziesz w następujących lokalizacjach:
 
 Raporty awarii są bardzo długie i potrafią być skomplikowane do odczytania. Zawierają one jednak dużo informacji na temat awarii i mogą pomóc w ustaleniu jej przyczyny.
 
-W tym przewodniku będziemy wykorzystywać [ten raport awarii](/assets/players/crash-report-example.txt).
+W tym przewodniku będziemy wykorzystywać [ten raport awarii](/assets/players/crash-report-example.log).
 
 :::details Pokaż raport awarii
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ Korzystając z powyższego przykładu, możemy przeanalizować raport awarii i z
 
 :::details Pokaż błąd
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

@@ -39,7 +39,7 @@ authors:
 
 崩潰報告非常長，且讀起來可能會很困難。 然而，它們包含了許多關於崩潰的資訊，可以幫助你找出崩潰的原因。
 
-在本指南中，我們將使用[這個崩潰報告作為範例](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt)。
+在本指南中，我們將使用[這個崩潰報告作為範例](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log)。
 
 :::details 崩潰報告
 
@@ -68,7 +68,7 @@ authors:
 
 <!-- TODO: show part of this file -->
 
-<<< @/public/assets/players/crash-report-example.txt{8-9,14-15 log}
+<<< @/public/assets/players/crash-report-example.log{8-9,14-15 log}
 
 在這種情況下，導致崩潰的模組是 `snownee`，因為它是堆疊追蹤中首先提到的模組。
 

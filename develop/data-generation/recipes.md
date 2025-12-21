@@ -15,7 +15,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, we'll need our provider. Make a class that `extends FabricRecipeProvider`. All our recipe generation will happen inside the `generate` method of our provider.
+First, we'll need our provider. Make a class that extends `FabricRecipeProvider`. All our recipe generation will happen inside the `buildRecipes` method of our provider.
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
@@ -25,7 +25,7 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 ## Shapeless Recipes {#shapeless-recipes}
 
-Shapeless recipes are fairly straightforward. Just add them to the `generate` method in your provider:
+Shapeless recipes are fairly straightforward. Just add them to the `buildRecipes` method in your provider:
 
 @[code lang=java transcludeWith=:::datagen-recipes:shapeless](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 

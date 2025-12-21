@@ -41,7 +41,7 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-In dieser Anleitung werden wir den [folgenden Absturzbericht als Beispiel](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) verwenden.
+In dieser Anleitung werden wir den [folgenden Absturzbericht als Beispiel](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log) verwenden.
 
 ### Abschnitte des Absturzberichts
 
