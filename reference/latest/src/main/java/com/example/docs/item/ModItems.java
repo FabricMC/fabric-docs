@@ -231,7 +231,7 @@ public class ModItems {
 		// :::_12
 
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
-			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG); 
+			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
 		});
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(ModItems.RUBY);
