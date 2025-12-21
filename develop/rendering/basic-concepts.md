@@ -4,6 +4,7 @@ description: Learn about the basic concepts of rendering using Minecraft's rende
 authors:
   - "0x3C50"
   - IMB11
+  - MildestToucan
 ---
 
 ::: warning
