@@ -100,7 +100,7 @@ guiGraphics.pose().last().pose();
 
 #### Rendering a Triangle Strip {#rendering-a-triangle-strip}
 
-It's easier to explain how to write to the `BufferBuilder` using a practical example. Let's say we want to render something using the `DrawMode.TRIANGLE_STRIP` draw mode and the `POSITION_COLOR` vertex format.
+It's easier to explain how to write to the `BufferBuilder` using a practical example. Let's say we want to render something using the `VertexFormat.Mode.TRIANGLE_STRIP` draw mode and the `POSITION_COLOR` vertex format.
 
 We're going to draw vertices at the following points on the HUD (in order):
 
