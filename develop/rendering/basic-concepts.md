@@ -185,11 +185,11 @@ The code showcases rendering on the HUD, while the text describes rendering the 
 Read the important update above for more information.
 :::
 
-Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `PoseStack` via the `multiply(Quaternion, x, y, z)` method.
+Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `PoseStack` via the `rotateAround(quaternionfc, x, y, z)` method.
 
 It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `Axis` utility class.
 
-Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `multiply(Quaternion, x, y, z)` method.
+Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `rotateAround(quaternionfc, x, y, z)` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
