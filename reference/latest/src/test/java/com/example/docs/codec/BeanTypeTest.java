@@ -48,34 +48,3 @@ public class BeanTypeTest {
 	}
 }
 // :::automatic-testing:4
-
-/*
-// :::automatic-testing:5
-java.lang.ExceptionInInitializerError
-	at net.minecraft.item.ItemStack.<clinit>(ItemStack.java:94)
-	at com.example.docs.codec.BeanTypeTest.testBeanCodec(BeanTypeTest.java:20)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-Caused by: java.lang.IllegalArgumentException: Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
-	at net.minecraft.Bootstrap.createNotBootstrappedException(Bootstrap.java:118)
-	at net.minecraft.Bootstrap.ensureBootstrapped(Bootstrap.java:111)
-	at net.minecraft.registry.Registries.create(Registries.java:238)
-	at net.minecraft.registry.Registries.create(Registries.java:229)
-	at net.minecraft.registry.Registries.<clinit>(Registries.java:139)
-	... 5 more
-
-Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
-java.lang.IllegalArgumentException: Not bootstrapped (called from registry ResourceKey[minecraft:root / minecraft:game_event])
-	at net.minecraft.Bootstrap.createNotBootstrappedException(Bootstrap.java:118)
-	at net.minecraft.Bootstrap.ensureBootstrapped(Bootstrap.java:111)
-	at net.minecraft.registry.Registries.create(Registries.java:238)
-	at net.minecraft.registry.Registries.create(Registries.java:229)
-	at net.minecraft.registry.Registries.<clinit>(Registries.java:139)
-	at net.minecraft.item.ItemStack.<clinit>(ItemStack.java:94)
-	at com.example.docs.codec.BeanTypeTest.testBeanCodec(BeanTypeTest.java:20)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-// :::automatic-testing:5
- */

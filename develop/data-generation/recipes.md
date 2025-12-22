@@ -15,7 +15,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, we'll need our provider. Make a class that `extends FabricRecipeProvider`. All our recipe generation will happen inside the `buildRecipes` method of our provider.
+First, we'll need our provider. Make a class that extends `FabricRecipeProvider`. All our recipe generation will happen inside the `buildRecipes` method of our provider.
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 

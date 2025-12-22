@@ -19,7 +19,7 @@ Here we'll show how to create `Item` tags, but the same principle applies for ot
 
 Fabric provides several helper tag providers including one for items; `FabricTagProvider.ItemTagProvider`. We will use this helper class for this example.
 
-You can create your own class that `extends FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**.
+You can create your own class that extends `FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**.
 
 Let your IDE fill in the required code, then replace the `resourceKey` constructor parameter with the `ResourceKey` for your type:
 

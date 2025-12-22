@@ -39,11 +39,11 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.txt) nutzen.
+Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) nutzen.
 
 :::details Absturzbericht anzeigen
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ Der Stack-Trace im Abschnitt `---- Minecraft Crash Report ----` ist in diesem Fa
 
 :::details Fehler anzeigen
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

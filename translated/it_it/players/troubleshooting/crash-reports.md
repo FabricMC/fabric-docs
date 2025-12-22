@@ -39,11 +39,11 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella lettura. Tuttavia, contengono tante informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
-Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-report-example.txt).
+Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-report-example.log).
 
 :::details Segnalazioni dei Crash
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più impor
 
 :::details Mostra Errore
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

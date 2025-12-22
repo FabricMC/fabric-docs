@@ -39,11 +39,11 @@ authors:
 
 崩溃报告的篇幅很长，读起来可能十分费解， 然而包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
 
-在本指南中，我们将以 [该崩溃报告](/assets/players/crash-report-example.txt) 为例。
+在本指南中，我们将以 [该崩溃报告](/assets/players/crash-report-example.log) 为例。
 
 :::details 显示崩溃报告
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ authors:
 
 :::details 显示错误详情
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 
