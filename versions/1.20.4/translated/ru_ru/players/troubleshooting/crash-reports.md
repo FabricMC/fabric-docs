@@ -41,7 +41,7 @@ search: false
 
 Краш-репорты очень большие, их чтение может быть непонятным. Однако они содержат много информации о краше и могут помочь вам найти причину краша.
 
-Для этого гайда, мы используем [этот краш-репорт в качестве примера](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt).
+Для этого гайда, мы используем [этот краш-репорт в качестве примера](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log).
 
 ### Разделы краш-репорта
 

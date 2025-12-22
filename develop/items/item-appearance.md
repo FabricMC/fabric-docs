@@ -51,7 +51,7 @@ We then need to register our item tint source. This is done in the **client init
 
 @[code lang=java transcludeWith=:::item_tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
 
-Once this is done, we can use our item tint source in an client item definition.
+Once this is done, we can use our item tint source in a client item definition.
 
 @[code lang=json transclude](@/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json)
 

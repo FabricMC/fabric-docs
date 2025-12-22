@@ -39,11 +39,11 @@ authors:
 
 Звіти про збої величезні, і читати їх може бути дуже заплутано і нудно. Однак вони містять багато інформації про збій і можуть допомогти вам знайти причину збою.
 
-Для цього посібника ми будемо використовувати [цей звіт про збої](/assets/players/crash-report-example.txt).
+Для цього посібника ми будемо використовувати [цей звіт про збої](/assets/players/crash-report-example.log).
 
 :::details Показати звіт про збої
 
-<<< @/public/assets/players/crash-report-example.txt{log}
+<<< @/public/assets/players/crash-report-example.log{log}
 
 :::
 
@@ -66,7 +66,7 @@ authors:
 
 :::details Показати помилку
 
-<<< @/public/assets/players/crash-report-example.txt{7 log}
+<<< @/public/assets/players/crash-report-example.log{7 log}
 
 :::
 

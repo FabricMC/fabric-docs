@@ -41,7 +41,7 @@ search: false
 
 충돌 보고서는 매우 길고, 읽기 매우 어려울 수 있습니다. 하지만, 충돌에 관련된 많은 정보를 포함하고 있고, 충돌의 원인을 찾는데 유용합니다.
 
-이 가이드에선, [이 충돌 보고서를 예시로](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) 보고서를 읽어 볼 것입니다.
+이 가이드에선, [이 충돌 보고서를 예시로](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log) 보고서를 읽어 볼 것입니다.
 
 ### 충돌 보고서의 목차
 

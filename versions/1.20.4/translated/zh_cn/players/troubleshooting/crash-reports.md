@@ -41,7 +41,7 @@ search: false
 
 崩溃报告的篇幅很长，读起来十分费解。 但无论怎样，它包含着大量关于崩溃的信息，可以帮助你找到崩溃的原因，因此你不得不阅读它。 但无论怎样，它包含着大量关于崩溃的信息，可以帮助你找到崩溃的原因，因此你不得不阅读它。
 
-在本指南中，我们将以 [该崩溃报告](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.txt) 为例。
+在本指南中，我们将以 [该崩溃报告](https://github.com/FabricMC/fabric-docs/blob/main/public/assets/players/crash-report-example.log) 为例。
 
 ### 崩溃报告的各部分
 
