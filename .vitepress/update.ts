@@ -55,7 +55,7 @@ fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
 console.log(`Migrating content to 'versions/${oldVersion}/'...`);
 for (const file of tinyglobby.globSync("**/*.md", {
-  ignore: ["README.md", "contributing.md", "versions/**/*.md", "node_modules/**/*"],
+  ignore: ["README.md", "contributing.md", "credits.md", "versions/**/*.md", "node_modules/**/*"],
   onlyFiles: true,
 })) {
   fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);

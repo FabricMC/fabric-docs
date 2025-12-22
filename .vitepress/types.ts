@@ -40,6 +40,72 @@ export namespace Fabric {
     };
   }
 
+  export interface CreditsOptions {
+    authors: {
+      description: {
+        /**
+         * @default "%d pages"
+         */
+        plural: string;
+
+        /**
+         * @default "1 page"
+         */
+        singular: string;
+      };
+
+      /**
+       * @default "Pages Written"
+       */
+      title: string;
+    };
+
+    committers: {
+      description: {
+        /**
+         * @default "%d contributions"
+         */
+        plural: string;
+
+        /**
+         * @default "1 contribution"
+         */
+        singular: string;
+      };
+
+      /**
+       * @default "Contributions on GitHub"
+       */
+      title: string;
+    };
+
+    maintainers: {
+      /**
+       * @default "Maintenance"
+       */
+      title: string;
+    };
+
+    translators: {
+      description: {
+        /**
+         * @default "%d words"
+         */
+        plural: string;
+
+        /**
+         * @default "1 word"
+         */
+        singular: string;
+      };
+
+      /**
+       * @default "Translations on Crowdin"
+       */
+      title: string;
+    };
+  }
+
   export interface DownloadOptions {
     /**
      * Set custom text for download button.
@@ -162,6 +228,7 @@ export namespace Fabric {
   export interface ThemeConfig extends Versioned.ThemeConfig {
     authors: AuthorsOptions;
     banner: BannerOptions;
+    credits: CreditsOptions;
     download: DownloadOptions;
     env: EnvOptions;
     notFound: NotFoundOptions;
