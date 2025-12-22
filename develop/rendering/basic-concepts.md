@@ -92,11 +92,7 @@ A transformation matrix is a 4x4 matrix that is used to transform a vector. In M
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
-It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `GuiGraphics` object:
-
-```java
-guiGraphics.pose().last().pose();
-```
+It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `GuiGraphics` object by calling the `GuiGraphics#pose()` method.
 
 #### Rendering a Triangle Strip {#rendering-a-triangle-strip}
 
