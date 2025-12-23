@@ -128,10 +128,10 @@ to test with and determine if the `CommandSource` can execute the command.
 @[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 @[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-This command will only execute if the source of the command is a level 2 operator at a minimum, including command
+This command will only execute if the source of the command is a moderator at a minimum, including command
 blocks. Otherwise, the command is not registered.
 
-This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
+This has the side effect of not showing this command in tab completion to anyone who is not a moderator. This is
 also why you cannot tab-complete most commands when you do not enable cheats.
 
 ### Sub Commands {#sub-commands}

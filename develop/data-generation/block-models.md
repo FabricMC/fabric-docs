@@ -160,7 +160,7 @@ The `TextureSlot`s represent the "placeholders" (`#bottom`, `#top`, ...) as an O
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMapping` do? It actually provides the Resource Location that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (Key) with a `ResourceLocation` (Value).
+What does `TextureMapping` do? It actually provides the Resource Location that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (Key) with an `Identifier` (Value).
 
 You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all TextureKeys with the same Resource Location), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 

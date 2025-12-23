@@ -3,6 +3,7 @@ title: Rendering in the World
 description: Create and use custom render pipelines when vanilla pipelines don't suit your needs.
 authors:
   - kevinthegreat1
+  - AzureAaron
 ---
 
 ::: info PREREQUISITES
