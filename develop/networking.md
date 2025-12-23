@@ -57,7 +57,7 @@ This can be done by creating a Java `Record` with a `BlockPos` parameter that im
 
 At the same time, we've defined:
 
-- A `Identifier` used to identify our packet's payload. For this example our identifier will be
+- An `Identifier` used to identify our packet's payload. For this example our identifier will be
   `example-mod:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)

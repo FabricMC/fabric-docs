@@ -338,7 +338,7 @@ public class Identifier {
         try {
             return DataResult.success(Identifier.parse(id));
         } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
+            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
         }
     }
 

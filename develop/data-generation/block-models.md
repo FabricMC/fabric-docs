@@ -160,12 +160,12 @@ The `TextureSlot`s represent the "placeholders" (`#bottom`, `#top`, ...) as an O
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMapping` do? It actually provides the Resource Location that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (Key) with an `Identifier` (Value).
+What does `TextureMapping` do? It actually provides the identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (key) with an `Identifier` (value).
 
-You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all TextureKeys with the same Resource Location), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
+You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all `TextureKeys` with the same `Identifier`), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
-`TextureMapping.cube()` associates all `TextureSlot`s with the same Resource Location, no matter how many of them there are!
+`TextureMapping.cube()` associates all `TextureSlot`s with the same `Identifier`, no matter how many of them there are!
 :::
 
 Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureSlot`s, we need to create a new one.
@@ -205,8 +205,9 @@ But what are the parameters for?
 
 @[code lang=java transcludeWith=:::custom-gen](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-First, we get the `ResourceLocation` of the single slab model with `VERTICAL_SLAB.upload()`. Then we get the `ResourceLocation` of the full block model with `ModelLocationUtils.getModelLocation()`, and pass those two models into `createVerticalSlabBlockStates`.
-The `BlockStateSupplier` gets passed into the `blockStateCollector`, so that the JSON files are actually generated.
+<!-- TODO: review this further -->
+First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.create()`. Then we get the `Identifier` of the full block model with `ModelLocationUtils.getModelLocation()`, and pass those two models into `createVerticalSlabBlockStates`.
+The `BlockStateSupplier` gets passed into the `blockStateOutput`, so that the JSON files are actually generated.
 Also, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
 
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:

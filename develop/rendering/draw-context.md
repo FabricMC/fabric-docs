@@ -24,7 +24,7 @@ You can use the `GuiGraphics.fill(...)` method to draw a filled rectangle.
 
 ### Drawing Outlines/Borders {#drawing-outlines-borders}
 
-Let's say we want to outline the rectangle we just drew. We can use the `GuiGraphics.submitOutline(...)` method to draw an outline.
+Let's say we want to outline the rectangle we just drew. We can use the `GuiGraphics.renderOutline(...)` method to draw an outline.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

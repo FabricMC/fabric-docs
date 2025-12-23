@@ -95,7 +95,7 @@ In the `sendSuccess()` method, the first parameter is the text to be sent, which
 instantiating `Component` objects when not needed.
 
 The second parameter determines whether to broadcast the feedback to other
-operators. Generally, if the command is to query something without actually affecting the world, such as query the
+moderators. Generally, if the command is to query something without actually affecting the world, such as query the
 current time or some player's score, it should be `false`. If the command does something, such as changing the
 time or modifying someone's score, it should be `true`.
 
@@ -121,7 +121,7 @@ the dedicated environment:
 
 ### Command Requirements {#command-requirements}
 
-Let's say you have a command that you only want operators to be able to execute. This is where the `requires()` method
+Let's say you have a command that you only want moderators to be able to execute. This is where the `requires()` method
 comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `CommandSourceStack`
 to test with and determine if the `CommandSource` can execute the command.
 
@@ -191,7 +191,7 @@ you wish to its `CommandDispatcher`.
 After that, you need to send the command tree to every player again
 using `Commands.sendCommands(ServerPlayer)`.
 
-This is required because the client locally caches the command tree it receives during login (or when operator packets
+This is required because the client locally caches the command tree it receives during login (or when moderator packets
 are sent) for local completions-rich error messages.
 :::
 

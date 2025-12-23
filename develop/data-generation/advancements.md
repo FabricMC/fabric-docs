@@ -62,7 +62,7 @@ While datagen can be on the client side, `Criterion`s and `Predicate`s are in th
 
 ### Definitions {#definitions}
 
-A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.critereon` [sic] package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
+A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.criterion` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
 
 **Conditions** are evaluated by criteria. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
 

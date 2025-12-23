@@ -17,9 +17,9 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
-		// :::1
+		// :::registration
 		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
-		// :::1
+		// :::registration
 	}
 
 	// :::hudLayer
