@@ -22,8 +22,8 @@ TypedActionResult.pass(user.getStackInHand(hand))
 ```
 
 如果传递返回当前的物品堆叠，那么无论将事件最终被声明为 失败(failed)、通过(passed)、忽略(ignored)、成功(successful)，物品堆叠都不会发生变化。
-:::译者注
-译者注：在源代码中并没有ignored的枚举值, 可能的情况是`PASS`被用来表示事件未处理，游戏将继续执行默认行为。此处注解可能不准确, 希望后来者指正。
+:::info
+在源代码中并没有ignored的枚举值, 可能的情况是`PASS`被用来表示事件未处理，游戏将继续执行默认行为。此处注解可能不准确, 希望后来者指正。
 :::
 
 当想要清空物品堆叠时，你应当传递一个空堆叠。 同样，当想要减少物品堆叠的数量时，你应当先获取当前物品堆叠的数量，然后将其递减。具体示例如下：
@@ -37,8 +37,8 @@ TypedActionResult.success(heldStack);
 ## 操作结果 (ActionResult) {#actionresult}
 
 `ActionResult` 也是一个用于告知游戏事件状态的类，其状态包括 忽略(PASS)、失败(FAIL) 与 成功(Success)。
-:::译者注
-`ActionResult` 实际上是一个枚举类，而 `TypedActionResult` 包装了这个类，不仅可以表示结果的状态，还可以携带附加的数据(比如物品堆叠)。
+:::info
+译者注: `ActionResult` 实际上是一个枚举类，而 `TypedActionResult` 包装了这个类，不仅可以表示结果的状态，还可以携带附加的数据(比如物品堆叠)。
 :::
 
 ## 可以被重写的事件 (Overridable Events) {#overridable-events}
