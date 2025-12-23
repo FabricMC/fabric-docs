@@ -62,15 +62,6 @@ if (git("switch", "-c", `port/${newVersion}`).status !== 0) {
   process.exit(1);
 }
 
-const yarnUrl = `https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`;
-const yarnVersions: any[] = await (await fetch(yarnUrl)).json();
-const yarnVersion: string = (yarnVersions.find((v) => v.stable) ?? yarnVersions[0])?.version;
-if (!yarnVersion) {
-  console.error(`No stable Yarn version found for Minecraft ${newVersion}!`);
-  process.exit(1);
-}
-console.log(`Found Yarn version '${yarnVersion}'`);
-
 const fabricApiUrl = `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`;
 const fabricApiVersions: any[] = await (await fetch(fabricApiUrl)).json();
 const fabricApiVersion = fabricApiVersions[0]?.version_number;
@@ -85,7 +76,6 @@ fs.cpSync("./reference/latest", `./reference/${oldVersion}`, { recursive: true }
 
 const newBuildGradle = oldBuildGradle
   .replace(/def minecraftVersion = "([^"]+)"/, `def minecraftVersion = "${newVersion}"`)
-  .replace(/def yarnVersion = "([^"]+)"/, `def yarnVersion = "${yarnVersion}"`)
   .replace(/def fabricApiVersion = "([^"]+)"/, `def fabricApiVersion = "${fabricApiVersion}"`);
 fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
