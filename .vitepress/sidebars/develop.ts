@@ -346,6 +346,10 @@ export default [
         link: "/develop/networking",
       },
       {
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
+      },
+      {
         text: "develop.misc.migrating_mappings",
         link: "/develop/migrating-mappings",
         items: [

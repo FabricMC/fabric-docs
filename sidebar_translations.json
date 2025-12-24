@@ -71,6 +71,7 @@
   "develop.misc.saved_data": "Saved Data",
   "develop.misc.text_and_translations": "Text and Translations",
   "develop.misc.debugging": "Debugging Mods",
+  "develop.misc.key_mappings": "Custom Key Mappings",
   "develop.misc.migrating_mappings": "Migrating Mappings",
   "develop.misc.migrating_mappings.loom": "Loom (Gradle)",
   "develop.misc.migrating_mappings.ravel": "Ravel (IntelliJ IDEA)",
