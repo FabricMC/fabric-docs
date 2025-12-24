@@ -28,7 +28,7 @@ Start by updating your mod's `gradle/wrapper/gradle-wrapper.properties`, `gradle
 6. Remove or replace any mods made for versions before 26.1 with versions compatible with this update.
     - No existing mods for 1.21.11 or older versions of Minecraft will work on 26.1, even as a compile-only dependency.
 7. Replace any mentions of `remapJar` with `jar`.
-8. Refresh Gradle by running `./gradlew --refresh-dependencies`, or by using the refresh button in the top-right corner of IntelliJ IDEA.
+8. Refresh Gradle by using the refresh button in the top-right corner of IntelliJ IDEA. If this button is not visible, you can force caches to be cleared by running `./gradlew --refresh-dependencies`.
 
 ## Updating the Code {#porting-guides}
 

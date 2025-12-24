@@ -17,7 +17,7 @@ Start by updating your mod's `gradle/wrapper/gradle-wrapper.properties`, `gradle
 
 1. Update Gradle to the latest version by running the following command: `./gradlew wrapper --gradle-version latest`
 2. Bump Minecraft, Fabric Loader, Fabric Loom and Fabric API, either in `gradle.properties` (recommended) or in `build.gradle`. Find the recommended versions of the Fabric components on the [Fabric Develop site](https://fabricmc.net/develop/).
-3. Refresh Gradle by running `./gradlew --refresh-dependencies`, or by using the refresh button in the top-right corner of IntelliJ IDEA.
+3. Refresh Gradle by using the refresh button in the top-right corner of IntelliJ IDEA. If this button is not visible, you can force caches to be cleared by running `./gradlew --refresh-dependencies`.
 
 ## Updating the Code {#porting-guides}
 
