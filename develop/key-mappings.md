@@ -60,4 +60,4 @@ Now that we have a key mapping, we can react to it using a client tick event.
 
 This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed.
 
-![Message in Chat](/assets/develop/key-mappings/keybind_result.png)
+![Message in Chat](/assets/develop/key-mappings/key_mapping_pressed.png)
