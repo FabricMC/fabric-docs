@@ -62,7 +62,7 @@ authors:
 
 <!-- #region parent -->
 
-### 父模型 (Parent) {#parent}
+### 父模型{#parent}
 
 ```json
 {
@@ -78,7 +78,7 @@ authors:
 
 <!-- #region display -->
 
-### 显示属性 (Display) {#display}
+### 显示属性{#display}
 
 ```json
 {
@@ -123,7 +123,7 @@ authors:
 
 <!-- #endregion display -->
 
-### 纹理 (Textures) {#textures}
+### 纹理{#textures}
 
 ```json
 {
@@ -145,7 +145,7 @@ authors:
 只有当 `parent` 设置为 `item/generated` 时，`<layerN>` 才有效！
 :::
 
-### GUI光照 (GUI Light) {#gui-light}
+### GUI光照{#gui-light}
 
 ```json
 {
@@ -157,7 +157,7 @@ authors:
 
 <!-- #region elements -->
 
-### 元素 (Elements) {#elements}
+### 元素{#elements}
 
 ```json
 {
@@ -272,6 +272,6 @@ authors:
    相反，它相当于对选定的纹理顶点（通过 `uv` 隐式或显式选定）进行排列。
 5. `tintindex`：*整数*。使用客户端物品引用的着色值为该面的纹理着色。如果未提供着色颜色（或提供白色），则纹理不会着色。
 
-## 来源与链接 {#sources-and-links}
+## 来源与链接{#sources-and-links}
 
 你可以访问 Minecraft 维基的 [物品模型页面](https://minecraft.wiki/w/Model#Item_models) 以获取更详细的说明。本文档的许多信息都来自该页面。
