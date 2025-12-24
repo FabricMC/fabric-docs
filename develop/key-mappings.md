@@ -2,8 +2,8 @@
 title: Custom Key Mappings
 description: Creating custom key mappings and reacting to them.
 authors:
-  - dicedpixels
   - cassiancc
+  - dicedpixels
 ---
 
 Minecraft handles user input from peripherals such as the keyboard and mouse using key mappings.
@@ -30,11 +30,13 @@ our key mapping at the same time.
 
 Sticky keys can also be created with `KeyBindingHelper` by passing a `ToggleKeyMapping` instance.
 
+Once registered, you can find your key mappings in _Options_ > _Controls_ > _Key Binds_.
+
+![Untranslated Key Category and Mapping](/assets/develop/key-mappings/untranslated.png)
+
 ## Translations {#translations}
 
 You'll need to provide translations for both the key mapping and the category.
-
-![Untranslated Key Category and Mapping](/assets/develop/key-mappings/untranslated.png)
 
 Category name translation key takes the form of `key.category.<namespace>.<path>`. The key mapping
 translation key will be the one you provided when creating the key mapping.
