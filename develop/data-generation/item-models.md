@@ -330,8 +330,7 @@ To do this, we'll create `resources/assets/example-mod/models/item/scaled2x.json
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
 
-<!-- TODO: does this not make the model eight times as big? -->
-This will make the model twice as big as the simple ones.
+This will make the model visually twice as big as the simple ones.
 
 ### Creating the `ModelTemplate` {#custom-item-model}
 

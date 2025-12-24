@@ -21,7 +21,7 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "drawing".
 
 <!-- TODO: review this (it's now using a custom `renderFilledBox`) -->
-All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Calling a render method, such as `ShapeRenderer.addChainedFilledBoxVertices`, writes vertices to the buffered builder, and is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
+All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Writing vertices to the buffered builder via `buffer.addVertex` is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
 
 When the "extraction" phase is done, the "drawing" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
 

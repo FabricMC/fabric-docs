@@ -205,10 +205,11 @@ But what are the parameters for?
 
 @[code lang=java transcludeWith=:::custom-gen](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-<!-- TODO: review this further -->
-First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.create()`. Then we get the `Identifier` of the full block model with `ModelLocationUtils.getModelLocation()`, and pass those two models into `createVerticalSlabBlockStates`.
-The `BlockStateSupplier` gets passed into the `blockStateOutput`, so that the JSON files are actually generated.
-Also, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
+First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.create()`. Then, we get the `Identifier` of the full block model with `ModelLocationUtils.getModelLocation()`.
+
+We then pass those two models into `createVerticalSlabBlockStates`, which itself is passed into the `blockStateOutput` consumer, which generates the JSON files for the models.
+
+Finally, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
 
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:
 
