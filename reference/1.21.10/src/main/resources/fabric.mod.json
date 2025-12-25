@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "example-mod",
+  "version": "1.0.0",
+  "name": "Example Mod",
+  "icon": "assets/example-mod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.docs.ExampleMod",
+      "com.example.docs.event.ExampleModEvents",
+      "com.example.docs.command.ExampleModCommands",
+      "com.example.docs.effect.ExampleModEffects",
+      "com.example.docs.potion.ExampleModPotions",
+      "com.example.docs.sound.ExampleModSounds",
+      "com.example.docs.damage.ExampleModDamageTypes",
+      "com.example.docs.item.ExampleModItems",
+      "com.example.docs.enchantment.ExampleModEnchantments",
+      "com.example.docs.block.ExampleModBlocks",
+      "com.example.docs.block.entity.ExampleModBlockEntities",
+      "com.example.docs.component.ExampleModComponents",
+      "com.example.docs.advancement.ExampleModDatagenAdvancement",
+      "com.example.docs.networking.ExampleModNetworking",
+      "com.example.docs.networking.basic.ExampleModNetworkingBasic",
+      "com.example.docs.debug.ExampleModDebug",
+      "com.example.docs.saveddata.ExampleModSavedData",
+      "com.example.docs.appearance.ExampleModAppearance",
+      "com.example.docs.entity.attribute.ExampleModAttributes"
+    ],
+    "client": [
+      "com.example.docs.client.command.ExampleModClientCommands",
+      "com.example.docs.ExampleModBlockEntityRenderer",
+      "com.example.docs.ExampleModDynamicSound",
+      "com.example.docs.ExampleModClient",
+      "com.example.docs.rendering.CustomRenderPipeline",
+      "com.example.docs.rendering.HudRenderingEntrypoint",
+      "com.example.docs.rendering.RenderingConceptsEntrypoint",
+      "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
+      "com.example.docs.appearance.ExampleModAppearanceClient"
+    ],
+    "fabric-datagen": [
+      "com.example.docs.datagen.ExampleModDataGenerator"
+    ]
+  },
+  "mixins": [
+    "example-mod.mixins.json",
+    {
+      "config": "example-mod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {}
+}

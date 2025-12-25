@@ -1,11 +1,11 @@
 package com.example.docs.rendering;
 
-import net.minecraft.Util;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
+import net.minecraft.util.Util;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
@@ -18,7 +18,7 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// Attach our rendering code to before the chat hud layer. Our layer will render right before the chat. The API will take care of z spacing.
-		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "before_chat"), HudRenderingEntrypoint::render);
+		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "before_chat"), HudRenderingEntrypoint::render);
 	}
 
 	private static void render(GuiGraphics context, DeltaTracker tickCounter) {
@@ -31,7 +31,7 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 
 		// "lerp" simply means "linear interpolation", which is a fancy way of saying "blend".
 		float lerpedAmount = Mth.abs(Mth.sin((float) currentTime));
-		int lerpedColor = ARGB.lerp(lerpedAmount, color, targetColor);
+		int lerpedColor = ARGB.linearLerp(lerpedAmount, color, targetColor);
 
 		// Draw a square with the lerped color.
 		// x1, x2, y1, y2, color

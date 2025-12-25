@@ -95,7 +95,7 @@ In the `sendSuccess()` method, the first parameter is the text to be sent, which
 instantiating `Component` objects when not needed.
 
 The second parameter determines whether to broadcast the feedback to other
-operators. Generally, if the command is to query something without actually affecting the world, such as query the
+moderators. Generally, if the command is to query something without actually affecting the world, such as query the
 current time or some player's score, it should be `false`. If the command does something, such as changing the
 time or modifying someone's score, it should be `true`.
 
@@ -121,17 +121,17 @@ the dedicated environment:
 
 ### Command Requirements {#command-requirements}
 
-Let's say you have a command that you only want operators to be able to execute. This is where the `requires()` method
+Let's say you have a command that you only want moderators to be able to execute. This is where the `requires()` method
 comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `CommandSourceStack`
 to test with and determine if the `CommandSource` can execute the command.
 
 @[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 @[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-This command will only execute if the source of the command is a level 2 operator at a minimum, including command
+This command will only execute if the source of the command is a moderator at a minimum, including command
 blocks. Otherwise, the command is not registered.
 
-This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
+This has the side effect of not showing this command in tab completion to anyone who is not a moderator. This is
 also why you cannot tab-complete most commands when you do not enable cheats.
 
 ### Sub Commands {#sub-commands}
@@ -191,7 +191,7 @@ you wish to its `CommandDispatcher`.
 After that, you need to send the command tree to every player again
 using `Commands.sendCommands(ServerPlayer)`.
 
-This is required because the client locally caches the command tree it receives during login (or when operator packets
+This is required because the client locally caches the command tree it receives during login (or when moderator packets
 are sent) for local completions-rich error messages.
 :::
 

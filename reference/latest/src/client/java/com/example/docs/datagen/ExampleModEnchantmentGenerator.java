@@ -57,7 +57,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	}
 
 	private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {
-		entries.add(key, builder.build(key.location()), resourceConditions);
+		entries.add(key, builder.build(key.identifier()), resourceConditions);
 	}
 
 	@Override

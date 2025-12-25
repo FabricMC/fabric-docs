@@ -29,7 +29,10 @@ const hostname =
         : process.env.DEPLOY_PRIME_URL!;
 
 const latestVersion = fs
-  .readFileSync(path.resolve(__dirname, "..", "reference", "latest", "build.gradle"), "utf-8")
+  .readFileSync(
+    path.resolve(import.meta.dirname, "..", "reference", "latest", "build.gradle"),
+    "utf-8"
+  )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
 
 // https://vitepress.dev/reference/site-config
@@ -138,5 +141,5 @@ export default defineVersionedConfig(
       },
     },
   },
-  __dirname
+  import.meta.dirname
 );

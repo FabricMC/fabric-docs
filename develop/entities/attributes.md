@@ -84,7 +84,7 @@ An `AttributeInstance` allows more flexibility, such as setting an `AttributeMod
 ```java
 attribute.addPermanentModifier(
     new AttributeModifier(
-        ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
+        Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
         8, // how much to modify it
         AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
     ));

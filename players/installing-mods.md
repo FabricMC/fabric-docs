@@ -51,7 +51,7 @@ Once you've found the `mods` folder, you can move the mod `.jar` files into it.
 
 ## 3. You're Done! {#3-you-re-done}
 
-Once you've moved the mods into the `mods` folder, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom left corner and press play!
+Once you've moved the mods into the `mods` folder, you can open the Minecraft Launcher and select the Fabric profile from the dropdown in the bottom-left corner and press play!
 
 ![Minecraft Launcher with Fabric profile selected](/assets/players/installing-fabric/launcher-screen.png)
 

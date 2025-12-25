@@ -14,11 +14,11 @@ export const getLocaleNames = (translatedDir: string) => [
     .map((f) => path.relative(translatedDir, f)),
 ];
 
-const locales = getLocaleNames(`${__dirname}/../translated`);
+const locales = getLocaleNames(`${import.meta.dirname}/../translated`);
 
 export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
   const filePath = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "..",
     "translated",
     locale === "en_us" ? ".." : locale,
