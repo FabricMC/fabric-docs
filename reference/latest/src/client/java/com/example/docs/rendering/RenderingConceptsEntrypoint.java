@@ -2,7 +2,7 @@ package com.example.docs.rendering;
 
 import org.joml.Matrix3x2fStack;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -18,7 +18,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::registration
-		HudElementRegistry.addLast(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
+		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
 		// :::registration
 	}
 

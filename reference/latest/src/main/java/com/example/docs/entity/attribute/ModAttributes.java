@@ -3,7 +3,7 @@ package com.example.docs.entity.attribute;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
@@ -29,7 +29,7 @@ public class ModAttributes {
 	private static Holder<Attribute> register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
-		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		Attribute entityAttribute = new RangedAttribute(
 				identifier.toLanguageKey(),
 				defaultValue,

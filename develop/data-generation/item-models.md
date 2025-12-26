@@ -149,7 +149,7 @@ The third and fourth parameters are the models to be used when the property is `
 @[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
-To obtain the `ResourceLocation` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
+To obtain the `Identifier` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
 :::
 
 == Client Item
@@ -330,8 +330,7 @@ To do this, we'll create `resources/assets/example-mod/models/item/scaled2x.json
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
 
-<!-- TODO: does this not make the model eight times as big? -->
-This will make the model twice as big as the simple ones.
+This will make the model visually twice as big as the simple ones.
 
 ### Creating the `ModelTemplate` {#custom-item-model}
 
@@ -354,7 +353,7 @@ Let's go over what the parameters are for:
 1. `Item item`: The item, for which we are generating the models.
 2. `ItemModelGenerators generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
-First, we get the `ResourceLocation` of the item with `SCALED2X.create()`, passing in a `TextureMapping` and the `modelOutput` from our `generator` parameter.
+First, we get the `Identifier` of the item with `SCALED2X.create()`, passing in a `TextureMapping` and the `modelOutput` from our `generator` parameter.
 
 Then, we'll use another of its fields, the `itemModelOutput` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 

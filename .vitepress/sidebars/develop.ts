@@ -320,6 +320,34 @@ export default [
     ],
   },
   {
+    text: "develop.porting",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.porting.current",
+        link: "/develop/porting/current",
+      },
+      {
+        text: "develop.porting.next",
+        link: "/develop/porting/next",
+      },
+      {
+        text: "develop.porting.migrating_mappings",
+        link: "/develop/migrating-mappings/",
+        items: [
+          {
+            text: "develop.porting.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.porting.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          },
+        ],
+      },
+    ],
+  },
+  {
     text: "develop.mixins",
     collapsed: true,
     items: [
@@ -348,20 +376,6 @@ export default [
       {
         text: "develop.misc.key_mappings",
         link: "/develop/key-mappings",
-      },
-      {
-        text: "develop.misc.migrating_mappings",
-        link: "/develop/migrating-mappings",
-        items: [
-          {
-            text: "develop.misc.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
-          },
-          {
-            text: "develop.misc.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
-          },
-        ],
       },
       {
         text: "develop.misc.debugging",
