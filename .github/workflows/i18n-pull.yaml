@@ -1,0 +1,76 @@
+# This workflow is based on work originally published under the MIT License, and available here:
+# <https://github.com/modrinth/code/blob/efcc0d87b5621ac4c9656ee3967d28b5903a8fe9/.github/workflows/i18n-pull.yml>
+# The required copyright notice and the full text of the license, which apply to the original file, are reported below.
+
+# Copyright 2025 Rinth, Inc.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+name: Pull from Crowdin
+
+on:
+  schedule:
+    - cron: 37 7 * * SAT
+  workflow_dispatch:
+
+concurrency:
+  group: i18n-pull
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  i18n-pull:
+    runs-on: ubuntu-24.04
+    steps:
+      - if: startsWith(github.ref_name, 'i18n/')
+        run: exit 1
+      - uses: actions/checkout@v4
+      - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
+        with:
+          token: ${{ secrets.CROWDIN_TOKEN }}
+          crowdin_branch_name: ${{ github.ref_name }}
+          upload_sources: false
+          upload_translations: false
+          download_sources: false
+          download_translations: true
+          create_pull_request: false
+          push_translations: false
+      - run: sudo chown -R "${USER}:${USER}" .
+      - id: message
+        run: |
+          LAST_MSG="$(gh api "repos/${{ github.repository }}/commits/i18n/${{ github.ref_name }}" --template "{{.commit.message}}" || true)"
+          PREFIX="i18n: $(date +"%y")w$(date +"%W")"
+          REGEX="^${PREFIX}([a-z]+)"
+
+          if [[ "${LAST_MSG}" =~ ${REGEX} ]]; then
+            CURRENT_SUFFIX="${BASH_REMATCH[1]}"
+            if [[ "${CURRENT_SUFFIX}" =~ z$ ]]; then
+              NEW_SUFFIX="${CURRENT_SUFFIX%?}oa"
+            else
+              LAST_CHAR="${CURRENT_SUFFIX: -1}"
+              NEXT_CHAR="$(tr "a-y" "b-z" <<<"${LAST_CHAR}")"
+              NEW_SUFFIX="${CURRENT_SUFFIX%?}${NEXT_CHAR}"
+            fi
+          else
+            NEW_SUFFIX="a"
+          fi
+
+          echo message="${PREFIX}${NEW_SUFFIX}" >>"${GITHUB_OUTPUT}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725
+        with:
+          title: ${{ steps.message.outputs.message }}
+          body: ""
+          commit-message: ${{ steps.message.outputs.message }}
+          branch: i18n/${{ github.ref_name }}
+          author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
+          committer: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
+          labels: localization
