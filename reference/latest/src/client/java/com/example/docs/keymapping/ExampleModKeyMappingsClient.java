@@ -5,7 +5,7 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -16,7 +16,7 @@ import com.example.docs.ExampleMod;
 public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	// :::category
 	KeyMapping.Category CATEGORY = new KeyMapping.Category(
-			ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom_category")
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom_category")
 	);
 	// :::category
 
