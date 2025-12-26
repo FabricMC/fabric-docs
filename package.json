@@ -16,6 +16,7 @@
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
     "oxc-minify": "^0.82.3",
+    "prettier": "^3.7.4",
     "prompts": "^2.4.2",
     "tsx": "^4.20.6"
   },
