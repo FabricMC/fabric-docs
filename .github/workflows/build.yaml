@@ -1,0 +1,89 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: npm run build
+      - if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v4
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./.vitepress/dist
+
+  mod:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: ./gradlew build --stacktrace --warning-mode fail
+        working-directory: ./reference
+      - run: ./gradlew runDatagen --stacktrace --warning-mode fail
+        working-directory: ./reference
+      - if: failure()
+        uses: FabricMCBot/publish-checkstyle-report@4627c82002aa370b6cb2a3140f34c7a8c55a5297
+        with:
+          reports: reference/**/build/reports/checkstyle/*.xml
+      # require clean working directory
+      - run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status
+            exit 1
+          fi
+
+  # :::automatic-testing:game-test:3
+  client_game_test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: ./gradlew runProductionClientGameTest
+        # :::automatic-testing:game-test:3
+        working-directory: ./reference
+      # :::automatic-testing:game-test:3
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          path: build/run/clientGameTest/screenshots
+  # :::automatic-testing:game-test:3
+
+  deploy:
+    runs-on: ubuntu-24.04
+    if: github.event_name != 'pull_request'
+    needs:
+      - docs
+      - mod
+      - client_game_test
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
