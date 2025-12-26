@@ -343,7 +343,7 @@ export default [
             text: "develop.porting.migrating_mappings.ravel",
             link: "/develop/migrating-mappings/ravel",
           },
-        ],  
+        ],
       },
     ],
   },
@@ -372,6 +372,10 @@ export default [
       {
         text: "develop.misc.networking",
         link: "/develop/networking",
+      },
+      {
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
       },
       {
         text: "develop.misc.debugging",
