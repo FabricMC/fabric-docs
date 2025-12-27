@@ -27,7 +27,6 @@ on:
 
 concurrency:
   group: i18n-push
-  cancel-in-progress: true
 
 jobs:
   i18n-push:
