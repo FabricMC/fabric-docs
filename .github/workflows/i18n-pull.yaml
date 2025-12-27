@@ -19,7 +19,6 @@ on:
 
 concurrency:
   group: i18n-pull
-  cancel-in-progress: true
 
 permissions:
   contents: write
