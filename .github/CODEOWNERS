@@ -2,7 +2,7 @@
 
 .git*              @FabricMC/developers
 .nvmrc             @FabricMC/developers
-crowdin.yml        @FabricMC/developers
+crowdin.yaml       @FabricMC/developers
 netlify.toml       @FabricMC/developers
 package.json       @FabricMC/developers
 package-lock.json  @FabricMC/developers
