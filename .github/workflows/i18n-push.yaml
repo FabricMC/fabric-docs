@@ -16,10 +16,10 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/i18n-push.yml"
+      - ".github/workflows/i18n-push.yaml"
       - "**.md"
       - "*_translations.json"
-      - "crowdin.yml"
+      - "crowdin.yaml"
       - "!README.md"
       - "!translated/**"
       - "!versions/**"
