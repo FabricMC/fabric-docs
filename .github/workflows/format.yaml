@@ -8,6 +8,7 @@ on:
       - reference/latest/src/main/generated/**
       - translated/**
       - versions/**
+  workflow_dispatch:
 
 concurrency:
   group: format-${{ github.event.pull_request.number || github.ref }}
