@@ -53,24 +53,23 @@ jobs:
           echo needs_push="$?" >>"${GITHUB_OUTPUT}"
       - id: message
         run: |
-          LAST_MSG="$(git show --no-patch --pretty=format:%s "i18n/${{ github.ref_name }}" || true)"
-          PREFIX="i18n: $(date +"%y")w$(date +"%W")"
-          REGEX="^${PREFIX}([a-z]+)"
+          prefix="i18n: $(date +"%y")w$(date +"%W")"
 
-          if [[ "${LAST_MSG}" =~ ${REGEX} ]]; then
-            CURRENT_SUFFIX="${BASH_REMATCH[1]}"
-            if [[ "${CURRENT_SUFFIX}" =~ z$ ]]; then
-              NEW_SUFFIX="${CURRENT_SUFFIX%?}oa"
+          old_message="$(git show --no-patch --pretty=format:%s "i18n/${{ github.ref_name }}" || true)"
+          regex="^${prefix}([a-z]+)"
+          if [[ "${old_message}" =~ ${regex} ]]; then
+            old_suffix="${BASH_REMATCH[1]}"
+            if [[ "${old_suffix}" =~ z$ ]]; then
+              suffix="${old_suffix%?}oa"
             else
-              LAST_CHAR="${CURRENT_SUFFIX: -1}"
-              NEXT_CHAR="$(tr "a-y" "b-z" <<<"${LAST_CHAR}")"
-              NEW_SUFFIX="${CURRENT_SUFFIX%?}${NEXT_CHAR}"
+              last_char="$(tr "a-y" "b-z" <<<"${old_suffix: -1}")"
+              suffix="${old_suffix%?}${last_char}"
             fi
           else
-            NEW_SUFFIX="a"
+            suffix="a"
           fi
 
-          echo message="${PREFIX}${NEW_SUFFIX}" >>"${GITHUB_OUTPUT}"
+          echo message="${prefix}${suffix}" >>"${GITHUB_OUTPUT}"
       - if: steps.check-patch.outputs.needs_push
         uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725
         with:
