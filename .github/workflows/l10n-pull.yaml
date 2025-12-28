@@ -18,17 +18,17 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: i18n-pull
+  group: l10n-pull
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  i18n-pull:
+  l10n-pull:
     runs-on: ubuntu-24.04
     steps:
-      - if: startsWith(github.ref_name, 'i18n/')
+      - if: startsWith(github.ref_name, 'l10n/')
         run: exit 1
       - uses: actions/checkout@v4
       - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
@@ -42,20 +42,20 @@ jobs:
           create_pull_request: false
           push_translations: false
       - run: sudo chown -R "${USER}:${USER}" .
-      - run: git fetch --depth=1 origin "i18n/${{ github.ref_name }}" || true
+      - run: git fetch --depth=1 origin "l10n/${{ github.ref_name }}" || true
       - id: check-patch
         run: |
           # this check is to avoid force-pushing a new commit if the only
           # difference between it and the situation at 'origin' is a rebase
           git diff --quiet --no-index \
-            <(git show --pretty=format: "origin/i18n/${{ github.ref_name }}") \
+            <(git show --pretty=format: "origin/l10n/${{ github.ref_name }}") \
             <(git diff)
           echo needs_push="$?" >>"${GITHUB_OUTPUT}"
       - id: message
         run: |
-          prefix="i18n: $(date +"%y")w$(date +"%W")"
+          prefix="l10n: $(date +"%y")w$(date +"%W")"
 
-          old_message="$(git show --no-patch --pretty=format:%s "i18n/${{ github.ref_name }}" || true)"
+          old_message="$(git show --no-patch --pretty=format:%s "l10n/${{ github.ref_name }}" || true)"
           regex="^${prefix}([a-z]+)"
           if [[ "${old_message}" =~ ${regex} ]]; then
             old_suffix="${BASH_REMATCH[1]}"
@@ -76,8 +76,8 @@ jobs:
           title: ${{ steps.message.outputs.message }}
           body: ""
           commit-message: ${{ steps.message.outputs.message }}
-          branch: i18n/${{ github.ref_name }}
+          branch: l10n/${{ github.ref_name }}
           author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           committer: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
-          labels: localization
+          labels: i18n-l10n
           maintainer-can-modify: false

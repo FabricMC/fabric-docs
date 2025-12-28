@@ -16,7 +16,7 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/i18n-push.yaml"
+      - ".github/workflows/l10n-push.yaml"
       - "**.md"
       - "*_translations.json"
       - "crowdin.yaml"
@@ -26,10 +26,10 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: i18n-push
+  group: l10n-push
 
 jobs:
-  i18n-push:
+  l10n-push:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
