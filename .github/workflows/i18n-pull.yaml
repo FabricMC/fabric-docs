@@ -73,3 +73,4 @@ jobs:
           author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           committer: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           labels: localization
+          maintainer-can-modify: false
