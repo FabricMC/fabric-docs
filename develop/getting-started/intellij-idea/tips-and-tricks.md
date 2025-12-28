@@ -57,8 +57,7 @@ In there you can jump to the files, which you have already visited and open tool
 
 ### Jump to Definition / Usage {#jump-to-definition-usage}
 
-If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>
-or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
+If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>, or use <kbd>Middle Click</kbd> (press the mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
 You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd> to view all the implementations of a class or interface.
@@ -287,7 +286,7 @@ When hovering over method or class names, which have JavaDoc comments added to t
 
 ![JavaDoc](/assets/develop/misc/using-the-ide/comments_06.png)
 
-To get started, simply write `/**` above the method or class definition and press enter. IntelliJ will automatically generate lines for the return value
+To get started, simply write `/**` above the method or class definition and press <kbd>Enter</kbd>. IntelliJ will automatically generate lines for the return value
 and the parameters but you can change them however you want. There are many custom functionalities available and you can also use HTML if needed.
 
 Minecraft's `ScreenHandler` class has some examples. To toggle the render view, use the pen button near the line numbers.

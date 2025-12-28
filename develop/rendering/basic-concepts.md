@@ -45,36 +45,36 @@ The `VertexFormat` defines the elements that we include in our data buffer and o
 
 The following default `VertexFormat` elements are available at `DefaultVertexFormat`:
 
-| Element                                       | Format                                                                                  |
-| --------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `EMPTY`                                       | `{ }`                                                                                   |
-| `BLOCK`                                       | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
-| `NEW_ENTITY`                                  | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
-| `PARTICLE`                                    | `{ position, texture uv, color, texture light }`                                        |
-| `POSITION`                                    | `{ position }`                                                                          |
-| `POSITION_COLOR`                              | `{ position, color }`                                                                   |
-| `POSITION_COLOR_NORMAL`                       | `{ position, color, normal }`                                                           |
-| `POSITION_COLOR_LIGHTMAP`                     | `{ position, color, light }`                                                            |
-| `POSITION_TEX`                                | `{ position, uv }`                                                                      |
-| `POSITION_TEX_COLOR`                          | `{ position, uv, color }`                                                               |
-| `POSITION_COLOR_TEX_LIGHTMAP`                 | `{ position, color, uv, light }`                                                        |
-| `POSITION_TEX_LIGHTMAP_COLOR`                 | `{ position, uv, light, color }`                                                        |
-| `POSITION_TEX_COLOR_NORMAL`                   | `{ position, uv, color, normal }`                                                       |
+| Element                       | Format                                                                                  |
+| ----------------------------- | --------------------------------------------------------------------------------------- |
+| `EMPTY`                       | `{ }`                                                                                   |
+| `BLOCK`                       | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
+| `NEW_ENTITY`                  | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
+| `PARTICLE`                    | `{ position, texture uv, color, texture light }`                                        |
+| `POSITION`                    | `{ position }`                                                                          |
+| `POSITION_COLOR`              | `{ position, color }`                                                                   |
+| `POSITION_COLOR_NORMAL`       | `{ position, color, normal }`                                                           |
+| `POSITION_COLOR_LIGHTMAP`     | `{ position, color, light }`                                                            |
+| `POSITION_TEX`                | `{ position, uv }`                                                                      |
+| `POSITION_TEX_COLOR`          | `{ position, uv, color }`                                                               |
+| `POSITION_COLOR_TEX_LIGHTMAP` | `{ position, color, uv, light }`                                                        |
+| `POSITION_TEX_LIGHTMAP_COLOR` | `{ position, uv, light, color }`                                                        |
+| `POSITION_TEX_COLOR_NORMAL`   | `{ position, uv, color, normal }`                                                       |
 
 #### Draw Modes {#draw-modes}
 
 The draw mode defines how the data is drawn. The following draw modes are available at `VertexFormat.Mode`:
 
-| Draw Mode                   | Description                                                                                                                           |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `LINES`                     | Each element is made up of 2 vertices and is represented as a single line.                                                            |
-| `LINE_STRIP`                | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
-| `DEBUG_LINES`               | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                                 |
-| `DEBUG_LINE_STRIP`          | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                       |
-| `TRIANGLES`                 | Each element is made up of 3 vertices, forming a triangle.                                                                            |
-| `TRIANGLE_STRIP`            | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
-| `TRIANGLE_FAN`              | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
-| `QUADS`                     | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
+| Draw Mode          | Description                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `LINES`            | Each element is made up of 2 vertices and is represented as a single line.                                                            |
+| `LINE_STRIP`       | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
+| `DEBUG_LINES`      | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                                 |
+| `DEBUG_LINE_STRIP` | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                       |
+| `TRIANGLES`        | Each element is made up of 3 vertices, forming a triangle.                                                                            |
+| `TRIANGLE_STRIP`   | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
+| `TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
+| `QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
 
 ### Writing to the `BufferBuilder` {#writing-to-the-bufferbuilder}
 
@@ -100,7 +100,7 @@ It's easier to explain how to write to the `BufferBuilder` using a practical exa
 
 We're going to draw vertices at the following points on the HUD (in order):
 
-```:no-line-numbers
+```text:no-line-numbers
 (20, 20)
 (5, 40)
 (35, 40)
