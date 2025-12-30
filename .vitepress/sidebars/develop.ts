@@ -330,6 +330,12 @@ export default [
       {
         text: "develop.porting.next",
         link: "/develop/porting/next",
+        items: [
+          {
+            text: "develop.porting.26.1.fabric_api",
+            link: "/develop/porting/26.1/fabric-api",
+          }
+        ]
       },
       {
         text: "develop.porting.migrating_mappings",
