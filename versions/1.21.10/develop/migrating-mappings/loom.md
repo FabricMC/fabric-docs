@@ -73,7 +73,7 @@ If you are coming from Yarn, you can now replace your mappings in your `build.gr
 ```groovy
 dependencies {
     [...]
-    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" // [!code --]
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code --]
     mappings loom.officialMojangMappings() // [!code ++]
 }
 ```
@@ -146,7 +146,7 @@ yarn_mappings=1.21.10+build.2
 dependencies {
     [...]
     mappings loom.officialMojangMappings() // [!code --]
-    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" // [!code ++]
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code ++]
 }
 ```
 
