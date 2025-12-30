@@ -7,7 +7,7 @@ authors:
 
 As Minecraft 26.1 is now unobfuscated most developers will now be using Mojang's official mappings. Previously Fabric API was built with Yarn mappings in mind, but with the move to official mappings API names have been updated to match the official names where applicable. These changes are not backwards compatible, so you will need to update your mod to use the new names. These API renames will not be handled by the migrate mappings tools, it is highly recommended to follow the [Migrating Mappings](../../migrating-mappings/) first if your mod is built with Yarn mappings.
 
-Below is a list of all the renamed classes, methods, and fields in Fabric API 26.1, the best way to use this list is to search (CTRL+F or CMD+F) this page for the old name and replace it with the new name.
+Below is a list of all the renamed classes, methods, and fields in Fabric API 26.1, the best way to use this list is to search (<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>) this page for the old name and replace it with the new name.
 
 An [Intellij IDEA migration map](https://www.jetbrains.com/help/idea/migrate.html) is also available to help automate the renaming process. After downloading follow the instructions in the JetBrains documentation to apply it to your project.
 
