@@ -24,25 +24,25 @@ For best results, it's recommended to update to Loom 1.13 or above, as it allows
 
 ## Migrating to Mojang Mappings {#migrating-to-mojmap}
 
-First, you need to run a `migrateMappings` command that will migrate your current mappings to Mojang Mappings. For example, the following command would migrate to Mojang Mappings for 1.21.10:
+First, you need to run a `migrateMappings` command that will migrate your current mappings to Mojang Mappings. For example, the following command would migrate to Mojang Mappings for 1.21.11:
 
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew.bat migrateMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew migrateMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --mappings "net.minecraft:mappings:1.21.10"
+migrateMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 :::
 
-You can replace `1.21.10` with the version of Minecraft you are migrating from. This must be the same version of Minecraft you are currently running. **Do not modify your `gradle.properties` or `build.gradle` yet!**
+You can replace `1.21.11` with the version of Minecraft you are migrating from. This must be the same version of Minecraft you are currently running. **Do not modify your `gradle.properties` or `build.gradle` yet!**
 
 ### Editing Your Sources {#editing-sources-mojmap}
 
@@ -53,15 +53,15 @@ If you are using Loom 1.13 or above, you can use the program argument `--overrid
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
+./gradlew.bat migrateMappings --mappings "net.minecraft:mappings:1.21.11" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
+./gradlew migrateMappings --mappings "net.minecraft:mappings:1.21.11" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHaveABackup
+migrateMappings --mappings "net.minecraft:mappings:1.21.11" --overrideInputsIHaveABackup
 ```
 
 :::
@@ -73,7 +73,7 @@ If you are coming from Yarn, you can now replace your mappings in your `build.gr
 ```groovy
 dependencies {
     [...]
-    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" // [!code --]
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code --]
     mappings loom.officialMojangMappings() // [!code ++]
 }
 ```
@@ -88,25 +88,29 @@ Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shed
 
 ## Migrating to Yarn {#migrating-to-yarn}
 
+::: warning
+1.21.11 is the final release where Yarn Mappings will be available. If you plan to update your mod to 26.1 or above, your mod should be on Mojang's Mappings.
+:::
+
 First, you need to run a `migrateMappings` command that will convert your current mappings to Yarn Mappings. This can be found on [the Develop site](https://fabricmc.net/develop) under Mappings Migration. For example:
 
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --mappings "1.21.10+build.2"
+./gradlew.bat migrateMappings --mappings "1.21.11+build.3"
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --mappings "1.21.10+build.2"
+./gradlew migrateMappings --mappings "1.21.11+build.3"
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --mappings "1.21.10+build.2"
+migrateMappings --mappings "1.21.11+build.3"
 ```
 
 :::
 
-You can replace `1.21.10` with the version of Minecraft you are migrating from. This must be the same version of Minecraft you are currently running. **Do not modify your `gradle.properties` or `build.gradle` yet!**
+You can replace `1.21.11` with the version of Minecraft you are migrating from. This must be the same version of Minecraft you are currently running. **Do not modify your `gradle.properties` or `build.gradle` yet!**
 
 ### Editing Your Sources {#editing-sources-yarn}
 
@@ -117,15 +121,15 @@ If you are using Loom 1.13 or above, you can use the program argument `--overrid
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
+./gradlew.bat migrateMappings --mappings "1.21.11+build.3" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
+./gradlew migrateMappings --mappings "1.21.11+build.3" --overrideInputsIHaveABackup
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --mappings "1.21.10+build.2" --overrideInputsIHaveABackup
+migrateMappings --mappings "1.21.11+build.3" --overrideInputsIHaveABackup
 ```
 
 :::
@@ -137,7 +141,7 @@ If you are migrating from Mojang Mappings, you can now replace your mappings in 
 **`gradle.properties`**
 
 ```properties
-yarn_mappings=1.21.10+build.2
+yarn_mappings=1.21.11+build.3
 ```
 
 **`build.gradle`**
@@ -146,7 +150,7 @@ yarn_mappings=1.21.10+build.2
 dependencies {
     [...]
     mappings loom.officialMojangMappings() // [!code --]
-    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" // [!code ++]
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code ++]
 }
 ```
 
@@ -167,15 +171,15 @@ Loom 1.13 adds a new `migrateClientMappings` task that can be used to migrate yo
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew.bat migrateClientMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew migrateClientMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateClientMappings --mappings "net.minecraft:mappings:1.21.10"
+migrateClientMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 :::
@@ -189,15 +193,15 @@ Loom 1.13 adds a new `migrateClassTweakerMappings` task that can be used to migr
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew.bat migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
+./gradlew migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.10"
+migrateClassTweakerMappings --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 :::
@@ -213,15 +217,15 @@ For example, to migrate a client source set to Mojang Mappings in-place (overwri
 ::: code-group
 
 ```powershell:no-line-numbers [Windows]
-./gradlew.bat migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.10"
+./gradlew.bat migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [macOS/Linux]
-./gradlew migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.10"
+./gradlew migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 ```sh:no-line-numbers [IntelliJ]
-migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.10"
+migrateMappings --input "src/client/java" --output "src/client/java" --mappings "net.minecraft:mappings:1.21.11"
 ```
 
 :::

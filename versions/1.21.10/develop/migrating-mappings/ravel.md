@@ -54,7 +54,7 @@ After the remapping finished, replace your mappings in your mod's `build.gradle`
 
 ```groovy
 dependencies {
-    mappings "net.fabricmc:yarn${project.yarn_mappings}:v2" // [!code --]
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code --]
     mappings loom.officialMojangMappings() // [!code ++]
     // Or the reverse if you're migrating from Mojang Mappings to Yarn
 }
