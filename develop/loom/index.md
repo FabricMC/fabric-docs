@@ -27,7 +27,7 @@ This page is a reference of all options and features of Loom. If you are just ge
 Loom has 2 main plugin IDs, depending on whether you are developing against an obfuscated version of Minecraft or not:
 
 - `net.fabricmc.fabric-loom` to be used for non-obfuscated versions (Minecraft 26.1 or newer).
-- `net.fabricmc.fabric-loom-remap` to be used for obfuscated versions (Minecraft 26.1 or newer).
+- `net.fabricmc.fabric-loom-remap` to be used for obfuscated versions (Minecraft 1.21.11 or older).
 
 The legacy `fabric-loom` plugin ID remains to preserve backwards compatibility with existing projects on obfuscated versions. `net.fabricmc.fabric-loom-companion` is also used in advanced multi-project setups, see [Classpath Groups](classpath-groups.md#multi-project) for more information.
 
