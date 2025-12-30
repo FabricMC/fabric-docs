@@ -6,7 +6,7 @@ authors:
   - deirn
 ---
 
-[Ravel](https://github.com/badasintended/ravel) is a plugin for IntelliJ IDEA to remap source files, based on [IntelliJ's PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) and [Mapping-IO](https://github.com/FabricMC/mapping-io). It supports remapping Java, Kotlin, Mixins (written in Java), Class Tweaker, and Access Wideners.
+[Ravel](https://github.com/badasintended/ravel) is a plugin for IntelliJ IDEA to remap source files, based on [IntelliJ's PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) and [Mapping-IO](https://github.com/FabricMC/mapping-io). It supports remapping Java, Kotlin, Mixins (written in Java), Class Tweakers, and Access Wideners.
 
 Install it from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/28938-ravel-remapper) or download the ZIP file from [GitHub Releases](https://github.com/badasintended/ravel/releases) and install it by clicking the gear icon on the plugin settings and clicking **Install Plugin From Disk**.
 
@@ -15,7 +15,7 @@ Install it from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/289
 ## Migrating Mappings {#migrating-mappings}
 
 ::: warning
-Commit any changes before attempting to remap your sources!
+Commit any changes before attempting to remap your sources! **Do not modify your `gradle.properties` or `build.gradle` yet!**
 :::
 
 Start by right clicking on a file open in the Editor and choose **Refactor** > **Remap Using Ravel**
