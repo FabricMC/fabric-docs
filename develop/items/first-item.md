@@ -14,7 +14,7 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 ## Preparing Your Items Class {#preparing-your-items-class}
 
-To simplify the registering of items, you can create a method that accepts a string identifier, some item settings and a factory to create the `Item` instance.
+To simplify the registering of items, you can create a method that accepts a string identifier, some item properties and a factory to create the `Item` instance.
 
 This method will create an item with the provided identifier and register it with the game's item registry.
 
@@ -24,7 +24,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`.
+Notice how we're using a `GenericItem`, which allows us to use the same method `register` for registering any type of item that extends `Item`. We're also using a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which allows us to specify how we want our item to be created given the item properties.
 
 ## Registering an Item {#registering-an-item}
 
@@ -88,13 +88,13 @@ Create a new JSON file at: `src/main/resources/assets/example-mod/lang/en_us.jso
 
 You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
-## Adding an Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
+## Adding a Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
 
 For your item to have a proper appearance, it requires:
 
 - [An item texture](https://minecraft.wiki/w/Textures#Items)
 - [An item model](https://minecraft.wiki/w/Model#Item_models)
-- [An client item](https://minecraft.wiki/w/Items_model_definition)
+- [A client item](https://minecraft.wiki/w/Items_model_definition)
 
 ### Adding a Texture {#adding-a-texture}
 
@@ -129,7 +129,7 @@ There are alternatives, such as `item/handheld` which is used for items that are
 
 ### Creating the Client Item {#creating-the-client-item}
 
-Minecraft doesn't automatically know where your items' model files can be found, we need to provide an client item.
+Minecraft doesn't automatically know where your items' model files can be found, we need to provide a client item.
 
 Create the client item JSON in the `assets/example-mod/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
@@ -178,6 +178,6 @@ This example uses the `LightningStick` class created in the [Custom Item Interac
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
-Each call to `add()` will add one line to the tooltip.
+Each call to `accept()` will add one line to the tooltip.
 
 ![Tooltip Showcase](/assets/develop/items/first_item_3.png)

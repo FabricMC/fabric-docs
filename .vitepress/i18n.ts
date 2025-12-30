@@ -14,11 +14,11 @@ export const getLocaleNames = (translatedDir: string) => [
     .map((f) => path.relative(translatedDir, f)),
 ];
 
-const locales = getLocaleNames(`${__dirname}/../translated`);
+const locales = getLocaleNames(`${import.meta.dirname}/../translated`);
 
 export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
   const filePath = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "..",
     "translated",
     locale === "en_us" ? ".." : locale,
@@ -145,7 +145,7 @@ export const getLocales = () => {
         },
 
         editLink: {
-          pattern: "https://github.com/FabricMC/fabric-docs/edit/-/:path",
+          pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
           text: resolver("github_edit"),
         },
 
@@ -173,21 +173,30 @@ export const getLocales = () => {
           {
             text: resolver("nav.home"),
             link: "https://fabricmc.net/",
-          },
-          {
-            text: resolver("nav.download"),
-            link: "https://fabricmc.net/use",
+            noIcon: true,
           },
           {
             text: resolver("nav.contribute"),
+            link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+          },
+          {
+            text: resolver("nav.repo"),
             items: [
               {
-                text: resolver("title"),
-                link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+                text: "Fabric API",
+                link: "https://github.com/FabricMC/fabric",
               },
               {
-                text: resolver("nav.contribute.api"),
-                link: "https://github.com/FabricMC/fabric/blob/-/CONTRIBUTING.md",
+                text: "Fabric Loader",
+                link: "https://github.com/FabricMC/fabric-loader",
+              },
+              {
+                text: "Fabric Loom",
+                link: "https://github.com/FabricMC/fabric-loom",
+              },
+              {
+                text: "Fabric Yarn",
+                link: "https://github.com/FabricMC/yarn",
               },
             ],
           },

@@ -28,7 +28,7 @@ Loot pools have **entries**, **conditions**, functions, **rolls**, and **bonus r
 
 ## Blocks {#blocks}
 
-In order for blocks to drop items - including itself - we need to make a loot table. Create a class that `extends FabricBlockLootTableProvider`:
+In order for blocks to drop items - including itself - we need to make a loot table. Create a class that extends `FabricBlockLootTableProvider`:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
@@ -42,7 +42,7 @@ Let's add a few drops in the `generate` method:
 
 ## Chests {#chests}
 
-Chest loot is a little bit tricker than block loot. Create a class that `extends SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
+Chest loot is a little bit tricker than block loot. Create a class that extends `SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 

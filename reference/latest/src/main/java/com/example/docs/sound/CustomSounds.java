@@ -2,7 +2,7 @@ package com.example.docs.sound;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
 // :::1
@@ -18,7 +18,7 @@ public class CustomSounds {
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {
-		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(ExampleModSounds.MOD_ID, id);
+		Identifier identifier = Identifier.fromNamespaceAndPath(ExampleModSounds.MOD_ID, id);
 		return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier, SoundEvent.createVariableRangeEvent(identifier));
 	}
 

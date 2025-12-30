@@ -4,6 +4,7 @@ description: Learn about the basic concepts of rendering using Minecraft's rende
 authors:
   - "0x3C50"
   - IMB11
+  - MildestToucan
 ---
 
 ::: warning
@@ -42,45 +43,44 @@ Before you can write anything to the `BufferBuilder`, you must initialize it. Th
 
 The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to OpenGL.
 
-The following `VertexFormat` elements are available:
+The following default `VertexFormat` elements are available at `DefaultVertexFormat`:
 
 | Element                                       | Format                                                                                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `BLIT_SCREEN`                                 | `{ position (3 floats: x, y and z), uv (2 floats), color (4 ubytes) }`                  |
-| `POSITION_COLOR_TEXTURE_LIGHT_NORMAL`         | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
-| `POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL` | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
-| `POSITION_TEXTURE_COLOR_LIGHT`                | `{ position, texture uv, color, texture light }`                                        |
+| `EMPTY`                                       | `{ }`                                                                                   |
+| `BLOCK`                                       | `{ position, color, texture uv, texture light (2 shorts), texture normal (3 sbytes) }`  |
+| `NEW_ENTITY`                                  | `{ position, color, texture uv, overlay (2 shorts), texture light, normal (3 sbytes) }` |
+| `PARTICLE`                                    | `{ position, texture uv, color, texture light }`                                        |
 | `POSITION`                                    | `{ position }`                                                                          |
 | `POSITION_COLOR`                              | `{ position, color }`                                                                   |
-| `LINES`                                       | `{ position, color, normal }`                                                           |
-| `POSITION_COLOR_LIGHT`                        | `{ position, color, light }`                                                            |
-| `POSITION_TEXTURE`                            | `{ position, uv }`                                                                      |
-| `POSITION_COLOR_TEXTURE`                      | `{ position, color, uv }`                                                               |
-| `POSITION_TEXTURE_COLOR`                      | `{ position, uv, color }`                                                               |
-| `POSITION_COLOR_TEXTURE_LIGHT`                | `{ position, color, uv, light }`                                                        |
-| `POSITION_TEXTURE_LIGHT_COLOR`                | `{ position, uv, light, color }`                                                        |
-| `POSITION_TEXTURE_COLOR_NORMAL`               | `{ position, uv, color, normal }`                                                       |
+| `POSITION_COLOR_NORMAL`                       | `{ position, color, normal }`                                                           |
+| `POSITION_COLOR_LIGHTMAP`                     | `{ position, color, light }`                                                            |
+| `POSITION_TEX`                                | `{ position, uv }`                                                                      |
+| `POSITION_TEX_COLOR`                          | `{ position, uv, color }`                                                               |
+| `POSITION_COLOR_TEX_LIGHTMAP`                 | `{ position, color, uv, light }`                                                        |
+| `POSITION_TEX_LIGHTMAP_COLOR`                 | `{ position, uv, light, color }`                                                        |
+| `POSITION_TEX_COLOR_NORMAL`                   | `{ position, uv, color, normal }`                                                       |
 
 #### Draw Modes {#draw-modes}
 
-The draw mode defines how the data is drawn. The following draw modes are available:
+The draw mode defines how the data is drawn. The following draw modes are available at `VertexFormat.Mode`:
 
 | Draw Mode                   | Description                                                                                                                           |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `Mode.LINES`            | Each element is made up of 2 vertices and is represented as a single line.                                                            |
-| `Mode.LINE_STRIP`       | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
-| `Mode.DEBUG_LINES`      | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                             |
-| `Mode.DEBUG_LINE_STRIP` | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                   |
-| `Mode.TRIANGLES`        | Each element is made up of 3 vertices, forming a triangle.                                                                            |
-| `Mode.TRIANGLE_STRIP`   | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
-| `Mode.TRIANGLE_FAN`     | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
-| `Mode.QUADS`            | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
+| `LINES`                     | Each element is made up of 2 vertices and is represented as a single line.                                                            |
+| `LINE_STRIP`                | The first element requires 2 vertices. Additional elements are drawn with just 1 new vertex, creating a continuous line.              |
+| `DEBUG_LINES`               | Similar to `Mode.LINES`, but the line is always exactly one pixel wide on the screen.                                                 |
+| `DEBUG_LINE_STRIP`          | Same as `Mode.LINE_STRIP`, but lines are always one pixel wide.                                                                       |
+| `TRIANGLES`                 | Each element is made up of 3 vertices, forming a triangle.                                                                            |
+| `TRIANGLE_STRIP`            | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the last two vertices.                |
+| `TRIANGLE_FAN`              | Starts with 3 vertices for the first triangle. Each additional vertex forms a new triangle with the first vertex and the last vertex. |
+| `QUADS`                     | Each element is made up of 4 vertices, forming a quadrilateral.                                                                       |
 
 ### Writing to the `BufferBuilder` {#writing-to-the-bufferbuilder}
 
 Once the `BufferBuilder` is initialized, you can write data to it.
 
-The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.vertex(matrix, float, float, float)` method. The `matrix` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
+The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.addVertex(Matrix4f, float, float, float)` method. The `Matrix4f` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
 This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
@@ -88,19 +88,15 @@ It's also worth understanding the concept of culling. Culling is the process of 
 
 #### What Is a Transformation Matrix? {#what-is-a-transformation-matrix}
 
-A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the vertex call. The transformations can scale our model, move it around and rotate it.
+A transformation matrix is a 4x4 matrix that is used to transform a vector. In Minecraft, the transformation matrix is just transforming the coordinates we give into the `addVertex` call. The transformations can scale our model, move it around and rotate it.
 
 It's sometimes referred to as a position matrix, or a model matrix.
 
-It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `GuiGraphics` object:
-
-```java
-guiGraphics.pose().last().pose();
-```
+It's usually obtained via the `Matrix3x2fStack` class, which can be obtained via the `GuiGraphics` object by calling the `GuiGraphics#pose()` method.
 
 #### Rendering a Triangle Strip {#rendering-a-triangle-strip}
 
-It's easier to explain how to write to the `BufferBuilder` using a practical example. Let's say we want to render something using the `DrawMode.TRIANGLE_STRIP` draw mode and the `POSITION_COLOR` vertex format.
+It's easier to explain how to write to the `BufferBuilder` using a practical example. Let's say we want to render something using the `VertexFormat.Mode.TRIANGLE_STRIP` draw mode and the `POSITION_COLOR` vertex format.
 
 We're going to draw vertices at the following points on the HUD (in order):
 
@@ -125,7 +121,13 @@ Additionally, the code below does not fully match the explanation above: you do 
 Read the important update above for more information.
 :::
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+**Element registration:**
+
+@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+
+**Implementation of `hudLayer()`:**
+
+@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 
 This results in the following being drawn on the HUD:
 
@@ -153,6 +155,7 @@ The `PoseStack` class has the following methods:
 - `popPose()` - Pops the top matrix off the stack.
 - `last()` - Returns the top matrix on the stack.
 - `translate(x, y, z)` - Translates the top matrix on the stack.
+- `translate(vec3)`
 - `scale(x, y, z)` - Scales the top matrix on the stack.
 
 You can also multiply the top matrix on the stack using quaternions, which we will cover in the next section.
@@ -179,11 +182,11 @@ The code showcases rendering on the HUD, while the text describes rendering the 
 Read the important update above for more information.
 :::
 
-Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `PoseStack` via the `multiply(Quaternion, x, y, z)` method.
+Quaternions are a way of representing rotations in 3D space. They are used to rotate the top matrix on the `PoseStack` via the `rotateAround(quaternionfc, x, y, z)` method.
 
-It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in it's `Axis` utility class.
+It's highly unlikely you'll need to ever use a Quaternion class directly, since Minecraft provides various pre-built Quaternion instances in its `Axis` utility class.
 
-Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `multiply(Quaternion, x, y, z)` method.
+Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `rotateAround(quaternionfc, x, y, z)` method.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

@@ -1,5 +1,6 @@
 import mediumZoom from "medium-zoom";
 import { type Theme, useData, useRoute } from "vitepress";
+import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
@@ -18,6 +19,8 @@ import "./style.css";
 export default {
   extends: DefaultTheme,
   enhanceApp: ({ app }) => {
+    enhanceAppWithTabs(app);
+
     // VidStack VideoPlayer Component
     app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("media-");
 

@@ -7,28 +7,6 @@ export default [
     collapsed: false,
     items: [
       {
-        text: "Fabric API GitHub",
-        link: "https://github.com/FabricMC/fabric",
-      },
-      {
-        text: "Yarn GitHub",
-        link: "https://github.com/FabricMC/yarn",
-      },
-      {
-        text: "Loom GitHub",
-        link: "https://github.com/FabricMC/fabric-loom",
-      },
-    ],
-  },
-  {
-    text: "develop.getting_started",
-    collapsed: false,
-    items: [
-      {
-        text: "develop.getting_started.introduction",
-        link: "/develop/getting-started/",
-      },
-      {
         text: "develop.getting_started.creating_project",
         link: "/develop/getting-started/creating-a-project",
       },
@@ -65,22 +43,36 @@ export default [
       {
         text: "develop.items.first_item",
         link: "/develop/items/first-item",
+        items: [
+          {
+            text: "develop.items.food",
+            link: "/develop/items/food",
+          },
+          {
+            text: "develop.items.potions",
+            link: "/develop/items/potions",
+          },
+          {
+            text: "develop.items.spawn_egg",
+            link: "/develop/items/spawn-egg",
+          },
+          {
+            text: "develop.items.custom_tools",
+            link: "/develop/items/custom-tools",
+          },
+          {
+            text: "develop.items.custom_armor",
+            link: "/develop/items/custom-armor",
+          },
+        ],
       },
       {
         text: "develop.items.item_models",
         link: "/develop/items/item-models",
       },
       {
-        text: "develop.items.food",
-        link: "/develop/items/food",
-      },
-      {
-        text: "develop.items.custom_tools",
-        link: "/develop/items/custom-tools",
-      },
-      {
-        text: "develop.items.custom_armor",
-        link: "/develop/items/custom-armor",
+        text: "develop.items.item_appearance",
+        link: "/develop/items/item-appearance",
       },
       {
         text: "develop.items.custom_creative_tabs",
@@ -98,14 +90,6 @@ export default [
         text: "develop.items.custom_data_components",
         link: "/develop/items/custom-data-components",
       },
-      {
-        text: "develop.items.potions",
-        link: "/develop/items/potions",
-      },
-      {
-        text: "develop.items.item_appearance",
-        link: "/develop/items/item-appearance",
-      }
     ],
   },
   {
@@ -137,13 +121,17 @@ export default [
       {
         text: "develop.blocks.transparency_and_tinting",
         link: "/develop/blocks/transparency-and-tinting",
-      }
+      },
     ],
   },
   {
     text: "develop.entities",
     collapsed: true,
     items: [
+      {
+        text: "develop.entities.attributes",
+        link: "/develop/entities/attributes",
+      },
       {
         text: "develop.entities.effects",
         link: "/develop/entities/effects",
@@ -243,28 +231,129 @@ export default [
         link: "/develop/data-generation/setup",
       },
       {
-        text: "develop.data_generation.tags",
-        link: "/develop/data-generation/tags",
+        text: "develop.data_generation.client",
+        items: [
+          {
+            text: "develop.data_generation.translations",
+            link: "/develop/data-generation/translations",
+          },
+          {
+            text: "develop.data_generation.block_models",
+            link: "/develop/data-generation/block-models",
+          },
+          {
+            text: "develop.data_generation.item_models",
+            link: "/develop/data-generation/item-models",
+          },
+        ],
       },
       {
-        text: "develop.data_generation.translations",
-        link: "/develop/data-generation/translations",
+        text: "develop.data_generation.server",
+        items: [
+          {
+            text: "develop.data_generation.tags",
+            link: "/develop/data-generation/tags",
+          },
+
+          {
+            text: "develop.data_generation.advancements",
+            link: "/develop/data-generation/advancements",
+          },
+          {
+            text: "develop.data_generation.recipes",
+            link: "/develop/data-generation/recipes",
+          },
+          {
+            text: "develop.data_generation.loot_tables",
+            link: "/develop/data-generation/loot-tables",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    text: "develop.serialization",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.misc.codecs",
+        link: "/develop/codecs",
       },
       {
-        text: "develop.data_generation.advancements",
-        link: "/develop/data-generation/advancements",
+        text: "develop.misc.data_attachments",
+        link: "/develop/data-attachments",
       },
       {
-        text: "develop.data_generation.recipes",
-        link: "/develop/data-generation/recipes",
+        text: "develop.misc.saved_data",
+        link: "/develop/saved-data",
+      },
+    ],
+  },
+  {
+    text: "develop.loom",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.loom.introduction",
+        link: "/develop/loom",
       },
       {
-        text: "develop.data_generation.loot_tables",
-        link: "/develop/data-generation/loot-tables",
+        text: "develop.loom.fabric_api",
+        link: "/develop/loom/fabric-api",
       },
       {
-        text: "develop.data_generation.block_models",
-        link: "/develop/data-generation/block-models",
+        text: "develop.loom.options",
+        link: "/develop/loom/options",
+      },
+      {
+        text: "develop.loom.prod",
+        link: "/develop/loom/production-run-tasks",
+      },
+      {
+        text: "develop.loom.classpath_groups",
+        link: "/develop/loom/classpath-groups",
+      },
+      {
+        text: "develop.loom.tasks",
+        link: "/develop/loom/tasks",
+      },
+    ],
+  },
+  {
+    text: "develop.porting",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.porting.current",
+        link: "/develop/porting/current",
+      },
+      {
+        text: "develop.porting.next",
+        link: "/develop/porting/next",
+      },
+      {
+        text: "develop.porting.migrating_mappings",
+        link: "/develop/migrating-mappings/",
+        items: [
+          {
+            text: "develop.porting.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.porting.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          },
+        ],  
+      },
+    ],
+  },
+  {
+    text: "develop.mixins",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.mixins.bytecode",
+        link: "/develop/mixins/bytecode",
       },
     ],
   },
@@ -283,38 +372,16 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.codecs",
-        link: "/develop/codecs",
-      },
-      {
         text: "develop.misc.events",
         link: "/develop/events",
-      },
-      {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.saved_data",
-        link: "/develop/saved-data",
       },
       {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
       {
-        text: "develop.misc.migrating_mappings",
-        link: "/develop/migrating-mappings",
-        items: [
-          {
-            text: "develop.misc.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
-          },
-          {
-            text: "develop.misc.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
-          }
-        ]
+        text: "develop.misc.networking",
+        link: "/develop/networking",
       },
       {
         text: "develop.misc.debugging",
@@ -323,32 +390,6 @@ export default [
       {
         text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
-      },
-      {
-        text: "develop.misc.loom",
-        link: "/develop/loom",
-        items: [
-          {
-            text: "develop.misc.loom.fabric_api",
-            link: "/develop/loom/fabric-api",
-          },
-          {
-            text: "develop.misc.loom.options",
-            link: "/develop/loom/options",
-          },
-          {
-            text: "develop.misc.loom.prod",
-            link: "/develop/loom/production-run-tasks",
-          },
-          {
-            text: "develop.misc.loom.classpath_groups",
-            link: "/develop/loom/classpath-groups",
-          },
-          {
-            text: "develop.misc.loom.tasks",
-            link: "/develop/loom/tasks",
-          },
-        ],
       },
     ],
   },

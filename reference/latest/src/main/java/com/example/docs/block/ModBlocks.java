@@ -6,8 +6,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -64,7 +64,7 @@ public class ModBlocks {
 	// :::4
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
-			ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
 	);
 	public static final Block ENGINE_BLOCK = register(
 			"engine",
@@ -113,14 +113,14 @@ public class ModBlocks {
 			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
-	// :::datagen-model:family-declaration
+	// :::family-declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
 			.stairs(ModBlocks.RUBY_STAIRS)
 			.slab(ModBlocks.RUBY_SLAB)
 			.fence(ModBlocks.RUBY_FENCE)
 			.getFamily();
-	// :::datagen-model:family-declaration
+	// :::family-declaration
 
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
@@ -144,11 +144,11 @@ public class ModBlocks {
 	}
 
 	private static ResourceKey<Block> keyOfBlock(String name) {
-		return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
 
 	private static ResourceKey<Item> keyOfItem(String name) {
-		return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
 
 	// :::1
@@ -169,13 +169,13 @@ public class ModBlocks {
 			itemGroup.accept(ModBlocks.PRISMARINE_LAMP.asItem());
 			itemGroup.accept(ModBlocks.COUNTER_BLOCK.asItem());
 			itemGroup.accept(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.accept(RUBY_BLOCK);
-			itemGroup.accept(RUBY_STAIRS);
-			itemGroup.accept(RUBY_SLAB);
-			itemGroup.accept(RUBY_FENCE);
-			itemGroup.accept(RUBY_DOOR);
-			itemGroup.accept(RUBY_TRAPDOOR);
-			itemGroup.accept(VERTICAL_OAK_LOG_SLAB);
+			itemGroup.accept(ModBlocks.RUBY_BLOCK.asItem());
+			itemGroup.accept(ModBlocks.RUBY_STAIRS.asItem());
+			itemGroup.accept(ModBlocks.RUBY_SLAB.asItem());
+			itemGroup.accept(ModBlocks.RUBY_FENCE.asItem());
+			itemGroup.accept(ModBlocks.RUBY_DOOR.asItem());
+			itemGroup.accept(ModBlocks.RUBY_TRAPDOOR.asItem());
+			itemGroup.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB.asItem());
 		});
 	}
 

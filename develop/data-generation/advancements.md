@@ -16,7 +16,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-First, we need to make our provider. Create a class that `extends FabricAdvancementProvider` and fill out the base methods:
+First, we need to make our provider. Create a class that extends `FabricAdvancementProvider` and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
@@ -41,7 +41,7 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ::: warning
-When building your advancement entries, remember that the function accepts the `ResourceLocation` of the advancement in `String` format!
+When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
 :::
 
 ::: details JSON Output
@@ -62,7 +62,7 @@ While datagen can be on the client side, `Criterion`s and `Predicate`s are in th
 
 ### Definitions {#definitions}
 
-A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.critereon` [sic] package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
+A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.criterion` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
 
 **Conditions** are evaluated by criteria. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
 

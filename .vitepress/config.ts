@@ -2,6 +2,7 @@ import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path/posix";
 import * as process from "node:process";
+import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
 import { getLocales } from "./i18n";
@@ -28,7 +29,10 @@ const hostname =
         : process.env.DEPLOY_PRIME_URL!;
 
 const latestVersion = fs
-  .readFileSync(path.resolve(__dirname, "..", "reference", "latest", "build.gradle"), "utf-8")
+  .readFileSync(
+    path.resolve(import.meta.dirname, "..", "reference", "latest", "build.gradle"),
+    "utf-8"
+  )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
 
 // https://vitepress.dev/reference/site-config
@@ -67,9 +71,12 @@ export default defineVersionedConfig(
       config: (md) => {
         // Use the snippet plugin for transclusions
         md.use(snippetPlugin);
+        // Use the tabs plugin for... having tabs?
+        md.use(tabsMarkdownPlugin);
       },
       gfmAlerts: false,
       image: { lazyLoading: true },
+      languageAlias: { gradle: "groovy" },
       languages: [
         async () =>
           // Adds support for mcfunction language to shiki.
@@ -134,5 +141,5 @@ export default defineVersionedConfig(
       },
     },
   },
-  __dirname
+  import.meta.dirname
 );

@@ -50,6 +50,10 @@ Then we can build a Codec.
 
 @[code lang=java transcludeWith=:::codec](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
 
+We should call `setDirty()` when data is actually modified, so Minecraft knows it should be saved to the disk.
+
+@[code lang=java transcludeWith=:::set_dirty](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+
 Finally, we're required to have a `SavedDataType` that describes our saved data. The first argument corresponds to the name of the file that will be created in the `data` directory of the world.
 
 @[code lang=java transcludeWith=:::type](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
