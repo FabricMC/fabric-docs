@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -14,12 +14,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
 // :::datagen-tags:provider
 public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	// :::datagen-tags:provider
 	// :::datagen-tags:tag-key
-	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
+	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
 	// :::datagen-tags:tag-key
 	// :::datagen-tags:provider
 	public ExampleModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -38,6 +39,7 @@ public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:build
+		valueLookupBuilder(ItemTags.DYEABLE).add(ModItems.LEATHER_GLOVES);
 		// :::datagen-tags:provider
 	}
 }

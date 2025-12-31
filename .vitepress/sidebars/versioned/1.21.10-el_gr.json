@@ -1,0 +1,416 @@
+{
+  "/el_gr/develop/": [
+    {
+      "text": "Οδηγοί Προγραμματιστών",
+      "link": "/el_gr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/el_gr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/el_gr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/el_gr/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/el_gr/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/el_gr/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/el_gr/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/el_gr/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Αντικείμενα",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/el_gr/develop/items/first-item",
+          "items": [
+            {
+              "text": "Αντικείμενα Τροφής",
+              "link": "/el_gr/develop/items/food"
+            },
+            {
+              "text": "Φίλτρα",
+              "link": "/el_gr/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/el_gr/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/el_gr/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/el_gr/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/el_gr/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/el_gr/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/el_gr/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/el_gr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/el_gr/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/el_gr/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Μπλοκς",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/el_gr/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/el_gr/develop/blocks/block-models"
+        },
+        {
+          "text": "Κατάσταση Μπλοκ",
+          "link": "/el_gr/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/el_gr/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/el_gr/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/el_gr/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Οντότητες",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/el_gr/develop/entities/attributes"
+        },
+        {
+          "text": "Κατάσταση Εφέ",
+          "link": "/el_gr/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/el_gr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Ήχοι",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/el_gr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Δημιουργία Προσαρμοσμένων Ήχων",
+          "link": "/el_gr/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/el_gr/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Εντολές",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Δημιουργώντας Εντολές",
+          "link": "/el_gr/develop/commands/basics"
+        },
+        {
+          "text": "Ορίσματα Εντολής",
+          "link": "/el_gr/develop/commands/arguments"
+        },
+        {
+          "text": "Προτάσεις Εντολών",
+          "link": "/el_gr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Απεικόνιση",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/el_gr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/el_gr/develop/rendering/draw-context"
+        },
+        {
+          "text": "Απεικόνιση στο Hud",
+          "link": "/el_gr/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/el_gr/develop/rendering/world"
+        },
+        {
+          "text": "GUIs και Οθόνες",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/el_gr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/el_gr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Σωματίδια",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/el_gr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/el_gr/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/el_gr/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/el_gr/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/el_gr/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/el_gr/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/el_gr/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/el_gr/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/el_gr/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Κωδικοποιητές",
+          "link": "/el_gr/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/el_gr/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/el_gr/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/el_gr/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/el_gr/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/el_gr/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/el_gr/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/el_gr/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/el_gr/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/el_gr/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Διάφορες Σελίδες",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Εκδηλώσεις",
+          "link": "/el_gr/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/el_gr/develop/text-and-translations"
+        },
+        {
+          "text": "Networking",
+          "link": "/el_gr/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/el_gr/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/el_gr/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/el_gr/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/el_gr/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/el_gr/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/el_gr/players/": [
+    {
+      "text": "Οδηγοί Παικτών",
+      "link": "/el_gr/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/el_gr/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/el_gr/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/el_gr/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/el_gr/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/el_gr/players/installing-mods"
+        },
+        {
+          "text": "Αντιμετώπιση Προβλημάτων",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/el_gr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/el_gr/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Συχνές Ερωτήσεις",
+          "link": "/el_gr/players/faq"
+        }
+      ]
+    }
+  ]
+}

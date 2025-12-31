@@ -97,12 +97,12 @@ To make the texture show up in-game, you must create a block model which can be 
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-For the block to show in your inventory, you will need to create an [Client Item](../items/first-item#creating-the-client-item) that points to your block model. For this example, the client item for the "Condensed Dirt" block can be found at `assets/example-mod/items/condensed_dirt.json`.
+For the block to show in your inventory, you will need to create a [Client Item](../items/first-item#creating-the-client-item) that points to your block model. For this example, the client item for the "Condensed Dirt" block can be found at `assets/example-mod/items/condensed_dirt.json`.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 ::: tip
-You only need to create an client item if you've registered a `BlockItem` along with your block!
+You only need to create a client item if you've registered a `BlockItem` along with your block!
 :::
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.

@@ -1,0 +1,416 @@
+{
+  "/ko_kr/develop/": [
+    {
+      "text": "개발자 설명서",
+      "link": "/ko_kr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/ko_kr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/ko_kr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/ko_kr/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/ko_kr/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/ko_kr/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/ko_kr/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/ko_kr/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "아이템",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/ko_kr/develop/items/first-item",
+          "items": [
+            {
+              "text": "음식 아이템",
+              "link": "/ko_kr/develop/items/food"
+            },
+            {
+              "text": "물약",
+              "link": "/ko_kr/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/ko_kr/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/ko_kr/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/ko_kr/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/ko_kr/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/ko_kr/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/ko_kr/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/ko_kr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/ko_kr/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/ko_kr/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "블록",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/ko_kr/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/ko_kr/develop/blocks/block-models"
+        },
+        {
+          "text": "블록 상태",
+          "link": "/ko_kr/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/ko_kr/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/ko_kr/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/ko_kr/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "엔티티",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/ko_kr/develop/entities/attributes"
+        },
+        {
+          "text": "상태 효과",
+          "link": "/ko_kr/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/ko_kr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "소리",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/ko_kr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "사용자 지정 소리 만들기",
+          "link": "/ko_kr/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/ko_kr/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "명령어",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "명령어 만들기",
+          "link": "/ko_kr/develop/commands/basics"
+        },
+        {
+          "text": "명령어 인수",
+          "link": "/ko_kr/develop/commands/arguments"
+        },
+        {
+          "text": "명령어 인수 제안",
+          "link": "/ko_kr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "렌더링",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/ko_kr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/ko_kr/develop/rendering/draw-context"
+        },
+        {
+          "text": "HUD 렌더링",
+          "link": "/ko_kr/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/ko_kr/develop/rendering/world"
+        },
+        {
+          "text": "GUI와 화면",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/ko_kr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/ko_kr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "입자",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/ko_kr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/ko_kr/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/ko_kr/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/ko_kr/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/ko_kr/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/ko_kr/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/ko_kr/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/ko_kr/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/ko_kr/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "코덱",
+          "link": "/ko_kr/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/ko_kr/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/ko_kr/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/ko_kr/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/ko_kr/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/ko_kr/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/ko_kr/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/ko_kr/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/ko_kr/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/ko_kr/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "기타",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "이벤트",
+          "link": "/ko_kr/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/ko_kr/develop/text-and-translations"
+        },
+        {
+          "text": "Networking",
+          "link": "/ko_kr/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/ko_kr/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/ko_kr/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/ko_kr/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/ko_kr/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/ko_kr/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/ko_kr/players/": [
+    {
+      "text": "플레이어 설명서",
+      "link": "/ko_kr/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/ko_kr/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/ko_kr/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/ko_kr/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/ko_kr/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/ko_kr/players/installing-mods"
+        },
+        {
+          "text": "스스로 해결",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/ko_kr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/ko_kr/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "자주 묻는 질문",
+          "link": "/ko_kr/players/faq"
+        }
+      ]
+    }
+  ]
+}

@@ -2,9 +2,9 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.Util;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -34,7 +34,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
 
-		translationBuilder.add(Util.makeDescriptionId("effect", ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
+		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
 		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
 		// to add translations from an existing language file instead of manually defining them all.

@@ -6,21 +6,29 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.Level;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -93,7 +101,7 @@ public class ModItems {
 	);
 	// :::_13
 	// :::9
-	public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "item_group"));
+	public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item_group"));
 	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.title(Component.translatable("itemGroup.example-mod"))
@@ -120,13 +128,44 @@ public class ModItems {
 	// :::2
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
+
+	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
+
+	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+
+	// :::spawn_egg
+	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
+			"custom_spawn_egg",
+			SpawnEggItem::new,
+			new Item.Properties().spawnEgg(EntityType.FROG)
+	);
+	// :::spawn_egg
+
+	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
+
+	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
+		@Override
+		public InteractionResult use(Level world, Player user, InteractionHand hand) {
+			user.startUsingItem(hand);
+			return InteractionResult.CONSUME;
+		}
+	}, new Item.Properties());
+
+	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
+
+	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
+
+	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
+
+	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
+
 	// :::1
-	public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
+	public static <GenericItem extends Item> GenericItem register(String name, Function<Item.Properties, GenericItem> itemFactory, Item.Properties settings) {
 		// Create the item key.
-		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
-		Item item = itemFactory.apply(settings.setId(itemKey));
+		GenericItem item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -159,6 +198,11 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
+		// :::spawn_egg_creative_tab
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
+				.register(itemGroup -> itemGroup.accept(ModItems.CUSTOM_SPAWN_EGG));
+		// :::spawn_egg_creative_tab
+
 		// :::_12
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
@@ -176,6 +220,17 @@ public class ModItems {
 			// ...
 		});
 		// :::_12
+
+		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
+			itemGroup.accept(ModItems.RUBY);
+			itemGroup.accept(ModItems.GUIDITE_AXE);
+			itemGroup.accept(ModItems.LEATHER_GLOVES);
+			itemGroup.accept(ModItems.FLASHLIGHT);
+			itemGroup.accept(ModItems.BALLOON);
+			itemGroup.accept(ModItems.ENHANCED_HOE);
+			itemGroup.accept(ModItems.DIMENSIONAL_CRYSTAL);
+			itemGroup.accept(ModItems.THROWING_KNIVES);
+		});
 
 		// :::_10
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.

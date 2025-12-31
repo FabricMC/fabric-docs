@@ -25,6 +25,6 @@ Replace the version with the new version of Fabric Loader you just installed, an
 
 ## 4. You're Done! {#4-you-re-done}
 
-Once you've completed the steps you can go back to the `Play` tab, select the Fabric profile from the dropdown in the bottom left corner and press play!
+Once you've completed the steps you can go back to the `Play` tab, select the Fabric profile from the dropdown in the bottom-left corner and press play!
 
 If you encounter any issues whilst following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
