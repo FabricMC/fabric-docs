@@ -78,6 +78,7 @@
   "develop.porting": "Porting",
   "develop.porting.current": "Porting to 1.21.11",
   "develop.porting.next": "Porting to 26.1 Snapshots",
+  "develop.porting.26.1.fabric_api": "Fabric API",
   "develop.porting.migrating_mappings": "Migrating Mappings",
   "develop.porting.migrating_mappings.loom": "Loom (Gradle)",
   "develop.porting.migrating_mappings.ravel": "Ravel (IntelliJ IDEA)",
