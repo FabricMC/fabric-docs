@@ -96,6 +96,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
 		//:::generated
 
+		// :::datagen-model:provider
+
+		itemModelGenerator.generateFlatItem(ModItems.MINI_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 		//:::handheld
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
 		//:::handheld
