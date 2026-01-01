@@ -28,6 +28,14 @@ our key mapping at the same time.
 
 @[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
 
+::: info
+
+Note that the names of the key tokens (`GLFW.GLFW_KEY_*`) assume a [standard US layout](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
+
+That means, for example, that if you're using an AZERTY layout, pressing on A would yield `GLFW.GLFW_KEY_Q`.
+
+:::
+
 Sticky keys can also be created with `KeyBindingHelper` by passing a `ToggleKeyMapping` instance.
 
 Once registered, you can find your key mappings in _Options_ > _Controls_ > _Key Binds_.
