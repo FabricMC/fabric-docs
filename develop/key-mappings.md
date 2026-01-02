@@ -11,12 +11,12 @@ Many of these key mappings can be configured through the settings menu.
 
 With help of Fabric API, you can create your own custom key mappings and react to them in your mod.
 
-Key mappings are exclusive to the client. So, registration and reacting to key mappings should
-be done on the client side. You can use the **client initializer** for this.
+Key mappings only exist on the client side. This means that registration and reacting to key
+mappings should be done on the client side. You can use the **client initializer** for this.
 
 ## Creating a Key Mapping {#creating-a-key-mapping}
 
-A key mapping consist of two parts. The mapping to a key and the category it belongs to.
+A key mapping consists of two parts: the mapping to a key, and the category it belongs to.
 
 Let's start with creating a category. A category defines a group of key mappings that will be shown
 together in the settings menu.
@@ -30,13 +30,16 @@ our key mapping at the same time.
 
 ::: info
 
-Note that the names of the key tokens (`GLFW.GLFW_KEY_*`) assume a [standard US layout](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
+Note that the names of the key tokens (`GLFW.GLFW_KEY_*`) assume
+a [standard US layout](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
-That means, for example, that if you're using an AZERTY layout, pressing on A would yield `GLFW.GLFW_KEY_Q`.
+This means that if you're using an AZERTY layout, pressing on <kbd>A</kbd> would yield
+`GLFW.GLFW_KEY_Q`.
 
 :::
 
-Sticky keys can also be created with `KeyBindingHelper` by passing a `ToggleKeyMapping` instance.
+Sticky keys can also be created with `KeyBindingHelper` by passing a `ToggleKeyMapping` instance
+instead of a `KeyMapping`.
 
 Once registered, you can find your key mappings in _Options_ > _Controls_ > _Key Binds_.
 
