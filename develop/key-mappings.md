@@ -1,6 +1,6 @@
 ---
-title: Custom Key Mappings
-description: Creating custom key mappings and reacting to them.
+title: Key Mappings
+description: Creating key mappings and reacting to them.
 authors:
   - cassiancc
   - dicedpixels
