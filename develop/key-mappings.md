@@ -69,6 +69,6 @@ Now that we have a key mapping, we can react to it using a client tick event.
 
 @[code lang=java transcludeWith=:::client_tick_event](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
 
-This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed.
+This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed. Keep in mind that holding the key will repeatedly print the message to the chat, so you might want to implement guards if this logic only needs to trigger once.
 
 ![Message in Chat](/assets/develop/key-mappings/key_mapping_pressed.png)
