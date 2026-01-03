@@ -66,6 +66,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
+		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
+		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
 		// :::datagen-translations:provider
 	}
 }
