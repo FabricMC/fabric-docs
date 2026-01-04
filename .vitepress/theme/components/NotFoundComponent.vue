@@ -31,7 +31,6 @@ const urls = computed(() =>
   <div class="not-found">
     <code>{{ options.code }}</code>
     <h1>{{ options.title.toUpperCase() }}</h1>
-    <div class="divider" />
     <blockquote>{{ options.quote }}</blockquote>
 
     <div>
@@ -69,18 +68,11 @@ code {
 }
 
 h1 {
-  padding-top: 12px;
+  padding: 12px 0px;
   letter-spacing: 2px;
   line-height: 20px;
   font-size: 20px;
   font-weight: 700;
-}
-
-.divider {
-  margin: 24px auto 18px;
-  width: 64px;
-  height: 1px;
-  background-color: var(--vp-c-divider);
 }
 
 blockquote {
