@@ -110,7 +110,7 @@ export const getLocales = () => {
     returned[locale === "en_us" ? "root" : locale] = {
       description: resolver("description"),
       label: `${flag} ${name}`,
-      lang: locale,
+      lang: locale.replace("_", "-"),
       link: locale === "en_us" ? "/" : `/${locale}/`,
       title: resolver("title"),
 

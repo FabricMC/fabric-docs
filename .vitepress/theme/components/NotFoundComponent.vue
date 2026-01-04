@@ -11,7 +11,7 @@ const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptio
 const removeForEnglishRegex = new RegExp(String.raw`^${data.lang.value}/|\.md$`, "g");
 
 const urls = computed(() =>
-  data.lang.value === "en_us"
+  data.lang.value === "en-us"
     ? {
         home: "/",
         english: undefined,
@@ -29,9 +29,8 @@ const urls = computed(() =>
 
 <template>
   <div class="not-found">
-    <p>{{ options.code }}</p>
+    <code>{{ options.code }}</code>
     <h1>{{ options.title.toUpperCase() }}</h1>
-    <div class="divider" />
     <blockquote>{{ options.quote }}</blockquote>
 
     <div>
@@ -62,25 +61,18 @@ const urls = computed(() =>
   }
 }
 
-p {
+code {
   line-height: 64px;
   font-size: 64px;
   font-weight: 600;
 }
 
 h1 {
-  padding-top: 12px;
+  padding: 12px 0px;
   letter-spacing: 2px;
   line-height: 20px;
   font-size: 20px;
   font-weight: 700;
-}
-
-.divider {
-  margin: 24px auto 18px;
-  width: 64px;
-  height: 1px;
-  background-color: var(--vp-c-divider);
 }
 
 blockquote {
