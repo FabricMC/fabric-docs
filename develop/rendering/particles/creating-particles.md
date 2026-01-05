@@ -30,6 +30,7 @@ You can see all the particle factories by looking at all the implementations of 
 
 - IntelliJ's hotkey: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
 - Visual Studio Code's hotkey: <kbd>Ctrl</kbd>+<kbd>F12</kbd>
+
 :::
 
 ## Creating a JSON File and Adding Textures {#creating-a-json-file-and-adding-textures}

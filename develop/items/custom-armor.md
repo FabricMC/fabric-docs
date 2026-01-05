@@ -37,16 +37,16 @@ To create our material, we need to create a new instance of the `ArmorMaterial` 
 
 The `ArmorMaterial` constructor accepts the following parameters, in this specific order:
 
-| Parameter | Description |
-| --------- | ----------- |
-| `durability` | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
-| `defense` | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot. |
-| `enchantmentValue` | The "enchantability" of armor items which use this material. |
-| `equipSound` | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page. |
-| `toughness` | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage. |
-| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer. |
-| `repairIngredient` | An item tag that represents all items which can be used to repair the armor items of this material in an anvil. |
-| `assetId` | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier. |
+| Parameter             | Description                                                                                                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `durability`          | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
+| `defense`             | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot.                                   |
+| `enchantmentValue`    | The "enchantability" of armor items which use this material.                                                                                                                                                        |
+| `equipSound`          | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page.                    |
+| `toughness`           | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage.                                                                                 |
+| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer.                                                                                                             |
+| `repairIngredient`    | An item tag that represents all items which can be used to repair the armor items of this material in an anvil.                                                                                                     |
+| `assetId`             | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier.                                                                                                     |
 
 We define the repair ingredient tag reference as follows:
 
