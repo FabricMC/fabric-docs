@@ -4,6 +4,7 @@ import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
 
+import { transformHref } from "../transform";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
@@ -18,7 +19,10 @@ import "./style.css";
 
 export default {
   extends: DefaultTheme,
-  enhanceApp: ({ app }) => {
+  enhanceApp: ({ app, router }) => {
+    const { go } = router;
+    router.go = (href, options) => go(transformHref(href).href, options);
+
     enhanceAppWithTabs(app);
 
     // VidStack VideoPlayer Component
