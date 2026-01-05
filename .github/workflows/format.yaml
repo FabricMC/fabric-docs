@@ -1,0 +1,45 @@
+name: Format
+
+on:
+  pull_request:
+    paths-ignore:
+      - .vitepress/sidebars/versioned/**
+      - reference/*.*/**
+      - reference/latest/src/main/generated/**
+      - translated/**
+      - versions/**
+  workflow_dispatch:
+
+concurrency:
+  group: format-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - uses: FabricMCBot/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
+        with:
+          config: .markdownlint-cli2.yaml
+          globs: |
+            **/*.md
+            !.git/**
+            !node_modules/**
+            !README.md
+            !translated/**
+            !versions/**
+
+  prettier:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: npx prettier --list-different .
