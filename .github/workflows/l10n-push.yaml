@@ -36,7 +36,7 @@ jobs:
       - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
         with:
           token: ${{ secrets.CROWDIN_TOKEN }}
-          crowdin_branch_name: ${{ github.ref_name }}
+          crowdin_branch_name: ${{ github.event.repository.name }}/${{ github.ref_name }}
           upload_sources: true
           upload_translations: false
           download_sources: false
