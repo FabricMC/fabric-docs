@@ -47,9 +47,9 @@ jobs:
         run: |
           # this check is to avoid force-pushing a new commit if the only
           # difference between it and the situation at 'origin' is a rebase
-          git show --pretty=format: "origin/l10n/${{ github.ref_name }}" >>"${{ runner.temp }}/remote.diff" || true
-          git diff >>"${{ runner.temp }}/local.diff"
-          git diff --quiet --no-index "${{ runner.temp }}/remote.diff" "${{ runner.temp }}/local.diff"
+          git show --pretty=format: "origin/l10n/${{ github.ref_name }}" >>.github/temp/remote.diff || true
+          git diff >>.github/temp/local.diff
+          git diff --quiet --no-index .github/temp/remote.diff .github/temp/local.diff
           echo needs_push="$?" >>"${GITHUB_OUTPUT}"
       - id: message
         run: |

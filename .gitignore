@@ -5,6 +5,7 @@
 /.vitepress/dist
 .idea/
 .obsidian/
+.github/temp/
 
 # Files
 .DS_Store
