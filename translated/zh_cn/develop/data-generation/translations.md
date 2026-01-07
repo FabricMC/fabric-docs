@@ -18,7 +18,7 @@ authors-nogithub:
 
 ## 设置 {#setup}
 
-首先，我们要创建**提供程序**。 请记住，提供程序才是为我们生成数据的。 创建一个 `extends FabricLanguageProvider` 的类，填入基本方法：
+首先，我们要创建**提供程序**。 请记住，提供程序才是为我们生成数据的。 创建一个继承 `FabricLanguageProvider` 的类，填入基本方法：
 
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
@@ -28,7 +28,7 @@ authors-nogithub:
 
 要完成设置，将此提供程序添加到 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint`。
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## 创建翻译 {#creating-translations}
 
@@ -38,10 +38,10 @@ authors-nogithub:
 
 ## 使用翻译 {#using-translations}
 
-生成的翻译取代了其他教程中添加的许多翻译，但你也可以在任何使用 `Text` 对象的地方使用。 在我们的示例中，如果我们想允许资源包翻译我们的问候语，我们使用 `Text.translatable` 而不是 `Text.of`：
+生成的翻译取代了其他教程中添加的许多翻译，但你也可以在任何使用 `Component` 对象的地方使用。 在我们的示例中，如果我们想允许资源包翻译我们的问候语，我们使用 `Component.translatable` 而不是 \`Component.literal：
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.example-mod.greeting")); // [!code ++]
+ChatComponent chatHud = Minecraft.getInstance().gui.getChat();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

@@ -173,11 +173,11 @@ authors:
 
 锚点必须使用小写字母、数字和横杠
 
-### 将代码置于 `/reference` 模组中{#place-code-within-the-reference-mod}
+### 将代码置于示例模组中 {#place-code-within-the-example-mod}
 
-如果创建或修改包含代码的页面，将代码置于参考模组（位于目录的 `/reference` 文件夹内）的适当位置。 然后，使用[由 VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)来嵌入代码。
+如果创建或修改包含代码的页面，将代码置于示例模组（位于目录的 `/reference` 文件夹内）的适当位置。 然后，使用[由 VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)来嵌入代码。
 
-例如，高亮参考模组中的 `ExampleMod.java` 的第 15-21 行：
+例如，要高亮显示模组中的 `ExampleMod.java` 的第 15-21 行：
 
 ::: code-group
 

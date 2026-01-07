@@ -33,11 +33,11 @@ authors:
 
 ## Создание чар {#creating-the-enchantment}
 
-Теперь у нас есть эффект зачарования! Последний шаг — создать чары, которые будут применять наш собственный эффект. Хотя это можно сделать, создав файл JSON, аналогичный файлам в пакетах данных, в этом руководстве показано, как динамически генерировать JSON с помощью инструментов генерации данных Fabric. Для начала создайте класс `EnchantmentGenerator`.
+Теперь у нас есть эффект зачарования! Последний шаг — создать чары, которые будут применять наш собственный эффект. Хотя это можно сделать, создав файл JSON, аналогичный файлам в пакетах данных, в этом руководстве показано, как динамически генерировать JSON с помощью инструментов генерации данных Fabric. Для начала создайте класс `ExampleModEnchantmentGenerator`.
 
 В этом классе мы сначала зарегистрируем новое зачарование, а затем воспользуемся методом `configure()` для программного создания нашего JSON.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 Прежде чем продолжить, вам следует убедиться, что ваш проект настроен для генерации данных; если вы не уверены, [просмотрите соответствующую страницу документации](../data-generation/setup).
 
@@ -52,9 +52,9 @@ authors:
 Вам также следует добавить переводы в файл `en_us.json`, чтобы дать вашему зачарованию читаемое имя:
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 Теперь у вас должен быть рабочий эффект зачарования! Проверьте это, зачаровав оружие чарами и ударив моба. Пример приведен в следующем видео:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm" title="Using the Thundering Enchantment" />
+<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">Использование зачарования грозы</VideoPlayer>

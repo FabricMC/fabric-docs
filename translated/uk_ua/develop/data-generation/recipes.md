@@ -15,17 +15,17 @@ authors-nogithub:
 
 ## Налаштування {#setup}
 
-По-перше, нам знадобиться наш постачальник. Створіть клас `extends FabricRecipeProvider`. Уся наша генерація рецептів відбуватиметься всередині методу `generate` нашого постачальника.
+По-перше, нам знадобиться наш постачальник. Створіть клас, який розширює `FabricRecipeProvider`. Уся наша генерація рецептів відбуватиметься всередині методу `buildRecipes` нашого постачальника.
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={33-33}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Безформні рецепти {#shapeless-recipes}
 
-Безформні рецепти досить прості. Просто додайте їх до методу `generate` у вашому постачальнику:
+Безформні рецепти досить прості. Просто додайте їх до методу `buildRecipes` у вашому постачальнику:
 
 @[code lang=java transcludeWith=:::datagen-recipes:shapeless](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
@@ -44,5 +44,3 @@ authors-nogithub:
 Інші рецепти працюють так само, але вимагають кількох додаткових параметрів. Наприклад, рецепти плавки повинні знати, скільки досвіду присудити.
 
 @[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
-
-## Власні типи рецептів {#custom-recipe-types}

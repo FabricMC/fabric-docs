@@ -1,8 +1,9 @@
 ---
 title: Установка Java на Windows
-description: Пошаговая инструкция по установке Java на Windows.
+description: Пошаговое руководство по установке Java в Windows.
 authors:
   - IMB11
+next: false
 ---
 
 Это руководство поможет вам установить Java 21 на Windows.
@@ -13,7 +14,7 @@ authors:
 
 Чтобы проверить, что Java уже установлена, вам нужно сначала открыть командную строку.
 
-Вы можете сделать это, нажав <kbd>Win</kbd>+<kbd>R</kbd> и написав `cmd.exe` в появившемся окне.
+Для этого нажмите <kbd>Win</kbd>+<kbd>R</kbd> и введите `cmd.exe` в появившемся окне.
 
 ![Окно "Выполнить" с введённым "cmd.exe"](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -24,12 +25,12 @@ authors:
 ![Командная строка с введённой командой "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Чтобы использовать Minecraft 1.21, вам необходимо установить Java 21 и выше. Если эта команда отображает любую версию ниже 21, вам придётся обновить Java.
+Чтобы использовать Minecraft 1.21.10, вам понадобится как минимум Java 21. Если эта команда отображает любую версию ниже 21, вам придётся обновить Java.
 :::
 
 ## 2. Загрузите установщик Java 21 {#2-download-the-java-installer}
 
-Чтобы установить Java 21, вам необходимо загрузить загрузчик из Adoptium.
+Чтобы установить Java 21, вам необходимо загрузить установщик с сайта [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 

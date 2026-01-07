@@ -39,11 +39,11 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) nutzen.
+Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) verwenden.
 
 :::details Absturzbericht anzeigen
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log
 
 :::
 
@@ -66,7 +66,7 @@ Der Stack-Trace im Abschnitt `---- Minecraft Crash Report ----` ist in diesem Fa
 
 :::details Fehler anzeigen
 
-<<< @/public/assets/players/crash-report-example.log{7 log}
+<<< @/public/assets/players/crash-report-example.log{7}
 
 :::
 
@@ -84,10 +84,10 @@ Mixins sind eine Möglichkeit für Mods, das Spiel zu verändern, ohne den Quell
 
 Wenn ein Mixin abstürzt, wird in der Regel das Mixin im Stacktrace erwähnt und die Klasse, die das Mixin ändert.
 
-Methoden-Mixins enthalten `example-mod$handlerName` in dem Stacktrace, wobei `example-mod` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
+Methoden-Mixins enthalten `mod-id$handlerName` in dem Stacktrace, wobei `mod-id` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
 
 ```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Anhand dieser Informationen kannst du den Mod, der den Absturz verursacht hat, ausfindig machen und den Absturz an den Autor des Mods melden.

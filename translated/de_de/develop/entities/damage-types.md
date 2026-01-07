@@ -31,9 +31,9 @@ Im [Minecraft Wiki](https://de.minecraft.wiki/w/Schadensarten#Dateiformat) finde
 
 ### Zugriff Auf Schadensarten Durch Code {#accessing-damage-types-through-code}
 
-Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `RegistryKey`, um eine Instanz von `DamageSource` zu erstellen.
+Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `ResourceKey`, um eine Instanz von `DamageSource` zu erstellen.
 
-Der `RegistryKey` kann wie folgt ermittelt werden:
+Der `ResourceKey` kann wie folgt ermittelt werden:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
@@ -41,7 +41,7 @@ Der `RegistryKey` kann wie folgt ermittelt werden:
 
 Um die Verwendung von benutzerdefinierten Schadensarten zu demonstrieren, werden wir einen benutzerdefinierten Block mit dem Namen _Tater-Block_ verwenden. Wenn eine lebende Entität auf einen _Tater-Block_ tritt, verursacht er _Tater_ Schaden.
 
-Du kannst `onSteppedOn` überschreiben, um diesen Schaden zu zuzufügen.
+Du kannst `stepOn` überschreiben, um diesen Schaden zu zuzufügen.
 
 Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten Schadensart.
 

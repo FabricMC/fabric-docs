@@ -173,11 +173,11 @@ Jede Überschrift muss einen Anker haben, der als Link zu dieser Überschrift di
 
 Der Anker muss Kleinbuchstaben, Zahlen und Bindestriche enthalten.
 
-### Code innerhalb des `/reference` Mods platzieren {#place-code-within-the-reference-mod}
+### Code innerhalb des Beispiel-Mod platzieren {#place-code-within-the-example-mod}
 
-Wenn du Seiten erstellst oder änderst, die Code enthalten, platziere den Code an einer geeigneten Stelle innerhalb des Referenz-Mod (im Ordner `/reference` des Repository). Verwende dann die [Code-Snippet-Funktion, die von VitePress angeboten wird](https://vitepress.dev/guide/markdown#import-code-snippets), um den Code einzubetten, oder wenn du eine größere Kontrollspanne benötigst, kannst du die [transclude-Funktion von `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced) verwenden.
+Wenn du Seiten erstellst oder änderst, die Code enthalten, platziere den Code an einer geeigneten Stelle innerhalb des Beispiel-Mod (im Ordner `/reference` des Repository). Verwende dann die [Code-Snippet-Funktion, die von VitePress angeboten wird](https://vitepress.dev/guide/markdown#import-code-snippets), um den Code einzubetten, oder wenn du eine größere Kontrollspanne benötigst, kannst du die [transclude-Funktion von `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced) verwenden.
 
-Dies wird die Zeilen 15-21 der Datei `ExampleMod.java` des Referenz-Mod einbetten.
+Dies wird die Zeilen 15-21 der Datei `ExampleMod.java` des Mods einbetten:
 
 ::: code-group
 

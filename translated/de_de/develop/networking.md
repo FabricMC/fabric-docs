@@ -47,7 +47,7 @@ Wenn der Status zwischen dem Client und dem Server nicht synchronisiert wird, ka
 Eine Payload sind die Daten, die innerhalb eines Pakets gesendet werden.
 :::
 
-Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPayload` implementiert, gelöst werden.
+Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPacketPayload` implementiert, gelöst werden.
 
 @[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
@@ -61,23 +61,23 @@ Zugleich haben wir folgendes definiert:
 
 @[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-- Eine öffentliche, statische Instanz eines `PacketCodec`, damit das Spiel weiß, wie es den Inhalt des Pakets serialisieren/deserialisieren kann.
+- Eine öffentliche, statische Instanz eines `StreamCodec`, damit das Spiel weiß, wie es den Inhalt des Pakets serialisieren/deserialisieren kann.
 
 @[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-Wir haben auch `getId` überschrieben, um unsere Payload-ID zurückzugeben.
+Wir haben auch `type` überschrieben, um unsere Payload-ID zurückzugeben.
 
 @[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
 ### Einen Payload registrieren {#registering-a-payload}
 
-Bevor wir ein Paket mit unserem benutzerdefinierten Payload senden, müssen wir ihn registrieren.
+Bevor wir ein Paket mit unserer benutzerdefinierten Nutzlast senden, müssen wir es auf beiden physischen Seiten registrieren.
 
 :::info
 `S2C` und `C2S` sind zwei gängige Suffixe, die _Server-to-Client_ und _Client-to-Server_ bedeuten.
 :::
 
-Dies kann in unserem **gemeinsamen Initialisierers** mit Hilfe von `PayloadTypeRegistry.playS2C().register` erfolgen, das eine `CustomPayload.Id` und einen `PacketCodec` entgegennimmt.
+Dies kann in unserem **gemeinsamen Initialisierers** mit Hilfe von `PayloadTypeRegistry.playS2C().register` erfolgen, das eine `CustomPayload.Id` und einen `type` entgegennimmt.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
@@ -132,7 +132,7 @@ Wir können auf die Daten aus unserem Payload zugreifen, indem wir die Getter-Me
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Schließlich erstellen wir eine `LightningEntity` und fügen sie der Welt hinzu.
+Schließlich erstellen wir eine `LightningBolt` und fügen sie der Welt hinzu.
 
 @[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -154,7 +154,7 @@ Dann registrieren wir unseren Payload in unserem **gemeinsamen Initialisierer**.
 
 Um ein Paket zu senden, fügen wir eine Aktion hinzu, wenn der Spieler eine giftige Kartoffel benutzt. Wir werden das Event `UseEntityCallback` verwenden, um die Dinge übersichtlich zu halten.
 
-Wir registrieren das Event in unserem **Client-Initialisierer**, und wir verwenden `isClient()`, um sicherzustellen, dass die Aktion nur auf dem logischen Client ausgelöst wird.
+Wir registrieren das Event in unserem **Client-Initialisierer**, und wir verwenden `isClientSide()`, um sicherzustellen, dass die Aktion nur auf dem logischen Client ausgelöst wird.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -183,6 +183,7 @@ In diesem Fall überprüfen wir anhand der Netzwerk-ID, ob die Entität existier
 Außerdem muss es sich bei der Zielentität um eine lebende Entität handeln, und wir beschränken die Reichweite der Zielentität vom Spieler auf 5.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+
 :::
 
 Wenn ein Spieler nun versucht, eine giftige Kartoffel auf einer lebenden Entität zu verwenden, wird der Leuchten-Effekt auf diese angewendet.

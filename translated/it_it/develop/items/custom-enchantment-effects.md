@@ -33,11 +33,11 @@ Come ogni altra componente della tua mod, dovremo aggiungere questo `Enchantment
 
 ## Creare l'Incantesimo {#creating-the-enchantment}
 
-Ora abbiamo un effetto d'incantesimo! Il passaggio finale è creare un incantesimo che applica il nostro effetto personalizzato. Anche se questo si potrebbe fare creando un file JSON in maniera simile a quella dei datapack, questa guida ti mostrerà come generare il JSON dinamicamente usando gli strumenti di generazione di dati di Fabric. Per cominciare, crea una classe `EnchantmentGenerator`.
+Ora abbiamo un effetto d'incantesimo! Il passaggio finale è creare un incantesimo che applica il nostro effetto personalizzato. Anche se questo si potrebbe fare creando un file JSON in maniera simile a quella dei datapack, questa guida ti mostrerà come generare il JSON dinamicamente usando gli strumenti di generazione di dati di Fabric. Per iniziare, crea una classe `ExampleModEnchantmentGenerator`.
 
 All'interno di questa classe registreremo anzitutto un nuovo incantesimo, e poi useremo il metodo `configure()` per creare il nostro JSON programmaticamente.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 Prima di procedere dovresti assicurarti che il tuo progetto sia configurato per la generazione di dati; se non sei sicuro, [controlla la pagina corrispondente della documentazione](../data-generation/setup).
 
@@ -52,7 +52,7 @@ Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli
 Dovresti anche aggiungere le traduzioni al tuo file `en_us.json` per dare al tuo incantesimo un nome leggibile:
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 Dovresti ora avere un effetto d'incantesimo personalizzato funzionante! Testalo incantando un'arma con l'incantesimo e colpendo un mob. Ecco un esempio nel video seguente:

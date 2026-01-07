@@ -1,6 +1,6 @@
 ---
 title: Состояния блока
-description: Узнать почему состояния блока — это отличный способ добавить визуальной функциональности вашим блокам.
+description: Узнайте, почему состояния блока — это отличный способ добавить визуальной функциональности вашим блокам.
 authors:
   - IMB11
 ---
@@ -13,7 +13,7 @@ authors:
 
 Вы, вероятно, понимаете, почему они полезны — они позволяют избежать необходимости хранения данных NBT в сущности блока, что уменьшает размер мира и предотвращает проблемы с TPS!
 
-Определения состояний блока можно найти в папке `assets/<mod id here>/blockstates`.
+Определения блокстейтов находятся в папке `assets/example-mod/blockstates`.
 
 ## Пример: Блок Колонна {#pillar-block}
 
@@ -21,17 +21,17 @@ authors:
 
 Minecraft уже имеет несколько пользовательских классов, которые позволяют быстро создавать определенные типы блоков. Этот пример демонстрирует создание блока со свойством `axis` на примере блока "Обтёсанная дубовая древесина".
 
-Стандартный класс `PillarBlock` позволяет размещать блоки вдоль осей X, Y или Z.
+Стандартный класс `RotatedPillarBlock` позволяет размещать блоки вдоль осей X, Y или Z.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-Колоновые блоки имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
+Блоки колонн имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
 
-Как всегда, со всеми текстурами блоков, файлы текстур могут быть найдены в `assets/<mod id here>/textures/block`
+Как обычно, все текстуры блоков находятся в папке `assets/example-mod/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">Текстуры</DownloadEntry>
 
-Из-за того что колоновый блок имеет две позиции: горизонтальную и вертикальную, мы должны сделать два отдельных файла моделей:
+Из-за того что блок колонны имеет две позиции: горизонтальную и вертикальную, мы должны сделать два отдельных файла моделей:
 
 - `condensed_oak_log_horizontal.json`, который дополняет модель `block/cube_column_horizontal`.
 - `condensed_oak_log.json`, который дополняет модель `block/cube_column`.
@@ -40,25 +40,23 @@ Minecraft уже имеет несколько пользовательских 
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
----
-
 ::: info
-Remember, blockstate files can be found in the `assets/<mod id here>/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
 Для более подробного изучения всех доступных модификаторов в файле состояний блоков, ознакомьтесь со страницей [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
 :::
 
 Далее, нам нужно создать файл состояний блока. Файл состояний блока — это где происходит магия — колоновые блоки имеют три оси, поэтому мы будем использовать конкретные модели для следующих ситуаций:
 
-- `axis=x` - Когда блок помещён вдоль оси X, мы повернём модель так, чтобы она была ориентирована в положительном направлении оси X.
+- `axis=x` - Когда блок помещён вдоль оси X, мы повернём модель так, чтобы она была ориентирована в положительном направлении по оси X.
 - `axis=y` - Когда блок помещён вдоль оси Y, мы будем использовать нормальную вертикальную модель.
-- `axis=z` - Когда блок помещён вдоль оси Z, мы повернём модель так, чтобы она была ориентирована в положительном направлении оси X.
+- `axis=z` - Когда блок помещён вдоль оси Z, мы повернём модель так, чтобы она была ориентирована в положительном направлении по оси X.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
 Как всегда, вам нужно создать перевод для вашего блока и модель предмета, которая будет наследовать одну из двух моделей.
 
-![Пример колонового блока в игре](/assets/develop/blocks/blockstates_1.png)
+![Пример блока колонны в игре](/assets/develop/blocks/blockstates_1.png)
 
 ## Пользовательские состояния блока {#custom-block-states}
 
@@ -68,11 +66,11 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 ### Создаём свойство {#creating-the-property}
 
-Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.of`.
+Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.create`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Далее нам необходимо добавить свойство к менеджеру состояний блока в методе `appendProperties`. Вам необходимо переопределить метод для доступа к конструктору:
+Далее, мы должны добавить свойство к менеджеру состояния блока в методе `createBlockStateDefinition`. Вам необходимо переопределить метод для доступа к конструктору:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -82,7 +80,7 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 ### Использование свойства {#using-the-property}
 
-В этом примере булево свойство `activated` инвертируется, когда игрок взаимодействует с блоком. Для этого мы можем переопределить метод `onUse`:
+В этом примере булево свойство `activated` инвертируется, когда игрок взаимодействует с блоком. Для этого мы можем переопределить метод `useWithoutItem`:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -100,26 +98,22 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 Поскольку этот блок имеет только два возможных варианта, поскольку у него есть только одно свойство (`activated`), JSON-код состояния блока будет выглядеть примерно так:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
 :::tip
-Не забудьте добавить [описание модели предмета](../items/first-item#creating-the-item-model-description) для блока, чтобы он отображался в инвентаре!
+Не забудьте добавить [Клиентский предмет](../items/first-item#creating-the-client-item) для блока, чтобы он отображался в инвентаре!
 :::
-
----
 
 Поскольку пример блока представляет собой лампу, нам также необходимо заставить ее излучать свет, когда свойство `activated` имеет значение true. Это можно сделать с помощью настроек блока, передаваемых конструктору при регистрации блока.
 
-Вы можете использовать метод `luminance` для установки уровня освещенности, излучаемой блоком. Мы можем создать статический метод в классе `PrismarineLampBlock` для возврата уровня освещенности на основе свойства `activated` и передать его как ссылку на метод `luminance`:
+Вы можете использовать метод `lightLevel` для установки уровня освещенности, излучаемого блоком. Мы можем создать статический метод в классе `PrismarineLampBlock`, который будет возвращать уровень освещенности на основе свойства `activated`, и передать его в качестве ссылки на метод в метод `lightLevel`:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
----
-
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
 После того как вы все завершите, конечный результат должен выглядеть примерно так:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm" title="Prismarine Lamp Block in-game" />
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Внутриигровой призмариновый блок-лампочка</VideoPlayer>

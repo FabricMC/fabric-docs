@@ -20,9 +20,9 @@ Als Erstes wird die `Potion` Instanz in einer Variable deklariert. Wir werden hi
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-Es wird eine Instanz der `StatusEffectInstance` benutzt, die drei Parameter besitzt:
+Es wird eine Instanz der `MobEffectInstance` benutzt, die drei Parameter besitzt:
 
-- `RegistryEntry<StatusEffect> type` - Einen Effekt. Hier verwenden wir unseren benutzerdefinierten Effekt. Alternativ kann man auch auf die vanilla Effekte durch die vanilla `StatusEffects` Klasse zugreifen.
+- `RegistryEntry<MobEffect> type` - Ein Effekt. Hier verwenden wir unseren benutzerdefinierten Effekt. Alternativ kannst du durch die Vanilla Klasse `MobEffects` auf die Vanilla Effekte zugreifen.
 - `int duration` - Länge des Effekts in Spielticks.
 - `int amplifier` - Die Stärke des Effekts. Eile II hätte zum Beispiel einen amplifier-Wert von 1.
 
@@ -38,9 +38,9 @@ In unserer Initialisierungsmethode benutzen wir das `FabricBrewingRecipeRegistry
 
 Die `registerPotionRecipe` Methode besitzt 3 Parameter:
 
-- `RegistryEntry<Potion> input` - Der Registereintrag für den Starttrank. In den meisten Fällen ist das eine Wasserflasche oder ein "Seltsamer Trank".
+- `Holder<Potion> input` - Der Eintrag in der Registry für den Starttrank. In den meisten Fällen ist das eine Wasserflasche oder ein "Seltsamer Trank".
 - `Item item` - Der Gegenstand, der die Hauptzutat bildet.
-- `RegistryEntry<Potion> output` -Der Registereintrag für den resultierenden Trank.
+- `Holder<Potion> output` - Der Eintrag in der Registry für den Ergebnistrank.
 
 Sobald der Trank registriert wurde, kannst du den Tater-Trank mit einer Kartoffel brauen.
 

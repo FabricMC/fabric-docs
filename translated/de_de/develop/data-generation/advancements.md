@@ -16,22 +16,22 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 ## Einrichten {#setup}
 
-Zuerst müssen wir unseren Provider erstellen. Erstelle eine Klasse, die `extends FabricAdvancementProvider` beinhaltet und fülle die Basismethoden aus:
+Zuerst müssen wir unseren Provider erstellen. Erstelle eine Klasse, die von `FabricAdvancementProvider` erbt und fülle die Basismethoden aus:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Struktur eines Fortschritts {#advancement-structure}
 
 Ein Fortschritt setzt sich aus mehreren Komponenten zusammen. Neben den Voraussetzungen, auch als "Kriterien" bezeichnet, kann er auch folgendes haben:
 
-- Ein `AdvancementDisplay`, das dem Spiel mitteilt, wie der Fortschritt den Spielern angezeigt werden soll,
+- Ein `DisplayInfo`, das dem Spiel mitteilt, wie der Fortschritt den Spielern angezeigt werden soll,
 - `AdvancementRequirements`, bei denen es sich um Listen von Kriterien handelt, von denen mindestens ein Kriterium aus jeder Teilliste erfüllt sein muss,
 - `AdvancementRewards`, die der Spieler für den Abschluss des Fortschritts erhält.
-- Ein `CriterionMerger`, der dem Fortschritt mitteilt wie er mehrere Kriterien verarbeiten soll, und
+- Eine `Strategy`, die dem Fortschritt mitteilt wie er mehrere Kriterien verarbeiten soll, und
 - Ein übergeordnetes `Advancement`, das die Hierachie organisiert, welche du in dem "Fortschritt" Fenster sehen kannst.
 
 ## Einfacher Fortschritt {#simple-advancements}
@@ -41,11 +41,13 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 :::warning
-Denke bei der Erstellung deiner Fortschrittseinträge daran, dass die Funktion den `Identifier` des Fortschritts im Format `String` annimmt!
+Denke bei der Erstellung deiner Einträge für Fortschritte daran, dass die Funktion den `Identifier` des Fortschritts im Format `String` annimmt!
 :::
 
 :::details JSON Ausgabe
+
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+
 :::
 
 ## Ein weiteres Beispiel {#one-more-example}
@@ -62,7 +64,7 @@ Während der Datengenerator auf der Client-Seite liegen kann, befinden sich `Cri
 
 ### Definition {#definitions}
 
-Ein **Kriterium** (Plural: Kriterien) ist etwas, was Spieler machen können (oder was einem Spieler passieren kann) was möglicherweise einem Fortschritt angerechnet wird. Das Spiel kommt mit vielen [Kriterien](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), welche in dem `net.minecraft.advancement.criterion` Packet gefunden werden können. Generell musst du nur ein neues Kriterium hinzufügen, wenn du eine benutzdefinierte Mechanik zum Spiel hinzufügst.
+Ein **Kriterium** (Plural: Kriterien) ist etwas, was Spieler machen können (oder was einem Spieler passieren kann) was möglicherweise einem Fortschritt angerechnet wird. Das Spiel kommt mit vielen [Kriterien](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), welche in dem `net.minecraft.advancements.criterion` Packet gefunden werden können. Generell musst du nur ein neues Kriterium hinzufügen, wenn du eine benutzdefinierte Mechanik zum Spiel hinzufügst.
 
 **Bedingungen** werden von Kriterien ausgewertet. Ein Kriterium wird nur gezählt, wenn alle relevanten Bedingungen zutreffen. Bedingungen werden in der Regel durch ein Prädikat ausgedrückt.
 
@@ -82,7 +84,7 @@ Als Nächstes erstellen wir unser benutzerdefiniertes Kriterium `UseToolCriterio
 
 Puh, das ist eine Menge! Schauen wir uns das mal genauer an.
 
-- `UseToolCriterion` ist ein `AbstractCriterion`, auf das `Conditions` angewendet werden können.
+- `UseToolCriterion` ist ein `SimpleCriterionTrigger`, auf das `Conditions` angewendet werden können.
 - `Conditions` hat ein `playerPredicate` Feld. Alle `Conditions` sollten ein Spielerprädikat haben (technisch gesehen ein `LootContextPredicate`).
 - `Conditions` haben auch einen `CODEC`. Dieser `Codec` ist einfach der Codec für sein einziges Feld, `playerPredicate`, mit zusätzlichen Anweisungen zur Konvertierung zwischen ihnen (`xmap`).
 

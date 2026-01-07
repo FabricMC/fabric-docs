@@ -9,23 +9,23 @@ Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vi
 
 Datenkomponenten ersetzen NBT-Daten aus früheren Versionen durch strukturierte Datentypen, die auf einen `ItemStack` angewendet werden können, um dauerhafte Daten über diesen Stack zu speichern. Datenkomponenten sind namensgebunden, was bedeutet, dass wir unsere eigenen Datenkomponenten implementieren können, um benutzerdefinierte Daten über einen `ItemStack` zu speichern und später darauf zuzugreifen. Eine vollständige Liste der Vanilla-Datenkomponenten kann auf dieser [Minecraft-Wiki-Seite](https://minecraft.wiki/w/Data_component_format#List_of_components) gefunden werden.
 
-Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seite auch die allgemeine Verwendung der Komponenten-API behandelt, die auch für Vanilla-Komponenten gilt. Du kannst die Definitionen aller Vanilla-Komponenten in der Klasse `DataComponentTypes` sehen und darauf zugreifen.
+Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seite auch die allgemeine Verwendung der Komponenten-API behandelt, die auch für Vanilla-Komponenten gilt. Du kannst die Definitionen aller Vanilla-Komponenten in der Klasse `DataComponents` sehen und darauf zugreifen.
 
 ## Eine Komponente registrieren {#registering-a-component}
 
-Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente mit einem `ComponentType` registrieren. Dieser Komponententyp nimmt ein generisches Argument entgegen, das den Typ des Wertes deiner Komponente enthält. Darauf werden wir weiter unten bei der Behandlung von [einfachen](#basic-data-components) und [fortgeschrittenen](#advanced-data-components) Komponenten näher eingehen.
+Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente mit einem `DataComponentType` registrieren. Dieser Komponententyp nimmt ein generisches Argument entgegen, das den Typ des Wertes deiner Komponente enthält. Darauf werden wir weiter unten bei der Behandlung von [einfachen](#basic-data-components) und [fortgeschrittenen](#advanced-data-components) Komponenten näher eingehen.
 
-Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufrufst.
+Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) aufrufst.
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 
 ```java
-public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
-    ComponentType.<?>builder().codec(null).build()
+public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
+    BuiltInRegistries.DATA_COMPONENT_TYPE,
+    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
+    DataComponentType.<?>builder().codec(null).build()
 );
 ```
 
@@ -33,7 +33,7 @@ Hier gibt es einige Dinge zu beachten. In der ersten und vierten Zeile ist ein `
 
 Zweitens musst du einen `Identifier` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
 
-Schließlich haben wir einen `ComponentType.Builder`, der die eigentliche `ComponentType`-Instanz erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
+Schließlich haben wir einen `DataComponentType.Builder`, der die eigentliche Instanz von `DataComponentType` erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
 
 ## Einfache Datenkomponenten {#basic-data-components}
 
@@ -43,7 +43,7 @@ Als Beispiel wollen wir einen `Integer`-Wert erstellen, der festhält, wie oft d
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
-Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird. Für unseren Codec verwenden wir den mitgelieferten `Codec.INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
+Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird. Für unseren Codec verwenden wir den mitgelieferten `DataComponents.POSITIVE_INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
 
 Wenn du das Spiel startest, solltest du einen Befehl wie diesen eingeben können:
 
@@ -61,7 +61,7 @@ Denke wie üblich daran, das Item in deiner Klasse `ModItems` zu registrieren.
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -71,16 +71,16 @@ Wir werden einen Tooltip-Code hinzufügen, um den aktuellen Wert der Klickzahl a
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen. Füge diese Zeile der Methode `appendTooltip` in der Klasse `CounterItem` hinzu:
+Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen. Füge diese Zeile der Methode `appendHoverText` in der Klasse `CounterItem` hinzu:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
 }
 ```
 
-Vergiss nicht, deine Sprachdatei (`/assets/example-mod/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
+Vergiss nicht, deine Sprachdatei (`/assets/xample-mod/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
 
 ```json
 {
@@ -102,9 +102,9 @@ Wenn du den Mauszeiger über dieses Item in deinem Inventar bewegst, solltest du
 Wenn du dir jedoch ein neues Counter Item _ohne_ die benutzerdefinierte Komponente gibst, stürzt das Spiel ab, wenn du den Mauszeiger über den Gegenstand in deinem Inventar bewegst. Im Absturzbericht sollte ein Fehler wie dieser angezeigt werden:
 
 ```log
-java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
-        at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.world.item.ItemStack.get(net.minecraft.core.component.DataComponentType)" is null
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
+        at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
 Da der `ItemStack` derzeit keine Instanz unserer benutzerdefinierten Komponente enthält, wird der Aufruf von `stack.get()` mit unserem Komponententyp erwartungsgemäß `null` zurückgeben.
@@ -113,7 +113,7 @@ Es gibt drei Lösungen, mit denen wir dieses Problem angehen können.
 
 ### Ein Standard Wert für die Komponente setzen {#setting-default-value}
 
-Wenn du deinen Artikel registrierst und ein `Item.Settings`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
+Wenn du deinen Artikel registrierst und ein `Item.Properties`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
 
 @[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -135,10 +135,10 @@ Wie du sehen kannst, benötigt diese Methode zwei Argumente: Unseren Komponenten
 
 ### Prüfen, ob eine Komponente existiert {#checking-if-component-exists}
 
-Mit der Methode `contains()` kann auch geprüft werden, ob eine bestimmte Komponente auf einem `ItemStack` vorhanden ist. Sie nimmt den Komponententyp als Argument und gibt `true` oder `false` zurück, je nachdem, ob der Stack diese Komponente enthält.
+Mit der Methode `has()` kann auch geprüft werden, ob eine bestimmte Komponente auf einem `ItemStack` vorhanden ist. Sie nimmt den Komponententyp als Argument und gibt `true` oder `false` zurück, je nachdem, ob der Stack diese Komponente enthält.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Den Fehler beheben {#fixing-the-error}
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlegen, indem du ein Komponenten-Objekt an deine `Item.Settings` übergibst. Zum Beispiel:
+Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlegen, indem du ein Komponenten-Objekt an deine `Item.Properties` übergibst. Zum Beispiel:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

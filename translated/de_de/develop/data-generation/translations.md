@@ -18,7 +18,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 ## Einrichten {#setup}
 
-Zuerst werden wir unseren **Provider** vorbereiten. Denke daran, dass es die Provider sind, die die Daten für uns generieren. Erstelle eine Klasse, die `extends FabricLanguageProvider` beinhaltet und fülle die Basismethoden aus:
+Zuerst werden wir unseren **Provider** vorbereiten. Denke daran, dass es die Provider sind, die die Daten für uns generieren. Erstelle eine Klasse, die von `FabricLanguageProvider` erbt und fülle die Basismethoden aus:
 
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
@@ -28,7 +28,7 @@ Du wirst für jede Sprache, die du generieren möchtest, einen eigenen Provider 
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transclude={28-28}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={29-29}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Erstellen von Übersetzungen {#creating-translations}
 
@@ -38,10 +38,10 @@ Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier
 
 ## Nutzen einer Übersetzung {#using-translations}
 
-Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Text`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Text.translatable` anstelle von `Text.of`:
+Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Component`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Component.translatable` anstelle von `Component.literal`:
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.example-mod.greeting")); // [!code ++]
+ChatComponent chatHud = Minecraft.getInstance().gui.getChat();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

@@ -173,11 +173,11 @@ Ogni intestazione deve avere un'ancora, che viene usata per collegarsi a quell'i
 
 L'ancora deve usare caratteri minuscoli, numeri e trattini.
 
-### Posiziona il Codice Nella Mod `/reference` {#place-code-within-the-reference-mod}
+### Metti il Codice nella Example Mod {#place-code-within-the-example-mod}
 
-Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata nella mod reference (presente nella cartella `/reference` della repository). Dopo di che, usa la [funzione code snippet fornita da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice.
+Se crei o modifichi pagine contenenti codice, metti il codice in una posizione appropriata all'interno della mod di esempio (localizzata nella cartella `/reference` della repository) Dopo di che, usa la [funzione code snippet fornita da VitePress](https://vitepress.dev/guide/markdown#import-code-snippets) per incorporare il codice.
 
-Per esempio, per evidenziare le linee 15-21 del file `ExampleMod.java` dalla mod reference:
+Ad esempio, per evidenziare le righe 15-21 del file `ExampleMod.java` della mod:
 
 ::: code-group
 

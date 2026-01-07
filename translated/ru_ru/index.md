@@ -2,9 +2,11 @@
 title: Документация Fabric
 description: Официальная курируемая документация по Fabric, инструментарию для разработки модов для Minecraft.
 layout: home
+
 hero:
   name: Документация Fabric
-  tagline: Официальная курируемая документация по Fabric, инструментарию для разработки модов для Minecraft.
+  tagline: Официальная документация по Fabric,<br>набору инструментов для модификации Minecraft.
+
 features:
   - title: Руководства для игроков
     icon: 📚

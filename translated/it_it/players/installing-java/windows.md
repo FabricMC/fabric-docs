@@ -3,6 +3,7 @@ title: Installare Java su Windows
 description: Una guida passo per passo su come installare Java su Windows.
 authors:
   - IMB11
+next: false
 ---
 
 Questa guida ti spiegherà come installare Java 21 su Windows.
@@ -24,12 +25,12 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
 :::warning
-Per usare Minecraft 1.21, ti servirà almeno Java 21 installato. Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente.
+Per usare Minecraft 1.21.10, ti servirà almeno Java 21 installato. Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente.
 :::
 
 ## 2. Scarica l'Installer per Java 21 {#2-download-the-java-installer}
 
-Per installare Java 21, dovrai scaricare l'installer da Adoptium.
+Per installare Java 21, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
 
 Dovrai scaricare la versione `Windows Installer (.msi)`:
 
