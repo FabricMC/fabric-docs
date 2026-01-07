@@ -18,17 +18,17 @@ authors-nogithub:
 
 Вам знадобляться різні постачальники (класи) для блоків, скринь і сутностей. Не забувайте додати їх усі до свого пакета у вашій `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={35-36}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Пояснення таблиць здобичі {#loot-tables-explained}
 
-**Таблиці здобичі** визначають, що ви отримуєте від добування блоку (не включаючи вміст, як у скринях), вбивства сутності або відкриття щойно згенерованого контейнера. Кожна таблиця здобичі має **пули**, з яких вибираються предмети. Таблиці здобичі також мають **функції**, які певним чином змінюють отриману здобич.
+**Таблиці здобичі** визначають, що ви отримуєте від добування блока (не включаючи вміст, як у скринях), убивства сутності або відкриття щойно згенерованого вмістища. Кожна таблиця здобичі має **пули**, з яких вибираються предмети. Таблиці здобичі також мають **функції**, які певним чином змінюють отриману здобич.
 
 Пули здобичі мають **записи**, **умови**, функції, **кидки** та **бонусні кидки**. Записи — це групи, послідовності або можливості предметів, або просто предмети. Умови — це речі, які перевіряються у світі, як-от чари на знаряддях або випадковий шанс. Мінімальна кількість записів, вибраних пулом, називається кидками, а все, що перевищує цю кількість, називається бонусним кидком.
 
 ## Блоки {#blocks}
 
-Щоб з блоків випадали предмети, включаючи себе, нам потрібно створити таблицю здобичі. Створіть клас, який `extends FabricBlockLootTableProvider`:
+Щоб з блоків випадали предмети, включаючи себе, нам потрібно створити таблицю здобичі. Створіть клас, який розширює `FabricBlockLootTableProvider`:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
@@ -42,11 +42,11 @@ authors-nogithub:
 
 ## Скрині {#chests}
 
-Скриня здобичі трохи хитріша, ніж здобич блоків. Створіть клас, який `розширює SimpleFabricLootTableProvider`, подібно до прикладу нижче, **і додайте його до свого пакету**.
+Скриня здобичі трохи хитріша, ніж здобич блоків. Створіть клас, який розширює `SimpleFabricLootTableProvider`, подібно до прикладу нижче, **і додайте його до свого пакету**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-We'll need a `RegistryKey<LootTable>` for our loot table. Помістімо це в новий клас під назвою `ModLootTables`. Якщо ви використовуєте розділені джерела, переконайтеся, що це джерело є у вашому `main` наборі джерел.
+We'll need a `ResourceKey<LootTable>` for our loot table. Помістімо це в новий клас під назвою `ModLootTables`. Якщо ви використовуєте розділені джерела, переконайтеся, що це джерело є у вашому `main` наборі джерел.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 

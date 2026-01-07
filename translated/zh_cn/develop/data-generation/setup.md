@@ -16,7 +16,7 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-## 数据生成是什么？ 数据生成是什么？ {#what-is-data-generation}
+## 数据生成是什么？ {#what-is-data-generation}
 
 数据生成 (又称 Datagen) 是一种 API，用于以编程方式生成配方、进度、标签、物品模型、语言文件、战利品表以及基本上任何基于 JSON 的内容。
 
@@ -36,7 +36,7 @@ authors-nogithub:
 
 首先，我们需要在 `build.gradle` 文件中启用 datagen。
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
 接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 
@@ -84,3 +84,5 @@ authors-nogithub:
 - [配方](./recipes)
 - [标签](./tags)
 - [翻译](./translations)
+- [方块模型](./block-models)
+- [物品模型](./item-models)

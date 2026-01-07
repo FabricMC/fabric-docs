@@ -20,10 +20,12 @@ authors:
 - `depends`：模组的依赖模组/库。
 - `mixins`：模组提供的 Mixin。
 
-下面看到的是示例的 `fabric.mod.json` 文件——这是该文档的开发参考项目的 `fabric.mod.json` 文件。
+下面看到的是示例的 `fabric.mod.json` 文件——这是为该文档站点提供支持的模组 `fabric.mod.json` 文件。
 
-:::details 参考项目 `fabric.mod.json`
+:::details 示例模组的 `fabric.mod.json`
+
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
+
 :::
 
 ## 入口点{#entrypoints}

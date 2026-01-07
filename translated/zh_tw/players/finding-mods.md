@@ -9,7 +9,7 @@ authors:
 
 ## 1. 使用眾所周知的可信任來源
 
-大部分作者會將他們的模組發布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 CurseForge。
+大部分作者會將他們的模組發布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\\&gameVersionTypeId=4)。
 
 這些網站會檢查模組是否符合其宣稱，並且不含有惡意程式碼。 你也可以在這些網站上回報惡意模組，他們會相對迅速地採取行動。 你也可以在這些網站上回報惡意模組，他們會相對迅速地採取行動。
 

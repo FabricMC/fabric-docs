@@ -36,7 +36,7 @@ Wenn die Datengenerierung aktiviert ist, solltest du eine "Data Generation" Lauf
 
 Zuerst müssen wir die Datengenerierung in der `build.Gradle`-Datei aktivieren.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
 Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unsere Datengenerierung startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
@@ -84,3 +84,5 @@ Nachdem der Datengenerator nun eingerichtet ist, müssen wir **Provider** hinzuf
 - [Rezepte](./recipes)
 - [Tags](./tags)
 - [Übersetzungen](./translations)
+- [Block Modelle](./block-models)
+- [Item Modelle](./item-models)

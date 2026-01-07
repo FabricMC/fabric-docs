@@ -15,7 +15,7 @@ Wie wir auf der Seite [Sounds verwenden](../sounds/using-sounds) gelernt haben, 
 
 Diese Denkweise ist richtig. Technisch gesehen muss clientseitig der Ton verarbeitet werden. Für das einfache Abspielen von `SoundEvent` hat die Serverseite jedoch einen großen Zwischenschritt vorbereitet, der auf den ersten Blick vielleicht nicht offensichtlich ist. Welche Clients sollten diesen Ton hören können?
 
-Die Verwendung des Sounds auf der logischen Serverseite löst das Problem der Übertragung von `SoundEvent`s. Einfach ausgedrückt: Jeder Client (`ClientPlayerEntity`), der sich im Verfolgungsbereich befindet, bekommt ein Netzwerkpaket geschickt, um diesen speziellen Sound abzuspielen. Das Sound-Ereignis wird im Grunde von der logischen Serverseite an jeden teilnehmenden Client übertragen, ohne dass du dich darum kümmern musst. Der Sound wird einmal mit den angegebenen Lautstärke- und Tonhöhenwerten abgespielt.
+Die Verwendung des Sounds auf der logischen Serverseite löst das Problem der Übertragung von `SoundEvent`s. Einfach ausgedrückt: Jeder Client (`LocalPlayer`), der sich im Verfolgungsbereich befindet, bekommt ein Netzwerkpaket geschickt, um diesen speziellen Sound abzuspielen. Das Sound-Ereignis wird im Grunde von der logischen Serverseite an jeden teilnehmenden Client übertragen, ohne dass du dich darum kümmern musst. Der Sound wird einmal mit den angegebenen Lautstärke- und Tonhöhenwerten abgespielt.
 
 Was aber, wenn dies nicht ausreicht? Was ist, wenn der Sound in einer Schleife laufen, die Lautstärke und die Tonhöhe während des Abspielens dynamisch ändern muss und all das auf der Grundlage von Werten, die von Dingen wie `Entities` oder `BlockEntities` stammen?
 
@@ -126,7 +126,7 @@ Dies ist nun die fertige Audioschleife des Motors für das `SoundEvent` namens `
 
 Um Sounds auf der Client-Seite abzuspielen, wird eine `SoundInstance` benötigt. Diese verwenden jedoch weiterhin `SoundEvent`.
 
-Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt es bereits die bestehende Klasse `PositionedSoundInstance`.
+Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt es bereits die bestehende Klasse `SimpleSoundInstance`.
 
 Beachte, dass dies nur auf dem spezifischen Client abgespielt wird, der diesen Teil des Codes ausgeführt hat.
 
@@ -148,7 +148,7 @@ Eine `SoundInstance` kann mächtiger sein als nur das einmalige Abspielen von So
 Sieh dir die Klasse `AbstractSoundInstance` an und welche Art von Werten sie speichern kann.
 Neben den üblichen Lautstärke- und Tonhöhenvariablen enthält sie auch XYZ-Koordinaten und gibt an, ob dieser sich nach Beendigung des `SoundEvent` wiederholen soll.
 
-Wenn wir dann einen Blick auf die Unterklasse `MovingSoundInstance` werfen, sehen wir, dass auch das Interface `TickableSoundInstance` eingeführt wurde, die der `SoundInstance` eine Tickfunktionalität hinzufügt.
+Wenn wir dann einen Blick auf die Unterklasse `AbstractTickableSoundInstance` werfen, sehen wir, dass auch das Interface `TickableSoundInstance` eingeführt wurde, die der `SoundInstance` eine Tickfunktionalität hinzufügt.
 
 Um diese Hilfsmittel zu nutzen, erstelle einfach eine neue Klasse für deine benutzerdefinierte `SoundInstance` und lass sie von `MovingSoundInstance` erben.
 
@@ -158,14 +158,14 @@ Die Verwendung einer eigenen `Entity` oder `BlockEntity` anstelle der grundlegen
 
 Denke nur daran, dass alle referenzierten Objekte in der `SoundInstance` die Versionen von der Client-Seite sind.
 In bestimmten Situationen können sich die Eigenschaft einer Entität auf der logischen Serverseite von der ihres Gegenstücks auf der Clientseite unterscheiden.
-Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass deine Werte entweder mit den S2C-Paketen `TrackedData`, `BlockEntity` der Entität oder mit vollständigen benutzerdefinierten S2C-Netzwerkpaketen synchronisiert werden.
+Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass deine Werte entweder mit den S2C-Paketen `EntityDataAccessor`, `BlockEntity` der Entität oder mit vollständigen benutzerdefinierten S2C-Netzwerkpaketen synchronisiert werden.
 
 Nachdem du deine benutzerdefinierte `SoundInstance` erstellt hast, kann sie überall verwendet werden, solange sie auf der Client-Seite mit dem Sound-Manager ausgeführt wurde.
 Auf die gleiche Weise kannst du die benutzerdefinierte `SoundInstance` auch manuell stoppen, falls erforderlich.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `ClientPlayerEntity` selbst.
+Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `LocalPlayer` selbst.
 
 Damit ist die Erklärung zur Erstellung und Verwendung einer einfachen benutzerdefinierten `SoundInstance` abgeschlossen.
 
@@ -215,7 +215,7 @@ Wenn du dich dafür entscheidest, eine neue, modularer, benutzerdefinierte `Abst
 In diesem Fall ist das Nutzen von Abstraktion der Schlüssel.
 eine benutzerdefinierte `BlockEntity` direkt zu referenzieren, reicht es aus, ein Interface zu verfolgen, das die Daten bereitstellt, um dieses Problem zu lösen.
 
-In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `ZombieEntity`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
+In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `Zombie`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 

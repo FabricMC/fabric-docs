@@ -19,7 +19,7 @@ La maggior parte delle mod richiede anche l'API di Fabric, che può essere scari
 
 Quando scarichi delle mod, assicurati che:
 
-- Funzionino nella versione di Minecraft su cui vuoi giocare. Una mod che funziona sulla versione 1.20, per esempio, potrebbe non funzionare sulla versione 1.20.2.
+- Funzionino nella versione di Minecraft su cui vuoi giocare. Una mod che funzionava sulla versione 1.21.8, per esempio, potrebbe non funzionare più sulla versione 1.21.10.
 - Siano per Fabric e non per un altro loader di mod.
 - Inoltre, che siano per la corretta edizione di Minecraft (Java Edition).
 

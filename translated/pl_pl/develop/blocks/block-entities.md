@@ -25,7 +25,7 @@ Zwróć uwagę, że konstruktor `CounterBlockEntity` przyjmuje dwa parametry, na
 Gdybyśmy nie zakodowali na stałe `BlockEntityType`, klasa `ModBlockEntities` nie skompilowałaby się! Dzieje się tak, ponieważ `BlockEntityFactory`, jest interfejsem funkcyjnym, opisuje funkcję, która przyjmuje tylko dwa parametry, podobnie jak nasz konstruktor.
 :::
 
-## Tworzenie Bloku {#creating-the-block}
+## Tworzenie bloku {#creating-the-block}
 
 Następnie, aby faktycznie użyć bytu bloku, potrzebujemy bloku implementującego `BlockEntityProvider`. Utwórzmy jeden i nazwijmy go `CounterBlock`.
 
@@ -54,9 +54,9 @@ Teraz gdy mamy blok, możemy go użyć do zapisania liczby kliknięć prawym prz
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Metoda `markDirty` używana w `incrementClicks` informuje grę, że dane tego bytu zostały zaktualizowane. Będzie to przydatne, gdy dodamy metody serializujące licznik i wczytujące go z pliku zapisu.
+Metoda `setChanged` używana w `incrementClicks` informuje grę, że dane tej jednostki zostały zaktualizowane. Będzie to przydatne, gdy dodamy metody serializujące licznik i wczytujące go z pliku zapisu.
 
-Następnie musimy zwiększać wartość tego pola za każdym razem, gdy klikniemy prawym przyciskiem myszy na bloku. Można to zrobić poprzez nadpisanie metody `onUse` w klasie `CounterBlock`:
+Następnie musimy zwiększać wartość tego pola za każdym razem, gdy klikniemy prawym przyciskiem myszy na bloku. Można to zrobić poprzez nadpisanie metody `useWithoutItem` w klasie `CounterBlock`:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
@@ -66,19 +66,36 @@ Ponieważ `BlockEntity` nie jest przekazywany do metody, używamy `world.getBloc
 
 ## Zapisywanie i ładowanie danych {#saving-loading}
 
-Teraz gdy mamy już blok funkcjonalny, powinniśmy sprawić, aby licznik nie resetował się pomiędzy restartami gry. Można to zrobić poprzez serializację do NBT podczas zapisywania gry i deserializację podczas jej ładowania.
+Teraz gdy mamy już funkcjonalny blok, powinniśmy sprawić, aby licznik nie resetował się pomiędzy restartami gry. Można to zrobić poprzez serializację do NBT podczas zapisywania gry i deserializację podczas jej ładowania.
 
-Serializacja odbywa się za pomocą metody `writeNbt`:
+Zapisywanie do NBT odbywa się za pomocą poleceń `ReadView` i `WriteView`. Te viewy odpowiadają za przechowywanie błędów kodowania/dekodowania i śledzenie rejestrów w całym procesie serializacji.
+
+Możesz odczytać dane z `ReadView` za pomocą metody `read`, przekazując `Codec` dla żądanego typu. Podobnie, możesz zapisywać do `WriteView` używając metody `store`, przekazując Codec dla typu i wartości.
+
+Istnieją również metody dla prymitywów, takie jak `getInt`, `getShort`, `getBoolean` itp. do odczytu oraz `putInt`, `putShort`, `putBoolean` itp. do zapisu. View udostępnia również metody umożliwiające pracę z listami, typami dopuszczającymi wartości null i obiektami zagnieżdżonymi.
+
+Serializacja odbywa się za pomocą metody `saveAdditional`:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Tutaj dodajemy pola, które powinny zostać zapisane w przekazanym `NbtCompound`: w przypadku bloku licznika jest to pole `clicks`.
+Tutaj dodajemy pola, które powinny zostać zapisane w przekazanym `WriteView`: w przypadku counter block jest to pole `clicks`.
 
-Odczyt przebiega podobnie, jednak, zamiast zapisywać w `NbtCompound` otrzymujesz wcześniej zapisane wartości i zapisujesz je w polach BlockEntity:
+Odczyt przebiega podobnie: otrzymujesz wartości zapisane wcześniej w `ReadView` i zapisujesz je w polach BlockEntity:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Teraz, jeśli zapiszemy i ponownie wczytamy grę, blok licznika powinien być kontynuowany od miejsca, w którym został przerwany podczas zapisywania.
+
+Chociaż `writeAdditional` i `loadAdditional` obsługują zapisywanie i ładowanie na dysk oraz z dysku, nadal istnieje problem:
+
+- Serwer zna poprawną wartość `clicks`.
+- Klient nie otrzymuje poprawnej wartości, gdy ładowany jest chunk.
+
+Aby to naprawić, nadpisujemy `getUpdateTag`:
+
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+
+Teraz gdy grach zaloguje się lub zbliży się do chunku, gdzie istnieje blok, od razu zobaczy poprawną wartość licznika.
 
 ## Tickery {#tickers}
 
@@ -103,7 +120,7 @@ Teraz możemy użyć `ticksSinceLast`, aby sprawdzić, czy licznik można zwięk
 :::tip
 Jeśli byt bloku nie jest zaznaczony, spróbuj sprawdzić kod rejestracyjny! Powinien przekazać bloki, które są prawidłowe dla tego bytu, do `BlockEntityType.Builder`, w przeciwnym razie w konsoli pojawi się ostrzeżenie:
 
-```text
+```log
 [13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 

@@ -9,17 +9,17 @@ authors:
 
 ## 创建盔甲材质类 {#creating-an-armor-materials-class}
 
-从技术上讲，您不需要为您的盔甲材质设立专门的类别，但无论如何，对于您需要的静态场数量来说，这都是很好的做法。
+从技术上讲，你不需要为你的盔甲材质设立专门的类别，但无论如何，对于你需要的静态场数量来说，这都是很好的做法。
 
 对于本例，我们将创建一个 `GuiditeArmorMaterial` 类来存储我们的静态字段。
 
 ### 基础耐久度 {#base-durability}
 
-在创建我们的盔甲物品时，这个常量将在 `Item.Settings#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
+在创建我们的盔甲物品时，这个常量将在 `Item.Properties#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
 
 @[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-如果您难以确定平衡的基础耐久度，您可以参考 `ArmorMaterials` 界面中的原始盔甲材质实例。
+如果你难以确定平衡的基础耐久度，你可以参考 `ArmorMaterials` 界面中的原始盔甲材质实例。
 
 ### 装备资产注册表项 {#equipment-asset-registry-key}
 
@@ -48,7 +48,11 @@ authors:
 | `repairIngredient`    | 一个物品标签，代表所有能够用在铁砧中修复此材质的盔甲物品的物品。                                     |
 | `assetId`             | 一个 `EquipmentAsset` 注册表项，这应该是你之前创建的设备资产注册表项常量。                       |
 
-如果你难以确定任何参数的值，您可以查阅在 `ArmorMaterials` 界面中可以找到的原始 `ArmorMaterial` 实例。
+我们对修复原材料标签引用定义如下：
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
+如果你难以确定任何参数的值，你可以查阅在 `ArmorMaterials` 界面中可以找到的原始 `ArmorMaterial` 实例。
 
 ## 创建盔甲物品 {#creating-the-armor-items}
 
@@ -56,9 +60,9 @@ authors:
 
 显然，盔甲集并不需要满足每种类型，可以让你的集只有靴或护腿等——原版的海龟壳头盔就是个例子，盔甲集缺了部分槽位。
 
-不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Settings` 中。
+不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
 
-这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Settings` 类中的 `maxDamage` 方法来实现的。
+这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -96,22 +100,22 @@ authors:
 
 盔甲纹理有两层，都要有。
 
-之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `RegistryKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
+之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
-- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子。
+- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子纹理。
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite盔甲模型纹理</DownloadEntry>
 
 :::tip
-如果您正在从较低游戏版本升级至1.21.4，您的 `layer0.png` 盔甲纹理将会迁移至 `humanoid` 文件夹；您的 `layer1.png` 盔甲纹理将会迁移至`humanoid_leggings` 文件夹。
+如果你从旧版本的游戏更新到 1.21.8，则 `layer0.png` 盔甲纹理所在的位置是 `humanoid` 文件夹，`layer1.png` 盔甲纹理所在的位置是 `humanoid_leggings` 文件夹。
 :::
 
-然后，您需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
+然后，你需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
 
-我们之前创建的 `RegistryKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
+我们之前创建的 `ResourceKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
 
-由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的设备模型定义会是这样的：
+由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的装备模型定义如下所示：
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
 

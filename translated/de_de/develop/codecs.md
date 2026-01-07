@@ -52,7 +52,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### Eingebaute Codecs {#built-in-codecs}
 
-Wie bereits erwähnt, hat Mojang bereits Codecs für mehrere Vanilla- und Standard-Java-Klassen definiert, einschließlich, aber nicht beschränkt auf `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` und Regex `Pattern`. Codecs für Mojangs eigene Klassen sind normalerweise als statische Attribute mit dem Namen `CODEC` in der Klasse selbst zu finden, während die meisten anderen in der Klasse `Codecs` untergebracht sind. Es sollte auch beachtet werden, dass alle Vanilla-Registries eine `getCodec()`-Methode enthalten, zum Beispiel kann man `Registries.BLOCK.getCodec()` verwenden, um einen `Codec<Block>` zu erhalten, der in die Block-ID und zurück serialisiert wird.
+Wie bereits erwähnt, hat Mojang bereits Codecs für mehrere Vanilla- und Standard-Java-Klassen definiert, einschließlich, aber nicht beschränkt auf `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Component` und Regex `Pattern`. Codecs für Mojangs eigene Klassen sind normalerweise als statische Attribute mit dem Namen `CODEC` in der Klasse selbst zu finden, während die meisten anderen in der Klasse `Codecs` untergebracht sind. Es sollte auch beachtet werden, dass alle Vanilla-Registries eine `getCodec()`-Methode enthalten, zum Beispiel kann man `Registries.BLOCK.byNameCodec()` verwenden, um einen `Codec<Block>` zu erhalten, der in die Block-ID und zurück serialisiert wird.
 
 Die Codec API selbst enthält auch einige Codecs für primitive Typen wie `Codec.INT` und `Codec.STRING`. Diese sind als statische Attribute der Klasse "Codec" verfügbar und werden in der Regel als Basis für komplexere Codecs verwendet, wie im Folgenden erläutert.
 
@@ -220,13 +220,13 @@ Für die Verarbeitung von Maps mit beliebigen Schlüsseln, wie zum Beispiel `Has
 Aufgrund der Einschränkungen von JSON und NBT _muss_ der verwendete Schlüsselcodec zu einer Zeichenkette serialisiert werden. Dazu gehören auch Codecs für Typen, die selbst keine Strings sind, aber zu ihnen serialisiert werden, wie zum Beispiel `Identifier.CODEC`. Siehe folgendes Beispiel:
 
 ```java
-// Erstellen eines Codecs für eine Abbildung von Bezeichnern auf Ganzzahlen
+// Erstelle einen Codec für eine Zuordnung von Identifier zu Integer
 Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
 
-// Zum Serialisieren von Daten verwenden
+// Nutze ihn, um Daten zu serialisieren
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.of("example", "number"), 23,
-    Identifier.of("example", "the_cooler_number"), 42
+    Identifier.fromNamespaceAndPath("example", "number"), 23,
+    Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -267,7 +267,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` und `flatXMap` sind ähnlich wie xmap, erlauben aber, dass eine oder beide der Konvertierungsfunktionen ein DataResult zurückgeben. Dies ist in der Praxis nützlich, da eine bestimmte Objektinstanz möglicherweise nicht nicht immer für die Konvertierung gültig ist.
 
-Nimm zum Beispiel Vanille `Identifier` her. Während alle Bezeichner in Zeichenketten umgewandelt werden können, sind nicht alle Zeichenketten gültige Bezeichner, Daher würde die Verwendung von xmap hässliche Exceptions werfen, wenn die Umwandlung fehlschlägt.
+Nimm zum Beispiel die `Identifier` von Vanilla her. Während alle Identifier in Zeichenketten umgewandelt werden können, sind nicht alle Zeichenketten gültige Identifier. Daher würde die Verwendung von xmap hässliche Exceptions werfen, wenn die Umwandlung fehlschlägt.
 Aus diesem Grund ist der eingebaute Codec eigentlich eine `comapFlatMap` auf `Codec.STRING`, was sehr schön veranschaulicht, wie man ihn verwendet:
 
 ```java
@@ -280,9 +280,9 @@ public class Identifier {
 
     public static DataResult<Identifier> validate(String id) {
         try {
-            return DataResult.success(Identifier.of(id));
+            return DataResult.success(Identifier.parse(id));
         } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
+            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
         }
     }
 
@@ -315,9 +315,13 @@ Nehmen wir an, wir haben ein abstraktes `Bean`-Interface mit zwei implementieren
 Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
@@ -349,7 +353,7 @@ Unser neuer Codec serialisiert Bohnen zu JSON und erfasst dabei nur die Felder, 
 
 ### Rekursive Codecs {#recursive-codecs}
 
-Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `Text`-Objekte verwendet, die andere `Text`e als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` konstruiert werden.
+Manchmal ist es nützlich, einen Codec zu haben, der _sich selbst_ verwendet, um bestimmte Felder zu dekodieren, zum Beispiel wenn es um bestimmte rekursive Datenstrukturen geht. Im Vanilla-Code wird dies für `ResourceLocation`-Objekte verwendet, die andere `Component`s als Kinder speichern können. Ein solcher Codec kann mit `Codec#recursive` konstruiert werden.
 
 Versuchen wir zum Beispiel, eine einfach verknüpfte Liste zu serialisieren. Diese Art der Darstellung von Listen besteht aus einem Bündel von Knoten, die sowohl einen Wert als auch einen Verweis auf den nächsten Knoten in der Liste enthalten. Die Liste wird dann durch ihren ersten Knoten repräsentiert, und das Durchlaufen der Liste erfolgt durch Verfolgen des nächsten Knotens, bis keiner mehr übrig ist. Hier ist eine einfache Implementierung von Knoten, die ganze Zahlen speichern.
 

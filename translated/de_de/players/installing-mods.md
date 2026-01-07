@@ -1,6 +1,6 @@
 ---
 title: Mods installieren
-description: Eine Schritt-für-Schritt-Anleitung zur Installation von Mods für Fabric.
+description: Ein Schritt-für-Schritt-Leitfaden zur Installation von Mods für Fabric.
 authors:
   - IMB11
 ---
@@ -19,7 +19,7 @@ Die meisten Mods benötigen auch die Fabric API, die von [Modrinth](https://modr
 
 Stelle beim Herunterladen von Mods sicher, dass:
 
-- Sie auf der Version von Minecraft funktionieren, auf der du spielen möchtest. Eine Mod, die beispielsweise auf der Version 1.20 funktioniert, muss nicht auf der Version 1.20.2 funktionieren.
+- Sie auf der Version von Minecraft funktionieren, auf der du spielen möchtest. Ein Mod, der beispielsweise auf der Version 1.21.8 funktioniert hat, funktioniert möglicherweise auf der Version 1.21.10 nicht mehr.
 - Sie für Fabric sind und nicht für einen anderen Mod-Loader.
 - Sie für die korrekte Edition von Minecraft sind (Java Edition).
 
@@ -51,7 +51,7 @@ Sobald du das `mods`-Verzeichnis gefunden hast, kannst du die `.jar`-Dateien der
 
 ## 3. Du hast es geschafft! {#3-you-re-done}
 
-Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
+Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der linken unteren Ecke auswählen und spielen drücken!
 
 Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
 

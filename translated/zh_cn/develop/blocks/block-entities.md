@@ -12,7 +12,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ## 创建方块实体 {#creating-the-block-entity}
 
-为了让 Minecraft 识别并加载新的方块实体，我们需要创建一个方块实体类型。 这是通过扩展 'BlockEntity' 类并将其注册到一个新的 'ModBlockEntities' 类来完成的。 这是通过扩展 'BlockEntity' 类并将其注册到一个新的 'ModBlockEntities' 类来完成的。
+为了让 Minecraft 识别并加载新的方块实体，我们需要创建一个方块实体类型。 这是通过扩展 'BlockEntity' 类并将其注册到一个新的 'ModBlockEntities' 类来完成的。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -23,12 +23,11 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 :::tip
 注意 'CounterBlockEntity' 的构造函数需要两个参数，而 'BlockEntity' 的构造函数需要三个参数：'BlockEntityType'、'BlockPos' 和 'BlockState'。
 如果我们没有对 'BlockEntityType' 进行硬编码，那么 'ModBlockEntities' 类就不会编译！ 这是因为 'BlockEntityFactory' 是一个函数式接口，它描述了一个只接受两个参数的函数，就像我们的构造函数一样。
-如果我们没有对 'BlockEntityType' 进行硬编码，那么 'ModBlockEntities' 类就不会编译！ 这是因为 'BlockEntityFactory' 是一个函数式接口，它描述了一个只接受两个参数的函数，就像我们的构造函数一样。
 :::
 
 ## 创建方块{#creating-the-block}
 
-接下来，要实际使用方块实体，我们需要一个实现 'BlockEntityProvider' 的方块。 让我们创建一个并将其命名为 'CounterBlock'。 让我们创建一个并将其命名为 'CounterBlock'。
+接下来，要实际使用方块实体，我们需要一个实现 'BlockEntityProvider' 的方块。 让我们创建一个并将其命名为 'CounterBlock'。
 
 :::tip
 有两种方法来实现这个：
@@ -43,7 +42,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 使用 `BlockWithEntity` 作为父类意味着我们还需要实现 `createCodec` 方法，这相当容易。
 
-与单例方块不同，每个方块实例都会创建一个新的方块实体。 与单例方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，该方法采用位置和 `BlockState`，并返回 `BlockEntity`，如果不应该有则返回 `null`。
+与单例方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，该方法采用位置和 `BlockState`，并返回 `BlockEntity`，如果不应该有则返回 `null`。
 
 不要忘记在 `ModBlocks` 类中注册该方块，就像在[创建你的第一个方块](../blocks/first-block)指南中一样：
 
@@ -51,13 +50,13 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ## 使用方块实体 {#using-the-block-entity}
 
-现在我们有了一个方块实体，我们可以用它来存储该方块被右键单击的次数。 现在我们有了一个方块实体，我们可以用它来存储该方块被右键单击的次数。 我们通过向 `CounterBlockEntity` 类添加 `clicks` 字段来实现这一点：
+现在我们有了一个方块实体，我们可以用它来存储该方块被右键单击的次数。 我们通过向 `CounterBlockEntity` 类添加 `clicks` 字段来实现这一点：
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-`incrementClicks` 中使用的 `markDirty` 方法告诉游戏该实体的数据已更新；当我们添加方法来序列化计数器并从保存文件加载回来时，这将很有用。
+`incrementClicks` 中使用的 `setChanged` 方法告诉游戏该实体的数据已更新；当我们添加方法来序列化计数器并从保存文件加载回来时，这将很有用。
 
-接下来，我们需要在每次右键单击方块时增加该字段。 这是通过重写 `CounterBlock` 类中的 `onUse` 方法来实现的： 这是通过重写 `CounterBlock` 类中的 `onUse` 方法来实现的：
+接下来，我们需要在每次右键单击方块时增加该字段。 这是通过重写 `CounterBlock` 类中的 `useWithoutItem` 方法来实现的：
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
@@ -67,31 +66,48 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ## 保存和加载数据 {#saving-loading}
 
-现在我们有了一个功能方块，我们应该使计数器在游戏重启时不会重置。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。
+现在我们有了一个功能方块，我们应该使计数器在游戏重启时不会重置。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。
 
-序列化是通过 `writeNbt` 方法完成的：
+保存到 NBT 是通过 `ReadView` 和 `WriteView` 完成的。 这些 view 负责存储编码/解码的错误，并在整个序列化过程中跟踪注册表。
+
+你可以使用 `read` 方法从 `ReadView` 读取，并传入所需类型的 `Codec`。 同样，你可以使用 `store` 方法写入 `WriteView`，传入类型的编解码器和值。
+
+也存在用于基本类型的方法，例如用于读取的 `getInt`、`getShort`、`getBoolean` 等方法，以及用于写入的 `putInt`、`putShort`、`putBoolean` 等方法。 View 还提供了处理列表、可空类型和嵌套对象的方法。
+
+序列化是通过 `saveAdditional` 方法完成的：
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-在这里，我们添加应该保存到传递的 `NbtCompound` 中的字段：在计数器方块的情况下，这就是 `clicks` 字段。
+在这里，我们添加应该保存到传递的 `WriteView` 中的字段：在计数器方块的情况下，这就是 `clicks` 字段。
 
-读取类似，但不是保存到 `NbtCompound`，而是获取之前保存的值，并将它们保存在 BlockEntity 的字段中：
+读取类似，你从 `ReadView` 获取之前保存的值，并将它们保存在 BlockEntity 的字段中：
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 现在，如果我们保存并重新加载游戏，计数器方块应该从保存时停止的地方继续。
 
+虽然 `writeAdditional` 和 `loadAdditional` 可以处理磁盘的保存和加载操作，但仍然存在一个问题：
+
+- 服务端知道正确的`clicks`的值。
+- 客户端在加载区块时未收到正确的值。
+
+为了修复这个问题，我们得重写 `getUpdateTag`：
+
+@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+
+现在，当玩家登录或移动到存在该方块的区块时，他们会立即看到正确的计数器值。
+
 ## Ticker {#tickers}
 
-`BlockEntityProvider` 接口还定义了一个名为 `getTicker` 的方法，该方法可用于为方块的每个实例每次运行代码。 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点： 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点：
+`BlockEntityProvider` 接口还定义了一个名为 `getTicker` 的方法，该方法可用于为方块的每个实例每次运行代码。 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点：
 
-`getTicker` 方法还应检查传递的 `BlockEntityType` 是否与我们正在使用的相同，如果相同，则返回每刻时调用的函数。 值得庆幸的是，有一个实用函数可以在 `BlockWithEntity` 中执行检查： 值得庆幸的是，有一个实用函数可以在 `BlockWithEntity` 中执行检查：
+`getTicker` 方法还应检查传递的 `BlockEntityType` 是否与我们正在使用的相同，如果相同，则返回每刻时调用的函数。 值得庆幸的是，有一个实用函数可以在 `BlockWithEntity` 中执行检查：
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-`CounterBlockEntity::tick` 是我们应该在 `CounterBlockEntity` 类中创建的静态方法 `tick` 的引用。 像这样构建它不是必需，但它是一种保持代码干净和有序的很好的做法。 像这样构建它不是必需，但它是一种保持代码干净和有序的很好的做法。
+`CounterBlockEntity::tick` 是我们应该在 `CounterBlockEntity` 类中创建的静态方法 `tick` 的引用。 像这样构建它不是必需，但它是一种保持代码干净和有序的很好的做法。
 
-假设我们想让计数器每 10 刻（每秒 2 次）只能增加一次。 假设我们想让计数器每 10 刻（每秒 2 次）只能增加一次。 我们可以通过向 `CounterBlockEntity` 类添加 `ticksSinceLast` 字段并在每刻时增加它来实现这一点：
+假设我们想让计数器每 10 刻（每秒 2 次）只能增加一次。 我们可以通过向 `CounterBlockEntity` 类添加 `ticksSinceLast` 字段并在每刻时增加它来实现这一点：
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -102,9 +118,9 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 :::tip
-如果区块实体似乎没有打钩，请尝试检查关于注册到上下文的代码！ 如果区块实体似乎没有打钩，请尝试检查关于注册到上下文的代码！ 它应将对该实体有效的块传入到 `BlockEntityType.Builder` 中，否则会在控制台中发出警告：
+如果区块实体似乎没有打钩，请尝试检查关于注册到上下文的代码！ 它应将对该实体有效的块传入到 `BlockEntityType.Builder` 中，否则会在控制台中发出警告：
 
-```text
+```log
 [13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 

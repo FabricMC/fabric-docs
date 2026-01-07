@@ -9,13 +9,13 @@ authors:
 
 ## Реєстрація власних частинок {#register-a-custom-particle}
 
-Ми додамо нову частинку блиску, яка імітуватиме рух частинки стрижня Енду.
+Ми додамо нову частинку іскор, яка імітуватиме рух частинки стрижня Енду.
 
-Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID моду.
+Спочатку нам потрібно зареєструвати `ParticleType` у вашому [ініціалізаторі мода](../../getting-started/project-structure#entrypoints), класі за допомогою вашого ID мода.
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
-"sparkle_particle" малими літерами – це шлях JSON для текстури частинки. Пізніше ви створите новий файл JSON із такою назвою.
+«sparkle_particle» малими літерами — це шлях JSON для текстури частинки. Пізніше ви створите новий файл JSON із такою назвою.
 
 ## Реєстрація на стороні клієнту {#client-side-registration}
 
@@ -41,7 +41,7 @@ You can see all the particle factories by looking at all the implementations of 
 | `/textures/particle` | Тека `particle` міститиме всі текстури для всіх ваших частинок.    |
 | `/particles`         | Тека `particles` міститиме всі файли json для всіх ваших частинок. |
 
-Для цього прикладу ми матимемо лише одну текстуру в `textures/particle` під назвою "sparkle_particle_texture.png".
+Для цього прикладу ми матимемо лише одну текстуру в `textures/particle` під назвою «sparkle_particle_texture.png».
 
 Далі створіть новий файл JSON у `particles` з тим же ім’ям, що й шлях JSON, який ви використовували під час реєстрації свого ParticleType. Для цього прикладу нам потрібно буде створити `sparkle_particle.json`. Цей файл важливий, оскільки він дозволяє Minecraft знати, які текстури має використовувати наша частинка.
 

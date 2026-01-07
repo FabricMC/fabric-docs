@@ -33,11 +33,11 @@ authors:
 
 ## 创建魔咒 {#creating-the-enchantment}
 
-现在我们有了一个魔咒效果！ 最后一步是创建一个魔咒，应用我们自定义的效果。 这可以通过创建类似于 Minecraft 数据包中的 JSON 文件来实现，在这篇文档中，将向你展示如何使用 Fabric 的数据生成工具来动态生成 JSON。 要开始，请创建一个名为 `EnchantmentGenerator` 的类。
+现在我们有了一个魔咒效果！ 最后一步是创建一个魔咒，应用我们自定义的效果。 这可以通过创建类似于 Minecraft 数据包中的 JSON 文件来实现，在这篇文档中，将向你展示如何使用 Fabric 的数据生成工具来动态生成 JSON。 要开始，创建一个名为 `ExampleModEnchantmentGenerator` 的类。
 
 在这个类中，我们先注册我们的魔咒对象，并使用 `configure()` 方法来在程序中创建 JSON。
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 在继续之前，应确保你的项目已为数据生成进行了配置。如果您不确定，请 [查看相关文档页面](../data-generation/setup)。
 
@@ -52,7 +52,7 @@ authors:
 你需要在 `zh_cn.json` 中给你的自定义魔咒添加一个有意义的名字：
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 现在你应该有了一个可以正常工作的自定义附魔效果！ 附魔一个武器，然后攻击一个生物试试吧。 下面的视频里有一个例子：

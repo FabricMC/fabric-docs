@@ -45,7 +45,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## 服务器 {#server}
 
-服务器生产运行任务使用您从 Fabric 网站下载的相同服务器启动器，保证环境尽可能接近生产环境。
+服务器生产运行任务使用你从 Fabric 网站下载的相同服务器启动器，保证环境尽可能接近生产环境。
 
 ```groovy
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {

@@ -1,11 +1,14 @@
 ---
 title: Java auf Linux installieren
-description: Eine Schritt-für-Schritt-Anleitung zur Installation von Java auf Linux.
+description: Ein Schritt-für-Schritt-Leitfaden zur Installation von Java auf Linux.
 authors:
   - IMB11
+next: false
 ---
 
 Diese Anleitung führt Sie durch die Installation von Java 21 auf Linux.
+
+Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese Sektion ist also nur relevant, wenn du den auf der Fabric `.jar` basierenden Installer oder die Minecraft Server `.jar` verwenden möchtest.
 
 ## 1. Überprüfen, ob Java bereits installiert ist {#1-check-if-java-is-already-installed}
 
@@ -13,8 +16,10 @@ Diese Anleitung führt Sie durch die Installation von Java 21 auf Linux.
 
 ![Kommandozeile mit "java -version"](/assets/players/installing-java/linux-java-version.png)
 
-:::warning
-Um Minecraft 1.21 zu verwenden, muss mindestens Java 21 installiert sein. Wenn dieser Befehl eine niedrigere Version als 21 anzeigt, musst du deine bestehende Java-Installation aktualisieren.
+::: warning
+To use Minecraft 1.21.10, you'll need at least Java 21 installed.
+
+Wenn dieser Befehl, eine Version kleiner als 21 anzeigt, musst du deine existierende Java Installation aktualisieren; lies diese Seite weiter.
 :::
 
 ## 2. Herunterladen und Installieren von Java 21 {#2-downloading-and-installing-java}

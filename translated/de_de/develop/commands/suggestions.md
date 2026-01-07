@@ -16,6 +16,7 @@ Ein `SuggestionProvider` wird verwendet, um eine Liste von Vorschlägen zu erste
 Um einen Vorschlaganbieter zu verwenden, musst du die Methode `suggests` auf dem Argument Builder aufrufen. Diese Methode nimmt einen `SuggestionProvider` und gibt den geänderten Argument Builder mit dem angehängten Suggestion Provider zurück.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Eingebaute Vorschlaganbieter {#built-in-suggestion-providers}
@@ -40,6 +41,7 @@ In diesem Beispiel erstellen wir einen Vorschlaganbieter, der alle Benutzernamen
 Um diesen Vorschlaganbieter zu verwenden, übergebe einfach eine Instanz davon an die Methode `.suggests` im Argument Builder.
 
 @[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Natürlich können die Anbieter von Vorschlägen komplexer sein, da sie auch den Befehlskontext lesen können, um Vorschläge zu machen, die auf dem Zustand des Befehls basieren - zum Beispiel auf den Argumenten, die bereits angegeben wurden.

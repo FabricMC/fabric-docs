@@ -54,9 +54,9 @@ Jetzt, da wir eine Blockentität haben, können wir sie verwenden, um die Anzahl
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Die Methode `markDirty`, die in `incrementClicks` verwendet wird, teilt dem Spiel mit, dass die Daten dieser Entität aktualisiert wurden; dies wird nützlich sein, wenn wir die Methoden hinzufügen, um den Zähler zu serialisieren und ihn aus der Speicherdatei zurückzuladen.
+Die Methode `setChanged`, die in `incrementClicks` verwendet wird, teilt dem Spiel mit, dass die Daten dieser Entität aktualisiert wurden; dies wird nützlich sein, wenn wir die Methoden hinzufügen, um den Zähler zu serialisieren und ihn aus der Speicherdatei zurückzuladen.
 
-Als Nächstes müssen wir dieses Feld jedes Mal erhöhen, wenn der Block mit der rechten Maustaste angeklickt wird. Dies geschieht indem die Methode `onUse` in der Klasse `CounterBlock` überschrieben wird:
+Als Nächstes müssen wir dieses Feld jedes Mal erhöhen, wenn der Block mit der rechten Maustaste angeklickt wird. Dies geschieht indem die Methode `useWithoutItem` in der Klasse `CounterBlock` überschrieben wird:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
@@ -68,24 +68,30 @@ Da die `BlockEntity` nicht an die Methode übergeben wird, verwenden wir `world.
 
 Da wir nun einen funktionierenden Block haben, sollten wir dafür sorgen, dass der Zähler zwischen den Neustarts des Spiels nicht zurückgesetzt wird. Dies geschieht durch Serialisierung in NBT, wenn das Spiel speichert, und Deserialisierung, wenn es geladen wird.
 
-Die Serialisierung erfolgt mit der Methode `writeNbt`:
+Das Speichern in NBT erfolgt über `ReadView`s und `WriteView`s. Diese Views sind für die Speicherung von Fehlern bei der Kodierung/Dekodierung und die Verfolgung von Registrierungen während des gesamten Serialisierungsprozesses verantwortlich.
+
+Du kannst aus einer `ReadView` mit der Methode `read` lesen, indem du einen `Codec` für den gewünschten Typ übergibst. Ebenso kannst du in eine `WriteView` schreiben, indem du die Methode `store` verwendest und einen Codec für den Typ sowie den Wert übergibst.
+
+Es gibt auch Methoden für primitive Datentypen, wie z. B. `getInt`, `getShort`, `getBoolean` usw. zum Lesen und `putInt`, `putShort`, `putBoolean` usw. zum Schreiben. Die View bietet auch Methoden für das Arbeiten mit Listen, nullbaren Typen und verschachtelten Objekten.
+
+Die Serialisierung erfolgt mit der Methode `saveAdditional`:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Hier fügen wir die Felder hinzu, die in dem übergebenen `NbtCompound` gespeichert werden sollen: im Fall des Zählerblocks ist das das Feld `clicks`.
+Hier fügen wir die Felder hinzu, die in der übergebenen `WriteView` gespeichert werden sollen: Im Fall des Zählerblocks ist es das Feld `clicks`.
 
-Das Lesen ist ähnlich, aber anstatt in dem `NbtCompound` zu speichern, holt man sich die Werte, die man vorher gespeichert hat, und speichert sie in den Feldern der BlockEntity:
+Das Lesen funktioniert ähnlich, indem du die zuvor gespeicherten Werte aus der `ReadView` abrufst und in den Feldern der BlockEntity speicherst:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Wenn wir nun speichern und das Spiel neu laden, sollte der Zählerblock dort weitermachen, wo er beim Speichern aufgehört hat.
 
-Obwohl `writeNbt` und `readNbt` das Speichern und Laden auf und von der Festplatte regeln, gibt es noch ein Problem:
+Obwohl `writeAdditional` und `writeAdditional` das Speichern und Laden auf und von der Festplatte regeln, gibt es noch ein Problem:
 
 - Der Server weiß den korrekten `clicks` Wert.
 - Der Client erhält nicht den korrekten Wert, wenn der Chunk geladen wird.
 
-Um dies zu beheben, überschreiben wir `toInitialChunkDataNbt`:
+Um dies zu beheben, überschreiben wir `getUpdateTag`:
 
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -114,7 +120,7 @@ Jetzt können wir `ticksSinceLast` verwenden, um zu prüfen, ob der Zähler in `
 :::tip
 Wenn die Blockentität nicht zu ticken scheint, überprüfe den Registrierungscode! Es sollte die Blöcke, die für diese Entität gültig sind, an den `BlockEntityType.Builder`, übergeben, sonst wird eine Warnung in der Konsole ausgegeben:
 
-```text
+```log
 [13:27:55] [Server thread/WARN] (Minecraft) Block entity example-mod:counter @ BlockPos{x=-29, y=125, z=18} state Block{example-mod:counter_block} invalid for ticking:
 ```
 

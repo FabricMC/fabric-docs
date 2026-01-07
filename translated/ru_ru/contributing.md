@@ -173,11 +173,11 @@ authors:
 
 Якорь должен использовать строчные буквы, цифры и дефисы.
 
-### Разместите код внутри `/reference` мода {#place-code-within-the-reference-mod}
+### Разместите код внутри примера мода {#place-code-within-the-example-mod}
 
-Если вы создаёте или изменяете страницы, содержащие код, разместите этот код в каком-нибудь месте мода с примерами (он находится в папке `/reference` репозитория). Фрагмент кода будет выглядеть следующим образом:
+Если вы создаете или изменяете страницы, содержащие код, поместите его в соответствующее место в примере мода (находится в папке `/reference` репозитория). Затем воспользуйтесь функцией [code snippet, предлагаемой VitePress](https://vitepress.dev/guide/markdown#import-code-snippets), чтобы вставить код.
 
-Это выведет все линии с 15 по 21 из файла `ExampleMod.java` из мода с примерами:
+Например, чтобы выделить строки 15-21 файла `ExampleMod.java` из мода:
 
 ::: code-group
 
@@ -189,7 +189,7 @@ authors:
 
 :::
 
-Затем используйте [функцию вставки кода от VitePress](https://vitepress.dev/guide/markdown#import-code-snippets), чтобы встроить код, или, если вам требуется более широкий контроль, вы можете использовать функцию [transclude из `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
+Если вам нужен более широкий диапазон контроля, вы можете использовать функцию [transclude из `markdown-it-vuepress-code-snippet-enhanced`](https://github.com/fabioaanthony/markdown-it-vuepress-code-snippet-enhanced).
 
 Например, это встроит секции файла выше, которые помечены тегом `#entrypoint`:
 
@@ -209,7 +209,7 @@ authors:
 
 Если вам нужна помощь с этим, спросите [в дискорде Fabric](https://discord.gg/v6v4pMv) в канале `#docs`.
 
-### ⚠️ **Ссылки на другие страницы должны быть относительными.** ⚠️
+### Добавьте новые страницы в соответствующие боковые колонтитулы {#add-new-pages-to-the-relevant-sidebars}
 
 При создании новой страницы вы должны добавить ее на соответствующую боковую панель в папке `.vitepress/sidebars`.
 
