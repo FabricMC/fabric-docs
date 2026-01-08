@@ -125,39 +125,41 @@ You can now create server and client game tests in the `src/gametest/java` direc
 
 See the respective Javadocs in Fabric API for more info.
 
-#### Writing Game Tests for Player Commands
+#### Writing Game Tests for Player Commands {#writing-game-tests-for-player-commands}
 
 Writing game tests for commands that can only be used by players is somewhat tricky, as the only way to create a `ServerPlayer` using a `GameTestHelper` instance is with the now deprecated/marked for removal `makeMockServerPlayerInLevel` method, and a normal `Player` instance isn't useful if you need to execute commands using a `ServerGamePacketListenerImpl` instance with the `handleChatCommand` method (and the only other instance of `ServerGamePacketListenerImpl` is in `PlayerList`, which only accepts `ServerPlayer` instances). Plus, the `makeMockServerPlayerInLevel` isn't all that useful - there's no way to specify the game type or the name of the player being spawned.
 
 To create and spawn a `ServerPlayer` instance, we will take the deprecated/marked for removal `makeMockServerPlayerInLevel` method and modify it to accept game type and name arguments like so:
+
 ```java
 public ServerPlayer makeMockServerPlayerInLevel(GameTestHelper helper, GameType gameType, String name) {
-		CommonListenerCookie commonListenerCookie = CommonListenerCookie.createInitial(new GameProfile(UUID.randomUUID(), name), false);
+    CommonListenerCookie commonListenerCookie = CommonListenerCookie.createInitial(new GameProfile(UUID.randomUUID(), name), false);
 
-		ServerLevel level = helper.getLevel();
-		MinecraftServer server = level.getServer();
-		assert server != null;
+    ServerLevel level = helper.getLevel();
+    MinecraftServer server = level.getServer();
+    assert server != null;
 
-		ServerPlayer serverPlayer = new ServerPlayer(
-				server, level, commonListenerCookie.gameProfile(), commonListenerCookie.clientInformation()
-		) {
-			  @Override
-  			public GameType gameMode() {
-  				  return gameType;
-  			}
-		};
-		Connection connection = new Connection(PacketFlow.SERVERBOUND);
-		new EmbeddedChannel(connection);
-		server.getPlayerList().placeNewPlayer(connection, serverPlayer, commonListenerCookie);
+    ServerPlayer serverPlayer = new ServerPlayer(
+        server, level, commonListenerCookie.gameProfile(), commonListenerCookie.clientInformation()
+    ) {
+        @Override
+        public GameType gameMode() {
+            return gameType;
+        }
+    };
+    Connection connection = new Connection(PacketFlow.SERVERBOUND);
+    new EmbeddedChannel(connection);
+    server.getPlayerList().placeNewPlayer(connection, serverPlayer, commonListenerCookie);
 
-		return serverPlayer;
+    return serverPlayer;
 }
 ```
 
 Sending of commands can then be simulated by wrapping a command `String` with a `ServerboundChatCommandPacket` instance and sending it to the server using the previously mentioned `handleChatCommand` method like so:
+
 ```java
 public void executeCommand(ServerPlayer player, String command) {
-		player.connection.handleChatCommand(new ServerboundChatCommandPacket(command));
+    player.connection.handleChatCommand(new ServerboundChatCommandPacket(command));
 }
 ```
 
