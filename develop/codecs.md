@@ -8,10 +8,10 @@ authors:
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative
-to GSON and Jankson when reading and writing custom json files, though they're starting to become
+to GSON and Jankson when reading and writing custom JSON files, though they're starting to become
 more and more relevant, as Mojang is rewriting a lot of old code to use Codecs.
 
-Codecs are used in conjunction with another API from DFU, `DynamicOps`. A codec defines the structure of an object, while dynamic ops are used to define a format to be serialized to and from, such as json or NBT. This means any codec can be used with any dynamic ops, and vice versa, allowing for great flexibility.
+Codecs are used in conjunction with another API from DFU, `DynamicOps`. A codec defines the structure of an object, while dynamic ops are used to define a format to be serialized to and from, such as JSON or NBT. This means any codec can be used with any dynamic ops, and vice versa, allowing for great flexibility.
 
 ## Using Codecs {#using-codecs}
 
@@ -21,7 +21,7 @@ The basic usage of a codec is to serialize and deserialize objects to and from a
 
 Since a few vanilla classes already have codecs defined, we can use those as an example. Mojang has also provided us with two dynamic ops classes by default, `JsonOps` and `NbtOps`, which tend to cover most use cases.
 
-Now, let's say we want to serialize a `BlockPos` to json and back. We can do this using the codec statically stored at `BlockPos.CODEC` with the `Codec#encodeStart` and `Codec#parse` methods, respectively.
+Now, let's say we want to serialize a `BlockPos` to JSON and back. We can do this using the codec statically stored at `BlockPos.CODEC` with the `Codec#encodeStart` and `Codec#parse` methods, respectively.
 
 ```java
 BlockPos pos = new BlockPos(1, 2, 3);
@@ -38,7 +38,7 @@ So let's grab our serialized value and turn it back into a `BlockPos`:
 // When actually writing a mod, you'll want to properly handle empty Optionals of course
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// Here we have our json value, which should correspond to `[1, 2, 3]`,
+// Here we have our JSON value, which should correspond to `[1, 2, 3]`,
 // as that's the format used by the BlockPos codec.
 LOGGER.info("Serialized BlockPos: {}", json);
 
@@ -77,7 +77,7 @@ public class CoolBeansClass {
 }
 ```
 
-The corresponding json file might look something like this:
+The corresponding JSON file might look something like this:
 
 ```json
 {
@@ -206,7 +206,7 @@ Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
 DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
 ```
 
-Will output this json:
+Will output this JSON:
 
 ```json
 {
