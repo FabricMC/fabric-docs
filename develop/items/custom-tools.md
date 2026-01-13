@@ -15,14 +15,14 @@ You can create a tool material by instantiating a new `ToolMaterial` object and 
 
 The `ToolMaterial` constructor accepts the following parameters, in this specific order:
 
-| Parameter | Description |
-| --------- | ----------- |
+| Parameter                 | Description                                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `incorrectBlocksForDrops` | If a block is in the incorrectBlocksForDrops tag, it means that when you use a tool made from this `ToolMaterial` on that block, the block will not drop any items. |
-| `durability` | The durability of all tools that are of this `ToolMaterial`.  |
-| `speed` | The mining speed of the tools that are of this `ToolMaterial`. |
-| `attackDamageBonus` | The additional attack damage of the tools that are of this `ToolMaterial` will have. |
-| `enchantmentValue` | The "Enchantability" of tools which are of this `ToolMaterial`. |
-| `repairItems` | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil. |
+| `durability`              | The durability of all tools that are of this `ToolMaterial`.                                                                                                        |
+| `speed`                   | The mining speed of the tools that are of this `ToolMaterial`.                                                                                                      |
+| `attackDamageBonus`       | The additional attack damage of the tools that are of this `ToolMaterial` will have.                                                                                |
+| `enchantmentValue`        | The "Enchantability" of tools which are of this `ToolMaterial`.                                                                                                     |
+| `repairItems`             | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil.                                                                           |
 
 For this example, we will use the same repair item we will be using for armor. We define the tag reference as follows:
 

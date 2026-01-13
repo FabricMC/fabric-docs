@@ -17,8 +17,11 @@ All contributions must follow our [style guidelines](#style-guidelines).
 
 If you want to translate the documentation into your language, you can do this on the [Fabric Crowdin page](https://crowdin.com/project/fabricmc).
 
-<!-- markdownlint-disable-next-line titlecase-rule -->
+<!-- markdownlint-disable titlecase-rule -->
+
 ## <Badge type="tip">new-content</Badge> Contributing Content {#contributing-content}
+
+<!-- markdownlint-enable titlecase-rule -->
 
 Content contributions are the main way to contribute to the Fabric Documentation.
 

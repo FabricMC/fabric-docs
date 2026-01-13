@@ -37,7 +37,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd>+<kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -71,7 +71,7 @@ This section assumes that you are using the standard GitHub Action workflow incl
 
 Your tests will now run on every build, including those by CI providers such as GitHub Actions. But what if a build fails? We need to upload the logs as an artifact so we can view the test reports.
 
-Add this to your `.github/workflows/build.yml` file, below the `./gradlew build` step.
+Add this to your `.github/workflows/build.yaml` file, below the `./gradlew build` step.
 
 ```yaml
 - name: Store reports
@@ -137,4 +137,4 @@ Currently, game test may fail on GitHub Actions due to an error in the network s
 :::
 
 @[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
-@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)
+@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)

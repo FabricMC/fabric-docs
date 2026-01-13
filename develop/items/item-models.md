@@ -100,7 +100,7 @@ This tag is responsible for setting the model translation, rotation and scale in
 The position object can be one of the following strings, which define what the model will look like in different positions:
 
 | Value                   | Description                                         |
-|-------------------------|-----------------------------------------------------|
+| ----------------------- | --------------------------------------------------- |
 | `firstperson_righthand` | Right hand, as seen in first-person                 |
 | `firstperson_lefthand`  | Left hand, as seen in first-person                  |
 | `thirdperson_righthand` | Right hand, as seen in third-person (<kbd>F5</kbd>) |
@@ -267,12 +267,12 @@ The values of both must be between **-16** and **32**, which means that every it
 <!-- #endregion shade-to-faces -->
 
 1. `uv`: _Four integers_. Defines the area of the texture to use according to the scheme `[x1, y1, x2, y2]`. If unset, it defaults to values equal to xyz position of the element.
-  Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.
+   Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.
 2. `texture`: _String_. Specifies the texture of the face in the form of a [texture variable](#textures), prepended with `#`.
 3. `cullface`: _String_. Can be: `down`, `up`, `north`, `south`, `west`, or `east`. Specifies whether a face does not need to be rendered when there is a block touching it in the specified position.
-  It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
+   It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
 4. `rotation`: _Integer_. Rotates the texture by the specified number of degrees in 90 degree increments. Rotation does not affect which part of the texture is used.
-  Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
+   Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
 5. `tintidex`: _Integer_. Tints the texture on that face using a tint value referenced from the client item. If no tint color (or white) is provided, the texture isn't tinted.
 
 ## Sources and Links {#sources-and-links}

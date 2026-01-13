@@ -54,24 +54,24 @@ In such case, you can use Java's inbuilt `javap` to view bytecode.
 
 - **Locate the path to Minecraft JAR:**
 
-    Open the Explorer view, expand the **Java Projects** section. Expand the **Reference Libraries** node in the project tree and locate a JAR with `minecraft-` in its name. Right-click on the JAR and copy the full path.
+  Open the Explorer view, expand the **Java Projects** section. Expand the **Reference Libraries** node in the project tree and locate a JAR with `minecraft-` in its name. Right-click on the JAR and copy the full path.
 
-    It might look something like this:
+  It might look something like this:
 
-    ```:no-line-numbers
-    C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
-    ```
+  ```:no-line-numbers
+  C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
+  ```
 
 ![Copy Path](/assets/develop/getting-started/vscode/copy-path.png)
 
 - **Run `javap`:**
 
-    You can then run `javap` by providing the above path as the `cp` (class path) and the fully qualified class name as the final argument.
+  You can then run `javap` by providing the above path as the `cp` (class path) and the fully qualified class name as the final argument.
 
-    ```sh
-    javap -cp C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.Identifier
-    ```
+  ```sh
+  javap -cp C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.Identifier
+  ```
 
-    This will print the bytecode in your terminal output.
+  This will print the bytecode in your terminal output.
 
 ![javap](/assets/develop/getting-started/vscode/javap.png)

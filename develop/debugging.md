@@ -129,12 +129,12 @@ At the bottom, a `Debug` window should open, and the `Threads & Variables` view 
 
 ![Debug controls](/assets/develop/debugging/debug_05.png)
 
-| Action | Description |
-| -- | -- |
-| Step Over | Steps to the next executed line, basically moving the instance along in the logic |
-| Step Into | Steps into a method to show what is happening inside. If there are multiple methods on one line, you can choose which to step into by clicking it. This is also necessary for lambdas. |
-| Run To Cursor | Steps through the logic until it reaches your cursor in the code. This is useful for skipping large chunks of code. |
-| Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs. |
+| Action               | Description                                                                                                                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Step Over            | Steps to the next executed line, basically moving the instance along in the logic                                                                                                      |
+| Step Into            | Steps into a method to show what is happening inside. If there are multiple methods on one line, you can choose which to step into by clicking it. This is also necessary for lambdas. |
+| Run To Cursor        | Steps through the logic until it reaches your cursor in the code. This is useful for skipping large chunks of code.                                                                    |
+| Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs.                            |
 
 ::: info
 The "Step Over" <kbd>F8</kbd> and "Step Into" <kbd>F7</kbd> actions are the most common ones, so try to get used to the shortcuts!

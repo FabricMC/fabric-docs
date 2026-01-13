@@ -39,7 +39,7 @@ Similar to block and item registration, we use `Registry.register` to register o
 
 The mob effect icon is a 18x18 PNG which will appear in the player's inventory screen. Place your custom icon in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
@@ -74,14 +74,14 @@ a `MobEffectInstance`, and returns a boolean, specifying whether the effect was 
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 
-| Argument    | Type                          | Description                                                                                                                                                                                                                   |
-|-------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Argument    | Type                | Description                                                                                                                                                                                                                   |
+| ----------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `effect`    | `Holder<MobEffect>` | A registry entry that represents the effect.                                                                                                                                                                                  |
-| `duration`  | `int`                         | The duration of the effect **in ticks**; **not** seconds                                                                                                                                                                      |
-| `amplifier` | `int`                         | The amplifier to the level of the effect. It doesn't correspond to the **level** of the effect, but is rather added on top. Hence, `amplifier` of `4` => level of `5`                                                         |
-| `ambient`   | `boolean`                     | This is a tricky one. It basically specifies that the effect was added by the environment (e.g. a **Beacon**) and doesn't have a direct cause. If `true`, the icon of the effect in the HUD will appear with an aqua overlay. |
-| `particles` | `boolean`                     | Whether to show particles.                                                                                                                                                                                                    |
-| `icon`      | `boolean`                     | Whether to display an icon of the effect in the HUD. The effect will be displayed in the inventory regardless of this flag.                                                                                                   |
+| `duration`  | `int`               | The duration of the effect **in ticks**; **not** seconds                                                                                                                                                                      |
+| `amplifier` | `int`               | The amplifier to the level of the effect. It doesn't correspond to the **level** of the effect, but is rather added on top. Hence, `amplifier` of `4` => level of `5`                                                         |
+| `ambient`   | `boolean`           | This is a tricky one. It basically specifies that the effect was added by the environment (e.g. a **Beacon**) and doesn't have a direct cause. If `true`, the icon of the effect in the HUD will appear with an aqua overlay. |
+| `particles` | `boolean`           | Whether to show particles.                                                                                                                                                                                                    |
+| `icon`      | `boolean`           | Whether to display an icon of the effect in the HUD. The effect will be displayed in the inventory regardless of this flag.                                                                                                   |
 
 ::: info
 To create a potion that uses this effect, please see the [Potions](../items/potions) guide.
