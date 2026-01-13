@@ -2,14 +2,18 @@
 title: Migrating Mappings
 description: Learn how to migrate your mod's obfuscation mappings.
 authors:
+  - ArduFish
   - asiekierka
   - cassiancc
+  - Daomephsta
   - deirn
+  - Earthcomputer
   - florensie
   - Friendly-Banana
   - IMB11
   - jamierocks
   - JamiesWhiteShirt
+  - liach
   - MildestToucan
   - modmuss50
   - natanfudge

@@ -44,6 +44,7 @@ Next, we need an entrypoint class. This is where our datagen starts. Place this 
 
 Finally, we need to tell Fabric about the entrypoint in our `fabric.mod.json`:
 
+<!-- prettier-ignore -->
 ```json
 {
   // ...

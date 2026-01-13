@@ -38,19 +38,19 @@ Local classes (classes defined within a method) have a number followed by their 
 
 When bytecode needs to refer to primitive types or arrays, _type descriptors_ are used. Here is a table of data types and their respective type descriptors:
 
-| Type      | Descriptor                                                           |
-|-----------|----------------------------------------------------------------------|
-| `boolean` | `Z`                                                                  |
-| `byte`    | `B`                                                                  |
-| `char`    | `C`                                                                  |
-| `double`  | `D`                                                                  |
-| `float`   | `F`                                                                  |
-| `int`     | `I`                                                                  |
-| `long`    | `J`                                                                  |
-| `short`   | `S`                                                                  |
-| `void`    | `V`                                                                  |
-| Arrays    | `[` + the element type: `int[]` -> `[I`                              |
-| Objects   | `L` + the internal name + `;`: `String` -> `Ljava/lang/String;`      |
+| Type      | Descriptor                                                      |
+| --------- | --------------------------------------------------------------- |
+| `boolean` | `Z`                                                             |
+| `byte`    | `B`                                                             |
+| `char`    | `C`                                                             |
+| `double`  | `D`                                                             |
+| `float`   | `F`                                                             |
+| `int`     | `I`                                                             |
+| `long`    | `J`                                                             |
+| `short`   | `S`                                                             |
+| `void`    | `V`                                                             |
+| Arrays    | `[` + the element type: `int[]` -> `[I`                         |
+| Objects   | `L` + the internal name + `;`: `String` -> `Ljava/lang/String;` |
 
 ### Field and Method Descriptors {#field-and-method-descriptors}
 
@@ -177,7 +177,7 @@ Let's imagine `getX(5)` is called when `this.x` has the value 42, and let's foll
 == Start
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               |               |
@@ -191,7 +191,7 @@ Notice how LVT slot 0 contains `this`: that's because `getX` is not a static met
 == aload 0
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | `this`        |
@@ -201,7 +201,7 @@ Loads the variable from LVT slot 0 (`this`), and pushes its value onto the Opera
 == getfield x
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 42            |
@@ -211,7 +211,7 @@ Pops the top value off the Operand Stack, gets the value of its `x` field (which
 == iload 1
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          | 5             |
 | 0     | `this`               | 42            |
@@ -221,7 +221,7 @@ Loads the variable from LVT slot 1 (`offset`), and pushes its value onto the Ope
 == iadd
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 47            |
@@ -231,7 +231,7 @@ Pops the top two values off the Operand Stack, adds them up, and pushes that sum
 == istore 2
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               |               |
@@ -241,7 +241,7 @@ Pops the top value off the Operand Stack, and assigns it to the local variable i
 == iload 2
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 47            |
@@ -431,7 +431,7 @@ Let's examine what happens on the Operand Stack.
 == Start
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     |                      |               |
 | 0     | `level`              |               |
@@ -441,7 +441,7 @@ LVT slot 0 contains `level`. It does not contain `this` because the method is st
 == new Creeper
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      |                  |
 | 1     |                      |                  |
 | 0     | `level`              | uninit `Creeper` |
@@ -451,7 +451,7 @@ Allocates an uninitialized instance of `Creeper`, and pushes a reference to it o
 == dup
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      |                  |
 | 1     |                      | uninit `Creeper` |
 | 0     | `level`              | uninit `Creeper` |
@@ -463,18 +463,21 @@ We need the Operand Stack to contain two pointers to the same object because one
 == aload 0
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      | `level`          |
 | 1     |                      | uninit `Creeper` |
 | 0     | `level`              | uninit `Creeper` |
 
 Loads the variable from LVT slot 0 (`level`), and pushes its value onto the Operand Stack.
 
-<!-- markdownlint-disable-next-line no-inline-html -->
+<!-- markdownlint-disable no-inline-html -->
+
 == invokespecial <init>
 
+<!-- markdownlint-enable no-inline-html -->
+
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     |                      |               |
 | 0     | `level`              | `Creeper`     |
