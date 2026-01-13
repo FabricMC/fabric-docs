@@ -18,7 +18,7 @@ const urls = computed(() =>
         crowdin: undefined,
       }
     : {
-        home: `/${data.lang.value}/`,
+        home: `/${data.localeIndex.value}/`,
         // TODO: hide if English=404
         english: data.page.value.relativePath.replace(removeForEnglishRegex, ""),
         // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
