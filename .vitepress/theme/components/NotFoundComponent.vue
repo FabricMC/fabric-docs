@@ -11,7 +11,7 @@ const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptio
 const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
 
 const urls = computed(() =>
-  data.lang.value === "en-us"
+  data.localeIndex.value === "root"
     ? {
         home: "/",
         english: undefined,
