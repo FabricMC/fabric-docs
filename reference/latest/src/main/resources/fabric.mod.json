@@ -39,9 +39,7 @@
       "com.example.docs.appearance.ExampleModAppearanceClient",
       "com.example.docs.keymapping.ExampleModKeyMappingsClient"
     ],
-    "fabric-datagen": [
-      "com.example.docs.datagen.ExampleModDataGenerator"
-    ]
+    "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },
   "mixins": [
     "example-mod.mixins.json",

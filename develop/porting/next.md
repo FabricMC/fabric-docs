@@ -21,12 +21,12 @@ Start by updating your mod's `gradle/wrapper/gradle-wrapper.properties`, `gradle
 
 1. Update Gradle to the latest version by running the following command: `./gradlew wrapper --gradle-version latest`
 2. Bump Minecraft, Fabric Loader, Fabric Loom and Fabric API, either in `gradle.properties` (recommended) or in `build.gradle`. Find the recommended versions of the Fabric components on the [Fabric Develop site](https://fabricmc.net/develop/).
-    - Note that, since 26.1 snapshots are not stable versions of Minecraft, you will need to select this version manually from the dropdown.
+   - Note that, since 26.1 snapshots are not stable versions of Minecraft, you will need to select this version manually from the dropdown.
 3. At the top of `build.gradle`, change the version of Loom you are using from `id "fabric-loom"` to `id "net.fabricmc.fabric-loom"`. If you specify Loom in `settings.gradle`, change it there as well.
 4. Remove the `mappings` line from the dependencies section of `build.gradle`.
 5. Replace any instances of `modImplementation` or `modCompileOnly` with `implementation` and `compileOnly`.
 6. Remove or replace any mods made for versions before 26.1 with versions compatible with this update.
-    - No existing mods for 1.21.11 or older versions of Minecraft will work on 26.1, even as a compile-only dependency.
+   - No existing mods for 1.21.11 or older versions of Minecraft will work on 26.1, even as a compile-only dependency.
 7. Replace any mentions of `remapJar` with `jar`.
 8. Refresh Gradle by using the refresh button in the top-right corner of IntelliJ IDEA. If this button is not visible, you can force caches to be cleared by running `./gradlew --refresh-dependencies`.
 
