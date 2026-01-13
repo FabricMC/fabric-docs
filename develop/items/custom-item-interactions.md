@@ -29,14 +29,14 @@ Luckily, the Item class has many methods that can be overriden to add extra func
 A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds) page, which uses the `useOn` event to play a sound when the player right clicks a block.
 :::
 
-| Method          | Information                                             |
-| --------------- | ------------------------------------------------------- |
-| `hurtEnemy`       | Ran when the player hits an entity.                     |
-| `mineBlock`      | Ran when the player mines a block.                      |
-| `inventoryTick` | Ran every tick whilst the item is in an inventory.      |
-| `onCraftedPostProcess`       | Ran when the item is crafted.                           |
-| `useOn`    | Ran when the player right clicks a block with the item. |
-| `use`           | Ran when the player right clicks the item.              |
+| Method                 | Information                                             |
+| ---------------------- | ------------------------------------------------------- |
+| `hurtEnemy`            | Ran when the player hits an entity.                     |
+| `mineBlock`            | Ran when the player mines a block.                      |
+| `inventoryTick`        | Ran every tick whilst the item is in an inventory.      |
+| `onCraftedPostProcess` | Ran when the item is crafted.                           |
+| `useOn`                | Ran when the player right clicks a block with the item. |
+| `use`                  | Ran when the player right clicks the item.              |
 
 ## The `use()` Event {#use-event}
 

@@ -334,8 +334,8 @@ export default [
           {
             text: "develop.porting.26.1.fabric_api",
             link: "/develop/porting/26.1/fabric-api",
-          }
-        ]
+          },
+        ],
       },
       {
         text: "develop.porting.migrating_mappings",
