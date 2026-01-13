@@ -1,6 +1,4 @@
 {
-    "replace": false,
-    "values": [
-        "example-mod:condensed_dirt"
-    ]
+  "replace": false,
+  "values": ["example-mod:condensed_dirt"]
 }

@@ -45,9 +45,9 @@ jobs:
       - run: git fetch --depth=1 origin "l10n/${{ github.ref_name }}" || true
       - id: message
         run: |
-          prefix="l10n: $(date +"%y")w$(date +"%W")"
+          prefix="l10n: $(date +%y)w$(date +%V)"
 
-          old_message="$(git show --no-patch --pretty=format:%s "l10n/${{ github.ref_name }}" || true)"
+          old_message="$(git show --no-patch --pretty=format:%s "origin/l10n/${{ github.ref_name }}" || true)"
           regex="^${prefix}([a-z]+)"
           if [[ "${old_message}" =~ ${regex} ]]; then
             old_suffix="${BASH_REMATCH[1]}"

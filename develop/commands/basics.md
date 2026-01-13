@@ -131,8 +131,8 @@ to test with and determine if the `CommandSource` can execute the command.
 This command will only execute if the source of the command is a moderator at a minimum, including command
 blocks. Otherwise, the command is not registered.
 
-This has the side effect of not showing this command in tab completion to anyone who is not a moderator. This is
-also why you cannot tab-complete most commands when you do not enable cheats.
+This has the side effect of not showing this command in <kbd>Tab</kbd> completion to anyone who is not a moderator. This is
+also why you cannot <kbd>Tab</kbd>-complete most commands when you do not enable cheats.
 
 ### Sub Commands {#sub-commands}
 

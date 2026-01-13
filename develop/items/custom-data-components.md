@@ -74,9 +74,9 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendHoverText` method in the `CounterItem` class:
 
 ```java
-public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
-    int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
+public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
+  int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+  textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
 
@@ -115,7 +115,7 @@ There are three solutions we can use to address this problem.
 
 When you register your item and pass a `Item.Properties` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
 
-@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::\_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 When a new item is created, it will automatically apply our custom component with the given value.
 

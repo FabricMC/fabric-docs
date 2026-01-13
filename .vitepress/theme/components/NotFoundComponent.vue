@@ -8,17 +8,17 @@ import { Fabric } from "../../types";
 const data = useData();
 
 const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
-const removeForEnglishRegex = new RegExp(String.raw`^${data.lang.value}/|\.md$`, "g");
+const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
 
 const urls = computed(() =>
-  data.lang.value === "en-us"
+  data.localeIndex.value === "root"
     ? {
         home: "/",
         english: undefined,
         crowdin: undefined,
       }
     : {
-        home: `/${data.lang.value}/`,
+        home: `/${data.localeIndex.value}/`,
         // TODO: hide if English=404
         english: data.page.value.relativePath.replace(removeForEnglishRegex, ""),
         // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
