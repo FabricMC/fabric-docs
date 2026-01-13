@@ -8,7 +8,7 @@ import { Fabric } from "../../types";
 const data = useData();
 
 const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
-const removeForEnglishRegex = new RegExp(String.raw`^${data.lang.value}/|\.md$`, "g");
+const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
 
 const urls = computed(() =>
   data.lang.value === "en-us"
