@@ -58,7 +58,7 @@ Calling a method on a class statically initializes it if it hasn't been previous
 
 ::: info
 
-If you want to add the item to a custom `CreativeModeTab`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+If you want to add the item to a custom creative tab, check out the [Custom Creative Tabs](./custom-creative-tabs) page for more information.
 
 :::
 

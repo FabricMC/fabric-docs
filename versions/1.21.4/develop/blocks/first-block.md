@@ -57,11 +57,11 @@ You can also use `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` to 
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
-### Adding Your Block's Item to an Item Group {#adding-your-block-s-item-to-an-item-group}
+### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 
-Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
+Since the `BlockItem` is automatically created and registered, to add it to a creative tab, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
-For this example, we'll use a custom item group created in the [Custom Creative Tabs](../items/custom-item-groups) page.
+For this example, we'll use a custom creative tab created in the [Custom Creative Tabs](../items/custom-creative-tabs) page.
 
 @[code transcludeWith=:::6](@/reference/1.21.4/src/main/java/com/example/docs/block/ModBlocks.java)
 
