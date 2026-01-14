@@ -80,7 +80,7 @@ export default [
       },
       {
         text: "develop.items.custom_creative_tabs",
-        link: "/develop/items/custom-item-groups",
+        link: "/develop/items/custom-creative-tabs",
       },
       {
         text: "develop.items.custom_item_interactions",

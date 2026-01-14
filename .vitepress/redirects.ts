@@ -9,4 +9,8 @@ export default [
     from: new RegExp(`^${latestVersion}([/]|$)`),
     dest: "",
   },
+  {
+    from: /develop[/]items[/]custom-item-groups$/,
+    dest: "develop/items/custom-creative-tabs",
+  },
 ] satisfies { from: RegExp; dest: string }[];
