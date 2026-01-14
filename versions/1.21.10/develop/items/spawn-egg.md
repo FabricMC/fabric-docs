@@ -60,4 +60,4 @@ The spawn egg is added to the spawn egg `CreativeModeTab` in the `initialize()` 
 
 ![Spawn egg item with name and creative tab](/assets/develop/items/spawn_egg_3.png)
 
-Check out [Adding The Item To An Creative Mode Tab](./first-item#adding-the-item-to-a-creative-tab) for more detailed information.
+Check out [Adding the Item to a Creative Tab](./first-item#adding-the-item-to-a-creative-tab) for more detailed information.
