@@ -16,7 +16,7 @@ This page contains a reference for all options present in the `loom` Gradle exte
 
 ```groovy
 loom {
- // Set the access widener path, see https://fabricmc.net/wiki/tutorial:accesswideners
+ // Set the access widener path, see https://wiki.fabricmc.net/tutorial:accesswidening
  accessWidenerPath = file("src/main/resources/example-mod.accesswidener")
 
  // Add additional log4j config files.

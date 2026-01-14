@@ -10,8 +10,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -41,11 +45,15 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ::: warning
+
 When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
+
 :::
 
 ::: details JSON Output
+
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+
 :::
 
 ## One More Example {#one-more-example}
@@ -57,7 +65,9 @@ Just to get the hang of it, let's add one more advancement. We'll practice addin
 ## Custom Criteria {#custom-criteria}
 
 ::: warning
+
 While datagen can be on the client side, `Criterion`s and `Predicate`s are in the main source set (both sides), since the server needs to trigger and evaluate them.
+
 :::
 
 ### Definitions {#definitions}
@@ -87,7 +97,9 @@ Whew, that's a lot! Let's break it down.
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 
 ::: info
+
 To learn more about codecs, see the [Codecs](../codecs) page.
+
 :::
 
 We're going to need a way to check if the conditions are met. Let's add a helper method to `Conditions`:

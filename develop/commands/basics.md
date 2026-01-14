@@ -22,10 +22,12 @@ Creating commands can allow a mod developer to add functionality that can be use
 teach you how to register commands and the general command structure of Brigadier.
 
 ::: info
+
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
 Brigadier is open-source: <https://github.com/Mojang/brigadier>
+
 :::
 
 ## The `Command` Interface {#the-command-interface}
@@ -73,7 +75,9 @@ Command<CommandSourceStack> command = context -> {
 Commands are registered within the `CommandRegistrationCallback` provided by the Fabric API.
 
 ::: info
+
 For information on registering callbacks, please see the [Events](../events) guide.
+
 :::
 
 The event should be registered in your [mod's initializer](../getting-started/project-structure#entrypoints).
@@ -108,7 +112,9 @@ your own exception.
 To execute this command, you must type `/test_command`, which is case-sensitive.
 
 ::: info
+
 From this point onwards, we will be extracting the logic written within the lambda passed into `.executes()` builders into individual methods. We can then pass a method reference to `.executes()`. This is done for clarity.
+
 :::
 
 ### Registration Environment {#registration-environment}
@@ -158,7 +164,9 @@ Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.comma
 Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
 
 ::: warning
+
 Brigadier [will only redirect command nodes with arguments](https://github.com/Mojang/brigadier/issues/46). If you want to redirect a command node without arguments, provide an `.executes()` builder with a reference to the same logic as outlined in the example.
+
 :::
 
 @[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
@@ -185,6 +193,7 @@ Brigadier [will only redirect command nodes with arguments](https://github.com/M
 ### Can I Register Commands at Runtime? {#can-i-register-commands-at-runtime}
 
 ::: warning
+
 You can do this, but it is not recommended. You would get the `Commands` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
@@ -193,11 +202,13 @@ using `Commands.sendCommands(ServerPlayer)`.
 
 This is required because the client locally caches the command tree it receives during login (or when moderator packets
 are sent) for local completions-rich error messages.
+
 :::
 
 ### Can I Unregister Commands at Runtime? {#can-i-unregister-commands-at-runtime}
 
 ::: warning
+
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
@@ -206,4 +217,7 @@ command tree to every player again using `sendCommands(ServerPlayer)`.
 
 If you don't send the updated command tree, the client may think a command still exists, even though the server will
 fail execution.
+
 :::
+
+<!---->

@@ -8,8 +8,12 @@ authors:
   - natri0
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -57,7 +61,9 @@ This method will generate models for a normal cube, that uses the texture file `
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
 ::: tip
+
 If you're stuck choosing which `TextureModel` you should use, open the `TexturedModel` class and look at the [`TextureMaps`](#using-texture-map)!
+
 :::
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/pipe_block_textures_big.png" downloadURL="/assets/develop/data-generation/block-model/pipe_block_textures.zip">Pipe Block Textures</DownloadEntry>
@@ -70,9 +76,11 @@ Another useful method is `registerCubeAllModelTexturePool`: define the textures 
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
 
 ::: warning
+
 It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.
 
 Be aware of this, if you're changing block model of this particular block, as it will result in en error.
+
 :::
 
 You can also append a `BlockFamily`, which will generate models for all of its "children".
@@ -165,7 +173,9 @@ What does `TextureMapping` do? It actually provides the identifiers that point t
 You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all `TextureKeys` with the same `Identifier`), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
+
 `TextureMapping.cube()` associates all `TextureSlot`s with the same `Identifier`, no matter how many of them there are!
+
 :::
 
 Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureSlot`s, we need to create a new one.
@@ -175,7 +185,9 @@ Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SID
 The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
+
 All `TextureSlot`s in the TextureMap **have to** match all `TextureSlot`s in your parent block model!
+
 :::
 
 ### Custom `BlockModelDefinitionGenerator` Method {#custom-supplier-method}

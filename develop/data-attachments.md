@@ -81,7 +81,9 @@ entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 ```
 
 ::: warning
+
 You should always use values with immutable types for Data Attachments, and you should also update them with API methods only. Doing otherwise may cause the Data Attachment to not persist or sync properly.
+
 :::
 
 ## Larger Attachments {#larger-attachments}

@@ -17,9 +17,11 @@ You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/tem
 The package name should be lowercase, separated by dots, and unique to avoid conflicts with other programmers' packages. It is typically formatted as a reversed internet domain, such as `com.example.example-mod`.
 
 ::: warning IMPORTANT
+
 Make sure you remember your mod's ID! Whenever you find `example-mod` in these docs, especially in file paths, you will have to replace it with your own.
 
 For example, if your mod ID was **`my-cool-mod`**, instead of _`resources/assets/example-mod`_ use **`resources/assets/my-cool-mod`**.
+
 :::
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
@@ -27,7 +29,9 @@ For example, if your mod ID was **`my-cool-mod`**, instead of _`resources/assets
 If you either want to use Kotlin, or Fabric's Yarn mappings instead of the default Mojang Mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
 
 ::: info
+
 Code examples given on this site use [Mojang's official names](../migrating-mappings#mappings). If your mod is not using the same mappings that these docs are written in, you will need to convert the examples using sites like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
+
 :::
 
 ![Advanced options section](/assets/develop/getting-started/template-generator-advanced.png)
@@ -37,6 +41,7 @@ Once you've filled in the required fields, click the `Generate` button, and the 
 You should extract this zip file to a location of your choice, and then open the extracted folder in your IDE.
 
 ::: tip
+
 You should follow these rules when choosing the path to your project:
 
 - Avoid cloud storage directories (for example Microsoft OneDrive)
@@ -44,12 +49,15 @@ You should follow these rules when choosing the path to your project:
 - Avoid spaces
 
 An example of a "good" path may be: `C:\Projects\YourProjectName`
+
 :::
 
 ## Manual Project Creation {#manual-project-creation}
 
 ::: info PREREQUISITES
+
 You will need [Git](https://git-scm.com/) installed in order to clone the example mod repository.
+
 :::
 
 If you cannot use the Fabric Template Mod Generator, you can create a new project manually by following these steps.

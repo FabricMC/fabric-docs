@@ -19,7 +19,9 @@ Loom provides utilities to install Minecraft and mods in a development environme
 Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent.
 
 ::: warning IMPORTANT
+
 This page is a reference of all options and features of Loom. If you are just getting started, please read the [Introduction to Fabric](../).
+
 :::
 
 ## Plugin IDs {#plugin-ids}

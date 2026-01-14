@@ -32,7 +32,9 @@ Loom offers a semi-automated migration of the mappings through the `migrateMappi
 Ravel is a plugin for IntelliJ IDEA that adds a GUI dialog for migration. Unlike Loom however, Ravel also **supports Kotlin**. In addition, Ravel might perform better than Loom for more complex projects since it uses IDE to resolve changes.
 
 ::: info
+
 The Fabric API used Ravel to migrate from Yarn to Mojang Mappings. See [PR #4690 on the Fabric API repo](https://github.com/FabricMC/fabric/pull/4960).
+
 :::
 
 Neither option is perfect, and you still have to review the results and make manual fixes, especially if migrating Mixins.

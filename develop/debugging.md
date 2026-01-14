@@ -35,7 +35,9 @@ ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 ```
 
 ::: info
+
 All logger modes support multiple overloads; this way you can provide more information like a stack trace!
+
 :::
 
 For example, let's make sure that, when the `TestItem` is used on an entity, it will output its current state in console.
@@ -77,9 +79,11 @@ Missing assets and textures (the Purple & Black placeholder) also log a warning 
 A more sophisticated way of debugging is using breakpoints in an IDE. As their name suggests, they are used to halt the executed code at specific points to allow for inspecting and modifying the state of the software.
 
 ::: tip
+
 To use breakpoints, you must execute the instance using the `Debug` option instead of the `Run` option:
 
 ![Debug button](/assets/develop/debugging/debug_03.png)
+
 :::
 
 Let's use our custom item as an example again. The item's `CUSTOM_NAME` `DataComponentType` is supposed to change if it is used on any Stone block.
@@ -137,7 +141,9 @@ At the bottom, a `Debug` window should open, and the `Threads & Variables` view 
 | Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs.                            |
 
 ::: info
+
 The "Step Over" <kbd>F8</kbd> and "Step Into" <kbd>F7</kbd> actions are the most common ones, so try to get used to the shortcuts!
+
 :::
 
 If you are done with the current inspection, you can press the green `Resume Program` button (<kbd>F9</kbd>). This will unfreeze the Minecraft instance, and further testing can be done until another breakpoint is hit. But let's keep looking at the `Debug` window for now.
@@ -219,6 +225,6 @@ In the development environment, you can find previous logs in the `Project` wind
 
 ## Ask The Community! {#ask-the-community}
 
-Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.com/invite/v6v4pMv) and have a chat with the community!
+Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.fabricmc.net/) and have a chat with the community!
 
-You may also want to check out the [Official Fabric Wiki](https://fabricmc.net/wiki/start) for more advanced queries.
+You may also want to check out the [Official Fabric Wiki](https://wiki.fabricmc.net/start) for more advanced queries.

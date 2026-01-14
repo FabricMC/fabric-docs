@@ -17,9 +17,11 @@ Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 ![Terminal with "java -version" typed in](/assets/players/installing-java/linux-java-version.png)
 
 ::: warning
+
 To use Minecraft 1.21.10, you'll need at least Java 21 installed.
 
 If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
+
 :::
 
 ## 2. Downloading and Installing Java 21 {#2-downloading-and-installing-java}
@@ -29,7 +31,9 @@ We recommend using OpenJDK 21, which is available for most Linux distributions.
 ### Arch Linux {#arch-linux}
 
 ::: info
+
 For more information on installing Java on Arch Linux, see the [Arch Linux Wiki](https://wiki.archlinux.org/title/Java).
+
 :::
 
 You can install the latest JRE from the official repositories:

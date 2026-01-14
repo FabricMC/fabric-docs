@@ -25,7 +25,9 @@ If the command runs successfully, you will see something like this. If the comma
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
 
 ::: warning
+
 To use Minecraft 1.21.10, you'll need at least Java 21 installed. If this command displays any version lower than 21, you'll need to update your existing Java installation.
+
 :::
 
 ## 2. Download the Java 21 Installer {#2-download-the-java-installer}
@@ -59,4 +61,4 @@ If the command runs successfully, you will see something like shown before, wher
 
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
 
-If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

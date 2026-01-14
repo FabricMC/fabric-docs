@@ -21,8 +21,10 @@ Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_E
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java)
 
 ::: tip
+
 Note how the constructor of the `CounterBlockEntity` takes two parameters, but the `BlockEntity` constructor takes three: the `BlockEntityType`, the `BlockPos`, and the `BlockState`.
 If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityFactory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
+
 :::
 
 ## Creating the Block {#creating-the-block}
@@ -30,12 +32,14 @@ If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class would
 Next, to actually use the block entity, we need a block that implements `BlockEntityProvider`. Let's create one and call it `CounterBlock`.
 
 ::: tip
+
 There's two ways to approach this:
 
 - create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method
 - create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
 
 We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.
+
 :::
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
@@ -118,6 +122,7 @@ Now we can use `ticksSinceLast` to check if the counter can be increased in `inc
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 ::: tip
+
 If the block entity does not seem to tick, try checking the registration code! It should pass the blocks that are valid for this entity into the `BlockEntityType.Builder`, or else it will give a warning in the console:
 
 ```log
@@ -125,3 +130,5 @@ If the block entity does not seem to tick, try checking the registration code! I
 ```
 
 :::
+
+<!---->

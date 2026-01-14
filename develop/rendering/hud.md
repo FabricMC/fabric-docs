@@ -11,7 +11,9 @@ We already briefly touched on rendering things to the HUD in the [Basic Renderin
 ## `HudRenderCallback` {#hudrendercallback}
 
 ::: warning
+
 Previously, Fabric provided `HudRenderCallback` to render to the HUD. Due to changes to HUD rendering, this event became extremely limited and is deprecated since Fabric API 0.116. Usage is strongly discouraged.
+
 :::
 
 ## `HudElementRegistry` {#hudelementregistry}

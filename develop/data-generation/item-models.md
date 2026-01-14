@@ -7,8 +7,12 @@ authors:
   - VatinMc
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) and created your [first item](../items/first-item).
+
 :::
 
 For each item model we want to generate, we must create two separate JSON files:
@@ -104,7 +108,9 @@ The method for dyeable items generates a simple item model and a client item whi
 @[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
+
 You have to add your item to the `ItemTags.DYEABLE` tag to be able to dye it in your inventory!
+
 :::
 
 == Client Item
@@ -149,7 +155,9 @@ The third and fourth parameters are the models to be used when the property is `
 @[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
+
 To obtain the `Identifier` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
+
 :::
 
 == Client Item

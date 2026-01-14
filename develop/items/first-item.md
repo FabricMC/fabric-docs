@@ -33,9 +33,11 @@ You can now register an item using the method now.
 The register method takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
+
 If you want to change your item's stack size, you can use the `stacksTo` method in the `Item.Properties` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
+
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
@@ -55,7 +57,9 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to a Creative Tab {#adding-the-item-to-a-creative-tab}
 
 ::: info
+
 If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+
 :::
 
 For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
@@ -99,7 +103,9 @@ For your item to have a proper appearance, it requires:
 ### Adding a Texture {#adding-a-texture}
 
 ::: info
+
 For more information on this topic, see the [Item Models](./item-models) page.
+
 :::
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/example-mod/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
@@ -173,7 +179,9 @@ For more information on the recipe format, check out these resources:
 If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method.
 
 ::: info
+
 This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
+
 :::
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)

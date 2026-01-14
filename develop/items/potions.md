@@ -30,7 +30,9 @@ We pass an instance of `MobEffectInstance`, which takes 3 parameters:
 - `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
 ::: info
+
 To create your own potion effect, please see the [Effects](../entities/effects) guide.
+
 :::
 
 ### Registering the Potion {#registering-the-potion}

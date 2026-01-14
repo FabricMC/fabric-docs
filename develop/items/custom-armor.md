@@ -83,7 +83,9 @@ For example purposes, you may use the following textures and model JSON as a ref
 <DownloadEntry visualURL="/assets/develop/items/armor_0.png" downloadURL="/assets/develop/items/example_armor_item_textures.zip">Item Textures</DownloadEntry>
 
 ::: info
+
 You will need model JSON files for all the items, not just the helmet, it's the same principle as other item models.
+
 :::
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
@@ -108,7 +110,9 @@ Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
 ::: tip
+
 If you're updating to 1.21.8 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
+
 :::
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/example-mod/equipment/` folder.

@@ -48,7 +48,9 @@ and all clients in sync.
 ### Defining a Payload {#defining-a-payload}
 
 ::: info
+
 A payload is the data that is sent within a packet.
+
 :::
 
 This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
@@ -81,7 +83,9 @@ We have also overridden `type` to return our payload ID.
 Before we send a packet with our custom payload, we need to register it on both physical sides.
 
 ::: info
+
 `S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.
+
 :::
 
 This can be done in our **common initializer** by using `PayloadTypeRegistry.playS2C().register` which takes in a
@@ -116,6 +120,7 @@ Finally, we get the players in the server world through `PlayerLookup` and send 
 @[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
 ::: info
+
 Fabric API provides `PlayerLookup`, a collection of helper functions that will look up players in a server.
 
 A term frequently used to describe the functionality of these methods is "_tracking_". It means that an entity or a
@@ -125,6 +130,7 @@ tracking clients of changes.
 
 Tracking is an important concept for efficient networking, so that only the necessary players are notified of changes by
 sending packets.
+
 :::
 
 ### Receiving a Packet on the Client {#receiving-a-packet-on-the-client}
@@ -197,6 +203,7 @@ This can be done in the **common initializer**, by calling `ServerPlayNetworking
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 ::: info
+
 It is important that you validate the content of the packet on the server side.
 
 In this case, we validate if the entity exists based on its network ID.
@@ -207,6 +214,7 @@ Additionally, the targeted entity has to be a living entity, and we restrict the
 player to 5.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+
 :::
 
 Now when any player tries to use a Poisonous Potato on a living entity, the glowing effect will be applied to it.

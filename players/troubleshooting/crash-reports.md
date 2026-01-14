@@ -5,8 +5,12 @@ authors:
   - IMB11
 ---
 
+<!---->
+
 ::: tip
-If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
+
+If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` or `#server-admin-support` channel.
+
 :::
 
 Crash reports are a very important part of troubleshooting issues with your game or server. They contain a lot of information about the crash, and can help you find the cause of the crash.
@@ -79,7 +83,9 @@ However, with the amount of mods mentioned, it could mean there are some compati
 ## Mixin Crashes {#mixin-crashes}
 
 ::: info
+
 Mixins are a way for mods to modify the game without having to modify the game's source code. They are used by many mods, and are a very powerful tool for mod developers.
+
 :::
 
 When a mixin crashes, it will usually mention the mixin in the stack trace, and the class that the mixin is modifying.

@@ -120,7 +120,9 @@ When you register your item and pass a `Item.Properties` object to your item con
 When a new item is created, it will automatically apply our custom component with the given value.
 
 ::: warning
+
 Using commands, it is possible to remove a default component from an `ItemStack`. You should refer to the next two sections to properly handle a scenario where the component is not present on your item.
+
 :::
 
 ### Reading with a Default Value {#reading-default-value}

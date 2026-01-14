@@ -66,7 +66,9 @@ This is because we're trying to access the registry or a class that depends on t
 ### Setting Up GitHub Actions {#setting-up-github-actions}
 
 ::: info
+
 This section assumes that you are using the standard GitHub Action workflow included with the example mod and with the mod template.
+
 :::
 
 Your tests will now run on every build, including those by CI providers such as GitHub Actions. But what if a build fails? We need to upload the logs as an artifact so we can view the test reports.
@@ -101,7 +103,9 @@ To see all available options, see [the Loom documentation on tests](./loom/fabri
 #### Setting up Game Test Directory {#setting-up-game-test-directory}
 
 ::: info
+
 You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own Gradle magic, but you'll be on your own.
+
 :::
 
 If you enabled `createSourceSet` like the example above, your gametest will be in a separate source set with a separate `fabric.mod.json`. The module name defaults to `gametest`. Create a new `fabric.mod.json` in `src/gametest/resources/` as shown:
@@ -133,7 +137,9 @@ Server game tests will be run automatically with the `build` Gradle task. You ca
 Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The Gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
 
 ::: warning
+
 Currently, game test may fail on GitHub Actions due to an error in the network synchronizer. If you encounter this error, you can add `-Dfabric.client.gametest.disableNetworkSynchronizer=true` to the JVM args in your production run task declaration.
+
 :::
 
 @[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)

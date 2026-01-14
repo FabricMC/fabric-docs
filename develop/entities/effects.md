@@ -61,6 +61,7 @@ language file.
 It's worth taking a look at how you'd typically apply an effect to an entity.
 
 ::: tip
+
 For a quick test, it might be a better idea to use the previously mentioned `/effect` command:
 
 ```mcfunction
@@ -84,5 +85,9 @@ a `MobEffectInstance`, and returns a boolean, specifying whether the effect was 
 | `icon`      | `boolean`           | Whether to display an icon of the effect in the HUD. The effect will be displayed in the inventory regardless of this flag.                                                                                                   |
 
 ::: info
+
 To create a potion that uses this effect, please see the [Potions](../items/potions) guide.
+
 :::
+
+<!---->
