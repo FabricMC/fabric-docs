@@ -192,7 +192,7 @@ export default [
       },
       {
         text: "develop.rendering.gui_graphics",
-        link: "/develop/rendering/draw-context",
+        link: "/develop/rendering/gui-graphics",
       },
       {
         text: "develop.rendering.hud",

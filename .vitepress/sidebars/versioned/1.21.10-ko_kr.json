@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/ko_kr/develop/rendering/draw-context"
+          "link": "/ko_kr/develop/rendering/gui-graphics"
         },
         {
           "text": "HUD 렌더링",

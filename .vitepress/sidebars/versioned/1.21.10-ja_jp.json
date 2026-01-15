@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/ja_jp/develop/rendering/draw-context"
+          "link": "/ja_jp/develop/rendering/gui-graphics"
         },
         {
           "text": "Hudでのレンダリング",

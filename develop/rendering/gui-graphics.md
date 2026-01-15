@@ -31,7 +31,7 @@ Let's say we want to outline the rectangle we just drew. We can use the `GuiGrap
 
 ### Drawing Individual Lines {#drawing-individual-lines}
 
-We can use the `GuiGraphics.hLine(...)` and `DrawContext.vLine(...)` methods to draw lines.
+We can use the `GuiGraphics.hLine(...)` and `GuiGraphics.vLine(...)` methods to draw lines.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
