@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/el_gr/develop/rendering/draw-context"
+          "link": "/el_gr/develop/rendering/gui-graphics"
         },
         {
           "text": "Απεικόνιση στο Hud",
