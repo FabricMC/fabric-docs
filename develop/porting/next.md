@@ -13,7 +13,7 @@ These docs discuss migrating from **1.21.11** to the snapshots of **26.1**. If y
 
 :::
 
-Note that if your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../migrating-mappings) before porting to 26.1.
+Note that if your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../migrating-mappings/) before porting to 26.1.
 
 If you are using IntelliJ IDEA, you will also need to update it to `2025.3` or higher for full Java 25 support.
 

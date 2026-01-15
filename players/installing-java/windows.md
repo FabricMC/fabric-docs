@@ -26,7 +26,9 @@ If the command runs successfully, you will see something like this. If the comma
 
 ::: warning
 
-To use Minecraft 1.21.10, you'll need at least Java 21 installed. If this command displays any version lower than 21, you'll need to update your existing Java installation.
+To use Minecraft 1.21.10, you'll need at least Java 21 installed.
+
+If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
 
 :::
 
