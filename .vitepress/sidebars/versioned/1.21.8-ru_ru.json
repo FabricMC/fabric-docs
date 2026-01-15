@@ -191,7 +191,7 @@
         },
         {
           "text": "Использование Drawing Context",
-          "link": "/ru_ru/develop/rendering/draw-context"
+          "link": "/ru_ru/develop/rendering/gui-graphics"
         },
         {
           "text": "Отрисовка в HUD",

@@ -170,8 +170,8 @@
           "link": "/uk_ua/develop/rendering/basic-concepts"
         },
         {
-          "text": "Використання DrawContext",
-          "link": "/uk_ua/develop/rendering/draw-context"
+          "text": "Використання GuiGraphics",
+          "link": "/uk_ua/develop/rendering/gui-graphics"
         },
         {
           "text": "Промальовування у HUD",

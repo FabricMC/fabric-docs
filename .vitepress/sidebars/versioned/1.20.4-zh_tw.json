@@ -149,7 +149,7 @@
         },
         {
           "text": "使用繪圖上下文",
-          "link": "/zh_tw/develop/rendering/draw-context"
+          "link": "/zh_tw/develop/rendering/gui-graphics"
         },
         {
           "text": "在 HUD 中繪製",

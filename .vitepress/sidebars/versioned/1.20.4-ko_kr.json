@@ -149,7 +149,7 @@
         },
         {
           "text": "그리기 컨텍스트 사용",
-          "link": "/ko_kr/develop/rendering/draw-context"
+          "link": "/ko_kr/develop/rendering/gui-graphics"
         },
         {
           "text": "HUD 렌더링",
