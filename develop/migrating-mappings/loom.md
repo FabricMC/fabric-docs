@@ -18,8 +18,12 @@ authors-nogithub:
   - basil4088
 ---
 
+<!---->
+
 ::: warning
+
 For best results, it's recommended to update to Loom 1.13 or above, as it allows for migrating Mixins, Access Wideners and client source sets.
+
 :::
 
 ## Migrating to Mojang Mappings {#migrating-to-mojmap}
@@ -89,7 +93,9 @@ Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shed
 ## Migrating to Yarn {#migrating-to-yarn}
 
 ::: warning
+
 1.21.11 is the final release where Yarn Mappings will be available. If you plan to update your mod to 26.1 or above, your mod should be on Mojang's Mappings.
+
 :::
 
 First, you need to run a `migrateMappings` command that will convert your current mappings to Yarn Mappings. This can be found on [the Develop site](https://fabricmc.net/develop) under Mappings Migration. For example:
@@ -229,3 +235,5 @@ migrateMappings --input "src/client/java" --output "src/client/java" --mappings 
 ```
 
 :::
+
+<!---->

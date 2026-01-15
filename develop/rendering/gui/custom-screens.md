@@ -5,8 +5,12 @@ authors:
   - IMB11
 ---
 
+<!---->
+
 ::: info
+
 This page refers to normal screens, not handled ones - these screens are the ones that are opened by the player on the client, not the ones that are handled by the server.
+
 :::
 
 Screens are essentially the GUIs that the player interacts with, such as the title screen, pause screen etc.

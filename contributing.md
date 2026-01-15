@@ -3,7 +3,7 @@ title: Contribution Guidelines
 description: Guidelines for contributions to the Fabric Documentation.
 ---
 
-This website uses [VitePress](https://vitepress.dev/) to generate static HTML from various Markdown files. You should familiarize yourself with the Markdown extensions that VitePress supports [here](https://vitepress.dev/guide/markdown#features).
+This website uses [VitePress](https://vitepress.dev/) to generate static HTML from various Markdown files. You should familiarize yourself with the [Markdown extensions that VitePress supports](https://vitepress.dev/guide/markdown#features).
 
 There are three ways you can contribute to this website:
 
@@ -44,7 +44,7 @@ This website is open-source, and it is developed in a GitHub repository, which m
 3. Make your changes on that branch
 4. Open a Pull Request to the original repository
 
-You can read more about the GitHub flow [here](https://docs.github.com/en/get-started/using-github/github-flow).
+You can read more about the [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow).
 
 You can either make changes from the web UI on GitHub, or you can develop and preview the website locally.
 
@@ -136,15 +136,17 @@ In this stage, the following happens:
 
 Framework refers to the internal structure of the website, any pull requests that modify the framework of the website will be labeled with the <Badge type="tip">framework</Badge> label.
 
-You should really only make framework pull requests after consulting with the documentation team on the [Fabric Discord](https://discord.gg/v6v4pMv) or via an issue.
+You should really only make framework pull requests after consulting with the documentation team on the [Fabric Discord](https://discord.fabricmc.net/) or via an issue.
 
 ::: info
+
 Modifying sidebar files and the navigation bar configuration does not count as a framework pull request.
+
 :::
 
 ## Style Guidelines {#style-guidelines}
 
-If you are unsure about anything, you can ask in the [Fabric Discord](https://discord.gg/v6v4pMv) or via GitHub Discussions.
+If you are unsure about anything, you can ask in the [Fabric Discord](https://discord.fabricmc.net/) or via GitHub Discussions.
 
 ### Write the Original in American English {#write-the-original-in-american-english}
 
@@ -209,7 +211,7 @@ For example, this will embed the sections of the file above that are marked with
 
 If you're creating a new section, you should create a new sidebar in the `.vitepress/sidebars` folder and add it to the `i18n.mts` file.
 
-If you need assistance with this, please ask in the [Fabric Discord](https://discord.gg/v6v4pMv)'s `#docs` channel.
+If you need assistance with this, please ask in the [Fabric Discord](https://discord.fabricmc.net/)'s `#docs` channel.
 
 ### Add New Pages to the Relevant Sidebars {#add-new-pages-to-the-relevant-sidebars}
 
@@ -247,3 +249,5 @@ This relative link has the file extension.
 ```
 
 :::
+
+<!---->

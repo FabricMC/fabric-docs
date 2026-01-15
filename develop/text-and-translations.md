@@ -45,48 +45,48 @@ Component mutableAsText = mutable;
 When you want to provide multiple translations for the same string of text, you can use the `Component.translatable` method to reference a translation key in any language file. If the key doesn't exist, the translation key is converted to a literal.
 
 ```java
-Component translatable = Component.translatable("my_mod.text.hello");
+Component translatable = Component.translatable("example-mod.text.hello");
 
 // Similarly to literals, translatable text can be easily made mutable.
-MutableComponent mutable = Component.translatable("my_mod.text.bye");
+MutableComponent mutable = Component.translatable("example-mod.text.bye");
 ```
 
 The language file, `en_us.json`, looks like the following:
 
 ```json
 {
-  "my_mod.text.hello": "Hello!",
-  "my_mod.text.bye": "Goodbye :("
+  "example-mod.text.hello": "Hello!",
+  "example-mod.text.bye": "Goodbye :("
 }
 ```
 
 If you wish to be able to use variables in the translation, similar to how death messages allow you to use the involved players and items in the translation, you may add said variables as parameters. You may add however many parameters you like.
 
 ```java
-Component translatable = Component.translatable("my_mod.text.hello", player.getDisplayName());
+Component translatable = Component.translatable("example-mod.text.hello", player.getDisplayName());
 ```
 
 You may reference these variables in the translation like so:
 
 ```json
 {
-  "my_mod.text.hello": "%1$s said hello!"
+  "example-mod.text.hello": "%1$s said hello!"
 }
 ```
 
-In the game, %1\$s will be replaced with the name of the player you referenced in the code. Using `player.getDisplayName()` will make it so that additional information about the entity will appear in a tooltip when hovering over the name in the chat message as opposed to using `player.getName()`, which will still get the name; however, it will not show the extra details. Similar can be done with itemStacks, using `stack.getDisplayName()`.
+In the game, `%1$s` will be replaced with the name of the player you referenced in the code. Using `player.getDisplayName()` will make it so that additional information about the entity will appear in a tooltip when hovering over the name in the chat message as opposed to using `player.getName()`, which will still get the name; however, it will not show the extra details. Similar can be done with itemStacks, using `stack.getDisplayName()`.
 
-As for what %1\$s even means, all you really need to know is that the number corresponds to which variable you are trying to use. Let's say you have three variables that you are using.
+As for what `%1$s` even means, all you really need to know is that the number corresponds to which variable you are trying to use. Let's say you have three variables that you are using.
 
 ```java
-Component translatable = Component.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+Component translatable = Component.translatable("example-mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
-If you want to reference what, in our case, is the attacker, you would use %2\$s because it's the second variable that we passed in. Likewise, %3\$s refers to the itemStack. A translation with this many additional parameters might look like this:
+If you want to reference what, in our case, is the attacker, you would use `%2$s` because it's the second variable that we passed in. Likewise, `%3$s` refers to the itemStack. A translation with this many additional parameters might look like this:
 
 ```json
 {
-  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
+  "example-mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
 }
 ```
 

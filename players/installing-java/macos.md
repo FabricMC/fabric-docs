@@ -30,9 +30,11 @@ OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sha
 Notice the version number: in the example above it is `21.0.9`.
 
 ::: warning
-To use Minecraft 1.21.10, you'll need at least Java 21 installed.
+
+To use Minecraft 1.21.11, you'll need at least Java 21 installed.
 
 If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
+
 :::
 
 ## 2. Downloading and Installing Java 21 {#2-downloading-and-installing-java}
@@ -76,4 +78,4 @@ OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
 ```
 
-If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

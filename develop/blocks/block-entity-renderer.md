@@ -51,10 +51,12 @@ Now that we have a renderer, we can draw. The `render` method is called every fr
 First, we need to offset and rotate the text so that it's on the block's top side.
 
 ::: info
+
 As the name suggests, the `PoseStack` is a _stack_, meaning that you can push and pop transformations.
 A good rule-of-thumb is to push a new one at the beginning of the `render` method and pop it at the end, so that the rendering of one block doesn't affect others.
 
 More information about the `PoseStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts).
+
 :::
 
 To make the translations and rotations needed easier to understand, let's visualize them. In this picture, the green block is where the text would be drawn, by default in the furthest bottom-left point of the block:

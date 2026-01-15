@@ -11,14 +11,16 @@ We already briefly touched on rendering things to the HUD in the [Basic Renderin
 ## `HudRenderCallback` {#hudrendercallback}
 
 ::: warning
+
 Previously, Fabric provided `HudRenderCallback` to render to the HUD. Due to changes to HUD rendering, this event became extremely limited and is deprecated since Fabric API 0.116. Usage is strongly discouraged.
+
 :::
 
 ## `HudElementRegistry` {#hudelementregistry}
 
 Fabric provides the Hud API to render and layer elements on the HUD.
 
-To start, we need to register a listener to `HudElementRegistry` which registers your elements. Each element is an `HudElement`. A `HudElement` instance is usually a lambda that takes a `GuiGraphics` and a `DeltaTracker` instance as parameters. See `HudElementRegistry` and related Javadocs for more details on how to use the API.
+To start, we need to register a listener to `HudElementRegistry` which registers your elements. Each element is a `HudElement`. A `HudElement` instance is usually a lambda that takes a `GuiGraphics` and a `DeltaTracker` instance as parameters. See `HudElementRegistry` and related Javadocs for more details on how to use the API.
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 

@@ -12,8 +12,12 @@ authors-nogithub:
   - sjk1949
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -23,7 +27,9 @@ First, we'll make our **provider**. Remember, providers are what actually genera
 @[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ::: tip
+
 You will need a different provider for each language you want to generate (eg. one `ExampleEnglishLangProvider` and one `ExamplePirateLangProvider`).
+
 :::
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.

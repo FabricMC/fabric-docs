@@ -15,8 +15,10 @@ This page gives useful bits of information, to speed up and ease the workflow of
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
 
 ::: warning
+
 Key binds in the text refer to the default keymap of IntelliJ IDEA, if not stated otherwise.
 Refer to the `File > Settings > Keymap` Settings or search for the functionality elsewhere if you are using a different keyboard layout.
+
 :::
 
 ## Traversing Projects {#traversing-projects}
@@ -227,7 +229,9 @@ To create a custom block which can be collapsed, use the `region` and `endregion
 ![Region collapse](/assets/develop/misc/using-the-ide/comments_02.png)
 
 ::: warning
+
 If you notice that you are using too many of them, consider refactoring your code to make it more readable!
+
 :::
 
 ### Disabling the Formatter {#disabling-formatter}
@@ -259,7 +263,9 @@ new ArrayList().add("bananas");
 ```
 
 ::: warning
+
 If you notice that you are suppressing too many warnings, consider rewriting your code to not produce so many warnings!
+
 :::
 
 ### TODO and FIXME Notes {#todo-and-fixme-notes}
@@ -321,7 +327,7 @@ Use Live Templates to generate your custom boilerplate code faster.
 
 ### More Tips and Tricks {#more-tips}
 
-Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
+Anton Arhipov from Jetbrains also had an in-depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI">IntelliJ talk by Anton Arhipov on YouTube</VideoPlayer>
 

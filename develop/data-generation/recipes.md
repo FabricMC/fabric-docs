@@ -9,8 +9,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -36,7 +40,9 @@ For a shaped recipe, you define the shape using a `String`, then define what eac
 @[code lang=java transcludeWith=:::datagen-recipes:shaped](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
 ::: tip
+
 There's a lot of helper methods for creating common recipes. Check out what `RecipeProvider` has to offer! Use <kbd>Alt</kbd>+<kbd>7</kbd> in IntelliJ to open the structure of a class, including a method list.
+
 :::
 
 ## Other Recipes {#other-recipes}

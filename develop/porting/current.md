@@ -8,7 +8,9 @@ authors:
 Minecraft is a game that's constantly evolving, with new versions changing the game in ways that affect modders. This article covers the general steps one might follow to update their mod to the newest stable version of Minecraft.
 
 ::: info
+
 These docs discuss migrating from **1.21.10** to **1.21.11**. If you're looking for another migration, switch to the target version by using the dropdown in the top-right corner.
+
 :::
 
 ## Updating the Build Script {#build-script}

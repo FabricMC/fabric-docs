@@ -8,10 +8,12 @@ authors:
 The upcoming 26.1 version of Minecraft is unobfuscated, as are its snapshots. With this in mind, you'll need to make more changes to your build scripts than usual in order to port to it.
 
 ::: info
+
 These docs discuss migrating from **1.21.11** to the snapshots of **26.1**. If you're looking to migrate to **1.21.11**, check out the article on [Porting to 1.21.11](./current).
+
 :::
 
-Note that if your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../migrating-mappings) before porting to 26.1.
+Note that if your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../migrating-mappings/) before porting to 26.1.
 
 If you are using IntelliJ IDEA, you will also need to update it to `2025.3` or higher for full Java 25 support.
 
@@ -35,5 +37,9 @@ Start by updating your mod's `gradle/wrapper/gradle-wrapper.properties`, `gradle
 After the build script has been updated to 26.1, you can now go through your mod and update any code that has changed to make it compatible with the snapshot.
 
 ::: warning IMPORTANT
+
 Because Minecraft 26.1 is still in the snapshot stage, there is no documentation about specific changes yet. Good luck, you're on your own!
+
 :::
+
+<!---->

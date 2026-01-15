@@ -25,7 +25,7 @@ This is the basic template to register a component type:
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
     Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().codec(null).build()
+    DataComponentType.<?>builder().persistent(null).build()
 );
 ```
 
@@ -60,15 +60,13 @@ Let's add a new item which will increase the counter each time it is right click
 Remember as usual to register the item in your `ModItems` class.
 
 ```java
-public static final Item COUNTER = register(new CounterItem(
-    new Item.Properties()
-), "counter");
+public static final Item COUNTER = register("counter", CounterItem::new, new Item.Properties());
 ```
 
 We're going to add some tooltip code to display the current value of the click count when we hover over our item in the inventory. We can use the `get()` method on our `ItemStack` to get our component value like so:
 
 ```java
-int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendHoverText` method in the `CounterItem` class:
@@ -120,7 +118,9 @@ When you register your item and pass a `Item.Properties` object to your item con
 When a new item is created, it will automatically apply our custom component with the given value.
 
 ::: warning
+
 Using commands, it is possible to remove a default component from an `ItemStack`. You should refer to the next two sections to properly handle a scenario where the component is not present on your item.
+
 :::
 
 ### Reading with a Default Value {#reading-default-value}
@@ -128,7 +128,7 @@ Using commands, it is possible to remove a default component from an `ItemStack`
 In addition, when reading the component value, we can use the `getOrDefault()` method on our `ItemStack` object to return a specified default value if the component is not present on the stack. This will safeguard against any errors resulting from a missing component. We can adjust our tooltip code like so:
 
 ```java
-int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
+int count = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 ```
 
 As you can see, this method takes two arguments: our component type like before, and a default value to return if the component is not present.
@@ -259,9 +259,11 @@ stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 You can also set a default value for a composite component by passing a component object to your `Item.Properties`. For example:
 
 ```java
-public static final Item COUNTER = register(new CounterItem(
+public static final Item COUNTER = register(
+    "counter",
+    CounterItem::new,
     new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
-), "counter");
+);
 ```
 
 Now you can store custom data on an `ItemStack`. Use responsibly!

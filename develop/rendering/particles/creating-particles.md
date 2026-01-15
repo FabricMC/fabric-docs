@@ -26,6 +26,7 @@ After you have registered the particle in the mod's initializer, you will also n
 In this example, we are registering our particle on the client-side. We are then giving the particle some movement using the end rod particle's factory. This means our particle will move exactly like an end rod particle.
 
 ::: tip
+
 You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
 - IntelliJ's hotkey: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
@@ -49,7 +50,9 @@ Next, create a new JSON file in `particles` with the same name as the JSON path 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
 ::: tip
+
 You can add more textures to the `textures` array to create a particle animation. The particle will cycle through the textures in the array, starting with the first texture.
+
 :::
 
 ## Testing the New Particle {#testing-the-new-particle}
@@ -65,7 +68,9 @@ You can see if everything has worked by typing the following command:
 ![Showcase of the particle](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
 ::: info
+
 The particle will spawn inside the player with this command. You will likely need to walk backwards to actually see it.
+
 :::
 
 Alternatively, you can also use a command block to summon the particle with the exact same command.

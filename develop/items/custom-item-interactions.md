@@ -26,7 +26,9 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 Luckily, the Item class has many methods that can be overriden to add extra functionality to your items.
 
 ::: info
+
 A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds) page, which uses the `useOn` event to play a sound when the player right clicks a block.
+
 :::
 
 | Method                 | Information                                             |

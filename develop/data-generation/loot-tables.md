@@ -12,8 +12,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 You will need different providers (classes) for blocks, chests, and entities. Remember to add them all to your pack in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
