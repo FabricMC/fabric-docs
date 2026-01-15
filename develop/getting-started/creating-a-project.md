@@ -65,10 +65,10 @@ If you cannot use the Fabric Template Mod Generator, you can create a new projec
 Firstly, clone the example mod repository using Git:
 
 ```sh
-git clone https://github.com/FabricMC/fabric-example-mod/ my-mod-project
+git clone https://github.com/FabricMC/fabric-example-mod/ example-mod
 ```
 
-This will clone the repository into a new folder called `my-mod-project`.
+This will clone the repository into a new folder called `example-mod`.
 
 You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
 

@@ -327,7 +327,7 @@ Use Live Templates to generate your custom boilerplate code faster.
 
 ### More Tips and Tricks {#more-tips}
 
-Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
+Anton Arhipov from Jetbrains also had an in-depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI">IntelliJ talk by Anton Arhipov on YouTube</VideoPlayer>
 
