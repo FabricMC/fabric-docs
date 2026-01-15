@@ -149,7 +149,7 @@
         },
         {
           "text": "Using the Drawing Context",
-          "link": "/develop/rendering/draw-context"
+          "link": "/develop/rendering/gui-graphics"
         },
         {
           "text": "Rendering in the HUD",

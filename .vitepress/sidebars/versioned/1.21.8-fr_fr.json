@@ -191,7 +191,7 @@
         },
         {
           "text": "Utiliser le context de dessin",
-          "link": "/fr_fr/develop/rendering/draw-context"
+          "link": "/fr_fr/develop/rendering/gui-graphics"
         },
         {
           "text": "Afficher dans le Hud",

@@ -191,7 +191,7 @@
         },
         {
           "text": "Korzystanie z kontekstu rysowania",
-          "link": "/pl_pl/develop/rendering/draw-context"
+          "link": "/pl_pl/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderowanie w HUD",

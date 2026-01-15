@@ -7,7 +7,7 @@ authors:
 search: false
 ---
 
-We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
+We already briefly touched on rendering things to the hud in the [Basic Rendering Concepts](./basic-concepts) page and [Drawing to the GUI](./gui-graphics), so on this page we'll stick to the `HudRenderCallback` event and the `deltaTick` parameter.
 
 ## HudRenderCallback {#hudrendercallback}
 
@@ -15,9 +15,7 @@ The `HudRenderCallback` event - provided by Fabric API - is called every frame, 
 
 To register to this event, you can simply call `HudRenderCallback.EVENT.register` and pass in a lambda that takes a `GuiGraphics` and a `float` (deltaTick) as parameters.
 
-The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack.
-
-You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
+The GUI graphics can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Drawing to the GUI](./gui-graphics) page to learn more about them.
 
 ### DeltaTick {#deltatick}
 
