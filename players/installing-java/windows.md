@@ -55,6 +55,14 @@ Follow the steps in the installer to install Java 21. When you reach this page, 
 
 Once you've done that, you can click `Next` and continue with the installation.
 
+::: warning
+
+Windows won't always tell other programs that Java is installed until you restart your computer.
+
+**Make sure to restart your computer before continuing!**
+
+:::
+
 ## 4. Verify That Java 21 Is Installed {#4-verify-that-java-is-installed}
 
 Once the installation is complete, you can verify that Java 21 is installed by opening the command prompt again and typing `java -version`.
