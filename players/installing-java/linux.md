@@ -18,7 +18,7 @@ Open a terminal, type `java -version`, and press <kbd>Enter</kbd>.
 
 ::: warning
 
-To use Minecraft 1.21.10, you'll need at least Java 21 installed.
+To use Minecraft 1.21.11, you'll need at least Java 21 installed.
 
 If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
 

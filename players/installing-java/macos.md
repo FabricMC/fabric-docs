@@ -31,7 +31,7 @@ Notice the version number: in the example above it is `21.0.9`.
 
 ::: warning
 
-To use Minecraft 1.21.10, you'll need at least Java 21 installed.
+To use Minecraft 1.21.11, you'll need at least Java 21 installed.
 
 If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
 

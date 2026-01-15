@@ -111,7 +111,7 @@ Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_
 
 ::: tip
 
-If you're updating to 1.21.8 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
+If you're updating to 1.21.11 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
 
 :::
 
