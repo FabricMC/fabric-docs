@@ -3,6 +3,7 @@ title: Installing Java on Windows
 description: A step-by-step guide on how to install Java on Windows.
 authors:
   - IMB11
+  - skycatminepokie
 next: false
 ---
 
@@ -54,6 +55,14 @@ Follow the steps in the installer to install Java 21. When you reach this page, 
 ![Java 21 installer with "Set JAVA_HOME variable" and "JavaSoft (Oracle) registry keys" highlighted](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Once you've done that, you can click `Next` and continue with the installation.
+
+::: warning
+
+Windows won't always tell other programs that Java is installed until you restart your computer.
+
+**Make sure to restart your computer before continuing!**
+
+:::
 
 ## 4. Verify That Java 21 Is Installed {#4-verify-that-java-is-installed}
 
