@@ -16,6 +16,7 @@ Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che ver
 Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo accetta un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Provider di Suggerimenti Predefiniti {#built-in-suggestion-providers}
@@ -40,6 +41,7 @@ Per questo esempio, creeremo un provider di suggerimenti che suggerisce tutti i 
 Per usare questo provider di suggerimenti, passeresti semplicemente una sua istanza al metodo `.suggests` nel costruttore di comandi.
 
 @[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Ovviamente, i provider di suggerimenti possono essere più complessi, siccome possono anche leggere il contesto dei comandi per fornire suggerimenti basati sullo stato del comando - per esempio quali argomenti sono già stati forniti.

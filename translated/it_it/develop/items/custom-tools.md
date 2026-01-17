@@ -24,6 +24,10 @@ Il costruttore di `ToolMaterial` accetta i parametri seguenti, in questo ordine:
 | `enchantmentValue`        | L'"incantabilità" degli utensili fatti di questo `ToolMaterial`.                                                                                                             |
 | `repairItems`             | Tutti gli oggetti in questo tag possono essere usati per riparare utensili di questo `ToolMaterial` in un'incudine.                                                          |
 
+Per questo esempio, useremo lo stesso oggetto di riparo che useremo per l'armatura. Definiamo il riferimento di tag come segue:
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
 Se fai fatica a determinare valori adatti per ciascuno dei parametri numerici, considera le costanti dei materiali di utensili vanilla, tra cui `ToolMaterial.STONE` o `ToolMaterial.DIAMOND`.
 
 ## Creare Oggetti per gli Utensili {#creating-tool-items}
