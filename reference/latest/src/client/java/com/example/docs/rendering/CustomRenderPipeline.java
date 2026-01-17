@@ -151,6 +151,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			if (vertexBuffer != null) {
 				vertexBuffer.close();
 			}
+
 			vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
 		}
 
