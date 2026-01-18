@@ -22,10 +22,12 @@ Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Kla
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
-Du kannst dies tun, indem du eine Dummy-Methode `initialize` erstellst, die in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufgerufen werden kann, um die statische Initialisierung auszulösen.
+Du kannst dies tun, indem du eine Dummy-Methode `initialize` erstellst, die in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) aufgerufen werden kann, um die statische Initialisierung auszulösen.
 
-:::info
+::: info
+
 Wenn du nicht weißt, was statische Initialisierung ist, ist es der Prozess der Initialisierung von statischen Feldern in einer Klasse. Dies geschieht, wenn die Klasse von der JVM geladen wird, und zwar bevor Instanzen der Klasse erstellt werden.
+
 :::
 
 ```java
@@ -36,11 +38,11 @@ public class ModBlocks {
 }
 ```
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
 
 ## Erstellen und Registrieren deines Blocks {#creating-and-registering-your-block}
 
-Ähnlich wie Items, nehmen Blöcke in ihrem Konstruktor eine Klasse des Typs `AbstractBlock.Settings` entgegen, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
+Ähnlich wie Items nehmen Blöcke in ihrem Konstruktor die Klasse `BlockBehavior.Properties` auf, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
 
 Wir werden hier nicht alle Optionen behandeln - Du kannst die Klasse selbst ansehen, um die verschiedenen Optionen zu sehen, die selbsterklärend sein sollten.
 
@@ -49,8 +51,10 @@ Als Beispiel werden wir einen einfachen Block erstellen, der die Eigenschaften v
 - Wir erstellen unsere Blockeinstellungen auf ähnliche Weise, wie wir sie im Item-Tutorial erstellt haben.
 - Wir weisen die Methode `register` an, eine `Block`-Instanz aus den Blockeinstellungen zu erstellen, indem wir den `Block`-Konstruktor aufrufen.
 
-:::tip
-Du kannst auch `AbstractBlock.Settings.copy(AbstractBlock block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
+::: tip
+
+Du kannst auch `BlockBehavior.Properties.ofFullCopy(ofFullCopy block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
+
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
@@ -91,18 +95,20 @@ Du kannst entweder das Spiel neu starten oder deinen Mod erstellen und <kbd>F3</
 
 Alle Blocktexturen befinden sich im Ordner `assets/example-mod/textures/block` - eine Beispieltextur für den Block "Condensed Dirt" ist frei verwendbar.
 
-<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Texturen</DownloadEntry>
+<DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">Textur</DownloadEntry>
 
 Damit die Textur im Spiel angezeigt wird, musst du ein Blockmodell erstellen, das in der Datei `assets/example-mod/models/block/condensed_dirt.json` für den "Condensed Dirt"-Block gefunden werden kann. Für diesen Block werden wir den Modelltyp `block/cube_all` verwenden.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-Damit der Block in deinem Inventar angezeigt wird, musst du eine [Itemmodell-Beschreibung](../items/first-item#creating-the-item-model-description) erstellen, die auf dein Blockmodell verweist. In diesem Beispiel ist die Beschreibung des Itemmodells für den Block "Condensed Dirt" unter `assets/example-mod/items/condensed_dirt.json` zu finden.
+Damit der Block in deinem Inventar angezeigt wird, musst du ein [Client Item](../items/first-item#creating-the-client-item) erstellen, das auf dein Blockmodell verweist. Für dieses Beispiel kann das Client Item für den "Condensed Dirt" Block unter `assets/example-mod/items/condensed_dirt.json` gefunden werden.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
-:::tip
-Du musst nur dann eine Beschreibung des Itemmodells erstellen, wenn du ein `BlockItem` zusammen mit deinem Block registriert hast!
+::: tip
+
+Du musst nur ein Client Item erstellen, wenn du ein `BlockItem` zusammen mit deinem Block registriert hast!
+
 :::
 
 Wenn du das Spiel lädst, wirst du feststellen, dass die Textur noch fehlt. Dies liegt daran, dass du eine Blockzustand-Definition hinzufügen musst.
@@ -117,8 +123,10 @@ Diese Datei sollte sich im Ordner `assets/example-mod/blockstates` befinden, und
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
-:::tip
+::: tip
+
 Blockstates sind unglaublich komplex, weshalb sie als Nächstes auf [einer eigenen Seite](./blockstates) behandelt werden.
+
 :::
 
 Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die Änderungen zu übernehmen - Du solltest die Blocktextur im Inventar und physisch in der Welt sehen können:
@@ -129,8 +137,10 @@ Starte das Spiel neu oder lade es über <kbd>F3</kbd>+<kbd>T</kbd> neu, um die �
 
 Wenn man den Block im Survival-Modus abbaut, kann es sein, dass der Block nicht fallen gelassen wird - diese Funktionalität ist vielleicht erwünscht, aber um den Block als Item fallen zu lassen, wenn er abgebaut wird, muss man seine Beutetabelle implementieren - die Beutetabellendatei sollte in den Ordner `data/example-mod/loot_table/blocks/` abgelegt werden.
 
-:::info
+::: info
+
 Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecraft Wiki - Beutetabellen](https://de.minecraft.wiki/w/Beutetabellen) ansehen.
+
 :::
 
 @[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
@@ -160,8 +170,8 @@ Wenn du möchtest, dass ein Tool zum Abbau des Blocks erforderlich ist, musst du
 
 Ähnlich verhält es sich mit dem Mining-Level-Tag, das im Ordner `data/minecraft/tags/block/` zu finden ist und das folgende Format hat:
 
-- `needs_stone_tool.json` - Eine minimale Ebene für Steinwerkzeuge.
-- `needs_iron_tool.json` - Eine minimale Ebene für Eisenwerkzeuge.
+- `needs_stone_tool.json` - Eine minimale Ebene für Steinwerkzeuge
+- `needs_iron_tool.json` - Eine minimale Ebene für Eisenwerkzeuge
 - `needs_diamond_tool.json` - Eine minimale Ebene für Diamantwerkzeuge.
 
 Die Datei hat das gleiche Format wie die Datei des Abbauwerkzeuges - eine Liste von Items, die dem Tag hinzugefügt werden sollen.

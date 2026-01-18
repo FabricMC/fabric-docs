@@ -21,7 +21,7 @@ Blockzustand-Definitionen finden sich im Ordner `assets/example-mod/blockstates`
 
 Minecraft verfügt bereits über einige benutzerdefinierte Klassen, mit denen man schnell bestimmte Arten von Blöcken erstellen kann - in diesem Beispiel wird die Erstellung eines Blocks mit der Eigenschaft `axis` durch die Erstellung eines „Condensed Oak Log“-Blocks erläutert.
 
-Die Vanilla `PillarBlock` Klasse erlaubt, dass der Block in der X, Y oder Z Axe platziert werden kann.
+Die Vanilla `RotatedPillarBlock` Klasse erlaubt, dass der Block in der X, Y oder Z Axe platziert werden kann.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -41,9 +41,11 @@ Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+
+Beachte, dass Blockzustandsdateien im Ordner `assets/example-mod/blockstates` zu finden sind. Der Name der Blockzustandsdatei sollte mit der Block-ID übereinstimmen, die bei der Registrierung deines Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_oak_log` lautet, sollte die Datei `condensed_oak_log.json` heißen.
 
 Einen tieferen Einblick in alle Modifikatoren, die in den Blockzustand-Dateien verfügbar sind, findest du auf der Seite [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
+
 :::
 
 Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Datei ist der Ort, an dem sich die Magie abspielt - Säulenblöcke haben drei Achsen, daher werden wir für die folgenden Situationen spezielle Modelle verwenden:
@@ -66,11 +68,11 @@ Dieses Beispiel wird eine einzigartiges boolesche Eigenschaft mit dem Namen `act
 
 ### Die Eigenschaft erstellen {#creating-the-property}
 
-Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.of` verwendet.
+Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.create` verwendet.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Als Nächstes müssen wir die Eigenschaft mit der Methode `appendProperties` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
+Als Nächstes müssen wir die Eigenschaft mit der Methode `createBlockStateDefinition` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,9 +82,9 @@ Außerdem musst du im Konstruktor deines benutzerdefinierten Blocks einen Standa
 
 ### Die Eigenschaft nutzen {#using-the-property}
 
-In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `onUse` überschreiben:
+In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `useWithoutItem` überschreiben:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
 ### Die Eigenschaft visualisieren {#visualizing-the-property}
 
@@ -98,15 +100,17 @@ Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kom
 
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/blockstates/prismarine_lamp.json)
+@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
-:::tip
-Vergiss nicht eine [Item-Model Beschreibung](../items/first-item#creating-the-item-model-description) für den Block zu erstellen, damit er im Inventar angezeigt wird!
+::: tip
+
+Vergiss nicht ein [Client Item](../items/first-item#creating-the-client-item) für den Block zu erstellen, damit es im Inventar angezeigt wird!
+
 :::
 
 Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür sorgen, dass sie Licht ausstrahlt, wenn die Eigenschaft `activated` true ist. Dies kann über die Blockeinstellungen erfolgen, die bei der Registrierung des Blocks an den Konstruktor übergeben werden.
 
-Du kannst die `luminance`-Methode verwenden, um die vom Block ausgestrahlte Lichtstärke einzustellen. Wir können eine statische Methode in der `PrismarineLampBlock`-Klasse erstellen, um die Lichtstärke auf der Grundlage der `activated`-Eigenschaft zurückzugeben, und sie als Methodenreferenz an die `luminance`-Methode übergeben:
+Du kannst die Methode `lightLevel` verwenden, um die vom Block ausgestrahlte Lichtstärke einzustellen. Wir können eine statische Methode in der Klasse `PrismarineLampBlock` erstellen, um die Lichtstärke auf der Grundlage der Eigenschaft `activated` zurückzugeben, und sie als Methodenreferenz an die Methode `lightLevel` übergeben:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
