@@ -44,9 +44,9 @@ For example, if we assume a 200 FPS scenario, the game runs a new tick roughly e
 | `10`  | `9/10 = 0.9`               |
 | `11`  | `1`: New tick              |
 
-In practice, you should only use `gameTimeDeltaPartialTick` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMillis()`, which measures real-world time.
-
 You can retrieve `gameTimeDeltaPartialTick` by calling `deltaTracker.getGameTimeDeltaPartialTick(false)`, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
+
+In practice, you should only use `gameTimeDeltaPartialTick` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMillis()`, which measures real-world time.
 
 In this example, we'll use `Util.getMillis()` to linearly interpolate the color of a square that is being rendered to the HUD.
 
