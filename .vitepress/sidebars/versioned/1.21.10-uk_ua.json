@@ -75,7 +75,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/uk_ua/develop/items/custom-item-groups"
+          "link": "/uk_ua/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/uk_ua/develop/rendering/draw-context"
+          "link": "/uk_ua/develop/rendering/gui-graphics"
         },
         {
           "text": "Промальовування у HUD",

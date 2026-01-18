@@ -170,4 +170,13 @@ export namespace Fabric {
   }
 
   export type Config = UserConfig<ThemeConfig> & Versioned.Config;
+
+  export type RedirectRules = {
+    from: string | RegExp;
+    dest: string;
+    /**
+     * @default "*"
+     */
+    appliesTo?: string;
+  }[];
 }
