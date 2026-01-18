@@ -31,7 +31,7 @@ The `DeltaTracker` class allows you to retrieve the current `gameTimeDeltaPartia
 For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `gameTimeDeltaPartialTick` represents how far we are between the last tick and the next. Over 11 frames, you might see:
 
 | Frame | `gameTimeDeltaPartialTick` |
-|:-----:|----------------------------|
+| :---: | -------------------------- |
 |  `1`  | `1`: New tick              |
 |  `2`  | `1/10 = 0.1`               |
 |  `3`  | `2/10 = 0.2`               |
