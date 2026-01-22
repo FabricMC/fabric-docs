@@ -6,10 +6,8 @@ import { computed } from "vue";
 import { Fabric } from "../../types";
 
 const data = useData();
-
 const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
 const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
-
 const urls = computed(() =>
   data.localeIndex.value === "root"
     ? {
@@ -30,22 +28,20 @@ const urls = computed(() =>
 <template>
   <div class="not-found">
     <code>{{ options.code }}</code>
-    <h1>{{ options.title.toUpperCase() }}</h1>
+    <h1>{{ options.title.toLocaleUpperCase(data.lang.value) }}</h1>
     <blockquote>{{ options.quote }}</blockquote>
 
-    <div>
-      <VPLink :href="urls.home" :aria-label="options.linkLabel">
-        {{ options.linkText }}
-      </VPLink>
-      <br />
-      <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
-        {{ options.englishLinkText }}
-      </VPLink>
-      <br />
-      <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
-        {{ options.crowdinLinkText }}
-      </VPLink>
-    </div>
+    <VPLink :href="urls.home" :aria-label="options.linkLabel">
+      {{ options.linkText }}
+    </VPLink>
+    <br />
+    <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
+      {{ options.englishLinkText }}
+    </VPLink>
+    <br />
+    <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
+      {{ options.crowdinLinkText }}
+    </VPLink>
   </div>
 </template>
 
@@ -53,6 +49,8 @@ const urls = computed(() =>
 .not-found {
   padding: 64px 24px 96px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
