@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 import { Fabric } from "../../types";
 
@@ -23,25 +23,241 @@ const urls = computed(() =>
         crowdin: `https://crowdin.com/project/fabricmc/${options.value.crowdinLocale}`,
       }
 );
+
+const root = ref<HTMLElement>();
+const ball = ref<HTMLCanvasElement>();
+const thread = ref<HTMLElement>();
+const content = ref<HTMLElement>();
+
+let animationFrame = 0;
+let isBallRolling: boolean = true;
+let values: ReturnType<typeof getValues>;
+
+const getValues = () => {
+  const vw = Math.max(document.documentElement.clientWidth, window.innerWidth);
+  const { width, height } = root.value!.getBoundingClientRect();
+  const bWidth = Math.min(Math.max(vw * 0.5, 160), vw * 0.75);
+  const pixels = Math.max(5, Math.min(30, Math.floor(bWidth / TEXTURE.length)));
+
+  return {
+    bStartX: -(TEXTURE.length * pixels) - 32,
+    bEndX: width + 32,
+    bTop: (height - TEXTURE.length * pixels) / 2,
+    px: pixels,
+    tTop: (height - TEXTURE.length * pixels) / 2 + 12 * pixels,
+    tMaxWidth: width,
+  };
+};
+
+const drawBall = (b: HTMLCanvasElement) => {
+  b.width = b.height = TEXTURE.length;
+  b.style.width = b.style.height = `${TEXTURE.length * values.px}px`;
+  b.style.zIndex = "1";
+  b.style.imageRendering = "pixelated";
+  b.style.position = "absolute";
+  b.style.top = `${values.bTop}px`;
+  b.style.left = "0px";
+  b.style.transform = `translateX(${values.bStartX}px) rotate(0deg)`;
+  b.style.display = "block";
+
+  const context = b.getContext("2d", { alpha: true })!;
+  context.imageSmoothingEnabled = false;
+  context.clearRect(0, 0, b.width, b.height);
+
+  for (let x = 0; x < TEXTURE.length; x++) {
+    for (let y = 0; y < TEXTURE[x].length; y++) {
+      const color = COLORS[TEXTURE[y][x]];
+      if (!color) continue;
+      context.fillStyle = color;
+      context.fillRect(x, y, 1, 1);
+    }
+  }
+};
+
+const drawThread = (t: HTMLElement) => {
+  const pattern = document.createElement("canvas");
+  pattern.width = TEXTURE.length;
+  pattern.height = 1;
+
+  const context = pattern.getContext("2d", { alpha: true })!;
+  context.imageSmoothingEnabled = false;
+
+  for (let x = 0; x < TEXTURE.length; x++) {
+    context.fillStyle = COLORS[Math.floor(Math.random() * (COLORS.length - 1) + 1)]!;
+    context.fillRect(x, 0, 1, 1);
+  }
+
+  t.style.backgroundImage = `url(${pattern.toDataURL()})`;
+  t.style.backgroundRepeat = "repeat-x";
+  t.style.backgroundSize = `${values.px * TEXTURE.length}px ${values.px}px`;
+  t.style.top = `${values.tTop}px`;
+  t.style.left = `0px`;
+  t.style.height = `${values.px}px`;
+  t.style.width = `${isBallRolling ? 0 : values.tMaxWidth}px`;
+  t.style.imageRendering = "pixelated";
+  t.style.position = "absolute";
+};
+
+const startAnimation = () => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  values = getValues();
+
+  drawBall(ball.value!);
+  drawThread(thread.value!);
+
+  // hide content initially
+  content.value!.style.opacity = "0";
+  content.value!.style.pointerEvents = "none";
+  content.value!.setAttribute("aria-hidden", "true");
+
+  const rootRect = root.value!.getBoundingClientRect();
+  const cRect = content.value!.getBoundingClientRect();
+  const cMiddleX = cRect.left - rootRect.left + cRect.width / 2;
+
+  // start rolling the ball
+  const duration = Math.max(600, (values.bEndX - values.bStartX) / 0.3);
+  const startTime = performance.now();
+  isBallRolling = true;
+
+  const step = (now: number) => {
+    if (!isBallRolling) return;
+
+    const time = Math.min(1, Math.max(0, now - startTime) / duration);
+
+    const bStartXNow =
+      values.bStartX + (values.bEndX - values.bStartX) * (1 - Math.pow(1 - time, 3));
+    const bMiddleXNow = bStartXNow + (TEXTURE.length * values.px) / 2;
+
+    thread.value!.style.width = `${Math.min(values.tMaxWidth, bMiddleXNow)}px`;
+
+    // show content when the ball crosses the midpoint
+    if (bMiddleXNow >= cMiddleX && content.value!.style.opacity === "0") {
+      content.value!.style.opacity = "1";
+      content.value!.style.pointerEvents = "auto";
+      content.value!.setAttribute("aria-hidden", "false");
+    }
+
+    const bCircumference = 2 * Math.PI * ((TEXTURE.length * values.px) / 2);
+    const bRotationDeg = ((bStartXNow - values.bStartX) / bCircumference) * 360;
+    ball.value!.style.transform = `translateX(${bStartXNow}px) translateZ(0) rotate(${bRotationDeg}deg)`;
+
+    if (time < 1) {
+      animationFrame = requestAnimationFrame(step);
+    } else {
+      isBallRolling = false;
+      ball.value!.style.display = "none";
+    }
+  };
+
+  animationFrame = requestAnimationFrame(step);
+};
+
+let handleResizeTimeout: number | null = null;
+const handleResize = () => {
+  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
+  values = getValues();
+  handleResizeTimeout = window.setTimeout(() => {
+    if (isBallRolling) return;
+    // even after the animation, thread must fill the width
+    drawThread(thread.value!);
+  }, 100);
+};
+
+onMounted(async () => {
+  await nextTick();
+  window.addEventListener("resize", handleResize);
+
+  if (document.readyState === "complete") {
+    startAnimation();
+  } else {
+    const onLoad = () => {
+      startAnimation();
+      window.removeEventListener("load", onLoad);
+    };
+    window.addEventListener("load", onLoad);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (animationFrame) cancelAnimationFrame(animationFrame);
+  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
+  window.removeEventListener("resize", handleResize);
+  animationFrame = 0;
+  isBallRolling = false;
+});
+
+// extracted from https://github.com/FabricMC/community/blob/57106dcfe85da0f9209b327d19f4e206abd10d76/media/unascribed/png/yarn.png
+const COLORS = [
+  null,
+  "#051842",
+  "#2A6CD9",
+  "#388BF6",
+  "#337FEC",
+  "#235DC0",
+  "#2666CA",
+  "#2764CF",
+  "#1A49A6",
+  "#041439",
+  "#2059BB",
+  "#1847A9",
+  "#1D51B2",
+  "#15409E",
+  "#235CC1",
+  "#123789",
+  "#2A6CD3",
+  "#2E76DD",
+  "#1C4EAE",
+  "#04153C",
+  "#3D95FF",
+  "#1844A0",
+  "#1C4FB1",
+  "#1947A7",
+  "#143C94",
+  "#031133",
+] as const;
+
+const TEXTURE = [
+  [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 1, 2, 3, 4, 2, 1, 1, 0, 0, 0],
+  [0, 0, 1, 4, 3, 2, 3, 4, 2, 5, 6, 1, 0, 0],
+  [0, 1, 4, 4, 4, 3, 2, 4, 3, 2, 5, 6, 1, 0],
+  [0, 1, 3, 3, 3, 4, 2, 4, 3, 2, 5, 6, 1, 0],
+  [1, 7, 7, 7, 4, 3, 2, 4, 3, 2, 5, 8, 8, 9],
+  [1, 3, 3, 3, 7, 7, 2, 3, 4, 2, 8, 10, 11, 9],
+  [1, 4, 4, 4, 4, 4, 2, 3, 4, 2, 12, 12, 13, 9],
+  [1, 7, 7, 7, 3, 3, 2, 3, 4, 14, 10, 15, 15, 9],
+  [0, 1, 3, 4, 7, 7, 2, 16, 17, 18, 15, 13, 19, 0],
+  [0, 1, 20, 3, 4, 2, 17, 16, 18, 10, 13, 11, 19, 0],
+  [0, 0, 1, 3, 16, 14, 6, 5, 21, 13, 11, 19, 0, 0],
+  [0, 0, 0, 19, 25, 17, 22, 23, 24, 25, 19, 0, 0, 0],
+  [0, 0, 0, 0, 0, 19, 19, 19, 19, 0, 0, 0, 0, 0],
+] as const;
 </script>
 
 <template>
-  <div class="not-found">
-    <code>{{ options.code }}</code>
-    <h1>{{ options.title.toLocaleUpperCase(data.lang.value) }}</h1>
-    <blockquote>{{ options.quote }}</blockquote>
+  <div class="not-found" ref="root" aria-live="polite">
+    <div class="yarn" aria-hidden="true">
+      <canvas ref="ball" />
+      <div ref="thread" />
+    </div>
 
-    <VPLink :href="urls.home" :aria-label="options.linkLabel">
-      {{ options.linkText }}
-    </VPLink>
-    <br />
-    <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
-      {{ options.englishLinkText }}
-    </VPLink>
-    <br />
-    <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
-      {{ options.crowdinLinkText }}
-    </VPLink>
+    <div ref="content" aria-hidden="false">
+      <code>{{ options.code }}</code>
+      <h1>{{ options.title.toLocaleUpperCase(data.lang.value) }}</h1>
+      <blockquote>{{ options.quote }}</blockquote>
+
+      <VPLink :href="urls.home" :aria-label="options.linkLabel">
+        {{ options.linkText }}
+      </VPLink>
+      <br />
+      <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
+        {{ options.englishLinkText }}
+      </VPLink>
+      <br />
+      <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
+        {{ options.crowdinLinkText }}
+      </VPLink>
+    </div>
   </div>
 </template>
 
@@ -57,6 +273,16 @@ const urls = computed(() =>
   .not-found {
     padding: 96px 32px 168px;
   }
+}
+
+.yarn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
 }
 
 code {

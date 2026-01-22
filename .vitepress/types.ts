@@ -107,7 +107,7 @@ export namespace Fabric {
     /**
      * Set custom not found description.
      *
-     * @default "This page tried to swim in lava"
+     * @default "This page got tangled in the yarn"
      */
     quote: string;
 
