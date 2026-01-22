@@ -1,8 +1,10 @@
 package com.example.docs.item;
 
+import java.util.List;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -22,10 +24,12 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
@@ -36,6 +40,7 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.block.ModBlocks;
 import com.example.docs.component.ModComponents;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
@@ -105,6 +110,39 @@ public class ModItems {
 	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.title(Component.translatable("itemGroup.example-mod"))
+			.displayItems((params, output) -> {
+				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
+				output.accept(ModItems.POISONOUS_APPLE);
+				// :::9
+				output.accept(ModItems.GUIDITE_SWORD);
+				output.accept(ModItems.GUIDITE_HELMET);
+				output.accept(ModItems.GUIDITE_BOOTS);
+				output.accept(ModItems.GUIDITE_LEGGINGS);
+				output.accept(ModItems.GUIDITE_CHESTPLATE);
+				output.accept(ModItems.LIGHTNING_STICK);
+				// :::9
+
+				// The tab builder also accepts Blocks
+				output.accept(ModBlocks.CONDENSED_OAK_LOG);
+				output.accept(ModBlocks.PRISMARINE_LAMP);
+				// :::9
+				output.accept(ModBlocks.COUNTER_BLOCK);
+				output.accept(ModBlocks.ENGINE_BLOCK);
+				output.accept(ModBlocks.RUBY_BLOCK);
+				output.accept(ModBlocks.RUBY_STAIRS);
+				output.accept(ModBlocks.RUBY_SLAB);
+				output.accept(ModBlocks.RUBY_FENCE);
+				output.accept(ModBlocks.RUBY_DOOR);
+				output.accept(ModBlocks.RUBY_TRAPDOOR);
+				output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
+				// :::9
+
+				// And custom ItemStacks
+				ItemStack stack = new ItemStack(Items.SEA_PICKLE);
+				stack.set(DataComponents.ITEM_NAME, Component.literal("Pickle Rick"));
+				stack.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("I'm pickle riiick!!"))));
+				output.accept(stack);
+			})
 			.build();
 	// :::9
 	// :::5
@@ -206,19 +244,6 @@ public class ModItems {
 		// :::_12
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
-
-		// Register items to the custom item group.
-		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE);
-			itemGroup.accept(ModItems.POISONOUS_APPLE);
-			itemGroup.accept(ModItems.GUIDITE_SWORD);
-			itemGroup.accept(ModItems.GUIDITE_HELMET);
-			itemGroup.accept(ModItems.GUIDITE_BOOTS);
-			itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
-			itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
-			itemGroup.accept(ModItems.LIGHTNING_STICK);
-			// ...
-		});
 		// :::_12
 
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
