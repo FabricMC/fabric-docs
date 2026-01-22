@@ -111,37 +111,37 @@ public class ModItems {
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.title(Component.translatable("itemGroup.example-mod"))
 			.displayItems((params, output) -> {
-					output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
-					output.accept(ModItems.POISONOUS_APPLE);
-					// :::9
-					output.accept(ModItems.GUIDITE_SWORD);
-					output.accept(ModItems.GUIDITE_HELMET);
-					output.accept(ModItems.GUIDITE_BOOTS);
-					output.accept(ModItems.GUIDITE_LEGGINGS);
-					output.accept(ModItems.GUIDITE_CHESTPLATE);
-					output.accept(ModItems.LIGHTNING_STICK);
-					// :::9
+				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
+				output.accept(ModItems.POISONOUS_APPLE);
+				// :::9
+				output.accept(ModItems.GUIDITE_SWORD);
+				output.accept(ModItems.GUIDITE_HELMET);
+				output.accept(ModItems.GUIDITE_BOOTS);
+				output.accept(ModItems.GUIDITE_LEGGINGS);
+				output.accept(ModItems.GUIDITE_CHESTPLATE);
+				output.accept(ModItems.LIGHTNING_STICK);
+				// :::9
 
-					// The tab builder also accepts Blocks
-					output.accept(ModBlocks.CONDENSED_OAK_LOG);
-					output.accept(ModBlocks.PRISMARINE_LAMP);
-					// :::9
-					output.accept(ModBlocks.COUNTER_BLOCK);
-					output.accept(ModBlocks.ENGINE_BLOCK);
-					output.accept(ModBlocks.RUBY_BLOCK);
-					output.accept(ModBlocks.RUBY_STAIRS);
-					output.accept(ModBlocks.RUBY_SLAB);
-					output.accept(ModBlocks.RUBY_FENCE);
-					output.accept(ModBlocks.RUBY_DOOR);
-					output.accept(ModBlocks.RUBY_TRAPDOOR);
-					output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
-					// :::9
+				// The tab builder also accepts Blocks
+				output.accept(ModBlocks.CONDENSED_OAK_LOG);
+				output.accept(ModBlocks.PRISMARINE_LAMP);
+				// :::9
+				output.accept(ModBlocks.COUNTER_BLOCK);
+				output.accept(ModBlocks.ENGINE_BLOCK);
+				output.accept(ModBlocks.RUBY_BLOCK);
+				output.accept(ModBlocks.RUBY_STAIRS);
+				output.accept(ModBlocks.RUBY_SLAB);
+				output.accept(ModBlocks.RUBY_FENCE);
+				output.accept(ModBlocks.RUBY_DOOR);
+				output.accept(ModBlocks.RUBY_TRAPDOOR);
+				output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
+				// :::9
 
-					// And custom ItemStacks
-					ItemStack stack = new ItemStack(Items.SEA_PICKLE);
-					stack.set(DataComponents.ITEM_NAME, Component.literal("Pickle Rick"));
-					stack.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("I'm pickle riiick!!"))));
-					output.accept(stack);
+				// And custom ItemStacks
+				ItemStack stack = new ItemStack(Items.SEA_PICKLE);
+				stack.set(DataComponents.ITEM_NAME, Component.literal("Pickle Rick"));
+				stack.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("I'm pickle riiick!!"))));
+				output.accept(stack);
 			})
 			.build();
 	// :::9
