@@ -159,7 +159,7 @@ public class ModBlocks {
 
 	public static void setupItemGroups() {
 		// :::6
-		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register((itemGroup) -> {
 			itemGroup.accept(ModBlocks.CONDENSED_DIRT.asItem());
 		});
 		// :::6
