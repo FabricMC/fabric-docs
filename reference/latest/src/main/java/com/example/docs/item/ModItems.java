@@ -105,6 +105,17 @@ public class ModItems {
 	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.title(Component.translatable("itemGroup.example-mod"))
+			.displayItems((params, output) -> {
+					output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
+					output.accept(ModItems.POISONOUS_APPLE);
+					output.accept(ModItems.GUIDITE_SWORD);
+					output.accept(ModItems.GUIDITE_HELMET);
+					output.accept(ModItems.GUIDITE_BOOTS);
+					output.accept(ModItems.GUIDITE_LEGGINGS);
+					output.accept(ModItems.GUIDITE_CHESTPLATE);
+					output.accept(ModItems.LIGHTNING_STICK);
+					// ...
+			})
 			.build();
 	// :::9
 	// :::5
@@ -206,19 +217,6 @@ public class ModItems {
 		// :::_12
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
-
-		// Register items to the custom item group.
-		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE);
-			itemGroup.accept(ModItems.POISONOUS_APPLE);
-			itemGroup.accept(ModItems.GUIDITE_SWORD);
-			itemGroup.accept(ModItems.GUIDITE_HELMET);
-			itemGroup.accept(ModItems.GUIDITE_BOOTS);
-			itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
-			itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
-			itemGroup.accept(ModItems.LIGHTNING_STICK);
-			// ...
-		});
 		// :::_12
 
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
