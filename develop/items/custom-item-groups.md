@@ -2,6 +2,7 @@
 title: Custom Creative Tabs
 description: Learn how to create your own creative tab and add items to it.
 authors:
+  - CelDaemon
   - IMB11
 ---
 

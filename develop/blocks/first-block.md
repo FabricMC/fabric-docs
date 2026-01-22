@@ -2,6 +2,7 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
+  - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
