@@ -9,6 +9,7 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
@@ -28,7 +29,6 @@ import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
-import com.example.docs.item.ModItems;
 
 // :::1
 public class ModBlocks {
@@ -163,20 +163,6 @@ public class ModBlocks {
 			itemGroup.accept(ModBlocks.CONDENSED_DIRT.asItem());
 		});
 		// :::6
-
-		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-			itemGroup.accept(ModBlocks.CONDENSED_OAK_LOG.asItem());
-			itemGroup.accept(ModBlocks.PRISMARINE_LAMP.asItem());
-			itemGroup.accept(ModBlocks.COUNTER_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.RUBY_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.RUBY_STAIRS.asItem());
-			itemGroup.accept(ModBlocks.RUBY_SLAB.asItem());
-			itemGroup.accept(ModBlocks.RUBY_FENCE.asItem());
-			itemGroup.accept(ModBlocks.RUBY_DOOR.asItem());
-			itemGroup.accept(ModBlocks.RUBY_TRAPDOOR.asItem());
-			itemGroup.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB.asItem());
-		});
 	}
 
 	// :::1
