@@ -25,6 +25,8 @@ Lastly, create a constructor matching super.
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+
 ## Blockstates and Block Models {#blockstates-and-block-models}
 
 ```java

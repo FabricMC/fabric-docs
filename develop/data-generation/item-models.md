@@ -31,6 +31,8 @@ Then, create a constructor matching `super`.
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+
 ## Built-In Item Models {#built-in}
 
 For item models, we will be using the `generateItemModels` method. Its parameter `ItemModelGenerators itemModelGenerator` is responsible for generating the item models and also contains methods for doing so.
