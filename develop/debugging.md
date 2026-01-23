@@ -102,11 +102,11 @@ public class TestItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        Level world = context.getLevel();
+        Level level = context.getLevel();
         Player user = context.getPlayer();
         BlockPos targetPos = context.getBlockPos();
         ItemStack itemStack = context.getItemInHand();
-        BlockState state = world.getBlockState(targetPos);
+        BlockState state = level.getBlockState(targetPos);
 
         if (state.is(ConventionalBlockTags.STONES)) {
             Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));

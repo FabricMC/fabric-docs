@@ -42,7 +42,7 @@ public class VerticalSlabBlock extends Block {
 
 	// :::custom-collision
 	@Override
-	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter world, BlockPos pos) {
+	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
 		boolean type = state.getValue(SINGLE);
 		Direction direction = state.getValue(FACING);
 		VoxelShape voxelShape;
@@ -63,13 +63,13 @@ public class VerticalSlabBlock extends Block {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return this.getBlockSupportShape(state, world, pos);
+	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, level, pos);
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return this.getBlockSupportShape(state, world, pos);
+	protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, level, pos);
 	}
 
 	// :::custom-collision

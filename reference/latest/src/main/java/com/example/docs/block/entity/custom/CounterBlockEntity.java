@@ -69,7 +69,7 @@ public class CounterBlockEntity extends BlockEntity {
 	// :::4
 
 	// :::5
-	public static void tick(Level world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
+	public static void tick(Level level, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
 

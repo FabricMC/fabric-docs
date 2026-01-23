@@ -41,20 +41,20 @@ public class EngineBlock extends BaseEntityBlock {
 
 	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return createTickerHelper(type, ModBlockEntities.ENGINE_BLOCK_ENTITY, EngineBlockEntity::tick);
 	}
 
 	@Override
-	protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
-		if (!(world.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity)) {
-			return super.useWithoutItem(state, world, pos, player, hit);
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+		if (!(level.getBlockEntity(pos) instanceof EngineBlockEntity engineBlockEntity)) {
+			return super.useWithoutItem(state, level, pos, player, hit);
 		}
 
 		if (player.getMainHandItem().is(ItemTags.COALS)) {
 			if (engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() + 40)) {
 				player.getMainHandItem().consume(1, player);
-				playSound(world, SoundEvents.AXE_STRIP, pos);
+				playSound(level, SoundEvents.AXE_STRIP, pos);
 				return InteractionResult.SUCCESS;
 			}
 
@@ -64,7 +64,7 @@ public class EngineBlock extends BaseEntityBlock {
 				engineBlockEntity.setNormalizedStress(engineBlockEntity.getNormalizedStress() + 0.2f);
 				return InteractionResult.SUCCESS;
 			} else if (engineBlockEntity.getFuel() > 0) {
-				playSound(world, SoundEvents.LEVER_CLICK, pos);
+				playSound(level, SoundEvents.LEVER_CLICK, pos);
 				engineBlockEntity.turnOn();
 				return InteractionResult.SUCCESS;
 			}
@@ -73,8 +73,8 @@ public class EngineBlock extends BaseEntityBlock {
 		return InteractionResult.PASS;
 	}
 
-	private static void playSound(Level world, SoundEvent soundEvent, BlockPos pos) {
-		if (world.isClientSide()) return;
-		world.playSound(null, pos, soundEvent, SoundSource.BLOCKS, 0.8f, 1f);
+	private static void playSound(Level level, SoundEvent soundEvent, BlockPos pos) {
+		if (level.isClientSide()) return;
+		level.playSound(null, pos, soundEvent, SoundSource.BLOCKS, 0.8f, 1f);
 	}
 }

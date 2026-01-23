@@ -183,7 +183,7 @@ public class ModItems {
 
 	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
 		@Override
-		public InteractionResult use(Level world, Player user, InteractionHand hand) {
+		public InteractionResult use(Level level, Player user, InteractionHand hand) {
 			user.startUsingItem(hand);
 			return InteractionResult.CONSUME;
 		}

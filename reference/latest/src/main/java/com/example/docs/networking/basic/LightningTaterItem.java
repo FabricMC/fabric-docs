@@ -18,14 +18,14 @@ public class LightningTaterItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player user, InteractionHand hand) {
-		if (world.isClientSide()) {
+	public InteractionResult use(Level level, Player user, InteractionHand hand) {
+		if (level.isClientSide()) {
 			return InteractionResult.PASS;
 		}
 
 		SummonLightningS2CPayload payload = new SummonLightningS2CPayload(user.blockPosition());
 
-		for (ServerPlayer player : PlayerLookup.world((ServerLevel) world)) {
+		for (ServerPlayer player : PlayerLookup.world((ServerLevel) level)) {
 			ServerPlayNetworking.send(player, payload);
 		}
 

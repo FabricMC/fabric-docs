@@ -64,7 +64,7 @@ Next, we need to increment this field every time the block is right-clicked. Thi
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Since the `BlockEntity` is not passed into the method, we use `world.getBlockEntity(pos)`, and if the `BlockEntity` is not valid, return from the method.
+Since the `BlockEntity` is not passed into the method, we use `level.getBlockEntity(pos)`, and if the `BlockEntity` is not valid, return from the method.
 
 !["You've clicked the block for the 6th time" message on screen after right-clicking](/assets/develop/blocks/block_entities_1.png)
 

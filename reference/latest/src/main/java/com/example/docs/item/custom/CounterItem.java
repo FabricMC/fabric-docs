@@ -25,11 +25,11 @@ public class CounterItem extends Item {
 
 	@Override
 	//::2
-	public InteractionResult use(Level world, Player user, InteractionHand hand) {
+	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		ItemStack stack = user.getItemInHand(hand);
 
 		// Don't do anything on the client
-		if (world.isClientSide()) {
+		if (level.isClientSide()) {
 			return InteractionResult.SUCCESS;
 		}
 
