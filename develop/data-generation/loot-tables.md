@@ -3,6 +3,7 @@ title: Loot Table Generation
 description: A guide to setting up loot table generation with datagen.
 authors:
   - Alphagamer47
+  - CelDaemon
   - JustinHuPrime
   - matthewperiut
   - skycatminepokie

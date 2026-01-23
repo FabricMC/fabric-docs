@@ -2,6 +2,7 @@
 title: Custom Enchantment Effects
 description: Learn how to create your enchantment effects.
 authors:
+  - CelDaemon
   - krizh-p
 ---
 

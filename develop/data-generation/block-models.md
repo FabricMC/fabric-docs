@@ -2,6 +2,7 @@
 title: Block Model Generation
 description: A guide to generating block models and blockstates via datagen.
 authors:
+  - CelDaemon
   - Fellteros
   - IMB11
   - its-miroma

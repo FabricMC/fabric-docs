@@ -2,6 +2,7 @@
 title: Translation Generation
 description: A guide to setting up translation generation with datagen.
 authors:
+  - CelDaemon
   - IMB11
   - MattiDragon
   - skycatminepokie
