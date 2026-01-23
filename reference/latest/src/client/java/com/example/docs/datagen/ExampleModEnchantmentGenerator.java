@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.enchantment.ModEnchantments;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -14,54 +16,53 @@ import net.minecraft.world.item.enchantment.LevelBasedValue;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 
-import com.example.docs.enchantment.ModEnchantmentEffects;
 import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
 
-//#entrypoint
+// :::provider
 public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvider {
 	public ExampleModEnchantmentGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
-		System.out.println("REGISTERING ENCHANTS");
 	}
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
-		// Our new enchantment, "Thundering."
-		register(entries, ModEnchantmentEffects.THUNDERING, Enchantment.enchantment(
-				Enchantment.definition(
-					registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-					// this is the "weight" or probability of our enchantment showing up in the table
-					10,
-					// the maximum level of the enchantment
-					3,
-					// base cost for level 1 of the enchantment, and min levels required for something higher
-					Enchantment.dynamicCost(1, 10),
-					// same fields as above but for max cost
-					Enchantment.dynamicCost(1, 15),
-					// anvil cost
-					5,
-					// valid slots
-					EquipmentSlotGroup.HAND
+		// :::provider
+		// :::register-enchantment
+		register(entries, ModEnchantments.THUNDERING, Enchantment.enchantment(
+						Enchantment.definition(
+								registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+								10, // The weight / probability of our enchantment being available in the enchantment table
+								3, // The max level of the enchantment
+								Enchantment.dynamicCost(1, 10), // The base minimum cost of the enchantment, and the additional cost for every level
+								Enchantment.dynamicCost(1, 15), // Same as the other dynamic cost, but for the maximum
+								5, // The cost to apply the enchantment in an anvil, in levels
+								EquipmentSlotGroup.HAND // The slot types in which this enchantment will be able to apply its effects
+						)
 				)
-			)
-					.withEffect(
-						// enchantment occurs POST_ATTACK
-						EnchantmentEffectComponents.POST_ATTACK,
-						EnchantmentTarget.ATTACKER,
-						EnchantmentTarget.VICTIM,
-						new LightningEnchantmentEffect(LevelBasedValue.perLevel(0.4f, 0.2f)) // scale the enchantment linearly.
-					)
+				.withEffect(
+						EnchantmentEffectComponents.POST_ATTACK, // The type of effect to be applied
+						EnchantmentTarget.ATTACKER, // The target to be checked for the enchantment
+						EnchantmentTarget.VICTIM, // The target to apply the enchantment effect to
+						new LightningEnchantmentEffect(LevelBasedValue.perLevel(0.4f, 0.2f))
+				)
 		);
+		// :::register-enchantment
+		// :::provider
 	}
 
-	private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {
-		entries.add(key, builder.build(key.identifier()), resourceConditions);
+	// :::provider
+  // :::register
+	private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
+		entries.add(key, builder.build(key.identifier()));
 	}
+	// :::register
+
+	// :::provider
 
 	@Override
 	public String getName() {
-		return "ExampleModEnchantmentGenerator";
+		return "Enchantments";
 	}
 }
+// :::provider

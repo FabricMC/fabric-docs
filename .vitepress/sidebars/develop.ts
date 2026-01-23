@@ -267,6 +267,10 @@ export default [
             text: "develop.data_generation.loot_tables",
             link: "/develop/data-generation/loot-tables",
           },
+          {
+            text: "develop.data_generation.enchantments",
+            link: "/develop/data-generation/enchantments",
+          }
         ],
       },
     ],
