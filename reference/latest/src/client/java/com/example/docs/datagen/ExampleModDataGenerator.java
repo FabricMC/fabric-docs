@@ -22,9 +22,9 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		// :::datagen-setup:pack
 
-		// :::custom-enchantments:register-generator
+		// :::datagen-enchantments:register
 		pack.addProvider(ExampleModEnchantmentGenerator::new);
-		// :::custom-enchantments:register-generator
+		// :::datagen-enchantments:register
 
 		// :::datagen-advancements:register
 		pack.addProvider(ExampleModAdvancementProvider::new);
