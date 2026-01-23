@@ -154,7 +154,7 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/1.21.10/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining level tag.
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresCorrectToolForDrops()` to your block settings, as well as add the appropriate mining level tag.
 
 ## Mining Levels {#mining-levels}
 
