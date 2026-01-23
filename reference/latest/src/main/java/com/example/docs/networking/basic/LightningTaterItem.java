@@ -13,8 +13,8 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 
 // :::lightning_tater_item
 public class LightningTaterItem extends Item {
-	public LightningTaterItem(Properties settings) {
-		super(settings);
+	public LightningTaterItem(Properties properties) {
+		super(properties);
 	}
 
 	@Override

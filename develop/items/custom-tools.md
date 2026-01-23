@@ -38,7 +38,7 @@ Using the same utility function as in the [Creating Your First Item](./first-ite
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
-Remember to add them to an item group if you want to access them from the creative inventory!
+Remember to add them to a creative tab if you want to access them from the creative inventory!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

@@ -50,20 +50,20 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::3
 	@Override
-	protected void saveAdditional(ValueOutput writeView) {
-		writeView.putInt("clicks", clicks);
+	protected void saveAdditional(ValueOutput output) {
+		output.putInt("clicks", clicks);
 
-		super.saveAdditional(writeView);
+		super.saveAdditional(output);
 	}
 
 	// :::3
 
 	// :::4
 	@Override
-	protected void loadAdditional(ValueInput readView) {
-		super.loadAdditional(readView);
+	protected void loadAdditional(ValueInput input) {
+		super.loadAdditional(input);
 
-		clicks = readView.getIntOr("clicks", 0);
+		clicks = input.getIntOr("clicks", 0);
 	}
 
 	// :::4

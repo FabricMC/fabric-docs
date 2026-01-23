@@ -64,7 +64,7 @@ To automatically create the block item, we can pass `true` to the `shouldRegiste
 
 ### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 
-Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
+Since the `BlockItem` is automatically created and registered, to add it to a creative tab, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
 For this example, we will add the block to the `BUILDING_BLOCKS` tab. To instead add the block to a custom creative tab, see [Custom Creative Tabs](../items/custom-item-groups).
 

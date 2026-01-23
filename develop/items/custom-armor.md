@@ -66,7 +66,7 @@ This is achieved by passing the `BASE_DURABILITY` constant we created previously
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-You will also need to **add the items to an item group** if you want them to be accessible from the creative inventory.
+You will also need to **add the items to a creative tab** if you want them to be accessible from the creative inventory.
 
 As with all items, you should create translation keys for them as well.
 

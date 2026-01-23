@@ -17,8 +17,8 @@ import com.example.docs.component.ModComponents;
 
 //::1
 public class CounterItem extends Item {
-	public CounterItem(Properties settings) {
-		super(settings);
+	public CounterItem(Properties properties) {
+		super(properties);
 	}
 
 	//::1

@@ -29,22 +29,22 @@ If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class would
 
 ## Creating the Block {#creating-the-block}
 
-Next, to actually use the block entity, we need a block that implements `BlockEntityProvider`. Let's create one and call it `CounterBlock`.
+Next, to actually use the block entity, we need a block that implements `EntityBlock`. Let's create one and call it `CounterBlock`.
 
 ::: tip
 
 There's two ways to approach this:
 
-- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method
-- create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
+- create a block that extends `BaseEntityBlock` and implement the `createBlockEntity` method
+- create a block that implements `EntityBlock` by itself and override the `createBlockEntity` method
 
-We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.
+We'll use the first approach in this example, since `BaseEntityBlock` also provides some nice utilities.
 
 :::
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Using `BlockWithEntity` as the parent class means we also need to implement the `createCodec` method, which is rather easy.
+Using `BaseEntityBlock` as the parent class means we also need to implement the `createCodec` method, which is rather easy.
 
 Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `createBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
 
@@ -72,9 +72,9 @@ Since the `BlockEntity` is not passed into the method, we use `world.getBlockEnt
 
 Now that we have a functional block, we should make it so that the counter doesn't reset between game restarts. This is done by serializing it into NBT when the game saves, and deserializing when it's loading.
 
-Saving to NBT is done through `ReadView`s and `WriteView`s. These views are responsible for storing errors from encoding/decoding, and keeping track of registries throughout the serialization process.
+Saving to NBT is done through `ValueInput`s and `ValueOutput`s. These views are responsible for storing errors from encoding/decoding, and keeping track of registries throughout the serialization process.
 
-You can read from a `ReadView` using the `read` method, passing in a `Codec` for the desired type. Likewise, you can write to a `WriteView` by using the `store` method, passing in a Codec for the type, and the value.
+You can read from a `ValueInput` using the `read` method, passing in a `Codec` for the desired type. Likewise, you can write to a `ValueOutput` by using the `store` method, passing in a Codec for the type, and the value.
 
 There are also methods for primitives, such as `getInt`, `getShort`, `getBoolean` etc. for reading and `putInt`, `putShort`, `putBoolean` etc. for writing. The View also provides methods for working with lists, nullable types, and nested objects.
 
@@ -82,9 +82,9 @@ Serialization is done with the `saveAdditional` method:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-Here, we add the fields that should be saved into the passed `WriteView`: in the case of the counter block, that's the `clicks` field.
+Here, we add the fields that should be saved into the passed `ValueOutput`: in the case of the counter block, that's the `clicks` field.
 
-Reading is similar, you get the values you saved previously from the `ReadView`, and save them in the BlockEntity's fields:
+Reading is similar, you get the values you saved previously from the `ValueInput`, and save them in the BlockEntity's fields:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -103,9 +103,9 @@ Now, when a player logs in or moves into a chunk where the block exists, they wi
 
 ## Tickers {#tickers}
 
-The `BlockEntityProvider` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
+The `EntityBlock` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
 
-The `getTicker` method should also check if the passed `BlockEntityType` is the same as the one we're using, and if it is, return the function that will be called every tick. Thankfully, there is a utility function that does the check in `BlockWithEntity`:
+The `getTicker` method should also check if the passed `BlockEntityType` is the same as the one we're using, and if it is, return the function that will be called every tick. Thankfully, there is a utility function that does the check in `BaseEntityBlock`:
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 

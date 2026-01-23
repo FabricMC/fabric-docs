@@ -18,8 +18,8 @@ import net.minecraft.world.level.Level;
 
 // :::1
 public class LightningStick extends Item {
-	public LightningStick(Properties settings) {
-		super(settings);
+	public LightningStick(Properties properties) {
+		super(properties);
 	}
 
 	// :::1
