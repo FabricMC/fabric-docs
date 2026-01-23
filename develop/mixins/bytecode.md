@@ -91,15 +91,15 @@ public int getX(int offset) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 public getX (I)I
-  aload 0  # this
+  aload 0  // this
   getfield x
-  iload 1  # offset
+  iload 1  // offset
   iadd
-  istore 2  # result
+  istore 2  // result
 
-  iload 2  # result
+  iload 2  // result
   ireturn
 ```
 
@@ -119,12 +119,12 @@ public static double add(double x, double y, double z) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static add (DDD)D
-  dload 0  # x
-  dload 2  # y
+  dload 0  // x
+  dload 2  // y
   dadd
-  dload 4  # z
+  dload 4  // z
   dadd
   dreturn
 ```
@@ -158,15 +158,15 @@ public int getX(int offset) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 public getX (I)I
-  aload 0  # this
+  aload 0  // this
   getfield x
-  iload 1  # offset
+  iload 1  // offset
   iadd
-  istore 2  # result
+  istore 2  // result
 
-  iload 2  # result
+  iload 2  // result
   ireturn
 ```
 
@@ -286,18 +286,18 @@ static String makeFoobar(boolean cond) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static makeFoobar (Z)Ljava/lang/String;
-  iload 0  # cond
+  iload 0  // cond
   ifeq L1
   ldc "foo"
-  astore 1  # result
+  astore 1  // result
   goto L2
 L1
   ldc "bar"
-  astore 1  # result
+  astore 1  // result
 L2
-  aload 1  # result
+  aload 1  // result
   areturn
 ```
 
@@ -326,11 +326,11 @@ static void doSomething(boolean cond1, boolean cond2) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static doSomething (ZZ)V
-  iload 0  # cond1
+  iload 0  // cond1
   ifeq L1
-  iload 1  # cond2
+  iload 1  // cond2
   ifeq L1
   getstatic System.out
   invokevirtual println
@@ -416,11 +416,11 @@ static Creeper createCreeper(Level level) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static createCreeper (Lnet/minecraft/world/level/Level;)Lnet/mineraft/world/entity/monster/Creeper;
   new net/minecraft/world/entity/monster/Creeper
   dup
-  aload 0  # level
+  aload 0  // level
   invokespecial net/minecraft/world/entity/monster/Creeper.<init> (Lnet/minecraft/world/level/Level;)V
   areturn
 ```
@@ -513,12 +513,12 @@ static void hello() {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static hello ()V
   invokedynamic run ()Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 ()V
-  astore 0  # r
+  astore 0  // r
 
-  aload 0  # r
+  aload 0  // r
   invokeinterface run
 
   return
@@ -548,20 +548,20 @@ static void hello(String name) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static hello (Ljava/lang/String;)V
-  aload 0  # name
+  aload 0  // name
   invokedynamic run (Ljava/lang/String;)Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 (Ljava/lang/String;)V ()V
-  astore 1  # r
+  astore 1  // r
 
-  aload 1  # r
+  aload 1  // r
   invokeinterface run
 
   return
 
 static lambda$hello$1 (Ljava/lang/String;)V
   getstatic System.out
-  aload 0  # name
+  aload 0  // name
   invokedynamic makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; java/lang/invoke/StringConcatFactory.makeConcatWithConstants "Hello, \1!"
   invokevirtual println
 
