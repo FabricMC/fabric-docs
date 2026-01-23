@@ -24,6 +24,12 @@ For each item model we want to generate, we must create two separate JSON files:
 
 First, we will need to create our model provider.
 
+::: tip
+
+You can reuse the `FabricModelProvider` created in [Block Model Generation](./block-models#setup).
+
+:::
+
 Create a class that extends `FabricModelProvider`, and implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
 Then, create a constructor matching `super`.
 
