@@ -2,6 +2,7 @@
 title: Block Model Generation
 description: A guide to generating block models and blockstates via datagen.
 authors:
+  - CelDaemon
   - Fellteros
   - IMB11
   - its-miroma
@@ -24,6 +25,8 @@ Lastly, create a constructor matching super.
 @[code lang=java transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
+
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Blockstates and Block Models {#blockstates-and-block-models}
 

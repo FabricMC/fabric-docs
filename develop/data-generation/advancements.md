@@ -2,6 +2,7 @@
 title: Advancement Generation
 description: A guide to setting up advancement generation with datagen.
 authors:
+  - CelDaemon
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
@@ -26,7 +27,7 @@ First, we need to make our provider. Create a class that extends `FabricAdvancem
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Advancement Structure {#advancement-structure}
 

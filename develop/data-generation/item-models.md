@@ -2,6 +2,7 @@
 title: Item Model Generation
 description: A guide to generating item models via datagen.
 authors:
+  - CelDaemon
   - Fellteros
   - skycatminepokie
   - VatinMc
@@ -24,12 +25,20 @@ For each item model we want to generate, we must create two separate JSON files:
 
 First, we will need to create our model provider.
 
+::: tip
+
+You can reuse the `FabricModelProvider` created in [Block Model Generation](./block-models#setup).
+
+:::
+
 Create a class that extends `FabricModelProvider`, and implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
 Then, create a constructor matching `super`.
 
 @[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
+
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Built-In Item Models {#built-in}
 

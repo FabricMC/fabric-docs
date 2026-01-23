@@ -2,6 +2,7 @@
 title: Tag Generation
 description: A guide to setting up tag generation with datagen.
 authors:
+  - CelDaemon
   - IMB11
   - skycatminepokie
   - Spinoscythe
@@ -37,7 +38,7 @@ You will need a different provider for each type of tag (eg. one `FabricTagProvi
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Creating a Tag {#creating-a-tag}
 
