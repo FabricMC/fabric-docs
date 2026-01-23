@@ -18,26 +18,26 @@ import net.minecraft.world.level.Level;
 
 // :::1
 public class LightningStick extends Item {
-	public LightningStick(Properties settings) {
-		super(settings);
+	public LightningStick(Properties properties) {
+		super(properties);
 	}
 
 	// :::1
 	// :::2
 	@Override
-	public InteractionResult use(Level world, Player user, InteractionHand hand) {
+	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		// Ensure we don't spawn the lightning only on the client.
 		// This is to prevent desync.
-		if (world.isClientSide()) {
+		if (level.isClientSide()) {
 			return InteractionResult.PASS;
 		}
 
 		BlockPos frontOfPlayer = user.blockPosition().relative(user.getDirection(), 10);
 
 		// Spawn the lightning bolt.
-		LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT, world);
+		LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
 		lightningBolt.setPos(frontOfPlayer.getCenter());
-		world.addFreshEntity(lightningBolt);
+		level.addFreshEntity(lightningBolt);
 
 		return InteractionResult.SUCCESS;
 	}

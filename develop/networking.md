@@ -101,7 +101,7 @@ To send a packet with our custom payload, we can use `ServerPlayNetworking.send`
 and a `CustomPayload`.
 
 Let's start by creating our Lightning Tater item. You can override `use` to trigger an action when the item is used.
-In this case, let's send packets to the players in the server world.
+In this case, let's send packets to the players in the server level.
 
 @[code lang=java transcludeWith=:::lightning_tater_item](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -115,7 +115,7 @@ We create an instance of the payload with the user's position:
 
 @[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
-Finally, we get the players in the server world through `PlayerLookup` and send a packet to each player.
+Finally, we get the players in the server level through `PlayerLookup` and send a packet to each player.
 
 @[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -152,7 +152,7 @@ can be used to get the `x`, `y` and `z` positions.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Finally, we create a `LightningBolt` and add it to the world.
+Finally, we create a `LightningBolt` and add it to the level.
 
 @[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 

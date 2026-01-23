@@ -106,8 +106,8 @@ public class ModItems {
 	);
 	// :::_13
 	// :::9
-	public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item_group"));
-	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+	public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "creative_tab"));
+	public static final CreativeModeTab CUSTOM_CREATIVE_TAB = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
 			.title(Component.translatable("itemGroup.example-mod"))
 			.displayItems((params, output) -> {
@@ -183,7 +183,7 @@ public class ModItems {
 
 	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
 		@Override
-		public InteractionResult use(Level world, Player user, InteractionHand hand) {
+		public InteractionResult use(Level level, Player user, InteractionHand hand) {
 			user.startUsingItem(hand);
 			return InteractionResult.CONSUME;
 		}
@@ -243,10 +243,10 @@ public class ModItems {
 
 		// :::_12
 		// Register the group.
-		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
 		// :::_12
 
-		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
+		ItemGroupEvents.modifyEntriesEvent(CUSTOM_CREATIVE_TAB_KEY).register(itemGroup -> {
 			itemGroup.accept(ModItems.RUBY);
 			itemGroup.accept(ModItems.GUIDITE_AXE);
 			itemGroup.accept(ModItems.LEATHER_GLOVES);

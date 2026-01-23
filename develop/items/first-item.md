@@ -58,11 +58,11 @@ Calling a method on a class statically initializes it if it hasn't been previous
 
 ::: info
 
-If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+If you want to add the item to a custom `CreativeModeTab`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
 
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `CreativeModeTab`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 
@@ -155,7 +155,7 @@ Your item should now look like this in-game:
 
 Fabric API provides various registries that can be used to add additional properties to your item.
 
-For example, if you want to make your item compostable, you can use the `CompostableItemRegistry`:
+For example, if you want to make your item compostable, you can use the `CompostingChanceRegistry`:
 
 @[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
