@@ -1,0 +1,66 @@
+{
+  "anvil_cost": 5,
+  "description": {
+    "translate": "enchantment.example-mod.reverse_knockback"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "attacker",
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:apply_impulse",
+              "coordinate_scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "direction": [
+                0.0,
+                0.2,
+                -1.0
+              ],
+              "magnitude": {
+                "type": "minecraft:linear",
+                "base": 0.7,
+                "per_level_above_first": 0.2
+              }
+            },
+            {
+              "type": "minecraft:play_sound",
+              "pitch": 1.0,
+              "sound": "minecraft:item.spear.lunge_1",
+              "volume": 5.0
+            }
+          ]
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "condition": "minecraft:entity_properties",
+          "entity": "attacker",
+          "predicate": {
+            "flags": {
+              "is_flying": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 1,
+    "per_level_above_first": 15
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#minecraft:enchantable/weapon",
+  "weight": 10
+}
