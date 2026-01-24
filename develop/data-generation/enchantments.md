@@ -47,7 +47,7 @@ In this example, we will be using the enchantment effect created in [Custom Ench
 
 Now simply run data generation, and your new enchantment will be available in-game!
 
-## Enchantment Effect Conditions {#effect-conditions}
+## Effect Conditions {#effect-conditions}
 
 Most enchantment effect types are conditional effects. When adding these effects, it is possible to pass conditions to the `withEffect` call.
 
@@ -59,7 +59,7 @@ For an overview of the available condition types and their usage, see [the `Ench
 
 @[code transcludeWith=:::effect-conditions](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
-## Multiple Enchantment Effects {#multiple-enchantment-effects}
+## Multiple Effects {#multiple-effects}
 
 `withEffect` can be chained to add multiple enchantment effects to a single enchantment. However, this method requires you to specify the effect conditions for every effect.
 
