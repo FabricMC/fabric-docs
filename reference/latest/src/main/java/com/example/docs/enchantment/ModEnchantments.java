@@ -1,15 +1,16 @@
 package com.example.docs.enchantment;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.enchantment.Enchantment;
 
+import com.example.docs.ExampleMod;
+
 public class ModEnchantments {
 	/// :::register-enchantment
 	public static final ResourceKey<Enchantment> THUNDERING = register("thundering");
+	public static final ResourceKey<Enchantment> REVERSE_KNOCKBACK = register("reverse_knockback");
 	/// :::register-enchantment
 
 	// :::register-method

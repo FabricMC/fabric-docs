@@ -270,7 +270,7 @@ export default [
           {
             text: "develop.data_generation.enchantments",
             link: "/develop/data-generation/enchantments",
-          }
+          },
         ],
       },
     ],
