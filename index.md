@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric Documentation
-  tagline: The official curated documentation for Fabric,<br>a modding toolchain for Minecraft.
+  tagline: The official curated documentation for Fabric,<br />a modding toolchain for Minecraft.
 
 features:
   - title: Player Guides
