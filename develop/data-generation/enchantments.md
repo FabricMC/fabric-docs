@@ -15,9 +15,9 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-Before implementing the generator, create the `ModEnchantments` class and create the `register` method.
+Before implementing the generator, create the `ModEnchantments` class and create the `key` method.
 
-@[code transcludeWith=:::register-method](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+@[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
 We will now use this register method to register the new enchantment.
 
@@ -27,7 +27,7 @@ Now we're ready to add the generator. Create the `ExampleModEnchantmentGenerator
 
 @[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
-Then, add the registration helper to the created class.
+Then, add the `register` method to the newly created class.
 
 @[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
@@ -37,7 +37,7 @@ Finally, ensure your new generator is registered in your `DataGeneratorEntrypoin
 
 ## Creating the Enchantment {#creating-the-enchantment}
 
-To create the definition for our custom enchantment, we will use the `register` method in our generator class.
+To create the definition for our custom enchantment, we will use the `key` method in our generator class.
 
 Register your enchantment in the generator's `configure` method, using the enchantment registered in `ModEnchantments`.
 

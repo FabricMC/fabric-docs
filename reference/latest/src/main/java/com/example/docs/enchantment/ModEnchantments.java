@@ -9,14 +9,14 @@ import com.example.docs.ExampleMod;
 
 public class ModEnchantments {
 	/// :::register-enchantment
-	public static final ResourceKey<Enchantment> THUNDERING = register("thundering");
-	public static final ResourceKey<Enchantment> REVERSE_KNOCKBACK = register("reverse_knockback");
+	public static final ResourceKey<Enchantment> THUNDERING = key("thundering");
+	public static final ResourceKey<Enchantment> REVERSE_KNOCKBACK = key("reverse_knockback");
 	/// :::register-enchantment
 
-	// :::register-method
-	private static ResourceKey<Enchantment> register(String path) {
+	// :::key-helper
+	private static ResourceKey<Enchantment> key(String path) {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
 		return ResourceKey.create(Registries.ENCHANTMENT, id);
 	}
-	// :::register-method
+	// :::key-helper
 }
