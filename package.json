@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
-    "@fontsource/noto-color-emoji": "^5.2.10",
     "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^12.8.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",

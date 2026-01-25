@@ -93,26 +93,15 @@ export const getLocales = () => {
       type: "language",
     });
 
-    // https://en.wikipedia.org/wiki/Regional_indicator_symbol
-    const flag = String.fromCodePoint(
-      ...locale
-        .slice(-2)
-        .toUpperCase()
-        .split("")
-        .map((char) => 127397 + char.charCodeAt(0))
-    );
-
-    const name = intl
-      .of(intlLocale)!
-      // Capitalize first character
-      .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale));
-
     returned[locale === "en_us" ? "root" : locale] = {
-      description: resolver("description"),
-      label: `${flag} ${name}`,
-      lang: locale.replace("_", "-"),
+      lang: intlLocale,
       link: locale === "en_us" ? "/" : `/${locale}/`,
+      label: intl
+        .of(intlLocale)!
+        .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale)),
+
       title: resolver("title"),
+      description: resolver("description"),
 
       themeConfig: {
         authors: {
