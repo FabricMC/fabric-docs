@@ -37,12 +37,13 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
+		// ...
 		// :::provider
 		// :::register-enchantment
 		register(entries, ModEnchantments.THUNDERING,
 				Enchantment.enchantment(
 						Enchantment.definition(
-								registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+								registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE), // The items this enchantment can be applied to
 								10, // The weight / probability of our enchantment being available in the enchantment table
 								3, // The max level of the enchantment
 								Enchantment.dynamicCost(1, 10), // The base minimum cost of the enchantment, and the additional cost for every level

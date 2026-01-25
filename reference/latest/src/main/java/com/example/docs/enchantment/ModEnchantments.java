@@ -8,10 +8,10 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import com.example.docs.ExampleMod;
 
 public class ModEnchantments {
-	/// :::register-enchantment
+	// :::register-enchantment
 	public static final ResourceKey<Enchantment> THUNDERING = key("thundering");
+	// :::register-enchantment
 	public static final ResourceKey<Enchantment> REVERSE_KNOCKBACK = key("reverse_knockback");
-	/// :::register-enchantment
 
 	// :::key-helper
 	private static ResourceKey<Enchantment> key(String path) {

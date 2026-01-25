@@ -19,7 +19,7 @@ Before implementing the generator, create the `ModEnchantments` class and create
 
 @[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
-We will now use this register method to register the new enchantment.
+Use this method to create a `ResourceKey` for your enchantment.
 
 @[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
@@ -37,7 +37,7 @@ Finally, ensure your new generator is registered in your `DataGeneratorEntrypoin
 
 ## Creating the Enchantment {#creating-the-enchantment}
 
-To create the definition for our custom enchantment, we will use the `key` method in our generator class.
+To create the definition for our custom enchantment, we will use the `register` method in our generator class.
 
 Register your enchantment in the generator's `configure` method, using the enchantment registered in `ModEnchantments`.
 
