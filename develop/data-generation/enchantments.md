@@ -15,7 +15,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 ## Setup {#setup}
 
-Before implementing the generator, create the `ModEnchantments` class and create the `key` method.
+Before implementing the generator, create the `ModEnchantments` class and add the `key` method.
 
 @[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
@@ -23,11 +23,13 @@ Use this method to create a `ResourceKey` for your enchantment.
 
 @[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
-Now we're ready to add the generator. Create the `ExampleModEnchantmentGenerator` class, it should extend `FabricDynamicRegistryProvider` and have its constructor and abstract methods implemented.
+Now we're ready to add the generator. In the datagen package, create a class that extends `FabricDynamicRegistryProvider`.
+
+In this newly created class, add a constructor that matches `super` and implement the `configure` and `getName` methods.
 
 @[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
-Then, add the `register` method to the newly created class.
+Then, add the `register` helper method to the newly created class.
 
 @[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
