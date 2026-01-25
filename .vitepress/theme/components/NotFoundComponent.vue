@@ -34,28 +34,38 @@ let isBallRolling: boolean = true;
 let values: ReturnType<typeof getValues>;
 
 const getValues = () => {
-  const vw = Math.max(document.documentElement.clientWidth, window.innerWidth);
-  const { width, height } = root.value!.getBoundingClientRect();
-  const bWidth = Math.min(Math.max(vw * 0.5, 160), vw * 0.75);
-  const pixels = Math.max(5, Math.min(30, Math.floor(bWidth / TEXTURE.length)));
+  const rRect = root.value!.getBoundingClientRect();
+  const cRect = content.value!.getBoundingClientRect();
+  const px = Math.floor((cRect.height * 1.5) / TEXTURE.length);
+
+  const cMiddleX = cRect.width / 2;
+
+  const bDiameter = TEXTURE.length * px;
+  const bStartX = -bDiameter - 32;
+  const bTotalX = rRect.width + 32 - bStartX;
+  const bTopY = (rRect.height - bDiameter) / 2;
+
+  const tTopY = bTopY + 12 * px;
 
   return {
-    bStartX: -(TEXTURE.length * pixels) - 32,
-    bEndX: width + 32,
-    bTop: (height - TEXTURE.length * pixels) / 2,
-    px: pixels,
-    tTop: (height - TEXTURE.length * pixels) / 2 + 12 * pixels,
-    tMaxWidth: width,
+    px,
+
+    bDiameter,
+    bStartX,
+    bTotalX,
+    bTopY,
+    cMiddleX,
+    tTopY,
   };
 };
 
 const drawBall = (b: HTMLCanvasElement) => {
   b.width = b.height = TEXTURE.length;
-  b.style.width = b.style.height = `${TEXTURE.length * values.px}px`;
+  b.style.width = b.style.height = `${values.bDiameter}px`;
   b.style.zIndex = "1";
   b.style.imageRendering = "pixelated";
   b.style.position = "absolute";
-  b.style.top = `${values.bTop}px`;
+  b.style.top = `${values.bTopY}px`;
   b.style.left = "0px";
   b.style.transform = `translateX(${values.bStartX}px) rotate(0deg)`;
   b.style.display = "block";
@@ -89,11 +99,11 @@ const drawThread = (t: HTMLElement) => {
 
   t.style.backgroundImage = `url(${pattern.toDataURL()})`;
   t.style.backgroundRepeat = "repeat-x";
-  t.style.backgroundSize = `${values.px * TEXTURE.length}px ${values.px}px`;
-  t.style.top = `${values.tTop}px`;
+  t.style.backgroundSize = `${values.bDiameter}px ${values.px}px`;
+  t.style.top = `${values.tTopY}px`;
   t.style.left = `0px`;
   t.style.height = `${values.px}px`;
-  t.style.width = `${isBallRolling ? 0 : values.tMaxWidth}px`;
+  t.style.width = `${isBallRolling ? 0 : values.bTotalX}px`;
   t.style.imageRendering = "pixelated";
   t.style.position = "absolute";
 };
@@ -110,35 +120,29 @@ const startAnimation = () => {
   content.value!.style.pointerEvents = "none";
   content.value!.setAttribute("aria-hidden", "true");
 
-  const rootRect = root.value!.getBoundingClientRect();
-  const cRect = content.value!.getBoundingClientRect();
-  const cMiddleX = cRect.left - rootRect.left + cRect.width / 2;
-
   // start rolling the ball
-  const duration = Math.max(600, (values.bEndX - values.bStartX) / 0.3);
+  const totalTime = Math.max(600, 3 * values.bTotalX);
   const startTime = performance.now();
   isBallRolling = true;
 
   const step = (now: number) => {
     if (!isBallRolling) return;
 
-    const time = Math.min(1, Math.max(0, now - startTime) / duration);
+    const time = Math.min(1, Math.max(0, now - startTime) / totalTime);
+    const bStartXNow = values.bStartX + values.bTotalX * (1 - Math.pow(1 - time, 3));
+    const bMiddleXNow = bStartXNow + values.bDiameter / 2;
 
-    const bStartXNow =
-      values.bStartX + (values.bEndX - values.bStartX) * (1 - Math.pow(1 - time, 3));
-    const bMiddleXNow = bStartXNow + (TEXTURE.length * values.px) / 2;
-
-    thread.value!.style.width = `${Math.min(values.tMaxWidth, bMiddleXNow)}px`;
+    thread.value!.style.width = `${Math.min(values.bTotalX, bMiddleXNow)}px`;
 
     // show content when the ball crosses the midpoint
-    if (bMiddleXNow >= cMiddleX && content.value!.style.opacity === "0") {
+    if (bMiddleXNow >= values.cMiddleX && content.value!.style.opacity === "0") {
       content.value!.style.opacity = "1";
       content.value!.style.pointerEvents = "auto";
       content.value!.setAttribute("aria-hidden", "false");
     }
 
-    const bCircumference = 2 * Math.PI * ((TEXTURE.length * values.px) / 2);
-    const bRotationDeg = ((bStartXNow - values.bStartX) / bCircumference) * 360;
+    const bCircumference = Math.PI * values.bDiameter;
+    const bRotationDeg = ((bStartXNow - values.bStartX) * 360) / bCircumference;
     ball.value!.style.transform = `translateX(${bStartXNow}px) translateZ(0) rotate(${bRotationDeg}deg)`;
 
     if (time < 1) {
@@ -154,13 +158,10 @@ const startAnimation = () => {
 
 let handleResizeTimeout: number | null = null;
 const handleResize = () => {
-  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
   values = getValues();
-  handleResizeTimeout = window.setTimeout(() => {
-    if (isBallRolling) return;
-    // even after the animation, thread must fill the width
-    drawThread(thread.value!);
-  }, 100);
+  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
+  // even after the animation, thread must fill the width
+  handleResizeTimeout = window.setTimeout(() => !isBallRolling && drawThread(thread.value!), 100);
 };
 
 onMounted(async () => {
