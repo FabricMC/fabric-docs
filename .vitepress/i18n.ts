@@ -197,7 +197,8 @@ export const getLocales = () => {
         notFound: {
           code: resolver("404.code"),
           title: resolver("404.title"),
-          quote: resolver("404.quote"),
+          pooh: resolver("404.title.pooh"),
+          quotes: resolver("404.quotes") as never,
 
           crowdinLocale,
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
