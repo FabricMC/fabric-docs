@@ -5,8 +5,17 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 import { Fabric } from "../../types";
 
+let i: number = -1;
 const data = useData();
-const options = computed(() => data.theme.value.notFound as Fabric.NotFoundOptions);
+
+const options = computed(() => {
+  const { quotes, pooh, ...options } = data.theme.value.notFound as Fabric.NotFoundOptions;
+  if (i === -1) i = Math.floor(Math.random() * quotes.length);
+  if (i === quotes.length - 1) options.title = pooh;
+  options.quote = quotes[i];
+  return options;
+});
+
 const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
 const urls = computed(() =>
   data.localeIndex.value === "root"
@@ -91,10 +100,10 @@ const createThreadPattern = () => {
   const pattern = document.createElement("canvas");
   pattern.width = TEXTURE.length;
   pattern.height = 1;
-  
+
   const context = pattern.getContext("2d", { alpha: true })!;
   context.imageSmoothingEnabled = false;
-  
+
   for (let x = 0; x < TEXTURE.length; x++) {
     context.fillStyle = COLORS[Math.floor(Math.random() * (COLORS.length - 1) + 1)]!;
     context.fillRect(x, 0, 1, 1);
@@ -310,7 +319,7 @@ h1 {
 
 blockquote {
   margin: 0 auto;
-  max-width: 256px;
+  max-width: 512px;
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-2);

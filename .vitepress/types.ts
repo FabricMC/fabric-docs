@@ -112,11 +112,23 @@ export namespace Fabric {
     quote: string;
 
     /**
+     * The possible different quotes.
+     */
+    quotes: string[];
+
+    /**
      * Set custom not found message.
      *
      * @default "Page not found"
      */
     title: string;
+
+    /**
+     * Special not found message.
+     *
+     * @default "Page knot found"
+     */
+    pooh: string;
   }
 
   export interface VersionOptions {
