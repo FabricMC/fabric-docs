@@ -32,6 +32,7 @@ const content = ref<HTMLElement>();
 let animationFrame = 0;
 let isBallRolling: boolean = true;
 let values: ReturnType<typeof getValues>;
+let tPattern: string;
 
 const getValues = () => {
   const rRect = root.value!.getBoundingClientRect();
@@ -84,20 +85,27 @@ const drawBall = (b: HTMLCanvasElement) => {
   }
 };
 
-const drawThread = (t: HTMLElement) => {
+const createThreadPattern = () => {
+  if (tPattern) return;
+
   const pattern = document.createElement("canvas");
   pattern.width = TEXTURE.length;
   pattern.height = 1;
-
+  
   const context = pattern.getContext("2d", { alpha: true })!;
   context.imageSmoothingEnabled = false;
-
+  
   for (let x = 0; x < TEXTURE.length; x++) {
     context.fillStyle = COLORS[Math.floor(Math.random() * (COLORS.length - 1) + 1)]!;
     context.fillRect(x, 0, 1, 1);
   }
 
-  t.style.backgroundImage = `url(${pattern.toDataURL()})`;
+  tPattern = pattern.toDataURL();
+};
+
+const drawThread = (t: HTMLElement) => {
+  createThreadPattern();
+  t.style.backgroundImage = `url(${tPattern})`;
   t.style.backgroundRepeat = "repeat-x";
   t.style.backgroundSize = `${values.bDiameter}px ${values.px}px`;
   t.style.top = `${values.tTopY}px`;
