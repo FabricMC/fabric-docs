@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import com.example.docs.ExampleMod;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
+import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
@@ -22,7 +23,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 	}
 
 	@Override
-	public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
+	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
 		// :::datagen-translations:provider
 		// :::datagen-translations:build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
@@ -47,7 +48,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
 		translationBuilder.add("itemGroup.example-mod", "Example Mod");
-		translationBuilder.add("enchantment.example-mod.thundering", "Thundering");
+		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
+		translationBuilder.addEnchantment(ModEnchantments.REVERSE_KNOCKBACK, "Reverse Knockback");
 
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
