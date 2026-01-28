@@ -90,7 +90,7 @@ Reading is similar, you get the values you saved previously from the `ValueInput
 
 Now, if we save and reload the game, the counter block should continue from where it left off when saved.
 
-While `writeAdditional` and `loadAdditional` handle saving and loading to and from disk, there is still an issue:
+While `saveAdditional` and `loadAdditional` handle saving and loading to and from disk, there is still an issue:
 
 - The server knows the correct `clicks` value.
 - The client does not receive the correct value when loading a chunk.
