@@ -19,7 +19,7 @@ authors:
 
 如遇问题，欢迎在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 频道提问。
 
-## 3. 避免常见的恶意网站！ {#avoid-malware} {#avoid-malware}
+## 3. 避免常见的恶意网站！ {#avoid-malware}
 
 :::info
 恶意软件网站并非人人都能辨别。 如果不确定，应征求他人的意见，或避免使用该网站，只依靠值得信赖的来源，例如 Modrinth 和 CurseForge。
