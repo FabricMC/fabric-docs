@@ -12,7 +12,7 @@ public class CustomWidget extends AbstractWidget {
 	}
 
 	@Override
-	protected void renderWidget(GuiGraphics context, int mouseX, int mouseY, float delta) {
+	protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		// We'll just draw a simple rectangle for now.
 		// x1, y1, x2, y2, startColor, endColor
 		int startColor = 0xFF00FF00; // Green
@@ -28,7 +28,7 @@ public class CustomWidget extends AbstractWidget {
 
 		// :::2
 		// :::1
-		context.fillGradient(getX(), getY(), getX() + this.width, getY() + this.height, startColor, endColor);
+		graphics.fillGradient(getX(), getY(), getX() + this.width, getY() + this.height, startColor, endColor);
 	}
 
 	@Override
