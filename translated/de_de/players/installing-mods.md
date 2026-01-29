@@ -1,6 +1,6 @@
 ---
 title: Mods installieren
-description: Eine Schritt-für-Schritt-Anleitung zur Installation von Mods für Fabric.
+description: Ein Schritt-für-Schritt-Leitfaden zur Installation von Mods für Fabric.
 authors:
   - IMB11
 ---
@@ -11,15 +11,17 @@ Für die Launcher von Drittanbietern solltest du deren Dokumentation verwenden.
 
 ## 1. Herunterladen der Mod {#1-download-the-mod}
 
-:::warning
+::: warning
+
 Du solltest Mods nur aus Quellen herunterladen, denen du vertraust. Weitere Informationen zum Finden von Mods findest du iim Leitfaden [Vertrauenswürdige Mods finden](./finding-mods).
+
 :::
 
-Die meisten Mods benötigen auch die Fabric API, die von [Modrinth](https://modrinth.com/mod/fabric-api) oder [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api) heruntergeladen werden kann.
+Der Großteil der Mods benötigt ebenfalls die Fabric API, die von [Modrinth](https://modrinth.com/mod/fabric-api) oder [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api) heruntergeladen werden kann.
 
 Stelle beim Herunterladen von Mods sicher, dass:
 
-- Sie auf der Version von Minecraft funktionieren, auf der du spielen möchtest. Eine Mod, die beispielsweise auf der Version 1.20 funktioniert, muss nicht auf der Version 1.20.2 funktionieren.
+- Sie auf der Version von Minecraft funktionieren, auf der du spielen möchtest. Ein Mod, der beispielsweise auf der Version 1.21.8 funktioniert hat, funktioniert möglicherweise auf der Version 1.21.11 nicht mehr.
 - Sie für Fabric sind und nicht für einen anderen Mod-Loader.
 - Sie für die korrekte Edition von Minecraft sind (Java Edition).
 
@@ -31,15 +33,15 @@ Normalerweise können die Pfade direkt in der Adressleiste des Dateiexplorers ei
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\mods
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/mods
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/mods
 ```
 
@@ -51,13 +53,13 @@ Sobald du das `mods`-Verzeichnis gefunden hast, kannst du die `.jar`-Dateien der
 
 ## 3. Du hast es geschafft! {#3-you-re-done}
 
-Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
+Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der linken unteren Ecke auswählen und spielen drücken!
 
-Sobald du die Mods in das `mods`-Verzeichnis verschoben hast, kannst du den Minecraft-Launcher öffnen und das Fabric-Profil aus der Liste in der unteren linken Ecke auswählen und spielen!
+![Minecraft Launcher mit dem Fabric Profil ausgewählt](/assets/players/installing-fabric/launcher-screen.png)
 
 ## Problembehandlung {#troubleshooting}
 
-Fall dir beim Folgen dieser Anleitungen irgendwelche Fehler auftreten, kannst du nach Hilfe im [Fabric-Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` fragen.
+Wenn du beim Befolgen dieses Leitfadens auf Probleme stößt, kannst du im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` um Hilfe bitten.
 
 Du kannst auch versuchen, das Problem mit diesen Fehlerbehebungs-Seiten selbst zu lösen:
 

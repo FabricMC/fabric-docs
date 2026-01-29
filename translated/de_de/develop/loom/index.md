@@ -18,7 +18,20 @@ Loom bietet Hilfsmittel, um Minecraft und Mods in einer Entwicklungsumgebung zu 
 
 Loom unterstützt _alle_ Versionen von Minecraft, auch die, die nicht offiziell von der Fabric API unterstützt werden, da es versionsunabhängig ist.
 
-Diese Seite ist eine Referenz für alle Optionen und Funktionen von Loom. Wenn du gerade erst anfängst, lies bitte die Seite [Erste Schritte](getting-started/setting-up-a-development-environment) durch.
+:::warning WICHTIG
+
+Diese Seite ist eine Referenz für alle Optionen und Funktionen von Loom. Wenn du gerade erst anfängst, lies bitte die [Einführung in Fabric](../).
+
+:::
+
+## Plugin IDs {#plugin-ids}
+
+Loom verwendet unterschiedliche Plugin IDs:
+
+- `net.fabricmc.fabric-loom`, für nicht verschleierte Versionen (Minecraft 26.1 oder neuer)
+- `net.fabricmc.fabric-loom-remap`, für verschleierte Versionen (Minecraft 1.21.11 oder älter)
+- `fabric-loom` (veraltet), wird nur aus Gründen der Abwärtskompatibilität mit verschleierten Versionen unterstützt. Verwende stattdessen `net.fabricmc.fabric-loom-remap`
+- `net.fabricmc.fabric-loom-companion`, in fortgeschrittenen Multiprojekt-Umgebungen. Lies mehr über [Unterprojekte](./classpath-groups#multi-project)
 
 ## Auf Unterprojekten aufbauen {#subprojects}
 

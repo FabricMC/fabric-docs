@@ -1,30 +1,39 @@
 ---
-title: Встановлення Java у Linux
-description: Покрокова інструкція щодо встановлення Java у Linux.
+title: Установлення Java на Linux
+description: Покрокова інструкція щодо встановлення Java на Linux.
 authors:
   - IMB11
+next: false
 ---
 
-Цей посібник допоможе вам встановити Java 21 на Linux.
+Цей посібник допоможе вам установити Java 21 на Linux.
+
+Minecraft Launcher постачається з власною інсталяцією Java, тому цей розділ актуальний, лише якщо ви хочете використовувати встановлювач на основі Fabric `.jar` або якщо ви хочете використовувати сервер Minecraft `.jar`.
 
 ## 1. Перевірте, чи Java вже встановлено {#1-check-if-java-is-already-installed}
 
 Відкрийте термінал, введіть `java -version` і натисніть <kbd>Enter</kbd>.
 
-![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
+![Термінал із введеним «java -version»](/assets/players/installing-java/linux-java-version.png)
 
-:::warning
-Щоб використовувати Minecraft 1.21, вам знадобиться встановити принаймні Java 21. Якщо ця команда показує будь-яку версію, нижчу за 21, вам потрібно буде оновити встановлювач Java.
+::: warning
+
+Щоб використовувати Minecraft 1.21.11, вам потрібно встановити принаймні Java 21.
+
+Якщо ця команда показує будь-яку версію, нижчу за 21, вам потрібно буде оновити наявну інсталяцію Java; продовжуйте читати цю сторінку.
+
 :::
 
-## 2. Завантажити встановлювач Java 21 {#2-downloading-and-installing-java}
+## 2. Завантажте встановлювач Java 21 {#2-downloading-and-installing-java}
 
 Ми рекомендуємо використовувати OpenJDK 21, який доступний для більшості дистрибутивів Linux.
 
 ### Arch Linux {#arch-linux}
 
-:::info
+::: info
+
 Щоб отримати додаткові відомості про встановлення Java на Arch Linux, перегляньте [Arch Linux Wiki](https://wiki.archlinux.org/title/Java).
+
 :::
 
 Ви можете встановити останню версію JRE з офіційних репозиторіїв:
@@ -82,8 +91,8 @@ sudo dnf install java-21-openjdk-devel
 
 ## 3. Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}
 
-Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}.
+Після завершення встановлення ви можете переконатися, що Java 21 установлено, відкривши термінал і ввівши `java -version`.
 
-Перевірте, чи встановлено Java 21 {#3-verify-that-java-is-installed}.
+Якщо команда виконана успішно, ви побачите щось подібне до показаного раніше, де показана версія Java:
 
-![Термінал із введеним "java -version"](/assets/players/installing-java/linux-java-version.png)
+![Термінал із введеним «java -version»](/assets/players/installing-java/linux-java-version.png)

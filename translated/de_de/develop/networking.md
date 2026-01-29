@@ -43,11 +43,13 @@ Wenn der Status zwischen dem Client und dem Server nicht synchronisiert wird, ka
 
 ### Einen Payload definieren {#defining-a-payload}
 
-:::info
+::: info
+
 Eine Payload sind die Daten, die innerhalb eines Pakets gesendet werden.
+
 :::
 
-Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPayload` implementiert, gelöst werden.
+Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPacketPayload` implementiert, gelöst werden.
 
 @[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
@@ -61,23 +63,25 @@ Zugleich haben wir folgendes definiert:
 
 @[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-- Eine öffentliche, statische Instanz eines `PacketCodec`, damit das Spiel weiß, wie es den Inhalt des Pakets serialisieren/deserialisieren kann.
+- Eine öffentliche, statische Instanz eines `StreamCodec`, damit das Spiel weiß, wie es den Inhalt des Pakets serialisieren/deserialisieren kann.
 
 @[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
-Wir haben auch `getId` überschrieben, um unsere Payload-ID zurückzugeben.
+Wir haben auch `type` überschrieben, um unsere Payload-ID zurückzugeben.
 
 @[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
 ### Einen Payload registrieren {#registering-a-payload}
 
-Bevor wir ein Paket mit unserem benutzerdefinierten Payload senden, müssen wir ihn registrieren.
+Bevor wir ein Paket mit unserer benutzerdefinierten Nutzlast senden, müssen wir es auf beiden physischen Seiten registrieren.
 
-:::info
+::: info
+
 `S2C` und `C2S` sind zwei gängige Suffixe, die _Server-to-Client_ und _Client-to-Server_ bedeuten.
+
 :::
 
-Dies kann in unserem **gemeinsamen Initialisierers** mit Hilfe von `PayloadTypeRegistry.playS2C().register` erfolgen, das eine `CustomPayload.Id` und einen `PacketCodec` entgegennimmt.
+Dies kann in unserem **gemeinsamen Initialisierers** mit Hilfe von `PayloadTypeRegistry.playS2C().register` erfolgen, das eine `CustomPayload.Id` und einen `type` entgegennimmt.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
@@ -88,7 +92,7 @@ Eine ähnliche Methode existiert, um Client-to-Server Payloads zu registrieren: 
 Um ein Paket mit unserem benutzerdefinierten Payload zu senden, können wir `ServerPlayNetworking.send` verwenden, das eine `ServerPlayerEntity` und einen `CustomPayload` entgegennimmt.
 
 Beginnen wir mit der Erstellung unseres Blitz-Kartoffel-Item. Du kannst `use` überschreiben, um eine Aktion auszulösen, wenn das Item verwendet wird.
-In diesem Fall, lasst uns Pakete an die Spieler in der Serverwelt senden.
+In diesem Fall, lasst uns Pakete an die Spieler in den Serverlevel senden.
 
 @[code lang=java transcludeWith=:::lightning_tater_item](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -102,17 +106,19 @@ Wir erstellen eine Instanz des Payloads mit der Position des Users:
 
 @[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
-Schließlich rufen wir die Spieler in der Serverwelt durch `PlayerLookup` ab und senden ein Paket an jeden Spieler.
+Schließlich rufen wir die Spieler in dem Serverlevel durch `PlayerLookup` ab und senden ein Paket an jeden Spieler.
 
 @[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
-:::info
+::: info
+
 Fabric API bietet `PlayerLookup`, eine Sammlung von Hilfsfunktionen, die Spieler auf einem Server suchen.
 
 Ein häufig verwendeter Begriff zur Beschreibung der Funktionalität dieser Methoden ist "_Tracking_". Es bedeutet, dass eine Entität oder ein Chunk auf dem Server dem Client eines Spielers bekannt ist (innerhalb seiner Sichtweite) und die Entität oder die Block Entität sollte die
 Clients über Änderungen informieren.
 
 Tracking ist ein wichtiges Konzept für effizientes Networking, damit nur die notwendigen Spieler durch das Senden von Paketen über Änderungen informiert werden.
+
 :::
 
 ### Empfangen eines Pakets auf dem Client {#receiving-a-packet-on-the-client}
@@ -132,7 +138,7 @@ Wir können auf die Daten aus unserem Payload zugreifen, indem wir die Getter-Me
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Schließlich erstellen wir eine `LightningEntity` und fügen sie der Welt hinzu.
+Schließlich erstellen wir eine `LightningBolt` und fügen diesen dem Level hinzu.
 
 @[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -154,7 +160,7 @@ Dann registrieren wir unseren Payload in unserem **gemeinsamen Initialisierer**.
 
 Um ein Paket zu senden, fügen wir eine Aktion hinzu, wenn der Spieler eine giftige Kartoffel benutzt. Wir werden das Event `UseEntityCallback` verwenden, um die Dinge übersichtlich zu halten.
 
-Wir registrieren das Event in unserem **Client-Initialisierer**, und wir verwenden `isClient()`, um sicherzustellen, dass die Aktion nur auf dem logischen Client ausgelöst wird.
+Wir registrieren das Event in unserem **Client-Initialisierer**, und wir verwenden `isClientSide()`, um sicherzustellen, dass die Aktion nur auf dem logischen Client ausgelöst wird.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
@@ -173,7 +179,8 @@ Dies kann im **gemeinsamen Initialisierer** geschehen, indem man `ServerPlayNetw
 
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
-:::info
+::: info
+
 Es ist wichtig, dass du den Inhalt des Pakets auf der Serverseite validierst.
 
 In diesem Fall überprüfen wir anhand der Netzwerk-ID, ob die Entität existiert.
@@ -183,6 +190,7 @@ In diesem Fall überprüfen wir anhand der Netzwerk-ID, ob die Entität existier
 Außerdem muss es sich bei der Zielentität um eine lebende Entität handeln, und wir beschränken die Reichweite der Zielentität vom Spieler auf 5.
 
 @[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+
 :::
 
 Wenn ein Spieler nun versucht, eine giftige Kartoffel auf einer lebenden Entität zu verwenden, wird der Leuchten-Effekt auf diese angewendet.
