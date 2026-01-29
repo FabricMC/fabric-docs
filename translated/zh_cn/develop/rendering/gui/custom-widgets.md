@@ -9,18 +9,18 @@ authors:
 
 ## 创建组件{#creating-a-widget}
 
-有很多种创建组件的方式，例如继承 `ClickableWidget`。 这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Drawable`、`Element`、`Narratable`、`Selectable` 接口规定：
+有很多种创建组件的方式，例如继承 `AbstractWidget`。 这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Renderable`、`GuiEventListener`、`NarrationSupplier` 和 `NarratableEntry` 接口规定：
 
-- `Drawable` 用于渲染，需要通过 `Screen#addDrawableChild` 将组件注册到屏幕中。
-- `Element` 用于事件，比如鼠标点击、键盘输入等，需要这个来处理事件。
-- `Narratable` 用于无障碍，让组件能够通过屏幕阅读器或其他无障碍工具访问。
-- `Selectable` 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也能帮助无障碍。
+- `Renderable` - 用于渲染，需要通过 `addRenderableWidget` 方法将组件注册到屏幕上。
+- `GuiEventListener` - 用于事件，比如处理鼠标点击、按下按键等事件。
+- `NarrationSupplier` - 用于辅助功能，让组件能够通过屏幕阅读器或其他辅助工具访问。
+- `NarratableEntry` - 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也有助于提高可访问性。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
 ## 将组件添加到屏幕{#adding-the-widget-to-the-screen}
 
-如同其他组件，您需要使用 `Screen#addDrawableChild` 来将组件添加到界面中。 请确保这一步在 `Screen#init` 方法中完成。
+与所有组件一样，你需要使用 `Screen` 类提供的 `addRenderableWidget` 方法将其添加到屏幕上。 请确保这一步在 `Screen#init` 方法中完成。
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
 
@@ -28,9 +28,9 @@ authors:
 
 ## 组件事件{#widget-events}
 
-您可以自定义用户输入事件的处理逻辑，比如覆写 `onMouseClicked`、`onMouseReleased`、`onKeyPressed` 等方法。
+你可以通过重写 `mouseClicked`、`afterMouseAction`、`keyPressed` 等方法来处理鼠标点击、按下按键等事件。
 
-举个例子，您可以使用 `ClickableWidget#isHovered` 方法来使组件在鼠标悬停时变色。
+例如，你可以使用 `AbstractWidget` 类提供的 `isHovered()` 方法，使鼠标悬停在组件上时变色：
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 

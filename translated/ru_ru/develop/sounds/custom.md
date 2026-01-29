@@ -27,21 +27,21 @@ authors:
 
 ## Загрузка аудиофайла {#loading-the-audio-file}
 
-Добавьте новую директорию `resources/assets/example-mod/sounds` для звуков в вашем моду, и положите в неё экспортированный аудиофайл `metal_whistle.ogg`.
+Добавьте новый каталог `resources/assets/example-mod/sounds` для звуков в вашем моде и поместите туда экспортированный аудиофайл `metal_whistle.ogg`.
 
-Дальше создайте файл `resources/assets/example-mod/sounds.json`, если он не существует и добавьте ваш звук в звуковые записи.
+Продолжите создание файла `resources/assets/example-mod/sounds.json`, если он еще не существует, и добавьте свой звук в записи звуков.
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
-Запись подписи предоставляет больше контекста для игрока. Название подписи используется в языковых файлах в директории `resources/assets/example-mod/lang` и будет показываться, если включена настройка и звук воспроизводиться.
+Запись подписи предоставляет больше контекста для игрока. Название субтитров используется в языковых файлах в каталоге `resources/assets/example-mod/lang` и будет отображаться, если в игре включена настройка субтитров и воспроизводится этот пользовательский звук.
 
 ## Регистрация своего звука {#registering-the-custom-sound}
 
-Чтобы добавить собственный звук в мод, зарегистрируйте SoundEvent в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
+Чтобы добавить пользовательский звук в мод, зарегистрируйте SoundEvent в [инициализаторе мода](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## Чистка беспорядка {#cleaning-up-the-mess}
@@ -58,4 +58,4 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 
-Используйте класс помощник для доступа к собственному SoundEvent. Посетите страницу [Playing SoundEvents](./using-sounds), чтобы узнать, как воспроизводить звуки.
+Используйте класс помощник для доступа к собственному SoundEvent. Ознакомьтесь со страницей [Воспроизведение звуков](./using-sounds), чтобы узнать, как воспроизводить звуки.

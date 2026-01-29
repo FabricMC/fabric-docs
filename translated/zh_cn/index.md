@@ -2,9 +2,11 @@
 title: Fabric 文档
 description: 为 Minecraft 的一个模组制作工具链 Fabric 精心撰写的官方文档。
 layout: home
+
 hero:
   name: Fabric 文档
-  tagline: 为 Minecraft 的一个模组制作工具链 Fabric 精心撰写的官方文档。
+  tagline: Fabric 官方精选文档，<0/>一款用于《我的世界》的模组开发工具链。
+
 features:
   - title: 玩家指南
     icon: 📚

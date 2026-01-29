@@ -3,6 +3,7 @@ title: Generierung von Beutetabellen
 description: Ein Leitfaden zur Einrichtung der Generierung von Beutetabellen mit dem Datengenerator.
 authors:
   - Alphagamer47
+  - CelDaemon
   - JustinHuPrime
   - matthewperiut
   - skycatminepokie
@@ -12,13 +13,17 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 :::info VORAUSSETZUNGEN
-Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setup) zuerst abgeschlossen hast.
+
+Stelle sicher, dass du den Prozess der [Einrichtung des Datengenerators](./setup) zuerst abgeschlossen hast.
+
 :::
 
 Du wirst unterschiedliche Provider (Klassen) für Blöcke, Truhen und Entitäten benötigen. Vergesse nicht, alle diese zu deinem Pack in deinem `DataGeneratorEntrypoint` innerhalb der `onInitializeDataGenerator` Methode hinzuzufügen.
 
-@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Beutetabellen erklärt {#loot-tables-explained}
 
@@ -28,7 +33,7 @@ Beutepools haben **Einträge**, **Bedingungen**, Funktionen, **Rollen** und **Bo
 
 ## Blöcke {#blocks}
 
-Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die `extends FabricBlockLootTableProvider`:
+Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die von `FabricBlockLootTableProvider` erbt:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
@@ -42,11 +47,11 @@ Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
 ## Truhen {#chests}
 
-Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die `extends SimpleFabricLootTableProvider` ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
+Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die von `SimpleFabricLootTableProvider` erbt, ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-Wir werden einen `RegistryKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
+Wir werden einen `ResourceKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 
