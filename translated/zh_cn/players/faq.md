@@ -9,7 +9,7 @@ description: 玩家和服务器管理员有关 Fabric 的常见问题。
 
 Fabric 官方支持从快照 `18w43b` 和正式版 `1.14` 及以上的所有 Minecraft 版本。
 
-## 在哪里可以下载已发布的 Fabric 模组？ {#where-can-i-download-published-fabric-mods} {#where-can-i-download-published-fabric-mods}
+## 在哪里可以下载已发布的 Fabric 模组？ {#where-can-i-download-published-fabric-mods}
 
 :::info
 您应始终检查模组是否来自可信的来源。 更多信息请查看[寻找可信的模组](./finding-mods)指南。

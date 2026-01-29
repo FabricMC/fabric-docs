@@ -4,10 +4,11 @@ description: 学习 Minecraft 渲染引擎的基本概念。
 authors:
   - "0x3C50"
   - IMB11
+  - PEQB1145
 ---
 
 ::: warning
-Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
+虽然 Minecraft 基于 OpenGL 构建，但从 1.17 版本起，已无法使用传统的旧版 OpenGL 方法来渲染自定义内容，而必须改用新的 `BufferBuilder` 系统。该系统负责格式化渲染数据，并将其上传至 OpenGL 进行绘制。
 
 总的来说，您应该使用 Minecraft 的渲染系统，否则就得利用 `GL.glDrawElements()` 来构建自己的。
 :::
@@ -136,7 +137,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 从上面的案例出发，我们可以用 `MatrixStack` 和 `tickDelta`（从上一帧到现在经过的时间）让菱形放大和缩小。 我们稍后会在 [渲染 HUD](./hud#render-tick-counter) 页面中澄清这一点。
 
 ::: warning
-You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
+在做渲染操作之前，必须先压入矩阵栈，之后必须弹出矩阵栈。如果不这样做，矩阵栈将处于损坏状态，导致后续渲染出现问题。
 
 在获取变换矩阵前，请确保向矩阵栈压入一个新的矩阵！
 :::

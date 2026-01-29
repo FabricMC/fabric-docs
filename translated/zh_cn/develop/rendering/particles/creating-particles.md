@@ -3,6 +3,7 @@ title: 创建自定义粒子
 description: 学习如何使用 Fabric API 创建自定义粒子。
 authors:
   - Superkat32
+  - PEQB1145
 ---
 
 粒子是一种强大的工具， 可以为美丽的场景增添氛围，也可以为你的 boss 战添加紧张感。 让我们创建一个自定义粒子吧！
@@ -26,7 +27,7 @@ authors:
 在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
 
 ::: tip
-You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
+您可以通过查看所有实现 `ParticleFactory` 接口的类来了解所有粒子工厂。如果想在自己的粒子中复用其他粒子的逻辑，这会有很大帮助。
 
 - IntelliJ 的快捷键：Ctrl+Alt+B
 - Visual Studio Code 的快捷键：Ctrl+F12

@@ -3,11 +3,12 @@ title: 食物物品
 description: 学会如何给物品添加 FoodComponent 以让它可食用，并配置。
 authors:
   - IMB11
+  - PEQB1145
 ---
 
-食物是生存 Minecraft 的核心方面，所以创建可食用的物品时，需要考虑食物的用途以及其他可食用物品。
+食物是 Minecraft 生存模式的核心要素。在设计一种新的可食用物品时，需要综合考虑其具体用途。
 
-除非是在制作有过于强的物品的模型，否则应该考虑：
+除非是在制作过于强的物品的模型，否则应该考虑：
 
 - 你的可食用物品会添加或减少多少饥饿值。
 - 会给予什么药水效果？
@@ -29,7 +30,7 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 | -------------------- | ----------------- |
 | `nutrition`          | 设置你的物品会补充的饥饿值的数量。 |
 | `saturationModifier` | 设置你的物品会增加的饱和度的数量。 |
-| `alwaysEdible`       | 允许无论饥饿值均能吃你的物品。   |
+| `alwaysEdible`       | 允许无视饥饿值食用物品。   |
 
 按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodComponent`。
 
@@ -43,7 +44,7 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 
 这会让物品：
 
-- 总是可食用，无论饥饿值均可以吃。
-- 吃完会总会给予 6 秒中毒 II。
+- 总是可以食用，不受饥饿值限制。
+- 食用后总会给予 6 秒中毒 II。
 
 <VideoPlayer src="/assets/develop/items/food_0.webm">吃 Poisonous Apple</VideoPlayer>
