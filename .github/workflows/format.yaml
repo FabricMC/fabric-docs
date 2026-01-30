@@ -43,4 +43,11 @@ jobs:
         with:
           node-version-file: .nvmrc
       - run: npm ci
-      - run: npx prettier --list-different .
+      - run: npx prettier --write .
+      - run: |
+          files="$(git ls-files --modified --others --exclude-standard -z)"
+          [[ -z "${files}" ]] && exit 0
+          while IFS= read -r -d '' f; do
+            echo "::error file=${f},title=Prettier::Format this file with 'npx prettier --write \"${f}\"'"
+          done <<<"${files}"
+          exit 1

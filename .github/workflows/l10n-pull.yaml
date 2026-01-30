@@ -29,7 +29,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - if: startsWith(github.ref_name, 'l10n/')
-        run: exit 1
+        run: |
+          echo "::error title=Wrong Branch::This workflow must not be triggered from the l10n/* branch"
+          exit 1
       - uses: actions/checkout@v4
       - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
         with:
