@@ -118,6 +118,8 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/client/rendering/v1/BlockRenderLayerMap` → `ChunkSectionLayerMap`
 
+- `net/fabricmc/fabric/api/client/rendering/v1/ColorProviderRegistry.BLOCK` → `BlockColorRegistry`
+
 - `net/fabricmc/fabric/api/client/rendering/v1/DrawItemStackOverlayCallback` → `RenderItemDecorationsCallback`
   - `onDrawItemStackOverlay` → `onRenderItemDecorations`
 
