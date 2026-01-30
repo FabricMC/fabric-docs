@@ -8,6 +8,7 @@ on:
       - reference/latest/src/main/generated/**
       - translated/**
       - versions/**
+    types: [review_requested]
   workflow_dispatch:
 
 concurrency:
