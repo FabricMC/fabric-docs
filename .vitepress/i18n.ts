@@ -257,7 +257,7 @@ export const getLocales = () => {
           },
           {
             icon: "discord",
-            link: "https://discord.gg/v6v4pMv",
+            link: "https://discord.fabricmc.net/",
             ariaLabel: resolver("social.discord"),
           },
           {

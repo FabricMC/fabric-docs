@@ -13,7 +13,7 @@ next:
 
 The Fabric toolchain lets you access the Minecraft source code by generating it locally, and you can use IntelliJ IDEA to conveniently navigate through it. To generate sources, you need to run the `genSources` Gradle task.
 
-This can be done from the Gradle View like above, by running the `genSources` task in **Tasks** > **`fabric`**:
+This can be done from the Gradle panel, by running the `genSources` task in **Tasks** > **`fabric`**:
 ![`genSources` Task in Gradle Panel](/assets/develop/getting-started/intellij/gradle-gensources.png)
 
 Or you can also run the command from the terminal:
@@ -30,7 +30,7 @@ IntelliJ requires one additional step of attaching generated sources to the proj
 
 To do this, open any Minecraft class. You can <kbd>Ctrl</kbd> + Click to go to the definition, which opens the class or use "Search everywhere" to open a class.
 
-Lets open `MinecraftServer.class` as an example. You should now see a blue banner on the top with a "**Choose Sources...**" link.
+Let's open `MinecraftServer.class` as an example. You should now see a blue banner on the top with a "**Choose Sources...**" link.
 
 ![Choose Sources](/assets/develop/getting-started/intellij/choose-sources.png)
 
