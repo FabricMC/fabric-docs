@@ -11,7 +11,7 @@ public class ModEnchantments {
 	// :::register-enchantment
 	public static final ResourceKey<Enchantment> THUNDERING = key("thundering");
 	// :::register-enchantment
-	public static final ResourceKey<Enchantment> REVERSE_KNOCKBACK = key("reverse_knockback");
+	public static final ResourceKey<Enchantment> REBOUNDING_CURSE = key("rebounding_curse");
 
 	// :::key-helper
 	private static ResourceKey<Enchantment> key(String path) {

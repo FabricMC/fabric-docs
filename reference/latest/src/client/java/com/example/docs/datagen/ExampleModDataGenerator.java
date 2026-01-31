@@ -37,6 +37,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-tags:register
 		pack.addProvider(ExampleModItemTagProvider::new);
 		// :::datagen-tags:register
+		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
 		// :::datagen-recipes:register
 		pack.addProvider(ExampleModRecipeProvider::new);
@@ -69,6 +70,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
 
 	// :::datagen-setup:generator

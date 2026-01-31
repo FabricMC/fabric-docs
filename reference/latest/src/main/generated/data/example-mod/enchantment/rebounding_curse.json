@@ -1,7 +1,7 @@
 {
   "anvil_cost": 5,
   "description": {
-    "translate": "enchantment.example-mod.reverse_knockback"
+    "translate": "enchantment.example-mod.rebounding_curse"
   },
   "effects": {
     "minecraft:post_attack": [

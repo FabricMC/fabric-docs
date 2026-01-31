@@ -7,6 +7,7 @@ import net.minecraft.advancements.criterion.EntityFlagsPredicate;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
@@ -37,13 +38,22 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
+		entries.addAll(registries.lookupOrThrow(Registries.ENCHANTMENT)); // Add all bootstrapped enchantments for the current mod id
+	}
+
+	@Override
+	public String getName() {
+		return "Enchantments";
+	}
+
+	public static void bootstrap(BootstrapContext<Enchantment> context) {
 		// ...
 		// :::provider
 		// :::register-enchantment
-		register(entries, ModEnchantments.THUNDERING,
+		register(context, ModEnchantments.THUNDERING,
 				Enchantment.enchantment(
 						Enchantment.definition(
-								registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE), // The items this enchantment can be applied to
+								context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE), // The items this enchantment can be applied to
 								10, // The weight / probability of our enchantment being available in the enchantment table
 								3, // The max level of the enchantment
 								Enchantment.dynamicCost(1, 10), // The base minimum cost of the enchantment, and the additional cost for every level
@@ -60,10 +70,10 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 				)
 		);
 		// :::register-enchantment
-		register(entries, ModEnchantments.REVERSE_KNOCKBACK,
+		register(context, ModEnchantments.REBOUNDING_CURSE,
 				Enchantment.enchantment(
 						Enchantment.definition(
-								registries.lookupOrThrow(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+								context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
 								10,
 								3,
 								Enchantment.dynamicCost(1, 10),
@@ -100,16 +110,10 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 
 	// :::provider
 	// :::register-helper
-	private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
-		entries.add(key, builder.build(key.identifier()));
+	private static void register(BootstrapContext<Enchantment> context, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
+		context.register(key, builder.build(key.identifier()));
 	}
 	// :::register-helper
-
 	// :::provider
-
-	@Override
-	public String getName() {
-		return "Enchantments";
-	}
 }
 // :::provider

@@ -49,7 +49,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
 		translationBuilder.add("itemGroup.example-mod", "Example Mod");
 		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
-		translationBuilder.addEnchantment(ModEnchantments.REVERSE_KNOCKBACK, "Reverse Knockback");
+		translationBuilder.addEnchantment(ModEnchantments.REBOUNDING_CURSE, "Curse of Rebounding");
 
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
