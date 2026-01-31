@@ -23,9 +23,7 @@ Use this method to create a `ResourceKey` for your enchantment.
 
 @[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
-Now we're ready to add the generator. In the datagen package, create a class that extends `FabricDynamicRegistryProvider`.
-
-In this newly created class, add a constructor that matches `super` and implement the `configure` and `getName` methods.
+Now we're ready to add the generator. In the datagen package, create a class that extends `FabricDynamicRegistryProvider`. In this newly created class, add a constructor that matches `super` and implement the `configure` and `getName` methods.
 
 @[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
@@ -78,3 +76,23 @@ To instead share the defined conditions and targets across multiple effects, `Al
 @[code transcludeWith=:::multiple-effects](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 Note that the method to use depends on the type of effect being added. For example, `EnchantmentValueEffect` requires `AnyOf.valueEffects` instead. Differing effect types still require additional `withEffect` calls.
+
+## Enchantment Table {#enchantment-table}
+
+While we have specified the enchantment weight (or chance) in our enchantment definition, it will not appear in the enchantment table by default. To allow our enchantment to be traded by villagers and appear in the enchanting table we need to add it to the `non_treasure` tag.
+
+To do this, we can create a tag provider. Create a class that extends `FabricTagProvider<Enchantment>` in the `datagen` package. Then implement the constructor with `Registries.ENCHANTMENT` as the `registryKey` parameter to `super`, and create the `addTags` method.
+
+@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+
+We can now add our enchantment to `EnchantmentTags.NON_TREASURE`, by calling the builder from within the `addTags` method.
+
+@[code transcludeWith=:::non-treasure-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+
+## Curses {#curses}
+
+Curses are also implemented using tags. We can use the tag provider from [the Enchantment Table section](#enchantment-table).
+
+In the `addTags` method, simply add your enchantment to the `CURSE` tag to mark it as a curse.
+
+@[code transcludeWith=:::curse-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
