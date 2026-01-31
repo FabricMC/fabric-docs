@@ -71,7 +71,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 				)
 		);
 		// :::register-enchantment
-		register(context, ModEnchantments.REBOUNDING_CURSE,
+		register(context, ModEnchantments.REPULSION_CURSE,
 				Enchantment.enchantment(
 						Enchantment.definition(
 								context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),

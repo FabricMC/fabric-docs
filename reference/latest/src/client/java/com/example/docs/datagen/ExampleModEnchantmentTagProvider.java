@@ -26,7 +26,7 @@ public class ExampleModEnchantmentTagProvider extends FabricTagProvider<Enchantm
 		builder(EnchantmentTags.NON_TREASURE).add(ModEnchantments.THUNDERING);
 		// :::non-treasure-tag
 		// :::curse-tag
-		builder(EnchantmentTags.CURSE).add(ModEnchantments.REBOUNDING_CURSE);
+		builder(EnchantmentTags.CURSE).add(ModEnchantments.REPULSION_CURSE);
 		// :::curse-tag
 		// :::provider
 	}
