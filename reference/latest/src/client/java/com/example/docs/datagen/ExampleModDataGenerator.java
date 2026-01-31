@@ -65,13 +65,17 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	}
 
 	// :::datagen-setup:generator
+	// :::datagen-enchantments:bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
+	// :::datagen-enchantments:bootstrap
 
 	// :::datagen-setup:generator
 }

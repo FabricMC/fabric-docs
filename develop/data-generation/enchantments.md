@@ -33,7 +33,15 @@ Then, add the `register` helper method to the newly created class.
 
 @[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
-Finally, ensure your new generator is registered in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
+Now add the `bootstrap` method. Here, we will be registering the enchantments we want to add to the game.
+
+@[code transcludeWith=:::bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+
+In your `DataGeneratorEntrypoint`, override the `buildRegistry` method and register our bootstrap method.
+
+@[code transcludeWith=:::datagen-enchantments:bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+
+Finally, ensure your new generator is registered within the `onInitializeDataGenerator` method.
 
 @[code transcludeWith=:::datagen-enchantments:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
@@ -41,7 +49,7 @@ Finally, ensure your new generator is registered in your `DataGeneratorEntrypoin
 
 To create the definition for our custom enchantment, we will use the `register` method in our generator class.
 
-Register your enchantment in the generator's `configure` method, using the enchantment registered in `ModEnchantments`.
+Register your enchantment in the generator's `bootstrap` method, using the enchantment registered in `ModEnchantments`.
 
 In this example, we will be using the enchantment effect created in [Custom Enchantment Effects](../items/custom-enchantment-effects), but you can also make use of the [vanilla enchantment effects](https://minecraft.wiki/w/Enchantment_definition#Effect_components).
 

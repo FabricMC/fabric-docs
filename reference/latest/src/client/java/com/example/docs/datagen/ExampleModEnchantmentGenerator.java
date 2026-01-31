@@ -45,10 +45,11 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	public String getName() {
 		return "Enchantments";
 	}
-
+	// :::provider
+	// :::bootstrap
 	public static void bootstrap(BootstrapContext<Enchantment> context) {
 		// ...
-		// :::provider
+		// :::bootstrap
 		// :::register-enchantment
 		register(context, ModEnchantments.THUNDERING,
 				Enchantment.enchantment(
@@ -105,8 +106,10 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 				)
 		// :::effect-conditions
 		);
-		// :::provider
+		// :::bootstrap
 	}
+	// :::bootstrap
+	// :::provider
 
 	// :::provider
 	// :::register-helper
