@@ -38,8 +38,13 @@ After the build script has been updated to 26.1, you can now go through your mod
 
 ::: warning IMPORTANT
 
-Because Minecraft 26.1 is still in the snapshot stage, there is no documentation about specific changes yet. Good luck, you're on your own!
+Because Minecraft 26.1 is still in the snapshot stage, documentation on specific changes is still lacking. Good luck, you're on your own!
 
 :::
+
+- [Fabric API 26.1 Porting Guide](26.1/fabric-api) lists the renames made to Fabric API in 26.1 snapshots to match Mojang's names.
+- [_Java Edition 26.1_ on the Minecraft Wiki](https://minecraft.wiki/w/Java_Edition_26.1) is an unofficial summary of the contents of the update.
+- [NeoForge's _Minecraft 1.21.11 -> 26.1 Mod Migration Primer_](https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md) covers migrating from 1.21.11 to 26.1, focusing only on vanilla code changes.
+  - Please note that the linked article is third-party material, not maintained by Fabric. It's under copyright of @ChampionAsh5357, and licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 
 <!---->
