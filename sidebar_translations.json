@@ -46,6 +46,7 @@
   "develop.data_generation.loot_tables": "Loot Table Generation",
   "develop.data_generation.block_models": "Block Model Generation",
   "develop.data_generation.item_models": "Item Model Generation",
+  "develop.data_generation.enchantments": "Enchantment Generation",
   "develop.rendering": "Rendering",
   "develop.rendering.basic_concepts": "Basic Rendering Concepts",
   "develop.rendering.gui_graphics": "Drawing to the GUI",

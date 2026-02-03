@@ -16,6 +16,7 @@
   "block.example-mod.waxcap": "Waxcap",
   "death.attack.tater": "%1$s died from Tater damage!",
   "effect.example-mod.tater": "Tater",
+  "enchantment.example-mod.repulsion_curse": "Curse of Repulsion",
   "enchantment.example-mod.thundering": "Thundering",
   "item.example-mod.counter": "Counter",
   "item.example-mod.counter.info": "Used %1$s times",
