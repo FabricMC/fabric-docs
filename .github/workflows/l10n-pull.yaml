@@ -29,7 +29,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - if: startsWith(github.ref_name, 'l10n/')
-        run: exit 1
+        run: |
+          echo "::error title=Wrong Branch::This workflow must not be triggered from the l10n/* branch"
+          exit 1
       - uses: actions/checkout@v4
       - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
         with:
@@ -68,7 +70,6 @@ jobs:
           body: ""
           commit-message: ${{ steps.message.outputs.message }}
           branch: l10n/${{ github.ref_name }}
-          author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
-          committer: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           labels: i18n-l10n
+          draft: always-true
           maintainer-can-modify: false

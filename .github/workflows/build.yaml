@@ -2,6 +2,7 @@ name: Build
 
 on:
   pull_request:
+    types: [opened, ready_for_review, synchronize]
   push:
     branches: [main]
   workflow_dispatch:
@@ -47,10 +48,12 @@ jobs:
           reports: reference/**/build/reports/checkstyle/*.xml
       # require clean working directory
       - run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git status
-            exit 1
-          fi
+          files="$(git ls-files --modified --others --exclude-standard -z)"
+          [[ -z "${files}" ]] && exit 0
+          while IFS= read -r -d '' f; do
+            echo "::error file=${f},title=Datagen::Regenerate this file with 'cd reference && ./gradlew runDatagen'"
+          done <<<"${files}"
+          exit 1
 
   # :::automatic-testing:game-test:3
   client_game_test:
@@ -64,12 +67,13 @@ jobs:
       - run: ./gradlew runProductionClientGameTest
         # :::automatic-testing:game-test:3
         working-directory: ./reference
-      # :::automatic-testing:game-test:3
+        # :::automatic-testing:game-test:3
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           path: build/run/clientGameTest/screenshots
-  # :::automatic-testing:game-test:3
+        # :::automatic-testing:game-test:3
+        working-directory: ./reference
 
   deploy:
     runs-on: ubuntu-24.04
