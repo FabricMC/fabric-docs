@@ -2,7 +2,7 @@ name: Build
 
 on:
   pull_request:
-    types: [review_requested]
+    types: [opened, ready_for_review, synchronize]
   push:
     branches: [main]
   workflow_dispatch:
