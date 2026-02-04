@@ -75,7 +75,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/cs_cz/develop/items/custom-item-groups"
+          "link": "/cs_cz/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/cs_cz/develop/rendering/draw-context"
+          "link": "/cs_cz/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderování v HUD",
