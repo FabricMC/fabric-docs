@@ -67,12 +67,13 @@ jobs:
       - run: ./gradlew runProductionClientGameTest
         # :::automatic-testing:game-test:3
         working-directory: ./reference
-      # :::automatic-testing:game-test:3
+        # :::automatic-testing:game-test:3
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           path: build/run/clientGameTest/screenshots
-  # :::automatic-testing:game-test:3
+        # :::automatic-testing:game-test:3
+        working-directory: ./reference
 
   deploy:
     runs-on: ubuntu-24.04
