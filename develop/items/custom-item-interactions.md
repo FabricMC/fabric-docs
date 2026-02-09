@@ -13,7 +13,7 @@ There are some key classes you must understand before taking a look at the vanil
 
 An `InteractionResult` tells the game the status of the event, whether it was passed/ignored, failed or successful.
 
-A succesful interaction can also be used to transform the stack in hand.
+A successful interaction can also be used to transform the stack in hand.
 
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
