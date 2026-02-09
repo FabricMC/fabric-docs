@@ -73,7 +73,10 @@ jobs:
         with:
           path: build/run/clientGameTest/screenshots
         # :::automatic-testing:game-test:3
-        working-directory: ./reference
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          path: reference/build/run/clientGameTest/screenshots
 
   deploy:
     runs-on: ubuntu-24.04
