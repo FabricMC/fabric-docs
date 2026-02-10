@@ -81,6 +81,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 ```
 
 ::: warning
+
 As of 1.21.5, `appendTooltip` has been deprecated. It is now recommended to implement `TooltipAppender` as such. This will require the [creation of a custom component class](#advanced-data-components).
 ```java
 public record ComponentWithTooltip(int clickCount) implements TooltipAppender {
@@ -91,6 +92,7 @@ public record ComponentWithTooltip(int clickCount) implements TooltipAppender {
 }
 ```
 Then, you can register the `TooltipAppender` via `ComponentTooltipAppenderRegistry`.
+
 :::
 
 Don't forget to update your lang file (`/assets/mod-id/lang/en_us.json`) and add these two lines:
