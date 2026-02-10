@@ -3,13 +3,17 @@ package com.example.docs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+
+import com.example.docs.component.ModComponents;
 
 //#entrypoint
 public class FabricDocsReference implements ModInitializer {
@@ -40,5 +44,9 @@ public class FabricDocsReference implements ModInitializer {
 		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 		//#entrypoint
+
+		// #tooltip_provider
+		ComponentTooltipAppenderRegistry.addAfter(DataComponentTypes.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
+		// #tooltip_provider
 	}
 }

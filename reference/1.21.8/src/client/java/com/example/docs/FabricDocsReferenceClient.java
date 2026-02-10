@@ -1,9 +1,14 @@
 package com.example.docs;
 
 import net.minecraft.client.particle.EndRodParticle;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+
+import com.example.docs.component.ModComponents;
 
 public class FabricDocsReferenceClient implements ClientModInitializer {
 	@Override

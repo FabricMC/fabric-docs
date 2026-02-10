@@ -1,16 +1,14 @@
 package com.example.docs;
 
-import com.example.docs.component.ModComponents;
-
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.particle.EndRodParticle;
+import net.minecraft.network.chat.Component;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 
-import net.minecraft.network.chat.Component;
+import com.example.docs.component.ModComponents;
 
 public class ExampleModClient implements ClientModInitializer {
 	@Override

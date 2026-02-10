@@ -1,21 +1,19 @@
 package com.example.docs;
 
-import com.example.docs.component.ModComponents;
-
-import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
-
-import net.minecraft.core.component.DataComponents;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+
+import com.example.docs.component.ModComponents;
 
 //#entrypoint
 public class ExampleMod implements ModInitializer {
