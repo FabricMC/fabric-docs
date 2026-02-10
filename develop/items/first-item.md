@@ -42,6 +42,8 @@ This will not work if you've marked the item as damageable, as the stack size is
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
+> **Be sure to check whether you are using YARN MAPPING. If you use MOJANG MAPPING, your IDE may prompt 'Identifier cannot be instantiated'.(Refer to https://github.com/orgs/FabricMC/discussions/4120, this is because Mojang's mappings have modified it into an abstract class. If you are a beginner, it is recommended not to use Mojang's mappings at first.)**
+
 `Item::new` tells the register function to create an `Item` instance from an `Item.Properties` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Properties` as a parameter.
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
