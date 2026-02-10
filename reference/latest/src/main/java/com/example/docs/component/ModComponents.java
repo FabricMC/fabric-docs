@@ -22,9 +22,9 @@ public class ModComponents {
 	//::2
 
 	public static final DataComponentType<ComponentWithTooltip> COMPONENT_WITH_TOOLTIP = Registry.register(
-					BuiltInRegistries.DATA_COMPONENT_TYPE,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "click_count_with_tooltip"),
-					DataComponentType.<ComponentWithTooltip>builder().persistent(ComponentWithTooltip.CODEC).build()
+			BuiltInRegistries.DATA_COMPONENT_TYPE,
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "click_count_with_tooltip"),
+			DataComponentType.<ComponentWithTooltip>builder().persistent(ComponentWithTooltip.CODEC).build()
 	);
 
 	//::3

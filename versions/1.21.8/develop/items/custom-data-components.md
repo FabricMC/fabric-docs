@@ -83,15 +83,16 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 ::: warning
 
 As of 1.21.5, `appendTooltip` has been deprecated. It is now recommended to implement `TooltipAppender` as such. This will require the [creation of a custom component class](#advanced-data-components).
-```java
-public record ComponentWithTooltip(int clickCount) implements TooltipAppender {
-    @Override
-    public void appendTooltip(Item.TooltipContext context, Consumer<Text> textConsumer, TooltipType type, ComponentsAccess components) {
-        textConsumer.accept(Text.translatable("item.example-mod.counter.info", this.clickCount).formatted(Formatting.GOLD));
-    }
-}
-```
-Then, you can register the `TooltipAppender` via `ComponentTooltipAppenderRegistry`.
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+Then, you can register the `TooltipAppender` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+Alternatively, you can use `ItemTooltipCallback` to replace `appendTooltip`. This is called in `onInitializeClient` in the `ClientModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
 :::
 

@@ -88,7 +88,7 @@ Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegist
 
 @[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
-Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`.
+Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
 
 @[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 
