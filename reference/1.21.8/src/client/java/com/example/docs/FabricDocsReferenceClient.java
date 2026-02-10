@@ -14,5 +14,12 @@ public class FabricDocsReferenceClient implements ClientModInitializer {
 		// For this example, we will use the end rod particle behaviour.
 		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.SPARKLE_PARTICLE, EndRodParticle.Factory::new);
 		// #particle_register_client
+
+		// #tooltip_provider_client
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+			tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+		});
+		// #tooltip_provider_client
 	}
 }
