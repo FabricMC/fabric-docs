@@ -3,6 +3,7 @@ title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 As your items grow more complex, you may find yourself needing to store custom data associated with each item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
