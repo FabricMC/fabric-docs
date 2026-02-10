@@ -77,9 +77,9 @@ To instead share the defined conditions and targets across multiple effects, `Al
 
 Note that the method to use depends on the type of effect being added. For example, `EnchantmentValueEffect` requires `AnyOf.valueEffects` instead. Differing effect types still require additional `withEffect` calls.
 
-## Enchantment Table {#enchantment-table}
+## Enchanting Table {#enchanting-table}
 
-While we have specified the enchantment weight (or chance) in our enchantment definition, it will not appear in the enchantment table by default. To allow our enchantment to be traded by villagers and appear in the enchanting table we need to add it to the `non_treasure` tag.
+While we have specified the enchantment weight (or chance) in our enchantment definition, it will not appear in the enchanting table by default. To allow our enchantment to be traded by villagers and appear in the enchanting table we need to add it to the `non_treasure` tag.
 
 To do this, we can create a tag provider. Create a class that extends `FabricTagProvider<Enchantment>` in the `datagen` package. Then implement the constructor with `Registries.ENCHANTMENT` as the `registryKey` parameter to `super`, and create the `addTags` method.
 
@@ -91,7 +91,7 @@ We can now add our enchantment to `EnchantmentTags.NON_TREASURE`, by calling the
 
 ## Curses {#curses}
 
-Curses are also implemented using tags. We can use the tag provider from [the Enchantment Table section](#enchantment-table).
+Curses are also implemented using tags. We can use the tag provider from [the Enchanting Table section](#enchanting-table).
 
 In the `addTags` method, simply add your enchantment to the `CURSE` tag to mark it as a curse.
 

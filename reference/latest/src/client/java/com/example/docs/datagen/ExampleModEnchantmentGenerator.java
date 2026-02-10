@@ -55,7 +55,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 				Enchantment.enchantment(
 						Enchantment.definition(
 								context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE), // The items this enchantment can be applied to
-								10, // The weight / probability of our enchantment being available in the enchantment table
+								10, // The weight / probability of our enchantment being available in the enchanting table
 								3, // The max level of the enchantment
 								Enchantment.dynamicCost(1, 10), // The base minimum cost of the enchantment, and the additional cost for every level
 								Enchantment.dynamicCost(1, 15), // Same as the other dynamic cost, but for the maximum instead
