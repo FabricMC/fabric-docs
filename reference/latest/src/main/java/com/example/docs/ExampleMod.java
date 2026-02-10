@@ -1,5 +1,11 @@
 package com.example.docs;
 
+import com.example.docs.component.ModComponents;
+
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
+
+import net.minecraft.core.component.DataComponents;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,5 +46,9 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 		//#entrypoint
+
+		// #tooltip_provider
+		ComponentTooltipAppenderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
+		// #tooltip_provider
 	}
 }
