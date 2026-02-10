@@ -78,6 +78,19 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 }
 ```
 
+::: warning
+As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
+```java
+public record ComponentWithTooltip(int clickCount) implements TooltipProvider {
+    @Override
+    public void addToTooltip(TooltipContext context, Consumer<Component> textConsumer, TooltipFlag type, DataComponentGetter components) {
+        textConsumer.accept(Component.translatable("item.example-mod.counter.info", this.clickCount).withStyle(ChatFormatting.GOLD));
+    }
+}
+```
+Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`.
+:::
+
 Don't forget to update your lang file (`/assets/example-mod/lang/en_us.json`) and add these two lines:
 
 ```json
