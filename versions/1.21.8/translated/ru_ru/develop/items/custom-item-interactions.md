@@ -9,16 +9,16 @@ authors:
 
 Есть несколько ключевых классов которые вы должны понять, прежде чем будете рассматривать события с ванильными предметами.
 
-## TypedActionResult {#typedactionresult}
+## InteractionResultHolder {#typedactionresult}
 
-Для предметов более распространённым `TypedActionResult` является `ItemStacks` - этот класс говорит игре, что нужно заменять (или не заменять) после того, как событие произошло.
+Для предметов более распространённым `InteractionResultHolder` является `ItemStacks` - этот класс говорит игре, что нужно заменять (или не заменять) после того, как событие произошло.
 
-Если в событие ничего не произошло, вам нужно будет использовать метод `TypedActionResult#pass(stack)`, где `stack` это текущий стек предметов.
+Если в событие ничего не произошло, вам нужно будет использовать метод `InteractionResultHolder#pass(stack)`, где `stack` это текущий стек предметов.
 
-Вы можете получить текущий стек предметов, получая стек из руки игрока. Обычно события, требующие `TypedActionResult`, передают эту функцию методу события.
+Вы можете получить текущий стек предметов, получая стек из руки игрока. Обычно события, требующие `InteractionResultHolder`, передают эту функцию методу события.
 
 ```java
-TypedActionResult.pass(user.getStackInHand(hand))
+InteractionResultHolder.pass(user.getStackInHand(hand))
 ```
 
 Если вы передадите текущий стек, тогда ничего не изменится, независимо от того, объявите ли вы событие неудавшимся, прошедшим/проигнорируемым или успехом.
@@ -28,12 +28,12 @@ TypedActionResult.pass(user.getStackInHand(hand))
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-TypedActionResult.success(heldStack);
+InteractionResultHolder.success(heldStack);
 ```
 
-## ActionResult {#actionresult}
+## InteractionResult {#actionresult}
 
-Аналогичным образом, `ActionResult` говорит игре статус события, не смотря было ли оно пройдено/проигнорированно, неудачно или успешно.
+Аналогичным образом, `InteractionResult` говорит игре статус события, не смотря было ли оно пройдено/проигнорированно, неудачно или успешно.
 
 ## Переопределяемые события {#overridable-events}
 

@@ -11,16 +11,16 @@ Basic items can only go so far - eventually you will need an item that interacts
 
 There are some key classes you must understand before taking a look at the vanilla item events.
 
-## TypedActionResult {#typedactionresult}
+## InteractionResultHolder {#typedactionresult}
 
-For items, the most common `TypedActionResult` you'll see is for `ItemStacks` - this class tells the game what to replace the item stack (or not to replace) after the event has occured.
+For items, the most common `InteractionResultHolder` you'll see is for `ItemStacks` - this class tells the game what to replace the item stack (or not to replace) after the event has occured.
 
-If nothing has occured in the event, you should use the `TypedActionResult#pass(stack)` method where `stack` is the current item stack.
+If nothing has occured in the event, you should use the `InteractionResultHolder#pass(stack)` method where `stack` is the current item stack.
 
-You can get the current item stack by getting the stack in the player's hand. Usually events that require a `TypedActionResult` pass the hand to the event method.
+You can get the current item stack by getting the stack in the player's hand. Usually events that require a `InteractionResultHolder` pass the hand to the event method.
 
 ```java
-TypedActionResult.pass(user.getStackInHand(hand))
+InteractionResultHolder.pass(user.getStackInHand(hand))
 ```
 
 If you pass the current stack - nothing will change, regardless of if you declare the event as failed, passed/ignored or successful.
@@ -30,12 +30,12 @@ If you want to delete the current stack, you should pass an empty one. The same 
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-TypedActionResult.success(heldStack);
+InteractionResultHolder.success(heldStack);
 ```
 
-## ActionResult {#actionresult}
+## InteractionResult {#actionresult}
 
-Similarly, an `ActionResult` tells the game the status of the event, whether it was passed/ignored, failed or successful.
+Similarly, an `InteractionResult` tells the game the status of the event, whether it was passed/ignored, failed or successful.
 
 ## Overridable Events {#overridable-events}
 

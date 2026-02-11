@@ -32,7 +32,7 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 ## Creating Translations {#creating-translations}
 
-Along with creating raw translations, translations from `ResourceLocation`s, and copying them from an already existing file (by passing a `Path`), there are helper methods for translating items, blocks, tags, stats, entities, status effects, item groups, entity attributes, and enchantments. Simply call `add` on the `translationBuilder` with what you want to translate and what it should translate to:
+Along with creating raw translations, translations from `ResourceLocation`s, and copying them from an already existing file (by passing a `Path`), there are helper methods for translating items, blocks, tags, stats, entities, mob effects, item groups, entity attributes, and enchantments. Simply call `add` on the `translationBuilder` with what you want to translate and what it should translate to:
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
 

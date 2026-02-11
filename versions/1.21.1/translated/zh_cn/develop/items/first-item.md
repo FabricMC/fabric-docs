@@ -136,7 +136,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 ## 自定义物品提示 {#custom-tooltips}
 
-如果要让你的物品有自定义的物品提示，需要创建继承了 `Item` 的类，并覆盖 `appendTooltip` 方法。
+如果要让你的物品有自定义的物品提示，需要创建继承了 `Item` 的类，并覆盖 `appendHoverText` 方法。
 
 :::info
 这个例子使用 `LightningStick` 类，这是在[自定义物品交互](./custom-item-interactions)页面创建的。

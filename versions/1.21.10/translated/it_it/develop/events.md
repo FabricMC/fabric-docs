@@ -81,9 +81,9 @@ L'interfaccia callback descrive cosa deve essere implementato dai listener di ev
 
 Per la nostra implementazione di `Event`, sceglieremo di usare un evento basato su un vettore. Il vettore conterrà tutti i listener agli eventi che stanno ascoltando l'evento.
 
-La nostra implementazione chiamerà i listener di eventi in ordine finché uno di essi non restituisce `ActionResult.PASS`. Questo significa che con il valore restituito un listener può dire "_annulla questo_", "_approva questo_" o "_non m'interessa, lascialo al prossimo listener_".
+La nostra implementazione chiamerà i listener di eventi in ordine finché uno di essi non restituisce `InteractionResult.PASS`. Questo significa che con il valore restituito un listener può dire "_annulla questo_", "_approva questo_" o "_non m'interessa, lascialo al prossimo listener_".
 
-Usare `ActionResult` come valore restituito è una convenzione per far cooperare i gestori di eventi in questa maniera.
+Usare `InteractionResult` come valore restituito è una convenzione per far cooperare i gestori di eventi in questa maniera.
 
 Dovrai creare un'interfaccia che ha un'istanza `Event` e un metodo per implementare la risposta. Una semplice configurazione per il nostro callback di tosatura di una pecora è:
 
@@ -97,11 +97,11 @@ Poi chiamiamo il nostro metodo (in questo caso, `interact`) sul listener per ott
 
 @[code lang=java transclude={33-33}](@/reference/1.21.10/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Se il listener dice che dobbiamo annullare (`ActionResult.FAIL`), oppure finire completamente (`ActionResult.SUCCESS`), il callback restituisce il risultato e finisce il loop. `ActionResult.PASS` si sposta sul prossimo listener, e nella maggior parte dei casi dovrebbe risultare in un successo se non ci sono altri listener registrati:
+Se il listener dice che dobbiamo annullare (`InteractionResult.FAIL`), oppure finire completamente (`InteractionResult.SUCCESS`), il callback restituisce il risultato e finisce il loop. `InteractionResult.PASS` si sposta sul prossimo listener, e nella maggior parte dei casi dovrebbe risultare in un successo se non ci sono altri listener registrati:
 
 @[code lang=java transclude={25-30}](@/reference/1.21.10/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa fa ogni `ActionResult`. Nel nostro caso, potrebbe essere:
+Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa fa ogni `InteractionResult`. Nel nostro caso, potrebbe essere:
 
 @[code lang=java transclude={9-16}](@/reference/1.21.10/src/main/java/com/example/docs/event/SheepShearCallback.java)
 

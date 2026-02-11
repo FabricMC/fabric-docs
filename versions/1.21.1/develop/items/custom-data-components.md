@@ -15,7 +15,7 @@ Along with registering custom components, this page covers the general usage of 
 
 ## Registering a Component {#registering-a-component}
 
-As with anything else in your mod you will need to register your custom component using a `ComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
+As with anything else in your mod you will need to register your custom component using a `DataComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
 
 Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](./getting-started/project-structure#entrypoints).
 
@@ -35,7 +35,7 @@ There are a few things here worth noting. On the first and fourth lines, you can
 
 Secondly, you must provide an `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's mod ID.
 
-Lastly, we have a `ComponentType.Builder` that creates the actual `ComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
+Lastly, we have a `ComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
 ## Basic Data Components {#basic-data-components}
 
@@ -73,7 +73,7 @@ We're going to add some tooltip code to display the current value of the click c
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendTooltip` method in the `CounterItem` class:
+This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendHoverText` method in the `CounterItem` class:
 
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {

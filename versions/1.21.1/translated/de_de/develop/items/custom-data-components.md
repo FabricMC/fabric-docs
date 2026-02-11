@@ -13,7 +13,7 @@ Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seit
 
 ## Eine Komponente registrieren {#registering-a-component}
 
-Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente mit einem `ComponentType` registrieren. Dieser Komponententyp nimmt ein generisches Argument entgegen, das den Typ des Wertes deiner Komponente enthält. Darauf werden wir weiter unten bei der Behandlung von [einfachen](#basic-data-components) und [fortgeschrittenen](#advanced-data-components) Komponenten näher eingehen.
+Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente mit einem `DataComponentType` registrieren. Dieser Komponententyp nimmt ein generisches Argument entgegen, das den Typ des Wertes deiner Komponente enthält. Darauf werden wir weiter unten bei der Behandlung von [einfachen](#basic-data-components) und [fortgeschrittenen](#advanced-data-components) Komponenten näher eingehen.
 
 Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints) aufrufst.
 
@@ -33,7 +33,7 @@ Hier gibt es einige Dinge zu beachten. In der ersten und vierten Zeile ist ein `
 
 Zweitens musst du einen `ResourceLocation` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
 
-Schließlich haben wir einen `ComponentType.Builder`, der die eigentliche `ComponentType`-Instanz erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
+Schließlich haben wir einen `ComponentType.Builder`, der die eigentliche `DataComponentType`-Instanz erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
 
 ## Einfache Datenkomponenten {#basic-data-components}
 
@@ -71,7 +71,7 @@ Wir werden einen Tooltip-Code hinzufügen, um den aktuellen Wert der Klickzahl a
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen. Füge diese Zeile der Methode `appendTooltip` in der Klasse `CounterItem` hinzu:
+Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen. Füge diese Zeile der Methode `appendHoverText` in der Klasse `CounterItem` hinzu:
 
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {

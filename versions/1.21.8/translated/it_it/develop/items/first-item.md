@@ -156,7 +156,7 @@ Per maggiori informazioni sul formato delle ricette, consulta queste risorse:
 
 ## Tooltip Personalizzati {#custom-tooltips}
 
-Se vuoi che il tuo oggetto abbia un tooltip personalizzato, dovrai creare una classe che estenda `Item` e faccia override del metodo `appendTooltip`.
+Se vuoi che il tuo oggetto abbia un tooltip personalizzato, dovrai creare una classe che estenda `Item` e faccia override del metodo `appendHoverText`.
 
 :::info
 Questo esempio usa la classe `LightningStick` creata nella pagina [Interazioni Personalizzate tra Oggetti](./custom-item-interactions).

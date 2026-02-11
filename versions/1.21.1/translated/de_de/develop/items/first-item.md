@@ -136,7 +136,7 @@ Weitere Informationen über das Rezeptformat findest du in diesen Ressourcen:
 
 ## Benutzerdefinierte Tooltips {#custom-tooltips}
 
-Wenn du möchtest, dass dein Item einen benutzerdefinierten Tooltip hat, musst du eine Klasse erstellen, die `Item` erbt und die Methode `appendTooltip` überschreibt.
+Wenn du möchtest, dass dein Item einen benutzerdefinierten Tooltip hat, musst du eine Klasse erstellen, die `Item` erbt und die Methode `appendHoverText` überschreibt.
 
 :::info
 In diesem Beispiel wird die Klasse `LightningStick` verwendet, die auf der Seite [Benutzerdefinierte Iteminteraktionen](./custom-item-interactions) erstellt wurde.

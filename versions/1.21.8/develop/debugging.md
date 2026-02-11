@@ -97,7 +97,7 @@ public class TestItem extends Item {
     }
 
     @Override
-    public ActionResult useOn(ItemUsageContext context) {
+    public InteractionResult useOn(ItemUsageContext context) {
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
         BlockPos targetPos = context.getBlockPos();
@@ -112,7 +112,7 @@ public class TestItem extends Item {
             }
         }
 
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }
 ```

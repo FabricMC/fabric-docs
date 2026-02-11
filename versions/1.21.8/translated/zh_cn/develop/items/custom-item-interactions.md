@@ -9,16 +9,16 @@ authors:
 
 有些关键的类你必须理解，然后才能看看原版的物品事件。
 
-## 带类型的操作结果(TypedActionResult) {#typedactionresult}
+## 带类型的操作结果(InteractionResultHolder) {#typedactionresult}
 
-对于物品来说，最常见的 `TypedActionResult` 是用于 `ItemStacks` 的——他负责告诉游戏在事件发生后是否需要替换物品堆叠(item stack)。
+对于物品来说，最常见的 `InteractionResultHolder` 是用于 `ItemStacks` 的——他负责告诉游戏在事件发生后是否需要替换物品堆叠(item stack)。
 
-如果事件中没有发生任何变化，你应该使用 `TypedActionResult#pass(stack)` 方法，其中 `stack` 是当前的物品堆。
+如果事件中没有发生任何变化，你应该使用 `InteractionResultHolder#pass(stack)` 方法，其中 `stack` 是当前的物品堆。
 
-获取物品堆叠的一种方式是通过玩家的手。 需要返回 `TypedActionResult` 的事件往往会将手作为参数传递给事件方法。
+获取物品堆叠的一种方式是通过玩家的手。 需要返回 `InteractionResultHolder` 的事件往往会将手作为参数传递给事件方法。
 
 ```java
-TypedActionResult.pass(user.getStackInHand(hand))
+InteractionResultHolder.pass(user.getStackInHand(hand))
 ```
 
 如果传递返回当前的物品堆叠, 那么无论将事件声明为什么——失败(failed)、通过(passed) 或忽略(ignored)、 成功(successful)，物品堆叠都不会发生变化。 _译者注：在源代码中并没有ignored的枚举值, 可能的情况是`PASS`被用来表示事件未处理，游戏将继续执行默认行为。此处注解可能不准确, 希望后来者指正_
@@ -28,12 +28,12 @@ TypedActionResult.pass(user.getStackInHand(hand))
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-TypedActionResult.success(heldStack);
+InteractionResultHolder.success(heldStack);
 ```
 
-## 操作结果(ActionResult) {#actionresult}
+## 操作结果(InteractionResult) {#actionresult}
 
-同样，`ActionResult` 告诉游戏事件的状态，无论是被忽略(PASS)、失败(FAIL) 还是成功(Success)。_译者注：`ActionResult`实际上是一个枚举类，而`TypedActionResult`包装了 这个类，不仅可以表示结果的状态，还可以携带附加的数据，比如 item stack_
+同样，`InteractionResult` 告诉游戏事件的状态，无论是被忽略(PASS)、失败(FAIL) 还是成功(Success)。_译者注：`InteractionResult`实际上是一个枚举类，而`InteractionResultHolder`包装了 这个类，不仅可以表示结果的状态，还可以携带附加的数据，比如 item stack_
 
 ## 可以被重写的事件(Overridable Events) {#overridable-events}
 

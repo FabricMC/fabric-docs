@@ -9,9 +9,9 @@ search: false
 
 Item groups are the tabs in the creative inventory that store items. You can create your own item group to store your items in a separate tab. This is pretty useful if your mod adds a lot of items and you want to keep them organized in one location for your players to easily access.
 
-## Creating the Item Group {#creating-the-item-group}
+## Creating the Creative Tab{#creating-the-item-group}
 
-It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the item group and a registry key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
+It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the creative tab and a resource key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
 
 @[code transcludeWith=:::9](@/reference/1.20.4/src/main/java/com/example/docs/item/ModItems.java)
 

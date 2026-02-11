@@ -80,7 +80,7 @@ Upon death from our damage type, you'll see the following death message:
 
 ### Damage Type Tags {#damage-type-tags}
 
-Some damage types can bypass armor, bypass status effects, and such. Tags are used to control these kinds of properties
+Some damage types can bypass armor, bypass mob effects, and such. Tags are used to control these kinds of properties
 of damage types.
 
 You can find existing damage type tags in `data/minecraft/tags/damage_type`.

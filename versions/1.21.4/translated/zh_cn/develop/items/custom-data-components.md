@@ -13,7 +13,7 @@ authors:
 
 ## 注册组件{#registering-a-component}
 
-就你模组中的其他东西一样，你需要使用 `ComponentType` 注册自定义的组件。 这个组件类型接受一个泛型参数，包含你的组件的值的类型。 之后在讲[基本](#basic-data-components)和[高级](#advanced-data-components)组件时会更深入研究。
+就你模组中的其他东西一样，你需要使用 `DataComponentType` 注册自定义的组件。 这个组件类型接受一个泛型参数，包含你的组件的值的类型。 之后在讲[基本](#basic-data-components)和[高级](#advanced-data-components)组件时会更深入研究。
 
 把这个组件放到一个合理的类中。 对于这个例子，我们创建一个新的包，叫做 `compoennt`，以及一个类，叫做 `ModComponents`，包含我们所有的组件类型。 确保在你的[模组的初始化器](./getting-started/project-structure#entrypoints)中调用 `ModComponents.initialize()`。
 
@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 其次，你需要提供一个 `ResourceLocation`，包含你的组件的 ID， 其命名空间就是你模组的 ID。
 
-最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`ComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
+最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`DataComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
 ## 基本数据组件{#basic-data-components}
 
@@ -71,7 +71,7 @@ public static final Item COUNTER = register(new CounterItem(
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-这会返回组件的当前值，其类型为我们注册组件时定义的类型。 可以将这个值添加到物品提示中。 在 `CounterItem` 类中，把这一行添加到 `appendTooltip` 方法：
+这会返回组件的当前值，其类型为我们注册组件时定义的类型。 可以将这个值添加到物品提示中。 在 `CounterItem` 类中，把这一行添加到 `appendHoverText` 方法：
 
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {

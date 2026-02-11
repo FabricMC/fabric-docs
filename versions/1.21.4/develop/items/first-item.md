@@ -156,7 +156,7 @@ For more information on the recipe format, check out these resources:
 
 ## Custom Tooltips {#custom-tooltips}
 
-If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendTooltip` method.
+If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method.
 
 ::: info
 This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.

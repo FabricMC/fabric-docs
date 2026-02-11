@@ -13,7 +13,7 @@ Assieme alla registrazione delle componenti personalizzate, questa pagina copre 
 
 ## Registrare una Componente {#registering-a-component}
 
-Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `ComponentType`. Questo tipo di componente prende un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
+Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `DataComponentType`. Questo tipo di componente prende un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
 
 Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di richiamare `ModComponents.initialize()` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
 
@@ -33,7 +33,7 @@ Ci sono un paio di cose qui da far notare. Nelle linee prima e quarta, noti un `
 
 Secondo, devi fornire un `ResourceLocation` che contenga l'ID voluto per la tua componente. Questo avrà il namespace con l'ID della tua mod.
 
-Infine, abbiamo un `ComponentType.Builder` che crea l'istanza `ComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
+Infine, abbiamo un `ComponentType.Builder` che crea l'istanza `DataComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
 
 ## Componenti di Dati Basilari {#basic-data-components}
 
@@ -71,7 +71,7 @@ Aggiungeremo del codice del tooltip per mostrare il valore corrente del contator
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Questo restituirà il valore corrente della componente nel tipo che abbiamo definito quando abbiamo registrato la nostra componente. Possiamousare questo valore per aggiungere una voce al tooltip. Aggiungi questa linea al metodo `appendTooltip` nella classe `CounterItem`:
+Questo restituirà il valore corrente della componente nel tipo che abbiamo definito quando abbiamo registrato la nostra componente. Possiamousare questo valore per aggiungere una voce al tooltip. Aggiungi questa linea al metodo `appendHoverText` nella classe `CounterItem`:
 
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {

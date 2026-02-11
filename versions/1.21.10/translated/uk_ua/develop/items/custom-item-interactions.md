@@ -9,16 +9,16 @@ authors:
 
 Є кілька ключових класів, які ви повинні зрозуміти, перш ніж дивитися на події ванілльних предметів.
 
-## TypedActionResult {#typedactionresult}
+## InteractionResultHolder {#typedactionresult}
 
-Для предметів найпоширеніший `TypedActionResult`, який ви побачите, це `ItemStacks` - цей клас повідомляє грі, що замінити стіс предметів (чи не замінити) після того, як відбулася подія.
+Для предметів найпоширеніший `InteractionResultHolder`, який ви побачите, це `ItemStacks` - цей клас повідомляє грі, що замінити стіс предметів (чи не замінити) після того, як відбулася подія.
 
-Якщо в події нічого не відбулося, вам слід використати метод `TypedActionResult#pass(stack)`, де `stack` — поточний стіс предмета.
+Якщо в події нічого не відбулося, вам слід використати метод `InteractionResultHolder#pass(stack)`, де `stack` — поточний стіс предмета.
 
-Ви можете отримати поточний стіс предметів, отримавши стіс в руках гравця. Зазвичай події, які потребують `TypedActionResult`, передають руку методу події.
+Ви можете отримати поточний стіс предметів, отримавши стіс в руках гравця. Зазвичай події, які потребують `InteractionResultHolder`, передають руку методу події.
 
 ```java
-TypedActionResult.pass(user.getStackInHand(hand))
+InteractionResultHolder.pass(user.getStackInHand(hand))
 ```
 
 Якщо ви передаєте поточний стек, нічого не зміниться, незалежно від того, чи ви оголосите подію невдалою, пройденою/ігнорованою чи успішною.
@@ -28,12 +28,12 @@ TypedActionResult.pass(user.getStackInHand(hand))
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-TypedActionResult.success(heldStack);
+InteractionResultHolder.success(heldStack);
 ```
 
-## ActionResult {#actionresult}
+## InteractionResult {#actionresult}
 
-Подібним чином `ActionResult` повідомляє грі статус події, незалежно від того, чи була вона пройдена/проігнорована, невдала чи успішна.
+Подібним чином `InteractionResult` повідомляє грі статус події, незалежно від того, чи була вона пройдена/проігнорована, невдала чи успішна.
 
 ## Перевизначені події {#overridable-events}
 

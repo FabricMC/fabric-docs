@@ -156,7 +156,7 @@ Fabric API 提供各式各樣的登錄，可以為你的物品添加額外屬性
 
 ## 自訂物品提示{#custom-tooltips}
 
-如果你想讓你的物品擁有自訂物品提示，你會需要建立繼承了 `Item` 的類別，並覆寫 `appendTooltip`方法。
+如果你想讓你的物品擁有自訂物品提示，你會需要建立繼承了 `Item` 的類別，並覆寫 `appendHoverText`方法。
 
 :::info
 這個範例使用了 `LightningStick` 類別，其於[自訂物品交互](./custom-item-interactions)頁面中建立。

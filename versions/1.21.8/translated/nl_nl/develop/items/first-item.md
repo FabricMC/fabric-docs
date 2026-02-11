@@ -136,7 +136,7 @@ Voor meer informatie over het receptformaat kunt u deze bronnen raadplegen:
 
 ## Aangepaste Tooltips {#custom-tooltips}
 
-Als je wilt dat je voorwerp een ​​aangepaste tooltip heeft, moet je een klasse maken die `Item` uitbreidt en de methode `appendTooltip` overschrijft.
+Als je wilt dat je voorwerp een ​​aangepaste tooltip heeft, moet je een klasse maken die `Item` uitbreidt en de methode `appendHoverText` overschrijft.
 
 :::info
 In dit voorbeeld wordt de klasse `LightningStick` gebruikt die is gemaakt op de pagina [Aangepaste Voorwerpinteracties](./custom-item-interactions).
