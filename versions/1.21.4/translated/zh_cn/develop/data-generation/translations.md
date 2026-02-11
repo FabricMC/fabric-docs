@@ -32,16 +32,16 @@ authors-nogithub:
 
 ## 创建翻译 {#creating-translations}
 
-除了创建原始翻译、来自 `Identifier` 的翻译以及从现有的文件复制（通过传递 `Path`）之外，还有用于翻译物品、方块、标签、统计数据、实体、状态效果、物品组、实体属性和魔咒的辅助方法。 只需在 `translationBuilder` 上调用 `add`，添加你想要翻译的内容以及应该翻译成的内容：
+除了创建原始翻译、来自 `ResourceLocation` 的翻译以及从现有的文件复制（通过传递 `Path`）之外，还有用于翻译物品、方块、标签、统计数据、实体、状态效果、物品组、实体属性和魔咒的辅助方法。 只需在 `translationBuilder` 上调用 `add`，添加你想要翻译的内容以及应该翻译成的内容：
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceEnglishLangProvider.java)
 
 ## 使用翻译 {#using-translations}
 
-生成的翻译取代了其他教程中添加的许多翻译，但你也可以在任何使用 `Text` 对象的地方使用。 在我们的示例中，如果我们想允许资源包翻译我们的问候语，我们使用 `Text.translatable` 而不是 `Text.of`：
+生成的翻译取代了其他教程中添加的许多翻译，但你也可以在任何使用 `Component` 对象的地方使用。 在我们的示例中，如果我们想允许资源包翻译我们的问候语，我们使用 `Component.translatable` 而不是 `Component.nullToEmpty`：
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.fabric_docs_reference.greeting")); // [!code ++]
+ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.fabric_docs_reference.greeting")); // [!code ++]
 ```

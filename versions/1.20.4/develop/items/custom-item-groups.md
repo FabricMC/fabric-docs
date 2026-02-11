@@ -1,5 +1,5 @@
 ---
-title: Custom Item Groups
+title: Custom Creative Tabs
 description: Learn how to create your own item group and add items to it.
 authors:
   - IMB11
@@ -23,7 +23,7 @@ You should see the item group is now in the creative inventory menu. However, it
 
 ## Adding a Translation Key {#adding-a-translation-key}
 
-If you used `Text.translatable` for the `displayName` method of the item group builder, you will need to add the translation to your language file.
+If you used `Component.translatable` for the `displayName` method of the item group builder, you will need to add the translation to your language file.
 
 ```json
 {

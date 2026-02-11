@@ -30,17 +30,17 @@ Mojang對物品也是這麼做的！ 看看 `Items` 類別以了解。
 
 現在你可以用這個方法來登錄物品。
 
-物品的登錄方法接受一個 'Item.Settings\` 類別的實例作為參數。 這個類別允許你透過各式各樣的「建造方法」設定物品的屬性。
+物品的登錄方法接受一個 'Item.Properties\` 類別的實例作為參數。 這個類別允許你透過各式各樣的「建造方法」設定物品的屬性。
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties` class.
 
 如果物品具有耐久，則這不會生效，因為對於任何具有耐久的物品，其堆疊大小永遠是1，以避免重複損壞。
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` 會告訴註冊方法，透過呼叫接收一個`Item.Settings` 作為參數的 `Item` 建構方法（`new Item(...)`），以從 `Item.Settings` 創建一個 `Item` 實例。
+`Item::new` 會告訴註冊方法，透過呼叫接收一個`Item.Properties` 作為參數的 `Item` 建構方法（`new Item(...)`），以從 `Item.Properties` 創建一個 `Item` 實例。
 
 然而，若你嘗試執行修改過的用戶端，會發現我們的物品沒有被加入到遊戲中！ 這是因為你還沒有靜態初始化類別。
 
@@ -55,7 +55,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 ## 把物品添加進物品群組{#adding-the-item-to-an-item-group}
 
 :::info
-如果想要將物品添加進自訂 `ItemGroup` 中，請參閱 [自訂物品群組](./custom-item-groups)。
+如果想要將物品添加進自訂 `CreativeModeTab` 中，請參閱 [自訂物品群組](./custom-item-groups)。
 :::
 
 舉例來說，如果我們想將這個物品加進「原材料」物品群組中，你會需要使用 Fabric API 的「物品群組事件」——即 `ItemGroupEvents.modifyEntriesEvent`。

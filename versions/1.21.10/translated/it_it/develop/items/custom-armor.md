@@ -15,7 +15,7 @@ Per questo esempio, creeremo una classe `GuiditeArmorMaterial` che memorizzi i n
 
 ### Durabilità di Base {#base-durability}
 
-Questa costante verrà usata nel metodo `Item.Settings#maxDamage(int damageValue)` quando si creano gli oggetti della nostra armatura, ed è anche necessaria come parametro nel costruttore `ArmorMaterial` quando creeremo successivamente il nostro oggetto `ArmorMaterial`.
+Questa costante verrà usata nel metodo `Item.Properties#maxDamage(int damageValue)` quando si creano gli oggetti della nostra armatura, ed è anche necessaria come parametro nel costruttore `ArmorMaterial` quando creeremo successivamente il nostro oggetto `ArmorMaterial`.
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.10/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ Ora che hai registrato il materiale, puoi creare gli oggetti dell'armatura nella
 
 Ovviamente, un set di armatura non deve per forza essere completo, puoi avere un set con solo stivali, o solo gambiere... - il carapace di tartaruga vanilla è un buon esempio di un set di armatura con elementi mancanti.
 
-A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazione riguardo alla durabilità degli oggetti. Per questo motivo la durabilità di base deve essere aggiunta manualmente a `Item.Settings` degli oggetti dell'armatura quando li si registra.
+A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazione riguardo alla durabilità degli oggetti. Per questo motivo la durabilità di base deve essere aggiunta manualmente a `Item.Properties` degli oggetti dell'armatura quando li si registra.
 
-Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopra nel metodo `maxDamage` nella classe `Item.Settings`.
+Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopra nel metodo `maxDamage` nella classe `Item.Properties`.
 
 @[code transcludeWith=:::6](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 

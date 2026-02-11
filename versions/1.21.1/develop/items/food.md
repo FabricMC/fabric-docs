@@ -1,6 +1,6 @@
 ---
 title: Food Items
-description: Learn how to add a FoodComponent to an item to make it edible, and configure it.
+description: Learn how to add a FoodProperties to an item to make it edible, and configure it.
 authors:
   - IMB11
 
@@ -17,29 +17,29 @@ Unless you're making a mod with overpowered items, you should consider:
 
 ## Adding the Food Component {#adding-the-food-component}
 
-To add a food component to an item, we can pass it to the `Item.Settings` instance:
+To add a food component to an item, we can pass it to the `Item.Properties` instance:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 Right now, this just makes the item edible and nothing more.
 
-The `FoodComponent.Builder` class has many methods that allow you to modify what happens when a player eats your item:
+The `FoodProperties.Builder` class has many methods that allow you to modify what happens when a player eats your item:
 
 | Method               | Description                                                                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `nutrition`          | Sets the amount of hunger points your item will replenish.                                                                                                            |
 | `saturationModifier` | Sets the amount of saturation points your item will add.                                                                                                              |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.                                                                                                              |
-| `snack`              | Declares your item as a snack.                                                                                                                                        |
-| `statusEffect`       | Adds a status effect when you eat your item. Usually a status effect instance and chance is passed to this method, where chance is a decimal percentage (`1f = 100%`) |
+| `fast`              | Increases the speed your item is eaten.                                                                                                                                        |
+| `effect`       | Adds a status effect when you eat your item. Usually a status effect instance and chance is passed to this method, where chance is a decimal percentage (`1f = 100%`) |
 
-When you've modified the builder to your liking, you can call the `build()` method to get the `FoodComponent`.
+When you've modified the builder to your liking, you can call the `build()` method to get the `FoodProperties`.
 
 @[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-Similar to the example in the [Creating Your First Item](./first-item) page, I'll be using the above component:
+Similar to the example in the [Creating Your First Item](./first-item) page, this will use the above component:
 
 @[code transcludeWith=:::poisonous_apple](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 

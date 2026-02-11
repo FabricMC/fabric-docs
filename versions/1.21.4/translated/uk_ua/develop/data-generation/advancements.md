@@ -41,7 +41,7 @@ authors-nogithub:
 @[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!
+Під час створення записів про досягнення пам’ятайте, що функція приймає `ResourceLocation` досягнення у форматі `String`!
 :::
 
 :::details Вивід JSON

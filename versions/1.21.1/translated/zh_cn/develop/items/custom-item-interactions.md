@@ -40,7 +40,7 @@ TypedActionResult.success(heldStack);
 `Item` 类有许多方法可以被重写，从而为物品添加额外的功能。
 
 :::info
-[Playing SoundEvents](../sounds/using-sounds) 这里有一个比较好的例子, 他通过重写`useOnBlock` 实现了在玩家右击方块时播放声音的功能。
+[Playing SoundEvents](../sounds/using-sounds) 这里有一个比较好的例子, 他通过重写`useOn` 实现了在玩家右击方块时播放声音的功能。
 :::
 
 | 方法              | 信息                                                 |
@@ -49,7 +49,7 @@ TypedActionResult.success(heldStack);
 | `postMine`      | 当玩家挖掘方块时被调用                                        |
 | `inventoryTick` | 当物品在物品栏(inventory)中时，每一tick调用一次 |
 | `onCraft`       | 当物品被合成时调用                                          |
-| `useOnBlock`    | 当玩家手持物品右键方块时调用(确切的说是对着方块按下使用按键) |
+| `useOn`    | 当玩家手持物品右键方块时调用(确切的说是对着方块按下使用按键) |
 | `use`           | 当玩家手持物品按下右键时调用(确切的说是按下使用按键)     |
 
 ## 以使用(use) 事件为例 {#use-event}

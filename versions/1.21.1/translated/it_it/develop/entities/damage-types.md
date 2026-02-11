@@ -47,7 +47,7 @@ Cominciamo creando una `DamageSource` del nostro tipo di danno personalizzato.
 
 @[code lang=java transclude={21-24}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Poi, chiamiamo `entity.damage()` con la nostra `DamageSource` e con una quantità.
+Poi, chiamiamo `entity.hurt()` con la nostra `DamageSource` e con una quantità.
 
 @[code lang=java transclude={25-25}](@/reference/1.21.1/src/main/java/com/example/docs/damage/TaterBlock.java)
 

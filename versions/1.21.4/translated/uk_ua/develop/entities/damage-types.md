@@ -54,7 +54,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 @[code lang=java transclude={22-26}](@/reference/1.21.4/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Потім ми викликаємо `entity.damage()` з нашим `DamageSource` і сумою.
+Потім ми викликаємо `entity.hurt()` з нашим `DamageSource` і сумою.
 
 @[code lang=java transclude={27-27}](@/reference/1.21.4/src/main/java/com/example/docs/damage/TaterBlock.java)
 

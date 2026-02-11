@@ -37,7 +37,7 @@ search: false
 您可以使用 `MinecraftClient` 类的 `setScreen` 方法来打开您的界面。您可以在许多地方做这件事，比如当一个按键触发时，当一条命令执行时，或者当客户端收到一个网络包时。
 
 ```java
-MinecraftClient.getInstance().setScreen(
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty())
 );
 ```
@@ -47,7 +47,7 @@ MinecraftClient.getInstance().setScreen(
 当您想要关闭界面时，只需将界面设为 `null` 即可：
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 如果您希望在关闭界面时回退到上一个界面，您可以将当前界面对象传入自定义的 `CustomScreen` 构造方法，把它保存为字段，然后覆写 `close` 方法，将实现修改为 `this.client.setScreen(/* 您保存的上一个界面 */)` 即可。
@@ -57,8 +57,8 @@ MinecraftClient.getInstance().setScreen(null);
 现在，当您按照上面的步骤打开界面时，您可以给构造方法的第二个参数传入当前界面对象，这样当您调用 `CustomScreen#close` 的时候，游戏就会回到上一个界面。
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty(), currentScreen)
 );
 ```

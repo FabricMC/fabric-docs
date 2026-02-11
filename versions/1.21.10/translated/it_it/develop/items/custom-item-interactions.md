@@ -40,7 +40,7 @@ Similmente, un `ActionResult` informa il gioco sullo stato dell'evento, sia che 
 Fortunatamente, la classe Item ha molti metodi di cui si può fare override per aggiungere funzionalità ai tuoi oggetti.
 
 :::info
-Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suoni](../sounds/using-sounds), che usa l'evento `useOnBlock` per riprodurre un suono quando il giocatore clicca un blocco con il tasto destro.
+Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suoni](../sounds/using-sounds), che usa l'evento `useOn` per riprodurre un suono quando il giocatore clicca un blocco con il tasto destro.
 :::
 
 | Metodo          | Informazioni                                                                                            |
@@ -49,7 +49,7 @@ Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suon
 | `postMine`      | Eseguito dopo che il giocatore rompe un blocco.                                         |
 | `inventoryTick` | Eseguito ad ogni tick mentre l'oggetto è nell'inventario.                               |
 | `onCraft`       | Eseguito quando l'oggetto viene craftato.                                               |
-| `useOnBlock`    | Eseguito quando il giocatore clicca un blocco con il tasto destro, mentre ha l'oggetto. |
+| `useOn`    | Eseguito quando il giocatore clicca un blocco con il tasto destro, mentre ha l'oggetto. |
 | `use`           | Eseguito quando il giocatore clicca con il tasto destro mentre ha l'oggetto.            |
 
 ## L'Evento `use()` {#use-event}

@@ -18,7 +18,7 @@ Previously, Fabric provided `HudRenderCallback` to render to the HUD. Due to cha
 
 Fabric provides the Hud API to render and layer elements on the HUD.
 
-To start, we need to register a listener to `HudLayerRegistrationCallback` which registers your layers. Each layer is an `IdentifiedLayer`, which is a vanilla `LayeredDrawer.Layer` with an `Identifier` attached. A `LayeredDrawer.Layer` instance is usually a lambda that takes a `DrawContext` and a `RenderTickCounter` instance as parameters. See `HudLayerRegistrationCallback` and related Javadocs for more details on how to use the API.
+To start, we need to register a listener to `HudLayerRegistrationCallback` which registers your layers. Each layer is an `IdentifiedLayer`, which is a vanilla `LayeredDrawer.Layer` with an `ResourceLocation` attached. A `LayeredDrawer.Layer` instance is usually a lambda that takes a `GuiGraphics` and a `RenderTickCounter` instance as parameters. See `HudLayerRegistrationCallback` and related Javadocs for more details on how to use the API.
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 

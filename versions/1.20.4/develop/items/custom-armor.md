@@ -27,7 +27,7 @@ You'll need to create a class that inherits `ArmorMaterial`, like so:
 
 The following methods will have to be implemented as well - these methods tell the game vital information on your armor items:
 
-- ### Durability - `getDurability(ArmorItem.Type type)`
+- ### Durability - `getUses(ArmorItem.Type type)`
 
   Returns the durability for a specific armor type - in hit points.
 
@@ -47,7 +47,7 @@ The following methods will have to be implemented as well - these methods tell t
 
   @[code transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
-- #### Enchantability - `getEnchantability()`
+- #### Enchantability - `getEnchantmentValue()`
 
   How easy is it to get better and higher level enchantments with this item?
 

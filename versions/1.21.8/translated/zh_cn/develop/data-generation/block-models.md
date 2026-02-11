@@ -154,7 +154,7 @@ _点 2. - 6. 在名为 `CustomBlockStateModelGenerator` 的内部静态辅助类
 
 ### 使用纹理映射 {#using-texture-map}
 
-`TextureMap` 是干什么的？ 它实际上提供了指向纹理的标识符。 从技术上讲，它的行为类似于普通映射——将 `TextureKey`（键）与 `Identifier`（值）关联起来。
+`TextureMap` 是干什么的？ 它实际上提供了指向纹理的标识符。 从技术上讲，它的行为类似于普通映射——将 `TextureKey`（键）与 `ResourceLocation`（值）关联起来。
 
 你可以使用原版的，例如 `TextureMap.all()`（它将所有 TextureKey 与相同的标识符关联），或者创建一个新实例然后用 `.put()` 将键与值关联起来。
 
@@ -199,7 +199,7 @@ TextureMap 中的所有 `TextureKey` **必须**与父方块模型中的所有 `T
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-首先，我们使用 `VERTICAL_SLAB.upload()` 获取单个台阶模型的 `Identifier`。 然后我们使用 `ModelIds.getBlockModelId()` 获取完整方块模型的 `Identifier`，并将这两个模型传递给 `createVerticalSlabBlockStates`。
+首先，我们使用 `VERTICAL_SLAB.upload()` 获取单个台阶模型的 `ResourceLocation`。 然后我们使用 `ModelIds.getBlockModelId()` 获取完整方块模型的 `ResourceLocation`，并将这两个模型传递给 `createVerticalSlabBlockStates`。
 `BlockStateSupplier` 被传递到 `blockStateCollector`，从而实际生成 JSON 文件。
 另外，我们使用 `BlockStateModelGenerator.registerParentedItemModel()` 为垂直台阶物品创建一个模型。
 

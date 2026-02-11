@@ -9,7 +9,7 @@ Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vi
 
 Datenkomponenten ersetzen NBT-Daten aus früheren Versionen durch strukturierte Datentypen, die auf einen `ItemStack` angewendet werden können, um dauerhafte Daten über diesen Stack zu speichern. Datenkomponenten sind namensgebunden, was bedeutet, dass wir unsere eigenen Datenkomponenten implementieren können, um benutzerdefinierte Daten über einen `ItemStack` zu speichern und später darauf zuzugreifen. Eine vollständige Liste der Vanilla-Datenkomponenten kann auf dieser [Minecraft-Wiki-Seite](https://minecraft.wiki/w/Data_component_format#List_of_components) gefunden werden.
 
-Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seite auch die allgemeine Verwendung der Komponenten-API behandelt, die auch für Vanilla-Komponenten gilt. Du kannst die Definitionen aller Vanilla-Komponenten in der Klasse `DataComponentTypes` sehen und darauf zugreifen.
+Neben der Registrierung von benutzerdefinierten Komponenten wird auf dieser Seite auch die allgemeine Verwendung der Komponenten-API behandelt, die auch für Vanilla-Komponenten gilt. Du kannst die Definitionen aller Vanilla-Komponenten in der Klasse `DataComponents` sehen und darauf zugreifen.
 
 ## Eine Komponente registrieren {#registering-a-component}
 
@@ -23,15 +23,15 @@ Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
 
 Hier gibt es einige Dinge zu beachten. In der ersten und vierten Zeile ist ein `?` zu sehen. Dieser wird durch den Typ des Wertes deiner Komponente ersetzt. Wir werden das bald befüllen.
 
-Zweitens musst du einen `Identifier` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
+Zweitens musst du einen `ResourceLocation` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
 
 Schließlich haben wir einen `ComponentType.Builder`, der die eigentliche `ComponentType`-Instanz erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
 
@@ -61,7 +61,7 @@ Denke wie üblich daran, das Item in deiner Klasse `ModItems` zu registrieren.
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wi
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ Es gibt drei Lösungen, mit denen wir dieses Problem angehen können.
 
 ### Ein Standard Wert für die Komponente setzen {#setting-default-value}
 
-Wenn du deinen Artikel registrierst und ein `Item.Settings`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
+Wenn du deinen Artikel registrierst und ein `Item.Properties`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
 
 @[code transcludeWith=::_13](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlegen, indem du ein Komponenten-Objekt an deine `Item.Settings` übergibst. Zum Beispiel:
+Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlegen, indem du ein Komponenten-Objekt an deine `Item.Properties` übergibst. Zum Beispiel:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

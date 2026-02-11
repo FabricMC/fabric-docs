@@ -18,7 +18,7 @@ authors:
 
 Fabric надає API Hud для промальовування та накладення елементів на HUD.
 
-Для початку нам потрібно зареєструвати слухача `HudLayerRegistrationCallback`, який реєструє ваші шари. Кожен шар є `IdentifiedLayer`, який є ванілльним `LayeredDrawer.Layer` з прикріпленим `Identifier`. Екземпляр `LayeredDrawer.Layer` зазвичай є лямбда-виразкою, яка приймає екземпляри `DrawContext` і `RenderTickCounter` як параметри. Перегляньте `HudLayerRegistrationCallback` і пов’язані Javadocs, щоб дізнатися більше про те, як використовувати API.
+Для початку нам потрібно зареєструвати слухача `HudLayerRegistrationCallback`, який реєструє ваші шари. Кожен шар є `IdentifiedLayer`, який є ванілльним `LayeredDrawer.Layer` з прикріпленим `ResourceLocation`. Екземпляр `LayeredDrawer.Layer` зазвичай є лямбда-виразкою, яка приймає екземпляри `GuiGraphics` і `RenderTickCounter` як параметри. Перегляньте `HudLayerRegistrationCallback` і пов’язані Javadocs, щоб дізнатися більше про те, як використовувати API.
 
 Контекст малювання можна використовувати для доступу до різноманітних утиліт промальовування, які надає гра, і доступу до стеку необроблених матриць. Перегляньте сторінку [контекст малювання](./draw-context), щоб дізнатися більше про контекст малювання.
 

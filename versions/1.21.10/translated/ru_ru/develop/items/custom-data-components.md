@@ -9,7 +9,7 @@ authors:
 
 Компоненты данных заменяют данные NBT из предыдущих версий структурированными типами данных, которые можно применять к `ItemStack` для хранения постоянных данных об этом стеке. Компоненты данных имеют пространство имен, что означает, что мы можем реализовать собственные компоненты данных для хранения пользовательских данных о `ItemStack` и доступа к ним позже. Полный список компонентов данных vanilla можно найти на этой [странице вики Minecraft](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Наряду с регистрацией пользовательских компонентов на этой странице рассматривается общее использование API компонентов, которое также применимо к ванильным компонентам. Вы можете просмотреть и получить доступ к определениям всех ванильных компонентов в классе `DataComponentTypes`.
+Наряду с регистрацией пользовательских компонентов на этой странице рассматривается общее использование API компонентов, которое также применимо к ванильным компонентам. Вы можете просмотреть и получить доступ к определениям всех ванильных компонентов в классе `DataComponents`.
 
 ## Регистрация компонента {#registering-a-component}
 
@@ -23,8 +23,8 @@ authors:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -61,7 +61,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ As expected, since the `ItemStack` doesn't currently contain an instance of our 
 
 ### Установка значения компонента по умолчанию {#setting-default-value}
 
-Когда вы регистрируете свой элемент и передаете объект `Item.Settings` в конструктор элемента, вы также можете предоставить список компонентов по умолчанию, которые применяются ко всем новым элементам. Если вернуться к нашему классу `ModItems`, где мы регистрируем `CounterItem`, мы можем добавить значение по умолчанию для нашего пользовательского компонента. Добавьте это, чтобы для новых элементов отображалось количество «0».
+Когда вы регистрируете свой элемент и передаете объект `Item.Properties` в конструктор элемента, вы также можете предоставить список компонентов по умолчанию, которые применяются ко всем новым элементам. Если вернуться к нашему классу `ModItems`, где мы регистрируем `CounterItem`, мы можем добавить значение по умолчанию для нашего пользовательского компонента. Добавьте это, чтобы для новых элементов отображалось количество «0».
 
 @[code transcludeWith=::_13](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Вы также можете задать значение по умолчанию для составного компонента, передав объект компонента в `Item.Settings`. Например:
+Вы также можете задать значение по умолчанию для составного компонента, передав объект компонента в `Item.Properties`. Например:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

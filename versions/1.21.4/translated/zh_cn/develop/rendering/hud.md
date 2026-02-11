@@ -18,7 +18,7 @@ authors:
 
 Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 
-首先，我们需要为 `HudLayerRegistrationCallback` 注册一个监听器，注册你的图层。 每个图层是一个 `IdentifiedLayer`，是个原版的 `LayeredDrawer.Layer` 并附上了一个 `Identifier`。 `LayeredDrawer.Layer` 实例通常是个 lambda，接收一个 `DrawContext` 和 `RenderTickCounter` 实例作为参数。 关于如何使用此 API 的更多信息，请看 `HudLayerRegistrationCallback` 及相关的 Javadoc。
+首先，我们需要为 `HudLayerRegistrationCallback` 注册一个监听器，注册你的图层。 每个图层是一个 `IdentifiedLayer`，是个原版的 `LayeredDrawer.Layer` 并附上了一个 `ResourceLocation`。 `LayeredDrawer.Layer` 实例通常是个 lambda，接收一个 `GuiGraphics` 和 `RenderTickCounter` 实例作为参数。 关于如何使用此 API 的更多信息，请看 `HudLayerRegistrationCallback` 及相关的 Javadoc。
 
 绘制上下文可用于访问游戏提供的各种渲染工具，并访问原始矩阵堆栈。 要了解有关绘制上下文的更多信息，应该查看[使用绘制上下文](./draw-context)页面。
 

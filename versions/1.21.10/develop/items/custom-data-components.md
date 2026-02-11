@@ -23,7 +23,7 @@ This is the basic template to register a component type:
 
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    BuiltInRegistries.DATA_COMPONENT_TYPE,
+    BuiltInBuiltInRegistriesDATA_COMPONENT_TYPE,
     ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     DataComponentType.<?>builder().codec(null).build()
 );
@@ -76,7 +76,7 @@ This will return the current component value as the type we defined when we regi
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
 

@@ -15,7 +15,7 @@ authors:
 
 ### 기본 내구도 {#base-durability}
 
-이 상수 값은 갑옷 아이템을 추가할 때 `Item.Settings#maxDamage(int damageValue)` 메소드에 사용됩니다. 이후 `ArmorMaterial` 객체를 생성할 때 생성자의 매개 변수에도 입력해야 합니다.
+이 상수 값은 갑옷 아이템을 추가할 때 `Item.Properties#maxDamage(int damageValue)` 메소드에 사용됩니다. 이후 `ArmorMaterial` 객체를 생성할 때 생성자의 매개 변수에도 입력해야 합니다.
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.10/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ authors:
 
 물론, 모든 종류의 갑옷을 만들 필요는 없습니다. 부츠나 레깅스만 있어도 되죠. 거북 등딱지는 투구만 있기 때문에, 이러한 상황의 좋은 예시라고 할 수 있습니다.
 
-`ToolMaterial`과는 다르게, `ArmorMaterial`은 아이템의 내구도에 대한 정보는 저장되지 않습니다. 때문에 갑옷 아이템을 등록할 때 `Item.Settings`에 직접 기본 내구도를 입력해야 합니다.
+`ToolMaterial`과는 다르게, `ArmorMaterial`은 아이템의 내구도에 대한 정보는 저장되지 않습니다. 때문에 갑옷 아이템을 등록할 때 `Item.Properties`에 직접 기본 내구도를 입력해야 합니다.
 
-이전에 생성해 두었던 `BASE_DURABILITY` 상수 필드를 `Item.Settings#maxDamage`에 입력하여 내구도를 설정할 수 있습니다.
+이전에 생성해 두었던 `BASE_DURABILITY` 상수 필드를 `Item.Properties#maxDamage`에 입력하여 내구도를 설정할 수 있습니다.
 
 @[code transcludeWith=:::6](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 

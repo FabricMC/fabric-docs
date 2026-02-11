@@ -40,7 +40,7 @@ Similarly, an `ActionResult` tells the game the status of the event, whether it 
 Luckily, the Item class has many methods that can be overriden to add extra functionality to your items.
 
 ::: info
-A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds) page, which uses the `useOnBlock` event to play a sound when the player right clicks a block.
+A great example of these events being used can be found in the [Playing SoundEvents](../sounds/using-sounds) page, which uses the `useOn` event to play a sound when the player right clicks a block.
 :::
 
 | Method          | Information                                             |
@@ -49,7 +49,7 @@ A great example of these events being used can be found in the [Playing SoundEve
 | `postMine`      | Ran when the player mines a block.                      |
 | `inventoryTick` | Ran every tick whilst the item is in an inventory.      |
 | `onCraft`       | Ran when the item is crafted.                           |
-| `useOnBlock`    | Ran when the player right clicks a block with the item. |
+| `useOn`    | Ran when the player right clicks a block with the item. |
 | `use`           | Ran when the player right clicks the item.              |
 
 ## The `use()` Event {#use-event}

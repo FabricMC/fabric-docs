@@ -9,7 +9,7 @@ As your items grow more complex, you may find yourself needing to store custom d
 
 Data Components replace NBT data from previous versions with structured data types which can be applied to an `ItemStack` to store persistent data about that stack. Data components are namespaced, meaning we can implement our own data components to store custom data about an `ItemStack` and access it later. A full list of the vanilla data components can be found on this [Minecraft wiki page](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Along with registering custom components, this page covers the general usage of the components API, which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponentTypes` class.
+Along with registering custom components, this page covers the general usage of the components API, which also applies to vanilla components. You can see and access the definitions of all vanilla components in the `DataComponents` class.
 
 ## Registering a Component {#registering-a-component}
 
@@ -23,15 +23,15 @@ This is the basic template to register a component type:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
 
 There are a few things here worth noting. On the first and fourth lines, you can see a `?`. This will be replaced with the type of your component's value. We'll fill this in soon.
 
-Secondly, you must provide an `Identifier` containing the intended ID of your component. This is namespaced with your mod's ID.
+Secondly, you must provide an `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
 
 Lastly, we have a `ComponentType.Builder` that creates the actual `ComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
@@ -61,7 +61,7 @@ Remember as usual to register the item in your `ModItems` class.
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ This will return the current component value as the type we defined when we regi
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.fabric-docs-reference.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ There are three solutions we can use to address this problem.
 
 ### Setting a Default Component Value {#setting-default-value}
 
-When you register your item and pass a `Item.Settings` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
+When you register your item and pass a `Item.Properties` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
 
 @[code transcludeWith=::_13](@/reference/1.21.8/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-You can also set a default value for a composite component by passing a component object to your `Item.Settings`. For example:
+You can also set a default value for a composite component by passing a component object to your `Item.Properties`. For example:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

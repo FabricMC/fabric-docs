@@ -32,16 +32,16 @@ authors-nogithub:
 
 ## Створення перекладу {#creating-translations}
 
-Разом зі створенням необроблених перекладів, перекладів з `Identifier` і копіюванням їх з уже існуючого файлу (передаючи `Path`), існують допоміжні методи для перекладу предметів, блоків, теґів, статистики, сутностей, статус ефектів, групи предметів, атрибути сутностей та зачарування. Просто викличте `add` у `translationBuilder` з тим, що ви хочете перекласти, і на що це має бути перекладено:
+Разом зі створенням необроблених перекладів, перекладів з `ResourceLocation` і копіюванням їх з уже існуючого файлу (передаючи `Path`), існують допоміжні методи для перекладу предметів, блоків, теґів, статистики, сутностей, статус ефектів, групи предметів, атрибути сутностей та зачарування. Просто викличте `add` у `translationBuilder` з тим, що ви хочете перекласти, і на що це має бути перекладено:
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ## Використання перекладу {#using-translations}
 
-Згенеровані переклади замінюють багато перекладів, доданих в інших посібниках, але ви також можете використовувати їх усюди, де використовуєте об’єкт `Текст`. У нашому прикладі, якщо ми хочемо дозволити пакетам ресурсів перекладати наше привітання, ми використовуємо `Text.translatable` замість `Text.of`:
+Згенеровані переклади замінюють багато перекладів, доданих в інших посібниках, але ви також можете використовувати їх усюди, де використовуєте об’єкт `Текст`. У нашому прикладі, якщо ми хочемо дозволити пакетам ресурсів перекладати наше привітання, ми використовуємо `Component.translatable` замість `Component.nullToEmpty`:
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.example-mod.greeting")); // [!code ++]
+ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

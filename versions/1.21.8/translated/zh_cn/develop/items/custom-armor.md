@@ -15,7 +15,7 @@ authors:
 
 ### 基础耐久度 {#base-durability}
 
-在创建我们的盔甲物品时，这个常量将在 `Item.Settings#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
+在创建我们的盔甲物品时，这个常量将在 `Item.Properties#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.8/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ authors:
 
 显然，盔甲集并不需要满足每种类型，可以让你的集只有靴或护腿等——原版的海龟壳头盔就是个例子，盔甲集缺了部分槽位。
 
-不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Settings` 中。
+不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
 
-这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Settings` 类中的 `maxDamage` 方法来实现的。
+这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
 
 @[code transcludeWith=:::6](@/reference/1.21.8/src/main/java/com/example/docs/item/ModItems.java)
 

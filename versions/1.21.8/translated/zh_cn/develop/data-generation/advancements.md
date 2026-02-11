@@ -41,7 +41,7 @@ authors-nogithub:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-当构建你的进度条目时，请记住函数接受 `String` 格式的进度的 `Identifier`！
+当构建你的进度条目时，请记住函数接受 `String` 格式的进度的 `ResourceLocation`！
 :::
 
 :::details JSON 输出

@@ -18,7 +18,7 @@ Nel passato Fabric ha fornito `HudRenderCallback` per renderizzare al HUD. A cau
 
 Fabric fornisce l'API Hud per renderizzare e sovrapporre elementi nella HUD.
 
-Per iniziare, dobbiamo registrare un listener a `HudLayerRegistrationCallback` che registri i tuoi strati. Ogni strato è un `IdentifiedLayer`, ovver un `LayeredDrawer.Layer` vanilla collegato a un `Identifier`. Un'istanza di `LayeredDrawer.Layer` è solitamente una lambda che accetta un `DrawContext` e un'istanza di `RenderTickCounter` come parametro. Leggi `HudLayerRegistrationCallback` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
+Per iniziare, dobbiamo registrare un listener a `HudLayerRegistrationCallback` che registri i tuoi strati. Ogni strato è un `IdentifiedLayer`, ovver un `LayeredDrawer.Layer` vanilla collegato a un `ResourceLocation`. Un'istanza di `LayeredDrawer.Layer` è solitamente una lambda che accetta un `GuiGraphics` e un'istanza di `RenderTickCounter` come parametro. Leggi `HudLayerRegistrationCallback` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
 
 Il contesto di disegno può essere usato per accedere a varie utilità di rendering fornite dal gioco, e per accedere allo stack di matrici puro. Dovresti dare un'occhiata alla pagina [Usare il Contesto di Disegno](./draw-context) per saperne di più riguardo al contesto di disegno.
 

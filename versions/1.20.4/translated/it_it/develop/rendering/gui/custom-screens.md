@@ -37,7 +37,7 @@ Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etich
 Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puoi farlo da vari posti, come un'associazione a un tasto, un comando, o un gestore dei pacchetti del client.
 
 ```java
-MinecraftClient.getInstance().setScreen(
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty())
 );
 ```
@@ -47,7 +47,7 @@ MinecraftClient.getInstance().setScreen(
 Se vuoi chiudere lo schermo, semplicemente imposta la schermata a `null`:
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la schermata corrente nel costruttore `CustomScreen` e conservala in una variabile, per poi tornare alla schermata precedente usando il metodo `close`.
@@ -57,8 +57,8 @@ Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la
 Ora, aprendo la schermata personalizzata, puoi passare la schermata corrente come secondo argomento - quindi quando chiami `CustomScreen#close` - ritornerà alla schermata precedente.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty(), currentScreen)
 );
 ```

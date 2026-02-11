@@ -30,17 +30,17 @@ Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/doc
 
 You can now register an item using the method now.
 
-The register method takes in an instance of the `Item.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
+The register method takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` tells the register function to create an `Item` instance from an `Item.Settings` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Settings` as a parameter.
+`Item::new` tells the register function to create an `Item` instance from an `Item.Properties` by calling the `Item` constructor (`new Item(...)`), which takes an `Item.Properties` as a parameter.
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
@@ -52,13 +52,13 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
+## Adding the Item to a Creative Tab {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, check out the [Custom Item Groups](./custom-item-groups) page for more information.
+If you want to add the item to a custom `CreativeModeTab`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `CreativeModeTab`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 

@@ -11,7 +11,7 @@ authors:
 
 由 Fabric API 提供的 `HudRenderCallback` 事件每帧都会被调用，用于向 HUD 渲染内容。
 
-要注册此事件，只需调用 `HudRenderCallback.EVENT.register` 并传入一个以 `DrawContext` 和一个 `float` (deltaTick) 为参数的 lambda 表达式即可。
+要注册此事件，只需调用 `HudRenderCallback.EVENT.register` 并传入一个以 `GuiGraphics` 和一个 `float` (deltaTick) 为参数的 lambda 表达式即可。
 
 绘制上下文可用于访问游戏提供的各种渲染工具，并访问原始矩阵堆栈。
 

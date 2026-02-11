@@ -154,7 +154,7 @@ Die `TextureKey`s repräsentieren die "Platzhalter" (`#bottom`, `#top`, ...) als
 
 ### Die Texture Map verwenden {#using-texture-map}
 
-Was macht die `TextureMap`? Sie liefert die Identifikatoren, die auf die Textur verweisen. Technisch gesehen verhält sie sich wie eine normale Map - man verbindet einen `TextureKey` (Schlüssel) mit einem `Identifier` (Wert).
+Was macht die `TextureMap`? Sie liefert die Identifikatoren, die auf die Textur verweisen. Technisch gesehen verhält sie sich wie eine normale Map - man verbindet einen `TextureKey` (Schlüssel) mit einem `ResourceLocation` (Wert).
 
 Du kannst entweder die von Vanilla verwenden, wie `TextureMap.all()` (die alle TextureKeys mit dem selben Identifikator verknüpft), oder eine neue erstellen, indem du eine neue Instanz erstellst und dann `.put()` aufrufst, um die Schlüssel mit Werten zu verknüpfen.
 
@@ -199,7 +199,7 @@ Aber für was sind die Parameter?
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceModelProvider.java)
 
-Zunächst erhalten wir den `Identifier` des einzelnen Stufenmodell mit `VERTICAL_SLAB.upload()`. Dann erhalten wir den `Identifier` des vollen Blockmodells mit `ModelIds.getBlockModelId()`, und übergeben diese beiden Modelle an `createVerticalSlabBlockStates`.
+Zunächst erhalten wir den `ResourceLocation` des einzelnen Stufenmodell mit `VERTICAL_SLAB.upload()`. Dann erhalten wir den `ResourceLocation` des vollen Blockmodells mit `ModelIds.getBlockModelId()`, und übergeben diese beiden Modelle an `createVerticalSlabBlockStates`.
 Der `BlockStateSupplier` wird an den `blockStateCollector` übergeben, so dass die JSON-Dateien tatsächlich generiert werden.
 Außerdem, erstellen wir ein Modell für das Item der vertikalen Stufe mit `BlockStateModelGenerator.registerParentedItemModel()`.
 

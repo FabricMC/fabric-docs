@@ -32,16 +32,16 @@ Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEn
 
 ## Erstellen von Übersetzungen {#creating-translations}
 
-Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier` und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Statuseffekten, Itemgruppen, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
+Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `ResourceLocation` und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Statuseffekten, Itemgruppen, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
 ## Nutzen einer Übersetzung {#using-translations}
 
-Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Text`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Text.translatable` anstelle von `Text.of`:
+Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Component`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Component.translatable` anstelle von `Component.nullToEmpty`:
 
 ```java
-ChatHud chatHud = MinecraftClient.getInstance().inGameHud.getChatHud();
-chatHud.addMessage(Text.literal("Hello there!")); // [!code --]
-chatHud.addMessage(Text.translatable("text.example-mod.greeting")); // [!code ++]
+ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

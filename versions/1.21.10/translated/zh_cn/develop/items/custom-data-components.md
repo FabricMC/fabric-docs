@@ -9,7 +9,7 @@ authors:
 
 数据组件替代了之前版本中的 NBT 数据，替换成能应用在 `ItemStack` 的结构化的数据，从而存储物品堆的持久数据。 数据组件是有命名空间的，也就是说，我们可以实现自己的数据组件，存储 `ItemStack` 的自定义数据，并稍后再访问。 所有原版可用的数据组件可以见于此 [Minecraft wiki 页面](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E5%A0%86%E5%8F%A0%E7%BB%84%E4%BB%B6#%E7%BB%84%E4%BB%B6%E6%A0%BC%E5%BC%8F)。
 
-除了注册自定义组件外，本页还介绍了组件 API 的一般用法，这些也可用于原版的组件。 你可以在 `DataComponentTypes` 类中查看并访问所有原版组件的定义。
+除了注册自定义组件外，本页还介绍了组件 API 的一般用法，这些也可用于原版的组件。 你可以在 `DataComponents` 类中查看并访问所有原版组件的定义。
 
 ## 注册组件{#registering-a-component}
 
@@ -23,15 +23,15 @@ authors:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
 
 有几点需要注意。 在第一行，你看到了一个 `?`， 这将被替换成你的组件的值的类型， 我们稍后完成。
 
-其次，你需要提供一个 `Identifier`，包含你的组件的 ID， 其命名空间就是你模组的 ID。
+其次，你需要提供一个 `ResourceLocation`，包含你的组件的 ID， 其命名空间就是你模组的 ID。
 
 最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`ComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
@@ -61,7 +61,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 
 ### 设置默认组件值{#setting-default-value}
 
-当你注册你的物品并传递 `Item.Settings` 对象到你的物品构造器中，你还可以提供应用于所有新物品的默认组件的列表。 如果回到我们的 `ModItems` 类，注册 `CounterItem` 的地方，就可以为我们的自定义组件添加默认值。 添加这个，这样新物品会显示计数为 `0`。
+当你注册你的物品并传递 `Item.Properties` 对象到你的物品构造器中，你还可以提供应用于所有新物品的默认组件的列表。 如果回到我们的 `ModItems` 类，注册 `CounterItem` 的地方，就可以为我们的自定义组件添加默认值。 添加这个，这样新物品会显示计数为 `0`。
 
 @[code transcludeWith=::_13](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-你也可以在你的 `Item.Settings` 中传入组件对象来为合成组件设置默认的值。 例如：
+你也可以在你的 `Item.Properties` 中传入组件对象来为合成组件设置默认的值。 例如：
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

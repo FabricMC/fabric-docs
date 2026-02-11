@@ -247,7 +247,7 @@ public enum TransitionState {
 }
 ```
 
-Але коли ці значення надсилаються через мережу, ви можете визначити для них `Identifier` або навіть додати інші власні значення.
+Але коли ці значення надсилаються через мережу, ви можете визначити для них `ResourceLocation` або навіть додати інші власні значення.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/sound/TransitionState.java)
 

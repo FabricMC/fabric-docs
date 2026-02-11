@@ -145,7 +145,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 
 - 泛型问题 -你可能遇到了泛型问题。 如果你在注册服务器命令（大多数情况都是如此），确保你在静态导入中使用 `CommandManager.literal` 或 `CommandManager.argument` 而不是`LiteralArgumentBuilder.literal` 或 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Component`。
 
 - 命令应该返回整数：注册命令时，`executes()` 方法接受一个 `Command` 对象，通常是 lambda。 这个 lambda 应该返回整数，而不是其他的类型。
 

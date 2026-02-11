@@ -47,7 +47,7 @@ JSON 파일 구조에 대한 자세한 내용은 [Minecraft 위키 (영문)](htt
 
 @[code lang=java transclude={21-24}](@/reference/1.21.8/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-그리고, `entity.damage()` 메서드에 `DamageSource`와 피해 크기를 입력하여 호출합니다.
+그리고, `entity.hurt()` 메서드에 `DamageSource`와 피해 크기를 입력하여 호출합니다.
 
 @[code lang=java transclude={25-25}](@/reference/1.21.8/src/main/java/com/example/docs/damage/TaterBlock.java)
 

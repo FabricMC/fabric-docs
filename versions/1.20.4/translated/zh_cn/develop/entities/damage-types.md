@@ -49,7 +49,7 @@ resources/data/example-mod/damage_type/tater.json
 
 @[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-然后，我们调用 `entity.damage()` 并传入 我们的 `DamageSource` 和伤害量。
+然后，我们调用 `entity.hurt()` 并传入 我们的 `DamageSource` 和伤害量。
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 

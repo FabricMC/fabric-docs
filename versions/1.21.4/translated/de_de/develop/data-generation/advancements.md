@@ -41,7 +41,7 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-Denke bei der Erstellung deiner Fortschrittseinträge daran, dass die Funktion den `Identifier` des Fortschritts im Format `String` annimmt!
+Denke bei der Erstellung deiner Fortschrittseinträge daran, dass die Funktion den `ResourceLocation` des Fortschritts im Format `String` annimmt!
 :::
 
 :::details JSON Ausgabe

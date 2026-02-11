@@ -30,17 +30,17 @@ Nota l'utilizzo di un'interfaccia [`Function`](https://docs.oracle.com/en/java/j
 
 Puoi ora registrare un oggetto con il metodo.
 
-Il metodo di registrazione accetta come parametro un'istanza della classe `Item.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
+Il metodo di registrazione accetta come parametro un'istanza della classe `Item.Properties`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties` class.
 
 Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la dimensione di uno stack è sempre 1 per oggetti danneggiabili per evitare duplicazioni.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Settings` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Settings` come parametro.
+`Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Properties` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Properties` come parametro.
 
 Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro oggetto non esiste ancora nel gioco! Questo perché non hai inizializzato la classe staticamente.
 
@@ -55,10 +55,10 @@ Chiamare un metodo su una classe la inizializza staticamente se non è mai stata
 ## Aggiungere l'Oggetto ad un Gruppo di Oggetti {#adding-the-item-to-an-item-group}
 
 :::info
-Se volessi aggiungere l'oggetto a un `ItemGroup` personalizzato, consulta la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
+Se volessi aggiungere l'oggetto a un `CreativeModeTab` personalizzato, consulta la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
 :::
 
-Per questo esempio, aggiungeremo questo oggetto all'`ItemGroup` ingredienti, dovrai usare gli eventi dei gruppi di oggetti dell'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
+Per questo esempio, aggiungeremo questo oggetto all'`CreativeModeTab` ingredienti, dovrai usare gli eventi dei gruppi di oggetti dell'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
 
 Questo si può fare nel metodo `initialize` della tua classe degli oggetti.
 

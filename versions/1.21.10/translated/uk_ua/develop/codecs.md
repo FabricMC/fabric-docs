@@ -58,8 +58,8 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 ### Вбудовані кодеки {#built-in-codecs}
 
 Як згадувалося раніше, Mojang уже визначив кодеки для кількох вільних і стандартних класів Java, включаючи, але не
-обмежено `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` і регулярні вирази `Pattern`. Власні кодеки для Mojang класи зазвичай знаходяться як статичні поля з назвою `CODEC` у самому класі, тоді як більшість інших зберігаються в клас `Codecs`. Слід також зазначити, що всі реєстри ванілли містять метод `getCodec()`, наприклад, ви
-можна використовувати `Registries.BLOCK.getCodec()`, щоб отримати `Codec<Block>`, який серіалізується до ідентифікатора блоку та назад.
+обмежено `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` і регулярні вирази `Pattern`. Власні кодеки для Mojang класи зазвичай знаходяться як статичні поля з назвою `CODEC` у самому класі, тоді як більшість інших зберігаються в клас `Codecs`. Слід також зазначити, що всі реєстри ванілли містять метод `getCodec()`, наприклад, ви
+можна використовувати `BuiltInRegistries.BLOCK.getCodec()`, щоб отримати `Codec<Block>`, який серіалізується до ідентифікатора блоку та назад.
 
 Сам Codec API також містить деякі кодеки для примітивних типів, як-от `Codec.INT` і `Codec.STRING`. Це доступні як статика в класі `Codec` і зазвичай використовуються як основа для складніших кодеків, як пояснюється нижче.
 
@@ -102,7 +102,7 @@ public class CoolBeansClass {
 - `Codec<Item>`
 - `Codec<List<BlockPos>>`
 
-Ми можемо отримати перший з вищезгаданих примітивних кодеків у класі `Codec`, зокрема `Codec.INT`. Поки другий можна отримати з реєстру `Registries.ITEM`, який має метод `getCodec()`, який повертає `Codec<Item>`. У нас немає стандартного кодека для `List<BlockPos>`, але ми можемо створити його з `BlockPos.CODEC`.
+Ми можемо отримати перший з вищезгаданих примітивних кодеків у класі `Codec`, зокрема `Codec.INT`. Поки другий можна отримати з реєстру `BuiltInRegistries.ITEM`, який має метод `getCodec()`, який повертає `Codec<Item>`. У нас немає стандартного кодека для `List<BlockPos>`, але ми можемо створити його з `BlockPos.CODEC`.
 
 ### Lists {#lists}
 
@@ -123,7 +123,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Тут можна оголосити до 16 полів
 ).apply(instance, CoolBeansClass::new));
@@ -232,16 +232,16 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 Для обробки мап із довільними ключами, такими як `HashMap`s, можна використовувати `Codec.unboundedMap`. Це повертає `Codec<Map<K, V>>` для заданих `Codec<K>` і `Codec<V>`. Отриманий кодек буде серіалізовано в об’єкт json або
 будь-який еквівалент, доступний для поточних динамічних операцій.
 
-Через обмеження json і nbt використовуваний ключовий кодек _має_ серіалізуватися в рядок. Це включає кодеки для типів, які самі по собі не є рядками, але серіалізуються в них, наприклад `Identifier.CODEC`. Дивіться приклад нижче:
+Через обмеження json і nbt використовуваний ключовий кодек _має_ серіалізуватися в рядок. Це включає кодеки для типів, які самі по собі не є рядками, але серіалізуються в них, наприклад `ResourceLocation.CODEC`. Дивіться приклад нижче:
 
 ```java
 // Створіть кодек для перетворення ID на цілі числа
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // Використовуйте його для серіалізації даних
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.of("example", "number"), 23,
-    Identifier.of("example", "the_cooler_number"), 42
+    ResourceLocation.fromNamespaceAndPath("example", "number"), 23,
+    ResourceLocation.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -254,7 +254,7 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 }
 ```
 
-Як бачите, це працює, оскільки `Identifier.CODEC` серіалізується безпосередньо до рядкового значення. Подібного ефекту можна досягти для простих об’єктів, які не серіалізуються в рядки, використовуючи [xmap & friends](#mutually-convertible-types) для їх перетворення.
+Як бачите, це працює, оскільки `ResourceLocation.CODEC` серіалізується безпосередньо до рядкового значення. Подібного ефекту можна досягти для простих об’єктів, які не серіалізуються в рядки, використовуючи [xmap & friends](#mutually-convertible-types) для їх перетворення.
 
 ### Взаємно конвертовані типи {#mutually-convertible-types}
 
@@ -287,17 +287,17 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 Через це його вбудований кодек насправді є `comapFlatMap` на `Codec.STRING`, гарно ілюструючи, як ним користуватися:
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(Identifier.of(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(ResourceLocation.fromNamespaceAndPath(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
@@ -324,7 +324,7 @@ public class Identifier {
 - Окремі кодеки для кожного типу bean.
 - Клас або запис `BeanType<T extends Bean>`, який представляє тип bean і може повертати кодек для нього.
 - Функція на `Bean` для отримання його `BeanType<?>`.
-- Карта або реєстр для зіставлення `Identifier` з `BeanType<?>`.
+- Карта або реєстр для зіставлення `ResourceLocation` з `BeanType<?>`.
 - `Codec<BeanType<?>>` на основі цього реєстру. Якщо ви використовуєте `net.minecraft.registry.Registry`, його можна легко створити за допомогою `Registry#getCodec`.
 
 З усім цим ми можемо створити кодек відправки реєстру для компонентів:
@@ -364,7 +364,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### Рекурсивні кодеки {#recursive-codecs}
 
-Іноді корисно мати кодек, який використовує _самий_ для декодування певних полів, наприклад, при роботі з певними рекурсивними структурами даних. У звичайному коді це використовується для об’єктів `Text`, які можуть зберігати інші `Text` як дочірні. Такий кодек можна створити за допомогою `Codec#recursive`.
+Іноді корисно мати кодек, який використовує _самий_ для декодування певних полів, наприклад, при роботі з певними рекурсивними структурами даних. У звичайному коді це використовується для об’єктів `Component`, які можуть зберігати інші `Component` як дочірні. Такий кодек можна створити за допомогою `Codec#recursive`.
 
 Наприклад, спробуймо серіалізувати однозв'язний список. Цей спосіб представлення списків складається з групи вузлів, які містять як значення, так і посилання на наступний вузол у списку. Потім список представлено його першим вузлом, і перехід по списку здійснюється шляхом переходу за наступним вузлом, доки не залишиться жодного. Ось проста реалізація вузлів, які зберігають цілі числа.
 

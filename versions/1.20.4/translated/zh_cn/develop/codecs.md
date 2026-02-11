@@ -53,7 +53,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### 内置的 Codec
 
-正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`Identifier`、`Text` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `getCodec()` 方法，例如，你可以使用 `Registries.BLOCK.getCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
+正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `getCodec()` 方法，例如，你可以使用 `BuiltInRegistries.BLOCK.getCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
 
 Codec API 自己包含了一些 基础类型的 codec，就像 `Codec.INT` 和 `Codec.STRING`。 这些都在 `Codec` 类中作为静态字段存在，通常用作更多复杂 codec 的基础，会在下方做出解释。
 
@@ -95,7 +95,7 @@ public class CoolBeansClass {
 - 一个 `Codec<Item>`
 - 一个 `Codec<List<BlockPos>>`
 
-第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `Registries.ITEM` 注册表中获取，它有 `getCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
+第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `BuiltInRegistries.ITEM` 注册表中获取，它有 `getCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
 
 ### List
 
@@ -116,7 +116,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // 最多可以在这里声明 16 个字段
 ).apply(instance, CoolBeansClass::new));
@@ -220,16 +220,16 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 
 对于处理具有任意键的 map，如 `HashMaps`，可以使用 `Codec.unboundedMap`。 引用 生成的 codec 将序列化为 JSON 对象，或当前 dynamic ops 可用的任何等效对象。
 
-由于JSON和NBT的限制，使用的密钥Codec必须序列化为字符串。 这包含类型不是 string 但序列化为他们自身的 codec，例如 `Identifier.CODEC`。 在下面的示例中： 这包括类型自身不是字符串但会序列化为字符串的 codec，例如 `Identifier.CODEC`。 看看下面的例子：
+由于JSON和NBT的限制，使用的密钥Codec必须序列化为字符串。 这包含类型不是 string 但序列化为他们自身的 codec，例如 `ResourceLocation.CODEC`。 在下面的示例中： 这包括类型自身不是字符串但会序列化为字符串的 codec，例如 `ResourceLocation.CODEC`。 看看下面的例子：
 
 ```java
-// 创建一个 Identifier 到 Integer 的 map 的 codec
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+// 创建一个 ResourceLocation 到 Integer 的 map 的 codec
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // 使用它序列化数据
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    new ResourceLocation("example", "number"), 23,
+    new ResourceLocation("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -242,7 +242,7 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 }
 ```
 
-正如你所见，因为 `Identifier.CODEC` 直接序列化到字符串，所以这样做有效。 正如你所见，因为 `Identifier.CODEC` 直接序列化到字符串，所以可以工作。 对于无法序列化为字符串的简单对象，可以使用[XMAP及其友元](#mutually-convertible-types-and-you)进行转换，从而实现类似的效果。
+正如你所见，因为 `ResourceLocation.CODEC` 直接序列化到字符串，所以这样做有效。 正如你所见，因为 `ResourceLocation.CODEC` 直接序列化到字符串，所以可以工作。 对于无法序列化为字符串的简单对象，可以使用[XMAP及其友元](#mutually-convertible-types-and-you)进行转换，从而实现类似的效果。
 
 ### 相互可转换的类型与您
 
@@ -269,23 +269,23 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `flatComapMap`、`comapFlatMap` 与 `flatXMap` 类似于 xmap，但是他们允许一个或多个转换函数返回 DataResult。 这在实践中很有用，因为特定的对象实例可能并不总是适合转换。 这在实践中很有用，因为特定的对象实例可能并不总是适合转换。 这在实践中很有用，因为特定的对象实例可能并不总是适合转换。
 
-以原版的 `Identifier` 为例。 以原版的 `Identifier` 为例。 以原版的 `Identifier` 为例。 虽然所有的标识符都可以转换为字符串，但并不是所有的字符串都是有效的标识符，所以使用 xmap 意味着当转换失败时会抛出不雅观的异常。
+以原版的 `ResourceLocation` 为例。 以原版的 `ResourceLocation` 为例。 以原版的 `ResourceLocation` 为例。 虽然所有的标识符都可以转换为字符串，但并不是所有的字符串都是有效的标识符，所以使用 xmap 意味着当转换失败时会抛出不雅观的异常。
 正因为此，它的内置编解码器实际上是 `Codec.STRING` 上的一个 `comapFlatMap`，很好地说明了如何使用它：
 正因为此，它的内置编解码器实际上是 `Codec.STRING` 上的一个 `comapFlatMap`，很好地说明了如何使用它：
 正因为此，它的内置编解码器实际上是 `Codec.STRING` 上的一个 `comapFlatMap`，很好地说明了如何使用它：
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(new ResourceLocation(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
@@ -312,7 +312,7 @@ public class Identifier {
 - 每个 bean 类型的独立 codec。
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
-- 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
+- 一个 `ResourceLocation` 到 `BeanType<?>` 的 map 或注册表
 - 一个基于该注册表的 `Codec<BeanType<?>>`。 一个基于改注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry` 可以简单的调用 `Registry#getCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
@@ -352,7 +352,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### 递归Codec
 
-有时，使用自身来解码特定字段的Codec很有用，例如在处理某些递归数据结构时。 在原始代码中，这用于`Text`对象，它可以将其他`Text`存储为子对象。 可以使用`Codecs#createRecursive`构建这样的Codec。 在原版代码中，这用于 `Text` 对象，可能会存储其他的 `Text` 作为子对象。 可以使用 `Codecs#createRecursive` 构建这样的 codec。
+有时，使用自身来解码特定字段的Codec很有用，例如在处理某些递归数据结构时。 在原始代码中，这用于`Component`对象，它可以将其他`Component`存储为子对象。 可以使用`Codecs#createRecursive`构建这样的Codec。 在原版代码中，这用于 `Component` 对象，可能会存储其他的 `Component` 作为子对象。 可以使用 `Codecs#createRecursive` 构建这样的 codec。
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 

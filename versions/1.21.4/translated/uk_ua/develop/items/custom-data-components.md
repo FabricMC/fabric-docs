@@ -9,7 +9,7 @@ authors:
 
 Компоненти даних замінюють дані NBT із попередніх версій структурованими типами даних, які можна застосувати до `ItemStack` для зберігання постійних даних про цей стек. Компоненти даних мають простір назви, тобто ми можемо реалізувати власні компоненти даних для зберігання спеціальних даних про `ItemStack` і доступу до них пізніше. Повний список компонентів даних можна знайти на цій [вікі-сторінці Minecraft](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Разом із реєстрацією власних компонентів ця сторінка охоплює загальне використання API компонентів, яке також стосується компонентів типу ванілли. Ви можете переглянути та отримати доступ до визначень усіх компонентів у класі `DataComponentTypes`.
+Разом із реєстрацією власних компонентів ця сторінка охоплює загальне використання API компонентів, яке також стосується компонентів типу ванілли. Ви можете переглянути та отримати доступ до визначень усіх компонентів у класі `DataComponents`.
 
 ## Реєстрація компонентів {#registering-a-component}
 
@@ -23,15 +23,15 @@ authors:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(FabricDocsReference.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
 
 Тут варто звернути увагу на кілька речей. У першому та четвертому рядках ви можете побачити `?`. Це буде замінено типом значення вашого компонента. Ми незабаром заповнимо це.
 
-По-друге, ви повинні надати `Identifier`, що містить призначений ідентифікатор вашого компонента. Це простір назв з ID вашого мода.
+По-друге, ви повинні надати `ResourceLocation`, що містить призначений ідентифікатор вашого компонента. Це простір назв з ID вашого мода.
 
 Нарешті, у нас є `ComponentType.Builder`, який створює фактичний екземпляр `ComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Кодек` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
 
@@ -61,7 +61,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.fabric-docs-reference.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 
 ### Встановлення значення компонента за умовчанням {#setting-default-value}
 
-Коли ви реєструєте свій предмет і передаєте об’єкт `Item.Settings` своєму конструктору предмета, ви також можете надати список компонентів за замовчуванням, які застосовуються до всіх нових предметів. Якщо ми повернемося до нашого класу `ModItems`, де ми реєструємо `CounterItem`, ми зможемо додати значення за замовчуванням для нашого спеціального компонента. Додайте це, щоб нові предмети показували кількість «0».
+Коли ви реєструєте свій предмет і передаєте об’єкт `Item.Properties` своєму конструктору предмета, ви також можете надати список компонентів за замовчуванням, які застосовуються до всіх нових предметів. Якщо ми повернемося до нашого класу `ModItems`, де ми реєструємо `CounterItem`, ми зможемо додати значення за замовчуванням для нашого спеціального компонента. Додайте це, щоб нові предмети показували кількість «0».
 
 @[code transcludeWith=::_13](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Ви також можете встановити значення за замовчуванням для складеного компонента, передавши об’єкт компонента до ваших `Item.Settings`. Наприклад:
+Ви також можете встановити значення за замовчуванням для складеного компонента, передавши об’єкт компонента до ваших `Item.Properties`. Наприклад:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

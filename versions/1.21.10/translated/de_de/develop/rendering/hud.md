@@ -18,7 +18,7 @@ Zuvor stellte Fabric den `HudRenderCallback` zur Verfügung, um das HUD zu rende
 
 Fabric bietet die Hud-API zum Rendern und Überlagern von Elementen auf dem HUD.
 
-Zu Beginn müssen wir einen Listener für den `HudLayerRegistrationCallback` registrieren, der deine Ebenen registriert. Jede Ebene ist ein `IdentifiedLayer`, der ein Vanilla `LayeredDrawer.Layer` mit einem angehängten `Identifier` ist. Eine `LayeredDrawer.Layer`-Instanz ist normalerweise ein Lambda, das einen `DrawContext` und eine `RenderTickCounter`-Instanz als Parameter nimmt. Siehe `HudLayerRegistrationCallback` und die zugehörigen Javadocs für weitere Einzelheiten zur Verwendung der API.
+Zu Beginn müssen wir einen Listener für den `HudLayerRegistrationCallback` registrieren, der deine Ebenen registriert. Jede Ebene ist ein `IdentifiedLayer`, der ein Vanilla `LayeredDrawer.Layer` mit einem angehängten `ResourceLocation` ist. Eine `LayeredDrawer.Layer`-Instanz ist normalerweise ein Lambda, das einen `GuiGraphics` und eine `RenderTickCounter`-Instanz als Parameter nimmt. Siehe `HudLayerRegistrationCallback` und die zugehörigen Javadocs für weitere Einzelheiten zur Verwendung der API.
 
 Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Utilities zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen. Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen, um mehr über den Zeichenkontext zu erfahren.
 

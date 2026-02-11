@@ -21,15 +21,15 @@ authors-nogithub:
 
 이 튜토리얼에서는, 매 틱마다 플레이어에게 경험 포인트를 주는 새로운 사용자 정의 효과 _Tater_ 를 만들어 보겠습니다.
 
-### `StatusEffect` 확장 {#extend-statuseffect}
+### `MobEffect` 확장 {#extend-statuseffect}
 
-모든 효과의 기본이 되는 `StatusEffect` 클래스의 사용자 정의 확장 클래스를 만들어 봅시다.
+모든 효과의 기본이 되는 `MobEffect` 클래스의 사용자 정의 확장 클래스를 만들어 봅시다.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### 사용자 정의 효과 등록하기 {#registering-your-custom-effect}
 
-블록, 아이템 등록처럼, `Registry.register`를 통해 `STATUS_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
+블록, 아이템 등록처럼, `Registry.register`를 통해 `MOB_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
@@ -66,13 +66,13 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-효과를 내부적으로 적용하려면, `StatusEffectInstance`를 효과가 제대로 적용되었는지 여부를 지정하는 부울 값을 반환하는 `LivingEntity#addStatusEffect` 메서드를 사용하는 것이 좋습니다.
+효과를 내부적으로 적용하려면, `MobEffectInstance`를 효과가 제대로 적용되었는지 여부를 지정하는 부울 값을 반환하는 `LivingEntity#addMobEffect` 메서드를 사용하는 것이 좋습니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | 매개변수        | 유형                            | 설명                                                                                                                                                                                                             |
 | ----------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `effect`    | `RegistryEntry<StatusEffect>` | 효과를 나타내는 레지스트리 항목입니다.                                                                                                                                                                          |
+| `effect`    | `Holder<MobEffect>` | 효과를 나타내는 레지스트리 항목입니다.                                                                                                                                                                          |
 | `duration`  | `int`                         | 초 단위가 **아닌** **틱 단위** 효과 길이입니다                                                                                                                                                                                 |
 | `amplifier` | `int`                         | 효과의 세기를 선택합니다. 효과의 **세기**에 대응하지 않고, 오히려 위에 추가됩니다. 그러므로, `4`의 `amplifier` => `5`의 세기                                                                                            |
 | `ambient`   | `boolean`                     | 꽤 까다로운 문제입니다. 기본적으로 효과가 환경 (예: **신호기**)에 의해 추가되었음을 지정하며 직접적인 원인이 없습니다. 만일 `true`라면, HUD에 있는 효과의 아이콘이 청록색 오버레이와 함께 나타날 것입니다. |

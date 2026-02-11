@@ -1,5 +1,5 @@
 ---
-title: Status Effects
+title: Mob Effects
 description: Learn how to add custom status effects.
 authors:
   - dicedpixels
@@ -14,25 +14,25 @@ authors-nogithub:
 search: false
 ---
 
-Status effects, also known as effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
+Mob effects, also known as status effects or simply effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
 applies these effects in various ways such as food, potions etc.
 
 The `/effect` command can be used to apply effects on an entity.
 
-## Custom Status Effects {#custom-status-effects}
+## Custom Mob Effects {#custom-status-effects}
 
 In this tutorial we'll add a new custom effect called _Tater_ which gives you one experience point every game tick.
 
-### Extend `StatusEffect` {#extend-statuseffect}
+### Extend `MobEffect` {#extend-statuseffect}
 
-Let's create a custom effect class by extending `StatusEffect`, which is the base class for all effects.
+Let's create a custom effect class by extending `MobEffect`, which is the base class for all effects.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registering Your Custom Effect {#registering-your-custom-effect}
 
 Similar to block and item registration, we use `Registry.register` to register our custom effect into the
-`STATUS_EFFECT` registry. This can be done in our initializer.
+`MOB_EFFECT` registry. This can be done in our initializer.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 

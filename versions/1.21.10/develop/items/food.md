@@ -1,6 +1,6 @@
 ---
 title: Food Items
-description: Learn how to add a FoodComponent to an item to make it edible, and configure it.
+description: Learn how to add a FoodProperties to an item to make it edible, and configure it.
 authors:
   - IMB11
 ---
@@ -37,7 +37,7 @@ If you want to add status effects to the player when they eat your food, you wil
 
 @[code transcludeWith=:::5](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
-Similar to the example in the [Creating Your First Item](./first-item) page, I'll be using the above component:
+Similar to the example in the [Creating Your First Item](./first-item) page, this will use the above component:
 
 @[code transcludeWith=:::poisonous_apple](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 

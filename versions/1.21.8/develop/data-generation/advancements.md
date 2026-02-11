@@ -41,7 +41,7 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 ::: warning
-When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
+When building your advancement entries, remember that the function accepts the `ResourceLocation` of the advancement in `String` format!
 :::
 
 ::: details JSON Output

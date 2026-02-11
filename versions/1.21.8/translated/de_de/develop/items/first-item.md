@@ -30,17 +30,17 @@ Beachte die Verwendung einer [`Function`](https://docs.oracle.com/en/java/javase
 
 Mit der Methode kannst du nun ein Item registrieren.
 
-Die register-Methode nimmt eine Instanz von der `Item.Settings` Klasse als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
+Die register-Methode nimmt eine Instanz von der `Item.Properties` Klasse als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Item.Settings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties` class.
 
 Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast, da die Stackgröße für beschädigungsfähige Gegenstände immer 1 ist, um Duplikations-Exploits zu verhindern.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/item/ModItems.java)
 
-`Item::new` weist die register-Funktion an, eine Item-Instanz aus einer `Item.Settings`-Instanz zu erzeugen, indem sie den Item-Konstruktor (`new Item(...)`) aufruft, der eine `Item.Settings`-Instanz als Parameter entgegennimmt.
+`Item::new` weist die register-Funktion an, eine Item-Instanz aus einer `Item.Properties`-Instanz zu erzeugen, indem sie den Item-Konstruktor (`new Item(...)`) aufruft, der eine `Item.Properties`-Instanz als Parameter entgegennimmt.
 
 Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du sehen, dass unser Item im Spiel noch nicht existiert! Der Grund dafür ist, dass du die Klasse nicht statisch initialisiert hast.
 
@@ -55,10 +55,10 @@ Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nic
 ## Ein Item zu einer Itemgruppe hinzufügen {#adding-the-item-to-an-item-group}
 
 :::info
-Wenn du den Artikel einer benutzerdefinierten `ItemGroup` hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Itemgruppe](./custom-item-groups).
+Wenn du den Artikel einer benutzerdefinierten `CreativeModeTab` hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Itemgruppe](./custom-item-groups).
 :::
 
-Für ein Beispiel, in dem wir dieses Element zu den Zutaten `ItemGroup` hinzufügen, musst du die Itemgruppen-Events der Fabric API verwenden - insbesondere `ItemGroupEvents.modifyEntriesEvent`.
+Für ein Beispiel, in dem wir dieses Element zu den Zutaten `CreativeModeTab` hinzufügen, musst du die Itemgruppen-Events der Fabric API verwenden - insbesondere `ItemGroupEvents.modifyEntriesEvent`.
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 

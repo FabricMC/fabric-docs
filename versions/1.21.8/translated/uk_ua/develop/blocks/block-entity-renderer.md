@@ -17,14 +17,14 @@ authors:
 
 @[code transcludeWith=:::1](@/reference/1.21.8/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Новий клас має конструктор із `BlockEntityRendererFactory.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `TextRenderer`.
-Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererFactory`:
+Новий клас має конструктор із `BlockEntityRendererProvider.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `TextRenderer`.
+Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererProvider`:
 
 @[code transcludeWith=:::1](@/reference/1.21.8/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
 Ви маєте зареєструвати промальовування блокових сутностей у своєму класі `ClientModInitializer`.
 
-`BlockEntityRendererFactory` — це реєстр, який зіставляє кожен `BlockEntityType` зі спеціальним кодом відтворення на відповідний `BlockEntityRenderer`.
+`BlockEntityRendererProvider` — це реєстр, який зіставляє кожен `BlockEntityType` зі спеціальним кодом відтворення на відповідний `BlockEntityRenderer`.
 
 ## Малювання на блоках {#drawing-on-blocks}
 
@@ -35,10 +35,10 @@ authors:
 По-перше, нам потрібно змістити та повернути текст так, щоб він знаходився вище блоку.
 
 :::info
-Як випливає з назви, `MatrixStack` є _стосом_, що означає, що ви можете надсилати та витягувати перетворення.
+Як випливає з назви, `PoseStack` є _стосом_, що означає, що ви можете надсилати та витягувати перетворення.
 Гарне емпіричне правило полягає в тому, щоб додати новий блок на початку методу `render` і відкрити його в кінці, щоб промальовування одного блоку не впливав на інші.
 
-Більше інформації про `MatrixStack` можна знайти в [статті про базові концепції промальовування](../rendering/basic-concepts).
+Більше інформації про `PoseStack` можна знайти в [статті про базові концепції промальовування](../rendering/basic-concepts).
 :::
 
 Щоб полегшити розуміння необхідних перекладів і поворотів, візуалізуємо їх. На цьому зображенні зелений блок – це місце, де буде намальовано текст, за замовчуванням у найдальшій нижній лівій точці блоку:
@@ -61,10 +61,10 @@ matrices.translate(0.5, 1, 0.5);
 
 ![Зелений блок у верхній центральній точці, спрямований догори] (/assets/develop/blocks/block_entity_renderer_3.png)
 
-`MatrixStack` не має функції `rotate`, натомість нам потрібно використовувати `multiply` і `RotationAxis.POSITIVE_X`:
+`PoseStack` не має функції `rotate`, натомість нам потрібно використовувати `multiply` і `Axis.XP`:
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 Тепер текст у правильному положенні, але він завеликий. `BlockEntityRenderer` промальовує весь блок на куб `[-0.5, 0.5]`, тоді як `TextRenderer` використовує координати Y `[0, 9]`. Таким чином, нам потрібно зменшити його в 18 разів:
@@ -87,10 +87,10 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Метод `draw` приймає багато параметрів, але найважливіші з них:
 
-- `Text` (або `String`) для малювання;
+- `Component` (або `String`) для малювання;
 - його координати `x` і `y`;
 - значення 'кольору' RGB;
-- `Matrix4f`, що описує, як його слід трансформувати (щоб отримати один із `MatrixStack`, ми можемо використати `.peek().getPositionMatrix()`, щоб отримати `Matrix4f` для самого верхнього запису).
+- `Matrix4f`, що описує, як його слід трансформувати (щоб отримати один із `PoseStack`, ми можемо використати `.peek().getPositionMatrix()`, щоб отримати `Matrix4f` для самого верхнього запису).
 
 І після всієї цієї роботи ось результат:
 

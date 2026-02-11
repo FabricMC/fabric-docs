@@ -47,7 +47,7 @@ Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten
 
 @[code lang=java transclude={22-26}](@/reference/1.21.10/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Dann rufen wir `entity.damage()` mit unserer `DamageSource` und einem Betrag auf.
+Dann rufen wir `entity.hurt()` mit unserer `DamageSource` und einem Betrag auf.
 
 @[code lang=java transclude={27-27}](@/reference/1.21.10/src/main/java/com/example/docs/damage/TaterBlock.java)
 

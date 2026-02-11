@@ -26,10 +26,10 @@ Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
 
 Mit der Methode kannst du nun ein Item registrieren.
 
-Der Item-Konstruktor nimmt eine Instanz der Klasse `Items.Settings` als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
+Der Item-Konstruktor nimmt eine Instanz der Klasse `Item.Properties` als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast, da die Stackgröße für beschädigungsfähige Gegenstände immer 1 ist, um Duplikations-Exploits zu verhindern.
 :::
@@ -49,10 +49,10 @@ Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nic
 ## Ein Item zu einer Itemgruppe hinzufügen {#adding-the-item-to-an-item-group}
 
 :::info
-Wenn du den Artikel einer benutzerdefinierten `ItemGroup` hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Itemgruppe](./custom-item-groups).
+Wenn du den Artikel einer benutzerdefinierten `CreativeModeTab` hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Itemgruppe](./custom-item-groups).
 :::
 
-Für ein Beispiel, in dem wir dieses Element zu den Zutaten `ItemGroup` hinzufügen, musst du die Itemgruppen-Events der Fabric API verwenden - insbesondere `ItemGroupEvents.modifyEntriesEvent`.
+Für ein Beispiel, in dem wir dieses Element zu den Zutaten `CreativeModeTab` hinzufügen, musst du die Itemgruppen-Events der Fabric API verwenden - insbesondere `ItemGroupEvents.modifyEntriesEvent`.
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 

@@ -55,10 +55,10 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to a Creative Tab {#adding-the-item-to-a-creative-tab}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+If you want to add the item to a custom `CreativeModeTab`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `CreativeModeTab`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 

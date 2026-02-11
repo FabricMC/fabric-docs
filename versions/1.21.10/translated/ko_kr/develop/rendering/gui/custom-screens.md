@@ -35,7 +35,7 @@ authors:
 화면은 `MinecraftClient`의 `setScreen` 메소드를 통해 열 수 있습니다.
 
 ```java
-MinecraftClient.getInstance().setScreen(
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty())
 );
 ```
@@ -45,7 +45,7 @@ MinecraftClient.getInstance().setScreen(
 만약 화면을 닫고 싶다면, `setScreen` 메소드를 통해 간단하게 화면을 `null` 로 설정하면 됩니다.
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 만약 디테일하게 이전 화면으로 되돌아가는 기능을 추가하고 싶다면, 현재 화면을 `CustomScreen` 생성자에 입력하여 필드에 저장하고, `close` 메소드가 호출되었을 때 해당 필드를 사용하여 이전 화면으로 되돌아가면 됩니다.
@@ -55,8 +55,8 @@ MinecraftClient.getInstance().setScreen(null);
 이제, 사용자 정의 화면이 열릴 때, 현재 화면을 두 번째 매개변수에 입력하면, `CustomScreen#close`가 호출되었을 때 이전 화면으로 되돌아갈 것입니다.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
   new CustomScreen(Text.empty(), currentScreen)
 );
 ```

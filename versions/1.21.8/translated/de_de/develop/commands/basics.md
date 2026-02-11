@@ -148,7 +148,7 @@ Brigadier [wird nur Befehlsknoten mit Argumenten umleiten](https://github.com/Mo
 
 - Probleme mit generischen Typen - Es kann sein, dass du hin und wieder ein Problem mit generischen Typen hast. Wenn du Serverbefehle registrierst (was in den meisten Fällen der Fall ist), stelle sicher, dass du `CommandManager.literal` oder `CommandManager.argument` anstelle von `LiteralArgumentBuilder.literal` oder `RequiredArgumentBuilder.argument` benutzt.
 
-- Überprüfe die Methode `sendFeedback()` - Du hast vielleicht vergessen, einen booleschen Wert als zweites Argument anzugeben. Denke auch daran dass seit Minecraft 1.20 der erste Parameter `Supplier<Text>` anstelle von `Text` ist.
+- Überprüfe die Methode `sendFeedback()` - Du hast vielleicht vergessen, einen booleschen Wert als zweites Argument anzugeben. Denke auch daran dass seit Minecraft 1.20 der erste Parameter `Supplier<Text>` anstelle von `Component` ist.
 
 - Ein Befehl sollte eine ganze Zahl zurückgeben - Bei der Registrierung von Befehlen akzeptiert die Methode `executes()` ein `Command` Objekt, das normalerweise ein Lambda ist. Das Lambda sollte eine ganze Zahl zurückgeben, anstelle anderen Typen.
 

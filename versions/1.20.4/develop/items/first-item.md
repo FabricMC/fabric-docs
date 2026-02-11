@@ -28,10 +28,10 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 You can now register an item using the method now.
 
-The item constructor takes in an instance of the `Items.Settings` class as a parameter. This class allows you to configure the item's properties through various builder methods.
+The item constructor takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 :::
@@ -48,13 +48,13 @@ To do this, you can add a public static initialize method to your class and call
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 
-## Adding the Item to an Item Group {#adding-the-item-to-an-item-group}
+## Adding the Item to a Creative Tab {#adding-the-item-to-an-item-group}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, checkout the [Custom Item Groups](./item-groups) page for more information.
+If you want to add the item to a custom `CreativeModeTab`, checkout the [Custom Creative Tabs](./item-groups) page for more information.
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `CreativeModeTab`, you will need to use Fabric API's item group events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 

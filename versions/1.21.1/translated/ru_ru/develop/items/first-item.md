@@ -26,10 +26,10 @@ Mojang уже сделали это со своими предметами! За
 
 Теперь вы можете зарегистрировать предмет, используя метод.
 
-Конструктор предмета принимает экземпляр класса `Items.Settings` в качестве параметра. Этот класс позволяет вам настраивать параметры предмета через различные методы.
+Конструктор предмета принимает экземпляр класса `Item.Properties` в качестве параметра. Этот класс позволяет вам настраивать параметры предмета через различные методы.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 Это не сработает, если вы пометили предмет как повреждаемый, потому что размер для повреждаемых предметов всегда равен 1, для предотвращения эксплойтов дублирования.
 :::
@@ -52,7 +52,7 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 Если вы хотите добавить предмет в собственную категорию предметов, загляните в [Пользовательские категории предметов](./custom-item-groups) для дополнительной информации.
 :::
 
-Для примера мы добавим этот элемент в ингредиенты `ItemGroup`, вам нужно будет использовать события группы элементов Fabric API, а именно `ItemGroupEvents.modifyEntriesEvent`
+Для примера мы добавим этот элемент в ингредиенты `CreativeModeTab`, вам нужно будет использовать события группы элементов Fabric API, а именно `ItemGroupEvents.modifyEntriesEvent`
 
 Это может быть сделано в методе `initialize` вашего класса.
 

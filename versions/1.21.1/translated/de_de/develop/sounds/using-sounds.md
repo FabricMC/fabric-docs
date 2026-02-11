@@ -11,7 +11,7 @@ Minecraft hat eine große Auswahl an Sounds, aus denen du wählen kannst. Schau 
 
 Stelle sicher, dass du die Methode `playSound()` auf der logischen Serverseite ausführst, wenn du Sounds verwendest!
 
-In diesem Beispiel werden die Methoden `useOnEntity()` und `useOnBlock()` für ein benutzerdefiniertes interaktives Item verwendet, um einen "platzierenden Kupferblock" und einen Plünderer-Sound abzuspielen.
+In diesem Beispiel werden die Methoden `interactLivingEntity()` und `useOn()` für ein benutzerdefiniertes interaktives Item verwendet, um einen "platzierenden Kupferblock" und einen Plünderer-Sound abzuspielen.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
@@ -23,7 +23,7 @@ Die Methode `playSound()` wird mit dem `LivingEntity` Objekt verwendet. Nur das 
 
 Das SoundEvent legt fest, welcher Sound abgespielt wird. Du kannst auch [deine eigenen SoundEvents registrieren](./custom), um deinen eigenen Sound einzubinden.
 
-Minecraft hat mehrere Audioregler in den Spieleinstellungen. Das Enum `SoundCategory` wird verwendet, um zu bestimmen, mit welchem Schieberegler die Lautstärke des Sounds eingestellt wird.
+Minecraft hat mehrere Audioregler in den Spieleinstellungen. Das Enum `SoundSource` wird verwendet, um zu bestimmen, mit welchem Schieberegler die Lautstärke des Sounds eingestellt wird.
 
 ### Lautstärke und Tonhöhe {#volume-and-pitch}
 

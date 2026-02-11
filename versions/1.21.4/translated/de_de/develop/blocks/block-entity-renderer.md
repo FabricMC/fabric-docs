@@ -17,8 +17,8 @@ Beim Erstellen eines `BlockEntityRenderer` für die `CounterBlockEntity` ist es 
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererFactory.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
-Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererFactory` selbst zu verwenden:
+Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererProvider.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
+Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererProvider` selbst zu verwenden:
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
@@ -35,10 +35,10 @@ Jetzt, da wir den Renderer haben, können wir zeichnen. Die Methode `render` wir
 Zunächst müssen wir den Text versetzen und drehen, damit er sich auf der oberen Seite des Blocks befindet.
 
 :::info
-Wie der Name bereits vermuten lässt ist der `MatrixStack` ein _Stapel_, was bedeutet, dass du Transformationen darauf hinzufügen (push) und davon entfernen (pop) kannst.
+Wie der Name bereits vermuten lässt ist der `PoseStack` ein _Stapel_, was bedeutet, dass du Transformationen darauf hinzufügen (push) und davon entfernen (pop) kannst.
 Eine gute Faustregel ist es, einen neuen Block an den Anfang der `render`-Methode hinzuzufügen und ihn am Ende wieder zu entfernen, so dass das Rendern eines Blocks die anderen nicht beeinflusst.
 
-Mehr Informationen zu dem `MatrixStack` kann in dem [Artikel zu den grundlegenden Konzepten des Rendering](../rendering/basic-concepts) gefunden werden.
+Mehr Informationen zu dem `PoseStack` kann in dem [Artikel zu den grundlegenden Konzepten des Rendering](../rendering/basic-concepts) gefunden werden.
 :::
 
 Zum besseren Verständnis der erforderlichen Verschiebungen und Drehungen sollten wir sie visualisieren. In diesem Bild ist der grüne Block die Position, an der der Text gezeichnet werden würde, standardmäßig am äußersten linken unteren Punkt des Blocks:
@@ -61,10 +61,10 @@ Standardmäßig wird der Text auf der XY-Ebene gezeichnet, also müssen wir ihn 
 
 ![Grüner Block, nach oben schauend, am obersten zentriertem Punkt](/assets/develop/blocks/block_entity_renderer_3.png)
 
-Der `MatrixStack` hat keine `rotate` Methode, stattdessen müssen wir `multiply` und `RotationAxis.POSITIVE_X` verwenden:
+Der `PoseStack` hat keine `rotate` Methode, stattdessen müssen wir `multiply` und `Axis.XP` verwenden:
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 Jetzt ist der Text an der korrekten Position, aber ist zu groß. Der `BlockEntityRenderer` ordnet den ganzen Block zu einem `[-0.5, 0.5]` Würfel zu, während der `TextRenderer` X-Koordinaten von `[0, 9]` verwendet. Somit müssen wir es um den Faktor 18 herunter skalieren:
@@ -87,10 +87,10 @@ Der `TextRenderer` hat Methoden um Text zu messen (`getWidth`), welche für das 
 
 Die Methode `draw` nimmt einige Paramter, aber die Wichtigsten sind:
 
-- der zu zeichnende `Text` (oder `String`);
+- der zu zeichnende `Component` (oder `String`);
 - seine `x` und `y` Koordinaten;
 - der RGB `color` Wert;
-- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `MatrixStack` zu erhalten, können wir `.peek().getPositionMatrix()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
+- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `PoseStack` zu erhalten, können wir `.peek().getPositionMatrix()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
 
 Und nach dieser ganzen Arbeit, ist hier das Ergebnis:
 

@@ -26,10 +26,10 @@ Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `I
 
 Puoi ora registrare un oggetto con il metodo.
 
-Il costruttore dell'oggetto prende come parametro un'istanza della classe `Items.Settings`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
+Il costruttore dell'oggetto prende come parametro un'istanza della classe `Item.Properties`. Questa classe ti permette di configurare le proprietà dell'oggetto con vari metodi costruttori.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la dimensione di uno stack è sempre 1 per oggetti danneggiabili per evitare duplicazioni.
 :::
@@ -49,10 +49,10 @@ Chiamare un metodo su una classe la inizializza staticamente se non è mai stata
 ## Aggiungere l'Oggetto ad un Gruppo di Oggetti {#adding-the-item-to-an-item-group}
 
 :::info
-Se volessi aggiungere l'oggetto a un `ItemGroup` personalizzato, consulta la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
+Se volessi aggiungere l'oggetto a un `CreativeModeTab` personalizzato, consulta la pagina [Gruppi di Oggetti Personalizzati](./custom-item-groups) per maggiori informazioni.
 :::
 
-Per questo esempio, aggiungeremo questo oggetto all'`ItemGroup` ingredienti, dovrai usare gli eventi dei gruppi di oggetti dell'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
+Per questo esempio, aggiungeremo questo oggetto all'`CreativeModeTab` ingredienti, dovrai usare gli eventi dei gruppi di oggetti dell'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
 
 Questo si può fare nel metodo `initialize` della tua classe degli oggetti.
 

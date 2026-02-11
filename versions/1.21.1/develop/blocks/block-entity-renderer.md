@@ -19,8 +19,8 @@ When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's importa
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-The new class has a constructor with `BlockEntityRendererFactory.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
-Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererFactory` functional interface itself:
+The new class has a constructor with `BlockEntityRendererProvider.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
+Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererProvider` functional interface itself:
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
@@ -37,10 +37,10 @@ Now that we have a renderer, we can draw. The `render` method is called every fr
 First, we need to offset and rotate the text so that it's on the block's top side.
 
 ::: info
-As the name suggests, the `MatrixStack` is a _stack_, meaning that you can push and pop transformations.
+As the name suggests, the `PoseStack` is a _stack_, meaning that you can push and pop transformations.
 A good rule-of-thumb is to push a new one at the beginning of the `render` method and pop it at the end, so that the rendering of one block doesn't affect others.
 
-More information about the `MatrixStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts).
+More information about the `PoseStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts).
 :::
 
 To make the translations and rotations needed easier to understand, let's visualize them. In this picture, the green block is where the text would be drawn, by default in the furthest bottom-left point of the block:
@@ -63,10 +63,10 @@ By default, the text is drawn on the XY plane, so we need to rotate it 90 degree
 
 ![Green block in the topmost center point, facing upwards](/assets/develop/blocks/block_entity_renderer_3.png)
 
-The `MatrixStack` does not have a `rotate` function, instead we need to use `multiply` and `RotationAxis.POSITIVE_X`:
+The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `Axis.XP`:
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 Now the text is in the correct position, but it's too large. The `BlockEntityRenderer` maps the whole block to a `[-0.5, 0.5]` cube, while the `TextRenderer` uses Y coordinates of `[0, 9]`. As such, we need to scale it down by a factor of 18:
@@ -89,10 +89,10 @@ The `TextRenderer` has methods to measure text (`getWidth`), which is useful for
 
 The `draw` method takes a lot of parameters, but the most important ones are:
 
-- the `Text` (or `String`) to draw;
+- the `Component` (or `String`) to draw;
 - its `x` and `y` coordinates;
 - the RGB `color` value;
-- the `Matrix4f` describing how it should be transformed (to get one from a `MatrixStack`, we can use `.peek().getPositionMatrix()` to get the `Matrix4f` for the topmost entry).
+- the `Matrix4f` describing how it should be transformed (to get one from a `PoseStack`, we can use `.peek().getPositionMatrix()` to get the `Matrix4f` for the topmost entry).
 
 And after all this work, here's the result:
 

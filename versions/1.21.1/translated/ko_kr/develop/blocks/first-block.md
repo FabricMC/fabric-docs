@@ -39,14 +39,14 @@ public class ModBlocks {
 
 ## 블록을 추가하고 등록하기 {#creating-and-registering-your-block}
 
-아이템처럼, 블록은 생성자에서 `Blocks.Settings` 클래스를 이용하여 소리 효과와 채굴 단계와 같은 블록의 속성을 지정합니다.
+아이템처럼, 블록은 생성자에서 `BlockBehaviour.Properties` 클래스를 이용하여 소리 효과와 채굴 단계와 같은 블록의 속성을 지정합니다.
 
 여기선 모든 옵션을 다루지는 않습니다. 클래스를 직접 보면 자명한 다양한 옵션을 볼 수 있습니다.
 
 예시로, 흙의 속성을 가지고 있지만, 다른 재질의 간단한 블록을 만들어 볼 것입니다.
 
 :::tip
-또한 이미 존재하는 블록의 설정을 복사하기 위하여 `AbstractBlock.Settings.copy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해`Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
+또한 이미 존재하는 블록의 설정을 복사하기 위하여 `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해`Blocks.DIRT\`를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)

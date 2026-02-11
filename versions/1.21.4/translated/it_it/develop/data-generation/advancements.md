@@ -41,7 +41,7 @@ Ecco un semplice progresso per aver ottenuto un blocco di terra:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Identifier` del progresso nel formato `String`!
+Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`ResourceLocation` del progresso nel formato `String`!
 :::
 
 :::details Output JSON

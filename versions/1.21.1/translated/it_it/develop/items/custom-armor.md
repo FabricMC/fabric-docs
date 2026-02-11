@@ -92,9 +92,9 @@ Ovviamente, un set di armatura non deve per forza essere completo, puoi avere un
 ### Durabilità {#durability}
 
 A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazione riguardo alla durabilità degli oggetti.
-Per questo motivo la durabilità deve essere aggiunta manualmente a `Item.Settings` degli oggetti dell'armatura quando li si registra.
+Per questo motivo la durabilità deve essere aggiunta manualmente a `Item.Properties` degli oggetti dell'armatura quando li si registra.
 
-Questo si fa con il metodo `maxDamage` nella classe `Item.Settings`.
+Questo si fa con il metodo `maxDamage` nella classe `Item.Properties`.
 Le varie parti dell'armatura hanno durabilità base diverse, solitamente ottenute come prodotto di un fattore condiviso a livello del materiale dell'armatura, ma si possono anche scegliere valori fissi.
 
 Per l'armatura di Guidite useremo un fattore condiviso memorizzato assieme al materiale dell'armatura:

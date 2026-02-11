@@ -134,7 +134,7 @@ Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中
 
 - 泛型问题──您可能有时候会遇到泛型的问题。 泛型问题──您可能有时候会遇到泛型的问题。 如果您要注册服务器命令（大多数情况），请确保使用 `CommandManager.literal` 或者 `CommandManager.argument` 而不是 `LiteralArgumentBuilder.literal` 或者 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Component`。
 
 - 命令应当返回一个整型数字 - 注册命令时，`executes()` 方法接受一个 `Command` 对象，该对象通常是 lambda。 lambda 应该返回一个整型数字，而不是其他类型。 lambda 应该返回一个整型数字，而不是其他类型。
 

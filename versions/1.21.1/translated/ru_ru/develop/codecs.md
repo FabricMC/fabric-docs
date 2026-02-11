@@ -51,7 +51,7 @@ LOGGER.info("Десериализованный BlockPos: {}", pos);
 
 ### Встроенные кодеки {#built-in-codecs}
 
-Как упоминалось ранее, Mojang уже определила кодеки для нескольких стандартных и Java-классов, включая, но не ограничиваясь, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text` и шаблоны (`Pattern`) регулярных выражений. Кодеки для собственных классов Mojang обычно можно найти в статических полях с именем `CODEC` в самом классе, в то время как большинство других кодеков содержатся в классе `Codecs`. Также следует отметить, что все стандартные реестры содержат метод `getCodec()`. Например, вы можете использовать `Registries.BLOCK.getCodec()`, чтобы получить `Codec<Block>`, который сериализует идентификатор блока и обратно.
+Как упоминалось ранее, Mojang уже определила кодеки для нескольких стандартных и Java-классов, включая, но не ограничиваясь, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` и шаблоны (`Pattern`) регулярных выражений. Кодеки для собственных классов Mojang обычно можно найти в статических полях с именем `CODEC` в самом классе, в то время как большинство других кодеков содержатся в классе `Codecs`. Также следует отметить, что все стандартные реестры содержат метод `getCodec()`. Например, вы можете использовать `BuiltInRegistries.BLOCK.getCodec()`, чтобы получить `Codec<Block>`, который сериализует идентификатор блока и обратно.
 
 Сам API Codec также содержит некоторые кодеки для примитивных типов, такие как `Codec.INT` и `Codec.STRING`. Они доступны как статические поля в классе Codec и обычно используются как основа для более сложных кодеков, как объясняется ниже.
 
@@ -93,7 +93,7 @@ public class CoolBeansClass {
 - `Codec<Item>`
 - `Codec<List<BlockPos>>`
 
-Мы можем получить первый из упомянутых ранее примитивных кодеков в классе `Codec`, а именно `Codec.INT`. Второй можно получить из реестра `Registries.ITEM`, который имеет метод `getCodec()`, возвращающий `Codec<Item>`. У нас нет стандартного кодека для `List<BlockPos>`, но мы можем создать его из `BlockPos.CODEC`.
+Мы можем получить первый из упомянутых ранее примитивных кодеков в классе `Codec`, а именно `Codec.INT`. Второй можно получить из реестра `BuiltInRegistries.ITEM`, который имеет метод `getCodec()`, возвращающий `Codec<Item>`. У нас нет стандартного кодека для `List<BlockPos>`, но мы можем создать его из `BlockPos.CODEC`.
 
 ### Списки {#lists}
 
@@ -114,7 +114,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Здесь можно объявить до 16 полей
 ).apply(instance, CoolBeansClass::new));
@@ -216,16 +216,16 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 
 Для обработки карт с произвольными ключами, таких как `HashMap`, можно использовать `Codec.unboundedMap`. Это возвращает `Codec<Map<K, V>>` для заданных `Codec<K>` и `Codec<V>`. Полученный кодек будет сериализоваться в объект JSON или любой эквивалент, доступный для текущих динамических операций.
 
-Из-за ограничений JSON и NBT, используемый кодек ключа _должен_ сериализоваться в строку. Это включает кодеки для типов, которые сами по себе не являются строками, но сериализуются в них, такие как `Identifier.CODEC`. Смотрите пример ниже:
+Из-за ограничений JSON и NBT, используемый кодек ключа _должен_ сериализоваться в строку. Это включает кодеки для типов, которые сами по себе не являются строками, но сериализуются в них, такие как `ResourceLocation.CODEC`. Смотрите пример ниже:
 
 ```java
 // Создаём кодек для карты идентификаторов к целым числам
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // Используем его для сериализации данных
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.of("example", "number"), 23,
-    Identifier.of("example", "the_cooler_number"), 42
+    ResourceLocation.fromNamespaceAndPath("example", "number"), 23,
+    ResourceLocation.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -238,7 +238,7 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 }
 ```
 
-Как вы можете видеть, это работает, потому что `Identifier.CODEC` сериализуется непосредственно в строковое значение. Похожий эффект можно достичь для простых объектов, которые не сериализуются в строки, используя [xmap и другие функции](#mutually-convertible-types) для их преобразования.
+Как вы можете видеть, это работает, потому что `ResourceLocation.CODEC` сериализуется непосредственно в строковое значение. Похожий эффект можно достичь для простых объектов, которые не сериализуются в строки, используя [xmap и другие функции](#mutually-convertible-types) для их преобразования.
 
 ### Взаимно преобразуемые типы {#mutually-convertible-types}
 
@@ -266,21 +266,21 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` и `flatXMap` похожи на xmap, но они позволяют одной или обеим функциям преобразования возвращать DataResult. Это полезно на практике, потому что конкретный экземпляр объекта может быть не всегда допустим для преобразования.
 
-Возьмём, например, стандартные идентификаторы (`Identifier`). Хотя все идентификаторы можно превратить в строки, не все строки являются допустимыми идентификаторами, поэтому при неудачном преобразовании использование xmap приведёт к тому, что вы столкнётесь с некрасивыми исключениями.
+Возьмём, например, стандартные идентификаторы (`ResourceLocation`). Хотя все идентификаторы можно превратить в строки, не все строки являются допустимыми идентификаторами, поэтому при неудачном преобразовании использование xmap приведёт к тому, что вы столкнётесь с некрасивыми исключениями.
 Из-за этого его встроенный кодек на самом деле является `comapFlatMap` на `Codec.STRING`, что хорошо иллюстрирует, как его использовать:
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(Identifier.of(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(ResourceLocation.fromNamespaceAndPath(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Недопустимое местоположение ресурса: " + id + " " + e.getMessage());
         }
     }
@@ -347,7 +347,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### Рекурсивные кодеки {#recursive-codecs}
 
-Иногда бывает полезно иметь кодек, который использует сам себя для декодирования определённых полей, например, при работе с некоторыми рекурсивными структурами данных. В стандартном коде это используется для объектов `Text`, которые могут хранить другие `Text` как дочерние. Такой кодек можно построить с помощью `Codec#recursive`.
+Иногда бывает полезно иметь кодек, который использует сам себя для декодирования определённых полей, например, при работе с некоторыми рекурсивными структурами данных. В стандартном коде это используется для объектов `Component`, которые могут хранить другие `Component` как дочерние. Такой кодек можно построить с помощью `Codec#recursive`.
 
 Например, давайте попробуем сериализовать односвязный список. Этот способ представления списков состоит из набора узлов, которые хранят значение и ссылку на следующий узел в списке. Список представлен своим первым узлом, и обход списка осуществляется путём следования по следующему узлу, пока они не закончатся. Вот простая реализация узлов, которые хранят целые числа:
 

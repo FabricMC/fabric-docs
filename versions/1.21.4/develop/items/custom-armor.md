@@ -15,7 +15,7 @@ For this example, we'll create an `GuiditeArmorMaterial` class to store our stat
 
 ### Base Durability {#base-durability}
 
-This constant will be used in the `Item.Settings#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
+This constant will be used in the `Item.Properties#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.4/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ Now that you've registered the material, you can create the armor items in your 
 
 Obviously, an armor set doesn't need every type to be satisfied, you can have a set with just boots, or leggings etc. - the vanilla turtle shell helmet is a good example of an armor set with missing slots.
 
-Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Settings` when registering them.
+Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Properties` when registering them.
 
-This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Settings` class.
+This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Properties` class.
 
 @[code transcludeWith=:::6](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 

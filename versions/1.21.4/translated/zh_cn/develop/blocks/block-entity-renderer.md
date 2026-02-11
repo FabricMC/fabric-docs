@@ -17,8 +17,8 @@ authors:
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-我们的新类有一个以 `BlockEntityRendererFactory.Context` 为参数的构造函数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `TextRenderer`。
-此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererFactory` 功能接口本身：
+我们的新类有一个以 `BlockEntityRendererProvider.Context` 为参数的构造函数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `TextRenderer`。
+此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererProvider` 功能接口本身：
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/FabricDocsBlockEntityRenderer.java)
 
@@ -35,10 +35,10 @@ authors:
 首先，我们需要偏移和旋转文本，使其位于方块的顶部。
 
 :::info
-顾名思义，`MatrixStack` 是一个_堆栈_，这意味着您可以压入和弹出变换。
+顾名思义，`PoseStack` 是一个_堆栈_，这意味着您可以压入和弹出变换。
 一个好的经验法则是在 `render` 方法开始时压入一个新的方块，并在结束时弹出，这样一个方块的渲染就不会影响到其他方块。
 
-更多关于 `MatrixStack` 的信息可以在 [基本渲染术语文章](../rendering/basic-concepts) 中找到。
+更多关于 `PoseStack` 的信息可以在 [基本渲染术语文章](../rendering/basic-concepts) 中找到。
 :::
 
 为了更容易理解所需的平移和旋转，让我们将它们可视化。 在该图中，绿色方块是绘制文本的位置，默认情况下位于方块的最左下角：
@@ -61,10 +61,10 @@ matrices.translate(0.5, 1, 0.5);
 
 ![绿色块位于最上面的中心点，朝上](/assets/develop/blocks/block_entity_renderer_3.png)
 
-`MatrixStack` 没有 `rotate` 函数，所以我们需要使用 `multiply` 和 `RotationAxis.POSITIVE_X`：
+`PoseStack` 没有 `rotate` 函数，所以我们需要使用 `multiply` 和 `Axis.XP`：
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `TextRenderer` 使用 `[0, 9]` 的 Y 坐标。 因此，我们需要将其缩小 18 倍：
@@ -87,10 +87,10 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 `draw` 方法接受许多的参数，但是最重要的几个是：
 
-- 要被绘画的 `Text`（或者 `String`）；
+- 要被绘画的 `Component`（或者 `String`）；
 - 文字的 `X` 和 `Y` 坐标；
 - 文字的 RGB 颜色 `color` 值；
-- 描述其转换方式的 `Matrix4f`（要从一个 `MatrixStack` 中获取，我们可以使用 `.peek().getPositionMatrix()` 来获取最顶端条目的 `Matrix4f`）。
+- 描述其转换方式的 `Matrix4f`（要从一个 `PoseStack` 中获取，我们可以使用 `.peek().getPositionMatrix()` 来获取最顶端条目的 `Matrix4f`）。
 
 经过我们的努力，这就是最终结果：
 

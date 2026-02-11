@@ -9,7 +9,7 @@ Più i tuoi oggetti crescono in complessità, più troverai la necessità di mem
 
 Le Componenti di Dati sostituiscono i dati NBT di versioni precedenti, con tipi di dati strutturati che possono essere applicati a un `ItemStack` per memorizzare dati su quello stack. Le componenti di dati sfruttano namespace, il che significa che possiamo implementare le nostre componenti di dati per memorizzare dati personalizzati su un `ItemStack` e accederci successivamente. Una lista completa delle componenti di dati vanilla si trova su questa [pagina della Minecraft Wiki](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Assieme alla registrazione delle componenti personalizzate, questa pagina copre l'utilizzo generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponentTypes`.
+Assieme alla registrazione delle componenti personalizzate, questa pagina copre l'utilizzo generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponents`.
 
 ## Registrare una Componente {#registering-a-component}
 
@@ -23,15 +23,15 @@ Questo è il modello generico per registrare un tipo di componente:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
 
 Ci sono un paio di cose qui da far notare. Nelle linee prima e quarta, noti un `?`. Questo sarà sostituito con il tipo del valore della tua componente. Lo compileremo presto.
 
-Secondo, devi fornire un `Identifier` che contenga l'ID voluto per la tua componente. Questo avrà il namespace con l'ID della tua mod.
+Secondo, devi fornire un `ResourceLocation` che contenga l'ID voluto per la tua componente. Questo avrà il namespace con l'ID della tua mod.
 
 Infine, abbiamo un `ComponentType.Builder` che crea l'istanza `ComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
 
@@ -61,7 +61,7 @@ Ricorda come sempre di registrare l'oggetto nella tua classe `ModItems`.
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -76,7 +76,7 @@ Questo restituirà il valore corrente della componente nel tipo che abbiamo defi
 ```java
 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -113,7 +113,7 @@ Ci sono tre soluzioni a questo problema.
 
 ### Impostare un Valore Predefinito della Componente {#setting-default-value}
 
-Quando registri il tuo oggetto e passi un'istanza di `Item.Settings` al suo costruttore, puoi anche fornire una lista di componenti predefinite applicate a tutti i nuovi oggetti. Tornando alla nostra classe `ModItems`, dove registriamo il `CounterItem`, possiamo aggiungere un valore predefinito alla nostra componente. Aggiungi questo così i nuovi oggetti mostreranno un conto di `0`.
+Quando registri il tuo oggetto e passi un'istanza di `Item.Properties` al suo costruttore, puoi anche fornire una lista di componenti predefinite applicate a tutti i nuovi oggetti. Tornando alla nostra classe `ModItems`, dove registriamo il `CounterItem`, possiamo aggiungere un valore predefinito alla nostra componente. Aggiungi questo così i nuovi oggetti mostreranno un conto di `0`.
 
 @[code transcludeWith=::_13](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Puoi anche impostare un valore predefinito per una componente composita passando un oggetto componente alle tue `Item.Settings`. Per esempio:
+Puoi anche impostare un valore predefinito per una componente composita passando un oggetto componente alle tue `Item.Properties`. Per esempio:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

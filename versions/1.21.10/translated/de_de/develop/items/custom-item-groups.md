@@ -21,7 +21,7 @@ Du solltest sehen, dass die Itemgruppe jetzt im kreativen Inventar ist. Es ist j
 
 ## Einen Übersetzungsschlüssel hinzufügen {#adding-a-translation-key}
 
-Wenn du `Text.translatable` für die Methode `displayName` des Itemgruppen Builders verwendet hast, musst du die Übersetzung zu deiner Sprachdatei hinzufügen.
+Wenn du `Component.translatable` für die Methode `displayName` des Itemgruppen Builders verwendet hast, musst du die Übersetzung zu deiner Sprachdatei hinzufügen.
 
 ```json
 {

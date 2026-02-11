@@ -40,7 +40,7 @@ In ähnlicher Weise teilt ein `ActionResult` dem Spiel den Status des Events mit
 Glücklicherweise verfügt die Klasse Item über viele Methoden, die überschrieben werden können, um zusätzliche Funktionen zu deinen Items hinzuzufügen.
 
 :::info
-Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf der Seite [SoundEvents abspielen](../sounds/using-sounds), die das Ereignis `useOnBlock` verwendet, um einen Sound abzuspielen, wenn der Spieler mit der rechten Maustaste auf einen Block klickt.
+Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf der Seite [SoundEvents abspielen](../sounds/using-sounds), die das Ereignis `useOn` verwendet, um einen Sound abzuspielen, wenn der Spieler mit der rechten Maustaste auf einen Block klickt.
 :::
 
 | Methode         | Informationen                                                                             |
@@ -49,7 +49,7 @@ Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf de
 | `postMine`      | Ausgeführt, wenn ein Spieler einen Block abbaut.                          |
 | `inventoryTick` | Jeden Tick ausgeführt, solange das Item im Inventar ist.                  |
 | `onCraft`       | Ausgeführt, wenn das Item hergestellt wurde.                              |
-| `useOnBlock`    | Ausgeführt, wenn der Spieler auf einen Block mit einem Item rechtsklickt. |
+| `useOn`    | Ausgeführt, wenn der Spieler auf einen Block mit einem Item rechtsklickt. |
 | `use`           | Ausgeführt, wenn ein Spieler ein Item rechtsklickt.                       |
 
 ## Das `use()` Event {#use-event}

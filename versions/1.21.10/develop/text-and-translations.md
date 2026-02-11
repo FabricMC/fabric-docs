@@ -114,7 +114,7 @@ You can apply these formatting styles using the `ChatFormatting` enum on the `Mu
 
 ```java
 MutableComponent result = Component.literal("Hello World!")
-  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
+  .withStyle(ChatChatFormatting.AQUA, ChatChatFormatting.BOLD, ChatChatFormatting.UNDERLINE);
 ```
 
 | Color                           | Name                             | Chat Code | MOTD Code | Hex Code  |
