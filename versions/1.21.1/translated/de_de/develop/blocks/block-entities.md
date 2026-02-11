@@ -27,22 +27,22 @@ Wenn wir den `BlockEntityType` nicht hart kodiert hätten, würde die Klasse `Mo
 
 ## Erstellen des Blocks {#creating-the-block}
 
-Um als Nächstes die Block Entität zu nutzen, brauchen wir einen Block, der `BlockEntityProvider` implementiert. Lass uns einen erstellen und `CounterBlock` nennen.
+Um als Nächstes die Block Entität zu nutzen, brauchen wir einen Block, der `EntityBlock` implementiert. Lass uns einen erstellen und `CounterBlock` nennen.
 
 :::tip
 Es gibt zwei Wege, um das zu machen:
 
-- Einen Block erstellen, der `BlockWithEntity` erweitert und die `createBlockEntity` Methode implementiert (_und_ die `getRenderType` Methode, da `BlockWithEntity` den Block standardmäßig Unsichtbar macht)
-- Einen Block erstellen, der `BlockEntityProvider` implementiert und die `createBlockEntity` Methode überschreibt
+- Einen Block erstellen, der `BaseEntityBlock` erweitert und die `newBlockEntity` Methode implementiert (_und_ die `getRenderType` Methode, da `BaseEntityBlock` den Block standardmäßig Unsichtbar macht)
+- Einen Block erstellen, der `EntityBlock` implementiert und die `newBlockEntity` Methode überschreibt
 
-Wir werden in diesem Beispiel den ersten Weg nutzen, da `BlockWithEntity` ein paar nützliche Funktionen anbietet.
+Wir werden in diesem Beispiel den ersten Weg nutzen, da `BaseEntityBlock` ein paar nützliche Funktionen anbietet.
 :::
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Da wir die `BlockWithEntity` Klasse erweitern, müssen wir auch die `createCodec` Methode implementieren, was aber recht leicht ist.
+Da wir die `BaseEntityBlock` Klasse erweitern, müssen wir auch die `codec` Methode implementieren, was aber recht leicht ist.
 
-Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `createBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
+Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `newBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
 
 Vergiss nicht, den Block in der Klasse `ModBlocks` zu registrieren, genau wie in der Anleitung [Deinen ersten Block erstellen](../blocks/first-block):
 
@@ -68,7 +68,7 @@ Da die `BlockEntity` nicht an die Methode übergeben wird, verwenden wir `world.
 
 Da wir nun einen funktionierenden Block haben, sollten wir dafür sorgen, dass der Zähler zwischen den Neustarts des Spiels nicht zurückgesetzt wird. Dies geschieht durch Serialisierung in NBT, wenn das Spiel speichert, und Deserialisierung, wenn es geladen wird.
 
-Die Serialisierung erfolgt mit der Methode `writeNbt`:
+Die Serialisierung erfolgt mit der Methode `saveAdditional`:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -82,9 +82,9 @@ Wenn wir nun speichern und das Spiel neu laden, sollte der Zählerblock dort wei
 
 ## Ticker {#tickers}
 
-Das Interface `BlockEntityProvider` definiert auch eine Methode namens `getTicker`, mit der für jede Instanz des Blocks bei jedem Tick Code ausgeführt werden kann. Wir können das implementieren, indem wir eine statische Methode erstellen, die als `BlockEntityTicker` verwendet wird:
+Das Interface `EntityBlock` definiert auch eine Methode namens `getTicker`, mit der für jede Instanz des Blocks bei jedem Tick Code ausgeführt werden kann. Wir können das implementieren, indem wir eine statische Methode erstellen, die als `BlockEntityTicker` verwendet wird:
 
-Die Methode `getTicker` sollte auch prüfen, ob der übergebene `BlockEntityType` derselbe ist wie der, den wir verwenden, und wenn ja, die Funktion zurückgeben, die bei jedem Tick aufgerufen wird. Glücklicherweise gibt es eine Hilfsfunktion, die diese Prüfung in `BlockWithEntity` durchführt:
+Die Methode `getTicker` sollte auch prüfen, ob der übergebene `BlockEntityType` derselbe ist wie der, den wir verwenden, und wenn ja, die Funktion zurückgeben, die bei jedem Tick aufgerufen wird. Glücklicherweise gibt es eine Hilfsfunktion, die diese Prüfung in `BaseEntityBlock` durchführt:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 

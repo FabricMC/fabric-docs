@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 Во-вторых, вы должны предоставить `Идентификатор`, содержащий предполагаемый идентификатор вашего компонента. Это пространство имен с идентификатором вашего мода.
 
-Наконец, у нас есть `ComponentType.Builder`, который создает фактический экземпляр `DataComponentType` и регистрируется. Здесь содержится еще одна важная деталь, которую нам нужно будет обсудить: `Codec` вашего компонента. В настоящее время это поле пустое, но мы скоро его заполним.
+Наконец, у нас есть `DataComponentType.Builder`, который создает фактический экземпляр `DataComponentType` и регистрируется. Здесь содержится еще одна важная деталь, которую нам нужно будет обсудить: `Codec` вашего компонента. В настоящее время это поле пустое, но мы скоро его заполним.
 
 ## Базовые компоненты данных {#basic-data-components}
 
@@ -74,7 +74,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 Это вернет текущее значение компонента как тип, который мы определили при регистрации нашего компонента. Затем мы можем использовать это значение для добавления записи всплывающей подсказки. Добавьте эту строку в метод `appendHoverText` в классе `CounterItem`:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
     tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
@@ -103,7 +103,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
@@ -135,10 +135,10 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 ### Проверка существования компонента {#checking-if-component-exists}
 
-Вы также можете проверить наличие определенного компонента в `ItemStack`, используя метод `contains()`. Он принимает тип компонента в качестве аргумента и возвращает `true` или `false` в зависимости от того, содержит ли стек этот компонент.
+Вы также можете проверить наличие определенного компонента в `ItemStack`, используя метод `has()`. Он принимает тип компонента в качестве аргумента и возвращает `true` или `false` в зависимости от того, содержит ли стек этот компонент.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Исправление ошибки {#fixing-the-error}
@@ -248,7 +248,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 其次，你需要提供一个 `ResourceLocation`，包含你的组件的 ID， 其命名空间就是你的模组的 ID。
 
-最后，我们有一个 `ComponentType.Builder`，创建一个需要注册的实际`DataComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
+最后，我们有一个 `DataComponentType.Builder`，创建一个需要注册的实际`DataComponentType` 实例。 这包含我们会需要讨论的另一个重要细节：你的组件的 `Codec`。 现在还是 `null`，但我们也会稍后完成。
 
 ## 基本数据组件 {#basic-data-components}
 
@@ -74,7 +74,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 这会返回组件的当前值，其类型为我们注册组件时定义的类型。 可以将这个值添加到物品提示中。 在 `CounterItem` 类中，把这一行添加到 `appendHoverText` 方法：
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
     tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
@@ -103,7 +103,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
@@ -135,10 +135,10 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 ### 检查组件是否存在 {#checking-if-component-exists}
 
-你也可以使用 `contains()` 方法检查 `ItemStack` 中是否存在特定的组件。 这会接收一个组件类型作为参数，并返回 `true` 或 `false`，取决于物品堆是否包含组件。
+你也可以使用 `has()` 方法检查 `ItemStack` 中是否存在特定的组件。 这会接收一个组件类型作为参数，并返回 `true` 或 `false`，取决于物品堆是否包含组件。
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### 修复错误 {#fixing-the-error}
@@ -248,7 +248,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

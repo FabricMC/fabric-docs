@@ -45,10 +45,10 @@ InteractionResultHolder.success(heldStack);
 
 | 方法              | 信息                                                 |
 | --------------- | -------------------------------------------------- |
-| `postHit`       | 当玩家攻击实体时被调用                                        |
-| `postMine`      | 当玩家挖掘方块时被调用                                        |
+| `hurtEnemy`       | 当玩家攻击实体时被调用                                        |
+| `mineBlock`      | 当玩家挖掘方块时被调用                                        |
 | `inventoryTick` | 当物品在物品栏(inventory)中时，每一tick调用一次 |
-| `onCraft`       | 当物品被合成时调用                                          |
+| `onCraftedPostProcess`       | 当物品被合成时调用                                          |
 | `useOn`    | 当玩家手持物品右键方块时调用(确切的说是对着方块按下使用按键) |
 | `use`           | 当玩家手持物品按下右键时调用(确切的说是按下使用按键)     |
 

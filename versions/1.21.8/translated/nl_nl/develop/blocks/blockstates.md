@@ -68,11 +68,11 @@ Dit voorbeeld creëert een unieke boolean eigenschap met de naam `activated` - w
 
 ### Het maken van De Eigenschap {#creating-the-property}
 
-Ten eerste moet je de eigenschap zelf maken - sinds dit een boolean is, zullen we de `BooleanProperty.of` methode gebruiken.
+Ten eerste moet je de eigenschap zelf maken - sinds dit een boolean is, zullen we de `BooleanProperty.create` methode gebruiken.
 
 @[code transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Vervolgens moeten we de eigenschap toevoegen aan de blok staat manager in de methode `appendProperties`. Je zult de methode moeten overschrijven om toegang te krijgen tot de builder:
+Vervolgens moeten we de eigenschap toevoegen aan de blok staat manager in de methode `createBlockStateDefinition`. Je zult de methode moeten overschrijven om toegang te krijgen tot de builder:
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

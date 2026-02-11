@@ -45,8 +45,8 @@ public class ModBlocks {
 
 예시로, 흙의 속성을 가지고 있지만, 다른 재질의 간단한 블록을 만들어 볼 것입니다.
 
-- 블록의 고유 식별자로 사용되는 `RegistryKey<Block>`이 필요합니다. 이는 이전 유틸리티 메서드에서 `Registry.register`로 전달됩니다.
-- `RegistryKey<Block>`는 `BlockBehaviour.Properties` 빌더에도 필요합니다.
+- 블록의 고유 식별자로 사용되는 `ResourceKey<Block>`이 필요합니다. 이는 이전 유틸리티 메서드에서 `Registry.register`로 전달됩니다.
+- `ResourceKey<Block>`는 `BlockBehaviour.Properties` 빌더에도 필요합니다.
 
 :::tip
 또한 이미 존재하는 블록의 설정을 복사하기 위하여 `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` 을 사용할 수 있습니다. 이 상황에서, 흙의 설정을 복사하기 위해 `Blocks.DIRT` 를 사용할 수도 있지만 예시를 위해 빌더를 사용할 것입니다.

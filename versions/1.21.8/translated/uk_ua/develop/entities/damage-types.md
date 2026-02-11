@@ -36,10 +36,10 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### Доступ до типів шкоди за допомогою коду {#accessing-damage-types-through-code}
 
-Коли нам потрібно отримати доступ до нашого спеціального типу пошкодження через код, ми будемо використовувати його `RegistryKey` для створення екземпляра
+Коли нам потрібно отримати доступ до нашого спеціального типу пошкодження через код, ми будемо використовувати його `ResourceKey` для створення екземпляра
 з `DamageSource`.
 
-`RegistryKey` можна отримати таким чином:
+`ResourceKey` можна отримати таким чином:
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 

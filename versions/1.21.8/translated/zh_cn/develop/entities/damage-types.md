@@ -31,9 +31,9 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 ### 通过代码访问伤害类型{#accessing-damage-types-through-code}
 
-当需要在代码中访问我们的自定义伤害类型时，可以用它的 `RegistryKey` 来创建一个 `DamageSource` 实例。
+当需要在代码中访问我们的自定义伤害类型时，可以用它的 `ResourceKey` 来创建一个 `DamageSource` 实例。
 
-这个 `RegistryKey` 可用以下方式获取：
+这个 `ResourceKey` 可用以下方式获取：
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 

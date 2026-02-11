@@ -9,7 +9,7 @@ Item groups are the tabs in the creative inventory that store items. You can cre
 
 ## Creating the Creative Tab{#creating-the-item-group}
 
-It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the creative tab and a resource key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
+Adding a creative tab is pretty simple. Simply create a new static final field in your items class to store the creative tab and a resource key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
 
 @[code transcludeWith=:::9](@/reference/1.21.8/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -29,6 +29,6 @@ If you used `Component.translatable` for the `displayName` method of the item gr
 }
 ```
 
-Now, as you can see, the item group should be correctly named:
+Now, as you can see, the creative tab should be correctly named:
 
 ![Fully completed item group with translation and items](/assets/develop/items/itemgroups_1.png)

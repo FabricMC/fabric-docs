@@ -100,7 +100,7 @@ When an entity wears your armor, nothing will be shown. This is because you're m
 
 There are two layers for the armor texture, both must be present.
 
-Previously, we created a `RegistryKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
+Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
 - `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
@@ -113,7 +113,7 @@ If you're updating to 1.21.8 from an older version of the game, the `humanoid` f
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/mod-id/equipment/` folder.
 
-The `RegistryKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
+The `ResourceKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 
 Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
 

@@ -33,9 +33,9 @@ Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format)
 
 ### Accedere ai Tipi di Danno Tramite Codice
 
-Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `RegistryKey` per costruire un'istanza di `DamageSource`.
+Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `ResourceKey` per costruire un'istanza di `DamageSource`.
 
-La `RegistryKey` può essere ottenuta nel modo seguente:
+La `ResourceKey` può essere ottenuta nel modo seguente:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 

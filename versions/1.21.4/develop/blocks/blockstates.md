@@ -66,11 +66,11 @@ This example will create a unique boolean property called `activated` - when a p
 
 ### Creating The Property {#creating-the-property}
 
-Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.of` method.
+Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.create` method.
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Next, we have to append the property to the blockstate manager in the `appendProperties` method. You'll need to override the method to access the builder:
+Next, we have to append the property to the blockstate manager in the `createBlockStateDefinition` method. You'll need to override the method to access the builder:
 
 @[code transcludeWith=:::2](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +80,7 @@ You'll also have to set a default state for the `activated` property in the cons
 
 ### Using The Property {#using-the-property}
 
-This example flips the boolean `activated` property when the player interacts with the block. We can override the `onUse` method for this:
+This example flips the boolean `activated` property when the player interacts with the block. We can override the `useWithoutItem` method for this:
 
 @[code transcludeWith=:::4](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

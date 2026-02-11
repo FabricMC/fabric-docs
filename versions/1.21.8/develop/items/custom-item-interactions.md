@@ -45,10 +45,10 @@ A great example of these events being used can be found in the [Playing SoundEve
 
 | Method          | Information                                             |
 | --------------- | ------------------------------------------------------- |
-| `postHit`       | Ran when the player hits an entity.                     |
-| `postMine`      | Ran when the player mines a block.                      |
+| `hurtEnemy`       | Ran when the player hits an entity.                     |
+| `mineBlock`      | Ran when the player mines a block.                      |
 | `inventoryTick` | Ran every tick whilst the item is in an inventory.      |
-| `onCraft`       | Ran when the item is crafted.                           |
+| `onCraftedPostProcess`       | Ran when the item is crafted.                           |
 | `useOn`    | Ran when the player right clicks a block with the item. |
 | `use`           | Ran when the player right clicks the item.              |
 

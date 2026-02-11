@@ -45,10 +45,10 @@ Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf de
 
 | Methode         | Informationen                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------- |
-| `postHit`       | Ausgeführt, wenn ein Spieler eine Entität schlägt.                        |
-| `postMine`      | Ausgeführt, wenn ein Spieler einen Block abbaut.                          |
+| `hurtEnemy`       | Ausgeführt, wenn ein Spieler eine Entität schlägt.                        |
+| `mineBlock`      | Ausgeführt, wenn ein Spieler einen Block abbaut.                          |
 | `inventoryTick` | Jeden Tick ausgeführt, solange das Item im Inventar ist.                  |
-| `onCraft`       | Ausgeführt, wenn das Item hergestellt wurde.                              |
+| `onCraftedPostProcess`       | Ausgeführt, wenn das Item hergestellt wurde.                              |
 | `useOn`    | Ausgeführt, wenn der Spieler auf einen Block mit einem Item rechtsklickt. |
 | `use`           | Ausgeführt, wenn ein Spieler ein Item rechtsklickt.                       |
 

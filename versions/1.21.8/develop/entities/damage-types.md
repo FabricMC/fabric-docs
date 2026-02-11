@@ -37,10 +37,10 @@ Refer to the [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format) 
 
 ### Accessing Damage Types Through Code {#accessing-damage-types-through-code}
 
-When we need to access our custom damage type through code, we will use it's `RegistryKey` to build an instance
+When we need to access our custom damage type through code, we will use it's `ResourceKey` to build an instance
 of `DamageSource`.
 
-The `RegistryKey` can be obtained as follows:
+The `ResourceKey` can be obtained as follows:
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 

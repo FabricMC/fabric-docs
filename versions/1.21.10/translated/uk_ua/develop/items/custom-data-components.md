@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 По-друге, ви повинні надати `ResourceLocation`, що містить призначений ідентифікатор вашого компонента. Це простір назв з ID вашого мода.
 
-Нарешті, у нас є `ComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Кодек` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
+Нарешті, у нас є `DataComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Кодек` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
 
 ## Звичайні компоненти даних {#basic-data-components}
 
@@ -71,10 +71,10 @@ public static final Item COUNTER = register(new CounterItem(
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Це поверне поточне значення компонента як тип, який ми визначили під час реєстрації нашого компонента. Потім ми можемо використовувати це значення, щоб додати запис підказки. Додайте цей рядок до методу appendTooltip у класі CounterItem:
+Це поверне поточне значення компонента як тип, який ми визначили під час реєстрації нашого компонента. Потім ми можемо використовувати це значення, щоб додати запис підказки. Додайте цей рядок до методу appendHoverText у класі CounterItem:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
     tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
@@ -103,7 +103,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
@@ -135,10 +135,10 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 ### Перевірка наявності компонента {#checking-if-component-exists}
 
-Ви також можете перевірити наявність певного компонента в `ItemStack` за допомогою методу `contains()`. Це приймає тип компонента як аргумент і повертає `true` або `false` залежно від того, чи містить стек цей компонент.
+Ви також можете перевірити наявність певного компонента в `ItemStack` за допомогою методу `has()`. Це приймає тип компонента як аргумент і повертає `true` або `false` залежно від того, чи містить стек цей компонент.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Виправлення помилки {#fixing-the-error}
@@ -248,7 +248,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

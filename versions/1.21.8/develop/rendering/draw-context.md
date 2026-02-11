@@ -91,7 +91,7 @@ The `GuiGraphics` class has various self-explanatory text rendering methods - fo
 Let's say we want to draw "Hello World" onto the screen. We can use the `GuiGraphics.drawText(...)` method to do this.
 
 ::: info
-Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ColorHelper.fullAlpha(...)` can be used to change RGB to ARGB while porting.
+Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ARGB.opaque` can be used to change RGB to ARGB while porting.
 :::
 
 @[code lang=java transcludeWith=:::7](@/reference/1.21.8/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)

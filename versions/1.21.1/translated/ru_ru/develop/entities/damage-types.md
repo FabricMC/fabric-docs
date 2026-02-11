@@ -33,9 +33,9 @@ resources/data/example-mod/damage_type/tater.json
 
 ### Доступ к типам урона через код {#accessing-damage-types-through-code}
 
-Когда нам нужно получить доступ к нашему пользовательскому типу урона через код, мы будем использовать его `RegistryKey` для создания экземпляра `DamageSource`.
+Когда нам нужно получить доступ к нашему пользовательскому типу урона через код, мы будем использовать его `ResourceKey` для создания экземпляра `DamageSource`.
 
-`RegistryKey` можно получить следующим образом:
+`ResourceKey` можно получить следующим образом:
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 

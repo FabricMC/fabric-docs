@@ -96,7 +96,7 @@ authors:
 
 Є два шари для текстури обладунків, обидва повинні бути присутніми.
 
-Раніше ми створили константу `RegistryKey<EquipmentAsset>` під назвою `GUIDITE_ARMOR_MATERIAL_KEY`, яку ми передали в наш конструктор `ArmorMaterial`. Рекомендується так само назвати текстуру, тому в нашому випадку це `guidite.png`
+Раніше ми створили константу `ResourceKey<EquipmentAsset>` під назвою `GUIDITE_ARMOR_MATERIAL_KEY`, яку ми передали в наш конструктор `ArmorMaterial`. Рекомендується так само назвати текстуру, тому в нашому випадку це `guidite.png`
 
 - `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` – містить текстури верхньої частини тіла та черевиків.
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Містить текстури наголінників.
@@ -109,7 +109,7 @@ authors:
 
 Далі вам потрібно буде створити пов’язане визначення моделі обладнання. Вони знаходяться в теці `/assets/mod-id/equipment/`.
 
-Константа `RegistryKey<EquipmentAsset>`, яку ми створили раніше, визначатиме назву файлу JSON. У цьому випадку це буде `guidite.json`.
+Константа `ResourceKey<EquipmentAsset>`, яку ми створили раніше, визначатиме назву файлу JSON. У цьому випадку це буде `guidite.json`.
 
 Оскільки ми плануємо додати лише «гуманоїда» (шолом, нагрудник, наголінники, чоботи тощо) обладунків, наше визначення моделі обладнання виглядатиме так:
 

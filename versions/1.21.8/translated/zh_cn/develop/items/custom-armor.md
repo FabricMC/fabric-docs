@@ -96,7 +96,7 @@ authors:
 
 盔甲纹理有两层，都要有。
 
-之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `RegistryKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
+之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子。
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
@@ -109,7 +109,7 @@ authors:
 
 然后，您需要创建一个关联的装备模型定义。 这些会保存在 `/assets/mod-id/equipment/` 文件夹。
 
-我们之前创建的 `RegistryKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
+我们之前创建的 `ResourceKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
 
 由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的设备模型定义会是这样的：
 

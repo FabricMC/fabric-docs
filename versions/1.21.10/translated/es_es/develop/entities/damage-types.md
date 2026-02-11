@@ -31,9 +31,9 @@ Verifica la [Wiki de Minecraft](https://minecraft.wiki/w/Damage_type#JSON_format
 
 ### Accediendo los Tipos de Daño en El Código
 
-Cuando necesitamos acceder nuestro tipo de daño en el código, necesitaremos usar su `RegistryKey` (Llave de Registro) para crear una instancia de `DamageSource` (Fuente de Daño).
+Cuando necesitamos acceder nuestro tipo de daño en el código, necesitaremos usar su `ResourceKey` (Llave de Registro) para crear una instancia de `DamageSource` (Fuente de Daño).
 
-El `RegistryKey` puede ser obtenida de la siguiente manera:
+El `ResourceKey` puede ser obtenida de la siguiente manera:
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.10/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 

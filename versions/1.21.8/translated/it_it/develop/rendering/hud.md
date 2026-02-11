@@ -42,11 +42,11 @@ Per esempio, ipotizzando uno scenario a 200 FPS, il gioco esegue un nuovo tick p
 |  `10` | `9/10 = 0.9`                    |
 |  `11` | `1`: Nuovo tick |
 
-In pratica, dovresti solo usare `tickDelta` quando le tue animazioni dipendono dai tick di Minecraft. Per animazioni basate sul tempo usa `Util.getMeasuringTimeMs()`, che misura il tempo del mondo reale.
+In pratica, dovresti solo usare `tickDelta` quando le tue animazioni dipendono dai tick di Minecraft. Per animazioni basate sul tempo usa `Util.getMillis()`, che misura il tempo del mondo reale.
 
 Puoi ottenere `tickDelta` chiamando `renderTickCounter.getTickDelta(false)`, dove il parametro booleano è `ignoreFreeze`, che in sostanza ti permette semplicemente d'ignorare l'utilizzo del giocatore del comando `/tick freeze`.
 
-In questo esempio, useremo `Util.getMeasuringTimeMs()` per interpolare linearmente il colore di un quadrato che viene renderizzato nel HUD.
+In questo esempio, useremo `Util.getMillis()` per interpolare linearmente il colore di un quadrato che viene renderizzato nel HUD.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

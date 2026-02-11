@@ -96,7 +96,7 @@ authors:
 
 갑옷 텍스처는 두 가지 레이어로 이루어지며, 두 레이어 모두 존재해야 합니다.
 
-위에서 `ArmorMaterial` 생성자에 입력했던 `RegistryKey<EquipmentAsset>` 필드 `GUIDITE_ARMOR_MATERIAL_KEY`를 사용할 때입니다. 재료와 비슷한 이름으로 설정하는 것이 좋기 때문에, 예제에서는 `guidite.png`로 설정합니다.
+위에서 `ArmorMaterial` 생성자에 입력했던 `ResourceKey<EquipmentAsset>` 필드 `GUIDITE_ARMOR_MATERIAL_KEY`를 사용할 때입니다. 재료와 비슷한 이름으로 설정하는 것이 좋기 때문에, 예제에서는 `guidite.png`로 설정합니다.
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - 상의와 부츠 텍스처가 저장됩니다.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - 레깅스의 텍스처가 저장됩니다.
@@ -109,7 +109,7 @@ authors:
 
 이제, 착용 모델 정의를 만들 차례입니다. `assets/example-mod/equipment` 폴더에 추가할 것입니다.
 
-위에서 생성했던 `RegistryKey<EquipmentAsset>` 상수가 JSON 파일의 이름을 결정하게 됩니다. 예제에서는, `guidite.json`입니다.
+위에서 생성했던 `ResourceKey<EquipmentAsset>` 상수가 JSON 파일의 이름을 결정하게 됩니다. 예제에서는, `guidite.json`입니다.
 
 예제에서는 "인간형" 갑옷(헬멧, 흉갑, 레깅스, 부츠 등)만 추가했기 때문에, 모델 정의는 다음과 같은 형태로 이루어집니다:
 

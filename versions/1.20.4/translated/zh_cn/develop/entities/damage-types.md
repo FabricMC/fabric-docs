@@ -33,9 +33,9 @@ resources/data/example-mod/damage_type/tater.json
 
 ### 通过代码访问伤害类型
 
-当我们需要在代码中访问我们的自定义伤害类型时，我们将用它的 `RegistryKey` 来创建一个 `DamageSource` 实例。
+当我们需要在代码中访问我们的自定义伤害类型时，我们将用它的 `ResourceKey` 来创建一个 `DamageSource` 实例。
 
-所需的 `RegistryKey` 可用以下方式获取：
+所需的 `ResourceKey` 可用以下方式获取：
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 

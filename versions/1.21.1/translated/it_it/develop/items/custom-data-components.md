@@ -33,7 +33,7 @@ Ci sono un paio di cose qui da far notare. Nelle linee prima e quarta, noti un `
 
 Secondo, devi fornire un `ResourceLocation` che contenga l'ID voluto per la tua componente. Questo avrà il namespace con l'ID della tua mod.
 
-Infine, abbiamo un `ComponentType.Builder` che crea l'istanza `DataComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
+Infine, abbiamo un `DataComponentType.Builder` che crea l'istanza `DataComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
 
 ## Componenti di Dati Basilari {#basic-data-components}
 
@@ -74,7 +74,7 @@ int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 Questo restituirà il valore corrente della componente nel tipo che abbiamo definito quando abbiamo registrato la nostra componente. Possiamousare questo valore per aggiungere una voce al tooltip. Aggiungi questa linea al metodo `appendHoverText` nella classe `CounterItem`:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
     tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
@@ -103,7 +103,7 @@ Tuttavia, se ti dai un nuovo oggetto Counter _senza_ la componente personalizzat
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
@@ -135,10 +135,10 @@ Come puoi notare, questo metodo prende due parametri: il tipo della nostra compo
 
 ### Controllare se una Componente Esiste {#checking-if-component-exists}
 
-Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `contains()`. Questo prende il tipo della componente come parametro e restituisce `true` o `false` se lo stack contiene o meno quella componente.
+Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `has()`. Questo prende il tipo della componente come parametro e restituisce `true` o `false` se lo stack contiene o meno quella componente.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Risolvere l'Errore {#fixing-the-error}
@@ -248,7 +248,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

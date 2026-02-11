@@ -42,11 +42,11 @@ Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 | `10` | `9/10 = 0.9` |
 | `11` | `1`：新的刻      |
 
-实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `tickDelta`。 针对基于时间的动画，请使用 `Util.getMeasuringTimeMs()`，它可以测量现实世界的时间。
+实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `tickDelta`。 针对基于时间的动画，请使用 `Util.getMillis()`，它可以测量现实世界的时间。
 
 可以调用 `renderTickCounter.getTickDelta(false)` 以检索 `tickDelta`，其中布尔值参数是 `ignoreFreeze`，这实际上只是允许忽略玩家使用 `/tick freeze` 命令的情况。
 
-在此示例中，我们将使用 `Util.getMeasuringTimeMs()` 线性插入要渲染到 HUD 的正方形的颜色。
+在此示例中，我们将使用 `Util.getMillis()` 线性插入要渲染到 HUD 的正方形的颜色。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

@@ -45,10 +45,10 @@ Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suon
 
 | Metodo          | Informazioni                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------- |
-| `postHit`       | Eseguito dopo che il giocatore colpisce un'entità.                                      |
-| `postMine`      | Eseguito dopo che il giocatore rompe un blocco.                                         |
+| `hurtEnemy`       | Eseguito dopo che il giocatore colpisce un'entità.                                      |
+| `mineBlock`      | Eseguito dopo che il giocatore rompe un blocco.                                         |
 | `inventoryTick` | Eseguito ad ogni tick mentre l'oggetto è nell'inventario.                               |
-| `onCraft`       | Eseguito quando l'oggetto viene craftato.                                               |
+| `onCraftedPostProcess`       | Eseguito quando l'oggetto viene craftato.                                               |
 | `useOn`    | Eseguito quando il giocatore clicca un blocco con il tasto destro, mentre ha l'oggetto. |
 | `use`           | Eseguito quando il giocatore clicca con il tasto destro mentre ha l'oggetto.            |
 

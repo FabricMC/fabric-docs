@@ -28,22 +28,22 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ## 创建方块{#creating-the-block}
 
-接下来，要实际使用方块实体，我们需要一个实现 'BlockEntityProvider' 的方块。 让我们创建一个并将其命名为 'CounterBlock'。 让我们创建一个并将其命名为 'CounterBlock'。
+接下来，要实际使用方块实体，我们需要一个实现 'EntityBlock' 的方块。 让我们创建一个并将其命名为 'CounterBlock'。 让我们创建一个并将其命名为 'CounterBlock'。
 
 :::tip
 有两种方法来实现这个：
 
-- 创建一个扩展 `BlockWithEntity` 的方块并实现 `createBlockEntity` 方法
-- 创建一个自行实现 `BlockEntityProvider` 的方块并重写 `createBlockEntity` 方法
+- 创建一个扩展 `BaseEntityBlock` 的方块并实现 `newBlockEntity` 方法
+- 创建一个自行实现 `EntityBlock` 的方块并重写 `newBlockEntity` 方法
 
-我们将在本例中使用第一种方法，因为 `BlockWithEntity` 也提供了一些不错的实用程序。
+我们将在本例中使用第一种方法，因为 `BaseEntityBlock` 也提供了一些不错的实用程序。
 :::
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-使用 `BlockWithEntity` 作为父类意味着我们还需要实现 `createCodec` 方法，这相当容易。
+使用 `BaseEntityBlock` 作为父类意味着我们还需要实现 `codec` 方法，这相当容易。
 
-与单例方块不同，每个方块实例都会创建一个新的方块实体。 与单例方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，该方法采用位置和 `BlockState`，并返回 `BlockEntity`，如果不应该有则返回 `null`。
+与单例方块不同，每个方块实例都会创建一个新的方块实体。 与单例方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `newBlockEntity` 方法完成的，该方法采用位置和 `BlockState`，并返回 `BlockEntity`，如果不应该有则返回 `null`。
 
 不要忘记在 `ModBlocks` 类中注册该方块，就像在[创建你的第一个方块](../blocks/first-block)指南中一样：
 
@@ -69,7 +69,7 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 现在我们有了一个功能方块，我们应该使计数器在游戏重启时不会重置。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。 这是通过在游戏保存时将其序列化为 NBT，并在加载时反序列化来实现的。
 
-序列化是通过 `writeNbt` 方法完成的：
+序列化是通过 `saveAdditional` 方法完成的：
 
 @[code transcludeWith=:::3](@/reference/1.21.4/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -83,9 +83,9 @@ Minecraft 将方块实体用于箱子、熔炉和命令方块等方块。
 
 ## Ticker {#tickers}
 
-`BlockEntityProvider` 接口还定义了一个名为 `getTicker` 的方法，该方法可用于为方块的每个实例每次运行代码。 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点： 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点：
+`EntityBlock` 接口还定义了一个名为 `getTicker` 的方法，该方法可用于为方块的每个实例每次运行代码。 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点： 我们可以通过创建一个用作 `BlockEntityTicker` 的静态方法来实现这一点：
 
-`getTicker` 方法还应检查传递的 `BlockEntityType` 是否与我们正在使用的相同，如果相同，则返回每刻时调用的函数。 值得庆幸的是，有一个实用函数可以在 `BlockWithEntity` 中执行检查： 值得庆幸的是，有一个实用函数可以在 `BlockWithEntity` 中执行检查：
+`getTicker` 方法还应检查传递的 `BlockEntityType` 是否与我们正在使用的相同，如果相同，则返回每刻时调用的函数。 值得庆幸的是，有一个实用函数可以在 `BaseEntityBlock` 中执行检查： 值得庆幸的是，有一个实用函数可以在 `BaseEntityBlock` 中执行检查：
 
 @[code transcludeWith=:::3](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
