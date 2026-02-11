@@ -1,14 +1,15 @@
 package com.example.docs.component;
 
+import java.util.function.Consumer;
+
 import com.mojang.serialization.Codec;
+
 import net.minecraft.component.ComponentsAccess;
 import net.minecraft.item.Item;
 import net.minecraft.item.tooltip.TooltipAppender;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-
-import java.util.function.Consumer;
 
 //::1
 public record ComponentWithTooltip(int clickCount) implements TooltipAppender {
