@@ -271,7 +271,6 @@ export const getLocales = () => {
           reminder: {
             latestVersion: resolver("version.reminder.latest_version"),
             oldVersionMojang: resolver("version.reminder.old_version_mojang"),
-            oldVersionYarn: resolver("version.reminder.old_version_yarn"),
           },
 
           switcher: {

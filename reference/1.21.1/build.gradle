@@ -1,5 +1,4 @@
 def minecraftVersion = "1.21.1"
-def yarnVersion = "1.21.1+build.3"
 def fabricApiVersion = "0.116.7+1.21.1"
 
 dependencies {
