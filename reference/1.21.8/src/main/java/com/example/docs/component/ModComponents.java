@@ -2,10 +2,10 @@ package com.example.docs.component;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.component.ComponentType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 
 import com.example.docs.FabricDocsReference;
 
@@ -14,18 +14,18 @@ public class ModComponents {
 	//::1
 
 	//::2
-	public static final ComponentType<Integer> CLICK_COUNT_COMPONENT = Registry.register(
-			Registries.DATA_COMPONENT_TYPE,
-			Identifier.of(FabricDocsReference.MOD_ID, "click_count"),
-			ComponentType.<Integer>builder().codec(Codec.INT).build()
+	public static final DataComponentType<Integer> CLICK_COUNT_COMPONENT = Registry.register(
+			BuiltInRegistries.DATA_COMPONENT_TYPE,
+			ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "click_count"),
+			DataComponentType.<Integer>builder().persistent(Codec.INT).build()
 	);
 	//::2
 
 	//::3
-	public static final ComponentType<MyCustomComponent> MY_CUSTOM_COMPONENT = Registry.register(
-			Registries.DATA_COMPONENT_TYPE,
-			Identifier.of(FabricDocsReference.MOD_ID, "custom"),
-			ComponentType.<MyCustomComponent>builder().codec(MyCustomComponent.CODEC).build()
+	public static final DataComponentType<MyCustomComponent> MY_CUSTOM_COMPONENT = Registry.register(
+			BuiltInRegistries.DATA_COMPONENT_TYPE,
+			ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "custom"),
+			DataComponentType.<MyCustomComponent>builder().persistent(MyCustomComponent.CODEC).build()
 	);
 	//::3
 

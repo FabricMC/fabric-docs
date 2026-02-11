@@ -3,8 +3,7 @@ package com.example.docs.command;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 
 // :::1
 public class BlockPosArgumentType implements ArgumentType<BlockPos> {

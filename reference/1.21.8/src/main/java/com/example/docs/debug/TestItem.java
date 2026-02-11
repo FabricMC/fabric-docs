@@ -1,32 +1,32 @@
 package com.example.docs.debug;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
 public class TestItem extends Item {
-	public TestItem(Settings settings) {
+	public TestItem(Properties settings) {
 		super(settings);
 	}
 
 	// ::::::problems:logger-usage-example
 	@Override
-	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-		World world = user.getWorld();
+	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
+		Level world = user.level();
 
 		// ::::::problems:logger-usage-example
-		if (world.isClient()) {
+		if (world.isClientSide()) {
 			// :::problems:using-logger
 			FabricDocsReferenceDebug.LOGGER.info("You interacted with an entity!");
 			// :::problems:using-logger
@@ -36,11 +36,11 @@ public class TestItem extends Item {
 
 		// Values are used in a String to provide more information in the console
 		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
-				.formatted(user.getWorld().isClient(), entity.getHealth(), entity.getMaxHealth(), hand.name());
+				.formatted(user.level().isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand.name());
 
 		FabricDocsReferenceDebug.LOGGER.info(output);
 
-		if (!user.getWorld().isClient()) {
+		if (!user.level().isClientSide()) {
 			// you can log non-critical issues differently as a warning
 			FabricDocsReferenceDebug.LOGGER.warn("Don't touch that!");
 
@@ -52,32 +52,32 @@ public class TestItem extends Item {
 			}
 		}
 
-		return ActionResult.SUCCESS;
+		return InteractionResult.SUCCESS;
 	}
 
 	// ::::::problems:logger-usage-example
 
 	// :::problems:breakpoints
 	@Override
-	public ActionResult useOnBlock(ItemUsageContext context) {
-		World world = context.getWorld();
-		PlayerEntity user = context.getPlayer();
-		BlockPos targetPos = context.getBlockPos();
-		ItemStack itemStack = context.getStack();
+	public InteractionResult useOn(UseOnContext context) {
+		Level world = context.getLevel();
+		Player user = context.getPlayer();
+		BlockPos targetPos = context.getClickedPos();
+		ItemStack itemStack = context.getItemInHand();
 		BlockState state = world.getBlockState(targetPos);
 
-		if (state.isIn(ConventionalBlockTags.STONES) || state.isIn(ConventionalBlockTags.COBBLESTONES)) {
-			Text newName = Text.literal("[").append(state.getBlock().getName()).append(Text.literal("]"));
-			itemStack.set(DataComponentTypes.CUSTOM_NAME, newName);
+		if (state.is(ConventionalBlockTags.STONES) || state.is(ConventionalBlockTags.COBBLESTONES)) {
+			Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));
+			itemStack.set(DataComponents.CUSTOM_NAME, newName);
 
 			if (user != null) {
-				user.sendMessage(Text.literal("Changed Item Name"), true);
+				user.displayClientMessage(Component.literal("Changed Item Name"), true);
 			}
 
-			return ActionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 
-		return ActionResult.PASS;
+		return InteractionResult.PASS;
 	}
 
 	// :::problems:breakpoints

@@ -2,51 +2,51 @@ package com.example.docs.item.custom;
 
 import java.util.function.Consumer;
 
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 
 // :::1
 public class LightningStick extends Item {
-	public LightningStick(Settings settings) {
+	public LightningStick(Properties settings) {
 		super(settings);
 	}
 
 	// :::1
 	// :::2
 	@Override
-	public ActionResult use(World world, PlayerEntity user, Hand hand) {
+	public InteractionResult use(Level world, Player user, InteractionHand hand) {
 		// Ensure we don't spawn the lightning only on the client.
 		// This is to prevent desync.
-		if (world.isClient) {
-			return ActionResult.PASS;
+		if (world.isClientSide) {
+			return InteractionResult.PASS;
 		}
 
-		BlockPos frontOfPlayer = user.getBlockPos().offset(user.getHorizontalFacing(), 10);
+		BlockPos frontOfPlayer = user.blockPosition().relative(user.getDirection(), 10);
 
 		// Spawn the lightning bolt.
-		LightningEntity lightningBolt = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-		lightningBolt.setPosition(frontOfPlayer.toCenterPos());
-		world.spawnEntity(lightningBolt);
+		LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT, world);
+		lightningBolt.setPos(frontOfPlayer.getCenter());
+		world.addFreshEntity(lightningBolt);
 
-		return ActionResult.SUCCESS;
+		return InteractionResult.SUCCESS;
 	}
 
 	// :::2
 	// :::3
 	@Override
-	public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-		textConsumer.accept(Text.translatable("itemTooltip.fabric-docs-reference.lightning_stick").formatted(Formatting.GOLD));
+	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
+		textConsumer.accept(Component.translatable("itemTooltip.fabric-docs-reference.lightning_stick").withStyle(ChatFormatting.GOLD));
 	}
 
 	// :::3

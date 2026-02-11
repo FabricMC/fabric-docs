@@ -4,6 +4,6 @@ def fabricApiVersion = "0.92.0+1.20.4"
 
 dependencies {
   minecraft "com.mojang:minecraft:${minecraftVersion}"
-  mappings "net.fabricmc:yarn:${yarnVersion}:v2"
+  mappings loom.officialMojangMappings()
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }

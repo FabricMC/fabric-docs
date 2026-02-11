@@ -1,12 +1,13 @@
 package com.example.docs.rendering.blockentity;
 
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.RotationAxis;
-import net.minecraft.util.math.Vec3d;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.world.phys.Vec3;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
@@ -14,46 +15,46 @@ import com.example.docs.block.entity.custom.CounterBlockEntity;
 public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity> {
 	// :::1
 
-	private final TextRenderer textRenderer;
+	private final Font textRenderer;
 
 	// :::1
-	public CounterBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
+	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 		// :::1
-		textRenderer = context.getTextRenderer();
+		textRenderer = context.getFont();
 		// :::1
 	}
 
 	@Override
-	public void render(CounterBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
+	public void render(CounterBlockEntity entity, float tickProgress, PoseStack matrices, MultiBufferSource vertexConsumers, int light, int overlay, Vec3 cameraPos) {
 		// :::1
 
 		// :::2
-		matrices.push();
+		matrices.pushPose();
 		matrices.translate(0.5, 1, 0.5);
-		matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+		matrices.mulPose(Axis.XP.rotationDegrees(90));
 		matrices.scale(1/18f, 1/18f, 1/18f);
 		// :::2
 
 		// :::3
 		String text = entity.getClicks() + "";
-		float width = textRenderer.getWidth(text);
+		float width = textRenderer.width(text);
 
 		// draw the text. params:
 		// text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light
-		textRenderer.draw(
+		textRenderer.drawInBatch(
 				text,
 				-width/2, -4f,
 				0xffffffff,
 				false,
-				matrices.peek().getPositionMatrix(),
+				matrices.last().pose(),
 				vertexConsumers,
-				TextRenderer.TextLayerType.SEE_THROUGH,
+				Font.DisplayMode.SEE_THROUGH,
 				0,
 				light
 		);
 		// :::3
 
-		matrices.pop();
+		matrices.popPose();
 
 		// :::1
 	}
