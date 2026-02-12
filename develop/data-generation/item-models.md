@@ -2,13 +2,18 @@
 title: Item Model Generation
 description: A guide to generating item models via datagen.
 authors:
+  - CelDaemon
   - Fellteros
   - skycatminepokie
   - VatinMc
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) and created your [first item](../items/first-item).
+
 :::
 
 For each item model we want to generate, we must create two separate JSON files:
@@ -20,12 +25,20 @@ For each item model we want to generate, we must create two separate JSON files:
 
 First, we will need to create our model provider.
 
+::: tip
+
+You can reuse the `FabricModelProvider` created in [Block Model Generation](./block-models#setup).
+
+:::
+
 Create a class that extends `FabricModelProvider`, and implement both abstract methods: `generateBlockStateModels` and `generateItemModels`.
 Then, create a constructor matching `super`.
 
 @[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
+
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Built-In Item Models {#built-in}
 
@@ -55,7 +68,7 @@ Simple item models are the default, and they're what most Minecraft items use. T
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json)
 
-You can find the exact default values for rotation, scaling and positioning of the model in the [`generated.json` file from the Minecraft assets](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/generated.json).
+You can find the exact default values for rotation, scaling and positioning of the model in the [`generated.json` file from the Minecraft assets](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/generated.json).
 
 == Texture
 
@@ -85,7 +98,7 @@ Handheld item models are generally used by tools and weapons (axes, swords, trid
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json)
 
-You can find the exact default values for rotation, scaling and positioning of the model in the [`handheld.json` file from the Minecraft assets](https://mcasset.cloud/1.21.10/assets/minecraft/models/item/handheld.json).
+You can find the exact default values for rotation, scaling and positioning of the model in the [`handheld.json` file from the Minecraft assets](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/handheld.json).
 
 == Texture
 
@@ -104,7 +117,9 @@ The method for dyeable items generates a simple item model and a client item whi
 @[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
+
 You have to add your item to the `ItemTags.DYEABLE` tag to be able to dye it in your inventory!
+
 :::
 
 == Client Item
@@ -149,7 +164,9 @@ The third and fourth parameters are the models to be used when the property is `
 @[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 ::: warning IMPORTANT
-To obtain the `ResourceLocation` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
+
+To obtain the `Identifier` that is passed in `ItemModelUtils.plainModel()`, always use `itemModelGenerator.createFlatItemModel()`, otherwise only the client items will be generated, not the item models!
+
 :::
 
 == Client Item
@@ -330,8 +347,7 @@ To do this, we'll create `resources/assets/example-mod/models/item/scaled2x.json
 
 @[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
 
-<!-- TODO: does this not make the model eight times as big? -->
-This will make the model twice as big as the simple ones.
+This will make the model visually twice as big as the simple ones.
 
 ### Creating the `ModelTemplate` {#custom-item-model}
 
@@ -354,7 +370,7 @@ Let's go over what the parameters are for:
 1. `Item item`: The item, for which we are generating the models.
 2. `ItemModelGenerators generator`: the same that get passed into the `generateItemModels()` method. Used for its fields.
 
-First, we get the `ResourceLocation` of the item with `SCALED2X.create()`, passing in a `TextureMapping` and the `modelOutput` from our `generator` parameter.
+First, we get the `Identifier` of the item with `SCALED2X.create()`, passing in a `TextureMapping` and the `modelOutput` from our `generator` parameter.
 
 Then, we'll use another of its fields, the `itemModelOutput` (which essentially works as a consumer), and use the `accept()` method, so that the models are actually generated.
 
@@ -370,4 +386,4 @@ Don't forget to add a texture file!
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.10/fabric-data-generation-api-v1/src/), this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/), this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.

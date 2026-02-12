@@ -1,0 +1,416 @@
+{
+  "/de_de/develop/": [
+    {
+      "text": "Leitfäden für Entwickler",
+      "link": "/de_de/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/de_de/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/de_de/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/de_de/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/de_de/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/de_de/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/de_de/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/de_de/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Gegenstände",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/de_de/develop/items/first-item",
+          "items": [
+            {
+              "text": "Nahrungsmittel",
+              "link": "/de_de/develop/items/food"
+            },
+            {
+              "text": "Tränke",
+              "link": "/de_de/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/de_de/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/de_de/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/de_de/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/de_de/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/de_de/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/de_de/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/de_de/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/de_de/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/de_de/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Blöcke",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/de_de/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/de_de/develop/blocks/block-models"
+        },
+        {
+          "text": "Blockzustände",
+          "link": "/de_de/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/de_de/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/de_de/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/de_de/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Entitäten",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/de_de/develop/entities/attributes"
+        },
+        {
+          "text": "Statuseffekte",
+          "link": "/de_de/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/de_de/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Sounds",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/de_de/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Benutzerdefinierte Sounds erstellen",
+          "link": "/de_de/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/de_de/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Befehle",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Befehle erstellen",
+          "link": "/de_de/develop/commands/basics"
+        },
+        {
+          "text": "Argumente",
+          "link": "/de_de/develop/commands/arguments"
+        },
+        {
+          "text": "Vorschläge",
+          "link": "/de_de/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Rendering",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/de_de/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/de_de/develop/rendering/draw-context"
+        },
+        {
+          "text": "Auf dem HUD rendern",
+          "link": "/de_de/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/de_de/develop/rendering/world"
+        },
+        {
+          "text": "GUIs und Oberflächen",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/de_de/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/de_de/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Partikel",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/de_de/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/de_de/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/de_de/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/de_de/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/de_de/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/de_de/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/de_de/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/de_de/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/de_de/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/de_de/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/de_de/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/de_de/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/de_de/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/de_de/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/de_de/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/de_de/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/de_de/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/de_de/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/de_de/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Diverse Seiten",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Events",
+          "link": "/de_de/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/de_de/develop/text-and-translations"
+        },
+        {
+          "text": "Networking",
+          "link": "/de_de/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/de_de/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/de_de/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/de_de/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/de_de/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/de_de/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/de_de/players/": [
+    {
+      "text": "Leitfäden für Spieler",
+      "link": "/de_de/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/de_de/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/de_de/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/de_de/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/de_de/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/de_de/players/installing-mods"
+        },
+        {
+          "text": "Problembehandlung",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/de_de/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/de_de/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Häufig gestellte Fragen",
+          "link": "/de_de/players/faq"
+        }
+      ]
+    }
+  ]
+}

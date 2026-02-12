@@ -9,23 +9,23 @@ Più i tuoi oggetti crescono in complessità, più troverai la necessità di mem
 
 Le Componenti di Dati sostituiscono i dati NBT di versioni precedenti, con tipi di dati strutturati che possono essere applicati a un `ItemStack` per memorizzare dati su quello stack. Le componenti di dati sfruttano namespace, il che significa che possiamo implementare le nostre componenti di dati per memorizzare dati personalizzati su un `ItemStack` e accederci successivamente. Una lista completa delle componenti di dati vanilla si trova su questa [pagina della Minecraft Wiki](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Assieme alla registrazione delle componenti personalizzate, questa pagina tratta l'uso generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponentTypes`.
+Assieme alla registrazione delle componenti personalizzate, questa pagina tratta l'uso generale dell'API delle componenti, il che si applica anche alle componenti vanilla. Puoi vedere e accedere alle definizioni di tutte le componenti vanilla nella classe `DataComponents`.
 
 ## Registrare una Componente {#registering-a-component}
 
-Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `ComponentType`. Questo tipo di componente accetta un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
+Come per qualsiasi altra cosa nella tua mod dovrai registrare la tua componente personalizzata usando un `DataComponentType`. Questo tipo di componente accetta un parametro generico contenente il tipo del valore della tua componente. Ci concentreremo su questo più in basso quando tratteremo le componenti [basilari](#basic-data-components) e [avanzate](#advanced-data-components).
 
-Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di richiamare `ModComponents.initialize()` nell'[initializer della tua mod](./getting-started/project-structure#entrypoints).
+Scegli sensibilmente una classe in cui mettere ciò. Per questo esempio creeremo un nuovo package chiamato `component` e una classe che conterrà tutti i tipi delle nostre componenti chiamate `ModComponents`. Assicurati di chiamare `ModComponents.initialize()` nel tuo [inizializzatore della mod](../getting-started/project-structure#entrypoints).
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
 Questo è il modello generico per registrare un tipo di componente:
 
 ```java
-public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
-    ComponentType.<?>builder().codec(null).build()
+public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
+    BuiltInRegistries.DATA_COMPONENT_TYPE,
+    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
+    DataComponentType.<?>builder().persistent(null).build()
 );
 ```
 
@@ -33,7 +33,7 @@ Ci sono un paio di cose qui da far notare. Nelle linee prima e quarta, noti un `
 
 Secondo, devi fornire un `Identifier` che contenga l'ID voluto per la tua componente. Questo avrà il namespace con l'ID della tua mod.
 
-Infine, abbiamo un `ComponentType.Builder` che crea l'istanza `ComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
+Infine, abbiamo un `DataComponentType.Builder` che crea l'istanza `DataComponentType` effettiva da registrare. Questo contiene un altro dettaglio cruciale che dovremmo analizzare: il `Codec` della tua componente. Questo per ora è `null` ma presto dobbiamo scriverlo.
 
 ## Componenti di Dati Basilari {#basic-data-components}
 
@@ -43,7 +43,7 @@ Per questo esempio, creiamo un valore `Integer` che traccierà quante volte il g
 
 @[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
 
-Puoi ora notare che abbiamo passato `<Integer>` come nostro tipo generico, indicando che questa componente sarà memorizzata come un valore `int` singolo. Per il nostro codec, cusiamo il codec `Codec.INT` fornito. Possiamo cavarcela usando codec basilari per componenti semplici come questa, ma scenari più complessi potrebbero richiedere un codec personalizzato (questo sarà trattato tra poco).
+Puoi ora notare che abbiamo passato `<Integer>` come nostro tipo generico, indicando che questa componente sarà memorizzata come un valore `int` singolo. Per il nostro codec, usiamo il codec `ExtraCodecs.POSITIVE_INT` fornito. Possiamo cavarcela usando codec basilari per componenti semplici come questa, ma scenari più complessi potrebbero richiedere un codec personalizzato (questo sarà trattato tra poco).
 
 Se avviassi il gioco, dovresti poter inserire un comando come questo:
 
@@ -60,27 +60,25 @@ Aggiungiamo un nuovo oggetto che aumenterà il contatore ogni volta che viene cl
 Ricorda come sempre di registrare l'oggetto nella tua classe `ModItems`.
 
 ```java
-public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
-), "counter");
+public static final Item COUNTER = register("counter", CounterItem::new, new Item.Properties());
 ```
 
 Aggiungeremo del codice del tooltip per mostrare il valore corrente del contatore di clic quando passiamo il mouse sopra al nostro oggetto nell'inventario. Possiamo usare il metodo `get()` sul nostro `ItemStack` per ottenere il valore della nostra componente, così:
 
 ```java
-int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Questo restituirà il valore corrente della componente nel tipo che abbiamo definito quando abbiamo registrato la nostra componente. Possiamousare questo valore per aggiungere una voce al tooltip. Aggiungi questa linea al metodo `appendTooltip` nella classe `CounterItem`:
+Questo restituirà il valore corrente della componente nel tipo che abbiamo definito quando abbiamo registrato la nostra componente. Possiamousare questo valore per aggiungere una voce al tooltip. Aggiungi questa linea al metodo `appendHoverText` nella classe `CounterItem`:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-    int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
+  int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+  textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
 
-Non dimenticare di aggiornare il tuo file di lingua (`/assets/example-mod/lang/en_us.json`) e aggiungere queste due linee:
+Non dimenticarti di aggiornare il tuo file di lingua (`/assets/example-mod/lang/en_us.json`) e aggiungere queste due righe:
 
 ```json
 {
@@ -102,9 +100,9 @@ Quando passi il mouse sopra a questo oggetto nell'inventario, dovresti notare il
 Tuttavia, se ti dai un nuovo oggetto Counter _senza_ la componente personalizzata, il gioco crasherà quando passi il mouse sull'oggetto nel suo inventario. Dovresti vedere un errore come il seguente nel report di crash:
 
 ```log
-java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
-        at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.world.item.ItemStack.get(net.minecraft.core.component.DataComponentType)" is null
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
+        at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
 Come ci aspettavamo, poiché l'`ItemStack` non contiene per ora un'istanza della nostra componente personalizzata, chiamare `stack.get()` con il tipo della nostra componente restituirà `null`.
@@ -113,14 +111,16 @@ Ci sono tre soluzioni a questo problema.
 
 ### Impostare un Valore Predefinito della Componente {#setting-default-value}
 
-Quando registri il tuo oggetto e passi un'istanza di `Item.Settings` al suo costruttore, puoi anche fornire una lista di componenti predefinite applicate a tutti i nuovi oggetti. Tornando alla nostra classe `ModItems`, dove registriamo il `CounterItem`, possiamo aggiungere un valore predefinito alla nostra componente. Aggiungi questo così i nuovi oggetti mostreranno un conto di `0`.
+Quando registri il tuo oggetto e passi un'istanza di `Item.Properties` al suo costruttore, puoi anche fornire una lista di componenti predefinite applicate a tutti i nuovi oggetti. Tornando alla nostra classe `ModItems`, dove registriamo il `CounterItem`, possiamo aggiungere un valore predefinito alla nostra componente. Aggiungi questo così i nuovi oggetti mostreranno un conto di `0`.
 
-@[code transcludeWith=::_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=::\_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Quando un nuovo oggetto viene creato, applicherà automaticamente la nostra componente personalizzata con il valore dato.
 
-:::warning
+::: warning
+
 Usando i comandi, è possibile togliere la componente predefinita da un `ItemStack`. Dovresti affidarti alle prossime due sezioni per gestire lo scenario della mancanza della componente sul tuo oggetto correttamente.
+
 :::
 
 ### Leggere con un Valore Predefinito {#reading-default-value}
@@ -128,17 +128,17 @@ Usando i comandi, è possibile togliere la componente predefinita da un `ItemSta
 Inoltre, leggendo il valore della componente, possiamo usare il metodo `getOrDefault()` sul nostro `ItemStack` per restituire un valore predefinito indicato se la componente non è presente nello stack. Questo ci tutelerà contro errori risultanti da una componente mancante. Possiamo modificare il codice del nostro tooltip così:
 
 ```java
-int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
+int count = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 ```
 
 Come puoi notare, questo metodo accetta due parametri: il tipo della nostra componente come prima, e un valore predefinito restituito se la componente non esiste.
 
 ### Controllare se una Componente Esiste {#checking-if-component-exists}
 
-Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `contains()`. Questo accetta il tipo della componente come parametro, e restituisce `true` o `false` se lo stack contiene o meno quella componente.
+Puoi anche verificare se una componente specifica esiste in un `ItemStack` con il metodo `has()`. Questo accetta il tipo della componente come parametro, e restituisce `true` o `false` se lo stack contiene o meno quella componente.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Risolvere l'Errore {#fixing-the-error}
@@ -256,12 +256,14 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Puoi anche impostare un valore predefinito per una componente composita passando un oggetto componente alle tue `Item.Settings`. Per esempio:
+Puoi anche impostare un valore predefinito per una componente composita passando un oggetto componente alle tue `Item.Properties`. Per esempio:
 
 ```java
-public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
-), "counter");
+public static final Item COUNTER = register(
+    "counter",
+    CounterItem::new,
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+);
 ```
 
 Ora puoi memorizzare dati personalizzati su un `ItemStack`. Usa in modo responsabile!

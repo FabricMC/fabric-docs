@@ -16,7 +16,7 @@ Loom 有一个 DSL 来帮助配置 Fabric API 的某些方面，例如数据生�
 
 ## 数据生成 {#data-gen}
 
-有关如何使用数据生成的分步指南，请参阅[数据生成设置](data-generation/setup)页面。 最基本的数据生成设置可以用以下代码来配置：
+有关如何使用数据生成的分步指南，请参阅[数据生成设置](../data-generation/setup)页面。 最基本的数据生成设置可以用以下代码来配置：
 
 ```groovy
 fabricApi {

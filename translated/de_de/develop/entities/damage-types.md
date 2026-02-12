@@ -13,7 +13,7 @@ Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können.
 
 Lass uns eine benutzerdefinierte Schadensart mit dem Namen _Tater_ erstellen. Wir beginnen mit der Erstellung einer JSON-Datei für deinen benutzerdefinierten Schaden. Diese Datei wird im `data`-Verzeichnis deines Mods in einem Unterverzeichnis mit dem Namen `damage_type` abgelegt.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -31,9 +31,9 @@ Im [Minecraft Wiki](https://de.minecraft.wiki/w/Schadensarten#Dateiformat) finde
 
 ### Zugriff Auf Schadensarten Durch Code {#accessing-damage-types-through-code}
 
-Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `RegistryKey`, um eine Instanz von `DamageSource` zu erstellen.
+Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `ResourceKey`, um eine Instanz von `DamageSource` zu erstellen.
 
-Der `RegistryKey` kann wie folgt ermittelt werden:
+Der `ResourceKey` kann wie folgt ermittelt werden:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
@@ -41,7 +41,7 @@ Der `RegistryKey` kann wie folgt ermittelt werden:
 
 Um die Verwendung von benutzerdefinierten Schadensarten zu demonstrieren, werden wir einen benutzerdefinierten Block mit dem Namen _Tater-Block_ verwenden. Wenn eine lebende Entität auf einen _Tater-Block_ tritt, verursacht er _Tater_ Schaden.
 
-Du kannst `onSteppedOn` überschreiben, um diesen Schaden zu zuzufügen.
+Du kannst `stepOn` überschreiben, um diesen Schaden zu zuzufügen.
 
 Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten Schadensart.
 
@@ -63,9 +63,7 @@ Du kannst eine Todesnachricht für die Schadensart im Format `death.attack.messa
 
 ```json
 {
-  // ...
-  "death.attack.tater": "%1$s died from Tater damage!",
-  // ...
+  "death.attack.tater": "%1$s died from Tater damage!"
 }
 ```
 
@@ -89,7 +87,7 @@ Fügen wir unsere Tater-Schadensart dem Schadensart-Tag `bypasses_armor` hinzu.
 
 Um unsere Schadensart zu einem dieser Tags hinzuzufügen, erstellen wir eine JSON-Datei im Namespace `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

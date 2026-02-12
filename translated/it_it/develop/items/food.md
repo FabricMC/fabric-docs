@@ -15,15 +15,15 @@ A meno che tu non voglia creare una mod con oggetti troppo potenti, dovresti ten
 
 ## Aggiungere la Componente Alimento {#adding-the-food-component}
 
-Per aggiungere la componente alimentare ad un oggetto, possiamo passarla all'istanza `Item.Setttings`:
+Per aggiungere la componente alimentare ad un oggetto, possiamo passarla all'istanza `Item.Properties`:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 Per ora questo rende l'oggetto edibile, e nulla di più.
 
-La classe `FoodComponent.Builder` ha qualche metodo che ti permette di modificare cosa succede quando un giocatore mangia il tuo oggetto:
+La classe `FoodProperties.Builder` ha qualche metodo che ti permette di modificare cosa succede quando un giocatore mangia il tuo oggetto:
 
 | Metodo               | Descrizione                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
@@ -31,9 +31,9 @@ La classe `FoodComponent.Builder` ha qualche metodo che ti permette di modificar
 | `saturationModifier` | Imposta la quantita di punti di saturazione che l'oggetto aggiungerà.              |
 | `alwaysEdible`       | Permette al tuo oggetto di essere consumato indipendentemente dal livello di fame. |
 
-Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo `build()` per ottenere la `FoodComponent`.
+Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo `build()` per ottenere le `FoodProperties`.
 
-Se vuoi aggiungere effetti di stato al giocatore quando mangiano il tuo cibo, devi usare la classe `ConsumableComponent` assieme a `FoodComponent`, come noti nell'esempio seguente:
+Se vuoi aggiungere effetti di stato al giocatore quando mangiano il tuo cibo, devi aggiungere una componente `Consumable` assieme alla componente `FoodProperties`, come noti nell'esempio seguente:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

@@ -16,7 +16,7 @@ Loom verfügt über eine DSL, die bei der Konfiguration bestimmter Aspekte der F
 
 ## Datengenerator {#data-gen}
 
-Einen Schritt-für-Schritt-Leitfaden zur Vernwendung der Datengenerierung findest du auf der Seite [Einrichtung der Datengenerierung](data-generation/setup). Die einfachste Art der Datengenerierung kann mit dem folgenden Code konfiguriert werden:
+Einen Schritt-für-Schritt-Leitfaden zur Vernwendung der Datengenerierung findest du auf der Seite [Einrichtung der Datengenerierung](../data-generation/setup). Die einfachste Art der Datengenerierung kann mit dem folgenden Code konfiguriert werden:
 
 ```groovy
 fabricApi {

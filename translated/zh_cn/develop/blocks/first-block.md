@@ -2,6 +2,7 @@
 title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
+  - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
@@ -22,10 +23,12 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 
-你可以添加一个 `initialize` 方法，并在模组的[初始化](./getting-started/project-structure#entrypoints)中调用以进行静态初始化。
+你可以添加一个 `initialize` 方法，并在模组的[初始化](../getting-started/project-structure#entrypoints)中调用以进行静态初始化。
 
-:::info
+::: info
+
 如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
+
 :::
 
 ```java
@@ -40,28 +43,30 @@ public class ModBlocks {
 
 ## 创建并注册你的方块{#creating-and-registering-your-block}
 
-和物品类似，方块会在构造函数中接收一个 `Block.Settings` 类，指定了方块的属性，例如其声音效果和挖掘等级。
+和物品类似，方块会在构造函数中接收一个 `BlockBehavior.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
-我们不会在这里介绍所有的选项：你可以自己查看类来了解各种选项，应该是不言自明的。
+这里不会把所有选项都提到：可以查看类本身来看看各种选项，应该都是不言自明的。
 
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
 - 我们以与在物品教程中创建物品设置类似的方式创建方块设置。
 - 我们通过调用 `Block` 构造函数来告诉 `register` 方法从方块设置中创建一个 `Block` 实例。
 
-:::tip
-可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
+::: tip
+
+可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
+
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 我们上一步创建过 `register` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
 
-### 将方块的物品添加到物品组中 {#adding-your-block-s-item-to-an-item-group}
+### 将你的方块的物品添加到创造模式标签页{#adding-your-block-s-item-to-a-creative-tab}
 
-由于 `BlockItem` 是自动创建和注册的，要将其添加到物品组中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
+由于 `BlockItem` 是自动创建和注册的，要将其添加到创造模式标签页中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
-例如，我们使用在[自定义物品组](../items/custom-item-groups)页面中创建的自定义物品组。
+对于这个例子，我们将方块添加到 `BUILDING_BLOCKS`（建筑方块）标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-item-groups)。
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -75,7 +80,7 @@ public class ModBlocks {
 
 ## 添加方块翻译{#adding-block-translations}
 
-要添加翻译，必须在你的翻译文件——`assets/example-mod/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/example-mod/lang/zh_cn.json`。）
+要添加翻译，必须在你的翻译文件——`assets/example-mod/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/example-mod/lang/zh_cn.json`）
 
 Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地方（例如命令反馈）中显示这个翻译。
 
@@ -97,12 +102,14 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
 
-为了让方块显示在物品栏中，您需要创建一个指向方块模型的[物品模型描述](../items/first-item#creating-the-item-model-description)。 在本例中，"Condensed Dirt" 方块的项目模型描述可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
+为了让方块显示在物品栏中，你需要创建一个指向方块模型的[客户端物品](../items/first-item#creating-the-client-item)。 在本例中，“Condensed Dirt”方块的客户端物品可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
-:::tip
-只有在注册方块的同时注册了 `BlockItem` 时，才需要创建项目模型描述！
+::: tip
+
+只有在注册方块的同时注册了 `BlockItem` 时，才需要创建客户端物品！
+
 :::
 
 载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
@@ -117,8 +124,10 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
-:::tip
+::: tip
+
 方块状态非常复杂，因此接下来将在 [单独页面](./blockstates) 中介绍。
+
 :::
 
 重启游戏，或者按下<kbd>F3</kbd> + <kbd>T</kbd>重新加载资源文件以应用更改——你应该能看到方块在物品栏内的纹理，以及在世界中呈现：
@@ -129,8 +138,10 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 在生存模式下破坏方块时，你可能看到方块不会掉落——你可能想要这个功能，但是要让方块被破坏时掉落为物品，必须要实现其战利品表——战利品表文件应置于 `data/example-mod/loot_table/blocks/` 文件夹中。
 
-:::info
+::: info
+
 对战利品表的更深入理解，可参考 [Minecraft Wiki - 战利品表](https://zh.minecraft.wiki/w/战利品表)页面。
+
 :::
 
 @[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
@@ -154,7 +165,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-如果你希望玩家需要使用工具来挖掘这个方块，则需要在方块设置中添加 `.requiresTool()`，并添加相应的挖掘等级标签。
+如果希望此方块应使用工具来挖掘，则需要在方块设置中添加`.requiresCorrectToolForDrops()`，并添加相应的挖掘标签。
 
 ## 挖掘等级{#mining-levels}
 
@@ -162,7 +173,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 - `needs_stone_tool.json` - 最低需要石质工具
 - `needs_iron_tool.json` - 最低需要铁质工具
-- `needs_diamond_tool.json` - 最低需要钻石工具
+- `needs_diamond_tool.json` - 最低需要钻石工具。
 
 文件与挖掘工具文件的格式相同——要添加到标签中的物品的列表。
 

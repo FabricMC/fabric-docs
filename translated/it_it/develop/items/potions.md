@@ -1,7 +1,8 @@
 ---
 title: Pozioni
-description: Impara come aggiungere pozioni personalizzate per vari effetti di stato.
+description: Impara come aggiungere pozioni personalizzate per vari effetti dei mob.
 authors:
+  - cassiancc
   - dicedpixels
   - Drakonkinst
   - JaaiDead
@@ -16,18 +17,20 @@ Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
 ### Creare la Pozione {#creating-the-potion}
 
-Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla.
+Iniziamo dichiarando un attributo che conterrà la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla. Nota che abbiamo usato `Registry.registerForHolder` perché, come per gli effetti dei mob, la maggior parte dei metodi vanilla legati alle pozioni le richiedono in holder.
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-Passiamo una istanza di `StatusEffectInstance`, che accetta 3 parametri:
+Passiamo una istanza di `MobEffectInstance`, che accetta 3 parametri:
 
-- `RegistryEntry<StatusEffect> type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso la classe vanilla `StatusEffects`.
+- `Holder<MobEffect> type` - Un effetto, rappresentato come holder. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso la classe vanilla `MobEffects`.
 - `int duration` - Durata dell'effetto espressa in tick di gioco.
 - `int amplifier` - Un amplificatore per l'effetto. Per esempio, Sollecitudine II avrebbe un amplificatore di 1.
 
-:::info
+::: info
+
 Per creare il tuo effetto personalizzato per la pozione, per favore guarda la guida [Effetti](../entities/effects).
+
 :::
 
 ### Registrare la Pozione {#registering-the-potion}
@@ -38,9 +41,9 @@ Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUI
 
 `registerPotionRecipe` accetta 3 parametri:
 
-- `RegistryEntry<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
+- `Holder<Potion> input` - La pozione iniziale, rappresentata come holder. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
-- `RegistryEntry<Potion> output` - La voce di registry della pozione risultante.
+- `Holder<Potion> output` - La pozione risultante, rappresentata come holder.
 
 Una volta registrato, puoi distillare una pozione Tater usando una patata.
 

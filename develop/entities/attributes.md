@@ -2,8 +2,8 @@
 title: Entity Attributes
 description: Learn how to add custom attributes to entities.
 authors:
-- cassiancc
-- cprodhomme
+  - cassiancc
+  - cprodhomme
 ---
 
 Attributes determine the properties that your modded entity can possess. Using Fabric, you can create your own custom attributes that enhance gameplay mechanics and apply vanilla ones as well.
@@ -36,7 +36,7 @@ To display the attribute name in a human-readable format, you must modify `asset
 
 ```json
 {
-    "attribute.name.example-mod.aggro_range": "Aggro Range"
+  "attribute.name.example-mod.aggro_range": "Aggro Range"
 }
 ```
 
@@ -59,6 +59,7 @@ Vanilla provides attributes as well, including [max health](https://minecraft.wi
 As a demo, we'll include maximum health, movement speed, attack damage and the aggro range attribute as created earlier.
 
 <!-- TODO: move to the reference mod -->
+
 ```java
 public static AttributeSupplier.Builder createEntityAttributes() {
     return Mob.createMobAttributes()
@@ -84,7 +85,7 @@ An `AttributeInstance` allows more flexibility, such as setting an `AttributeMod
 ```java
 attribute.addPermanentModifier(
     new AttributeModifier(
-        ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
+        Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
         8, // how much to modify it
         AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
     ));

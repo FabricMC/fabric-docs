@@ -15,8 +15,10 @@ This page gives useful bits of information, to speed up and ease the workflow of
 It may take some time to learn and get used to the shortcuts and other options. You can use this page as a reference for that.
 
 ::: warning
+
 Key binds in the text refer to the default keymap of IntelliJ IDEA, if not stated otherwise.
 Refer to the `File > Settings > Keymap` Settings or search for the functionality elsewhere if you are using a different keyboard layout.
+
 :::
 
 ## Traversing Projects {#traversing-projects}
@@ -57,8 +59,7 @@ In there you can jump to the files, which you have already visited and open tool
 
 ### Jump to Definition / Usage {#jump-to-definition-usage}
 
-If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>
-or use <kbd>Middle Mouse Button</kbd> (pressing mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
+If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>, or use <kbd>Middle Click</kbd> (press the mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
 You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd> to view all the implementations of a class or interface.
@@ -228,7 +229,9 @@ To create a custom block which can be collapsed, use the `region` and `endregion
 ![Region collapse](/assets/develop/misc/using-the-ide/comments_02.png)
 
 ::: warning
+
 If you notice that you are using too many of them, consider refactoring your code to make it more readable!
+
 :::
 
 ### Disabling the Formatter {#disabling-formatter}
@@ -260,7 +263,9 @@ new ArrayList().add("bananas");
 ```
 
 ::: warning
+
 If you notice that you are suppressing too many warnings, consider rewriting your code to not produce so many warnings!
+
 :::
 
 ### TODO and FIXME Notes {#todo-and-fixme-notes}
@@ -287,7 +292,7 @@ When hovering over method or class names, which have JavaDoc comments added to t
 
 ![JavaDoc](/assets/develop/misc/using-the-ide/comments_06.png)
 
-To get started, simply write `/**` above the method or class definition and press enter. IntelliJ will automatically generate lines for the return value
+To get started, simply write `/**` above the method or class definition and press <kbd>Enter</kbd>. IntelliJ will automatically generate lines for the return value
 and the parameters but you can change them however you want. There are many custom functionalities available and you can also use HTML if needed.
 
 Minecraft's `ScreenHandler` class has some examples. To toggle the render view, use the pen button near the line numbers.
@@ -322,7 +327,7 @@ Use Live Templates to generate your custom boilerplate code faster.
 
 ### More Tips and Tricks {#more-tips}
 
-Anton Arhipov from Jetbrains also had an in depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
+Anton Arhipov from Jetbrains also had an in-depth talk about Regex Matching, Code Completion, Debugging and many other topics in IntelliJ.
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI">IntelliJ talk by Anton Arhipov on YouTube</VideoPlayer>
 

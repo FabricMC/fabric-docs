@@ -36,7 +36,7 @@ loom {
 
 In the example above, `example-mod-test` is built from a single source set: `testmod`. Loom will configure Fabric Loader to group this source set under its own classpath group, separate from the `example-mod`.
 
-### Sub Projects {#multi-project}
+## Sub Projects {#multi-project}
 
 When you wish to define mods that span multiple Gradle projects (common in multi-platform setups), you can do so by specifying the source set name and the project path.
 
@@ -59,7 +59,7 @@ plugins {
 }
 ```
 
-### Shaded Dependencies {#shaded-dependencies}
+## Shaded Dependencies {#shaded-dependencies}
 
 If you are shading dependencies into your mod jar, you should also define the configuration that contains the shaded dependencies in the `loom.mods` block. This ensures that Fabric Loader can group the shaded dependencies correctly with your mod's code. You should not do this for other mod dependencies or dependedencies that you are jar-in-jar-ing with `include`.
 

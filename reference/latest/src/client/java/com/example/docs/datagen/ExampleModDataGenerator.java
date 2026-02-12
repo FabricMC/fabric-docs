@@ -22,25 +22,40 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		// :::datagen-setup:pack
 
+		// :::datagen-enchantments:register
 		pack.addProvider(ExampleModEnchantmentGenerator::new);
+		// :::datagen-enchantments:register
 
+		// :::datagen-advancements:register
 		pack.addProvider(ExampleModAdvancementProvider::new);
+		// :::datagen-advancements:register
 
+		// :::datagen-translations:register
 		pack.addProvider(ExampleModEnglishLangProvider::new);
+		// :::datagen-translations:register
 
+		// :::datagen-tags:register
 		pack.addProvider(ExampleModItemTagProvider::new);
+		// :::datagen-tags:register
+		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
+		// :::datagen-recipes:register
 		pack.addProvider(ExampleModRecipeProvider::new);
+		// :::datagen-recipes:register
 
+		// :::datagen-loot-tables:register
 		pack.addProvider(ExampleModBlockLootTableProvider::new);
 		pack.addProvider(ExampleModChestLootTableProvider::new);
+		// :::datagen-loot-tables:register
 
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypesGenerator::new);
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		pack.addProvider(ExampleModInternalModelProvider::new);
 
+		// :::datagen-models:register
 		pack.addProvider(ExampleModModelProvider::new);
+		// :::datagen-models:register
 
 		pack.addProvider(ExampleModNetworkingBasicModelProvider::new);
 
@@ -50,12 +65,17 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	}
 
 	// :::datagen-setup:generator
+	// :::datagen-enchantments:bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+		// :::datagen-enchantments:bootstrap
+		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
+	// :::datagen-enchantments:bootstrap
 
 	// :::datagen-setup:generator
 }

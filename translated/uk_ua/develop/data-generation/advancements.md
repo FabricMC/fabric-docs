@@ -2,6 +2,7 @@
 title: Генерація досягнень
 description: Посібник із налаштування генерації досягнень за допомогою datagen.
 authors:
+  - CelDaemon
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
@@ -10,42 +11,50 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 :::info ПЕРЕДУМОВИ
+
 Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
+
 :::
 
 ## Налаштування {#setup}
 
-По-перше, нам потрібно створити свого постачальника. Створіть клас, який `extends FabricAdvancementProvider`, і заповніть базові методи:
+По-перше, нам потрібно створити свого постачальника. Створіть клас, який розширює `FabricAdvancementProvider` та заповніть базові методи:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-Щоб завершити налаштування, додайте цього провайдера до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
+Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Структура досягнення {#advancement-structure}
 
 Досягнення складається з кількох різних компонентів. Разом із вимогами, які називаються «критерієм», він може мати:
 
-- `AdvancementDisplay`, який повідомляє грі, як показувати до досягнення гравцям,
+- `DisplayInfo`, який повідомляє грі, як показувати до досягнення гравцям,
 - `AdvancementRequirements`, які є списками списків критеріїв, які вимагають заповнення принаймні одного критерію з кожного підсписку,
 - `AdvancementRewards`, які гравець отримує за виконання досягнення.
-- `CriterionMerger`, який повідомляє досягненню, як обробляти кілька критеріїв, і
+- `Strategy`, який повідомляє досягненню, як обробляти кілька критеріїв, і
 - Батьківський `Advancement`, який організовує ієрархію, яку ви бачите на екрані «Досягнення».
 
 ## Прості досягнення {#simple-advancements}
 
 Ось просте досягнення для отримання ґрунту:
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-:::warning
+::: warning
+
 Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!
+
 :::
 
 :::details Вивід JSON
+
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+
 :::
 
 ## Ще один приклад {#one-more-example}
@@ -56,17 +65,19 @@ authors-nogithub:
 
 ## Власні критерії {#custom-criteria}
 
-:::warning
+::: warning
+
 У той час як datagen може бути на стороні клієнта, `Criterion`s і `Predicate`s знаходяться в основному вихідному наборі (обидві сторони), оскільки сервер повинен ініціювати та оцінювати їх.
+
 :::
 
 ### Визначення {#definitions}
 
-**criterion** (у множині: criteria) — це те, що гравець може зробити (або що може статися з гравцем), що може бути зараховано для досягнення. У грі є багато [критеріїв](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), які можна знайти в пакеті `net.minecraft.advancement.criterion`. Як правило, вам знадобиться новий критерій, лише якщо ви запровадите в гру спеціальну механіку.
+**criterion** (у множині: criteria) — це те, що гравець може зробити (або що може статися з гравцем), що може бути зараховано для досягнення. У грі є багато [критеріїв](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), які можна знайти в пакеті `net.minecraft.advancements.criterion`. Як правило, вам знадобиться новий критерій, лише якщо ви запровадите в гру спеціальну механіку.
 
-**Conditions** оцінюються за критеріями. Критерій зараховується, лише якщо виконуються всі відповідні умови. Умови зазвичай виражаються присудком.
+**Умови** оцінюються за критеріями. Критерій зараховується, лише якщо виконуються всі відповідні умови. Умови зазвичай виражаються присудком.
 
-**Predicate** – це те, що приймає значення та повертає `boolean`. Наприклад, `Predicate<Item>` може повернути `true`, якщо предмет є діамантом, тоді як `Predicate<LivingEntity>` може повернути `true`, якщо сутність не є ворожою до селян.
+**Присудок** — це те, що приймає значення та повертає `boolean`. Наприклад, `Predicate<Item>` може повернути `true`, якщо предмет є діамантом, тоді як `Predicate<LivingEntity>` може повернути `true`, якщо сутність не є ворожою до селян.
 
 ### Створення власних критеріїв {#creating-custom-criteria}
 
@@ -82,12 +93,14 @@ authors-nogithub:
 
 Вау, це багато! Розберімо це.
 
-- `UseToolCriterion` – це `AbstractCriterion`, до якого можуть застосовуватися `Умови`.
-- `Conditions` мають поле `playerPredicate`. Усі `Conditions` повинні мати предикат гравця (технічно `LootContextPredicate`).
-- `Conditions` також мають `CODEC`. Цей `Кодек` є просто кодеком для його одного поля, `playerPredicate`, з додатковими інструкціями для перетворення між ними (`xmap`).
+- `UseToolCriterion` – це `SimpleCriterionTrigger`, до якого можуть застосовуватися `Conditions`.
+- `Conditions` мають поле `playerPredicate`. Усі `Conditions` повинні мати присудок гравця (технічно `LootContextPredicate`).
+- `Conditions` також мають `CODEC`. Цей `кодек` є просто кодеком для його одного поля, `playerPredicate`, з додатковими інструкціями для перетворення між ними (`xmap`).
 
-:::info
-Щоб дізнатися більше про кодеки, перегляньте сторінку [кодеки](../codecs).
+::: info
+
+Щоб дізнатися більше про кодеки, перегляньте сторінку [кодеків](../codecs).
+
 :::
 
 Нам знадобиться спосіб перевірити, чи виконуються умови. Нумо додаймо допоміжний метод до `Conditions`:
@@ -106,11 +119,11 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
-І викличте це у своєму ініціалізаторі моду:
+І викличте це у своєму ініціалізаторі мода:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
-Нарешті, нам потрібно запустити наші критерії. Додайте це туди, де ми надіслали повідомлення гравцеві в основному класі мода.
+Нарешті, нам потрібно запустити наші критерії. Додайте це туди, де ми надіслали повідомлення гравцеві в головному класі мода.
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
@@ -144,7 +157,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
-І назвіть це в нашому головному класі, там же, де старий:
+І назвіть це в нашому головному класі, там, де й старий:
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 

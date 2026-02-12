@@ -38,19 +38,19 @@ Local classes (classes defined within a method) have a number followed by their 
 
 When bytecode needs to refer to primitive types or arrays, _type descriptors_ are used. Here is a table of data types and their respective type descriptors:
 
-| Type      | Descriptor                                                           |
-|-----------|----------------------------------------------------------------------|
-| `boolean` | `Z`                                                                  |
-| `byte`    | `B`                                                                  |
-| `char`    | `C`                                                                  |
-| `double`  | `D`                                                                  |
-| `float`   | `F`                                                                  |
-| `int`     | `I`                                                                  |
-| `long`    | `J`                                                                  |
-| `short`   | `S`                                                                  |
-| `void`    | `V`                                                                  |
-| Arrays    | `[` + the element type: `int[]` -> `[I`                              |
-| Objects   | `L` + the internal name + `;`: `String` -> `Ljava/lang/String;`      |
+| Type      | Descriptor                                                      |
+| --------- | --------------------------------------------------------------- |
+| `boolean` | `Z`                                                             |
+| `byte`    | `B`                                                             |
+| `char`    | `C`                                                             |
+| `double`  | `D`                                                             |
+| `float`   | `F`                                                             |
+| `int`     | `I`                                                             |
+| `long`    | `J`                                                             |
+| `short`   | `S`                                                             |
+| `void`    | `V`                                                             |
+| Arrays    | `[` + the element type: `int[]` -> `[I`                         |
+| Objects   | `L` + the internal name + `;`: `String` -> `Ljava/lang/String;` |
 
 ### Field and Method Descriptors {#field-and-method-descriptors}
 
@@ -91,15 +91,15 @@ public int getX(int offset) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 public getX (I)I
-  aload 0  # this
+  aload 0  // this
   getfield x
-  iload 1  # offset
+  iload 1  // offset
   iadd
-  istore 2  # result
+  istore 2  // result
 
-  iload 2  # result
+  iload 2  // result
   ireturn
 ```
 
@@ -119,12 +119,12 @@ public static double add(double x, double y, double z) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static add (DDD)D
-  dload 0  # x
-  dload 2  # y
+  dload 0  // x
+  dload 2  // y
   dadd
-  dload 4  # z
+  dload 4  // z
   dadd
   dreturn
 ```
@@ -134,9 +134,11 @@ static add (DDD)D
 ... the `x` parameter gets index 0, the `y` parameter gets index 2, and the `z` parameter gets index 4.
 
 ::: info
+
 We've seen that bytecode doesn't need the names of local variables because it identifies them by their LVT index. Despite this, many libraries will retain debug information, including the names of local variables, to ease debugging and allow you to target local variables by name when developing mixins.
 
-However, Minecraft 1.21.10 does not provide that by default and is therefore said to be obfuscated. Note that [future versions of Minecraft will be deobfuscated](../migrating-mappings/#whats-going-on-with-mappings).
+However, Minecraft 1.21.11 does not provide that by default and is therefore said to be obfuscated. Note that [future versions of Minecraft will be deobfuscated](../migrating-mappings/#whats-going-on-with-mappings).
+
 :::
 
 ## The Operand Stack {#the-operand-stack}
@@ -156,15 +158,15 @@ public int getX(int offset) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 public getX (I)I
-  aload 0  # this
+  aload 0  // this
   getfield x
-  iload 1  # offset
+  iload 1  // offset
   iadd
-  istore 2  # result
+  istore 2  // result
 
-  iload 2  # result
+  iload 2  // result
   ireturn
 ```
 
@@ -177,7 +179,7 @@ Let's imagine `getX(5)` is called when `this.x` has the value 42, and let's foll
 == Start
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               |               |
@@ -191,7 +193,7 @@ Notice how LVT slot 0 contains `this`: that's because `getX` is not a static met
 == aload 0
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | `this`        |
@@ -201,7 +203,7 @@ Loads the variable from LVT slot 0 (`this`), and pushes its value onto the Opera
 == getfield x
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 42            |
@@ -211,7 +213,7 @@ Pops the top value off the Operand Stack, gets the value of its `x` field (which
 == iload 1
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          | 5             |
 | 0     | `this`               | 42            |
@@ -221,7 +223,7 @@ Loads the variable from LVT slot 1 (`offset`), and pushes its value onto the Ope
 == iadd
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 47            |
@@ -231,7 +233,7 @@ Pops the top two values off the Operand Stack, adds them up, and pushes that sum
 == istore 2
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               |               |
@@ -241,7 +243,7 @@ Pops the top value off the Operand Stack, and assigns it to the local variable i
 == iload 2
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     | `result`: 47         |               |
 | 1     | `offset`: 5          |               |
 | 0     | `this`               | 47            |
@@ -284,18 +286,18 @@ static String makeFoobar(boolean cond) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static makeFoobar (Z)Ljava/lang/String;
-  iload 0  # cond
+  iload 0  // cond
   ifeq L1
   ldc "foo"
-  astore 1  # result
+  astore 1  // result
   goto L2
 L1
   ldc "bar"
-  astore 1  # result
+  astore 1  // result
 L2
-  aload 1  # result
+  aload 1  // result
   areturn
 ```
 
@@ -324,11 +326,11 @@ static void doSomething(boolean cond1, boolean cond2) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static doSomething (ZZ)V
-  iload 0  # cond1
+  iload 0  // cond1
   ifeq L1
-  iload 1  # cond2
+  iload 1  // cond2
   ifeq L1
   getstatic System.out
   invokevirtual println
@@ -414,11 +416,11 @@ static Creeper createCreeper(Level level) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static createCreeper (Lnet/minecraft/world/level/Level;)Lnet/mineraft/world/entity/monster/Creeper;
   new net/minecraft/world/entity/monster/Creeper
   dup
-  aload 0  # level
+  aload 0  // level
   invokespecial net/minecraft/world/entity/monster/Creeper.<init> (Lnet/minecraft/world/level/Level;)V
   areturn
 ```
@@ -428,10 +430,11 @@ static createCreeper (Lnet/minecraft/world/level/Level;)Lnet/mineraft/world/enti
 Let's examine what happens on the Operand Stack.
 
 ::: tabs
+
 == Start
 
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     |                      |               |
 | 0     | `level`              |               |
@@ -441,7 +444,7 @@ LVT slot 0 contains `level`. It does not contain `this` because the method is st
 == new Creeper
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      |                  |
 | 1     |                      |                  |
 | 0     | `level`              | uninit `Creeper` |
@@ -451,7 +454,7 @@ Allocates an uninitialized instance of `Creeper`, and pushes a reference to it o
 == dup
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      |                  |
 | 1     |                      | uninit `Creeper` |
 | 0     | `level`              | uninit `Creeper` |
@@ -463,18 +466,21 @@ We need the Operand Stack to contain two pointers to the same object because one
 == aload 0
 
 | Index | Local Variable Table | Operand Stack    |
-|-------|----------------------|------------------|
+| ----- | -------------------- | ---------------- |
 | 2     |                      | `level`          |
 | 1     |                      | uninit `Creeper` |
 | 0     | `level`              | uninit `Creeper` |
 
 Loads the variable from LVT slot 0 (`level`), and pushes its value onto the Operand Stack.
 
-<!-- markdownlint-disable-next-line no-inline-html -->
+<!-- markdownlint-disable no-inline-html -->
+
 == invokespecial <init>
 
+<!-- markdownlint-enable no-inline-html -->
+
 | Index | Local Variable Table | Operand Stack |
-|-------|----------------------|---------------|
+| ----- | -------------------- | ------------- |
 | 2     |                      |               |
 | 1     |                      |               |
 | 0     | `level`              | `Creeper`     |
@@ -507,12 +513,12 @@ static void hello() {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static hello ()V
   invokedynamic run ()Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 ()V
-  astore 0  # r
+  astore 0  // r
 
-  aload 0  # r
+  aload 0  // r
   invokeinterface run
 
   return
@@ -542,20 +548,20 @@ static void hello(String name) {
 }
 ```
 
-```text [Bytecode]
+```bytecode [Bytecode]
 static hello (Ljava/lang/String;)V
-  aload 0  # name
+  aload 0  // name
   invokedynamic run (Ljava/lang/String;)Ljava/lang/Runnable; java/lang/invoke/LambdaMetafactory.metafactory ()V lambda$hello$1 (Ljava/lang/String;)V ()V
-  astore 1  # r
+  astore 1  // r
 
-  aload 1  # r
+  aload 1  // r
   invokeinterface run
 
   return
 
 static lambda$hello$1 (Ljava/lang/String;)V
   getstatic System.out
-  aload 0  # name
+  aload 0  // name
   invokedynamic makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; java/lang/invoke/StringConcatFactory.makeConcatWithConstants "Hello, \1!"
   invokevirtual println
 

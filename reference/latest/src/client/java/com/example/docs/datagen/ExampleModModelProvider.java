@@ -20,7 +20,7 @@ import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.numeric.Count;
 import net.minecraft.client.renderer.item.properties.select.ContextDimension;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -180,7 +180,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		//:::custom-item-datagen-method
 		public static void registerScaled2x(Item item, ItemModelGenerators generator) {
-			ResourceLocation itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(item)), generator.modelOutput);
+			Identifier itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(item)), generator.modelOutput);
 			generator.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
 		}
 
@@ -190,7 +190,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//:::custom-item-model:::
 
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
 		//:::custom-item-model:::
@@ -205,12 +205,12 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		//helper method for creating Models
 		private static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
 		//helper method for creating Models with variants
 		private static ModelTemplate block(String parent, String variant, TextureSlot... requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
 
 		// :::custom-model
@@ -226,7 +226,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// :::custom-texture-map
 
 		// :::custom-supplier
-		private static BlockModelDefinitionGenerator createVerticalSlabBlockStates(Block vertSlabBlock, ResourceLocation vertSlabId, ResourceLocation fullBlockId) {
+		private static BlockModelDefinitionGenerator createVerticalSlabBlockStates(Block vertSlabBlock, Identifier vertSlabId, Identifier fullBlockId) {
 			MultiVariant vertSlabModel = BlockModelGenerators.plainVariant(vertSlabId);
 			MultiVariant fullBlockModel = BlockModelGenerators.plainVariant(fullBlockId);
 			return MultiVariantGenerator.dispatch(vertSlabBlock)
@@ -246,8 +246,8 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		// :::custom-gen
 		public static void registerVerticalSlab(BlockModelGenerators generator, Block vertSlabBlock, Block fullBlock, TextureMapping textures) {
-			ResourceLocation slabModel = VERTICAL_SLAB.create(vertSlabBlock, textures, generator.modelOutput);
-			ResourceLocation fullBlockModel = ModelLocationUtils.getModelLocation(fullBlock);
+			Identifier slabModel = VERTICAL_SLAB.create(vertSlabBlock, textures, generator.modelOutput);
+			Identifier fullBlockModel = ModelLocationUtils.getModelLocation(fullBlock);
 			generator.blockStateOutput.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
 			generator.registerSimpleItemModel(vertSlabBlock, slabModel);
 		}

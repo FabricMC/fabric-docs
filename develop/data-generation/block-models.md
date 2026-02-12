@@ -2,14 +2,19 @@
 title: Block Model Generation
 description: A guide to generating block models and blockstates via datagen.
 authors:
+  - CelDaemon
   - Fellteros
   - IMB11
   - its-miroma
   - natri0
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -20,6 +25,8 @@ Lastly, create a constructor matching super.
 @[code lang=java transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
+
+@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Blockstates and Block Models {#blockstates-and-block-models}
 
@@ -57,7 +64,9 @@ This method will generate models for a normal cube, that uses the texture file `
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
 
 ::: tip
+
 If you're stuck choosing which `TextureModel` you should use, open the `TexturedModel` class and look at the [`TextureMaps`](#using-texture-map)!
+
 :::
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/pipe_block_textures_big.png" downloadURL="/assets/develop/data-generation/block-model/pipe_block_textures.zip">Pipe Block Textures</DownloadEntry>
@@ -70,9 +79,11 @@ Another useful method is `registerCubeAllModelTexturePool`: define the textures 
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
 
 ::: warning
+
 It will also generate a [simple cube all JSON model](#simple-cube-all) for the "base block" to ensure that it has a block model.
 
 Be aware of this, if you're changing block model of this particular block, as it will result in en error.
+
 :::
 
 You can also append a `BlockFamily`, which will generate models for all of its "children".
@@ -160,12 +171,14 @@ The `TextureSlot`s represent the "placeholders" (`#bottom`, `#top`, ...) as an O
 
 ### Using Texture Map {#using-texture-map}
 
-What does `TextureMapping` do? It actually provides the Resource Location that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (Key) with a `ResourceLocation` (Value).
+What does `TextureMapping` do? It actually provides the identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (key) with an `Identifier` (value).
 
-You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all TextureKeys with the same Resource Location), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
+You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all `TextureKeys` with the same `Identifier`), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
-`TextureMapping.cube()` associates all `TextureSlot`s with the same Resource Location, no matter how many of them there are!
+
+`TextureMapping.cube()` associates all `TextureSlot`s with the same `Identifier`, no matter how many of them there are!
+
 :::
 
 Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SIDE` `TextureSlot`s, we need to create a new one.
@@ -175,7 +188,9 @@ Since we want to use the Oak Log textures, but have the `BOTTOM`, `TOP` and `SID
 The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak_log.png`.
 
 ::: warning
+
 All `TextureSlot`s in the TextureMap **have to** match all `TextureSlot`s in your parent block model!
+
 :::
 
 ### Custom `BlockModelDefinitionGenerator` Method {#custom-supplier-method}
@@ -205,9 +220,11 @@ But what are the parameters for?
 
 @[code lang=java transcludeWith=:::custom-gen](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-First, we get the `ResourceLocation` of the single slab model with `VERTICAL_SLAB.upload()`. Then we get the `ResourceLocation` of the full block model with `ModelLocationUtils.getModelLocation()`, and pass those two models into `createVerticalSlabBlockStates`.
-The `BlockStateSupplier` gets passed into the `blockStateCollector`, so that the JSON files are actually generated.
-Also, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
+First, we get the `Identifier` of the single slab model with `VERTICAL_SLAB.create()`. Then, we get the `Identifier` of the full block model with `ModelLocationUtils.getModelLocation()`.
+
+We then pass those two models into `createVerticalSlabBlockStates`, which itself is passed into the `blockStateOutput` consumer, which generates the JSON files for the models.
+
+Finally, we create a model for the vertical slab item with `BlockModelGenerators.registerSimpleItemModel()`.
 
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:
 
@@ -215,6 +232,6 @@ And that is all! Now all that's left to do is to call our method in our `ModelPr
 
 ## Sources and Links {#sources-and-links}
 
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.10/fabric-data-generation-api-v1/src/) and this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
+You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) and this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
 
 You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.

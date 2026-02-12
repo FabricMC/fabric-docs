@@ -1,8 +1,9 @@
 package com.example.docs.potion;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -16,10 +17,10 @@ import com.example.docs.effect.ExampleModEffects;
 
 // :::1
 public class ExampleModPotions implements ModInitializer {
-	public static final Potion TATER_POTION =
-			Registry.register(
+	public static final Holder<Potion> TATER_POTION =
+			Registry.registerForHolder(
 					BuiltInRegistries.POTION,
-					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
 					new Potion("tater",
 							new MobEffectInstance(
 									ExampleModEffects.TATER,
@@ -35,7 +36,7 @@ public class ExampleModPotions implements ModInitializer {
 					// Ingredient
 					Items.POTATO,
 					// Output potion.
-					BuiltInRegistries.POTION.wrapAsHolder(TATER_POTION)
+					TATER_POTION
 			);
 		});
 	}

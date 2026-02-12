@@ -16,7 +16,7 @@ We can use the `PlayerBlockBreakEvents.AFTER` event with a simple static integer
 ```java
 private static int blocksBroken = 0; // keeps track of the number of blocks broken
 
-PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
+PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -> {
     blocksBroken++; // increment the counter each time a block is broken
     player.displayClientMessage(Component.literal("Blocks broken: " + blocksBroken), false);
 });

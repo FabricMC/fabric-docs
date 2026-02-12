@@ -15,7 +15,7 @@ In this example, the `interactLivingEntity()` and `useOn()` methods for a custom
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
-The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()` method from the world instance to have a higher level of control.
+The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()` method from the level instance to have a higher level of control.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 

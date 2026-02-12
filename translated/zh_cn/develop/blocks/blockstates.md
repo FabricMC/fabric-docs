@@ -21,7 +21,7 @@ authors:
 
 Minecraft 已经有些自定义的类，允许你快速创建特定类型的方块——这个例子会通过创建“Condensed Oak Log”方块来带你创建带有 `axis` 属性的方块。
 
-原版的 `PillarBlock` 允许方块按 X、Y 或 Z 轴放置。
+原版的 `RotatedPillarBlock` 允许方块按 X、Y 或 Z 轴放置。
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -41,9 +41,11 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+
+请记住，方块状态文件可以在`assets/example-mod/blockstates`中被找到，方块状态文件的文件名应当匹配你在`ModBlocks`类里注册的方ID。 例如，如果方块ID为`condensed_oak_log`，这个文件就应当被命名为`condensed_oak_log.json`。
 
 更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
+
 :::
 
 接下来，我们需要创建一个方块状态文件，这就是神奇的事情发生的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
@@ -66,11 +68,11 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 ### 创建属性{#creating-the-property}
 
-首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.of` 方法。
+首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.create` 方法。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-然后，需要在 `appendProperties` 方法中将属性添加到 blockstate manager 中。 需要覆盖此方法以访问 builder：
+接下来，需要在 `createBlockStateDefinition` 方法中将该属性添加到方块状态管理器。 需要覆盖此方法以访问 builder：
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +82,7 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 ### 使用属性{#using-the-property}
 
-这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以为此覆盖 `onUse` 方法：
+这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以重写 `useWithoutItem` 方法来实现：
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -100,13 +102,15 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
-:::tip
-不要忘记为方块添加[物品模型描述](../items/first-item#creating-the-item-model-description)，以便它在物品栏中显示！
+::: tip
+
+不要忘记为方块添加[客户端物品](../items/first-item#creating-the-client-item)，以便它在物品栏中显示！
+
 :::
 
 因为这个示例方块是灯，所以还需要让它在 `activated` 属性为 true 时发光。 可以通过在注册方块时传入构造器的 block settings 来完成。
 
-可以使用 `luminance` 方法设置方块放出的光，可以在 `PrismarineLampBlock` 类中创建一个静态方法，从而根据 `activated` 属性返回光照等级，并将其作为方法引入传入 `luminance` 方法中。
+可以使用 `lightLevel` 方法设置方块放出的光，可以在 `PrismarineLampBlock` 类中创建一个静态方法，从而根据 `activated` 属性返回光照等级，并将其作为方法引入传入 `lightLevel` 方法中。
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

@@ -271,6 +271,10 @@ export default [
             text: "develop.data_generation.loot_tables",
             link: "/develop/data-generation/loot-tables",
           },
+          {
+            text: "develop.data_generation.enchantments",
+            link: "/develop/data-generation/enchantments",
+          },
         ],
       },
     ],
@@ -324,6 +328,40 @@ export default [
     ],
   },
   {
+    text: "develop.porting",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.porting.current",
+        link: "/develop/porting/current",
+      },
+      {
+        text: "develop.porting.next",
+        link: "/develop/porting/next",
+        items: [
+          {
+            text: "develop.porting.26.1.fabric_api",
+            link: "/develop/porting/26.1/fabric-api",
+          },
+        ],
+      },
+      {
+        text: "develop.porting.migrating_mappings",
+        link: "/develop/migrating-mappings/",
+        items: [
+          {
+            text: "develop.porting.migrating_mappings.loom",
+            link: "/develop/migrating-mappings/loom",
+          },
+          {
+            text: "develop.porting.migrating_mappings.ravel",
+            link: "/develop/migrating-mappings/ravel",
+          },
+        ],
+      },
+    ],
+  },
+  {
     text: "develop.mixins",
     collapsed: true,
     items: [
@@ -350,18 +388,8 @@ export default [
         link: "/develop/networking",
       },
       {
-        text: "develop.misc.migrating_mappings",
-        link: "/develop/migrating-mappings",
-        items: [
-          {
-            text: "develop.misc.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
-          },
-          {
-            text: "develop.misc.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
-          },
-        ],
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
       },
       {
         text: "develop.misc.debugging",

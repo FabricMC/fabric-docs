@@ -1,0 +1,416 @@
+{
+  "/cs_cz/develop/": [
+    {
+      "text": "Návody pro vývojáře",
+      "link": "/cs_cz/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/cs_cz/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/cs_cz/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/cs_cz/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/cs_cz/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/cs_cz/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/cs_cz/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/cs_cz/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Předměty",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/cs_cz/develop/items/first-item",
+          "items": [
+            {
+              "text": "Předměty jídla",
+              "link": "/cs_cz/develop/items/food"
+            },
+            {
+              "text": "Lektvary",
+              "link": "/cs_cz/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/cs_cz/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/cs_cz/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/cs_cz/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/cs_cz/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/cs_cz/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/cs_cz/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/cs_cz/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/cs_cz/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/cs_cz/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Bloky",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/cs_cz/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/cs_cz/develop/blocks/block-models"
+        },
+        {
+          "text": "Stavy bloků",
+          "link": "/cs_cz/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/cs_cz/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/cs_cz/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/cs_cz/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Entity",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/cs_cz/develop/entities/attributes"
+        },
+        {
+          "text": "Stavové efekty",
+          "link": "/cs_cz/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/cs_cz/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Zvuky",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/cs_cz/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Vytváření vlastních zvuků",
+          "link": "/cs_cz/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/cs_cz/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Příkazy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Vytváření příkazů",
+          "link": "/cs_cz/develop/commands/basics"
+        },
+        {
+          "text": "Argumenty příkazů",
+          "link": "/cs_cz/develop/commands/arguments"
+        },
+        {
+          "text": "Návrhy příkazů",
+          "link": "/cs_cz/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Renderování",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/cs_cz/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/cs_cz/develop/rendering/draw-context"
+        },
+        {
+          "text": "Renderování v HUD",
+          "link": "/cs_cz/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/cs_cz/develop/rendering/world"
+        },
+        {
+          "text": "GUI a obrazovky",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/cs_cz/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/cs_cz/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Částice",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/cs_cz/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/cs_cz/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/cs_cz/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/cs_cz/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/cs_cz/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/cs_cz/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/cs_cz/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/cs_cz/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/cs_cz/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Kodeky",
+          "link": "/cs_cz/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/cs_cz/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/cs_cz/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/cs_cz/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/cs_cz/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/cs_cz/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/cs_cz/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/cs_cz/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/cs_cz/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/cs_cz/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Různé články",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Události",
+          "link": "/cs_cz/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/cs_cz/develop/text-and-translations"
+        },
+        {
+          "text": "Síťování",
+          "link": "/cs_cz/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/cs_cz/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/cs_cz/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/cs_cz/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/cs_cz/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/cs_cz/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/cs_cz/players/": [
+    {
+      "text": "Hráčské návody",
+      "link": "/cs_cz/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/cs_cz/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/cs_cz/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/cs_cz/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/cs_cz/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/cs_cz/players/installing-mods"
+        },
+        {
+          "text": "Řešení problémů",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/cs_cz/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/cs_cz/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Často kladené dotazy",
+          "link": "/cs_cz/players/faq"
+        }
+      ]
+    }
+  ]
+}

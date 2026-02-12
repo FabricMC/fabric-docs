@@ -21,6 +21,12 @@ public class ModComponents {
 	);
 	//::2
 
+	public static final ComponentType<ComponentWithTooltip> COMPONENT_WITH_TOOLTIP = Registry.register(
+			Registries.DATA_COMPONENT_TYPE,
+			Identifier.of(FabricDocsReference.MOD_ID, "click_count_with_tooltip"),
+			ComponentType.<ComponentWithTooltip>builder().codec(ComponentWithTooltip.CODEC).build()
+	);
+
 	//::3
 	public static final ComponentType<MyCustomComponent> MY_CUSTOM_COMPONENT = Registry.register(
 			Registries.DATA_COMPONENT_TYPE,

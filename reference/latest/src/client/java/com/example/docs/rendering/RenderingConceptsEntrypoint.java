@@ -2,7 +2,7 @@ package com.example.docs.rendering;
 
 import org.joml.Matrix3x2fStack;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -18,13 +18,13 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::registration
-		HudElementRegistry.addLast(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
+		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
 		// :::registration
 	}
 
 	// :::hudLayer
 	private HudElement hudLayer() {
-		return (drawContext, tickCounter) -> {
+		return (graphics, deltaTracker) -> {
 			// :::hudLayer
 
 			if (false) {
@@ -33,10 +33,10 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 
 			// :::hudLayer
 			// :::2
-			Matrix3x2fStack matrices = drawContext.pose();
+			Matrix3x2fStack matrices = graphics.pose();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickProgress += tickCounter.getGameTimeDeltaPartialTick(true);
+			totalTickProgress += deltaTracker.getGameTimeDeltaPartialTick(true);
 
 			// Push a new matrix onto the stack.
 			matrices.pushMatrix();
@@ -60,11 +60,11 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			matrices.translate(-20f, -40f);
 			// :::3
 			// :::hudLayer
-			drawContext.fillGradient(5, 20, 35, 60, 0xFF414141, 0xFF000000);
+			graphics.fillGradient(5, 20, 35, 60, 0xFF414141, 0xFF000000);
 
 			// :::hudLayer
 			// :::2
-			// We do not need to manually write to the buffer. DrawContext methods write to GUI buffer in `GuiRenderer` at the end of preparation.
+			// We do not need to manually write to the buffer. GuiGraphics methods write to GUI buffer in `GuiRenderer` at the end of preparation.
 
 			// Pop our matrix from the stack.
 			matrices.popMatrix();

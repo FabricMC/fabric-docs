@@ -5,8 +5,12 @@ authors:
   - IMB11
 ---
 
-:::info
+<!---->
+
+::: info
+
 Questa pagina si riferisce a schermate normali, non quelle gestite - queste schermate sono quelle aperte dal giocatore sul client, non quelle gestite dal server.
+
 :::
 
 Le schermate sono essenzialmente le GUI con cui il giocatore interagisce, come la schermata del titolo, la schermata di pausa ecc.
@@ -21,7 +25,7 @@ Dovresti prendere nota del fatto che:
 
 - I Widget non vengono creati nel costruttore perché la schermata non è stata ancora inizializzata a quel punto - e alcune variabili, come `width` e `height`, non sono ancora disponibili o non sono ancora accurate.
 - Il metodo `init` viene chiamato quando lo schermo viene inizializzato, e questo è il posto migliore per creare i widget.
-  - Si aggiungono widget usando il metodo `addDrawableChild`, che accetta qualsiasi widget disegnabile.
+  - Si aggiungono widget usando il metodo `addRenderableWidget`, che accetta qualsiasi widget disegnabile.
 - Il metodo `render` viene chiamato ogni frame - puoi accedere al contesto di disegno, e alla posizione del mouse da questo metodo.
 
 Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etichetta al di sopra.
@@ -32,11 +36,11 @@ Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etich
 
 ## Aprire la Schermata {#opening-the-screen}
 
-Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puoi farlo da vari posti, come un'associazione a un tasto, un comando, o un gestore dei pacchetti del client.
+Puoi aprire la schermata usando il metodo `setScreen` di `Minecraft` - puoi farlo da vari posti, come un'associazione a un tasto, un comando, o un gestore dei pacchetti del client.
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -45,7 +49,7 @@ MinecraftClient.getInstance().setScreen(
 Se vuoi chiudere lo schermo, semplicemente imposta la schermata a `null`:
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la schermata corrente nel costruttore `CustomScreen` e conservala in una variabile, per poi tornare alla schermata precedente usando il metodo `close`.
@@ -55,8 +59,8 @@ Se vuoi essere sofisticato, e tornare alla schermata precedente, puoi passare la
 Ora, aprendo la schermata personalizzata, puoi passare la schermata corrente come secondo argomento - quindi quando chiami `CustomScreen#close` - ritornerà alla schermata precedente.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

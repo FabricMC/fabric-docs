@@ -19,12 +19,12 @@ public class ReceiveS2C {
 
 	// :::1
 	private static void handleS2CEngineSoundPacket(EngineSoundInstancePacket packet, ClientPlayNetworking.Context context) {
-		ClientLevel world = context.client().level;
-		if (world == null) return;
+		ClientLevel level = context.client().level;
+		if (level == null) return;
 
 		DynamicSoundManager soundManager = DynamicSoundManager.getInstance();
 
-		if (world.getBlockEntity(packet.blockEntityPos()) instanceof EngineBlockEntity engineBlockEntity) {
+		if (level.getBlockEntity(packet.blockEntityPos()) instanceof EngineBlockEntity engineBlockEntity) {
 			if (packet.shouldStart()) {
 				soundManager.play(new EngineSoundInstance(engineBlockEntity,
 						CustomSounds.ENGINE_LOOP, SoundSource.BLOCKS,

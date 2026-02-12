@@ -11,35 +11,37 @@ Per launcher di terze parti, dovresti consultare la loro documentazione.
 
 ## 1. Scarica la Mod {#1-download-the-mod}
 
-:::warning
+::: warning
+
 Dovresti solo scaricare mod da fonti di cui ti fidi. Per maggiori informazioni su come trovare le mod, vedi la guida [Trovare Mod Affidabili](./finding-mods).
+
 :::
 
 La maggior parte delle mod richiede anche l'API di Fabric, che può essere scaricata da [Modrinth](https://modrinth.com/mod/fabric-api) o da [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
 Quando scarichi delle mod, assicurati che:
 
-- Funzionino nella versione di Minecraft su cui vuoi giocare. Una mod che funziona sulla versione 1.20, per esempio, potrebbe non funzionare sulla versione 1.20.2.
+- Funzionino nella versione di Minecraft su cui vuoi giocare. Una mod che funzionava sulla versione 1.21.8, per esempio, potrebbe non funzionare più sulla versione 1.21.11.
 - Siano per Fabric e non per un altro loader di mod.
 - Inoltre, che siano per la corretta edizione di Minecraft (Java Edition).
 
 ## 2. Sposta le Mod nella Cartella `mods` {#2-move-the-mod-to-the-mods-folder}
 
-La cartella mods può essere trovata nelle posizioni seguenti per ciascun sistema operativo.
+La cartella delle mod può essere trovata nelle posizioni seguenti per ciascun sistema operativo.
 
 Puoi solitamente incollare questi percorsi nella barra degli indirizzi del tuo gestore di file per navigare velocemente alla cartella.
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\mods
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/mods
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/mods
 ```
 
@@ -57,7 +59,7 @@ Una volta che hai spostato le mod nella cartella `mods`, puoi aprire il Launcher
 
 ## Risoluzione dei Problemi {#troubleshooting}
 
-Se incontri qualsiasi problema nel seguire questa guida, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nel canale `#player-support`.
+Se incontri qualsiasi problema nel seguire questa guida, puoi chiedere aiuto nel [Discord di Fabric](https://discord.fabricmc.net/) nel canale `#player-support`.
 
 Puoi anche tentare di risolvere il problema da solo leggendo le seguenti pagine di risoluzione dei problemi:
 
