@@ -12,8 +12,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import com.example.docs.ExampleMod;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
-import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.enchantment.ModEnchantments;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
