@@ -1,14 +1,10 @@
 {
   "metal_whistle": {
     "subtitle": "sound.example-mod.metal_whistle",
-    "sounds": [
-      "example-mod:metal_whistle"
-    ]
+    "sounds": ["example-mod:metal_whistle"]
   },
   "engine": {
     "subtitle": "sound.example-mod.engine",
-    "sounds": [
-      "example-mod:engine"
-    ]
+    "sounds": ["example-mod:engine"]
   }
 }

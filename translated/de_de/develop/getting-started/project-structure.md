@@ -9,26 +9,28 @@ Auf dieser Seite wird die Struktur eines Fabric-Mod-Projekts und der Zweck der e
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-Die Datei `fabric.mod.json` ist die Hauptdatei, die deinen Mod für den Fabric Loader beschreibt. Sie enthält Informationen wie die ID des Mods, die Version und die Abhängigkeiten.
+Die Datei `fabric.mod.json` ist die Hauptdatei, die deine Mod für den Fabric Loader beschreibt. Sie enthält Informationen wie die ID der Mod, die Version und die Abhängigkeiten.
 
 Die wichtigsten Felder in der Datei `fabric.mod.json` sind:
 
 - `id`: Die Mod-ID, Welche einzigartig sein sollte.
-- `name`: Der Name des Mods.
-- `environment`: Die Umgebung in der dein Mod läuft, wie beispielsweise `client`, `server`, oder `*` für beide.
-- `entrypoints`: Die Einstiegspunkte, die dein Mod bereitstellt, wie beispielsweise `main` oder `client`.
-- `depends`: Die Mods, von denen dein Mod abhängt.
-- `mixins`: Die Mixins, die dein Mod bereitstellt.
+- `name`: Der Name der Mod.
+- `environment`: Die Umgebung in der deine Mod läuft, wie beispielsweise `client`, `server`, oder `*` für beide.
+- `entrypoints`: Die Einstiegspunkte, die deine Mod bereitstellt, wie beispielsweise `main` oder `client`.
+- `depends`: Die Mods, von denen deine Mod abhängt.
+- `mixins`: Die Mixins, die deine Mod bereitstellt.
 
-Nachfolgend siehst du eine Beispieldatei `fabric.mod.json` - dies ist die Datei `fabric.mod.json` für das Referenzprojekt, das diese Dokumentationsseite betreibt.
+Nachfolgend siehst du ein Beispiel der `fabric.mod.json` Datei, does ist die `fabric.mod.json` Datei des Mods, der diese Dokumentationsseite antreibt.
 
-:::details Referenzprojekt `fabric.mod.json`
+:::details `fabric.mod.json` des Beispiel-Mods
+
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
+
 :::
 
 ## Einstiegspunkte {#entrypoints}
 
-Wie bereits erwähnt, enthält die Datei `fabric.mod.json` ein Feld namens `entrypoints` - dieses Feld wird verwendet, um die Einstiegspunkte anzugeben, die dein Mod bereitstellt.
+Wie bereits erwähnt, enthält die Datei `fabric.mod.json` ein Feld namens `entrypoints` - dieses Feld wird verwendet, um die Einstiegspunkte anzugeben, die deine Mod bereitstellt.
 
 Der Template-Mod-Generator erstellt standardmäßig sowohl einen `main`- als auch einen `client`-Einstiegspunkt:
 
@@ -43,9 +45,9 @@ Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachr
 
 ## `src/main/resources` {#src-main-resources}
 
-Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, die dein Mod verwendet, wie Texturen, Modelle und Sounds.
+Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, die deine Mod verwendet, wie Texturen, Modelle und Sounds.
 
-Es ist auch der Ort, an dem sich die Datei `fabric.mod.json` und alle Mixin-Konfigurationsdateien befinden, die dein Mod verwendet.
+Es ist auch der Ort, an dem sich die Datei `fabric.mod.json` und alle Mixin-Konfigurationsdateien befinden, die deine Mod verwendet.
 
 Assets werden in einer Struktur gespeichert, die die Struktur von Ressourcenpaketen widerspiegelt - eine Textur für einen Block würde zum Beispiel in `assets/example-mod/textures/block/block.png` gespeichert werden.
 
@@ -55,7 +57,7 @@ Der Ordner `src/client/resources` wird verwendet, um Client-spezifische Ressourc
 
 ## `src/main/java` {#src-main-java}
 
-Der Ordner `src/main/java` wird verwendet, um den Java-Quellcode für deinen Mod zu speichern - er existiert sowohl auf der Client- als auch auf der Serverumgebung.
+Der Ordner `src/main/java` wird verwendet, um den Java-Quellcode für deine Mod zu speichern - er existiert sowohl auf der Client- als auch auf der Serverumgebung.
 
 ## `src/client/java` {#src-client-java}
 

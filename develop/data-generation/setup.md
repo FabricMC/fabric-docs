@@ -29,14 +29,16 @@ The easiest way to enable datagen is at project creation. Check the "Enable Data
 ![The checked "Data Generation" box on the template generator](/assets/develop/data-generation/data_generation_setup_01.png)
 
 ::: tip
+
 If datagen is enabled, you should have a "Data Generation" run configuration and a `runDatagen` Gradle task.
+
 :::
 
 ### Manually {#manually-enabling-data-generation}
 
 First, we need to enable datagen in the `build.gradle` file.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
 Next, we need an entrypoint class. This is where our datagen starts. Place this somewhere in the `client` package - this example places it at `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
@@ -44,6 +46,7 @@ Next, we need an entrypoint class. This is where our datagen starts. Place this 
 
 Finally, we need to tell Fabric about the entrypoint in our `fabric.mod.json`:
 
+<!-- prettier-ignore -->
 ```json
 {
   // ...
@@ -60,7 +63,9 @@ Finally, we need to tell Fabric about the entrypoint in our `fabric.mod.json`:
 ```
 
 ::: warning
+
 Don't forget to add a comma (`,`) after the previous entrypoint block!
+
 :::
 
 Close and reopen IntelliJ to create a run configuration for datagen.
@@ -85,3 +90,4 @@ Now that datagen is set up, we need to add **providers**. These are what generat
 - [Tags](./tags)
 - [Translations](./translations)
 - [Block Models](./block-models)
+- [Item Models](./item-models)

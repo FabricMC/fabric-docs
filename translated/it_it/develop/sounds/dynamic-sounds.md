@@ -5,8 +5,12 @@ authors:
   - JR1811
 ---
 
+<!---->
+
 :::info PREREQUISITI
+
 Questa pagina è basata sulle pagine [Riprodurre Suoni](../sounds/using-sounds) e [Creare Suoni Personalizzati](../sounds/custom)!
+
 :::
 
 ## Problemi con i `SoundEvents` {#problems-with-soundevents}
@@ -15,7 +19,7 @@ Come abbiamo imparato nella pagina [Usare i Suoni](../sounds/using-sounds), è p
 
 Questo modo di pensare è corretto. Tecnicamente è il lato client che dovrebbe gestire l'audio. Tuttavia, per la semplice riproduzione di un `SoundEvent`, il lato server ha preparato un passo enorme che potrebbe non essere ovvio a prima vista. Quali client dovrebbero poter sentire quel suono?
 
-Usare il suono sul lato logico server risolverà il problema della trasmissione dei `SoundEvent`. Per farla semplice, a ogni client (`ClientPlayerEntity`) nel raggio tracciato viene inviato un pacchetto di rete per riprodurre un certo suono specifico. L'evento audio viene praticamente trasmesso dal lato logico server, a ogni client partecipante, senza che tu te ne debba preoccupare. Il suono è riprodotto una volta sola, con i valori di volume e tono specificati.
+Usare il suono sul lato logico server risolverà il problema della trasmissione dei `SoundEvent`. Per farla semplice, a ogni client (`LocalPlayer`) nel raggio tracciato viene inviato un pacchetto di rete per riprodurre un certo suono specifico. L'evento audio viene praticamente trasmesso dal lato logico server, a ogni client partecipante, senza che tu te ne debba preoccupare. Il suono è riprodotto una volta sola, con i valori di volume e tono specificati.
 
 Ma, e se questo non bastasse? E se il suono dovesse essere riprodotto in loop? E se dovesse cambiare il volume e il tono in maniera dinamica durante la riproduzione? Tutto questo magari in base a valori provenienti da cose come `Entities` o `BlockEntities`?
 
@@ -126,13 +130,14 @@ Ciò che abbiamo chiamato `ENGINE_LOOP` è il suono in loop del motore completat
 
 Per riprodurre suoni sul lato client, è necessaria una `SoundInstance`. Tuttavia usano comunque un `SoundEvent`.
 
-Se vuoi solo riprodurre qualcosa come un clic su un elemento dell'interfaccia grafica, esiste già la classe `PositionedSoundInstance`.
+Se vuoi solo riprodurre qualcosa come un clic su un elemento dell'interfaccia grafica, esiste già la classe `SimpleSoundInstance`.
 
 Tieni a mente che questo sarà riprodotto solo sul client che ha eseguito questa parte del codice in particolare.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-:::warning
+::: warning
+
 Si prega di notare che la classe `AbstractSoundInstance`, da cui le `SoundInstance` ereditano, ha l'annotazione `@Environment(EnvType.CLIENT)`.
 
 Questo significa che questa classe (e tutte le sue sottoclassi) saranno disponibili solo lato client.
@@ -141,6 +146,7 @@ Se provassi ad usarla in un contesto logico lato server, potresti non notare ini
 
 Se trovi difficoltà con queste questioni, si consiglia di creare la tua mod dal [Generatore di Mod Modello online](https://fabricmc.net/develop/template/)
 attivando l'opzione `Split client and common sources`.
+
 :::
 
 Una `SoundInstance` può essere molto più potente rispetto a una semplice riproduzione di un suono una volta.
@@ -148,7 +154,7 @@ Una `SoundInstance` può essere molto più potente rispetto a una semplice ripro
 Dai un'occhiata alla classe `AbstractSoundInstance` e a quali tipi di valori può tenere in considerazione.
 A parte le solite variabili di volume e tono, memorizza anche le coordinate XYZ, e un'opzione perché si ripeta dopo aver finito il `SoundEvent`.
 
-Poi, dando un'occhiata alla sua sottoclasse `MovingSoundInstance`, viene anche introdotta l'interfaccia `TickableSoundInstance`, che aggiunge funzionalità legate ai tick alla `SoundInstance`.
+Poi, dando un'occhiata alla sua sottoclasse `AbstractTickableSoundInstance`, viene anche introdotta l'interfaccia `TickableSoundInstance`, che aggiunge funzionalità legate ai tick alla `SoundInstance`.
 
 Per cui per sfruttare queste utilità, basta creare una nuova classe per la tua `SoundInstance` personalizzata ed estendere `MovingSoundInstance`.
 
@@ -158,25 +164,27 @@ Usare la tua `Entity` o il tuo `BlockEntity` personalizzati invece dell'istanza 
 
 Tieni solo a mente che tutti gli oggetti a cui fai riferimento nella `SoundInstance` sono le versioni lato client.
 In certe circostanze specifiche, le proprietà di un'entità dal lato logico server possono differire dalla controparte lato client.
-Se noti che i tuoi valori non si allineano, assicurati che siano sincronizzati o con i `TrackedData` dell'entità, o con pacchetti S2C (da server a client) di `BlockEntity` o con pacchetti di rete S2C completamente personalizzati.
+Se noti che i tuoi valori non si allineano, assicurati che siano sincronizzati o con i `EntityDataAccessor` dell'entità, o con pacchetti S2C (da server a client) di `BlockEntity` o con pacchetti di rete S2C completamente personalizzati.
 
 Dopo aver finito di creare la tua `SoundInstance` personalizzata, è tutto pronto per usarla ovunque, a condizione che venga eseguita lato client con il gestore di suoni.
 Allo stesso modo, puoi anche fermare la `SoundInstance` personalizzata manualmente, se necessario.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-Il loop di suono sarà adesso riprodotto solo sul client che ha eseguito quella `SoundInstance`. In questo caso, il suono seguirà la `ClientPlayerEntity` stessa.
+Il loop di suono sarà adesso riprodotto solo sul client che ha eseguito quella `SoundInstance`. In questo caso, il suono seguirà il `LocalPlayer` stesso.
 
 Così abbiamo concluso la spiegazione di come creare e usare una semplice `SoundInstance` personalizzata.
 
 ## Istanze di Suoni Avanzate {#advanced-sound-instances}
 
-:::warning
+::: warning
+
 Il contenuto seguente tratta di un argomento avanzato.
 
 Da questo punto in poi è necessaria una conoscenza solida di Java, programmazione a oggetti, tipi generici e sistemi di callback.
 
 Conoscere anche le `Entities`, i `BlockEntities` e il networking personalizzato aiuterà anche molto nella comprensione di questi casi e delle applicazioni pratiche dei suoni avanzati.
+
 :::
 
 Per mostrare un esempio di come si possano creare sistemi di `SoundInstance` più elaborati, aggiungeremo funzionalità ulteriori, astrazioni e utilità per rendere il lavoro con suoni del genere in contesti più larghi più semplice, dinamico e flessibile.
@@ -203,9 +211,11 @@ Tutto sommato il nostro sistema sonoro potrebbe avere questo aspetto, una volta 
 
 ![Struttura del Sistema Sonoro Personalizzato](/assets/develop/sounds/dynamic-sounds/custom-dynamic-sound-handling.jpg)
 
-:::info
+::: info
+
 Tutti questi enum, interfacce e classi saranno create da zero. Adatta il sistema e le utilità alla tua situazione specifica.
 Questo è solo un esempio su come ci si può approcciare ad argomenti del genere.
+
 :::
 
 ### Interfaccia `DynamicSoundSource` {#dynamicsoundsource-interface}
@@ -215,16 +225,18 @@ Se scegli di creare una nuova classe `AbstractDynamicSoundInstance` personalizza
 In quel caso la chiave è sfruttare l'astrazione.
 Invece di fare riferimento, per esempio, direttamente a un `BlockEntity` personalizzato, tener solo conto di un'interfaccia che fornisce i dati risolve quel problema.
 
-D'ora in poi useremo un'interfaccia personalizzata chiamata `DynamicSoundSource`. È da implementare in tutte le classi che vogliono sfruttare quelle funzionalità di suoni dinamici, come il tuo `BlockEntity` personalizzato, le entità o addirittura, usando Mixin, su classi preesistenti come `ZombieEntity`. In pratica contiene solo i dati necessari della fonte di suono.
+D'ora in poi useremo un'interfaccia personalizzata chiamata `DynamicSoundSource`. È da implementare in tutte le classi che vogliono sfruttare quelle funzionalità di suoni dinamici, come il tuo `BlockEntity` personalizzato, le entità o addirittura, usando Mixin, su classi preesistenti come `Zombie`. In pratica contiene solo i dati necessari della fonte di suono.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
 Dopo aver creato questa interfaccia, assicurati d'implementarla anche nelle classi ove necessario.
 
-:::info
+::: info
+
 Questa è un'utilità che potrebbe essere usata sia lato client sia lato logico server.
 
 Per cui questa interfaccia dovrebbe essere memorizzata nei package comuni, non in quelli esclusivi del client, se usi l'opzione "split sources".
+
 :::
 
 ### Enum `TransitionState` {#transitionstate-enum}
@@ -250,11 +262,13 @@ Ma quando quei valori vengono inviati tramite rete, potresti voler definire un `
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 
-:::info
+::: info
+
 Ripeto, se stai usando le "split sources" devi ragionare su dove si posiziona questo enum.
 Tecnicamente, solo le `SoundInstance` personalizzate, che sono solo disponibili lato client, useranno quei valori dell'enum.
 
 Ma se questo enum venisse usato altrove, per esempio in pacchetti di rete personalizzati, potresti anche dover mettere l'enum nei package comuni invece dei package esclusivi del client.
+
 :::
 
 ### Interfaccia `SoundInstanceCallback` {#soundinstancecallback-interface}

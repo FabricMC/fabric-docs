@@ -14,7 +14,7 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 ## Preparing Your Items Class {#preparing-your-items-class}
 
-To simplify the registering of items, you can create a method that accepts a string identifier, some item settings and a factory to create the `Item` instance.
+To simplify the registering of items, you can create a method that accepts a string identifier, some item properties and a factory to create the `Item` instance.
 
 This method will create an item with the provided identifier and register it with the game's item registry.
 
@@ -24,7 +24,7 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Notice the usage of a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which will later allow us to specify how we want our item to be created from the item settings using `Item::new`.
+Notice how we're using a `GenericItem`, which allows us to use the same method `register` for registering any type of item that extends `Item`. We're also using a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) interface for the factory, which allows us to specify how we want our item to be created given the item properties.
 
 ## Registering an Item {#registering-an-item}
 
@@ -33,9 +33,11 @@ You can now register an item using the method now.
 The register method takes in an instance of the `Item.Properties` class as a parameter. This class allows you to configure the item's properties through various builder methods.
 
 ::: tip
+
 If you want to change your item's stack size, you can use the `stacksTo` method in the `Item.Properties` class.
 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
+
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
@@ -55,10 +57,12 @@ Calling a method on a class statically initializes it if it hasn't been previous
 ## Adding the Item to a Creative Tab {#adding-the-item-to-a-creative-tab}
 
 ::: info
-If you want to add the item to a custom `ItemGroup`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+
+If you want to add the item to a custom `CreativeModeTab`, check out the [Custom Creative Tabs](./custom-item-groups) page for more information.
+
 :::
 
-For example purposes, we will add this item to the ingredients `ItemGroup`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
+For example purposes, we will add this item to the ingredients `CreativeModeTab`, you will need to use Fabric API's creative tab events - specifically `ItemGroupEvents.modifyEntriesEvent`
 
 This can be done in the `initialize` method of your items class.
 
@@ -88,18 +92,20 @@ Create a new JSON file at: `src/main/resources/assets/example-mod/lang/en_us.jso
 
 You can either restart the game or build your mod and press <kbd>F3</kbd>+<kbd>T</kbd> to apply changes.
 
-## Adding an Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
+## Adding a Client Item, Texture and Model {#adding-a-client-item-texture-and-model}
 
 For your item to have a proper appearance, it requires:
 
 - [An item texture](https://minecraft.wiki/w/Textures#Items)
 - [An item model](https://minecraft.wiki/w/Model#Item_models)
-- [An client item](https://minecraft.wiki/w/Items_model_definition)
+- [A client item](https://minecraft.wiki/w/Items_model_definition)
 
 ### Adding a Texture {#adding-a-texture}
 
 ::: info
+
 For more information on this topic, see the [Item Models](./item-models) page.
+
 :::
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/example-mod/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.
@@ -129,7 +135,7 @@ There are alternatives, such as `item/handheld` which is used for items that are
 
 ### Creating the Client Item {#creating-the-client-item}
 
-Minecraft doesn't automatically know where your items' model files can be found, we need to provide an client item.
+Minecraft doesn't automatically know where your items' model files can be found, we need to provide a client item.
 
 Create the client item JSON in the `assets/example-mod/items`, with the same file name as the identifier of the item: `suspicious_substance.json`.
 
@@ -149,13 +155,13 @@ Your item should now look like this in-game:
 
 Fabric API provides various registries that can be used to add additional properties to your item.
 
-For example, if you want to make your item compostable, you can use the `CompostableItemRegistry`:
+For example, if you want to make your item compostable, you can use the `CompostingChanceRegistry`:
 
-@[code transcludeWith=:::_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 Alternatively, if you want to make your item a fuel, you can use the `FuelRegistryEvents.BUILD` event:
 
-@[code transcludeWith=:::_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Adding a Basic Crafting Recipe {#adding-a-basic-crafting-recipe}
 
@@ -173,7 +179,9 @@ For more information on the recipe format, check out these resources:
 If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method.
 
 ::: info
+
 This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
+
 :::
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)

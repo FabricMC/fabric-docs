@@ -3,8 +3,8 @@ package com.example.docs.item.armor;
 import java.util.Map;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -21,11 +21,11 @@ public class GuiditeArmorMaterial {
 	// :::base_durability
 
 	// :::material_key
-	public static final ResourceKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite"));
+	public static final ResourceKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite"));
 	// :::material_key
 
 	// :::repair_tag
-	public static final TagKey<Item> REPAIRS_GUIDITE_ARMOR = TagKey.create(BuiltInRegistries.ITEM.key(), ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "repairs_guidite_armor"));
+	public static final TagKey<Item> REPAIRS_GUIDITE_ARMOR = TagKey.create(BuiltInRegistries.ITEM.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "repairs_guidite_armor"));
 	// :::repair_tag
 
 	// :::guidite_armor_material

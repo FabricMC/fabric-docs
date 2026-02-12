@@ -16,7 +16,7 @@ Diese Seite beinhaltet eine Referenz über alle Optionen, die in der `loom` Grad
 
 ```groovy
 loom {
- // Set the access widener path, see https://fabricmc.net/wiki/tutorial:accesswideners
+ // Set the access widener path, see https://wiki.fabricmc.net/tutorial:accesswidening
  accessWidenerPath = file("src/main/resources/example-mod.accesswidener")
 
  // Add additional log4j config files.
@@ -87,7 +87,7 @@ loom {
 
  // Used to configure mixin options or apply to additional source sets.
  mixin {
-  // When disabled tiny remapper will be used to remap Mixins instead of the AP. Experimental.
+  // When disabled tiny remapper will be used to remap Mixins instead of the AP. (Disabled by default in Loom 1.12+)
   useLegacyMixinAp = true
   // Set the default refmap name
   defaultRefmapName = "example.refmap.json"
@@ -130,6 +130,10 @@ loom {
 
  // Create modExampleImplementation and related configurations that remap mods.
  createRemapConfigurations(sourceSets.example)
+
+ // Specifies the fabric.mod.json file location used in injected interface processing.
+ // Defaults to src/main/resources/fabric.mod.json or src/client/resources/fabric.mod.json
+ fabricModJsonPath = file("src/custom/resources/fabric.mod.json")
 }
 
 remapJar {

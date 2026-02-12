@@ -43,14 +43,14 @@ public class EngineBlockEntity extends BlockEntity implements DynamicSoundSource
 		return this.tick;
 	}
 
-	public static void tick(Level world, BlockPos pos, BlockState state, EngineBlockEntity engineBlockEntity) {
+	public static void tick(Level level, BlockPos pos, BlockState state, EngineBlockEntity engineBlockEntity) {
 		if (engineBlockEntity.getTick() < 0) return;
 
 		engineBlockEntity.setTick(engineBlockEntity.getTick() + 1);
 		engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() - 1);
 		engineBlockEntity.setNormalizedStress(engineBlockEntity.getNormalizedStress() - 0.02f);
 
-		if (!world.isClientSide() && engineBlockEntity.getFuel() > 0) {
+		if (!level.isClientSide() && engineBlockEntity.getFuel() > 0) {
 			PlayerLookup.tracking(engineBlockEntity).forEach(player -> {
 				String engineState = "Engine Fuel: %s  | Stress: %s".formatted(
 						engineBlockEntity.getFuel(),
@@ -116,8 +116,8 @@ public class EngineBlockEntity extends BlockEntity implements DynamicSoundSource
 
 	// S2C BlockEntity sync boilerplate
 	public void syncToChunk() {
-		if (!(getLevel() instanceof ServerLevel serverWorld)) return;
-		serverWorld.getChunkSource().blockChanged(this.getBlockPos());
+		if (!(getLevel() instanceof ServerLevel serverLevel)) return;
+		serverLevel.getChunkSource().blockChanged(this.getBlockPos());
 	}
 
 	@Nullable

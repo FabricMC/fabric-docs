@@ -1,0 +1,416 @@
+{
+  "/vi_vn/develop/": [
+    {
+      "text": "Hướng Dẫn Cho Nhà Phát Triển",
+      "link": "/vi_vn/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/vi_vn/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/vi_vn/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/vi_vn/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/vi_vn/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/vi_vn/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/vi_vn/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/vi_vn/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Vật Phẩm",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/vi_vn/develop/items/first-item",
+          "items": [
+            {
+              "text": "Các vật phẩm thức ăn",
+              "link": "/vi_vn/develop/items/food"
+            },
+            {
+              "text": "Thuốc",
+              "link": "/vi_vn/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/vi_vn/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/vi_vn/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/vi_vn/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/vi_vn/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/vi_vn/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/vi_vn/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/vi_vn/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/vi_vn/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/vi_vn/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Khối",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/vi_vn/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/vi_vn/develop/blocks/block-models"
+        },
+        {
+          "text": "Trạng thái khối",
+          "link": "/vi_vn/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/vi_vn/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/vi_vn/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/vi_vn/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Thực Thể",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/vi_vn/develop/entities/attributes"
+        },
+        {
+          "text": "Trạng Thái Các Hiệu Ứng",
+          "link": "/vi_vn/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/vi_vn/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Âm thanh",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/vi_vn/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Tạo Âm thanh Tùy chỉnh",
+          "link": "/vi_vn/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/vi_vn/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Lệnh",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tạo Lệnh",
+          "link": "/vi_vn/develop/commands/basics"
+        },
+        {
+          "text": "Đối số",
+          "link": "/vi_vn/develop/commands/arguments"
+        },
+        {
+          "text": "Gợi Ý",
+          "link": "/vi_vn/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Kết Xuất",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/vi_vn/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/vi_vn/develop/rendering/draw-context"
+        },
+        {
+          "text": "Kết Xuất Trên Hud",
+          "link": "/vi_vn/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/vi_vn/develop/rendering/world"
+        },
+        {
+          "text": "GUI và Màn Hình",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/vi_vn/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/vi_vn/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Hạt Hiệu Ứng",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/vi_vn/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/vi_vn/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/vi_vn/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/vi_vn/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/vi_vn/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/vi_vn/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/vi_vn/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/vi_vn/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/vi_vn/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/vi_vn/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/vi_vn/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/vi_vn/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/vi_vn/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/vi_vn/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/vi_vn/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/vi_vn/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/vi_vn/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/vi_vn/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/vi_vn/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Trang Khác",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Sự Kiện",
+          "link": "/vi_vn/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/vi_vn/develop/text-and-translations"
+        },
+        {
+          "text": "Networking",
+          "link": "/vi_vn/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/vi_vn/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/vi_vn/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/vi_vn/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/vi_vn/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/vi_vn/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/vi_vn/players/": [
+    {
+      "text": "Hướng Dẫn Cho Người Chơi",
+      "link": "/vi_vn/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/vi_vn/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/vi_vn/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/vi_vn/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/vi_vn/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/vi_vn/players/installing-mods"
+        },
+        {
+          "text": "Khắc Phục Sự Cố",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/vi_vn/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/vi_vn/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Các Câu Hỏi Thường Gặp",
+          "link": "/vi_vn/players/faq"
+        }
+      ]
+    }
+  ]
+}

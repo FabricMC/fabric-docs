@@ -17,11 +17,11 @@ Since Minecraft modding relies on runtime byte-code modification tools such as M
 
 First, we need to add Fabric Loader JUnit to the development environment. Add the following to your dependencies block in your `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
 
 Then, we need to tell Gradle to use Fabric Loader JUnit for testing. You can do so by adding the following code to your `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+@[code transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
 
 ### Writing Tests {#writing-tests}
 
@@ -37,7 +37,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd>+<kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -57,7 +57,7 @@ For an explanation of what this code actually does, see [Codecs](./codecs#regist
 
 Great, the first test worked! But wait, the second test failed? In the logs, we get one of the following errors.
 
-@[code lang=log transcludeWith=:::automatic-testing:5](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/public/assets/develop/automatic-testing/crash-report.log
 
 This is because we're trying to access the registry or a class that depends on the registry (or, in rare cases, depends on other Minecraft classes such as `SharedConstants`), but Minecraft has not been initialized. We just need to initialize it a little bit to have registries working. Simply add the following code to the beginning of your `beforeAll` method.
 
@@ -66,12 +66,14 @@ This is because we're trying to access the registry or a class that depends on t
 ### Setting Up GitHub Actions {#setting-up-github-actions}
 
 ::: info
+
 This section assumes that you are using the standard GitHub Action workflow included with the example mod and with the mod template.
+
 :::
 
 Your tests will now run on every build, including those by CI providers such as GitHub Actions. But what if a build fails? We need to upload the logs as an artifact so we can view the test reports.
 
-Add this to your `.github/workflows/build.yml` file, below the `./gradlew build` step.
+Add this to your `.github/workflows/build.yaml` file, below the `./gradlew build` step.
 
 ```yaml
 - name: Store reports
@@ -94,14 +96,16 @@ Both server and client game tests can be set up manually or with Fabric Loom. Th
 
 To add game tests to your mod, add the following to your `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+@[code transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
 
 To see all available options, see [the Loom documentation on tests](./loom/fabric-api#tests).
 
 #### Setting up Game Test Directory {#setting-up-game-test-directory}
 
 ::: info
-You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own gradle magic, but you'll be on your own.
+
+You only need this section if you enabled `createSourceSet`, which is recommended. You can, of course, do your own Gradle magic, but you'll be on your own.
+
 :::
 
 If you enabled `createSourceSet` like the example above, your gametest will be in a separate source set with a separate `fabric.mod.json`. The module name defaults to `gametest`. Create a new `fabric.mod.json` in `src/gametest/resources/` as shown:
@@ -130,11 +134,13 @@ Server game tests will be run automatically with the `build` Gradle task. You ca
 
 ### Run Game Tests on GitHub Actions {#run-game-tests-on-github-actions}
 
-Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
+Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The Gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
 
 ::: warning
+
 Currently, game test may fail on GitHub Actions due to an error in the network synchronizer. If you encounter this error, you can add `-Dfabric.client.gametest.disableNetworkSynchronizer=true` to the JVM args in your production run task declaration.
+
 :::
 
-@[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
-@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)
+@[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)

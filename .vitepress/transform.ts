@@ -25,7 +25,7 @@ export const transformHead: SiteConfig["transformHead"] = (context) => {
     ["og:url", canonicalUrl],
     ["og:image", `${hostName}/logo.png`],
     ["og:type", "article"],
-    ["og:locale", locale.replace(/..$/, (m) => m.toUpperCase())],
+    ["og:locale", locale.replace(/_..$/, (m) => m.toUpperCase().replace("_", "-"))],
   ];
 
   if ((context.pageData.lastUpdated ?? 0) > 0) {

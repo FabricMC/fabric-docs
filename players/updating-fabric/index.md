@@ -7,8 +7,12 @@ authors:
   - modmuss50
 ---
 
+<!---->
+
 ::: info
+
 This guide only applies for the official Minecraft Launcher. For third party launchers, you should consult their documentation.
+
 :::
 
 ## Why Should I Update Fabric Loader? {#why-should-i-update-fabric-loader}

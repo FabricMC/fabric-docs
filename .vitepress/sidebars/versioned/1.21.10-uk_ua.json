@@ -1,0 +1,416 @@
+{
+  "/uk_ua/develop/": [
+    {
+      "text": "Посібник для розробників",
+      "link": "/uk_ua/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/uk_ua/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/uk_ua/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/uk_ua/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/uk_ua/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/uk_ua/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/uk_ua/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/uk_ua/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Предмети",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/uk_ua/develop/items/first-item",
+          "items": [
+            {
+              "text": "Їжа",
+              "link": "/uk_ua/develop/items/food"
+            },
+            {
+              "text": "Зілля",
+              "link": "/uk_ua/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/uk_ua/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/uk_ua/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/uk_ua/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/uk_ua/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/uk_ua/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/uk_ua/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/uk_ua/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/uk_ua/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/uk_ua/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Блоки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/uk_ua/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/uk_ua/develop/blocks/block-models"
+        },
+        {
+          "text": "Стани блоку",
+          "link": "/uk_ua/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/uk_ua/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/uk_ua/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/uk_ua/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Істоти",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/uk_ua/develop/entities/attributes"
+        },
+        {
+          "text": "Ефекти",
+          "link": "/uk_ua/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/uk_ua/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Звуки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/uk_ua/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Створення власних звуків",
+          "link": "/uk_ua/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/uk_ua/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Команди",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Створення команд",
+          "link": "/uk_ua/develop/commands/basics"
+        },
+        {
+          "text": "Аргументи",
+          "link": "/uk_ua/develop/commands/arguments"
+        },
+        {
+          "text": "Пропозиції",
+          "link": "/uk_ua/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Промальовування",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/uk_ua/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/uk_ua/develop/rendering/draw-context"
+        },
+        {
+          "text": "Промальовування у HUD",
+          "link": "/uk_ua/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/uk_ua/develop/rendering/world"
+        },
+        {
+          "text": "Графічні інтерфейси та екрани",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/uk_ua/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/uk_ua/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Частинки",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/uk_ua/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/uk_ua/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/uk_ua/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/uk_ua/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/uk_ua/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/uk_ua/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/uk_ua/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/uk_ua/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/uk_ua/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Кодеки",
+          "link": "/uk_ua/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/uk_ua/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/uk_ua/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/uk_ua/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/uk_ua/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/uk_ua/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/uk_ua/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/uk_ua/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/uk_ua/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/uk_ua/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Інші сторінки",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Події",
+          "link": "/uk_ua/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/uk_ua/develop/text-and-translations"
+        },
+        {
+          "text": "Мережа",
+          "link": "/uk_ua/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/uk_ua/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/uk_ua/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/uk_ua/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/uk_ua/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/uk_ua/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/uk_ua/players/": [
+    {
+      "text": "Посібник для гравців",
+      "link": "/uk_ua/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/uk_ua/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/uk_ua/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/uk_ua/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/uk_ua/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/uk_ua/players/installing-mods"
+        },
+        {
+          "text": "Усунення проблем",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/uk_ua/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/uk_ua/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "Поширені питання",
+          "link": "/uk_ua/players/faq"
+        }
+      ]
+    }
+  ]
+}

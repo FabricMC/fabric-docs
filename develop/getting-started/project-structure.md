@@ -23,7 +23,9 @@ The most important fields in the `fabric.mod.json` file are:
 You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the mod that powers this documentation site.
 
 ::: details `fabric.mod.json` of the Example Mod
+
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
+
 :::
 
 ## Entrypoints {#entrypoints}

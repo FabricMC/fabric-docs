@@ -3,6 +3,7 @@ title: Loot Table Generation
 description: A guide to setting up loot table generation with datagen.
 authors:
   - Alphagamer47
+  - CelDaemon
   - JustinHuPrime
   - matthewperiut
   - skycatminepokie
@@ -12,13 +13,17 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 You will need different providers (classes) for blocks, chests, and entities. Remember to add them all to your pack in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={35-36}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Loot Tables Explained {#loot-tables-explained}
 
@@ -28,7 +33,7 @@ Loot pools have **entries**, **conditions**, functions, **rolls**, and **bonus r
 
 ## Blocks {#blocks}
 
-In order for blocks to drop items - including itself - we need to make a loot table. Create a class that `extends FabricBlockLootTableProvider`:
+In order for blocks to drop items - including itself - we need to make a loot table. Create a class that extends `FabricBlockLootTableProvider`:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
@@ -42,7 +47,7 @@ Let's add a few drops in the `generate` method:
 
 ## Chests {#chests}
 
-Chest loot is a little bit tricker than block loot. Create a class that `extends SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
+Chest loot is a little bit tricker than block loot. Create a class that extends `SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 

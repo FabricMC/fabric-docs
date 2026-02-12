@@ -1,0 +1,416 @@
+{
+  "/ja_jp/develop/": [
+    {
+      "text": "デベロッパガイド",
+      "link": "/ja_jp/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/ja_jp/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/ja_jp/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/ja_jp/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/ja_jp/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/ja_jp/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/ja_jp/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/ja_jp/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "アイテム",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/ja_jp/develop/items/first-item",
+          "items": [
+            {
+              "text": "食べ物のアイテム",
+              "link": "/ja_jp/develop/items/food"
+            },
+            {
+              "text": "ポーション",
+              "link": "/ja_jp/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/ja_jp/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/ja_jp/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/ja_jp/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/ja_jp/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/ja_jp/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/ja_jp/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/ja_jp/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/ja_jp/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/ja_jp/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "ブロック",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/ja_jp/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/ja_jp/develop/blocks/block-models"
+        },
+        {
+          "text": "ブロックステート",
+          "link": "/ja_jp/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/ja_jp/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/ja_jp/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/ja_jp/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "エンティティ",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/ja_jp/develop/entities/attributes"
+        },
+        {
+          "text": "ステータス効果",
+          "link": "/ja_jp/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/ja_jp/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "サウンド",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/ja_jp/develop/sounds/using-sounds"
+        },
+        {
+          "text": "カスタムサウンドの作成",
+          "link": "/ja_jp/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/ja_jp/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "コマンド",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "コマンドの作成",
+          "link": "/ja_jp/develop/commands/basics"
+        },
+        {
+          "text": "コマンドの引数",
+          "link": "/ja_jp/develop/commands/arguments"
+        },
+        {
+          "text": "コマンドの補完",
+          "link": "/ja_jp/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "レンダリング",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/ja_jp/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/ja_jp/develop/rendering/draw-context"
+        },
+        {
+          "text": "Hudでのレンダリング",
+          "link": "/ja_jp/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/ja_jp/develop/rendering/world"
+        },
+        {
+          "text": "GUIとスクリーン",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/ja_jp/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/ja_jp/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "パーティクル",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/ja_jp/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/ja_jp/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/ja_jp/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/ja_jp/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/ja_jp/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/ja_jp/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/ja_jp/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/ja_jp/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/ja_jp/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "コーデック",
+          "link": "/ja_jp/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/ja_jp/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/ja_jp/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/ja_jp/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/ja_jp/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/ja_jp/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/ja_jp/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/ja_jp/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/ja_jp/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/ja_jp/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "その他のページ",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "イベント",
+          "link": "/ja_jp/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/ja_jp/develop/text-and-translations"
+        },
+        {
+          "text": "ネットワーク",
+          "link": "/ja_jp/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/ja_jp/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/ja_jp/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/ja_jp/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/ja_jp/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/ja_jp/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/ja_jp/players/": [
+    {
+      "text": "プレイヤーガイド",
+      "link": "/ja_jp/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/ja_jp/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/ja_jp/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/ja_jp/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/ja_jp/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/ja_jp/players/installing-mods"
+        },
+        {
+          "text": "トラブルシューティング",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/ja_jp/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/ja_jp/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "よくある質問",
+          "link": "/ja_jp/players/faq"
+        }
+      ]
+    }
+  ]
+}

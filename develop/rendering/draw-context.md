@@ -5,8 +5,7 @@ authors:
   - IMB11
 ---
 
-<!-- TODO: Enable this line once the example mod is fixed. -->
-<!-- This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page. -->
+This page assumes you've taken a look at the [Basic Rendering Concepts](./basic-concepts) page.
 
 The `GuiGraphics` class is the main class used for rendering in the game. It is used for rendering shapes, text and textures, and as previously seen, used to manipulate `PoseStack`s and use `BufferBuilder`s.
 
@@ -24,7 +23,7 @@ You can use the `GuiGraphics.fill(...)` method to draw a filled rectangle.
 
 ### Drawing Outlines/Borders {#drawing-outlines-borders}
 
-Let's say we want to outline the rectangle we just drew. We can use the `GuiGraphics.submitOutline(...)` method to draw an outline.
+Let's say we want to outline the rectangle we just drew. We can use the `GuiGraphics.renderOutline(...)` method to draw an outline.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -45,7 +44,9 @@ The `GuiGraphics` class has a built-in scissor manager. This allows you to easil
 ### Using the Scissor Manager {#using-the-scissor-manager}
 
 ::: tip
+
 Scissor regions can be nested! But make sure that you disable the scissor manager the same amount of times as you enabled it.
+
 :::
 
 To enable the scissor manager, simply use the `GuiGraphics.enableScissor(...)` method. Likewise, to disable the scissor manager, use the `GuiGraphics.disableScissor()` method.
@@ -91,7 +92,9 @@ The `GuiGraphics` class has various self-explanatory text rendering methods - fo
 Let's say we want to draw "Hello World" onto the screen. We can use the `GuiGraphics.drawString(...)` method to do this.
 
 ::: info
+
 Minecraft 1.21.6 and above changes text color to be ARGB instead of RGB. Passing RGB values will cause your text to render transparent. Helper methods like `ARGB.opaque(...)` can be used to change RGB to ARGB while porting.
+
 :::
 
 @[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)

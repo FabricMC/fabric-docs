@@ -18,31 +18,31 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-// :::datagen-model-custom:constructor
+// :::custom-constructor
 public class VerticalSlabBlock extends Block {
-	// :::datagen-model-custom:constructor
+	// :::custom-constructor
 
-	// :::datagen-model-custom:properties
+	// :::custom-properties
 	public static final BooleanProperty SINGLE = BooleanProperty.create("single");
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
-	// :::datagen-model-custom:properties
-	// :::datagen-model-custom:voxels
+	// :::custom-properties
+	// :::custom-voxels
 	public static final VoxelShape NORTH_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
 	public static final VoxelShape SOUTH_SHAPE = Block.box(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
 	public static final VoxelShape WEST_SHAPE = Block.box(0.0, 0.0, 0.0, 8.0, 16.0, 16.0);
 	public static final VoxelShape EAST_SHAPE = Block.box(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-	// :::datagen-model-custom:voxels
+	// :::custom-voxels
 
-	// :::datagen-model-custom:constructor
+	// :::custom-constructor
 	public VerticalSlabBlock(Properties settings) {
 		super(settings);
 	}
 
-	// :::datagen-model-custom:constructor
+	// :::custom-constructor
 
-	// :::datagen-model-custom:collision
+	// :::custom-collision
 	@Override
-	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter world, BlockPos pos) {
+	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
 		boolean type = state.getValue(SINGLE);
 		Direction direction = state.getValue(FACING);
 		VoxelShape voxelShape;
@@ -63,18 +63,18 @@ public class VerticalSlabBlock extends Block {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return this.getBlockSupportShape(state, world, pos);
+	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, level, pos);
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return this.getBlockSupportShape(state, world, pos);
+	protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		return this.getBlockSupportShape(state, level, pos);
 	}
 
-	// :::datagen-model-custom:collision
+	// :::custom-collision
 
-	// :::datagen-model-custom:replace
+	// :::custom-replace
 	@Override
 	protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
 		Direction direction = state.getValue(FACING);
@@ -88,9 +88,9 @@ public class VerticalSlabBlock extends Block {
 		return false;
 	}
 
-	// :::datagen-model-custom:replace
+	// :::custom-replace
 
-	// :::datagen-model-custom:placement
+	// :::custom-placement
 	@Override
 	@Nullable
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
@@ -116,16 +116,16 @@ public class VerticalSlabBlock extends Block {
 		}
 	}
 
-	// :::datagen-model-custom:placement
+	// :::custom-placement
 
-	// :::datagen-model-custom:append
+	// :::custom-append
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(SINGLE, FACING);
 	}
 
-	// :::datagen-model-custom:append
+	// :::custom-append
 
-	// :::datagen-model-custom:constructor
+	// :::custom-constructor
 }
-// :::datagen-model-custom:constructor
+// :::custom-constructor

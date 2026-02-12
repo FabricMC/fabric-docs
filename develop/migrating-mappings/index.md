@@ -2,14 +2,18 @@
 title: Migrating Mappings
 description: Learn how to migrate your mod's obfuscation mappings.
 authors:
+  - ArduFish
   - asiekierka
   - cassiancc
+  - Daomephsta
   - deirn
+  - Earthcomputer
   - florensie
   - Friendly-Banana
   - IMB11
   - jamierocks
   - JamiesWhiteShirt
+  - liach
   - MildestToucan
   - modmuss50
   - natanfudge
@@ -28,7 +32,9 @@ Loom offers a semi-automated migration of the mappings through the `migrateMappi
 Ravel is a plugin for IntelliJ IDEA that adds a GUI dialog for migration. Unlike Loom however, Ravel also **supports Kotlin**. In addition, Ravel might perform better than Loom for more complex projects since it uses IDE to resolve changes.
 
 ::: info
+
 The Fabric API used Ravel to migrate from Yarn to Mojang Mappings. See [PR #4690 on the Fabric API repo](https://github.com/FabricMC/fabric/pull/4960).
+
 :::
 
 Neither option is perfect, and you still have to review the results and make manual fixes, especially if migrating Mixins.
@@ -64,4 +70,4 @@ As a Fabric developer, you'll encounter three main sets of names:
 - **Yarn**: an open-source mapping set developed by Fabric for humans to write mods. Most Fabric mods used Yarn Mappings, as they were the default before 2025. An example mapping might be `CreeperEntity`.
 - **Mojang Mappings**: The game's official obfuscation mappings, released by Mojang in 2019 to aid mod development. Notably, Mojang's obfuscation mappings lack parameter names and Javadocs, which is why some users also layer [Parchment](https://parchmentmc.org/) over the official mappings. An example mapping might be `Creeper`.
 
-[The game drop following Mounts of Mayhem will be deobfuscated](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition) and include parameter names, so there won't be a need for any obfuscation mappings.
+Minecraft 26.1 will be deobfuscated and include parameter names, so there won't be a need for any obfuscation mappings.

@@ -13,7 +13,7 @@ Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Mine
 
 Probabilmente hai capito perché sono così utili - per evitare di immagazzinare dati NBT in un blocco-entità, riducendo dunque le dimensioni del mondo e migliorando i TPS!
 
-Le definizioni degli stati dei blocchi si trovano nella cartella `assets/example-mod/blockstates`.
+Le definizioni degli stati di blocchi si trovano nella cartella `assets/example-mod/blockstates`
 
 ## Esempio: Pilastro {#pillar-block}
 
@@ -21,13 +21,13 @@ Le definizioni degli stati dei blocchi si trovano nella cartella `assets/example
 
 Minecraft ha già delle classi che permettono di creare velocemente alcuni tipi di blocco - questo esempio mostra la creazione di un blocco con la proprietà `asse`, con un blocco "Tronco di Quercia Condensato".
 
-La classe vanilla `PillarBlock` permette di piazzare il blocco lungo gli assi X, Y o Z.
+La classe vanilla `RotatedPillarBlock` permette di piazzare il blocco lungo gli assi X, Y o Z.
 
 @[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 I pilastri hanno due texture diverse, superiore e laterale - e usano il modello `block/cube_column`.
 
-Ovviamente, come per tutte le altre texture dei blocchi, i file si trovano nella cartella `assets/example-mod/textures/blocks`
+Come sempre, con tutte le texture dei blocchi, i file di texture si trovano in `assets/example-mod/textures/block`
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">le Texture</DownloadEntry>
 
@@ -41,9 +41,11 @@ Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
 
 ::: info
-Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
+
+Questo file si dovrebbe trovare nella cartella `assets/example-mod/blockstates`, e il suo nome dovrebbe combaciare con l'ID del blocco usato quando hai registrato il blocco nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_oak_log`, il file dovrebbe chiamarsi `condensed_oak_log.json`.
 
 Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
+
 :::
 
 Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la magia—i pilastri hanno tre assi e quindi useremo modelli specifici per i seguenti casi:
@@ -66,11 +68,11 @@ Questo esempio creerà una proprietà booleana chiamata `activated` - quando un 
 
 ### Creare la Proprietà {#creating-the-property}
 
-Anzitutto, dovrai creare la proprietà in sé - poiché questo è un booleano, useremo il metodo `BooleanProperty.of`.
+Anzitutto, dovrai creare la proprietà in sé - poiché questo è un booleano, useremo il metodo `BooleanProperty.create`.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Dopo di che, dovremo aggiungere la proprietà al gestore degli stati del blocco nel metodo `appendProperties`. Dovrai fare override del metodo per accedere al costruttore:
+Dopo di che, dovremo aggiungere la proprietà al gestore degli stati del blocco nel metodo `createBlockStateDefinition`. Dovrai fare override del metodo per accedere al costruttore:
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -80,7 +82,7 @@ Dovrai anche impostare un valore predefinito per la proprietà `activated` nel c
 
 ### Usare la Proprietà {#using-the-property}
 
-Questo esempio invertirà la proprietà booleana `activated` quando il giocatore interagisce con il blocco. Possiamo fare override del metodo `onUse` per questo:
+Questo esempio invertirà la proprietà booleana `activated` quando il giocatore interagisce con il blocco. Possiamo fare override del metodo `useWithoutItem` per questo:
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -100,13 +102,15 @@ Poiché questo blocco ha solo due possibili varianti, dato che ha solo una propr
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
-:::tip
-Non dimenticare di aggiungere una [Descrizione del Modello d'Oggetto](../items/first-item#creating-the-item-model-description) per il blocco così che appaia nell'inventario!
+::: tip
+
+Non dimenticare di aggiungere un [oggetto per il client](../items/first-item#creating-the-client-item) per il blocco così che appaia nell'inventario!
+
 :::
 
 Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luce quando la proprietà `activated` è `true`. Questo si può ottenere tramite le impostazioni del blocco, passate al costruttore durante la registrazione del blocco.
 
-Puoi usare il metodo `luminance` per impostare il livello di luce emessa dal blocco, possiamo creare un metodo statico nella classe `PrismarineLampBlock` per restituire il livello di luce in base alla proprietà `activated`, e passarlo come riferimento a un metodo nel metodo `luminance`:
+Puoi usare il metodo `lightLevel` per impostare il livello di luce emessa dal blocco, possiamo creare un metodo statico nella classe `PrismarineLampBlock` per restituire il livello di luce in base alla proprietà `activated`, e passarlo come riferimento a un metodo nel metodo `lightLevel`:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

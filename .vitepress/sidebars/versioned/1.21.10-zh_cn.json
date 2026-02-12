@@ -1,0 +1,416 @@
+{
+  "/zh_cn/develop/": [
+    {
+      "text": "开发者指南",
+      "link": "/zh_cn/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/zh_cn/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/zh_cn/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/zh_cn/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/zh_cn/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/zh_cn/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/zh_cn/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/zh_cn/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "物品",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/zh_cn/develop/items/first-item",
+          "items": [
+            {
+              "text": "食物物品",
+              "link": "/zh_cn/develop/items/food"
+            },
+            {
+              "text": "药水",
+              "link": "/zh_cn/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/zh_cn/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/zh_cn/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/zh_cn/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/zh_cn/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/zh_cn/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/zh_cn/develop/items/custom-item-groups"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/zh_cn/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/zh_cn/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/zh_cn/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "方块",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/zh_cn/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/zh_cn/develop/blocks/block-models"
+        },
+        {
+          "text": "方块状态",
+          "link": "/zh_cn/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/zh_cn/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/zh_cn/develop/blocks/block-entity-renderer"
+            }
+          ]
+        },
+        {
+          "text": "Transparency and Tinting",
+          "link": "/zh_cn/develop/blocks/transparency-and-tinting"
+        }
+      ]
+    },
+    {
+      "text": "实体",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Attributes",
+          "link": "/zh_cn/develop/entities/attributes"
+        },
+        {
+          "text": "状态效果",
+          "link": "/zh_cn/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/zh_cn/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "声音",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/zh_cn/develop/sounds/using-sounds"
+        },
+        {
+          "text": "创建自定义声音",
+          "link": "/zh_cn/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/zh_cn/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "命令",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "创建命令",
+          "link": "/zh_cn/develop/commands/basics"
+        },
+        {
+          "text": "命令参数",
+          "link": "/zh_cn/develop/commands/arguments"
+        },
+        {
+          "text": "命令补全",
+          "link": "/zh_cn/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "渲染",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/zh_cn/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/zh_cn/develop/rendering/draw-context"
+        },
+        {
+          "text": "在 HUD 中渲染",
+          "link": "/zh_cn/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/zh_cn/develop/rendering/world"
+        },
+        {
+          "text": "GUI 与屏幕界面",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/zh_cn/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/zh_cn/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "粒子",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/zh_cn/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/zh_cn/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/zh_cn/develop/data-generation/translations"
+            },
+            {
+              "text": "Block Model Generation",
+              "link": "/zh_cn/develop/data-generation/block-models"
+            },
+            {
+              "text": "Item Model Generation",
+              "link": "/zh_cn/develop/data-generation/item-models"
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Tag Generation",
+              "link": "/zh_cn/develop/data-generation/tags"
+            },
+            {
+              "text": "Advancement Generation",
+              "link": "/zh_cn/develop/data-generation/advancements"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/zh_cn/develop/data-generation/recipes"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/zh_cn/develop/data-generation/loot-tables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/zh_cn/develop/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/zh_cn/develop/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/zh_cn/develop/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/zh_cn/develop/loom"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/zh_cn/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/zh_cn/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/zh_cn/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/zh_cn/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/zh_cn/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/zh_cn/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "杂项",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "事件",
+          "link": "/zh_cn/develop/events"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/zh_cn/develop/text-and-translations"
+        },
+        {
+          "text": "网络通信",
+          "link": "/zh_cn/develop/networking"
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/zh_cn/develop/migrating-mappings",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/zh_cn/develop/migrating-mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/zh_cn/develop/migrating-mappings/ravel"
+            }
+          ]
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/zh_cn/develop/debugging"
+        },
+        {
+          "text": "Automated Testing",
+          "link": "/zh_cn/develop/automatic-testing"
+        }
+      ]
+    }
+  ],
+  "/zh_cn/players/": [
+    {
+      "text": "玩家指南",
+      "link": "/zh_cn/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/zh_cn/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/zh_cn/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/zh_cn/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/zh_cn/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/zh_cn/players/installing-mods"
+        },
+        {
+          "text": "疑难解答",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/zh_cn/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/zh_cn/players/troubleshooting/crash-reports"
+            }
+          ]
+        },
+        {
+          "text": "常见问题",
+          "link": "/zh_cn/players/faq"
+        }
+      ]
+    }
+  ]
+}

@@ -5,8 +5,12 @@ authors:
   - JR1811
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 This page builds on top of the [Playing Sounds](../sounds/using-sounds) and the [Creating Custom Sounds](../sounds/custom) pages!
+
 :::
 
 ## Problems with `SoundEvents` {#problems-with-soundevents}
@@ -129,6 +133,7 @@ Keep in mind that this will only be played on the specific client, which execute
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
 ::: warning
+
 Please note that in the `AbstractSoundInstance` class, which `SoundInstance`s inherit from, has the `@Environment(EnvType.CLIENT)` annotation.
 
 This means that this class (and all its subclasses) will only be available to the client side.
@@ -138,6 +143,7 @@ but a server in a Multiplayer environment will crash, since it won't be able to 
 
 If you struggle with those issues, it is recommended to create your mod from the [Online template generator](https://fabricmc.net/develop/template/)
 with the `Split client and common sources` option turned on.
+
 :::
 
 A `SoundInstance` can be more powerful than just playing sounds once.
@@ -172,11 +178,13 @@ This concludes the explanation of creating and using a simple custom `SoundInsta
 ## Advanced Sound Instances {#advanced-sound-instances}
 
 ::: warning
+
 The following content covers an advanced topic.
 
 At this point you should have a solid grasp on Java, object-oriented programming, generics and callback systems.
 
 Having knowledge on `Entities`, `BlockEntities` and custom networking will also help a lot in understanding the use case and the applications of advanced sounds.
+
 :::
 
 To show an example of how more elaborate `SoundInstance` systems can be created, we will add extra functionality, abstractions
@@ -209,8 +217,10 @@ Overall our sound system might look like this, when we are done.
 ![Structure of the custom Sound System](/assets/develop/sounds/dynamic-sounds/custom-dynamic-sound-handling.jpg)
 
 ::: info
+
 All of those enums, interfaces and classes will be newly created. Adjust the system and utilities to your specific use case as you see fit.
 This is only an example of how you can approach such topics.
+
 :::
 
 ### `DynamicSoundSource` Interface {#dynamicsoundsource-interface}
@@ -229,10 +239,12 @@ like your custom `BlockEntity`, Entities or even, using Mixins, on already exist
 After creating this interface, make sure to implement it in the necessary classes too.
 
 ::: info
+
 This is a utility, which may be used on both the client and the logical server side.
 
 So this interface should be stored in the common packages instead of the client only packages, if you make use of the
 "split sources" option.
+
 :::
 
 ### `TransitionState` Enum {#transitionstate-enum}
@@ -255,16 +267,18 @@ public enum TransitionState {
 }
 ```
 
-But when those values are sent over the network you might want to define a `ResourceLocation` for them or even add other custom values.
+But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 
 ::: info
+
 Again, if you make use of "split sources" you need to think about where you will be using this enum.
 Technically, only the custom `SoundInstance`s which are only available on the client side, will use those enum values.
 
 But if this enum is used anywhere else, e.g. in custom network packets, you may have to put this enum also into the common packages
 instead of the client only packages.
+
 :::
 
 ### `SoundInstanceCallback` Interface {#soundinstancecallback-interface}

@@ -1,3 +1,4 @@
+import * as crossSpawn from "cross-spawn";
 import * as fs from "node:fs";
 import * as path from "node:path/posix";
 import * as process from "node:process";
@@ -6,40 +7,66 @@ import * as tinyglobby from "tinyglobby";
 
 import { getLocaleNames, getResolver, getSidebar } from "./i18n";
 
-process.chdir(path.resolve(__dirname, ".."));
+const git = (...args: string[]) => {
+  const res = crossSpawn.sync("git", args, { encoding: "utf8" });
+  if (res.error) {
+    console.error(`Failed to run 'git ${args.join(" ")}'!\n  ${res.error}`);
+    process.exit(1);
+  }
+  return res;
+};
+
+process.chdir(path.resolve(import.meta.dirname, ".."));
+
+if (git("status", "--porcelain").stdout.toString().trim().length > 0) {
+  console.error("Working directory must be clean!");
+  process.exit(1);
+}
+
 const oldBuildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8");
 const oldVersion = oldBuildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
 console.log(`Current version: 'Minecraft ${oldVersion}'`);
 
-const newVersion: string = (
-  await prompts({
-    type: "text",
-    name: "version",
-    message: "Enter the new Minecraft version",
-    validate: (newVersion) => {
-      if (newVersion === oldVersion) return `Already on Minecraft ${newVersion}!`;
-      if (!/^[0-9.]+$/.test(newVersion)) return "Version must match /^[0-9.]+$/";
-      return true;
-    },
-  })
-).version;
-if (!newVersion) process.exit(1);
-console.log(`New version: 'Minecraft ${newVersion}'`);
-
-const yarnUrl = `https://meta.fabricmc.net/v2/versions/yarn/${newVersion}`;
-const yarnVersions: any[] = await (await fetch(yarnUrl)).json();
-const yarnVersion: string = (yarnVersions.find((v) => v.stable) ?? yarnVersions[0])?.version;
-if (!yarnVersion) {
-  console.error(`No stable Yarn version found for Minecraft ${newVersion}`);
+const { newVersion } = await prompts({
+  type: "text",
+  name: "newVersion",
+  message: "Enter the new Minecraft version",
+  initial: ((now = new Date()) =>
+    [
+      now.getUTCFullYear() % 100,
+      Math.floor(now.getUTCMonth() / 3) + 1, // quarter
+    ].join("."))(),
+  validate: (newVersion) => {
+    if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
+      return `Minecraft ${newVersion} already exists!`;
+    }
+    if (!/^[0-9]+\.[0-9]+(\.[0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
+      return "This does not look like a Minecraft version!";
+    }
+    return true;
+  },
+});
+if (!newVersion) {
   process.exit(1);
 }
-console.log(`Found Yarn version '${yarnVersion}'`);
+console.log(`New version: 'Minecraft ${newVersion}'`);
+
+if (git("rev-parse", "--verify", `refs/heads/port/${newVersion}`).status === 0) {
+  console.error(`Branch 'port/${newVersion}' already exists!`);
+  process.exit(1);
+}
+
+console.log(`Switching to new branch 'port/${newVersion}'...`);
+if (git("switch", "-c", `port/${newVersion}`).status !== 0) {
+  console.error(`Couldn't switch to branch 'port/${newVersion}'!`);
+  process.exit(1);
+}
 
 const fabricApiUrl = `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`;
 const fabricApiVersions: any[] = await (await fetch(fabricApiUrl)).json();
 const fabricApiVersion = fabricApiVersions[0]?.version_number;
 if (!fabricApiVersion) {
-  console.error(`No Fabric API version found for Minecraft ${newVersion}`);
+  console.error(`No Fabric API version found for Minecraft ${newVersion}!`);
   process.exit(1);
 }
 console.log(`Found Fabric API version '${fabricApiVersion}'`);
@@ -49,7 +76,6 @@ fs.cpSync("./reference/latest", `./reference/${oldVersion}`, { recursive: true }
 
 const newBuildGradle = oldBuildGradle
   .replace(/def minecraftVersion = "([^"]+)"/, `def minecraftVersion = "${newVersion}"`)
-  .replace(/def yarnVersion = "([^"]+)"/, `def yarnVersion = "${yarnVersion}"`)
   .replace(/def fabricApiVersion = "([^"]+)"/, `def fabricApiVersion = "${fabricApiVersion}"`);
 fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
@@ -102,4 +128,13 @@ for (const locale of locales) {
   fs.writeFileSync(file, content);
 }
 
-console.log("DONE! Make sure everything's good before committing.");
+console.log(`Committing 'chore: bump to ${newVersion}'...`);
+if (
+  git("add", ".").status !== 0
+  || git("commit", "-m", `chore: bump to ${newVersion}`).status !== 0
+) {
+  console.error(`Couldn't commit as 'chore: bump to ${newVersion}'!`);
+  process.exit(1);
+}
+
+console.log("DONE! Please complete the version bump manually");

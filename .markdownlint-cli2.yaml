@@ -55,6 +55,23 @@ config:
         information: https://vitepress.dev/guide/markdown#header-anchors
         searchPattern: "/^#+ .*$(?<!\\{#[a-z0-9-]+\\})/gm"
         searchScope: text
+      - name: missing-newline-before-triple-colon
+        message: "Add an empty line before ::: and == lines"
+        information: https://github.com/FabricMC/fabric-docs/issues/459
+        searchPattern: "/(?<!\\n\\n)^((?::{3,}|={2,}).*)$/gm"
+        replace: "\n$1"
+        searchScope: text
+      - name: missing-newline-after-triple-colon
+        message: "Add an empty line after ::: and == lines"
+        information: https://github.com/FabricMC/fabric-docs/issues/459
+        searchPattern: "/^((?::{3,}|={2,}).*)$(?!\\n\\n)/gm"
+        replace: "$1\n"
+        searchScope: text
+      - name: missing-space-after-container
+        message: "Add a space between ::: or == and the title"
+        searchPattern: "/^((?::{3,}|={2,}))(?![ :])(.+)$/gm"
+        replace: "$1 $2"
+        searchScope: text
       - name: missing-space-before-anchor
         message: "Add a space before the heading's anchor"
         information: https://vitepress.dev/guide/markdown#header-anchors
@@ -104,8 +121,8 @@ config:
       - name: no-invalid-containers
         message: "Don't use invalid containers"
         information: https://vitepress.dev/guide/markdown#custom-containers
-        searchPattern: "/^::: (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre)(?: |$))/gim"
-        replace: "::: info "
+        searchPattern: "/^(:{3,}) (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre|tab|tabs)(?: |$))/gim"
+        replace: "$1 info "
         searchScope: text
       - name: no-links-to-public
         message: "Don't add /public to links"

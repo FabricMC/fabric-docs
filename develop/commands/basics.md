@@ -7,6 +7,7 @@ authors:
   - haykam821
   - i509VCB
   - Juuxel
+  - MildestToucan
   - modmuss50
   - mschae23
   - natanfudge
@@ -21,10 +22,12 @@ Creating commands can allow a mod developer to add functionality that can be use
 teach you how to register commands and the general command structure of Brigadier.
 
 ::: info
+
 Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
 
 Brigadier is open-source: <https://github.com/Mojang/brigadier>
+
 :::
 
 ## The `Command` Interface {#the-command-interface}
@@ -33,7 +36,7 @@ Brigadier is open-source: <https://github.com/Mojang/brigadier>
 `CommandSyntaxException` in certain cases. It has a generic type `S`, which defines the type of the _command source_.
 The command
 source provides some context in which a command was run. In Minecraft, the command source is typically a
-`ServerCommandSource` which can represent a server, a command block, a remote connection (RCON), a player or an entity.
+`CommandSourceStack` which can represent a server, a command block, a remote connection (RCON), a player or an entity.
 
 The single method in `Command`, `run(CommandContext<S>)` takes a `CommandContext<S>` as the sole parameter and returns
 an integer. The command context holds your command source of `S` and allows you to obtain arguments, look at the parsed
@@ -42,7 +45,7 @@ command nodes and see the input used in this command.
 Like other functional interfaces, it is usually used as a lambda or a method reference:
 
 ```java
-Command<ServerCommandSource> command = context -> {
+Command<CommandSourceStack> command = context -> {
     return 0;
 };
 ```
@@ -51,9 +54,9 @@ The integer can be considered the result of the command. Typically values less t
 do nothing. Positive values mean the command was successful and did something. Brigadier provides a constant to indicate
 success; `Command#SINGLE_SUCCESS`.
 
-### What Can the `ServerCommandSource` Do? {#what-can-the-servercommandsource-do}
+### What Can the `CommandSourceStack` Do? {#what-can-the-servercommandsource-do}
 
-A `ServerCommandSource` provides some additional implementation-specific context when a command is run. This includes
+A `CommandSourceStack` provides some additional implementation-specific context when a command is run. This includes
 the
 ability to get the entity that executed the command, the world the command was run in or the server the command was run
 on.
@@ -61,8 +64,8 @@ on.
 You can access the command source from a command context by calling `getSource()` on the `CommandContext` instance.
 
 ```java
-Command<ServerCommandSource> command = context -> {
-    ServerCommandSource source = context.getSource();
+Command<CommandSourceStack> command = context -> {
+    CommandSourceStack source = context.getSource();
     return 0;
 };
 ```
@@ -72,33 +75,35 @@ Command<ServerCommandSource> command = context -> {
 Commands are registered within the `CommandRegistrationCallback` provided by the Fabric API.
 
 ::: info
+
 For information on registering callbacks, please see the [Events](../events) guide.
+
 :::
 
 The event should be registered in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 The callback has three parameters:
 
-- `CommandDispatcher<ServerCommandSource> dispatcher` - Used to register, parse and execute commands. `S` is the type
+- `CommandDispatcher<CommandSourceStack> dispatcher` - Used to register, parse and execute commands. `S` is the type
   of command source the command dispatcher supports.
-- `CommandRegistryAccess registryAccess` - Provides an abstraction to registries that may be passed to certain command
+- `CommandBuildContext registryAccess` - Provides an abstraction to registries that may be passed to certain command
   argument methods
-- `CommandManager.RegistrationEnvironment environment` - Identifies the type of server the commands are being registered
+- `Commands.CommandSelection environment` - Identifies the type of server the commands are being registered
   on.
 
 In the mod's initializer, we just register a simple command:
 
 @[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-In the `sendFeedback()` method, the first parameter is the text to be sent, which is a `Supplier<Text>` to avoid
-instantiating Text objects when not needed.
+In the `sendSuccess()` method, the first parameter is the text to be sent, which is a `Supplier<Component>` to avoid
+instantiating `Component` objects when not needed.
 
 The second parameter determines whether to broadcast the feedback to other
-operators. Generally, if the command is to query something without actually affecting the world, such as query the
+moderators. Generally, if the command is to query something without actually affecting the world, such as query the
 current time or some player's score, it should be `false`. If the command does something, such as changing the
 time or modifying someone's score, it should be `true`.
 
-If the command fails, instead of calling `sendFeedback()`, you may directly throw any exception and the server or client
+If the command fails, instead of calling `sendSuccess()`, you may directly throw any exception and the server or client
 will handle it appropriately.
 
 `CommandSyntaxException` is generally thrown to indicate syntax errors in commands or arguments. You can also implement
@@ -107,7 +112,9 @@ your own exception.
 To execute this command, you must type `/test_command`, which is case-sensitive.
 
 ::: info
-From this point onwards, we will be extracting the logic written within the lambda passed into `.execute()` builders into individual methods. We can then pass a method reference to `.execute()`. This is done for clarity.
+
+From this point onwards, we will be extracting the logic written within the lambda passed into `.executes()` builders into individual methods. We can then pass a method reference to `.executes()`. This is done for clarity.
+
 :::
 
 ### Registration Environment {#registration-environment}
@@ -120,18 +127,18 @@ the dedicated environment:
 
 ### Command Requirements {#command-requirements}
 
-Let's say you have a command that you only want operators to be able to execute. This is where the `requires()` method
-comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `ServerCommandSource`
+Let's say you have a command that you only want moderators to be able to execute. This is where the `requires()` method
+comes into play. The `requires()` method has one argument of a `Predicate<S>` which will supply a `CommandSourceStack`
 to test with and determine if the `CommandSource` can execute the command.
 
 @[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 @[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-This command will only execute if the source of the command is a level 2 operator at a minimum, including command
+This command will only execute if the source of the command is a moderator at a minimum, including command
 blocks. Otherwise, the command is not registered.
 
-This has the side effect of not showing this command in tab completion to anyone who is not a level 2 operator. This is
-also why you cannot tab-complete most commands when you do not enable cheats.
+This has the side effect of not showing this command in <kbd>Tab</kbd> completion to anyone who is not a moderator. This is
+also why you cannot <kbd>Tab</kbd>-complete most commands when you do not enable cheats.
 
 ### Sub Commands {#sub-commands}
 
@@ -157,7 +164,9 @@ Fabric API has a `ClientCommandManager` in `net.fabricmc.fabric.api.client.comma
 Command redirects - also known as aliases - are a way to redirect the functionality of one command to another. This is useful for when you want to change the name of a command, but still want to support the old name.
 
 ::: warning
+
 Brigadier [will only redirect command nodes with arguments](https://github.com/Mojang/brigadier/issues/46). If you want to redirect a command node without arguments, provide an `.executes()` builder with a reference to the same logic as outlined in the example.
+
 :::
 
 @[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
@@ -172,11 +181,11 @@ Brigadier [will only redirect command nodes with arguments](https://github.com/M
   Brigadier will handle the checked exceptions and forward the proper error message in the game for you.
 
 - Issues with generics - You may have an issue with generics once in a while. If you are registering server
-  commands (which are most of the case), make sure you are using `CommandManager.literal`
-  or `CommandManager.argument` instead of `LiteralArgumentBuilder.literal` or `RequiredArgumentBuilder.argument`.
+  commands (which are most of the case), make sure you are using `Commands.literal`
+  or `Commands.argument` instead of `LiteralArgumentBuilder.literal` or `RequiredArgumentBuilder.argument`.
 
-- Check `sendFeedback()` method - You may have forgotten to provide a boolean as the second argument. Also remember
-  that, since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Text`.
+- Check the `sendSuccess()` method - You may have forgotten to provide a boolean as the second argument. Also remember
+  that, since Minecraft 1.20, the first parameter is `Supplier<Component>` instead of `Component`.
 
 - A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
   which is usually a lambda. The lambda should return an integer, instead of other types.
@@ -184,25 +193,31 @@ Brigadier [will only redirect command nodes with arguments](https://github.com/M
 ### Can I Register Commands at Runtime? {#can-i-register-commands-at-runtime}
 
 ::: warning
-You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
+
+You can do this, but it is not recommended. You would get the `Commands` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
 After that, you need to send the command tree to every player again
-using `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+using `Commands.sendCommands(ServerPlayer)`.
 
-This is required because the client locally caches the command tree it receives during login (or when operator packets
+This is required because the client locally caches the command tree it receives during login (or when moderator packets
 are sent) for local completions-rich error messages.
+
 :::
 
 ### Can I Unregister Commands at Runtime? {#can-i-unregister-commands-at-runtime}
 
 ::: warning
+
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
 To keep things simple, you need to use reflection on Brigadier and remove nodes. After this, you need to send the
-command tree to every player again using `sendCommandTree(ServerPlayerEntity)`.
+command tree to every player again using `sendCommands(ServerPlayer)`.
 
 If you don't send the updated command tree, the client may think a command still exists, even though the server will
 fail execution.
+
 :::
+
+<!---->

@@ -2,6 +2,7 @@
 title: Advancement Generation
 description: A guide to setting up advancement generation with datagen.
 authors:
+  - CelDaemon
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
@@ -10,19 +11,23 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
 
-First, we need to make our provider. Create a class that `extends FabricAdvancementProvider` and fill out the base methods:
+First, we need to make our provider. Create a class that extends `FabricAdvancementProvider` and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Advancement Structure {#advancement-structure}
 
@@ -41,11 +46,15 @@ Here's a simple advancement for getting a dirt block:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 ::: warning
-When building your advancement entries, remember that the function accepts the `ResourceLocation` of the advancement in `String` format!
+
+When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
+
 :::
 
 ::: details JSON Output
+
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+
 :::
 
 ## One More Example {#one-more-example}
@@ -57,12 +66,14 @@ Just to get the hang of it, let's add one more advancement. We'll practice addin
 ## Custom Criteria {#custom-criteria}
 
 ::: warning
+
 While datagen can be on the client side, `Criterion`s and `Predicate`s are in the main source set (both sides), since the server needs to trigger and evaluate them.
+
 :::
 
 ### Definitions {#definitions}
 
-A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.critereon` [sic] package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
+A **criterion** (plural: criteria) is something a player can do (or that can happen to a player) that may be counted towards an advancement. The game comes with many [criteria](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), which can be found in the `net.minecraft.advancements.criterion` package. Generally, you'll only need a new criterion if you implement a custom mechanic into the game.
 
 **Conditions** are evaluated by criteria. A criterion is only counted if all the relevant conditions are met. Conditions are usually expressed with a predicate.
 
@@ -87,7 +98,9 @@ Whew, that's a lot! Let's break it down.
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 
 ::: info
+
 To learn more about codecs, see the [Codecs](../codecs) page.
+
 :::
 
 We're going to need a way to check if the conditions are met. Let's add a helper method to `Conditions`:

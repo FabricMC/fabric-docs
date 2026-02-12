@@ -1,0 +1,5 @@
+.vitepress/sidebars/versioned
+reference/*.*
+reference/latest/src/main/generated
+translated
+versions

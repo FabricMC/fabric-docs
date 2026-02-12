@@ -26,7 +26,7 @@ Right now, this just makes the item edible and nothing more.
 The `FoodProperties.Builder` class has some methods that allow you to modify what happens when a player eats your item:
 
 | Method               | Description                                                |
-|----------------------|------------------------------------------------------------|
+| -------------------- | ---------------------------------------------------------- |
 | `nutrition`          | Sets the amount of hunger points your item will replenish. |
 | `saturationModifier` | Sets the amount of saturation points your item will add.   |
 | `alwaysEdible`       | Allows your item to be eaten regardless of hunger level.   |

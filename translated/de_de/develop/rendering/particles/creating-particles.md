@@ -26,11 +26,13 @@ Nachdem du den Partikel in dem Mod-Initialisierer registriert hast, musst du den
 In diesem Beispiel registrieren wir unseren Partikel Client-seitig. Dann geben wir dem Partikel ein wenig Bewegung, indem wir die Factory des Endstabpartikels benutzen. Das bedeutet, dass sich unser Partikel genau wie ein Partikel eines Endstabs bewegt.
 
 ::: tip
-You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-- IntelliJ's Tastaturkürzel: Strg+Alt+B
-- Visual Studio Codes Hotkey: Strg+F12
-  :::
+Du kannst alle Partikel Factories sehen, indem du dir alle Implementierungen der Schnittstelle `ParticleFactory` ansiehst. Dies ist hilfreich, wenn du das Verhalten eines anderen Partikels für deinen eigenen Partikel verwenden möchtest.
+
+- Tastenkombination von IntelliJ: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
+- Tesentkombination von Visual Studio Code: <kbd>Ctrl</kbd>+<kbd>F12</kbd>
+
+:::
 
 ## Eine JSON Datei erstellen und Texturen hinzufügen {#creating-a-json-file-and-adding-textures}
 
@@ -47,8 +49,10 @@ Als nächstes erstelle eine neue JSON-Datei in `particles` mit demselben Namen w
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
-:::tip
+::: tip
+
 Du kannst weitere Texturen in das Array `textures` einfügen, um eine Partikelanimation zu erstellen. Der Partikel durchläuft die Texturen im Array, beginnend mit der ersten Textur.
+
 :::
 
 ## Den neuen Partikel testen {#testing-the-new-particle}
@@ -63,8 +67,10 @@ Du kannst überprüfen, ob alles funktioniert hat, indem du den folgenden Befehl
 
 ![Vorführung des Partikels](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
-:::info
-Mit diesem Befehl wird der Partikel im Spieler erzeugt. Du wirst möglicherweise rückwärts gehen müssen, um ihn zu sehen.
+::: info
+
+Mit diesem Befehl wird das Partikel innerhalb des Spielers erzeugt. Du wirst möglicherweise rückwärts gehen müssen, um ihn zu sehen.
+
 :::
 
 Alternativ kannst du auch einen Befehlsblock verwenden, um den Partikel mit genau demselben Befehl zu erzeugen.

@@ -3,6 +3,7 @@ import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed, ref } from "vue";
+
 import { Fabric } from "../../types";
 
 const props = defineProps<{
@@ -48,7 +49,7 @@ const getRoute = (v: string) => {
 
   const segments = [
     "",
-    data.lang.value !== "en_us" ? data.lang.value : undefined,
+    data.lang.value !== "en-us" ? data.lang.value : undefined,
     v !== props.versioningPlugin.latestVersion ? v : undefined,
     ...neither,
   ]

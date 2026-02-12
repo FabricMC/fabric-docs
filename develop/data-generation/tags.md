@@ -2,6 +2,7 @@
 title: Tag Generation
 description: A guide to setting up tag generation with datagen.
 authors:
+  - CelDaemon
   - IMB11
   - skycatminepokie
   - Spinoscythe
@@ -9,8 +10,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -19,19 +24,21 @@ Here we'll show how to create `Item` tags, but the same principle applies for ot
 
 Fabric provides several helper tag providers including one for items; `FabricTagProvider.ItemTagProvider`. We will use this helper class for this example.
 
-You can create your own class that `extends FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**.
+You can create your own class that extends `FabricTagProvider<T>`, where `T` is the type of thing you'd like to provide a tag for. This is your **provider**.
 
 Let your IDE fill in the required code, then replace the `resourceKey` constructor parameter with the `ResourceKey` for your type:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
 
 ::: tip
+
 You will need a different provider for each type of tag (eg. one `FabricTagProvider<EntityType<?>>` and one `FabricTagProvider<Item>`).
+
 :::
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Creating a Tag {#creating-a-tag}
 

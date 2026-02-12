@@ -13,7 +13,8 @@ import net.minecraft.commands.synchronization.SuggestionProviders;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.permissions.Permissions;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
@@ -121,7 +122,7 @@ public class ExampleModCommands implements ModInitializer {
 	public void onInitialize() {
 		// :::register_custom_arg
 		ArgumentTypeRegistry.registerArgumentType(
-				ResourceLocation.fromNamespaceAndPath("fabric-docs", "block_pos"),
+				Identifier.fromNamespaceAndPath("fabric-docs", "block_pos"),
 				BlockPosArgumentType.class,
 				SingletonArgumentInfo.contextFree(BlockPosArgumentType::new)
 		);
@@ -148,7 +149,7 @@ public class ExampleModCommands implements ModInitializer {
 		// :::required_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("required_command")
-					.requires(source -> source.hasPermission(1))
+					.requires(source -> source.permissions().hasPermission(Permissions.COMMANDS_MODERATOR))
 					.executes(ExampleModCommands::executeRequiredCommand));
 		});
 		// :::required_command

@@ -8,79 +8,79 @@ authors:
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
 
-Ogni volta che Minecraft mostra testo nel gioco, è con tutta probabilità definito da un oggetto `Text`.
+Ogni volta che Minecraft mostra testo nel gioco, è con tutta probabilità definito da un oggetto `Component`.
 Questo tipo personalizzato è preferito ad una `String` per permettere formattazione più avanzata, che comprende colori, grassetto, offuscamento, ed eventi ai clic. Permettono inoltre accesso più semplice al sistema di traduzione, rendendo semplice la traduzione di qualsiasi elemento dell'interfaccia.
 
-Se hai mai lavorato con datapack o con funzioni prima d'ora, potresti notare similarità con il formato testo json usato per i displayName, i libri, e i cartelli tra le altre cose. Come probabilmente riuscirai ad indovinare, quella è solo una rappresentazione json di un oggetto `Text`, e può essere convertita tramite `Text.Serializer`.
+Se hai mai lavorato con datapack o con funzioni prima d'ora, potresti notare similarità con il formato testo json usato per i displayName, i libri, e i cartelli tra le altre cose. Come probabilmente riuscirai ad indovinare, quella è solo una rappresentazione json di un oggetto `Component`, e può essere convertita tramite `Component.Serializer`.
 
-Quando si crea una mod, si preferisce generalmente costruire i tuoi oggetti `Text` direttamente nel codice, sfruttando ove possibile le traduzioni.
+Quando si crea una mod, si preferisce generalmente costruire i tuoi oggetti `Component` direttamente nel codice, sfruttando ove possibile le traduzioni.
 
-## Testo Letterale {#text-literals}
+## Componenti Testuali Letterali {#literal-text-components}
 
-Il modo più semplice di creare un oggetto `Text` è creare un testo letterale. Questa è proprio solo una stringa che verrà visualizzata com'è, senza alcuna formattazione predefinita.
+Il modo più semplice di creare un oggetto `Component` è creare un testo letterale. Questa è proprio solo una stringa che verrà visualizzata com'è, senza alcuna formattazione predefinita.
 
-Questi sono creati tramite i metodi `Text.of` o `Text.literal`, che agiscono in modi un po' diversi. `Text.of` accetta null come input, e restituirà un'istanza di `Text`. Viceversa, `Text.literal` deve non ricevere come input null, ma restituisce un `MutableText`, che è una sotto-classe di `Text` facilmente stilizzata e concatenata. Ne parleremo di più dopo.
+Questi sono creati tramite i metodi `Component.nullToEmpty` o `Component.literal`, che agiscono in modi un po' diversi. `Component.nullToEmpty` accetta null come input, e restituirà un'istanza di `Component`. Viceversa, `Component.literal` deve non ricevere come input null, ma restituisce un `MutableComponent`, che è una sotto-classe di `Component` facilmente stilizzata e concatenata. Ne parleremo di più dopo.
 
 ```java
-Text literal = Text.of("Hello, world!");
-MutableText mutable = Text.literal("Hello, world!");
-// Keep in mind that a MutableText can be used as a Text, making this valid:
-Text mutableAsText = mutable;
+Component literal = Component.nullToEmpty("Hello, world!");
+MutableComponent mutable = Component.literal("Hello, world!");
+// Keep in mind that a MutableComponent can be used as a Component, making this valid:
+Component mutableAsText = mutable;
 ```
 
-## Testo Traducibile {#translatable-text}
+## Componenti Testuali Traducibili {#translatable-text-components}
 
-Se volessi fornire traduzioni multiple della stessa stringa di testo, puoi usare il metodo `Text.translatable` per fare riferimento ad una chiave di traduzione in qualsiasi file lingua. Se la chiave di traduzione non esistesse, verrebbe convertita in testo letterale.
+Se volessi fornire traduzioni multiple della stessa stringa di testo, puoi usare il metodo `Component.translatable` per fare riferimento ad una chiave di traduzione in qualsiasi file lingua. Se la chiave di traduzione non esistesse, verrebbe convertita in testo letterale.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello");
+Component translatable = Component.translatable("example-mod.text.hello");
 
 // Similarly to literals, translatable text can be easily made mutable.
-MutableText mutable = Text.translatable("my_mod.text.bye");
+MutableComponent mutable = Component.translatable("example-mod.text.bye");
 ```
 
 Il file di lingua, `en_us.json`, ha il seguente aspetto:
 
 ```json
 {
-  "my_mod.text.hello": "Hello!",
-  "my_mod.text.bye": "Goodbye :("
+  "example-mod.text.hello": "Hello!",
+  "example-mod.text.bye": "Goodbye :("
 }
 ```
 
 Se volessi usare variabili nella traduzione, in maniera simile a come i messaggi di morte ti permettodo di usare i giocatori e gli oggetti coinvolti nella traduzione, puoi aggiungere queste variabili come parametri. Puoi aggiungerne quanti ne vuoi.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+Component translatable = Component.translatable("example-mod.text.hello", player.getDisplayName());
 ```
 
 Puoi fare riferimento a queste variabili nella traduzione così:
 
 ```json
 {
-  "my_mod.text.hello": "%1$s said hello!"
+  "example-mod.text.hello": "%1$s said hello!"
 }
 ```
 
-Nel gioco, %1\$s sarà sostituito dal nome del giocatore a cui hai fatto riferimento nel codice. Usare `player.getDisplayName()` farà in modo che certe informazioni aggiuntive sull'entità appaiano in un tooltip mentre si passa il mouse sopra al nome nel messaggio in chat, e ciò in contrasto con `player.getName()`, che mostrerà comunque il nome, ma non i dettagli aggiuntivi. Qualcosa di simile si può fare con gli itemStack, usando `stack.toHoverableText()`.
+Nel gioco, `%1$s` sarà sostituito dal nome del giocatore a cui hai fatto riferimento nel codice. Usare `player.getDisplayName()` farà in modo che certe informazioni aggiuntive sull'entità appaiano in un tooltip mentre si passa il mouse sopra al nome nel messaggio in chat, e ciò in contrasto con `player.getName()`, che mostrerà comunque il nome, ma non i dettagli aggiuntivi. Qualcosa di simile si può fare con gli itemStack, usando `stack.getDisplayName()`.
 
-Per quanto riguarda il significato di %1\$s, ti basti sapere che il numero corrisponde a quale variabile provi ad usare. Immagina di usare tre variabili.
+Per quanto riguarda il significato di `%1$s`, ti basti sapere che il numero corrisponde a quale variabile provi ad usare. Immagina di usare tre variabili.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+Component translatable = Component.translatable("example-mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
-Se vuoi fare riferimento a ciò che, nel nostro caso, è l'attaccante, useresti %2\$s perché è la seconda variabile che abbiamo passato. Allo stesso modo, %3\$s fa riferimento all'itemStack. Una traduzione con questo numero di parametri aggiuntivi potrebbe avere questo aspetto:
+Se vuoi fare riferimento a ciò che, nel nostro caso, è l'attaccante, useresti `%2$s` perché è la seconda variabile che abbiamo passato. Allo stesso modo, `%3$s` fa riferimento all'itemStack. Una traduzione con questo numero di parametri aggiuntivi potrebbe avere questo aspetto:
 
 ```json
 {
-  "my_mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
+  "example-mod.text.whack.item": "%1$s was whacked by %2$s using %3$s"
 }
 ```
 
 ## Serializzare Testo {#serializing-text}
 
-<!-- NOTE: These have been put into the reference mod as they're likely to be updated to codecs in the next few updates. -->
+<!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
 Come già accennato prima, puoi serializzare testo a JSON con il codec di testo. Per maggiori informazioni, vedi la pagina sui [Codec](./codecs).
 
@@ -90,7 +90,7 @@ Questo produce JSON che può essere usato in datapack, comandi e altri posti che
 
 ## Deserializzare Testo {#deserializing-text}
 
-Inoltre, per deserializzare un oggetto testo da JSON a un oggetto della classe `Text`, di nuovo, usa il codec.
+Inoltre, per deserializzare un oggetto testo da JSON a un oggetto della classe `Component`, di nuovo, usa il codec.
 
 @[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -98,11 +98,11 @@ Inoltre, per deserializzare un oggetto testo da JSON a un oggetto della classe `
 
 Forse sei familiare con gli standard di formattazione di Minecraft:
 
-Puoi applicare questi stili di formattazione usando l'enum `Formatting` sulla classe `MutableText`:
+Puoi applicare questi stili di formattazione usando l'enum `ChatFormatting` sulla classe `MutableComponent`:
 
 ```java
-MutableText result = Text.literal("Hello World!")
-  .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
+MutableComponent result = Component.literal("Hello World!")
+  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
 ```
 
 |              Colore             | Nome                             | Codice in Chat | Codice MOTD | Codice Hex |
