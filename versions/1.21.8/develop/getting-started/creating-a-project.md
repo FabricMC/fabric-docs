@@ -24,7 +24,7 @@ For example, if your mod ID was **`fabric-docs-reference`**, instead of _`resour
 
 ![Preview of the generator](/assets/develop/getting-started/template-generator.png)
 
-If you either want to use Kotlin, or Mojang's official mappings rather than the Yarn mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
+If you either want to use Kotlin, or Yarn mappings rather than the default Mojang mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
 
 ![Advanced options section](/assets/develop/getting-started/template-generator-advanced.png)
 
