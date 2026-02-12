@@ -22,9 +22,9 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		// :::datagen-setup:pack
 
-		// :::custom-enchantments:register-generator
+		// :::datagen-enchantments:register
 		pack.addProvider(ExampleModEnchantmentGenerator::new);
-		// :::custom-enchantments:register-generator
+		// :::datagen-enchantments:register
 
 		// :::datagen-advancements:register
 		pack.addProvider(ExampleModAdvancementProvider::new);
@@ -37,6 +37,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-tags:register
 		pack.addProvider(ExampleModItemTagProvider::new);
 		// :::datagen-tags:register
+		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
 		// :::datagen-recipes:register
 		pack.addProvider(ExampleModRecipeProvider::new);
@@ -64,12 +65,17 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	}
 
 	// :::datagen-setup:generator
+	// :::datagen-enchantments:bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+		// :::datagen-enchantments:bootstrap
+		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
+	// :::datagen-enchantments:bootstrap
 
 	// :::datagen-setup:generator
 }
