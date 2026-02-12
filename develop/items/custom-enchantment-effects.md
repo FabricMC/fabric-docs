@@ -36,19 +36,19 @@ Like every other component of your mod, we'll have to add this `EnchantmentEffec
 
 ## Creating the Enchantment {#creating-the-enchantment}
 
-Now we have an enchantment effect! The final step is to create an enchantment that applies our custom effect. While this can be done by creating a JSON file similar to those in datapacks, this guide will show you how to generate the JSON dynamically using Fabric's data generation tools. To begin, create an `ExampleModEnchantmentGenerator` class.
+Now we have an enchantment effect! The final step is to create an enchantment that applies our custom effect. We can do this with the data-driven enchantment system by simply adding a JSON file to our mod's resources.
 
-Within this class, we'll first register a new enchantment, and then use the `configure()` method to create our JSON programmatically.
+Create the JSON file in `data/example-mod/enchantments` folder. The name of this file will be the id of the enchantment: `thundering.json` will become `example-mod:thundering`.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+::: info
 
-Before proceeding, you should ensure your project is configured for data generation; if you are unsure, [view the respective docs page](../data-generation/setup).
+For more details about the file format, check out [Minecraft Wiki - Enchantment definition](https://minecraft.wiki/w/Enchantment_definition).
 
-Lastly, we must tell our mod to add our `EnchantmentGenerator` to the list of data generation tasks. To do so, simply add the `EnchantmentGenerator` to this inside of the `onInitializeDataGenerator` method.
+To quickly generate a custom enchantment, you can use the [Misode generator](https://misode.github.io/enchantment/).
 
-@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+:::
 
-Now, when you run your mod's data generation task, enchantment JSONs will be generated inside the `generated` folder. An example can be seen below:
+For this example we will use the following enchantment definition to add the `thundering` enchantment using our custom `lightning_effect`:
 
 @[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 

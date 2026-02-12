@@ -9,7 +9,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+
+import com.example.docs.component.ModComponents;
 
 //#entrypoint
 public class FabricDocsReference implements ModInitializer {
@@ -40,5 +43,9 @@ public class FabricDocsReference implements ModInitializer {
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 		//#entrypoint
+
+		// #tooltip_provider
+		ComponentTooltipAppenderRegistry.addAfter(DataComponentTypes.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
+		// #tooltip_provider
 	}
 }

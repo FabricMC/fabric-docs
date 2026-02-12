@@ -31,7 +31,7 @@ export const getResolver = (file: string, locale: string, warn = true): ((k: str
 
   if (warn && locale === "en_us") {
     for (const fileK of Object.keys(strings)) {
-      if (!/^[a-z0-9_.]+$/.test(fileK)) {
+      if (!/^(\/\/)?[a-z0-9_.]*$/.test(fileK)) {
         console.warn(`${file}: unusual character in key: ${fileK}`);
       }
     }
