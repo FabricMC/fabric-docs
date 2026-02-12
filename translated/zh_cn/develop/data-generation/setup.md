@@ -16,7 +16,7 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-## 数据生成是什么？ 数据生成是什么？ {#what-is-data-generation}
+## 数据生成是什么？ {#what-is-data-generation}
 
 数据生成 (又称 Datagen) 是一种 API，用于以编程方式生成配方、进度、标签、物品模型、语言文件、战利品表以及基本上任何基于 JSON 的内容。
 
@@ -28,21 +28,25 @@ authors-nogithub:
 
 ![模板生成器上勾选的“数据生成”框](/assets/develop/data-generation/data_generation_setup_01.png)
 
-:::tip
+::: tip
+
 如果启用了 datagen，应该有一个“数据生成”运行配置和一个 `runDatagen` Gradle 任务。
+
 :::
 
 ### 手动 {#manually-enabling-data-generation}
 
 首先，我们需要在 `build.gradle` 文件中启用 datagen。
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
 接下来，我们需要一个入口点类。 这是我们的 datagen 的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 
 @[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 最后，我们需要告诉 Fabric 我们的 `fabric.mod.json` 中的入口点：
+
+<!-- prettier-ignore -->
 
 ```json
 {
@@ -59,8 +63,10 @@ authors-nogithub:
 }
 ```
 
-:::warning
+::: warning
+
 别忘了在前一个入口点方块后面加一个逗号（`,`）！
+
 :::
 
 关闭并重新打开 IntelliJ 以创建 datagen 的运行配置。
@@ -84,3 +90,5 @@ authors-nogithub:
 - [配方](./recipes)
 - [标签](./tags)
 - [翻译](./translations)
+- [方块模型](./block-models)
+- [物品模型](./item-models)

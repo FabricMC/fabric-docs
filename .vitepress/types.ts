@@ -107,9 +107,14 @@ export namespace Fabric {
     /**
      * Set custom not found description.
      *
-     * @default "This page tried to swim in lava"
+     * @default "This page got tangled in the yarn"
      */
     quote: string;
+
+    /**
+     * The possible different quotes.
+     */
+    quotes: string[];
 
     /**
      * Set custom not found message.
@@ -117,6 +122,13 @@ export namespace Fabric {
      * @default "Page not found"
      */
     title: string;
+
+    /**
+     * Special not found message.
+     *
+     * @default "Page knot found"
+     */
+    pooh: string;
   }
 
   export interface VersionOptions {

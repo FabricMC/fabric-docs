@@ -2,6 +2,7 @@
 title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
+  - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
@@ -25,7 +26,9 @@ Just like with items, you need to ensure that the class is loaded so that all st
 You can do this by creating a dummy `initialize` method, which can be called in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the static initialization.
 
 ::: info
+
 If you are unaware of what static initialization is, it is the process of initializing static fields in a class. This is done when the class is loaded by the JVM, and is done before any instances of the class are created.
+
 :::
 
 ```java
@@ -50,18 +53,20 @@ For example purposes, we will be creating a simple block that has the properties
 - We tell the `register` method to create a `Block` instance from the block settings by calling the `Block` constructor.
 
 ::: tip
+
 You can also use `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
+
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
-### Adding Your Block's Item to an Item Group {#adding-your-block-s-item-to-an-item-group}
+### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 
-Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
+Since the `BlockItem` is automatically created and registered, to add it to a creative tab, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
-For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
+For this example, we will add the block to the `BUILDING_BLOCKS` tab. To instead add the block to a custom creative tab, see [Custom Creative Tabs](../items/custom-item-groups).
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -102,7 +107,9 @@ For the block to show in your inventory, you will need to create a [Client Item]
 @[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
 
 ::: tip
+
 You only need to create a client item if you've registered a `BlockItem` along with your block!
+
 :::
 
 When you load into the game, you may notice that the texture is still missing. This is because you need to add a blockstate definition.
@@ -118,7 +125,9 @@ This file should be located in the `assets/example-mod/blockstates` folder, and 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
 
 ::: tip
+
 Blockstates are incredibly complex, which is why they will be covered next in [their own separate page](./blockstates).
+
 :::
 
 Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply changes - you should be able to see the block texture in the inventory and physically in the world:
@@ -130,7 +139,9 @@ Restarting the game, or reloading via <kbd>F3</kbd>+<kbd>T</kbd> to apply change
 When breaking the block in survival, you may see that the block does not drop - you might want this functionality, however to make your block drop as an item on break you must implement its loot table - the loot table file should be placed in the `data/example-mod/loot_table/blocks/` folder.
 
 ::: info
+
 For a greater understanding of loot tables, you can refer to the [Minecraft Wiki - Loot Tables](https://minecraft.wiki/w/Loot_table) page.
+
 :::
 
 @[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
@@ -154,7 +165,7 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining level tag.
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresCorrectToolForDrops()` to your block settings, as well as add the appropriate mining level tag.
 
 ## Mining Levels {#mining-levels}
 

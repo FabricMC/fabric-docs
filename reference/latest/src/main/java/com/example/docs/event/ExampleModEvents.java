@@ -23,12 +23,12 @@ public class ExampleModEvents implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// :::1
-		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
-			BlockState state = world.getBlockState(pos);
+		AttackBlockCallback.EVENT.register((player, level, hand, pos, direction) -> {
+			BlockState state = level.getBlockState(pos);
 
 			// Manual spectator check is necessary because AttackBlockCallbacks fire before the spectator check
-			if (!player.isSpectator() && player.getMainHandItem().isEmpty() && state.requiresCorrectToolForDrops() && world instanceof ServerLevel serverWorld) {
-				player.hurtServer(serverWorld, world.damageSources().generic(), 1.0F);
+			if (!player.isSpectator() && player.getMainHandItem().isEmpty() && state.requiresCorrectToolForDrops() && level instanceof ServerLevel serverLevel) {
+				player.hurtServer(serverLevel, level.damageSources().generic(), 1.0F);
 			}
 
 			return InteractionResult.PASS;

@@ -66,8 +66,8 @@ public class DrawContextExampleScreen extends Screen {
 		// :::6
 		ResourceLocation texture2 = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
-		// renderLayer, texture, x, y, width, height, u, v, regionWidth, regionHeight, textureWidth, textureHeight
-		context.blit(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, 14, 14, u, v, regionWidth, regionHeight, 256, 256);
+		// renderLayer, texture, x, y, u, v, width, height, regionWidth, regionHeight, textureWidth, textureHeight
+		context.blit(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, u, v, 14, 14, regionWidth, regionHeight, 256, 256);
 		// :::6
 
 		// :::7

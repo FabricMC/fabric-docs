@@ -16,6 +16,7 @@
   "block.example-mod.waxcap": "Waxcap",
   "death.attack.tater": "%1$s died from Tater damage!",
   "effect.example-mod.tater": "Tater",
+  "enchantment.example-mod.repulsion_curse": "Curse of Repulsion",
   "enchantment.example-mod.thundering": "Thundering",
   "item.example-mod.counter": "Counter",
   "item.example-mod.counter.info": "Used %1$s times",
@@ -31,6 +32,8 @@
   "item.minecraft.potion.effect.tater": "Tater Potion",
   "itemGroup.example-mod": "Example Mod",
   "itemTooltip.example-mod.lightning_stick": "This is an extremely powerful weapon that can summon lightning bolts.",
+  "key.category.example-mod.custom_category": "Example Mod Custom Category",
+  "key.example-mod.send_to_chat": "Send to Chat",
   "sound.example-mod.metal_whistle": "Metal Whistle",
   "text.example-mod.greeting": "Hello there!"
 }

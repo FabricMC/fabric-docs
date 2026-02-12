@@ -79,10 +79,13 @@ export default defineVersionedConfig(
       languageAlias: { gradle: "groovy" },
       languages: [
         async () =>
-          // Adds support for mcfunction language to shiki.
           await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
             with: { type: "json" },
           }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
+        async () =>
+          await import("syntax-java-bytecode/java-bytecode.tmLanguage.json", {
+            with: { type: "json" },
+          }).then((lang) => ({ ...(lang.default as any), name: "bytecode" })),
       ],
       lineNumbers: true,
       shikiSetup: async (shiki) => {

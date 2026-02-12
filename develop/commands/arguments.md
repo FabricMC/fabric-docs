@@ -45,7 +45,9 @@ For example, you can create an argument type that parses a `BlockPos` from a str
 ### Registering Custom Argument Types {#registering-custom-argument-types}
 
 ::: warning
+
 You need to register the custom argument type on both the server and the client or else the command will not work!
+
 :::
 
 You can register your custom argument type in the `onInitialize` method of your [mod's initializer](../getting-started/project-structure#entrypoints) using the `ArgumentTypeRegistry` class:

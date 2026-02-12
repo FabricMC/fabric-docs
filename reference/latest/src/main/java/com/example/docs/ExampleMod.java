@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +18,10 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+
+import com.example.docs.component.ModComponents;
 
 //#entrypoint
 public class ExampleMod implements ModInitializer {
@@ -64,5 +69,9 @@ public class ExampleMod implements ModInitializer {
 		);
 		// :::datagen-world:selective-biome-modifications
 		//#entrypoint
+
+		// #tooltip_provider
+		ComponentTooltipAppenderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
+		// #tooltip_provider
 	}
 }

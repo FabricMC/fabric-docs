@@ -12,7 +12,9 @@ next: false
 Make sure the new game version and Loader version are correct, then click `Install` to update Fabric.
 
 ::: warning IMPORTANT
+
 Make sure to uncheck 'Create Profile' when running the installer!
+
 :::
 
 ## 3. Update Profile in the Minecraft Launcher {#3-update-launcher-profile}
@@ -27,4 +29,4 @@ Replace the version with the new version of Fabric Loader you just installed, an
 
 Once you've completed the steps you can go back to the `Play` tab, select the Fabric profile from the dropdown in the bottom-left corner and press play!
 
-If you encounter any issues whilst following this guide, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter any issues whilst following this guide, you can ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

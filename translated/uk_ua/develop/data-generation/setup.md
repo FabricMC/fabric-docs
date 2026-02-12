@@ -1,5 +1,5 @@
 ---
-title: Генерація даних налаштування
+title: Налаштування генерації даних
 description: Посібник із генерації даних налаштування за допомогою API Fabric.
 authors:
   - ArkoSammy12
@@ -24,25 +24,29 @@ authors-nogithub:
 
 ### Під час створення проєкту {#enabling-data-generation-at-project-creation}
 
-Найпростіший спосіб увімкнути datagen – під час створення проєкту. Поставте прапорець «Увімкнути генерацію даних» під час використання [генератора шаблонів](https://fabricmc.net/develop/template/).
+Найпростіший спосіб увімкнути datagen — під час створення проєкту. Поставте прапорець «Увімкнути генерацію даних» під час використання [генератора шаблонів](https://fabricmc.net/develop/template/).
 
 ![Позначене поле «Генерація даних» у генераторі шаблонів](/assets/develop/data-generation/data_generation_setup_01.png)
 
-:::tip
-Якщо datagen увімкнено, ви повинні мати конфігурацію запуску "Data Generation" і завдання Gradle "runDatagen".
+::: tip
+
+Якщо datagen увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
+
 :::
 
 ### Власноруч {#manually-enabling-data-generation}
 
 По-перше, нам потрібно ввімкнути datagen у файлі `build.gradle`.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` - у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
+Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
 @[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Нарешті, нам потрібно повідомити Fabric про точку входу в нашому `fabric.mod.json`:
+
+<!-- prettier-ignore -->
 
 ```json
 {
@@ -59,13 +63,15 @@ authors-nogithub:
 }
 ```
 
-:::warning
-Не забудьте додати кому (`,`) після попереднього блоку точки входу!
+::: warning
+
+Не забудьте додати кому (`,`) після попереднього блока точки входу!
+
 :::
 
 Закрийте та знову відкрийте IntelliJ, щоб створити налаштування запуску для datagen.
 
-## Створення пакету {#creating-a-pack}
+## Створення пакета {#creating-a-pack}
 
 Усередині методу `onInitializeDataGenerator` вашої точки входу даних нам потрібно створити `Pack`. Пізніше ви додасте **постачальників**, які додадуть згенеровані дані в цей `Pack`.
 
@@ -83,4 +89,6 @@ authors-nogithub:
 - [Таблиці здобичі](./loot-tables)
 - [Рецепти](./recipes)
 - [Теґи](./tags)
-- [Переклад](./translations)
+- [Переклади](./translations)
+- [Моделі блока](./block-models)
+- [Моделі предмета](./item-models)

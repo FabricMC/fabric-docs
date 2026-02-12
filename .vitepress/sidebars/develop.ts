@@ -268,9 +268,13 @@ export default [
             link: "/develop/data-generation/loot-tables",
           },
           {
-            text: "develop.data_generation.world",
-            link: "/develop/data-generation/world",
+            text: "develop.data_generation.enchantments",
+            link: "/develop/data-generation/enchantments",
           },
+          {
+            text: "develop.data_generation.world",
+            link: "/develop/data-generation/world", 
+          }, 
         ],
       },
     ],
@@ -334,6 +338,12 @@ export default [
       {
         text: "develop.porting.next",
         link: "/develop/porting/next",
+        items: [
+          {
+            text: "develop.porting.26.1.fabric_api",
+            link: "/develop/porting/26.1/fabric-api",
+          },
+        ],
       },
       {
         text: "develop.porting.migrating_mappings",
@@ -347,7 +357,7 @@ export default [
             text: "develop.porting.migrating_mappings.ravel",
             link: "/develop/migrating-mappings/ravel",
           },
-        ],  
+        ],
       },
     ],
   },
@@ -376,6 +386,10 @@ export default [
       {
         text: "develop.misc.networking",
         link: "/develop/networking",
+      },
+      {
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
       },
       {
         text: "develop.misc.debugging",

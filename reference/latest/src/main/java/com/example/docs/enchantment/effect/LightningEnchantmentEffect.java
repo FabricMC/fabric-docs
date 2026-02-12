@@ -24,14 +24,14 @@ public record LightningEnchantmentEffect(LevelBasedValue amount) implements Ench
 	);
 
 	@Override
-	public void apply(ServerLevel world, int level, EnchantedItemInUse context, Entity target, Vec3 pos) {
+	public void apply(ServerLevel serverLevel, int level, EnchantedItemInUse context, Entity target, Vec3 pos) {
 		if (target instanceof LivingEntity victim) {
 			if (context.owner() != null && context.owner() instanceof Player player) {
 				float numStrikes = this.amount.calculate(level);
 
 				for (float i = 0; i < numStrikes; i++) {
 					BlockPos position = victim.blockPosition();
-					EntityType.LIGHTNING_BOLT.spawn(world, position, EntitySpawnReason.TRIGGERED);
+					EntityType.LIGHTNING_BOLT.spawn(serverLevel, position, EntitySpawnReason.TRIGGERED);
 				}
 			}
 		}

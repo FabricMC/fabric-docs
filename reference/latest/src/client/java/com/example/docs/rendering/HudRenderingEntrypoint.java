@@ -21,11 +21,11 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "before_chat"), HudRenderingEntrypoint::render);
 	}
 
-	private static void render(GuiGraphics context, DeltaTracker tickCounter) {
+	private static void render(GuiGraphics graphics, DeltaTracker tickCounter) {
 		int color = 0xFFFF0000; // Red
 		int targetColor = 0xFF00FF00; // Green
 
-		// You can use the Util.getMeasuringTimeMs() function to get the current time in milliseconds.
+		// You can use the Util.getMillis() function to get the current time in milliseconds.
 		// Divide by 1000 to get seconds.
 		double currentTime = Util.getMillis() / 1000.0;
 
@@ -35,7 +35,7 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 
 		// Draw a square with the lerped color.
 		// x1, x2, y1, y2, color
-		context.fill(0, 0, 10, 10, lerpedColor);
+		graphics.fill(0, 0, 10, 10, lerpedColor);
 	}
 }
 

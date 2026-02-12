@@ -2,6 +2,7 @@
 title: Generazione di Progressi
 description: Una guida per configurare la generazione di progressi con datagen.
 authors:
+  - CelDaemon
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
@@ -10,28 +11,32 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 :::info PREREQUISITI
+
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
+
 :::
 
 ## Configurazione {#setup}
 
-Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che `extends FabricAdvancementProvider` e compilane i metodi di base:
+Anzitutto, dobbiamo creare il nostro fornitore. Crea una classe che estenda `FabricAdvancementProvider` e compilane i metodi di base:
 
 @[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Struttura dei Progressi {#advancement-structure}
 
 Un progresso è composto di alcune componenti diverse. Assieme ai requisiti, detti "criterio", potrebbe avere:
 
-- Un `AdvancementDisplay` che dice al gioco come mostrare il progresso ai giocatori,
+- Un oggetto `DisplayInfo` che dica al gioco come mostrare il progresso ai giocatori,
 - `AdvancementRequirements`, ovvero liste di liste di criteri, che richiedono che almeno un criterio di ogni sotto-lista sia soddisfatto,
 - `AdvancementRewards`, che il giocatore riceverà per aver completato il progresso,
-- Un `CriterionMerger`, che informa il progresso su come gestire criteri multipli, e
+- Una `Strategy`, che informa il progresso su come gestire criteri multipli, e
 - Un `Advancement` genitore, che organizza la gerarchia che vedi nella schermata "Progressi".
 
 ## Progressi Semplici {#simple-advancements}
@@ -40,12 +45,16 @@ Ecco un semplice progresso per aver ottenuto un blocco di terra:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-:::warning
+::: warning
+
 Nel costruire le voci del tuo progresso, ricorda che la funzione accetta l'`Identifier` del progresso nel formato `String`!
+
 :::
 
 :::details Output JSON
+
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+
 :::
 
 ## Un Altro Esempio Ancora {#one-more-example}
@@ -56,13 +65,15 @@ Solo per capirne il funzionamento, aggiungiamo un altro progresso. Faremo pratic
 
 ## Criteri Personalizzati {#custom-criteria}
 
-:::warning
+::: warning
+
 Anche se la datagen può avvenire lato client, i `Criterion` e i `Predicate` sono nell'insieme di codice main (entrambi i lati), poiché il server ne ha bisogno per innescarli e valutarli.
+
 :::
 
 ### Definizioni {#definitions}
 
-Un **criterio** (in inglese _criterion_, plurale _criteria_) è qualcosa che un giocatore può fare (o che succede a un giocatore) e che può essere considerata per quanto riguarda un progresso. Nel gioco ci sono già vari [criteri](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), che si possono trovare nel package `net.minecraft.advancement.criterion`. In genere dovrai aggiungere un nuovo criterio solo se devi implementare una meccanica personalizzata nel gioco.
+Un **criterio** (in inglese _criterion_, plurale _criteria_) è qualcosa che un giocatore può fare (o che succede a un giocatore) e che può essere considerata per quanto riguarda un progresso. Nel gioco ci sono già vari [criteri](https://minecraft.wiki/w/Advancement_definition#List_of_triggers), che si possono trovare nel package `net.minecraft.advancements.criterion`. In genere dovrai aggiungere un nuovo criterio solo se devi implementare una meccanica personalizzata nel gioco.
 
 Le **condizioni** sono valutate dai criteri. Un criterio viene preso in considerazione solo se tutte le condizioni rilevanti sono soddisfatte. Le condizioni di solito si esprimono come predicati.
 
@@ -82,12 +93,14 @@ Ora, creiamo il nostro criterio personalizzato, `UseToolCriterion`. Avrà bisogn
 
 Wow, questo è un sacco! Analizziamolo poco per volta.
 
-- `UseToolCriterion` è un `AbstractCriterion`, al quale si possono applicare delle `Conditions`.
+- `UseToolCriterion` è un `SimpleCriterionTrigger`, al quale si possono applicare delle `Conditions`.
 - `Conditions` ha un attributo `playerPredicate`. Tutte le `Conditions` dovrebbero avere un predicato del giocatore (tecnicamente un `LootContextPredicate`).
 - `Conditions` ha anche un `CODEC`. Questo `Codec` è semplicemente il codec per il suo unico attributo, `playerPredicate`, con istruzioni aggiuntive per convertirlo tra di essi (`xmap`).
 
-:::info
+::: info
+
 Per saperne di più sui codec, controlla la pagina [Codec](../codecs).
+
 :::
 
 Ci serve un modo per controllare se le condizioni sono soddisfatte. Aggiungiamo un metodo ausiliare a `Conditions`:

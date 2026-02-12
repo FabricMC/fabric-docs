@@ -16,7 +16,7 @@ Loom ha un DSL (Linguaggio Specifico del Dominio) che permette di configurare ce
 
 ## Generazione di Dati {#data-gen}
 
-Per una guida passo per passo su come usare la generazione di dati, contolla la pagina [Configurazione della Generazione di Dati](data-generation/setup). La configurazione di generazione di dati più basilare si può configurare con il codice seguente:
+Per una guida passo passo su come usare la generazione dei dati, guarda la pagina [Data Generation Setup](../data-generation/setup). La configurazione di generazione di dati più basilare si può configurare con il codice seguente:
 
 ```groovy
 fabricApi {

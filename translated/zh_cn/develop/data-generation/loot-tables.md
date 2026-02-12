@@ -3,6 +3,7 @@ title: 战利品表生成
 description: 使用 Datagen 设置战利品表生成的指南。
 authors:
   - Alphagamer47
+  - CelDaemon
   - JustinHuPrime
   - matthewperiut
   - skycatminepokie
@@ -12,13 +13,17 @@ authors-nogithub:
   - mcrafterzz
 ---
 
-:::info 前提
-首先，请确保你已完成 [Datagen 设置](./setup) 。
+<!---->
+
+:::info 前置条件
+
+请确保你已经完成 [datagen setup] 章节(./setup)。
+
 :::
 
 需要针对方块、箱子和实体提供不同的提供程序（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将它们全部添加到包中。
 
-@[code lang=java transclude={34-35}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## 战利品表详解 {#loot-tables-explained}
 
@@ -28,13 +33,13 @@ authors-nogithub:
 
 ## 方块 {#blocks}
 
-为了让方块掉落物品（包括本身），我们需要制作一个战利品表。 创建一个 `extends FabricBlockLootTableProvider` 的类：
+为了让方块掉落物品（包括本身），我们需要制作一个战利品表。 创建一个继承 `FabricBlockLootTableProvider` 的类：
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
 
 确保将此提供程序添加到包中！
 
-有很多辅助方法可用于帮助构建战利品表。 我们不会逐一介绍，因此请确保在您的 IDE 中检查它们。
+有很多辅助方法可用于帮助构建战利品表。 我们不会逐一介绍，因此请确保在你的 IDE 中检查它们。
 
 我们在 `generate` 方法中添加一些掉落物：
 
@@ -42,11 +47,11 @@ authors-nogithub:
 
 ## 箱子 {#chests}
 
-箱子的战利品比方块的战利品稍微复杂一些。 创建一个类似于下面示例的 `extends SimpleFabricLootTableProvider` 类**并将其添加到您的包中**。
+箱子的战利品比方块的战利品稍微复杂一些。 创建一个继承自 `SimpleFabricLootTableProvider` 的类，类似于下面的示例**并将其添加到你的包中**。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-我们需要一个 `RegistryKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
+我们需要一个 `ResourceKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
 

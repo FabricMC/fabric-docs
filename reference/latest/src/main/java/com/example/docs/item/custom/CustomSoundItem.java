@@ -11,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
 public class CustomSoundItem extends Item {
-	public CustomSoundItem(Properties settings) {
-		super(settings);
+	public CustomSoundItem(Properties properties) {
+		super(properties);
 	}
 
 	// :::1

@@ -11,20 +11,36 @@ Lasst uns als Beispiel den Zählerblock aus dem [Artikel zu Block Entitäten](..
 
 ## Erstellen eines BlockEntityRenderer {#creating-a-blockentityrenderer}
 
-Zuerst müssen wir einen `BlockEntityRenderer` für unsere `CounterBlockEntity` erstellen.
+Das Block-Entität-Rendering verwendet ein Submit-/Render-System, bei dem du zunächst die zum Rendern eines Objekts auf dem Bildschirm erforderlichen Daten übermittelst. Das Spiel rendert das Objekt dann anhand des übermittelten Status.
 
 Beim Erstellen eines `BlockEntityRenderer` für die `CounterBlockEntity` ist es wichtig, wenn das Projekt geteilte Quellen für den Client und den Server nutzt, die Klasse in das passende Quellenverzeichnis, wie `src/client/`, zu platzieren. Der Zugriff auf Rendering-bezogene Klassen direkt im `src/main/` Quellenverzeichnis ist nicht sicher, da diese Klassen möglicherweise am Server nicht geladen sind.
 
+Zunächst müssen wir einen `BlockEntityRenderState` für unsere `CounterBlockEntity` erstellen, um die Daten zu speichern, die für das Rendern verwendet werden. In diesem Fall müssen die `clicks` während des Renderns verfügbar sein.
+
+@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+
+Dann erstellen wir einen `BlockEntityRenderer` für unsere `CounterBlockEntity`.
+
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererFactory.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
-Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererFactory` selbst zu verwenden:
+Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererProvider.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
+Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererProvider` selbst zu verwenden:
 
 @[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
+Wir werden einige Methoden überschreiben, um den Renderzustand zusammen mit der Methode `render` einzurichten, in der die Rendering-Logik eingerichtet wird.
+
+`createRenderState` kann verwendet werden, um den Renderzustand zu initialisieren.
+
+@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+
+`extractRenderState` kan verwendet werden, um den Renderzustand mit Daten von einer Entität zu aktuaisieren.
+
+@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+
 Du solltest Renderer für Blockentitäten in deiner Klasse `ClientModInitializer` registrieren.
 
-`BlockEntityRendererFactories` ist eine Registrierung, die jeden `BlockEntityType` mit benutzerdefinierten Rendering-Code dem entsprechenden `BlockEntityRenderer` zuordnet.
+`BlockEntityRenderers` ist eine Registrierung, die jeden `BlockEntityType` mit benutzerdefinierten Rendering-Code dem entsprechenden `BlockEntityRenderer` zuordnet.
 
 ## Auf Blöcke zeichnen {#drawing-on-blocks}
 
@@ -34,11 +50,13 @@ Jetzt, da wir den Renderer haben, können wir zeichnen. Die Methode `render` wir
 
 Zunächst müssen wir den Text versetzen und drehen, damit er sich auf der oberen Seite des Blocks befindet.
 
-:::info
-Wie der Name bereits vermuten lässt ist der `MatrixStack` ein _Stapel_, was bedeutet, dass du Transformationen darauf hinzufügen (push) und davon entfernen (pop) kannst.
+::: info
+
+Wie der Name bereits vermuten lässt ist der `PoseStack` ein _Stapel_, was bedeutet, dass du Transformationen darauf hinzufügen (push) und davon entfernen (pop) kannst.
 Eine gute Faustregel ist es, einen neuen Block an den Anfang der `render`-Methode hinzuzufügen und ihn am Ende wieder zu entfernen, so dass das Rendern eines Blocks die anderen nicht beeinflusst.
 
-Mehr Informationen zu dem `MatrixStack` kann in dem [Artikel zu den grundlegenden Konzepten des Rendering](../rendering/basic-concepts) gefunden werden.
+Mehr Informationen zu dem `PoseStack` kann in dem [Artikel zu den grundlegenden Konzepten des Rendering](../rendering/basic-concepts) gefunden werden.
+
 :::
 
 Zum besseren Verständnis der erforderlichen Verschiebungen und Drehungen sollten wir sie visualisieren. In diesem Bild ist der grüne Block die Position, an der der Text gezeichnet werden würde, standardmäßig am äußersten linken unteren Punkt des Blocks:
@@ -61,10 +79,10 @@ Standardmäßig wird der Text auf der XY-Ebene gezeichnet, also müssen wir ihn 
 
 ![Grüner Block, nach oben schauend, am obersten zentriertem Punkt](/assets/develop/blocks/block_entity_renderer_3.png)
 
-Der `MatrixStack` hat keine `rotate` Methode, stattdessen müssen wir `multiply` und `RotationAxis.POSITIVE_X` verwenden:
+Der `PoseStack` hat keine `rotate` Methode, stattdessen müssen wir `multiply` und `Axis.XP` verwenden:
 
 ```java
-matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+matrices.multiply(Axis.XP.rotationDegrees(90));
 ```
 
 Jetzt ist der Text an der korrekten Position, aber ist zu groß. Der `BlockEntityRenderer` ordnet den ganzen Block zu einem `[-0.5, 0.5]` Würfel zu, während der `TextRenderer` X-Koordinaten von `[0, 9]` verwendet. Somit müssen wir es um den Faktor 18 herunter skalieren:
@@ -79,18 +97,18 @@ Jetzt sieht die ganze Transformation wie folgt aus:
 
 ### Zeichnen von Text {#drawing-text}
 
-Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers übergebene `Context` einen `TextRenderer`, welchen wir für das Zeichnen von Text einsetzen können. Für dieses Beispiel werden wir ihn in einem Feld speichern.
+Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers übergebene `Context` einen `TextRenderer`, den wir für das Messen von Text (`width`) verwenden können, was für die Zentrierung nützlich ist.
 
-Der `TextRenderer` hat Methoden um Text zu messen (`getWidth`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`draw`).
+Um den Text zu zeichnen, übermitteln wir die erforderlichen Daten an die Render-Warteschlange. Da wir Text zeichnen, können wir die Methode `submitText` verwenden, die über die Instanz `OrderedRenderCommandQueue` bereitgestellt wird, die an die Methode `render` übergeben wird.
 
 @[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Die Methode `draw` nimmt einige Paramter, aber die Wichtigsten sind:
+Die Methode `submitText` nimmt einige Paramter, aber die Wichtigsten sind:
 
-- der zu zeichnende `Text` (oder `String`);
+- die zu zeichnende `FormattedCharSequence`;
 - seine `x` und `y` Koordinaten;
 - der RGB `color` Wert;
-- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `MatrixStack` zu erhalten, können wir `.peek().getPositionMatrix()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
+- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `PoseStack` zu erhalten, können wir `.last().pose()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
 
 Und nach dieser ganzen Arbeit, ist hier das Ergebnis:
 

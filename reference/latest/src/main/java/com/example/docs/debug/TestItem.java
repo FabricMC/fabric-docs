@@ -23,10 +23,10 @@ public class TestItem extends Item {
 	// ::::::problems:logger-usage-example
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
-		Level world = user.level();
+		Level level = user.level();
 
 		// ::::::problems:logger-usage-example
-		if (world.isClientSide()) {
+		if (level.isClientSide()) {
 			// :::problems:using-logger
 			ExampleModDebug.LOGGER.info("You interacted with an entity!");
 			// :::problems:using-logger
@@ -60,11 +60,11 @@ public class TestItem extends Item {
 	// :::problems:breakpoints
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
-		Level world = context.getLevel();
+		Level level = context.getLevel();
 		Player user = context.getPlayer();
 		BlockPos targetPos = context.getClickedPos();
 		ItemStack itemStack = context.getItemInHand();
-		BlockState state = world.getBlockState(targetPos);
+		BlockState state = level.getBlockState(targetPos);
 
 		if (state.is(ConventionalBlockTags.STONES) || state.is(ConventionalBlockTags.COBBLESTONES)) {
 			Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));

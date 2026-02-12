@@ -1,27 +1,28 @@
 ---
-title: Benutzerdefinierte Itemgruppen
-description: Lerne, wie du deine eigenen Itemgruppen erstellst und Items hinzufügst.
+title: Benutzerdefinierte Kreativtabs
+description: Lerne, wie du deinen eigenen Kreativtab erstellst und Items ihm hinzufügst.
 authors:
+  - CelDaemon
   - IMB11
 ---
 
-Itemgruppen sind die Registerkarten im kreativen Inventar, in denen Items gespeichert werden. Du kannst deine eigenen Itemgruppen erstellen und deine Items in einem speraten Tab speichern. Das ist ziemlich nützlich, wenn dein Mod viele Items hinzufügt und du sie an einem Ort organisieren möchtest, damit deine Spieler leicht darauf zugreifen können.
+Kreativtabs, auch bekannt als Item Gruppen, sind Tabs im Kreativmenü, die Items speichern. Du kannst deine eigenen Kreativtabs erstellen und deine Items in einem speraten Tab speichern. Das ist ziemlich nützlich, wenn dein Mod viele Items hinzufügt und du sie an einem Ort organisieren möchtest, damit deine Spieler leicht darauf zugreifen können.
 
-## Die Itemgruppe erstellen {#creating-the-item-group}
+## Den Kreativtab erstellen {#creating-the-creative-tab}
 
-Es ist überaschend einfach eine Itemgruppe zu erstellen. Erstell einfach ein neues statisches finales Feld in deiner Itemklasse, um die Itemgruppe und einen Registrierungsschlüssel dafür zu speichern, dann kannst du das Itemgruppen-Ereignis ähnlich verwenden, wie du deine Items zu den Vanilla Itemgruppen hinzugefügt hast:
+Einen Kreativtab zu erstellen ist recht einfach. Erstelle einfach ein neues statisches finales Feld in deiner Item-Klasse, um den Kreativtab und einen Ressourcenschlüssel dafür zu speichern. Du kannst dann den `FabricItemGroup.builder` verwenden, um den Kreativtab zu erstellen und Items zu ihm hinzuzufügen:
 
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Du solltest sehen, dass die Itemgruppe jetzt im kreativen Inventar ist. Es ist jedoch unübersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie du dein erstes Item übersetzt hast.
+Du solltest sehen, dass die Kreativgruppe jetzt im Kreativinventar ist. Es ist jedoch unübersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie du dein erstes Item übersetzt hast.
 
-![Itemgruppe ohne Übersetzungsschlüssel im kreativen Menü](/assets/develop/items/itemgroups_0.png)
+![Kreativtab ohne Übersetzung im Kreativmenü](/assets/develop/items/itemgroups_0.png)
 
 ## Einen Übersetzungsschlüssel hinzufügen {#adding-a-translation-key}
 
-Wenn du `Text.translatable` für die Methode `displayName` des Itemgruppen Builders verwendet hast, musst du die Übersetzung zu deiner Sprachdatei hinzufügen.
+Wenn du `Component.translatable` für die Methode `title` des Kreativtab Builders verwendet hast, musst du die Übersetzung zu deiner Sprachdatei hinzufügen.
 
 ```json
 {
@@ -29,6 +30,6 @@ Wenn du `Text.translatable` für die Methode `displayName` des Itemgruppen Build
 }
 ```
 
-Wie du sehen kannst, sollte die Itemgruppe nun korrekt benannt sein:
+Wie du sehen kannst, sollte der Kreativtab nun korrekt benannt sein:
 
-![Vollständig fertiggestellte Itemgruppe mit Übersetzung und Items](/assets/develop/items/itemgroups_1.png)
+![Vollständig fertiggestellter Kreativtab mit Übersetzung und Items](/assets/develop/items/itemgroups_1.png)

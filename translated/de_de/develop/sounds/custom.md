@@ -37,11 +37,11 @@ Der Untertiteleintrag bietet dem Spieler mehr Kontext. Der Name des Untertitels 
 
 ## Registrieren des benutzerdefinierten Sounds {#registering-the-custom-sound}
 
-Um den benutzerdefinierten Sound zu dem Mod hinzuzufügen, registriere ein SoundEvent in deinem [Mod-Initialisierer](./getting-started/project-structure#entrypoints).
+Um den benutzerdefinierten Sound zu dem Mod hinzuzufügen, registriere ein SoundEvent in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## Das Chaos aufräumen {#cleaning-up-the-mess}
@@ -58,4 +58,4 @@ Auf diese Weise, muss der Mod-Initialisierer nur eine Zeile zur Registrierung al
 
 ## Das benutzerdefinierte SoundEvent nutzen {#using-the-custom-soundevent}
 
-Verwende die Hilfsklasse, um auf das benutzerdefinierte SoundEvent zuzugreifen. Auf der Seite [SoundEvents abspielen](./using-sounds) erfährst du, wie man Sounds abspielt.
+Verwende die Hilfsklasse, um auf das benutzerdefinierte SoundEvent zuzugreifen. Auf der Seite [Sounds abspielen](./using-sounds) erfährst du, wie man Sounds abspielt.

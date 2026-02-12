@@ -15,7 +15,9 @@ Install it from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/289
 ## Migrating Mappings {#migrating-mappings}
 
 ::: warning
+
 Commit any changes before attempting to remap your sources! **Do not modify your `gradle.properties` or `build.gradle` yet!**
+
 :::
 
 Start by right clicking on a file open in the Editor and choose **Refactor** > **Remap Using Ravel**
@@ -29,7 +31,9 @@ A dialog like this will open. You can also open the dialog by clicking **Refacto
 Next, add the mappings by clicking the + icon. Click the download option if you don't have them already.
 
 ::: info
+
 If you do not see the download button, update Ravel to 0.3 or above.
+
 :::
 
 - For migrating from Yarn to Mojang Mappings, add the Yarn `mappings.tiny` file first, choose `named` as the **source** namespace and `official` as the **destination** namespace. Then, add the Mojang `client.txt` file and choose `target` as the **source** namespace and `source` as the **destination** namespace.
@@ -61,7 +65,7 @@ yarn_mappings=1.21.11+build.3 # [!code --]
 
 That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
-For problems that are detected by Ravel, you can search (Ctrl+Shift+F) for `TODO(Ravel)`.
+For problems that are detected by Ravel, you can search (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>) for `TODO(Ravel)`.
 
 ![Ravel TODO Search](/assets/develop/misc/migrating-mappings/ravel_todo.png)
 

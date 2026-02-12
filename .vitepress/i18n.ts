@@ -31,7 +31,7 @@ export const getResolver = (file: string, locale: string, warn = true): ((k: str
 
   if (warn && locale === "en_us") {
     for (const fileK of Object.keys(strings)) {
-      if (!/^[a-z0-9_.]+$/.test(fileK)) {
+      if (!/^(\/\/)?[a-z0-9_.]*$/.test(fileK)) {
         console.warn(`${file}: unusual character in key: ${fileK}`);
       }
     }
@@ -93,26 +93,15 @@ export const getLocales = () => {
       type: "language",
     });
 
-    // https://en.wikipedia.org/wiki/Regional_indicator_symbol
-    const flag = String.fromCodePoint(
-      ...locale
-        .slice(-2)
-        .toUpperCase()
-        .split("")
-        .map((char) => 127397 + char.charCodeAt(0))
-    );
-
-    const name = intl
-      .of(intlLocale)!
-      // Capitalize first character
-      .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale));
-
     returned[locale === "en_us" ? "root" : locale] = {
-      description: resolver("description"),
-      label: `${flag} ${name}`,
-      lang: locale,
+      lang: intlLocale,
       link: locale === "en_us" ? "/" : `/${locale}/`,
+      label: intl
+        .of(intlLocale)!
+        .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale)),
+
       title: resolver("title"),
+      description: resolver("description"),
 
       themeConfig: {
         authors: {
@@ -208,7 +197,8 @@ export const getLocales = () => {
         notFound: {
           code: resolver("404.code"),
           title: resolver("404.title"),
-          quote: resolver("404.quote"),
+          pooh: resolver("404.title.pooh"),
+          quotes: resolver("404.quotes") as never,
 
           crowdinLocale,
           crowdinLinkLabel: resolver("404.crowdin_link.label"),

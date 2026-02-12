@@ -28,21 +28,25 @@ Der leichteste Weg die Datengenerierung zu aktivieren ist bei der Projekterstell
 
 ![Das aktivierte "Data Generation" Kontrollkästchen beim Vorlagengenerator](/assets/develop/data-generation/data_generation_setup_01.png)
 
-:::tip
-Wenn die Datengenerierung aktiviert ist, solltest du eine "Data Generation" Laufkonfiguration udn einen `runDatagen` Gradle Task haben.
+::: tip
+
+Wenn der Datengenerator aktiviert ist, solltest du eine "Data Generation" Laufkonfiguration udn einen `runDatagen` Gradle Task haben.
+
 :::
 
 ### Manuell {#manually-enabling-data-generation}
 
-Zuerst müssen wir die Datengenerierung in der `build.Gradle`-Datei aktivieren.
+Zuerst müssen wir den Datengenerator in der Datei `build.gradle` aktivieren.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unsere Datengenerierung startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
+Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unser Datengenerator startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
 @[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Schließlich müsen wir Fabric in der `fabric.mod.json` über den Einstiegspunkt informieren:
+
+<!-- prettier-ignore -->
 
 ```json
 {
@@ -59,21 +63,23 @@ Schließlich müsen wir Fabric in der `fabric.mod.json` über den Einstiegspunkt
 }
 ```
 
-:::warning
-Vergesse nicht, ein Komma (`,`) nach dem vorherigen Einstiegspunkt-Block hinzuzufügen!
+::: warning
+
+Vergesse nicht, nach dem vorherigen Einstiegspunkt-Block ein Komma (`,`) hinzuzufügen!
+
 :::
 
-Schließe IntelliJ und öffne es erneut, um eine Laufkonfiguration für die Datengenerierung zu erstellen.
+Schließe IntelliJ und öffne es erneut, um eine Laufkonfiguration für den Datengenerator zu erstellen.
 
-## Ein Packet erstellen {#creating-a-pack}
+## Ein Pack erstellen {#creating-a-pack}
 
-Innerhalb der Methode `onInitializeDataGenerator` deines Einstiegspunktes für die Datengenerierung m+ssen wir ein `Pack` erstellen. Später fügst du **Provider** hinzu, die generierte Daten in dieses `Pack` einfügen.
+Innerhalb der Methode `onInitializeDataGenerator` deines Einstiegspunktes für die Datengenerierung müssen wir ein `Pack` erstellen. Später fügst du **Provider** hinzu, die generierte Daten in dieses `Pack` einfügen.
 
 @[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
-## Ausführen des Datengenerators {#running-data-generation}
+## Ausführen der Datengenerierung {#running-data-generation}
 
-Um die Datengenerierung auszuführen, nutze die Laufkonfiguration in deiner IDE oder führe in der Konsole `./gradlew runDatagen` aus. Die generierten Dateien werden in `src/main/generated` erstellt.
+Um den Datengenerator auszuführen, nutze die Laufkonfiguration in deiner IDE oder führe in der Konsole `./gradlew runDatagen` aus. Die generierten Dateien werden in `src/main/generated` erstellt.
 
 ## Nächste Schritte {#next-steps}
 
@@ -84,3 +90,5 @@ Nachdem der Datengenerator nun eingerichtet ist, müssen wir **Provider** hinzuf
 - [Rezepte](./recipes)
 - [Tags](./tags)
 - [Übersetzungen](./translations)
+- [Blockmodelle](./block-models)
+- [Itemmodelle](./item-models)

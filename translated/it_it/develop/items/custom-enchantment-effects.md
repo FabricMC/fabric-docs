@@ -2,6 +2,7 @@
 title: Effetti d'Incantesimi Personalizzati
 description: Impara come creare i tuoi effetti d'incantesimi.
 authors:
+  - CelDaemon
   - krizh-p
 ---
 
@@ -9,8 +10,10 @@ A partire dalla versione 1.21, gli incantesimi personalizzati in Minecraft usano
 
 Una componente di un effetto contiene il codice che definisce gli effetti speciali di un incantesimo. Minecraft supporta vari effetti predefiniti, come danno degli oggetti, contraccolpo, ed esperienza.
 
-:::tip
+::: tip
+
 Assicurati di controllare se gli effetti predefiniti di Minecraft soddisfano le tue necessità visitando [la pagina sulle Componenti degli Effetti d'Incantesimi della Wiki di Minecraft](https://minecraft.wiki/w/Enchantment_definition#Effect_components). Questa guida suppone che tu comprenda come si configurino incantesimi "semplici" basati su dati, e si focalizza sulla creazione di effetti d'incantesimi personalizzati che non sono supportati in maniera predefinita.
+
 :::
 
 ## Effetti d'Incantesimi Personalizzati {#custom-enchantment-effects}
@@ -33,17 +36,17 @@ Come ogni altra componente della tua mod, dovremo aggiungere questo `Enchantment
 
 ## Creare l'Incantesimo {#creating-the-enchantment}
 
-Ora abbiamo un effetto d'incantesimo! Il passaggio finale è creare un incantesimo che applica il nostro effetto personalizzato. Anche se questo si potrebbe fare creando un file JSON in maniera simile a quella dei datapack, questa guida ti mostrerà come generare il JSON dinamicamente usando gli strumenti di generazione di dati di Fabric. Per cominciare, crea una classe `EnchantmentGenerator`.
+Ora abbiamo un effetto d'incantesimo! Il passaggio finale è creare un incantesimo che applica il nostro effetto personalizzato. Anche se questo si potrebbe fare creando un file JSON in maniera simile a quella dei datapack, questa guida ti mostrerà come generare il JSON dinamicamente usando gli strumenti di generazione di dati di Fabric. Per iniziare, crea una classe `ExampleModEnchantmentGenerator`.
 
 All'interno di questa classe registreremo anzitutto un nuovo incantesimo, e poi useremo il metodo `configure()` per creare il nostro JSON programmaticamente.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 Prima di procedere dovresti assicurarti che il tuo progetto sia configurato per la generazione di dati; se non sei sicuro, [controlla la pagina corrispondente della documentazione](../data-generation/setup).
 
 Infine, dobbiamo dire alla nostra mod di aggiungere il nostro `EnchantmentGenerator` alla lista di operazioni di generazione dati. Per fare questo, basta aggiungere il `EnchantmentGenerator` a questo all'interno del metodo `onInitializeDataGenerator`.
 
-@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli incantesimi verranno generati nella cartella `generated`. Ecco un esempio qua sotto:
 
@@ -52,7 +55,7 @@ Ora, eseguendo l'operazione di generazione dati della tua mod, i file JSON degli
 Dovresti anche aggiungere le traduzioni al tuo file `en_us.json` per dare al tuo incantesimo un nome leggibile:
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 Dovresti ora avere un effetto d'incantesimo personalizzato funzionante! Testalo incantando un'arma con l'incantesimo e colpendo un mob. Ecco un esempio nel video seguente:

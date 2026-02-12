@@ -26,15 +26,17 @@ Dopo aver registrato la particella nell'initializer della tua mod, dovrai anche 
 In questo esempio, stiamo registrando la nostra particella dal lato client. Stiamo dando un po' di movimento alla particella usando la fabbrica della particella della barra dell'End. Questo vuol dire che la nostra particella si muoverà proprio come una particella di una barra dell'End.
 
 ::: tip
-You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-- Scorciatoia di IntelliJ: Ctrl+Alt+B
-- Scorciatoia di Visual Studio Code: Ctrl+F12
-  :::
+Puoi trovare tutte le fabbriche di particelle consultando tutte le implementazioni dell'interfaccia `ParticleFactory`. Questo è utile se vuoi usare il comportamento di un'altra particella per la tua.
+
+- Scorciatoia su IntelliJ: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
+- Scorciatoia per Visual Studio Code: <kbd>Ctrl</kbd>+<kbd>F12</kbd>
+
+:::
 
 ## Creare un File JSON e Aggiungere le Texture {#creating-a-json-file-and-adding-textures}
 
-Dovrai creare 2 cartelle all'interno della cartella `resources/assets/example-mod/`.
+Dovrai creare 2 cartelle nella cartella `resources/assets/example-mod/`
 
 | Percorso della Cartella | Spiegazione                                                                                     |
 | ----------------------- | ----------------------------------------------------------------------------------------------- |
@@ -47,8 +49,10 @@ Dopo, crea un nuovo file JSON in `particles` con lo stesso nome del percorso JSO
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
-:::tip
+::: tip
+
 Puoi aggiungere altre texture al vettore `textures` per creare un animazione per la particella. La particella scorrerà attraverso le texture nel vettore, iniziando dalla prima.
+
 :::
 
 ## Testare la Nuova Particella {#testing-the-new-particle}
@@ -63,8 +67,10 @@ Puoi controllare se tutto ha funzionato scrivendo il comando seguente:
 
 ![Dimostrazione della particella](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
-:::info
+::: info
+
 La particella comparirà all'interno del giocatore con questo comando. Probabilmente dovrai camminare all'indietro per vederla effettivamente.
+
 :::
 
 In alternativa, puoi anche usare un blocco comandi per far apparire la particella usando lo stesso comando.

@@ -3,6 +3,8 @@ title: Installare Java su Windows
 description: Una guida passo per passo su come installare Java su Windows.
 authors:
   - IMB11
+  - skycatminepokie
+next: false
 ---
 
 Questa guida ti spiegherà come installare Java 21 su Windows.
@@ -13,7 +15,7 @@ Il Launcher di Minecraft ha la sua versione di Java installata, quindi questa se
 
 Per controllare se Java è già installato devi prima aprire il prompt dei comandi.
 
-Puoi farlo premendo <kbd>Win</kbd>+<kbd>R</kbd> e scrivendo `cmd.exe` nel riquadro che appare.
+Puoi farlo premendo <kbd>Windows</kbd>+<kbd>R</kbd> e scrivendo `cmd.exe` nel riquadro che appare.
 
 ![Dialogo Esegui su Windows che mostra "cmd.exe" scritto nella barra](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -23,13 +25,17 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
-:::warning
-Per usare Minecraft 1.21, ti servirà almeno Java 21 installato. Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente.
+::: warning
+
+Per usare Minecraft 1.21.11, ti servirà almeno Java 21 installato.
+
+Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente; continua a seguire questa pagina.
+
 :::
 
 ## 2. Scarica l'Installer per Java 21 {#2-download-the-java-installer}
 
-Per installare Java 21, dovrai scaricare l'installer da Adoptium.
+Per installare Java 21, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
 
 Dovrai scaricare la versione `Windows Installer (.msi)`:
 
@@ -50,6 +56,14 @@ Segui le istruzioni per installare Java 21. Quando arrivi a questa pagina, dovre
 
 Quando hai finito, puoi cliccare su `Avanti` e continuare con l'installazione.
 
+::: warning
+
+A volte i programmi di Windows potrebbero non rilevare che Java è stato installato finché riavvii il sistema.
+
+**Assicurati di riavviare il tuo computer prima di continuare!**
+
+:::
+
 ## 4. Verifica che Java 21 Sia Installato {#4-verify-that-java-is-installed}
 
 Quando l'installazione è stata completata, puoi verificare che Java 21 è installato aprendo il prompt dei comandi e scrivendo `java -version`.
@@ -58,4 +72,4 @@ Se il comando funziona correttamente, vedrai qualcosa simile a quello mostrato p
 
 ![Il prompt dei comandi con scritto "java -version"](/assets/players/installing-java/windows-java-version.png)
 
-Se incontri dei problemi, sentiti libero di chiedere aiuto nel server [Fabric Discord](https://discord.gg/v6v4pMv) nel canale `#player-support`.
+Se incontri dei problemi, sentiti libero di chiedere aiuto nel server [Fabric Discord](https://discord.fabricmc.net/) nel canale `#player-support`.

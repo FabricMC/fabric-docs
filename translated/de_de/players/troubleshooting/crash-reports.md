@@ -5,8 +5,12 @@ authors:
   - IMB11
 ---
 
-:::tip
-Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.gg/v6v4pMv) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
+<!---->
+
+::: tip
+
+Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
+
 :::
 
 Absturzberichte sind ein sehr wichtiger Teil, um Probleme mit deinem Spiel oder Server zu beheben. Sie enthalten viele Informationen über den Absturz und können beim Finden der Ursache für den Absturz hilfreich sein.
@@ -21,15 +25,15 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -39,11 +43,11 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) nutzen.
+Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) verwenden.
 
 :::details Absturzbericht anzeigen
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log
 
 :::
 
@@ -66,7 +70,7 @@ Der Stack-Trace im Abschnitt `---- Minecraft Crash Report ----` ist in diesem Fa
 
 :::details Fehler anzeigen
 
-<<< @/public/assets/players/crash-report-example.log{7 log}
+<<< @/public/assets/players/crash-report-example.log{7}
 
 :::
 
@@ -78,16 +82,18 @@ Bei der Menge an Mods, die erwähnt wurden, könnte es jedoch bedeuten, dass es 
 
 ## Mixin Abstürze {#mixin-crashes}
 
-:::info
+::: info
+
 Mixins sind eine Möglichkeit für Mods, das Spiel zu verändern, ohne den Quellcode des Spiels ändern zu müssen. Sie werden von vielen Mods verwendet und sind ein sehr mächtiges Werkzeug für Mod-Entwickler.
+
 :::
 
 Wenn ein Mixin abstürzt, wird in der Regel das Mixin im Stacktrace erwähnt und die Klasse, die das Mixin ändert.
 
-Methoden-Mixins enthalten `example-mod$handlerName` in dem Stacktrace, wobei `example-mod` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
+Methoden-Mixins enthalten `mod-id$handlerName` in dem Stacktrace, wobei `mod-id` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
 
-```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
+```text:no-line-numbers
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 Anhand dieser Informationen kannst du den Mod, der den Absturz verursacht hat, ausfindig machen und den Absturz an den Autor des Mods melden.

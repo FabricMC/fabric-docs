@@ -5,8 +5,12 @@ authors:
   - JR1811
 ---
 
+<!---->
+
 :::info VORAUSSETZUNGEN
+
 Diese Seite baut auf den Seiten [Sounds abspielen](../sounds/using-sounds) und [Benutzerdefinierte Sounds erstellen](../sounds/custom) auf!
+
 :::
 
 ## Probleme mit `SoundEvents` {#problems-with-soundevents}
@@ -15,7 +19,7 @@ Wie wir auf der Seite [Sounds verwenden](../sounds/using-sounds) gelernt haben, 
 
 Diese Denkweise ist richtig. Technisch gesehen muss clientseitig der Ton verarbeitet werden. Für das einfache Abspielen von `SoundEvent` hat die Serverseite jedoch einen großen Zwischenschritt vorbereitet, der auf den ersten Blick vielleicht nicht offensichtlich ist. Welche Clients sollten diesen Ton hören können?
 
-Die Verwendung des Sounds auf der logischen Serverseite löst das Problem der Übertragung von `SoundEvent`s. Einfach ausgedrückt: Jeder Client (`ClientPlayerEntity`), der sich im Verfolgungsbereich befindet, bekommt ein Netzwerkpaket geschickt, um diesen speziellen Sound abzuspielen. Das Sound-Ereignis wird im Grunde von der logischen Serverseite an jeden teilnehmenden Client übertragen, ohne dass du dich darum kümmern musst. Der Sound wird einmal mit den angegebenen Lautstärke- und Tonhöhenwerten abgespielt.
+Die Verwendung des Sounds auf der logischen Serverseite löst das Problem der Übertragung von `SoundEvent`s. Einfach ausgedrückt: Jeder Client (`LocalPlayer`), der sich im Verfolgungsbereich befindet, bekommt ein Netzwerkpaket geschickt, um diesen speziellen Sound abzuspielen. Das Sound-Ereignis wird im Grunde von der logischen Serverseite an jeden teilnehmenden Client übertragen, ohne dass du dich darum kümmern musst. Der Sound wird einmal mit den angegebenen Lautstärke- und Tonhöhenwerten abgespielt.
 
 Was aber, wenn dies nicht ausreicht? Was ist, wenn der Sound in einer Schleife laufen, die Lautstärke und die Tonhöhe während des Abspielens dynamisch ändern muss und all das auf der Grundlage von Werten, die von Dingen wie `Entities` oder `BlockEntities` stammen?
 
@@ -39,11 +43,11 @@ Unser [Startsound](https://freesound.org/people/el-bee/sounds/644881/) wird von 
 
 Laden wir die Datei in die DAW unserer Wahl.
 
-![Gekürzte Audiodatei](/assets/develop/sounds/dynamic-sounds/step_1.png)
+![Reaper mit der geladenen Audiodatei](/assets/develop/sounds/dynamic-sounds/step_0.png)
 
 Wir können hören und sehen, dass der Motor am Anfang gestartet und am Ende gestoppt wird, was für wiederholende Sounds nicht gut ist. Schneiden wir diese raus und passen wir die Zeitauswahlgriffe an die neue Länge an. Aktiviere auch den Modus `Toggle Repeat`, damit der Ton in einer Schleife abgespielt wird, während wir ihn anpassen.
 
-![Reaper mit der geladenen Audiodatei](/assets/develop/sounds/dynamic-sounds/step_0.png)
+![Gekürzte Audiodatei](/assets/develop/sounds/dynamic-sounds/step_1.png)
 
 ### Störende Audioelemente entfernen {#removing-disruptive-audio-elements}
 
@@ -57,16 +61,16 @@ Wenn du sicher bist, dass dein DAW keinen EQ-Filter zur Verfügung stellt, suche
 
 Verwende in Reaper das Effektfenster, um den Audioeffekt "ReaEQ" oder einen anderen EQ hinzuzufügen.
 
-![Die schlechte Frequenz gesenkt](/assets/develop/sounds/dynamic-sounds/step_4.png)
+![Einen EQ-Filter hinzufügen](/assets/develop/sounds/dynamic-sounds/step_2.png)
 
 Wenn wir die Audio jetzt abspielen, während das EQ-Filter-Fenster geöffnet bleibt, zeigt der EQ-Filter das eingehende Audio in seiner Anzeige an.
 Wir können dort viele Unebenheiten sehen.
 
-![Einen EQ-Filter hinzufügen](/assets/develop/sounds/dynamic-sounds/step_2.png)
+![Das Problem identifizieren](/assets/develop/sounds/dynamic-sounds/step_3.png)
 
 Wenn du kein ausgebildeter Tontechniker bist, geht es in diesem Teil vor allem um Experimente und "Versuch und Irrtum". Zwischen den Knoten 2 und 3 gibt es einen ziemlich harten Sprung. Verschieben wir die Knoten so, dass wir die Frequenz nur für diesen Teil senken.
 
-![Das Problem identifizieren](/assets/develop/sounds/dynamic-sounds/step_3.png)
+![Die schlechte Frequenz gesenkt](/assets/develop/sounds/dynamic-sounds/step_4.png)
 
 Auch andere Effekte können mit einem einfachen EQ-Filter erzielt werden. So kann z. B. durch das Abschneiden hoher und/oder niedriger Frequenzen der Eindruck von über Funk übertragenen Sounds entstehen.
 
@@ -126,13 +130,14 @@ Dies ist nun die fertige Audioschleife des Motors für das `SoundEvent` namens `
 
 Um Sounds auf der Client-Seite abzuspielen, wird eine `SoundInstance` benötigt. Diese verwenden jedoch weiterhin `SoundEvent`.
 
-Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt es bereits die bestehende Klasse `PositionedSoundInstance`.
+Wenn du nur so etwas wie einen Klick auf ein UI-Element abspielen willst, gibt es bereits die bestehende Klasse `SimpleSoundInstance`.
 
 Beachte, dass dies nur auf dem spezifischen Client abgespielt wird, der diesen Teil des Codes ausgeführt hat.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-:::warning
+::: warning
+
 Bitte beachte, dass die Klasse `AbstractSoundInstance`, von der `SoundInstance` erbt, die Annotation `@Environment(EnvType.CLIENT)` hat.
 
 Dies bedeutet, dass diese Klasse (und alle ihre Unterklassen) nur auf der Client-Seite zur Verfügung stehen werden.
@@ -141,6 +146,7 @@ Wenn du versuchst, das in einem logischen serverseitigen Kontext zu verwenden, w
 
 Wenn du mit diesen Problemen zu kämpfen hast, ist es empfehlenswert, deinen Mod mit dem [Online Vorlagen-Generator](https://fabricmc.net/develop/template/)
 zu erstellen, wobei die Option `Split client and common sources` aktiviert ist.
+
 :::
 
 Eine `SoundInstance` kann mächtiger sein als nur das einmalige Abspielen von Sounds.
@@ -148,7 +154,7 @@ Eine `SoundInstance` kann mächtiger sein als nur das einmalige Abspielen von So
 Sieh dir die Klasse `AbstractSoundInstance` an und welche Art von Werten sie speichern kann.
 Neben den üblichen Lautstärke- und Tonhöhenvariablen enthält sie auch XYZ-Koordinaten und gibt an, ob dieser sich nach Beendigung des `SoundEvent` wiederholen soll.
 
-Wenn wir dann einen Blick auf die Unterklasse `MovingSoundInstance` werfen, sehen wir, dass auch das Interface `TickableSoundInstance` eingeführt wurde, die der `SoundInstance` eine Tickfunktionalität hinzufügt.
+Wenn wir dann einen Blick auf die Unterklasse `AbstractTickableSoundInstance` werfen, sehen wir, dass auch das Interface `TickableSoundInstance` eingeführt wurde, die der `SoundInstance` eine Tickfunktionalität hinzufügt.
 
 Um diese Hilfsmittel zu nutzen, erstelle einfach eine neue Klasse für deine benutzerdefinierte `SoundInstance` und lass sie von `MovingSoundInstance` erben.
 
@@ -158,25 +164,27 @@ Die Verwendung einer eigenen `Entity` oder `BlockEntity` anstelle der grundlegen
 
 Denke nur daran, dass alle referenzierten Objekte in der `SoundInstance` die Versionen von der Client-Seite sind.
 In bestimmten Situationen können sich die Eigenschaft einer Entität auf der logischen Serverseite von der ihres Gegenstücks auf der Clientseite unterscheiden.
-Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass deine Werte entweder mit den S2C-Paketen `TrackedData`, `BlockEntity` der Entität oder mit vollständigen benutzerdefinierten S2C-Netzwerkpaketen synchronisiert werden.
+Wenn du feststellst, dass deine Werte nicht übereinstimmen, stelle sicher, dass deine Werte entweder mit den S2C-Paketen `EntityDataAccessor`, `BlockEntity` der Entität oder mit vollständigen benutzerdefinierten S2C-Netzwerkpaketen synchronisiert werden.
 
 Nachdem du deine benutzerdefinierte `SoundInstance` erstellt hast, kann sie überall verwendet werden, solange sie auf der Client-Seite mit dem Sound-Manager ausgeführt wurde.
 Auf die gleiche Weise kannst du die benutzerdefinierte `SoundInstance` auch manuell stoppen, falls erforderlich.
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
 
-Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `ClientPlayerEntity` selbst.
+Die Audioschleife wird nun nur noch für den Client abgespielt, der diese SoundInstance ausgeführt hat. In diesem Fall folgt der Ton dem `LocalPlayer` selbst.
 
 Damit ist die Erklärung zur Erstellung und Verwendung einer einfachen benutzerdefinierten `SoundInstance` abgeschlossen.
 
 ## Fortgeschrittene Sound Instanzen {#advanced-sound-instances}
 
-:::warning
+::: warning
+
 Der folgende Inhalt behandelt ein fortgeschrittenes Thema.
 
 Zu diesem Zeitpunkt solltest du über ein solides Verständnis von Java, objektorientierter Programmierung, generischen Typen und Callback-Systemen verfügen.
 
 Kenntnisse über `Entities`, `BlockEntities` und benutzerdefinierte Vernetzung sind ebenfalls sehr hilfreich für das Verständnis des Anwendungsfalls und der Anwendungen von fortgeschrittenen Sounds.
+
 :::
 
 Um ein Beispiel dafür zu geben, wie komplexere `SoundInstance`-Systeme erstellt werden können, werden wir zusätzliche Funktionen, Abstraktionen und Hilfsmethoden hinzufügen, um die Arbeit mit solchen Sounds in einem größeren Rahmen einfacher, dynamischer und flexibler zu gestalten.
@@ -203,9 +211,11 @@ Insgesamt könnte unser Soundsystem so aussehen, wenn wir fertig sind.
 
 ![Struktur des benutzerdefinierten Sound Systems](/assets/develop/sounds/dynamic-sounds/custom-dynamic-sound-handling.jpg)
 
-:::info
+::: info
+
 Alle diese Enums, interfaces und Klassen werden neu erstellt. Passe das System und die Hilfsmittel an deinen speziellen Anwendungsfall an, wie du es für richtig hältst.
 Dies ist nur ein Beispiel dafür, wie du dich solchen Themen annähern kannst.
+
 :::
 
 ### `DynamicSoundSource` Interface {#dynamicsoundsource-interface}
@@ -215,17 +225,19 @@ Wenn du dich dafür entscheidest, eine neue, modularer, benutzerdefinierte `Abst
 In diesem Fall ist das Nutzen von Abstraktion der Schlüssel.
 eine benutzerdefinierte `BlockEntity` direkt zu referenzieren, reicht es aus, ein Interface zu verfolgen, das die Daten bereitstellt, um dieses Problem zu lösen.
 
-In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `ZombieEntity`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
+In Zukunft werden wir ein benutzerdefiniertes Interface namens `DynamicSoundSource` verwenden. Es wird in allen Klassen implementiert, die diese dynamische Soundfunktionalität nutzen wollen, wie z. B. deine benutzerdefinierte `BlockEntity`, Entities oder sogar, unter Verwendung von Mixins, auf bereits existierenden Klassen, wie `Zombie`. Sie stellt im Grunde nur die notwendigen Daten der Soundquelle dar.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
 
 Nachdem du dieses Interface erstellt hast, stelle sicher, dass du es auch in den notwendigen Klassen implementierst.
 
-:::info
+::: info
+
 Dies ist ein Hilfsmittel, das sowohl auf der Client- als auch auf der logischen Serverseite verwendet werden kann.
 
 Daher sollte dieses Interface in den allgemeinen Paketen statt in den reinen Client-Paketen gespeichert werden, wenn du die
 Option "split sources" verwendest.
+
 :::
 
 ### `TransitionState` Enum {#transitionstate-enum}
@@ -251,11 +263,13 @@ Aber wenn diese Werte über das Netzwerk gesendet werden, möchtest du vielleich
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
 
-:::info
+::: info
+
 Auch hier gilt: Wenn du "geteilte Quellen" verwendest, musst du überlegen, wo du dieses Enum einsetzen willst.
 Technisch gesehen verwenden nur die benutzerdefinierten `SoundInstance`s, die nur auf der Client-Seite verfügbar sind, diese Enum-Werte.
 
 Wenn dieses Enum jedoch an anderer Stelle verwendet wird, z. B. in benutzerdefinierten Netzwerkpaketen, musst du dieses Enum möglicherweise auch in die allgemeinen Pakete anstelle der reinen Client-Pakete aufnehmen.
+
 :::
 
 ### `SoundInstanceCallback` Interface {#soundinstancecallback-interface}
@@ -264,7 +278,7 @@ Dieses Interface wird als Callback genutzt. Im Moment brauchen wir nur eine `onF
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
 
-Erstelle dynamische und interaktive Sounds {#create-dynamic-and-interactive-sounds}
+Implementiere dieses Interface in jeder Klasse, die in der Lage sein sollte, die eingehenden Signale zu verarbeiten, z. B. in der `AbstractDynamicSoundInstance`, die wir in Kürze erstellen werden, um die Funktionalität in der benutzerdefinierten `SoundInstance` selbst zu erzeugen.
 
 ### `AbstractDynamicSoundInstance` Klasse {#abstractdynamicsoundinstance-class}
 

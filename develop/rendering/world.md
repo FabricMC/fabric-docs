@@ -6,10 +6,14 @@ authors:
   - kevinthegreat1
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've read [Rendering Concepts](./basic-concepts) first. This page builds on those concepts and discusses how to render objects in the world.
 
 This page explores some more modern rendering concepts. You'll learn more about the two split phases of rendering: "extraction" (or "preparation") and "drawing" (or "rendering"). In this guide, we will refer to the "extraction/preparation" phase as the "extraction" phase and the "drawing/rendering" phase as the "drawing" phase.
+
 :::
 
 To render custom objects in the world, you have two choices. You can inject into existing vanilla rendering and add your code, but that limits you to existing vanilla render pipelines. If existing vanilla render pipelines don't suit your needs, you need a custom render pipeline.
@@ -20,7 +24,6 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "drawing".
 
-<!-- TODO: review this (it's now using a custom `renderFilledBox`) -->
 All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Writing vertices to the buffered builder via `buffer.addVertex` is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
 
 When the "extraction" phase is done, the "drawing" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.

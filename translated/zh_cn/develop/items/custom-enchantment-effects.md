@@ -2,6 +2,7 @@
 title: 自定义魔咒效果
 description: 学习如何创建自己的魔咒效果。
 authors:
+  - CelDaemon
   - krizh-p
 ---
 
@@ -9,8 +10,10 @@ authors:
 
 效果组件包含定义魔咒特殊效果的代码。 Minecraft 原版已支持一些默认效果，例如物品损害值、击退和经验。
 
-:::tip
+::: tip
+
 来看看 [Minecraft Wiki 的附魔效果组件页面](https://zh.minecraft.wiki/w/%E9%AD%94%E5%92%92%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F#%E5%AE%9A%E4%B9%89)，检查 Minecraft 默认效果是否满足你的需求。 本指南假定你了解如何配置“简单”的数据驱动魔咒，并侧重于创建默认不支持的自定义魔咒效果。
+
 :::
 
 ## 自定义魔咒效果 {#custom-enchantment-effects}
@@ -33,17 +36,17 @@ authors:
 
 ## 创建魔咒 {#creating-the-enchantment}
 
-现在我们有了一个魔咒效果！ 最后一步是创建一个魔咒，应用我们自定义的效果。 这可以通过创建类似于 Minecraft 数据包中的 JSON 文件来实现，在这篇文档中，将向你展示如何使用 Fabric 的数据生成工具来动态生成 JSON。 要开始，请创建一个名为 `EnchantmentGenerator` 的类。
+现在我们有了一个魔咒效果！ 最后一步是创建一个魔咒，应用我们自定义的效果。 这可以通过创建类似于 Minecraft 数据包中的 JSON 文件来实现，在这篇文档中，将向你展示如何使用 Fabric 的数据生成工具来动态生成 JSON。 要开始，创建一个名为 `ExampleModEnchantmentGenerator` 的类。
 
 在这个类中，我们先注册我们的魔咒对象，并使用 `configure()` 方法来在程序中创建 JSON。
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/EnchantmentGenerator.java)
+@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
 
 在继续之前，应确保你的项目已为数据生成进行了配置。如果您不确定，请 [查看相关文档页面](../data-generation/setup)。
 
 在最后，我们必须要告诉我们的模组去把 `EnchantmentGenerator` 加入到数据生成任务列表中。 为了实现这一点，只需要简单的把 `EnchantmentGenerator` 加入到 `onInitializeDataGenerator` 方法中。
 
-@[code transclude={24-24}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 现在，当你运行你的模组的数据生成任务，附魔表 JSON 将会生成在 `generated` 文件夹内。 下面是一个例子：
 
@@ -52,7 +55,7 @@ authors:
 你需要在 `zh_cn.json` 中给你的自定义魔咒添加一个有意义的名字：
 
 ```json
-"enchantment.ExampleMod.thundering": "Thundering",
+"enchantment.example-mod.thundering": "Thundering",
 ```
 
 现在你应该有了一个可以正常工作的自定义附魔效果！ 附魔一个武器，然后攻击一个生物试试吧。 下面的视频里有一个例子：

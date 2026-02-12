@@ -13,7 +13,7 @@ authors:
 
 有些粘贴网站还为日志提供语法高亮，使日志更容易阅读，但可能会审查敏感信息，如用户名或系统信息。
 
-## 崩溃报告{#crash-reports}
+## 崩溃报告 {#crash-reports}
 
 游戏崩溃时会自动生成崩溃报告。 崩溃报告只包含崩溃信息，不包含游戏的实际日志。 崩溃报告位于游戏目录中的 `crash-reports` 文件夹中。
 
@@ -27,15 +27,15 @@ authors:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft
 ```
 
