@@ -15,13 +15,11 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-
-import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 import com.example.docs.component.ModComponents;
+import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 
 //#entrypoint
 public class ExampleMod implements ModInitializer {
