@@ -23,7 +23,7 @@ Toma en cuenta que:
 
 - Los widgets no son creados en el constructor de la clase porque la pantalla aún no ha sido inicializada a este punto - y ciertas variables, como `width` (ancho) y `height` (altura), aún no están disponibles o no tienen valores correctos.
 - El método `init` es llamado cuando la pantalla es inicializada, y es el mejor lugar para crear widgets.
-  - Agregas widgets usando el método `addDrawableChild`, el cual acepta cualquier widget dibujable.
+  - Agregas widgets usando el método `addRenderableWidget`, el cual acepta cualquier widget dibujable.
 - El método `render` es llamado en cada frame - puedes acceder el contexto de dibujado, y la posición del mouse desde este método.
 
 Por ejemplo, podemos crear una pantalla simple que tiene un botón y una etiqueta arriba.
@@ -38,7 +38,7 @@ Puedes abrir la pantalla usando el método `setScreen` de la clase `MinecraftCli
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -59,6 +59,6 @@ Ahora, cuando abramos la pantalla personalizada, puedes pasar la pantalla actual
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

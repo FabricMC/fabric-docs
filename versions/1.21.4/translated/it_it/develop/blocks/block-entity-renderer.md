@@ -24,7 +24,7 @@ Inoltre, includendo un costruttore come questo, è possibile usare il costruttor
 
 Dovresti registrare i renderer dei blocchi-entità nella tua classe `ClientModInitializer`.
 
-`BlockEntityRendererFactories` è una registry che mappa ogni `BlockEntityType` con del codice di rendering personalizzato al rispettivo `BlockEntityRenderer`.
+`BlockEntityRenderers` è una registry che mappa ogni `BlockEntityType` con del codice di rendering personalizzato al rispettivo `BlockEntityRenderer`.
 
 ## Disegnare su Blocchi {#drawing-on-blocks}
 
@@ -90,7 +90,7 @@ Il metodo `draw` accetta molti parametri, ma quelli più importanti sono:
 - Il `Component` (o `String`) da disegnare;
 - Le sue coordinate `x` e `y`;
 - Il valore RGB di `color`;
-- La `Matrix4f` che descrive come deve essere trasformato (peeeeer ottenerne una da un `PoseStack`, possiamo usare `.peek().getPositionMatrix()` per ottenere la `Matrix4f` per la voce in cima).
+- La `Matrix4f` che descrive come deve essere trasformato (peeeeer ottenerne una da un `PoseStack`, possiamo usare `last().pose()` per ottenere la `Matrix4f` per la voce in cima).
 
 Dopo tutto questo lavoro, eccone il risultato:
 

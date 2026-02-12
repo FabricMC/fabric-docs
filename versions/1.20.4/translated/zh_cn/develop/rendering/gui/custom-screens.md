@@ -23,7 +23,7 @@ search: false
 
 - 组件不应该在 `Screen` 的构造方法里创建，因为此时界面还没有初始化，并且某些变量（比如界面的宽 `width` 和高 `height`）也还没有正确地初始化。
 - 当界面正在初始化时，`init` 方法将被调用，这是创建组件对象的最佳时机。
-  - 您可以通过 `addDrawableChild` 方法来添加组件，这个方法接收任何实现了 `Drawable` 和 `Element` 接口的组件对象。
+  - 您可以通过 `addRenderableWidget` 方法来添加组件，这个方法接收任何实现了 `Renderable` 和 `GuiEventListener` 接口的组件对象。
 - `render` 方法将在每一帧被调用，您可以在这个方法里获取诸多上下文，比如鼠标的位置。
 
 举个例子，我们可以创建一个简单的界面，这个界面有一个按钮和一个按钮的标签。
@@ -38,7 +38,7 @@ search: false
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -59,6 +59,6 @@ Minecraft.getInstance().setScreen(null);
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

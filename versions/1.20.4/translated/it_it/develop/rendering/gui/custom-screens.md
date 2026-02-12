@@ -23,7 +23,7 @@ Dovresti prendere nota del fatto che:
 
 - I Widget non vengono creati nel costruttore perché la schermata non è stata ancora inizializzata a quel punto - e alcune variabili, come `width` e `height`, non sono ancora disponibili o non sono ancora accurate.
 - Il metodo `init` viene chiamato quando lo schermo viene inizializzato, e questo è il posto migliore per creare i widget.
-  - Si aggiungono widget usando il metodo `addDrawableChild`, che accetta qualsiasi widget disegnabile.
+  - Si aggiungono widget usando il metodo `addRenderableWidget`, che accetta qualsiasi widget disegnabile.
 - Il metodo `render` viene chiamato ogni frame - puoi accedere al contesto di disegno, e alla posizione del mouse da questo metodo.
 
 Ad esempio, possiamo creare una semplice schermata che ha un pulsante e un'etichetta al di sopra.
@@ -38,7 +38,7 @@ Puoi aprire la schermata usando il metodo `setScreen` di `MinecraftClient` - puo
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -59,6 +59,6 @@ Ora, aprendo la schermata personalizzata, puoi passare la schermata corrente com
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

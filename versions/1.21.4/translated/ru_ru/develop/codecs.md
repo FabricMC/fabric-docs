@@ -51,7 +51,7 @@ LOGGER.info("Десериализованный BlockPos: {}", pos);
 
 ### Встроенные кодеки {#built-in-codecs}
 
-Как упоминалось ранее, Mojang уже определила кодеки для нескольких стандартных и Java-классов, включая, но не ограничиваясь, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` и шаблоны (`Pattern`) регулярных выражений. Кодеки для собственных классов Mojang обычно можно найти в статических полях с именем `CODEC` в самом классе, в то время как большинство других кодеков содержатся в классе `Codecs`. Также следует отметить, что все стандартные реестры содержат метод `getCodec()`. Например, вы можете использовать `BuiltInRegistries.BLOCK.getCodec()`, чтобы получить `Codec<Block>`, который сериализует идентификатор блока и обратно.
+Как упоминалось ранее, Mojang уже определила кодеки для нескольких стандартных и Java-классов, включая, но не ограничиваясь, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` и шаблоны (`Pattern`) регулярных выражений. Кодеки для собственных классов Mojang обычно можно найти в статических полях с именем `CODEC` в самом классе, в то время как большинство других кодеков содержатся в классе `Codecs`. Также следует отметить, что все стандартные реестры содержат метод `byNameCodec()`. Например, вы можете использовать `BuiltInRegistries.BLOCK.byNameCodec()`, чтобы получить `Codec<Block>`, который сериализует идентификатор блока и обратно.
 
 Сам API Codec также содержит некоторые кодеки для примитивных типов, такие как `Codec.INT` и `Codec.STRING`. Они доступны как статические поля в классе Codec и обычно используются как основа для более сложных кодеков, как объясняется ниже.
 
@@ -93,7 +93,7 @@ public class CoolBeansClass {
 - `Codec<Item>`
 - `Codec<List<BlockPos>>`
 
-Мы можем получить первый из упомянутых ранее примитивных кодеков в классе `Codec`, а именно `Codec.INT`. Второй можно получить из реестра `BuiltInRegistries.ITEM`, который имеет метод `getCodec()`, возвращающий `Codec<Item>`. У нас нет стандартного кодека для `List<BlockPos>`, но мы можем создать его из `BlockPos.CODEC`.
+Мы можем получить первый из упомянутых ранее примитивных кодеков в классе `Codec`, а именно `Codec.INT`. Второй можно получить из реестра `BuiltInRegistries.ITEM`, который имеет метод `byNameCodec()`, возвращающий `Codec<Item>`. У нас нет стандартного кодека для `List<BlockPos>`, но мы можем создать его из `BlockPos.CODEC`.
 
 ### Списки {#lists}
 
@@ -114,7 +114,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Здесь можно объявить до 16 полей
 ).apply(instance, CoolBeansClass::new));
@@ -308,7 +308,7 @@ public class ResourceLocation {
 - Класс или запись `BeanType<T extends Bean>`, представляющий тип боба и способный возвращать кодек для него;
 - Функция в `Bean` для получения его `BeanType<?>`;
 - Карта или реестр для сопоставления `идентификаторов` с `BeanType<?>`;
-- `Codec<BeanType<?>>`, основанный на этом реестре. Если вы используете `net.minecraft.registry.Registry`, его можно легко создать с помощью `Registry#getCodec`.
+- `Codec<BeanType<?>>`, основанный на этом реестре. Если вы используете `net.minecraft.registry.Registry`, его можно легко создать с помощью `Registry#byNameCodec`.
 
 Имея всё это, мы можем создать кодек диспетчера реестров для бобов:
 
@@ -321,7 +321,7 @@ public class ResourceLocation {
 ```java
 // Теперь мы можем создать кодек для типов бобов
 // на основе ранее созданного реестра
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // И на основе этого, вот наш кодек диспетчера реестра для бобов!
 // Первый аргумент — это имя поля для типа боба.

@@ -21,7 +21,7 @@ Folgendes solltest du beachten:
 
 - Widgets werden nicht im Konstruktor erstellt, weil die Oberfläche zu diesem Zeitpunkt noch nicht initialisiert ist - und bestimmte Variablen, wie `width` (Breite) und `height` (Höhe), sind noch nicht verfügbar oder noch nicht genau.
 - Die `init`-Methode wird aufgerufen, wenn die Oberfläche initialisiert wird, und sie ist der beste Ort, um Widgets zu erstellen.
-  - Du kannst Widgets mit der Methode `addDrawableChild` hinzufügen, die jedes zeichenbare Widget akzeptiert.
+  - Du kannst Widgets mit der Methode `addRenderableWidget` hinzufügen, die jedes zeichenbare Widget akzeptiert.
 - Die Methode `render` wird bei jedem Frame aufgerufen - du kannst von dieser Methode aus auf den Zeichenkontext und die Mausposition zugreifen.
 
 Als Beispiel können wir eine einfache Oberfläche erstellen, der eine Schaltfläche und eine Beschriftung darüber enthält.
@@ -36,7 +36,7 @@ Du kannst die Oberfläche mit der `setScreen`-Methode des `MinecraftClient` öff
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -57,6 +57,6 @@ Jetzt kannst du beim Öffnen der benutzerdefinierten Oberfläche den aktuellen B
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

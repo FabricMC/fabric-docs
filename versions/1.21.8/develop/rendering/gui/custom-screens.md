@@ -21,7 +21,7 @@ You should take note that:
 
 - Widgets are not being created in the constructor because the screen is not yet initialized at that point - and certain variables, such as `width` and `height`, are not yet available or not yet accurate.
 - The `init` method is called when the screen is being initialized, and it is the best place to create widgets.
-  - You add widgets using the `addDrawableChild` method, which accepts any drawable widget.
+  - You add widgets using the `addRenderableWidget` method, which accepts any drawable widget.
 - The `render` method is called every frame - you can access the draw context, and the mouse position from this method.
 
 As an example, we can create a simple screen that has a button and a label above it.
@@ -36,7 +36,7 @@ You can open the screen using the `MinecraftClient`'s `setScreen` method - you c
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -57,6 +57,6 @@ Now, when opening the custom screen, you can pass the current screen as the seco
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

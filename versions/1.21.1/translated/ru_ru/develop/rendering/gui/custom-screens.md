@@ -21,7 +21,7 @@ authors:
 
 - Виджеты не создаются в конструкторе, поскольку на тот момент экран еще не инициализирован, а некоторые переменные, такие как `width` и `height`, еще недоступны или неточны.
 - Метод `init` вызывается при инициализации экрана, и это лучшее место для создания виджетов.
-  - Виджеты добавляются с помощью метода `addDrawableChild`, который принимает любой отрисовываемый виджет.
+  - Виджеты добавляются с помощью метода `addRenderableWidget`, который принимает любой отрисовываемый виджет.
 - Метод `render` вызывается в каждом кадре — из этого метода можно получить доступ к контексту отрисовки и положению мыши.
 
 В качестве примера мы можем создать простой экран с кнопкой и меткой над ней.
@@ -36,7 +36,7 @@ authors:
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -57,6 +57,6 @@ Minecraft.getInstance().setScreen(null);
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

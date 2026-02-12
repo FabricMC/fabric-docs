@@ -51,7 +51,7 @@ LOGGER.info("反序列化的 BlockPos：{}", pos);
 
 ### 內建 Codec {#built-in-codec}
 
-如前所述，Mojang 已經為幾個原版和標準 Java 類別定義了 codec，包括但不限於 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和規則運算式 `Pattern`。 Mojang 自己的類別的 codec 通常會以靜態欄位 `CODEC` 的形式出現在類別本身，而大部分其他的則儲存在 `codec` 類別中。 還應該注意的是，所有原版登錄都包含一個 `getCodec()` 方法，例如，您可以使用 `BuiltInRegistries.BLOCK.getCodec()` 取得一個序列化為方塊 ID 並返回的 `Codec<Block>`。
+如前所述，Mojang 已經為幾個原版和標準 Java 類別定義了 codec，包括但不限於 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和規則運算式 `Pattern`。 Mojang 自己的類別的 codec 通常會以靜態欄位 `CODEC` 的形式出現在類別本身，而大部分其他的則儲存在 `codec` 類別中。 還應該注意的是，所有原版登錄都包含一個 `byNameCodec()` 方法，例如，您可以使用 `BuiltInRegistries.BLOCK.byNameCodec()` 取得一個序列化為方塊 ID 並返回的 `Codec<Block>`。
 
 Codec API 本身也包含一些用於原始類型的 codec，例如 `Codec.INT` 和 `Codec.STRING`。 這些可以作為 `Codec` 類別上的靜態變數使用，並且通常用作更複雜的 codec 的基礎，如下所述。
 
@@ -93,7 +93,7 @@ public class CoolBeansClass {
 - 一個 `Codec<Item>`
 - 一個 `Codec<List<BlockPos>>`
 
-我們可以從前面提到的 `Codec` 類別中的原始 codec 取得第一個，具體來說就是 `Codec.INT`。 而第二個可以從 `BuiltInRegistries.ITEM` 登錄取得，它有一個 `getCodec()` 方法，該方法會回傳一個 `Codec<Item>`。 我們沒有用於 `List<BlockPos>` 的預設 codec，但我們可以從 `BlockPos.CODEC` 建立一個。
+我們可以從前面提到的 `Codec` 類別中的原始 codec 取得第一個，具體來說就是 `Codec.INT`。 而第二個可以從 `BuiltInRegistries.ITEM` 登錄取得，它有一個 `byNameCodec()` 方法，該方法會回傳一個 `Codec<Item>`。 我們沒有用於 `List<BlockPos>` 的預設 codec，但我們可以從 `BlockPos.CODEC` 建立一個。
 
 ### 清單 {#lists}
 
@@ -114,7 +114,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // 這裡最多可以宣告 16 個欄位
 ).apply(instance, CoolBeansClass::new));
@@ -308,7 +308,7 @@ public class ResourceLocation {
 - 一個 `BeanType<T extends Bean>` 類別或 record，它代表 bean 的類型，並且可以回傳它的 codec。
 - `Bean` 上的一個函數，用於檢索它的 `BeanType<?>`。
 - 一個 map 或登錄，用於將 `ResourceLocation`s 對應到 `BeanType<?>`s。
-- 一個基於此登錄的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，可以使用 `Registry#getCodec` 輕鬆建立一個。
+- 一個基於此登錄的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，可以使用 `Registry#byNameCodec` 輕鬆建立一個。
 
 有了所有這些，我們可以為 beans 建立一個登錄分派 codec：
 
@@ -320,7 +320,7 @@ public class ResourceLocation {
 
 ```java
 // 現在我們可以基於先前建立的登錄，建立一個用於 bean 類型的 codec
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // 基於此，這是我們用於 beans 的登錄分派 codec！
 // 第一個參數是 bean 類型的欄位名稱。

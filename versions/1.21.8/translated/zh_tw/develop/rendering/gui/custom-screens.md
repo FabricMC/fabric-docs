@@ -21,7 +21,7 @@ authors:
 
 - 畫面元件不應該在建構子裡被創造，因為畫面還沒建構完成，部分變數（例如：寬度 `width`、高度 `height`）還無法被存取或是不準確。
 - `init` 函式是在畫面被創建時呼叫的，所以創建畫面元件最適合在裡面執行。
-  - `addDrawableChild`函式負責顯示畫面元件，他可以顯示任何可以被繪製（drawable）的畫面元件。
+  - `addRenderableWidget`函式負責顯示畫面元件，他可以顯示任何可以被繪製（drawable）的畫面元件。
 - `render` 函式每幀都會被執行，在函式中可以獲取圖形繪器 `GuiGraphics` 和滑鼠位置 `mouseX` `mouseY`。
 
 我們將創建一個簡單的畫面，畫面包含一個按鈕和一串標示。
@@ -36,7 +36,7 @@ authors:
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -57,6 +57,6 @@ Minecraft.getInstance().setScreen(null);
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

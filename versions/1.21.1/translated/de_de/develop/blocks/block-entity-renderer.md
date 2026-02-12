@@ -24,7 +24,7 @@ Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den
 
 Füge den Einstiegspunkt zu der Datei `fabric.mod.json` hinzu, damit der Renderer registriert ist.
 
-`BlockEntityRendererFactories` ist eine Registrierung, die jeden `BlockEntityType` mit benutzerdefinierten Rendering-Code dem entsprechenden `BlockEntityRenderer` zuordnet.
+`BlockEntityRenderers` ist eine Registrierung, die jeden `BlockEntityType` mit benutzerdefinierten Rendering-Code dem entsprechenden `BlockEntityRenderer` zuordnet.
 
 ## Auf Blöcke zeichnen {#drawing-on-blocks}
 
@@ -90,7 +90,7 @@ Die Methode `draw` nimmt einige Paramter, aber die Wichtigsten sind:
 - der zu zeichnende `Component` (oder `String`);
 - seine `x` und `y` Koordinaten;
 - der RGB `color` Wert;
-- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `PoseStack` zu erhalten, können wir `.peek().getPositionMatrix()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
+- die `Matrix4f`, die beschreibt, wie er transformiert werden soll (um eine aus einem `PoseStack` zu erhalten, können wir `last().pose()` verwenden, um die `Matrix4f` für den obersten Eintrag zu erhalten).
 
 Und nach dieser ganzen Arbeit, ist hier das Ergebnis:
 

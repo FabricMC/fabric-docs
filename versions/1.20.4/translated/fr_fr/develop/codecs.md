@@ -53,7 +53,7 @@ LOGGER.info("BlockPos désérialisée : {}", pos);
 
 ### Codecs intégrés
 
-Comme mentionné ci-dessus, Mojang a déjà défini des codecs pour plusieurs classes vanilla et Java standard, y compris, sans s'y limiter, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` et les `Pattern`s regex. Les codecs pour les classes de Mojang sont souvent des champs statiques nommés `CODEC` dans la classe-même, les autres se situant plutôt dans la classe `Codecs`. Par exemple, on peut utiliser `BuiltInRegistries.BLOCK.getCodec()` pour obtenir un `Codec<Block>` qui sérialise l'identifiant du bloc et inversement.
+Comme mentionné ci-dessus, Mojang a déjà défini des codecs pour plusieurs classes vanilla et Java standard, y compris, sans s'y limiter, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` et les `Pattern`s regex. Les codecs pour les classes de Mojang sont souvent des champs statiques nommés `CODEC` dans la classe-même, les autres se situant plutôt dans la classe `Codecs`. Par exemple, on peut utiliser `BuiltInRegistries.BLOCK.byNameCodec()` pour obtenir un `Codec<Block>` qui sérialise l'identifiant du bloc et inversement.
 
 L'API des codecs contient déjà des codecs pour des types primitifs, comme `Codec.INT` et `Codec.STRING`. Ceux-ci sont disponibles statiquement dans la classe `Codec`, et servent souvent de briques pour des codecs plus avancés, comme expliqué ci-dessous.
 
@@ -95,7 +95,7 @@ On peut créer un codec pour cette classe par assemblage de codecs plus simples.
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Le premier est un des codecs primitifs de la classe `Codec` mentionnés plus haut, plus précisément `Codec.INT`. Le deuxième s'obtient à partir du registre `BuiltInRegistries.ITEM` et sa méthode `getCodec()` qui renvoie un `Codec<Item>`. Il n'y a pas de codec par défaut pour `List<BlockPos>`, mais on peut en créer un à partir de `BlockPos.CODEC`.
+Le premier est un des codecs primitifs de la classe `Codec` mentionnés plus haut, plus précisément `Codec.INT`. Le deuxième s'obtient à partir du registre `BuiltInRegistries.ITEM` et sa méthode `byNameCodec()` qui renvoie un `Codec<Item>`. Il n'y a pas de codec par défaut pour `List<BlockPos>`, mais on peut en créer un à partir de `BlockPos.CODEC`.
 
 ### Listes
 
@@ -116,7 +116,7 @@ Voyons voir comment créer un codec pour notre `CoolBeansClass` :
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Jusqu'à 16 champs peuvent être déclarés ici
 ).apply(instance, CoolBeansClass::new));
@@ -310,7 +310,7 @@ Par exemple, imaginons une interface abstraite `Bean` avec deux classes qui l'im
 - Une classe/record `BeanType<T extends Bean>` qui représente le type de blob, et peut fournir le codec associé.
 - Une méthode de `Bean` qui renvoie son `BeanType<?>`.
 - Une map ou un registre pour associer des `ResourceLocation`s à des `BeanType<?>`s.
-- Un `Codec<TypeBlob<?>>` à partir de ce registre. En utilisant un `net.minecraft.registry.Registry`, cela s'obtient facilement avec `Registry#getCodec`.
+- Un `Codec<TypeBlob<?>>` à partir de ce registre. En utilisant un `net.minecraft.registry.Registry`, cela s'obtient facilement avec `Registry#byNameCodec`.
 
 Une fois tout ceci fait, on peut créer un codec de répartition par registre pour les beans :
 
@@ -323,12 +323,12 @@ Une fois tout ceci fait, on peut créer un codec de répartition par registre po
 ```java
 // On peut créer un codec pour les types de bean
 // grâce au registre précédemment créé
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // Et à partir de ça, un codec de répartition par registre pour beans !
 // Le premier argument est le nom du champ correspondant au type.
 // Si omis, il sera égal à "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::byNameCodec);
 ```
 
 Notre nouveau codec sérialisera les beans en JSON ainsi, en n'utilisant que les champs en rapport avec leur type spécifique :

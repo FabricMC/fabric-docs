@@ -24,7 +24,7 @@ authors:
 
 你应该在 `ClientModInitializer` 类中注册你的方块实体渲染器。
 
-`BlockEntityRendererFactories` 是一个注册表，用于将带有自定义渲染代码的每个 `BlockEntityType` 映射到各自的 `BlockEntityRenderer`。
+`BlockEntityRenderers` 是一个注册表，用于将带有自定义渲染代码的每个 `BlockEntityType` 映射到各自的 `BlockEntityRenderer`。
 
 ## 在方块上绘画 {#drawing-on-blocks}
 
@@ -90,7 +90,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 - 要被绘画的 `Component`（或者 `String`）；
 - 文字的 `X` 和 `Y` 坐标；
 - 文字的 RGB 颜色 `color` 值；
-- 描述其转换方式的 `Matrix4f`（要从一个 `PoseStack` 中获取，我们可以使用 `.peek().getPositionMatrix()` 来获取最顶端条目的 `Matrix4f`）。
+- 描述其转换方式的 `Matrix4f`（要从一个 `PoseStack` 中获取，我们可以使用 `last().pose()` 来获取最顶端条目的 `Matrix4f`）。
 
 经过我们的努力，这就是最终结果：
 

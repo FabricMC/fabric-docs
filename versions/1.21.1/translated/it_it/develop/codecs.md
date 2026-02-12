@@ -51,7 +51,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### Codec Predefiniti {#built-in-codecs}
 
-Come menzionato in precedenza, Mojang ha già definito codec per tante classi Java vanilla e standard, incluse, ma non solo, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, e `Pattern` regex. I Codec per le classi di Mojang si trovano solitamente come attributi static chiamati `CODEC` della classe stessa, mentre molte altre sono mantenute nella classe `Codecs`. Bisogna anche sottolineare che tutte le registry vanilla contengono un metodo `getCodec()`, per esempio, puoi usare `BuiltInRegistries.BLOCK.getCodec()` per ottenere un `Codec<Block>` che serializza all'id del blocco e viceversa.
+Come menzionato in precedenza, Mojang ha già definito codec per tante classi Java vanilla e standard, incluse, ma non solo, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, e `Pattern` regex. I Codec per le classi di Mojang si trovano solitamente come attributi static chiamati `CODEC` della classe stessa, mentre molte altre sono mantenute nella classe `Codecs`. Bisogna anche sottolineare che tutte le registry vanilla contengono un metodo `byNameCodec()`, per esempio, puoi usare `BuiltInRegistries.BLOCK.byNameCodec()` per ottenere un `Codec<Block>` che serializza all'id del blocco e viceversa.
 
 L'API stessa dei Codec contiene anche alcuni codec per tipi primitivi, come `Codec.INT` e `Codec.STRING`. Queste sono disponibili come statici nella classe `Codec`, e sono solitamente usate come base per codec più complessi, come spiegato sotto.
 
@@ -93,7 +93,7 @@ Possiamo creare un codec per questa classe mettendo insieme tanti codec più pic
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Mentre il secondo può essere ottenuto dalla registry `BuiltInRegistries.ITEM`, che ha un metodo `getCodec()` che restituisce un `Codec<Item>`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`.
+Possiamo ottenere il primo dal codec primitivo nella classe `Codec` menzionato in precedenza, nello specifico `Codec.INT`. Mentre il secondo può essere ottenuto dalla registry `BuiltInRegistries.ITEM`, che ha un metodo `byNameCodec()` che restituisce un `Codec<Item>`. Non abbiamo un codec predefinito per `List<BlockPos>`, ma possiamo crearne uno a partire da `BlockPos.CODEC`.
 
 ### Liste {#lists}
 
@@ -114,7 +114,7 @@ Diamo un'occhiata a come creare un codec per la nostra `CoolBeansClass`:
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Un massimo di 16 attributi può essere dichiarato qui
 ).apply(instance, CoolBeansClass::new));
@@ -309,7 +309,7 @@ Per esempio, immaginiamo di avere un'interfaccia astratta `Bean` con due classi 
 - Una classe o un record `BeanType<T extends Bean>` che rappresenta il tipo di fagiolo, e che può restituire il codec per esso.
 - Una funzione in `Bean` per ottenere il suo `BeanType<?>`.
 - Una mappa o una registry per mappare `ResourceLocation` a `BeanType<?>`.
-- Un `Codec<BeanType<?>>` basato su questa registry. Se usi una `net.minecraft.registry.Registry`, un codec può essere creato facilmente usando `Registry#getCodec`.
+- Un `Codec<BeanType<?>>` basato su questa registry. Se usi una `net.minecraft.registry.Registry`, un codec può essere creato facilmente usando `Registry#byNameCodec`.
 
 Con tutto questo, possiamo creare un codec di dispatch di registry per i fagioli:
 
@@ -322,7 +322,7 @@ Con tutto questo, possiamo creare un codec di dispatch di registry per i fagioli
 ```java
 // Ora possiamo creare un codec per i tipi di fagioli
 // in base alla registry creata in precedenza
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // E in base a quello, ecco il nostro codec di dispatch della registry per i fagioli!
 // Il primo parametro e il nome dell'attributo per il tipo di fagiolo.

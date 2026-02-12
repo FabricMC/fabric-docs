@@ -53,7 +53,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### 内置的 Codec {#built-in-codecs}
 
-正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `getCodec()` 方法，例如，你可以使用 `BuiltInRegistries.BLOCK.getCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
+正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `byNameCodec()` 方法，例如，你可以使用 `BuiltInRegistries.BLOCK.byNameCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
 
 Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `Codec.STRING`。 这些都在 `Codec` 类中作为静态字段存在，通常用作更多复杂 codec 的基础，会在下方做出解释。
 
@@ -95,7 +95,7 @@ public class CoolBeansClass {
 - 一个 `Codec<Item>`
 - 一个 `Codec<List<BlockPos>>`
 
-第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `BuiltInRegistries.ITEM` 注册表中获取，它有 `getCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
+第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `BuiltInRegistries.ITEM` 注册表中获取，它有 `byNameCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
 
 ### 列表 {#lists}
 
@@ -116,7 +116,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // 最多可以在这里声明 16 个字段
 ).apply(instance, CoolBeansClass::new));
@@ -312,7 +312,7 @@ public class ResourceLocation {
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `ResourceLocation` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，那么可以简单地调用 `Registry#getCodec`。
+- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，那么可以简单地调用 `Registry#byNameCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 
@@ -325,7 +325,7 @@ public class ResourceLocation {
 ```java
 // 现在我们可以创建一个用于 bean 类型的 codec
 // 基于之前创建的注册表
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // 基于那个，这是我们用于 bean 的注册表分派 codec！
 // 第一个参数是这个 bean 类型的字段名

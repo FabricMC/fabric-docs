@@ -52,7 +52,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### Eingebaute Codecs {#built-in-codecs}
 
-Wie bereits erwähnt, hat Mojang bereits Codecs für mehrere Vanilla- und Standard-Java-Klassen definiert, einschließlich, aber nicht beschränkt auf `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` und Regex `Pattern`. Codecs für Mojangs eigene Klassen sind normalerweise als statische Attribute mit dem Namen `CODEC` in der Klasse selbst zu finden, während die meisten anderen in der Klasse `Codecs` untergebracht sind. Es sollte auch beachtet werden, dass alle Vanilla-Registries eine `getCodec()`-Methode enthalten, zum Beispiel kann man `BuiltInRegistries.BLOCK.getCodec()` verwenden, um einen `Codec<Block>` zu erhalten, der in die Block-ID und zurück serialisiert wird.
+Wie bereits erwähnt, hat Mojang bereits Codecs für mehrere Vanilla- und Standard-Java-Klassen definiert, einschließlich, aber nicht beschränkt auf `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` und Regex `Pattern`. Codecs für Mojangs eigene Klassen sind normalerweise als statische Attribute mit dem Namen `CODEC` in der Klasse selbst zu finden, während die meisten anderen in der Klasse `Codecs` untergebracht sind. Es sollte auch beachtet werden, dass alle Vanilla-Registries eine `byNameCodec()`-Methode enthalten, zum Beispiel kann man `BuiltInRegistries.BLOCK.byNameCodec()` verwenden, um einen `Codec<Block>` zu erhalten, der in die Block-ID und zurück serialisiert wird.
 
 Die Codec API selbst enthält auch einige Codecs für primitive Typen wie `Codec.INT` und `Codec.STRING`. Diese sind als statische Attribute der Klasse "Codec" verfügbar und werden in der Regel als Basis für komplexere Codecs verwendet, wie im Folgenden erläutert.
 
@@ -94,7 +94,7 @@ Wir können einen Codec für diese Klasse erstellen, indem wir mehrere kleinere 
 - ein `Codec<Item>`
 - ein `Codec<List<BlockPos>>`
 
-Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `BuiltInRegistries.ITEM` bezogen werden, das eine Methode `getCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
+Den ersten können wir aus den oben erwähnten primitiven Codecs in der Klasse `Codec` beziehen, insbesondere aus `Codec.INT`. Der zweite kann aus dem Register `BuiltInRegistries.ITEM` bezogen werden, das eine Methode `byNameCodec()` hat, die einen `Codec<Item>` zurückgibt. Wir haben keinen Standard-Codec für `List<BlockPos>`, aber wir können einen aus `BlockPos.CODEC` erstellen.
 
 ### Listen {#lists}
 
@@ -115,7 +115,7 @@ Schauen wir uns an, wie wir einen Codec für unsere `CoolBeansClass` erstellen k
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Hier können bis zu 16 Attribute deklariert werden
 ).apply(instance, CoolBeansClass::new));
@@ -310,7 +310,7 @@ Nehmen wir an, wir haben ein abstraktes `Bean`-Interface mit zwei implementieren
 - Eine `BeanType<T extends Bean>`-Klasse oder ein Datensatz, der den Typ der Bohne repräsentiert und den Codec für sie zurückgeben kann.
 - Eine Funktion für `Bean` zum Abrufen ihres `BeanType<?>`.
 - Eine Map oder Registry, um `ResourceLocation` auf `BeanType<?>` abzubilden.
-- Ein `Codec<BeanType<?>>`, der auf dieser Registry basiert. Wenn du eine `net.minecraft.registry.Registry` verwendest, kann eine solche einfach mit `Registry#getCodec` erstellt werden.
+- Ein `Codec<BeanType<?>>`, der auf dieser Registry basiert. Wenn du eine `net.minecraft.registry.Registry` verwendest, kann eine solche einfach mit `Registry#byNameCodec` erstellt werden.
 
 Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 
@@ -323,7 +323,7 @@ Mit all dem können wir einen Registry Dispatch Codec für Bohnen erstellen:
 ```java
 // Jetzt können wir einen Codec für Bohnen-Typen erstellen
 // basierend auf der zuvor erstellten Registry
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // Und darauf basierend, hier unser Registry Dispatch Codec für Bohnen!
 // Das erste Argument ist der Feldname für den Bohnen-Typ.

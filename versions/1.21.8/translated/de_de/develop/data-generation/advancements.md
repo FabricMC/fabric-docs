@@ -28,10 +28,10 @@ Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEn
 
 Ein Fortschritt setzt sich aus mehreren Komponenten zusammen. Neben den Voraussetzungen, auch als "Kriterien" bezeichnet, kann er auch folgendes haben:
 
-- Ein `AdvancementDisplay`, das dem Spiel mitteilt, wie der Fortschritt den Spielern angezeigt werden soll,
+- Ein `DisplayInfo`, das dem Spiel mitteilt, wie der Fortschritt den Spielern angezeigt werden soll,
 - `AdvancementRequirements`, bei denen es sich um Listen von Kriterien handelt, von denen mindestens ein Kriterium aus jeder Teilliste erfüllt sein muss,
 - `AdvancementRewards`, die der Spieler für den Abschluss des Fortschritts erhält.
-- Ein `CriterionMerger`, der dem Fortschritt mitteilt wie er mehrere Kriterien verarbeiten soll, und
+- Ein `Strategy`, der dem Fortschritt mitteilt wie er mehrere Kriterien verarbeiten soll, und
 - Ein übergeordnetes `Advancement`, das die Hierachie organisiert, welche du in dem "Fortschritt" Fenster sehen kannst.
 
 ## Einfacher Fortschritt {#simple-advancements}
@@ -82,7 +82,7 @@ Als Nächstes erstellen wir unser benutzerdefiniertes Kriterium `UseToolCriterio
 
 Puh, das ist eine Menge! Schauen wir uns das mal genauer an.
 
-- `UseToolCriterion` ist ein `AbstractCriterion`, auf das `Conditions` angewendet werden können.
+- `UseToolCriterion` ist ein `SimpleCriterionTrigger`, auf das `Conditions` angewendet werden können.
 - `Conditions` hat ein `playerPredicate` Feld. Alle `Conditions` sollten ein Spielerprädikat haben (technisch gesehen ein `LootContextPredicate`).
 - `Conditions` haben auch einen `CODEC`. Dieser `Codec` ist einfach der Codec für sein einziges Feld, `playerPredicate`, mit zusätzlichen Anweisungen zur Konvertierung zwischen ihnen (`xmap`).
 

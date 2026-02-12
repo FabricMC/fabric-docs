@@ -41,7 +41,7 @@ Oltre a creare traduzioni crude, traduzioni da `ResourceLocation`, e copiarli da
 Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usare ovunque dove usi un oggetto `Component`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Component.translatable` invece di `Component.nullToEmpty`:
 
 ```java
-ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+ChatHud chatHud = Minecraft.getInstance().gui.getChat();
 chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
 chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

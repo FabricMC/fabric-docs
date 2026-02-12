@@ -21,7 +21,7 @@ authors:
 
 - Віджети не створюються в конструкторі, тому що екран ще не ініціалізовано в цей момент, а певні змінні, такі як `width` і `height`, ще недоступні або ще не точні.
 - Метод `init` викликається, коли екран ініціалізується, і це найкраще місце для створення віджетів.
-  - Ви додаєте віджети за допомогою методу `addDrawableChild`, який приймає будь-який віджет, який можна малювати.
+  - Ви додаєте віджети за допомогою методу `addRenderableWidget`, який приймає будь-який віджет, який можна малювати.
 - Метод `render` називається кожним кадром - ви можете отримати доступ до контексту малювання та позиції мишки з цього методу.
 
 Як приклад, ми можемо створити простий екран із кнопкою та міткою над нею.
@@ -36,7 +36,7 @@ authors:
 
 ```java
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -57,6 +57,6 @@ Minecraft.getInstance().setScreen(null);
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
 Minecraft.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

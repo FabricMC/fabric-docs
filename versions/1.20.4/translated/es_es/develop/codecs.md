@@ -53,7 +53,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### Codecs Incluidos
 
-Como hemos mencionado anterioramente, Mojang ya tiene definido varios codecs para varias clases vanila y clases de Java estándares, como por ejemplo, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, y regex `Pattern`s (patrones regex). Los Codecs para las clases propias de Mojang usualmente se pueden encontrar como miembros estáticos con el nombre de `CODEC` en la clase misma, mientras que la mayoría de los demás se encuentran en la clase `Codecs`. Es importante saber que todos los registros vanila tienen un método `getCodec()`, por ejemplo, puedes usar `BuiltInRegistries.BLOCK.getCodec()` para tener un `Codec<Block>` el cual (de)serializa IDs de bloques.
+Como hemos mencionado anterioramente, Mojang ya tiene definido varios codecs para varias clases vanila y clases de Java estándares, como por ejemplo, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, y regex `Pattern`s (patrones regex). Los Codecs para las clases propias de Mojang usualmente se pueden encontrar como miembros estáticos con el nombre de `CODEC` en la clase misma, mientras que la mayoría de los demás se encuentran en la clase `Codecs`. Es importante saber que todos los registros vanila tienen un método `byNameCodec()`, por ejemplo, puedes usar `BuiltInRegistries.BLOCK.byNameCodec()` para tener un `Codec<Block>` el cual (de)serializa IDs de bloques.
 
 La API de Codec también tiene codecs para tipos de variable primitivos, como `Codec.INT` y `Codec.STRING`. Estos se pueden encontrar como miembros estáticos en la clase `Codec`, y usualmente son la base de Codecs más complejos, como explicado a continuación.
 
@@ -95,7 +95,7 @@ Podemos hacer un codec para esta clase integrando varios codecs más pequeños e
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Podemos obtener el primero usando los codecs primitivos ya mencionados, mediante la clase `Codec`, específicamente `Codec.INT`. Mientras que el segundo se puede obtener mediante el registro `BuiltInRegistries.ITEM`, el cuando tiene un método `getCodec()`, el cual retorna un `Codec<Item>`. No tenemos un codec por defecto para `List<BlockPos>`, pero podemos crear uno a partir de `BlockPos.CODEC`.
+Podemos obtener el primero usando los codecs primitivos ya mencionados, mediante la clase `Codec`, específicamente `Codec.INT`. Mientras que el segundo se puede obtener mediante el registro `BuiltInRegistries.ITEM`, el cuando tiene un método `byNameCodec()`, el cual retorna un `Codec<Item>`. No tenemos un codec por defecto para `List<BlockPos>`, pero podemos crear uno a partir de `BlockPos.CODEC`.
 
 ### Listas
 
@@ -116,7 +116,7 @@ Veamos como podemos crear un codec para nuestra clase `CoolBeansClass`:
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // El máximo de miembros que se pueden declarar aquí es 16
 ).apply(instance, CoolBeansClass::new));
@@ -311,7 +311,7 @@ Por ejemplo, digamos que tenemos una interfaz abstracta `Bean`, con dos clases i
 - Una clase `BeanType<T extends Bean>` o un record que represente el tipo de bean, y que pueda retornar un codec para él.
 - Una función en `Bean` para obtener su `BeanType<?>`.
 - Una asociación o registro para asociar `ResourceLocation`s a `BeanType<?>`s.
-- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`, puedes hacer una fácilmente con `Registry#getCodec`.
+- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`, puedes hacer una fácilmente con `Registry#byNameCodec`.
 
 Con todo esto, puedes crear un despacho de registros para beans:
 
@@ -324,12 +324,12 @@ Con todo esto, puedes crear un despacho de registros para beans:
 ```java
 // Ahora podemos crear un codec para los tipos de bean
 // basado en el registro previamente creado
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // ¡Y basado en esto, aquí esta nuestro codec de despacho de registros para beans!
 // El primer argumento es el nombre del miembro para el tipo de bean.
 // Cuando no se especifica, se usa el valor por defecto "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::byNameCodec);
 ```
 
 Nuestro nuevo codec serializará beans a json de esta manera, usando solo los campos relevantes a su tipo especificado:

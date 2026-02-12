@@ -41,7 +41,7 @@ Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `ResourceLo
 Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Component`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Component.translatable` anstelle von `Component.nullToEmpty`:
 
 ```java
-ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+ChatHud chatHud = Minecraft.getInstance().gui.getChat();
 chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
 chatHud.addMessage(Component.translatable("text.fabric_docs_reference.greeting")); // [!code ++]
 ```

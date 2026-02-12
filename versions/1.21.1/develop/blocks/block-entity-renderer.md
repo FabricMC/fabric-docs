@@ -26,7 +26,7 @@ Also, by including a constructor like this, it becomes possible to use the const
 
 Add the entrypoint to the `fabric.mod.json` file, so that the renderer is registered.
 
-`BlockEntityRendererFactories` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
+`BlockEntityRenderers` is a registry that maps each `BlockEntityType` with custom rendering code to its respective `BlockEntityRenderer`.
 
 ## Drawing on Blocks {#drawing-on-blocks}
 
@@ -92,7 +92,7 @@ The `draw` method takes a lot of parameters, but the most important ones are:
 - the `Component` (or `String`) to draw;
 - its `x` and `y` coordinates;
 - the RGB `color` value;
-- the `Matrix4f` describing how it should be transformed (to get one from a `PoseStack`, we can use `.peek().getPositionMatrix()` to get the `Matrix4f` for the topmost entry).
+- the `Matrix4f` describing how it should be transformed (to get one from a `PoseStack`, we can use `last().pose()` to get the `Matrix4f` for the topmost entry).
 
 And after all this work, here's the result:
 

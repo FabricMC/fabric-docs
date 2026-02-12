@@ -58,8 +58,8 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 ### Вбудовані кодеки {#built-in-codecs}
 
 Як згадувалося раніше, Mojang уже визначив кодеки для кількох вільних і стандартних класів Java, включаючи, але не
-обмежено `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` і регулярні вирази `Pattern`. Власні кодеки для Mojang класи зазвичай знаходяться як статичні поля з назвою `CODEC` у самому класі, тоді як більшість інших зберігаються в клас `Codecs`. Слід також зазначити, що всі реєстри ванілли містять метод `getCodec()`, наприклад, ви
-можна використовувати `BuiltInRegistries.BLOCK.getCodec()`, щоб отримати `Codec<Block>`, який серіалізується до ідентифікатора блоку та назад.
+обмежено `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component` і регулярні вирази `Pattern`. Власні кодеки для Mojang класи зазвичай знаходяться як статичні поля з назвою `CODEC` у самому класі, тоді як більшість інших зберігаються в клас `Codecs`. Слід також зазначити, що всі реєстри ванілли містять метод `byNameCodec()`, наприклад, ви
+можна використовувати `BuiltInRegistries.BLOCK.byNameCodec()`, щоб отримати `Codec<Block>`, який серіалізується до ідентифікатора блоку та назад.
 
 Сам Codec API також містить деякі кодеки для примітивних типів, як-от `Codec.INT` і `Codec.STRING`. Це доступні як статика в класі `Codec` і зазвичай використовуються як основа для складніших кодеків, як пояснюється нижче.
 
@@ -102,7 +102,7 @@ public class CoolBeansClass {
 - `Codec<Item>`
 - `Codec<List<BlockPos>>`
 
-Ми можемо отримати перший з вищезгаданих примітивних кодеків у класі `Codec`, зокрема `Codec.INT`. Поки другий можна отримати з реєстру `BuiltInRegistries.ITEM`, який має метод `getCodec()`, який повертає `Codec<Item>`. У нас немає стандартного кодека для `List<BlockPos>`, але ми можемо створити його з `BlockPos.CODEC`.
+Ми можемо отримати перший з вищезгаданих примітивних кодеків у класі `Codec`, зокрема `Codec.INT`. Поки другий можна отримати з реєстру `BuiltInRegistries.ITEM`, який має метод `byNameCodec()`, який повертає `Codec<Item>`. У нас немає стандартного кодека для `List<BlockPos>`, але ми можемо створити його з `BlockPos.CODEC`.
 
 ### Lists {#lists}
 
@@ -123,7 +123,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Тут можна оголосити до 16 полів
 ).apply(instance, CoolBeansClass::new));
@@ -325,7 +325,7 @@ public class ResourceLocation {
 - Клас або запис `BeanType<T extends Bean>`, який представляє тип bean і може повертати кодек для нього.
 - Функція на `Bean` для отримання його `BeanType<?>`.
 - Карта або реєстр для зіставлення `ResourceLocation` з `BeanType<?>`.
-- `Codec<BeanType<?>>` на основі цього реєстру. Якщо ви використовуєте `net.minecraft.registry.Registry`, його можна легко створити за допомогою `Registry#getCodec`.
+- `Codec<BeanType<?>>` на основі цього реєстру. Якщо ви використовуєте `net.minecraft.registry.Registry`, його можна легко створити за допомогою `Registry#byNameCodec`.
 
 З усім цим ми можемо створити кодек відправки реєстру для компонентів:
 
@@ -338,7 +338,7 @@ public class ResourceLocation {
 ```java
 // Тепер ми можемо створити кодек для типів bean
 // на основі раніше створеного реєстру
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // І виходячи з цього, ось наш кодек відправки реєстру для beans!
 // Перший аргумент — це ім’я поля для типу компонента.

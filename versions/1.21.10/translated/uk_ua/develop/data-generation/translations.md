@@ -41,7 +41,7 @@ authors-nogithub:
 Згенеровані переклади замінюють багато перекладів, доданих в інших посібниках, але ви також можете використовувати їх усюди, де використовуєте об’єкт `Текст`. У нашому прикладі, якщо ми хочемо дозволити пакетам ресурсів перекладати наше привітання, ми використовуємо `Component.translatable` замість `Component.nullToEmpty`:
 
 ```java
-ChatHud chatHud = Minecraft.getInstance().inGameHud.getChatHud();
+ChatHud chatHud = Minecraft.getInstance().gui.getChat();
 chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
 chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
 ```

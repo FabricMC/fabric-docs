@@ -28,10 +28,10 @@ Per completare la configurazione, aggiungi questo fornitore alla tua `DataGenera
 
 Un progresso è composto di alcune componenti diverse. Assieme ai requisiti, detti "criterio", potrebbe avere:
 
-- Un `AdvancementDisplay` che dice al gioco come mostrare il progresso ai giocatori,
+- Un `DisplayInfo` che dice al gioco come mostrare il progresso ai giocatori,
 - `AdvancementRequirements`, ovvero liste di liste di criteri, che richiedono che almeno un criterio di ogni sotto-lista sia soddisfatto,
 - `AdvancementRewards`, che il giocatore riceverà per aver completato il progresso,
-- Un `CriterionMerger`, che informa il progresso su come gestire criteri multipli, e
+- Un `Strategy`, che informa il progresso su come gestire criteri multipli, e
 - Un `Advancement` genitore, che organizza la gerarchia che vedi nella schermata "Progressi".
 
 ## Progressi Semplici {#simple-advancements}
@@ -82,7 +82,7 @@ Ora, creiamo il nostro criterio personalizzato, `UseToolCriterion`. Avrà bisogn
 
 Wow, questo è un sacco! Analizziamolo poco per volta.
 
-- `UseToolCriterion` è un `AbstractCriterion`, al quale si possono applicare delle `Conditions`.
+- `UseToolCriterion` è un `SimpleCriterionTrigger`, al quale si possono applicare delle `Conditions`.
 - `Conditions` ha un attributo `playerPredicate`. Tutte le `Conditions` dovrebbero avere un predicato del giocatore (tecnicamente un `LootContextPredicate`).
 - `Conditions` ha anche un `CODEC`. Questo `Codec` è semplicemente il codec per il suo unico attributo, `playerPredicate`, con istruzioni aggiuntive per convertirlo tra di essi (`xmap`).
 
