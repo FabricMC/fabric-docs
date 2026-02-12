@@ -3,6 +3,7 @@ title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 As your items grow more complex, you may find yourself needing to store custom data associated with each item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
@@ -79,6 +80,22 @@ public void appendHoverText(ItemStack stack, TooltipContext context, List<Compon
     tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
 }
 ```
+
+::: warning
+
+As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+
+:::
 
 Don't forget to update your lang file (`/assets/example-mod/lang/en_us.json`) and add these two lines:
 
