@@ -83,15 +83,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> 
 
 ::: warning
 
-As of 1.21.5, `appendTooltip` has been deprecated. It is now recommended to implement `TooltipAppender` as such. This will require the [creation of a custom component class](#advanced-data-components).
+As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
 
-Then, you can register the `TooltipAppender` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
 @[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
-Alternatively, you can use `ItemTooltipCallback` to replace `appendTooltip`. This is called in `onInitializeClient` in the `ClientModInitializer`.
+Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
 
 @[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
 

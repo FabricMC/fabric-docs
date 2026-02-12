@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -45,7 +46,7 @@ public class FabricDocsReference implements ModInitializer {
 		//#entrypoint
 
 		// #tooltip_provider
-		ComponentTooltipAppenderRegistry.addAfter(DataComponentTypes.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
+		ComponentTooltipAppenderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
 		// #tooltip_provider
 	}
 }

@@ -21,10 +21,10 @@ public class ModComponents {
 	);
 	//::2
 
-	public static final ComponentType<ComponentWithTooltip> COMPONENT_WITH_TOOLTIP = Registry.register(
-			Registries.DATA_COMPONENT_TYPE,
-			Identifier.of(FabricDocsReference.MOD_ID, "click_count_with_tooltip"),
-			ComponentType.<ComponentWithTooltip>builder().codec(ComponentWithTooltip.CODEC).build()
+	public static final DataComponentType<ComponentWithTooltip> COMPONENT_WITH_TOOLTIP = Registry.register(
+			BuiltInRegistries.DATA_COMPONENT_TYPE,
+			ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "click_count_with_tooltip"),
+			DataComponentType.<ComponentWithTooltip>builder().persistent(ComponentWithTooltip.CODEC).build()
 	);
 
 	//::3

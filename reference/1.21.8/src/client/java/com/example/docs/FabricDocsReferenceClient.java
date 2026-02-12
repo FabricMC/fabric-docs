@@ -1,8 +1,8 @@
 package com.example.docs;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.particle.EndRodParticle;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.network.chat.Component;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -23,7 +23,7 @@ public class FabricDocsReferenceClient implements ClientModInitializer {
 		// #tooltip_provider_client
 		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
 			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-			tooltip.add(Text.translatable("item.fabric-docs-reference.counter.info", count).formatted(Formatting.GOLD));
+			tooltip.add(Component.translatable("item.fabric-docs-reference.counter.info", count).withStyle(ChatFormatting.GOLD));
 		});
 		// #tooltip_provider_client
 	}
