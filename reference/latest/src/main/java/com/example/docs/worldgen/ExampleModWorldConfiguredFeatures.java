@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
@@ -27,14 +27,14 @@ public class ExampleModWorldConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
 			ResourceKey.create(
 				Registries.CONFIGURED_FEATURE,
-				ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_vein")
+				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_vein")
 			);
 	// :::datagen-world:configured-key
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_TREE_CONFIGURED_KEY =
 			ResourceKey.create(
 					Registries.CONFIGURED_FEATURE,
-					ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
 			);
 
 	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
