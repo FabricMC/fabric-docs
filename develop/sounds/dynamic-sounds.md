@@ -50,7 +50,7 @@ We can hear and see, that the engine gets started in the beginning and stopped a
 
 ### Removing Disruptive Audio Elements {#removing-disruptive-audio-elements}
 
-If we listen closely, there is a beeping noise in the background, which could've come from the machine. I think, that this wouldn't sound great in-game, so lets try to remove it.
+If we listen closely, there is a beeping noise in the background, which could've come from the machine. I think that this wouldn't sound great in-game, so let's try to remove it.
 
 It is a constant sound which keeps its frequency over the length of the audio. So a simple EQ filter should be enough to filter it out.
 
