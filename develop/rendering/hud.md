@@ -6,7 +6,7 @@ authors:
   - kevinthegreat1
 ---
 
-We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `DeltaTracker` parameter.
+We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Drawing to the GUI](./gui-graphics), so on this page we'll stick to the Hud API and the `DeltaTracker` parameter.
 
 ## `HudRenderCallback` {#hudrendercallback}
 
@@ -22,7 +22,7 @@ Fabric provides the Hud API to render and layer elements on the HUD.
 
 To start, we need to register a listener to `HudElementRegistry` which registers your elements. Each element is a `HudElement`. A `HudElement` instance is usually a lambda that takes a `GuiGraphics` and a `DeltaTracker` instance as parameters. See `HudElementRegistry` and related Javadocs for more details on how to use the API.
 
-The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
+The GUI graphics can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Drawing to the GUI](./gui-graphics) page to learn more about it.
 
 ### Delta Tracker {#delta-tracker}
 
