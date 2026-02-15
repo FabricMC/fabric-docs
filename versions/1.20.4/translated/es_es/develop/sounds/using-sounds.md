@@ -11,7 +11,7 @@ Minecraft tiene una gran selección de sonidos para elegir. Mira la clase de `So
 
 ¡Asegúrate de ejecutar el método `playSond()` en el lado del servidor lógico cuando uses sonidos!
 
-En este ejemplo, los métodos de `useOnEntity()` y `useOnBlock()` para un item interactivo personalizado son usados para reproducir sonidos de "colocar un bloque de cobre" y de saqueador.
+En este ejemplo, los métodos de `interactLivingEntity()` y `useOn()` para un item interactivo personalizado son usados para reproducir sonidos de "colocar un bloque de cobre" y de saqueador.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/CustomSoundItem.java)
 
@@ -23,7 +23,7 @@ El método `playSound()` es usado con el objeto de `LivingEntity` (Entidad Vivie
 
 El SoundEvent define que sonido será reproducido. También puedes [registrar tu propio SoundEvent](./custom) para incluir tu propio sonido.
 
-Minecraft tiene varios deslizadores de audio en las opciones del juego. El enum (enumeración) de `SoundCategory` es usado para determinar que deslizador ajustará el volumen de tu sonido.
+Minecraft tiene varios deslizadores de audio en las opciones del juego. El enum (enumeración) de `SoundSource` es usado para determinar que deslizador ajustará el volumen de tu sonido.
 
 ### Volumen y Tono
 

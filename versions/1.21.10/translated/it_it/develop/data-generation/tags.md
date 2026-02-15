@@ -15,7 +15,7 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 ## Configurazione {#setup}
 
-Anzitutto, crea la tua classe che `extends FabricTagProvider<T>`, dove `T` è il tipo di cosa per la quale vuoi fornire un tag. Questo è il tuo **fornitore**. Qui mostreremo come creare tag di `Item`, ma lo stesso principio si applica ad altre cose. Lascia che il tuo IDE compili il codice richiesto, poi sostituisci il parametro `registryKey` del costruttore con la `RegistryKey` per il tuo tipo:
+Anzitutto, crea la tua classe che `extends FabricTagProvider<T>`, dove `T` è il tipo di cosa per la quale vuoi fornire un tag. Questo è il tuo **fornitore**. Qui mostreremo come creare tag di `Item`, ma lo stesso principio si applica ad altre cose. Lascia che il tuo IDE compili il codice richiesto, poi sostituisci il parametro `registryKey` del costruttore con la `ResourceKey` per il tuo tipo:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
 

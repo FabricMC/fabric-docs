@@ -2,8 +2,8 @@ package com.example.docs.rendering;
 
 import org.joml.Matrix3x2fStack;
 
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
@@ -18,7 +18,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::1
-		HudElementRegistry.addLast(Identifier.of(FabricDocsReference.MOD_ID, "last_element"), hudLayer());
+		HudElementRegistry.addLast(ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "last_element"), hudLayer());
 		// :::1
 	}
 
@@ -30,10 +30,10 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			}
 
 			// :::2
-			Matrix3x2fStack matrices = drawContext.getMatrices();
+			Matrix3x2fStack matrices = drawContext.pose();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickProgress += tickCounter.getTickProgress(true);
+			totalTickProgress += tickCounter.getGameTimeDeltaPartialTick(true);
 
 			// Push a new matrix onto the stack.
 			matrices.pushMatrix();
@@ -41,7 +41,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 
 			// :::2
 			// Scale the matrix by 0.5 to make the triangle smaller and larger over time.
-			float scaleAmount = MathHelper.sin(totalTickProgress / 10F) / 2F + 1.5F;
+			float scaleAmount = Mth.sin(totalTickProgress / 10F) / 2F + 1.5F;
 
 			// Apply the scaling amount to the matrix.
 			// We don't need to scale the Z axis since it's on the HUD and 2D.

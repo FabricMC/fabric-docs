@@ -1,6 +1,6 @@
 ---
 title: 음식 아이템
-description: 아이템을 섭취할 수 있고, 다양한 효과를 구성할 수 있게 FoodComponent에 추가하는 방법을 알아보세요.
+description: 아이템을 섭취할 수 있고, 다양한 효과를 구성할 수 있게 FoodProperties에 추가하는 방법을 알아보세요.
 authors:
   - IMB11
 ---
@@ -15,15 +15,15 @@ authors:
 
 ## 음식 요소 추가하기 {#adding-the-food-component}
 
-아이템에 음식 요소를 추가하려면, `Item.Settings` 인스턴스에 다음과 같이 전달할 수 있습니다:
+아이템에 음식 요소를 추가하려면, `Item.Properties` 인스턴스에 다음과 같이 전달할 수 있습니다:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 지금으로썬, 이렇게 하면 아이템을 그저 섭취할 수만 있게 합니다.
 
-`FoodComponent.Builder` 클래스에는 음식이 섭취되었을 때 발생하는 일을 조정할 수 있게 해주는 여러 메소드가 있습니다.
+`FoodProperties.Builder` 클래스에는 음식이 섭취되었을 때 발생하는 일을 조정할 수 있게 해주는 여러 메소드가 있습니다.
 
 | 메소드                  | 설명                                        |
 | -------------------- | ----------------------------------------- |
@@ -31,9 +31,9 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 | `saturationModifier` | 아이템이 채울 포만감의 양을 설정합니다.    |
 | `alwaysEdible`       | 배고픔의 상관없이 항상 먹을 수 있게 합니다. |
 
-원하는 대로 빌더를 수정했으면, `build()` 메소드를 호출하며 `FoodComponent`를 생성할 수 있습니다.
+원하는 대로 빌더를 수정했으면, `build()` 메소드를 호출하며 `FoodProperties`를 생성할 수 있습니다.
 
-플레이어가 아이템을 섭취했을 때 물약 효과가 부여되도록 만들고 싶다면, `FoodComponent` 클래스와 함께 다음과 같이 `ConsumableComponent`도 사용해야 합니다:
+플레이어가 아이템을 섭취했을 때 물약 효과가 부여되도록 만들고 싶다면, `FoodProperties` 클래스와 함께 다음과 같이 `ConsumableComponent`도 사용해야 합니다:
 
 @[code transcludeWith=:::5](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 

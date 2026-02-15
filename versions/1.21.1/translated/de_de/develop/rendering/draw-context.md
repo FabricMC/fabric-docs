@@ -1,21 +1,21 @@
 ---
 title: Den Zeichenkontext verwenden
-description: Lerne, wie man die Klasse DrawContext verwendet, um verschiedene Formen, Texte und Texturen zu rendern.
+description: Lerne, wie man die Klasse GuiGraphics verwendet, um verschiedene Formen, Texte und Texturen zu rendern.
 authors:
   - IMB11
 ---
 
 Diese Seite setzt voraus, dass du einen Blick auf die Seite [Grundlegende Rendering-Konzepte](./basic-concepts) geworfen hast.
 
-Die Klasse `DrawContext` ist die Hauptklasse, die für das Rendering im Spiel verwendet wird. Sie wird für das Rendern von Formen, Text und Texturen verwendet und, wie zuvor gesehen, für die Bearbeitung von `MatrixStack`s und die Verwendung von `BufferBuilder`n.
+Die Klasse `GuiGraphics` ist die Hauptklasse, die für das Rendering im Spiel verwendet wird. Sie wird für das Rendern von Formen, Text und Texturen verwendet und, wie zuvor gesehen, für die Bearbeitung von `PoseStack`s und die Verwendung von `BufferBuilder`n.
 
 ## Formen zeichnen {#drawing-shapes}
 
-Die Klasse `DrawContext` kann verwendet werden, um auf einfache Weise **quadratische** Formen zu zeichnen. Wenn du Dreiecke oder andere nicht-quadratische Formen zeichnen willst, musst du einen `BufferBuilder` verwenden.
+Die Klasse `GuiGraphics` kann verwendet werden, um auf einfache Weise **quadratische** Formen zu zeichnen. Wenn du Dreiecke oder andere nicht-quadratische Formen zeichnen willst, musst du einen `BufferBuilder` verwenden.
 
 ### Zeichnen von Dreiecken {#drawing-rectangles}
 
-Du kannst die Methode `DrawContext.fill(...)` verwenden, um ein gefülltes Rechteck zu zeichnen.
+Du kannst die Methode `GuiGraphics.fill(...)` verwenden, um ein gefülltes Rechteck zu zeichnen.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -23,7 +23,7 @@ Du kannst die Methode `DrawContext.fill(...)` verwenden, um ein gefülltes Recht
 
 ### Zeichnen von Umrissen/Rahmen {#drawing-outlines-borders}
 
-Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreißen. Wir können die Methode `DrawContext.drawBorder(...)` verwenden, um einen Umriss zu zeichnen.
+Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreißen. Wir können die Methode `GuiGraphics.drawBorder(...)` verwenden, um einen Umriss zu zeichnen.
 
 @[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -31,7 +31,7 @@ Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umreiß
 
 ### Zeichnen von individuellen Linien {#drawing-individual-lines}
 
-Wir können die Methoden `DrawContext.drawHorizontalLine(...)` und `DrawContext.drawVerticalLine(...)` verwenden, um Linien zu zeichnen.
+Wir können die Methoden `GuiGraphics.drawHorizontalLine(...)` und `GuiGraphics.drawVerticalLine(...)` verwenden, um Linien zu zeichnen.
 
 @[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -39,7 +39,7 @@ Wir können die Methoden `DrawContext.drawHorizontalLine(...)` und `DrawContext.
 
 ## Der Scheren-Manager {#the-scissor-manager}
 
-Die Klasse `DrawContext` hat einen eingebauten Scheren-Manager. So kannst du dein Rendering ganz einfach auf einen bestimmten Bereich beschränken. Dies ist nützlich für das Rendern von Dingen wie Tooltips oder anderen Elementen, die nicht außerhalb eines bestimmten Bereichs gerendert werden sollen.
+Die Klasse `GuiGraphics` hat einen eingebauten Scheren-Manager. So kannst du dein Rendering ganz einfach auf einen bestimmten Bereich beschränken. Dies ist nützlich für das Rendern von Dingen wie Tooltips oder anderen Elementen, die nicht außerhalb eines bestimmten Bereichs gerendert werden sollen.
 
 ### Den Scheren-Manager nutzen {#using-the-scissor-manager}
 
@@ -47,7 +47,7 @@ Die Klasse `DrawContext` hat einen eingebauten Scheren-Manager. So kannst du dei
 Scheren-Regionen können verschachtelt werden! Stelle sicher, dass du den Scheren-Manager genauso oft deaktivierst, wie du ihn aktiviert hast.
 :::
 
-Um den Scheren-Manager zu aktivieren, verwende einfach die Methode `DrawContext.enableScissor(...)`. Um den Scheren-Manager zu deaktivieren, verwende die Methode `DrawContext.disableScissor()`.
+Um den Scheren-Manager zu aktivieren, verwende einfach die Methode `GuiGraphics.enableScissor(...)`. Um den Scheren-Manager zu deaktivieren, verwende die Methode `GuiGraphics.disableScissor()`.
 
 @[code lang=java transcludeWith=:::4](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -61,7 +61,7 @@ Es gibt nicht den einen "richtigen" Weg, um Texturen auf einen Bildschirm zu zei
 
 ### Zeichnen einer ganzen Textur {#drawing-an-entire-texture}
 
-Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Parameter `textureWidth` und `textureHeight` angibt. Der Grund dafür ist, dass die Klasse `DrawContext` diese Werte entgegennimmt, wenn du sie nicht angibst, was manchmal falsch sein kann.
+Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Parameter `textureWidth` und `textureHeight` angibt. Der Grund dafür ist, dass die Klasse `GuiGraphics` diese Werte entgegennimmt, wenn du sie nicht angibst, was manchmal falsch sein kann.
 
 @[code lang=java transcludeWith=:::5](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -83,9 +83,9 @@ Wenn wir nur einen Bereich zeichnen wollen, der die Lupe enthält, können wir d
 
 ## Zeichnen von Text {#drawing-text}
 
-Die Klasse `DrawContext` verfügt über verschiedene selbsterklärende Methoden zum Rendern von Texten, die hier aus Gründen der Kürze nicht behandelt werden.
+Die Klasse `GuiGraphics` verfügt über verschiedene selbsterklärende Methoden zum Rendern von Texten, die hier aus Gründen der Kürze nicht behandelt werden.
 
-Nehmen wir an, wir wollen "Hello World" auf die Oberfläche zeichnen. Wir können dazu die Methode `DrawContext.drawText(...)` verwenden.
+Nehmen wir an, wir wollen "Hello World" auf die Oberfläche zeichnen. Wir können dazu die Methode `GuiGraphics.drawText(...)` verwenden.
 
 @[code lang=java transcludeWith=:::7](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

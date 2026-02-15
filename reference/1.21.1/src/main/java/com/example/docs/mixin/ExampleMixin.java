@@ -9,7 +9,7 @@ import net.minecraft.server.MinecraftServer;
 
 @Mixin(MinecraftServer.class)
 public class ExampleMixin {
-	@Inject(at = @At("HEAD"), method = "loadWorld")
+	@Inject(at = @At("HEAD"), method = "loadLevel")
 	private void init(CallbackInfo info) {
 		// This code is injected into the start of MinecraftServer.loadWorld()V
 	}

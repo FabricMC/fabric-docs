@@ -176,7 +176,7 @@ Brigadier [will only redirect command nodes with arguments](https://github.com/M
   or `CommandManager.argument` instead of `LiteralArgumentBuilder.literal` or `RequiredArgumentBuilder.argument`.
 
 - Check `sendFeedback()` method - You may have forgotten to provide a boolean as the second argument. Also remember
-  that, since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Text`.
+  that, since Minecraft 1.20, the first parameter is `Supplier<Text>` instead of `Component`.
 
 - A Command should return an integer - When registering commands, the `executes()` method accepts a `Command` object,
   which is usually a lambda. The lambda should return an integer, instead of other types.

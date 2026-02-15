@@ -14,21 +14,21 @@ Although Minecraft is built using OpenGL, as of version 1.17+ you cannot use leg
 
 이 튜토리얼에서는 새로운 렌더링 시스템을 만들며 렌더링의 기본 사항과 주요 용어, 개념에 대해 알아볼 것입니다.
 
-Minecraft에서 렌더링은 여러 `DrawContext` 메서드를 통하여 추상화 되어있어, 이 튜토리얼에 언급된 대로 하지 않아도 되지만, 그래도 렌더링의 기본 개념을 이해할 필요는 있습니다.
+Minecraft에서 렌더링은 여러 `GuiGraphics` 메서드를 통하여 추상화 되어있어, 이 튜토리얼에 언급된 대로 하지 않아도 되지만, 그래도 렌더링의 기본 개념을 이해할 필요는 있습니다.
 
-## `Tessellator` {#the-tessellator}
+## `Tesselator` {#the-tessellator}
 
-`Tessellator`는 Minecraft에서 렌더링에 사용하는 기본(Main) 클래스입니다. 이는 싱글톤이므로, 게임에 오직 하나의 인스턴스만 존재할 수 있습니다. `Tessellator.getInstance()`를 사용하여 인스턴스를 불러올 수 있습니다.
+`Tesselator`는 Minecraft에서 렌더링에 사용하는 기본(Main) 클래스입니다. 이는 싱글톤이므로, 게임에 오직 하나의 인스턴스만 존재할 수 있습니다. `Tesselator.getInstance()`를 사용하여 인스턴스를 불러올 수 있습니다.
 
 ## `BufferBuilder`
 
 `BufferBuilder`는 OpenGL에 렌더링 데이터의 형식을 지정하고 업로드하는 클래스입니다. 이는 화면에 게임을 그리기 위하여 OpenGL에 업로드되는 Buffer를 생성합니다.
 
-`Tessellator`는 렌더링 데이터의 형식을 지정하고 업로드를 하는 데 쓰이는 `BufferBuilder`를 생성하기 위하여 사용됩니다.
+`Tesselator`는 렌더링 데이터의 형식을 지정하고 업로드를 하는 데 쓰이는 `BufferBuilder`를 생성하기 위하여 사용됩니다.
 
 ### `BufferBuilder` 초기화 하기
 
-`BufferBuilder`에 무엇이든 쓰기 전에, 먼저 초기화해야 합니다. 이는 `VertexFormat` 및 그리기 모드를 사용하고 `BufferBuilder`를 반환하는 `Tessellator#begin(...)` 메서드를 사용하여 할 수 있습니다.
+`BufferBuilder`에 무엇이든 쓰기 전에, 먼저 초기화해야 합니다. 이는 `VertexFormat` 및 그리기 모드를 사용하고 `BufferBuilder`를 반환하는 `Tesselator#begin(...)` 메서드를 사용하여 할 수 있습니다.
 
 #### 꼭짓점 포맷 {#vertex-formats}
 
@@ -59,20 +59,20 @@ Minecraft에서 렌더링은 여러 `DrawContext` 메서드를 통하여 추상�
 
 | 그리기 모드                      | 설명                                                                                                             |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `DrawMode.LINES`            | 각 요소는 2개의 꼭짓점으로 구성되며 단일 선으로 표시됩니다.                                                             |
-| `DrawMode.LINE_STRIP`       | 첫 번째 선만 2개의 꼭짓점을 가집니다. 이후 꼭짓점은 기존에 있던 꼭짓점과 연결되어, 연속적인 줄을 만듭니다.                 |
-| `DrawMode.DEBUG_LINES`      | `DrawMode.LINES`와 비슷하지만, 항상 선이 화면에서 1px 너비로 표시됩니다.                                             |
-| `DrawMode.DEBUG_LINE_STRIP` | `DrawMode.LINE_STRIP`과 같지만, 항상 선이 화면에 1px 너비로 표시됩니다.                                           |
-| `DrawMode.TRIANGLES`        | 각 요소가 3개의 꼭짓점으로 만들어져, 삼각형이 구성합니다.                                                              |
-| `DrawMode.TRIANGLE_STRIP`   | 첫 삼각형만 세 개의 꼭짓점을 가집니다. 이후 추가된 꼭짓점은 기존에 있던 두 꼭짓점으로 새 삼각형을 구성하게 됩니다.             |
-| `DrawMode.TRIANGLE_FAN`     | 첫 삼각형만 세 개의 꼭짓점을 가집니다. 이후 추가된 꼭지점은 기존에 있던 첫 번째 꼭지점과 마지막 꼭지점으로 새 삼각형을 구성하게 됩니다. |
-| `DrawMode.QUADS`            | 각 요소가 4개의 꼭짓점으로 만들어져, 사각형을 구성합니다.                                                              |
+| `Mode.LINES`            | 각 요소는 2개의 꼭짓점으로 구성되며 단일 선으로 표시됩니다.                                                             |
+| `Mode.LINE_STRIP`       | 첫 번째 선만 2개의 꼭짓점을 가집니다. 이후 꼭짓점은 기존에 있던 꼭짓점과 연결되어, 연속적인 줄을 만듭니다.                 |
+| `Mode.DEBUG_LINES`      | `Mode.LINES`와 비슷하지만, 항상 선이 화면에서 1px 너비로 표시됩니다.                                             |
+| `Mode.DEBUG_LINE_STRIP` | `Mode.LINE_STRIP`과 같지만, 항상 선이 화면에 1px 너비로 표시됩니다.                                           |
+| `Mode.TRIANGLES`        | 각 요소가 3개의 꼭짓점으로 만들어져, 삼각형이 구성합니다.                                                              |
+| `Mode.TRIANGLE_STRIP`   | 첫 삼각형만 세 개의 꼭짓점을 가집니다. 이후 추가된 꼭짓점은 기존에 있던 두 꼭짓점으로 새 삼각형을 구성하게 됩니다.             |
+| `Mode.TRIANGLE_FAN`     | 첫 삼각형만 세 개의 꼭짓점을 가집니다. 이후 추가된 꼭지점은 기존에 있던 첫 번째 꼭지점과 마지막 꼭지점으로 새 삼각형을 구성하게 됩니다. |
+| `Mode.QUADS`            | 각 요소가 4개의 꼭짓점으로 만들어져, 사각형을 구성합니다.                                                              |
 
 ### `BufferBuilder` 쓰기
 
 `BufferBuilder`가 초기화 되면, 이제 데이터를 쓸 수 있습니다.
 
-`BufferBuilder`로 버퍼를 만들거나, 꼭짓점끼리 서로 연결할 수 있습니다. 꼭짓점을 추가하려면, `buffer.vertex(matrix, float, float, float)` 메서드를 사용합니다. `matrix` 매개변수는 변환 행렬로, 아래에서 더 자세하게 설명할 예정입니다. 세 float 매개변수는 꼭짓점의 (x, y, z) 좌표를 의미합니다.
+`BufferBuilder`로 버퍼를 만들거나, 꼭짓점끼리 서로 연결할 수 있습니다. 꼭짓점을 추가하려면, `buffer.addVertex(matrix, float, float, float)` 메서드를 사용합니다. `matrix` 매개변수는 변환 행렬로, 아래에서 더 자세하게 설명할 예정입니다. 세 float 매개변수는 꼭짓점의 (x, y, z) 좌표를 의미합니다.
 
 사용하면 꼭짓점에 추가적인 정보를 추가할 수 있게 꼭짓점 빌더가 반환됩니다. 정보를 추가할 때 추가한 `VertexFormat` 순서를 따르는 것이 중요합니다. 그렇지 않으면 OpenGL이 데이터를 제대로 해석하지 못할 수 있습니다. 꼭짓점 빌딩을 끝마친 후, 끝나기 전까지 버퍼에 데이터를 추가하거나 계속해서 꼭짓점을 더 추가하세요.
 
@@ -84,7 +84,7 @@ Minecraft에서 렌더링은 여러 `DrawContext` 메서드를 통하여 추상�
 
 때로는 위치 행렬 또는 모델 행렬이라고도 합니다.
 
-일반적으로 `DrawContext`의 `MatrixStack` 클래스를 통하여 가져올 수 있습니다.
+일반적으로 `GuiGraphics`의 `PoseStack` 클래스를 통하여 가져올 수 있습니다.
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -92,7 +92,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 #### 실전 예시: 삼각형 스트립 렌더링하기
 
-현실적인 예시로 `BufferBuilder`를 쓰는 방법을 설명하는 것이 더 쉽습니다. `DrawMode.TRIANGLE_STRIP` 그리기 모드와 `POSITION_COLOR` 꼭지점 포맷으로 무언가를 렌더링하고 싶다고 가정해봅시다.
+현실적인 예시로 `BufferBuilder`를 쓰는 방법을 설명하는 것이 더 쉽습니다. `Mode.TRIANGLE_STRIP` 그리기 모드와 `POSITION_COLOR` 꼭지점 포맷으로 무언가를 렌더링하고 싶다고 가정해봅시다.
 
 순서대로 HUD에 꼭짓점을 그려봅시다.
 
@@ -119,11 +119,11 @@ drawContext.getMatrices().peek().getPositionMatrix();
 색을 지정하거나 꼭짓점의 위치를 옮겨 어떤 변화가 일어나는지 알아보세요! 다른 그리기 모드와 꼭짓점 포맷을 사용해 볼 수도 있습니다.
 :::
 
-## `MatrixStack`
+## `PoseStack`
 
-어떻게 `BufferBuilder`를 쓰는지 알았다면, 이제 어떻게 모델을 움직이고, 좀 더 멋진 분들은 어떻게 애니메이션을 적용할지 궁금할 수도 있습니다. 이제 `MatrixStack` 클래스가 나설 때입니다.
+어떻게 `BufferBuilder`를 쓰는지 알았다면, 이제 어떻게 모델을 움직이고, 좀 더 멋진 분들은 어떻게 애니메이션을 적용할지 궁금할 수도 있습니다. 이제 `PoseStack` 클래스가 나설 때입니다.
 
-`MatrixStack` 클래스에는 다음 메서드가 포함되어 있습니다.
+`PoseStack` 클래스에는 다음 메서드가 포함되어 있습니다.
 
 - `push()` - 새 행렬을 스택으로 (밀어) 넣습니다.
 - `pop()` - 스택의 최상단 행렬을 소거합니다.
@@ -133,7 +133,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 다음 섹션에서 알아볼 쿼터니언을 통해 최상단 행렬을 곱할 수도 있습니다.
 
-위 예시에서는, `MatrixStack`과 `tickDelta` (프레임이 변경될 때 소요된 시간) 를 통해 다이아몬드의 크기를 조절할 수 있습니다.
+위 예시에서는, `PoseStack`과 `tickDelta` (프레임이 변경될 때 소요된 시간) 를 통해 다이아몬드의 크기를 조절할 수 있습니다.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
@@ -147,11 +147,11 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 ## 쿼터니언 (움직이는 것) {#quaternions-rotating-things}
 
-쿼터니언은 3차원에서 회전을 표현하는 방법입니다. 이는 `MatrixStack`의 최상단 행렬을 `multiply(Quaternion, x, y, z)` 메소드를 통해 회전할 때 사용됩니다.
+쿼터니언은 3차원에서 회전을 표현하는 방법입니다. 이는 `PoseStack`의 최상단 행렬을 `mulPose(Quaternion, x, y, z)` 메소드를 통해 회전할 때 사용됩니다.
 
 Minecraft가 `RotationAxis` 도구 클래스에 여러 쿼터니언 인스턴스를 먼저 생성해 두었기 때문에 쿼터니언 클래스를 바로 사용할 필요는 없습니다.
 
-그럼 다이아몬드의 Z축을 회전해 봅시다. `MatrixStack`과 `multiply(Quaternion, x, y, z)` 메소드를 통해 회전할 수 있습니다.
+그럼 다이아몬드의 Z축을 회전해 봅시다. `PoseStack`과 `mulPose(Quaternion, x, y, z)` 메소드를 통해 회전할 수 있습니다.
 
 @[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

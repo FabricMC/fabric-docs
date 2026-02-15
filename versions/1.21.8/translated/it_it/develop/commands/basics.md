@@ -148,7 +148,7 @@ Brigadier [reinderizzerà soltanto i nodi di comandi contenenti parametri](https
 - Problemi con i generic - Potresti avere un problema con i generic una volta ogni tanto. Se stai registrando comandi sul server (ovvero nella maggior parte dei casi), assicurati di star usando `CommandManager.literal`
   o `CommandManager.argument` anziché `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
-- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore booleano come secondo argomento. Ricordati anche che, da Minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Text`.
+- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore booleano come secondo argomento. Ricordati anche che, da Minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Component`.
 
 - Un Command dovrebbe restituire un intero - Quando registri comandi, il metodo `executes()` accetta un oggetto `Command`, che è solitamente una lambda. La lambda dovrebbe restituire un intero, anziché altri tipi.
 

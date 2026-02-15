@@ -1,12 +1,11 @@
 package com.example.docs.item.armor;
 
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-
 import com.example.docs.item.ModItems;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
 
 // :::1
 public class GuiditeArmorMaterial implements ArmorMaterial {
@@ -18,7 +17,7 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	// :::_10
 	// :::2
 	@Override
-	public int getDurability(ArmorItem.Type type) {
+	public int getDurabilityForType(ArmorItem.Type type) {
 		// Replace this multiplier by a constant value for the durability of the armor.
 		// For reference, diamond uses 33 for all armor pieces, whilst leather uses 5.
 		int DURABILITY_MULTIPLIER = 12;
@@ -34,7 +33,7 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	// :::2
 	// :::3
 	@Override
-	public int getProtection(ArmorItem.Type type) {
+	public int getDefenseForType(ArmorItem.Type type) {
 		// Protection values for all the slots.
 		// For reference, diamond uses 3 for boots, 6 for leggings, 8 for chestplate, and 3 for helmet,
 		// whilst leather uses 1, 2, 3 and 1 respectively.
@@ -49,7 +48,7 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	// :::3
 	// :::4
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return 5;
 	}
 
@@ -58,14 +57,14 @@ public class GuiditeArmorMaterial implements ArmorMaterial {
 	@Override
 	public SoundEvent getEquipSound() {
 		// Example for Iron Armor
-		return SoundEvents.ITEM_ARMOR_EQUIP_IRON;
+		return SoundEvents.ARMOR_EQUIP_IRON;
 	}
 
 	// :::5
 	// :::6
 	@Override
 	public Ingredient getRepairIngredient() {
-		return Ingredient.ofItems(ModItems.SUSPICIOUS_SUBSTANCE);
+		return Ingredient.of(ModItems.SUSPICIOUS_SUBSTANCE);
 	}
 
 	// :::6

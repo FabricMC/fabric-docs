@@ -145,7 +145,7 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 
 - 제네릭 타입이 올바른지 확인해 보세요. 가끔 제네릭 타입에 문제가 있을 수도 있습니다. (대부분의 경우처럼) 명령어를 서버에 등록하려 한다면, `LiteralArgumentBuilder.literal` 대신에 `CommandManager.literal`, 또는 `RequiredArgumentBuilder.argument` 대신에 `CommandManager.argument`를 사용 중인지 확인하세요.
 
-- `sendFeedback()` 메서드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Text`가 아니라 `Supplier<Text>` 임을 기억하세요.
+- `sendFeedback()` 메서드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Component`가 아니라 `Supplier<Text>` 임을 기억하세요.
 
 - 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메서드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
