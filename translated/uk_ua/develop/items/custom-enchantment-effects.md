@@ -36,19 +36,19 @@ authors:
 
 ## Створення зачарування {#creating-the-enchantment}
 
-Тепер у нас є ефект зачарування! Останнім кроком є ​​створення зачарування, яке застосовує наш спеціальний ефект. Хоча це можна зробити, створивши файл JSON, подібний до файлів у пакетах даних, цей посібник покаже вам, як динамічно генерувати JSON за допомогою інструментів генерації даних Fabric. Для початку створіть клас `ExampleModEnchantmentGenerator`.
+Тепер у нас є ефект зачарування! Останнім кроком є ​​створення зачарування, яке застосовує наш спеціальний ефект. Ми можемо зробити це за допомогою керованої даними системи зачарування, просто додавши файл JSON до ресурсів нашого мода.
 
-У цьому класі ми спочатку зареєструємо нове зачарування, а потім використаємо метод configure() для програмного створення JSON.
+Створіть файл JSON у теці `data/example-mod/enchantments`. Ім’я цього файлу буде ID зачарування: `thundering.json` стане `example-mod:thundering`.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+::: info
 
-Перш ніж продовжити, ви повинні переконатися, що ваш проєкт налаштовано для створення даних; якщо ви не впевнені, [перегляньте відповідну сторінку документів](../data-generation/setup).
+Щоб дізнатися більше про формат файлу, ознайомтеся з [визначеннями зачарувань на Вікі Minecraft](https://minecraft.wiki/w/Enchantment_definition).
 
-Нарешті, ми повинні сказати нашому моду додати наш `EnchantmentGenerator` до списку завдань генерації даних. Для цього просто додайте `EnchantmentGenerator` до цього всередині методу `onInitializeDataGenerator`.
+Аби швидко створити власні зачарування, ви можете скористатися [генератором Misode](https://misode.github.io/enchantment/).
 
-@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+:::
 
-Тепер, коли ви запускаєте завдання генерації даних вашого мода, у теці `generated` будуть створені JSON-файли зачарувань. Приклад можна побачити нижче:
+У цьому прикладі ми використаємо наступне визначення зачарування, щоб додати зачарування `thundering` за допомогою нашого спеціального `lightning_effect`:
 
 @[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 

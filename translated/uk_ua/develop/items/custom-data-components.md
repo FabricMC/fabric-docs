@@ -3,6 +3,7 @@ title: Власні компоненти даних
 description: Дізнайтеся, як додавати власні дані до своїх предметів за допомогою нової системи компонентів 1.20.5.
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 Оскільки ваші предмети стають складнішими, вам може знадобитися зберігати спеціальні дані, пов’язані з кожним предметом. Гра дозволяє зберігати постійні дані в `ItemStack`, а з версії 1.20.5 ми це робимо за допомогою **компонентів даних**.
@@ -77,6 +78,22 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
   textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
+
+::: warning
+
+Починаючи з версії 1.21.5, `appendHoverText` застаріло. Тепер рекомендовано реалізувати `TooltipProvider` як такий. Для цього знадобиться [створення спеціального класу компонентів](#advanced-data-components).
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+Потім ви можете зареєструвати `TooltipProvider` через `ComponentTooltipAppenderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+Крім того, ви можете використовувати `ItemTooltipCallback`, щоб замінити `appendHoverText`. Це викликається в `onInitializeClient` в `ClientModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+
+:::
 
 Не забудьте оновити файл мови (`/assets/example-mod/lang/en_us.json`, для української `uk_ua.json`) і додати ці два рядки:
 

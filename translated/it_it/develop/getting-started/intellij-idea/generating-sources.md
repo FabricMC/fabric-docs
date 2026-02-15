@@ -13,7 +13,7 @@ next:
 
 La toolchain Fabric ti permette di accedere al codice sorgente di Minecraft generandolo localmente, e puoi usare IntelliJ IDEA per navigarci comodamente. Per generare le sorgenti, bisogna eseguire l'attività Gradle `genSources`.
 
-Questo si può fare dal pannello Gradle come sopra, eseguendo l'attività `genSources` in **Tasks** > **`fabric`**:
+Questo si può fare dal pannello Gradle, eseguendo l'attività `genSources` in **Tasks** > **`fabric`**:
 ![Attività genSources nel pannello Gradle](/assets/develop/getting-started/intellij/gradle-gensources.png)
 
 Oppure puoi eseguire il comando dal terminale:

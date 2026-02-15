@@ -46,6 +46,7 @@
   "develop.data_generation.loot_tables": "Генерація таблиць здобичі",
   "develop.data_generation.block_models": "Генерація моделі блока",
   "develop.data_generation.item_models": "Генерація моделі предмета",
+  "develop.data_generation.enchantments": "Генерація зачарувань",
   "develop.rendering": "Рендер",
   "develop.rendering.basic_concepts": "Основні концепції рендера",
   "develop.rendering.gui_graphics": "Малювання GUI",
