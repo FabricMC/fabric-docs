@@ -1,12 +1,12 @@
 ---
-title: 透明度和色调
+title: 透明度和着色
 description: 学习如何操控方块的外观并动态着色。
 authors:
   - cassiancc
   - dicedpixels
 ---
 
-有时，你可能希望在游戏中对方块的外观进行特殊处理。 例如，某些方块可能是透明的，而以及某些方块则可能带有色调。
+有时，你可能希望在游戏中对方块的外观进行特殊处理。 例如，某些方块可能是透明的，某些方块则可能需要应用着色。
 
 我们来看看如何操控方块的外观。
 
@@ -28,7 +28,7 @@ authors:
 
 ## 操纵方块外观 {#manipulating-block-appearance}
 
-即使方块的纹理是透明或半透明的，它仍然会显示为不透明。 要解决这个问题，你需要设置方块的 _子区块层_。
+方块的纹理即使是透明或半透明的，仍然会显示为不透明。 要解决这个问题，你需要设置方块的 _子区块层_。
 
 子区块层是用于对不同类型的方块表面进行分组以进行渲染的类别。 这使得游戏能够针对每种类型使用正确的视觉效果和优化。
 
@@ -36,7 +36,7 @@ authors:
 
 - `SOLID`：默认值，一个没有任何透明度的实心方块。
 - `CUTOUT` 和 `CUTOUT_MIPPED`：使用透明度的方块，例如玻璃或花。 `CUTOUT_MIPPED` 在远处看起来效果更好。
-- TRANSLUCENT：使用半透明（部分透明）像素的方块，例如染色玻璃或水。
+- `TRANSLUCENT`：使用半透明（部分透明）像素的方块，例如染色玻璃或水。
 
 我们的示例带有透明度，因此将使用 `CUTOUT`。
 
@@ -48,13 +48,13 @@ authors:
 
 ![正确的方块外观](/assets/develop/transparency-and-tinting/block_appearance_1.png)
 
-## 方块颜色提供者 {#block-color-providers}
+## 方块颜色提供器 {#block-color-providers}
 
-虽然我们的方块在游戏中看起来不错，但它的纹理是灰度的。 我们可以动态地应用颜色色调，就像原版游戏中的树叶会根据生物群系变色一样。
+我们的方块尽管在游戏中看起来不错，但纹理是灰度的。 我们可以动态地应用颜色着色，就像原版游戏中的树叶会根据生物群系变色一样。
 
-Fabric API 提供了 `ColorProviderRegistry` 来注册一个色调颜色提供者，我们将使用它来动态地为方块着色。
+Fabric API 提供了 `ColorProviderRegistry` 来注册一个着色颜色提供器，可以用来来动态地为方块着色。
 
-我们使用这个 API 注册一个色调，这样当我们的 Waxcap 块放置在草地上时是绿色的，其他情况则是棕色的。
+我们使用这个 API 注册一个颜色，这样当我们的 Waxcap 块放置在草地上时是绿色的，其他情况则是棕色的。
 
 在你的**客户端初始化器**中，将你的代码块注册到 `ColorProviderRegistry`，并附上相应的逻辑。
 
@@ -62,4 +62,4 @@ Fabric API 提供了 `ColorProviderRegistry` 来注册一个色调颜色提供�
 
 现在，方块的颜色将根据其放置的位置而变化。
 
-![带颜色提供者的方块](/assets/develop/transparency-and-tinting/block_appearance_2.png)
+![带颜色提供嚣的方块](/assets/develop/transparency-and-tinting/block_appearance_2.png)

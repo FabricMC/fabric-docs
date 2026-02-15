@@ -93,6 +93,6 @@ sudo dnf install java-21-openjdk-devel
 
 安装完成后，您可以打开终端并输入 `java -version` 来验证 Java 21 是否已安装。
 
-如果命令成功完成，你将会看到一些之前展示过的输出，可是Java版本会像这样：
+如果命令成功执行，可以看到类似前文所示的内容，Java 版本显示出来：
 
 ![输入 "java -version" 的终端](/assets/players/installing-java/linux-java-version.png)

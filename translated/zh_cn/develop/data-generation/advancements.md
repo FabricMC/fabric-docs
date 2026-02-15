@@ -1,6 +1,6 @@
 ---
 title: 进度生成
-description: 使用 Datagen 设置进度生成的指南。
+description: 使用数据生成器设置进度生成的指南。
 authors:
   - CelDaemon
   - MattiDragon
@@ -15,7 +15,7 @@ authors-nogithub:
 
 :::info 前置条件
 
-请确保你已经完成 [datagen setup] 章节(./setup)。
+请确保你已经完成[数据生成器设置](./setup)章节。
 
 :::
 
@@ -31,7 +31,7 @@ authors-nogithub:
 
 ## 进度结构 {#advancement-structure}
 
-一项进度是由几个不同的部分组成的。 除了称为准则（criterion）要求外，它可能还具有：
+进度由几个不同的部分组成。 除了称为准则（criterion）的要求外，可能还有：
 
 - `DisplayInfo`，告诉游戏如何向玩家显示进度。
 - `AdvancementRequirements` 是一系列准则的列表，要求每个子列表中至少完成一项准则。
@@ -39,9 +39,9 @@ authors-nogithub:
 - `Strategy` 告诉进度如何处理多个准则，以及
 - 父级 `Advancement`，用于组织玩家在“进度”屏幕上看到的层次结构。
 
-## 生成一个简单的进度 {#simple-advancements}
+## 简单进度 {#simple-advancements}
 
-这是如何生成一个获取土块的简单进度：
+这是一个获取泥土方块的简单进度：
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
@@ -67,13 +67,13 @@ authors-nogithub:
 
 ::: warning
 
-虽然 datagen 可以放在客户端侧，但 `准则（Criterion）` 与 `谓词（Predicates）` 必须位于主源集（main source set）中（即同时存在于两侧），因为服务器需要触发并评估它们。
+虽然数据生成器可以放在客户端侧，但 `准则（Criterion）` 与 `谓词（Predicates）` 必须位于主源集（main source set）中（即同时存在于两侧），因为服务器需要触发并计算它们。
 
 :::
 
 ### 定义 {#definitions}
 
-**准则**（criterion/criteria）是指玩家可以做的事情（或可能发生在玩家身上的事情），这些事情可以被计入进度的达成。 游戏附带许多[准则](https://minecraft.wiki/w/Advancement_definition#List_of_triggers)，可以在 `net.minecraft.advancement.criterion` 包中找到。 一般来说，仅当你在游戏中实现自定义机制时才需要新的准则。
+**准则**（criterion/criteria）是指玩家可以做的事情（或可能发生在玩家身上的事情），这些事情可以被计入进度的达成。 游戏附带许多[准则](https://zh.minecraft.wiki/w/进度定义格式#可用准则触发器)，可以在 `net.minecraft.advancement.criterion` 包中找到。 一般来说，仅当你在游戏中实现自定义机制时才需要新的准则。
 
 **条件**是根据准则来评估的。 只有满足所有相关条件时，准则才会被计入。 条件通常用谓词来表达。
 
@@ -119,7 +119,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
-并在 mod initializer 中调用它：
+并在模组的初始化器中调用它：
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
@@ -131,7 +131,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-再次运行 datagen 任务，你就可以获得新的进度了！
+再次运行数据生成器任务，你就可以获得新的进度了！
 
 ## 带参数的条件 {#conditions-with-parameters}
 
@@ -165,4 +165,4 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-再次运行 datagen，就搞定了！
+再次运行数据生成，就搞定了！

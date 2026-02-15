@@ -1,6 +1,6 @@
 ---
 title: 战利品表生成
-description: 使用 Datagen 设置战利品表生成的指南。
+description: 使用数据生成器设置战利品表生成的指南。
 authors:
   - Alphagamer47
   - CelDaemon
@@ -17,11 +17,11 @@ authors-nogithub:
 
 :::info 前置条件
 
-请确保你已经完成 [datagen setup] 章节(./setup)。
+请确保你已经完成[数据生成器设置](./setup)章节。
 
 :::
 
-需要针对方块、箱子和实体提供不同的提供程序（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将它们全部添加到包中。
+方块、箱子和实体需要有不同的 provider（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将其全部添加到包中。
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
