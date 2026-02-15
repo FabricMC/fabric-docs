@@ -12,11 +12,15 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
+import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 
 public class ModBlockEntities {
 	public static final BlockEntityType<EngineBlockEntity> ENGINE_BLOCK_ENTITY =
 			register("engine", EngineBlockEntity::new, ModBlocks.ENGINE_BLOCK);
+
+	public static final BlockEntityType<DuplicatorBlockEntity> DUPLICATOR_BLOCK_ENTITY =
+			register("duplicator", DuplicatorBlockEntity::new, ModBlocks.DUPLICATOR_BLOCK);
 
 	// :::1
 	public static final BlockEntityType<CounterBlockEntity> COUNTER_BLOCK_ENTITY =
