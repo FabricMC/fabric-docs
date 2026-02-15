@@ -22,14 +22,14 @@ Minecraft 为箱子、熔炉和命令方块等方块使用了方块实体。
 
 ::: tip
 
-注意，CounterBlockEntity 的构造函数接收两个参数，而 BlockEntity 的构造函数需要三个参数：BlockEntityType、BlockPos 和 BlockState。
-如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `BlockEntityFactory` 是一个函数式接口，它描述了一个仅接收两个参数的函数，这与我们的构造函数完全一致。
+注意，`CounterBlockEntity` 的构造函数接收两个参数，而 `BlockEntity` 的构造函数需要三个参数：`BlockEntityType`、`BlockPos` 和 `BlockState`。
+如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `BlockEntityFactory` 是一个函数式接口，描述了一个仅接收两个参数的函数，这与我们的构造函数完全一致。
 
 :::
 
 ## 创建方块 {#creating-the-block}
 
-接下来，为了实际使用方块实体，我们需要一个实现了 `EntityBlock` 接口的方块。 我们创建一个这样的方块，并将其命名为 CounterBlock。
+接下来，为了实际使用方块实体，我们需要一个实现了 `EntityBlock` 接口的方块。 我们创建一个，并将其命名为 `CounterBlock`。
 
 ::: tip
 

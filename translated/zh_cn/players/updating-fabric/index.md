@@ -11,13 +11,13 @@ authors:
 
 ::: info
 
-这篇教程只适用于官方Minecraft启动器。 对于第三方启动器，你应该查看他们的文档。
+本指南仅适用于官方的 Minecraft 启动器。 对于第三方启动器，应该参见这些第三方启动器的文档。
 
 :::
 
-## 为什么我该更新Fabric加载器？ {#why-should-i-update-fabric-loader}
+## 为什么应该更新 Fabric Loader？ {#why-should-i-update-fabric-loader}
 
-更新的Mod可能会需要一个更新的Fabric加载器来工作，所以保持最新重要在确保你可以使用最新的Mod。
+新的模组可能需要新版本的 Fabric Loader 才能运行，所以保持更新很重要，从而确保能够使用最新的模组。
 
 ## 选择你的操作系统 {#choose-your-os}
 

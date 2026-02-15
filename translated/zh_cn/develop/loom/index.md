@@ -14,23 +14,23 @@ authors:
 
 Fabric Loom，或者简称为 Loom，是一个 [Gradle](https://gradle.org/) 插件，用于在 Fabric 生态系统中开发模组。
 
-Loom 提供在开发环境中安装 Minecraft 和模组的实用程序，以便你可以根据 Minecraft 混淆及其在发行版和版本之间的差异对它们进行链接。 它还提供用于 Fabric Loader、Mixin 编译处理和 Fabric Loader 的 jar-in-jar 系统的实用程序的运行配置。
+Loom 提供在开发环境中安装 Minecraft 和模组的实用程序，以便你可以根据 Minecraft 混淆及其在发行版和版本之间的差异对它们进行链接。 Loom 还提供用于 Fabric Loader、Mixin 编译处理和 Fabric Loader 的 jar-in-jar 系统的实用程序的运行配置。
 
 Loom 支持 Minecraft 的 _所有_ 版本，甚至包括那些未被 Fabric API 官方支持的版本，因为它与版本无关。
 
 :::warning 重要
 
-这个页面是所有Loom的选项和功能。 如果你刚入门，请阅读[Fabric简介](../)。
+本页面是 Loom 所有选项和功能的参考。 如果你刚入门，请阅读 [Fabric 简介](../)。
 
 :::
 
 ## 插件ID {#plugin-ids}
 
-Loom使用多种不同插件ID：
+Loom 使用多种不同插件 ID：
 
-- `net.fabricmc.fabric-loom`，对于未混淆的版本（Minecraft 26.1及以后）
-- `net.fabricmc.fabric-loom-remap`，对于混淆的版本（Minecraft 1.21.11及以前）
-- `fabric-loom`（旧版），只向下兼容混淆的版本。 使用`net.fabricmc.fabric-loom-remap`作为替代品
+- `net.fabricmc.fabric-loom`，对于未混淆的版本（Minecraft 26.1 及以后）
+- `net.fabricmc.fabric-loom-remap`，对于混淆的版本（Minecraft 1.21.11 及以前）
+- `fabric-loom`（旧版），只向下兼容混淆的版本。 请使用 `net.fabricmc.fabric-loom-remap`
 - `net.fabricmc.fabric-loom-companion`，适用于高级多项目场景。 深入了解：[子项目](./classpath-groups#multi-project)
 
 ## 依赖子项目 {#subprojects}

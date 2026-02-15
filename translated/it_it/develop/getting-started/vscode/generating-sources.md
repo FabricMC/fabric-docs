@@ -13,7 +13,7 @@ next:
 
 La toolchain Fabric ti permette di accedere al codice sorgente di Minecraft generandolo localmente, e puoi usare Visual Studio Code per navigarci comodamente. Per generare le sorgenti, bisogna eseguire l'attività Gradle `genSources`.
 
-Questo si può fare dalla vista Gradle come sopra, eseguendo l'attività `genSources` in **Tasks** > **`fabric`**:
+Questo si può fare dalla vista Gradle, eseguendo l'attività `genSources` in **Tasks** > **`fabric`**:
 ![Attività genSources nella vista Gradle](/assets/develop/getting-started/vscode/gradle-gensources.png)
 
 Oppure puoi eseguire il comando dal terminale:

@@ -5,12 +5,12 @@ layout: home
 
 hero:
   name: Fabric 文档
-  tagline: Fabric 官方精选文档，<br />一款用于《我的世界》的模组开发工具链。
+  tagline: Fabric 官方精选文档，<br />一款用于 Minecraft 的模组开发工具链。
 
 features:
   - title: 玩家指南
     icon: 📚
-    details: 您在考虑使用 Fabric 模组吗？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
+    details: 在考虑使用由 Fabric 支持的模组？ 我们的玩家指南将全程为您服务。 这些指南将从 Fabric 模组的下载、安装、错误排除等方面帮助您。
     link: /zh_cn/players/
     linkText: 详情
   - title: 开发者指南

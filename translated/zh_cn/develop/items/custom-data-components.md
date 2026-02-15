@@ -3,6 +3,7 @@ title: 自定义数据组件
 description: 学习如何使用 1.20.5 新的组件系统为你的物品添加自定义数据
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 物品越来越复杂，你会发现自己需要存储与每个物品关联的自定义数据。 游戏需要你将持久的数据存储在 `ItemStack`（物品堆）中，在 1.20.5 中，方法就是使用**数据组件**。
@@ -77,6 +78,22 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
   textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
+
+::: warning
+
+自1.21.5起，`appendHoverText`被弃用。 现在我们推荐实现`TooltipProvider`接口。 这会需要你[创建一个自定义组件类](#advanced-data-components)。
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+然后，你可以通过`ComponentTooltipAppenderRegistry`来注册`TooltipProvider`。 这会在`ModInitializer`中的`onInitalize`方法里被调用。
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+或者你可以使用`ItemTooltipCallback`来取代`appendHoverText`。 这会在`ClientModInitializer`的`onInitializeClient`方法中被调用。
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+
+:::
 
 不要忘记更新你的语言文件（`/assets/example-mod/lang/en_us.json` 和 `/assets/example-mod/lang/zh_cn.json`），并添加这两行：
 

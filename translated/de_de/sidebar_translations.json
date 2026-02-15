@@ -46,6 +46,7 @@
   "develop.data_generation.loot_tables": "Generierung von Beutetabellen",
   "develop.data_generation.block_models": "Generation von Blockmodellen",
   "develop.data_generation.item_models": "Generierung von Item Modellen",
+  "develop.data_generation.enchantments": "Generierung von Verzauberungen",
   "develop.rendering": "Rendering",
   "develop.rendering.basic_concepts": "Grundlegende Rendering-Konzepte",
   "develop.rendering.gui_graphics": "Zeichnen im GUI",

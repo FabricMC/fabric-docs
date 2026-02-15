@@ -22,7 +22,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
 }
 ```
 
-以上示例是该任务最基本的用法，它将生成一个 `fabric.mod.json` 文件，其中包含指定的模组 ID 和版本。 这个`json`块支持所有在[Fabric Mod JSON格式](https://wiki.fabricmc.net/documentation:fabric_mod_json)中定义的字段。 有关支持的属性的完整列表，请参见 [FabricModJsonV1Spec](https://github.com/FabricMC/fabric-loom/blob/dev/1.12/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java)。
+以上示例是该任务最基本的用法，将生成一个 `fabric.mod.json` 文件，其中包含指定的模组 ID 和版本。 这个 `json` 代码块支持所有在 [Fabric Mod JSON 格式](https://wiki.fabricmc.net/documentation:fabric_mod_json)中定义的字段。 有关支持的属性的完整列表，请参见 [FabricModJsonV1Spec](https://github.com/FabricMC/fabric-loom/blob/dev/1.12/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java)。
 
 ## 下载任务 {#download-task}
 

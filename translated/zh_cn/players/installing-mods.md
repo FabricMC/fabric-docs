@@ -5,7 +5,7 @@ authors:
   - IMB11
 ---
 
-这个指南将引导你使用 Minecraft 启动器安装 Fabric 模组。
+本指南将引导你使用 Minecraft 启动器安装 Fabric 模组。
 
 对于第三方启动器，应该参见这些第三方启动器的文档。
 

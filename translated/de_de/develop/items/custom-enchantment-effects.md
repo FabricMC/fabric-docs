@@ -36,19 +36,19 @@ Wie jede andere Komponente deines Mods müssen wir auch diesen `EnchantmentEffec
 
 ## Die Verzauberung erstellen {#creating-the-enchantment}
 
-Jetzt haben wir einen Verzauberungseffekt! Der letzte Schritt besteht darin, eine Verzauberung zu erstellen, die unseren benutzerdefinierten Effekt anwendet. Dies kann zwar durch die Erstellung einer JSON-Datei ähnlich der in Datenpaketen erfolgen, aber diese Anleitung zeigt dir, wie du das JSON dynamisch mit den Datengenerierungswerkzeugen von Fabric erzeugen kannst. Um zu beginnen, erstelle eine Klasse `ExampleModEnchantmentGenerator`.
+Jetzt haben wir einen Verzauberungseffekt! Der letzte Schritt besteht darin, eine Verzauberung zu erstellen, die unseren benutzerdefinierten Effekt anwendet. Dies können wir mit dem datengetriebenen Verzauberungssystem erreichen, indem wir einfach eine JSON-Datei zu den Ressourcen unseres Mods hinzufügen.
 
-In dieser Klasse werden wir zunächst eine neue Verzauberung registrieren und dann die Methode `configure()` verwenden, um unser JSON programmatisch zu erstellen.
+Erstelle die JSON-Datei in dem Ordner `data/example-mod/enchantments`. Der Name dieser Datei entspricht der ID der Verzauberung: `thundering.json` wird zu `example-mod:thundering`.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+::: info
 
-Bevor du fortfährst, solltest du sicherstellen, dass dein Projekt für die Datengenerierung konfiguriert ist; wenn du dir unsicher bist, [sieh dir die entsprechende Dokumentations-Seite an](../data-generation/setup).
+Weitere Informationen zum Dateiformat findest du unter [Minecraft Wiki - Enchantment definition](https://minecraft.wiki/w/Enchantment_definition).
 
-Zum Schluss müssen wir unserem Mod sagen, dass er unseren `EnchantmentGenerator` zur Liste der Datenerzeugungsaufgaben hinzufügen soll. Um dies zu tun, füge einfach den `EnchantmentGenerator` innerhalb der Methode `onInitializeDataGenerator` zu dieser hinzu.
+Um schnell benutzerdefinierte Verzauberungen zu generieren, kannst du den [Misode Generator](https://misode.github.io/enchantment/) verwenden.
 
-@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+:::
 
-Wenn du nun die Datengenerierungsaufgabe deines Mods ausführst, werden die Verzauberungs-JSONs im Ordner `generated` generiert. Ein Beispiel ist unten zu sehen:
+In diesem Beispiel verwenden wir die folgende Verzauberungsdefinition, um die Verzauberung `thundering` mit unserem benutzerdefinierten `lightning_effect` hinzuzufügen:
 
 @[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 

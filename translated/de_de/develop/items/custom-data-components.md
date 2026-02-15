@@ -3,6 +3,7 @@ title: Benutzerdefinierte Datenkomponenten
 description: Lerne, wie du benutzerdefinierte Datenkomponenten zu deinen Items mit Hilfe des neuen 1.20.5 Komponenten-System hinzufügst.
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vielleicht für jedes Item speichern. Das Spiel erlaubt es, persistente Daten in einem `ItemStack` zu speichern, und seit der Version 1.20.5 tun wir das mit Hilfe von **Datenkomponenten**.
@@ -77,6 +78,22 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
   textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
+
+::: warning
+
+Ab Version 1.21.5 ist `appendHoverText` veraltet. Es wird nun empfohlen, `TooltipProvider` wie folgt zu implementieren. Dies erfordert die [Erstellung einer benutzerdefinierten Komponentenklasse](#advanced-data-components).
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+Dann kannst du den `TooltipProvider` über `ComponentTooltipAppenderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+Alternativ kannst du `ItemTooltipCallback` verwenden, um `appendHoverText` zu ersetzen. Dies wird in `onInitializeClient` im `ClientModInitializer` aufgerufen.
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+
+:::
 
 Vergiss nicht, deine Sprachdatei (`/assets/xample-mod/lang/en_us.json`) zu aktualisieren und diese zwei Zeilen hinzuzufügen:
 

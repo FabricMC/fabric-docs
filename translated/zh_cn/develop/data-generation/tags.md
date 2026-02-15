@@ -14,7 +14,7 @@ authors-nogithub:
 
 :::info 前置条件
 
-请确保你已经完成 [datagen setup] 章节(./setup)。
+请确保你已经完成[数据生成器设置](./setup)章节。
 
 :::
 

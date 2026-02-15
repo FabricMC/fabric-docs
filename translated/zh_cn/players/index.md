@@ -7,4 +7,4 @@ description: 为玩家和服务器管理员制作的安装和使用 Fabic 的指
 
 所有可用的指南列表请参见侧边栏。
 
-如果您有任何问题，请在[GitHub](https://github.com/FabricMC/fabric-docs)上报告，或在[Fabric Discord](https://discord.fabricmc.net/)的`#player-support`或`#server-admin-support`频道内询问。
+如果遇到任何问题，请在 [GitHub](https://github.com/FabricMC/fabric-docs) 报告问题，或者在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#server-admin-support` 频道寻求帮助。
