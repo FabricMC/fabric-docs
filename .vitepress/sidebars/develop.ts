@@ -271,6 +271,10 @@ export default [
             text: "develop.data_generation.enchantments",
             link: "/develop/data-generation/enchantments",
           },
+          {
+            text: "develop.data_generation.world",
+            link: "/develop/data-generation/world", 
+          }, 
         ],
       },
     ],
