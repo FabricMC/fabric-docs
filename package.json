@@ -5,7 +5,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "tsx ./.vitepress/update.ts"
+    "bump": "tsx ./.vitepress/bump.ts"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",

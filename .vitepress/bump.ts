@@ -5,7 +5,7 @@ import * as process from "node:process";
 import prompts from "prompts";
 import * as tinyglobby from "tinyglobby";
 
-import { getLocaleNames, getResolver, getSidebar } from "./i18n";
+import { getLocaleNames, getResolver, getSidebar } from "./config/i18n";
 
 const git = (...args: string[]) => {
   const res = crossSpawn.sync("git", args, { encoding: "utf8" });
@@ -86,7 +86,7 @@ for (const file of tinyglobby.globSync("**/*.md", {
 })) {
   fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);
 }
-const locales = getLocaleNames(`versions/${oldVersion}/translated`);
+const locales = getLocaleNames(`./versions/${oldVersion}/translated`);
 
 console.log(`Creating sidebars at '.vitepress/sidebars/versioned/${oldVersion}.json'...`);
 for (const locale of locales) {
@@ -97,7 +97,7 @@ for (const locale of locales) {
 }
 
 console.log("Updating links in content...");
-for (const file of tinyglobby.globSync(`versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
+for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
   const content = fs
     .readFileSync(file, "utf-8")
     .replace(/\/reference\/latest/g, `/reference/${oldVersion}`);
@@ -106,10 +106,10 @@ for (const file of tinyglobby.globSync(`versions/${oldVersion}/**/*.md`, { onlyF
 
 console.log("Adding warning box to home pages...");
 for (const locale of locales) {
-  const resolver = getResolver("website_translations.json", locale);
+  const resolver = getResolver("./website_translations.json", locale);
   const linksRegex = new RegExp(String.raw`link: ${locale === "en_us" ? "" : `/${locale}`}/`, "g");
 
-  const file = `versions/${oldVersion}/translated/${locale === "en_us" ? ".." : locale}/index.md`;
+  const file = `./versions/${oldVersion}/translated/${locale === "en_us" ? ".." : locale}/index.md`;
   const content = fs
     .readFileSync(file, "utf-8")
     .replace(

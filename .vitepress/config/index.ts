@@ -5,9 +5,9 @@ import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
+import { Fabric } from "../types";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
-import { Fabric } from "./types";
 
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
@@ -30,7 +30,7 @@ const hostname =
 
 const latestVersion = fs
   .readFileSync(
-    path.resolve(import.meta.dirname, "..", "reference", "latest", "build.gradle"),
+    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
     "utf-8"
   )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
@@ -144,5 +144,5 @@ export default defineVersionedConfig(
       },
     },
   },
-  import.meta.dirname
+  path.resolve(import.meta.dirname, "..")
 );
