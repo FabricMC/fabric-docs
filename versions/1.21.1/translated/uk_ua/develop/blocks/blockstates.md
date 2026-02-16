@@ -66,11 +66,11 @@ Remember, blockstate files can be found in the `assets/example-mod/blockstates` 
 
 ### Створення властивості {#creating-the-property}
 
-По-перше, вам потрібно буде створити саму властивість — оскільки це логічне значення, ми використаємо метод `BooleanProperty.of`.
+По-перше, вам потрібно буде створити саму властивість — оскільки це логічне значення, ми використаємо метод `BooleanProperty.create`.
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Далі ми маємо додати властивість до менеджера стану блоку в методі appendProperties. Щоб отримати доступ до конструктора, вам потрібно змінити метод:
+Далі ми маємо додати властивість до менеджера стану блоку в методі createBlockStateDefinition. Щоб отримати доступ до конструктора, вам потрібно змінити метод:
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

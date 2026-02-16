@@ -73,7 +73,7 @@ En el inicializador de mod, solo registramos un comando simple:
 
 @[code lang=java transcludeWith=:::_1](@/reference/1.21.10/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-En el método `sendFeedback()`, el primer parámetro es el texto a ser enviado, el cual está en un `Supplier<Text>` (Proveedor) para no tener que instanciar nuevos objetos `Text` (Texto) cuando no es necesario.
+En el método `sendFeedback()`, el primer parámetro es el texto a ser enviado, el cual está en un `Supplier<Text>` (Proveedor) para no tener que instanciar nuevos objetos `Component` (Texto) cuando no es necesario.
 
 El segundo parámetro determina si deberíamos transmitir el feedback a otros operadores. Generalmente, si el comando solo es para verificar o consultar algo sin afectar realmente el mundo, como verificar el tiempo actual o el puntaje de un jugador, este parametro debería ser `false` (falso). Si el comando hace algo, como cambiar el tiempo o modificar el puntaje de alguien, entonces debería ser `true` (verdadero).
 
@@ -132,7 +132,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 
 - Problemas con genéricos - Puede que tengas problemas con genéricos de vez en cuando. Si estás registrando comandos de servidor (el cual es mayormente el caso), asegúrate de usar `CommandManager.literal` o `CommandManager.argument` en vez de `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
-- Verifica el método de `sendFeedback()` - Puede que te hayas olvidado de dar el valor booleano al segundo argumento. También recurda que, a partir de Minecraft 1.20, el primer parámetro es un `Supplier<Text>` en vez de `Text`.
+- Verifica el método de `sendFeedback()` - Puede que te hayas olvidado de dar el valor booleano al segundo argumento. También recurda que, a partir de Minecraft 1.20, el primer parámetro es un `Supplier<Text>` en vez de `Component`.
 
 - Un comando debería retornar un número entero - Cuando registres comandos, el método `executes()` acepta un objeto `Command`, el cual usualmente es una expresión Lambda. El Lambda debería retornar un número entero, en lugar de otros tipos de valores.
 

@@ -1,6 +1,6 @@
 ---
 title: 食物物品
-description: 学会如何给物品添加 FoodComponent 以让它可食用，并配置。
+description: 学会如何给物品添加 FoodProperties 以让它可食用，并配置。
 authors:
   - IMB11
 ---
@@ -15,15 +15,15 @@ authors:
 
 ## 添加食物组件{#adding-the-food-component}
 
-要为物品添加食物组件，可以先传递到 `Item.Settings` 实例：
+要为物品添加食物组件，可以先传递到 `Item.Properties` 实例：
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 现在，只要让物品可食用，没有别的。
 
-`FoodComponent` 类有某些方法，允许你修改玩家吃你的物品时发生的事情：
+`FoodProperties` 类有某些方法，允许你修改玩家吃你的物品时发生的事情：
 
 | 方法                   | 描述                |
 | -------------------- | ----------------- |
@@ -31,9 +31,9 @@ new Item.Settings().food(new FoodComponent.Builder().build())
 | `saturationModifier` | 设置你的物品会增加的饱和度的数量。 |
 | `alwaysEdible`       | 允许无论饥饿值均能吃你的物品。   |
 
-按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodComponent`。
+按照你的喜好修改了 builder 后，可以调用 `build()` 方法以获取 `FoodProperties`。
 
-如果您想在玩家吃食物时添加状态效果，则需要将 `ConsumableComponent` 与 `FoodComponent` 类一起使用，如以下示例所示：
+如果您想在玩家吃食物时添加状态效果，则需要将 `ConsumableComponent` 与 `FoodProperties` 类一起使用，如以下示例所示：
 
 @[code transcludeWith=:::5](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 

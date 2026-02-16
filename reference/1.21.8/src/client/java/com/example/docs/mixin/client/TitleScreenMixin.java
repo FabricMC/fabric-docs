@@ -5,23 +5,23 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.network.chat.Component;
 
 import com.example.docs.rendering.DrawContextExampleScreen;
 import com.example.docs.rendering.screens.CustomScreen;
 
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
-	protected TitleScreenMixin(Text title) {
+	protected TitleScreenMixin(Component title) {
 		super(title);
 	}
 
 	@Inject(method = "init", at = @At("TAIL"), cancellable = false)
 	private void addTestWidgets(CallbackInfo ci) {
-		this.addDrawableChild(ButtonWidget.builder(Text.of("DrawContext Test"), (btn) -> this.client.setScreen(new DrawContextExampleScreen())).dimensions(5, 5, 60, 20).build());
-		this.addDrawableChild(ButtonWidget.builder(Text.of("CustomScreen 1"), (btn) -> this.client.setScreen(new CustomScreen(Text.empty()))).dimensions(5, 5+30, 60, 20).build());
+		this.addRenderableWidget(Button.builder(Component.nullToEmpty("DrawContext Test"), (btn) -> this.minecraft.setScreen(new DrawContextExampleScreen())).bounds(5, 5, 60, 20).build());
+		this.addRenderableWidget(Button.builder(Component.nullToEmpty("CustomScreen 1"), (btn) -> this.minecraft.setScreen(new CustomScreen(Component.empty()))).bounds(5, 5+30, 60, 20).build());
 	}
 }

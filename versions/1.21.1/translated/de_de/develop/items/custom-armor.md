@@ -92,9 +92,9 @@ Natürlich muss ein Rüstungsset nicht jeden Typ abdecken, man kann auch ein Set
 ### Haltbarkeit {#durability}
 
 Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen über die Haltbarkeit von Items.
-Aus diesem Grund muss die Haltbarkeit manuell zu den `Item.Settings` der Rüstungsitems hinzugefügt werden, wenn diese registriert werden.
+Aus diesem Grund muss die Haltbarkeit manuell zu den `Item.Properties` der Rüstungsitems hinzugefügt werden, wenn diese registriert werden.
 
-Dies kann durch die Methode `maxDamage` in der Klasse `Item.Settings` bewirkt werden.
+Dies kann durch die Methode `maxDamage` in der Klasse `Item.Properties` bewirkt werden.
 Die verschiedenen Rüstungsslots haben unterschiedliche Grundhaltbarkeiten, die üblicherweise mit einem gemeinsamen Multiplikator des Rüstungsmaterials multipliziert werden, es können aber auch fest kodierte Werte verwendet werden.
 
 Für die Guidite-Rüstung werden wir einen gemeinsamen Multiplikator für die Rüstung verwenden, der zusammen mit dem Rüstungsmaterial gespeichert wird:

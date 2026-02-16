@@ -18,7 +18,7 @@ Previously, Fabric provided `HudRenderCallback` to render to the HUD. Due to cha
 
 Fabric provides the Hud API to render and layer elements on the HUD.
 
-To start, we need to register a listener to `HudElementRegistry` which registers your elements. Each element is an `HudElement`. A `HudElement` instance is usually a lambda that takes a `DrawContext` and a `RenderTickCounter` instance as parameters. See `HudElementRegistry` and related Javadocs for more details on how to use the API.
+To start, we need to register a listener to `HudElementRegistry` which registers your elements. Each element is an `HudElement`. A `HudElement` instance is usually a lambda that takes a `GuiGraphics` and a `RenderTickCounter` instance as parameters. See `HudElementRegistry` and related Javadocs for more details on how to use the API.
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
@@ -42,11 +42,11 @@ For example, if we assume a 200 FPS scenario, the game runs a new tick roughly e
 | `10`  | `9/10 = 0.9`   |
 | `11`  | `1`: New tick  |
 
-In practice, you should only use `tickProgress` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMeasuringTimeMs()`, which measures real-world time.
+In practice, you should only use `tickProgress` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMillis()`, which measures real-world time.
 
 You can retrieve `tickProgress` by calling `renderTickCounter.getTickProgress(false)`, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
 
-In this example, we'll use `Util.getMeasuringTimeMs()` to linearly interpolate the color of a square that is being rendered to the HUD.
+In this example, we'll use `Util.getMillis()` to linearly interpolate the color of a square that is being rendered to the HUD.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

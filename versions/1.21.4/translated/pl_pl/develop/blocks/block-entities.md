@@ -27,22 +27,22 @@ Gdybyśmy nie zakodowali na stałe `BlockEntityType`, klasa `ModBlockEntities` n
 
 ## Tworzenie Bloku {#creating-the-block}
 
-Następnie, aby faktycznie użyć bytu bloku, potrzebujemy bloku implementującego `BlockEntityProvider`. Utwórzmy jeden i nazwijmy go `CounterBlock`.
+Następnie, aby faktycznie użyć bytu bloku, potrzebujemy bloku implementującego `EntityBlock`. Utwórzmy jeden i nazwijmy go `CounterBlock`.
 
 :::tip
 Można do tego podejść na dwa sposoby:
 
-- utworzyć blok rozszerzający `BlockWithEntity` i zaimplementować metodę `createBlockEntity`
-- utworzyć blok, który implementuje `BlockEntityProvider` samodzielnie i nadpisać metodę `createBlockEntity`
+- utworzyć blok rozszerzający `BaseEntityBlock` i zaimplementować metodę `newBlockEntity`
+- utworzyć blok, który implementuje `EntityBlock` samodzielnie i nadpisać metodę `newBlockEntity`
 
-W tym przykładzie wykorzystamy pierwsze podejście, ponieważ `BlockWithEntity` również udostępnia przydatne narzędzia.
+W tym przykładzie wykorzystamy pierwsze podejście, ponieważ `BaseEntityBlock` również udostępnia przydatne narzędzia.
 :::
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Użycie `BlockWithEntity` jako klasy nadrzędnej oznacza, że musimy również zaimplementować metodę `createCodec`, co jest dość proste.
+Użycie `BaseEntityBlock` jako klasy nadrzędnej oznacza, że musimy również zaimplementować metodę `codec`, co jest dość proste.
 
-W przeciwieństwie do bloków, które są singletonami, dla każdego bytu bloku tworzony jest nowy element bloku. Do tego celu służy metoda `createBlockEntity`, która przyjmuje pozycję i `BlockState`, i zwraca `BlockEntity` lub `null`, jeśli nie powinno go być.
+W przeciwieństwie do bloków, które są singletonami, dla każdego bytu bloku tworzony jest nowy element bloku. Do tego celu służy metoda `newBlockEntity`, która przyjmuje pozycję i `BlockState`, i zwraca `BlockEntity` lub `null`, jeśli nie powinno go być.
 
 Nie zapomnij zarejestrować bloku w klasie `ModBlocks` tak jak w poradniku [Tworzenie pierwszego bloku](../blocks/first-block):
 
@@ -68,7 +68,7 @@ Ponieważ `BlockEntity` nie jest przekazywany do metody, używamy `world.getBloc
 
 Teraz gdy mamy już blok funkcjonalny, powinniśmy sprawić, aby licznik nie resetował się pomiędzy restartami gry. Można to zrobić poprzez serializację do NBT podczas zapisywania gry i deserializację podczas jej ładowania.
 
-Serializacja odbywa się za pomocą metody `writeNbt`:
+Serializacja odbywa się za pomocą metody `saveAdditional`:
 
 @[code transcludeWith=:::3](@/reference/1.21.4/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -82,9 +82,9 @@ Teraz, jeśli zapiszemy i ponownie wczytamy grę, blok licznika powinien być ko
 
 ## Tickery {#tickers}
 
-Interfejs `BlockEntityProvider` definiuje również metodę o nazwie `getTicker`, która może być używana do uruchamiania kodu przy każdym cyklu dla każdej instancji bloku. Możemy to zaimplementować, tworząc metodę statyczną, która będzie używana jako `BlockEntityTicker`:
+Interfejs `EntityBlock` definiuje również metodę o nazwie `getTicker`, która może być używana do uruchamiania kodu przy każdym cyklu dla każdej instancji bloku. Możemy to zaimplementować, tworząc metodę statyczną, która będzie używana jako `BlockEntityTicker`:
 
-Metoda `getTicker` powinna również sprawdzać, czy przekazany typ `BlockEntityType` jest taki sam, jak ten, którego używamy, i jeśli tak, zwracać funkcję, która będzie wywołana przy każdym ticku. Na szczęście istnieje funkcja narzędziowa, która wykonuje sprawdzenie w `BlockWithEntity`:
+Metoda `getTicker` powinna również sprawdzać, czy przekazany typ `BlockEntityType` jest taki sam, jak ten, którego używamy, i jeśli tak, zwracać funkcję, która będzie wywołana przy każdym ticku. Na szczęście istnieje funkcja narzędziowa, która wykonuje sprawdzenie w `BaseEntityBlock`:
 
 @[code transcludeWith=:::3](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 

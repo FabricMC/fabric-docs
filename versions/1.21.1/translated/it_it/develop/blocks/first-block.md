@@ -39,14 +39,14 @@ public class ModBlocks {
 
 ## Creare e Registrare il Tuo Blocco {#creating-and-registering-your-block}
 
-In maniera del tutto simile agli oggetti, i blocchi prendono la classe `Blocks.Settings` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
+In maniera del tutto simile agli oggetti, i blocchi prendono la classe `BlockBehaviour.Properties` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
 
 Non tratteremo tutte le opzioni qui—puoi vedere la classe da solo per capirne le varie opzioni, che dovrebbero essere chiaramente comprensibili.
 
 Per questo esempio, creeremo un blocco semplice, con le proprietà della terra ma con un materiale diverso.
 
 :::tip
-Puoi anche usare `AbstractBlock.Settings.copy(AbstractBlock block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
+Puoi anche usare `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)

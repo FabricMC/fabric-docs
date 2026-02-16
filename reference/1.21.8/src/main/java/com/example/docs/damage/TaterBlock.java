@@ -1,30 +1,30 @@
 package com.example.docs.damage;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 // :::1
 public class TaterBlock extends Block {
-	public TaterBlock(Settings settings) {
+	public TaterBlock(Properties settings) {
 		super(settings);
 	}
 
 	@Override
-	public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-		if (entity instanceof LivingEntity && world instanceof ServerWorld serverWorld) {
+	public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
+		if (entity instanceof LivingEntity && world instanceof ServerLevel serverWorld) {
 			DamageSource damageSource = new DamageSource(
-					world.getRegistryManager()
-							.getOrThrow(RegistryKeys.DAMAGE_TYPE)
-							.getEntry(FabricDocsReferenceDamageTypes.TATER_DAMAGE.getValue()).get()
+					world.registryAccess()
+							.lookupOrThrow(Registries.DAMAGE_TYPE)
+							.get(FabricDocsReferenceDamageTypes.TATER_DAMAGE.location()).get()
 			);
-			entity.damage(serverWorld, damageSource, 5.0f);
+			entity.hurtServer(serverWorld, damageSource, 5.0f);
 		}
 	}
 }

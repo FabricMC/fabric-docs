@@ -25,13 +25,13 @@ Sobald du dein Werkzeugmaterial erstellt und nach deinen Wünschen angepasst has
 
 Das Werkzeugmaterial gibt dem Spiel die folgenden Informationen:
 
-### Haltbarkeit - `getDurability()` {#durability}
+### Haltbarkeit - `getUses()` {#durability}
 
 Wie oft das Werkzeug verwendet werden kann, bevor es bricht:
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### Abbaugeschwindigkeit - `getMiningSpeedMultiplier()` {#mining-speed}
+### Abbaugeschwindigkeit - `getSpeed()` {#mining-speed}
 
 Wenn das Werkzeug zum Brechen von Blöcken verwendet wird, wie schnell sollte es die Blöcke brechen?
 
@@ -39,13 +39,13 @@ Wenn das Werkzeug zum Brechen von Blöcken verwendet wird, wie schnell sollte es
 
 Zu Referenzzwecken hat das Diamantwerkzeugmaterial eine Abbaugeschwindigkeit von `8.0F`, während das Steinwerkzeugmaterial eine Abbaugeschwindigkeit von `4.0F` hat.
 
-### Angriffsschaden - `getAttackDamage()` {#attack-damage}
+### Angriffsschaden - `getAttackDamageBonus()` {#attack-damage}
 
 Wie viele Schadenspunkte sollte das Werkzeug verursachen, wenn es als Waffe gegen eine andere Entität eingesetzt wird?
 
 @[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### Inverse Tag - `getMiningLevel()` {#inverse-tag}
+### Inverse Tag - `getIncorrectBlocksForDrops()` {#inverse-tag}
 
 Das inverse Tag zeigt an, was das Werkzeug _**nicht**_ abbauen kann. Die Verwendung des Tags `BlockTags.INCORRECT_FOR_WOODEN_TOOL` verhindert beispielsweise, dass das Werkzeug bestimmte Blöcke abbaut:
 
@@ -67,7 +67,7 @@ Lass das Eisenwerkzeug-Tag verwenden. Dies verhindert, dass Guidite-Werkzeuge Bl
 
 Du kannst `TagKey.of(...)` verwenden, um einen benutzerdefinierten Tag-Schlüssel zu erstellen, wenn du einen benutzerdefiniertes Tag verwenden willst.
 
-### Verzauberbarkeit - `getEnchantability()` {#enchantability}
+### Verzauberbarkeit - `getEnchantmentValue()` {#enchantability}
 
 Wie einfach ist es, mit diesem Gegenstand bessere und höherstufige Verzauberungen zu erhalten? Zum Vergleich: Gold hat eine Verzauberungsfähigkeit von 22, während Netherit eine Verzauberungsfähigkeit von 15 hat.
 

@@ -18,7 +18,7 @@ Zuvor stellte Fabric den `HudRenderCallback` zur Verfügung, um das HUD zu rende
 
 Fabric bietet die Hud-API zum Rendern und Überlagern von Elementen auf dem HUD.
 
-Zu Beginn müssen wir einen Listener für den `HudLayerRegistrationCallback` registrieren, der deine Ebenen registriert. Jede Ebene ist ein `IdentifiedLayer`, der ein Vanilla `LayeredDrawer.Layer` mit einem angehängten `Identifier` ist. Eine `LayeredDrawer.Layer`-Instanz ist normalerweise ein Lambda, das einen `DrawContext` und eine `RenderTickCounter`-Instanz als Parameter nimmt. Siehe `HudLayerRegistrationCallback` und die zugehörigen Javadocs für weitere Einzelheiten zur Verwendung der API.
+Zu Beginn müssen wir einen Listener für den `HudLayerRegistrationCallback` registrieren, der deine Ebenen registriert. Jede Ebene ist ein `IdentifiedLayer`, der ein Vanilla `LayeredDrawer.Layer` mit einem angehängten `ResourceLocation` ist. Eine `LayeredDrawer.Layer`-Instanz ist normalerweise ein Lambda, das einen `GuiGraphics` und eine `RenderTickCounter`-Instanz als Parameter nimmt. Siehe `HudLayerRegistrationCallback` und die zugehörigen Javadocs für weitere Einzelheiten zur Verwendung der API.
 
 Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Utilities zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen. Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen, um mehr über den Zeichenkontext zu erfahren.
 
@@ -42,11 +42,11 @@ Wenn wir zum Beispiel von einem Szenario mit 200 FPS ausgehen, führt das Spiel 
 |   10  | `9/10 = 0.9`                    |
 |  `11` | `1`: Neuer Tick |
 
-Praktischerweise, solltest du `tickDelta` nur verwenden, wenn deine Animationen von Minecrafts Ticks abhängen. Für zeitbasierte Animationen verwende `Util.getMeasuringTimeMs()`, das die Zeit in der realen Welt misst.
+Praktischerweise, solltest du `tickDelta` nur verwenden, wenn deine Animationen von Minecrafts Ticks abhängen. Für zeitbasierte Animationen verwende `Util.getMillis()`, das die Zeit in der realen Welt misst.
 
 Du kannst `tickDelta` mit der Funktion `renderTickCounter.getTickDelta(false);` abrufen, wobei der boolesche Parameter `ignoreFreeze` ist, was dir im Wesentlichen erlaubt, zu ignorieren, wenn Spieler den Befehl `/tick freeze` verwenden.
 
-In diesem Beispiel werden wir `Util.getMeasuringTimeMs()` verwenden, um die Farbe eines Quadrats, das auf dem HUD gerendert wird, linear zu interpolieren.
+In diesem Beispiel werden wir `Util.getMillis()` verwenden, um die Farbe eines Quadrats, das auf dem HUD gerendert wird, linear zu interpolieren.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

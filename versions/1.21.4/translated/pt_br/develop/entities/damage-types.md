@@ -31,9 +31,9 @@ Consulte a [Wiki do Minecraft](https://pt.minecraft.wiki/w/Tipo_de_dano) para to
 
 ### Acessando Tipos de Dano Através de Código
 
-Quando precisarmos acessar nosso tipo de dano através de código, usaremos a sua `RegistryKey` (Chave de Registro) para construir uma instância de `DamageSource` (Fonte de Dano).
+Quando precisarmos acessar nosso tipo de dano através de código, usaremos a sua `ResourceKey` (Chave de Registro) para construir uma instância de `DamageSource` (Fonte de Dano).
 
-A `RegistryKey` pode ser obtida da seguinte maneira:
+A `ResourceKey` pode ser obtida da seguinte maneira:
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/damage/FabricDocsReferenceDamageTypes.java)
 
@@ -47,7 +47,7 @@ Começaremos criando uma `DamageSource` do nosso tipo de dano customizado.
 
 @[code lang=java transclude={21-24}](@/reference/1.21.4/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Então, chamamos `entity.damage()` com o nosso `DamageSource`e uma quantidade.
+Então, chamamos `entity.hurt()` com o nosso `DamageSource`e uma quantidade.
 
 @[code lang=java transclude={25-25}](@/reference/1.21.4/src/main/java/com/example/docs/damage/TaterBlock.java)
 

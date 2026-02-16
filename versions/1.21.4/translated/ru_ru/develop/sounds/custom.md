@@ -40,8 +40,8 @@ authors:
 Чтобы добавить собственный звук в мод, зарегистрируйте SoundEvent в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistriesSOUND_EVENT, ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.of(ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## Чистка беспорядка {#cleaning-up-the-mess}

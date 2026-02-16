@@ -1,5 +1,5 @@
 ---
-title: Custom Item Groups
+title: Custom Creative Tabs
 description: Learn how to create your own item group and add items to it.
 authors:
   - IMB11
@@ -9,9 +9,9 @@ search: false
 
 Item groups are the tabs in the creative inventory that store items. You can create your own item group to store your items in a separate tab. This is pretty useful if your mod adds a lot of items and you want to keep them organized in one location for your players to easily access.
 
-## Creating the Item Group {#creating-the-item-group}
+## Creating the Creative Tab{#creating-the-item-group}
 
-It's surprisingly easy to create an item group. Simply create a new static final field in your items class to store the item group and a registry key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
+Adding a creative tab is pretty simple. Simply create a new static final field in your items class to store the creative tab and a resource key for it, you can then use the item group event similarly to how you added your items to the vanilla item groups:
 
 @[code transcludeWith=:::9](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -23,7 +23,7 @@ You should see the item group is now in the creative inventory menu. However, it
 
 ## Adding a Translation Key {#adding-a-translation-key}
 
-If you used `Text.translatable` for the `displayName` method of the item group builder, you will need to add the translation to your language file.
+If you used `Component.translatable` for the `displayName` method of the item group builder, you will need to add the translation to your language file.
 
 ```json
 {
@@ -31,6 +31,6 @@ If you used `Text.translatable` for the `displayName` method of the item group b
 }
 ```
 
-Now, as you can see, the item group should be correctly named:
+Now, as you can see, the creative tab should be correctly named:
 
 ![Fully completed item group with translation and items](/assets/develop/items/itemgroups_1.png)

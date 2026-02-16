@@ -29,22 +29,22 @@ If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class would
 
 ## Creating the Block {#creating-the-block}
 
-Next, to actually use the block entity, we need a block that implements `BlockEntityProvider`. Let's create one and call it `CounterBlock`.
+Next, to actually use the block entity, we need a block that implements `EntityBlock`. Let's create one and call it `CounterBlock`.
 
 ::: tip
 There's two ways to approach this:
 
-- create a block that extends `BlockWithEntity` and implement the `createBlockEntity` method (_and_ the `getRenderType` method, since `BlockWithEntity` makes it invisible by default)
-- create a block that implements `BlockEntityProvider` by itself and override the `createBlockEntity` method
+- create a block that extends `BaseEntityBlock` and implement the `newBlockEntity` method (_and_ the `getRenderType` method, since `BaseEntityBlock` makes it invisible by default)
+- create a block that implements `EntityBlock` by itself and override the `newBlockEntity` method
 
-We'll use the first approach in this example, since `BlockWithEntity` also provides some nice utilities.
+We'll use the first approach in this example, since `BaseEntityBlock` also provides some nice utilities.
 :::
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Using `BlockWithEntity` as the parent class means we also need to implement the `createCodec` method, which is rather easy.
+Using `BaseEntityBlock` as the parent class means we also need to implement the `codec` method, which is rather easy.
 
-Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `createBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
+Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `newBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
 
 Don't forget to register the block in the `ModBlocks` class, just like in the [Creating Your First Block](../blocks/first-block) guide:
 
@@ -58,7 +58,7 @@ Now that we have a block entity, we can use it to store the number of times the 
 
 The `markDirty` method, used in `incrementClicks`, tells the game that this entity's data has been updated; this will be useful when we add the methods to serialize the counter and load it back from the save file.
 
-Next, we need to increment this field every time the block is right-clicked. This is done by overriding the `onUse` method in the `CounterBlock` class:
+Next, we need to increment this field every time the block is right-clicked. This is done by overriding the `useWithoutItem` method in the `CounterBlock` class:
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
@@ -70,7 +70,7 @@ Since the `BlockEntity` is not passed into the method, we use `world.getBlockEnt
 
 Now that we have a functional block, we should make it so that the counter doesn't reset between game restarts. This is done by serializing it into NBT when the game saves, and deserializing when it's loading.
 
-Serialization is done with the `writeNbt` method:
+Serialization is done with the `saveAdditional` method:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -84,9 +84,9 @@ Now, if we save and reload the game, the counter block should continue from wher
 
 ## Tickers {#tickers}
 
-The `BlockEntityProvider` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
+The `EntityBlock` interface also defines a method called `getTicker`, which can be used to run code every tick for each instance of the block. We can implement that by creating a static method that will be used as the `BlockEntityTicker`:
 
-The `getTicker` method should also check if the passed `BlockEntityType` is the same as the one we're using, and if it is, return the function that will be called every tick. Thankfully, there is a utility function that does the check in `BlockWithEntity`:
+The `getTicker` method should also check if the passed `BlockEntityType` is the same as the one we're using, and if it is, return the function that will be called every tick. Thankfully, there is a utility function that does the check in `BaseEntityBlock`:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
