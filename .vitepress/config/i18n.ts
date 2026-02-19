@@ -179,8 +179,8 @@ export const getLocales = () => {
                 link: "https://github.com/FabricMC/fabric-loom",
               },
               {
-                text: "Fabric Yarn",
-                link: "https://github.com/FabricMC/yarn",
+                text: "Fabric Annotater",
+                link: "https://github.com/FabricMC/mcsrc",
               },
             ],
           },
