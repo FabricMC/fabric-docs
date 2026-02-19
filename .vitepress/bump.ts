@@ -2,7 +2,6 @@ import * as crossSpawn from "cross-spawn";
 import * as fs from "node:fs";
 import * as path from "node:path/posix";
 import * as process from "node:process";
-import prompts from "prompts";
 import * as tinyglobby from "tinyglobby";
 
 import { getLocaleNames, getResolver, getSidebar } from "./config/i18n";
@@ -27,26 +26,17 @@ const oldBuildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8
 const oldVersion = oldBuildGradle.match(/def minecraftVersion = "([^"]+)"/)![1];
 console.log(`Current version: 'Minecraft ${oldVersion}'`);
 
-const { newVersion } = await prompts({
-  type: "text",
-  name: "newVersion",
-  message: "Enter the new Minecraft version",
-  initial: ((now = new Date()) =>
-    [
-      now.getUTCFullYear() % 100,
-      Math.floor(now.getUTCMonth() / 3) + 1, // quarter
-    ].join("."))(),
-  validate: (newVersion) => {
-    if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
-      return `Minecraft ${newVersion} already exists!`;
-    }
-    if (!/^[0-9]+\.[0-9]+(\.[0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
-      return "This does not look like a Minecraft version!";
-    }
-    return true;
-  },
-});
+const launcherMetaUrl = "https://piston-meta.mojang.com/mc/game/version_manifest.json";
+const launcherVersions: any = await (await fetch(launcherMetaUrl)).json();
+const newVersion = process.argv[2] || launcherVersions?.latest?.release;
 if (!newVersion) {
+  console.error("Couldn't obtain a valid Minecraft version!");
+  process.exit(1);
+} else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
+  console.error(`'Minecraft ${newVersion}' already exists!`);
+  process.exit(1);
+} else if (!/^[0-9]+\.[0-9]+(\.[0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
+  console.error(`'${newVersion}' does not look like a Minecraft version!`);
   process.exit(1);
 }
 console.log(`New version: 'Minecraft ${newVersion}'`);
