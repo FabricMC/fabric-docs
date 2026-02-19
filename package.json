@@ -11,7 +11,7 @@
     "@types/cross-spawn": "^6.0.6",
     "@types/node": "^22.18.10",
     "cross-spawn": "^7.0.6",
-    "markdownlint": "^0.37.4",
+    "markdownlint": "^0.40.0",
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
     "oxc-minify": "^0.82.3",
