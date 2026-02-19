@@ -93,7 +93,7 @@ export default defineVersionedConfig(
       },
     },
 
-    rewrites: { "translated/:lang/(.*)": ":lang/(.*)" },
+    rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
 
     sitemap: {
       hostname,
