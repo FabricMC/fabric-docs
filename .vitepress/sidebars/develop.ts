@@ -34,6 +34,10 @@ export default [
         text: "develop.getting_started.tips_and_tricks",
         link: "/develop/getting-started/tips-and-tricks",
       },
+      {
+        text: "develop.getting_started.building_mod",
+        link: "/develop/getting-started/building-a-mod",
+      },
     ],
   },
   {

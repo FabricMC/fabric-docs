@@ -1,6 +1,6 @@
 ---
 title: Launching the Game
-description: Learn how launch a Minecraft instance to start and debug your mods in a live game environment.
+description: Learn how to launch a Minecraft instance to start and debug your mods in a live game environment.
 authors:
   - dicedpixels
   - IMB11
