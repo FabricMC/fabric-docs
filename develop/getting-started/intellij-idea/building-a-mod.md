@@ -1,8 +1,14 @@
 ---
-title: Building in IntelliJ IDEA
+title: Building a Mod in IntelliJ IDEA
 description: Learn how to build a Minecraft mod and test it in a production environment.
 authors:
   - cassiancc
+prev:
+  text: Launching the Game in IntelliJ IDEA
+  link: ./launching-the-game
+next:
+  text: Tips and Tricks for IntelliJ IDEA
+  link: ./tips-and-tricks
 ---
 
 In IntelliJ IDEA, open the Gradle tab on the right and execute `build` under tasks. The JARs should appear in the `build/libs` folder in your project directory. Use the JAR file with the shortest name outside development.
