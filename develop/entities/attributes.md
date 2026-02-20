@@ -92,3 +92,8 @@ attribute.addPermanentModifier(
 ```
 
 Once you have access to the attribute value, you can use it in your entity's AI.
+
+## References {#references}
+
+- NeoForge's documentation on [Attributes](https://docs.neoforged.net/docs/entities/attributes) is accurate to Fabric with the exception of deferred registers, as Fabric registers using vanilla registration methods. Additionally, NeoForge exclusive attributes in the NeoForge section do not exist on Fabric.
+- The Minecraft Wiki page for [Attributes](https://minecraft.wiki/w/Attribute) details what vanilla attributes exist.

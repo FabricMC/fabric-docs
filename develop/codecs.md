@@ -404,6 +404,7 @@ A serialized `ListNode` may then look like this:
 
 ## References {#references}
 
+- The NeoForge documentation on [Codecs](https://docs.neoforged.net/docs/datastorage/codecs/) and [Stream Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/).
 - A much more comprehensive documentation of Codecs and related APIs can be found at the
   [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - The general structure of this guide was heavily inspired by the

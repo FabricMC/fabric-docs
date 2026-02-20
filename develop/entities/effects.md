@@ -91,3 +91,7 @@ To create a potion that uses this effect, please see the [Potions](../items/poti
 :::
 
 <!---->
+
+## References {#references}
+
+- NeoForge's documentation on [Mob Effects](https://docs.neoforged.net/docs/items/mobeffects) is accurate to Fabric, with the exception of their section on Potions which uses NeoForge-exclusive deferred registers and `RegisterBrewingRecipesEvent`.
