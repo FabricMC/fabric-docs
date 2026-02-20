@@ -72,3 +72,8 @@ Now that we have a key mapping, we can react to it using a client tick event.
 This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed. Keep in mind that holding the key will repeatedly print the message to the chat, so you might want to implement guards if this logic only needs to trigger once.
 
 ![Message in Chat](/assets/develop/key-mappings/key_mapping_pressed.png)
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`ExampleModKeyMappingsClient`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)

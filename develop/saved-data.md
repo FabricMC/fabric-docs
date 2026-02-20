@@ -86,3 +86,6 @@ Opening this file in a NBT reader will show how our data is saved within.
 ## References {#references}
 
 - NeoForge's documentation on [Saved Data](https://docs.neoforged.net/docs/datastorage/saveddata/).
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [ExampleModSavedData](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java).
+  - [SavedBlockData](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)

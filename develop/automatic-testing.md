@@ -144,3 +144,8 @@ Currently, game test may fail on GitHub Actions due to an error in the network s
 
 @[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
 @[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`BeanTypeTest`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
