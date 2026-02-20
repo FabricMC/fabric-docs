@@ -74,15 +74,15 @@ If you are still unsure which log level to choose, a good rule of thumb is to on
 
 The debug log level is hidden by default, but can be specifically enabled in the development environment using some configuration.
 
-To do this, create the `log4j-dev.xml` configuration file in your project's root directory, and add the following contents. Make sure to replace the value inside the `name` attribute with your mod's modid.
+To do this, create the `log4j-dev.xml` configuration file in your project's root directory, and add the following contents. Make sure to replace the value inside the `name` attribute with your mod's modid. This configuration allows debug logs from your mod to be shown in the console.
 
 @[code lang=xml](@/reference/latest/log4j-dev.xml)
 
-Then in the `build.gradle`, tell loom to use our new configuration.
+Then in the `build.gradle`, tell Loom to use our new configuration.
 
 @[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
 
-We can now send debug log messages to the console.
+Now, when we send debug log messages, we'll be able to see them in the console.
 
 @[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
