@@ -2,6 +2,7 @@
 title: Debugging Mods
 description: Learn all about logging, breakpoints and other useful debugging features.
 authors:
+  - CelDaemon
   - its-miroma
   - JR1811
 ---
