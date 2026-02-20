@@ -113,3 +113,7 @@ The `submitText` method takes a lot of parameters, but the most important ones a
 And after all this work, here's the result:
 
 ![Counter Block with a number on top](/assets/develop/blocks/block_entity_renderer_4.png)
+
+## References {#references}
+
+- NeoForge's documentation on [BlockEntityRenderers](https://docs.neoforged.net/docs/blockentities/ber/) is accurate to Fabric with the exception of deferred registers, as Fabric registers using vanilla registration methods.
