@@ -4,8 +4,8 @@ description: Learn how to build a Minecraft mod using IntelliJ IDEA, to test it 
 authors:
   - cassiancc
 prev:
-  text: Launching the Game in IntelliJ IDEA
-  link: ./launching-the-game
+  text: Generating Sources in IntelliJ IDEA
+  link: ./generating-sources
 next:
   text: Tips and Tricks for IntelliJ IDEA
   link: ./tips-and-tricks
