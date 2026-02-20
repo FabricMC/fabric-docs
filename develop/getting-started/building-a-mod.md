@@ -35,7 +35,7 @@ Open a terminal from the same directory as the mod project directory, and run th
 ./gradlew build
 ```
 
-```sh:no-line-numbers [IntelliJ]
+```sh:no-line-numbers [IntelliJ Run Configuration]
 build
 ```
 
