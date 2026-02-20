@@ -100,3 +100,9 @@ This helper class can then be used like so:
 Player player = getPlayer();
 Stamina.get(player).getCurrentStamina();
 ```
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`ExampleModAttachments`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+  - [`Stamina`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
