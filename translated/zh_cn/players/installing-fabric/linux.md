@@ -21,19 +21,19 @@ next: false
 
 ## 1. 下载 Fabric 安装程序 {#1-download-the-fabric-installer}
 
-从 [Fabric 网站](https://fabricmc.net/use/)下载 Fabric 安装程序的 `.jar` 版本，单击 `Download installer (Universal/.JAR)`。
+访问 [Fabric 网站](https://fabricmc.net/use/)，点击`Download installer (Universal/.JAR)`按钮，下载 Fabric 安装程序的`.jar`版本。
 
 ## 2. 运行 Fabric 安装程序 {#2-run-the-fabric-installer}
 
 请先关闭 Minecraft 和 Minecraft 启动器，然后再运行安装程序。
 
-打开终端并使用 Java 运行安装器：
+打开终端并使用 Java 运行安装程序：
 
 ```sh
 java -jar fabric-installer.jar
 ```
 
-打开安装程序后，你应该会看到类似这样的屏幕：
+启动安装程序后，界面应如下图所示：
 
 ![高亮显示“安装”的 Fabric 安装程序](/assets/players/installing-fabric/installer-screen.png)
 

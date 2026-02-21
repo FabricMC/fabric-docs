@@ -2,6 +2,7 @@
 title: 调试模组
 description: 了解有关日志记录、断点和其他有用的调试功能的所有信息。
 authors:
+  - CelDaemon
   - its-miroma
   - JR1811
 ---
@@ -29,6 +30,7 @@ authors:
 记录器支持多种模式将文本打印到控制台。 根据使用的模式，记录的行将以不同的颜色显示。
 
 ```java
+ExampleModDebug.LOGGER.debug("Debug message for development...");
 ExampleModDebug.LOGGER.info("Neutral, informative text...");
 ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
 ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
@@ -58,11 +60,39 @@ ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 
 请记住，如果模组在其他环境中使用，所有这些信息也会被打印出来。
 
-如果你记录的数据仅在开发中相关，则创建自定义 `LOGGER` 方法并使用它来避免在生产环境中打印数据可能会很有用。
+为了防止你的模组污染日志文件，请为日志选择合适的日志级别。 如果你记录的数据仅在开发期间相关，强烈建议使用 `debug` 级别。
 
-@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+::: warning
 
-如果你不确定是否在调试会话之外打印日志，一个好的经验法则是仅在出现问题时才打印日志。 整合包开发者和用户并不太关心例如物品初始化之类的问题，他们更关心的是，例如数据包是否加载失败。
+`debug` 级别默认是隐藏的，要在开发期间显示它，请参阅[调试日志记录](#debug-logging)。
+
+:::
+
+如果你仍然不确定选择哪个日志级别，一个经验法则是：只有在出现问题时才使用非调试级别。 整合包开发者和用户并不太关心例如物品初始化之类的问题；他们更想知道例如数据包是否未能正确加载。
+
+### 调试日志记录 {#debug-logging}
+
+调试日志级别默认是隐藏的，但可以通过某些配置在开发环境中专门启用。
+
+为此，请在项目的根目录中创建 `log4j-dev.xml` 配置文件，并添加以下内容。 确保将 `name` 属性内的值替换为你模组的 modid。 此配置允许你的模组的调试日志显示在控制台中。
+
+@[code lang=xml](@/reference/latest/log4j-dev.xml)
+
+然后在 `build.gradle` 中，告诉 Loom 使用我们的新配置。
+
+@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+
+现在，当我们发送调试日志消息时，我们将能够在控制台中看到它们。
+
+@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+
+![显示调试日志条目的控制台](/assets/develop/debugging/debug_log.png)
+
+::: tip
+
+如果调试消息仍然不可见，你的运行配置可能已过时。 要解决此问题，请使用适用于你的 IDE 的 Gradle 任务重新生成它们。
+
+:::
 
 ### 定位问题 {#locating-issues}
 
@@ -137,7 +167,7 @@ public class TestItem extends Item {
 | ------------- | ------------------------------------------------------------------- |
 | 步过（Step Over） | 进入下一行执行，基本上是沿着逻辑移动实例                                                |
 | 步入（Step In）   | 进入方法内部，显示正在发生的事情。 如果一行中有多个方法，你可以通过点击来选择要进入的方法。 这对于 Lambda 表达式也是必需的。 |
-| 运行到光标         | 逐步执行逻辑，直到到达代码中的光标。 这对于跳过大段代码非常有用。                                   |
+| 运行到光标处        | 逐步执行逻辑，直到到达代码中的光标。 这对于跳过大段代码非常有用。                                   |
 | 显示执行点         | 将编码窗口的视图移动到调试器当前所在的位置。 即使你当前正在处理其他文件和选项卡，此操作也有效。                    |
 
 ::: info
