@@ -1,19 +1,19 @@
 ---
 title: 常见问题
-description: 经常被玩家和服务器管理员问及的，关于Fabric的问题。
+description: 经常被玩家和服务器管理员问及的关于Fabric的问题。
 ---
 
 有很多问题经常问到，因此我们在此整理了一份清单。
 
 ## Fabric 支持哪些 Minecraft 版本？ {#what-minecraft-versions-does-fabric-support}
 
-Fabric 官方支持从快照 `18w43b` 和正式版 `1.14` 及以上的所有 Minecraft 版本。
+Fabric 官方支持从快照`18w43b`和正式版`1.14`及以上的所有 Minecraft 版本。
 
-## 我可以在哪里下载已发布的 Fabric 模组？ {#where-can-i-download-published-fabric-mods}
+## 我可以从哪里下载已发布的 Fabric 模组？ {#where-can-i-download-published-fabric-mods}
 
 ::: info
 
-你应当始终确认模组的来源是否可靠。 更多信息请查看[寻找可信的模组](./finding-mods)指南。
+您应始终检查模组的来源是否可信。 更多信息请查看[寻找可信的模组](./finding-mods)指南。
 
 :::
 
