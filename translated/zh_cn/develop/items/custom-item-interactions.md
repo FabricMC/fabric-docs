@@ -3,13 +3,14 @@ title: 自定义物品交互
 description: 学习如何创建使用内置原版事件的物品
 authors:
   - IMB11
+  - gi199
 ---
 
 基础物品的功能是有限的——你还是需要个能在使用时与世界交互的物品。
 
 有些关键的类你必须理解，然后才能看看原版的物品事件。
 
-## InteractionResult {#interactionresult}
+## ActionResult {#actionresult}
 
 `InteractionResult` 告诉游戏事件的状态，即事件是否被通过/忽略、失败或成功。
 
@@ -18,7 +19,7 @@ authors:
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
+ActionResult.SUCCESS.withNewHandStack(ActionResult.SUCCESS.getNewHandStack())
 ```
 
 ## 可重写事件 {#overridable-events}
