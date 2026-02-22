@@ -132,3 +132,8 @@ If the block entity does not seem to tick, try checking the registration code! I
 :::
 
 <!---->
+
+## References {#references}
+
+- NeoForge's documentation on [Block Entities](https://docs.neoforged.net/docs/blockentities/) is also applicable when using Fabric, with the exception of registration which is done via vanilla methods instead of deferred registers.
+- NeoForge's documentation on [Containers](https://docs.neoforged.net/docs/inventories/container/).

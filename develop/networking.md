@@ -220,3 +220,11 @@ player to 5.
 Now when any player tries to use a Poisonous Potato on a living entity, the glowing effect will be applied to it.
 
 <VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Glowing effect is applied when a Poisonous Potato is used on a living entity</VideoPlayer>
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`SummonLightningS2CPayload`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+  - [`GiveGlowingEffectC2SPayload`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectC2SPayload.java)
+  - [`ExampleModNetworkingBasic`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+  - [`ExampleNetworkingBasicClient`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
