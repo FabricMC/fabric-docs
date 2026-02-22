@@ -65,42 +65,42 @@ public class ModItems {
 	public static final Item GUIDITE_HELMET = register(
 			"guidite_helmet",
 			Item::new,
-			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
+			new Item.Settings().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
 					.durability(ArmorType.HELMET.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
 			Item::new,
-			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
+			new Item.Settings().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
 					.durability(ArmorType.CHESTPLATE.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
 			"guidite_leggings",
 			Item::new,
-			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
+			new Item.Settings().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
 					.durability(ArmorType.LEGGINGS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
 			"guidite_boots",
 			Item::new,
-			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
+			new Item.Settings().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
 					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	// :::6
-	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
+	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Settings());
 	// :::7
 	public static final Item GUIDITE_SWORD = register(
 			"guidite_sword",
 			Item::new,
-			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
+			new Item.Settings().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// :::7
 	// :::_13
 	public static final Item COUNTER = register(
 			"counter",
 			CounterItem::new,
-			new Item.Properties()
+			new Item.Settings()
 					// Initialize the click count component with a default value of 0
 					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
 	);
@@ -159,54 +159,54 @@ public class ModItems {
 	public static final Item POISONOUS_APPLE = register(
 			"poisonous_apple",
 			Item::new,
-			new Item.Properties().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
+			new Item.Settings().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
 	// :::poisonous_apple
 
 	// :::2
-	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
+	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
 	// :::2
 
-	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
+	public static final Item RUBY = register("ruby", Item::new, new Item.Settings());
 
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Settings());
 
 	// :::spawn_egg
 	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
 			"custom_spawn_egg",
 			SpawnEggItem::new,
-			new Item.Properties().spawnEgg(EntityType.FROG)
+			new Item.Settings().spawnEgg(EntityType.FROG)
 	);
 	// :::spawn_egg
 
-	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
+	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Settings());
 
 	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
 		@Override
-		public InteractionResult use(Level level, Player user, InteractionHand hand) {
+		public ActionResult use(Level level, Player user, InteractionHand hand) {
 			user.startUsingItem(hand);
-			return InteractionResult.CONSUME;
+			return ActionResult.CONSUME;
 		}
-	}, new Item.Properties());
+	}, new Item.Settings());
 
-	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
+	public static final Item BALLOON = register("balloon", Item::new, new Item.Settings());
 
-	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
+	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Settings());
 
-	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
+	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Settings());
 
-	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
+	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Settings().stacksTo(3));
 
 	// :::1
-	public static <GenericItem extends Item> GenericItem register(String name, Function<Item.Properties, GenericItem> itemFactory, Item.Properties settings) {
+	public static <GenericItem extends Item> GenericItem register(String name, Function<Item.Settings, GenericItem> itemFactory, Item.Settings settings) {
 		// Create the item key.
-		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		RegistryKey<Item> itemKey = RegistryKey.of(Registries.ITEM, Identifier.of(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
-		GenericItem item = itemFactory.apply(settings.setId(itemKey));
+		GenericItem item = itemFactory.apply(settings.registryKey(itemKey));
 
 		// Register the item.
-		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+		Registry.register(Registries.ITEM, itemKey, item);
 
 		return item;
 	}
