@@ -5,11 +5,14 @@ authors:
    - cassiancc
    - Wind292
 ---
-::: info PREREQUISITES
-Make sure you've completed the [datagen setup](./setup) process first.
-:::
 
 ## World Generation Structure {#world-generation-structure}
+
+::: info PREREQUISITES
+
+Make sure you've completed the [datagen setup](./setup) process first.
+
+:::
 
 The generation for features of Minecraft worlds is broken down into 3 parts.
 
@@ -18,7 +21,9 @@ The generation for features of Minecraft worlds is broken down into 3 parts.
 - **Biome Modifications**: This defines where in the world the features are placed on a global scale; this would be like what coordinates the forest would be at.
 
 ::: info
+
 Features in Minecraft are natural or generated objects in the world like trees, flowers, ores, or lakes. Features are not structures (villages, temples, etc.), and cannot be found with the `/locate` command.
+
 :::
 
 ## Setup {#setup}
@@ -52,7 +57,9 @@ First, register the key for the `ConfiguredFeature` in your Configured Feature c
 @[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 ::: tip
+
 The second argument to the `ResourceLocation` (`diamond_block_vein` in this example) is what you would use to spawn in the structure with the `/place` command, which is helpful for debugging.
+
 :::
 
 ### Ores {#ores}
@@ -87,10 +94,12 @@ To make a custom tree, you need to first create a `TreeFeatureConfig`:
 - Argument 4 — Defines the foliage's shape and size using a foliage placer.
 - Argument 5 — Controls how the tree trunk tapers at different heights, primarily for larger trunks.
 
-:::tip
+::: tip
+
 We _highly_ recommend that you play around with these values to create a custom tree that **you** are happy with!
 
 You can use the built-in placers for the Trunk and Foliage from the vanilla trees as a reference.
+
 :::
 
 Next, we need to register our tree by adding the following line to the `configure` method of `ExampleModWorldConfiguredFeatures`.
@@ -134,11 +143,15 @@ The function of each modifier listed is as follows:
       Uses a logarithmic scale where lower `y` values are more common for the feature, starting from a minimum `y` coordinate below which the feature never spawns. The second argument is the max height that the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip
+
 If you're unsure which `HeightRangePlacement` to use for your ore, just use Uniform.
+
 :::
 
 ::: tip
+
 Trees and other surface structures should include the modifier `PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP` instead of `HeightRangePlacement` to make the tree to spawn at the surface
+
 :::
 
 Now that we have the modifiers, we can register our Placed Feature with:
@@ -152,7 +165,9 @@ Lastly, we need to add our Placed Feature to `BiomeModifications` during mod ini
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
 ::: tip
+
 Trees should have the `GenerationStep.Decoration` of `GenerationStep.Decoration.VEGETAL_DECORATION,`
+
 :::
 
 ### Biome Specific Generation {#biome-specific-generation}
