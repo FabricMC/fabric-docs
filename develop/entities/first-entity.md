@@ -55,7 +55,9 @@ To add goals to the entity, you need to create a `registerGoals` method in your 
 Rendering refers to the process of converting game data such as blocks, entities, and environments into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
 
 ::: tip
+
 Entity rendering is always handled on the client side. The server manages the entity's logic and behavior, while the client is responsible for displaying the entity's model, texture, and animations.
+
 :::
 
 Rendering has multiple steps involving their own classes, but we'll start with the `EntityRenderState` class.
@@ -69,9 +71,11 @@ The render state determines how the entity is visually represented, including an
 The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://web.blockbench.net), rather than being written by hand. Nonetheless, this tutorial will go through a manual example to show you how it works.
 
 ::: warning
+
 Blockbench supports multiple [mappings](../migrating-mappings/#mappings) (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
 
 Mismatched mappings can cause errors when integrating Blockbench generated code.
+
 :::
 
 @[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
@@ -85,7 +89,9 @@ This method defines the Mini Golem's 3D model by creating its body, head, and le
 Each part is added with a offset point for proper animation and alignment, ensuring the model appears correctly in-game.
 
 ::: info
+
 The higher Y values in the model, the lower you are in the entity. This is the reverse compared to in-game coordinates.
+
 :::
 
 We'll now need to create a `ModEntityModelLayers` class in the client package. This entity only has a single texture layer, but other entities may use multiple - think of the secondary skin layer on mobs like the `Player` or a `Spider`'s eyes.
@@ -99,7 +105,9 @@ This class must then be initialized in the mod's client initializer.
 ### Setting up the Texture {#setting-up-texture}
 
 ::: warning
+
 The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32);`, 64 pixels wide and 32 pixels tall. If you need a bigger texture, then don't forget to change the size in `LayerDefinition.create` to match.
+
 :::
 
 Each model part / box is expecting a net on the texture in a particular location. By default, it's expecting it at `0, 0` (the top left), but this can be changed by calling the texOffs function in CubeListBuilder.
@@ -151,7 +159,9 @@ Now, whenever the entity is loaded, it will restore the state that it was left i
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
 ::: info
+
 For more information, see the full article [Creating a Spawn Egg](../items/spawn-egg).
+
 :::
 
 All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, using the helper method discussed in [Creating Your First Item](../items/first-item).
