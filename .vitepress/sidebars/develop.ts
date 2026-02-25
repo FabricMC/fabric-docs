@@ -130,7 +130,7 @@ export default [
     items: [
       {
         text: "develop.entities.first_entity",
-        link: "/develop/entities/first-entity", 
+        link: "/develop/entities/first-entity",
       },
       {
         text: "develop.entities.attributes",
