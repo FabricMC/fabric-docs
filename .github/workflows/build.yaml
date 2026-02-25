@@ -48,11 +48,11 @@ jobs:
           reports: reference/**/build/reports/checkstyle/*.xml
       # require clean working directory
       - run: |
-          files="$(git ls-files --modified --others --exclude-standard -z)"
-          [[ -z "${files}" ]] && exit 0
-          while IFS= read -r -d '' f; do
+          readarray -d '' files < <(git ls-files --modified --others --exclude-standard -z)
+          [[ ${#files[@]} -eq 0 ]] && exit 0
+          for f in "${files[@]}"; do
             echo "::error file=${f},title=Datagen::Regenerate this file with 'cd reference && ./gradlew runDatagen'"
-          done <<<"${files}"
+          done
           exit 1
 
   # :::automatic-testing:game-test:3

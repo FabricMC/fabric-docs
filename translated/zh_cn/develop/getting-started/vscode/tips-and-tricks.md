@@ -13,7 +13,7 @@ next: false
 
 ## 搜索 Minecraft 类 {#searching-for-a-minecraft-class}
 
-生成源代码后， 你就应该可以搜索或查看 Minecraft 类。
+生成源代码后，你就应该可以搜索或查看 Minecraft 类。
 
 ### 查看类定义 {#viewing-class-definitions}
 

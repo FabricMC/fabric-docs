@@ -49,7 +49,7 @@ const getRoute = (v: string) => {
 
   const segments = [
     "",
-    data.lang.value !== "en-us" ? data.lang.value : undefined,
+    data.localeIndex.value !== "root" ? data.localeIndex.value : undefined,
     v !== props.versioningPlugin.latestVersion ? v : undefined,
     ...neither,
   ]

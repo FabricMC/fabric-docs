@@ -38,11 +38,11 @@ authors:
 
 两个浮点数值 (`1f, 1f`) 分别表示工具的攻击伤害以及攻击速度。
 
-记得把它们加入一个创造标签页如果你想通过创造模式物品栏访问它！
+如果你想通过创造模式物品栏访问，记得其加入一个创造标签页！
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用`item/handheld`模型作为父级而非通常的`item/generaterd`模型。
+你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 

@@ -2,9 +2,9 @@ import * as fs from "node:fs";
 import * as path from "node:path/posix";
 import * as tinyglobby from "tinyglobby";
 
-import Develop from "./sidebars/develop";
-import Players from "./sidebars/players";
-import { Fabric } from "./types";
+import Develop from "../sidebars/develop";
+import Players from "../sidebars/players";
+import { Fabric } from "../types";
 
 export const getLocaleNames = (translatedDir: string) => [
   "en_us",
@@ -14,16 +14,11 @@ export const getLocaleNames = (translatedDir: string) => [
     .map((f) => path.relative(translatedDir, f)),
 ];
 
-const locales = getLocaleNames(`${import.meta.dirname}/../translated`);
+const translated = path.resolve(import.meta.dirname, "..", "..", "translated");
+const locales = getLocaleNames(translated);
 
 export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
-  const filePath = path.resolve(
-    import.meta.dirname,
-    "..",
-    "translated",
-    locale === "en_us" ? ".." : locale,
-    file
-  );
+  const filePath = path.resolve(translated, locale === "en_us" ? ".." : locale, file);
 
   const strings: Record<string, string> = fs.existsSync(filePath)
     ? JSON.parse(fs.readFileSync(filePath, "utf-8"))
@@ -184,8 +179,8 @@ export const getLocales = () => {
                 link: "https://github.com/FabricMC/fabric-loom",
               },
               {
-                text: "Fabric Yarn",
-                link: "https://github.com/FabricMC/yarn",
+                text: "Fabric Annotater",
+                link: "https://github.com/FabricMC/mcsrc",
               },
             ],
           },
@@ -257,7 +252,7 @@ export const getLocales = () => {
           },
           {
             icon: "discord",
-            link: "https://discord.gg/v6v4pMv",
+            link: "https://discord.fabricmc.net/",
             ariaLabel: resolver("social.discord"),
           },
           {

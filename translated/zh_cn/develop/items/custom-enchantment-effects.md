@@ -20,7 +20,7 @@ authors:
 
 先创建 `enchantment` 文件夹，然后在里面创建 `effect` 文件夹。 在里面，创建记录类 `LightningEnchantmentEffect`。
 
-现在，创建构造器，并覆盖 `EnchantmentEntityEffect` 接口的方法。 还要创建 `CODEC` 变量以编码解码我们的效果，可以了解更多[关于 codec 的信息](../codecs)。
+现在，创建构造器，并覆盖 `EnchantmentEntityEffect` 接口的方法。 还要创建 `CODEC` 变量以编码解码我们的效果；可以了解更多关于 [codec](../codecs) 的信息。
 
 我们的大部分代码都将进入 `apply()` 事件，当魔咒生效的条件得到满足时，该事件就会被调用。 我们稍后会配置这个 `Effect` 以在实体被击中时调用，但现在，让我们编写简单的代码来实现用闪电击中目标。
 
@@ -36,28 +36,28 @@ authors:
 
 ## 创建魔咒 {#creating-the-enchantment}
 
-现在我们有了一个魔咒效果！ 最后一步是创建一个魔咒，应用我们自定义的效果。 这可以通过创建类似于 Minecraft 数据包中的 JSON 文件来实现，在这篇文档中，将向你展示如何使用 Fabric 的数据生成工具来动态生成 JSON。 要开始，创建一个名为 `ExampleModEnchantmentGenerator` 的类。
+现在我们有了一个魔咒效果！ 最后一步是创建应用我们自定义的效果的魔咒。 我们可以使用数据驱动的魔咒系统来创建魔咒，只需要在我们的模组的资源中添加一个 JSON 文件即可。
 
-在这个类中，我们先注册我们的魔咒对象，并使用 `configure()` 方法来在程序中创建 JSON。
+在 `data/example-mod/enchantments` 创建 JSON 文件。 文件的名称就会是魔咒的 ID：`thundering.json` 就会是 `example-mod:thundering`。
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+::: info
 
-在继续之前，应确保你的项目已为数据生成进行了配置。如果您不确定，请 [查看相关文档页面](../data-generation/setup)。
+关于文件格式的更多信息，请参阅[中文 Minecraft Wiki - 魔咒定义格式](https://zh.minecraft.wiki/w/魔咒定义格式)。
 
-在最后，我们必须要告诉我们的模组去把 `EnchantmentGenerator` 加入到数据生成任务列表中。 为了实现这一点，只需要简单的把 `EnchantmentGenerator` 加入到 `onInitializeDataGenerator` 方法中。
+要快速生成自定义魔咒，可使用 [Misode generator](https://misode.github.io/enchantment/)。
 
-@[code transcludeWith=:::custom-enchantments:register-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+:::
 
-现在，当你运行你的模组的数据生成任务，附魔表 JSON 将会生成在 `generated` 文件夹内。 下面是一个例子：
+对于这个例子，我们使用以下魔咒定义，添加 `thundering` 魔咒并使用我们自定义的 `lightning_effect`：
 
 @[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
-你需要在 `zh_cn.json` 中给你的自定义魔咒添加一个有意义的名字：
+你需要在 `en_us.json` 以及 `zh_cn.json` 中给你的自定义魔咒一个可读的名字：
 
 ```json
 "enchantment.example-mod.thundering": "Thundering",
 ```
 
-现在你应该有了一个可以正常工作的自定义附魔效果！ 附魔一个武器，然后攻击一个生物试试吧。 下面的视频里有一个例子：
+现在你应该有了一个可以正常生效的自定义附魔效果！ 附魔一个武器，然后攻击一个生物试试吧。 下面的视频里有一个例子：
 
 <VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">使用雷电（Thundering）魔咒</VideoPlayer>

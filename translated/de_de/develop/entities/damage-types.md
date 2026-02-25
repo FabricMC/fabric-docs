@@ -73,7 +73,7 @@ Beim Tod durch unsere Schadensart wirst du die folgende Todesnachricht sehen:
 
 ### Schadensart-Tags {#damage-type-tags}
 
-Einige Schadensarten können Rüstung, Statuseffekte usw. Tags werden verwendet, um diese Art von Eigenschaften von Schadensarten zu kontrollieren.
+Einige Schadensarten können Rüstungen, Mobseffekte und Ähnliches umgehen. Tags werden verwendet, um diese Art von Eigenschaften von Schadensarten zu kontrollieren.
 
 Vorhandene Schadensarten-Tags kannst du in `data/minecraft/tags/damage_type` finden.
 

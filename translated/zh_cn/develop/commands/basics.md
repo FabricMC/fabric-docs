@@ -152,7 +152,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 
 ## 常见问题{#faq}
 
-### 为什么我的代码为什么不编译？ {#why-does-my-code-not-compile}
+### 为什么我的代码不编译？ {#why-does-my-code-not-compile}
 
 - 捕捉或抛出 `CommandSyntaxException` - `CommandSyntaxException` 不是 `RuntimeException`， 如果抛出，则抛出的地方所在方法必须在方法签名中也抛出 `CommandSyntaxException`，或者捕获。
   Brigadier 会处理已检查的异常，并在游戏内为你转发适当的错误消息。

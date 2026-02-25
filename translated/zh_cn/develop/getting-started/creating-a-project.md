@@ -72,7 +72,7 @@ git clone https://github.com/FabricMC/fabric-example-mod/ example-mod
 
 然后你应该从克隆的代码仓库中删除 `.git` 文件夹，并·打开项目。 如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
 
-一旦你在 IDE 中打开了项目，它应该会自动加载项目的 Gradle 配置并执行必要的设置任务。
+在你的 IDE 中打开了项目之后，IDEA 会自动加载项目的 Gradle 配置并执行必要的初始化任务。
 
 强调一遍，如上所述，如果你收到一个关于 Gradle 构建脚本的通知，你应该点击 `Import Gradle Project` 按钮。
 

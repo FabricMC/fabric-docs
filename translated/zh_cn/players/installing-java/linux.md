@@ -42,7 +42,7 @@ Minecraft 启动器自带 Java 安装，因此本节仅在你想要使用 Fabric
 sudo pacman -S jre-openjdk
 ```
 
-如果您正在运行服务器不需要图形用户界面，您可以安装无头版本：
+若您运行的服务器无需图形用户界面，可以安装无头版本：
 
 ```sh
 sudo pacman -S jre-openjdk-headless
@@ -87,12 +87,12 @@ sudo dnf install java-21-openjdk-devel
 
 如果您的发行版未在上文列出，您可以从 [Adoptium](https://adoptium.net/zh-CN/temurin/) 下载最新版 JRE
 
-如果您计划开发模组，您应该参考您的发行版的替代指南。
+若您计划开发模组，请参阅针对您发行版的其它指南。
 
 ## 3. 验证是否已安装 Java 21 {#3-verify-that-java-is-installed}
 
 安装完成后，您可以打开终端并输入 `java -version` 来验证 Java 21 是否已安装。
 
-如果命令成功完成，你将会看到一些之前展示过的输出，可是Java版本会像这样：
+若命令执行成功，你将看到与前文类似的界面，其中会显示 Java 版本：
 
 ![输入 "java -version" 的终端](/assets/players/installing-java/linux-java-version.png)
