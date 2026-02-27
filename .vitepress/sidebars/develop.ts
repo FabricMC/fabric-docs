@@ -368,6 +368,16 @@ export default [
     ],
   },
   {
+    text: "develop.classtweaker",
+    "collapsed": true,
+    "items": [
+      {
+        text: "develop.classtweaker.accesswidening",
+        link: "/develop/classtweaker/accesswidening",
+      },
+    ],
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [

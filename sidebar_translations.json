@@ -76,6 +76,8 @@
   "develop.misc.debugging": "Debugging Mods",
   "develop.mixins": "Mixins",
   "develop.mixins.bytecode": "Java Bytecode",
+  "develop.classtweaker": "ClassTweaker",
+  "develop.classtweaker.accesswidening": "Access Widening",
   "develop.serialization": "Serialization",
   "develop.porting": "Porting",
   "develop.porting.current": "Porting to 1.21.11",
