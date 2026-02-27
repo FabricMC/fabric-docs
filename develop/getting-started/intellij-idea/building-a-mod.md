@@ -3,6 +3,9 @@ title: Building a Mod in IntelliJ IDEA
 description: Learn how to build a Minecraft mod using IntelliJ IDEA, to test it in a production environment.
 authors:
   - cassiancc
+  - cputnam-a11y
+  - gdude2002
+  - Scotsguy
 prev:
   text: Generating Sources in IntelliJ IDEA
   link: ./generating-sources
