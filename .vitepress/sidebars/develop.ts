@@ -80,7 +80,7 @@ export default [
       },
       {
         text: "develop.items.custom_creative_tabs",
-        link: "/develop/items/custom-item-groups",
+        link: "/develop/items/custom-creative-tabs",
       },
       {
         text: "develop.items.custom_item_interactions",
@@ -192,7 +192,7 @@ export default [
       },
       {
         text: "develop.rendering.gui_graphics",
-        link: "/develop/rendering/draw-context",
+        link: "/develop/rendering/gui-graphics",
       },
       {
         text: "develop.rendering.hud",

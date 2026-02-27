@@ -61,7 +61,7 @@ To automatically create the block item, we can pass `true` to the `shouldRegiste
 
 Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
-For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
+For this example, we'll use the tab we created in the [Custom Creative Tabs](../items/custom-creative-tabs) page.
 
 @[code transcludeWith=:::6](@/reference/1.21.10/src/main/java/com/example/docs/block/ModBlocks.java)
 

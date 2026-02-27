@@ -1,6 +1,6 @@
 import * as crossSpawn from "cross-spawn";
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
 
