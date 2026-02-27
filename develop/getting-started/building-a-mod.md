@@ -1,6 +1,6 @@
 ---
 title: Building a Mod
-description: Learn how to build a Minecraft mod and test it in a production environment.
+description: Learn how to build a Minecraft mod that can be shared or tested in a production environment.
 authors:
   - cassiancc
   - cputnam-a11y
@@ -49,3 +49,7 @@ Open a terminal from the same directory as the mod project directory, and run th
 :::
 
 The JARs should appear in the `build/libs` folder in your project. Use the JAR file with the shortest name outside development.
+
+## Installing and Sharing {#installing-and-sharing}
+
+From there, the mod can be [installed as normal](../../players/installing-mods), or uploaded to trustworthy mod hosting sites like [CurseForge](https://www.curseforge.com/minecraft) and [Modrinth](https://modrinth.com/discover/mods).
