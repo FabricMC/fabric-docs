@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as tinyglobby from "tinyglobby";
 
 import Develop from "../sidebars/develop";

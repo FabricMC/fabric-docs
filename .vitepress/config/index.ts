@@ -1,6 +1,6 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
