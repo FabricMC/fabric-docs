@@ -28,7 +28,7 @@ Once your mod is ready for testing, you're able to export it into a JAR file whi
 
 ## Building in the Terminal {#terminal}
 
-::: info
+::: warning
 
 Using the terminal to build a mod rather than an IDE may cause issues if your default Java installation does not match what the project is expecting. For more reliable builds, consider using an IDE that allows you to easily specify the correct version of Java.
 
