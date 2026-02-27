@@ -7,8 +7,8 @@ prev:
   text: Launching the Game in IntelliJ IDEA
   link: ./launching-the-game
 next:
-  text: Tips and Tricks for IntelliJ IDEA
-  link: ./tips-and-tricks
+  text: Building a Mod in IntelliJ IDEA
+  link: ./building-a-mod
 ---
 
 The Fabric toolchain lets you access the Minecraft source code by generating it locally, and you can use IntelliJ IDEA to conveniently navigate through it. To generate sources, you need to run the `genSources` Gradle task.
