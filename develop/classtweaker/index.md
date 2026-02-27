@@ -13,6 +13,8 @@ Before moving on to the specific features Class Tweakers provide, we will go ove
 
 ## Setup Process {#setup-process}
 
+Class tweakers may only target Minecraft classes, and are only available on Fabric Loader 0.18 and above.
+
 ### File Format {#file-format}
 
 Class tweaker files are conventionally named after your modid, appended with the `.classtweaker` extension to help IDE plugins recognize them. They should be stored in `resources`.
@@ -33,7 +35,7 @@ Class tweaker files can have blank lines and comments starting with `#`
 
 Any whitespace can be used to separate in a class tweaker file, but tabs are recommended.
 
-Classes and the package path are separated with a `/` and not a `.`, and inner classes are separated with a `$`. For example: `package/path/here/OuterClass$InnerClass`.
+Classes are specified using their [internal names](../mixins/bytecode#class-names).
 
 ### Specifying File Location {#specifying-file-location}
 
@@ -41,7 +43,7 @@ The class tweaker location must be specified in your `build.gradle` and in your 
 
 `build.gradle`:
 
-```gradle
+```groovy
 loom {
     accessWidenerPath = file("src/main/resources/modid.classtweaker")
 }
