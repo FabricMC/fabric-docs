@@ -22,4 +22,4 @@ In IntelliJ IDEA, open the Gradle tab on the right and execute `build` under tas
 
 ## Installing and Sharing {#installing-and-sharing}
 
-From there, the mod can be [installed as normal](../../players/installing-mods), or uploaded to trustworthy mod hosting sites like [CurseForge](https://www.curseforge.com/minecraft) and [Modrinth](https://modrinth.com/discover/mods).
+From there, the mod can be [installed as normal](../../../players/installing-mods), or uploaded to trustworthy mod hosting sites like [CurseForge](https://www.curseforge.com/minecraft) and [Modrinth](https://modrinth.com/discover/mods).
