@@ -3,6 +3,9 @@ title: Building a Mod
 description: Learn how to build a Minecraft mod and test it in a production environment.
 authors:
   - cassiancc
+  - cputnam-a11y
+  - gdude2002
+  - Scotsguy
 ---
 
 Once your mod is ready for testing, you're able to export it into a JAR file which can be shared on mod hosting websites, or used to test your mod in production alongside other mods.
