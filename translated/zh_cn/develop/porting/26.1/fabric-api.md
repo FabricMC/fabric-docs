@@ -5,15 +5,15 @@ authors:
   - modmuss50
 ---
 
-因为现在 Minecraft 26.1 没有混淆了，所以许多开发者现在都会使用 Mojang 的官方映射。 此前，Fabric API 会使用 Yarn 映射构建，但迁移到官方映射后，API 的名称也随之更新，以在合适的地方匹配官方的名称。 这些改变没有向后兼容，所以你会需要更新你的模组以使用新的名称。 这些 API 的更名不会由迁移映射工具处理，如果你的模组是基于 Yarn 映射构建的，非常推荐你先[迁移映射](../../migrating-mappings/)。
+鉴于 Minecraft 26.1 现已去混淆，现在绝大多数开发者将转而采用 Mojang 的官方映射。 此前，Fabric API 的构建基于 Yarn 映射，但随着向官方映射的迁移，API 名称已在适用范围内更新为官方名称。 这些变更不向后兼容，因此你需要更新模组以适配新名称。 这些 API 重命名无法通过映射迁移工具自动处理。若你的模组基于 Yarn 映射构建，强烈建议优先参阅[迁移映射](../../migrating-mappings/)章节。
 
-下面是 Fabric API 26.1 中所有更名的类的列表、方法和字段，使用此列表的最好方式是在此页面中查找（<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>）旧名称并替换为新名称。
+以下是 Fabric API 26.1 中所有重命名的类、方法及字段的列表。使用此列表的最佳做法是在此页面中查找 (<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>) 旧名称，并将其替换为新名称。
 
-一个 IntelliJ IDEA 迁移映射也可用于帮助自动化类的重命名。 下载后按照 [JetBrains 文档](https://www.jetbrains.com/help/idea/migrate.html)的指引以应用在你的项目中。
+此外，还提供了一份 IntelliJ IDEA 迁移映射文件，用于辅助自动化类重命名。 下载后，请遵循[JetBrains 文档](https://www.jetbrains.com/help/idea/migrate.html)中的说明，将其应用至你的项目。
 
-<DownloadEntry downloadURL="/assets/develop/porting/fabric-api-26-1-migration-map.xml">类迁移映射</DownloadEntry>
+<DownloadEntry downloadURL="/assets/develop/porting/fabric-api-26-1-migration-map.xml">类迁移映射文件</DownloadEntry>
 
-## 重命名列表{#renames}
+## 重命名列表 {#renames}
 
 - `net/fabricmc/fabric/api/biome/v1/BiomeModificationContext$EffectsContext`
   - `setFoliageColor` → `setFoliageColorOverride`

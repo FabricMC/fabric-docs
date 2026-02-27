@@ -7,9 +7,9 @@ authors:
 
 本指南将引导你使用 Minecraft 启动器安装 Fabric 模组。
 
-对于第三方启动器，应该参见这些第三方启动器的文档。
+对于第三方启动器，请查阅其相关文档。
 
-## 1. 下载模组{#1-download-the-mod}
+## 1. 下载模组 {#1-download-the-mod}
 
 ::: warning
 
@@ -25,9 +25,9 @@ authors:
 - 模组是用于 Fabric 的，而不是其他模组加载器。
 - 此外，适用于正确的 Minecraft（Java 版）的版本。
 
-## 2. 将模组移到 `mods` 文件夹{#2-move-the-mod-to-the-mods-folder}
+## 2. 将模组移到 `mods` 文件夹 {#2-move-the-mod-to-the-mods-folder}
 
-各个操作系统中，模组文件夹的位置如下所示：
+各操作系统中，模组文件夹的位置如下所示。
 
 你通常可以将这些路径粘贴到文件资源管理器的地址栏中，以快速导航到文件夹。
 
@@ -49,7 +49,7 @@ authors:
 
 找到 `mods` 文件夹后，就可以将模组 `.jar` 文件移入其中。
 
-![已在模组文件夹中安装模组](/assets/players/installing-mods.png)
+![已在模组文件夹中安装的模组](/assets/players/installing-mods.png)
 
 ## 3. 大功告成！ {#3-you-re-done}
 

@@ -13,11 +13,11 @@ authors:
 
 ::: info
 
-本指南仅适用于官方的 Minecraft 启动器。 对于第三方启动器，应该参见这些第三方启动器的文档。
+本指南仅适用于官方的 Minecraft 启动器。 对于第三方启动器，请查阅其相关文档。
 
 :::
 
-## 选择你的操作系统{#choose-your-os}
+## 选择你的操作系统 {#choose-your-os}
 
 <ChoiceComponent :choices="[
 {

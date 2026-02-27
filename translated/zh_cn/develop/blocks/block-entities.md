@@ -6,13 +6,13 @@ authors:
 ---
 
 方块实体是一种为方块存储额外数据的方式，这些数据不属于方块状态的一部分：例如物品栏内容、自定义名称等。
-Minecraft 为箱子、熔炉和命令方块等方块使用了方块实体。
+Minecraft 使用方块实体来处理箱子、熔炉和命令方块这类方块。
 
-作为示例，我们将创建一个能够记录被右键点击次数的方块。
+作为示例，我们将创建一个能记录其被右键点击次数的方块。
 
 ## 创建方块实体 {#creating-the-block-entity}
 
-为了让 Minecraft 识别并加载新的方块实体，我们需要创建一个方块实体类型。 这通过继承 `BlockEntity` 类并在一个新的 `ModBlockEntities` 类中注册它来完成。
+为了让 Minecraft 识别并加载新的方块实体，我们需要创建一个方块实体类型。 这可以通过继承 `BlockEntity` 类并在新的 `ModBlockEntities` 类中进行注册来实现。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -23,20 +23,20 @@ Minecraft 为箱子、熔炉和命令方块等方块使用了方块实体。
 ::: tip
 
 注意，`CounterBlockEntity` 的构造函数接收两个参数，而 `BlockEntity` 的构造函数需要三个参数：`BlockEntityType`、`BlockPos` 和 `BlockState`。
-如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `BlockEntityFactory` 是一个函数式接口，描述了一个仅接收两个参数的函数，这与我们的构造函数完全一致。
+如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `BlockEntityFactory` 是一个函数式接口，它所描述的函数仅接收两个参数，这恰好与我们的构造函数一致。
 
 :::
 
 ## 创建方块 {#creating-the-block}
 
-接下来，为了实际使用方块实体，我们需要一个实现了 `EntityBlock` 接口的方块。 我们创建一个，并将其命名为 `CounterBlock`。
+接下来，为了实际使用方块实体，我们需要一个实现了 `EntityBlock` 接口的方块。 让我们创建一个方块，并将其命名为 `CounterBlock`。
 
 ::: tip
 
-于此有两种实现方法：
+有两种实现方式：
 
-- 创建一个继承 `BaseEntityBlock` 的方块，并实现 `createBlockEntity` 方法
-- 创建一个独立实现 `EntityBlock` 接口的方块，并重写其 `createBlockEntity` 方法
+- 创建一个继承自 `BaseEntityBlock` 的方块，并实现 `createBlockEntity` 方法
+- 创建一个自行实现 `EntityBlock` 接口的方块，并重写 `createBlockEntity` 方法
 
 在本示例中，我们将采用第一种方法，因为 `BaseEntityBlock` 还提供了一些实用的工具。
 
@@ -44,7 +44,7 @@ Minecraft 为箱子、熔炉和命令方块等方块使用了方块实体。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-使用 `BaseEntityBlock` 作为父类意味着我们还需要实现 `createCodec` 方法，这相当简单。
+使用 `BaseEntityBlock` 作为父类意味着我们还需要实现 `createCodec` 方法，而这其实相当简单。
 
 与作为单例的方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，它接受位置和 `BlockState`，并返回一个 `BlockEntity`，或者如果没有则返回 `null`。
 

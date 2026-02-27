@@ -14,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 
 // :::problems:basic-logger-definition
 public class ExampleModDebug implements ModInitializer {
@@ -26,6 +25,10 @@ public class ExampleModDebug implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// :::problems:debug-logging
+		LOGGER.debug("Debug logging is enabled");
+		// :::problems:debug-logging
+
 		Identifier identifier = Identifier.fromNamespaceAndPath(MOD_ID, "test_item");
 		ResourceKey<Item> testItemKey = ResourceKey.create(Registries.ITEM, identifier);
 		Registry.register(BuiltInRegistries.ITEM, identifier,
@@ -33,18 +36,6 @@ public class ExampleModDebug implements ModInitializer {
 						.component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]"))));
 	}
 
-	// :::problems:dev-logger
-	// This method will only log if the Minecraft instance
-	// is running in a Development Environment, like your IDE
-	public static void devLogger(String loggerInput) {
-		if (!FabricLoader.getInstance().isDevelopmentEnvironment()) {
-			return;
-		}
-
-		LOGGER.info("DEV - [ %s ]".formatted(loggerInput));
-	}
-
-	// :::problems:dev-logger
 	// :::problems:basic-logger-definition
 }
 // :::problems:basic-logger-definition

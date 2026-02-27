@@ -2,6 +2,7 @@
 title: Debugging Mods
 description: Learn all about logging, breakpoints and other useful debugging features.
 authors:
+  - CelDaemon
   - its-miroma
   - JR1811
 ---
@@ -29,6 +30,7 @@ Whenever you need to know a value for something at any point in the code, use th
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
 ```java
+ExampleModDebug.LOGGER.debug("Debug message for development...");
 ExampleModDebug.LOGGER.info("Neutral, informative text...");
 ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
 ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
@@ -58,11 +60,39 @@ In the logged line, you can find:
 
 Keep in mind that all of these will also be printed if the mod is used in any other environment.
 
-If the data you are logging is only relevant in development, it might be useful to create a custom `LOGGER` method and use it to avoid printing data in production.
+To prevent your mod from polluting the log files, choose a fitting log level for your logs. If the data you are logging is only relevant during development, it is highly recommended to use the `debug` level.
 
-@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+::: warning
 
-If you are unsure whether to log outside a debugging session, a good rule of thumb is to only log if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
+The `debug` level is hidden by default, to show it during development see [Debug Logging](#debug-logging) .
+
+:::
+
+If you are still unsure which log level to choose, a good rule of thumb is to only use non-debug levels if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
+
+### Debug Logging {#debug-logging}
+
+The debug log level is hidden by default, but can be specifically enabled in the development environment using some configuration.
+
+To do this, create the `log4j-dev.xml` configuration file in your project's root directory, and add the following contents. Make sure to replace the value inside the `name` attribute with your mod's modid. This configuration allows debug logs from your mod to be shown in the console.
+
+@[code lang=xml](@/reference/latest/log4j-dev.xml)
+
+Then in the `build.gradle`, tell Loom to use our new configuration.
+
+@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+
+Now, when we send debug log messages, we'll be able to see them in the console.
+
+@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+
+![Console showing a debug log entry](/assets/develop/debugging/debug_log.png)
+
+::: tip
+
+If debug messages are still not visible, your run configurations may be outdated. To fix this, regenerate them using the Gradle task for your IDE.
+
+:::
 
 ### Locating Issues {#locating-issues}
 
