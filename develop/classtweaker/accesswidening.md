@@ -1,6 +1,10 @@
 ---
 title: Access Widening
 description: Documentation on how to use access wideners with ClassTweaker
+authors-nogithub:
+  - glitch
+  - lightningtow
+  - siglong
 authors: 
   - Ayutac
   - cassiancc
