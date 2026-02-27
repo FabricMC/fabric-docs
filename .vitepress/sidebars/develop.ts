@@ -31,6 +31,10 @@ export default [
         link: "/develop/getting-started/generating-sources",
       },
       {
+        text: "develop.getting_started.building_mod",
+        link: "/develop/getting-started/building-a-mod",
+      },
+      {
         text: "develop.getting_started.tips_and_tricks",
         link: "/develop/getting-started/tips-and-tricks",
       },
