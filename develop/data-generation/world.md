@@ -2,17 +2,19 @@
 title: World Generation
 description: A guide to setting up world generation with datagen.
 authors:
-   - cassiancc
-   - Wind292
+  - cassiancc
+  - Wind292
 ---
 
-## World Generation Structure {#world-generation-structure}
+<!---->
 
 ::: info PREREQUISITES
 
 Make sure you've completed the [datagen setup](./setup) process first.
 
 :::
+
+## World Generation Structure {#world-generation-structure}
 
 The generation for features of Minecraft worlds is broken down into 3 parts.
 
@@ -132,15 +134,14 @@ The function of each modifier listed is as follows:
 - **BiomeFilter** - Allows us to control what biomes/dimensions it spawns (we'll do more on this later)
 - **InSquarePlacement** - Disperses the features more pseudo-randomly
 - **HeightRangePlacement** - Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
+  1. **Uniform:**
+     All `y` values within the range are equally likely to contain the feature.
 
-   1. **Uniform:**
-      All `y` values within the range are equally likely to contain the feature.
+  2. **Trapezoid:**
+     `y` values closer to the median `y` value have a higher probability of containing the feature.
 
-   2. **Trapezoid:**
-      `y` values closer to the median `y` value have a higher probability of containing the feature.
-
-   3. **Biased-Bottom:**
-      Uses a logarithmic scale where lower `y` values are more common for the feature, starting from a minimum `y` coordinate below which the feature never spawns. The second argument is the max height that the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
+  3. **Biased-Bottom:**
+     Uses a logarithmic scale where lower `y` values are more common for the feature, starting from a minimum `y` coordinate below which the feature never spawns. The second argument is the max height that the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip
 
