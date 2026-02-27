@@ -140,7 +140,7 @@ export default defineVersionedConfig(
             ])
           ),
         sidebarUrlProcessor: (url, version) =>
-          url.startsWith("/") ? `/${version}${/^\/.._..\//.test(url) ? url.slice(6) : url}` : url,
+          url.startsWith("/") ? `/${version}${/^[/].._..[/]/.test(url) ? url.slice(6) : url}` : url,
       },
     },
   },

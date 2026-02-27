@@ -35,7 +35,7 @@ if (!newVersion) {
 } else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
   console.error(`'Minecraft ${newVersion}' already exists!`);
   process.exit(1);
-} else if (!/^[0-9]+\.[0-9]+(\.[0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
+} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
   console.error(`'${newVersion}' does not look like a Minecraft version!`);
   process.exit(1);
 }
@@ -90,7 +90,7 @@ console.log("Updating links in content...");
 for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
   const content = fs
     .readFileSync(file, "utf-8")
-    .replace(/\/reference\/latest/g, `/reference/${oldVersion}`);
+    .replace(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
   fs.writeFileSync(file, content);
 }
 
