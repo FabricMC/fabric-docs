@@ -1,6 +1,6 @@
 ---
-title: World Generation
-description: A guide to setting up world generation with datagen.
+title: Feature Generation
+description: A guide to generating features in the world with datagen.
 authors:
   - cassiancc
   - Wind292
@@ -34,11 +34,11 @@ First, we need to make our provider. Create a class that extends `FabricDynamicR
 
 Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
 
-@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={67-67}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
-Next, make a class for your Configured Features and a class for your Placed Features. These don't need to extend anything.
+Next, make a class for your configured features and a class for your placed features. These don't need to extend anything.
 
-The Configured Feature class and Placed Feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<ConfiguredFeature<?, ?>>` for the Configured Feature, or a `BootstrapContext<PlacedFeature>` for the Placed Feature.
+The configured feature class and placed feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<ConfiguredFeature<?, ?>>` for the configured feature, or a `BootstrapContext<PlacedFeature>` for the placed feature.
 
 In your `DataGeneratorEntrypoint` class, add the lines below to your `buildRegistry` method, replacing the method name with what you chose:
 
@@ -48,9 +48,9 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 ## Configured Features {#configured-features}
 
-To make a feature naturally spawn in our world we should start by defining a Configured Feature in our Configured Features class. Let's add a custom Configured Feature for a Diamond Ore vein.
+To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class. Let's add a custom configured feature for a Diamond Ore vein.
 
-First, register the key for the `ConfiguredFeature` in your Configured Feature class:
+First, register the key for the `ConfiguredFeature` in your configured feature class:
 
 @[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -74,7 +74,7 @@ You can have multiple cases in the list for different variants. For example, let
 
 @[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Lastly, we need to register our Configured Feature to our game!
+Lastly, we need to register our configured feature to our game!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -108,11 +108,11 @@ Next, we need to register our tree by adding the following line to the `configur
 
 The next step in adding a feature to the game is creating its Placement Feature.
 
-In your Placed Features class's `configure` method, create a variable like the one below:
+In your placed features class's `configure` method, create a variable like the one below:
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-In your Placed Features class, define the key for your Placed Feature.
+In your placed features class, define the key for your placed feature.
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
@@ -149,13 +149,13 @@ Trees and other surface structures should include the modifier `PlacedFeatures.W
 
 :::
 
-Now that we have the modifiers, we can register our Placed Feature:
+Now that we have the modifiers, we can register our placed feature:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ## Biome Modifications {#biome-modifications}
 
-Lastly, we need to add our Placed Feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our mod initiializer:
+Lastly, we need to add our placed feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our mod initiializer:
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -175,7 +175,7 @@ This would only spawn in biomes tagged with the `minecraft:is_forest` biome tag.
 
 ## Running Datagen {#running-datagen}
 
-Now, when you run datagen, you should see a `.json` file under `src/main/generated/data/example-mod/worldgen/configured_feature` for each Configured Feature you added, and a file under `src/main/generated/data/example-mod/worldgen/placed_feature` for each Placed Feature as well!
+Now, when you run datagen, you should see a `.json` file under `src/main/generated/data/example-mod/worldgen/configured_feature` for each configured feature you added, and a file under `src/main/generated/data/example-mod/worldgen/placed_feature` for each placed feature as well!
 
 ::: details Generated File for the Configured Feature
 
