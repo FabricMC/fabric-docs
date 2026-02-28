@@ -3,7 +3,7 @@ title: 常见问题
 description: 经常被玩家和服务器管理员问及的关于Fabric的问题。
 ---
 
-有很多问题经常问到，因此我们在此整理了一份清单。
+很多问题被反复提及，因此我们在此整理了一份常见问题清单。
 
 ## Fabric 支持哪些 Minecraft 版本？ {#what-minecraft-versions-does-fabric-support}
 

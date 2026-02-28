@@ -24,7 +24,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-请注意我们使用 `GenericItem` 类的方式，可以让我们使用同一个 `register` 方法注册任何继承自 `Item` 类的物品。 此外，我们还使用了 [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) 接口作为工厂，它允许我们根据物品属性指定创建物品的方式。
+注意我们使用的是 `T`，这是一个继承自 `Item` 的[泛型类型](https://docs.oracle.com/javase/tutorial/java/generics/types.html)。 这样我们就可以使用相同的 `register` 方法来注册任何继承自 `Item` 的类型的物品。 此外，我们还使用了 [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) 作为工厂，它允许我们根据物品属性指定创建物品的方式。
 
 ## 注册物品 {#registering-an-item}
 

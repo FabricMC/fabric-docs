@@ -9,7 +9,7 @@ authors:
   - xEobardThawne
 ---
 
-方块是构成 Minecraft 世界的主要组成部分——和 Minecraft 的其他一切一样，是储存在注册表中的。
+方块是构成 Minecraft 的基本组成“块”（并非有意双关）——与 Minecraft 中的所有事物一样，它们存储在注册表中。
 
 ## 准备你的方块类 {#preparing-your-blocks-class}
 
@@ -27,7 +27,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 ::: info
 
-如果不知道什么是静态初始化，那么这里说下，这是初始化类中的所有静态字段的过程。 JVM 加载类时，以及创建类的任何实例之前，都会完成这一过程。
+如果你不了解什么是静态初始化，它指的是在类中初始化静态字段的过程。 这一过程会在类被 JVM 加载时执行，且在任何类实例创建之前完成。
 
 :::
 
@@ -47,40 +47,40 @@ public class ModBlocks {
 
 这里不会把所有选项都提到：可以查看类本身来看看各种选项，应该都是不言自明的。
 
-这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
+作为示例，我们会创建一个简单的方块，其拥有和泥土相同的属性但材质不同。
 
-- 我们以与在物品教程中创建物品设置类似的方式创建方块设置。
+- 我们创建方块设置的方式与在物品教程中创建物品设置的方法类似。
 - 我们通过调用 `Block` 构造函数来告诉 `register` 方法从方块设置中创建一个 `Block` 实例。
 
 ::: tip
 
-可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
+可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
 
 :::
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
-我们上一步创建过 `register` 方法，要自动创建方块物品，我们在方法的 `shouldRegisterItem` 参数中传入 `true`。
+为了自动创建方块物品，我们可以向在上一步创建的 `register` 方法的 `shouldRegisterItem` 参数中传入 true。
 
-### 将你的方块的物品添加到创造模式标签页{#adding-your-block-s-item-to-a-creative-tab}
+### 将你的方块的物品添加到创造模式标签页 {#adding-your-block-s-item-to-a-creative-tab}
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到创造模式标签页中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
-对于这个例子，我们将方块添加到 `BUILDING_BLOCKS`（建筑方块）标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-item-groups)。
+对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-item-groups)。
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 你应将其置于类的 `initialize()` 函数中。
 
-你应该注意到，你的方块现在在创造模式物品栏中，并且可以放在世界中！
+现在你应该会注意到，你的方块已经出现在创造模式物品栏中，并且可以放置到世界里！
 
-![世界内没有模型和纹理的方块](/assets/develop/blocks/first_block_0.png)
+![在世界中没有适配模型或纹理的方块](/assets/develop/blocks/first_block_0.png)
 
-但是还有点问题——方块物品没有命名，方块没有纹理、方块模型和物品模型。
+但是还有几个问题——方块物品没有命名，而且该方块缺少纹理、方块模型和物品模型。
 
 ## 添加方块翻译{#adding-block-translations}
 
-要添加翻译，必须在你的翻译文件——`assets/example-mod/lang/en_us.json` 中创建翻译键。（类似地，中文翻译可添加到 `assets/example-mod/lang/zh_cn.json`）
+要添加本地化，必须在你的本地化文件——`assets/example-mod/lang/en_us.json` 中创建一个本地化键（类似地，中文的本地化可添加到 assets/example-mod/lang/zh_cn.json）。
 
 Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地方（例如命令反馈）中显示这个翻译。
 
@@ -90,9 +90,9 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 }
 ```
 
-你可以重启游戏，或者构建你的模组，然后在游戏里按 <kbd>F3</kbd> + <kbd>T</kbd> 以重新加载资源文件——你将会看到方块在创造模式物品栏里或者其他地方（例如统计屏幕）中有个名字了。
+你可以重启游戏，或者在构建模组后按下 <kbd>F3</kbd>+<kbd>T</kbd> 来应用更改——这样你就能看到方块在创造模式物品栏以及统计信息界面等地方显示名称了。
 
-## 模型和纹理{#models-and-textures}
+## 模型和纹理 {#models-and-textures}
 
 所有方块纹理都可以在 `assets/example-mod/textures/block` 文件夹中找到——“Condensed Dirt”方块的示例纹理可以自由使用。
 
@@ -167,7 +167,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 如果希望此方块应使用工具来挖掘，则需要在方块设置中添加`.requiresCorrectToolForDrops()`，并添加相应的挖掘标签。
 
-## 挖掘等级{#mining-levels}
+## 挖掘等级 {#mining-levels}
 
 类似地，`data/minecraft/tags/block/` 文件夹内也可以找到挖掘等级，并遵循以下格式：
 
@@ -177,6 +177,6 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 文件与挖掘工具文件的格式相同——要添加到标签中的物品的列表。
 
-## 备注{#extra-notes}
+## 备注 {#extra-notes}
 
 如果将多个方块添加到你的模组中，可能需要考虑使用[数据生成](../data-generation/setup)来自动化创建方块和物品模型、方块状态定义和战利品表。

@@ -5,6 +5,7 @@
   "develop.getting_started.setting_up": "设置你的 IDE",
   "develop.getting_started.opening_project": "打开项目",
   "develop.getting_started.launching_game": "启动游戏",
+  "develop.getting_started.building_mod": "构建模组",
   "develop.getting_started.generating_sources": "生成源代码",
   "develop.getting_started.tips_and_tricks": "IDE 提示和技巧",
   "develop.items": "物品",

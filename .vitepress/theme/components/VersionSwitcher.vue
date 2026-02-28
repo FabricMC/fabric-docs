@@ -56,7 +56,7 @@ const getRoute = (v: string) => {
     .filter((s) => s !== undefined)
     .reverse();
 
-  segments[0] = segments[0] === "index.md" ? "" : segments[0].replace(/\.md$/, "");
+  segments[0] = segments[0] === "index.md" ? "" : segments[0].replace(/[.]md$/, "");
 
   return segments.reverse().join("/");
 };

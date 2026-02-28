@@ -6,8 +6,8 @@ authors:
   - Earthcomputer
   - JR1811
 prev:
-  text: Quellcode in IntelliJ IDEA generieren
-  link: ./generating-sources
+  text: Einen Mod in IntelliJ bauen
+  link: ./building-a-mod
 next: false
 ---
 

@@ -1,5 +1,5 @@
 import mediumZoom from "medium-zoom";
-import { type Theme, useData, useRoute } from "vitepress";
+import { type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, onMounted, watch } from "vue";
@@ -34,7 +34,7 @@ export default {
     app.component("VersionSwitcher", VersionSwitcher);
   },
   Layout: () => {
-    const { page, frontmatter } = useData();
+    const { page, frontmatter, theme } = useData();
 
     const children = {
       "doc-before": () => [
@@ -43,8 +43,11 @@ export default {
         h(VersionReminder),
       ],
       "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent)],
-      "layout-top": () => h(BannerComponent),
     };
+
+    if (theme.value.env !== "github") {
+      (children as any)["layout-top"] = () => h(BannerComponent);
+    }
 
     if (page.value.isNotFound) {
       (children as any)["not-found"] = () => h(NotFoundComponent);
@@ -53,15 +56,12 @@ export default {
     return h(DefaultTheme.Layout, null, children);
   },
   setup: () => {
-    const route = useRoute();
-    const initZoom = () => {
-      mediumZoom(".main img", { background: "var(--vp-c-bg)" });
-    };
-    onMounted(() => {
-      initZoom();
-    });
+    const router = useRouter();
+
+    const initZoom = () => mediumZoom(".main img", { background: "var(--vp-c-bg)" });
+    onMounted(() => initZoom());
     watch(
-      () => route.path,
+      () => router.route.path,
       () => nextTick(() => initZoom())
     );
   },

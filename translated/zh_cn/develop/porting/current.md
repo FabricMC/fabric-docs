@@ -27,7 +27,7 @@ Minecraft 是不断发展中的游戏，新的版本改变游戏的同时也会�
 
 为帮助你更新，模组开发者会在文章中记下他们遇到的变更，例如 Fabric Blog 和 NeoForge 的 porting primer。
 
-- [Fabric blog 上的 _Fabric for Minecraft 1.21.11_](https://fabricmc.net/2025/12/05/12111.html) 包含对 Fabric API 1.21.11 版本所做更改的详细解释。
+- [Fabric blog 上的 _Fabric for Minecraft 1.21.11_](https://fabricmc.net/2025/12/05/12111.html) 包含对 Fabric API 1.21.11 版本所做更改的概述。
 - [Minecraft blog 上的 _Minecraft: Java Edition 1.21.11_](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11) 是 1.21.11 引入的功能的官方概览。
 - [Minecraft Wiki 上的《Java版1.21.11》](https://zh.minecraft.wiki/w/Java版1.21.11)是此次更新内容的非官方总结。
 - YouTube 上的 [slicedlime 的 Data & Resource Pack News in Minecraft 1.21.11](https://www.youtube.com/watch?v=5yY25GoWQhs&pp=0gcJCSkKAYcqIYzv) 介绍了与更新模组的数据和资源包驱动内容相关的信息。

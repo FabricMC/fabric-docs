@@ -6,8 +6,8 @@ authors:
   - Earthcomputer
   - JR1811
 prev:
-  text: 在 IntelliJ IDEA 中生成源代码
-  link: ./generating-sources
+  text: 在 IntelliJ IDEA 中构建 Mod
+  link: ./building-a-mod
 next: false
 ---
 

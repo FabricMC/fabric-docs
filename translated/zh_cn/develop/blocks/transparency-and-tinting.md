@@ -1,16 +1,16 @@
 ---
 title: 透明度和着色
-description: 学习如何操控方块的外观并动态着色。
+description: 学习如何操控方块的外观并对其进行动态着色。
 authors:
   - cassiancc
   - dicedpixels
 ---
 
-有时，你可能希望在游戏中对方块的外观进行特殊处理。 例如，某些方块可能是透明的，某些方块则可能需要应用着色。
+有时，你可能希望在游戏中对方块的外观进行特殊处理。 例如，某些方块可能呈现透明效果，而另一些则会应用着色。
 
 我们来看看如何操控方块的外观。
 
-在本例中，我们先来注册一个方块。 如果你不熟悉这个过程，请先阅读有关[方块注册](./first-block)的文档。
+在本例中，我们先来注册一个方块。 如果你不熟悉这个过程，请先阅读[方块注册](./first-block)。
 
 @[code lang=java transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
 
@@ -20,13 +20,13 @@ authors:
 - `/models/block/waxcap.json` 中的[模型](./block-models)
 - `/textures/block/waxcap.png` 中的[纹理](./first-block#models-and-textures)
 
-如果一切搞定，你应该能在游戏中看到这个方块。 但是，你会发现放置后，方块看起来不太对劲。
+如果一切正确，你应该能在游戏中看到这个方块。 但是，你会发现放置后，方块看起来不太对劲。
 
 ![错误的方块外观](/assets/develop/transparency-and-tinting/block_appearance_0.png)
 
 这是因为带有透明度的纹理需要一些额外的设置。
 
-## 操纵方块外观 {#manipulating-block-appearance}
+## 操控方块的外观 {#manipulating-block-appearance}
 
 方块的纹理即使是透明或半透明的，仍然会显示为不透明。 要解决这个问题，你需要设置方块的 _子区块层_。
 
@@ -62,4 +62,4 @@ Fabric API 提供了 `ColorProviderRegistry` 来注册一个着色颜色提供�
 
 现在，方块的颜色将根据其放置的位置而变化。
 
-![带颜色提供嚣的方块](/assets/develop/transparency-and-tinting/block_appearance_2.png)
+![带颜色提供器的方块](/assets/develop/transparency-and-tinting/block_appearance_2.png)
