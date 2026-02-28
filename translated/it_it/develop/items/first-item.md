@@ -24,7 +24,7 @@ Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `I
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Nota che stiamo usando un `GenericItem`, che ci permette di usare lo stesso metodo `register` per registrare qualsiasi tipo di oggetto che estenda `Item`. Stiamo anche usando un'interfaccia [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) per la fabbrica, che ci consentirà di specificare come vogliamo creare il nostro articolo date le proprietà.
+Nota che stiamo usando `T`, un [tipo generico](https://docs.oracle.com/javase/tutorial/java/generics/types.html) che estende `Item`. Questo ci permette di usare lo stesso metodo `register` per registrare qualsiasi tipo di oggetto che estenda `Item`. Stiamo anche usando una [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) per la fabbrica, che ci consentirà di specificare come vogliamo creare il nostro articolo date le proprietà.
 
 ## Registrare un Oggetto {#registering-an-item}
 
