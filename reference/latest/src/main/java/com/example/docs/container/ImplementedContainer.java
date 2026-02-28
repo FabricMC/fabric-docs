@@ -1,4 +1,4 @@
-package com.example.docs.inventory;
+package com.example.docs.container;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
@@ -7,11 +7,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * A simple {@code Inventory} implementation with only default methods + an item list getter.
+ * A simple {@link Container} implementation with only default methods + an item list getter.
  *
  * @author Juuz
  */
-public interface ImplementedInventory extends Container {
+public interface ImplementedContainer extends Container {
 	/**
 	 * Retrieves the item list of this inventory.
 	 * Must return the same instance every time it's called.
@@ -19,16 +19,16 @@ public interface ImplementedInventory extends Container {
 	NonNullList<ItemStack> getItems();
 
 	/**
-	 * Creates an inventory from the item list.
+	 * Creates a container from the item list.
 	 */
-	static ImplementedInventory of(NonNullList<ItemStack> items) {
+	static ImplementedContainer of(NonNullList<ItemStack> items) {
 		return () -> items;
 	}
 
 	/**
 	 * Creates a new inventory with the specified size.
 	 */
-	static ImplementedInventory ofSize(int size) {
+	static ImplementedContainer ofSize(int size) {
 		return of(NonNullList.withSize(size, ItemStack.EMPTY));
 	}
 

@@ -16,17 +16,17 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
-import com.example.docs.inventory.ImplementedInventory;
+import com.example.docs.container.ImplementedContainer;
 
 /*
-The following is a dummy piece of code to not have `implements WorldlyContainer` in the first code block where we implement `ImplementedInventory`.
+The following is a dummy piece of code to not have `implements WorldlyContainer` in the first code block where we implement `ImplementedContainer`.
 lmk if you have a better idea on how to handle this.
 // :::be
-public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInventory {
+public class DuplicatorBlockEntity extends BlockEntity implements ImplementedContainer {
 // :::be
 */
 
-public class DuplicatorBlockEntity extends BlockEntity implements ImplementedInventory, WorldlyContainer {
+public class DuplicatorBlockEntity extends BlockEntity implements ImplementedContainer, WorldlyContainer {
 	// :::be
 
 	private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
