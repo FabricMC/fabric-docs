@@ -7,8 +7,8 @@ prev:
   text: 在 IntelliJ IDEA 中启动游戏
   link: ./launching-the-game
 next:
-  text: IntelliJ IDEA 提示和技巧
-  link: ./tips-and-tricks
+  text: 在 IntelliJ IDEA 中构建模组
+  link: ./building-a-mod
 ---
 
 Fabric 工具链允许你通过在本地生成 Minecraft 源代码来访问它，并且你可以使用 IntelliJ IDEA 方便地浏览它。 要生成源代码，你需要运行 `genSources` Gradle 任务。

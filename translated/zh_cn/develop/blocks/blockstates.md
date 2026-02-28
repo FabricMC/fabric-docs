@@ -9,13 +9,13 @@ authors:
 
 - Rotation：主要用于原木方块和其他自然方块中。
 - Activated：主要用于红石装置方块和类似于熔炉、烟熏炉的方块中。
-- Age：用于农作物、植物、树苗、海带等方块中使用。
+- Age：用于农作物、植物、树苗、海带等方块中。
 
-你可能看出了为什么方块状态有用——避免了在方块实体中存储 NBT 数据的需要——这既减小了世界大小，也防止产生 TPS 问题！
+你可能会明白为什么方块状态有用——它们避免了在方块实体中存储 NBT 数据的需要——这既减小了世界大小，也防止产生 TPS 问题！
 
 方块状态的定义能在 `assets/example-mod/blockstates` 文件夹中找到。
 
-## 示例：柱方块{#pillar-block}
+## 示例：柱方块 {#pillar-block}
 
 <!-- Note: This example could be used for a custom recipe types guide, a condensor machine block with a custom "Condensing" recipe? -->
 
@@ -27,7 +27,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 柱方块有两个纹理，顶部（`top`）和侧面（`side`），使用 `block/cube_column` 模型。
 
-同样，纹理文件可以在 `assets/example-mod/textures/block` 中找到。
+同样，纹理文件可以在 `assets/example-mod/textures/block` 中找到
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_0_large.png" downloadURL="/assets/develop/blocks/condensed_oak_log_textures.zip">纹理</DownloadEntry>
 
@@ -42,25 +42,25 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 ::: info
 
-请记住，方块状态文件可以在 `assets/example-mod/blockstates` 中找到，方块状态文件的名称应当匹配你在 `ModBlocks` 类中注册的方块的 ID。 例如，方块 ID 是 `condensed_oak_log`，那么文件名称就是 `condensed_oak_log.json`。
+请记住，方块状态文件可以在 `assets/example-mod/blockstates` 中找到，方块状态文件的名称应当匹配你在 `ModBlocks` 类中注册的方块的 ID。 例如，如果方块 ID 为 `condensed_oak_log`，这个文件就应当叫做 `condensed_oak_log.json`。
 
-更加深入了解方块状态文件中可用的所有修饰器，可看看 [Minecraft Wiki - 模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:模型/方块状态)页面。
+如需更加深入了解方块状态文件中可用的所有修饰符，可查看[中文 Minecraft Wiki - 教程:制作资源包/模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:%E5%88%B6%E4%Bd%9C%E8%B5%84%E6%Ba%90%E5%8C%85/%E6%A8%A1%E5%9E%8B#%E6%96%B9%E5%9D%97%E7%8A%B6%E6%80%81)页面。
 
 :::
 
-接下来，我们需要创建一个方块状态文件，这就是神奇的事情发生的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
+接下来，我们需要创建一个方块状态文件，这正是见证奇迹的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
 
 - `axis=x` - 方块沿 X 轴放置时，旋转模型以朝向正 X 方向。
 - `axis=y` - 方块沿 Y 轴旋转时，使用正常的垂直模型。
-- `axis=z` - 方块沿Z 轴放置时，旋转模型以朝向正 X 方向。
+- `axis=z` - 方块沿 Z 轴放置时，旋转模型以朝向正 Z 方向。
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 
-同样，需要为你的方块创建翻译，以及继承了这两个模型中的任意一个的物品模型。
+同样，你需要为该方块创建本地化条目，并创建一个物品模型，将其父模型指定为前述两种模型之一。
 
-![游戏内的柱方块的示例](/assets/develop/blocks/blockstates_1.png)
+![游戏内柱方块示例](/assets/develop/blocks/blockstates_1.png)
 
-## 自定义方块状态{#custom-block-states}
+## 自定义方块状态 {#custom-block-states}
 
 如果你的方块有独特的属性，那么自定义方块状态会非常不错——有时你会发现你的方块可以复用原版的属性。
 
@@ -72,7 +72,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-接下来，需要在 `createBlockStateDefinition` 方法中将该属性添加到方块状态管理器。 需要覆盖此方法以访问 builder：
+接下来，需要在 `createBlockStateDefinition` 方法中将该属性添加到方块状态管理器。 需要重写此方法以访问构建器：
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -86,19 +86,19 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 @[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-### 视觉呈现属性{#visualizing-the-property}
+### 视觉呈现属性 {#visualizing-the-property}
 
 创建方块状态前，我们需要为方块的激活的和未激活的状态都提供纹理，以及方块模型。
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">纹理</DownloadEntry>
 
-用你的方块模型知识，创建方块的两个模型：一个用于激活的状态，一个用于未激活的状态。 完成后，就可以开始创建方块状态文件了。
+利用你对方块模型的了解，为该方块创建两个模型：一个用于激活状态，另一个用于未激活状态。 完成后，就可以开始创建方块状态文件了。
 
-因为创建了新的属性，所以需要为方块更新方块状态文件以使用那个属性。
+既然创建了新的属性，就需要更新该方块的方块状态文件以适配这个属性。
 
 如果方块有多个属性，那么会需要包含所有可能的组合。 例如，`activated` 和 `axis` 可能就会导致 6 个组合（`activated` 有两个可能的值，`axis` 有三个可能的值）。
 
-因为方块只有一个属性（`activated`），只有两个变种，所以方块状态 JSON 看起来应该像这样：
+由于该方块只有一个属性（`activated`），因此仅有两种可能的变体，其方块状态 JSON 应如下所示：
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
 
@@ -108,9 +108,9 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 :::
 
-因为这个示例方块是灯，所以还需要让它在 `activated` 属性为 true 时发光。 可以通过在注册方块时传入构造器的 block settings 来完成。
+由于这个示例方块是灯，我们还需要让它在 `activated` 属性为 true 时发光。 此操作可通过在注册方块时传递给构造函数的方块设置来实现。
 
-可以使用 `lightLevel` 方法设置方块放出的光，可以在 `PrismarineLampBlock` 类中创建一个静态方法，从而根据 `activated` 属性返回光照等级，并将其作为方法引入传入 `lightLevel` 方法中。
+可以使用 `lightLevel` 方法设置方块发出的光照等级，我们可以在 `PrismarineLampBlock` 类中创建一个静态方法，根据 `activated` 属性返回光照等级，并将其作为方法引用传递给 `lightLevel` 方法：
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
@@ -118,6 +118,6 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
-一切完成后，最终的结果应该看起来像这样：
+完成所有步骤后，最终结果应大致如下所示：
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">游戏内海晶灯方块</VideoPlayer>
+<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">游戏中的海晶灯方块</VideoPlayer>

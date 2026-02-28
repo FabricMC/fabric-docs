@@ -104,7 +104,7 @@ authors:
 
 之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
-- `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子纹理。
+- `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` — 包含了上身和靴子纹理。
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite盔甲模型纹理</DownloadEntry>

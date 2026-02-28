@@ -6,8 +6,8 @@ authors:
   - Earthcomputer
   - JR1811
 prev:
-  text: Генерація джерел в IntelliJ IDEA
-  link: ./generating-sources
+  text: Збирання мода в IntelliJ IDEA
+  link: ./building-a-mod
 next: false
 ---
 

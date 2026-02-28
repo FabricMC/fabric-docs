@@ -7,8 +7,8 @@ prev:
   text: Das Spiel in IntelliJ IDEA ausführen
   link: ./launching-the-game
 next:
-  text: Tipps und Tricks für IntelliJ IDEA
-  link: ./tips-and-tricks
+  text: Einen Mod in IntelliJ bauen
+  link: ./building-a-mod
 ---
 
 Mit der Fabric-Toolchain kannst du auf den Quellcode von Minecraft zugreifen, indem du ihn lokal generierst, und du kannst IntelliJ IDEA verwenden, um bequem darin zu navigieren. Um den Quellcode zu generieren, musst du die `genSources`-Gradle-Aufgabe ausführen.
