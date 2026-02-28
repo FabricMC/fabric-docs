@@ -139,12 +139,6 @@ The function of each modifier listed is as follows:
 
 ::: tip
 
-If you're unsure which `HeightRangePlacement` to use for your ore, just use Uniform.
-
-:::
-
-::: tip
-
 Trees and other surface structures should include the modifier `PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP` instead of `HeightRangePlacement`, to make sure the tree spawns on the surface.
 
 :::
