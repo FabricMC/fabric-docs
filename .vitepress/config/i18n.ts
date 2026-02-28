@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as tinyglobby from "tinyglobby";
 
 import Develop from "../sidebars/develop";
@@ -26,7 +26,7 @@ export const getResolver = (file: string, locale: string, warn = true): ((k: str
 
   if (warn && locale === "en_us") {
     for (const fileK of Object.keys(strings)) {
-      if (!/^(\/\/)?[a-z0-9_.]*$/.test(fileK)) {
+      if (!/^([/][/])?[a-z0-9_.]*$/.test(fileK)) {
         console.warn(`${file}: unusual character in key: ${fileK}`);
       }
     }
