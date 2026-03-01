@@ -19,12 +19,12 @@ import com.example.docs.block.entity.custom.CounterBlockEntity;
 public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity, CounterBlockEntityRenderState> {
 	// :::1
 
-	private final Font textRenderer;
+	private final Font font;
 
 	// :::1
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 		// :::1
-		textRenderer = context.font();
+		font = context.font();
 		// :::1
 	}
 
@@ -54,7 +54,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 
 		// :::3
 		String text = state.getClicks() + "";
-		float width = textRenderer.width(text);
+		float width = font.width(text);
 
 		// draw the text. params:
 		// text, x, y, color, ordered text, shadow, text layer type, light, color, background color, outline color
