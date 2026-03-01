@@ -27,6 +27,7 @@
   "develop.blocks.blockstates": "Block States",
   "develop.blocks.block_entities": "Block Entities",
   "develop.blocks.block_entity_renderer": "Block Entity Renderers",
+  "develop.blocks.inventory": "Block Inventories",
   "develop.blocks.transparency_and_tinting": "Transparency and Tinting",
   "develop.entities": "Entities",
   "develop.entities.effects": "Mob Effects",
