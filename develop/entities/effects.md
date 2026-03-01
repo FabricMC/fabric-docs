@@ -13,7 +13,7 @@ authors-nogithub:
   - tao0lu
 ---
 
-Mob effects, also known as mob effects or simply effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
+Mob effects, also known as status effects or simply effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game
 applies these effects in various ways such as food, potions etc.
 
 The `/effect` command can be used to apply effects on an entity.
