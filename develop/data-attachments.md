@@ -6,7 +6,7 @@ authors:
   - DennisOchulor
 ---
 
-The Data Attachment API is a recent and experimental addition to Fabric API. It allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synced through [Codecs](./codecs) and Stream Codecs, so you should familiarize yourself with those before using it.
+The Data Attachment API is a recent and experimental addition to Fabric API. It allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synced through [Codecs](./codecs) and [Stream Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/), so you should familiarize yourself with those before using it.
 
 ## Creating a Data Attachment {#creating-attachments}
 
@@ -100,3 +100,9 @@ This helper class can then be used like so:
 Player player = getPlayer();
 Stamina.get(player).getCurrentStamina();
 ```
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`ExampleModAttachments`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+  - [`Stamina`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)

@@ -141,3 +141,10 @@ MutableComponent result = Component.literal("Hello World!")
 |                                 | <u>Underline</u>                 |   `§n`    |           |           |
 |                                 | _Italic_                         |   `§o`    |           |           |
 |                                 | Obfuscated                       |   `§k`    |           |           |
+
+## References {#references}
+
+- NeoForge's documentation on [I18n and L10n](https://docs.neoforged.net/docs/resources/client/i18n/). Note that their final section on data generation is not relevant when using Fabric, as it has its own implementation.
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`TextTests`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)

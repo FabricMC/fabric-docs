@@ -121,3 +121,7 @@ You can use the `lightLevel` method to set the light level emitted by the block,
 Once you've completed everything, the final result should look something like the following:
 
 <VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarine Lamp Block in-game</VideoPlayer>
+
+## References {#references}
+
+- NeoForge's documentation on [Blockstates](https://docs.neoforged.net/docs/blocks/states/).

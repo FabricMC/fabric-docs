@@ -116,3 +116,10 @@ Now we need to test our event. You can register a listener in your initializatio
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
 
 If you enter into your game and shear a sheep, a diamond should drop instead of wool.
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`ExampleModEvents`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+  - [`SheepEntityMixin`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+  - [`SheepShearCallback`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
