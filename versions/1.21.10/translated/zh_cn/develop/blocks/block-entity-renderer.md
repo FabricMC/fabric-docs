@@ -17,7 +17,7 @@ authors:
 
 @[code transcludeWith=:::1](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-我们的新类有一个以 `BlockEntityRendererProvider.Context` 为参数的构造函数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `TextRenderer`。
+我们的新类有一个以 `BlockEntityRendererProvider.Context` 为参数的构造函数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `Font`。
 此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererProvider` 功能接口本身：
 
 @[code transcludeWith=:::1](@/reference/1.21.10/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
@@ -64,10 +64,10 @@ matrices.translate(0.5, 1, 0.5);
 `PoseStack` 没有 `rotate` 函数，所以我们需要使用 `multiply` 和 `Axis.XP`：
 
 ```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
+matrices.mulPose(Axis.XP.rotationDegrees(90));
 ```
 
-那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `TextRenderer` 使用 `[0, 9]` 的 Y 坐标。 因此，我们需要将其缩小 18 倍：
+那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `Font` 使用 `[0, 9]` 的 Y 坐标。 因此，我们需要将其缩小 18 倍：
 
 ```java
 matrices.scale(1/18f, 1/18f, 1/18f);
@@ -79,9 +79,9 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 ### 绘制文字 {#drawing-text}
 
-如前所述，传入渲染器构造函数的 `Context` 包含一个 `TextRenderer` ，我们可以用它来绘制文本。 在这个例子中，我们将它保存在一个字段中。
+如前所述，传入渲染器构造函数的 `Context` 包含一个 `Font` ，我们可以用它来绘制文本。 在这个例子中，我们将它保存在一个字段中。
 
-`TextRenderer` 有一个方法来测量文字 (即 `getWidth`)，这对于将其居中放置非常有用，然后绘制它（使用 `draw`）。
+`Font` 有一个方法来测量文字 (即 `width`)，这对于将其居中放置非常有用，然后绘制它（使用 `draw`）。
 
 @[code transcludeWith=:::3](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 

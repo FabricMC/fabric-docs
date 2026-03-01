@@ -17,7 +17,7 @@ authors:
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Новий клас має конструктор із `BlockEntityRendererProvider.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `TextRenderer`.
+Новий клас має конструктор із `BlockEntityRendererProvider.Context` як параметр. У `Context` є кілька корисних штук промальовування, наприклад `ItemRenderer` або `Font`.
 Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererProvider`:
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
@@ -64,10 +64,10 @@ matrices.translate(0.5, 1, 0.5);
 `PoseStack` не має функції `rotate`, натомість нам потрібно використовувати `multiply` і `Axis.XP`:
 
 ```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
+matrices.mulPose(Axis.XP.rotationDegrees(90));
 ```
 
-Тепер текст у правильному положенні, але він завеликий. `BlockEntityRenderer` промальовує весь блок на куб `[-0.5, 0.5]`, тоді як `TextRenderer` використовує координати Y `[0, 9]`. Таким чином, нам потрібно зменшити його в 18 разів:
+Тепер текст у правильному положенні, але він завеликий. `BlockEntityRenderer` промальовує весь блок на куб `[-0.5, 0.5]`, тоді як `Font` використовує координати Y `[0, 9]`. Таким чином, нам потрібно зменшити його в 18 разів:
 
 ```java
 matrices.scale(1/18f, 1/18f, 1/18f);
@@ -79,9 +79,9 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 ### Малювання тексту {#drawing-text}
 
-Як згадувалося раніше, `Context`, переданий у конструктор нашого промальовування, має `TextRenderer`, який ми можемо використовувати для малювання тексту. Для цього прикладу ми збережемо його в полі.
+Як згадувалося раніше, `Context`, переданий у конструктор нашого промальовування, має `Font`, який ми можемо використовувати для малювання тексту. Для цього прикладу ми збережемо його в полі.
 
-`TextRenderer` має методи для вимірювання тексту (`getWidth`), що корисно для центрування, і для його малювання (`draw`).
+`Font` має методи для вимірювання тексту (`width`), що корисно для центрування, і для його малювання (`draw`).
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 

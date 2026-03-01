@@ -17,7 +17,7 @@ Nel creare un `BlockEntityRenderer` per il `CounterBlockEntity`, è importante i
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-La nuova classe ha un costruttore con un `BlockEntityRendererProvider.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `TextRenderer`.
+La nuova classe ha un costruttore con un `BlockEntityRendererProvider.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `Font`.
 Inoltre, includendo un costruttore come questo, è possibile usare il costruttore come interfaccia funzionale per la `BlockEntityRendererProvider`:
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
@@ -64,10 +64,10 @@ Per impostazione predefinita il testo viene disegnato sul piano XY, quindi dobbi
 Il `PoseStack` non ha una funzione `rotate`, invece dobbiamo usare `multiply` e `Axis.XP`:
 
 ```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
+matrices.mulPose(Axis.XP.rotationDegrees(90));
 ```
 
-Ora il testo è nella posizione corretta, ma è troppo grande. Il `BlockEntityRenderer` mappa l'intero blocco ad un cubo `[-0.5, 0.5]`, mentre il `TextRenderer` usa come coordinate Y `[0, 9]`. Per questo dobbiamo rimpicciolirlo di un fattore di 18:
+Ora il testo è nella posizione corretta, ma è troppo grande. Il `BlockEntityRenderer` mappa l'intero blocco ad un cubo `[-0.5, 0.5]`, mentre il `Font` usa come coordinate Y `[0, 9]`. Per questo dobbiamo rimpicciolirlo di un fattore di 18:
 
 ```java
 matrices.scale(1/18f, 1/18f, 1/18f);
@@ -79,9 +79,9 @@ Ora la trasformazione completa ha questo aspetto:
 
 ### Disegnare Testo {#drawing-text}
 
-Come menzionato in precedenza, il `Context` passato al costruttore del nostro renderer ha un `TextRenderer` che possiamo usare per disegnare testo. Per questo esempio lo salveremo in un attributo.
+Come menzionato in precedenza, il `Context` passato al costruttore del nostro renderer ha un `Font` che possiamo usare per disegnare testo. Per questo esempio lo salveremo in un attributo.
 
-Il `TextRenderer` ha metodi per misurare il testo (`getWidth`), il che è utile per centrarlo, e per disegnarlo (`draw`).
+Il `Font` ha metodi per misurare il testo (`width`), il che è utile per centrarlo, e per disegnarlo (`draw`).
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 

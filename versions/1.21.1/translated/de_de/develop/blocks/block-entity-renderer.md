@@ -17,7 +17,7 @@ Beim Erstellen eines `BlockEntityRenderer` für die `CounterBlockEntity` ist es 
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererProvider.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `TextRenderer`.
+Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererProvider.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `Font`.
 Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererProvider` selbst zu verwenden:
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
@@ -64,10 +64,10 @@ Standardmäßig wird der Text auf der XY-Ebene gezeichnet, also müssen wir ihn 
 Der `PoseStack` hat keine `rotate` Methode, stattdessen müssen wir `multiply` und `Axis.XP` verwenden:
 
 ```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
+matrices.mulPose(Axis.XP.rotationDegrees(90));
 ```
 
-Jetzt ist der Text an der korrekten Position, aber ist zu groß. Der `BlockEntityRenderer` ordnet den ganzen Block zu einem `[-0.5, 0.5]` Würfel zu, während der `TextRenderer` X-Koordinaten von `[0, 9]` verwendet. Somit müssen wir es um den Faktor 18 herunter skalieren:
+Jetzt ist der Text an der korrekten Position, aber ist zu groß. Der `BlockEntityRenderer` ordnet den ganzen Block zu einem `[-0.5, 0.5]` Würfel zu, während der `Font` X-Koordinaten von `[0, 9]` verwendet. Somit müssen wir es um den Faktor 18 herunter skalieren:
 
 ```java
 matrices.scale(1/18f, 1/18f, 1/18f);
@@ -79,9 +79,9 @@ Jetzt sieht die ganze Transformation wie folgt aus:
 
 ### Zeichnen von Text {#drawing-text}
 
-Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers übergebene `Context` einen `TextRenderer`, welchen wir für das Zeichnen von Text einsetzen können. Für dieses Beispiel werden wir ihn in einem Feld speichern.
+Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers übergebene `Context` einen `Font`, welchen wir für das Zeichnen von Text einsetzen können. Für dieses Beispiel werden wir ihn in einem Feld speichern.
 
-Der `TextRenderer` hat Methoden um Text zu messen (`getWidth`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`draw`).
+Der `Font` hat Methoden um Text zu messen (`width`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`draw`).
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
