@@ -12,6 +12,9 @@ import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
 import com.example.docs.network.basic.ExampleModNetworkingBasicModelProvider;
+import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
+import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
+import com.example.docs.worldgen.ExampleModWorldgenProvider;
 
 // :::datagen-setup:generator
 public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
@@ -61,6 +64,8 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ExampleModAppearanceModelProvider::new);
 
+		pack.addProvider(ExampleModWorldgenProvider::new);
+
 		// :::datagen-setup:generator
 	}
 
@@ -72,6 +77,12 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+
+		// :::datagen-world:registries
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
+		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
+		// :::datagen-world:registries
+
 		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
