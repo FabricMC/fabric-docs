@@ -29,6 +29,7 @@
   "develop.blocks.block_entity_renderer": "Block Entity Renderers",
   "develop.blocks.transparency_and_tinting": "Transparency and Tinting",
   "develop.entities": "Entities",
+  "develop.entities.first_entity": "Creating Your First Entity",
   "develop.entities.effects": "Mob Effects",
   "develop.entities.damage_types": "Damage Types",
   "develop.entities.attributes": "Attributes",

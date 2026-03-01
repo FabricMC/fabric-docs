@@ -42,6 +42,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.component.ModComponents;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
@@ -167,6 +168,14 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
 
+	// :::custom_entity_spawn_egg
+	public static final Item MINI_GOLEM_SPAWN_EGG = register(
+			"mini_golem_spawn_egg",
+					SpawnEggItem::new,
+			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
+	);
+	// :::custom_entity_spawn_egg
+
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
 	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
@@ -246,6 +255,9 @@ public class ModItems {
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
 		// :::_12
 
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
+			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
+		});
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_CREATIVE_TAB_KEY).register(itemGroup -> {
 			itemGroup.accept(ModItems.RUBY);
 			itemGroup.accept(ModItems.GUIDITE_AXE);

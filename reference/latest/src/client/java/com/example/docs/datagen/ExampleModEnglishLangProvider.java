@@ -13,6 +13,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
@@ -51,11 +52,15 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
 		translationBuilder.addEnchantment(ModEnchantments.REPULSION_CURSE, "Curse of Repulsion");
 
+		translationBuilder.add(ModEntityTypes.MINI_GOLEM, "Mini Golem");
+
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
+
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
 		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");
