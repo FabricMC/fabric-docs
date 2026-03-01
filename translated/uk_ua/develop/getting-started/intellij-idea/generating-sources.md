@@ -7,8 +7,8 @@ prev:
   text: Запуск гри в IntelliJ IDEA
   link: ./launching-the-game
 next:
-  text: Поради та підказки IntelliJ IDEA
-  link: ./tips-and-tricks
+  text: Збирання мода в IntelliJ IDEA
+  link: ./building-a-mod
 ---
 
 Інструментарій Fabric дає вам доступ до вихідного коду Minecraft, генеруючи його локально, і ви можете використовувати IntelliJ IDEA для зручної навігації по ньому. Щоб згенерувати джерела, потрібно запустити завдання Gradle `genSources`.

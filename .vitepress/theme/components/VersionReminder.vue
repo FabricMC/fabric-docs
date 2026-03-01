@@ -11,7 +11,7 @@ const options = computed(() => (data.theme.value.version as Fabric.VersionOption
 const version = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
-  return data.theme.value.nav[3].props.versioningPlugin.latestVersion as string;
+  return data.theme.value.nav.at(-1).props.versioningPlugin.latestVersion as string;
 });
 
 const latest = computed(() => {

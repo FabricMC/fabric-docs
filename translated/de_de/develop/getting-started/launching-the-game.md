@@ -1,6 +1,6 @@
 ---
 title: Starten des Spiels
-description: Lerne, wie du eine Minecraft Instanz ausführst, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
+description: Lerne, wie du eine Minecraft Instanz ausführen kannst, um deine Mods in einer Live-Spielumgebung zu starten und zu debuggen.
 authors:
   - dicedpixels
   - IMB11

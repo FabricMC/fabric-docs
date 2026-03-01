@@ -1,6 +1,6 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
@@ -140,7 +140,7 @@ export default defineVersionedConfig(
             ])
           ),
         sidebarUrlProcessor: (url, version) =>
-          url.startsWith("/") ? `/${version}${/^\/.._..\//.test(url) ? url.slice(6) : url}` : url,
+          url.startsWith("/") ? `/${version}${/^[/].._..[/]/.test(url) ? url.slice(6) : url}` : url,
       },
     },
   },

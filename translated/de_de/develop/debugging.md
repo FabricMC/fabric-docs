@@ -2,6 +2,7 @@
 title: Mods debuggen
 description: Lerne alles über Logging, Haltepunkte und andere nützliche Debugging-Funktionen.
 authors:
+  - CelDaemon
   - its-miroma
   - JR1811
 ---
@@ -29,6 +30,7 @@ Wenn du an irgendeiner Stelle im Code einen Wert für etwas wissen musst, benutz
 Der Logger unterstützt mehrere Modi zur Ausgabe von Text auf die Konsole. Je nachdem, welchen Modus du verwendest, wird die protokollierte Zeile in verschiedenen Farben angezeigt.
 
 ```java
+ExampleModDebug.LOGGER.debug("Debug message for development...");
 ExampleModDebug.LOGGER.info("Neutral, informative text...");
 ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
 ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
@@ -58,11 +60,39 @@ In der protokollierten Zeile, kannst du folgendes finden:
 
 Beachte, dass all diese auch ausgegeben wird, wenn der Mod in einer anderen Umgebung verwendet wird.
 
-Wenn die von dir protokollierten Daten nur für die Entwicklung relevant sind, kann es sinnvoll sein, eine benutzerdefinierte `LOGGER`-Methode zu erstellen und diese zu verwenden, um die Ausgabe von Daten in der Produktionsumgebung zu vermeiden.
+Um zu verhindern, dass dein Mod die Protokoll-Dateien überfüllt, wähle eine geeignete Protokollstufe für deine Protokolle. Wenn die von dir protokollierten Daten nur während der Entwicklung relevant sind, wird dringend empfohlen, die Stufe `debug` zu verwenden.
 
-@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+::: warning
 
-Wenn du dir nicht sicher bist, ob du außerhalb einer Debugging-Sitzung protokollieren sollst, gilt als Faustregel, dass du nur protokollieren solltest, wenn etwas schiefgelaufen ist. Modpack-Entwickler und -Nutzer interessieren sich nicht sonderlich für Dinge wie die Initialisierung von Items; sie möchten vielmehr wissen, ob beispielsweise ein Datenpaket nicht korrekt geladen wurde.
+Die Stufe `debug` ist standardmäßig ausgeblendet. Um sie während der Entwicklung anzuzeigen, siehe [Debug-Protokollierung](#debug-logging) .
+
+:::
+
+Wenn du dir immer noch nicht sicher bist, welche Protokollstufe du wählen solltest, gilt als Faustregel, dass du nicht-Debug-Stufen nur verwenden solltest, wenn etwas schiefgelaufen ist. Modpack-Entwickler und -Nutzer interessieren sich nicht sonderlich für Dinge wie die Initialisierung von Items; sie möchten vielmehr wissen, ob beispielsweise ein Datenpaket nicht korrekt geladen wurde.
+
+### Debug Logging {#debug-logging}
+
+Die Debug-Protokollstufe ist standardmäßig ausgeblendet, kann jedoch in der Entwicklungsumgebung mithilfe einer bestimmten Konfiguration aktiviert werden.
+
+Erstelle dazu die Konfigurationsdatei `log4j-dev.xml` im Stammverzeichnis deines Projekts und fügen den folgenden Inhalt hinzu. Ersetze den Wert im Attribut `name` durch die Mod-ID deines Mods. Diese Konfiguration ermöglicht es, Debug-Protokolle aus deinem Mod in der Konsole anzuzeigen.
+
+@[code lang=xml](@/reference/latest/log4j-dev.xml)
+
+Weise dann in der Datei `build.gradle` Loom an, unsere neue Konfiguration zu verwenden.
+
+@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+
+Wenn wir nun Debug-Protokollmeldungen senden, können wir diese in der Konsole sehen.
+
+@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+
+![Konsole, die einen Debug-Protokolleintrag anzeigt](/assets/develop/debugging/debug_log.png)
+
+::: tip
+
+Wenn die Debug-Meldungen immer noch nicht angezeigt werden, sind deine Ausführungskonfigurationen möglicherweise veraltet. Um dies zu beheben, generiere diese mithilfe der Gradle-Aufgabe für deine IDE neu.
+
+:::
 
 ### Lokalisieren von Fehlern {#locating-issues}
 
