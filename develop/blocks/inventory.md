@@ -1,11 +1,11 @@
 ---
 title: Block Containers
-description: Learn how to add containers to your blocks.
+description: Learn how to add containers to your block entities.
 authors:
   - natri0
 ---
 
-In Minecraft, a best practice when creating blocks that can store items is to implement `Container`. It is implemented by blocks like chests and furnaces. This makes it possible to, for example, interact with the block using hoppers.
+It's good practice when creating blocks that can store items, like chests and furnaces, is to implement `Container`. This makes it possible to, for example, interact with the block using hoppers.
 
 In this tutorial we'll create a block that uses its container to duplicate any items placed in it.
 
@@ -51,7 +51,7 @@ Now, when you right-click the block with an item, you'll no longer have it! If y
 
 ### Duplicating Items {#duplicating-items}
 
-Actually, on second thought, shouldn't a _duplicator_ block duplicate items? Let's make it so that the block duplicates the stack you threw in it, but only two items at a time. And let's make it wait a second every time to not spam the player with items!
+Let's now make it so that the block duplicates the stack you threw in it, but only two items at a time. And let's make it wait a second every time to not spam the player with items!
 
 To do this, we'll add a `tick` function to the `DuplicatorBlockEntity`, and a field to store how much we've been waiting:
 
