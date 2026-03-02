@@ -81,11 +81,11 @@ Ora la trasformazione completa ha questo aspetto:
 
 Come menzionato in precedenza, il `Context` passato al costruttore del nostro renderer ha un `Font` che possiamo usare per disegnare testo. Per questo esempio lo salveremo in un attributo.
 
-Il `Font` ha metodi per misurare il testo (`width`), il che è utile per centrarlo, e per disegnarlo (`draw`).
+Il `Font` ha metodi per misurare il testo (`width`), il che è utile per centrarlo, e per disegnarlo (`drawInBatch`).
 
 @[code transcludeWith=:::3](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Il metodo `draw` accetta molti parametri, ma quelli più importanti sono:
+Il metodo `drawInBatch` accetta molti parametri, ma quelli più importanti sono:
 
 - Il `Component` (o `String`) da disegnare;
 - Le sue coordinate `x` e `y`;

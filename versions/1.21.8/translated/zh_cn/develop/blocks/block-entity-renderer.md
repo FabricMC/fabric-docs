@@ -81,11 +81,11 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 如前所述，传入渲染器构造函数的 `Context` 包含一个 `Font` ，我们可以用它来绘制文本。 在这个例子中，我们将它保存在一个字段中。
 
-`Font` 有一个方法来测量文字 (即 `width`)，这对于将其居中放置非常有用，然后绘制它（使用 `draw`）。
+`Font` 有一个方法来测量文字 (即 `width`)，这对于将其居中放置非常有用，然后绘制它（使用 `drawInBatch`）。
 
 @[code transcludeWith=:::3](@/reference/1.21.8/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-`draw` 方法接受许多的参数，但是最重要的几个是：
+`drawInBatch` 方法接受许多的参数，但是最重要的几个是：
 
 - 要被绘画的 `Component`（或者 `String`）；
 - 文字的 `X` 和 `Y` 坐标；

@@ -66,7 +66,7 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-Чтобы применить эффект внутри, вам нужно использовать метод `LivingEntity#addMobEffect`, который принимает
+Чтобы применить эффект внутри, вам нужно использовать метод `LivingEntity#addEffect`, который принимает
 `MobEffectInstance` и возвращает логическое значение, указывающее, был ли эффект успешно применен.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/ReferenceMethods.java)

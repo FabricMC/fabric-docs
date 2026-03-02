@@ -81,11 +81,11 @@ Jetzt sieht die ganze Transformation wie folgt aus:
 
 Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers übergebene `Context` einen `Font`, welchen wir für das Zeichnen von Text einsetzen können. Für dieses Beispiel werden wir ihn in einem Feld speichern.
 
-Der `Font` hat Methoden um Text zu messen (`width`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`draw`).
+Der `Font` hat Methoden um Text zu messen (`width`), welche für das Zentrieren nützlich ist, und um ihn zu zeichnen (`drawInBatch`).
 
 @[code transcludeWith=:::3](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-Die Methode `draw` nimmt einige Paramter, aber die Wichtigsten sind:
+Die Methode `drawInBatch` nimmt einige Paramter, aber die Wichtigsten sind:
 
 - der zu zeichnende `Component` (oder `String`);
 - seine `x` und `y` Koordinaten;

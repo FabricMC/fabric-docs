@@ -66,7 +66,7 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-효과를 내부적으로 적용하려면, `MobEffectInstance`를 효과가 제대로 적용되었는지 여부를 지정하는 부울 값을 반환하는 `LivingEntity#addMobEffect` 메서드를 사용하는 것이 좋습니다.
+효과를 내부적으로 적용하려면, `MobEffectInstance`를 효과가 제대로 적용되었는지 여부를 지정하는 부울 값을 반환하는 `LivingEntity#addEffect` 메서드를 사용하는 것이 좋습니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/ReferenceMethods.java)
 

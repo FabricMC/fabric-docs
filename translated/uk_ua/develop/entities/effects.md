@@ -67,7 +67,7 @@ effect give @p example-mod:tater
 
 :::
 
-Щоб застосувати внутрішній ефект, потрібно використати метод `LivingEntity#addMobEffect`, який приймає `MobEffectInstance` і повертає логічне значення, яке вказує, чи було успішно застосовано ефект.
+Щоб застосувати внутрішній ефект, потрібно використати метод `LivingEntity#addEffect`, який приймає `MobEffectInstance` і повертає логічне значення, яке вказує, чи було успішно застосовано ефект.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 

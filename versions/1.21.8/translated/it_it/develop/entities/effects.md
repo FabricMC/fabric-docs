@@ -66,7 +66,7 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addMobEffect`, che accetta una `MobEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
+Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addEffect`, che accetta una `MobEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/ReferenceMethods.java)
 
