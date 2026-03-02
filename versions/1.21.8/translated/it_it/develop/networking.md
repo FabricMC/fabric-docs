@@ -85,7 +85,7 @@ Esiste un metodo simile per registrare i payload da client a server: `PayloadTyp
 
 ### Inviare un Pacchetto al Client {#sending-a-packet-to-the-client}
 
-Per inviare un pacchetto con il nostro payload personalizzato, possiamo usare `ServerPlayNetworking.send` che accetta un `ServerPlayerEntity` e un `CustomPayload`.
+Per inviare un pacchetto con il nostro payload personalizzato, possiamo usare `ServerPlayNetworking.send` che accetta un `ServerPlayer` e un `CustomPayload`.
 
 Iniziamo creando il nostro oggetto Lightning Tater. Puoi fare override di `use` per attivare un'azione quando l'oggetto viene utilizzato.
 In questo caso, inviamo pacchetti ai giocatori nel mondo del server.

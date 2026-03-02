@@ -144,7 +144,7 @@ Befehlsumleitungen - auch bekannt als Aliase - sind eine Möglichkeit, die Funkt
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Danach musst du den Befehlsbaum mit `CommandManager.sendCommandTree(ServerPlayerEntity)` erneut an jeden Spieler senden.
+Danach musst du den Befehlsbaum mit `CommandManager.sendCommandTree(ServerPlayer)` erneut an jeden Spieler senden.
 
 Dies ist erforderlich, da der Client den Befehlsbaum, den er bei der Anmeldung (oder beim Senden von Operator-Paketen) erhält, lokal zwischenspeichert, um Fehlermeldungen zu vervollständigen.
 :::
@@ -155,7 +155,7 @@ Dies ist erforderlich, da der Client den Befehlsbaum, den er bei der Anmeldung (
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Um die Dinge einfach zu halten, musst du Reflection auf Brigadier anwenden und Knoten entfernen. Danach musst du den Befehlsbaum erneut an jeden Spieler mit `sendCommandTree(ServerPlayerEntity)` senden.
+Um die Dinge einfach zu halten, musst du Reflection auf Brigadier anwenden und Knoten entfernen. Danach musst du den Befehlsbaum erneut an jeden Spieler mit `sendCommandTree(ServerPlayer)` senden.
 
 Wenn du den aktualisierten Befehlsbaum nicht sendest, kann es sein, dass der Client denkt, dass der Befehl noch existiert, obwohl die Ausführung am Server fehlschlägt.
 :::

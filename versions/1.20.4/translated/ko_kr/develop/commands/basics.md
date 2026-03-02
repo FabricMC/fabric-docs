@@ -141,7 +141,7 @@ Fabric API는 `net.fabricmc.fabric.api.client.command.v2` 패키지에 클라이
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-그 다음에는, `CommandManager.sendCommandTree(ServerPlayerEntity)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
+그 다음에는, `CommandManager.sendCommandTree(ServerPlayer)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
 
 클라이언트는 로컬로 완료 오류를 보여주기 위해 로그인 단계 중에 (또는 관리자 패킷이 전송되었을 때) 서버로부터 명령어 트리를 받아 캐시하기 때문에 필수적인 작업입니다.
 :::
@@ -152,7 +152,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-간단하게 하려면, Brigadier를 리플렉션해서 노드를 제거해야 합니다. 그 다음에는, `CommandManager.sendCommandTree(ServerPlayerEntity)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
+간단하게 하려면, Brigadier를 리플렉션해서 노드를 제거해야 합니다. 그 다음에는, `CommandManager.sendCommandTree(ServerPlayer)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
 
 업데이트된 명령어 트리를 전송하지 않으면, 서버가 명령어 처리에 실패해도 클라이언트는 아직 명령어가 존재한다고 표시할 것입니다.
 :::

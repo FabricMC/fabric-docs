@@ -155,7 +155,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-然后需要通过 `CommandManager.sendCommandTree(ServerPlayerEntity)` 向每个玩家再次发送命令树。
+然后需要通过 `CommandManager.sendCommandTree(ServerPlayer)` 向每个玩家再次发送命令树。
 
 这是必需的，因为客户端已经缓存了命令树并在登录过程中（或发出管理员数据包时）使用，以用于本地的补全和错误消息。
 :::
@@ -166,7 +166,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayerEntity)` 向每个玩家发送命令树。
+为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayer)` 向每个玩家发送命令树。
 
 如果不发送更新的命令树，客户端可能还是会认为命令依然存在，即使服务器无法执行。
 :::

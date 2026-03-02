@@ -144,7 +144,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore usando `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Questo è necessario perché il client mantiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
@@ -155,7 +155,7 @@ Questo è necessario perché il client mantiene una cache locale dell'albero dei
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuovere nodi. Dopodiché, devi mandare nuovamente l'albero di comandi a ogni giocatore usando `sendCommandTree(ServerPlayerEntity)`.
+Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuovere nodi. Dopodiché, devi mandare nuovamente l'albero di comandi a ogni giocatore usando `sendCommandTree(ServerPlayer)`.
 
 Se non mandi l'albero di comandi aggiornato, il client potrebbe credere che il comando esista ancora, anche se fallirà l'esecuzione sul server.
 :::

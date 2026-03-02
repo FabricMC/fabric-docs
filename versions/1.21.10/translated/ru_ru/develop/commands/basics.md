@@ -156,7 +156,7 @@ Brigadier [будет перенаправлять только командны
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-После этого вам нужно опять отправить команду tree ко всем игрокам используя `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+После этого вам нужно опять отправить команду tree ко всем игрокам используя `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Это необходимо, поскольку клиент локально кэширует команду tree, которую он получает во время логина (или когда пакеты оператора отправлены) для локальных сообщений об ошибках с большим дополнением.
 :::
@@ -167,7 +167,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Для простоты, вы должны использовать отражение Brigadier и удалить ноды. После этого, вам нужно отправить команду tree каждому игроку заново используя `sendCommandTree(ServerPlayerEntity)`.
+Для простоты, вы должны использовать отражение Brigadier и удалить ноды. После этого, вам нужно отправить команду tree каждому игроку заново используя `sendCommandTree(ServerPlayer)`.
 
 Если вы не будете отправлять обновления команде tree, клиент может всё ещё подумать, что команда существует, хотя сервер провалит его выполнение.
 :::

@@ -177,7 +177,7 @@ You can do this, but it is not recommended. You would get the `CommandManager` f
 you wish to its `CommandDispatcher`.
 
 After that, you need to send the command tree to every player again
-using `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+using `CommandManager.sendCommandTree(ServerPlayer)`.
 
 This is required because the client locally caches the command tree it receives during login (or when operator packets
 are sent) for local completions-rich error messages.
@@ -190,7 +190,7 @@ You can also do this, however, it is much less stable than registering commands 
 effects.
 
 To keep things simple, you need to use reflection on Brigadier and remove nodes. After this, you need to send the
-command tree to every player again using `sendCommandTree(ServerPlayerEntity)`.
+command tree to every player again using `sendCommandTree(ServerPlayer)`.
 
 If you don't send the updated command tree, the client may think a command still exists, even though the server will
 fail execution.

@@ -86,7 +86,7 @@ Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络
 
 ### 发送数据包到客户端 {#sending-a-packet-to-the-client}
 
-要发送带有自定义有效负载的数据包，我们可以使用 `ServerPlayNetworking.send`，它接收 `ServerPlayerEntity` 和 `CustomPayload`。
+要发送带有自定义有效负载的数据包，我们可以使用 `ServerPlayNetworking.send`，它接收 `ServerPlayer` 和 `CustomPayload`。
 
 让我们从创建 Lightning Tater 物品开始。 您可以重写 `use` 以在使用该物品时触发操作。
 本例中我们向服务器世界的玩家发送数据包。

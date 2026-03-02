@@ -142,7 +142,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Después de eso, debes enviar el árbol de comandos a cada jugador de nuevo usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+Después de eso, debes enviar el árbol de comandos a cada jugador de nuevo usando `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Esto es necesario porque el cliente almacena en un caché el árbol de comandos que recibe durante inicio de sesión (o cuando paquetes de operador son enviados) para mensajes de error con completaciones locales.
 :::
@@ -153,7 +153,7 @@ Esto es necesario porque el cliente almacena en un caché el árbol de comandos 
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Para mantener las cosas simples, vas a tener que usar reflexión en Brigadier para remover nodos. Después de esto, necesitas enviar el árbol de comandos de nuevo a cada jugador usando `sendCommandTree(ServerPlayerEntity)`.
+Para mantener las cosas simples, vas a tener que usar reflexión en Brigadier para remover nodos. Después de esto, necesitas enviar el árbol de comandos de nuevo a cada jugador usando `sendCommandTree(ServerPlayer)`.
 
 Si no envias el árbol de comandos actualizado, el cliente pensará que un comando existe, aunque el servidor no podrá ejecutarlo.
 :::
