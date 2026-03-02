@@ -2,12 +2,10 @@ package com.example.docs.datagen;
 
 import static com.example.docs.datagen.FabricDocsReferenceDamageTypesProvider.TATER_DAMAGE_TYPE;
 
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
-
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import com.example.docs.damage.FabricDocsReferenceDamageTypes;
 import com.example.docs.datagen.internal.FabricDocsReferenceInternalModelProvider;
 import com.example.docs.network.basic.FabricDocsReferenceNetworkingBasicModelProvider;
@@ -48,8 +46,8 @@ public class FabricDocsReferenceDataGenerator implements DataGeneratorEntrypoint
 
 	// :::datagen-setup:generator
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.DAMAGE_TYPE, registerable -> {
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(FabricDocsReferenceDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
 	}

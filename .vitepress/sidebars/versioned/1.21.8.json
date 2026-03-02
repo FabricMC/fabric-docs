@@ -82,7 +82,7 @@
           "link": "/develop/items/custom-armor"
         },
         {
-          "text": "Custom Item Groups",
+          "text": "Custom Creative Tabs",
           "link": "/develop/items/custom-item-groups"
         },
         {
@@ -136,7 +136,7 @@
       "collapsed": true,
       "items": [
         {
-          "text": "Status Effects",
+          "text": "Mob Effects",
           "link": "/develop/entities/effects"
         },
         {

@@ -1,6 +1,6 @@
 ---
 title: Potions
-description: Learn how to add a custom potion for various status effects.
+description: Learn how to add a custom potion for various mob effects.
 authors:
   - dicedpixels
   - Drakonkinst
@@ -22,10 +22,10 @@ hold this.
 
 @[code lang=java transclude={18-27}](@/reference/1.21.8/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-We pass an instance of `StatusEffectInstance`, which takes 3 parameters:
+We pass an instance of `MobEffectInstance`, which takes 3 parameters:
 
-- `RegistryEntry<StatusEffect> type` - An effect. We use our custom effect here. Alternatively you can access vanilla effects
-  through vanilla's `StatusEffects` class.
+- `Holder<MobEffect> type` - An effect. We use our custom effect here. Alternatively you can access vanilla effects
+  through vanilla's `MobEffects` class.
 - `int duration` - Duration of the effect in game ticks.
 - `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
 
@@ -35,15 +35,15 @@ To create your own potion effect, please see the [Effects](../entities/effects) 
 
 ### Registering the Potion {#registering-the-potion}
 
-In our initializer, we will use the `FabricBrewingRecipeRegistryBuilder.BUILD` event to register our potion using the `BrewingRecipeRegistry.registerPotionRecipe` method.
+In our initializer, we will use the `FabricPotionBrewingBuilder.BUILD` event to register our potion using the `PotionBrewing.addMix` method.
 
 @[code lang=java transclude={29-40}](@/reference/1.21.8/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-`registerPotionRecipe` takes 3 parameters:
+`addMix` takes 3 parameters:
 
-- `RegistryEntry<Potion> input` - The starting potion's registry entry. Usually this can be a Water Bottle or an Awkward Potion.
+- `Holder<Potion> input` - The starting potion's registry entry. Usually this can be a Water Bottle or an Awkward Potion.
 - `Item item` - The item which is the main ingredient of the potion.
-- `RegistryEntry<Potion> output` - The resultant potion's registry entry.
+- `Holder<Potion> output` - The resultant potion's registry entry.
 
 Once registered, you can brew a Tater potion using a potato.
 

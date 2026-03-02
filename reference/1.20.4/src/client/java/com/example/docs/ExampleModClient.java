@@ -12,7 +12,7 @@ public class ExampleModClient implements ClientModInitializer {
 
 		// #particle_register_client
 		// For this example, we will use the end rod particle behaviour.
-		ParticleFactoryRegistry.getInstance().register(ExampleMod.SPARKLE_PARTICLE, EndRodParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(ExampleMod.SPARKLE_PARTICLE, EndRodParticle.Provider::new);
 		// #particle_register_client
 	}
 }

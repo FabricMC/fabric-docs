@@ -40,7 +40,7 @@ MutableComponent mutable = Component.literal("Hello, world!");
 Component mutableAsText = mutable;
 ```
 
-## Translatable Text Components {#translatable-text-components}
+## Translatable Text Components Components {#translatable-text-components}
 
 When you want to provide multiple translations for the same string of text, you can use the `Component.translatable` method to reference a translation key in any language file. If the key doesn't exist, the translation key is converted to a literal.
 
@@ -114,7 +114,7 @@ You can apply these formatting styles using the `ChatFormatting` enum on the `Mu
 
 ```java
 MutableComponent result = Component.literal("Hello World!")
-  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
+  .withStyle(ChatChatFormatting.AQUA, ChatChatFormatting.BOLD, ChatChatFormatting.UNDERLINE);
 ```
 
 | Color                           | Name                             | Chat Code | MOTD Code | Hex Code  |

@@ -17,7 +17,7 @@ Once sources are generated. it should be possible for you to search or view Mine
 
 ### Viewing Class Definitions {#viewing-class-definitions}
 
-**Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>): Type `#` followed by the class name (e.g. `#Identifier`).
+**Quick Open** (<kbd>Ctrl</kbd>+<kbd>P</kbd>): Type `#` followed by the class name (e.g. `#ResourceLocation`).
 
 ![Quick Open](/assets/develop/getting-started/vscode/quick-open.png)
 
@@ -69,7 +69,7 @@ In such case, you can use Java's inbuilt `javap` to view bytecode.
     You can then run `javap` by providing the above path as the `cp` (class path) and the fully qualified class name as the final argument.
 
     ```sh
-    javap -cp C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.Identifier
+    javap -cp C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar -c -private net.minecraft.util.ResourceLocation
     ```
 
     This will print the bytecode in your terminal output.

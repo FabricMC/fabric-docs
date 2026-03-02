@@ -50,7 +50,7 @@ public class ModBlocks {
 - 我们通过调用 `Block` 构造函数来告诉 `register` 方法从方块设置中创建一个 `Block` 实例。
 
 :::tip
-可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
+可以使用 `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/block/ModBlocks.java)

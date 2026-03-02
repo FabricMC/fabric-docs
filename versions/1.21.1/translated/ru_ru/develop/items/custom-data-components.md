@@ -9,11 +9,11 @@ authors:
 
 Компоненты данных заменяют данные NBT из предыдущих версий структурированными типами данных, которые можно применять к `ItemStack` для хранения постоянных данных об этом стеке. Компоненты данных имеют пространство имен, что означает, что мы можем реализовать собственные компоненты данных для хранения пользовательских данных о `ItemStack` и доступа к ним позже. Полный список компонентов данных vanilla можно найти на этой [странице вики Minecraft](https://minecraft.wiki/w/Data_component_format#List_of_components).
 
-Наряду с регистрацией пользовательских компонентов на этой странице рассматривается общее использование API компонентов, которое также применимо к ванильным компонентам. Вы можете просмотреть и получить доступ к определениям всех ванильных компонентов в классе `DataComponentTypes`.
+Наряду с регистрацией пользовательских компонентов на этой странице рассматривается общее использование API компонентов, которое также применимо к ванильным компонентам. Вы можете просмотреть и получить доступ к определениям всех ванильных компонентов в классе `DataComponents`.
 
 ## Регистрация компонента {#registering-a-component}
 
-Как и все остальное в вашем моде, вам необходимо зарегистрировать свой пользовательский компонент с помощью `ComponentType`. Этот тип компонента принимает универсальный аргумент, содержащий тип значения вашего компонента. Мы более подробно рассмотрим это далее, когда будем рассматривать [базовые](#basic-data-components) и [расширенные](#advanced-data-components) компоненты.
+Как и все остальное в вашем моде, вам необходимо зарегистрировать свой пользовательский компонент с помощью `DataComponentType`. Этот тип компонента принимает универсальный аргумент, содержащий тип значения вашего компонента. Мы более подробно рассмотрим это далее, когда будем рассматривать [базовые](#basic-data-components) и [расширенные](#advanced-data-components) компоненты.
 
 Выберите подходящий класс для размещения этого кода. В этом примере мы создадим новый пакет с именем `component` и класс, содержащий все типы наших компонентов, с именем `ModComponents`. Убедитесь, что вы вызвали `ModComponents.initialize()` в вашем [инициализаторе мода](./getting-started/project-structure#entrypoints).
 
@@ -23,8 +23,8 @@ authors:
 
 ```java
 public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    Registries.DATA_COMPONENT_TYPE,
-    Identifier.of(ExampleMod.MOD_ID, "my_component"),
+    BuiltInRegistriesDATA_COMPONENT_TYPE,
+    ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     ComponentType.<?>builder().codec(null).build()
 );
 ```
@@ -33,7 +33,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 Во-вторых, вы должны предоставить `Идентификатор`, содержащий предполагаемый идентификатор вашего компонента. Это пространство имен с идентификатором вашего мода.
 
-Наконец, у нас есть `ComponentType.Builder`, который создает фактический экземпляр `ComponentType` и регистрируется. Здесь содержится еще одна важная деталь, которую нам нужно будет обсудить: `Codec` вашего компонента. В настоящее время это поле пустое, но мы скоро его заполним.
+Наконец, у нас есть `DataComponentType.Builder`, который создает фактический экземпляр `DataComponentType` и регистрируется. Здесь содержится еще одна важная деталь, которую нам нужно будет обсудить: `Codec` вашего компонента. В настоящее время это поле пустое, но мы скоро его заполним.
 
 ## Базовые компоненты данных {#basic-data-components}
 
@@ -61,7 +61,7 @@ public static final ComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings()
+    new Item.Properties()
 ), "counter");
 ```
 
@@ -71,12 +71,12 @@ public static final Item COUNTER = register(new CounterItem(
 int clickCount = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Это вернет текущее значение компонента как тип, который мы определили при регистрации нашего компонента. Затем мы можем использовать это значение для добавления записи всплывающей подсказки. Добавьте эту строку в метод `appendTooltip` в классе `CounterItem`:
+Это вернет текущее значение компонента как тип, который мы определили при регистрации нашего компонента. Затем мы можем использовать это значение для добавления записи всплывающей подсказки. Добавьте эту строку в метод `appendHoverText` в классе `CounterItem`:
 
 ```java
-public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(Formatting.GOLD));
 }
 ```
 
@@ -103,7 +103,7 @@ public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> to
 
 ```log
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "net.minecraft.item.ItemStack.get(net.minecraft.component.ComponentType)" is null
-        at com.example.docs.item.custom.CounterItem.appendTooltip(LightningStick.java:45)
+        at com.example.docs.item.custom.CounterItem.appendHoverText(LightningStick.java:45)
         at net.minecraft.item.ItemStack.getTooltip(ItemStack.java:767)
 ```
 
@@ -113,7 +113,7 @@ As expected, since the `ItemStack` doesn't currently contain an instance of our 
 
 ### Установка значения компонента по умолчанию {#setting-default-value}
 
-Когда вы регистрируете свой элемент и передаете объект `Item.Settings` в конструктор элемента, вы также можете предоставить список компонентов по умолчанию, которые применяются ко всем новым элементам. Если вернуться к нашему классу `ModItems`, где мы регистрируем `CounterItem`, мы можем добавить значение по умолчанию для нашего пользовательского компонента. Добавьте это, чтобы для новых элементов отображалось количество «0».
+Когда вы регистрируете свой элемент и передаете объект `Item.Properties` в конструктор элемента, вы также можете предоставить список компонентов по умолчанию, которые применяются ко всем новым элементам. Если вернуться к нашему классу `ModItems`, где мы регистрируем `CounterItem`, мы можем добавить значение по умолчанию для нашего пользовательского компонента. Добавьте это, чтобы для новых элементов отображалось количество «0».
 
 @[code transcludeWith=::_13](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -135,10 +135,10 @@ int clickCount = stack.getOrDefault(ModComponents.CLICK_COUNT_COMPONENT, 0);
 
 ### Проверка существования компонента {#checking-if-component-exists}
 
-Вы также можете проверить наличие определенного компонента в `ItemStack`, используя метод `contains()`. Он принимает тип компонента в качестве аргумента и возвращает `true` или `false` в зависимости от того, содержит ли стек этот компонент.
+Вы также можете проверить наличие определенного компонента в `ItemStack`, используя метод `has()`. Он принимает тип компонента в качестве аргумента и возвращает `true` или `false` в зависимости от того, содержит ли стек этот компонент.
 
 ```java
-boolean exists = stack.contains(ModComponents.CLICK_COUNT_COMPONENT);
+boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
 ### Исправление ошибки {#fixing-the-error}
@@ -248,7 +248,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 
@@ -256,11 +256,11 @@ if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
 stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 ```
 
-Вы также можете задать значение по умолчанию для составного компонента, передав объект компонента в `Item.Settings`. Например:
+Вы также можете задать значение по умолчанию для составного компонента, передав объект компонента в `Item.Properties`. Например:
 
 ```java
 public static final Item COUNTER = register(new CounterItem(
-    new Item.Settings().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
 ), "counter");
 ```
 

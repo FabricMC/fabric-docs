@@ -30,10 +30,10 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 An advancement is made up a few different components. Along with the requirements, called "criterion," it may have:
 
-- An `AdvancementDisplay` that tells the game how to show the advancement to players,
+- An `DisplayInfo` that tells the game how to show the advancement to players,
 - `AdvancementRequirements`, which are lists of lists of criteria, requiring at least one criterion from each sub-list to be completed,
 - `AdvancementRewards`, which the player receives for completing the advancement.
-- A `CriterionMerger`, which tells the advancement how to handle multiple criterion, and
+- A `Strategy`, which tells the advancement how to handle multiple criterion, and
 - A parent `Advancement`, which organizes the hierarchy you see on the "Advancements" screen.
 
 ## Simple Advancements {#simple-advancements}
@@ -94,7 +94,7 @@ Next, let's create our custom criterion, `UseToolCriterion`. It's going to need 
 
 Whew, that's a lot! Let's break it down.
 
-- `UseToolCriterion` is an `AbstractCriterion`, which `Conditions` can apply to.
+- `UseToolCriterion` is an `SimpleCriterionTrigger`, which `Conditions` can apply to.
 - `Conditions` has a `playerPredicate` field. All `Conditions` should have a player predicate (technically a `LootContextPredicate`).
 - `Conditions` also has a `CODEC`. This `Codec` is simply the codec for its one field, `playerPredicate`, with extra instructions to convert between them (`xmap`).
 

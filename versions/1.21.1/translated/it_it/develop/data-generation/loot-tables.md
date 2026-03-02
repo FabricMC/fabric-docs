@@ -46,7 +46,7 @@ Il loot dei bauli è un po' più complesso del loot dei blocchi. Crea una classe
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21.1/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-Ci servirà una `RegistryKey<LootTable>` per la nostra loot table. Mettiamola in una nuova classe chiamata `ModLootTables`. Assicurati che sia nel tuo insieme di sorgenti `main` se usi fonti suddivise.
+Ci servirà una `ResourceKey<LootTable>` per la nostra loot table. Mettiamola in una nuova classe chiamata `ModLootTables`. Assicurati che sia nel tuo insieme di sorgenti `main` se usi fonti suddivise.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/1.21.1/src/main/java/com/example/docs/ModLootTables.java)
 

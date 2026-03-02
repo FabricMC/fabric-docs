@@ -15,7 +15,7 @@ Für dieses Beispiel werden wir eine Klasse `GuiditeArmorMaterial` erstellen, um
 
 ### Grundhaltbarkeit {#base-durability}
 
-Diese Konstante wird in der Methode `Item.Settings#maxDamage(int damageValue)` verwendet, wenn wir unsere Rüstungsitems erstellen. Sie wird auch als Parameter im Konstruktor `ArmorMaterial` benötigt, wenn wir später unser `ArmorMaterial`-Objekt erstellen.
+Diese Konstante wird in der Methode `Item.Properties#maxDamage(int damageValue)` verwendet, wenn wir unsere Rüstungsitems erstellen. Sie wird auch als Parameter im Konstruktor `ArmorMaterial` benötigt, wenn wir später unser `ArmorMaterial`-Objekt erstellen.
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.10/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ Nachdem du das Material registriert hast, kannst du die Rüstungsitems in deiner
 
 Natürlich muss ein Rüstungsset nicht jeden Typ abdecken, man kann auch ein Set mit nur Stiefeln oder Hosen etc. haben. - Der Vanille-Schildkrötenpanzerhelm ist ein gutes Beispiel für ein Rüstungsset mit fehlenden Slots.
 
-Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen über die Haltbarkeit von Items. Aus diesem Grund muss die Grundhaltbarkeit manuell zu den `Item.Settings` der Rüstungsgegenstände hinzugefügt werden, wenn diese registriert werden.
+Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen über die Haltbarkeit von Items. Aus diesem Grund muss die Grundhaltbarkeit manuell zu den `Item.Properties` der Rüstungsgegenstände hinzugefügt werden, wenn diese registriert werden.
 
-Dies wird erreicht, indem die Konstante `BASE_DURABILITY`, die wir zuvor erstellt haben, an die Methode `maxDamage` in der Klasse `Item.Settings` übergeben wird.
+Dies wird erreicht, indem die Konstante `BASE_DURABILITY`, die wir zuvor erstellt haben, an die Methode `maxDamage` in der Klasse `Item.Properties` übergeben wird.
 
 @[code transcludeWith=:::6](@/reference/1.21.10/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -96,7 +96,7 @@ Wenn eine Entität deine Rüstung trägt, wird nichts angezeigt. Das liegt daran
 
 Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
 
-Zuvor haben wir eine Konstante `RegistryKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
+Zuvor haben wir eine Konstante `ResourceKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
@@ -109,7 +109,7 @@ Wenn du von einer älteren Version des Spiels auf 1.21.4 aktualisierst, ist der 
 
 Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/example-mod/equipment/`.
 
-Die Konstante `RegistryKey<EquipmentAsset>`, die wir zuvor erstellt haben, bestimmt den Namen der JSON-Datei. In diesem Fall wird es `guidite.json` sein.
+Die Konstante `ResourceKey<EquipmentAsset>`, die wir zuvor erstellt haben, bestimmt den Namen der JSON-Datei. In diesem Fall wird es `guidite.json` sein.
 
 Da wir nur "Humanoide" Rüstungsteile (Helm, Brustpanzer, Hose, Stiefel usw.) hinzufügen wollen , werden die Definitionen der Ausrüstungsmodelle wie folgt aussehen:
 

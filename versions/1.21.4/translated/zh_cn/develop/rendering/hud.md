@@ -18,7 +18,7 @@ authors:
 
 Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 
-首先，我们需要为 `HudLayerRegistrationCallback` 注册一个监听器，注册你的图层。 每个图层是一个 `IdentifiedLayer`，是个原版的 `LayeredDrawer.Layer` 并附上了一个 `Identifier`。 `LayeredDrawer.Layer` 实例通常是个 lambda，接收一个 `DrawContext` 和 `RenderTickCounter` 实例作为参数。 关于如何使用此 API 的更多信息，请看 `HudLayerRegistrationCallback` 及相关的 Javadoc。
+首先，我们需要为 `HudLayerRegistrationCallback` 注册一个监听器，注册你的图层。 每个图层是一个 `IdentifiedLayer`，是个原版的 `LayeredDrawer.Layer` 并附上了一个 `ResourceLocation`。 `LayeredDrawer.Layer` 实例通常是个 lambda，接收一个 `GuiGraphics` 和 `RenderTickCounter` 实例作为参数。 关于如何使用此 API 的更多信息，请看 `HudLayerRegistrationCallback` 及相关的 Javadoc。
 
 绘制上下文可用于访问游戏提供的各种渲染工具，并访问原始矩阵堆栈。 要了解有关绘制上下文的更多信息，应该查看[使用绘制上下文](./draw-context)页面。
 
@@ -42,11 +42,11 @@ Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 | `10` | `9/10 = 0.9` |
 | `11` | `1`：新的刻      |
 
-实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `tickDelta`。 针对基于时间的动画，请使用 `Util.getMeasuringTimeMs()`，它可以测量现实世界的时间。
+实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `tickDelta`。 针对基于时间的动画，请使用 `Util.getMillis()`，它可以测量现实世界的时间。
 
 可以调用 `renderTickCounter.getTickDelta(false)` 以检索 `tickDelta`，其中布尔值参数是 `ignoreFreeze`，这实际上只是允许忽略玩家使用 `/tick freeze` 命令的情况。
 
-在此示例中，我们将使用 `Util.getMeasuringTimeMs()` 线性插入要渲染到 HUD 的正方形的颜色。
+在此示例中，我们将使用 `Util.getMillis()` 线性插入要渲染到 HUD 的正方形的颜色。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

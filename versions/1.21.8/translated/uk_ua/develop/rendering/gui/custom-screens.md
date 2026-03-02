@@ -21,7 +21,7 @@ authors:
 
 - Віджети не створюються в конструкторі, тому що екран ще не ініціалізовано в цей момент, а певні змінні, такі як `width` і `height`, ще недоступні або ще не точні.
 - Метод `init` викликається, коли екран ініціалізується, і це найкраще місце для створення віджетів.
-  - Ви додаєте віджети за допомогою методу `addDrawableChild`, який приймає будь-який віджет, який можна малювати.
+  - Ви додаєте віджети за допомогою методу `addRenderableWidget`, який приймає будь-який віджет, який можна малювати.
 - Метод `render` називається кожним кадром - ви можете отримати доступ до контексту малювання та позиції мишки з цього методу.
 
 Як приклад, ми можемо створити простий екран із кнопкою та міткою над нею.
@@ -35,8 +35,8 @@ authors:
 Ви можете відкрити екран за допомогою методу `setScreen` від `MinecraftClient` - ви можете зробити це з багатьох місць, таких як прив'язка клавіш, команда або обробник клієнтських пакетів.
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -45,7 +45,7 @@ MinecraftClient.getInstance().setScreen(
 Якщо ви хочете закрити екран, просто встановіть для екрана значення `null`:
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 Якщо ви хочете, було гарно та повернутися до попереднього екрана, ви можете передати поточний екран у конструктор `CustomScreen` і зберегти його в полі, а потім використовувати його для повернення до попереднього екрана, коли викликається метод `close`.
@@ -55,8 +55,8 @@ MinecraftClient.getInstance().setScreen(null);
 Тепер, відкриваючи власний екран, ви можете передати поточний екран як другий аргумент, тож коли ви викличете `CustomScreen#close`, він повернеться до попереднього екрана.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

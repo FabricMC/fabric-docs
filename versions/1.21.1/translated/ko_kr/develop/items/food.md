@@ -1,6 +1,6 @@
 ---
 title: 음식 아이템
-description: 아이템을 먹을 수 있고, 설정할 수 있게 하기 위해 아이템에 FoodComponent를 추가하는 방법을 알아보세요.
+description: 아이템을 먹을 수 있고, 설정할 수 있게 하기 위해 아이템에 FoodProperties를 추가하는 방법을 알아보세요.
 authors:
   - IMB11
 ---
@@ -15,25 +15,25 @@ authors:
 
 ## 음식 요소 추가하기 {#adding-the-food-component}
 
-음식 요소를 추가하기 위해, `Item.Settings` 인스턴스에 전달할 수 있습니다:
+음식 요소를 추가하기 위해, `Item.Properties` 인스턴스에 전달할 수 있습니다:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 지금은, 이 아이템을 그저 먹을 수만 있게 합니다.
 
-`FoodComponent.Builder` 클래스는 플레이어가 음식을 먹을 때 무슨 일이 일어나는지 조정할 수 있게 해주는 많은 메서드를 가지고 있습니다.
+`FoodProperties.Builder` 클래스는 플레이어가 음식을 먹을 때 무슨 일이 일어나는지 조정할 수 있게 해주는 많은 메서드를 가지고 있습니다.
 
 | 메서드                  | 설명                                                                                                                                                             |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `nutrition`          | 아이템이 채울 배고픔의 양을 정합니다.                                                                                                                          |
 | `saturationModifier` | 아이템이 추가할 포만감의 양을 정합니다.                                                                                                                         |
 | `alwaysEdible`       | 배고픔의 양에 상관없이 항상 먹을 수 있게 합니다.                                                                                                                   |
-| `snack`              | 아이템을 간식으로서 정하게 합니다.                                                                                                                            |
-| `statusEffect`       | 아이템을 먹을 때 상태 효과를 추가합니다. 일반적으로 상태 효과 인스턴스와 확률이 이 메서드에 전달됩니다. 여기서, 확률은 백분율 (`1f = 100%`) 입니다. |
+| `fast`              | 아이템을 간식으로서 정하게 합니다.                                                                                                                            |
+| `effect`       | 아이템을 먹을 때 상태 효과를 추가합니다. 일반적으로 상태 효과 인스턴스와 확률이 이 메서드에 전달됩니다. 여기서, 확률은 백분율 (`1f = 100%`) 입니다. |
 
-원하는 대로 빌더를 수정한 후, `FoodComponent`를 가지기 위해 `build()` 메서드를 호출할 수 있습니다.
+원하는 대로 빌더를 수정한 후, `FoodProperties`를 가지기 위해 `build()` 메서드를 호출할 수 있습니다.
 
 @[code transcludeWith=:::5](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 

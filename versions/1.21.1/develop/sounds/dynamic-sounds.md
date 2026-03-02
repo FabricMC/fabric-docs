@@ -257,7 +257,7 @@ public enum TransitionState {
 }
 ```
 
-But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values.
+But when those values are sent over the network you might want to define an `ResourceLocation` for them or even add other custom values.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/sound/TransitionState.java)
 

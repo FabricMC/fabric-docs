@@ -6,40 +6,40 @@ authors:
   - LordEnder-Kitty
 ---
 
-Всякий раз, когда Minecraft отображает текст в игре, он, вероятно, определяется с помощью объекта `Text`.
+Всякий раз, когда Minecraft отображает текст в игре, он, вероятно, определяется с помощью объекта `Component`.
 Этот пользовательский тип используется вместо `String` для обеспечения более сложного форматирования,
 включая цвета, выделение жирным шрифтом, обфускации и событий нажатия (click). Они также обеспечивают легкий доступ
 в систему перевода, что упрощает перевод любого элемента пользовательского интерфейса в
 разные языки.
 
 Если вы раньше работали с пакетами данных (датапаками) или функциями, вы можете увидеть параллели с
-текстовым форматом json, используемым для отображения названий, книг, табличек и другого. Как вы, возможно, догадываетесь, это на самом деле json-представление объекта `Text`, и его можно
-преобразовать в `Text.Serializer` и обратно с помощью Text.Serializer\\`.
+текстовым форматом json, используемым для отображения названий, книг, табличек и другого. Как вы, возможно, догадываетесь, это на самом деле json-представление объекта `Component`, и его можно
+преобразовать в `Component.Serializer` и обратно с помощью Component.Serializer\\`.
 
-При создании мода, предпочтительнее создавать свои `Text` объекты непосредственно в коде, используя перевод, когда это возможно.
+При создании мода, предпочтительнее создавать свои `Component` объекты непосредственно в коде, используя перевод, когда это возможно.
 
 ## Текстовые литералы {#text-literals}
 
-Самый простой способ создать объект `Text` это использовать литерал. По сути это строка которая будет отображена как есть, без форматирования по умолчанию.
+Самый простой способ создать объект `Component` это использовать литерал. По сути это строка которая будет отображена как есть, без форматирования по умолчанию.
 
-Они создаются с помощью методов `Text.of` и `Text.literal`, которые действуют немного по-разному. `Text.of` принимает значения `null` в себя и возвращает экземпляр класса `Text`. `Text.literal` же наоборот не сможет принять значение null, и вернёт`MutableText` являющийся наследуемым классом от `Text`, который можно легко стилизовать и конкатенировать. Подробнее об этом будет сказано позже.
+Они создаются с помощью методов `Component.nullToEmpty` и `Component.literal`, которые действуют немного по-разному. `Component.nullToEmpty` принимает значения `null` в себя и возвращает экземпляр класса `Component`. `Component.literal` же наоборот не сможет принять значение null, и вернёт`MutableComponent` являющийся наследуемым классом от `Component`, который можно легко стилизовать и конкатенировать. Подробнее об этом будет сказано позже.
 
 ```java
-Text literal = Text.of("Hello, world!");
-MutableText mutable = Text.literal("Hello, world!");
-// Keep in mind that a MutableText can be used as a Text, making this valid:
+Text literal = Component.nullToEmpty("Hello, world!");
+MutableComponent mutable = Component.literal("Hello, world!");
+// Keep in mind that a MutableComponent can be used as a Text, making this valid:
 Text mutableAsText = mutable;
 ```
 
 ## Переводимый Текст {#translatable-text}
 
-Когда вы хотите предоставить несколько переводов для одной и той же строчки текста, вы можете использовать метод `Text.translatable` для ссылки на ключ перевода в любом языковом файле. Если ключ не существует, ключ перевода конвертируется в литерал.
+Когда вы хотите предоставить несколько переводов для одной и той же строчки текста, вы можете использовать метод `Component.translatable` для ссылки на ключ перевода в любом языковом файле. Если ключ не существует, ключ перевода конвертируется в литерал.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello");
+Text translatable = Component.translatable("my_mod.text.hello");
 
 // Similarly to literals, translatable text can be easily made mutable.
-MutableText mutable = Text.translatable("my_mod.text.bye");
+MutableComponent mutable = Component.translatable("my_mod.text.bye");
 ```
 
 Файл языка, `en_us.json`, выглядит как то так:
@@ -54,7 +54,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 Если вы хотите иметь возможность использовать переменные в переводе, подобно тому, как сообщения о смерти позволяют вам использовать задействованных игроков и предметы в переводе, вы можете добавить указанные переменные в качестве параметров. Вы можете добавить сколько угодно параметров.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+Text translatable = Component.translatable("my_mod.text.hello", player.getDisplayName());
 ```
 
 Вы можете ссылаться на эти переменные в переводе следующим образом:
@@ -70,7 +70,7 @@ Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName
 Что касается того, что вообще означает %1\$s, все, что вам действительно нужно знать, это то, что это число соответствует переменной, которую вы пытаетесь использовать. Допустим, у вас есть три переменные, которые вы используете.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+Text translatable = Component.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
 Если вы хотите указать, кто в нашем случае является злоумышленником, вы должны использовать %2\$s, потому что это вторая переменная, которую мы передали. Аналогично, %3\$s относится к itemStack. Перевод с таким количеством дополнительных параметров может выглядеть так:
@@ -93,7 +93,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 ## Сериализация Текста {#serializing-text}
 
-Кроме того, чтобы десериализовать текстовый объект в реальный класс `Text`, опять же, используйте кодек.
+Кроме того, чтобы десериализовать текстовый объект в реальный класс `Component`, опять же, используйте кодек.
 
 @[code transcludeWith=:::2](@/reference/1.21.4/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -101,11 +101,11 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Вы можете быть знакомы со стандартом форматирования в Minecraft:
 
-Вы можете применить эти стили форматирования, используя перечисление `Formatting` в классе `MutableText`:
+Вы можете применить эти стили форматирования, используя перечисление `ChatFormatting` в классе `MutableComponent`:
 
 ```java
-MutableText result = Text.literal("Hello World!")
-  .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
+MutableComponent result = Component.literal("Hello World!")
+  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
 ```
 
 <table>

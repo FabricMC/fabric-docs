@@ -66,11 +66,11 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 ### 创建属性{#creating-the-property}
 
-首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.of` 方法。
+首先，需要创建属性本身——因为是个布尔值，所以使用 `BooleanProperty.create` 方法。
 
 @[code transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-然后，需要在 `appendProperties` 方法中将属性添加到 blockstate manager 中。 需要覆盖此方法以访问 builder：
+然后，需要在 `createBlockStateDefinition` 方法中将属性添加到 blockstate manager 中。 需要覆盖此方法以访问 builder：
 
 @[code transcludeWith=:::2](@/reference/1.21.4/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

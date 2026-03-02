@@ -67,11 +67,11 @@ Questo esempio creerà una proprietà booleana chiamata `activated` - quando un 
 
 ### Creare la Proprietà {#creating-the-property}
 
-Anzitutto, dovrai creare la proprietà in sé - poiché questo è un booleano, useremo il metodo `BooleanProperty.of`.
+Anzitutto, dovrai creare la proprietà in sé - poiché questo è un booleano, useremo il metodo `BooleanProperty.create`.
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Dopo di che, dovremo aggiungere la proprietà al gestore degli stati del blocco nel metodo `appendProperties`. Dovrai fare override del metodo per accedere al costruttore:
+Dopo di che, dovremo aggiungere la proprietà al gestore degli stati del blocco nel metodo `createBlockStateDefinition`. Dovrai fare override del metodo per accedere al costruttore:
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

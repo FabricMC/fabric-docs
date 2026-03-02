@@ -15,7 +15,7 @@ authors:
 
 ### 基础耐久度 {#base-durability}
 
-在创建我们的盔甲物品时，这个常量将在 `Item.Settings#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
+在创建我们的盔甲物品时，这个常量将在 `Item.Properties#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.4/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ authors:
 
 显然，盔甲集并不需要满足每种类型，可以让你的集只有靴或护腿等——原版的海龟壳头盔就是个例子，盔甲集缺了部分槽位。
 
-不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Settings` 中。
+不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
 
-这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Settings` 类中的 `maxDamage` 方法来实现的。
+这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
 
 @[code transcludeWith=:::6](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -96,7 +96,7 @@ authors:
 
 盔甲纹理有两层，都要有。
 
-之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `RegistryKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
+之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了上身和靴子。
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
@@ -109,7 +109,7 @@ authors:
 
 然后，您需要创建一个关联的装备模型定义。 这些会保存在 `/assets/mod-id/equipment/` 文件夹。
 
-我们之前创建的 `RegistryKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
+我们之前创建的 `ResourceKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
 
 由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的设备模型定义会是这样的：
 

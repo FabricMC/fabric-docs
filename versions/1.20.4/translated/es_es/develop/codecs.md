@@ -53,7 +53,7 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 ### Codecs Incluidos
 
-Como hemos mencionado anterioramente, Mojang ya tiene definido varios codecs para varias clases vanila y clases de Java estándares, como por ejemplo, `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text`, y regex `Pattern`s (patrones regex). Los Codecs para las clases propias de Mojang usualmente se pueden encontrar como miembros estáticos con el nombre de `CODEC` en la clase misma, mientras que la mayoría de los demás se encuentran en la clase `Codecs`. Es importante saber que todos los registros vanila tienen un método `getCodec()`, por ejemplo, puedes usar `Registries.BLOCK.getCodec()` para tener un `Codec<Block>` el cual (de)serializa IDs de bloques.
+Como hemos mencionado anterioramente, Mojang ya tiene definido varios codecs para varias clases vanila y clases de Java estándares, como por ejemplo, `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, y regex `Pattern`s (patrones regex). Los Codecs para las clases propias de Mojang usualmente se pueden encontrar como miembros estáticos con el nombre de `CODEC` en la clase misma, mientras que la mayoría de los demás se encuentran en la clase `Codecs`. Es importante saber que todos los registros vanila tienen un método `byNameCodec()`, por ejemplo, puedes usar `BuiltInRegistries.BLOCK.byNameCodec()` para tener un `Codec<Block>` el cual (de)serializa IDs de bloques.
 
 La API de Codec también tiene codecs para tipos de variable primitivos, como `Codec.INT` y `Codec.STRING`. Estos se pueden encontrar como miembros estáticos en la clase `Codec`, y usualmente son la base de Codecs más complejos, como explicado a continuación.
 
@@ -95,7 +95,7 @@ Podemos hacer un codec para esta clase integrando varios codecs más pequeños e
 - un `Codec<Item>`
 - un `Codec<List<BlockPos>>`
 
-Podemos obtener el primero usando los codecs primitivos ya mencionados, mediante la clase `Codec`, específicamente `Codec.INT`. Mientras que el segundo se puede obtener mediante el registro `Registries.ITEM`, el cuando tiene un método `getCodec()`, el cual retorna un `Codec<Item>`. No tenemos un codec por defecto para `List<BlockPos>`, pero podemos crear uno a partir de `BlockPos.CODEC`.
+Podemos obtener el primero usando los codecs primitivos ya mencionados, mediante la clase `Codec`, específicamente `Codec.INT`. Mientras que el segundo se puede obtener mediante el registro `BuiltInRegistries.ITEM`, el cuando tiene un método `byNameCodec()`, el cual retorna un `Codec<Item>`. No tenemos un codec por defecto para `List<BlockPos>`, pero podemos crear uno a partir de `BlockPos.CODEC`.
 
 ### Listas
 
@@ -116,7 +116,7 @@ Veamos como podemos crear un codec para nuestra clase `CoolBeansClass`:
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // El máximo de miembros que se pueden declarar aquí es 16
 ).apply(instance, CoolBeansClass::new));
@@ -219,16 +219,16 @@ Si el segundo también falla, el error del _segundo_ codec será retornado.
 
 Para procesar asociaciones con llaves arbitrarias, como `HashMap`s, se puede usar `Codec.unboundedMap`. Esto nos dá un `Codec<Map<K, V>>`, para un `Codec<K>` y un `Codec<V>` dado. El codec resultante será serializado a un objeto json o el equivalente disponible en el dynamic ops actual.
 
-Debido a las limitaciones de json y nbt, los codecs para las llaves _deben_ ser serializados a una cadena de caracteres (string). Esto incluye codecs para tipos que no son cadenas de caracteres por su cuenta, pero si se serializan a ellas, como `Identifier.CODEC`. Vea el ejemplo a continuación:
+Debido a las limitaciones de json y nbt, los codecs para las llaves _deben_ ser serializados a una cadena de caracteres (string). Esto incluye codecs para tipos que no son cadenas de caracteres por su cuenta, pero si se serializan a ellas, como `ResourceLocation.CODEC`. Vea el ejemplo a continuación:
 
 ```java
 // Crea un codec para un mapa de identificadores a numeros enteros
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // Usalo para serializar datos
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    new ResourceLocation("example", "number"), 23,
+    new ResourceLocation("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -241,7 +241,7 @@ Esto producirá este json:
 }
 ```
 
-Como puedes ver, esto funciona porque `Identifier.CODEC` se serializa directamente a una cadena de caracteres. Un efecto similar puede ser logrado para objetos simples que no se serializan a cadenas de caracteres usando [xmap y sus amigos](#mutually-convertible-types-and-you) para convertirlos.
+Como puedes ver, esto funciona porque `ResourceLocation.CODEC` se serializa directamente a una cadena de caracteres. Un efecto similar puede ser logrado para objetos simples que no se serializan a cadenas de caracteres usando [xmap y sus amigos](#mutually-convertible-types-and-you) para convertirlos.
 
 ### Tipos Mutuamente Convertibles y Tú
 
@@ -269,21 +269,21 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `Codec#flatComapMap`, `Codec#comapFlatMap` y `flatXMap` son similares a xmap, pero permiten que una o ambass de las funciones convertidoras retornen un DataResult. En práctica esto es útil porque una instancia de un objeto puede no ser válida para conversión.
 
-Toma por ejemplo `Identifier`s vanila. Aunque todos los identificadores pueden ser convertidos a cadenas de caracteres, no todas las cadenas de caracteres son identificadores válidos, así que usar xmap significaría tirar excepciones si la conversión falla.
+Toma por ejemplo `ResourceLocation`s vanila. Aunque todos los identificadores pueden ser convertidos a cadenas de caracteres, no todas las cadenas de caracteres son identificadores válidos, así que usar xmap significaría tirar excepciones si la conversión falla.
 Debido a esto, su codec incluído es en realidad un `comapFlatMap` en `Codec.STRING`, ilustrando como se pueden usar:
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(new ResourceLocation(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
@@ -310,8 +310,8 @@ Por ejemplo, digamos que tenemos una interfaz abstracta `Bean`, con dos clases i
 - Codecs separados para cada tipo de bean.
 - Una clase `BeanType<T extends Bean>` o un record que represente el tipo de bean, y que pueda retornar un codec para él.
 - Una función en `Bean` para obtener su `BeanType<?>`.
-- Una asociación o registro para asociar `Identifier`s a `BeanType<?>`s.
-- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`, puedes hacer una fácilmente con `Registry#getCodec`.
+- Una asociación o registro para asociar `ResourceLocation`s a `BeanType<?>`s.
+- Un `Codec<BeanType<?>>` basado en este registro. Si usas un `net.minecraft.registry.Registry`, puedes hacer una fácilmente con `Registry#byNameCodec`.
 
 Con todo esto, puedes crear un despacho de registros para beans:
 
@@ -324,12 +324,12 @@ Con todo esto, puedes crear un despacho de registros para beans:
 ```java
 // Ahora podemos crear un codec para los tipos de bean
 // basado en el registro previamente creado
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // ¡Y basado en esto, aquí esta nuestro codec de despacho de registros para beans!
 // El primer argumento es el nombre del miembro para el tipo de bean.
 // Cuando no se especifica, se usa el valor por defecto "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::byNameCodec);
 ```
 
 Nuestro nuevo codec serializará beans a json de esta manera, usando solo los campos relevantes a su tipo especificado:
@@ -350,7 +350,7 @@ Nuestro nuevo codec serializará beans a json de esta manera, usando solo los ca
 
 ### Codecs Recursivos
 
-A veces es útil tener un codec que se use a _sí mismo_ para decodificar ciertos miembros, por ejemplo cuando estamos lidiando con ciertas estructuras de datos recursivas. En el código vanilla, esto es usado para objetos `Text` (Texto), los cuales tienen otros objetos `Text` como hijos. Tal codec puede ser construido usando `Codecs#createRecursive`.
+A veces es útil tener un codec que se use a _sí mismo_ para decodificar ciertos miembros, por ejemplo cuando estamos lidiando con ciertas estructuras de datos recursivas. En el código vanilla, esto es usado para objetos `Component` (Texto), los cuales tienen otros objetos `Component` como hijos. Tal codec puede ser construido usando `Codecs#createRecursive`.
 
 Por ejemplo, tratemos de serializar una lista enlazada. Esta manera de representar listas consiste en varios nodos que contienen un valor y una referencia al siguiente nodo en la lista. La lista es entonces representada mediante el primer nodo, y para caminar por la lista se sigue el siguiente nodo hasta que no quede ninguno. Aquí está una implementación simple de los nodos que guardan números enteros.
 

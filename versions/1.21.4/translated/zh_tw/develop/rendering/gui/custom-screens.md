@@ -21,8 +21,8 @@ authors:
 
 - 畫面元件不應該在建構子裡被創造，因為畫面還沒建構完成，部分變數（例如：寬度 `width`、高度 `height`）還無法被存取或是不準確。
 - `init` 函式是在畫面被創建時呼叫的，所以創建畫面元件最適合在裡面執行。
-  - `addDrawableChild`函式負責顯示畫面元件，他可以顯示任何可以被繪製（drawable）的畫面元件。
-- `render` 函式每幀都會被執行，在函式中可以獲取圖形繪器 `DrawContext` 和滑鼠位置 `mouseX` `mouseY`。
+  - `addRenderableWidget`函式負責顯示畫面元件，他可以顯示任何可以被繪製（drawable）的畫面元件。
+- `render` 函式每幀都會被執行，在函式中可以獲取圖形繪器 `GuiGraphics` 和滑鼠位置 `mouseX` `mouseY`。
 
 我們將創建一個簡單的畫面，畫面包含一個按鈕和一串標示。
 
@@ -35,8 +35,8 @@ authors:
 你可以透過 `MinecraftClient` 的 `setScreen` 函式來打開自訂畫面，開啟的方法可以有很多（例如：按鍵，指令，封包）。
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -45,7 +45,7 @@ MinecraftClient.getInstance().setScreen(
 如果你想要關閉畫面回到遊戲，可以使用 `setScreen(null)` 函式。
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 如果你想要回到上一個畫面，在現在的畫面的建構子裡傳入上一個畫面，並將它保存到參數裡，然後在 `close` 函式裡呼叫 `setScreen(/* 剛剛保存的畫面 */)` 。
@@ -55,8 +55,8 @@ MinecraftClient.getInstance().setScreen(null);
 這樣當你在開啟新的畫面時，你可以把現在的畫面傳入建構子中，然後在 `CustomScreen#Close` 執行時，就可以回到上個畫面了。
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

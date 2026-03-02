@@ -25,13 +25,13 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 工具原型向游戏告知以下信息：
 
-### 耐久 - `getDurability()` {#durability}
+### 耐久 - `getUses()` {#durability}
 
 该工具在损坏前可被使用多少次：
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### 挖掘速度 - `getMiningSpeedMultiplier()` {#mining-speed}
+### 挖掘速度 - `getSpeed()` {#mining-speed}
 
 如果该工具用来破坏方块，那么它破坏方块的速度应该多快？
 
@@ -39,13 +39,13 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 作为参考，钻石工具材料的挖掘速度为 `8.0F`，而石质工具材料的挖掘速度为 `4.0F`。
 
-### 攻击伤害 - `getAttackDamage()` {#attack-damage}
+### 攻击伤害 - `getAttackDamageBonus()` {#attack-damage}
 
 将工具作为武器攻击别的实体时，应该造成多少点伤害？
 
 @[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### 反向标签 - `getMiningLevel()` {#inverse-tag}
+### 反向标签 - `getIncorrectBlocksForDrops()` {#inverse-tag}
 
 反向标签显示工具 _**无法**_ 挖掘的内容。 例如，使用 `BlockTags.INCORRECT_FOR_WOODEN_TOOL` 标签可阻止工具挖掘某些方块：
 
@@ -67,7 +67,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 如果你想自定义标签，可以使用 `TagKey.of(...)` 来创建自定义标签键。
 
-### 附魔能力 - `getEnchantability()` {#enchantability}
+### 附魔能力 - `getEnchantmentValue()` {#enchantability}
 
 这个物品在附魔台中附上更好、更高级的附魔有多轻松？ 作为参考和比较，金质的附魔等级为 22，而下界合金的附魔等级为 15。
 

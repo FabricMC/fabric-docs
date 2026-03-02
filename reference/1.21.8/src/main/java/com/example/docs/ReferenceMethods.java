@@ -1,7 +1,7 @@
 package com.example.docs;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 
 import com.example.docs.effect.FabricDocsReferenceEffects;
 
@@ -12,8 +12,8 @@ import com.example.docs.effect.FabricDocsReferenceEffects;
 public class ReferenceMethods {
 	public static void addTaterEffect(LivingEntity entity) {
 		// :::1
-		var instance = new StatusEffectInstance(FabricDocsReferenceEffects.TATER, 5 * 20, 0, false, true, true);
-		entity.addStatusEffect(instance);
+		var instance = new MobEffectInstance(FabricDocsReferenceEffects.TATER, 5 * 20, 0, false, true, true);
+		entity.addEffect(instance);
 		// :::1
 	}
 }

@@ -1,16 +1,15 @@
 package com.example.docs.block.entity;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModBlockEntities {
 	public static final BlockEntityType<EngineBlockEntity> ENGINE_BLOCK_ENTITY =
@@ -21,10 +20,10 @@ public class ModBlockEntities {
 			register("counter", CounterBlockEntity::new, ModBlocks.COUNTER_BLOCK);
 
 	private static <T extends BlockEntity> BlockEntityType<T> register(String name,
-																	BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
+																	BlockEntityType.BlockEntitySupplier<? extends T> entityFactory,
 																	Block... blocks) {
-		Identifier id = Identifier.of(ExampleMod.MOD_ID, name);
-		return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
+		ResourceLocation id = ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>of(entityFactory, blocks).build());
 	}
 
 	// :::1

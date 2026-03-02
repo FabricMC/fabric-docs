@@ -134,7 +134,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 - Problemi con i generic - Potresti avere un problema con i generic una volta ogni tanto. Se stai registrando comandi sul server (ovvero nella maggior parte dei casi), assicurati di star usando `CommandManager.literal`
   o `CommandManager.argument` anziché `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
-- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore booleano come secondo argomento. Ricordati anche che, da Minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Text`.
+- Controlla il metodo `sendFeedback()` - Potresti aver dimenticato di fornire un valore booleano come secondo argomento. Ricordati anche che, da Minecraft 1.20, il primo parametro è `Supplier<Text>` anziché `Component`.
 
 - Un Command dovrebbe restituire un intero - Quando registri comandi, il metodo `executes()` accetta un oggetto `Command`, che è solitamente una lambda. La lambda dovrebbe restituire un intero, anziché altri tipi.
 
@@ -144,7 +144,7 @@ I comandi reindirizzati - anche noti come alias - sono un modo di reindirizzare 
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+Dopo averlo fatto, devi nuovamente inviare l'albero di comandi a ogni giocatore usando `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Questo è necessario perché il client mantiene una cache locale dell'albero dei comandi che riceve durante il login (o quando i pacchetti per operatori vengono mandati) per suggerimenti locali e messaggi di errore ricchi.
 :::
@@ -155,7 +155,7 @@ Questo è necessario perché il client mantiene una cache locale dell'albero dei
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuovere nodi. Dopodiché, devi mandare nuovamente l'albero di comandi a ogni giocatore usando `sendCommandTree(ServerPlayerEntity)`.
+Per tenere le cose semplici, devi usare la reflection su Brigadier e rimuovere nodi. Dopodiché, devi mandare nuovamente l'albero di comandi a ogni giocatore usando `sendCommandTree(ServerPlayer)`.
 
 Se non mandi l'albero di comandi aggiornato, il client potrebbe credere che il comando esista ancora, anche se fallirà l'esecuzione sul server.
 :::

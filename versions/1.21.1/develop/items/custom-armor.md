@@ -94,9 +94,9 @@ Obviously, an armor set doesn't need every type to be satisfied, you can have a 
 ### Durability {#durability}
 
 Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items.
-For this reason the durability needs to be manually added to the armor items' `Item.Settings` when registering them.
+For this reason the durability needs to be manually added to the armor items' `Item.Properties` when registering them.
 
-This is achieved using the `maxDamage` method in the `Item.Settings` class.
+This is achieved using the `maxDamage` method in the `Item.Properties` class.
 The different armor slots have different base durabilities which are commonly multiplied by a shared armor material multiplier but hard-coded values can also be used.
 
 For the Guidite armor we'll be using a shared armor multiplier stored alongside the armor material:

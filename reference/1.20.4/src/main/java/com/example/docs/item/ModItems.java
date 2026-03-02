@@ -1,26 +1,24 @@
 package com.example.docs.item;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import com.example.docs.ExampleMod;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.LightningStick;
@@ -31,28 +29,28 @@ public class ModItems {
 	// :::1
 
 	// :::6
-	public static final Item GUIDITE_HELMET = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Settings()), "guidite_helmet");
-	public static final Item GUIDITE_BOOTS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()), "guidite_boots");
-	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()), "guidite_leggings");
-	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "guidite_chestplate");
+	public static final Item GUIDITE_HELMET = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Properties()), "guidite_helmet");
+	public static final Item GUIDITE_BOOTS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Properties()), "guidite_boots");
+	public static final Item GUIDITE_LEGGINGS = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Properties()), "guidite_leggings");
+	public static final Item GUIDITE_CHESTPLATE = register(new ArmorItem(GuiditeArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Properties()), "guidite_chestplate");
 	// :::6
 	public static final Item LIGHTNING_STICK = register(new LightningStick(new FabricItemSettings()), "lightning_stick");
 	// :::7
 	public static final Item GUIDITE_SWORD = register(new SwordItem(GuiditeMaterial.INSTANCE, 2, 0.5F, new FabricItemSettings()), "guidite_sword");
 	// :::7
 	// :::9
-	public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(ExampleMod.MOD_ID, "item_group"));
-	public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+	public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), new ResourceLocation(ExampleMod.MOD_ID, "item_group"));
+	public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
-			.displayName(Text.translatable("itemGroup.example-mod"))
+			.title(Component.translatable("itemGroup.example-mod"))
 			.build();
 	// :::9
 	// :::5
-	public static final FoodComponent SUSPICIOUS_FOOD_COMPONENT = new FoodComponent.Builder()
-			.alwaysEdible()
-			.snack()
+	public static final FoodProperties SUSPICIOUS_FOOD_COMPONENT = new FoodProperties.Builder()
+			.alwaysEat()
+			.fast()
 			// The duration is in ticks, 20 ticks = 1 second
-			.statusEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 1), 1.0f)
+			.effect(new MobEffectInstance(MobEffects.POISON, 6 * 20, 1), 1.0f)
 			.build();
 	// :::5
 
@@ -67,10 +65,10 @@ public class ModItems {
 	// :::1
 	public static Item register(Item item, String id) {
 		// Create the identifier for the item.
-		Identifier itemID = new Identifier(ExampleMod.MOD_ID, id);
+		ResourceLocation itemID = new ResourceLocation(ExampleMod.MOD_ID, id);
 
 		// Register the item.
-		Item registeredItem = Registry.register(Registries.ITEM, itemID, item);
+		Item registeredItem = Registry.register(BuiltInRegistries.ITEM, itemID, item);
 
 		// Return the registered item!
 		return registeredItem;
@@ -84,36 +82,36 @@ public class ModItems {
 		// :::4
 		// Get the event for modifying entries in the ingredients group.
 		// And register an event handler that adds our suspicious item to the ingredients group.
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-				.register((itemGroup) -> itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS)
+				.register((itemGroup) -> itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE));
 		// :::4
 
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((itemGroup) -> {
-					itemGroup.add(ModItems.GUIDITE_HELMET);
-					itemGroup.add(ModItems.GUIDITE_BOOTS);
-					itemGroup.add(ModItems.GUIDITE_LEGGINGS);
-					itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
+					itemGroup.accept(ModItems.GUIDITE_HELMET);
+					itemGroup.accept(ModItems.GUIDITE_BOOTS);
+					itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
+					itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
 				});
 
 		// :::8
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
-				.register((itemGroup) -> itemGroup.add(ModItems.GUIDITE_SWORD));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
 		// :::_12
 		// Register the group.
-		Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
 
 		// Register items to the custom item group.
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE);
-			itemGroup.add(ModItems.GUIDITE_SWORD);
-			itemGroup.add(ModItems.GUIDITE_HELMET);
-			itemGroup.add(ModItems.GUIDITE_BOOTS);
-			itemGroup.add(ModItems.GUIDITE_LEGGINGS);
-			itemGroup.add(ModItems.GUIDITE_CHESTPLATE);
-			itemGroup.add(ModItems.LIGHTNING_STICK);
+			itemGroup.accept(ModItems.SUSPICIOUS_SUBSTANCE);
+			itemGroup.accept(ModItems.GUIDITE_SWORD);
+			itemGroup.accept(ModItems.GUIDITE_HELMET);
+			itemGroup.accept(ModItems.GUIDITE_BOOTS);
+			itemGroup.accept(ModItems.GUIDITE_LEGGINGS);
+			itemGroup.accept(ModItems.GUIDITE_CHESTPLATE);
+			itemGroup.accept(ModItems.LIGHTNING_STICK);
 			// ...
 		});
 		// :::_12

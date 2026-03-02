@@ -9,12 +9,12 @@ authors:
 
 ## 创建组件 {#creating-a-widget}
 
-有很多种创建组件的方式，例如继承 `ClickableWidget`。 这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Drawable`、`Element`、`Narratable`、`Selectable` 接口规定：
+有很多种创建组件的方式，例如继承 `AbstractWidget`。 这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Renderable`、`GuiEventListener`、`NarrationSupplier`、`NarratableEntry` 接口规定：
 
-- `Drawable` 用于渲染，需要通过 `Screen#addDrawableChild` 将组件注册到屏幕中。
-- `Element` 用于事件，比如鼠标点击、键盘输入等，需要这个来处理事件。
-- `Narratable` 用于无障碍，让组件能够通过屏幕阅读器或其他无障碍工具访问。
-- `Selectable` 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也能帮助无障碍。
+- `Renderable` 用于渲染，需要通过 `Screen#addDrawableChild` 将组件注册到屏幕中。
+- `GuiEventListener` 用于事件，比如鼠标点击、键盘输入等，需要这个来处理事件。
+- `NarrationSupplier` 用于无障碍，让组件能够通过屏幕阅读器或其他无障碍工具访问。
+- `NarratableEntry` 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也能帮助无障碍。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
 
@@ -28,7 +28,7 @@ authors:
 
 ## 组件事件 {#widget-events}
 
-您可以自定义用户输入事件的处理逻辑，比如覆写 `onMouseClicked`、`onMouseReleased`、`onKeyPressed` 等方法。
+您可以自定义用户输入事件的处理逻辑，比如覆写 `mouseClicked`、`afterMouseAction`、`keyPressed` 等方法。
 
 举个例子，您可以使用 `ClickableWidget#isHovered` 方法来使组件在鼠标悬停时变色。
 

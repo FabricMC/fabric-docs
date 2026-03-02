@@ -1,21 +1,21 @@
 package com.example.docs.networking.basic;
 
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.Identifier;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
 
 import com.example.docs.FabricDocsReference;
 
 // :::give_glowing_effect_payload
-public record GiveGlowingEffectC2SPayload(int entityId) implements CustomPayload {
-	public static final Identifier GIVE_GLOWING_EFFECT_PAYLOAD_ID = Identifier.of(FabricDocsReference.MOD_ID, "give_glowing_effect");
-	public static final CustomPayload.Id<GiveGlowingEffectC2SPayload> ID = new CustomPayload.Id<>(GIVE_GLOWING_EFFECT_PAYLOAD_ID);
-	public static final PacketCodec<RegistryByteBuf, GiveGlowingEffectC2SPayload> CODEC = PacketCodec.tuple(PacketCodecs.INTEGER, GiveGlowingEffectC2SPayload::entityId, GiveGlowingEffectC2SPayload::new);
+public record GiveGlowingEffectC2SPayload(int entityId) implements CustomPacketPayload {
+	public static final ResourceLocation GIVE_GLOWING_EFFECT_PAYLOAD_ID = ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "give_glowing_effect");
+	public static final CustomPacketPayload.Type<GiveGlowingEffectC2SPayload> ID = new CustomPacketPayload.Type<>(GIVE_GLOWING_EFFECT_PAYLOAD_ID);
+	public static final StreamCodec<RegistryFriendlyByteBuf, GiveGlowingEffectC2SPayload> CODEC = StreamCodec.composite(ByteBufCodecs.INT, GiveGlowingEffectC2SPayload::entityId, GiveGlowingEffectC2SPayload::new);
 
 	@Override
-	public Id<? extends CustomPayload> getId() {
+	public Type<? extends CustomPacketPayload> type() {
 		return ID;
 	}
 }

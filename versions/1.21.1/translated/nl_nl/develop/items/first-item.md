@@ -26,10 +26,10 @@ Mojang doet dit ook voor hun voorwerpen! Neem maar eens een kijkje naar de `Item
 
 Je kunt nu een voorwerp registreren met de methode.
 
-De voorwerpconstructor neemt een exemplaar van de `Items.Settings` klasse als een parameter. Met deze klasse kun je de eigenschappen van het voorwerp configureren via verschillende bouwermethodes.
+De voorwerpconstructor neemt een exemplaar van de `Item.Properties` klasse als een parameter. Met deze klasse kun je de eigenschappen van het voorwerp configureren via verschillende bouwermethodes.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 Dit werkt niet als je het item als beschadigbaar hebt gemarkeerd, omdat de stapelgrootte voor beschadigbare items altijd 1 is om duplicatie-exploits te voorkomen.
 :::
@@ -49,10 +49,10 @@ Het aanroepen van een methode voor een klasse initialiseert deze statisch als de
 ## Het Voorwerp Toevoegen aan een Voorwerpgroep {#adding-the-item-to-an-item-group}
 
 :::info
-Als je het item wilt toevoegen aan een aangepaste `ItemGroup`, ga dan naar de pagina [Aangepaste Voorwerpgroepen](./custom-item-groups) voor meer informatie.
+Als je het item wilt toevoegen aan een aangepaste `CreativeModeTab`, ga dan naar de pagina [Aangepaste Voorwerpgroepen](./custom-item-groups) voor meer informatie.
 :::
 
-We zullen dit item bijvoorbeeld toevoegen aan de ingrediënten `ItemGroup`, u zult de voorwerpgroepgebeurtenissen van Fabric API moeten gebruiken - met name `ItemGroupEvents.modifyEntriesEvent`
+We zullen dit item bijvoorbeeld toevoegen aan de ingrediënten `CreativeModeTab`, u zult de voorwerpgroepgebeurtenissen van Fabric API moeten gebruiken - met name `ItemGroupEvents.modifyEntriesEvent`
 
 Dit kan gedaan worden in de `initialize`-methode van uw voorwerpen klasse.
 
@@ -136,7 +136,7 @@ Voor meer informatie over het receptformaat kunt u deze bronnen raadplegen:
 
 ## Aangepaste Tooltips {#custom-tooltips}
 
-Als je wilt dat je voorwerp een ​​aangepaste tooltip heeft, moet je een klasse maken die `Item` uitbreidt en de methode `appendTooltip` overschrijft.
+Als je wilt dat je voorwerp een ​​aangepaste tooltip heeft, moet je een klasse maken die `Item` uitbreidt en de methode `appendHoverText` overschrijft.
 
 :::info
 In dit voorbeeld wordt de klasse `LightningStick` gebruikt die is gemaakt op de pagina [Aangepaste Voorwerpinteracties](./custom-item-interactions).

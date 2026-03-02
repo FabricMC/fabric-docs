@@ -1,23 +1,20 @@
 package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
-
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.registry.RegistryWrapper;
-
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import com.example.docs.block.ModBlocks;
 
 // :::datagen-loot-tables:block-provider
 public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTableProvider {
-	protected FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	protected FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 
@@ -27,13 +24,13 @@ public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTa
 		// :::datagen-loot-tables:block-drops
 		// Make condensed dirt drop its block item.
 		// Also adds the condition that it survives the explosion that broke it, if applicable,
-		addDrop(ModBlocks.CONDENSED_DIRT);
+		dropSelf(ModBlocks.CONDENSED_DIRT);
 		// Make prismarine lamps drop themselves with silk touch only
-		addDropWithSilkTouch(ModBlocks.PRISMARINE_LAMP);
+		dropWhenSilkTouch(ModBlocks.PRISMARINE_LAMP);
 		// Make condensed oak logs drop between 7 and 9 oak logs
-		addDrop(ModBlocks.CONDENSED_OAK_LOG, LootTable.builder().pool(addSurvivesExplosionCondition(Items.OAK_LOG, LootPool.builder()
-				.rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(7), new ConstantLootNumberProvider(9)))
-				.with(ItemEntry.builder(Items.OAK_LOG))))
+		add(ModBlocks.CONDENSED_OAK_LOG, LootTable.lootTable().withPool(applyExplosionCondition(Items.OAK_LOG, LootPool.lootPool()
+				.setRolls(new UniformGenerator(new ConstantValue(7), new ConstantValue(9)))
+				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
 		// :::datagen-loot-tables:block-drops
 		// :::datagen-loot-tables:block-provider

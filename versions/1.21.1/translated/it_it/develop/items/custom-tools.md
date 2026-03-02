@@ -25,13 +25,13 @@ Quando avrai creato il materiale del tuo strumento e l'avrai modificato a piacer
 
 Il materiale dello strumento informa il gioco sulle seguenti proprietà:
 
-### Durabilità - `getDurability()` {#durability}
+### Durabilità - `getUses()` {#durability}
 
 Quante volte si può usare lo strumento prima che si rompa:
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### Velocità di Rottura - `getMiningSpeedMultiplier()` {#mining-speed}
+### Velocità di Rottura - `getSpeed()` {#mining-speed}
 
 Se lo strumento viene usato per rompere blocchi, quanto velocemente deve fare ciò?
 
@@ -39,13 +39,13 @@ Se lo strumento viene usato per rompere blocchi, quanto velocemente deve fare ci
 
 Per darti un riferimento, il materiale diamante ha come velocità di rottura `8.0F`, mentre quello di pietra ha come velocità `4.0F`.
 
-### Danno da Attacco - `getAttackDamage()` {#attack-damage}
+### Danno da Attacco - `getAttackDamageBonus()` {#attack-damage}
 
 Quanti punti di danno deve causare lo strumento quando lo si usa come arma contro un'altra entità?
 
 @[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-### Tag Invertito - `getMiningLevel()` {#inverse-tag}
+### Tag Invertito - `getIncorrectBlocksForDrops()` {#inverse-tag}
 
 Il tag invertito mostra ciò che l'oggetto _**non**_ può rompere. Per esempio, usare il tag `BlockTags.INCORRECT_FOR_WOODEN_TOOL` non permette allo strumento di rompere certi blocchi:
 
@@ -67,7 +67,7 @@ Usiamo il tag degli strumenti di ferro. Questo non permetterà agli strumenti di
 
 Puoi usare `TagKey.of(...)` per creare una chiave di tag personalizzata se vuoi usare un tag personalizzato.
 
-### Incantabilità - `getEnchantability()` {#enchantability}
+### Incantabilità - `getEnchantmentValue()` {#enchantability}
 
 Quanto facile è ottenere livelli maggiori e migliori degli incantesimi con questo oggetto? Per riferimento, l'oro ha incantabilità 22, mentre la netherite ha incantabilità 15.
 

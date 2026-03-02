@@ -33,9 +33,9 @@ Im [Minecraft Wiki](https://de.minecraft.wiki/w/Schadensarten#Dateiformat) finde
 
 ### Auf eine Schadensart durch Code zugreifen
 
-Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `RegistryKey`, um eine Instanz von `DamageSource` zu erstellen.
+Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müssen, verwenden wir seinen `ResourceKey`, um eine Instanz von `DamageSource` zu erstellen.
 
-Der `RegistryKey` kann wie folgt ermittelt werden:
+Der `ResourceKey` kann wie folgt ermittelt werden:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
@@ -49,7 +49,7 @@ Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten
 
 @[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Dann rufen wir `entity.damage()` mit unserer `DamageSource` und einem Betrag auf.
+Dann rufen wir `entity.hurt()` mit unserer `DamageSource` und einem Betrag auf.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
