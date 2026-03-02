@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
  */
 public interface ImplementedContainer extends Container {
 	/**
-	 * Retrieves the item list of this inventory.
+	 * Retrieves the item list of this container.
 	 * Must return the same instance every time it's called.
 	 */
 	NonNullList<ItemStack> getItems();
@@ -26,14 +26,14 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Creates a new inventory with the specified size.
+	 * Creates a new container with the specified size.
 	 */
 	static ImplementedContainer ofSize(int size) {
 		return of(NonNullList.withSize(size, ItemStack.EMPTY));
 	}
 
 	/**
-	 * Returns the inventory size.
+	 * Returns the container size.
 	 */
 	@Override
 	default int getContainerSize() {
@@ -41,8 +41,8 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Checks if the inventory is empty.
-	 * @return true if this inventory has only empty stacks, false otherwise.
+	 * Checks if the container is empty.
+	 * @return true if this container has only empty stacks, false otherwise.
 	 */
 	@Override
 	default boolean isEmpty() {
@@ -66,9 +66,9 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Removes items from an inventory slot.
+	 * Removes items from a container slot.
 	 * @param slot  The slot to remove from.
-	 * @param count How many items to remove. If there are less items in the slot than what are requested,
+	 * @param count How many items to remove. If there are fewer items in the slot than what are requested,
 	 *              takes all items in that slot.
 	 */
 	@Override
@@ -83,7 +83,7 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Removes all items from an inventory slot.
+	 * Removes all items from a container slot.
 	 * @param slot The slot to remove from.
 	 */
 	@Override
@@ -92,11 +92,11 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Replaces the current stack in an inventory slot with the provided stack.
-	 * @param slot  The inventory slot of which to replace the itemstack.
-	 * @param stack The replacing itemstack. If the stack is too big for
-	 *              this inventory ({@link Container#getMaxStackSize()}),
-	 *              it gets resized to this inventory's maximum amount.
+	 * Replaces the current stack in an container slot with the provided stack.
+	 * @param slot  The container slot of which to replace the item stack.
+	 * @param stack The replacing item stack. If the stack is too big for
+	 *              this container ({@link Container#getMaxStackSize()}),
+	 *              it gets resized to this container's maximum amount.
 	 */
 	@Override
 	default void setItem(int slot, ItemStack stack) {
@@ -108,7 +108,7 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Clears the inventory.
+	 * Clears the container.
 	 */
 	@Override
 	default void clearContent() {
@@ -116,9 +116,9 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * Marks the state as dirty.
-	 * Must be called after changes in the inventory, so that the game can properly save
-	 * the inventory contents and notify neighboring blocks of inventory changes.
+	 * Marks that the state has changed.
+	 * Must be called after changes in the container, so that the game can properly save
+	 * the container contents and notify neighboring blocks of container changes.
 	 */
 	@Override
 	default void setChanged() {
@@ -126,7 +126,7 @@ public interface ImplementedContainer extends Container {
 	}
 
 	/**
-	 * @return true if the player can use the inventory, false otherwise.
+	 * @return true if the player can use the container, false otherwise.
 	 */
 	@Override
 	default boolean stillValid(Player player) {

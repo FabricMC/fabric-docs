@@ -117,8 +117,8 @@ export default [
             link: "/develop/blocks/block-entity-renderer",
           },
           {
-            text: "develop.blocks.inventory",
-            link: "/develop/blocks/inventory",
+            text: "develop.blocks.block_containers",
+            link: "/develop/blocks/block-containers",
           },
         ],
       },
