@@ -1,60 +1,58 @@
 ---
 title: Class Tweakers
-description: An introduction to Class Tweakers and their setup process.
+description: Learn what class tweakers are, and how to set them up.
 authors:
   - Earthcomputer
   - its-miroma
   - MildestToucan
 ---
 
-Class tweakers, known as access wideners prior to gaining further functionality, are used to complement Mixin's bytecode manipulation by providing additional transformation tools and allowing for certain runtime modifications to be visible within the development environment.
+Class tweakers, known as access wideners prior to gaining further functionality, are used to complement Mixin's bytecode manipulation by providing additional transformation tools
+and allowing for certain runtime modifications to be visible from the development environment.
 
-Before moving on to the specific features Class Tweakers provide, we will go over the setup process.
+Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0, and may only target Vanilla Minecraft classes.
 
-## Setup Process {#setup-process}
+Before moving on to the tools class tweakers provide, we will go over how to set them up.
 
-Class tweakers may only target Minecraft classes, and are only available on Fabric Loader 0.18 and above.
+## Setup {#setup}
 
 ### File Format {#file-format}
 
-Class tweaker files are conventionally named after your modid, appended with the `.classtweaker` extension to help IDE plugins recognize them. They should be stored in `resources`.
+Class tweaker files are conventionally named after your modid, appended with `.classtweaker` to help IDE plugins recognize them. They should be stored in `resources`.
 
-The file must have the following header format:
+The file must have the following header as its first line:
 
-```classtweaker
-classTweaker v1 <namespace>
-```
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::classtweaker-setup:file-header:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-The namespace should almost never be set to anything other than `named`.
+Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
 
-Class tweaker files can have blank lines and comments starting with `#`
+Class tweaker entry syntax depends on the feature utilized, but you may only have one entry per line.
 
-```classtweaker
-# Comments like this are supported, as well as at the end of the line.
-```
+### Specifying The File Location {#specifying-the-file-location}
 
-Any whitespace can be used to separate in a class tweaker file, but tabs are recommended.
+The class tweaker file's location must be specified in your `build.gradle` and `fabric.mod.json` files.
 
-Classes are specified using their [internal names](../mixins/bytecode#class-names).
+The files are still named after access wideners for compatibility reasons.
 
-### Specifying File Location {#specifying-file-location}
+#### build.gradle {#build-gradle}
 
-The class tweaker location must be specified in your `build.gradle` and in your `fabric.mod.json` file.
+@[code lang=groovy:no-line-numbers transcludeWith=:::classtweaker-setup:gradle:::](@/reference/latest/build.gradle)
 
-`build.gradle`:
+#### fabric.mod.json {#fabric-mod-json}
 
-```groovy
-loom {
-    accessWidenerPath = file("src/main/resources/modid.classtweaker")
-}
-```
+Make sure that you depend on Fabric Loader 0.18.0 or above to use class tweakers:
 
-`fabric.mod.json`:
-
-```json
+```json:no-line-numbers
 ...
 
-"accessWidener": "modid.classtweaker",
+"accessWidener": "example-mod.classtweaker",
 
 ...
 ```
+
+After specifying the file location in your `build.gradle` file, make sure to reload your gradle project in the IDE.
+
+## Validating the File {#validating-the-file}
+
+By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the
+file are valid, run the `validateAccessWidener` Gradle task. Entries containing invalid targets will raise errors.
