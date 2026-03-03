@@ -31,6 +31,8 @@ authors:
 
 Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
 
+For general information about class tweaking and how to set up a class tweaker file, please read [the introduction](../classtweaker).
+
 Before using access wideners, you must first set up a class tweaker file as described in the [introduction](../classtweaker).
 
 Access widening is an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) for accessing fields and methods. There are two situations where accessors are insufficient:
@@ -91,37 +93,37 @@ The names of targets should match your current mappings. Note that constructor m
 
 Format:
 
-``` :no-line-numbers
+``` classtweaker:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
 Example:
 
-@[code transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ### Methods {#methods}
 
 Format:
 
-``` :no-line-numbers
+``` classtweaker:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
 
-@[code transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ### Fields {#fields}
 
 Format:
 
-``` :no-line-numbers
+``` classtweaker:no-line-numbers
 <accessible / mutable>    field    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
 
-@[code transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ## Validating The File {#validating-the-file}
 
