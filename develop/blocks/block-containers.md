@@ -31,7 +31,7 @@ Don't forget to register the block and block entity in their respective classes!
 
 ### Saving & Loading {#saving-loading}
 
-Just like with regular `BlockEntities`, if we want the contents to persist between game reloads, we need to save it as NBT. Thankfully, Mojang provides a helper class called `ContainerHelper` with all the necessary logic.
+If we want the contents to persist between game reloads like a vanilla `BlockEntity`, we need to save it as NBT. Thankfully, Mojang provides a helper class called `ContainerHelper` with all the necessary logic.
 
 @[code transcludeWith=:::save](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
 
