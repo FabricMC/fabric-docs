@@ -48,5 +48,6 @@
       "environment": "client"
     }
   ],
-  "depends": {}
+  "depends": {},
+  "accessWidener": "example-mod.classtweaker"
 }
