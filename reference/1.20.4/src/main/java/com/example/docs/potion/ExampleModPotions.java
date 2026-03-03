@@ -28,7 +28,7 @@ public class ExampleModPotions implements ModInitializer {
 		PotionBrewing.addMix(Potions.WATER, Items.POTATO, TATER_POTION);
 
 		// Use the mixin invoker if you are not using Fabric API
-		// BrewingRecipeRegistryInvoker.invokeRegisterPotionRecipe(Potions.WATER, Items.POTATO, TATER_POTION);
+		// BrewingRecipeRegistryInvoker.invokeAddMix(Potions.WATER, Items.POTATO, TATER_POTION);
 	}
 }
 // :::1
