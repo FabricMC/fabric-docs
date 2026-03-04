@@ -1,7 +1,5 @@
 package com.example.docs.menu.custom;
 
-import com.example.docs.menu.ModMenuType;
-
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,6 +7,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+
+import com.example.docs.menu.ModMenuType;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
@@ -18,6 +18,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 	public DirtChestMenu(final int containerId, final Inventory inventory) {
 		this(containerId, inventory, new SimpleContainer(9));
 	}
+
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
 		super(ModMenuType.DIRT_CHEST, containerId);

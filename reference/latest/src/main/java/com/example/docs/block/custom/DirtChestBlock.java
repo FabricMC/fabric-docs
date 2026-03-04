@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 import com.example.docs.block.entity.custom.DirtChestBlockEntity;
+
 // :::block
 public class DirtChestBlock extends BaseEntityBlock {
 	// :::block
@@ -31,6 +32,7 @@ public class DirtChestBlock extends BaseEntityBlock {
 		if (!level.isClientSide() && level.getBlockEntity(blockPos) instanceof DirtChestBlockEntity dirtChest) {
 			player.openMenu(dirtChest);
 		}
+
 		return InteractionResult.SUCCESS;
 	}
 	// :::use
@@ -41,7 +43,6 @@ public class DirtChestBlock extends BaseEntityBlock {
 		return new DirtChestBlockEntity(blockPos, blockState);
 	}
 	// :::block
-
 
 	// :::block
 	// ...

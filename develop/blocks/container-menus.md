@@ -5,6 +5,8 @@ authors:
   - Tenneb22
 ---
 
+<!---->
+
 ::: info PREREQUISITES
 
 You should first read [Block Containers](./container-menus) to familiarize yourself with creating a container block entity.

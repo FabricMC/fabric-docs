@@ -1,12 +1,12 @@
 package com.example.docs.menu;
 
-import com.example.docs.menu.custom.DirtChestMenu;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+
+import com.example.docs.menu.custom.DirtChestMenu;
 
 // :::registerMenu
 public class ModMenuType {
