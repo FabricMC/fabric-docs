@@ -5,7 +5,7 @@ authors:
   - natri0
 ---
 
-It's good practice when creating blocks that can store items, like chests and furnaces, is to implement `Container`. This makes it possible to, for example, interact with the block using hoppers.
+It's good practice when creating blocks that can store items, like chests and furnaces, to implement `Container`. This makes it possible to, for example, interact with the block using hoppers.
 
 In this tutorial we'll create a block that uses its container to duplicate any items placed in it.
 
