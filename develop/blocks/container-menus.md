@@ -7,11 +7,12 @@ authors:
 
 ::: info PREREQUISITES
 
-You should first read [Block Containers](./container-menus.md) to familiarize yourself with creating a container block entity.
+You should first read [Block Containers](./container-menus) to familiarize yourself with creating a container block entity.
 
 :::
 
 When opening for example a chest, mainly two things are needed to display the contents of it:
+
 - a `Screen` which handles rendering the items and background onto the display.
 - a `Menu` that handles the container logic and syncing between the server and client.
 
@@ -19,21 +20,23 @@ In this guide, we will create a dirt chest with a 3x3 container that can be acce
 
 ## Creating the Block {#creating-the-block}
 
-First, we want to create a block and block entity corresponding to the [Block Containers](./container-menus.md) guide.
+First, we want to create a block and block entity corresponding to the [Block Containers](./container-menus) guide.
 
 @[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
 ::: info Note
+
 As we want a 3x3 container, we need to set the size of items to 9.
+
 :::
 
-### Opening the Screen
+### Opening the Screen {#opening-the-screen}
+
 We somehow want to open the screen later, so we will handle that within the `useWithoutItem` method.
 
 @[code transcludeWith=:::use](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
-
 
 ### Implementing MenuProvider {#implementing-menuprovider}
 
@@ -44,7 +47,6 @@ For adding the menu functionality, we now need to implement `MenuProvider` in th
 The `getDisplayName` method returns the name of the block, which will be displayed at the top of the screen.
 
 `createMenu` wants us to return a menu, but we haven't created one for our block yet, so let's do that.
-
 
 ## Creating the Menu {#creating-the-menu}
 
