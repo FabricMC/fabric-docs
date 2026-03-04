@@ -126,8 +126,8 @@ export default [
           },
           {
             text: "develop.blocks.container_menus",
-            link: "/develop/blocks/container-menus"
-          }
+            link: "/develop/blocks/container-menus",
+          },
         ],
       },
       {
