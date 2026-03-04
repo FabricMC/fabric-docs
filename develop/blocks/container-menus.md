@@ -52,8 +52,6 @@ We'll create a new class called `DirtChestMenu`, which extends `AbstractContaine
 
 @[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java)
 
-TODO: Explain the different constructors?
-
 Then we need to register the menu in a new `ModMenuType` class as following:
 
 @[code transcludeWith=:::registerMenu](@/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java)
