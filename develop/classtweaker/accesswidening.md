@@ -125,6 +125,55 @@ Example:
 
 @[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
+## Generating Access Widener Entries {#generating-access-widener-entries}
+
+Manually writing access widener entries is prone to human error and time-consuming. This section goes over tools that simplify a part of the process by allowing you to generate and copy entries.
+
+### mcsrc.dev {#mcsrc-dev}
+
+Available for all versions with an [unobfuscated](../migrating-mappings/index#whats-going-on-with-mappings) jar, namely 1.21.11 and above,
+[mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
+On 1.21.11, the names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
+
+To copy an access widener entry, first navigate to the class which you want to modify, and right click on your target to open the popup menu.
+
+![mcsrc right clicking on target](/assets/develop/classtweaker/accesswidening/mcsrc-right-click-on-aw-target.png)
+
+Then, click on `Copy Class Tweaker / Access Widener`, and a confirmation should appear at the top of the page.
+
+![mcsrc aw copy confirmation](/assets/develop/classtweaker/accesswidening/mcsrc-aw-copy-confirmation.png)
+
+You can then paste the entry in your class tweaker file.
+
+### Minecraft Development Plugin (IntelliJ IDEA) {#mcdev-plugin}
+
+The Minecraft Development Plugin, also known as MCDev, is an IntelliJ IDEA plugin to assist in various aspects of Minecraft mod development.
+This section will show its ability to copy access widener entries to clipboard from the decompiled source target.
+
+To copy an access widener entry, first navigate to the class which you want to modify, and right click on your target to open the popup menu.
+
+![mcdev right clicking on target](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
+
+Then, click on `Copy / Paste Special` and `AW Entry`.
+
+![mcdev copy paste special](/assets/develop/classtweaker/accesswidening/mcdev-copy-paste-special-menu.png)
+
+A confirmation should now pop up on the element you right-clicked.
+
+![mcdev aw copy confirmation](/assets/develop/classtweaker/accesswidening/mcdev-aw-copy-confirmation.png)
+
+### Linkie {#linkie}
+
+[Linkie](https://linkie.shedaniel.dev) is a website to browse and translate between mappings. It also provides access widener entries for the class, method or field you're viewing.
+
+First, make sure you have the correct version and mappings selected on the menu on the left:
+
+![linkie version and mappings selection](/assets/develop/classtweaker/accesswidening/linkie-version-mappings-select.png)
+
+Then, search for the element you want to modify, and the access widener entry will be listed as `AW` under the result:
+
+![linkie search results](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
+
 ## Validating The File {#validating-the-file}
 
 By default, class tweaker entries that specify a non-existent class, method or field will be ignored.
