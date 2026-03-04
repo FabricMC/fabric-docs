@@ -2,6 +2,8 @@ package com.example.docs.block;
 
 import java.util.function.Function;
 
+import com.example.docs.block.custom.DirtChestBlock;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -125,6 +127,10 @@ public class ModBlocks {
 
 	public static final Block DUPLICATOR_BLOCK = register(
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block DIRT_CHEST_BLOCK = register(
+					"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// :::1

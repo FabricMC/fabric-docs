@@ -124,6 +124,10 @@ export default [
             text: "develop.blocks.block_containers",
             link: "/develop/blocks/block-containers",
           },
+          {
+            text: "develop.blocks.container_menus",
+            link: "/develop/blocks/container-menus"
+          }
         ],
       },
       {
