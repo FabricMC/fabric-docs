@@ -1,13 +1,13 @@
 package com.example.docs.rendering.screens.inventory;
 
-import com.example.docs.menu.custom.DirtChestMenu;
-
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
+
+import com.example.docs.menu.custom.DirtChestMenu;
 
 // :::screen
 public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {

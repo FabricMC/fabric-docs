@@ -1,12 +1,11 @@
 package com.example.docs;
 
-import com.example.docs.menu.ModMenuType;
-
-import com.example.docs.rendering.screens.inventory.DirtChestScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 import net.fabricmc.api.ClientModInitializer;
 
-import net.minecraft.client.gui.screens.MenuScreens;
+import com.example.docs.menu.ModMenuType;
+import com.example.docs.rendering.screens.inventory.DirtChestScreen;
 
 // :::registerScreens
 public class ExampleModScreens implements ClientModInitializer {

@@ -1,9 +1,7 @@
 package com.example.docs.block.entity.custom;
 
-import com.example.docs.block.entity.ModBlockEntities;
-import com.example.docs.container.ImplementedContainer;
-
-import com.example.docs.menu.custom.DirtChestMenu;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -16,8 +14,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
+import com.example.docs.block.entity.ModBlockEntities;
+import com.example.docs.container.ImplementedContainer;
+import com.example.docs.menu.custom.DirtChestMenu;
 
 /*
 // :::be
