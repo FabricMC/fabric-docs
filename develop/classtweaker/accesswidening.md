@@ -31,11 +31,10 @@ authors:
 
 Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
 
-For general information about class tweaking and how to set up a class tweaker file, please read [the introduction](../classtweaker).
-
 Before using access wideners, you must first set up a class tweaker file as described in the [introduction](../classtweaker).
 
-Access widening is an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) for accessing fields and methods. There are two situations where accessors are insufficient:
+Access widening is an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) for accessing fields and methods.
+There are two situations where accessors are insufficient and access widening is needed:
 
 - Needing to access a (package) private class
 - Needing to override a final method or subclass a final class.
@@ -53,7 +52,7 @@ Access widener entries use a directive keyword at the start of the line to speci
 `accessible` can target classes, methods and fields:
 
 - Fields and Classes are made public.
-- Methods are made public, and final if originally `private`.
+- Methods are made public, and final if originally private.
 
 Making a method or field accessible also makes its class accessible.
 
@@ -62,7 +61,7 @@ Making a method or field accessible also makes its class accessible.
 `extendable` can target classes and methods:
 
 - Classes are made public and non-final
-- Methods are made `protected` and non-final
+- Methods are made protected and non-final
 
 Making a method extendable also makes its class extendable.
 
@@ -125,7 +124,7 @@ Example:
 
 @[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-## Generating Access Widener Entries {#generating-access-widener-entries}
+## Generating Entries {#generating-entries}
 
 Manually writing access widener entries is prone to human error and time-consuming. This section goes over tools that simplify a part of the process by allowing you to generate and copy entries.
 
@@ -173,11 +172,3 @@ First, make sure you have the correct version and mappings selected on the menu 
 Then, search for the element you want to modify, and the access widener entry will be listed as `AW` under the result:
 
 ![linkie search results](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
-
-## Validating The File {#validating-the-file}
-
-By default, class tweaker entries that specify a non-existent class, method or field will be ignored.
-
-In order to check that all the classes, fields and methods specified in the file exist, run the `validateAccessWidener` Gradle task.
-
-If a specified element does not exist, an error message indicating the invalid entry will appear.
