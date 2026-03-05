@@ -2,7 +2,7 @@ import mediumZoom from "medium-zoom";
 import { type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
-import {defineAsyncComponent, h, nextTick, onMounted, watch} from "vue";
+import { defineAsyncComponent, h, nextTick, onMounted, watch } from "vue";
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
@@ -45,7 +45,9 @@ export default {
     };
 
     if (theme.value.env !== "github") {
-      const BannerComponent = defineAsyncComponent(() => import("./components/BannerComponent.vue"));
+      const BannerComponent = defineAsyncComponent(
+        () => import("./components/BannerComponent.vue")
+      );
       (children as any)["layout-top"] = () => h(BannerComponent);
     }
 
