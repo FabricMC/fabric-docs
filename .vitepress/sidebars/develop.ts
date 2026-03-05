@@ -120,6 +120,10 @@ export default [
             text: "develop.blocks.block_entity_renderer",
             link: "/develop/blocks/block-entity-renderer",
           },
+          {
+            text: "develop.blocks.block_containers",
+            link: "/develop/blocks/block-containers",
+          },
         ],
       },
       {
