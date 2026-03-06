@@ -25,7 +25,8 @@
       "com.example.docs.debug.ExampleModDebug",
       "com.example.docs.saveddata.ExampleModSavedData",
       "com.example.docs.appearance.ExampleModAppearance",
-      "com.example.docs.entity.attribute.ExampleModAttributes"
+      "com.example.docs.entity.attribute.ExampleModAttributes",
+      "com.example.docs.entity.ExampleModEntity"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
@@ -37,7 +38,8 @@
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
       "com.example.docs.appearance.ExampleModAppearanceClient",
-      "com.example.docs.keymapping.ExampleModKeyMappingsClient"
+      "com.example.docs.keymapping.ExampleModKeyMappingsClient",
+      "com.example.docs.entity.ExampleModCustomEntityClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },
