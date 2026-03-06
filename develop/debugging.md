@@ -258,3 +258,9 @@ In the development environment, you can find previous logs in the `Project` wind
 Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.fabricmc.net/) and have a chat with the community!
 
 You may also want to check out the [Official Fabric Wiki](https://wiki.fabricmc.net/start) for more advanced queries.
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`TestItem`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+  - [`ExampleModDebug`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)

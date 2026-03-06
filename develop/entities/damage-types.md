@@ -107,3 +107,8 @@ With the following content:
 @[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
 
 Ensure your tag does not replace the existing tag by setting the `replace` key to `false`.
+
+## References {#references}
+
+- The Minecraft Wiki article on [Damage Types](https://minecraft.wiki/w/Damage_type) provides a full list of damage types, as well as the JSON structure.
+- The NeoForge documentation on [Damage Types & Damage Sources](https://docs.neoforged.net/docs/resources/server/damagetypes/) is accurate to Fabric, with the exception of the section on Data Generation.

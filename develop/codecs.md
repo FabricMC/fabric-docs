@@ -404,7 +404,14 @@ A serialized `ListNode` may then look like this:
 
 ## References {#references}
 
+- The NeoForge documentation on [Codecs](https://docs.neoforged.net/docs/datastorage/codecs/) and [Stream Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/).
 - A much more comprehensive documentation of Codecs and related APIs can be found at the
   [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
 - The general structure of this guide was heavily inspired by the
   [Forge Community Wiki's page on Codecs](https://forge.gemwire.uk/wiki/Codecs), a more Forge-specific take on the same topic.
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`Bean`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+  - [`BeanType`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+  - [`StringyBean`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+  - [`CountingBean`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+  - [`BeanTypes`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)

@@ -59,3 +59,9 @@ This way, the mod's initializer only needs to implement one line to register all
 ## Using the Custom SoundEvent {#using-the-custom-soundevent}
 
 Use the helper class to access the custom SoundEvent. Check out the [Playing Sounds](./using-sounds) page to learn how to play sounds.
+
+## References {#references}
+
+- This article includes samples from the following classes from the Fabric Docs example mod:
+  - [`CustomSounds`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
+  - [`ExampleModSounds`](https://github.com/FabricMC/fabric-docs/blob/main/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
