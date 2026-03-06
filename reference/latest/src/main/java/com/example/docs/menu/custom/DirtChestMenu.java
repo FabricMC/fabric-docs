@@ -24,11 +24,14 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		super(ModMenuType.DIRT_CHEST, containerId);
 		checkContainerSize(container, 9);
 		this.container = container;
+
+		// Some containers do custom logic when opened by a player.
 		container.startOpen(inventory.player);
 
 		int rows = 3;
 		int columns = 3;
 
+		// Add the slots for our container in a 3x3 grid.
 		for (int y = 0; y < rows; y++) {
 			for (int x = 0; x < columns; x++) {
 				int slot = x + y * 3;
@@ -36,6 +39,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 			}
 		}
 
+		// Add the player inventory slots.
 		this.addStandardInventorySlots(inventory, 8, 84);
 	}
 

@@ -20,6 +20,8 @@ public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 	@Override
 	protected void init() {
 		super.init();
+
+		// Center the title
 		this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
 	}
 
