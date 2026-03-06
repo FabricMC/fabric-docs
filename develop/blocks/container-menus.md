@@ -9,7 +9,7 @@ authors:
 
 ::: info PREREQUISITES
 
-You should first read [Block Containers](./block-containers.md) to familiarize yourself with creating a container block entity.
+You should first read [Block Containers](./block-containers) to familiarize yourself with creating a container block entity.
 
 :::
 
@@ -22,7 +22,7 @@ In this guide, we will create a dirt chest with a 3x3 container that can be acce
 
 ## Creating the Block {#creating-the-block}
 
-First, we want to create a block and block entity corresponding to the [Block Containers](./block-containers.md#creating-the-block) guide.
+First, we want to create a block and block entity corresponding to the [Block Containers](./block-containers#creating-the-block) guide.
 
 @[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
 
