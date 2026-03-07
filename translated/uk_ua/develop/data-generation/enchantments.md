@@ -19,7 +19,7 @@ authors:
 
 @[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
-Використовуйте цей метод, аби створити `ResourceKey` для свого зачарування.
+Використовуйте цей метод, щоби створити `ResourceKey` для свого зачарування.
 
 @[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 
@@ -79,7 +79,7 @@ authors:
 
 ## Стіл зачарування {#enchanting-table}
 
-Хоча ми вказали вагу зачарування (або ймовірність) у нашому визначенні зачарування, воно не показуватиметься в столі зачарувань усталено. Аби нашими зачаруванням могли торгувати селяни та з’являтися в столі зачарування, нам потрібно додати їх до теґу `non_treasure`.
+Хоча ми вказали вагу зачарування (або ймовірність) у нашому визначенні зачарування, воно не показуватиметься в столі зачарувань усталено. Щоби нашими зачаруванням могли торгувати селяни та з’являтися в столі зачарування, нам потрібно додати їх до теґу `non_treasure`.
 
 Для цього ми можемо створити постачальник теґів. Створіть клас, який розширює `FabricTagProvider<Enchantment>` в пакеті `datagen`. Потім запровадьте конструктор із `Registries.ENCHANTMENT` як параметр `registryKey` до `super` і створіть метод `addTags`.
 
