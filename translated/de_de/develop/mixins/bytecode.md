@@ -4,6 +4,7 @@ description: Lerne den Java-Bytecode kennen, damit du Mixins effektiv schreiben 
 authors:
   - Earthcomputer
   - its-miroma
+  - Kilip1000
 ---
 
 Mixins arbeiten mit Java-Bytecode, daher muss man deren Grundlagen verstehen, um sie zu begreifen.

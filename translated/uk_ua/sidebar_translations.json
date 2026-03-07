@@ -27,6 +27,7 @@
   "develop.blocks.blockstates": "Стани блока",
   "develop.blocks.block_entities": "Блоки-сутності",
   "develop.blocks.block_entity_renderer": "Рендер блока-сутності",
+  "develop.blocks.block_containers": "Блоки-контейнери",
   "develop.blocks.transparency_and_tinting": "Прозорість та відтінки",
   "develop.entities": "Сутності",
   "develop.entities.effects": "Ефекти моба",

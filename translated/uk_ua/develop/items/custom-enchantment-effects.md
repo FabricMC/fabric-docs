@@ -44,7 +44,7 @@ authors:
 
 Щоб дізнатися більше про формат файлу, ознайомтеся з [визначеннями зачарувань на Вікі Minecraft](https://minecraft.wiki/w/Enchantment_definition).
 
-Аби швидко створити власні зачарування, ви можете скористатися [генератором Misode](https://misode.github.io/enchantment/).
+Щоби швидко створити власні зачарування, ви можете скористатися [генератором Misode](https://misode.github.io/enchantment/).
 
 :::
 
