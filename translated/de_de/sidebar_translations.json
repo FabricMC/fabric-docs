@@ -27,6 +27,7 @@
   "develop.blocks.blockstates": "Blockzustände",
   "develop.blocks.block_entities": "Block Entitäten",
   "develop.blocks.block_entity_renderer": "Block Entität Renderer",
+  "develop.blocks.block_containers": "Blockcontainer",
   "develop.blocks.transparency_and_tinting": "Transparenz und Färbung",
   "develop.entities": "Entitäten",
   "develop.entities.effects": "Mobeffekte",
