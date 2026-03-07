@@ -67,7 +67,7 @@ effect give @p example-mod:tater
 
 :::
 
-要在代码内部应用状态效果，需要使用 `LivingEntity#addMobEffect` 方法，接收一个 `MobEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
+要在代码内部应用状态效果，需要使用 `LivingEntity#addEffect` 方法，接收一个 `MobEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 

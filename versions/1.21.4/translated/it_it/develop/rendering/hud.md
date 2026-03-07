@@ -18,7 +18,7 @@ Nel passato Fabric ha fornito `HudRenderCallback` per renderizzare al HUD. A cau
 
 Fabric fornisce l'API Hud per renderizzare e sovrapporre elementi nella HUD.
 
-Per iniziare, dobbiamo registrare un listener a `HudLayerRegistrationCallback` che registri i tuoi strati. Ogni strato è un `IdentifiedLayer`, ovver un `LayeredDrawer.Layer` vanilla collegato a un `Identifier`. Un'istanza di `LayeredDrawer.Layer` è solitamente una lambda che accetta un `DrawContext` e un'istanza di `RenderTickCounter` come parametro. Leggi `HudLayerRegistrationCallback` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
+Per iniziare, dobbiamo registrare un listener a `HudLayerRegistrationCallback` che registri i tuoi strati. Ogni strato è un `IdentifiedLayer`, ovver un `LayeredDrawer.Layer` vanilla collegato a un `ResourceLocation`. Un'istanza di `LayeredDrawer.Layer` è solitamente una lambda che accetta un `GuiGraphics` e un'istanza di `RenderTickCounter` come parametro. Leggi `HudLayerRegistrationCallback` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
 
 Il contesto di disegno può essere usato per accedere a varie utilità di rendering fornite dal gioco, e per accedere allo stack di matrici puro. Dovresti dare un'occhiata alla pagina [Usare il Contesto di Disegno](./draw-context) per saperne di più riguardo al contesto di disegno.
 
@@ -42,11 +42,11 @@ Per esempio, ipotizzando uno scenario a 200 FPS, il gioco esegue un nuovo tick p
 |  `10` | `9/10 = 0.9`                    |
 |  `11` | `1`: Nuovo tick |
 
-In pratica, dovresti solo usare `tickDelta` quando le tue animazioni dipendono dai tick di Minecraft. Per animazioni basate sul tempo usa `Util.getMeasuringTimeMs()`, che misura il tempo del mondo reale.
+In pratica, dovresti solo usare `tickDelta` quando le tue animazioni dipendono dai tick di Minecraft. Per animazioni basate sul tempo usa `Util.getMillis()`, che misura il tempo del mondo reale.
 
 Puoi ottenere `tickDelta` chiamando `renderTickCounter.getTickDelta(false)`, dove il parametro booleano è `ignoreFreeze`, che in sostanza ti permette semplicemente d'ignorare l'utilizzo del giocatore del comando `/tick freeze`.
 
-In questo esempio, useremo `Util.getMeasuringTimeMs()` per interpolare linearmente il colore di un quadrato che viene renderizzato nel HUD.
+In questo esempio, useremo `Util.getMillis()` per interpolare linearmente il colore di un quadrato che viene renderizzato nel HUD.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
 

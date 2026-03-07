@@ -85,9 +85,9 @@ La interfaz de callback describe lo que debe ser implementado por los usuarios d
 
 Para nuestra implementación de `Event`, escogeremos usar un evento respaldado por un array (array-backed event). El array contendrá todos los escuchadores de evento que están detectando este evento.
 
-Nuestra implementación llamará los escuchadores de evento en orden hasta que uno de ellos no retorne `ActionResult.PASS`. Esto signfica que un usuario puede decir "_cancela esto_", "_aprueba esto_" o "_no me importa, déjaselo al siguiente escuchador del evento_" usando el valor retornado.
+Nuestra implementación llamará los escuchadores de evento en orden hasta que uno de ellos no retorne `InteractionResult.PASS`. Esto signfica que un usuario puede decir "_cancela esto_", "_aprueba esto_" o "_no me importa, déjaselo al siguiente escuchador del evento_" usando el valor retornado.
 
-Usar `ActionResult` como valor de retorno es una manera convencional para hacer que los diferentes usuarios del evento cooperen de esta manera.
+Usar `InteractionResult` como valor de retorno es una manera convencional para hacer que los diferentes usuarios del evento cooperen de esta manera.
 
 Necesitarás crear una interfaz que tiene una instancia de `Event` y un método para la implementación de la respuesta. Una configuración básica para nuestro callback de esquilado de oveja es:
 
@@ -101,11 +101,11 @@ Entonces llamamos nuestro método (en este caso, `interact`), en el escuchador p
 
 @[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Si el escuchador dice que tenemos que cancelar (`ActionResult.FAIL`) o terminar completamente (`ActionResult.SUCCESS`), el callback retorna el resultado y termina el loop. `ActionResult.PASS` prosigue al siguiente escuchador, y en la mayoría de los casos debería resultar en éxito si no hay más escuchadores registrados:
+Si el escuchador dice que tenemos que cancelar (`InteractionResult.FAIL`) o terminar completamente (`InteractionResult.SUCCESS`), el callback retorna el resultado y termina el loop. `InteractionResult.PASS` prosigue al siguiente escuchador, y en la mayoría de los casos debería resultar en éxito si no hay más escuchadores registrados:
 
 @[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Podemos agregar Javadocs por encima de las clases de callback para documentar que es lo que hace cada `ActionResult`. En nuestro caso, puede ser:
+Podemos agregar Javadocs por encima de las clases de callback para documentar que es lo que hace cada `InteractionResult`. En nuestro caso, puede ser:
 
 @[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
 

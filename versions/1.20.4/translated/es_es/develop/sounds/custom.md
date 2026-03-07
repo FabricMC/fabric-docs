@@ -42,8 +42,8 @@ La entrada de subtítulo provee más contexto para el jugador. El nombre del sub
 Para agregar el sonido personalizado al mod, registra un SoundEvent (Evento de Sonido) en la clase que implemente la interfaz `ModInitializer`.
 
 ```java
-Registry.register(Registries.SOUND_EVENT, new Identifier(MOD_ID, "metal_whistle"),
-        SoundEvent.of(new Identifier(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistriesSOUND_EVENT, new ResourceLocation(MOD_ID, "metal_whistle"),
+        SoundEvent.of(new ResourceLocation(MOD_ID, "metal_whistle")));
 ```
 
 ## Limpiando El Desorden

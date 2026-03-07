@@ -1,6 +1,6 @@
 package com.example.docs.sound;
 
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.phys.Vec3;
 
 // :::1
 public interface DynamicSoundSource {
@@ -8,7 +8,7 @@ public interface DynamicSoundSource {
 	int getTick();
 
 	// gets access to where currently this instance is placed in the world
-	Vec3d getPosition();
+	Vec3 getPosition();
 
 	// holds a normalized (range of 0-1) value, showing how much stress this instance is currently experiencing
 	// It is more or less just an arbitrary value, which will cause the sound to change its pitch while playing.

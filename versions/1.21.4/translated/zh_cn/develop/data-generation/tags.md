@@ -15,7 +15,7 @@ authors-nogithub:
 
 ## 设置 {#setup}
 
-首先，创建你自己的 `extends FabricTagProvider<T>` 类，其中 `T` 是您希望提供标签的类型。 这是你的**提供程序**。 在这里我们将展示如何创建 `Item` 标签，但同样的原则对其他场景也适用。 让你的 IDE 填充所需的代码，然后用你的类型的 `RegistryKey` 替换 `registryKey` 构造函数参数：
+首先，创建你自己的 `extends FabricTagProvider<T>` 类，其中 `T` 是您希望提供标签的类型。 这是你的**提供程序**。 在这里我们将展示如何创建 `Item` 标签，但同样的原则对其他场景也适用。 让你的 IDE 填充所需的代码，然后用你的类型的 `ResourceKey` 替换 `registryKey` 构造函数参数：
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 

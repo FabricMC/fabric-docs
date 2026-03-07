@@ -21,7 +21,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
 Материал инструмента сообщает игре следующую информацию:
 
-- ### Прочность - `getDurability()` {#durability}
+- ### Прочность - `getUses()` {#durability}
 
   Сколько раз можно использовать инструмент, прежде чем он сломается.
 
@@ -29,7 +29,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Скорость добычи - `getMiningSpeedMultiplier()` {#mining-speed}
+- ### Скорость добычи - `getSpeed()` {#mining-speed}
 
   Если инструмент используется для разрушения блоков, с какой скоростью он должен их разрушать?
 
@@ -39,7 +39,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Урон от атаки - `getAttackDamage()` {#attack-damage}
+- ### Урон от атаки - `getAttackDamageBonus()` {#attack-damage}
 
   Сколько единиц урона должен наносить инструмент при использовании его в качестве оружия против другого существа?
 
@@ -47,7 +47,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   @[code transcludeWith=:::4](@/reference/1.21.1/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Обратный тег - `getMiningLevel()` {#inverse-tag}
+- ### Обратный тег - `getIncorrectBlocksForDrops()` {#inverse-tag}
 
   Обратный тег показывает, что инструмент _**не может**_ добывать. Например, использование тега `BlockTags.INCORRECT_FOR_WOODEN_TOOL` запрещает инструмент добывать определенные блоки:
 
@@ -71,7 +71,7 @@ If you're creating multiple tool materials, consider using an `Enum` to store th
 
   Если вы хотите использовать пользовательский тег, вы можете использовать `TagKey.of(...)` для создания пользовательского ключа тега.
 
-- ### Зачарование - `getEnchantability()` {#enchantability}
+- ### Зачарование - `getEnchantmentValue()` {#enchantability}
 
   Насколько легко получить лучшие и более высокие уровни чар с помощью этого предмета? Для справки: зачаровываемость золота составляет 22, в то время как зачаровываемость незерита — 15.
 

@@ -1,18 +1,18 @@
 package com.example.docs.rendering;
 
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 public class DrawContextExampleScreen extends Screen {
 	public DrawContextExampleScreen() {
-		super(Text.empty());
+		super(Component.empty());
 	}
 
 	@Override
-	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 
 		// :::1
@@ -26,13 +26,13 @@ public class DrawContextExampleScreen extends Screen {
 
 		// :::2
 		// x, y, width, height, color
-		context.drawBorder(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
+		context.renderOutline(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
 		// :::2
 
 		// :::3
 		// Let's split the rectangle in half using a green line.
 		// x, y1, y2, color
-		context.drawVerticalLine(rectangleX + rectangleWidth / 2, rectangleY, rectangleY + rectangleHeight, 0xFF00FF00);
+		context.vLine(rectangleX + rectangleWidth / 2, rectangleY, rectangleY + rectangleHeight, 0xFF00FF00);
 		// :::3
 
 		// :::4
@@ -56,21 +56,21 @@ public class DrawContextExampleScreen extends Screen {
 		// :::4
 
 		// :::5
-		Identifier texture = Identifier.of("minecraft", "textures/block/deepslate.png");
+		ResourceLocation texture = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/deepslate.png");
 		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
-		context.drawTexture(RenderLayer::getGuiTextured, texture, 90, 90, 0, 0, 16, 16, 16, 16);
+		context.blit(RenderType::guiTextured, texture, 90, 90, 0, 0, 16, 16, 16, 16);
 		// :::5
 
 		// :::6
-		Identifier texture2 = Identifier.of("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
+		ResourceLocation texture2 = ResourceLocation.fromNamespaceAndPath("fabric-docs-reference", "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// renderLayer, texture, x, y, u, v, width, height, regionWidth, regionHeight, textureWidth, textureHeight
-		context.drawTexture(RenderLayer::getGuiTextured, texture2, 90, 190, u, v, 14, 14, regionWidth, regionHeight, 256, 256);
+		context.blit(RenderType::guiTextured, texture2, 90, 190, u, v, 14, 14, regionWidth, regionHeight, 256, 256);
 		// :::6
 
 		// :::7
 		// TextRenderer, text (string, or Text object), x, y, color, shadow
-		context.drawText(client.textRenderer, "Hello, world!", 10, 200, 0xFFFFFFFF, false);
+		context.drawString(minecraft.font, "Hello, world!", 10, 200, 0xFFFFFFFF, false);
 		// :::7
 	}
 }
