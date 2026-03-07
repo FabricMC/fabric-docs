@@ -84,3 +84,7 @@ Also, we should modify the `useItemOn` method of the `DuplicatorBlock` to actual
 Now, if we try to insert items from the side instead of the top, it won't work!
 
 <VideoPlayer src="/assets/develop/blocks/container_3.webm">The Duplicator only activating when interacting with its top side</VideoPlayer>
+
+## Menus {#menus}
+
+To access the new container block via a menu, like you do with a chest, refer to the [Container Menus](./container-menus) guide.
