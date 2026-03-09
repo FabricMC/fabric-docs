@@ -86,7 +86,7 @@ The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entit
 
 This method defines the Mini Golem's 3D model by creating its body, head, and legs as cuboids, setting their positions and texture mappings, and returning a `LayerDefinition` for rendering.
 
-Each part is added with a offset point for proper animation and alignment, ensuring the model appears correctly in-game.
+Each part is added with an offset point which is the origin for all of the transformations applied to that part. All other coordinates in the model part are measured relative to this offset point.Most of the math is provided by Blockbench.
 
 ::: info
 
@@ -130,8 +130,24 @@ The following code can be added to the `MiniGolemEntityModel` class to give the 
 
 @[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
-Most of the math is provided by Blockbench.
+At First , We apply the yaw and pitch to the head model part.
 
+Then, we apply the walking animation to the leg model parts. We use the `cos` function to create the general leg swing effect and then transform the cosine wave to get the correct swing speed and amplitude.
+
+- The `0.2` constant in the formula controls the frequency of the cosine wave (how fast the legs are swinging). Higher values result in a higher frequency.
+- The `1.4` constant in the formula controls the amplitude of the cosine wave (how far the legs swing). Higher values result in a higher amplitude.
+- The `limbSwingAmplitude` variable also affects the amplitude in the same way as the `1.4` constant. This variable changes based on the velocity of the entity, so that the legs swing more when the entity is moving faster and swing less or not at all when the entity is moving slower or not moving.
+- The `Mth.PI` constant for the left leg translates the cosine wave a half phase so that the left leg is swinging the opposite direction to the right leg.
+
+You can plot on a graph to see what these look like. The first curve is the left leg, and the second curve is the right leg. The _`x`_-axis is time, and the _`y`_-axis is the angle of the leg limbs.
+
+![Graph](/assets/develop/entity/graphs/dark_graph.png){.dark-only}
+
+![Graph](/assets/develop/entity/graphs/light_graph.png){.light-only}
+
+Feel free to play around with the constants to see how they affect the curve. [Desmos Link](https://www.desmos.com/calculator/bhlkblxhur)
+
+Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
 Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
 
 ![Spawn Egg showcase](/assets/develop/entity/mini_golem_summoned.png)
