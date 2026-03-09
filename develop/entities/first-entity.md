@@ -149,7 +149,7 @@ Feel free to play around with the constants to see how they affect the curve. [D
 
 Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
 
-![Spawn Egg showcase](/assets/develop/entity/mini_golem_summoned.png)
+![Summoned Golem](/assets/develop/entity/mini_golem_summoned.png)
 
 ## Adding Data To An Entity {#adding-data-to-an-entity}
 
