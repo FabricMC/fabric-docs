@@ -25,7 +25,7 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 		int color = 0xFFFF0000; // Red
 		int targetColor = 0xFF00FF00; // Green
 
-		// You can use the Util.getMeasuringTimeMs() function to get the current time in milliseconds.
+		// You can use the Util.getMillis() function to get the current time in milliseconds.
 		// Divide by 1000 to get seconds.
 		double currentTime = Util.getMillis() / 1000.0;
 
