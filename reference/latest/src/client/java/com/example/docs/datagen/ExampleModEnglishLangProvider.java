@@ -35,6 +35,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
@@ -59,8 +60,6 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
-
-		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
 		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");

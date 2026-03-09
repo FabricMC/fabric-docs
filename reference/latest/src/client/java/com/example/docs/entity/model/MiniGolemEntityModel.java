@@ -42,7 +42,6 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 	//:::dancing_animation
 	//:::model1
 
-
 	//:::model_texture_data
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition modelData = new MeshDefinition();

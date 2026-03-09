@@ -32,9 +32,9 @@ public class MiniGolemEntity extends PathfinderMob {
 
 	//:::dancing_animation
 
-	//:::savedata
+	//:::datatracker
 	private int dancingTimeLeft;
-	//:::savedata
+	//:::datatracker
 
 	//:::registerclass
 	public MiniGolemEntity(Level world) {
@@ -89,6 +89,8 @@ public class MiniGolemEntity extends PathfinderMob {
 			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
 		}
 	}
+	//:::dancing_animation
+	//:::datatracker
 
 	@Override
 	public void tick() {
@@ -107,10 +109,10 @@ public class MiniGolemEntity extends PathfinderMob {
 			}
 		}
 	}
-	//:::dancing_animation
+	//:::datatracker
 
 	//:::savedata
-	
+
 	@Override
 	protected void addAdditionalSaveData(ValueOutput valueOutput) {
 		super.addAdditionalSaveData(valueOutput);
