@@ -19,16 +19,29 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 	private final ModelPart head;
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
+	//:::model1
+	//:::dancing_animation
 	private final KeyframeAnimation dancing;
 
+	//:::dancing_animation
+	//:::model1
+
+	//:::dancing_animation
 	public MiniGolemEntityModel(ModelPart root) {
+		//:::dancing_animation
 		super(root);
 		head = root.getChild(PartNames.HEAD);
 		leftLeg = root.getChild(PartNames.LEFT_LEG);
 		rightLeg = root.getChild(PartNames.RIGHT_LEG);
+		//:::model1
+		//:::dancing_animation
+		// ...
 		this.dancing = MiniGolemAnimations.DANCING.bake(root);
+		//:::model1
 	}
+	//:::dancing_animation
 	//:::model1
+
 
 	//:::model_texture_data
 	public static LayerDefinition getTexturedModelData() {
@@ -59,6 +72,7 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 	//:::model_texture_data
 
 	//:::model_animation
+	//:::dancing_animation
 	@Override
 	public void setupAnim(MiniGolemEntityRenderState state) {
 		super.setupAnim(state);
@@ -67,6 +81,8 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
 		} else {
+			// ... the leg swing animation code from before
+			//:::dancing_animation
 			//:::model_animation
 			head.xRot = state.xRot * Mth.RAD_TO_DEG;
 			head.yRot = state.yRot * Mth.RAD_TO_DEG;
@@ -75,8 +91,10 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 			leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
 			rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
 			//:::model_animation
+			//:::dancing_animation
 		}
 		//:::model_animation
 	}
+	//:::dancing_animation
 }
 //:::model_animation

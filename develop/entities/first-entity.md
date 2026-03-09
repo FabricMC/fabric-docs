@@ -159,7 +159,7 @@ To do this we can define an `EntityDataAccessor` for it. For our entity we'll ma
 
 @[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
-## Storing Data to NBT {#storing-data}
+## Storing Data to NBT {#storing-data-to-nbt}
 
 For persistent data that can be saved after the game is closed, we'll start by overriding the `addAdditionalSaveData` and `readAdditionalSaveData` methods in `MiniGolemEntity`. We can use this to store the amount of time remaining in the dancing animation.
 
@@ -169,9 +169,14 @@ Now, whenever the entity is loaded, it will restore the state that it was left i
 
 ## Adding a Dancing Animation {#adding-a-dancing-animation}
 
-Let's make this entity a bit more lively by giving it a dancing animation. We'll create a `MiniGolemAnimations` class with a simple animation that allows the Mini Golem to dance.
+We'll create a `MiniGolemAnimations` class with a simple animation that allows the Mini Golem to dance.
 
 @[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
+
+@[code transcludeWith=:::dancing_animation](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+
+@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+
 
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
