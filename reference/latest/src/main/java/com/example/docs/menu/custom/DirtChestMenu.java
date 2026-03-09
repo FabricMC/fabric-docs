@@ -43,20 +43,34 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		this.addStandardInventorySlots(inventory, 8, 84);
 	}
 
-	// :::menu
-
 	@Override
-	public ItemStack quickMoveStack(Player player, int i) {
-		return null;
+	public ItemStack quickMoveStack(Player player, int slotIndex) {
+		ItemStack clicked = ItemStack.EMPTY;
+		Slot slot = this.slots.get(slotIndex);
+		if (slot != null && slot.hasItem()) {
+			ItemStack stack = slot.getItem();
+			clicked = stack.copy();
+			if (slotIndex < this.container.getContainerSize()) {
+				if (!this.moveItemStackTo(stack, this.container.getContainerSize(), this.slots.size(), true)) {
+					return ItemStack.EMPTY;
+				}
+			} else if (!this.moveItemStackTo(stack, 0, this.container.getContainerSize(), false)) {
+				return ItemStack.EMPTY;
+			}
+
+			if (stack.isEmpty()) {
+				slot.setByPlayer(ItemStack.EMPTY);
+			} else {
+				slot.setChanged();
+			}
+		}
+
+		return clicked;
 	}
 
-	// :::menu
 	@Override
 	public boolean stillValid(Player player) {
 		return this.container.stillValid(player);
 	}
-	// :::menu
-
-	// :::menu
 }
 // :::menu

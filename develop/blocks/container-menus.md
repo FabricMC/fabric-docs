@@ -58,6 +58,8 @@ The client-side constructor gets called on the client when the server wants it t
 
 The server-side constructor is called on the server, and because it knows the contents of the container, it can directly pass it as an argument.
 
+`quickMoveStack` handles shift-clicking items within the menu and replicates the behavior of regular ones like from chests and dispensers.
+
 Then we need to register the menu in a new `ModMenuType` class:
 
 @[code transcludeWith=:::registerMenu](@/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java)
