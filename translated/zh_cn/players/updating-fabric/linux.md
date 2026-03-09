@@ -13,15 +13,15 @@ next: false
 
 :::warning 重要
 
-当你运行安装器时，确保你取消勾选了“创建配置文件”！
+当你运行安装器时，确保你取消勾选了“Create Profile”！
 
 :::
 
-## 3. 在 Minecraft Launcher 中更新配置文件 {#3-update-launcher-profile}
+## 3. 在 Minecraft 启动器中更新配置文件 {#3-update-launcher-profile}
 
-安装完成后，打开 Minecraft Launcher。 然后前往“安装”选项卡。 找到你的 Fabric 配置文件并打开其编辑界面：
+安装完成后，打开 Minecraft 启动器。 然后前往“安装”选项卡。 找到你的 Fabric 配置文件并打开其编辑界面：
 
-![在 Minecraft Launcher 中更新 Fabric 加载器版本](/assets/players/updating-fabric.png)
+![在 Minecraft 启动器中更新 Fabric Loader 版本](/assets/players/updating-fabric.png)
 
 将版本号替换为你刚刚安装的 Fabric 加载器新版本，然后单击 `保存`。
 

@@ -65,7 +65,7 @@ Questo metodo genererà modelli per un cubo normale, che usa il file di texture 
 
 ::: tip
 
-Se non sai quale `TextureModel` dovresti scegliere, apri la classe `TexturedModel` e dai un'occhiata alle [`TextureMaps`](#using-texture-map)!
+Se non sai quale `TextureModel` dovresti scegliere, apri la classe `TexturedModel` e dai un'occhiata ai [`TextureMappings`](#using-texture-map)!
 
 :::
 

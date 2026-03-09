@@ -52,7 +52,7 @@ Next, we need to create a blockstate file. The blockstate file is where the magi
 
 - `axis=x` - When the block is placed along the X axis, we will rotate the model to face the positive X direction.
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
-- `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
+- `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive Z direction.
 
 @[code](@/reference/1.21.1/src/main/resources/assets/example-mod/blockstates/condensed_oak_log.json)
 

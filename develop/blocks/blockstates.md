@@ -52,7 +52,7 @@ Next, we need to create a blockstate file, which is where the magic happens. Pil
 
 - `axis=x` - When the block is placed along the X axis, we will rotate the model to face the positive X direction.
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
-- `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive X direction.
+- `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive Z direction.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 

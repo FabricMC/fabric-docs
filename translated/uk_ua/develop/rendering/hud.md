@@ -54,4 +54,4 @@ Fabric надає API Hud для рендера та накладення еле
 
 ![Зміна кольору з часом](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-Чому б вам не спробувати використати `gameTimeDeltaPartialTick` і подивитися, що відбувається з анімацією, коли ви виконуєте команду `/tick freeze`? Ви повинні побачити зависання анімації, коли `gameTimeDeltaPartialTick` стане постійним (припустимо, що ви передали `false` як параметр для `DeltaTracker#getGameTimeDeltaPartialTick`)
+Чому б вам не спробувати використати `gameTimeDeltaPartialTick` і подивитися, що відбувається з анімацією, коли ви виконуєте команду `/tick freeze`? Ви повинні побачити зависання анімації, коли `gameTimeDeltaPartialTick` стане постійним, припустимо, що ви передали `false` як параметр для `DeltaTracker#getGameTimeDeltaPartialTick`

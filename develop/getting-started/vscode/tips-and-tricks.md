@@ -13,7 +13,7 @@ It's important to learn how to traverse the generate sources so that you can deb
 
 ## Searching for a Minecraft Class {#searching-for-a-minecraft-class}
 
-Once sources are generated. it should be possible for you to search or view Minecraft classes.
+Once sources are generated, it should be possible for you to search or view Minecraft classes.
 
 ### Viewing Class Definitions {#viewing-class-definitions}
 

@@ -1,13 +1,13 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
-import * as path from "node:path/posix";
+import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 
+import { Fabric } from "../types";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
-import { Fabric } from "./types";
 
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
@@ -30,7 +30,7 @@ const hostname =
 
 const latestVersion = fs
   .readFileSync(
-    path.resolve(import.meta.dirname, "..", "reference", "latest", "build.gradle"),
+    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
     "utf-8"
   )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
@@ -93,7 +93,7 @@ export default defineVersionedConfig(
       },
     },
 
-    rewrites: { "translated/:lang/(.*)": ":lang/(.*)" },
+    rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
 
     sitemap: {
       hostname,
@@ -140,9 +140,9 @@ export default defineVersionedConfig(
             ])
           ),
         sidebarUrlProcessor: (url, version) =>
-          url.startsWith("/") ? `/${version}${/^\/.._..\//.test(url) ? url.slice(6) : url}` : url,
+          url.startsWith("/") ? `/${version}${/^[/].._..[/]/.test(url) ? url.slice(6) : url}` : url,
       },
     },
   },
-  import.meta.dirname
+  path.resolve(import.meta.dirname, "..")
 );

@@ -13,7 +13,7 @@ Es ist wichtig zu lernen, wie man die Generierung des Quellcodes durchläuft, da
 
 ## Nach einer Minecraft-Klasse suchen {#searching-for-a-minecraft-class}
 
-Sobald der Quellcode generiert ist. Es sollte möglich sein, Minecraft-Klassen zu suchen oder anzusehen.
+Sobald die Quellen generiert sind, sollte es möglich sein, Minecraft-Klassen zu suchen oder anzusehen.
 
 ### Klassendefinition ansehen {#viewing-class-definitions}
 

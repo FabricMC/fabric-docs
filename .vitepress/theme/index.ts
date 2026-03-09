@@ -1,11 +1,10 @@
 import mediumZoom from "medium-zoom";
-import { type Theme, useData, useRoute } from "vitepress";
+import { type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
-import { h, nextTick, onMounted, watch } from "vue";
+import { defineAsyncComponent, h, nextTick, onMounted, watch } from "vue";
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
-import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
@@ -34,7 +33,7 @@ export default {
     app.component("VersionSwitcher", VersionSwitcher);
   },
   Layout: () => {
-    const { page, frontmatter } = useData();
+    const { page, frontmatter, theme } = useData();
 
     const children = {
       "doc-before": () => [
@@ -43,8 +42,14 @@ export default {
         h(VersionReminder),
       ],
       "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent)],
-      "layout-top": () => h(BannerComponent),
     };
+
+    if (theme.value.env !== "github") {
+      const BannerComponent = defineAsyncComponent(
+        () => import("./components/BannerComponent.vue")
+      );
+      (children as any)["layout-top"] = () => h(BannerComponent);
+    }
 
     if (page.value.isNotFound) {
       (children as any)["not-found"] = () => h(NotFoundComponent);
@@ -53,15 +58,12 @@ export default {
     return h(DefaultTheme.Layout, null, children);
   },
   setup: () => {
-    const route = useRoute();
-    const initZoom = () => {
-      mediumZoom(".main img", { background: "var(--vp-c-bg)" });
-    };
-    onMounted(() => {
-      initZoom();
-    });
+    const router = useRouter();
+
+    const initZoom = () => mediumZoom(".main img", { background: "var(--vp-c-bg)" });
+    onMounted(() => initZoom());
     watch(
-      () => route.path,
+      () => router.route.path,
       () => nextTick(() => initZoom())
     );
   },

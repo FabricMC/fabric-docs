@@ -27,7 +27,7 @@ Glücklicherweise verfügt die Klasse Item über viele Methoden, die überschrie
 
 ::: info
 
-Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf der Seite [SoundEvents abspielen](../sounds/using-sounds), die das Ereignis `useOn` verwendet, um einen Sound abzuspielen, wenn der Spieler mit der rechten Maustaste auf einen Block klickt.
+Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf der Seite [Sounds abspielen](../sounds/using-sounds), die das Ereignis `useOn` verwendet, um einen Sound abzuspielen, wenn der Spieler mit der rechten Maustaste auf einen Block klickt.
 
 :::
 

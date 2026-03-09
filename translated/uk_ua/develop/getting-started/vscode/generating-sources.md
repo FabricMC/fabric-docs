@@ -13,8 +13,8 @@ next:
 
 Інструментарій Fabric дає вам доступ до вихідного коду Minecraft, генеруючи його локально, і ви можете використовувати Visual Studio Code для зручної навігації по ньому. Щоб згенерувати джерела, потрібно запустити завдання Gradle `genSources`.
 
-Це можна зробити з Gradle View, як описано вище, запустивши завдання `genSources` у **Tasks** > **`fabric`**:
-![Завдання genSources в Gradle View](/assets/develop/getting-started/vscode/gradle-gensources.png)
+Це можна зробити з панелі Gradle, запустивши завдання `genSources` у **Tasks** > **`fabric`**:
+![Завдання genSources в панелі Gradle](/assets/develop/getting-started/vscode/gradle-gensources.png)
 
 Або ви також можете запустити команду з термінала:
 

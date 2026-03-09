@@ -52,7 +52,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 
 - `axis=x` - Wenn der Block entlang der X-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
-- `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive X-Richtung zeigt.
+- `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive Z-Richtung zeigt.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 

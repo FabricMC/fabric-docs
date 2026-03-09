@@ -65,7 +65,7 @@ This method will generate models for a normal cube, that uses the texture file `
 
 ::: tip
 
-If you're stuck choosing which `TextureModel` you should use, open the `TexturedModel` class and look at the [`TextureMaps`](#using-texture-map)!
+If you're stuck choosing which `TextureModel` you should use, open the `TexturedModel` class and look at the [`TextureMapping`s](#using-texture-map)!
 
 :::
 
@@ -173,7 +173,7 @@ The `TextureSlot`s represent the "placeholders" (`#bottom`, `#top`, ...) as an O
 
 What does `TextureMapping` do? It actually provides the identifiers that point to the textures. It technically behaves like a normal map - you associate a `TextureSlot` (key) with an `Identifier` (value).
 
-You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all `TextureKeys` with the same `Identifier`), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
+You can either use the vanilla ones, like `TextureMapping.cube()`(which associates all `TextureSlot`s with the same `Identifier`), or create a new one, by creating a new instance and then using `.put()` to associate keys with values.
 
 ::: tip
 
@@ -189,7 +189,7 @@ The `bottom` and `top` faces will use `oak_log_top.png`, the sides will use `oak
 
 ::: warning
 
-All `TextureSlot`s in the TextureMap **have to** match all `TextureSlot`s in your parent block model!
+All `TextureSlot`s in the TextureMapping **have to** match all `TextureSlot`s in your parent block model!
 
 :::
 

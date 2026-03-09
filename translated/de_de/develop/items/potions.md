@@ -1,6 +1,6 @@
 ---
 title: Tränke
-description: Lerne, wie man neue Tränke für verschiedene Statuseffekte hinzufügt.
+description: Lerne, wie man benutzerdefinierte Tränke für verschiedene Mobeffekte hinzufügt.
 authors:
   - cassiancc
   - dicedpixels
