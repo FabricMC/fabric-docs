@@ -116,7 +116,7 @@ config:
         searchScope: text
       - name: no-images-in-text
         message: "Don't place images in text"
-        searchPattern: "/(?:(?<!^)!\\[[^\\]]*\\]\\([^\\)]*\\)\\{[^\\}]*\\}.*$)|(?:^!\\[[^\\]]*\\]\\([^\\)]*\\)\\{[^\\}]*\\}(?!$))/gm"
+        searchPattern: "/(?:(?<!^)!\\[[^\\]]*\\]\\([^\\)]*\\).*$)|(?:^!\\[[^\\]]*\\]\\([^\\)]*\\)(?!\\{[^\\}]*\\})(?!$))|(?:^!\\[[^\\]]*\\]\\([^\\)]*\\)\\{[^\\}]*\\}(?!$))/gm"
         searchScope: text
       - name: no-invalid-containers
         message: "Don't use invalid containers"

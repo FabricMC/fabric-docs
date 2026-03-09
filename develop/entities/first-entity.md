@@ -151,25 +151,27 @@ Looking into the game, you now have all you need to spawn the entity with `/summ
 
 ![Spawn Egg showcase](/assets/develop/entity/mini_golem_summoned.png)
 
-## Adding a Dancing Animation {#adding-a-dancing-animation}
+## Using Synched Entity Data {#using-synched-entity-data}
 
-Let's make this entity a bit more lively by giving it a dancing animation. We'll create a `MiniGolemAnimations` class with a simple animation that allows the Mini Golem to dance.
+Sometimes you need data from the server-side entity to be sycned with the client-side entity. See The [Networking Page](../networking) For More Info On The Client - Server Architecture.
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
-
-### Using Synched Entity Data {#using-synched-entity-data}
-
-We can store data on the entity itself by defining an `EntityDataAccessor` for it. This data will be synchronized with the client, making it a good place to define our dancing state.
+To do this we can define an `EntityDataAccessor` for it. For our entity we'll make it dance ever so often, so we need to create a dancing state that is synchronized with the client so that it can be animated later.
 
 @[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
-### Storing Data to NBT {#storing-data}
+## Storing Data to NBT {#storing-data}
 
 For persistent data that can be saved after the game is closed, we'll start by overriding the `addAdditionalSaveData` and `readAdditionalSaveData` methods in `MiniGolemEntity`. We can use this to store the amount of time remaining in the dancing animation.
 
 @[code transcludeWith=:::savedata](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
 Now, whenever the entity is loaded, it will restore the state that it was left in.
+
+## Adding a Dancing Animation {#adding-a-dancing-animation}
+
+Let's make this entity a bit more lively by giving it a dancing animation. We'll create a `MiniGolemAnimations` class with a simple animation that allows the Mini Golem to dance.
+
+@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
 
 ## Adding the Spawn Egg {#adding-spawn-egg}
 

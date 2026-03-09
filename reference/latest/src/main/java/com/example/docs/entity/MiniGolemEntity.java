@@ -25,8 +25,10 @@ public class MiniGolemEntity extends PathfinderMob {
 
 	//:::datatracker
 	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
-	public final AnimationState dancingAnimationState = new AnimationState();
 	//:::datatracker
+
+	public final AnimationState dancingAnimationState = new AnimationState();
+
 	//:::savedata
 	private int dancingTimeLeft;
 	//:::savedata
@@ -59,6 +61,7 @@ public class MiniGolemEntity extends PathfinderMob {
 	//:::goals
 
 	//:::datatracker
+	
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
@@ -72,7 +75,7 @@ public class MiniGolemEntity extends PathfinderMob {
 	private void setDancing(boolean dancing) {
 		entityData.set(DANCING, dancing);
 	}
-
+	//:::datatracker
 	@Override
 	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
 		super.onSyncedDataUpdated(data);
@@ -81,7 +84,6 @@ public class MiniGolemEntity extends PathfinderMob {
 			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
 		}
 	}
-	//:::datatracker
 
 	@Override
 	public void tick() {
