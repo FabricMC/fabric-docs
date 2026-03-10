@@ -12,17 +12,18 @@ import com.example.docs.menu.ModMenuType;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
+	private static final int CONTAINER_SIZE = 9;
 	private final Container container;
 
 	// Client-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory) {
-		this(containerId, inventory, new SimpleContainer(9));
+		this(containerId, inventory, new SimpleContainer(CONTAINER_SIZE));
 	}
 
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
 		super(ModMenuType.DIRT_CHEST, containerId);
-		checkContainerSize(container, 9);
+		checkContainerSize(container, CONTAINER_SIZE);
 		this.container = container;
 
 		// Some containers do custom logic when opened by a player.
@@ -47,18 +48,18 @@ public class DirtChestMenu extends AbstractContainerMenu {
 	public ItemStack quickMoveStack(Player player, int slotIndex) {
 		Slot slot = this.slots.get(slotIndex);
 
-		if (slot == null || !slot.hasItem()) {
+		if (!slot.hasItem()) {
 			return ItemStack.EMPTY;
 		}
 
 		ItemStack stack = slot.getItem();
 		ItemStack clicked = stack.copy();
 
-		if (slotIndex < this.container.getContainerSize()) {
-			if (!this.moveItemStackTo(stack, this.container.getContainerSize(), this.slots.size(), true)) {
+		if (slotIndex < container.getContainerSize()) {
+			if (!this.moveItemStackTo(stack, container.getContainerSize(), this.slots.size(), true)) {
 				return ItemStack.EMPTY;
 			}
-		} else if (!this.moveItemStackTo(stack, 0, this.container.getContainerSize(), false)) {
+		} else if (!this.moveItemStackTo(stack, 0, container.getContainerSize(), false)) {
 			return ItemStack.EMPTY;
 		}
 
@@ -73,7 +74,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return this.container.stillValid(player);
+		return container.stillValid(player);
 	}
 }
 // :::menu

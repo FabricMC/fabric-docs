@@ -29,7 +29,8 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// :::menu
 
 	// :::be
-	private final NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
+	private static final int CONTAINER_SIZE = 9;
+	private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
 
 	// ...
 	// :::be
