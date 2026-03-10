@@ -145,7 +145,7 @@ You can plot on a graph to see what these look like. The first curve is the left
 
 ![Graph](/assets/develop/entity/graphs/light_graph.png){.light-only}
 
-Feel free to play around with the constants to see how they affect the curve. [Desmos Link](https://www.desmos.com/calculator/bhlkblxhur)
+Feel free to [play around with the constants on Desmos](https://www.desmos.com/calculator/bhlkblxhur) to see how they affect the curve.
 
 Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
 
