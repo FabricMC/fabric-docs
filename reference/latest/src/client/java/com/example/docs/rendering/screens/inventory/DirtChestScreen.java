@@ -26,7 +26,7 @@ public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics graphics, float f, int i, int j) {
+	protected void renderBg(GuiGraphics graphics, float delta, int mouseX, int mouseY) {
 		int xo = (this.width - this.imageWidth) / 2;
 		int yo = (this.height - this.imageHeight) / 2;
 		graphics.blit(RenderPipelines.GUI_TEXTURED, CONTAINER_TEXTURE, xo, yo, 0.0F, 0.0F, this.imageWidth, this.imageHeight, BACKGROUND_TEXTURE_WIDTH, BACKGROUND_TEXTURE_HEIGHT);
