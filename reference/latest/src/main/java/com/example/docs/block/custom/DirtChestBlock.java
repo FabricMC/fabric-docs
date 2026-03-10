@@ -28,8 +28,8 @@ public class DirtChestBlock extends BaseEntityBlock {
 
 	// :::use
 	@Override
-	protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
-		if (!level.isClientSide() && level.getBlockEntity(blockPos) instanceof DirtChestBlockEntity dirtChest) {
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof DirtChestBlockEntity dirtChest) {
 			player.openMenu(dirtChest);
 		}
 
@@ -39,8 +39,8 @@ public class DirtChestBlock extends BaseEntityBlock {
 
 	// :::block
 	@Override
-	public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-		return new DirtChestBlockEntity(blockPos, blockState);
+	public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new DirtChestBlockEntity(pos, state);
 	}
 	// :::block
 

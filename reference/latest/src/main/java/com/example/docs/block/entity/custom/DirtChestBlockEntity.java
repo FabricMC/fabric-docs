@@ -35,8 +35,8 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// ...
 	// :::be
 
-	public DirtChestBlockEntity(BlockPos blockPos, BlockState blockState) {
-		super(ModBlockEntities.DIRT_CHEST_BLOCK_ENTITY, blockPos, blockState);
+	public DirtChestBlockEntity(BlockPos pos, BlockState state) {
+		super(ModBlockEntities.DIRT_CHEST_BLOCK_ENTITY, pos, state);
 	}
 
 	/**
