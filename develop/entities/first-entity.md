@@ -19,7 +19,7 @@ An entity is a movable object in a world with logic attached to them. A few exam
 - `Zombie` and `Skeleton` are examples of a `Monster`, a variant of an `Entity` that is hostile to the `Player`.
 - `Minecart` and `Boat` are examples of a `VehicleEntity`, which has special logic for accepting player input.
 
-This tutorial will walk you through the creation of a `PathfinderMob`, used by most mobs with pathfinding like `Zombie` and `Villager` alike.
+This tutorial will walk you through the creation of a `PathfinderMob`, used by most mobs with pathfinding like `Zombie` and `Villager`.
 
 ## Preparing Your First Entity {#preparing-your-first-entity}
 
@@ -45,7 +45,7 @@ To add goals to the entity, you need to create a `registerGoals` method in your 
 
 1. `TemptGoal` - The entity is attracted towards a player holding an item.
 2. `RandomStrollGoal` - Walks/wanders around the world.
-3. `LookAtPlayerGoal` - To look at the `Cow` entity.
+3. `LookAtPlayerGoal` - Despite the name, this accepts any entity. Used here to look at the `Cow` entity.
 4. `RandomLookAroundGoal` - To look in random directions.
 
 :::
@@ -64,7 +64,7 @@ Rendering has multiple steps involving their own classes, but we'll start with t
 
 @[code transcludeWith=:::entitystate](@/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java)
 
-The render state determines how the entity is visually represented, including animation states such as movement and idle behaviors.
+Data stored on the render state is used to determine how the entity is visually represented, including animation states such as movement and idle behaviors.
 
 ### Setting up the Model {#setting-up-model}
 
@@ -155,7 +155,7 @@ Looking into the game, you now have all you need to spawn the entity with `/summ
 
 To store data on an entity, the normal way is to simply add a field in entity class.
 
-Sometimes you need data from the server-side entity to be synced with the client-side entity. See the [Networking Page](../networking) for more info on the Client-Server Architecture. To do this we can define an `EntityDataAccessor` for it.
+Sometimes you need data from the server-side entity to be synced with the client-side entity. See the [Networking Page](../networking) for more info on the client-server architecture. To do this we can use _synched data_ \[sic] by defining an `EntityDataAccessor` for it.
 
 For our entity we'll make it dance every so often, so we need to create a dancing state that is synchronized with the client so that it can be animated later. However, the dancing cooldown need not be synced with the client.
 
@@ -208,7 +208,7 @@ For more information, see the full article [Creating a Spawn Egg](../items/spawn
 
 :::
 
-All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, using the helper method discussed in [Creating Your First Item](../items/first-item).
+All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, following the instructions in [Creating a Spawn Egg](../items/spawn-egg).
 
 @[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
