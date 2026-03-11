@@ -101,7 +101,13 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 - `minecraft`: Defines the version of Minecraft to be used in the development environment
 - `mappings`: Defines the mappings to be used in the development environment
 - `modImplementation`, `modApi` and `modRuntime`: Augmented variants of `implementation`, `api` and `runtime` for mod dependencies. Will be remapped to match the mappings in the development environment and has any nested jars removed
-- `include`: Declares a dependency that should be included as a jar-in-jar in the `remapJar` output. This dependency configuration is not transitive. For non-mod dependencies, Loom will generate a mod jar with a `fabric.mod.json` using the mod ID for the name, and the same version
+- `include`: Declares a dependency that should be included as a jar-in-jar in the final mod output. This dependency configuration is not transitive. For non-mod dependencies, Loom will generate a mod jar with a `fabric.mod.json` using the mod ID for the name, and the same version
+
+::: info
+
+Dependencies declared with `include` are added to `remapJar` in remapping Loom, or to `jar` in non-remapping Loom respectively. Because of this, jar tasks from other plugins (such as `shadowJar`) will not include these dependencies by default.
+
+:::
 
 ## Default Configuration {#configuration}
 
