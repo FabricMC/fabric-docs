@@ -26,6 +26,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
+import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
@@ -125,6 +126,10 @@ public class ModBlocks {
 
 	public static final Block DUPLICATOR_BLOCK = register(
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block DIRT_CHEST_BLOCK = register(
+					"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// :::1

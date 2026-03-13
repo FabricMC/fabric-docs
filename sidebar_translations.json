@@ -28,6 +28,7 @@
   "develop.blocks.block_entities": "Block Entities",
   "develop.blocks.block_entity_renderer": "Block Entity Renderers",
   "develop.blocks.block_containers": "Block Containers",
+  "develop.blocks.container_menus": "Container Menus",
   "develop.blocks.transparency_and_tinting": "Transparency and Tinting",
   "develop.entities": "Entities",
   "develop.entities.effects": "Mob Effects",
