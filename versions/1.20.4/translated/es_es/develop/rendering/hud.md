@@ -13,7 +13,7 @@ Ya hemos tocado brevemente el tema sobre como renderizar cosas en el Hud en la g
 
 El evento `HudRenderCallback` - proveído por el Fabric API - es llamado en cada frame (cuadro), y es usado para renderizar cosas en el HUD.
 
-Para registrar a este evento, simplemente puedes llamar `HudRenderCallback.EVENT.register` y pasar una expresión Lambda el cual tiene como parámetros un `DrawContext` (Contexto de Dibujado) y un valor `float` (flotante) ("deltaTick").
+Para registrar a este evento, simplemente puedes llamar `HudRenderCallback.EVENT.register` y pasar una expresión Lambda el cual tiene como parámetros un `GuiGraphics` (Contexto de Dibujado) y un valor `float` (flotante) ("deltaTick").
 
 El contexto de dibujado puede ser usado para acceder las diferentes utilidades de renderizados dadas por el juego, y acceder el matrix stack (pila de matrices).
 

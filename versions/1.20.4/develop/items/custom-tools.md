@@ -23,7 +23,7 @@ You can create a tool material by creating a new class that inherits it - in thi
 
 The tool material tells the game the following information:
 
-- ### Durability - `getDurability()` {#durability}
+- ### Durability - `getUses()` {#durability}
 
   How many times the tool can be used before breaking.
 
@@ -31,7 +31,7 @@ The tool material tells the game the following information:
 
   @[code transcludeWith=:::2](@/reference/1.20.4/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Mining Speed - `getMiningSpeedMultiplier()` {#mining-speed}
+- ### Mining Speed - `getSpeed()` {#mining-speed}
 
     If the tool is used to break blocks, how fast should it break the blocks?
 
@@ -41,7 +41,7 @@ The tool material tells the game the following information:
 
     @[code transcludeWith=:::3](@/reference/1.20.4/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Attack Damage - `getAttackDamage()` {#attack-damage}
+- ### Attack Damage - `getAttackDamageBonus()` {#attack-damage}
 
     How many points of damage should the tool do when used as a weapon against another entity?
 
@@ -49,7 +49,7 @@ The tool material tells the game the following information:
 
     @[code transcludeWith=:::4](@/reference/1.20.4/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Mining Level - `getMiningLevel()` {#mining-level}
+- ### Mining Level - `getIncorrectBlocksForDrops()` {#mining-level}
 
     What blocks can be broken by this tool? Can it mine diamonds?
 
@@ -59,7 +59,7 @@ The tool material tells the game the following information:
 
     @[code transcludeWith=:::5](@/reference/1.20.4/src/main/java/com/example/docs/item/tool/GuiditeMaterial.java)
 
-- ### Enchantability - `getEnchantability()` {#enchantability}
+- ### Enchantability - `getEnchantmentValue()` {#enchantability}
 
     How easy is it to get better and higher level enchantments with this item? For reference, Gold has an enchantability of 22 whilst Netherite has an enchantability of 15.
 

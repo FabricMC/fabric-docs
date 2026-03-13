@@ -81,9 +81,9 @@ Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEven
 
 对于我们 `Event` 的实现，我们选择用数组来存储他们。 该数组将包含所有监听这个事件的监听器。
 
-我们实现这个事件时，将依次调用这个数组中的所有监听器，直到某个监听器返回非 `ActionResult.PASS`。 这意味着一个监听器可以使用返回值表明“_取消_”、“_批准_”或者“_无所谓，交给下一个监听器处理_”。
+我们实现这个事件时，将依次调用这个数组中的所有监听器，直到某个监听器返回非 `InteractionResult.PASS`。 这意味着一个监听器可以使用返回值表明“_取消_”、“_批准_”或者“_无所谓，交给下一个监听器处理_”。
 
-使用 `ActionResult` 作为返回值是各个事件处理器之间的常规协作方式。
+使用 `InteractionResult` 作为返回值是各个事件处理器之间的常规协作方式。
 
 您将需要创建一个带有 `Event` 实例和响应实现方法的接口。 一个典型的剪羊毛回调像是这样：
 
@@ -97,11 +97,11 @@ Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEven
 
 @[code lang=java transclude={33-33}](@/reference/1.21.8/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-如果监听器决定我们必须取消（`ActionResult.FAIL`）或者完成（`ActionResult.SUCCESS`）这个事件，回调将返回这个结果，并且结束循环。 `ActionResult.PASS` 将继续触发下一个监听器，并且在绝大多数没有注册多个监听器的情况下都应该返回 `ActionResult.SUCCESS`：
+如果监听器决定我们必须取消（`InteractionResult.FAIL`）或者完成（`InteractionResult.SUCCESS`）这个事件，回调将返回这个结果，并且结束循环。 `InteractionResult.PASS` 将继续触发下一个监听器，并且在绝大多数没有注册多个监听器的情况下都应该返回 `InteractionResult.SUCCESS`：
 
 @[code lang=java transclude={25-30}](@/reference/1.21.8/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-我们可以在回调类的顶部添加 Javadoc 注释注明每一种 `ActionResult` 的作用。 在本例中，它应该是这样的：
+我们可以在回调类的顶部添加 Javadoc 注释注明每一种 `InteractionResult` 的作用。 在本例中，它应该是这样的：
 
 @[code lang=java transclude={9-16}](@/reference/1.21.8/src/main/java/com/example/docs/event/SheepShearCallback.java)
 

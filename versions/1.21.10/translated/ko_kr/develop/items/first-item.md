@@ -27,10 +27,10 @@ Mojang에서도 아이템에 이러한 작업을 수행합니다! 영감을 얻�
 
 이제 메소드를 사용하여 아이템을 등록할 수 있습니다.
 
-아이템 생성자는 `Items.Settings` 클래스의 인스턴스를 매개변수로 입력받습니다. 이 클래스는 다양한 빌더 메소드를 사용하여 아이템의 속성을 구성할 수 있도록 합니다.
+아이템 생성자는 `Item.Properties` 클래스의 인스턴스를 매개변수로 입력받습니다. 이 클래스는 다양한 빌더 메소드를 사용하여 아이템의 속성을 구성할 수 있도록 합니다.
 
 ::: tip
-If you want to change your item's stack size, you can use the `maxCount` method in the `Items.Settings`/`FabricItemSettings` class.
+If you want to change your item's stack size, you can use the `maxStackSize` method in the `Item.Properties`/`FabricItemSettings` class.
 
 다만 아이템을 손상 가능하게(damageable) 설정하면 작동하지 않습니다. 손상 가능한 아이템은 복사 취약점을 막기 위하여 항상 최대 스택 크기가 1로 고정되기 때문입니다.
 :::
@@ -50,10 +50,10 @@ If you want to change your item's stack size, you can use the `maxCount` method 
 ## 아이템 그룹에 아이템 추가하기 {#adding-the-item-to-an-item-group}
 
 :::info
-아이템을 사용자 지정 `ItemGroup`에 추가하고자 한다면, 자세한 내용은 [사용자 지정 아이템 그룹](./custom-item-groups)을 참조하십시오.
+아이템을 사용자 지정 `CreativeModeTab`에 추가하고자 한다면, 자세한 내용은 [사용자 지정 아이템 그룹](./custom-item-groups)을 참조하십시오.
 :::
 
-예제에서는 아이템을 재료 `ItemGroup`에 추가할 것이며, 이를 위해선 Fabric API 아이템 그룹 이벤트(정확히는 `ItemGroupEvents.modifyEntriesEvent`)를 이용해야 합니다.
+예제에서는 아이템을 재료 `CreativeModeTab`에 추가할 것이며, 이를 위해선 Fabric API 아이템 그룹 이벤트(정확히는 `ItemGroupEvents.modifyEntriesEvent`)를 이용해야 합니다.
 
 이는 아이템 클래스의 `initialize` 메소드에서 실행될 수 있습니다.
 
@@ -151,7 +151,7 @@ Fabric API는 아이템 속성에 추가적인 속성을 적용할 수 있는 �
 
 ## 사용자 지정 도구 설명 {#custom-tooltips}
 
-아이템에 사용자 지정 도구 설명을 추가하려면, `Item` 클래스를 상속하는 클래스를 만들고 `appendTooltip` 메소드를 오버라이드(Override)해야 합니다.
+아이템에 사용자 지정 도구 설명을 추가하려면, `Item` 클래스를 상속하는 클래스를 만들고 `appendHoverText` 메소드를 오버라이드(Override)해야 합니다.
 
 :::info
 이 예제에서는 [사용자 지정 아이템 상호 작용](./custom-item-interactions)에서 만든 `LightningStick` 클래스를 사용합니다.

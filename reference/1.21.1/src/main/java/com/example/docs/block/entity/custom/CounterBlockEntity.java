@@ -1,13 +1,12 @@
 package com.example.docs.block.entity.custom;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 import com.example.docs.block.entity.ModBlockEntities;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 // :::1
 public class CounterBlockEntity extends BlockEntity {
@@ -41,25 +40,25 @@ public class CounterBlockEntity extends BlockEntity {
 
 		// :::2
 		clicks++;
-		markDirty();
+		setChanged();
 	}
 
 	// :::2
 
 	// :::3
 	@Override
-	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+	protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
 		nbt.putInt("clicks", clicks);
 
-		super.writeNbt(nbt, registryLookup);
+		super.saveAdditional(nbt, registryLookup);
 	}
 
 	// :::3
 
 	// :::4
 	@Override
-	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-		super.readNbt(nbt, registryLookup);
+	protected void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+		super.loadAdditional(nbt, registryLookup);
 
 		clicks = nbt.getInt("clicks");
 	}
@@ -67,7 +66,7 @@ public class CounterBlockEntity extends BlockEntity {
 	// :::4
 
 	// :::5
-	public static void tick(World world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
+	public static void tick(Level world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
 

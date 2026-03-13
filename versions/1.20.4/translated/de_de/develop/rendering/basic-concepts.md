@@ -16,17 +16,17 @@ Zusammenfassend kann man sagen, dass man das Rendering-System von Minecraft benu
 
 Auf dieser Seite werden die Grundlagen des Renderings mit dem neuen System behandelt, wobei die wichtigsten Begriffe und Konzepte erläutert werden.
 
-Obwohl ein Großteil des Renderings in Minecraft durch die verschiedenen `DrawContext`-Methoden abstrahiert wird und du wahrscheinlich nichts von dem, was hier erwähnt wird, anfassen musst, ist es trotzdem wichtig, die Grundlagen zu verstehen, wie Rendering funktioniert.
+Obwohl ein Großteil des Renderings in Minecraft durch die verschiedenen `GuiGraphics`-Methoden abstrahiert wird und du wahrscheinlich nichts von dem, was hier erwähnt wird, anfassen musst, ist es trotzdem wichtig, die Grundlagen zu verstehen, wie Rendering funktioniert.
 
-## Der `Tessellator`
+## Der `Tesselator`
 
-Der `Tessellator` ist die Hauptklasse, die zum Rendern von Dingen in Minecraft verwendet wird. Es ist ein Singleton, das heißt es gibt nur eine Instanz davon im Spiel. Du kannst die Instanz mit `Tessellator.getInstance()` erhalten.
+Der `Tesselator` ist die Hauptklasse, die zum Rendern von Dingen in Minecraft verwendet wird. Es ist ein Singleton, das heißt es gibt nur eine Instanz davon im Spiel. Du kannst die Instanz mit `Tesselator.getInstance()` erhalten.
 
 ## Der `BufferBuilder`
 
 Der `BufferBuilder` ist die Klasse, die zum Formatieren und Hochladen von Rendering-Daten in OpenGL verwendet wird. Sie wird verwendet, um einen Puffer zu erstellen, der dann zum Zeichnen in OpenGL hochgeladen wird.
 
-Der `Tessellator` wird verwendet, um einen `BufferBuilder` zu erstellen, der zum Formatieren und Hochladen von Rendering-Daten in OpenGL verwendet wird. Du kannst einen `BufferBuilder` mit `Tessellator.getBuffer()` erstellen.
+Der `Tesselator` wird verwendet, um einen `BufferBuilder` zu erstellen, der zum Formatieren und Hochladen von Rendering-Daten in OpenGL verwendet wird. Du kannst einen `BufferBuilder` mit `Tesselator.getBuffer()` erstellen.
 
 ### Den `BufferBuilder` initialisieren
 
@@ -61,20 +61,20 @@ Der Zeichenmodus legt fest, wie die Daten gezeichnet werden. Die folgenden Zeich
 
 | Zeichenmodus                | Beschreibung                                                                                                                                                                           |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DrawMode.LINES`            | Jedes Element besteht aus 2 Eckpunkten und wird als eine einzige Linie dargestellt.                                                                                    |
-| `DrawMode.LINE_STRIP`       | Das erste Element benötigt 2 Eckpunkte. Zusätzliche Elemente werden nur mit einem neuen Eckpunkt gezeichnet, wodurch eine durchgehende Linie entsteht. |
-| `DrawMode.DEBUG_LINES`      | Ähnlich wie `DrawMode.LINES`, aber die Linie ist immer genau ein Pixel breit auf dem Bildschirm.                                                                       |
-| `DrawMode.DEBUG_LINE_STRIP` | Wie `DrawMode.LINE_STRIP`, aber die Linien sind immer ein Pixel breit.                                                                                                 |
-| `DrawMode.TRIANGLES`        | Jedes Element besteht aus 3 Eckpunkten, die ein Dreieck bilden.                                                                                                        |
-| `DrawMode.TRIANGLE_STRIP`   | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Eckpunkt bildet ein neues Dreieck mit den letzten beiden Eckpunkten.                     |
-| `DrawMode.TRIANGLE_FAN`     | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Scheitelpunkt bildet ein neues Dreieck mit dem ersten und dem letzten Scheitelpunkt.     |
-| `DrawMode.QUADS`            | Jedes Element besteht aus 4 Scheitelpunkten, die ein Viereck bilden.                                                                                                   |
+| `Mode.LINES`            | Jedes Element besteht aus 2 Eckpunkten und wird als eine einzige Linie dargestellt.                                                                                    |
+| `Mode.LINE_STRIP`       | Das erste Element benötigt 2 Eckpunkte. Zusätzliche Elemente werden nur mit einem neuen Eckpunkt gezeichnet, wodurch eine durchgehende Linie entsteht. |
+| `Mode.DEBUG_LINES`      | Ähnlich wie `Mode.LINES`, aber die Linie ist immer genau ein Pixel breit auf dem Bildschirm.                                                                       |
+| `Mode.DEBUG_LINE_STRIP` | Wie `Mode.LINE_STRIP`, aber die Linien sind immer ein Pixel breit.                                                                                                 |
+| `Mode.TRIANGLES`        | Jedes Element besteht aus 3 Eckpunkten, die ein Dreieck bilden.                                                                                                        |
+| `Mode.TRIANGLE_STRIP`   | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Eckpunkt bildet ein neues Dreieck mit den letzten beiden Eckpunkten.                     |
+| `Mode.TRIANGLE_FAN`     | Beginnt mit 3 Eckpunkten für das erste Dreieck. Jeder weitere Scheitelpunkt bildet ein neues Dreieck mit dem ersten und dem letzten Scheitelpunkt.     |
+| `Mode.QUADS`            | Jedes Element besteht aus 4 Scheitelpunkten, die ein Viereck bilden.                                                                                                   |
 
 ### In den `BufferBuilder` schreiben
 
 Sobald der `BufferBuilder` initialisiert ist, kannst du Daten in ihn schreiben.
 
-Der `BufferBuilder` erlaubt uns, unseren Puffer Punkt für Punkt zu konstruieren. Um einen Eckpunkt hinzuzufügen, verwenden wir die Methode `buffer.vertex(Matrix, float, float, float)`. Der Parameter `matrix` ist die Transformationsmatrix, auf die wir später noch näher eingehen werden. Die drei Float-Parameter stellen die (x, y, z) Koordinaten der Eckpunktposition dar.
+Der `BufferBuilder` erlaubt uns, unseren Puffer Punkt für Punkt zu konstruieren. Um einen Eckpunkt hinzuzufügen, verwenden wir die Methode `buffer.addVertex(Matrix, float, float, float)`. Der Parameter `matrix` ist die Transformationsmatrix, auf die wir später noch näher eingehen werden. Die drei Float-Parameter stellen die (x, y, z) Koordinaten der Eckpunktposition dar.
 
 Diese Methode gibt einen Eckpunkt-Builder zurück, den wir verwenden können, um zusätzliche Informationen für den Eckpunkt anzugeben. Es ist wichtig, dass die Reihenfolge der von uns definierten `VertexFormat` beim Hinzufügen dieser Informationen eingehalten wird. Andernfalls könnte OpenGL unsere Daten nicht richtig interpretieren. Nachdem wir einen Eckpunkt fertig gebaut haben, rufen wir die Methode `.next()` auf. Dies finalisiert den aktuellen Eckpunkt und bereitet den Builder für den Nächsten vor.
 
@@ -86,7 +86,7 @@ Eine Transformationsmatrix ist eine 4x4-Matrix, die zur Transformation eines Vek
 
 Sie wird manchmal auch als Positionsmatrix oder als Modellmatrix bezeichnet.
 
-Es wird normalerweise über die Klasse `MatrixStack` bezogen, die über das Objekt `DrawContext` bezogen werden kann:
+Es wird normalerweise über die Klasse `PoseStack` bezogen, die über das Objekt `GuiGraphics` bezogen werden kann:
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -94,7 +94,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 #### Ein praktisches Beispiel: Rendering eines Dreiecksstreifens
 
-Es ist einfacher, anhand eines praktischen Beispiels zu erklären, wie man in den `BufferBuilder` schreibt. Nehmen wir an, wir wollen etwas mit dem Zeichenmodus `DrawMode.TRIANGLE_STRIP` und dem Vertexformat `POSITION_COLOR` rendern.
+Es ist einfacher, anhand eines praktischen Beispiels zu erklären, wie man in den `BufferBuilder` schreibt. Nehmen wir an, wir wollen etwas mit dem Zeichenmodus `Mode.TRIANGLE_STRIP` und dem Vertexformat `POSITION_COLOR` rendern.
 
 Wir werden Eckpinkt an den folgenden Punkten auf dem HUD zeichnen (in dieser Reihenfolge):
 
@@ -121,11 +121,11 @@ Dies führt dazu, dass auf dem HUD folgendes gezeichnet wird:
 Versuche, mit den Farben und Positionen der Eckpunkte herumzuspielen, um zu sehen, was passiert! Du kannst auch verschiedene Zeichenmodi und Vertex-Formate ausprobieren.
 :::
 
-## Der `MatrixStack`
+## Der `PoseStack`
 
-Nachdem du gelernt hast, wie man in den `BufferBuilder` schreibt, fragst du dich vielleicht, wie du dein Modell transformieren oder sogar animieren kannst. Hier kommt die Klasse `MatrixStack` ins Spiel.
+Nachdem du gelernt hast, wie man in den `BufferBuilder` schreibt, fragst du dich vielleicht, wie du dein Modell transformieren oder sogar animieren kannst. Hier kommt die Klasse `PoseStack` ins Spiel.
 
-Die Klasse `MatrixStack` hat folgende Methoden:
+Die Klasse `PoseStack` hat folgende Methoden:
 
 - `push()` - Schiebt eine neue Matrix auf den Stack.
 - `pop()` - Nimmt die oberste Matrix vom Stapel.
@@ -135,7 +135,7 @@ Die Klasse `MatrixStack` hat folgende Methoden:
 
 Du kannst auch die oberste Matrix auf dem Stapel mit Quaternionen multiplizieren, was wir im nächsten Abschnitt behandeln werden.
 
-Ausgehend von unserem obigen Beispiel können wir unseren Diamanten nach oben und unten skalieren, indem wir `MatrixStack` und `tickDelta` verwenden - das ist die Zeit, die seit dem letzten Frame vergangen ist.
+Ausgehend von unserem obigen Beispiel können wir unseren Diamanten nach oben und unten skalieren, indem wir `PoseStack` und `tickDelta` verwenden - das ist die Zeit, die seit dem letzten Frame vergangen ist.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
@@ -149,11 +149,11 @@ Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformatio
 
 ## Quaternionen (rotierende Dinge)
 
-Quaternionen sind eine Methode zur Darstellung von Drehungen im 3D-Raum. Sie werden verwendet, um die oberste Matrix auf dem `MatrixStack` über die Methode `multiply(Quaternion, x, y, z)` zu drehen.
+Quaternionen sind eine Methode zur Darstellung von Drehungen im 3D-Raum. Sie werden verwendet, um die oberste Matrix auf dem `PoseStack` über die Methode `mulPose(Quaternion, x, y, z)` zu drehen.
 
 Es ist sehr unwahrscheinlich, dass du jemals eine Quaternion-Klasse direkt benutzen musst, da Minecraft verschiedene vorgefertigte Quaternion-Instanzen in seiner `RotationAxis` Utility-Klasse bereitstellt.
 
-Nehmen wir an, wir wollen unseren Diamanten um die Z-Achse drehen. Wir können dies tun, indem wir den `MatrixStack` und die Methode `multiply(Quaternion, x, y, z)` verwenden.
+Nehmen wir an, wir wollen unseren Diamanten um die Z-Achse drehen. Wir können dies tun, indem wir den `PoseStack` und die Methode `mulPose(Quaternion, x, y, z)` verwenden.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

@@ -27,22 +27,22 @@ Se non fissassimo nel codice il `BlockEntityType`, la classe `ModBlockEntities` 
 
 ## Creare il Blocco {#creating-the-block}
 
-Dopo di che, per usare effettivamente il blocco-entità, ci serve un blocco che implementi `BlockEntityProvider`. Creiamone uno e chiamiamolo `CounterBlock`.
+Dopo di che, per usare effettivamente il blocco-entità, ci serve un blocco che implementi `EntityBlock`. Creiamone uno e chiamiamolo `CounterBlock`.
 
 :::tip
 Ci sono due modi per approcciarsi a questo:
 
-- Creare un blocco che estenda `BlockWithEntity` e implementi il metodo `createBlockEntity` (_e_ il metodo `getRenderType`, poiché `BlockWithEntity` li rende invisibili in maniera predefinita)
-- Creare un blocco che implementi `BlockEntityProvider` da solo e faccia override del metodo `createBlockEntity`
+- Creare un blocco che estenda `BaseEntityBlock` e implementi il metodo `newBlockEntity` (_e_ il metodo `getRenderType`, poiché `BaseEntityBlock` li rende invisibili in maniera predefinita)
+- Creare un blocco che implementi `EntityBlock` da solo e faccia override del metodo `newBlockEntity`
 
-Useremo il primo approccio in questo esempio, poiché `BlockWithEntity` fornisce anche alcune utilità comode.
+Useremo il primo approccio in questo esempio, poiché `BaseEntityBlock` fornisce anche alcune utilità comode.
 :::
 
 @[code transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 
-Usare `BlockWithEntity` come classe genitore significa che dobbiamo anche implementare il metodo `createCodec`, il che è piuttosto semplice.
+Usare `BaseEntityBlock` come classe genitore significa che dobbiamo anche implementare il metodo `codec`, il che è piuttosto semplice.
 
-A differenza dei blocchi, che sono dei singleton, viene creato un nuovo blocco-entità per ogni istanza del blocco. Questo viene fatto con il metodo `createBlockEntity`, che prende la posizione e il `BlockState`, e restituisce un `BlockEntity`, o `null` se non ce ne dovrebbe essere uno.
+A differenza dei blocchi, che sono dei singleton, viene creato un nuovo blocco-entità per ogni istanza del blocco. Questo viene fatto con il metodo `newBlockEntity`, che prende la posizione e il `BlockState`, e restituisce un `BlockEntity`, o `null` se non ce ne dovrebbe essere uno.
 
 Non dimenticare di registrare il blocco nella classe `ModBlocks`, proprio come nella guida [Creare il Tuo Primo Blocco](../blocks/first-block):
 
@@ -68,7 +68,7 @@ Poiché il `BlockEntity` non viene passato nel metodo, usiamo `world.getBlockEnt
 
 Ora che abbiamo un blocco funzionante, dovremmo anche fare in modo che il contatore non si resetti dopo un riavvio del gioco. Questo si fa serializzandolo in NBT quando si salva il gioco, e deserializzandolo durante il caricamento.
 
-La serializzazione avviene con il metodo `writeNbt`:
+La serializzazione avviene con il metodo `saveAdditional`:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
@@ -82,9 +82,9 @@ Ora, salvando e ricaricando il gioco, il blocco contatore dovrebbe riprendere da
 
 ## Ticker {#tickers}
 
-L'interfaccia `BlockEntityProvider` definisce anche un metodo chiamato `getTicker`, che può essere usato per eseguire del codice ogni tick per ogni istanza del blocco. Possiamo implementarlo creando un metodo statico che verrà usato come `BlockEntityTicker`:
+L'interfaccia `EntityBlock` definisce anche un metodo chiamato `getTicker`, che può essere usato per eseguire del codice ogni tick per ogni istanza del blocco. Possiamo implementarlo creando un metodo statico che verrà usato come `BlockEntityTicker`:
 
-Il metodo `getTicker` dovrebbe anche controllare che il `BlockEntityType` passato sia quello che stiamo usando; se lo è, restituirà la funzione da chiamare a ogni tick. Vi è una funzione di utilità che fa il controllo in `BlockWithEntity`:
+Il metodo `getTicker` dovrebbe anche controllare che il `BlockEntityType` passato sia quello che stiamo usando; se lo è, restituirà la funzione da chiamare a ogni tick. Vi è una funzione di utilità che fa il controllo in `BaseEntityBlock`:
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/block/custom/CounterBlock.java)
 

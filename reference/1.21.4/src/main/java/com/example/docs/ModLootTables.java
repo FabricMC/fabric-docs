@@ -1,12 +1,12 @@
 package com.example.docs;
 
-import net.minecraft.loot.LootTable;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 // :::datagen-loot-tables:mod-loot-tables
 public class ModLootTables {
-	public static RegistryKey<LootTable> TEST_CHEST_LOOT = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(FabricDocsReference.MOD_ID, "chests/test_loot"));
+	public static ResourceKey<LootTable> TEST_CHEST_LOOT = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(FabricDocsReference.MOD_ID, "chests/test_loot"));
 }
 // :::datagen-loot-tables:mod-loot-tables

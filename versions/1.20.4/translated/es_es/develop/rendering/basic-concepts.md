@@ -16,17 +16,17 @@ En resumen, tienes que usar el motor de renderizado de Minecraft, o hacer tu pro
 
 Esta página tratará los conceptos básicos de renderizado usando el nuevo sistema, cubriendo la terminología y conceptos importantes.
 
-Aunque mucho del proceso de renderización de Minecraft está abstraído mediante varios métodos en la clase `DrawContext` (Contexto de Dibujado), y el hecho de que probablemente no tendrás que tocar nada de lo mencionado aquí, es importante que entiendas como funciona la renderización básica.
+Aunque mucho del proceso de renderización de Minecraft está abstraído mediante varios métodos en la clase `GuiGraphics` (Contexto de Dibujado), y el hecho de que probablemente no tendrás que tocar nada de lo mencionado aquí, es importante que entiendas como funciona la renderización básica.
 
-## El `Tessellator` (Teselador)
+## El `Tesselator` (Teselador)
 
-El `Tessellator` is la clase principical usada para renderizar cosas en Minecraft. Es una clase de tipo única, lo que quiere decir que solo hay una instancia de él en el juego. Puedes obtener esta instancia mediante `Tessellator.getInstance()`.
+El `Tesselator` is la clase principical usada para renderizar cosas en Minecraft. Es una clase de tipo única, lo que quiere decir que solo hay una instancia de él en el juego. Puedes obtener esta instancia mediante `Tesselator.getInstance()`.
 
 ## El `BufferBuilder` (Constructor de Buffer)
 
 El `BufferBuilder` es la clase usada para formatear y subir información o datos de renderización a OpenGL. Es usado para crear un buffer, el cual es subido a OpenGL para que lo dibuje.
 
-El `Tessellator` es usado para crear un `BufferBuilder`, el cual es usado para formatear y subir datos de renderizado a OpenGL. Puedes crear un `BufferBuilder` usando `Tessellator.getBuffer()`.
+El `Tesselator` es usado para crear un `BufferBuilder`, el cual es usado para formatear y subir datos de renderizado a OpenGL. Puedes crear un `BufferBuilder` usando `Tesselator.getBuffer()`.
 
 ### Inicializando el `BufferBuilder`
 
@@ -61,20 +61,20 @@ El modo de dibujado define como son dibujados los datos. Los siguientes modos de
 
 | Modo de Dibujado            | Descripción                                                                                                                                                                |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DrawMode.LINES`            | Cada elemento está compuesto de 2 vértices y es representado como una sola línea.                                                                          |
-| `DrawMode.LINE_STRIP`       | El primer elemento requiere 2 vértices. Elementos adicionales son dibujados con un solo nuevo vértice, creando una línea continua.         |
-| `DrawMode.DEBUG_LINES`      | Similar a `DrawMode.LINES`, pero la línea es siempre exactamente un pixel de ancho en la pantalla.                                                         |
-| `DrawMode.DEBUG_LINE_STRIP` | Similar a `DrawMode.LINE_STRIP`, pero las líneas son siempre un pixel de ancho.                                                                            |
-| `DrawMode.TRIANGLES`        | Cada elemento está compuesto de 3 vértices, formando un triángulo.                                                                                         |
-| `DrawMode.TRIANGLE_STRIP`   | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo usando los dos últimos vértices. |
-| `DrawMode.TRIANGLE_FAN`     | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo con el primer y último vértice.  |
-| `DrawMode.QUADS`            | Cada elemento está formado de 4 vértices, formando un cuadrilátero.                                                                                        |
+| `Mode.LINES`            | Cada elemento está compuesto de 2 vértices y es representado como una sola línea.                                                                          |
+| `Mode.LINE_STRIP`       | El primer elemento requiere 2 vértices. Elementos adicionales son dibujados con un solo nuevo vértice, creando una línea continua.         |
+| `Mode.DEBUG_LINES`      | Similar a `Mode.LINES`, pero la línea es siempre exactamente un pixel de ancho en la pantalla.                                                         |
+| `Mode.DEBUG_LINE_STRIP` | Similar a `Mode.LINE_STRIP`, pero las líneas son siempre un pixel de ancho.                                                                            |
+| `Mode.TRIANGLES`        | Cada elemento está compuesto de 3 vértices, formando un triángulo.                                                                                         |
+| `Mode.TRIANGLE_STRIP`   | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo usando los dos últimos vértices. |
+| `Mode.TRIANGLE_FAN`     | Empieza con 3 vértices para formar el primer triángulo. Cada vértice adicional produce un nuevo triángulo con el primer y último vértice.  |
+| `Mode.QUADS`            | Cada elemento está formado de 4 vértices, formando un cuadrilátero.                                                                                        |
 
 ### Escribir datos para el `BufferBuilder`
 
 Una vez inicializado el `BufferBuilder`, puedes escribir datos en él.
 
-El `BufferBuilder` nos permite construir nuestro buffer, vértice por vértice. Para agregar un vértice, usamos el método `buffer.vertex(matriz, flotante, flotante, flotante)`. El parámetro `matriz` es la matriz de transformaciones, el cual discutiremos más adelante. Los 3 parámetros flotantes representan las coordenadas (x, y, z) de la posición del vértice.
+El `BufferBuilder` nos permite construir nuestro buffer, vértice por vértice. Para agregar un vértice, usamos el método `buffer.addVertex(matriz, flotante, flotante, flotante)`. El parámetro `matriz` es la matriz de transformaciones, el cual discutiremos más adelante. Los 3 parámetros flotantes representan las coordenadas (x, y, z) de la posición del vértice.
 
 Este método retorna un constructor de vértice, el cual podemos usar para especificar información adicional para el vértice. Es crucial seguir el orden de nuestro `VertexFormat` definido a la hora de agregar esta información. De lo contrario, `OpenGL` puede que no interprete nuestros datos correctamente. Una vez que hemos terminado de construir nuestro vértice, podemos llamar el metodo `next()`. Esto finaliza el vértice actual y prepara el constructor para el siguiente.
 
@@ -86,7 +86,7 @@ Una matriz de transformación es una matriz 4x4 que es usada para transformar un
 
 También se conoce como la matriz de posición, o la matriz de modelo.
 
-Usualmente es obtenida mediante la clase `MatrixStack` (Pila de Matrices), la cual puede ser obtenida mediante el objeto de `DrawContext`:
+Usualmente es obtenida mediante la clase `PoseStack` (Pila de Matrices), la cual puede ser obtenida mediante el objeto de `GuiGraphics`:
 
 ```java
 drawContext.getMatrices().peek().getPositionMatrix();
@@ -94,7 +94,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 #### Un Ejemplo Práctico: Renderizar una Banda de Triángulos
 
-Es más facil explicar como escribir al `BufferBuilder` usando un ejemplo práctico. Digamos que queremos renderizar algo usando el modo de dibujado de `DrawMode.TRIANGLE_STRIP` y el formato de vértices de `POSITION_COLOR`.
+Es más facil explicar como escribir al `BufferBuilder` usando un ejemplo práctico. Digamos que queremos renderizar algo usando el modo de dibujado de `Mode.TRIANGLE_STRIP` y el formato de vértices de `POSITION_COLOR`.
 
 Vamos a dibujar vértices usando los siguientes puntos en el HUD (en orden):
 
@@ -121,11 +121,11 @@ Esto resulta en lo siguiente siendo dibujado en el HUD:
 ¡Intenta jugar con los colores y las posiciones del vértice para ver que pasa! También puedes intentar usar diferentes modos de dibujado y formatos de vértice.
 :::
 
-## El `MatrixStack`
+## El `PoseStack`
 
-Después de aprender a escribir al `BufferBuilder`, puede que te preguntes como transformar el modelo - o incluso animarlo. Aquí es donde entra la clase `MatrixStack`.
+Después de aprender a escribir al `BufferBuilder`, puede que te preguntes como transformar el modelo - o incluso animarlo. Aquí es donde entra la clase `PoseStack`.
 
-La clase `MatrixStack` tiene los siguientes métodos:
+La clase `PoseStack` tiene los siguientes métodos:
 
 - `push()` - Empuja una nueva matrix sobre la pila.
 - `pop()` - Suelta la matriz en el tope de la pila.
@@ -135,7 +135,7 @@ La clase `MatrixStack` tiene los siguientes métodos:
 
 También puedes multiplicar la matriz en el tope de la pila usando cuaterniones, los cuales cubriremos en la siguiente sección.
 
-Tomando el ejemplo de arriba, podemos hacer que nuestro diamante aumente o disminuya su tamaño usando el `MatrixStack` y el `tickDelta` - el cual es el tiempo que ha pasado desde el último frame.
+Tomando el ejemplo de arriba, podemos hacer que nuestro diamante aumente o disminuya su tamaño usando el `PoseStack` y el `tickDelta` - el cual es el tiempo que ha pasado desde el último frame.
 
 ::: warning
 You must first push the matrix stack and then pop it after you're done with it. If you don't, you'll end up with a broken matrix stack, which will cause rendering issues.
@@ -149,11 +149,11 @@ You must first push the matrix stack and then pop it after you're done with it. 
 
 ## Cuaterniones (Para Rotar Cosas)
 
-Los cuaterniones son una manera de representar rotaciones en un espacio tridimensional. Son usados para rotar la matriz en el tope de la pila en el `MatrixStack` usando el método de `multiply(Quaternion, x, y, z)`.
+Los cuaterniones son una manera de representar rotaciones en un espacio tridimensional. Son usados para rotar la matriz en el tope de la pila en el `PoseStack` usando el método de `mulPose(Quaternion, x, y, z)`.
 
 Es muy improbable que tengas que usar una clase de `Quaternion` directamente, ya que Minecraft nos da varias instancias de `Quaternion` ya incluidas en la clase de utilidades de `RotationAxis`.
 
-Digamos que queremos rotar nuestro diamante alrededor del eje z. Podemos hacer esto mediante la clase `MatrixStack` y el método `multiply(Quaternion, x, y, z)`.
+Digamos que queremos rotar nuestro diamante alrededor del eje z. Podemos hacer esto mediante la clase `PoseStack` y el método `mulPose(Quaternion, x, y, z)`.
 
 @[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
 

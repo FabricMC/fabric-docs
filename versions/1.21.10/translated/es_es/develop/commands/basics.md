@@ -73,7 +73,7 @@ En el inicializador de mod, solo registramos un comando simple:
 
 @[code lang=java transcludeWith=:::_1](@/reference/1.21.10/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
-En el método `sendFeedback()`, el primer parámetro es el texto a ser enviado, el cual está en un `Supplier<Text>` (Proveedor) para no tener que instanciar nuevos objetos `Text` (Texto) cuando no es necesario.
+En el método `sendFeedback()`, el primer parámetro es el texto a ser enviado, el cual está en un `Supplier<Text>` (Proveedor) para no tener que instanciar nuevos objetos `Component` (Texto) cuando no es necesario.
 
 El segundo parámetro determina si deberíamos transmitir el feedback a otros operadores. Generalmente, si el comando solo es para verificar o consultar algo sin afectar realmente el mundo, como verificar el tiempo actual o el puntaje de un jugador, este parametro debería ser `false` (falso). Si el comando hace algo, como cambiar el tiempo o modificar el puntaje de alguien, entonces debería ser `true` (verdadero).
 
@@ -132,7 +132,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 
 - Problemas con genéricos - Puede que tengas problemas con genéricos de vez en cuando. Si estás registrando comandos de servidor (el cual es mayormente el caso), asegúrate de usar `CommandManager.literal` o `CommandManager.argument` en vez de `LiteralArgumentBuilder.literal` o `RequiredArgumentBuilder.argument`.
 
-- Verifica el método de `sendFeedback()` - Puede que te hayas olvidado de dar el valor booleano al segundo argumento. También recurda que, a partir de Minecraft 1.20, el primer parámetro es un `Supplier<Text>` en vez de `Text`.
+- Verifica el método de `sendFeedback()` - Puede que te hayas olvidado de dar el valor booleano al segundo argumento. También recurda que, a partir de Minecraft 1.20, el primer parámetro es un `Supplier<Text>` en vez de `Component`.
 
 - Un comando debería retornar un número entero - Cuando registres comandos, el método `executes()` acepta un objeto `Command`, el cual usualmente es una expresión Lambda. El Lambda debería retornar un número entero, en lugar de otros tipos de valores.
 
@@ -142,7 +142,7 @@ Redireccionadores de comandos - también llamados aliases - son una manea de red
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-Después de eso, debes enviar el árbol de comandos a cada jugador de nuevo usando `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+Después de eso, debes enviar el árbol de comandos a cada jugador de nuevo usando `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Esto es necesario porque el cliente almacena en un caché el árbol de comandos que recibe durante inicio de sesión (o cuando paquetes de operador son enviados) para mensajes de error con completaciones locales.
 :::
@@ -153,7 +153,7 @@ Esto es necesario porque el cliente almacena en un caché el árbol de comandos 
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-Para mantener las cosas simples, vas a tener que usar reflexión en Brigadier para remover nodos. Después de esto, necesitas enviar el árbol de comandos de nuevo a cada jugador usando `sendCommandTree(ServerPlayerEntity)`.
+Para mantener las cosas simples, vas a tener que usar reflexión en Brigadier para remover nodos. Después de esto, necesitas enviar el árbol de comandos de nuevo a cada jugador usando `sendCommandTree(ServerPlayer)`.
 
 Si no envias el árbol de comandos actualizado, el cliente pensará que un comando existe, aunque el servidor no podrá ejecutarlo.
 :::

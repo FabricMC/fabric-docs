@@ -134,7 +134,7 @@ Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中
 
 - 泛型问题──您可能有时候会遇到泛型的问题。 泛型问题──您可能有时候会遇到泛型的问题。 如果您要注册服务器命令（大多数情况），请确保使用 `CommandManager.literal` 或者 `CommandManager.argument` 而不是 `LiteralArgumentBuilder.literal` 或者 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 检查 `sendFeedback()` 方法 - 您可能忘记提供布尔值作为第二个参数。 请您谨记，自从 Minecraft 1.20 版本开始， 第一个参数是类型 `Supplier<Text>` 而不是 `Component`。
 
 - 命令应当返回一个整型数字 - 注册命令时，`executes()` 方法接受一个 `Command` 对象，该对象通常是 lambda。 lambda 应该返回一个整型数字，而不是其他类型。 lambda 应该返回一个整型数字，而不是其他类型。
 
@@ -144,7 +144,7 @@ Fabric API 有一个存在于 `net.fabricmc.fabric.api.client.command.v2` 包中
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-之后，需要使用 `CommandManager.sendCommandTree(ServerPlayerEntity)` 将命令树再次发送给每个玩家。
+之后，需要使用 `CommandManager.sendCommandTree(ServerPlayer)` 将命令树再次发送给每个玩家。
 
 这是必须的，因为客户端只会在玩家登录时本地缓存命令树（或者发送操作包时）以完成丰富的错误信息补全。
 :::
@@ -155,7 +155,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 在那之后，您需要使用 `sendCommandTree(ServerPlayerEntity)` 将命令树再次发送给所有玩家。
+为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 为了保持事情简单，你需要对 Brigadier 使用反射来移除节点。 在那之后，您需要使用 `sendCommandTree(ServerPlayer)` 将命令树再次发送给所有玩家。
 
 如果您不发送更新后的命令树，客户端可能认为命令依然存在，即使服务器会执行失败。
 :::

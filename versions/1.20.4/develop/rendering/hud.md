@@ -13,7 +13,7 @@ We already briefly touched on rendering things to the hud in the [Basic Renderin
 
 The `HudRenderCallback` event - provided by Fabric API - is called every frame, and is used to render things to the HUD.
 
-To register to this event, you can simply call `HudRenderCallback.EVENT.register` and pass in a lambda that takes a `DrawContext` and a `float` (deltaTick) as parameters.
+To register to this event, you can simply call `HudRenderCallback.EVENT.register` and pass in a lambda that takes a `GuiGraphics` and a `float` (deltaTick) as parameters.
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack.
 

@@ -53,7 +53,7 @@ Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter
 
 Zugleich haben wir folgendes definiert:
 
-- Einen `Identifier`, der zur Identifizierung des Payload unseres Pakets verwendet wird. In diesem Beispiel lautet der Bezeichner `fabric-docs-reference:summon_lightning`.
+- Einen `ResourceLocation`, der zur Identifizierung des Payload unseres Pakets verwendet wird. In diesem Beispiel lautet der Bezeichner `fabric-docs-reference:summon_lightning`.
 
 @[code lang=java transclude={13-13}](@/reference/1.21.8/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
 
@@ -85,7 +85,7 @@ Eine ähnliche Methode existiert, um Client-to-Server Payloads zu registrieren: 
 
 ### Senden eines Pakets an den Client {#sending-a-packet-to-the-client}
 
-Um ein Paket mit unserem benutzerdefinierten Payload zu senden, können wir `ServerPlayNetworking.send` verwenden, das eine `ServerPlayerEntity` und einen `CustomPayload` entgegennimmt.
+Um ein Paket mit unserem benutzerdefinierten Payload zu senden, können wir `ServerPlayNetworking.send` verwenden, das eine `ServerPlayer` und einen `CustomPayload` entgegennimmt.
 
 Beginnen wir mit der Erstellung unseres Blitz-Kartoffel-Item. Du kannst `use` überschreiben, um eine Aktion auszulösen, wenn das Item verwendet wird.
 In diesem Fall, lasst uns Pakete an die Spieler in der Serverwelt senden.

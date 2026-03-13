@@ -46,7 +46,7 @@ Chest loot is a little bit tricker than block loot. Create a class that `extends
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceChestLootTableProvider.java)
 
-We'll need a `RegistryKey<LootTable>` for our loot table. Let's put that in a new class called `ModLootTables`. Make sure this is in your `main` source set if you're using split sources.
+We'll need a `ResourceKey<LootTable>` for our loot table. Let's put that in a new class called `ModLootTables`. Make sure this is in your `main` source set if you're using split sources.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/1.21.8/src/main/java/com/example/docs/ModLootTables.java)
 

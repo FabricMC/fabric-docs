@@ -92,9 +92,9 @@ public void onInitialize() {
 ### 耐久度 {#durability}
 
 不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。
-因此当注册盔甲物品时耐久度需要被手动添加到它的 `Item.Settings` 里。
+因此当注册盔甲物品时耐久度需要被手动添加到它的 `Item.Properties` 里。
 
-这是使用 `Item.Settings` 类中 `maxDamage` 方法实现的。
+这是使用 `Item.Properties` 类中 `maxDamage` 方法实现的。
 不同的盔甲槽位有不同的基础耐久，通常都会在乘以一个共享的盔甲材料倍率，但也可以使用硬编码的值。
 
 对于 Guidite 盔甲，我们使用存储在盔甲材料中的共享盔甲倍率。

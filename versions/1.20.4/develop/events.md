@@ -83,9 +83,9 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event.
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
+Our implementation will call the event listeners in order until one of them does not return `InteractionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
 
-Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
+Using `InteractionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 
 You'll need to create an interface that has an `Event` instance and method for response implementation. A basic setup for our sheep shear callback is:
 
@@ -99,11 +99,11 @@ We then call our method (in this case, `interact`) on the listener to get its re
 
 @[code lang=java transclude={33-33}](@/reference/1.20.4/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-If the listener says we have to cancel (`ActionResult.FAIL`) or fully finish (`ActionResult.SUCCESS`), the callback returns the result and finishes the loop. `ActionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
+If the listener says we have to cancel (`InteractionResult.FAIL`) or fully finish (`InteractionResult.SUCCESS`), the callback returns the result and finishes the loop. `InteractionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
 
 @[code lang=java transclude={25-30}](@/reference/1.20.4/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-We can add Javadoc comments to the top of callback classes to document what each `ActionResult` does. In our case, it might be:
+We can add Javadoc comments to the top of callback classes to document what each `InteractionResult` does. In our case, it might be:
 
 @[code lang=java transclude={9-16}](@/reference/1.20.4/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
