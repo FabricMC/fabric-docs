@@ -183,3 +183,5 @@ Now, when you run datagen, you should see a `.json` file under `src/main/generat
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json)
 
 :::
+
+<!---->
