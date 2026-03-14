@@ -72,7 +72,6 @@
   "title": "Fabric Dokumentation",
   "version.reminder.latest_version": "Diese Seite ist für die Version %s geschrieben.",
   "version.reminder.old_version_mojang": "Diese Seite ist für die Version %s geschrieben.\nDokumentationen für ältere Versionen sind möglicherweise unvollständig.",
-  "version.reminder.old_version_yarn": "Diese Seite ist für die Version %s in Yarn Mappings geschrieben.\nDokumentationen für ältere Versionen sind möglicherweise unvollständig.",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "Keine andere Versionen",
   "version.warning": "Diese Dokumentation trifft auf Minecraft %s zu.\n\nDokumentationen für ältere Versionen sind möglicherweise unvollständig. Wenn du nach einer anderen Version suchst, wähle diese bitte aus dem Dropdown in der Navigationsleiste aus."
