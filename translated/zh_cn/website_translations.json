@@ -72,7 +72,6 @@
   "title": "Fabric 文档",
   "version.reminder.latest_version": "本页面适用于 %s 版本。",
   "version.reminder.old_version_mojang": "本页面适用于 %s 版本。\n针对旧版本的文档可能不完整。",
-  "version.reminder.old_version_yarn": "本页面适用于 Yarn 映射的 %s 版本。\n针对旧版本的文档可能不完整。",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "没有其他版本",
   "version.warning": "本文档适用于 Minecraft %s。\n\n旧版本的文档可能不完整。如需其他版本，请从导航栏的下拉菜单中选择。"

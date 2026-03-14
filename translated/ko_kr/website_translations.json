@@ -72,7 +72,6 @@
   "title": "Fabric 문서",
   "version.reminder.latest_version": "이 페이지는 %s 버전을 위해 작성되었습니다.",
   "version.reminder.old_version_mojang": "이 페이지는 버전 %s를 기준으로 작성되었습니다.\n예전 버전의 문서는 부정확할 수 있습니다.",
-  "version.reminder.old_version_yarn": "이 페이지는 %s 버전의 Yarn 매핑을 기준으로 작성되었습니다.\n예전 버전의 문서는 부정확할 수 있습니다.",
   "version.switcher.label": "마인크래프트 %s",
   "version.switcher.none": "다른 버전 없음",
   "version.warning": "이 문서는 마인크래프트 %s에 적용됩니다.\n\n구버전은 해당되지 않을 수 있습니다. 다른 버전을 윈한다면, 상단의 버전을 변경해 주세요."
