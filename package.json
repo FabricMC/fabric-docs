@@ -5,19 +5,17 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "tsx ./.vitepress/update.ts"
+    "bump": "tsx ./.vitepress/bump.ts"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",
     "@types/node": "^22.18.10",
-    "@types/prompts": "^2.4.9",
     "cross-spawn": "^7.0.6",
-    "markdownlint": "^0.37.4",
+    "markdownlint": "^0.40.0",
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
     "oxc-minify": "^0.82.3",
     "prettier": "^3.7.4",
-    "prompts": "^2.4.2",
     "tsx": "^4.20.6"
   },
   "dependencies": {

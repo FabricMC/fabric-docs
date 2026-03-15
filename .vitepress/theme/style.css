@@ -40,13 +40,17 @@
   --vp-font-family-base: "Punctuation SC", var(--font-family-base);
 }
 
+code,
+pre {
+  tab-size: 2 !important;
+}
+
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
 .VPSidebar {
   scrollbar-width: thin;
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
-/* Custom scrollbar visuals for WebKit-based browsers */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -59,31 +63,9 @@
   background: var(--vp-c-gray-1);
 }
 
-/* Homepage Container - Center content and limit maximum width. */
-.homepage-container {
-  margin: auto;
-  width: 100%;
-  max-width: 1280px;
-  padding: 0 24px;
-}
-
 /* Override default margin on the VitePress Home component */
 .VPHome {
   margin-bottom: 0px !important;
-}
-
-/* Responsive Adjustments - Increase padding for wider screens. */
-@media (min-width: 640px) {
-  .homepage-container {
-    padding: 0 48px;
-  }
-}
-
-@media (min-width: 960px) {
-  .homepage-container {
-    width: 100%;
-    padding: 0 64px;
-  }
 }
 
 /* Local Search Box Animations - Fade in backdrop and animate search box on appearance. */
@@ -99,6 +81,13 @@
   transform-origin: top center;
 }
 
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Medium Zoom Overlays - Increase stacking order for zoomed images and their overlay. */
 .medium-zoom-overlay {
   z-index: 10000;
@@ -106,14 +95,6 @@
 
 .medium-zoom-image--opened {
   z-index: 10001;
-}
-
-/* Simple keyframe animation for fading/showing elements */
-@keyframes show {
-  100% {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* Style <kbd> elements except the search popup */

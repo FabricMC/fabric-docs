@@ -51,7 +51,7 @@ LOGGER.info("反序列化的 BlockPos：{}", pos);
 
 ### 內建 Codec {#built-in-codec}
 
-如前所述，Mojang 已經為幾個原版和標準 Java 類別定義了 codec，包括但不限於 `BlockPos`、`BlockState`、`ItemStack`、`Identifier`、`Text` 和規則運算式 `Pattern`。 Mojang 自己的類別的 codec 通常會以靜態欄位 `CODEC` 的形式出現在類別本身，而大部分其他的則儲存在 `codec` 類別中。 還應該注意的是，所有原版登錄都包含一個 `getCodec()` 方法，例如，您可以使用 `Registries.BLOCK.getCodec()` 取得一個序列化為方塊 ID 並返回的 `Codec<Block>`。
+如前所述，Mojang 已經為幾個原版和標準 Java 類別定義了 codec，包括但不限於 `BlockPos`、`BlockState`、`ItemStack`、`ResourceLocation`、`Component` 和規則運算式 `Pattern`。 Mojang 自己的類別的 codec 通常會以靜態欄位 `CODEC` 的形式出現在類別本身，而大部分其他的則儲存在 `codec` 類別中。 還應該注意的是，所有原版登錄都包含一個 `byNameCodec()` 方法，例如，您可以使用 `BuiltInRegistries.BLOCK.byNameCodec()` 取得一個序列化為方塊 ID 並返回的 `Codec<Block>`。
 
 Codec API 本身也包含一些用於原始類型的 codec，例如 `Codec.INT` 和 `Codec.STRING`。 這些可以作為 `Codec` 類別上的靜態變數使用，並且通常用作更複雜的 codec 的基礎，如下所述。
 
@@ -93,7 +93,7 @@ public class CoolBeansClass {
 - 一個 `Codec<Item>`
 - 一個 `Codec<List<BlockPos>>`
 
-我們可以從前面提到的 `Codec` 類別中的原始 codec 取得第一個，具體來說就是 `Codec.INT`。 而第二個可以從 `Registries.ITEM` 登錄取得，它有一個 `getCodec()` 方法，該方法會回傳一個 `Codec<Item>`。 我們沒有用於 `List<BlockPos>` 的預設 codec，但我們可以從 `BlockPos.CODEC` 建立一個。
+我們可以從前面提到的 `Codec` 類別中的原始 codec 取得第一個，具體來說就是 `Codec.INT`。 而第二個可以從 `BuiltInRegistries.ITEM` 登錄取得，它有一個 `byNameCodec()` 方法，該方法會回傳一個 `Codec<Item>`。 我們沒有用於 `List<BlockPos>` 的預設 codec，但我們可以從 `BlockPos.CODEC` 建立一個。
 
 ### 清單 {#lists}
 
@@ -114,7 +114,7 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // 這裡最多可以宣告 16 個欄位
 ).apply(instance, CoolBeansClass::new));
@@ -216,16 +216,16 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 
 為了處理具有任意鍵的 maps，例如 `HashMap`s，可以使用 `Codec.unboundedMap`。 這會為指定的 `Codec<K>` 和 `Codec<V>` 回傳一個 `Codec<Map<K, V>>`。 結果 codec 將序列化為 json 物件或目前 dynamic ops 可用的任何等效物件。
 
-由於 json 和 nbt 的限制，使用的鍵 codec _必須_ 序列化為字串。 這包括非字串類型，但序列化為字串的 codec，例如 `Identifier.CODEC`。 請參閱以下範例：
+由於 json 和 nbt 的限制，使用的鍵 codec _必須_ 序列化為字串。 這包括非字串類型，但序列化為字串的 codec，例如 `ResourceLocation.CODEC`。 請參閱以下範例：
 
 ```java
 // 建立一個從 identifiers 到 integers 的 map 的 codec
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // 使用它來序列化資料
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.of("example", "number"), 23,
-    Identifier.of("example", "the_cooler_number"), 42
+    ResourceLocation.fromNamespaceAndPath("example", "number"), 23,
+    ResourceLocation.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -238,7 +238,7 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 }
 ```
 
-你可以看到，這有效是因為 `Identifier.CODEC` 直接序列化為字串值。 對於不序列化為字串的簡單物件，也可以透過使用 [xmap & friends](#mutually-convertible-types) 轉換它們來實現類似的效果。
+你可以看到，這有效是因為 `ResourceLocation.CODEC` 直接序列化為字串值。 對於不序列化為字串的簡單物件，也可以透過使用 [xmap & friends](#mutually-convertible-types) 轉換它們來實現類似的效果。
 
 ### 相互轉換的類型 {#mutually-convertible-types}
 
@@ -266,21 +266,21 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `Codec#flatComapMap`、`Codec#comapFlatMap` 和 `flatXMap` 類似於 xmap，但它們允許一個或兩個轉換函數回傳 DataResult。 這在實踐中很有用，因為特定的物件實例可能不一律適用於轉換。
 
-以原版的 `Identifier`s 為例。 雖然所有的 identifiers 都可以轉換為字串，但並非所有的字串都是有效的 identifiers，所以使用 xmap 會意味著在轉換失敗時拋出難看的例外。
+以原版的 `ResourceLocation`s 為例。 雖然所有的 identifiers 都可以轉換為字串，但並非所有的字串都是有效的 identifiers，所以使用 xmap 會意味著在轉換失敗時拋出難看的例外。
 因此，它的內建 codec 實際上是 `Codec.STRING` 上的 `comapFlatMap`，很好地說明了如何使用它：
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(Identifier.of(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(ResourceLocation.fromNamespaceAndPath(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
@@ -307,8 +307,8 @@ public class Identifier {
 - 每個 bean 類型的單獨 codec。
 - 一個 `BeanType<T extends Bean>` 類別或 record，它代表 bean 的類型，並且可以回傳它的 codec。
 - `Bean` 上的一個函數，用於檢索它的 `BeanType<?>`。
-- 一個 map 或登錄，用於將 `Identifier`s 對應到 `BeanType<?>`s。
-- 一個基於此登錄的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，可以使用 `Registry#getCodec` 輕鬆建立一個。
+- 一個 map 或登錄，用於將 `ResourceLocation`s 對應到 `BeanType<?>`s。
+- 一個基於此登錄的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，可以使用 `Registry#byNameCodec` 輕鬆建立一個。
 
 有了所有這些，我們可以為 beans 建立一個登錄分派 codec：
 
@@ -320,7 +320,7 @@ public class Identifier {
 
 ```java
 // 現在我們可以基於先前建立的登錄，建立一個用於 bean 類型的 codec
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // 基於此，這是我們用於 beans 的登錄分派 codec！
 // 第一個參數是 bean 類型的欄位名稱。
@@ -346,7 +346,7 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 ### 遞迴 Codec {#recursive-codecs}
 
-有時，擁有一個使用 _自身_ 來解碼特定欄位的 codec 很有用，例如在處理某些遞迴資料結構時。 在原版程式碼中，這用於 `Text` 物件，這些物件可以儲存其他 `Text`s 作為子物件。 可以使用 `Codec#recursive` 建構這樣的 codec。
+有時，擁有一個使用 _自身_ 來解碼特定欄位的 codec 很有用，例如在處理某些遞迴資料結構時。 在原版程式碼中，這用於 `Component` 物件，這些物件可以儲存其他 `Component`s 作為子物件。 可以使用 `Codec#recursive` 建構這樣的 codec。
 
 例如，讓我們嘗試序列化一個單向連結的清單。 這種表示清單的方式由一堆節點組成，這些節點既儲存一個值，又儲存對清單中下一個節點的引用。 然後，清單由其第一個節點表示，並且遍歷清單是透過跟隨下一個節點直到沒有剩餘的節點來完成的。 這是一個儲存 integers 的節點的簡單實作。
 

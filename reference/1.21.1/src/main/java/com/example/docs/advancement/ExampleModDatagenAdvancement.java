@@ -1,13 +1,11 @@
 package com.example.docs.advancement;
 
 import java.util.HashMap;
-
-import net.minecraft.item.Item;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
 
 // :::datagen-advancements:entrypoint
 public class ExampleModDatagenAdvancement implements ModInitializer {
@@ -21,8 +19,8 @@ public class ExampleModDatagenAdvancement implements ModInitializer {
 		HashMap<Item, Integer> tools = new HashMap<>();
 
 		PlayerBlockBreakEvents.AFTER.register(((world, player, blockPos, blockState, blockEntity) -> {
-			if (player instanceof ServerPlayerEntity serverPlayer) { // Only triggers on the server side
-				Item item = player.getMainHandStack().getItem();
+			if (player instanceof ServerPlayer serverPlayer) { // Only triggers on the server side
+				Item item = player.getMainHandItem().getItem();
 
 				Integer usedCount = tools.getOrDefault(item, 0);
 				usedCount++;
@@ -36,7 +34,7 @@ public class ExampleModDatagenAdvancement implements ModInitializer {
 				// :::datagen-advancements:trigger-new-criterion
 				// :::datagen-advancements:entrypoint
 
-				serverPlayer.sendMessage(Text.of("You've used \"" + item + "\" as a tool " + usedCount + " times!"));
+				serverPlayer.sendSystemMessage(Component.nullToEmpty("You've used \"" + item + "\" as a tool " + usedCount + " times!"));
 			}
 		}));
 	}

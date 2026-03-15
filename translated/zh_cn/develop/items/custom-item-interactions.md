@@ -27,7 +27,7 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 ::: info
 
-[播放声音事件](../sounds/using-sounds) 这里有一个比较好的例子，它通过重写 `useOn` 实现了在玩家右击方块时播放声音的功能。
+[播放声音](../sounds/using-sounds) 这里有一个比较好的例子，它通过重写 `useOn` 实现了在玩家右击方块时播放声音的功能。
 
 :::
 
@@ -40,13 +40,13 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 | `useOn`                | 当玩家手持物品右键方块时调用(确切的说是对着方块按下使用按键) |
 | `use`                  | 当玩家手持物品按下右键时调用(确切的说是按下使用按键)     |
 
-## 以使用(use) 事件为例{#use-event}
+## `use()`（使用）事件{#use-event}
 
 假设你想制作一个在玩家面前召唤闪电束的物品，这显然需要创建一个自定义的物品类。
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
-`use` 事件可能是最有用的事件之一：你可以利用这个事件来召唤闪电。下面的代码实现了在玩家面向的方向前10个方块的位置生成闪电。
+`use` 事件可能是最有用的事件之一：你可以利用这个事件来召唤闪电。下面的代码实现了在玩家面向的方向前 10 个方块的位置生成闪电。
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 

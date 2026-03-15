@@ -20,15 +20,15 @@ authors-nogithub:
 
 В этом руководстве мы добавим новый эффект под названием _Tater_, который даёт игроку одно очко опыта каждый игровой такт.
 
-### Расширение `StatusEffect` {#extend-statuseffect}
+### Расширение `MobEffect` {#extend-statuseffect}
 
-Давайте создадим класс нашего эффекта, который будет наследовать основной класс всех эффектов — `StatusEffect`.
+Давайте создадим класс нашего эффекта, который будет наследовать основной класс всех эффектов — `MobEffect`.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Регистрация своего эффекта {#registering-your-custom-effect}
 
-Схожим с регистрацией блоков и предметов образом, мы используем `Registry.register`, чтобы зарегистрировать наш эффект в реестре `STATUS_EFFECT`. Это можно сделать в нашем инициализаторе.
+Схожим с регистрацией блоков и предметов образом, мы используем `Registry.register`, чтобы зарегистрировать наш эффект в реестре `MOB_EFFECT`. Это можно сделать в нашем инициализаторе.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 

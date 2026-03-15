@@ -142,11 +142,6 @@ export namespace Fabric {
        * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
        */
       oldVersionMojang: string;
-
-      /**
-       * @default "This page is written for version %s in Yarn Mappings.\nDocumentation for older versions may be incomplete."
-       */
-      oldVersionYarn: string;
     };
 
     switcher: {

@@ -69,6 +69,7 @@ jobs:
           title: ${{ steps.message.outputs.message }}
           body: ""
           commit-message: ${{ steps.message.outputs.message }}
+          author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           branch: l10n/${{ github.ref_name }}
           labels: i18n-l10n
           draft: always-true

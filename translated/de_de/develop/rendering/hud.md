@@ -54,4 +54,4 @@ In diesem Beispiel werden wir `Util.getMillis()` verwenden, um die Farbe eines Q
 
 ![Eine Farbe im im Laufe der Zeit überblenden](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-Wieso versuchst du nicht, `gameTimeDeltaPartialTick` zu verwenden und zu sehen, was mit der Animation passiert, wenn du den Befehl `/tick freeze` ausführst? Du solltest sehen, wie die Animation an Ort und Stelle einfriert, wenn `gameTimeDeltaPartialTick` konstant wird (vorausgesetzt, du hast `false` als Parameter an `DeltaTracker#getGameTimeDeltaPartialTick` übergeben)
+Wieso versuchst du nicht, `gameTimeDeltaPartialTick` zu verwenden und zu sehen, was mit der Animation passiert, wenn du den Befehl `/tick freeze` ausführst? Du solltest sehen, wie die Animation an Ort und Stelle einfriert, wenn `gameTimeDeltaPartialTick` konstant wird, vorausgesetzt, du hast `false` als Parameter an `DeltaTracker#getGameTimeDeltaPartialTick` übergeben.

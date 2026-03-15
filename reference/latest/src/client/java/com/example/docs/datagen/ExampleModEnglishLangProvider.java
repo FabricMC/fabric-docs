@@ -56,6 +56,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
+		translationBuilder.add(ModBlocks.DIRT_CHEST_BLOCK, "Dirt Chest");
 
 		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
 		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");

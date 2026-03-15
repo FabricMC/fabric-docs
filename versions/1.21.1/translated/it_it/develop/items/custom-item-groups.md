@@ -21,7 +21,7 @@ Dovresti notare che il gruppo di oggetti è ora nel menu dell'inventario in crea
 
 ## Aggiungere una Chiave di Traduzione {#adding-a-translation-key}
 
-Se avessi per caso usato `Text.translatable` per il metodo `displayName` del costruttore del gruppo di oggetti, dovrai aggiungere la traduzione al tuo file di lingua.
+Se avessi per caso usato `Component.translatable` per il metodo `displayName` del costruttore del gruppo di oggetti, dovrai aggiungere la traduzione al tuo file di lingua.
 
 ```json
 {

@@ -13,7 +13,7 @@ next: false
 
 ## Cercare una classe di Minecraft {#searching-for-a-minecraft-class}
 
-Quando avrai generato le sorgenti, dovresti poter cercare e visualizzare le classi di Minecraft.
+Appena le sorgenti saranno state generate, dovresti poter cercare e visualizzare le classi di Minecraft.
 
 ### Visualizzare le definizioni delle classi {#viewing-class-definitions}
 

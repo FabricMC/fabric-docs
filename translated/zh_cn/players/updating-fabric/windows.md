@@ -17,9 +17,9 @@ next: false
 
 :::
 
-## 3. 更新Minecraft启动器中的档案 {#3-update-launcher-profile}
+## 3. 在 Minecraft 启动器中更新配置文件 {#3-update-launcher-profile}
 
-安装一完成，就打开Minecraft启动器。 然后前往“安装”选项卡。 找到你的 Fabric 配置文件并打开其编辑界面：
+安装完成后，打开 Minecraft 启动器， 然后前往“安装”选项卡， 找到你的 Fabric 配置文件并打开其编辑界面：
 
 ![在 Minecraft 启动器中更新 Fabric Loader 版本](/assets/players/updating-fabric.png)
 

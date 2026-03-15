@@ -16,7 +16,7 @@ const options = computed(() => {
   return options;
 });
 
-const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|\.md$`, "g");
+const removeForEnglishRegex = new RegExp(String.raw`^${data.localeIndex.value}/|[.]md$`, "g");
 const urls = computed(() =>
   data.localeIndex.value === "root"
     ? {

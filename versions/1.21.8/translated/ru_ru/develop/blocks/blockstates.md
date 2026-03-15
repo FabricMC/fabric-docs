@@ -68,11 +68,11 @@ Remember, blockstate files can be found in the `assets/<mod id here>/blockstates
 
 ### Создаём свойство {#creating-the-property}
 
-Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.of`.
+Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.create`.
 
 @[code transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Далее нам необходимо добавить свойство к менеджеру состояний блока в методе `appendProperties`. Вам необходимо переопределить метод для доступа к конструктору:
+Далее нам необходимо добавить свойство к менеджеру состояний блока в методе `createBlockStateDefinition`. Вам необходимо переопределить метод для доступа к конструктору:
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

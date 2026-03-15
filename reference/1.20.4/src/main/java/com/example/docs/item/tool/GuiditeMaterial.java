@@ -1,13 +1,12 @@
 package com.example.docs.item.tool;
 
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
-
 import com.example.docs.item.ModItems;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 // :::1
-public class GuiditeMaterial implements ToolMaterial {
+public class GuiditeMaterial implements Tier {
 	// Your IDE should override the interface's methods for you, or at least shout at you to do so.
 	// :::1
 	// :::8
@@ -16,35 +15,35 @@ public class GuiditeMaterial implements ToolMaterial {
 
 	// :::2
 	@Override
-	public int getDurability() {
+	public int getUses() {
 		return 455;
 	}
 
 	// :::2
 	// :::3
 	@Override
-	public float getMiningSpeedMultiplier() {
+	public float getSpeed() {
 		return 5.0F;
 	}
 
 	// :::3
 	// :::4
 	@Override
-	public float getAttackDamage() {
+	public float getAttackDamageBonus() {
 		return 1.5F;
 	}
 
 	// :::4
 	// :::5
 	@Override
-	public int getMiningLevel() {
+	public int getLevel() {
 		return 3;
 	}
 
 	// :::5
 	// :::6
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return 22;
 	}
 
@@ -52,7 +51,7 @@ public class GuiditeMaterial implements ToolMaterial {
 	// :::7
 	@Override
 	public Ingredient getRepairIngredient() {
-		return Ingredient.ofItems(ModItems.SUSPICIOUS_SUBSTANCE, Items.POTATO);
+		return Ingredient.of(ModItems.SUSPICIOUS_SUBSTANCE, Items.POTATO);
 	}
 
 	// :::7

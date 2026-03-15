@@ -65,8 +65,8 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 As mentioned earlier, Mojang has already defined codecs for several vanilla and standard Java classes, including but not
 limited to `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, and regex `Pattern`s. Codecs for Mojang's own
 classes are usually found as static fields named `CODEC` on the class itself, while most others are kept in the `Codecs`
-class. It should also be noted that all vanilla registries contain a `getCodec()` method, for example, you
-can use `Registries.BLOCK.byNameCodec()` to get a `Codec<Block>` which serializes to the block id and back.
+class. It should also be noted that all vanilla registries contain a `byNameCodec()` method, for example, you
+can use `BuiltInRegistries.BLOCK.byNameCodec()` to get a `Codec<Block>` which serializes to the block id and back.
 
 The Codec API itself also contains some codecs for primitive types, such as `Codec.INT` and `Codec.STRING`. These are
 available as statics on the `Codec` class, and are usually used as the base for more complex codecs, as explained below.
@@ -112,7 +112,7 @@ need one for each field:
 - a `Codec<List<BlockPos>>`
 
 We can get the first one from the aforementioned primitive codecs in the `Codec` class, specifically `Codec.INT`. While
-the second one can be obtained from the `Registries.ITEM` registry, which has a `getCodec()` method that returns a
+the second one can be obtained from the `BuiltInRegistries.ITEM` registry, which has a `byNameCodec()` method that returns a
 `Codec<Item>`. We don't have a default codec for `List<BlockPos>`, but we can make one from `BlockPos.CODEC`.
 
 ### Lists {#lists}
@@ -139,7 +139,7 @@ Let's take a look at how to create a codec for our `CoolBeansClass`:
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Up to 16 fields can be declared here
 ).apply(instance, CoolBeansClass::new));
@@ -370,7 +370,7 @@ these with a registry dispatch, we'll need a few things:
 - A function on `Bean` to retrieve its `BeanType<?>`.
 - A map or registry to map `ResourceLocation`s to `BeanType<?>`s.
 - A `Codec<BeanType<?>>` based on this registry. If you use a `net.minecraft.registry.Registry`, one can be easily made
-  using `Registry#getCodec`.
+  using `Registry#byNameCodec`.
 
 With all of this, we can create a registry dispatch codec for beans:
 
@@ -383,7 +383,7 @@ With all of this, we can create a registry dispatch codec for beans:
 ```java
 // Now we can create a codec for bean types
 // based on the previously created registry
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // And based on that, here's our registry dispatch codec for beans!
 // The first argument is the field name for the bean type.

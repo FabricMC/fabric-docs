@@ -1,6 +1,6 @@
 ---
-title: Dein erstes Item erstellen
-description: Lerne, wie man ein einfaches Item registriert und wie man es texturiert, modelliert und benennt.
+title: Erstellen deines ersten Gegenstands
+description: Erfahren, wie man einen einfachen Gegenstand registriert und wie man ihn texturiert, modelliert und benennt.
 authors:
   - dicedpixels
   - Earthcomputer
@@ -8,23 +8,23 @@ authors:
   - RaphProductions
 ---
 
-Diese Seite wird dich in einige Schlüssel-Konzepte von Items einführen und wie du sie registrierst, eine Textur, ein Model und einen Namen gibst.
+Auf dieser Seite werden einige wichtige Konzepte im Zusammenhang mit Objekten vorgestellt und erklärt, wie diese registriert, texturiert, modelliert und benannt werden können.
 
-Falls du es nicht weißt, alles in Minecraft wird in Registern gespeichert, genauso wie Items.
+Für alle, die es nicht wissen: In Minecraft wird alles in Registern gespeichert, und Gegenstände bilden da keine Ausnahme.
 
-## Deine Item-Klasse vorbereiten {#preparing-your-items-class}
+## Vorbereitung Ihrer Gegenstände Klasse {#preparing-your-items-class}
 
-Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die einen String Identifikator, einige Eigenschaften des Items und eine Factory zur Erstellung der `Item`-Instanz akzeptiert.
+Um die Registrierung von Elementen zu vereinfachen, kann eine Methode erstellt werden, die eine Zeichenfolgenkennung, einige Element-Eigenschaften und eine Factory zum Erstellen der `Item`-Instanz akzeptiert.
 
-Diese Methode erstellt einen Item mit dem angegebenen Bezeichner und registriert ihn in der Item Registry des Spiels.
+Diese Methode erstellt einen Gegenstand mit der angegebenen Kennung und registriert ihn in der Gegenstandsregistrierung des Spiels.
 
-Du kannst diese Methode in eine Klasse namens `ModItems` (oder wie immer du die Klasse nennen willst) einfügen.
+Diese Methode kann in eine Klasse namens „ModItems“ (oder einen beliebigen anderen Namen) eingefügt werden.
 
-Mojang macht das auch mit ihren Items! Inspiriere dich von der Klasse `Items`.
+Mojang macht das auch mit ihren Gegenständen! Als Inspiration dient die Klasse „Items“.
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Beachte, wie wir ein `GenericItem` verwenden, wodurch wir dieselbe Methode `register` zum Registrieren aller Arten von Items verwenden können, die von `Item` erben. Beachte die Verwendung eines [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) Interface für die Factory, das es uns später ermöglichen wird, zu spezifizieren, wie wir unser Item aus den Eigenschaften des Items mit `Item::new` erstellen wollen.
+Beachte, dass wir `T` verwenden, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html), der `Item` erweitert. Dadurch können wir dieselbe Methode `register` zum Registrieren aller Arten von Elementen verwenden, die `Item` erweitern. Wir verwenden außerdem eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) für die Factory, mit der wir festlegen können, wie unser Element unter Berücksichtigung der Elementeigenschaften erstellt werden soll.
 
 ## Ein Item registrieren {#registering-an-item}
 

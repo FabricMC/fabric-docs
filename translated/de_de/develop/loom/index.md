@@ -101,7 +101,13 @@ Loom ist so konzipiert, dass es sofort einsatzbereit ist, indem du einfach einen
 - `minecraft`: Definiert die Version von Minecraft, die in der Entwicklungsumgebung genutzt werden soll
 - `mappings`: Definiert die Mappings, die in der Entwicklungsumgebung genutzt werden sollen.
 - `modImplementation`, `modApi` und `modRuntime`: Erweiterte Varianten von `implementation`, `api` und `runtime` für Mod-Abhängigkeiten. Wird neu gemappt, um den Mappings in der Entwicklungsumgebung zu entsprechen und es werden alle verschachtelten Jars entfernt.
-- `include`: Deklariert eine Abhängigkeit, die als eine Jar-in-Jar in dem `remapJar`-Ausgaben enthalten sein sollte. Diese Konfiguration von Abhängigkeiten ist nicht transitiv. Für nicht-Mod-Abhängigkeiten, wird Loom eine Mod-Jar mit einer `fabric.mod.json` unter Verwendung der Mod ID für den Namen und der selben Version generieren.
+- `include`: Deklariert eine Abhängigkeit, die als eine Jar-in-Jar in der finalen Mod Ausgabe enthalten sein sollte. Diese Konfiguration von Abhängigkeiten ist nicht transitiv. Für nicht-Mod-Abhängigkeiten, wird Loom eine Mod-Jar mit einer `fabric.mod.json` unter Verwendung der Mod ID für den Namen und der selben Version generieren.
+
+::: info
+
+Mit `include` deklarierte Abhängigkeiten werden in Loom mit Remapping zu `remapJar` hinzugefügt, in Loom ohne Remapping hingegen zu `jar`. Aus diesem Grund enthalten Jar-Aufgaben aus anderen Plugins (wie z. B. `shadowJar`) diese Abhängigkeiten standardmäßig nicht.
+
+:::
 
 ## Standardkonfiguration {#configuration}
 

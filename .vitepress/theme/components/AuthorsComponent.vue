@@ -2,6 +2,7 @@
 import { useData } from "vitepress";
 import { computed } from "vue";
 
+import { useBrowserLocation } from "@vueuse/core";
 import { Fabric } from "../../types";
 
 type Author = { name: string; noGitHub?: true };
@@ -28,7 +29,7 @@ const getImageSrc = (author: Author) =>
         af: "",
         maxage: "7d",
         url: `https://github.com/${author.name}.png?size=32`,
-        default: "https://docs.fabricmc.net/assets/avatater.png",
+        default: `${useBrowserLocation().value.origin}/assets/avatater.png`,
       });
 </script>
 

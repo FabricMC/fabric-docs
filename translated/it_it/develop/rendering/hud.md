@@ -54,4 +54,4 @@ In questo esempio, useremo `Util.getMillis()` per interpolare linearmente il col
 
 ![Interpolare un colore nel tempo](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-Perché non provi a usare `gameTimeDeltaPartialTick` e a vedere cosa succede all'animazione quando esegui il comando `/tick freeze`? Dovresti vedere che l'animazione si congela appena `gameTimeDeltaPartialTick` diventa una costante (supponendo di aver passato `false` come parametro di `DeltaTracker#getGameTimeDeltaPartialTick`)
+Perché non provi a usare `gameTimeDeltaPartialTick` e a vedere cosa succede all'animazione quando esegui il comando `/tick freeze`? Dovresti vedere che l'animazione si congela appena `gameTimeDeltaPartialTick` diventa una costante, supponendo di aver passato `false` come parametro di `DeltaTracker#getGameTimeDeltaPartialTick`.

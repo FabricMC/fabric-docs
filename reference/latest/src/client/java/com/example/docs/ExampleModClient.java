@@ -22,8 +22,11 @@ public class ExampleModClient implements ClientModInitializer {
 
 		// #tooltip_provider_client
 		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
-			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-			tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
+			Integer count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+
+			if (count != null) {
+				tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
+			}
 		});
 		// #tooltip_provider_client
 	}

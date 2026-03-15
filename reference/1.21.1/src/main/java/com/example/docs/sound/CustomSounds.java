@@ -1,9 +1,9 @@
 package com.example.docs.sound;
 
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 
 // :::1
 public class CustomSounds {
@@ -18,8 +18,8 @@ public class CustomSounds {
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {
-		Identifier identifier = Identifier.of(ExampleModSounds.MOD_ID, id);
-		return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
+		ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(ExampleModSounds.MOD_ID, id);
+		return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier, SoundEvent.createVariableRangeEvent(identifier));
 	}
 
 	// This static method starts class initialization, which then initializes

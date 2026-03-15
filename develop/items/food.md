@@ -33,7 +33,7 @@ The `FoodProperties.Builder` class has some methods that allow you to modify wha
 
 When you've modified the builder to your liking, you can call the `build()` method to get the `FoodProperties`.
 
-If you want to add status effects to the player when they eat your food, you will need to add a `Consumable` component alongside the `FoodProperties` component as seen in the following example:
+If you want to add mob effects to the player when they eat your food, you will need to add a `Consumable` component alongside the `FoodProperties` component as seen in the following example:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

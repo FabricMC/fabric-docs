@@ -198,12 +198,12 @@ public class ModItems {
 	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
 
 	// :::1
-	public static <GenericItem extends Item> GenericItem register(String name, Function<Item.Properties, GenericItem> itemFactory, Item.Properties settings) {
+	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
 		// Create the item key.
 		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 
 		// Create the item instance.
-		GenericItem item = itemFactory.apply(settings.setId(itemKey));
+		T item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);

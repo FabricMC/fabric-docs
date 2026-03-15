@@ -15,7 +15,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 ## Einrichten {#setup}
 
-Erstelle zunächst eine eigene Klasse, die `extends FabricTagProvider<T>`, wobei `T` der Typ der Sache ist, für die du ein Tag bereitstellen möchtest. Dies ist dein **Provider**. Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auch auf alle anderen Dinge anwenden. Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `registryKey` durch den `RegistryKey` für deinen Typ:
+Erstelle zunächst eine eigene Klasse, die `extends FabricTagProvider<T>`, wobei `T` der Typ der Sache ist, für die du ein Tag bereitstellen möchtest. Dies ist dein **Provider**. Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auch auf alle anderen Dinge anwenden. Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `registryKey` durch den `ResourceKey` für deinen Typ:
 
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java)
 

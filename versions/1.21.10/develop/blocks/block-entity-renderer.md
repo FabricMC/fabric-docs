@@ -23,12 +23,12 @@ Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 
 @[code transcludeWith=:::1](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 
-The new class has a constructor with `BlockEntityRendererProvider.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `TextRenderer`.
+The new class has a constructor with `BlockEntityRendererProvider.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `Font`.
 Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererProvider` functional interface itself:
 
 @[code transcludeWith=:::1](@/reference/1.21.10/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
 
-We will override a few methods to set up the render state along with the `render` method where the rendering logic will be set up.
+We will override a few methods to set up the render state along with the `submit method where the rendering logic will be set up.
 
 `createRenderState` can be used to initialize the render state.
 
@@ -44,17 +44,19 @@ You should register block entity renderers in your `ClientModInitializer` class.
 
 ## Drawing on Blocks {#drawing-on-blocks}
 
-Now that we have a renderer, we can draw. The `render` method is called every frame, and it's where the rendering magic happens.
+Now that we have a renderer, we can draw. The `submit method is called every frame, and it's where the rendering magic happens.
 
 ### Moving Around {#moving-around}
 
 First, we need to offset and rotate the text so that it's on the block's top side.
 
 ::: info
+
 As the name suggests, the `PoseStack` is a _stack_, meaning that you can push and pop transformations.
-A good rule-of-thumb is to push a new one at the beginning of the `render` method and pop it at the end, so that the rendering of one block doesn't affect others.
+A good rule-of-thumb is to push a new one at the beginning of the `submit method and pop it at the end, so that the rendering of one block doesn't affect others.
 
 More information about the `PoseStack` can be found in the [Basic Rendering Concepts article](../rendering/basic-concepts).
+
 :::
 
 To make the translations and rotations needed easier to understand, let's visualize them. In this picture, the green block is where the text would be drawn, by default in the furthest bottom-left point of the block:
@@ -77,13 +79,13 @@ By default, the text is drawn on the XY plane, so we need to rotate it 90 degree
 
 ![Green block in the topmost center point, facing upwards](/assets/develop/blocks/block_entity_renderer_3.png)
 
-The `PoseStack` does not have a `rotate` function, instead we need to use `multiply` and `Axis.XP`:
+The `PoseStack` does not have a `rotate` function, instead we need to use `mulPose` and `Axis.XP`:
 
 ```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
+matrices.mulPose(Axis.XP.rotationDegrees(90));
 ```
 
-Now the text is in the correct position, but it's too large. The `BlockEntityRenderer` maps the whole block to a `[-0.5, 0.5]` cube, while the `TextRenderer` uses Y coordinates of `[0, 9]`. As such, we need to scale it down by a factor of 18:
+Now the text is in the correct position, but it's too large. The `BlockEntityRenderer` maps the whole block to a `[-0.5, 0.5]` cube, while the `Font` uses Y coordinates of `[0, 9]`. As such, we need to scale it down by a factor of 18:
 
 ```java
 matrices.scale(1/18f, 1/18f, 1/18f);
@@ -95,9 +97,9 @@ Now, the whole transformation looks like this:
 
 ### Drawing Text {#drawing-text}
 
-As mentioned earlier, the `Context` passed into the constructor of our renderer has a `TextRenderer` that we can use to measure text (`width`), which is useful for centering.
+As mentioned earlier, the `Context` passed into the constructor of our renderer has a `Font` that we can use to measure text (`width`), which is useful for centering.
 
-To draw the text, we will be submitting the necessary data to the render queue. Since we're drawing some text, we can use the `submitText` method provided through the `OrderedRenderCommandQueue` instance passed into the `render` method.
+To draw the text, we will be submitting the necessary data to the render queue. Since we're drawing some text, we can use the `submitText` method provided through the `SubmitNodeCollector` instance passed into the `submit method.
 
 @[code transcludeWith=:::3](@/reference/1.21.10/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
 

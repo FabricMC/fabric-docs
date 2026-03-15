@@ -13,8 +13,8 @@ next:
 
 Mit der Fabric-Toolchain kannst du auf den Quellcode von Minecraft zugreifen, indem du ihn lokal generierst, und du kannst Visual Studio Code verwenden, um bequem darin zu navigieren. Um den Quellcode zu generieren, musst du die `genSources`-Gradle-Aufgabe ausführen.
 
-Dies kann wie oben beschrieben in der Gradle-Ansicht erfolgen, indem du die `genSources`-Aufgabe unter **Tasks** > **`fabric`** ausführst:
-![„genSources“-Aufgabe in der Gradle-Ansicht](/assets/develop/getting-started/vscode/gradle-gensources.png)
+Dies kann in der Gradle-Ansicht erfolgen, indem du die `genSources`-Aufgabe unter **Tasks** > **`fabric`** ausführst:
+![genSources-Aufgabe in der Gradle-Ansicht](/assets/develop/getting-started/vscode/gradle-gensources.png)
 
 Oder du kannst auch den Befehl vom Terminal aus ausführen:
 

@@ -65,7 +65,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ::: tip
 
-Якщо ви не можете вибрати, яку `TextureModel` використовувати, відкрийте клас `TexturedModel` і подивіться на [`TextureMaps`](#using-texture-map)!
+Якщо ви не можете вибрати, яку `TextureModel` використовувати, відкрийте клас `TexturedModel` і подивіться на [`TextureMapping`](#using-texture-map)!
 
 :::
 
@@ -173,7 +173,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Що робить `TextureMapping`? Він фактично надає ідентифікатори, які вказують на текстури. Технічно вона поводиться як звичайна мапа — ви пов’язуєте `TextureSlot` (ключ) з `Identifier` (значення).
 
-Ви можете використати стандартні, як-от `TextureMapping.cube()` (який пов’язує всі `TextureKeys` з тим самим `Identifier`), або створити новий, створивши новий екземпляр, а потім використавши `.put()` для зв’язування ключів зі значеннями.
+Ви можете використати стандартні, як-от `TextureMapping.cube()` (який пов’язує всі `TextureSlot` з тим самим `Identifier`), або створити новий, створивши новий екземпляр, а потім використавши `.put()` для зв’язування ключів зі значеннями.
 
 ::: tip
 
@@ -189,7 +189,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ::: warning
 
-Усі `TextureSlot` у TextureMap **мають** збігатися з усіма `TextureSlot` у вашій моделі батьківського блока!
+Усі `TextureSlot` у TextureMapping **мають** збігатися з усіма `TextureSlot` у вашій моделі батьківського блока!
 
 :::
 

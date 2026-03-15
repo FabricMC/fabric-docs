@@ -65,7 +65,7 @@ Diese Methode wird Modelle für einen normalen Würfel generieren, der die Textu
 
 ::: tip
 
-Wenn du dich nicht entscheiden kannst, welches `TextureModel` du verwenden sollst, öffne die Klasse `TexturedModel` und sieh dir die [`TextureMaps`](#using-texture-map) an!
+Wenn du dich nicht entscheiden kannst, welches `TextureModel` du verwenden sollst, öffne die Klasse `TexturedModel` und sieh dir das [`TextureMapping`](#using-texture-map) an!
 
 :::
 
@@ -173,7 +173,7 @@ Die `TextureSlot`s repräsentieren die "Platzhalter" (`#bottom`, `#top`, ...) al
 
 Was macht das`TextureMapping`? Sie liefert die Identifikatoren, die auf die Textur verweisen. Technisch gesehen verhält sie sich wie eine normale Map - man verbindet einen `TextureSlot` (Schlüssel) mit einem `Identifier` (Wert).
 
-Du kannst entweder die von Vanilla verwenden, wie `TextureMapping.cube()` (die alle `TextureKeys` mit dem selben `Identifier` verknüpft), oder eine Neue erstellen, indem du eine neue Instanz erstellst und dann `.put()` aufrufst, um Schlüssel mit Werten zu verknüpfen.
+Du kannst entweder die von Vanilla verwenden, wie `TextureMapping.cube()` (die alle `TextureSlot`s mit dem selben `Identifier` verknüpft), oder eine Neue erstellen, indem du eine neue Instanz erstellst und dann `.put()` aufrufst, um Schlüssel mit Werten zu verknüpfen.
 
 ::: tip
 
@@ -189,7 +189,7 @@ Die `bottom` und `top` Flächen werden `oak_log_top.png` verwenden, die Seiten w
 
 ::: warning
 
-Alle `TextureSlot`s in deiner TextureMap **müssen** mit den `TextureSlot`s in deinem übergeordneten Blockmodell übereinstimmen!
+Alle `TextureSlot`s in deinem TextureMapping **müssen** mit den `TextureSlot`s in deinem übergeordneten Blockmodell übereinstimmen!
 
 :::
 

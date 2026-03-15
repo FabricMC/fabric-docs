@@ -3,16 +3,14 @@ package com.example.docs.sound;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.sound.SoundEvent;
-
+import net.minecraft.client.Minecraft;
+import net.minecraft.sounds.SoundEvent;
 import com.example.docs.sound.instance.SoundInstanceCallback;
 
 // :::1
 public class DynamicSoundManager implements SoundInstanceCallback {
 	// An instance of the client to use Minecraft's default SoundManager
-	private static final MinecraftClient client = MinecraftClient.getInstance();
+	private static final Minecraft client = Minecraft.getInstance();
 	// static field to store the current instance for the Singleton Design Pattern
 	private static DynamicSoundManager instance;
 	// The list which keeps track of all currently playing dynamic SoundInstances
@@ -56,7 +54,7 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 	public Optional<AbstractDynamicSoundInstance> getPlayingSoundInstance(SoundEvent soundEvent) {
 		for (var activeSound : this.activeSounds) {
 			// SoundInstances use their SoundEvent's id by default
-			if (activeSound.getId().equals(soundEvent.id())) {
+			if (activeSound.getLocation().equals(soundEvent.location())) {
 				return Optional.of(activeSound);
 			}
 		}

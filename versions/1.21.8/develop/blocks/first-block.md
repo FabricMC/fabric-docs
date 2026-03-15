@@ -40,7 +40,7 @@ public class ModBlocks {
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
-Similarly to items, blocks take a `AbstractBlock.Settings` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
+Similarly to items, blocks take a `BlockBehaviour.Properties` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
 
 We will not cover all the options here: you can view the class yourself to see the various options, which should be self-explanatory.
 
@@ -50,7 +50,7 @@ For example purposes, we will be creating a simple block that has the properties
 - We tell the `register` method to create a `Block` instance from the block settings by calling the `Block` constructor.
 
 ::: tip
-You can also use `AbstractBlock.Settings.copy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
+You can also use `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/block/ModBlocks.java)
@@ -61,7 +61,7 @@ To automatically create the block item, we can pass `true` to the `shouldRegiste
 
 Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
-For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
+For this example, we'll use a custom item group created in the [Custom Creative Tabs](../items/custom-item-groups) page.
 
 @[code transcludeWith=:::6](@/reference/1.21.8/src/main/java/com/example/docs/block/ModBlocks.java)
 
