@@ -180,7 +180,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			Identifier itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(item)), generator.modelOutput);
 			generator.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
 		}
-
 		//:::custom-item-datagen-method
 
 		@SuppressWarnings("SameParameterValue")
@@ -189,7 +188,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
-
 		//:::custom-item-model:::
 	}
 	// :::custom-item-model-generator:::
@@ -209,7 +207,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		private static ModelTemplate block(String parent, String variant, TextureSlot... requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
-
 		// :::custom-model
 
 		// :::custom-texture-map
@@ -219,7 +216,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					.put(TextureSlot.BOTTOM, ModelLocationUtils.getModelLocation(block, "_top"))
 					.put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(block));
 		}
-
 		// :::custom-texture-map
 
 		// :::custom-supplier
@@ -238,7 +234,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 						.select(Direction.WEST, false, fullBlockModel.with(BlockModelGenerators.UV_LOCK))
 					);
 		}
-
 		// :::custom-supplier
 
 		// :::custom-gen
@@ -248,7 +243,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			generator.blockStateOutput.accept(createVerticalSlabBlockStates(vertSlabBlock, slabModel, fullBlockModel));
 			generator.registerSimpleItemModel(vertSlabBlock, slabModel);
 		}
-
 		// :::custom-gen
 	}
 	// :::custom-blockstate-model-generator

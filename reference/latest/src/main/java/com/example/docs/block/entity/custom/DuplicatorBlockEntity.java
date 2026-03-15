@@ -32,6 +32,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	// :::be
 	// :::tick
 	private int timeSinceDropped = 0;
+
 	// :::tick
 	// :::be
 
@@ -72,7 +73,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 	}
-
 	// :::tick
 
 	// :::accept
@@ -90,7 +90,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction dir) {
 		return true;
 	}
-
 	// :::accept
 	// :::be
 }

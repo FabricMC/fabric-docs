@@ -65,7 +65,6 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 		// or add your own condition to the SoundInstance, if necessary
 		return true;
 	}
-
 	// :::3
 
 	// :::4
@@ -104,7 +103,6 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 		// apply volume and pitch modulation here,
 		// if you use a normal SoundInstance class
 	}
-
 	// :::4
 
 	// :::5
@@ -123,7 +121,6 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	protected void modulateSoundForStress() {
 		this.pitch = Mth.lerp(this.soundSource.getNormalizedStress(), this.minPitch, this.maxPitch);
 	}
-
 	// :::5
 
 	// :::6
@@ -139,7 +136,6 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	public void end() {
 		this.transitionState = TransitionState.ENDING;
 	}
-
 	// :::6
 	// :::1
 }

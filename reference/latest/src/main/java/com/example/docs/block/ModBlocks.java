@@ -161,7 +161,6 @@ public class ModBlocks {
 	private static ResourceKey<Item> keyOfItem(String name) {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
-
 	// :::1
 
 	public static void initialize() {
