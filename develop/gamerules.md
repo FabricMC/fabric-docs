@@ -42,15 +42,15 @@ Example of a gamerule storing a double:
 
 Now that we have a gamerule and its identifier you can access it anywhere with the `serverworld.getGameRules().get(GAMERULE)` method. Where the argument to the `.get()` is your gamerule constant and not the gamerule identifier.
 
-@[code lang=java transcludeWith=:::access](@/reference/latest/src/main/java/com/example/docs/gamerule/custom/BadVisionGamerule.java)
+@[code lang=java transcludeWith=:::access](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
 You can also use this to access the state of vanilla gamerules
 
-@[code lang=java transcludeWith=:::vanilla](@/reference/latest/src/main/java/com/example/docs/gamerule/custom/BadVisionGamerule.java)
+@[code lang=java transcludeWith=:::vanilla](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
 For example, for a gamerule that applies blindness to every player when true, the implementation would be:
 
-@[code lang=java transcludeWith=:::badvision](@/reference/latest/src/main/java/com/example/docs/gamerule/custom/BadVisionGamerule.java)
+@[code lang=java transcludeWith=:::badvision](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
 ## Translations {#translations}
 

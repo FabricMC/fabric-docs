@@ -14,7 +14,7 @@ import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 import com.example.docs.component.ModComponents;
-import com.example.docs.gamerule.ModGamerules;
+import com.example.docs.gamerule.ExampleModGamerules;
 
 //#entrypoint
 public class ExampleMod implements ModInitializer {
@@ -49,7 +49,5 @@ public class ExampleMod implements ModInitializer {
 		// #tooltip_provider
 		ComponentTooltipAppenderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
 		// #tooltip_provider
-
-		ModGamerules.bootstrap();
 	}
 }

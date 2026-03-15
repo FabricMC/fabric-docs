@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
-import com.example.docs.gamerule.ModGamerules;
+import com.example.docs.gamerule.ExampleModGamerules;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
@@ -75,12 +75,12 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 		// :::gamerule-description
 		translationBuilder.add(
-						Util.makeDescriptionId("gamerule", ModGamerules.BADVISION_GAMERULE_IDENTIFIER),
+						Util.makeDescriptionId("gamerule", ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER),
 						"Gives every player the blindness effect" // A short description of the gamerule
 		);
 		// :::gamerule-description
 		// :::gamerule-name
-		translationBuilder.add(ModGamerules.BADVISION_GAMERULE_IDENTIFIER, "Bad Vision");
+		translationBuilder.add(ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER, "Bad Vision");
 		// :::gamerule-name
 		// :::datagen-translations:provider
 	}
