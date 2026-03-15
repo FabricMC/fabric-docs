@@ -2,7 +2,12 @@
 title: Gamerules
 description: A guide for adding custom gamerules.
 authors:
+  - Jummit
+  - modmuss50
   - Wind292
+authors-nogithub:
+  - mysterious_dev
+  - solacekairos
 ---
 
 <!---->
