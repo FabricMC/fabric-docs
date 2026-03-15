@@ -42,3 +42,4 @@ public record LightningEnchantmentEffect(LevelBasedValue amount) implements Ench
 		return CODEC;
 	}
 }
+//#entrypoint
