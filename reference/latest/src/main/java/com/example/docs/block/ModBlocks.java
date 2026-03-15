@@ -64,7 +64,7 @@ public class ModBlocks {
 			true
 	);
 	// :::4
-	
+
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
