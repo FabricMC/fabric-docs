@@ -64,7 +64,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-setup:generator
 	}
 	// :::datagen-setup:generator
-	
+
 	// :::datagen-enchantments:bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {

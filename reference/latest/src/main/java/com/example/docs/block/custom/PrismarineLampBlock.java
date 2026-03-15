@@ -63,7 +63,7 @@ public class PrismarineLampBlock extends Block {
 		return activated ? 15 : 0;
 	}
 	// :::5
-	
+
 	// :::1
 }
 // :::1
