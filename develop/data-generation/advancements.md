@@ -117,7 +117,10 @@ Almost there! Next, we need an instance of our criterion to work with. Let's put
 
 To make sure that our criteria are initialized at the right time, add a blank `init` method:
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+```java
+public static final ParameterizedUseToolCriterion PARAMETERIZED_USE_TOOL = CriteriaTriggers.register(ExampleMod.MOD_ID + ":parameterized_use_tool", new ParameterizedUseToolCriterion());
+public static final UseToolCriterion USE_TOOL = CriteriaTriggers.register(ExampleMod.MOD_ID + ":use_tool", new UseToolCriterion());
+```
 
 And call it in your mod initializer:
 
@@ -155,7 +158,7 @@ Moving on, we now need to fix our `trigger` method:
 
 If you've made a new criterion, we need to add it to `ModCriteria`
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+@[code lang=java transclude={11-14}](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
 
 And call it in our main class, right where the old one is:
 
