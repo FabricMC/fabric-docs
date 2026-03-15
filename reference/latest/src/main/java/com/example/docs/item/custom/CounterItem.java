@@ -39,7 +39,6 @@ public class CounterItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	//::2
 
 	@Override
@@ -50,7 +49,6 @@ public class CounterItem extends Item {
 			textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 		}
 	}
-
 	//::3
 
 	//::1
