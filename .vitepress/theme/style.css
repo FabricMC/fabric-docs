@@ -40,6 +40,15 @@
   --vp-font-family-base: "Punctuation SC", var(--font-family-base);
 }
 
+/* Dark Mode Support - Show or hide elements based on the presence of the 'dark' class on the root element. */
+:root:not(.dark) .dark-only {
+  display: none;
+}
+
+:root:is(.dark) .light-only {
+  display: none;
+}
+
 code,
 pre {
   tab-size: 2 !important;

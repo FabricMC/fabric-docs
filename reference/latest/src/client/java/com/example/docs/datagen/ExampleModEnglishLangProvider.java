@@ -13,6 +13,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
@@ -34,6 +35,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
@@ -50,6 +52,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("itemGroup.example-mod", "Example Mod");
 		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
 		translationBuilder.addEnchantment(ModEnchantments.REPULSION_CURSE, "Curse of Repulsion");
+
+		translationBuilder.add(ModEntityTypes.MINI_GOLEM, "Mini Golem");
 
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
