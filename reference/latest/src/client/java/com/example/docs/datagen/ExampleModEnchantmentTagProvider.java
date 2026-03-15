@@ -30,6 +30,5 @@ public class ExampleModEnchantmentTagProvider extends FabricTagProvider<Enchantm
 		// :::curse-tag
 		// :::provider
 	}
-	// :::provider
 }
 // :::provider
