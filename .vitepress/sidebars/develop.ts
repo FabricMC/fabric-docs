@@ -388,6 +388,10 @@ export default [
         link: "/develop/events",
       },
       {
+        text: "develop.misc.gamerules",
+        link: "/develop/gamerules",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },

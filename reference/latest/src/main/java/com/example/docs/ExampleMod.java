@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 import com.example.docs.component.ModComponents;
+import com.example.docs.gamerule.ExampleModGamerules;
 
 //#entrypoint
 public class ExampleMod implements ModInitializer {

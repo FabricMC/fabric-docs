@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.gamerule.ExampleModGamerules;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
@@ -71,6 +72,16 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
+
+		// :::gamerule-description
+		translationBuilder.add(
+						Util.makeDescriptionId("gamerule", ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER),
+						"Gives every player the blindness effect" // A short description of the gamerule
+		);
+		// :::gamerule-description
+		// :::gamerule-name
+		translationBuilder.add(ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER, "Bad Vision");
+		// :::gamerule-name
 		// :::datagen-translations:provider
 	}
 }
