@@ -43,8 +43,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.GRASS),
 			true
 	);
-
 	// :::2
+
 	// :::3
 	public static final Block CONDENSED_OAK_LOG = register(
 			"condensed_oak_log",
@@ -52,8 +52,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.WOOD),
 			true
 	);
-
 	// :::3
+
 	// :::4
 	public static final Block PRISMARINE_LAMP = register(
 			"prismarine_lamp",
@@ -64,6 +64,7 @@ public class ModBlocks {
 			true
 	);
 	// :::4
+	
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")

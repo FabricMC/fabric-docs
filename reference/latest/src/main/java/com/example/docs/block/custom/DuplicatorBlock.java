@@ -71,7 +71,6 @@ public class DuplicatorBlock extends BaseEntityBlock {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	// :::useon
 
 	@Nullable

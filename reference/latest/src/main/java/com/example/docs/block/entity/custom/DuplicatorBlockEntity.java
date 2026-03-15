@@ -33,7 +33,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 
 	// :::tick
 	private int timeSinceDropped = 0;
-
 	// :::tick
 
 	public DuplicatorBlockEntity(BlockPos pos, BlockState state) {
@@ -59,7 +58,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		ContainerHelper.saveAllItems(output, items);
 		super.saveAdditional(output);
 	}
-
 	// :::save
 
 	// :::tick
@@ -95,7 +93,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	}
 
 	// :::accept
-
 	// :::be
 }
 // :::be

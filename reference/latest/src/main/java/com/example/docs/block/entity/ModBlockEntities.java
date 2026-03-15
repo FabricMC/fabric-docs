@@ -38,7 +38,6 @@ public class ModBlockEntities {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
-
 	// :::1
 
 	public static void initialize() {
