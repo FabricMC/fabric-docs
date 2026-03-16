@@ -54,7 +54,6 @@ public class TestItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	// ::::::problems:logger-usage-example
 
 	// :::problems:breakpoints
@@ -79,6 +78,5 @@ public class TestItem extends Item {
 
 		return InteractionResult.PASS;
 	}
-
 	// :::problems:breakpoints
 }

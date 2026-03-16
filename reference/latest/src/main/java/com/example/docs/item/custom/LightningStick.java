@@ -41,14 +41,13 @@ public class LightningStick extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	// :::2
+
 	// :::3
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
 		textConsumer.accept(Component.translatable("itemTooltip.example-mod.lightning_stick").withStyle(ChatFormatting.GOLD));
 	}
-
 	// :::3
 	// :::1
 }

@@ -28,13 +28,13 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 
 public class DuplicatorBlockEntity extends BlockEntity implements ImplementedContainer, WorldlyContainer {
 	// :::be
-
 	private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
-
+	// :::be
 	// :::tick
 	private int timeSinceDropped = 0;
 
 	// :::tick
+	// :::be
 
 	public DuplicatorBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.DUPLICATOR_BLOCK_ENTITY, pos, state);
@@ -44,7 +44,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	public NonNullList<ItemStack> getItems() {
 		return items;
 	}
-
 	// :::be
 
 	// :::save
@@ -59,7 +58,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		ContainerHelper.saveAllItems(output, items);
 		super.saveAdditional(output);
 	}
-
 	// :::save
 
 	// :::tick
@@ -75,7 +73,6 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 	}
-
 	// :::tick
 
 	// :::accept
@@ -93,9 +90,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction dir) {
 		return true;
 	}
-
 	// :::accept
-
 	// :::be
 }
 // :::be
