@@ -75,12 +75,12 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 		// :::gamerule-description
 		translationBuilder.add(
-						Util.makeDescriptionId("gamerule", ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER),
-						"Gives every player the blindness effect" // A short description of the gamerule
+						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
+						"Gives every player the blindness effect" // A short description of the game rule
 		);
 		// :::gamerule-description
 		// :::gamerule-name
-		translationBuilder.add(ExampleModGamerules.BADVISION_GAMERULE_IDENTIFIER, "Bad Vision");
+		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
 		// :::gamerule-name
 		// :::datagen-translations:provider
 	}

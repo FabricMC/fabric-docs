@@ -17,26 +17,24 @@ import net.minecraft.world.level.gamerules.GameRules;
 // :::gameruleClass
 public class ExampleModGamerules implements ModInitializer {
 	// Create and register a boolean gamerule, disabled by default
-	public static final Identifier BADVISION_GAMERULE_IDENTIFIER = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision");
 	public static final GameRule<Boolean> BADVISION_BOOLEAN_GAMERULE = GameRuleBuilder
-					.forBoolean(false) //default value declaration
+					.forBoolean(false) // Default value declaration
 					.category(GameRuleCategory.MISC)
 					.buildAndRegister(BADVISION_GAMERULE_IDENTIFIER);
 	// :::gameruleClass
 
-	public static final Identifier DOUBLE_GAMERULE_IDENTIFIER = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "double_example");
 	// :::double
 	public static final GameRule<Double> DOUBLE_GAMERULE = GameRuleBuilder
-					.forDouble(6.7) //default value declaration
+					.forDouble(6.7) // Default value declaration
 					.category(GameRuleCategory.MISC)
-					.buildAndRegister(DOUBLE_GAMERULE_IDENTIFIER);
+					.buildAndRegister(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "double_example"));
 	// :::double
 
 	private static void initializeBadVision() {
 		// :::badvision
 		// In your mod's onInitialize():
 		ServerTickEvents.END_WORLD_TICK.register(serverLevel -> {
-			// runs every tick on the server
+			// Runs every tick on the server
 			// :::badvision
 			// :::access
 			boolean gameruleState = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
