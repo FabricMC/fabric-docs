@@ -26,12 +26,7 @@ To create a custom game rule, first create a `GameRules` class; this is where we
 
 @[code lang=java transcludeWith=:::gameruleClass](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
-The category argument (`.category(GameRuleCategory.MISC)`) determines which category the gamerule falls under in the world creation screen. In this example we have created a boolean gamerule with a default value of false and the ID of `bad_vision`. The stored values in gamerules are not limited to booleans, you can have:
-
-- Booleans
-- Doubles
-- Integers
-- Enums
+The category argument (`.category(GameRuleCategory.MISC)`) determines which category the gamerule falls under in the world creation screen. In this example, we have created a boolean game rule with a default value of `false` and an id of `bad_vision`. The stored values in game rules are not limited to booleans; other valid types include `double`s, `integer`s, and `enum`s.
 
 Example of a gamerule storing a double:
 
