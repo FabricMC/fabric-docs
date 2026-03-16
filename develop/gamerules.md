@@ -18,7 +18,7 @@ You might want to have completed the [translation generation](./data-generation/
 
 :::
 
-Gamerules act as global variables that the player can change in-game with a command. These variables usually change something function of the world, for example `pvp`, `spawn_monsters`, and `advance_time`.
+Game rules act as world-specific configuration options that the player can change in-game with a command. These variables usually control some function of the world, for example `pvp`, `spawn_monsters`, and `advance_time`.
 
 ## Creating a Game Rule {#creating-a-game-rule}
 
