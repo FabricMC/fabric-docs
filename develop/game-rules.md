@@ -36,7 +36,7 @@ Example of a game rule storing a double:
 
 Now that we have a game rule and its `Identifier`, you can access it anywhere with the `serverWorld.getGameRules().get(GAMERULE)` method, where the argument to the `.get()` is your game rule constant and not the game rule id.
 
-@[code lang=java transcludeWith=:::access](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGamerules.java)
+@[code lang=java transclude={44-44}](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGamerules.java)
 
 You can also use this to access the values of vanilla game rules
 

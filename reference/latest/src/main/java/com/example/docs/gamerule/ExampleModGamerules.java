@@ -36,17 +36,14 @@ public class ExampleModGamerules implements ModInitializer {
 		ServerTickEvents.END_WORLD_TICK.register(serverLevel -> {
 			// Runs every tick on the server
 			// :::badvision
-			// :::access
-			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
-			// :::access
 			// :::vanilla
 			boolean doMobGriefing = serverLevel.getGameRules().get(GameRules.MOB_GRIEFING);
 			// :::vanilla
 			// :::badvision
 			// Check for the state of the gamerule
-			boolean badvisionGameruleStatus = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
+			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
 
-			if (badvisionGameruleStatus) {
+			if (badVisionEnabled) {
 				// If the gamerule is true
 				for (Player player : serverLevel.getPlayers(p -> true)) {
 					// Apply blindness to every player
