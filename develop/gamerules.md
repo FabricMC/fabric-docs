@@ -14,7 +14,7 @@ authors-nogithub:
 
 ::: info PREREQUISITES
 
-You might want to have completed the [translation generation](data-generation/translations) first, but it is not required.
+You might want to have completed the [translation generation](./data-generation/translations) first, but it is not required.
 
 :::
 
