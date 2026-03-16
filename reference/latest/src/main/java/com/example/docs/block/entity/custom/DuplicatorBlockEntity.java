@@ -21,20 +21,20 @@ import com.example.docs.container.ImplementedContainer;
 /*
 The following is a dummy piece of code to not have `implements WorldlyContainer` in the first code block where we implement `ImplementedContainer`.
 lmk if you have a better idea on how to handle this.
-// :::be
+// #region be
 public class DuplicatorBlockEntity extends BlockEntity implements ImplementedContainer {
-// :::be
+// #endregion be
 */
 
 public class DuplicatorBlockEntity extends BlockEntity implements ImplementedContainer, WorldlyContainer {
-	// :::be
+	// #region be
 	private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
-	// :::be
-	// :::tick
+	// #endregion be
+	// #region tick
 	private int timeSinceDropped = 0;
 
-	// :::tick
-	// :::be
+	// #endregion tick
+	// #region be
 
 	public DuplicatorBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.DUPLICATOR_BLOCK_ENTITY, pos, state);
@@ -44,9 +44,9 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	public NonNullList<ItemStack> getItems() {
 		return items;
 	}
-	// :::be
+	// #endregion be
 
-	// :::save
+	// #region save
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
@@ -58,9 +58,9 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		ContainerHelper.saveAllItems(output, items);
 		super.saveAdditional(output);
 	}
-	// :::save
+	// #endregion save
 
-	// :::tick
+	// #region tick
 	public static void tick(Level world, BlockPos blockPos, BlockState blockState, DuplicatorBlockEntity duplicatorBlockEntity) {
 		if (duplicatorBlockEntity.isEmpty()) return;
 		duplicatorBlockEntity.timeSinceDropped++;
@@ -73,9 +73,9 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 		Block.popResourceFromFace(world, blockPos, Direction.UP, duplicate);
 	}
-	// :::tick
+	// #endregion tick
 
-	// :::accept
+	// #region accept
 	@Override
 	public int[] getSlotsForFace(Direction side) {
 		return new int[]{ 0 };
@@ -90,7 +90,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction dir) {
 		return true;
 	}
-	// :::accept
-	// :::be
+	// #endregion accept
+	// #region be
 }
-// :::be
+// #endregion be
