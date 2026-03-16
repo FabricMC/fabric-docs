@@ -28,21 +28,21 @@ To create a custom game rule, first create a `GameRules` class; this is where we
 
 The category argument (`.category(GameRuleCategory.MISC)`) determines which category the gamerule falls under in the world creation screen. In this example, we have created a boolean game rule with a default value of `false` and an id of `bad_vision`. The stored values in game rules are not limited to booleans; other valid types include `double`s, `integer`s, and `enum`s.
 
-Example of a gamerule storing a double:
+Example of a game rule storing a double:
 
 @[code lang=java transcludeWith=:::double](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
-## Accessing a Gamerule {#accessing-a-gamerule}
+## Accessing a Game Rule {#accessing-a-game-rule}
 
-Now that we have a gamerule and its identifier you can access it anywhere with the `serverworld.getGameRules().get(GAMERULE)` method. Where the argument to the `.get()` is your gamerule constant and not the gamerule identifier.
+Now that we have a game rule and its `Identifier`, you can access it anywhere with the `serverWorld.getGameRules().get(GAMERULE)` method, where the argument to the `.get()` is your game rule constant and not the game rule id.
 
 @[code lang=java transcludeWith=:::access](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
-You can also use this to access the state of vanilla gamerules
+You can also use this to access the values of vanilla game rules
 
 @[code lang=java transcludeWith=:::vanilla](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
-For example, for a gamerule that applies blindness to every player when true, the implementation would be:
+For example, for a rule that applies blindness to every player when true, the implementation would be:
 
 @[code lang=java transcludeWith=:::badvision](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
@@ -58,13 +58,13 @@ Lastly we need to give our gamerule a description. So in your English language p
 
 ::: info
 
-Both of these mainly just change what is displayed in the world creation menu.
+This translation key is used when displaying text in the game rules screen.
 
 :::
 
-## Changing Gamerules In-Game {#changing-gamerules-in-game}
+## Changing Game Rules In-Game {#changing-game-rules-in-game}
 
-Now you should be able to change your gamerule in-game with `/gamerule` command, so for our example:
+Now, you should be able to change the value of your rule in-game with the `/gamerule` command as such:
 
 ``` command
 /gamerule example-mod:bad_vision true
