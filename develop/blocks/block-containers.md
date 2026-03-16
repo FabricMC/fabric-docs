@@ -13,17 +13,17 @@ In this tutorial we'll create a block that uses its container to duplicate any i
 
 This should be familiar to the reader if they've followed the [Creating Your First Block](../blocks/first-block) and [Block Entities](../blocks/block-entities) guides. We'll create a `DuplicatorBlock` that extends `BaseEntityBlock` and implements `EntityBlock`.
 
-@[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java#block
 
 Then, we need to create a `DuplicatorBlockEntity`, which needs to implement the `Container` interface. As most containers are generally expected to work the same way, you can copy and paste a helper called `ImplementedContainer` that does most of the work, leaving us with just a few methods to implement.
 
 ::: details Show `ImplementedContainer`
 
-@[code](@/reference/latest/src/main/java/com/example/docs/container/ImplementedContainer.java)
+<<< @/reference/latest/src/main/java/com/example/docs/container/ImplementedContainer.java
 
 :::
 
-@[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java#be
 
 The `items` list is where the container's contents are stored. For this block we have it set to a size of 1 slot for the input.
 
@@ -33,7 +33,7 @@ Don't forget to register the block and block entity in their respective classes!
 
 If we want the contents to persist between game reloads like a vanilla `BlockEntity`, we need to save it as NBT. Thankfully, Mojang provides a helper class called `ContainerHelper` with all the necessary logic.
 
-@[code transcludeWith=:::save](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java#save
 
 ## Interacting with the Container {#interacting-with-the-container}
 
@@ -41,7 +41,7 @@ Technically, the container is already functional. However, to insert items, we c
 
 To do that, we need to override the `useItemOn` method in the `DuplicatorBlock`:
 
-@[code transcludeWith=:::useon](@/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java#useon
 
 Here, if the player is holding an item and there is an empty slot, we move the item from the player's hand to the block's container and return `InteractionResult.SUCCESS`.
 
@@ -55,7 +55,7 @@ Let's now make it so that the block duplicates the stack you threw in it, but on
 
 To do this, we'll add a `tick` function to the `DuplicatorBlockEntity`, and a field to store how much we've been waiting:
 
-@[code transcludeWith=:::tick](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java#tick
 
 The `DuplicatorBlock` should now have a `getTicker` method that returns a reference to `DuplicatorBlockEntity::tick`.
 
@@ -73,13 +73,13 @@ To create this behavior, we need to implement the `WorldlyContainer` interface i
 
 Let's modify the `DuplicatorBlockEntity` to only accept items from the top:
 
-@[code transcludeWith=:::accept](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DuplicatorBlockEntity.java#accept
 
 The `getSlotsForFace` returns an array of the slot _indices_ that can be interacted with from the given side. In this case, we only have a single slot (`0`), so we return an array with just that index.
 
 Also, we should modify the `useItemOn` method of the `DuplicatorBlock` to actually respect the new behavior:
 
-@[code transcludeWith=:::place](@/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DuplicatorBlock.java#place
 
 Now, if we try to insert items from the side instead of the top, it won't work!
 

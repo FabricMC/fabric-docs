@@ -20,9 +20,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 
-// :::block
+// #region block
 public class DuplicatorBlock extends BaseEntityBlock {
-	// :::block
+	// #endregion block
 
 	public DuplicatorBlock(Properties settings) {
 		super(settings);
@@ -33,37 +33,37 @@ public class DuplicatorBlock extends BaseEntityBlock {
 		return simpleCodec(DuplicatorBlock::new);
 	}
 
-	// :::block
+	// #region block
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new DuplicatorBlockEntity(pos, state);
 	}
 
-	// :::block
+	// #endregion block
 
 	@Override
 	protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;
 	}
 
-	// :::useon
+	// #region useon
 	@Override
 	protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (!(world.getBlockEntity(pos) instanceof DuplicatorBlockEntity duplicatorBlockEntity)) {
 			return InteractionResult.PASS;
 		}
 
-		// :::useon
+		// #endregion useon
 
-		// :::place
+		// #region place
 		if (!duplicatorBlockEntity.canPlaceItemThroughFace(0, stack, hit.getDirection())) {
 			return InteractionResult.PASS;
 		}
 
-		// :::place
+		// #endregion place
 
-		// :::useon
+		// #region useon
 		if (!player.getItemInHand(hand).isEmpty() && duplicatorBlockEntity.isEmpty()) {
 			duplicatorBlockEntity.setItem(0, player.getItemInHand(hand).copy());
 			player.getItemInHand(hand).setCount(0);
@@ -71,7 +71,7 @@ public class DuplicatorBlock extends BaseEntityBlock {
 
 		return InteractionResult.SUCCESS;
 	}
-	// :::useon
+	// #endregion useon
 
 	@Nullable
 	@Override
@@ -79,7 +79,7 @@ public class DuplicatorBlock extends BaseEntityBlock {
 		return createTickerHelper(type, ModBlockEntities.DUPLICATOR_BLOCK_ENTITY, DuplicatorBlockEntity::tick);
 	}
 
-	// :::block
+	// #region block
 	// ...
 }
-// :::block
+// #endregion block
