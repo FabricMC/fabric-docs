@@ -22,7 +22,7 @@ Gamerules act as global variables that the player can change in-game with a comm
 
 ## Creating a Game Rule {#creating-a-game-rule}
 
-To create a custom gamerule first create a `GameRules` class; this is where we are going to declare our gamerules. Inside this class declare two constants, a gamerule identifier and the gamerule itself.
+To create a custom game rule, first create a `GameRules` class; this is where we are going to declare our game rules. Inside this class, declare two constants: a game rule identifier and the rule itself.
 
 @[code lang=java transcludeWith=:::gameruleClass](@/reference/latest/src/main/java/com/example/docs/gamerule/ModGamerules.java)
 
