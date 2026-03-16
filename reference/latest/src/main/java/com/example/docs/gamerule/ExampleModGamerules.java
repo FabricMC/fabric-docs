@@ -37,7 +37,7 @@ public class ExampleModGamerules implements ModInitializer {
 			// Runs every tick on the server
 			// :::badvision
 			// :::access
-			boolean gameruleState = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
+			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
 			// :::access
 			// :::vanilla
 			boolean doMobGriefing = serverLevel.getGameRules().get(GameRules.MOB_GRIEFING);
