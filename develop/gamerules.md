@@ -67,5 +67,5 @@ Both of these mainly just change what is displayed in the world creation menu.
 Now you should be able to change your gamerule in-game with `/gamerule` command, so for our example:
 
 ``` command
-/gamerule bad_vision true
+/gamerule example-mod:bad_vision true
 ```
