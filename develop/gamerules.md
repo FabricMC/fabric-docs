@@ -1,5 +1,5 @@
 ---
-title: Gamerules
+title: Game Rules
 description: A guide for adding custom gamerules.
 authors:
   - Jummit
