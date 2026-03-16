@@ -52,7 +52,7 @@ Now, we need to give our game rule a display name so it can be easily understood
 
 @[code lang=java transcludeWith=:::gamerule-name](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
-Lastly we need to give our gamerule a description. So in your English language provider add:
+Lastly we need to give our gamerule a description. So in your language provider add:
 
 @[code lang=java transcludeWith=:::gamerule-description](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 
@@ -66,6 +66,6 @@ This translation key is used when displaying text in the game rules screen.
 
 Now, you should be able to change the value of your rule in-game with the `/gamerule` command as such:
 
-``` command
+``` mcfunction
 /gamerule example-mod:bad_vision true
 ```
