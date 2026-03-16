@@ -1,6 +1,6 @@
 ---
 title: Game Rules
-description: A guide for adding custom gamerules.
+description: A guide for adding custom game rules.
 authors:
   - Jummit
   - modmuss50
