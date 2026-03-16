@@ -28,7 +28,7 @@ To create a custom game rule, first create a `GameRules` class; this is where we
 
 ::: info
 
-The category argument (`.category(GameRuleCategory.MISC)`) mostly just changes what category the gamerule falls under in the world creation screen
+The category argument (`.category(GameRuleCategory.MISC)`) determines which category the gamerule falls under in the world creation screen.
 
 :::
 
