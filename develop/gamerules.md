@@ -20,7 +20,7 @@ You might want to have completed the [translation generation](data-generation/tr
 
 Gamerules act as global variables that the player can change in-game with a command. These variables usually change something function of the world, for example `pvp`, `spawn_monsters`, and `advance_time`.
 
-## Creating a Gamerule {#creating-a-gamerule}
+## Creating a Game Rule {#creating-a-game-rule}
 
 To create a custom gamerule first create a `GameRules` class; this is where we are going to declare our gamerules. Inside this class declare two constants, a gamerule identifier and the gamerule itself.
 
