@@ -290,10 +290,10 @@ export default [
           {
             text: "develop.data_generation.world_generation",
             items: [
-                {
-                  text: "develop.data_generation.features",
-                  link: "/develop/data-generation/features",
-                },
+              {
+                text: "develop.data_generation.features",
+                link: "/develop/data-generation/features",
+              },
             ],
           },
         ],
