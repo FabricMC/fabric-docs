@@ -15,12 +15,12 @@ import net.minecraft.world.level.gamerules.GameRuleCategory;
 import net.minecraft.world.level.gamerules.GameRules;
 
 // :::gameruleClass
-public class ExampleModGamerules implements ModInitializer {
+public class ExampleModGameRules implements ModInitializer {
 	// Create and register a boolean gamerule, disabled by default
-	public static final GameRule<Boolean> BADVISION_BOOLEAN_GAMERULE = GameRuleBuilder
+	public static final GameRule<Boolean> BAD_VISION_BOOLEAN_GAMERULE = GameRuleBuilder
 					.forBoolean(false) // Default value declaration
 					.category(GameRuleCategory.MISC)
-					.buildAndRegister(BADVISION_GAMERULE_IDENTIFIER);
+					.buildAndRegister(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"));
 	// :::gameruleClass
 
 	// :::double
@@ -41,7 +41,7 @@ public class ExampleModGamerules implements ModInitializer {
 			// :::vanilla
 			// :::badvision
 			// Check for the state of the gamerule
-			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGamerules.BADVISION_BOOLEAN_GAMERULE);
+			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGameRules.BAD_VISION_BOOLEAN_GAMERULE);
 
 			if (badVisionEnabled) {
 				// If the gamerule is true
