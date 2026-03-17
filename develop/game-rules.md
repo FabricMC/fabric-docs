@@ -72,7 +72,7 @@ These translation keys are used when displaying text in the game rules screen. I
 
 Now, you should be able to change the value of your rule in-game with the `/gamerule` command as such:
 
-``` mcfunction
+```mcfunction
 /gamerule example-mod:bad_vision true
 ```
 

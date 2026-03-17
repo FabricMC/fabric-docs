@@ -1,11 +1,5 @@
 package com.example.docs.gamerule;
 
-import com.example.docs.ExampleMod;
-
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleBuilder;
-
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,6 +7,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.gamerules.GameRule;
 import net.minecraft.world.level.gamerules.GameRuleCategory;
 import net.minecraft.world.level.gamerules.GameRules;
+
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleBuilder;
+
+import com.example.docs.ExampleMod;
 
 // :::gameruleClass
 public class ExampleModGameRules implements ModInitializer {
