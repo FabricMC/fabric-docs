@@ -4,6 +4,8 @@ description: A guide explaining how to create a simple menu for a container bloc
 authors:
   - CelDaemon
   - Tenneb22
+resources:
+  https://docs.neoforged.net/docs/inventories/menus: Menus - NeoForge Docs
 ---
 
 <!---->

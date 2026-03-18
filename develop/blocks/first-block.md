@@ -7,6 +7,8 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+resources:
+  https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge Docs
 ---
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.

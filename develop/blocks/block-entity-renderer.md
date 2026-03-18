@@ -3,6 +3,8 @@ title: Block Entity Renderers
 description: Learn how to spice rendering up with block entity renderers.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/ber/: BlockEntityRenderer - NeoForge Docs
 ---
 
 Sometimes, using Minecraft's model format is not enough. If you need to add dynamic rendering to your block's visuals, you will need to use a `BlockEntityRenderer`.

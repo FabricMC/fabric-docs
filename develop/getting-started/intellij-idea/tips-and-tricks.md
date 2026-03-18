@@ -9,6 +9,9 @@ prev:
   text: Building a Mod in IntelliJ IDEA
   link: ./building-a-mod
 next: false
+resources:
+  https://www.youtube.com/watch?v=V8lss58zBPI: Anton Arhipov Talk on IntelliJ IDEA
+  https://blog.jetbrains.com/idea/category/tips-tricks/: Official Tips and Tricks
 ---
 
 This page gives useful bits of information, to speed up and ease the workflow of developers. Incorporate them into yours, to your liking.

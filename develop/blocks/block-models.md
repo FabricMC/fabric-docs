@@ -4,6 +4,8 @@ description: A guide to writing and understanding block models.
 authors:
   - Fellteros
   - its-miroma
+resources:
+  https://minecraft.wiki/w/Model#Block_models: Block Models - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -120,7 +122,3 @@ The values of both must be between **-16** and **32**, which means that every bl
    Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
 5. `tintidex`: _Integer_. Tints the texture on that face using a tint value. The default value, `-1`, indicates not to use the tint.
    Any other number is provided to `BlockColors` to get the tint value corresponding to that index (returns white when the block doesn't have a tint index defined).
-
-## Sources and Links {#sources-and-links}
-
-You can visit Minecraft Wiki's [Block Models page](https://minecraft.wiki/w/Model#Block_models) for a more detailed walkthrough. A lot of information here is from that page.

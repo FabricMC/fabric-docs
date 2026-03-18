@@ -4,6 +4,9 @@ description: Learn how to migrate your mod's obfuscation mappings using Ravel.
 authors:
   - cassiancc
   - deirn
+resources:
+  https://plugins.jetbrains.com/plugin/28938-ravel-remapper: Ravel Plugin - JB Marketplace
+  https://github.com/badasintended/ravel: Source Code for Ravel
 ---
 
 [Ravel](https://github.com/badasintended/ravel) is a plugin for IntelliJ IDEA to remap source files, based on [IntelliJ's PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) and [Mapping-IO](https://github.com/FabricMC/mapping-io). It supports remapping Java, Kotlin, Mixins (written in Java), Class Tweakers, and Access Wideners.

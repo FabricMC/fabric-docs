@@ -3,6 +3,8 @@ title: Block Entities
 description: Learn how to create block entities for your custom blocks.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/: Block Entities - NeoForge Docs
 ---
 
 Block entities are a way to store additional data for a block, that is not part of the block state: inventory contents, custom name and so on.

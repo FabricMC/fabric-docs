@@ -3,6 +3,12 @@ title: Porting to 1.21.11
 description: A guide for porting to Minecraft 1.21.11, the latest version of Minecraft.
 authors:
   - cassiancc
+resources:
+  https://fabricmc.net/2025/12/05/12111.html: Fabric API 1.21.11 Announcement
+  https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11: Java Edition 1.21.11 - Minecraft.net
+  https://minecraft.wiki/w/Java_Edition_1.21.11: Java Edition 1.21.11 - Minecraft Wiki
+  https://www.youtube.com/watch?v=5yY25GoWQhs&pp=0gcJCSkKAYcqIYzv: slicedlime's Data & Resource Pack News for 1.21.11
+  https://docs.neoforged.net/primer/docs/1.21.11/: 1.21.10 -> 1.21.11 Migration Primers - NeoForge
 ---
 
 Minecraft is a game that's constantly evolving, with new versions changing the game in ways that affect modders. This article covers the general steps one might follow to update their mod to the newest stable version of Minecraft.
@@ -31,5 +37,4 @@ To help you with updating, modders will document the changes they came across in
 - [_Minecraft: Java Edition 1.21.11_ on the Minecraft blog](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11) is the official overview of the features introduced in 1.21.11.
 - [_Java Edition 1.21.11_ on the Minecraft Wiki](https://minecraft.wiki/w/Java_Edition_1.21.11) is an unofficial summary of the contents of the update.
 - [slicedlime's Data & Resource Pack News in Minecraft 1.21.11](https://www.youtube.com/watch?v=5yY25GoWQhs&pp=0gcJCSkKAYcqIYzv) covers information relevant to updating your mod's data and resource pack driven content.
-- [NeoForge's _Minecraft 1.21.10 -> 1.21.11 Mod Migration Primer_](https://github.com/neoforged/.github/blob/main/primers/1.21.11/index.md) covers migrating from 1.21.10 to 1.21.11, focusing only on vanilla code changes.
-  - Please note that the linked article is third-party material, not maintained by Fabric. It's under copyright of @ChampionAsh5357, and licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+- [NeoForge's _Minecraft 1.21.10 -> 1.21.11 Mod Migration Primer_](https://docs.neoforged.net/primer/docs/1.21.11/) covers migrating from 1.21.10 to 1.21.11, focusing only on vanilla code changes.

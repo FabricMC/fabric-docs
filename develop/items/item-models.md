@@ -5,6 +5,8 @@ authors:
   - Fellteros
   - its-miroma
   - VatinMc
+resources:
+  https://minecraft.wiki/w/Model#Item_models: Item Models - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -274,7 +276,3 @@ The values of both must be between **-16** and **32**, which means that every it
 4. `rotation`: _Integer_. Rotates the texture by the specified number of degrees in 90 degree increments. Rotation does not affect which part of the texture is used.
    Instead, it amounts to permutation of the selected texture vertices (selected implicitly, or explicitly though `uv`).
 5. `tintidex`: _Integer_. Tints the texture on that face using a tint value referenced from the client item. If no tint color (or white) is provided, the texture isn't tinted.
-
-## Sources and Links {#sources-and-links}
-
-You can visit Minecraft Wiki's [Item Models page](https://minecraft.wiki/w/Model#Item_models) for a more detailed walkthrough. A lot of information here is from that page.

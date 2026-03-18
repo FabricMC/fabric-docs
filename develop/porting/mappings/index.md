@@ -21,6 +21,10 @@ authors:
   - UpcraftLP
 authors-nogithub:
   - basil4088
+resources:
+  https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition: Removing Obfuscation in Java Edition - Minecraft.net
+  https://fabricmc.net/2025/10/31/obfuscation.html: Removing Obfuscation from Fabric
+  ../../404: Tribute to Fabric Yarn (2016-2025)
 ---
 
 You may wish to migrate from Yarn to Mojang Mappings, especially if you are planning on [updating your mod past the Mounts of Mayhem game drop](#whats-going-on-with-mappings), or vice versa.

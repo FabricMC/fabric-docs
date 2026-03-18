@@ -3,6 +3,9 @@ title: Saved Data
 description: Saving data between game sessions.
 authors:
   - dicedpixels
+resources:
+  https://minecraft.wiki/w/NBT_format: NBT format - Minecraft Wiki
+  https://docs.neoforged.net/docs/datastorage/saveddata/: Saved Data - NeoForge Docs
 ---
 
 Saved Data is Minecraft's built-in solution to save data across sessions.

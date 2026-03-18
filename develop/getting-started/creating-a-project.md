@@ -6,6 +6,9 @@ authors:
   - IMB11
   - radstevee
   - Thomas1034
+resources:
+  https://fabricmc.net/develop/template/: Fabric Template Mod Generator
+  https://fabricmc.net/develop/: Develop with Fabric Website
 ---
 
 Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.

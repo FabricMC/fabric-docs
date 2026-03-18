@@ -10,6 +10,8 @@ authors:
   - kb-1000
   - modmuss50
   - SolidBlock-cn
+resources:
+  https://github.com/fabricMC/fabric-loom: Source Code for Fabric Loom
 ---
 
 Fabric Loom, or just Loom for short, is a [Gradle](https://gradle.org/) plugin for development of mods in the Fabric ecosystem.

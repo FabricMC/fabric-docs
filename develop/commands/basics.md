@@ -16,6 +16,8 @@ authors:
   - Technici4n
   - Treeways
   - xpple
+resources:
+  https://github.com/Mojang/brigadier: Source Code for Brigadier
 ---
 
 Creating commands can allow a mod developer to add functionality that can be used through a command. This tutorial will
@@ -23,10 +25,8 @@ teach you how to register commands and the general command structure of Brigadie
 
 ::: info
 
-Brigadier is a command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
+[Brigadier](https://github.com/Mojang/brigadier) is an open-source command parser and dispatcher written by Mojang for Minecraft. It is a tree-based command library where
 you build a tree of commands and arguments.
-
-Brigadier is open-source: <https://github.com/Mojang/brigadier>
 
 :::
 

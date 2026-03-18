@@ -4,6 +4,11 @@ description: A comprehensive guide for understanding and using Mojang's codec sy
 authors:
   - enjarai
   - Syst3ms
+resources:
+  https://docs.neoforged.net/docs/datastorage/codecs/: Codecs - NeoForge Docs
+  https://docs.neoforged.net/docs/networking/streamcodecs/: Stream Codecs - NeoForge Docs
+  https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec: Unofficial DFU JavaDocs
+  https://forge.gemwire.uk/wiki/Codecs: Codecs - Forge Community Wiki
 ---
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
@@ -401,10 +406,3 @@ A serialized `ListNode` may then look like this:
   }
 }
 ```
-
-## References {#references}
-
-- A much more comprehensive documentation of Codecs and related APIs can be found at the
-  [Unofficial DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
-- The general structure of this guide was heavily inspired by the
-  [Forge Community Wiki's page on Codecs](https://forge.gemwire.uk/wiki/Codecs), a more Forge-specific take on the same topic.

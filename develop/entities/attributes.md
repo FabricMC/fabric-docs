@@ -4,6 +4,9 @@ description: Learn how to add custom attributes to entities.
 authors:
   - cassiancc
   - cprodhomme
+resources:
+  https://minecraft.wiki/w/Attribute: Attributes - Minecraft Wiki
+  https://docs.neoforged.net/docs/entities/attributes: Attributes - NeoForge Docs (except Neo exclusives)
 ---
 
 Attributes determine the properties that your modded entity can possess. Using Fabric, you can create your own custom attributes that enhance gameplay mechanics and apply vanilla ones as well.

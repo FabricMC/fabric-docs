@@ -3,6 +3,9 @@ title: Block States
 description: Learn why blockstates are a great way to add visual functionality to your blocks.
 authors:
   - IMB11
+resources:
+  https://minecraft.wiki/w/Tutorial:Models#Block_states: Block States - Minecraft Wiki
+  https://docs.neoforged.net/docs/blocks/states/: Blockstates - NeoForge Docs
 ---
 
 A block state is a piece of data attached to a singular block in the Minecraft world containing information on the block in the form of properties - some examples of properties vanilla stores in block states:
@@ -44,7 +47,7 @@ An example of the `condensed_oak_log_horizontal.json` file:
 
 Remember, blockstate files can be found in the `assets/example-mod/blockstates` folder, the name of the blockstate file should match the block ID used when registering your block in the `ModBlocks` class. For instance, if the block ID is `condensed_oak_log`, the file should be named `condensed_oak_log.json`.
 
-For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states) page.
+For a more in-depth look at all the modifiers available in the blockstate files, check out the [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorial:Models#Block_states) page.
 
 :::
 

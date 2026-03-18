@@ -4,6 +4,9 @@ description: Learn how to create your enchantment effects.
 authors:
   - CelDaemon
   - krizh-p
+resources:
+  https://minecraft.wiki/w/Enchantment_definition: Enchantment Definition - Minecraft Wiki
+  https://misode.github.io/enchantment/: Misode's Enchantment Generator
 ---
 
 Starting from version 1.21, custom enchantments in Minecraft use a "data-driven" approach. This makes it easier to add simple enchantments, like increasing attack damage, but more challenging to create complex ones. The process involves breaking down enchantments into _effect components_.

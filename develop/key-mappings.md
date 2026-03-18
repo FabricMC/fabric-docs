@@ -4,6 +4,8 @@ description: Creating key mappings and reacting to them.
 authors:
   - cassiancc
   - dicedpixels
+resources:
+  https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg: Standard US Keyboard Layout
 ---
 
 Minecraft handles user input from peripherals such as the keyboard and mouse using key mappings.

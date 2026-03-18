@@ -3,6 +3,10 @@ title: Porting to 26.1 Snapshots
 description: Guidelines for porting to snapshots of Minecraft 26.1, the upcoming version of Minecraft.
 authors:
   - cassiancc
+resources:
+  ./26.1/fabric-api: Fabric API 26.1 Porting Guide
+  https://minecraft.wiki/w/Java_Edition_26.1: Java Edition 26.1 - Minecraft Wiki
+  https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md: ChampionAsh5357's 1.21.11 -> 26.1 Migration Primers
 ---
 
 The upcoming 26.1 version of Minecraft is unobfuscated, as are its snapshots. With this in mind, you'll need to make more changes to your build scripts than usual in order to port to it.

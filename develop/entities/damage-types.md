@@ -5,6 +5,9 @@ authors:
   - dicedpixels
   - hiisuuii
   - MattiDragon
+resources:
+  https://minecraft.wiki/w/Damage_type: Damage Types - Minecraft Wiki
+  https://docs.neoforged.net/docs/resources/server/damagetypes/: Damage Types & Damage Sources - NeoForge Docs (except datagen)
 ---
 
 Damage types define types of damage that entities can take. Since Minecraft 1.19.4, the creation of new damage types has

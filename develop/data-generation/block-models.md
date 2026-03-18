@@ -7,6 +7,11 @@ authors:
   - IMB11
   - its-miroma
   - natri0
+resources:
+  https://www.blockbench.net/: Download Blockbench
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Example Tests from Fabric API
+  https://github.com/Fellteros/vanillablocksplus: Vanilla+ Blocks by Fellteros
+  https://github.com/Fellteros/vanillavsplus: Vanilla+ Verticals by Fellteros
 ---
 
 <!---->
@@ -229,9 +234,3 @@ Finally, we create a model for the vertical slab item with `BlockModelGenerators
 And that is all! Now all that's left to do is to call our method in our `ModelProvider`:
 
 @[code lang=java transcludeWith=:::custom-method-call](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-## Sources and Links {#sources-and-links}
-
-You can view the example tests in [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) and this documentation's [Example Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) for more information.
-
-You can also find more examples of using custom datagen methods by browsing mods' open-source code, for example [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) and [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) by Fellteros.

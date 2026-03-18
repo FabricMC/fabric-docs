@@ -3,6 +3,8 @@ title: Porting to Fabric API 26.1
 description: A guide for updating your mod to Fabric API for Minecraft 26.1.
 authors:
   - modmuss50
+resources:
+  https://www.jetbrains.com/help/idea/migrate.html: Migrate Refactoring - IntelliJ IDEA Docs
 ---
 
 As Minecraft 26.1 is now unobfuscated, most developers will now be using Mojang's official mappings. Previously, Fabric API was built with Yarn mappings in mind, but with the move to official mappings, API names have been updated to match the official names where applicable. These changes are not backwards compatible, so you will need to update your mod to use the new names. These API renames will not be handled by the migrate mappings tools, it is highly recommended to follow the [Migrating Mappings](../../../develop/porting/mappings/) first if your mod is built with Yarn mappings.

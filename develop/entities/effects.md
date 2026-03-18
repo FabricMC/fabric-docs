@@ -11,6 +11,8 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+resources:
+  https://docs.neoforged.net/docs/items/mobeffects: Mob Effects - NeoForge Docs (except Potions)
 ---
 
 Mob effects, also known as status effects or simply effects, are a condition that can affect an entity. They can be positive, negative or neutral in nature. The base game

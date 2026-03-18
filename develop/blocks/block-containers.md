@@ -3,6 +3,8 @@ title: Block Containers
 description: Learn how to add containers to your block entities.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/inventories/container/: Containers - NeoForge Docs
 ---
 
 It's good practice when creating blocks that can store items, like chests and furnaces, to implement `Container`. This makes it possible to, for example, interact with the block using hoppers.

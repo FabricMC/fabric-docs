@@ -4,6 +4,8 @@ description: Comprehensive documentation for Minecraft's handling of formatted t
 authors:
   - IMB11
   - LordEnder-Kitty
+resources:
+  https://docs.neoforged.net/docs/resources/client/i18n/: I18n and L10n - NeoForge Docs (except datagen)
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->

@@ -3,6 +3,8 @@ title: Creating Custom Sounds
 description: Learn how to add and use a new sound with the registry.
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: Download Audacity
 ---
 
 ## Preparing the Audio File {#preparing-the-audio-file}

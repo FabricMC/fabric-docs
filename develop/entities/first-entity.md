@@ -5,6 +5,9 @@ authors:
   - cassiancc
   - Earthcomputer
   - JaaiDead
+resources:
+  https://docs.neoforged.net/docs/entities/: Entities - NeoForge Docs
+  https://www.desmos.com/calculator/9r6lh5knfu: Entity Walk Animation - Desmos
 ---
 
 Entities are dynamic, interactive objects in the game that are not part of the terrain (like blocks). Entities can move around and interact with the world in various ways. A few examples include:
@@ -62,7 +65,7 @@ Data stored on the render state is used to determine how the entity is visually 
 
 ### Setting up the Model {#setting-up-model}
 
-The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://web.blockbench.net), rather than being written by hand. Nonetheless, this tutorial will go through a manual example to show you how it works.
+The `MiniGolemEntityModel` class defines how your entity looks by describing its shape and parts. Models are generally created in third-party tools like [Blockbench](https://www.blockbench.net/), rather than being written by hand. Nonetheless, this tutorial will go through a manual example to show you how it works.
 
 ::: warning
 

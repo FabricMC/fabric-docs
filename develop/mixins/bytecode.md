@@ -5,6 +5,8 @@ authors:
   - Earthcomputer
   - its-miroma
   - Kilip1000
+resources:
+  https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions: List of JVM bytecode instructions - Wikipedia
 ---
 
 Mixins operate on Java bytecode, so to understand them one needs a grasp on their fundamentals.
@@ -345,7 +347,7 @@ Because the bytecode for both `if` conditions jumps to the exact same label, the
 
 ## Common Bytecode Patterns {#common-bytecode-patterns}
 
-Here's a reference for the most common bytecode instructions and patterns you'll encounter while developing mixins. For a full advanced list of instructions, check out the [List of Java bytecode instructions on Wikipedia](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions).
+Here's a reference for the most common bytecode instructions and patterns you'll encounter while developing mixins. For a full advanced list of instructions, check out the [List of JVM bytecode instructions on Wikipedia](https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions).
 
 ### Constants {#constant-instructions}
 
