@@ -11,6 +11,7 @@ authors:
 ---
 
 <!---->
+
 ::: info PREREQUISITES
 
 You must first understand [how to create an item](./first-item), which you can then turn into a spawn egg.
