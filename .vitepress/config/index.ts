@@ -4,6 +4,7 @@ import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 import latestVersionPlugin from "../plugins/latestVersion";
+import transformFilesPlugin from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
@@ -137,7 +138,7 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [latestVersionPlugin()],
+      plugins: [latestVersionPlugin(), transformFilesPlugin()],
     },
   },
   path.resolve(import.meta.dirname, "..")

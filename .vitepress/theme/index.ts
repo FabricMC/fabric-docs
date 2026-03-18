@@ -34,14 +34,10 @@ export default {
     app.component("VersionSwitcher", VersionSwitcher);
   },
   Layout: () => {
-    const { page, frontmatter, theme } = useData();
+    const { page, theme } = useData();
 
     const children = {
-      "doc-before": () => [
-        frontmatter.value.title ? h("h1", { class: "vp-doc" }, frontmatter.value.title) : null,
-        h(AuthorsComponent),
-        h(VersionReminder),
-      ],
+      "doc-before": () => [h(VersionReminder), h(AuthorsComponent)],
       "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent)],
     };
 
