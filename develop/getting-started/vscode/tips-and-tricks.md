@@ -9,7 +9,7 @@ prev:
 next: false
 ---
 
-It's important to learn how to traverse the generate sources so that you can debug and get an understanding of the inner workings of Minecraft. Here we outline some common IDE usages.
+It's important to learn how to traverse the generated sources so that you can debug and get an understanding of the inner workings of Minecraft. Here we outline some common IDE usages.
 
 ## Searching for a Minecraft Class {#searching-for-a-minecraft-class}
 
