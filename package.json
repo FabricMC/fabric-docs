@@ -12,6 +12,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^12.8.2",
+    "gray-matter": "^4.0.3",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa2",
     "medium-zoom": "^1.1.0",
     "syntax-java-bytecode": "github:mcgambing/Java-Bytecode#578f3e2c6861ac6396492540a987fe05d23b061a",
