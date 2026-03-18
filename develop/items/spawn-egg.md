@@ -16,6 +16,8 @@ authors:
 
 You must first understand [how to create an item](./first-item), which you can then turn into a spawn egg.
 
+This article also references the Mini Golem entity from [Creating your First Entity](../entities/first-entity). If you have not followed that tutorial, you can use a vanilla entity like `EntityType.FROG` rather than `ModEntityTypes.MINI_GOLEM`.
+
 :::
 
 Spawn eggs are special items that, when used, spawn their corresponding mob. You can register one with the `register` method from your [items class](./first-item#preparing-your-items-class), by passing `SpawnEggItem::new` to it.

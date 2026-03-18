@@ -48,7 +48,7 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		PartDefinition root = modelData.getRoot();
 		root.addOrReplaceChild(
 				PartNames.BODY,
-				CubeListBuilder.create().addBox(-6, -6, -6, 12, 12, 12), // x , y ,z  is the dimensions  |  width, height, depth
+				CubeListBuilder.create().addBox(-6, -6, -6, 12, 12, 12), // x, y, z is the dimensions | width, height, depth
 				PartPose.offset(0, 8, 0)
 		);
 		root.addOrReplaceChild(

@@ -118,7 +118,7 @@ For example purposes, you can use this texture for `assets/example-mod/textures/
 
 ### Creating the Renderer {#creating-the-renderer}
 
-A entity's renderer enables you to view your entity in-game. We'll create a new class, `MiniGolemEntityRenderer`, which will tell Minecraft what texture, model and entity render state to use for this entity.
+A entity's renderer enables you to view your entity in-game. We'll create a new class, `MiniGolemEntityRenderer`, which will tell Minecraft what texture, model, and entity render state to use for this entity.
 
 @[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
 
@@ -171,15 +171,15 @@ For persistent data that can be saved after the game is closed, we will override
 
 Now, whenever the entity is loaded, it will restore the state that it was left in.
 
-## Adding a Dancing Animation {#adding-a-dancing-animation}
+## Adding an Animation {#adding-an-animation}
 
-The first step to adding an animation to the entity is adding the animation sate in the entity class.
+The first step to adding an animation to the entity is adding the animation state in the entity class. We'll create an animation state that will be used to make the entity dance.
 
 @[code transcludeWith=:::dancing_animation](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
 We have overridden the `onSyncedDataUpdated` method. This gets called whenever synched data is updated both the server and the client. The if-statement checks whether the synched data that was updated is the dancing synched data.
 
-Now, we'll move on to animation itself. We will create the `MiniGolemAnimations` class.
+Now, we'll move on to animation itself. We will create the `MiniGolemAnimations` class, and add an `AnimationDefinition` to define how the animation will be applied to the entity.
 
 @[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
 
@@ -188,11 +188,11 @@ There's a lot going on here, notice the following key points:
 - `withLength(1)` makes the animation last 1 second.
 - `looping()` makes the animation loop repeatedly.
 - Then follows a series of `addAnimation` calls which adds individual animations targeting individual model parts. Here, we have different animations targeting the head, left leg, and right leg.
-- Each animation targets a specific property of that model part, in our case we are changing the rotation of the model part in each case.
-- An animation is made up of a list of keyframes. When the time (number of seconds elapsed) of the animation is equal to one of these keyframes, then the value of the property we targeted will be equal to the value we specified for that keyframe (in our case the rotation).
-- When the time is between our keyframes, then the value will be interpolated (blended) between the two neighboring keyframes.
-- We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
-- Modders can also create custom interpolation types.
+  - Each animation targets a specific property of that model part, in our case we are changing the rotation of the model part in each case.
+  - An animation is made up of a list of keyframes. When the time (number of seconds elapsed) of the animation is equal to one of these keyframes, then the value of the property we targeted will be equal to the value we specified for that keyframe (in our case the rotation).
+  - When the time is between our keyframes, then the value will be interpolated (blended) between the two neighboring keyframes.
+  - We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
+  - Modders can also create custom interpolation types.
 
 Finally, let's hook up the animation to the model.
 
