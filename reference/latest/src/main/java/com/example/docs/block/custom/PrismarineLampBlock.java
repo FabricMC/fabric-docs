@@ -24,15 +24,15 @@ public class PrismarineLampBlock extends Block {
 		// Set the default state of the block to be deactivated.
 		registerDefaultState(defaultBlockState().setValue(ACTIVATED, false));
 	}
-
 	// :::3
+
 	// :::2
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(ACTIVATED);
 	}
-
 	// :::2
+
 	// :::4
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
@@ -52,8 +52,8 @@ public class PrismarineLampBlock extends Block {
 			return InteractionResult.SUCCESS;
 		}
 	}
-
 	// :::4
+
 	// :::5
 	public static int getLuminance(BlockState currentBlockState) {
 		// Get the value of the "activated" property.
@@ -62,8 +62,8 @@ public class PrismarineLampBlock extends Block {
 		// Return a light level if activated = true
 		return activated ? 15 : 0;
 	}
-
 	// :::5
+
 	// :::1
 }
 // :::1

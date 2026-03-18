@@ -65,10 +65,10 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 ### Built-in Codecs {#built-in-codecs}
 
 As mentioned earlier, Mojang has already defined codecs for several vanilla and standard Java classes, including but not
-limited to `BlockPos`, `BlockState`, `ItemStack`, `Identifier`, `Text`, and regex `Pattern`s. Codecs for Mojang's own
+limited to `BlockPos`, `BlockState`, `ItemStack`, `ResourceLocation`, `Component`, and regex `Pattern`s. Codecs for Mojang's own
 classes are usually found as static fields named `CODEC` on the class itself, while most others are kept in the `Codecs`
-class. It should also be noted that all vanilla registries contain a `getCodec()` method, for example, you
-can use `Registries.BLOCK.getCodec()` to get a `Codec<Block>` which serializes to the block id and back.
+class. It should also be noted that all vanilla registries contain a `byNameCodec()` method, for example, you
+can use `BuiltInRegistries.BLOCK.byNameCodec()` to get a `Codec<Block>` which serializes to the block id and back.
 
 The Codec API itself also contains some codecs for primitive types, such as `Codec.INT` and `Codec.STRING`. These are
 available as statics on the `Codec` class, and are usually used as the base for more complex codecs, as explained below.
@@ -114,7 +114,7 @@ need one for each field:
 - a `Codec<List<BlockPos>>`
 
 We can get the first one from the aforementioned primitive codecs in the `Codec` class, specifically `Codec.INT`. While
-the second one can be obtained from the `Registries.ITEM` registry, which has a `getCodec()` method that returns a
+the second one can be obtained from the `BuiltInRegistries.ITEM` registry, which has a `byNameCodec()` method that returns a
 `Codec<Item>`. We don't have a default codec for `List<BlockPos>`, but we can make one from `BlockPos.CODEC`.
 
 ### Lists {#lists}
@@ -141,7 +141,7 @@ Let's take a look at how to create a codec for our `CoolBeansClass`:
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // Up to 16 fields can be declared here
 ).apply(instance, CoolBeansClass::new));
@@ -266,16 +266,16 @@ For processing maps with arbitrary keys, such as `HashMap`s, `Codec.unboundedMap
 whatever equivalent is available for the current dynamic ops.
 
 Due to limitations of json and nbt, the key codec used _must_ serialize to a string. This includes codecs for types that
-aren't strings themselves, but do serialize to them, such as `Identifier.CODEC`. See the example below:
+aren't strings themselves, but do serialize to them, such as `ResourceLocation.CODEC`. See the example below:
 
 ```java
 // Create a codec for a map of identifiers to integers
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+Codec<Map<ResourceLocation, Integer>> mapCodec = Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT);
 
 // Use it to serialize data
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    new Identifier("example", "number"), 23,
-    new Identifier("example", "the_cooler_number"), 42
+    new ResourceLocation("example", "number"), 23,
+    new ResourceLocation("example", "the_cooler_number"), 42
 ));
 ```
 
@@ -288,7 +288,7 @@ This will output this json:
 }
 ```
 
-As you can see, this works because `Identifier.CODEC` serializes directly to a string value. A similar effect can be
+As you can see, this works because `ResourceLocation.CODEC` serializes directly to a string value. A similar effect can be
 achieved for simple objects that don't serialize to strings by using [xmap & friends](#mutually-convertible-types) to
 convert them.
 
@@ -323,23 +323,23 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 conversion functions to return a DataResult. This is useful in practice because a specific object instance may not
 always be valid for conversion.
 
-Take for example vanilla `Identifier`s. While all identifiers can be turned into strings, not all strings are valid identifiers,
+Take for example vanilla `ResourceLocation`s. While all identifiers can be turned into strings, not all strings are valid identifiers,
 so using xmap would mean throwing ugly exceptions when the conversion fails.
 Because of this, its built-in codec is actually a `comapFlatMap` on `Codec.STRING`, nicely
 illustrating how to use it:
 
 ```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
+public class ResourceLocation {
+    public static final Codec<ResourceLocation> CODEC = Codec.STRING.comapFlatMap(
+        ResourceLocation::validate, ResourceLocation::toString
     );
 
     // ...
 
-    public static DataResult<Identifier> validate(String id) {
+    public static DataResult<ResourceLocation> validate(String id) {
         try {
-            return DataResult.success(new Identifier(id));
-        } catch (InvalidIdentifierException e) {
+            return DataResult.success(new ResourceLocation(id));
+        } catch (InvalidResourceLocationException e) {
             return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
         }
     }
@@ -370,9 +370,9 @@ these with a registry dispatch, we'll need a few things:
 - Separate codecs for every type of bean.
 - A `BeanType<T extends Bean>` class or record that represents the type of bean, and can return the codec for it.
 - A function on `Bean` to retrieve its `BeanType<?>`.
-- A map or registry to map `Identifier`s to `BeanType<?>`s.
+- A map or registry to map `ResourceLocation`s to `BeanType<?>`s.
 - A `Codec<BeanType<?>>` based on this registry. If you use a `net.minecraft.registry.Registry`, one can be easily made
-  using `Registry#getCodec`.
+  using `Registry#byNameCodec`.
 
 With all of this, we can create a registry dispatch codec for beans:
 
@@ -385,12 +385,12 @@ With all of this, we can create a registry dispatch codec for beans:
 ```java
 // Now we can create a codec for bean types
 // based on the previously created registry
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
 
 // And based on that, here's our registry dispatch codec for beans!
 // The first argument is the field name for the bean type.
 // When left out, it will default to "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::getCodec);
+Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::byNameCodec);
 ```
 
 Our new codec will serialize beans to json like this, grabbing only fields that are relevant to their specific type:
@@ -411,7 +411,7 @@ Our new codec will serialize beans to json like this, grabbing only fields that 
 
 ### Recursive Codecs {#recursive-codecs}
 
-Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Text` objects, which may store other `Text`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
+Sometimes it is useful to have a codec that uses _itself_ to decode specific fields, for example when dealing with certain recursive data structures. In vanilla code, this is used for `Component` objects, which may store other `Component`s as children. Such a codec can be constructed using `Codecs#createRecursive`.
 
 For example, let's try to serialize a singly-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
 

@@ -38,5 +38,4 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 		graphics.fill(0, 0, 10, 10, lerpedColor);
 	}
 }
-
 // :::1

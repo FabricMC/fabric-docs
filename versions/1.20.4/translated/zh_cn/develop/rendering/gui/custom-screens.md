@@ -23,7 +23,7 @@ search: false
 
 - 组件不应该在 `Screen` 的构造方法里创建，因为此时界面还没有初始化，并且某些变量（比如界面的宽 `width` 和高 `height`）也还没有正确地初始化。
 - 当界面正在初始化时，`init` 方法将被调用，这是创建组件对象的最佳时机。
-  - 您可以通过 `addDrawableChild` 方法来添加组件，这个方法接收任何实现了 `Drawable` 和 `Element` 接口的组件对象。
+  - 您可以通过 `addRenderableWidget` 方法来添加组件，这个方法接收任何实现了 `Renderable` 和 `GuiEventListener` 接口的组件对象。
 - `render` 方法将在每一帧被调用，您可以在这个方法里获取诸多上下文，比如鼠标的位置。
 
 举个例子，我们可以创建一个简单的界面，这个界面有一个按钮和一个按钮的标签。
@@ -37,8 +37,8 @@ search: false
 您可以使用 `MinecraftClient` 类的 `setScreen` 方法来打开您的界面。您可以在许多地方做这件事，比如当一个按键触发时，当一条命令执行时，或者当客户端收到一个网络包时。
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -47,7 +47,7 @@ MinecraftClient.getInstance().setScreen(
 当您想要关闭界面时，只需将界面设为 `null` 即可：
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 如果您希望在关闭界面时回退到上一个界面，您可以将当前界面对象传入自定义的 `CustomScreen` 构造方法，把它保存为字段，然后覆写 `close` 方法，将实现修改为 `this.client.setScreen(/* 您保存的上一个界面 */)` 即可。
@@ -57,8 +57,8 @@ MinecraftClient.getInstance().setScreen(null);
 现在，当您按照上面的步骤打开界面时，您可以给构造方法的第二个参数传入当前界面对象，这样当您调用 `CustomScreen#close` 的时候，游戏就会回到上一个界面。
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

@@ -1,21 +1,21 @@
 ---
 title: Usando el Contexto de Dibujado
-description: Aprende a como usar la clase `DrawContext` para renderizar varios objectos, texto y texturas.
+description: Aprende a como usar la clase `GuiGraphics` para renderizar varios objectos, texto y texturas.
 authors:
   - IMB11
 ---
 
 Esta página asume que ya has visto la página de [Conceptos Básicos de Renderizado](./basic-concepts).
 
-La clase `DrawContext` es la clase principal usada para renderizar cosas en el juego. Es usada para renderizar objetos, texto y texturas y, como ya hemos visto, es usada para manipular diferentes `MatrixStack`s y usar `BufferBuilder`s.
+La clase `GuiGraphics` es la clase principal usada para renderizar cosas en el juego. Es usada para renderizar objetos, texto y texturas y, como ya hemos visto, es usada para manipular diferentes `PoseStack`s y usar `BufferBuilder`s.
 
 ## Dibujar Formas
 
-La clase `DrawContext` puede ser usada para fácilmente dibujar formas **basadas en cuadrados**. Si quieres dibujar triángulos, o cualquier forma no basada en cuadrados, necesitarás usar un `BufferBuilder`.
+La clase `GuiGraphics` puede ser usada para fácilmente dibujar formas **basadas en cuadrados**. Si quieres dibujar triángulos, o cualquier forma no basada en cuadrados, necesitarás usar un `BufferBuilder`.
 
 ### Dibujando Rectángulos
 
-Puedes usar el método `DrawContext.fill(...)` para dibujar un rectángulo rellenado.
+Puedes usar el método `GuiGraphics.fill(...)` para dibujar un rectángulo rellenado.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -23,7 +23,7 @@ Puedes usar el método `DrawContext.fill(...)` para dibujar un rectángulo relle
 
 ### Dibujar Contornos/Bordes
 
-Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos usar el método `DrawContext.drawBorder(...)` para dibujar un contorno.
+Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos usar el método `GuiGraphics.drawBorder(...)` para dibujar un contorno.
 
 @[code lang=java transcludeWith=:::2](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -31,7 +31,7 @@ Digamos que queremos delinear el rectángulo que acabamos de dibujar. Podemos us
 
 ### Dibujar Líneas Individuales
 
-Podemos usar los métodos `DrawContext.drawHorizontalLine(...)` y `DrawContext.drawVerticalLine(...)` para dibujar líneas.
+Podemos usar los métodos `GuiGraphics.drawHorizontalLine(...)` y `GuiGraphics.drawVerticalLine(...)` para dibujar líneas.
 
 @[code lang=java transcludeWith=:::3](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -39,7 +39,7 @@ Podemos usar los métodos `DrawContext.drawHorizontalLine(...)` y `DrawContext.d
 
 ## El _Scissor Manager_ (Gestor de Tijeras)
 
-La clase `DrawContext` tiene un _scissor manager_ ya incluido. Esto te permite cortar tu renderizado a un área específica. Esto es útil para renderizar cosas como un _tooltip_ (información de herramienta), u otros elementos que no deberían ser renderizados fuera un área en específico.
+La clase `GuiGraphics` tiene un _scissor manager_ ya incluido. Esto te permite cortar tu renderizado a un área específica. Esto es útil para renderizar cosas como un _tooltip_ (información de herramienta), u otros elementos que no deberían ser renderizados fuera un área en específico.
 
 ### Usando el _Scissor Manager_
 
@@ -47,7 +47,7 @@ La clase `DrawContext` tiene un _scissor manager_ ya incluido. Esto te permite c
 ¡Las regiones de tijeras pueden ser anidadas! Pero asegúrate de deshabilitar el _scissor manager_ la misma cantidad de veces que lo habilitaste.
 :::
 
-Para habilitar el _scissor manager_, simplemente usa el método `DrawContext.enableScissor(...)`. De igual forma, para deshabilitar el _scissor manager_, usa el método `DrawContext.disableScissor()`.
+Para habilitar el _scissor manager_, simplemente usa el método `GuiGraphics.enableScissor(...)`. De igual forma, para deshabilitar el _scissor manager_, usa el método `GuiGraphics.disableScissor()`.
 
 @[code lang=java transcludeWith=:::4](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -61,7 +61,7 @@ No hay una sola manera "correcta" de dibujar texturas en la pantalla, ya que el 
 
 ### Dibujar una Textura Entera
 
-Generalmente, es recomendado que uses la sobrecarga que especifique los parámetros de `textureWidth` y el `textureHeight`. Esto es porque la clase `DrawContext` asumirá estos valores si no los provees, los cuales pueden estar incorrectos algunas veces.
+Generalmente, es recomendado que uses la sobrecarga que especifique los parámetros de `textureWidth` y el `textureHeight`. Esto es porque la clase `GuiGraphics` asumirá estos valores si no los provees, los cuales pueden estar incorrectos algunas veces.
 
 @[code lang=java transcludeWith=:::5](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 
@@ -83,9 +83,9 @@ Si solo queremos dibujar una región que contiene el lente magnificador, podemos
 
 ## Dibujar Texto
 
-La clase `DrawContext` tiene varios métodos fáciles de entender para renderizar texto - para ser breves, no serán cubiertos aquí.
+La clase `GuiGraphics` tiene varios métodos fáciles de entender para renderizar texto - para ser breves, no serán cubiertos aquí.
 
-Digamos que queremos dibujar "Hello World" en la pantalla. Podemos usar el método `DrawContext.drawText(...)` para esto.
+Digamos que queremos dibujar "Hello World" en la pantalla. Podemos usar el método `GuiGraphics.drawText(...)` para esto.
 
 @[code lang=java transcludeWith=:::7](@/reference/1.21.1/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
 

@@ -6,7 +6,7 @@ authors:
   - kevinthegreat1
 ---
 
-We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `RenderTickCounter` parameter.
+We already briefly touched on rendering things to the HUD in the [Basic Rendering Concepts](./basic-concepts) page and [Using The Drawing Context](./draw-context), so on this page we'll stick to the Hud API and the `DeltaTracker` parameter.
 
 ## `HudRenderCallback` {#hudrendercallback}
 
@@ -22,13 +22,13 @@ To start, we need to register a listener to `HudElementRegistry` which registers
 
 The draw context can be used to access the various rendering utilities provided by the game, and access the raw matrix stack. You should check out the [Draw Context](./draw-context) page to learn more about the draw context.
 
-### Render Tick Counter {#render-tick-counter}
+### Delta Tracker {#delta-tracker}
 
-The `RenderTickCounter` class allows you to retrieve the current `tickProgress` value. `tickProgress` is the "progress" between the last game tick and the next game tick.
+The `DeltaTracker` class allows you to retrieve the current `gameTimeDeltaPartialTick` value. `gameTimeDeltaPartialTick` is the "progress" between the last game tick and the next game tick.
 
-For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `tickProgress` represents how far we are between the last tick and the next. Over 11 frames, you might see:
+For example, if we assume a 200 FPS scenario, the game runs a new tick roughly every 10 frames. Each frame, `gameTimeDeltaPartialTick` represents how far we are between the last tick and the next. Over 11 frames, you might see:
 
-| Frame | `tickProgress` |
+| Frame | `gameTimeDeltaPartialTick` |
 |:-----:|----------------|
 |  `1`  | `1`: New tick  |
 |  `2`  | `1/10 = 0.1`   |
@@ -42,9 +42,9 @@ For example, if we assume a 200 FPS scenario, the game runs a new tick roughly e
 | `10`  | `9/10 = 0.9`   |
 | `11`  | `1`: New tick  |
 
-In practice, you should only use `tickProgress` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMillis()`, which measures real-world time.
+In practice, you should only use `gameTimeDeltaPartialTick` when your animations depend on Minecraft's ticks. For time-based animations, use `Util.getMillis()`, which measures real-world time.
 
-You can retrieve `tickProgress` by calling `renderTickCounter.getGameTimeDeltaPartialTick(false)`, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
+You can retrieve `gameTimeDeltaPartialTick` by calling `renderTickCounter.getGameTimeDeltaPartialTick(false)`, where the boolean parameter is `ignoreFreeze`, which essentially just allows you to ignore whenever players use the `/tick freeze` command.
 
 In this example, we'll use `Util.getMillis()` to linearly interpolate the color of a square that is being rendered to the HUD.
 
@@ -52,4 +52,4 @@ In this example, we'll use `Util.getMillis()` to linearly interpolate the color 
 
 ![Lerping a color over time](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-Why don't you try use `tickProgress` and see what happens to the animation when you run the `/tick freeze` command? You should see the animation freeze in place as `tickProgress` becomes constant (assuming you have passed `false` as the parameter to `DeltaTracker#getGameTimeDeltaPartialTick`)
+Why don't you try use `gameTimeDeltaPartialTick` and see what happens to the animation when you run the `/tick freeze` command? You should see the animation freeze in place as `gameTimeDeltaPartialTick` becomes constant (assuming you have passed `false` as the parameter to `DeltaTracker#getGameTimeDeltaPartialTick`)

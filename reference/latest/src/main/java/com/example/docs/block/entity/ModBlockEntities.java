@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.entity.custom.CounterBlockEntity;
+import com.example.docs.block.entity.custom.DirtChestBlockEntity;
 import com.example.docs.block.entity.custom.DuplicatorBlockEntity;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 
@@ -21,6 +22,9 @@ public class ModBlockEntities {
 
 	public static final BlockEntityType<DuplicatorBlockEntity> DUPLICATOR_BLOCK_ENTITY =
 			register("duplicator", DuplicatorBlockEntity::new, ModBlocks.DUPLICATOR_BLOCK);
+
+	public static final BlockEntityType<DirtChestBlockEntity> DIRT_CHEST_BLOCK_ENTITY =
+					register("dirt_chest", DirtChestBlockEntity::new, ModBlocks.DIRT_CHEST_BLOCK);
 
 	// :::1
 	public static final BlockEntityType<CounterBlockEntity> COUNTER_BLOCK_ENTITY =
@@ -34,7 +38,6 @@ public class ModBlockEntities {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
-
 	// :::1
 
 	public static void initialize() {

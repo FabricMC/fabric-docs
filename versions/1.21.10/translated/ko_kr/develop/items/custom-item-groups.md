@@ -21,7 +21,7 @@ authors:
 
 ## 번역 키 추가하기 {#adding-a-translation-key}
 
-아이템 그룹 빌더에서 `displayName` 메소드에 `Text.translatable`을 사용했다면, 언어 파일에 번역을 추가해야 합니다.
+아이템 그룹 빌더에서 `displayName` 메소드에 `Component.translatable`을 사용했다면, 언어 파일에 번역을 추가해야 합니다.
 
 ```json
 {

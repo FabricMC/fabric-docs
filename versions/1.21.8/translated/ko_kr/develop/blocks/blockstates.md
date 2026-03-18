@@ -66,11 +66,11 @@ Remember, blockstate files can be found in the `assets/mod-id/blockstates` folde
 
 ### 속성 만들기 {#creating-the-property}
 
-먼저, 속성이 불이기 때문에 속성 자체를 만들어야 합니다. `BooleanProperty.of` 메서드를 사용할 것입니다.
+먼저, 속성이 불이기 때문에 속성 자체를 만들어야 합니다. `BooleanProperty.create` 메서드를 사용할 것입니다.
 
 @[code transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-다음으로, `appendProperties` 메서드에 있는 블록 상태 관리자에 속성을 추가하여야 합니다. 빌더에 접근하기 위하여 메서드를 덮어써야 할 것입니다:
+다음으로, `createBlockStateDefinition` 메서드에 있는 블록 상태 관리자에 속성을 추가하여야 합니다. 빌더에 접근하기 위하여 메서드를 덮어써야 할 것입니다:
 
 @[code transcludeWith=:::2](@/reference/1.21.8/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

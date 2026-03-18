@@ -40,7 +40,6 @@ public class ReceiveS2C {
 			soundManager.getPlayingSoundInstance(CustomSounds.ENGINE_LOOP).ifPresent(AbstractDynamicSoundInstance::end);
 		}
 	}
-
 	// :::1
 
 	public static void initialize() {

@@ -33,7 +33,6 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 		return instance;
 	}
-
 	// :::1
 
 	// :::2
@@ -63,7 +62,6 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 		return Optional.empty();
 	}
-
 	// :::2
 
 	// :::1

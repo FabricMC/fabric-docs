@@ -34,7 +34,6 @@ public class CounterBlock extends BaseEntityBlock {
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new CounterBlockEntity(pos, state);
 	}
-
 	// :::1
 
 	// :::2
@@ -49,7 +48,6 @@ public class CounterBlock extends BaseEntityBlock {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	// :::2
 
 	// :::3
@@ -58,7 +56,6 @@ public class CounterBlock extends BaseEntityBlock {
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return createTickerHelper(type, ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntity::tick);
 	}
-
 	// :::3
 
 	// :::1

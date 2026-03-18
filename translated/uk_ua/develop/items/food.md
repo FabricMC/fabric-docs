@@ -33,7 +33,7 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 
 Коли ви зміните конструктор на свій смак, ви можете викликати метод `build()`, щоб отримати `FoodProperties`.
 
-Якщо ви хочете додати ефекти статусу для гравця, коли він їсть вашу їжу, вам потрібно буде додати компонент `Consumable` поряд з компонентом `FoodProperties`, як показано в наступному прикладі:
+Якщо ви хочете додати ефекти моба для гравця, коли він їсть вашу їжу, вам потрібно буде додати компонент `Consumable` поряд з компонентом `FoodProperties`, як показано в наступному прикладі:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

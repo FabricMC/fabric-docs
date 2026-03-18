@@ -24,7 +24,7 @@ This is the basic template to register a component type:
 
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    BuiltInRegistries.DATA_COMPONENT_TYPE,
+    BuiltInBuiltInRegistriesDATA_COMPONENT_TYPE,
     ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     DataComponentType.<?>builder().codec(null).build()
 );
@@ -32,7 +32,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 There are a few things here worth noting. On the first and fourth lines, you can see a `?`. This will be replaced with the type of your component's value. We'll fill this in soon.
 
-Secondly, you must provide an `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
+Secondly, you must provide a `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
 
 Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
@@ -77,7 +77,7 @@ This will return the current component value as the type we defined when we regi
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
 
@@ -265,7 +265,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

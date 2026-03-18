@@ -81,9 +81,9 @@ Das Callback-Interface beschreibt, was von den Event-Listenern implementiert wer
 
 Für unsere `Event`-Implementierung werden wir uns für ein Array-gestütztes Event entscheiden. Das Array enthält alle Event-Listener, die auf das Event hören.
 
-Unsere Implementierung ruft die Event-Listener der Reihe nach auf, bis einer von ihnen kein `ActionResult.PASS` zurückgibt. Das bedeutet, dass ein Listener mit Hilfe seines Rückgabewerts sagen kann: "_Abbrechen_", "_Zustimmen_" oder "_Egal, überlasse es dem nächsten Event-Listener_".
+Unsere Implementierung ruft die Event-Listener der Reihe nach auf, bis einer von ihnen kein `InteractionResult.PASS` zurückgibt. Das bedeutet, dass ein Listener mit Hilfe seines Rückgabewerts sagen kann: "_Abbrechen_", "_Zustimmen_" oder "_Egal, überlasse es dem nächsten Event-Listener_".
 
-Die Verwendung von `ActionResult` als Rückgabewert ist ein konventioneller Weg, um Event-Handler auf diese Weise zusammenarbeiten zu lassen.
+Die Verwendung von `InteractionResult` als Rückgabewert ist ein konventioneller Weg, um Event-Handler auf diese Weise zusammenarbeiten zu lassen.
 
 Du musst ein Interface erstellen, das eine `Event`-Instanz und eine Methode zur Implementierung der Antwort hat. Ein Grundaufbau für unseren Schafschur-Callback ist:
 
@@ -97,11 +97,11 @@ Dann rufen wir unsere Methode (in diesem Fall `interact`) auf dem Listener auf, 
 
 @[code lang=java transclude={33-33}](@/reference/1.21.1/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Wenn der Listener sagt, dass wir abbrechen (`ActionResult.FAIL`) oder vollständig beenden (`ActionResult.SUCCESS`) müssen, gibt der Callback das Ergebnis zurück und beendet die Schleife. `ActionResult.PASS` geht zum nächsten Listener über und sollte in den meisten Fällen zum Erfolg führen, wenn keine weiteren Listener registriert sind:
+Wenn der Listener sagt, dass wir abbrechen (`InteractionResult.FAIL`) oder vollständig beenden (`InteractionResult.SUCCESS`) müssen, gibt der Callback das Ergebnis zurück und beendet die Schleife. `InteractionResult.PASS` geht zum nächsten Listener über und sollte in den meisten Fällen zum Erfolg führen, wenn keine weiteren Listener registriert sind:
 
 @[code lang=java transclude={25-30}](@/reference/1.21.1/src/main/java/com/example/docs/event/SheepShearCallback.java)
 
-Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen, um zu dokumentieren, was jedes `ActionResult` macht. In unserem Fall könnte das wie folgt sein:
+Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen, um zu dokumentieren, was jedes `InteractionResult` macht. In unserem Fall könnte das wie folgt sein:
 
 @[code lang=java transclude={9-16}](@/reference/1.21.1/src/main/java/com/example/docs/event/SheepShearCallback.java)
 

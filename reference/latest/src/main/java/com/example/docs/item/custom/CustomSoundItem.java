@@ -27,8 +27,8 @@ public class CustomSoundItem extends Item {
 
 		return super.interactLivingEntity(stack, user, entity, hand);
 	}
-
 	// :::1
+
 	// :::2
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
@@ -42,6 +42,5 @@ public class CustomSoundItem extends Item {
 
 		return super.useOn(context);
 	}
-
 	// :::2
 }

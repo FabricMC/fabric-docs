@@ -11,7 +11,7 @@ Minecraft ha una grande selezione di suoni da cui puoi scegliere. Controlla la c
 
 Assicurati di eseguire il metodo `playSound()` sul lato del server logico quando usi i suoni!
 
-In questo esempio, i metodi `useOnEntity()` e `useOnBlock()` per un oggetto interattivo personalizzato sono usati per riprodurre un suono "piazzando blocco di rame" e un suono "predone".
+In questo esempio, i metodi `interactLivingEntity()` e `useOn()` per un oggetto interattivo personalizzato sono usati per riprodurre un suono "piazzando blocco di rame" e un suono "predone".
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.8/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
@@ -23,7 +23,7 @@ Il metodo `playSound()` è usato con l'oggetto `LivingEntity`. Solo il SoundEven
 
 Il SoundEvent definisce quale suono verrà riprodotto. Puoi anche [registrare i tuoi SoundEvents](./custom) per includere il tuo suono.
 
-Minecraft ha vari slider audio nelle impostazioni del gioco. L'enum `SoundCategory` è usato per determinare quale slider controllerà il volume del tuo suono.
+Minecraft ha vari slider audio nelle impostazioni del gioco. L'enum `SoundSource` è usato per determinare quale slider controllerà il volume del tuo suono.
 
 ### Volume e Tono {#volume-and-pitch}
 

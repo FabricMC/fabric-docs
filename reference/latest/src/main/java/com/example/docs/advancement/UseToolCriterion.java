@@ -15,7 +15,6 @@ public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Co
 	public void trigger(ServerPlayer player) {
 		trigger(player, Conditions::requirementsMet);
 	}
-
 	// :::datagen-advancements:criterion-trigger
 	// :::datagen-advancements:criterion-base
 
@@ -32,13 +31,12 @@ public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Co
 		public Optional<ContextAwarePredicate> player() {
 			return playerPredicate;
 		}
-
 		// :::datagen-advancements:criterion-base
+
 		// :::datagen-advancements:conditions-test
 		public boolean requirementsMet() {
 			return true; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
-
 		// :::datagen-advancements:conditions-test
 		// :::datagen-advancements:criterion-base
 	}

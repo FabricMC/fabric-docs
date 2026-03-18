@@ -26,6 +26,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
+import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
@@ -42,8 +43,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.GRASS),
 			true
 	);
-
 	// :::2
+
 	// :::3
 	public static final Block CONDENSED_OAK_LOG = register(
 			"condensed_oak_log",
@@ -51,8 +52,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.WOOD),
 			true
 	);
-
 	// :::3
+
 	// :::4
 	public static final Block PRISMARINE_LAMP = register(
 			"prismarine_lamp",
@@ -63,6 +64,7 @@ public class ModBlocks {
 			true
 	);
 	// :::4
+
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
@@ -127,6 +129,10 @@ public class ModBlocks {
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
+	public static final Block DIRT_CHEST_BLOCK = register(
+					"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
@@ -155,7 +161,6 @@ public class ModBlocks {
 	private static ResourceKey<Item> keyOfItem(String name) {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
-
 	// :::1
 
 	public static void initialize() {
