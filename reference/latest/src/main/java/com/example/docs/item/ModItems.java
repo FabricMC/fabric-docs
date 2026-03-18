@@ -180,13 +180,6 @@ public class ModItems {
 
 	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
 
-	// :::spawn_egg
-	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
-			"custom_spawn_egg",
-			SpawnEggItem::new,
-			new Item.Properties().spawnEgg(EntityType.FROG)
-	);
-	// :::spawn_egg
 
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
@@ -245,19 +238,16 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
-		// :::spawn_egg_creative_tab
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
-				.register(itemGroup -> itemGroup.accept(ModItems.CUSTOM_SPAWN_EGG));
-		// :::spawn_egg_creative_tab
-
 		// :::_12
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
 		// :::_12
 
+		// :::spawn_egg_creative_tab
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
 			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
 		});
+		// :::spawn_egg_creative_tab
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_CREATIVE_TAB_KEY).register(itemGroup -> {
 			itemGroup.accept(ModItems.RUBY);
 			itemGroup.accept(ModItems.GUIDITE_AXE);

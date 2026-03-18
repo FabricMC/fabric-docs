@@ -103,9 +103,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
 		//:::handheld
 
-		//:::spawn-egg
-		itemModelGenerator.generateFlatItem(ModItems.CUSTOM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-		//:::spawn-egg
 
 		//:::dyeable
 		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, 0xFFA06540);

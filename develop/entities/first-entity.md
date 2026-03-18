@@ -202,20 +202,4 @@ When the animation is playing we apply the animation, otherwise we use the old l
 
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
-::: info
-
-For more information, see the full article [Creating a Spawn Egg](../items/spawn-egg).
-
-:::
-
-All that's left to do now is add a Spawn Egg for our entity. We'll register it in our `ModItems` class, following the instructions in [Creating a Spawn Egg](../items/spawn-egg).
-
-@[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-From there, it just needs a [client item, item model, and texture](../items/first-item#adding-a-client-item-texture-and-model). A basic client item and item model as discussed in the linked article will work fine, and you can use this example texture for `assets/example-mod/textures/item/mini_golem_spawn_egg.png`
-
-<DownloadEntry visualURL="/assets/develop/entity/mini_golem_spawn_egg.png" downloadURL="/assets/develop/entity/mini_golem_spawn_egg_small.png">Texture</DownloadEntry>
-
-Looking into the game, you now have a spawn egg that can spawn the entity!
-
-![Spawn Egg showcase](/assets/develop/entity/mini_golem_spawned.png)
+To add the new spawn egg of the Mini Golem entity, refer to the full article on [Creating a Spawn Egg](../items/spawn-egg).
