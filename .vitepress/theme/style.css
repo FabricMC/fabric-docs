@@ -129,11 +129,3 @@ kbd:not(.DocSearch-Button-Key) {
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Style the <h1> heading generated from the frontmatter */
-h1.vp-doc {
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 40px;
-}

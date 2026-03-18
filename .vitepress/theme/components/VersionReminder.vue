@@ -58,7 +58,6 @@ div {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-top: 16px;
   padding: 16px;
   white-space: pre-wrap;
 }
@@ -91,9 +90,18 @@ span {
   }
 }
 
+.content-container > div {
+  margin-top: -24px;
+  margin-bottom: 16px;
+}
+
 @media (min-width: 1280px) {
   .content-container > div {
     display: none;
+  }
+
+  div {
+    margin-top: 16px;
   }
 
   span {
