@@ -20,6 +20,8 @@
   "enchantment.example-mod.repulsion_curse": "Curse of Repulsion",
   "enchantment.example-mod.thundering": "Thundering",
   "entity.example-mod.mini_golem": "Mini Golem",
+  "example-mod.bad_vision": "Bad Vision",
+  "gamerule.example-mod.bad_vision": "Gives every player the blindness effect",
   "item.example-mod.counter": "Counter",
   "item.example-mod.counter.info": "Used %1$s times",
   "item.example-mod.guidite_boots": "Guidite Boots",

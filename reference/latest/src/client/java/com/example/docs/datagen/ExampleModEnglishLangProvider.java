@@ -75,6 +75,16 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
+
+		// :::gamerule-description
+		translationBuilder.add(
+						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
+						"Gives every player the blindness effect" // A short description of the game rule
+		);
+		// :::gamerule-description
+		// :::gamerule-name
+		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
+		// :::gamerule-name
 		// :::datagen-translations:provider
 	}
 }

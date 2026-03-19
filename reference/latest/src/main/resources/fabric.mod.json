@@ -27,7 +27,8 @@
       "com.example.docs.saveddata.ExampleModSavedData",
       "com.example.docs.appearance.ExampleModAppearance",
       "com.example.docs.entity.attribute.ExampleModAttributes",
-      "com.example.docs.entity.ExampleModEntity"
+      "com.example.docs.entity.ExampleModEntity",
+      "com.example.docs.gamerule.ExampleModGameRules"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
