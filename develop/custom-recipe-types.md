@@ -2,6 +2,7 @@
 title: Custom Recipe Types
 description: Learn how to create a custom recipe type.
 authors:
+  - cassiancc
   - skippyall
 ---
 
@@ -15,7 +16,7 @@ Before you can start creating our recipe, you need an implementation of `RecipeI
 
 ## Creating the Recipe Class {#creating-the-recipe-class}
 
-Now that we have a way to store the input items, we can create our `Recipe` implementation. Implementations of this class represent a singular recipe defined in a datapack. They are responsible for checking the ingredients and requirements of the recipe and applying it.
+Now that we have a way to store the input items, we can create our `Recipe` implementation. Implementations of this class represent a singular recipe defined in a datapack. They are responsible for checking the ingredients and requirements of the recipe and assembling it into a result.
 
 Let's start by defining the result and the ingredients of the recipe.
 
@@ -43,7 +44,7 @@ The stream codec can be created in a similar way using `StreamCodec#composite`.
 
 @[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeSerializer.java)
 
-Let's use these codecs to implement the methods from `RecipeSerializer`
+Let's use these codecs to implement the methods from `RecipeSerializer`.
 
 @[code transcludeWith=:::implementing](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeSerializer.java)
 
@@ -67,11 +68,19 @@ Our recipe type is now working, but we are still missing two important things: A
 
 ## Creating a Menu {#creating-a-menu}
 
+::: info
+
+For more details on creating menus, see [Container Menus](blocks/container-menus).
+
+:::
+
 To craft our recipe, we will create a block with a [Menu](blocks/container-menus).
 
 @[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java)
 
-This menu has two input slot and an output slot. The input container is an anonymous subclass of `SimpleContainer` which calls the menu's `slotsChanged` method when its items change. We then create an instance of our recipe input class and pass it to the `getRecipeFor` method of the `RecipeManager` to get a recipe that matches the inputs. After checking if a recipe was found, we can add or remove the result from the result container.
+This menu has two input slots and an output slot. The input container is an anonymous subclass of `SimpleContainer` which calls the menu's `slotsChanged` method when its items change.
+
+In `slotsChanged`, we then create an instance of our recipe input class, filling it with the two input slots. In order to see if it matches any recipes, we'll first ensure we are on the server level, as clients do not know what recipes exist, then retrieve the `RecipeManager` via `serverLevel.recipeAccess()`. We'll call `serverLevel.recipeAccess().getRecipeFor` with our recipe input to get a recipe that matches the inputs. If a recipe was found, we can add or remove the result from the result container.
 
 To detect when the user takes the result, we create an anonymous subclass of `Slot`. The `onTake` method of our menu then removes the input items.
 
