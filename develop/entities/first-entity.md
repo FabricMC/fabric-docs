@@ -203,4 +203,3 @@ When the animation is playing we apply the animation, otherwise we use the old l
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
 To add the new spawn egg of the Mini Golem entity, refer to the full article on [Creating a Spawn Egg](../items/spawn-egg).
-To add new.
