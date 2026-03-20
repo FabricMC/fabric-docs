@@ -1,12 +1,11 @@
 package com.example.docs;
 
-import com.example.docs.recipe.ExampleModRecipes;
-
-import com.example.docs.rendering.screens.inventory.UpgradingScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 import net.fabricmc.api.ClientModInitializer;
 
-import net.minecraft.client.gui.screens.MenuScreens;
+import com.example.docs.recipe.ExampleModRecipes;
+import com.example.docs.rendering.screens.inventory.UpgradingScreen;
 
 public class ExampleModRecipesClient implements ClientModInitializer {
 	@Override

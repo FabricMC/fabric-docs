@@ -1,6 +1,6 @@
 package com.example.docs.block.custom;
 
-import com.example.docs.menu.custom.UpgradingMenu;
+import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import org.jspecify.annotations.Nullable;
+import com.example.docs.menu.custom.UpgradingMenu;
 
 public class UpgradingBlock extends Block implements MenuProvider {
 	public UpgradingBlock(Properties properties) {

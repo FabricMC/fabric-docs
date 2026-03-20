@@ -1,12 +1,5 @@
 package com.example.docs.recipe;
 
-import com.example.docs.ExampleMod;
-
-import com.example.docs.block.custom.UpgradingBlock;
-import com.example.docs.menu.custom.UpgradingMenu;
-
-import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +10,12 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+
+import net.fabricmc.api.ModInitializer;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.block.custom.UpgradingBlock;
+import com.example.docs.menu.custom.UpgradingMenu;
 
 public class ExampleModRecipes implements ModInitializer {
 	//:::registration
@@ -29,7 +28,7 @@ public class ExampleModRecipes implements ModInitializer {
 	public static final RecipeType<UpgradingRecipe> UPGRADING_RECIPE_TYPE = Registry.register(
 					BuiltInRegistries.RECIPE_TYPE,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
-					new RecipeType<UpgradingRecipe>() {}
+					new RecipeType<UpgradingRecipe>() { }
 	);
 
 	public static final RecipeBookCategory UPGRADING_RECIPE_BOOK_CATEGORY = Registry.register(
@@ -38,7 +37,7 @@ public class ExampleModRecipes implements ModInitializer {
 					new RecipeBookCategory()
 	);
 	//:::registration
-  //:::menuRegistration
+	//:::menuRegistration
 	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = Registry.register(
 					BuiltInRegistries.MENU,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),

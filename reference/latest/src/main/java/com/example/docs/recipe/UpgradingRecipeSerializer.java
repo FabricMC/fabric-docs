@@ -1,7 +1,6 @@
 package com.example.docs.recipe;
 
 import com.mojang.serialization.MapCodec;
-
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -10,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 //:::mapCodec
+
 public class UpgradingRecipeSerializer implements RecipeSerializer<UpgradingRecipe> {
 	public static final MapCodec<UpgradingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
 					instance.group(
