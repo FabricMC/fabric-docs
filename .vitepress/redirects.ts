@@ -17,4 +17,16 @@ export default [
     from: /develop[/]rendering[/]draw-context$/,
     dest: "develop/rendering/gui-graphics",
   },
+  {
+    from: /develop[/]migrating-mappings([/]|$)/,
+    dest: "develop/porting/mappings/",
+  },
+  {
+    from: /develop[/]porting[/]current$/,
+    dest: "develop/porting/",
+  },
+  {
+    from: /develop[/]porting[/](next|26[.]1)([/]|$)/,
+    dest: "26.1/develop/porting/",
+  },
 ] satisfies { from: RegExp; dest: string }[];
