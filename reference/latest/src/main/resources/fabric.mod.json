@@ -41,7 +41,8 @@
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
       "com.example.docs.appearance.ExampleModAppearanceClient",
-      "com.example.docs.keymapping.ExampleModKeyMappingsClient"
+      "com.example.docs.keymapping.ExampleModKeyMappingsClient",
+      "com.example.docs.ExampleModRecipesClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },

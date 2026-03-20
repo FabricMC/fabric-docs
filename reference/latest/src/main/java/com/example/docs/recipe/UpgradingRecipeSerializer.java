@@ -9,7 +9,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-//:::1
+//:::mapCodec
 public class UpgradingRecipeSerializer implements RecipeSerializer<UpgradingRecipe> {
 	public static final MapCodec<UpgradingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
 					instance.group(
@@ -18,9 +18,9 @@ public class UpgradingRecipeSerializer implements RecipeSerializer<UpgradingReci
 									Ingredient.CODEC.fieldOf("upgradeItem").forGetter(UpgradingRecipe::getUpgradeItem)
 					).apply(instance, UpgradingRecipe::new)
 	);
-	//:::1
+	//:::mapCodec
 
-	//:::2
+	//:::streamCodec
 	public static final StreamCodec<RegistryFriendlyByteBuf, UpgradingRecipe> STREAM_CODEC = StreamCodec.composite(
 					ItemStack.STREAM_CODEC,
 					UpgradingRecipe::getResult,
@@ -30,9 +30,9 @@ public class UpgradingRecipeSerializer implements RecipeSerializer<UpgradingReci
 					UpgradingRecipe::getUpgradeItem,
 					UpgradingRecipe::new
 	);
-	//:::2
+	//:::streamCodec
 
-	//:::3
+	//:::implementing
 	@Override
 	public MapCodec<UpgradingRecipe> codec() {
 		return CODEC;
@@ -42,7 +42,7 @@ public class UpgradingRecipeSerializer implements RecipeSerializer<UpgradingReci
 	public StreamCodec<RegistryFriendlyByteBuf, UpgradingRecipe> streamCodec() {
 		return STREAM_CODEC;
 	}
-	//:::3
-	//:::1
+	//:::implementing
+	//:::mapCodec
 }
-//:::1
+//:::mapCodec

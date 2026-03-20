@@ -10,9 +10,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
-
-// :::1
+// :::baseClass
 public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	private final ItemStack result;
 	private final Ingredient baseItem;
@@ -35,9 +33,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public Ingredient getUpgradeItem() {
 		return upgradeItem;
 	}
-	// :::1
+	// :::baseClass
 
-	// :::2
+	// :::implementing
 	@Override
 	public boolean matches(UpgradingRecipeInput recipeInput, Level level) {
 		return baseItem.test(recipeInput.baseItem()) && upgradeItem.test(recipeInput.upgradeItem());
@@ -47,9 +45,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public ItemStack assemble(UpgradingRecipeInput recipeInput, HolderLookup.Provider provider) {
 		return result.copy();
 	}
-	// :::2
+	// :::implementing
 
-	// :::3
+	// :::implementRegistryObjects
 	@Override
 	public RecipeSerializer<? extends Recipe<UpgradingRecipeInput>> getSerializer() {
 		return ExampleModRecipes.UPGRADING_RECIPE_SERIALIZER;
@@ -64,9 +62,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public RecipeBookCategory recipeBookCategory() {
 		return ExampleModRecipes.UPGRADING_RECIPE_BOOK_CATEGORY;
 	}
-	// :::3
+	// :::implementRegistryObjects
 
-	// :::4
+	// :::recipeBook
 	@Override
 	public PlacementInfo placementInfo() {
 		return PlacementInfo.NOT_PLACEABLE;
@@ -76,7 +74,7 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public boolean isSpecial() {
 		return true;
 	}
-	// :::4
-	// :::1
+	// :::recipeBook
+	// :::baseClass
 }
-// :::1
+// :::baseClass
