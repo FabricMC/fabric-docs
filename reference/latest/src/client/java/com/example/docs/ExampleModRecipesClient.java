@@ -13,6 +13,9 @@ public class ExampleModRecipesClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		MenuScreens.register(ExampleModRecipes.UPGRADING_MENU_TYPE, UpgradingScreen::new);
+	}
+
+	private static void getRecipes() {
 		ClientLevel clientLevel = Minecraft.getInstance().level;
 		//:::recipeSyncClient
 		clientLevel.recipeAccess().getSynchronizedRecipes().getAllOfType(ExampleModRecipes.UPGRADING_RECIPE_TYPE);
