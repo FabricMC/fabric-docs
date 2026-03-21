@@ -18,7 +18,7 @@ You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/tem
 If you either want to use Kotlin, or Fabric's Yarn mappings instead of the default Mojang Mappings, or want to add data generators, you can select the appropriate options in the `Advanced Options` section.
 
 ::: info
-Code examples given on this site use [Mojang's official names](../migrating-mappings#mappings). If your mod is not using the same mappings that these docs are written in, you will need to convert the examples using sites like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
+Code examples given on this site use Mojang's official mappings. If your mod is not using the same mappings that these docs are written in, you will need to convert the examples using sites like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
 :::
 
 ![Advanced options section](/assets/develop/getting-started/template-generator-advanced.png)
