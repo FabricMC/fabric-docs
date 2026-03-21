@@ -1,7 +1,5 @@
 package com.example.docs.recipe;
 
-import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -14,6 +12,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.UpgradingBlock;
