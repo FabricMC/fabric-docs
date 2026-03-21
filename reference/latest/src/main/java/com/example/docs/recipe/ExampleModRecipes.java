@@ -1,5 +1,7 @@
 package com.example.docs.recipe;
 
+import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -57,5 +59,8 @@ public class ExampleModRecipes implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		//:::recipeSync
+		RecipeSynchronization.synchronizeRecipeSerializer(UPGRADING_RECIPE_SERIALIZER);
+		//:::recipeSync
 	}
 }

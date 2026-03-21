@@ -85,3 +85,21 @@ In `slotsChanged`, we then create an instance of our recipe input class, filling
 To detect when the user takes the result, we create an anonymous subclass of `Slot`. The `onTake` method of our menu then removes the input items.
 
 To prevent deleting items, it is important to give back the inputs when the screen is closed, as shown in the `removed` method.
+
+## Recipe Synchronization {#recipe-synchronization}
+
+::: info
+
+This section is optional, and only needed if you need clients to know about recipes.
+
+:::
+
+As mentioned earlier, recipes are handled entirely on the logical server. However, in some cases a client may need to know what recipes exist - as a vanilla example, Stonecutters have to display the available recipe options for a given ingredient. Some recipe viewers, including [JEI](https://modrinth.com/mod/jei), require you to use Fabric's recipe synchronization API, as their plugins run on the logical client.
+
+To synchronize your recipes, just call `RecipeSynchronization.synchronizeRecipeSerializer` in your mod initializer and provide your mod's recipe serializer.
+
+@[code transcludeWith=:::recipeSync](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+
+Once synchronized, recipes can be retrieved at any point from the client level's recipe manager.
+
+@[code transcludeWith=:::recipeSyncClient](@/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java)
