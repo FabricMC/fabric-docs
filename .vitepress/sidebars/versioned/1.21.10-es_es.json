@@ -345,15 +345,15 @@
         },
         {
           "text": "Migrating Mappings",
-          "link": "/es_es/develop/migrating-mappings",
+          "link": "/es_es/develop/porting/mappings",
           "items": [
             {
               "text": "Loom (Gradle)",
-              "link": "/es_es/develop/migrating-mappings/loom"
+              "link": "/es_es/develop/porting/mappings/loom"
             },
             {
               "text": "Ravel (IntelliJ IDEA)",
-              "link": "/es_es/develop/migrating-mappings/ravel"
+              "link": "/es_es/develop/porting/mappings/ravel"
             }
           ]
         },

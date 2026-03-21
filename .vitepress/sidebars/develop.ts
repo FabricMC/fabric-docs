@@ -344,30 +344,30 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.porting.current",
-        link: "/develop/porting/current",
+        text: "develop.porting.release",
+        link: "/develop/porting/",
       },
       {
-        text: "develop.porting.next",
-        link: "/develop/porting/next",
+        text: "develop.porting.snapshot",
+        link: "/26.1/develop/porting/",
         items: [
           {
-            text: "develop.porting.26.1.fabric_api",
-            link: "/develop/porting/26.1/fabric-api",
+            text: "develop.porting.snapshot.fabric_api",
+            link: "/26.1/develop/porting/fabric-api",
           },
         ],
       },
       {
-        text: "develop.porting.migrating_mappings",
-        link: "/develop/migrating-mappings/",
+        text: "develop.porting.mappings",
+        link: "/develop/porting/mappings/",
         items: [
           {
-            text: "develop.porting.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
+            text: "develop.porting.mappings.loom",
+            link: "/develop/porting/mappings/loom",
           },
           {
-            text: "develop.porting.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
+            text: "develop.porting.mappings.ravel",
+            link: "/develop/porting/mappings/ravel",
           },
         ],
       },
