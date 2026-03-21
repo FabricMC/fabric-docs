@@ -11,6 +11,7 @@ const options = computed(() => (data.theme.value.version as Fabric.VersionOption
 const version = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
+  if (/^[0-9.]+$/.test(split[0])) return split[0];
   return latestVersion;
 });
 
@@ -21,10 +22,11 @@ const replaceVersion = (s: string) => {
 
 const oldV = computed(() => replaceVersion(options.value.oldVersion));
 const latestV = computed(() => replaceVersion(options.value.latestVersion));
+const newV = computed(() => replaceVersion(options.value.newVersion));
 </script>
 
 <template>
-  <div v-if="data.page.value.filePath.startsWith('versions/')" class="old">
+  <div v-if="/^(versions|[0-9.]+)([/]|$)/.test(data.page.value.filePath)" class="other">
     <span>
       <svg
         version="1.1"
@@ -55,9 +57,13 @@ const latestV = computed(() => replaceVersion(options.value.latestVersion));
         </g>
       </svg>
     </span>
-    <p>
+    <p v-if="data.page.value.filePath.startsWith('versions/')">
       {{ oldV[0] }}<b>{{ oldV[1] }}</b
       >{{ oldV[2] }}
+    </p>
+    <p v-else>
+      {{ newV[0] }}<b>{{ newV[1] }}</b
+      >{{ newV[2] }}
     </p>
   </div>
   <div v-else class="latest">
@@ -119,7 +125,7 @@ span {
   }
 }
 
-.old {
+.other {
   background-color: var(--vp-custom-block-warning-bg);
   color: var(--vp-custom-block-warning-text);
 

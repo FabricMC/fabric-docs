@@ -77,6 +77,14 @@ for (const file of tinyglobby.globSync("**/*.md", {
 }
 const locales = getLocaleNames(`./versions/${oldVersion}/translated`);
 
+if (fs.existsSync(`./${newVersion}/`)) {
+  console.log(`Moving in files from '${newVersion}/'...`);
+  for (const file of tinyglobby.globSync("**/*", { cwd: `./${newVersion}`, onlyFiles: true })) {
+    fs.cpSync(`./${newVersion}/${file}`, `./${file}`);
+  }
+  fs.rmSync(`./${newVersion}`, { recursive: true });
+}
+
 console.log(`Creating sidebars at '.vitepress/sidebars/versioned/${oldVersion}.json'...`);
 for (const locale of locales) {
   fs.writeFileSync(

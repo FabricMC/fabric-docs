@@ -20,9 +20,11 @@ const options = computed(() => (data.theme.value.version as Fabric.VersionOption
 const currentV = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
+  if (/^[0-9.]+$/.test(split[0])) return split[0];
   return latestVersion;
 });
 
+// TODO: add future versions to the supported pages
 const versions = computed(() =>
   [
     latestVersion,
@@ -44,7 +46,7 @@ route format:  [locale/] [version/] path/to/
 */
 const getRoute = (v: string) => {
   const split = data.page.value.filePath.split("/");
-  const noVersions = split.slice(split[0] === "versions" ? 2 : 0);
+  const noVersions = split.slice(split[0] === "versions" ? 2 : /^[0-9.]+$/.test(split[0]) ? 1 : 0);
   const neither = noVersions.slice(noVersions[0] === "translated" ? 2 : 0);
 
   const segments = [
