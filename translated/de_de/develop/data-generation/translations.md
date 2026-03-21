@@ -39,7 +39,7 @@ Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEn
 
 ## Erstellen von Übersetzungen {#creating-translations}
 
-Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier` und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Statuseffekten, Kreativtabs, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
+Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier`en und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Mobeffekten, Kreativtabs, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 

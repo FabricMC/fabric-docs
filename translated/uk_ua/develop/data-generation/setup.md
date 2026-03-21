@@ -24,9 +24,9 @@ authors-nogithub:
 
 ### Під час створення проєкту {#enabling-data-generation-at-project-creation}
 
-Найпростіший спосіб увімкнути datagen — під час створення проєкту. Поставте прапорець «Увімкнути генерацію даних» під час використання [генератора шаблонів](https://fabricmc.net/develop/template/).
+Найпростіший спосіб увімкнути datagen — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
 
-![Позначене поле «Генерація даних» у генераторі шаблонів](/assets/develop/data-generation/data_generation_setup_01.png)
+![Позначене поле «Data Generation» у генераторі шаблонf](/assets/develop/data-generation/data_generation_setup_01.png)
 
 ::: tip
 

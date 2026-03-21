@@ -45,6 +45,6 @@ authors:
 - [Посібник з портування Fabric API 26.1](26.1/fabric-api) містить список перейменувань, зроблених у Fabric API у знімках 26.1, щоб відповідати іменам Mojang.
 - [_Java Edition 26.1_ на Вікі Minecraft](https://minecraft.wiki/w/Java_Edition_26.1) — це неофіційний короткий виклад вмісту оновлення.
 - [Праймер NeoForge мігрування мода _Minecraft 1.21.11 -> 26.1_](https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md) охоплює перехід з 1.21.11 на 26.1, зосереджуючись лише на змінах коду.
-  - Будь ласка, зверніть увагу, що стаття, на яку посилається, є стороннім матеріалом, який не підтримується Fabric. Він захищений авторським правом @ChampionAsh5357 і ліцензований [Creative Commons Attribution 4.0 [International](https://creativecommons.org/licenses/by/4.0/).
+  - Будь ласка, зверніть увагу, що стаття, на яку посилається, є стороннім матеріалом, який не підтримується Fabric. Захищено авторським правом @ChampionAsh5357 і ліцензовано [Creative Commons Attribution 4.0 [International](https://creativecommons.org/licenses/by/4.0/).
 
 <!---->

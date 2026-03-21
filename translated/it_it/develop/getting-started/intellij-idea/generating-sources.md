@@ -7,8 +7,8 @@ prev:
   text: Avviare il Gioco in IntelliJ IDEA
   link: ./launching-the-game
 next:
-  text: Consigli e Trucchetti per IntelliJ IDEA
-  link: ./tips-and-tricks
+  text: Costruire una mod in IntelliJ IDEA
+  link: ./building-a-mod
 ---
 
 La toolchain Fabric ti permette di accedere al codice sorgente di Minecraft generandolo localmente, e puoi usare IntelliJ IDEA per navigarci comodamente. Per generare le sorgenti, bisogna eseguire l'attività Gradle `genSources`.

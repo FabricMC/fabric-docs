@@ -144,7 +144,7 @@ Fabric API містить ClientCommandManager у пакеті net.fabricmc.fabr
 
 ::: warning
 
-Brigadier [перенаправлятиме лише командні вузли з аргументами](https://github.com/Mojang/brigadier/issues/46). Якщо ви хочете перенаправити командний вузол без аргументів, надайте конструктор `.executes()` із посиланням на ту саму логіку, що описана в прикладі.
+Brigadier [перенаправлятиме лише ноди команди з аргументами](https://github.com/Mojang/brigadier/issues/46). Якщо ви хочете перенаправити командний вузол без аргументів, надайте конструктор `.executes()` із посиланням на ту саму логіку, що описана в прикладі.
 
 :::
 
@@ -156,7 +156,7 @@ Brigadier [перенаправлятиме лише командні вузли
 
 ### Чому мій код не компілюється? {#why-does-my-code-not-compile}
 
-- Перехопити або викинути `CommandSyntaxException` - `CommandSyntaxException` не є `RuntimeException`. Якщо кинути, це повинно бути в методах, які викидають `CommandSyntaxException` в сигнатурах методу, або його слід перехопити.
+- Перехопити або викинути `CommandSyntaxException` — `CommandSyntaxException` не є `RuntimeException`. Якщо кинути, це повинно бути в методах, які викидають `CommandSyntaxException` в сигнатурах методу, або його слід перехопити.
   Brigadier обробить перевірені винятки та перешле вам відповідне повідомлення про помилку в грі.
 
 - Проблеми з генериками. Час від часу у вас можуть виникати проблеми з генериками. Якщо ви реєструєте команди сервера (а це найчастіше), переконайтеся, що ви використовуєте `Commands.literal` або `Commands.argument` замість `LiteralArgumentBuilder.literal` або `RequiredArgumentBuilder.argument`.

@@ -33,7 +33,7 @@ Die Klasse `FoodProperties.Builder` hat einige Methoden, mit denen du ändern ka
 
 Wenn du den Builder nach deinen Wünschen verändert hast, kannst du die Methode `build()` aufrufen, um den `FoodProperties` zu erhalten.
 
-Wenn du dem Spieler Statuseffekte hinzufügen möchtest, wenn er dein Essen isst, musst du die Klasse `Consumable` neben der Klasse `FoodProperties` verwenden, wie im folgenden Beispiel zu sehen ist:
+Wenn du dem Spieler Mobeffekte hinzufügen möchtest, wenn er dein Essen isst, musst du die Komponente `Consumable` neben der Komponente `FoodProperties` hinzufügen, wie im folgenden Beispiel zu sehen ist:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

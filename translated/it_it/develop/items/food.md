@@ -33,7 +33,7 @@ La classe `FoodProperties.Builder` ha qualche metodo che ti permette di modifica
 
 Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo `build()` per ottenere le `FoodProperties`.
 
-Se vuoi aggiungere effetti di stato al giocatore quando mangiano il tuo cibo, devi aggiungere una componente `Consumable` assieme alla componente `FoodProperties`, come noti nell'esempio seguente:
+Se vuoi aggiungere effetti ai giocatori quando mangiano il tuo cibo, devi aggiungere una componente `Consumable` assieme alla componente `FoodProperties`, come noti nell'esempio seguente:
 
 @[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
