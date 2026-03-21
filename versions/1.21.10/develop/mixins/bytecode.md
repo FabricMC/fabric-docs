@@ -136,7 +136,7 @@ static add (DDD)D
 ::: info
 We've seen that bytecode doesn't need the names of local variables because it identifies them by their LVT index. Despite this, many libraries will retain debug information, including the names of local variables, to ease debugging and allow you to target local variables by name when developing mixins.
 
-However, Minecraft 1.21.10 does not provide that by default and is therefore said to be obfuscated. Note that [future versions of Minecraft will be deobfuscated](../migrating-mappings/#whats-going-on-with-mappings).
+However, Minecraft 1.21.10 does not provide that by default and is therefore said to be obfuscated. Note that [future versions of Minecraft will be deobfuscated](../porting/mappings/#whats-going-on-with-mappings).
 :::
 
 ## The Operand Stack {#the-operand-stack}
