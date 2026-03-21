@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import latestVersion from "virtual:fabric-docs:latest-version";
 import { useData } from "vitepress";
 import { computed } from "vue";
 import { Fabric } from "../../types.d";
@@ -10,18 +11,16 @@ const options = computed(() => (data.theme.value.version as Fabric.VersionOption
 const version = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
-  return data.theme.value.nav.at(-1).props.versioningPlugin.latestVersion as string;
+  return latestVersion;
 });
 
-const latest = computed(() => {
-  const split = options.value.latestVersion.split("%s");
-  return [split[0], version.value, split.slice(1).join("%s")];
-});
+const replaceVersion = (s: string) => {
+  const split = s.split("%s");
+  return [split[0], version.value, split.slice(1).join("%s")] as const;
+};
 
-const old = computed(() => {
-  const split = options.value.oldVersionMojang.split("%s");
-  return [split[0], version.value, split.slice(1).join("%s")];
-});
+const oldV = computed(() => replaceVersion(options.value.oldVersion));
+const latestV = computed(() => replaceVersion(options.value.latestVersion));
 </script>
 
 <template>
@@ -57,8 +56,8 @@ const old = computed(() => {
       </svg>
     </span>
     <p>
-      {{ old[0] }}<b>{{ old[1] }}</b
-      >{{ old[2] }}
+      {{ oldV[0] }}<b>{{ oldV[1] }}</b
+      >{{ oldV[2] }}
     </p>
   </div>
   <div v-else class="latest">
@@ -83,8 +82,8 @@ const old = computed(() => {
       </svg>
     </span>
     <p>
-      {{ latest[0] }}<b>{{ latest[1] }}</b
-      >{{ latest[2] }}
+      {{ latestV[0] }}<b>{{ latestV[1] }}</b
+      >{{ latestV[2] }}
     </p>
   </div>
 </template>

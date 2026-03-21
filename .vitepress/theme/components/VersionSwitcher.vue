@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import latestVersion from "virtual:fabric-docs:latest-version";
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
@@ -6,7 +7,7 @@ import { computed, ref } from "vue";
 import { Fabric } from "../../types.d";
 
 const props = defineProps<{
-  versioningPlugin: { versions: string[]; latestVersion: string };
+  versioningPlugin: { versions: string[] };
   screenMenu?: boolean;
 }>();
 
@@ -19,12 +20,12 @@ const options = computed(() => (data.theme.value.version as Fabric.VersionOption
 const currentV = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
-  return props.versioningPlugin.latestVersion;
+  return latestVersion;
 });
 
 const versions = computed(() =>
   [
-    props.versioningPlugin.latestVersion,
+    latestVersion,
     ...(typeof env.value === "number"
       ? []
       : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
@@ -49,7 +50,7 @@ const getRoute = (v: string) => {
   const segments = [
     "",
     data.localeIndex.value !== "root" ? data.localeIndex.value : undefined,
-    v !== props.versioningPlugin.latestVersion ? v : undefined,
+    v !== latestVersion ? v : undefined,
     ...neither,
   ]
     .filter((s) => s !== undefined)
