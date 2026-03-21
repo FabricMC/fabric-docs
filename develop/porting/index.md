@@ -1,6 +1,6 @@
 ---
 title: Porting to 1.21.11
-description: A guide for porting to the latest version of Minecraft.
+description: A guide for porting to Minecraft 1.21.11, the latest version of Minecraft.
 authors:
   - cassiancc
 ---
