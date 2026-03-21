@@ -1,6 +1,6 @@
 ---
 title: Porting to 26.1 Snapshots
-description: Guidelines for porting to snapshots of the next version of Minecraft.
+description: Guidelines for porting to snapshots of Minecraft 26.1, the upcoming version of Minecraft.
 authors:
   - cassiancc
 ---
@@ -9,11 +9,13 @@ The upcoming 26.1 version of Minecraft is unobfuscated, as are its snapshots. Wi
 
 ::: info
 
-These docs discuss migrating from **1.21.11** to the snapshots of **26.1**. If you're looking to migrate to **1.21.11**, check out the article on [Porting to 1.21.11](./current).
+These docs discuss migrating from **1.21.11** to the snapshots of the upcoming **26.1**. If you're looking for another migration, switch to the target version by using the dropdown in the top-right corner.
 
 :::
 
-Note that if your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../migrating-mappings/) before porting to 26.1.
+## Prerequisites {#prerequisites}
+
+If your mod is still using Fabric's Yarn Mappings, you'll first need to [migrate your mod to Mojang's official mappings](../../../develop/porting/mappings/) before porting to 26.1.
 
 If you are using IntelliJ IDEA, you will also need to update it to `2025.3` or higher for full Java 25 support.
 
@@ -42,7 +44,7 @@ Because Minecraft 26.1 is still in the snapshot stage, documentation on specific
 
 :::
 
-- [Fabric API 26.1 Porting Guide](26.1/fabric-api) lists the renames made to Fabric API in 26.1 snapshots to match Mojang's names.
+- [Fabric API 26.1 Porting Guide](./fabric-api) lists the renames made to Fabric API in 26.1 snapshots to match Mojang's names.
 - [_Java Edition 26.1_ on the Minecraft Wiki](https://minecraft.wiki/w/Java_Edition_26.1) is an unofficial summary of the contents of the update.
 - [NeoForge's _Minecraft 1.21.11 -> 26.1 Mod Migration Primer_](https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md) covers migrating from 1.21.11 to 26.1, focusing only on vanilla code changes.
   - Please note that the linked article is third-party material, not maintained by Fabric. It's under copyright of @ChampionAsh5357, and licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
