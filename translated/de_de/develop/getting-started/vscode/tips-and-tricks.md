@@ -9,7 +9,7 @@ prev:
 next: false
 ---
 
-Es ist wichtig zu lernen, wie man die Generierung des Quellcodes durchläuft, damit du debuggen und ein Verständnis für die inneren Abläufe von Minecraft entwickeln kannst. Hier beschreiben wir einige gängige Anwendungen der Entwicklungsumgebung.
+Es ist wichtig zu lernen, wie man die generierten Quellen durchläuft, damit man Debuggen und ein Verständnis für die inneren Abläufe von Minecraft entwickeln kann. Hier beschreiben wir einige gängige Anwendungen der Entwicklungsumgebung.
 
 ## Nach einer Minecraft-Klasse suchen {#searching-for-a-minecraft-class}
 

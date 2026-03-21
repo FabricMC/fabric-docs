@@ -43,7 +43,7 @@ resources/assets/example-mod/textures/mob_effect/tater.png
 
 <DownloadEntry visualURL="/assets/develop/tater-effect.png" downloadURL="/assets/develop/tater-effect-icon.png">Приклад текстури</DownloadEntry>
 
-### Переклад {#translations}
+### Переклади {#translations}
 
 Як і будь-який інший переклад, ви можете додати запис із форматом ID `"effect.example-mod.effect-identifier": "Value"` до мовного файлу.
 

@@ -67,8 +67,7 @@ effect give @p example-mod:tater
 
 :::
 
-Um einen Effekt intern anzuwenden, sollte man die Methode `LivingEntity#addEffect` verwenden, die eine
-eine `MobEffectInstance` entgegennimmt und einen boolean zurückgibt, der angibt, ob der Effekt erfolgreich angewendet wurde.
+Um einen Effekt intern anzuwenden, solltest du die Methode `LivingEntity#addEffect` verwenden, die eine `MobEffectInstance` entgegennimmt und einen boolean zurückgibt, der angibt, ob der Effekt erfolgreich angewendet wurde.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
 

@@ -63,9 +63,9 @@ tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
 `net.fabricmc.loom.task.ValidateMixinNameTask` — це завдання, яке можна використовувати для перевірки відповідності назви класу міксина назві цільового класу.
 
 ```groovy
-    tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
-        source(sourceSets.main.output)
-    }
+tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
+    source(sourceSets.main.output)
+}
 
-    check.dependsOn "validateMixinNames"
+check.dependsOn "validateMixinNames"
 ```

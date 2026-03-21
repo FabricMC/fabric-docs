@@ -181,7 +181,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 :::
 
-Оскільки ми хочемо використовувати текстури дубової колоди, але маємо `BOTTOM`, `TOP` і `SIDE` `TextureSlot`s, нам потрібно створити новий.
+Оскільки ми хочемо використовувати текстури дубової колоди, але маємо `BOTTOM`, `TOP` і `SIDE` `TextureSlot`, нам потрібно створити новий.
 
 @[code lang=java transcludeWith=:::custom-texture-map](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -232,6 +232,6 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ## Джерела та посилання {#sources-and-links}
 
-Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) та [прикладному моді](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації, щоб дізнатися більше.
+Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) та [прикладі мода](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації, щоб дізнатися більше.
 
 Ви також можете знайти більше прикладів використання власних методів даних, переглянувши відкритий вихідний код модів, наприклад [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) і [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) від Fellteros.

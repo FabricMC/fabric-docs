@@ -84,3 +84,7 @@ Außerdem sollten wir die Methode `useItemOn` von `DuplicatorBlock` ändern, um 
 Wenn wir nun versuchen, Items von der Seite statt von oben einzufügen, funktioniert das nicht!
 
 <VideoPlayer src="/assets/develop/blocks/container_3.webm">Der Duplizierer wird nur aktiviert, wenn man mit seiner Oberseite interagiert.</VideoPlayer>
+
+## Menüs {#menus}
+
+Um über ein Menü auf den neuen Containerblock zuzugreifen, so wie du es bei einer Truhe tust, lies bitte den Leitfaden [Containermenüs](./container-menus).
