@@ -32,7 +32,7 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// :::menu
 
 	// :::be
-	private static final int CONTAINER_SIZE = 9;
+	public static final int CONTAINER_SIZE = 3 * 3;
 	private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
 
 	// ...

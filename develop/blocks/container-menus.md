@@ -29,12 +29,6 @@ First, we want to create a block and block entity; read more in the [Block Conta
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
-::: info
-
-As we want a 3x3 container, we need to set the size of items to 9.
-
-:::
-
 ### Opening the Menu {#opening-the-screen}
 
 We want to be able to open the menu somehow, so we will handle that within the `useWithoutItem` method:

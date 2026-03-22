@@ -8,22 +8,22 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import com.example.docs.block.entity.custom.DirtChestBlockEntity;
 import com.example.docs.menu.ModMenuType;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
-	private static final int CONTAINER_SIZE = 9;
 	private final Container container;
 
 	// Client-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory) {
-		this(containerId, inventory, new SimpleContainer(CONTAINER_SIZE));
+		this(containerId, inventory, new SimpleContainer(DirtChestBlockEntity.CONTAINER_SIZE));
 	}
 
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
 		super(ModMenuType.DIRT_CHEST, containerId);
-		checkContainerSize(container, CONTAINER_SIZE);
+		checkContainerSize(container, DirtChestBlockEntity.CONTAINER_SIZE);
 		this.container = container;
 
 		// Some containers do custom logic when opened by a player.
