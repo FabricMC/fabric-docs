@@ -378,6 +378,10 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.mixins.introduction",
+        link: "/develop/mixins/introduction",
+      },
+      {
         text: "develop.mixins.bytecode",
         link: "/develop/mixins/bytecode",
       },
