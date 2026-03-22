@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { getIcon, Icon, loadIcon } from "@iconify/vue";
 import latestVersion from "virtual:fabric-docs:latest-version";
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { Fabric } from "../../types.d";
 
 const props = defineProps<{
@@ -22,6 +23,16 @@ const currentV = computed(() => {
   if (split[0] === "versions") return split[1];
   if (/^[0-9.]+$/.test(split[0])) return split[0];
   return latestVersion;
+});
+
+const button = computed(() => {
+  const iconData = getIcon("mdi:source-branch");
+
+  const icon = iconData
+    ? `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`
+    : "";
+
+  return `<span style='display:flex;align-items:center;gap:4px'>${icon} ${currentV.value}</span>`;
 });
 
 // TODO: add future versions to the supported pages
@@ -62,18 +73,24 @@ const getRoute = (v: string) => {
 
   return segments.reverse().join("/");
 };
+
+onMounted(async () => {
+  await loadIcon("mdi:source-branch");
+});
 </script>
 
 <template>
   <component
     :is="screenMenu ? 'div' : VPFlyout"
-    icon="vpi-versioning"
     :class="{ open }"
-    :button="currentV"
+    :button
     :label="options.label.replace('%s', currentV)"
   >
     <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
-      <span><span class="vpi-versioning" />{{ options.label.replace("%s", currentV) }}</span>
+      <span>
+        <Icon icon="mdi:source-branch" width="16" height="16" />
+        {{ options.label.replace("%s", currentV) }}
+      </span>
       <span class="vpi-plus" />
     </button>
 
@@ -103,9 +120,10 @@ div:not(.VPFlyout) {
     color: var(--vp-c-text-1);
     transition: color 0.25s;
 
-    .vpi-versioning {
-      padding: 8px;
-      margin-right: 4px;
+    span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .vpi-plus {
