@@ -254,12 +254,17 @@ export default [
             link: "/develop/data-generation/translations",
           },
           {
-            text: "develop.data_generation.block_models",
-            link: "/develop/data-generation/block-models",
-          },
-          {
-            text: "develop.data_generation.item_models",
-            link: "/develop/data-generation/item-models",
+            text: "develop.data_generation.models",
+            items: [
+              {
+                text: "develop.data_generation.block_models",
+                link: "/develop/data-generation/block-models",
+              },
+              {
+                text: "develop.data_generation.item_models",
+                link: "/develop/data-generation/item-models",
+              },
+            ],
           },
         ],
       },
@@ -267,25 +272,33 @@ export default [
         text: "develop.data_generation.server",
         items: [
           {
-            text: "develop.data_generation.tags",
-            link: "/develop/data-generation/tags",
-          },
-
-          {
             text: "develop.data_generation.advancements",
             link: "/develop/data-generation/advancements",
           },
           {
-            text: "develop.data_generation.recipes",
-            link: "/develop/data-generation/recipes",
+            text: "develop.data_generation.enchantments",
+            link: "/develop/data-generation/enchantments",
           },
           {
             text: "develop.data_generation.loot_tables",
             link: "/develop/data-generation/loot-tables",
           },
           {
-            text: "develop.data_generation.enchantments",
-            link: "/develop/data-generation/enchantments",
+            text: "develop.data_generation.recipes",
+            link: "/develop/data-generation/recipes",
+          },
+          {
+            text: "develop.data_generation.tags",
+            link: "/develop/data-generation/tags",
+          },
+          {
+            text: "develop.data_generation.world_generation",
+            items: [
+              {
+                text: "develop.data_generation.features",
+                link: "/develop/data-generation/features",
+              },
+            ],
           },
         ],
       },
