@@ -6,8 +6,8 @@ authors:
   - Earthcomputer
   - JR1811
 prev:
-  text: Generare le Sorgenti in IntelliJ IDEA
-  link: ./generating-sources
+  text: Costruire una mod in IntelliJ IDEA
+  link: ./building-a-mod
 next: false
 ---
 

@@ -23,7 +23,7 @@ description: 学习如何创建带有复杂参数的命令。
 
 现在你可以输入一个或者两个整数了。 如果提供了一个整数，那么会打印单个值的反馈文本。 如果提供了两个整数，那么会打印有两个值的反馈文本。
 
-你可能发现，两次指定类似的执行内容有些不太必要。 因此，我们可以创建一个在两个执行中都使用的方法。
+你可能发现，把类似的执行逻辑指定两次其实没什么必要。 因此，我们可以创建一个在两个执行中都使用的方法。
 
 @[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 

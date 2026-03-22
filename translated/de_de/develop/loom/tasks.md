@@ -63,9 +63,9 @@ tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
 Der `net.fabricmc.loom.task.ValidateMixinNameTask` ist eine Aufgabe, die verwendet werden kann, um zu überprüfen, ob der Name der Mixin-Klasse mit dem Namen der Zielklasse übereinstimmt.
 
 ```groovy
-    tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
-        source(sourceSets.main.output)
-    }
+tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
+    source(sourceSets.main.output)
+}
 
-    check.dependsOn "validateMixinNames"
+check.dependsOn "validateMixinNames"
 ```

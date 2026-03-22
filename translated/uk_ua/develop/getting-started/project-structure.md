@@ -1,11 +1,11 @@
 ---
 title: Структура проєкту
-description: Огляд структури мод-проєкту Fabric.
+description: Огляд структури проєкту мода Fabric.
 authors:
   - IMB11
 ---
 
-На цій сторінці буде описано структуру проєкту моду Fabric і призначення кожного файлу та теки в проєкті.
+На цій сторінці буде описано структуру проєкту мода Fabric і призначення кожного файлу та теки в проєкті.
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
@@ -22,7 +22,7 @@ authors:
 
 Нижче ви можете побачити приклад файлу `fabric.mod.json` — це файл `fabric.mod.json` для мода, який підтримує цей сайт документації.
 
-:::details `fabric.mod.json` прикладного мода
+:::details `fabric.mod.json` приклада мода
 
 @[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
 

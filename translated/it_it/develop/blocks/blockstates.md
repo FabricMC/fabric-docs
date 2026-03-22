@@ -52,7 +52,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 
 - `axis=x` - Quando il blocco è piazzato sull'asse X, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
-- `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle X.
+- `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle Z.
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
 

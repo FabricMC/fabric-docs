@@ -63,9 +63,9 @@ tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
 `net.fabricmc.loom.task.ValidateMixinNameTask` 是一个可用于验证 Mixin 类名是否与目标类名匹配的任务。
 
 ```groovy
-    tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
-        source(sourceSets.main.output)
-    }
+tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
+    source(sourceSets.main.output)
+}
 
-    check.dependsOn "validateMixinNames"
+check.dependsOn "validateMixinNames"
 ```

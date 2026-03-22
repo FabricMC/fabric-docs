@@ -386,4 +386,4 @@ TextureSlot `LAYER0` представляє змінну текстури `#laye
 
 ## Джерела та посилання {#sources-and-links}
 
-Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/), [прикладний мод](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації для отримання додаткової інформації.
+Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/), [прикладі мода](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації для отримання додаткової інформації.
