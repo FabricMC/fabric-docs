@@ -140,7 +140,7 @@ You can plot those on a graph to see what they look like:
 
 The "red" curve is for the left leg, and the "black" one is for the right. The horizontal x-axis represents time, and the y-axis indicates the angle of the leg limbs.
 
-Feel free to [play around with the constants on Desmos](https://www.desmos.com/calculator/je0jjreeug) to see how they affect the curve.
+Feel free to [play around with the constants on Desmos](https://www.desmos.com/calculator/9r6lh5knfu) to see how they affect the curve.
 
 Looking into the game, you now have all you need to spawn the entity with `/summon example-mod:mini_golem`!
 
