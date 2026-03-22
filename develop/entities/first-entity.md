@@ -138,7 +138,7 @@ You can plot those on a graph to see what they look like:
 ![Graph](/assets/develop/entity/graphs/dark_graph.png){.dark-only}
 ![Graph](/assets/develop/entity/graphs/light_graph.png){.light-only}
 
-The "red" curve is for the left leg, and the "black" one is for the right. The horizontal x-axis represents time, and the y-axis indicates the angle of the leg limbs.
+The blue curve is for the left leg, and the brown one is for the right. The horizontal x-axis represents time, and the y-axis indicates the angle of the leg limbs.
 
 Feel free to [play around with the constants on Desmos](https://www.desmos.com/calculator/9r6lh5knfu) to see how they affect the curve.
 
