@@ -25,7 +25,7 @@ const hostname =
       ? "http://fabric-docs.localhost:4173/"
       : env === "dev"
         ? "http://fabric-docs.localhost:5173/"
-        : process.env.DEPLOY_PRIME_URL!;
+        : `${process.env.DEPLOY_PRIME_URL!}/`;
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
