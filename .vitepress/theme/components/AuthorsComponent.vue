@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useBrowserLocation } from "@vueuse/core";
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed } from "vue";
@@ -29,7 +28,7 @@ const getImageSrc = (author: Author) =>
         af: "",
         maxage: "7d",
         url: `https://github.com/${author.name}.png?size=32`,
-        default: `${useBrowserLocation().value.origin}/assets/avatater.png`,
+        default: `https://docs.fabricmc.net/assets/avatater.png`,
       });
 </script>
 

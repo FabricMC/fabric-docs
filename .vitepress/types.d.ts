@@ -131,6 +131,18 @@ export namespace Fabric {
     pooh: string;
   }
 
+  export interface ReferencesOptions {
+    /**
+     * @default "Files Referenced"
+     */
+    files: string;
+
+    /**
+     * @default "Sources & Resources"
+     */
+    resources: string;
+  }
+
   export interface VersionOptions {
     reminder: {
       /**
@@ -177,6 +189,7 @@ export namespace Fabric {
     download: DownloadOptions;
     env: EnvOptions;
     notFound: NotFoundOptions;
+    references: ReferencesOptions;
     sidebar: Sidebar;
     version: VersionOptions;
   }

@@ -209,6 +209,11 @@ export const getLocales = () => {
           label: resolver("outline"),
         },
 
+        references: {
+          files: resolver("references.files"),
+          resources: resolver("references.resources"),
+        },
+
         returnToTopLabel: resolver("return_to_top"),
 
         search: {
