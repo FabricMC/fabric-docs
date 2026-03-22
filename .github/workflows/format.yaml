@@ -23,7 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-      - run: npm ci
+      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
+        with:
+          run_install: true
       - uses: FabricMCBot/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
         with:
           config: .markdownlint-cli2.yaml
@@ -42,7 +44,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-      - run: npm ci
+      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
+        with:
+          run_install: true
       - run: npx prettier --write .
       - run: |
           readarray -d '' files < <(git ls-files --modified --others --exclude-standard -z)

@@ -5,4 +5,4 @@
 crowdin.yaml       @FabricMC/developers
 netlify.toml       @FabricMC/developers
 package.json       @FabricMC/developers
-package-lock.json  @FabricMC/developers
+pnpm-*.yaml        @FabricMC/developers
