@@ -6,6 +6,7 @@ import org.jspecify.annotations.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +14,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.container.ImplementedContainer;
@@ -29,7 +32,7 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// :::menu
 
 	// :::be
-	private static final int CONTAINER_SIZE = 9;
+	public static final int CONTAINER_SIZE = 3 * 3;
 	private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
 
 	// ...
@@ -46,6 +49,18 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	@Override
 	public NonNullList<ItemStack> getItems() {
 		return items;
+	}
+
+	@Override
+	protected void saveAdditional(ValueOutput valueOutput) {
+		super.saveAdditional(valueOutput);
+		ContainerHelper.saveAllItems(valueOutput, items);
+	}
+
+	@Override
+	protected void loadAdditional(ValueInput valueInput) {
+		super.loadAdditional(valueInput);
+		ContainerHelper.loadAllItems(valueInput, items);
 	}
 
 	// :::menu

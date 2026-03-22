@@ -2,6 +2,7 @@
 title: Container Menus
 description: A guide explaining how to create a simple menu for a container block.
 authors:
+  - CelDaemon
   - Tenneb22
 ---
 
@@ -27,12 +28,6 @@ First, we want to create a block and block entity; read more in the [Block Conta
 @[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
-
-::: info
-
-As we want a 3x3 container, we need to set the size of items to 9.
-
-:::
 
 ### Opening the Menu {#opening-the-screen}
 
