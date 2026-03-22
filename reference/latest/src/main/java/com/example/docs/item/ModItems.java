@@ -15,7 +15,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
@@ -42,6 +41,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.component.ModComponents;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
@@ -167,17 +167,17 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
 	// :::2
 
+	// :::custom_entity_spawn_egg
+	public static final Item MINI_GOLEM_SPAWN_EGG = register(
+			"mini_golem_spawn_egg",
+					SpawnEggItem::new,
+			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
+	);
+	// :::custom_entity_spawn_egg
+
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
 	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
-
-	// :::spawn_egg
-	public static final SpawnEggItem CUSTOM_SPAWN_EGG = register(
-			"custom_spawn_egg",
-			SpawnEggItem::new,
-			new Item.Properties().spawnEgg(EntityType.FROG)
-	);
-	// :::spawn_egg
 
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
@@ -236,16 +236,16 @@ public class ModItems {
 				.register((itemGroup) -> itemGroup.accept(ModItems.GUIDITE_SWORD));
 		// :::8
 
-		// :::spawn_egg_creative_tab
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
-				.register(itemGroup -> itemGroup.accept(ModItems.CUSTOM_SPAWN_EGG));
-		// :::spawn_egg_creative_tab
-
 		// :::_12
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
 		// :::_12
 
+		// :::spawn_egg_creative_tab
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(itemGroup -> {
+			itemGroup.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
+		});
+		// :::spawn_egg_creative_tab
 		ItemGroupEvents.modifyEntriesEvent(CUSTOM_CREATIVE_TAB_KEY).register(itemGroup -> {
 			itemGroup.accept(ModItems.RUBY);
 			itemGroup.accept(ModItems.GUIDITE_AXE);
