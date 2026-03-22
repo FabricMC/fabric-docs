@@ -83,7 +83,7 @@
         },
         {
           "text": "カスタムアイテムグループ",
-          "link": "/ja_jp/develop/items/custom-item-groups"
+          "link": "/ja_jp/develop/items/custom-creative-tabs"
         },
         {
           "text": "カスタムアイテムの操作",
@@ -191,7 +191,7 @@
         },
         {
           "text": "描画コンテキストの使用",
-          "link": "/ja_jp/develop/rendering/draw-context"
+          "link": "/ja_jp/develop/rendering/gui-graphics"
         },
         {
           "text": "Hudでのレンダリング",

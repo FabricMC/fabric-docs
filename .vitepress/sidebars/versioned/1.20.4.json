@@ -67,7 +67,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/develop/items/custom-item-groups"
+          "link": "/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -149,7 +149,7 @@
         },
         {
           "text": "Using the Drawing Context",
-          "link": "/develop/rendering/draw-context"
+          "link": "/develop/rendering/gui-graphics"
         },
         {
           "text": "Rendering in the HUD",

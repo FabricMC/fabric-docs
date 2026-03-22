@@ -67,7 +67,7 @@
         },
         {
           "text": "Власні групи предметів",
-          "link": "/uk_ua/develop/items/custom-item-groups"
+          "link": "/uk_ua/develop/items/custom-creative-tabs"
         },
         {
           "text": "Власні інтерактивні предмети",
@@ -148,8 +148,8 @@
           "link": "/uk_ua/develop/rendering/basic-concepts"
         },
         {
-          "text": "Використання DrawContext",
-          "link": "/uk_ua/develop/rendering/draw-context"
+          "text": "Використання GuiGraphics",
+          "link": "/uk_ua/develop/rendering/gui-graphics"
         },
         {
           "text": "Промальовування у HUD",

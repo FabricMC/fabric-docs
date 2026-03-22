@@ -75,7 +75,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/cs_cz/develop/items/custom-item-groups"
+          "link": "/cs_cz/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/cs_cz/develop/rendering/draw-context"
+          "link": "/cs_cz/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderování v HUD",
@@ -345,15 +345,15 @@
         },
         {
           "text": "Migrating Mappings",
-          "link": "/cs_cz/develop/migrating-mappings",
+          "link": "/cs_cz/develop/porting/mappings",
           "items": [
             {
               "text": "Loom (Gradle)",
-              "link": "/cs_cz/develop/migrating-mappings/loom"
+              "link": "/cs_cz/develop/porting/mappings/loom"
             },
             {
               "text": "Ravel (IntelliJ IDEA)",
-              "link": "/cs_cz/develop/migrating-mappings/ravel"
+              "link": "/cs_cz/develop/porting/mappings/ravel"
             }
           ]
         },

@@ -67,7 +67,7 @@
         },
         {
           "text": "Benutzerdefinierte Itemgruppen",
-          "link": "/de_de/develop/items/custom-item-groups"
+          "link": "/de_de/develop/items/custom-creative-tabs"
         },
         {
           "text": "Benutzerdefinierte Iteminteraktionen",
@@ -149,7 +149,7 @@
         },
         {
           "text": "Den Zeichenkontext verwenden",
-          "link": "/de_de/develop/rendering/draw-context"
+          "link": "/de_de/develop/rendering/gui-graphics"
         },
         {
           "text": "Auf dem HUD rendern",

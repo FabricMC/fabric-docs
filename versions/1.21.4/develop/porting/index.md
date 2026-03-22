@@ -1,6 +1,6 @@
 ---
 title: Porting to 1.21.4
-description: A guide for porting to the 1.21.4 version of Minecraft.
+description: A guide for porting to Minecraft 1.21.4.
 authors:
   - cassiancc
 ---
@@ -8,7 +8,9 @@ authors:
 Minecraft is a game that's constantly evolving, with new versions changing the game in ways that affect modders. This article covers the general steps one might follow to update their mod to the 1.21.4 update of Minecraft.
 
 ::: info
+
 These docs discuss migrating from **1.21.1** to **1.21.4**. If you're looking for another migration, switch to the target version by using the dropdown in the top-right corner.
+
 :::
 
 ## Updating the Build Script {#build-script}

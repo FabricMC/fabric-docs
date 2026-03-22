@@ -1,16 +1,22 @@
 ---
 title: Porting to 1.21.8
-description: A guide for porting to the 1.21.8 version of Minecraft.
+description: A guide for porting to Minecraft 1.21.8.
 authors:
   - cassiancc
 ---
 
 Minecraft is a game that's constantly evolving, with new versions changing the game in ways that affect modders. This article covers the general steps one might follow to update their mod to the 1.21.8 update of Minecraft.
 
+::: info
+
+These docs discuss migrating from **1.21.4** to **1.21.8**. If you're looking for another migration, switch to the target version by using the dropdown in the top-right corner.
+
+:::
+
+::: warning REGARDING 1.21.6 AND 1.21.7
+
 1.21.8 is a hotfix for 1.21.7 and 1.21.6, so these docs will focus on 1.21.8 rather than 1.21.7 or 1.21.6, as there is no reason to continue to support a version with critical issues. Most 1.21.7 mods should work on 1.21.8.
 
-::: info
-These docs discuss migrating from **1.21.4** to **1.21.8**. If you're looking for another migration, switch to the target version by using the dropdown in the top-right corner.
 :::
 
 ## Updating the Build Script {#build-script}

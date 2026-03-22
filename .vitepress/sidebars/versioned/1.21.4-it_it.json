@@ -67,7 +67,7 @@
         },
         {
           "text": "Gruppi di Oggetti Personalizzati",
-          "link": "/it_it/develop/items/custom-item-groups"
+          "link": "/it_it/develop/items/custom-creative-tabs"
         },
         {
           "text": "Interazioni tra Oggetti Personalizzate",
@@ -171,7 +171,7 @@
         },
         {
           "text": "Usare il Contesto di Disegno",
-          "link": "/it_it/develop/rendering/draw-context"
+          "link": "/it_it/develop/rendering/gui-graphics"
         },
         {
           "text": "Rendering nel HUD",

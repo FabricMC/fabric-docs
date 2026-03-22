@@ -67,7 +67,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/es_es/develop/items/custom-item-groups"
+          "link": "/es_es/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -149,7 +149,7 @@
         },
         {
           "text": "Usando el Drawing Context (Contexto de Dibujo)",
-          "link": "/es_es/develop/rendering/draw-context"
+          "link": "/es_es/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderizando en el Hud",
