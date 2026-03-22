@@ -27,6 +27,7 @@
       "com.example.docs.saveddata.ExampleModSavedData",
       "com.example.docs.appearance.ExampleModAppearance",
       "com.example.docs.entity.attribute.ExampleModAttributes",
+      "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",
       "com.example.docs.gamerule.ExampleModGameRules"
     ],
@@ -42,6 +43,7 @@
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
       "com.example.docs.appearance.ExampleModAppearanceClient",
       "com.example.docs.keymapping.ExampleModKeyMappingsClient",
+      "com.example.docs.ExampleModRecipesClient",
       "com.example.docs.entity.ExampleModCustomEntityClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]

@@ -68,6 +68,7 @@
   "develop.loom.prod": "Production Run Tasks",
   "develop.loom.classpath_groups": "Classpath Groups",
   "develop.loom.tasks": "Other Tasks",
+  "develop.misc.custom_recipe_types": "Custom Recipe Types",
   "develop.misc": "Miscellaneous Pages",
   "develop.misc.automatic_testing": "Automated Testing",
   "develop.misc.codecs": "Codecs",

@@ -415,6 +415,10 @@ export default [
         text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
       },
+      {
+        text: "develop.misc.custom_recipe_types",
+        link: "/develop/custom-recipe-types",
+      },
     ],
   },
 ] as Fabric.SidebarItem[];
