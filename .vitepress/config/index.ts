@@ -70,15 +70,16 @@ export default defineVersionedConfig(
       image: { lazyLoading: true },
       languageAlias: { gradle: "groovy" },
       languages: [
-        async () =>
-          await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
-            with: { type: "json" },
-          }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
-        async () =>
-          await import("syntax-java-bytecode/java-bytecode.tmLanguage.json", {
-            with: { type: "json" },
-          }).then((lang) => ({ ...(lang.default as any), name: "bytecode" })),
-      ],
+        ["mcfunction", "syntax-mcfunction/mcfunction.tmLanguage.json"],
+        ["bytecode", "syntax-java-bytecode/java-bytecode.tmLanguage.json"],
+      ].map(
+        ([name, path]) =>
+          async () =>
+            await import(path, { with: { type: "json" } }).then((lang) => ({
+              ...lang.default,
+              name,
+            }))
+      ),
       lineNumbers: true,
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
