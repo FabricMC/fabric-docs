@@ -51,15 +51,6 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 		return items;
 	}
 
-	// :::menu
-	@Override
-	@NonNull
-	public Component getDisplayName() {
-		return Component.translatable("block.example-mod.dirt_chest");
-	}
-
-	// :::menu
-	// :::save
 	@Override
 	protected void saveAdditional(ValueOutput valueOutput) {
 		super.saveAdditional(valueOutput);
@@ -71,7 +62,15 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 		super.loadAdditional(valueInput);
 		ContainerHelper.loadAllItems(valueInput, items);
 	}
-	// :::save
+
+	// :::menu
+	@Override
+	@NonNull
+	public Component getDisplayName() {
+		return Component.translatable("block.example-mod.dirt_chest");
+	}
+
+	// :::menu
 
 	/*
 	// :::menu

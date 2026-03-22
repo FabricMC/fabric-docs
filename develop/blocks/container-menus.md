@@ -35,10 +35,6 @@ As we want a 3x3 container, we need to set the size of items to 9.
 
 :::
 
-We will also need to save our items, we can do this by overriding the `saveAdditional` and `loadAdditional` methods.
-
-@[code transcludeWith=:::save](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
-
 ### Opening the Menu {#opening-the-screen}
 
 We want to be able to open the menu somehow, so we will handle that within the `useWithoutItem` method:
