@@ -54,7 +54,8 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 						/* z */ -6,
 						/* width */ 12,
 						/* height */ 12,
-						/* depth */ 12),
+						/* depth */ 12
+				),
 				PartPose.offset(0, 8, 0)
 		);
 		root.addOrReplaceChild(
