@@ -1,10 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as tinyglobby from "tinyglobby";
-
 import Develop from "../sidebars/develop";
 import Players from "../sidebars/players";
-import { Fabric } from "../types";
+import { Fabric } from "../types.d";
 
 export const getLocaleNames = (translatedDir: string) => [
   "en_us",
@@ -265,7 +264,8 @@ export const getLocales = () => {
         version: {
           reminder: {
             latestVersion: resolver("version.reminder.latest_version"),
-            oldVersionMojang: resolver("version.reminder.old_version_mojang"),
+            oldVersion: resolver("version.reminder.old_version"),
+            newVersion: resolver("version.reminder.new_version"),
           },
 
           switcher: {

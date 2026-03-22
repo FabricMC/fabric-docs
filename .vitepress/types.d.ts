@@ -141,7 +141,12 @@ export namespace Fabric {
       /**
        * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
        */
-      oldVersionMojang: string;
+      oldVersion: string;
+
+      /**
+       * @default "This page is written for version %s.\nDocumentation for unreleased versions may be incomplete."
+       */
+      newVersion: string;
     };
 
     switcher: {

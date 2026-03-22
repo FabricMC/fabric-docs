@@ -2,8 +2,7 @@
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 let i: number = -1;
 const data = useData();

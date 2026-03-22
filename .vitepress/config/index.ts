@@ -1,11 +1,10 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
-import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-
-import { Fabric } from "../types";
+import latestVersionPlugin from "../plugins/latestVersion";
+import { Fabric } from "../types.d";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
 
@@ -26,14 +25,7 @@ const hostname =
       ? "http://fabric-docs.localhost:4173/"
       : env === "dev"
         ? "http://fabric-docs.localhost:5173/"
-        : process.env.DEPLOY_PRIME_URL!;
-
-const latestVersion = fs
-  .readFileSync(
-    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
-    "utf-8"
-  )
-  .match(/def minecraftVersion = "([^"]+)"/)![1];
+        : `${process.env.DEPLOY_PRIME_URL!}/`;
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
@@ -78,15 +70,16 @@ export default defineVersionedConfig(
       image: { lazyLoading: true },
       languageAlias: { gradle: "groovy" },
       languages: [
-        async () =>
-          await import("syntax-mcfunction/mcfunction.tmLanguage.json", {
-            with: { type: "json" },
-          }).then((lang) => ({ ...(lang.default as any), name: "mcfunction" })),
-        async () =>
-          await import("syntax-java-bytecode/java-bytecode.tmLanguage.json", {
-            with: { type: "json" },
-          }).then((lang) => ({ ...(lang.default as any), name: "bytecode" })),
-      ],
+        ["mcfunction", "syntax-mcfunction/mcfunction.tmLanguage.json"],
+        ["bytecode", "syntax-java-bytecode/java-bytecode.tmLanguage.json"],
+      ].map(
+        ([name, path]) =>
+          async () =>
+            await import(path, { with: { type: "json" } }).then((lang) => ({
+              ...lang.default,
+              name,
+            }))
+      ),
       lineNumbers: true,
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
@@ -125,7 +118,6 @@ export default defineVersionedConfig(
 
     // Versioning plugin configuration.
     versioning: {
-      latestVersion,
       rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: (s) =>
@@ -142,6 +134,10 @@ export default defineVersionedConfig(
         sidebarUrlProcessor: (url, version) =>
           url.startsWith("/") ? `/${version}${/^[/].._..[/]/.test(url) ? url.slice(6) : url}` : url,
       },
+    },
+
+    vite: {
+      plugins: [latestVersionPlugin()],
     },
   },
   path.resolve(import.meta.dirname, "..")

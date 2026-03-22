@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import { Fabric } from "../types.d";
 
 export default [
   {
@@ -417,4 +417,4 @@ export default [
       },
     ],
   },
-] as Fabric.SidebarItem[];
+] satisfies Fabric.SidebarItem[];
