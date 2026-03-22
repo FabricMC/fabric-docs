@@ -21,8 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-      - run: npm ci
-      - run: npm run build
+      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
+        with:
+          run_install: true
+      - run: pnpm build
       - if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v4
       - if: github.event_name != 'pull_request'

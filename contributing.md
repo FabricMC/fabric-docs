@@ -61,12 +61,12 @@ git clone https://github.com/your-username/fabric-docs.git
 
 #### Installing Dependencies {#install-dependencies}
 
-If you want to preview your changes locally, you will need to install [Node.js 18+](https://nodejs.org/en/).
+If you want to preview your changes locally, you will need to install [Node.js 18+](https://nodejs.org/en/) and [pnpm](https://pnpm.io/).
 
 After that, make sure to install all dependencies with:
 
 ```sh
-npm install
+pnpm install
 ```
 
 #### Running the Development Server {#run-the-development-server}
@@ -74,7 +74,7 @@ npm install
 This will allow you to preview your changes locally at `localhost:5173` and will automatically reload the page when you make changes.
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 Now you can open and browse the website from the browser by visiting `http://localhost:5173`.
@@ -84,7 +84,7 @@ Now you can open and browse the website from the browser by visiting `http://loc
 This will compile all Markdown files into static HTML files and place them in `.vitepress/dist`:
 
 ```sh
-npm run build
+pnpm build
 ```
 
 #### Previewing the Built Website {#previewing-the-built-website}
@@ -92,7 +92,7 @@ npm run build
 This will start a local server on port `4173` serving the content found in `.vitepress/dist`:
 
 ```sh
-npm run preview
+pnpm preview
 ```
 
 #### Opening a Pull Request {#opening-a-pull-request}
