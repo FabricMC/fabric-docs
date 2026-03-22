@@ -7,19 +7,13 @@ authors:
   - JaaiDead
 ---
 
-Entities are dynamic, interactive objects in the game that are not part of the terrain (like blocks). Entities can move around and interact with the world in various ways.
-
-## Your First Entity {#your-first-entity}
-
-This tutorial will walk you through the process of creating a custom _Mini Golem_. This entity will have fun animations.
-
-An entity is a movable object in a world with logic attached to them. A few examples include:
+Entities are dynamic, interactive objects in the game that are not part of the terrain (like blocks). Entities can move around and interact with the world in various ways. A few examples include:
 
 - `Villager`, `Pig`, and `Goat` are all examples of a `Mob`, the most common type of entity - something alive.
 - `Zombie` and `Skeleton` are examples of a `Monster`, a variant of an `Entity` that is hostile to the `Player`.
 - `Minecart` and `Boat` are examples of a `VehicleEntity`, which has special logic for accepting player input.
 
-This tutorial will walk you through the creation of a `PathfinderMob`, used by most mobs with pathfinding like `Zombie` and `Villager`.
+This tutorial will walk you through the process of creating a custom _Mini Golem_. This entity will have fun animations. It will be a `PathfinderMob`, which is the class used by most mobs with pathfinding, such as `Zombie` and `Villager`.
 
 ## Preparing Your First Entity {#preparing-your-first-entity}
 
@@ -54,7 +48,7 @@ To add goals to the entity, you need to create a `registerGoals` method in your 
 
 Rendering refers to the process of converting game data such as blocks, entities, and environments into visual representations displayed on the player's screen. This involves determining how objects are illuminated, shaded, and textured.
 
-::: tip
+::: info
 
 Entity rendering is always handled on the client side. The server manages the entity's logic and behavior, while the client is responsible for displaying the entity's model, texture, and animations.
 
@@ -88,9 +82,9 @@ This method defines the Mini Golem's 3D model by creating its body, head, and le
 
 Each part is added with an offset point which is the origin for all of the transformations applied to that part. All other coordinates in the model part are measured relative to this offset point.
 
-::: info
+::: warning
 
-The higher Y values in the model, the lower you are in the entity. This is the reverse compared to in-game coordinates.
+Higher Y values in the model correspond to the **bottom** of the entity. This is the reverse compared to in-game coordinates.
 
 :::
 
@@ -104,9 +98,9 @@ This class must then be initialized in the mod's client initializer.
 
 ### Setting up the Texture {#setting-up-texture}
 
-::: warning
+::: tip
 
-The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32);`, 64 pixels wide and 32 pixels tall. If you need a differently-sized texture, then don't forget to change the size in `LayerDefinition.create` to match.
+The size of the texture should match the values in the `LayerDefinition.create(modelData, 64, 32)`: 64 pixels wide and 32 pixels tall. If you need a differently-sized texture, then don't forget to change the size in `LayerDefinition.create` to match.
 
 :::
 
@@ -139,11 +133,12 @@ Then, we apply the walking animation to the leg model parts. We use the `cos` fu
 - The `limbSwingAmplitude` variable also affects the amplitude in the same way as the `1.4` constant. This variable changes based on the velocity of the entity, so that the legs swing more when the entity is moving faster and swing less or not at all when the entity is moving slower or not moving.
 - The `Mth.PI` constant for the left leg translates the cosine wave a half phase so that the left leg is swinging the opposite direction to the right leg.
 
-You can plot on a graph to see what these look like. The first curve is the left leg, and the second curve is the right leg. The _`x`_-axis is time, and the _`y`_-axis is the angle of the leg limbs.
+You can plot those on a graph to see what they look like:
 
 ![Graph](/assets/develop/entity/graphs/dark_graph.png){.dark-only}
-
 ![Graph](/assets/develop/entity/graphs/light_graph.png){.light-only}
+
+The "red" curve is for the left leg, and the "black" one is for the right. The horizontal x-axis represents time, and the y-axis indicates the angle of the leg limbs.
 
 Feel free to [play around with the constants on Desmos](https://www.desmos.com/calculator/bhlkblxhur) to see how they affect the curve.
 
@@ -157,7 +152,7 @@ To store data on an entity, the normal way is to simply add a field in entity cl
 
 Sometimes you need data from the server-side entity to be synced with the client-side entity. See the [Networking Page](../networking) for more info on the client-server architecture. To do this we can use _synched data_ \[sic] by defining an `EntityDataAccessor` for it.
 
-For our entity we'll make it dance every so often, so we need to create a dancing state that is synchronized with the client so that it can be animated later. However, the dancing cooldown need not be synced with the client.
+In our case we want our entity to dance every so often, so we need to create a dancing state that is synchronized between the clients so that it can be animated later. However, the dancing cooldown need not be synced with the client because the animation is triggered by the server.
 
 @[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
 
@@ -194,7 +189,7 @@ There's a lot going on here, notice the following key points:
   - We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
   - Modders can also create custom interpolation types.
 
-Finally, let's hook up the animation to the model.
+Finally, let's hook up the animation to the model:
 
 @[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
 
@@ -202,4 +197,4 @@ When the animation is playing we apply the animation, otherwise we use the old l
 
 ## Adding the Spawn Egg {#adding-spawn-egg}
 
-To add the new spawn egg of the Mini Golem entity, refer to the full article on [Creating a Spawn Egg](../items/spawn-egg).
+To add a spawn egg for the Mini Golem entity, refer to the full article on [Creating a Spawn Egg](../items/spawn-egg).
