@@ -413,4 +413,4 @@ export default [
       },
     ],
   },
-] as Fabric.SidebarItem[];
+] satisfies Fabric.SidebarItem[];
