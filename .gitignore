@@ -10,8 +10,7 @@
 .DS_Store
 
 # Alternative Package Locks
-pnpm-lock.yaml
-pnpm-workspace.yaml
+package-lock.json
 yarn.lock
 
 # LanguageTool Dictionaries and False Positives
