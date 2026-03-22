@@ -31,5 +31,13 @@ public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 		int yo = (this.height - this.imageHeight) / 2;
 		graphics.blit(RenderPipelines.GUI_TEXTURED, CONTAINER_TEXTURE, xo, yo, 0.0F, 0.0F, this.imageWidth, this.imageHeight, BACKGROUND_TEXTURE_WIDTH, BACKGROUND_TEXTURE_HEIGHT);
 	}
+
+	@Override
+	public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		super.render(graphics, mouseX, mouseY, delta);
+
+		// Render item tooltips
+		this.renderTooltip(graphics, mouseX, mouseY);
+	}
 }
 // :::screen
