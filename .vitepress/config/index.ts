@@ -4,8 +4,7 @@ import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-
-import { Fabric } from "../types";
+import { Fabric } from "../types.d";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
 

@@ -3,8 +3,7 @@ import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed, ref } from "vue";
-
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };

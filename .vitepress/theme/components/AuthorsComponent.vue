@@ -1,9 +1,8 @@
 <script setup lang="ts">
+import { useBrowserLocation } from "@vueuse/core";
 import { useData } from "vitepress";
 import { computed } from "vue";
-
-import { useBrowserLocation } from "@vueuse/core";
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 type Author = { name: string; noGitHub?: true };
 

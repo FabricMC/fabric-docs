@@ -3,7 +3,6 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-
 import { getLocaleNames, getResolver, getSidebar } from "./config/i18n";
 
 const git = (...args: string[]) => {

@@ -2,8 +2,7 @@
 import { useData } from "vitepress";
 import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vue";
 import { computed, useSlots } from "vue";
-
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 defineProps<{
   downloadURL: string;

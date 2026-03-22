@@ -1,10 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as tinyglobby from "tinyglobby";
-
 import Develop from "../sidebars/develop";
 import Players from "../sidebars/players";
-import { Fabric } from "../types";
+import { Fabric } from "../types.d";
 
 export const getLocaleNames = (translatedDir: string) => [
   "en_us",

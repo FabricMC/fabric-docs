@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import { computed } from "vue";
-
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 const data = useData();
 
