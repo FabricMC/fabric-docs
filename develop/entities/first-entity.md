@@ -118,6 +118,10 @@ A entity's renderer enables you to view your entity in-game. We'll create a new 
 
 This is also where the shadow radius is set, for this entity that will be `0.375f`.
 
+This renderer must then be registered in the mod's client initializer.
+
+@[code transcludeWith=::register_renderer](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+
 ### Adding Walking Animations {#walking-animations}
 
 The following code can be added to the `MiniGolemEntityModel` class to give the entity a walking animation.
