@@ -5,7 +5,7 @@ authors-nogithub:
   - glitch
   - lightningtow
   - siglong
-authors: 
+authors:
   - Ayutac
   - cassiancc
   - cootshk
@@ -70,7 +70,7 @@ To make a private final field both accessible and mutable, you must make two sep
 
 In order to expose certain access widener changes to mods depending on yours, you prefix the relevant directives with `transitive-*`:
 
-``` :no-line-numbers
+```:no-line-numbers
 transitive-accessible
 transitive-extendable
 transitive-mutable
@@ -87,37 +87,37 @@ The names of targets should match your current mappings. Note that constructor m
 
 Format:
 
-``` classtweaker:no-line-numbers
+```txt:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ### Methods {#methods}
 
 Format:
 
-``` classtweaker:no-line-numbers
+```txt:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ### Fields {#fields}
 
 Format:
 
-``` classtweaker:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / mutable>    field    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 ## Generating Entries {#generating-entries}
 

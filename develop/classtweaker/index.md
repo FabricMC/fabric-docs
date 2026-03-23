@@ -7,8 +7,7 @@ authors:
   - MildestToucan
 ---
 
-Class tweakers, known as access wideners prior to gaining further functionality, are used to complement Mixin's bytecode manipulation by providing additional transformation tools
-and allowing for certain runtime modifications to be visible from the development environment.
+Class tweakers, known as access wideners prior to gaining further functionality, are used to complement Mixin's bytecode manipulation by providing additional transformation tools and allowing for certain runtime modifications to be visible from the development environment.
 
 Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0, and may only target Vanilla Minecraft classes.
 
@@ -20,7 +19,9 @@ Class tweaker files are conventionally named after your modid, appended with `.c
 
 The file must have the following header as its first line:
 
-@[code lang=classtweaker:line-numbers transcludeWith=:::classtweaker-setup:file-header:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+```txt:no-line-numbers
+classTweaker v1 named
+```
 
 Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
 
@@ -46,11 +47,10 @@ The specifications are still named after access wideners for backward compatibil
 ...
 ```
 
-After specifying the file location in your `build.gradle` file, make sure to reload your gradle project in the IDE.
+After specifying the file location in your `build.gradle` file, make sure to reload your Gradle project in the IDE.
 
 ## Validating the File {#validating-the-file}
 
-By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the
-file are valid, run the `validateAccessWidener` Gradle task.
+By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the file are valid, run the `validateAccessWidener` Gradle task.
 
 Errors will point out any invalid entry, but they can be a little unspecific about why an entry is invalid.

@@ -1,7 +1,4 @@
-# :::classtweaker-setup:file-header:::
 classTweaker v1 named
-# :::classtweaker-setup:file-header:::
-
 
 # Access widening examples
 # The targets for these examples are non-transitive versions of Fabric API access wideners for 1.21.11

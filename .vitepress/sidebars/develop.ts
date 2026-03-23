@@ -373,8 +373,8 @@ export default [
   },
   {
     text: "develop.classtweaker",
-    "collapsed": true,
-    "items": [
+    collapsed: true,
+    items: [
       {
         text: "develop.classtweaker.introduction",
         link: "/develop/classtweaker/",
