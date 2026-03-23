@@ -2,6 +2,7 @@
 title: Class Tweakers
 description: Learn what class tweakers are, and how to set them up.
 authors:
+  - cassiancc
   - Earthcomputer
   - its-miroma
   - MildestToucan
@@ -19,7 +20,7 @@ Class tweaker files are conventionally named after your modid, appended with `.c
 
 The file must have the following header as its first line:
 
-```txt:no-line-numbers
+```txt
 classTweaker v1 named
 ```
 
@@ -53,4 +54,4 @@ After specifying the file location in your `build.gradle` file, make sure to rel
 
 By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the file are valid, run the `validateAccessWidener` Gradle task.
 
-Errors will point out any invalid entry, but they can be a little unspecific about why an entry is invalid.
+Errors will point out any invalid entry, but they can be about which part of an entry is invalid.

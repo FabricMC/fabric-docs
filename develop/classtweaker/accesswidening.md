@@ -70,7 +70,7 @@ To make a private final field both accessible and mutable, you must make two sep
 
 In order to expose certain access widener changes to mods depending on yours, you prefix the relevant directives with `transitive-*`:
 
-```:no-line-numbers
+```txt:no-line-numbers
 transitive-accessible
 transitive-extendable
 transitive-mutable
@@ -111,7 +111,7 @@ Example:
 
 Format:
 
-```classtweaker:no-line-numbers
+```txt:no-line-numbers
 <accessible / mutable>    field    <className>    <methodName>    <methodDescriptor>
 ```
 
