@@ -22,9 +22,9 @@ export default (): Plugin => {
 
         // Find files referenced in the page
         const matches = [
-          ...src.matchAll(/^<<< *([^{#\n]+)/gm),
+          ...src.matchAll(/^<<< *([^[{#\n]+)/gm),
           ...src.matchAll(/^@\[[^\]]*\]\(([^)]*)\)/gm),
-        ].map((m) => m[1]);
+        ].map((m) => m[1].trim());
 
         matches.push(...(data.files ?? []));
 
