@@ -89,8 +89,8 @@ img {
 }
 
 @media (min-width: 1280px) {
-  .content-container > h2,
-  .content-container > .VPLink {
+  .VPDocFooter > h2,
+  .VPDocFooter > .VPLink {
     display: none;
   }
 }
