@@ -55,9 +55,14 @@ pre {
 }
 
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
-.VPSidebar {
-  scrollbar-width: thin;
+.VPSidebar,
+.aside-container {
+  scrollbar-width: thin !important;
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
+}
+
+.aside-container::-webkit-scrollbar {
+  display: block;
 }
 
 ::-webkit-scrollbar {
