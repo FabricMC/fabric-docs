@@ -40,7 +40,7 @@ The specifications are still named after access wideners for backward compatibil
 
 #### fabric.mod.json {#fabric-mod-json}
 
-``` json:no-line-numbers
+```json:no-line-numbers
 ...
 
 "accessWidener": "example-mod.classtweaker",
