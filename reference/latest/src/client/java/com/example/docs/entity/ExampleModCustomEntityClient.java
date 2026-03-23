@@ -7,7 +7,6 @@ import net.fabricmc.api.ClientModInitializer;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.renderer.MiniGolemEntityRenderer;
 
-//:::register_renderer
 //:::register_client
 public class ExampleModCustomEntityClient implements ClientModInitializer {
 	@Override
@@ -21,4 +20,3 @@ public class ExampleModCustomEntityClient implements ClientModInitializer {
 	}
 }
 //:::register_client
-//:::register_renderer
