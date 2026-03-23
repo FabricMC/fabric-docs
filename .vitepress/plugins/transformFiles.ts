@@ -21,10 +21,8 @@ export default (): Plugin => {
         }
 
         // Find files referenced in the page
-        const matches = [
-          ...src.matchAll(/^<<< *([^[{#\n]+)/gm),
-          ...src.matchAll(/^@\[[^\]]*\]\(([^)]*)\)/gm),
-        ].map((m) => m[1].trim());
+        const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
+        const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
 
         matches.push(...(data.files ?? []));
 
