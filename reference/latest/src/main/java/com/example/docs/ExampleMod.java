@@ -7,9 +7,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.tags.TagKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 import net.fabricmc.api.ModInitializer;
@@ -61,7 +60,7 @@ public class ExampleMod implements ModInitializer {
 		// :::datagen-world:selective-biome-modifications
 		// Spawns in forest biomes only
 		BiomeModifications.addFeature(
-				BiomeSelectors.tag(TagKey.create(Registries.BIOME, Identifier.withDefaultNamespace("is_forest"))),
+				BiomeSelectors.tag(BiomeTags.IS_FOREST),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
