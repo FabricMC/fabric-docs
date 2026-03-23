@@ -30,22 +30,17 @@ authors:
 ---
 
 Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
-
-Before using access wideners, you must first set up a class tweaker file as described in the [introduction](../classtweaker).
-
-Access widening is an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) for accessing fields and methods.
-There are two situations where accessors are insufficient and access widening is needed:
+To access fields or methods, it can be an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+but there are two situations where [accessors](https://wiki.fabricmc.net/tutorial:mixin_accessors) are insufficient and access widening is necessary:
 
 - Needing to access a (package) private class
 - Needing to override a final method or subclass a final class.
 
-Note that, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on minecraft code, and not on other mods.
-
-As with other types of [class tweaking](../classtweaker), in order for access changes to show up in the decompiled source, run the `genSources` gradle task and reload the gradle project in the IDE.
+Note that, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on Vanilla Minecraft classes, and not on other mods.
 
 ## Access Directives {#access-directives}
 
-Access widener entries use a directive keyword at the start of the line to specify the modification to perform on the target.
+Access widener entries start with one of three directive keywords to specify the type of modification to apply.
 
 ### Accessible {#accessible}
 
@@ -69,7 +64,7 @@ Making a method extendable also makes its class extendable.
 
 `mutable` can make a field non-final.
 
-To make a private final field both accessible and mutable, you must use two directives, one for each change.
+To make a private final field both accessible and mutable, you must make two separate entries in the file.
 
 ### Transitive Directives {#transitive-directives}
 
@@ -161,6 +156,8 @@ A confirmation should now pop up on the element you right-clicked.
 
 ![mcdev aw copy confirmation](/assets/develop/classtweaker/accesswidening/mcdev-aw-copy-confirmation.png)
 
+You can then paste the entry in your class tweaker file.
+
 ### Linkie {#linkie}
 
 [Linkie](https://linkie.shedaniel.dev) is a website to browse and translate between mappings. It also provides access widener entries for the class, method or field you're viewing.
@@ -172,3 +169,13 @@ First, make sure you have the correct version and mappings selected on the menu 
 Then, search for the element you want to modify, and the access widener entry will be listed as `AW` under the result:
 
 ![linkie search results](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
+
+You can copy it and then paste the entry in your class tweaker file.
+
+## Applying Changes {#applying-changes}
+
+To see your changes applied, you must refresh your gradle project [regenerate sources](../getting-started/generating-sources). The targeted elements should
+have their access limits modified appropriately. If modifications do not appear, you can try [validating the file](../classtweaker/index#validating-the-file)
+and see if any errors appear.
+
+The modified targets can then be used without any additional steps.
