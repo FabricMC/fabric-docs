@@ -80,6 +80,10 @@ h2 {
   color: var(--vp-c-text-2);
 }
 
+.VPLink:has(code) {
+  align-items: center;
+}
+
 .VPLink:hover {
   color: var(--vp-c-text-1);
 }
