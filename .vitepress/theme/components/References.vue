@@ -17,6 +17,20 @@ const resources = computed(() =>
 
 const files = computed(() => (data.frontmatter.value.files ?? []) as string[]);
 
+const shortestUniquePaths = computed(() =>
+  files.value.map((file, i) => {
+    const parts = file.split("/");
+    for (let len = 1; len <= parts.length; len++) {
+      const current = parts.slice(-len).join("/");
+      const isUnique = files.value.every(
+        (other, j) => i === j || other.split("/").slice(-len).join("/") !== current
+      );
+      if (isUnique) return current;
+    }
+    return file;
+  })
+);
+
 const getImageSrc = (href: string) =>
   `https://www.google.com/s2/favicons?domain=${new URL(href, "https://docs.fabricmc.net").hostname}&sz=16`;
 
@@ -35,8 +49,8 @@ const getFileTitle = (path: string) =>
   </VPLink>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
-  <VPLink v-for="f in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)">
-    <code>{{ f.split("/").at(-1) }}</code>
+  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)">
+    <code>{{ shortestUniquePaths[i] }}</code>
   </VPLink>
 
   <div />
