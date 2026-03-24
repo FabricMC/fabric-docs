@@ -30,6 +30,8 @@ authors:
   - YTG1234
 ---
 
+Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
+
 When accessing fields or methods, it can be an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
 
