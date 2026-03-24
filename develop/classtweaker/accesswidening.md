@@ -118,7 +118,7 @@ Example:
 Format:
 
 ```txt:no-line-numbers
-<accessible / mutable>    field    <className>    <methodName>    <methodDescriptor>
+<accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
 Example:
