@@ -30,15 +30,16 @@ authors:
   - YTG1234
 ---
 
-Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
+Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
+This includes making them public, extendable and/or mutable.
 
-When accessing fields or methods, it can be an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
 
-- If you need to access a `private` or a package-private class
-- If you need to override a `final` method, or subclass a `final` class.
+- If you need to access a `private`, `protected` or package-private class
+- If you need to override a `final` method, or subclass a `final` class
 
-Note that, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on Vanilla Minecraft classes, and not on other mods.
+However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on Vanilla Minecraft classes, and not on other mods.
 
 ## Access Directives {#access-directives}
 
