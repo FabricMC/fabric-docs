@@ -10,7 +10,7 @@ authors:
 
 Class tweakers, formerly known as access wideners before gaining further functionality, provide transformation tools complementary to Mixin bytecode manipulation. They also allow some runtime modifications to be accessible within the development environment.
 
-::: info
+::: warning
 
 Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0, and may only target Vanilla Minecraft classes.
 
