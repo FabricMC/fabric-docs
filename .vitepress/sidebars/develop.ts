@@ -372,16 +372,16 @@ export default [
     ],
   },
   {
-    text: "develop.classtweaker",
+    text: "develop.class_tweakers",
     collapsed: true,
     items: [
       {
-        text: "develop.classtweaker.introduction",
-        link: "/develop/classtweaker/",
+        text: "develop.class_tweakers.introduction",
+        link: "/develop/class-tweakers/",
       },
       {
-        text: "develop.classtweaker.accesswidening",
-        link: "/develop/classtweaker/accesswidening",
+        text: "develop.class_tweakers.access_widening",
+        link: "/develop/class-tweakers/access-widening",
       },
     ],
   },

@@ -30,7 +30,7 @@ authors:
   - YTG1234
 ---
 
-Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
+Access widening is a type of [class tweaking](../class-tweakers) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
 This includes making them public, extendable and/or mutable.
 
 To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
@@ -39,7 +39,7 @@ but there are two situations where accessors are insufficient and access widenin
 - If you need to access a `private`, `protected` or package-private class
 - If you need to override a `final` method, or subclass a `final` class
 
-However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on Vanilla Minecraft classes, and not on other mods.
+However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../class-tweakers) only works on Vanilla Minecraft classes, and not on other mods.
 
 ## Access Directives {#access-directives}
 
@@ -141,11 +141,11 @@ The names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will alig
 
 To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
 
-![Right-clicking on a target in mcsrc](/assets/develop/classtweaker/accesswidening/mcsrc-right-click-on-aw-target.png)
+![Right-clicking on a target in mcsrc](/assets/develop/class-tweakers/access-widening/mcsrc-right-click-on-aw-target.png)
 
 Then, click on `Copy Class Tweaker / Access Widener`, and a confirmation should appear at the top of the page.
 
-![AW copy confirmation on mcsrc](/assets/develop/classtweaker/accesswidening/mcsrc-aw-copy-confirmation.png)
+![AW copy confirmation on mcsrc](/assets/develop/class-tweakers/access-widening/mcsrc-aw-copy-confirmation.png)
 
 You can then paste the entry in your class tweaker file.
 
@@ -156,15 +156,15 @@ For example, it lets you copy access widener entries from the decompiled source 
 
 To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
 
-![Right-clicking on a target with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
+![Right-clicking on a target with MCDev](/assets/develop/class-tweakers/access-widening/mcdev-right-click-on-aw-target.png)
 
 Then, click on `Copy / Paste Special` and `AW Entry`.
 
-![Copy/Paste special with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-copy-paste-special-menu.png)
+![Copy/Paste special with MCDev](/assets/develop/class-tweakers/access-widening/mcdev-copy-paste-special-menu.png)
 
 A confirmation should now pop up on the element you right-clicked.
 
-![AW copy confirmation with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-aw-copy-confirmation.png)
+![AW copy confirmation with MCDev](/assets/develop/class-tweakers/access-widening/mcdev-aw-copy-confirmation.png)
 
 You can then paste the entry in your class tweaker file.
 
@@ -174,16 +174,16 @@ You can then paste the entry in your class tweaker file.
 
 First, make sure you have the correct version and mappings selected on the menu on the left:
 
-![Correct version and mappings selected on Linkie](/assets/develop/classtweaker/accesswidening/linkie-version-mappings-select.png)
+![Correct version and mappings selected on Linkie](/assets/develop/class-tweakers/access-widening/linkie-version-mappings-select.png)
 
 Then, search for the element you want to modify, and the access widener entry will be listed as `AW` under the result:
 
-![A search result in Linkie](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
+![A search result in Linkie](/assets/develop/class-tweakers/access-widening/linkie-search-results.png)
 
 You can copy it and then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
 To see your changes applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources). The elements you targeted should
-have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../classtweaker/index#validating-the-file)
+have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
 and checking if any errors appear.
