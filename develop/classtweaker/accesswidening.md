@@ -81,8 +81,7 @@ transitive-mutable
 
 ## Specifying Targets {#specifying-targets}
 
-For class tweaking, classes use their [internal names](../mixins/bytecode#class-names) and
-fields or methods must specify their name along with their [bytecode descriptor](../mixins/bytecode#field-and-method-descriptors).
+For class tweaking, classes use their [internal names](../mixins/bytecode#class-names). For fields and methods you must specify their class name, their name, and their [bytecode descriptor](../mixins/bytecode#field-and-method-descriptors).
 
 ::: tip
 
@@ -92,7 +91,7 @@ The names of targets need to correspond to your current mappings.
 
 ::: tabs
 
-== Classes {#classes}
+== Classes
 
 Format:
 
@@ -104,7 +103,7 @@ Example:
 
 @[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-== Methods {#methods}
+== Methods
 
 Format:
 
@@ -116,7 +115,7 @@ Example:
 
 @[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-== Fields {#fields}
+== Fields
 
 Format:
 
@@ -136,7 +135,7 @@ Manually writing access widener entries is time-consuming and prone to human err
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Available for all versions with an [unobfuscated](../migrating-mappings/index#whats-going-on-with-mappings) jar, namely 1.21.11 and above,
+Available for all versions with an [unobfuscated JAR](../migrating-mappings/index#whats-going-on-with-mappings) namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
 The names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
 
@@ -157,7 +156,7 @@ For example, it lets you copy access widener entries from the decompiled source 
 
 To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
 
-![Right clicking on a target with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
+![Right-clicking on a target with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
 
 Then, click on `Copy / Paste Special` and `AW Entry`.
 
