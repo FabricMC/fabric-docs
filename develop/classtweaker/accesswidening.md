@@ -14,6 +14,7 @@ authors:
   - froyo4u
   - haykam821
   - hYdos
+  - its-miroma
   - kb-1000
   - kcrca
   - liach
@@ -29,12 +30,11 @@ authors:
   - YTG1234
 ---
 
-Access widening is a type of [class tweaking](../classtweaker) used to loosen the access limits of classes, methods and fields. This includes making them public, extendable and/or mutable.
-To access fields or methods, it can be an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
-but there are two situations where [accessors](https://wiki.fabricmc.net/tutorial:mixin_accessors) are insufficient and access widening is necessary:
+When accessing fields or methods, it can be an alternative to [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+but there are two situations where accessors are insufficient and access widening is necessary:
 
-- Needing to access a (package) private class
-- Needing to override a final method or subclass a final class.
+- If you need to access a `private` or a package-private class
+- If you need to override a `final` method, or subclass a `final` class.
 
 Note that, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../classtweaker) only works on Vanilla Minecraft classes, and not on other mods.
 
@@ -81,9 +81,15 @@ transitive-mutable
 For class tweaking, classes use their [internal names](../mixins/bytecode#class-names) and
 fields or methods must specify their name along with their [bytecode descriptor](../mixins/bytecode#field-and-method-descriptors).
 
-The names of targets should match your current mappings. Note that constructor methods are always named `<init>`, and always return void.
+::: tip
 
-### Classes {#classes}
+The names of targets need to correspond to your current mappings.
+
+:::
+
+::: tabs
+
+== Classes {#classes}
 
 Format:
 
@@ -95,7 +101,7 @@ Example:
 
 @[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-### Methods {#methods}
+== Methods {#methods}
 
 Format:
 
@@ -107,7 +113,7 @@ Example:
 
 @[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
-### Fields {#fields}
+== Fields {#fields}
 
 Format:
 
@@ -119,63 +125,63 @@ Example:
 
 @[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
+:::
+
 ## Generating Entries {#generating-entries}
 
-Manually writing access widener entries is prone to human error and time-consuming. This section goes over tools that simplify a part of the process by allowing you to generate and copy entries.
+Manually writing access widener entries is time-consuming and prone to human error. Let's look at tools that simplify a part of the process by allowing you to generate and copy entries.
 
 ### mcsrc.dev {#mcsrc-dev}
 
 Available for all versions with an [unobfuscated](../migrating-mappings/index#whats-going-on-with-mappings) jar, namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
-On 1.21.11, the names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
+The names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
 
-To copy an access widener entry, first navigate to the class which you want to modify, and right click on your target to open the popup menu.
+To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
 
-![mcsrc right clicking on target](/assets/develop/classtweaker/accesswidening/mcsrc-right-click-on-aw-target.png)
+![Right-clicking on a target in mcsrc](/assets/develop/classtweaker/accesswidening/mcsrc-right-click-on-aw-target.png)
 
 Then, click on `Copy Class Tweaker / Access Widener`, and a confirmation should appear at the top of the page.
 
-![mcsrc aw copy confirmation](/assets/develop/classtweaker/accesswidening/mcsrc-aw-copy-confirmation.png)
+![AW copy confirmation on mcsrc](/assets/develop/classtweaker/accesswidening/mcsrc-aw-copy-confirmation.png)
 
 You can then paste the entry in your class tweaker file.
 
 ### Minecraft Development Plugin (IntelliJ IDEA) {#mcdev-plugin}
 
-The Minecraft Development Plugin, also known as MCDev, is an IntelliJ IDEA plugin to assist in various aspects of Minecraft mod development.
-This section will show its ability to copy access widener entries to clipboard from the decompiled source target.
+The [Minecraft Development Plugin](../getting-started/intellij-idea/setting-up#installing-idea-plugins), also known as MCDev, is an IntelliJ IDEA plugin to assist in various aspects of Minecraft mod development.
+For example, it lets you copy access widener entries from the decompiled source target to the clipboard.
 
-To copy an access widener entry, first navigate to the class which you want to modify, and right click on your target to open the popup menu.
+To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
 
-![mcdev right clicking on target](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
+![Right clicking on a target with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-right-click-on-aw-target.png)
 
 Then, click on `Copy / Paste Special` and `AW Entry`.
 
-![mcdev copy paste special](/assets/develop/classtweaker/accesswidening/mcdev-copy-paste-special-menu.png)
+![Copy/Paste special with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-copy-paste-special-menu.png)
 
 A confirmation should now pop up on the element you right-clicked.
 
-![mcdev aw copy confirmation](/assets/develop/classtweaker/accesswidening/mcdev-aw-copy-confirmation.png)
+![AW copy confirmation with MCDev](/assets/develop/classtweaker/accesswidening/mcdev-aw-copy-confirmation.png)
 
 You can then paste the entry in your class tweaker file.
 
 ### Linkie {#linkie}
 
-[Linkie](https://linkie.shedaniel.dev) is a website to browse and translate between mappings. It also provides access widener entries for the class, method or field you're viewing.
+[Linkie](https://linkie.shedaniel.dev) is a website that allows you to browse and translate across mappings. It also provides access widener entries for the class, method or field you're viewing.
 
 First, make sure you have the correct version and mappings selected on the menu on the left:
 
-![linkie version and mappings selection](/assets/develop/classtweaker/accesswidening/linkie-version-mappings-select.png)
+![Correct version and mappings selected on Linkie](/assets/develop/classtweaker/accesswidening/linkie-version-mappings-select.png)
 
 Then, search for the element you want to modify, and the access widener entry will be listed as `AW` under the result:
 
-![linkie search results](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
+![A search result in Linkie](/assets/develop/classtweaker/accesswidening/linkie-search-results.png)
 
 You can copy it and then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your gradle project [regenerate sources](../getting-started/generating-sources). The targeted elements should
-have their access limits modified appropriately. If modifications do not appear, you can try [validating the file](../classtweaker/index#validating-the-file)
-and see if any errors appear.
-
-The modified targets can then be used without any additional steps.
+To see your changes applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources). The elements you targeted should
+have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../classtweaker/index#validating-the-file)
+and checking if any errors appear.

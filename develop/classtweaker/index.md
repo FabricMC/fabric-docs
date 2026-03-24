@@ -8,15 +8,19 @@ authors:
   - MildestToucan
 ---
 
-Class tweakers, known as access wideners prior to gaining further functionality, are used to complement Mixin's bytecode manipulation by providing additional transformation tools and allowing for certain runtime modifications to be visible from the development environment.
+Class tweakers, formerly known as access wideners before gaining further functionality, provide transformation tools complementary to Mixin bytecode manipulation. They also allow some runtime modifications to be accessible within the development environment.
+
+::: info
 
 Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0, and may only target Vanilla Minecraft classes.
+
+:::
 
 ## Setup {#setup}
 
 ### File Format {#file-format}
 
-Class tweaker files are conventionally named after your modid, appended with `.classtweaker` to help IDE plugins recognize them. They should be stored in `resources`.
+Class tweaker files are conventionally named after your modid, `example-mod.classtweaker`, to help IDE plugins recognize them. They should be stored in `resources`.
 
 The file must have the following header as its first line:
 
@@ -32,7 +36,7 @@ Whilst the specific syntax depends on the feature, modifications are each declar
 
 The class tweaker file's location must be specified in your `build.gradle` and `fabric.mod.json` files. Remember that you must also depend on Fabric Loader 0.18.0 or above to use class tweakers.
 
-The specifications are still named after access wideners for backward compatibility reasons.
+The specifications are still named after access wideners to preserve backwards compatibility.
 
 #### build.gradle {#build-gradle}
 
