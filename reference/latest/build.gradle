@@ -14,13 +14,9 @@ dependencies {
 
 // :::classtweaker-setup:gradle:::
 loom {
-// :::classtweaker-setup:gradle:::
 
-	// :::classtweaker-setup:gradle:::
 	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
-	// :::classtweaker-setup:gradle:::
 
-// :::classtweaker-setup:gradle:::
 }
 // :::classtweaker-setup:gradle:::
 
