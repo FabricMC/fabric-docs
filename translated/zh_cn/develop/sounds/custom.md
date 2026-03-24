@@ -7,7 +7,7 @@ authors:
 
 ## 准备音频文件{#preparing-the-audio-file}
 
-你的音频文件需要转化为特定格式。 OGG Vorbis 是一种用于音频等多媒体数据的开放式容器格式，Minecraft 的声音文件就使用了这种格式。 为了避免 Minecraft 处理声音传播距离的问题，你的音频必须只有单声道（Mono）。
+你的音频文件需要转化为特定格式。 OGG Vorbis 是一种用于音频等多媒体数据的开放式容器格式，Minecraft 的声音文件就使用了这种格式。 为了避免 Minecraft 在处理声音传播距离时出现问题，你的音频必须只有单声道（Mono）。
 
 许多现代 DAW（数字音频工作站）软件都可以使用这种格式导入和导出。 在下面的例子中，我们将使用免费开源软件“[Audacity](https://www.audacityteam.org/)”将音频文件转换成正确的格式，当然其他的 DAW 也可以做到。
 
@@ -37,11 +37,11 @@ authors:
 
 ## 注册自定义声音{#registering-the-custom-sound}
 
-要将自定义声音添加到模组，在你的[模组的初始化器](./getting-started/project-structure#entrypoints)中注册 SoundEvent。
+要将自定义声音添加到模组，在你的[模组的初始化器](../getting-started/project-structure#entrypoints)中注册 SoundEvent。
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## 整理整理{#cleaning-up-the-mess}
@@ -58,4 +58,4 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 ## 使用自定义的 SoundEvent{#using-the-custom-soundevent}
 
-使用辅助类去访问自定义的 SoundEvent。 查看[播放声音事件（SoundEvent）](./using-sounds)页面，了解如何播放声音。
+使用辅助类去访问自定义的 SoundEvent。 查看[播放声音](./using-sounds)页面，了解如何播放声音。

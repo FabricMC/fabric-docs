@@ -2,6 +2,7 @@
 title: Tag Generation
 description: A guide to setting up tag generation with datagen.
 authors:
+  - CelDaemon
   - IMB11
   - skycatminepokie
   - Spinoscythe
@@ -9,8 +10,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -26,12 +31,14 @@ Let your IDE fill in the required code, then replace the `resourceKey` construct
 @[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
 
 ::: tip
+
 You will need a different provider for each type of tag (eg. one `FabricTagProvider<EntityType<?>>` and one `FabricTagProvider<Item>`).
+
 :::
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={31-31}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Creating a Tag {#creating-a-tag}
 

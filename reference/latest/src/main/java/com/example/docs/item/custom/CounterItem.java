@@ -17,19 +17,19 @@ import com.example.docs.component.ModComponents;
 
 //::1
 public class CounterItem extends Item {
-	public CounterItem(Properties settings) {
-		super(settings);
+	public CounterItem(Properties properties) {
+		super(properties);
 	}
 
 	//::1
 
 	@Override
 	//::2
-	public InteractionResult use(Level world, Player user, InteractionHand hand) {
+	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		ItemStack stack = user.getItemInHand(hand);
 
 		// Don't do anything on the client
-		if (world.isClientSide()) {
+		if (level.isClientSide()) {
 			return InteractionResult.SUCCESS;
 		}
 
@@ -39,7 +39,6 @@ public class CounterItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	//::2
 
 	@Override
@@ -50,7 +49,6 @@ public class CounterItem extends Item {
 			textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 		}
 	}
-
 	//::3
 
 	//::1

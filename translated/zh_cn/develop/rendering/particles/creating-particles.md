@@ -11,7 +11,7 @@ authors:
 
 我们会添加新的火花粒子，模仿末地烛的粒子移动。
 
-首先，需要在你的[模组初始化器](../../getting-started/project-structure#entrypoints)中，使用你有模组 ID，注册 `ParticleType`。
+首先，需要在你的[模组初始化器](../../getting-started/project-structure#entrypoints)中，使用你的模组 ID，注册 `ParticleType`。
 
 @[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -26,13 +26,15 @@ authors:
 在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
 
 ::: tip
-You can see all the particle factories by looking at all the implementations of the `ParticleFactory` interface. This is helpful if you want to use another particle's behaviour for your own particle.
 
-- IntelliJ 的快捷键：Ctrl+Alt+B
-- Visual Studio Code 的快捷键：Ctrl+F12
-  :::
+你可以查看 `ParticleFactory` 接口的所有实现，从而查看所有的粒子 factory。 这有助于你为你自己的粒子使用其他粒子的行为。
 
-## 创建 JSON 文件并添加纹理{#creating-a-json-file-and-adding-textures}
+- IntelliJ 的快捷键：<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
+- Visual Studio Code 的快捷键：<kbd>Ctrl</kbd>+<kbd>F12</kbd>
+
+:::
+
+## 创建 JSON 文件并添加纹理 {#creating-a-json-file-and-adding-textures}
 
 你需要在你的 `resources/assets/example-mod/` 文件夹中创建两个文件夹。
 
@@ -47,11 +49,13 @@ You can see all the particle factories by looking at all the implementations of 
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
 
-:::tip
+::: tip
+
 可以给 `textures` 数组添加更多纹理以创建粒子动画。 粒子会在这个数组中循环纹理，以第一个纹理开始。
+
 :::
 
-## 测试新的粒子{#testing-the-new-particle}
+## 测试新的粒子 {#testing-the-new-particle}
 
 完成了 JSON 文件并保存你的作品后，就能够载入 Minecraft 并测试好一切了！
 
@@ -63,8 +67,10 @@ You can see all the particle factories by looking at all the implementations of 
 
 ![粒子的展示](/assets/develop/rendering/particles/sparkle-particle-showcase.png)
 
-:::info
+::: info
+
 用这个命令，粒子会生成在玩家内。 你可能需要往后走才能实际看到。
+
 :::
 
 你也可以使用相同命令，用命令方块召唤粒子。

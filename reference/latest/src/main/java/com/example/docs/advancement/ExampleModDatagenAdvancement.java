@@ -20,7 +20,7 @@ public class ExampleModDatagenAdvancement implements ModInitializer {
 		// :::datagen-advancements:entrypoint
 		HashMap<Item, Integer> tools = new HashMap<>();
 
-		PlayerBlockBreakEvents.AFTER.register(((world, player, blockPos, blockState, blockEntity) -> {
+		PlayerBlockBreakEvents.AFTER.register(((level, player, blockPos, blockState, blockEntity) -> {
 			if (player instanceof ServerPlayer serverPlayer) { // Only triggers on the server side
 				Item item = player.getMainHandItem().getItem();
 

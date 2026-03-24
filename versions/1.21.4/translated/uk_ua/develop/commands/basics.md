@@ -173,7 +173,7 @@ Brigadier [перенаправлятиме лише командні вузли
   або `CommandManager.argument` замість `LiteralArgumentBuilder.literal` або `RequiredArgumentBuilder.argument`.
 
 - Перевірте метод sendFeedback() – можливо, ви забули вказати логічне значення як другий аргумент. Також запам'ятайте
-  що, починаючи з Minecraft 1.20, першим параметром є `Supplier<Text>` замість `Text`.
+  що, починаючи з Minecraft 1.20, першим параметром є `Supplier<Text>` замість `Component`.
 
 - Команда має повертати ціле число. Під час реєстрації команд метод `executes()` приймає об’єкт `Command`,
   який зазвичай є лямбда. Лямбда має повертати ціле число замість інших типів.
@@ -185,7 +185,7 @@ You can do this, but it is not recommended. You would get the `CommandManager` f
 you wish to its `CommandDispatcher`.
 
 Після цього потрібно знову відправити дерево команд кожному гравцеві
-за допомогою `CommandManager.sendCommandTree(ServerPlayerEntity)`.
+за допомогою `CommandManager.sendCommandTree(ServerPlayer)`.
 
 Це потрібно, оскільки клієнт локально кешує дерево команд, яке отримує під час входу в систему (або коли пакети оператора
 надсилаються) для локальних повідомлень про помилки, повних завершень.
@@ -198,7 +198,7 @@ You can also do this, however, it is much less stable than registering commands 
 effects.
 
 Щоб все було просто, вам потрібно використовувати показ на Brigadier і видалити вузли. Після цього вам потрібно надіслати
-дерево команд кожному гравцеві за допомогою `sendCommandTree(ServerPlayerEntity)`.
+дерево команд кожному гравцеві за допомогою `sendCommandTree(ServerPlayer)`.
 
 Якщо ви не надішлете оновлене дерево команд, клієнт може вважати, що команда все ще існує, навіть якщо сервер
 не зможе її виконати.

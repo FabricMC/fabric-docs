@@ -154,12 +154,12 @@ Le `TextureKey` rappresentano i "segnaposto" (`#bottom`, `#top`, ...) come ogget
 
 ### Usare le Mappe di Texture {#using-texture-map}
 
-Cosa fa `TextureMap`? In effetti fornisce gli identificativi che puntano alle texture. Tecnicamente funziona proprio come una mappa normale - si associa una `TextureKey` (chiave) con un `Identifier` (valore).
+Cosa fa `TextureMap`? In effetti fornisce gli identificativi che puntano alle texture. Tecnicamente funziona proprio come una mappa normale - si associa una `TextureKey` (chiave) con un `ResourceLocation` (valore).
 
-Puoi usare quelle vanilla, come `TextureMap.all()`(che associa tute le `TextureKey` allo stesso `Identifier`), o crearne una nuova creandone una nuova istanza e usando `.put()` per associare valori alle chiavi.
+Puoi usare quelle vanilla, come `TextureMap.all()`(che associa tute le `TextureKey` allo stesso `ResourceLocation`), o crearne una nuova creandone una nuova istanza e usando `.put()` per associare valori alle chiavi.
 
 :::tip
-`TextureMap.all()` associa tutte le `TextureKey` allo stesso `Identifier`, indipendentemente dalla loro quantità!
+`TextureMap.all()` associa tutte le `TextureKey` allo stesso `ResourceLocation`, indipendentemente dalla loro quantità!
 :::
 
 Poiché vogliamo usare le texture del Tronco di Quercia, ma abbiamo le `TextureKey` `BOTTOM`, `TOP` e `SIDE`, ne dovremo creare un'altra.
@@ -199,7 +199,7 @@ Ma che parametri sono necessari?
 
 @[code lang=java transcludeWith=:::datagen-model-custom:gen](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-Anzitutto, otteniamo l'`Identifier` del modello di lastra singola con `VERTICAL_SLAB.upload()`. Poi otteniamo l'`Identifier` del modello di blocco intero con `ModelIds.getBlockModelId()`, e passiamo entrambi i modelli in `createVerticalSlabBlockStates`.
+Anzitutto, otteniamo l'`ResourceLocation` del modello di lastra singola con `VERTICAL_SLAB.upload()`. Poi otteniamo l'`ResourceLocation` del modello di blocco intero con `ModelIds.getBlockModelId()`, e passiamo entrambi i modelli in `createVerticalSlabBlockStates`.
 Il `BlockStateSupplier` viene passato nel `blockStateCollector`, di modo che i file JSON vengano effettivamente generati.
 Inoltre, creiamo un modello per l'oggetto di lastra verticale con `BlockStateModelGenerator.registerParentedItemModel()`.
 

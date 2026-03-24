@@ -15,7 +15,7 @@ Per questo esempio, creeremo una classe `GuiditeArmorMaterial` che memorizzi i n
 
 ### Durabilità di Base {#base-durability}
 
-Questa costante verrà usata nel metodo `Item.Settings#maxDamage(int damageValue)` quando si creano gli oggetti della nostra armatura, ed è anche necessaria come parametro nel costruttore `ArmorMaterial` quando creeremo successivamente il nostro oggetto `ArmorMaterial`.
+Questa costante verrà usata nel metodo `Item.Properties#maxDamage(int damageValue)` quando si creano gli oggetti della nostra armatura, ed è anche necessaria come parametro nel costruttore `ArmorMaterial` quando creeremo successivamente il nostro oggetto `ArmorMaterial`.
 
 @[code transcludeWith=:::base_durability](@/reference/1.21.4/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
@@ -56,9 +56,9 @@ Ora che hai registrato il materiale, puoi creare gli oggetti dell'armatura nella
 
 Ovviamente, un set di armatura non deve per forza essere completo, puoi avere un set con solo stivali, o solo gambiere... - il carapace di tartaruga vanilla è un buon esempio di un set di armatura con elementi mancanti.
 
-A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazione riguardo alla durabilità degli oggetti. Per questo motivo la durabilità di base deve essere aggiunta manualmente a `Item.Settings` degli oggetti dell'armatura quando li si registra.
+A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazione riguardo alla durabilità degli oggetti. Per questo motivo la durabilità di base deve essere aggiunta manualmente a `Item.Properties` degli oggetti dell'armatura quando li si registra.
 
-Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopra nel metodo `maxDamage` nella classe `Item.Settings`.
+Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopra nel metodo `maxDamage` nella classe `Item.Properties`.
 
 @[code transcludeWith=:::6](@/reference/1.21.4/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -96,7 +96,7 @@ Quando un'entità indossa la tua armatura, non si vedrà nulla. Questo perché t
 
 Ci sono due strati per le texture dell'armatura, entrambi devono essere presenti.
 
-Abbiamo prima creato una costante `RegistryKey<EquipmentAsset>` chiamata `GUIDITE_ARMOR_MATERIAL_KEY`, che avevamo passato nel nostro costruttore `ArmorMaterial`. Si consiglia di nominare la texture similmente, per cui nel nostro caso sarà `guidite.png`
+Abbiamo prima creato una costante `ResourceKey<EquipmentAsset>` chiamata `GUIDITE_ARMOR_MATERIAL_KEY`, che avevamo passato nel nostro costruttore `ArmorMaterial`. Si consiglia di nominare la texture similmente, per cui nel nostro caso sarà `guidite.png`
 
 - `assets/mod-id/textures/entity/equipment/humanoid/guidite.png` - Contiene texture della parte superiore del corpo e degli stivali.
 - `assets/mod-id/textures/entity/equipment/humanoid_leggings/guidite.png` - Contiene texture per il gambiere.
@@ -109,7 +109,7 @@ Se stai passando a 1.21.4 da una versione meno recente del gioco, è nella carte
 
 Poi, dovrai creare una definizione del modello indossato ad essa associata. Queste vanno nella cartella `/assets/mod-id/equipment/`.
 
-La costante `RegistryKey<EquipmentAsset>` creata più sopra determinerà il nome del file JSON. In questo caso sarà `guidite.json`.
+La costante `ResourceKey<EquipmentAsset>` creata più sopra determinerà il nome del file JSON. In questo caso sarà `guidite.json`.
 
 Poiché vogliamo solo aggiungere i pezzi d'armatura "umanoidi" (elmo, corazza, gambiere, stivali...), la definizione del nostro modello indossato sarà come segue:
 

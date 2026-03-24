@@ -5,8 +5,12 @@ authors:
   - IMB11
 ---
 
-:::tip
-如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
+<!---->
+
+::: tip
+
+如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
+
 :::
 
 崩溃报告是解决游戏或服务器问题的重要部分， 包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
@@ -21,52 +25,52 @@ authors:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
 :::
 
-## 阅读崩溃报告{#reading-crash-reports}
+## 阅读崩溃报告 {#reading-crash-reports}
 
-崩溃报告的篇幅很长，读起来可能十分费解， 然而包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。
+崩溃报告通常篇幅冗长，阅读起来可能令人困惑。 然而，其中包含了大量关于崩溃的关键信息，能协助你定位崩溃原因。
 
-在本指南中，我们将以 [该崩溃报告](/assets/players/crash-report-example.log) 为例。
+在本指南中，我们将使用[此崩溃报告](/assets/players/crash-report-example.log)。
 
 :::details 显示崩溃报告
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log
 
 :::
 
-### 崩溃报告的各部分{#crash-report-sections}
+### 崩溃报告各章节 {#crash-report-sections}
 
-崩溃报告由几个部分组成，每个部分用标题分隔：
+崩溃报告由多个部分组成，各部分通过标题行分隔：
 
-- `---- Minecraft Crash Report ----`，报告的摘要。 该部分包含导致崩溃的主要错误原因、发生时间和相关堆栈跟踪。 这是崩溃报告中最重要的部分，因为堆栈跟踪通常会提及到导致崩溃的模组。
-- `-- Last Reload --`，这部分不太有用，除非崩溃发生在资源重载过程中（<kbd>F3</kbd>+<kbd>T</kbd>）。 该部分将包含上次重载的发生时间，以及重载过程中出现的任何错误的相关堆栈跟踪。 这些错误通常是由资源包引起的，可以忽略，除非是这些资源包导致的游戏出现问题。
-- `-- System Details --`，本部分包含有关系统的信息，如操作系统、Java 版本和分配给游戏的内存量。 该部分有助于确定你使用的 Java 版本是否正确，以及是否为游戏分配了足够的内存。
-  - 在此部分中，Fabric 将插入一些自定义内容，其标题为 `Fabric Mods:`，后面是所有已安装模组的列表。 该部分有助于判断模组之间是否可能已发生冲突。
+- `---- Minecraft Crash Report ----`，报告概要。 此部分包含导致崩溃的主要错误、发生时间以及相关堆栈跟踪。 这是崩溃报告中最重要的部分，因为堆栈跟踪通常含有指向导致崩溃的模组的引用。
+- `-- Last Reload --`，除非崩溃发生在资源重载期间（<kbd>F3</kbd>+<kbd>T</kbd>），否则此部分通常没什么用处。 此部分包含上次重载的时间，以及重载过程中发生的任何错误的相关堆栈跟踪。 这些错误通常由资源包引起，除非它们导致游戏出现问题，否则可以忽略。
+- `-- System Details --`，此部分包含有关系统的信息，例如操作系统、Java 版本以及分配给游戏的内存量。 此部分有助于确定你是否使用了正确版本的 Java，以及是否为游戏分配了足够的内存。
+  - 在此部分中，Fabric 会额外包含一行自定义内容`Fabric Mods:`，随后列出所有已安装的模组。 此部分有助于排查模组间是否存在冲突。
 
-### 分解崩溃报告{#breaking-down-the-crash-report}
+### 拆解崩溃报告 {#breaking-down-the-crash-report}
 
-既然已经知道崩溃报告的每个部分是什么，就可以开始分解崩溃报告并找出崩溃原因。
+既然已经了解了崩溃报告的各个部分，我们就可以开始拆解报告，查找崩溃原因。
 
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
-在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
+在这个情形中，`---- Minecraft Crash Report ----` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
 
 :::details 显示错误详情
 
-<<< @/public/assets/players/crash-report-example.log{7 log}
+<<< @/public/assets/players/crash-report-example.log{7}
 
 :::
 
@@ -74,31 +78,33 @@ authors:
 
 在这里，导致崩溃的模组是 `snownee`，因为它是堆栈跟踪中提到的第一个模组。
 
-不过，提到的模组有很多，可能意味着模组之间存在一些兼容性问题，导致崩溃的模组可能并不是出错的模组。 在这种情况下，最好向模组作者报告崩溃情况，让他们调查崩溃原因。
+然而，由于涉及的模组较多，这可能意味着模组之间存在兼容性问题，引发崩溃的模组未必是真正的问题根源。 在这种情况下，最好向模组作者报告崩溃情况，让他们调查崩溃原因。
 
-## Mixin 崩溃{#mixin-crashes}
+## Mixin 崩溃 {#mixin-crashes}
 
-:::info
-Mixin 是一种修改游戏而无需修改游戏的源代码的方式。 许多模组都用了 mixin，这对于开发者来说是非常强大的工具。
+::: info
+
+Mixin 是一种允许模组在无需修改游戏源代码的情况下对游戏进行修改的方式。 许多模组都用了 mixin，这对于开发者来说是非常强大的工具。
+
 :::
 
-当有 mixin 崩溃时，通常会在堆栈跟踪中提到该 mixin 类以及该 mixin 类修改的类。
+当 mixin 崩溃时，堆栈跟踪中通常会列出该 mixin 及其修改的类。
 
-方法 mixin 会在堆栈跟踪中包含 `example-mod$handlerName`，其中 `example-mod` 是模组的 ID，`handlerName` 是 mixin 处理器的名称。
+方法 mixin 会在堆栈跟踪中包含 `mod-id$handlerName`，其中 `mod-id` 是模组的 ID，`handlerName` 是 mixin 处理器的名称。
 
-```:no-line-numbers
-... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
+```text:no-line-numbers
+... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
 你可以使用此信息找到导致崩溃的模组，并向模组作者报告崩溃情况。
 
-## 如何处理崩溃报告{#what-to-do-with-crash-reports}
+## 如何处理崩溃报告 {#what-to-do-with-crash-reports}
 
-处理崩溃报告的最佳方法是将其上传到在线粘贴板网站，然后将链接分享给模组作者，可以是在他们的问题追踪器，或通过某种联系方式（Discord 等）。
+处理崩溃报告的最佳做法是将其上传至在线剪贴板网站，然后将链接分享给模组作者，可以通过他们的问题追踪器，也可以通过其他沟通渠道（如 Discord 等）。
 
 这可以让模组作者调查崩溃、复现崩溃并解决导致崩溃的问题。
 
-常用的崩溃报告粘贴网站有：
+经常用于分享崩溃报告的常用剪贴板网站有：
 
 - [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)

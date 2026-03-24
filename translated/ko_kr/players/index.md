@@ -7,4 +7,4 @@ description: 플레이어와 서버 관리자를 위한 Fabric 설치 및 사용
 
 사용 가능한 모든 가이드 목록은 왼쪽 메뉴를 참조해 주세요.
 
-문제가 발생했다면, [GitHub](https://github.com/FabricMC/fabric-docs)에 신고하거나 [Fabric Discord (영어)](https://discord.gg/v6v4pMv)의 `#player-support` 또는 `#server-admin-support` 채널에 도움을 요청하실 수 있습니다.
+문제가 발생했다면, [GitHub](https://github.com/FabricMC/fabric-docs)에 신고하거나 [Fabric 디스코드(영어)](https://discord.fabricmc.net/)의 `#player-support` 또는 `#server-admin-support` 채널에 도움을 요청하실 수 있습니다.

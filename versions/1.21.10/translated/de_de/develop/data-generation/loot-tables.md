@@ -46,7 +46,7 @@ Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle e
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-Wir werden einen `RegistryKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
+Wir werden einen `ResourceKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/1.21.10/src/main/java/com/example/docs/ModLootTables.java)
 

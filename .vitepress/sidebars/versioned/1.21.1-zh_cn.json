@@ -67,7 +67,7 @@
         },
         {
           "text": "自定义物品组",
-          "link": "/zh_cn/develop/items/custom-item-groups"
+          "link": "/zh_cn/develop/items/custom-creative-tabs"
         },
         {
           "text": "自定义物品交互",
@@ -171,7 +171,7 @@
         },
         {
           "text": "使用绘图上下文",
-          "link": "/zh_cn/develop/rendering/draw-context"
+          "link": "/zh_cn/develop/rendering/gui-graphics"
         },
         {
           "text": "在 HUD 中渲染",

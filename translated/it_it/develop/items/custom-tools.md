@@ -24,6 +24,10 @@ Il costruttore di `ToolMaterial` accetta i parametri seguenti, in questo ordine:
 | `enchantmentValue`        | L'"incantabilità" degli utensili fatti di questo `ToolMaterial`.                                                                                                             |
 | `repairItems`             | Tutti gli oggetti in questo tag possono essere usati per riparare utensili di questo `ToolMaterial` in un'incudine.                                                          |
 
+Per questo esempio, useremo lo stesso oggetto di riparo che useremo per l'armatura. Definiamo il riferimento di tag come segue:
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
 Se fai fatica a determinare valori adatti per ciascuno dei parametri numerici, considera le costanti dei materiali di utensili vanilla, tra cui `ToolMaterial.STONE` o `ToolMaterial.DIAMOND`.
 
 ## Creare Oggetti per gli Utensili {#creating-tool-items}
@@ -34,7 +38,7 @@ Con la stessa funzione di utilità della guida [Creare il Tuo Primo Oggetto](./f
 
 I due valori float (`1f, 1f`) fanno riferimento al danno in attacco dell'utensile e alla sua velocità d'attacco rispettivamente.
 
-Ricorda di aggiungerli ad un gruppo di oggetti se vuoi accedere ad essi dall'inventario in creativa!
+Ricorda di aggiungerli a una scheda se vuoi accedere ad essi dall'inventario in Creativa!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -46,6 +50,6 @@ Per questo esempio, useremo il modello e la texture seguenti per l'oggetto "Spad
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
 
-Questo è praticamente tutto! Se passi al gioco dovresti vedere gli oggetti dei tuoi strumenti nella scheda utensili dell'inventario in creativa.
+Questo è praticamente tutto! Se passi al gioco dovresti vedere gli oggetti dei tuoi strumenti nella scheda utensili dell'inventario in Creativa.
 
 ![Utensili nell'inventario](/assets/develop/items/tools_1.png)

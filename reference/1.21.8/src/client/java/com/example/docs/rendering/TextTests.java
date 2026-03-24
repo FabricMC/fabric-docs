@@ -4,21 +4,21 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextCodecs;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentSerialization;
+import net.minecraft.network.chat.MutableComponent;
 
 public class TextTests {
 	public void test() {
 		// :::1
 		Gson gson = new Gson();
-		MutableText mutable = Text.translatable("my_mod.text.bye");
-		String json = gson.toJson(TextCodecs.CODEC.encodeStart(JsonOps.INSTANCE, mutable).getOrThrow());
+		MutableComponent mutable = Component.translatable("my_mod.text.bye");
+		String json = gson.toJson(ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, mutable).getOrThrow());
 		// :::1
 
 		// :::2
 		String jsonString = "...";
-		Text deserialized = TextCodecs.CODEC
+		Component deserialized = ComponentSerialization.CODEC
 				.decode(JsonOps.INSTANCE, gson.fromJson(jsonString, JsonElement.class))
 				.getOrThrow()
 				.getFirst();

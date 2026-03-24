@@ -23,7 +23,7 @@ search: false
 
 - 생성자 메소드에서 화면이 초기화되지 않기 때문에 위젯또한 생성되지 않습니다.
 - `init` 메소드는 화면이 초기화되었을 때 호출되므로, 위젯을 만들기에 가장 좋은 위치입니다.
-  - 모든 그려질 수 있는 위젯이 입력되는 `addDrawableChild` 메소드를 통해 위젯을 추가합니다.
+  - 모든 그려질 수 있는 위젯이 입력되는 `addRenderableWidget` 메소드를 통해 위젯을 추가합니다.
 - `render` 메소드는 매 프레임마다 호출되므로, 메소드를 통해 그려지는 컨텍스트, 마우스 포인터의 위치에 접근할 수 있습니다.
 
 예를 들어, 라벨이 위에 있는 버튼이 있는 간단한 화면을 만들어 보겠습니다.
@@ -37,8 +37,8 @@ search: false
 화면은 `MinecraftClient`의 `setScreen` 메소드를 통해 열 수 있습니다.
 
 ```java
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty())
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty())
 );
 ```
 
@@ -47,7 +47,7 @@ MinecraftClient.getInstance().setScreen(
 만약 화면을 닫고 싶다면, `setScreen` 메소드를 통해 간단하게 화면을 `null` 로 설정하면 됩니다.
 
 ```java
-MinecraftClient.getInstance().setScreen(null);
+Minecraft.getInstance().setScreen(null);
 ```
 
 만약 디테일하게 이전 화면으로 되돌아가는 기능을 추가하고 싶다면, 현재 화면을 `CustomScreen` 생성자에 입력하여 필드에 저장하고, `close` 메소드가 호출되었을 때 해당 필드를 사용하여 이전 화면으로 되돌아가면 됩니다.
@@ -57,8 +57,8 @@ MinecraftClient.getInstance().setScreen(null);
 이제, 사용자 정의 화면이 열릴 때, 현재 화면을 두 번째 매개변수에 입력하면, `CustomScreen#close`가 호출되었을 때 이전 화면으로 되돌아갈 것입니다.
 
 ```java
-Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-MinecraftClient.getInstance().setScreen(
-  new CustomScreen(Text.empty(), currentScreen)
+Screen currentScreen = Minecraft.getInstance().currentScreen;
+Minecraft.getInstance().setScreen(
+  new CustomScreen(Component.empty(), currentScreen)
 );
 ```

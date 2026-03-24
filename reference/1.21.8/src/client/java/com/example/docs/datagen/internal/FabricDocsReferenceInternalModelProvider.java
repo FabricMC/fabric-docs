@@ -1,11 +1,11 @@
 package com.example.docs.datagen.internal;
 
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.client.data.TexturedModel;
-import net.minecraft.client.data.VariantsBlockModelDefinitionCreator;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -24,31 +24,31 @@ public class FabricDocsReferenceInternalModelProvider extends FabricModelProvide
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONDENSED_DIRT);
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COUNTER_BLOCK);
+	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+		blockStateModelGenerator.createTrivialCube(ModBlocks.CONDENSED_DIRT);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.COUNTER_BLOCK);
 
 		// TODO: This would be a good example for the model generation page. Move when needed.
 		// TODO: Actually make the model for the prismarine lamp - not sure how to do it via datagen.
-		blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.PRISMARINE_LAMP)
-				.with(BlockStateModelGenerator.createBooleanModelMap(PrismarineLampBlock.ACTIVATED,
-						BlockStateModelGenerator.createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.PRISMARINE_LAMP, "_on", Models.CUBE_ALL, TextureMap::all)),
-						BlockStateModelGenerator.createWeightedVariant(TexturedModel.CUBE_ALL.upload(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelCollector)))));
+		blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(ModBlocks.PRISMARINE_LAMP)
+				.with(BlockModelGenerators.createBooleanModelDispatch(PrismarineLampBlock.ACTIVATED,
+						BlockModelGenerators.plainVariant(blockStateModelGenerator.createSuffixedVariant(ModBlocks.PRISMARINE_LAMP, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
+						BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.PRISMARINE_LAMP, blockStateModelGenerator.modelOutput)))));
 
-		blockStateModelGenerator.createLogTexturePool(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
+		blockStateModelGenerator.woodProvider(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
 	}
 
 	@Override
-	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		itemModelGenerator.register(ModItems.COUNTER, Models.GENERATED);
-		itemModelGenerator.register(ModItems.LIGHTNING_STICK, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_BOOTS, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_CHESTPLATE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_HELMET, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_LEGGINGS, Models.GENERATED);
-		itemModelGenerator.register(ModItems.POISONOUS_APPLE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.SUSPICIOUS_SUBSTANCE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_SWORD, Models.HANDHELD);
+	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+		itemModelGenerator.generateFlatItem(ModItems.COUNTER, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_STICK, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_BOOTS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HELMET, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.POISONOUS_APPLE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SUSPICIOUS_SUBSTANCE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 def minecraftVersion = "1.21.11"
-def fabricApiVersion = "0.140.2+1.21.11"
+def fabricApiVersion = "0.141.1+1.21.11"
 
 // :::automatic-testing:game-test:2
 dependencies {
@@ -12,12 +12,24 @@ dependencies {
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
+// :::classtweaker-setup:gradle:::
+loom {
+
+	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
+
+}
+// :::classtweaker-setup:gradle:::
+
 // :::automatic-testing:game-test:2
 // :::automatic-testing:2
 test {
 	useJUnitPlatform()
 }
 // :::automatic-testing:2
+
+// :::debug-logging
+loom.log4jConfigs.from "log4j-dev.xml"
+// :::debug-logging
 
 // :::automatic-testing:game-test:1
 fabricApi {

@@ -1,19 +1,18 @@
 package com.example.docs.effect;
 
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.util.Identifier;
-
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 
 // :::1
 public class ExampleModEffects implements ModInitializer {
-	public static final RegistryEntry<StatusEffect> TATER;
+	public static final Holder<MobEffect> TATER;
 
 	static {
-		TATER = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("example-mod", "tater"), new TaterEffect());
+		TATER = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, ResourceLocation.fromNamespaceAndPath("example-mod", "tater"), new TaterEffect());
 	}
 
 	@Override

@@ -3,6 +3,7 @@ title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
   - Romejanic
+  - ekulxam
 ---
 
 As your items grow more complex, you may find yourself needing to store custom data associated with each item. The game allows you to store persistent data within an `ItemStack`, and as of 1.20.5 the way we do that is by using **Data Components**.
@@ -23,7 +24,7 @@ This is the basic template to register a component type:
 
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
-    BuiltInRegistries.DATA_COMPONENT_TYPE,
+    BuiltInBuiltInRegistriesDATA_COMPONENT_TYPE,
     ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
     DataComponentType.<?>builder().codec(null).build()
 );
@@ -31,7 +32,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 There are a few things here worth noting. On the first and fourth lines, you can see a `?`. This will be replaced with the type of your component's value. We'll fill this in soon.
 
-Secondly, you must provide an `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
+Secondly, you must provide a `ResourceLocation` containing the intended ID of your component. This is namespaced with your mod's ID.
 
 Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
 
@@ -76,9 +77,25 @@ This will return the current component value as the type we defined when we regi
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
     int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-    tooltip.add(Component.translatable("item.example-mod.counter.info", count).formatted(ChatFormatting.GOLD));
+    tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 }
 ```
+
+::: warning
+
+As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+
+Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+
+Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
+
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+
+:::
 
 Don't forget to update your lang file (`/assets/example-mod/lang/en_us.json`) and add these two lines:
 
@@ -248,7 +265,7 @@ boolean burnt = comp.burnt();
 stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.has(ModComponents.MY_CUSTOM_COMPONENT)) {
     // do something
 }
 

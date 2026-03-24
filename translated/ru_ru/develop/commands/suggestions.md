@@ -16,6 +16,7 @@ authors:
 Чтобы использовать поставщика предложений, необходимо вызвать метод `suggests` в конструкторе аргументов. Этот метод берёт `SuggestionProvider` и возвращает модифицированный аргумент конструктора с прикрепленным поставщиком предложений.
 
 @[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Встроенные поставщики предложений {#built-in-suggestion-providers}
@@ -40,6 +41,7 @@ authors:
 Для использования этого поставщика предложений, просто передадите его экземпляр в метод `.suggests` в конструктор аргументов.
 
 @[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Очевидно, что поставщики предложений могут быть более сложными, поскольку они также могут считывать контекст команды, чтобы предоставлять предложения на основе состояния команды, например аргументов, которые уже были предоставлены.

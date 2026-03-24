@@ -46,7 +46,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/1.21.10/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
 
-We'll need a `RegistryKey<LootTable>` for our loot table. Помістімо це в новий клас під назвою `ModLootTables`. Якщо ви використовуєте розділені джерела, переконайтеся, що це джерело є у вашому `main` наборі джерел.
+We'll need a `ResourceKey<LootTable>` for our loot table. Помістімо це в новий клас під назвою `ModLootTables`. Якщо ви використовуєте розділені джерела, переконайтеся, що це джерело є у вашому `main` наборі джерел.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/1.21.10/src/main/java/com/example/docs/ModLootTables.java)
 

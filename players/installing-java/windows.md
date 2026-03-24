@@ -3,6 +3,7 @@ title: Installing Java on Windows
 description: A step-by-step guide on how to install Java on Windows.
 authors:
   - IMB11
+  - skycatminepokie
 next: false
 ---
 
@@ -14,7 +15,7 @@ The Minecraft Launcher comes with its own Java installation, so this section is 
 
 To check if Java is already installed, you must first open the command prompt.
 
-You can do this by pressing <kbd>Win</kbd>+<kbd>R</kbd> and typing `cmd.exe` into the box that appears.
+You can do this by pressing <kbd>Windows</kbd>+<kbd>R</kbd> and typing `cmd.exe` into the box that appears.
 
 ![Windows Run Dialog with "cmd.exe" in the run bar](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -25,7 +26,11 @@ If the command runs successfully, you will see something like this. If the comma
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
 
 ::: warning
-To use Minecraft 1.21.10, you'll need at least Java 21 installed. If this command displays any version lower than 21, you'll need to update your existing Java installation.
+
+To use Minecraft 1.21.11, you'll need at least Java 21 installed.
+
+If this command displays any version lower than 21, you'll need to update your existing Java installation; keep reading this page.
+
 :::
 
 ## 2. Download the Java 21 Installer {#2-download-the-java-installer}
@@ -51,6 +56,14 @@ Follow the steps in the installer to install Java 21. When you reach this page, 
 
 Once you've done that, you can click `Next` and continue with the installation.
 
+::: warning
+
+Windows won't always tell other programs that Java is installed until you restart your computer.
+
+**Make sure to restart your computer before continuing!**
+
+:::
+
 ## 4. Verify That Java 21 Is Installed {#4-verify-that-java-is-installed}
 
 Once the installation is complete, you can verify that Java 21 is installed by opening the command prompt again and typing `java -version`.
@@ -59,4 +72,4 @@ If the command runs successfully, you will see something like shown before, wher
 
 ![Command prompt with "java -version" typed in](/assets/players/installing-java/windows-java-version.png)
 
-If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter any issues, feel free to ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

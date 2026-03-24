@@ -20,10 +20,10 @@ authors:
 
 @[code lang=java transclude={18-27}](@/reference/1.21.10/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-Мы передаем экземпляр `StatusEffectInstance`, который принимает 3 параметра:
+Мы передаем экземпляр `MobEffectInstance`, который принимает 3 параметра:
 
-- `RegistryEntry<StatusEffect> type` - Эффект. Здесь мы используем наш собственный эффект. В качестве альтернативы вы можете получить доступ к эффектам классического Minecraft
-  через класс `StatusEffects`.
+- `Holder<MobEffect> type` - Эффект. Здесь мы используем наш собственный эффект. В качестве альтернативы вы можете получить доступ к эффектам классического Minecraft
+  через класс `MobEffects`.
 - `int duration` - Длительность эффекта в игровых тиках.
 - `int amplifier` - Усилитель эффекта. Например, Haste II будет иметь усилитель 1.
 
@@ -33,15 +33,15 @@ authors:
 
 ### Регистрация зелья {#registering-the-potion}
 
-В нашем инициализаторе мы будем использовать событие `FabricBrewingRecipeRegistryBuilder.BUILD` для регистрации нашего зелья с помощью метода `BrewingRecipeRegistry.registerPotionRecipe`.
+В нашем инициализаторе мы будем использовать событие `FabricPotionBrewingBuilder.BUILD` для регистрации нашего зелья с помощью метода `PotionBrewing.addMix`.
 
 @[code lang=java transclude={29-40}](@/reference/1.21.10/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`registerPotionRecipe` принимает 3 параметра:
+`addMix` принимает 3 параметра:
 
-- `RegistryEntry<Potion> input` - Запись реестра для стартового зелья. Обычно это может быть бутылка с водой или мутное зелье.
+- `Holder<Potion> input` - Запись реестра для стартового зелья. Обычно это может быть бутылка с водой или мутное зелье.
 - `Предмет предмета` - Предмет, являющийся основным ингредиентом зелья.
-- `RegistryEntry<Potion> output` - Результирующая запись реестра зелья.
+- `Holder<Potion> output` - Результирующая запись реестра зелья.
 
 После регистрации вы сможете сварить зелье «Tater» из картофеля.
 

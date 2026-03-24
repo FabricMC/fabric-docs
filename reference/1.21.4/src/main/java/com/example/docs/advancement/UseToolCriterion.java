@@ -1,18 +1,16 @@
 package com.example.docs.advancement;
 
 import java.util.Optional;
-
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
+import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
+import net.minecraft.server.level.ServerPlayer;
 import com.mojang.serialization.Codec;
 
-import net.minecraft.advancement.criterion.AbstractCriterion;
-import net.minecraft.predicate.entity.LootContextPredicate;
-import net.minecraft.server.network.ServerPlayerEntity;
-
 // :::datagen-advancements:criterion-base
-public class UseToolCriterion extends AbstractCriterion<UseToolCriterion.Conditions> {
+public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Conditions> {
 	// :::datagen-advancements:criterion-base
 	// :::datagen-advancements:criterion-trigger
-	public void trigger(ServerPlayerEntity player) {
+	public void trigger(ServerPlayer player) {
 		trigger(player, Conditions::requirementsMet);
 	}
 
@@ -20,16 +18,16 @@ public class UseToolCriterion extends AbstractCriterion<UseToolCriterion.Conditi
 	// :::datagen-advancements:criterion-base
 
 	@Override
-	public Codec<Conditions> getConditionsCodec() {
+	public Codec<Conditions> codec() {
 		return Conditions.CODEC;
 	}
 
-	public record Conditions(Optional<LootContextPredicate> playerPredicate) implements AbstractCriterion.Conditions {
-		public static Codec<UseToolCriterion.Conditions> CODEC = LootContextPredicate.CODEC.optionalFieldOf("player")
+	public record Conditions(Optional<ContextAwarePredicate> playerPredicate) implements SimpleCriterionTrigger.SimpleInstance {
+		public static Codec<UseToolCriterion.Conditions> CODEC = ContextAwarePredicate.CODEC.optionalFieldOf("player")
 				.xmap(Conditions::new, Conditions::player).codec();
 
 		@Override
-		public Optional<LootContextPredicate> player() {
+		public Optional<ContextAwarePredicate> player() {
 			return playerPredicate;
 		}
 

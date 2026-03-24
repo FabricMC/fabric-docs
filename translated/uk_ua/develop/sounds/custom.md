@@ -5,11 +5,11 @@ authors:
   - JR1811
 ---
 
-## Створення власних звуків {#creating-custom-sounds}
+## Підготовка аудіофайлу {#preparing-the-audio-file}
 
 Ваші аудіофайли потрібно відформатувати певним чином. OGG Vorbis — це відкритий контейнерний формат для мультимедійних даних, наприклад аудіо, який використовується у випадку звукових файлів Minecraft. Щоб уникнути проблем із тим, як Minecraft обробляє дистанцію, ваше аудіо повинно мати лише один канал (моно).
 
-Багато сучасних програм DAW (Digital Audio Workstation) можуть імпортувати та експортувати за допомогою цього формату файлів. У наступному прикладі безплатне програмне забезпечення з відкритим вихідним кодом "[Audacity](https://www.audacityteam.org/)" буде використано для переведення аудіофайлу в правильний формат, однак будь-якої іншої DAW також має бути достатньо.
+Багато сучасних програм DAW (Digital Audio Workstation) можуть імпортувати та експортувати за допомогою цього формату файлів. У наступному прикладі безплатне програмне забезпечення з відкритим вихідним кодом [Audacity](https://www.audacityteam.org/) буде використано для переведення аудіофайлу в правильний формат, однак будь-якої іншої DAW також має бути достатньо.
 
 ![Непідготовлений аудіофайл в Audacity](/assets/develop/sounds/custom_sounds_0.png)
 
@@ -33,15 +33,15 @@ authors:
 
 @[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
 
-Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/example-mod/lang` і показуватиметься, якщо ввімкнуто налаштування субтитрів у грі та якщо відтворюється цей спеціальний звук.
+Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/example-mod/lang` та їх буде видно, якщо ввімкнуто налаштування субтитрів у грі та відтворюється цей спеціальний звук.
 
 ## Реєстрація спеціального звуку {#registering-the-custom-sound}
 
-Щоб додати спеціальний звук до мода, зареєструйте SoundEvent у [ініціалізаторі мода](./getting-started/project-structure#entrypoints).
+Щоб додати спеціальний звук до мода, зареєструйте SoundEvent у [ініціалізаторі мода](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## Прибирання безладу {#cleaning-up-the-mess}
@@ -58,4 +58,4 @@ Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle")
 
 ## Використання спеціальної звукової події {#using-the-custom-soundevent}
 
-Використовуйте допоміжний клас для доступу до спеціального SoundEvent. Перегляньте сторінку [відтворення звукових подій](./using-sounds), щоб дізнатися, як відтворювати звуки.
+Використовуйте допоміжний клас для доступу до спеціального SoundEvent. Перегляньте сторінку [відтворення звуку](./using-sounds), щоб дізнатися, як відтворювати звуки.

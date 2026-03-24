@@ -110,6 +110,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		// Initialize or resize the vertex buffer as needed
 		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
+			if (vertexBuffer != null) {
+				vertexBuffer.close();
+			}
+
 			vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
 		}
 

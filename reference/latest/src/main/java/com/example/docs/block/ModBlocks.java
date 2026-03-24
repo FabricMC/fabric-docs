@@ -9,6 +9,7 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
@@ -25,10 +26,11 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
+import com.example.docs.block.custom.DirtChestBlock;
+import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
-import com.example.docs.item.ModItems;
 
 // :::1
 public class ModBlocks {
@@ -41,8 +43,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.GRASS),
 			true
 	);
-
 	// :::2
+
 	// :::3
 	public static final Block CONDENSED_OAK_LOG = register(
 			"condensed_oak_log",
@@ -50,8 +52,8 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.WOOD),
 			true
 	);
-
 	// :::3
+
 	// :::4
 	public static final Block PRISMARINE_LAMP = register(
 			"prismarine_lamp",
@@ -62,6 +64,7 @@ public class ModBlocks {
 			true
 	);
 	// :::4
+
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
@@ -122,6 +125,14 @@ public class ModBlocks {
 			.getFamily();
 	// :::family-declaration
 
+	public static final Block DUPLICATOR_BLOCK = register(
+			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block DIRT_CHEST_BLOCK = register(
+					"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
@@ -150,7 +161,6 @@ public class ModBlocks {
 	private static ResourceKey<Item> keyOfItem(String name) {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
-
 	// :::1
 
 	public static void initialize() {
@@ -159,24 +169,10 @@ public class ModBlocks {
 
 	public static void setupItemGroups() {
 		// :::6
-		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register((itemGroup) -> {
 			itemGroup.accept(ModBlocks.CONDENSED_DIRT.asItem());
 		});
 		// :::6
-
-		ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-			itemGroup.accept(ModBlocks.CONDENSED_OAK_LOG.asItem());
-			itemGroup.accept(ModBlocks.PRISMARINE_LAMP.asItem());
-			itemGroup.accept(ModBlocks.COUNTER_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.ENGINE_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.RUBY_BLOCK.asItem());
-			itemGroup.accept(ModBlocks.RUBY_STAIRS.asItem());
-			itemGroup.accept(ModBlocks.RUBY_SLAB.asItem());
-			itemGroup.accept(ModBlocks.RUBY_FENCE.asItem());
-			itemGroup.accept(ModBlocks.RUBY_DOOR.asItem());
-			itemGroup.accept(ModBlocks.RUBY_TRAPDOOR.asItem());
-			itemGroup.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB.asItem());
-		});
 	}
 
 	// :::1

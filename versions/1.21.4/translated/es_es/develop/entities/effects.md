@@ -20,15 +20,15 @@ El comando `/effect` puede ser usado para aplicar efectos en una entidad.
 
 En este tutorial añadiremos un nuevo efecto de estado personalizado llamado _Tater_, el cual te da un punto de experiencia por cada tick del juego.
 
-### Extiende `StatusEffect`
+### Extiende `MobEffect`
 
-Vamos a crear una para nuestro efecto de estado personalizado extendiendo la clase `StatusEffect`, el cual es la clase base para todos los efectos.
+Vamos a crear una para nuestro efecto de estado personalizado extendiendo la clase `MobEffect`, el cual es la clase base para todos los efectos.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrar tu Efecto Personalizado
 
-Similar a la registración de bloques e items, usamos `Registry.register` para registrar nuestro efecto personalizado en el registro de `STATUS_EFFECT`. Esto se puede hacer en nuestro inicializador.
+Similar a la registración de bloques e items, usamos `Registry.register` para registrar nuestro efecto personalizado en el registro de `MOB_EFFECT`. Esto se puede hacer en nuestro inicializador.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 

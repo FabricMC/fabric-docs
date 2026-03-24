@@ -1,6 +1,6 @@
 ---
 title: 食物物品
-description: 学会如何给物品添加 FoodComponent 以让它可食物，并配置。
+description: 学会如何给物品添加 FoodProperties 以让它可食物，并配置。
 authors:
   - IMB11
 
@@ -20,12 +20,12 @@ search: false
 要为物品添加食物组件，可以先传递到 `FabricItemSettings` 实例：
 
 ```java
-new FabricItemSettings().food(new FoodComponent.Builder().build())
+new FabricItemSettings().food(new FoodProperties.Builder().build())
 ```
 
 现在，只要让物品可食用，没有别的。
 
-`FoodComponent` 类有很多方法，允许你修改玩家吃你的物品时发生的事情：
+`FoodProperties` 类有很多方法，允许你修改玩家吃你的物品时发生的事情：
 
 | 方法                   | 描述                                                       |
 | -------------------- | -------------------------------------------------------- |
@@ -33,10 +33,10 @@ new FabricItemSettings().food(new FoodComponent.Builder().build())
 | `saturationModifier` | 设置你的物品会增加的饱和度的数量。                                        |
 | `meat`               | 将你的物品描述为肉。 食肉动物，例如狼，将能够吃。                                |
 | `alwaysEdible`       | 允许无论饥饿值均能吃你的物品。                                          |
-| `snack`              | 将你的物品描述为零食。                                              |
-| `statusEffect`       | 吃你的物品时添加状态效果。 通常传递到此方法的是一个状态效果实例和概率，其中概率是小数（`1f = 100%`） |
+| `fast`              | 将你的物品描述为零食。                                              |
+| `effect`       | 吃你的物品时添加状态效果。 通常传递到此方法的是一个状态效果实例和概率，其中概率是小数（`1f = 100%`） |
 
-按照自己的喜欢修改了 builder 后，可以调用 `build()` 方法以获得 `FoodComponent`
+按照自己的喜欢修改了 builder 后，可以调用 `build()` 方法以获得 `FoodProperties`
 
 使用[创建你的第一个物品](./first-item)页面中创建的例子，并为 builder 使用以下选项：
 

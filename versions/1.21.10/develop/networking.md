@@ -93,7 +93,7 @@ A similar method exists to register client-to-server payloads: `PayloadTypeRegis
 
 ### Sending a Packet to the Client {#sending-a-packet-to-the-client}
 
-To send a packet with our custom payload, we can use `ServerPlayNetworking.send` which takes in a `ServerPlayerEntity`
+To send a packet with our custom payload, we can use `ServerPlayNetworking.send` which takes in a `ServerPlayer`
 and a `CustomPayload`.
 
 Let's start by creating our Lightning Tater item. You can override `use` to trigger an action when the item is used.

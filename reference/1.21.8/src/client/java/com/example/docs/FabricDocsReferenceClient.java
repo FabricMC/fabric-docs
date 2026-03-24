@@ -1,9 +1,14 @@
 package com.example.docs;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.particle.EndRodParticle;
+import net.minecraft.network.chat.Component;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+
+import com.example.docs.component.ModComponents;
 
 public class FabricDocsReferenceClient implements ClientModInitializer {
 	@Override
@@ -12,7 +17,14 @@ public class FabricDocsReferenceClient implements ClientModInitializer {
 
 		// #particle_register_client
 		// For this example, we will use the end rod particle behaviour.
-		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.SPARKLE_PARTICLE, EndRodParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(FabricDocsReference.SPARKLE_PARTICLE, EndRodParticle.Provider::new);
 		// #particle_register_client
+
+		// #tooltip_provider_client
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
+			tooltip.add(Component.translatable("item.fabric-docs-reference.counter.info", count).withStyle(ChatFormatting.GOLD));
+		});
+		// #tooltip_provider_client
 	}
 }

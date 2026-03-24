@@ -28,10 +28,10 @@ authors-nogithub:
 
 一项进度是由几个不同的部分组成的。 除了称为“准则”的要求外，它可能还具有：
 
-- `AdvancementDisplay` 告诉游戏如何向玩家展示进度，
+- `DisplayInfo` 告诉游戏如何向玩家展示进度，
 - `AdvancementRequirements` 是一系列准则的列表，要求每个子列表中至少完成一项准则，
 - `AdvancementRewards` 是玩家完成进度后获得的奖励。
-- `CriterionMerger` 告诉进度如何处理多个准则，以及
+- `Strategy` 告诉进度如何处理多个准则，以及
 - 父级 `Advancement`，用于组织您在“进度”屏幕上看到的层次结构。
 
 ## 简单进度 {#simple-advancements}
@@ -41,7 +41,7 @@ authors-nogithub:
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-当构建你的进度条目时，请记住函数接受 `String` 格式的进度的 `Identifier`！
+当构建你的进度条目时，请记住函数接受 `String` 格式的进度的 `ResourceLocation`！
 :::
 
 :::details JSON 输出
@@ -82,7 +82,7 @@ authors-nogithub:
 
 哇，好多呀！ 让我们分解一下。
 
-- `UseToolCriterion` 是一个 `AbstractCriterion`，`Conditions` 可以应用于它。
+- `UseToolCriterion` 是一个 `SimpleCriterionTrigger`，`Conditions` 可以应用于它。
 - `Conditions` 有一个 `playerPredicate` 字段。 所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 LootContextPredicate\`）。
 - `Conditions` 也有一个 `CODEC`。 这个 `Codec` 只是其一个字段 `playerPredicate` 的 codec，带有在它们之间进行转换的额外指令（`xmap`）。
 

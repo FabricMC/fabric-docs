@@ -11,6 +11,6 @@ import net.minecraft.client.Minecraft;
 public class ExampleClientMixin {
 	@Inject(at = @At("HEAD"), method = "run")
 	private void run(CallbackInfo info) {
-		// This code is injected into the start of MinecraftClient.run()V
+		// This code is injected into the start of Minecraft.run()V
 	}
 }

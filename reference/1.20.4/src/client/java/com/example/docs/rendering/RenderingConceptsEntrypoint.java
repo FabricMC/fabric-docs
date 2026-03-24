@@ -1,17 +1,20 @@
 package com.example.docs.rendering;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.Tesselator;
+
+import com.mojang.blaze3d.vertex.VertexFormat;
+
+import com.mojang.math.Axis;
+
+import net.minecraft.client.renderer.GameRenderer;
+
+import net.minecraft.util.Mth;
+
 import org.joml.Matrix4f;
-
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.render.Tessellator;
-import net.minecraft.client.render.VertexFormat;
-import net.minecraft.client.render.VertexFormats;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
-
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
@@ -29,24 +32,24 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			}
 
 			// :::2
-			MatrixStack matrices = drawContext.getMatrices();
+			PoseStack matrices = drawContext.pose();
 
 			// Store the total tick delta in a field, so we can use it later.
 			totalTickDelta += tickDelta;
 
 			// Push a new matrix onto the stack.
-			matrices.push();
+			matrices.pushPose();
 			// :::2
 			// :::1
 			// Get the transformation matrix from the matrix stack, alongside the tessellator instance and a new buffer builder.
-			Matrix4f transformationMatrix = drawContext.getMatrices().peek().getPositionMatrix();
-			Tessellator tessellator = Tessellator.getInstance();
-			BufferBuilder buffer = tessellator.getBuffer();
+			Matrix4f transformationMatrix = drawContext.pose().last().pose();
+			Tesselator tessellator = Tesselator.getInstance();
+			BufferBuilder buffer = tessellator.getBuilder();
 
 			// :::1
 			// :::2
 			// Scale the matrix by 0.5 to make the triangle smaller and larger over time.
-			float scaleAmount = MathHelper.sin(totalTickDelta / 10F) / 2F + 1.5F;
+			float scaleAmount = Mth.sin(totalTickDelta / 10F) / 2F + 1.5F;
 
 			// Apply the scaling amount to the matrix.
 			// We don't need to scale the Z axis since it's on the HUD and 2D.
@@ -57,34 +60,34 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			// :::3
 			// Lerp between 0 and 360 degrees over time.
 			float rotationAmount = (float) (totalTickDelta / 50F % 360);
-			matrices.multiply(RotationAxis.POSITIVE_Z.rotation(rotationAmount));
+			matrices.mulPose(Axis.ZP.rotation(rotationAmount));
 			// Shift entire diamond so that it rotates in its center.
 			matrices.translate(-20f, -40f, 0f);
 			// :::3
 
 			// :::1
 			// Initialize the buffer using the specified format and draw mode.
-			buffer.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_COLOR);
+			buffer.begin(VertexFormat.Mode.TRIANGLE_STRIP, DefaultVertexFormat.POSITION_COLOR);
 
 			// Write our vertices, Z doesn't really matter since it's on the HUD.
-			buffer.vertex(transformationMatrix, 20, 20, 5).color(0xFF414141).next();
-			buffer.vertex(transformationMatrix, 5, 40, 5).color(0xFF000000).next();
-			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000).next();
-			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141).next();
+			buffer.vertex(transformationMatrix, 20, 20, 5).color(0xFF414141).endVertex();
+			buffer.vertex(transformationMatrix, 5, 40, 5).color(0xFF000000).endVertex();
+			buffer.vertex(transformationMatrix, 35, 40, 5).color(0xFF000000).endVertex();
+			buffer.vertex(transformationMatrix, 20, 60, 5).color(0xFF414141).endVertex();
 
 			// We'll get to this bit in the next section.
-			RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+			RenderSystem.setShader(GameRenderer::getPositionColorShader);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
 			// Draw the buffer onto the screen.
-			tessellator.draw();
+			tessellator.end();
 			// :::1
 			// :::2
 
 			// ... write to the buffer.
 
 			// Pop our matrix from the stack.
-			matrices.pop();
+			matrices.popPose();
 			// :::2
 			// :::1
 		});

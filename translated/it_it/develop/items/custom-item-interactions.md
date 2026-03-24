@@ -9,48 +9,36 @@ Gli oggetti basilari non possono arrivare lontano - prima o poi ti servirà un o
 
 Ci sono alcune classi chiave che devi comprendere prima di dare un'occhiata agli eventi degli oggetti vanilla.
 
-## TypedActionResult {#typedactionresult}
+## InteractionResult {#interactionresult}
 
-Per gli oggetti, il `TypedActionResult` che incontrerai più comunemente è per gli `ItemStacks` - questa classe informa il gioco riguardo a cosa sostituire (o non) nello stack di oggetti dopo che l'evento è avvenuto.
+Un `InteractionResult` informa il gioco sullo stato dell'evento, sia che sia saltato/ignorato, fallito o riuscito.
 
-Se non è successo nulla nell'evento, dovresti usare il metodo `TypedActionResult#pass(stack)`, dove `stack` è lo stack di oggetti corrente.
-
-Puoi ottenere lo stack di oggetti corrente ottenendo il contenuto della mano del giocatore. Di solito gli eventi che richiedono un `TypedActionResult` passano la mano al metodo dell'evento.
-
-```java
-TypedActionResult.pass(user.getStackInHand(hand))
-```
-
-Se passi lo stack corrente - nulla cambierà, anche dichiarando l'evento come fallito, saltato/ignorato o riuscito.
-
-Se volessi eliminare lo stack corrente, dovresti passarne uno vuoto. Lo stesso si può dire per la riduzione, puoi analizzare lo stack corrente e diminuirlo della quantità che vuoi:
+Un'interazione riuscita può anche essere usata per trasformare lo stack in mano.
 
 ```java
 ItemStack heldStack = user.getStackInHand(hand);
 heldStack.decrement(1);
-TypedActionResult.success(heldStack);
+InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 ```
-
-## ActionResult {#actionresult}
-
-Similmente, un `ActionResult` informa il gioco sullo stato dell'evento, sia che sia saltato/ignorato, fallito o riuscito.
 
 ## Event con Override {#overridable-events}
 
 Fortunatamente, la classe Item ha molti metodi di cui si può fare override per aggiungere funzionalità ai tuoi oggetti.
 
-:::info
-Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suoni](../sounds/using-sounds), che usa l'evento `useOnBlock` per riprodurre un suono quando il giocatore clicca un blocco con il tasto destro.
+::: info
+
+Un ottimo esempio di questi eventi in uso si trova nella pagina [Riprodurre Suoni](../sounds/using-sounds), che usa l'evento `useOn` per riprodurre un suono quando il giocatore clicca un blocco con il tasto destro.
+
 :::
 
-| Metodo          | Informazioni                                                                                            |
-| --------------- | ------------------------------------------------------------------------------------------------------- |
-| `postHit`       | Eseguito dopo che il giocatore colpisce un'entità.                                      |
-| `postMine`      | Eseguito dopo che il giocatore rompe un blocco.                                         |
-| `inventoryTick` | Eseguito ad ogni tick mentre l'oggetto è nell'inventario.                               |
-| `onCraft`       | Eseguito quando l'oggetto viene craftato.                                               |
-| `useOnBlock`    | Eseguito quando il giocatore clicca un blocco con il tasto destro, mentre ha l'oggetto. |
-| `use`           | Eseguito quando il giocatore clicca con il tasto destro mentre ha l'oggetto.            |
+| Metodo                 | Informazioni                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| `hurtEnemy`            | Eseguito dopo che il giocatore colpisce un'entità.                                      |
+| `mineBlock`            | Eseguito dopo che il giocatore rompe un blocco.                                         |
+| `inventoryTick`        | Eseguito ad ogni tick mentre l'oggetto è nell'inventario.                               |
+| `onCraftedPostProcess` | Eseguito quando l'oggetto viene craftato.                                               |
+| `useOn`                | Eseguito quando il giocatore clicca un blocco con il tasto destro, mentre ha l'oggetto. |
+| `use`                  | Eseguito quando il giocatore clicca con il tasto destro mentre ha l'oggetto.            |
 
 ## L'Evento `use()` {#use-event}
 

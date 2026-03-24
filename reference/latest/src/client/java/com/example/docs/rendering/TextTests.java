@@ -12,7 +12,7 @@ public class TextTests {
 	public void test() {
 		// :::1
 		Gson gson = new Gson();
-		MutableComponent mutable = Component.translatable("my_mod.text.bye");
+		MutableComponent mutable = Component.translatable("example-mod.text.bye");
 		String json = gson.toJson(ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, mutable).getOrThrow());
 		// :::1
 

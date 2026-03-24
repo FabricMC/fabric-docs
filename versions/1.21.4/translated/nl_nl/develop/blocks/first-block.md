@@ -41,14 +41,14 @@ public class ModBlocks {
 
 ## Het Maken En Registreren Van Je Blok {#creating-and-registering-your-block}
 
-Net als voorwerpen hebben blokken een klasse `Blocks.Settings` in hun constructor, die eigenschappen over het blok specificeert, zoals de geluidseffecten en het mining-niveau.
+Net als voorwerpen hebben blokken een klasse `BlockBehaviour.Properties` in hun constructor, die eigenschappen over het blok specificeert, zoals de geluidseffecten en het mining-niveau.
 
 We zullen hier niet alle opties behandelen; je kunt de klasse zelf bekijken om de verschillende opties te zien, die voor zich spreken.
 
 Ter voorbeeld zullen we een simpel blok maken dat de eigenschappen heeft van aarde, maar het is een ander materiaal.
 
 :::tip
-Je kunt ook `AbstractBlock.Settings.copy(AbstractBlock block)` gebruiken om de instellingen van een bestaand blok te kopiëren. In dit geval hadden we `Blocks.DIRT` kunnen gebruiken om de instellingen van aarde te kopiëren, maar voor het voorbeeld gebruiken we de bouwer.
+Je kunt ook `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` gebruiken om de instellingen van een bestaand blok te kopiëren. In dit geval hadden we `Blocks.DIRT` kunnen gebruiken om de instellingen van aarde te kopiëren, maar voor het voorbeeld gebruiken we de bouwer.
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.4/src/main/java/com/example/docs/block/ModBlocks.java)

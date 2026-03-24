@@ -11,7 +11,7 @@ Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concep
 
 Das Event `HudRenderCallback`, das von der Fabric API bereitgestellt wird, wird bei jedem Frame aufgerufen und wird zum Rendern von Dingen auf dem HUD verwendet.
 
-Um dieses Event zu registrieren, kannst du einfach `HudRenderCallback.EVENT.register` aufgrufen und ein Lambda übergeben, welches einen `DrawContext` und einen `float` (deltaTick) als Parameter benötigt.
+Um dieses Event zu registrieren, kannst du einfach `HudRenderCallback.EVENT.register` aufgrufen und ein Lambda übergeben, welches einen `GuiGraphics` und einen `float` (deltaTick) als Parameter benötigt.
 
 Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Utilities zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen.
 

@@ -82,8 +82,8 @@
           "link": "/pt_br/develop/items/custom-armor"
         },
         {
-          "text": "Custom Item Groups: Grupos de Itens Personalizados",
-          "link": "/pt_br/develop/items/custom-item-groups"
+          "text": "Custom Creative Tabs: Grupos de Itens Personalizados",
+          "link": "/pt_br/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions: Customizando as Interações de Itens",
@@ -191,7 +191,7 @@
         },
         {
           "text": "Utilizando o \"Drawing Context\"",
-          "link": "/pt_br/develop/rendering/draw-context"
+          "link": "/pt_br/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderizando a Interface",

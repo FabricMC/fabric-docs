@@ -2,9 +2,11 @@
 title: Fabric 문서
 description: Minecraft용 모딩 툴체인 Fabric의 엄선된 공식 문서입니다.
 layout: home
+
 hero:
   name: Fabric 문서
-  tagline: Minecraft용 모딩 툴체인 Fabric의 엄선된 공식 문서입니다.
+  tagline: Minecraft용 모딩 툴체인 Fabric<br />의 엄선된 공식 문서입니다.
+
 features:
   - title: 플레이어 가이드
     icon: 📚

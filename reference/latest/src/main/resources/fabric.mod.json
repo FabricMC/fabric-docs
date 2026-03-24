@@ -18,6 +18,7 @@
       "com.example.docs.enchantment.ExampleModEnchantments",
       "com.example.docs.block.ExampleModBlocks",
       "com.example.docs.block.entity.ExampleModBlockEntities",
+      "com.example.docs.menu.ExampleModMenuType",
       "com.example.docs.component.ExampleModComponents",
       "com.example.docs.advancement.ExampleModDatagenAdvancement",
       "com.example.docs.networking.ExampleModNetworking",
@@ -25,22 +26,27 @@
       "com.example.docs.debug.ExampleModDebug",
       "com.example.docs.saveddata.ExampleModSavedData",
       "com.example.docs.appearance.ExampleModAppearance",
-      "com.example.docs.entity.attribute.ExampleModAttributes"
+      "com.example.docs.entity.attribute.ExampleModAttributes",
+      "com.example.docs.recipe.ExampleModRecipes",
+      "com.example.docs.entity.ExampleModEntity",
+      "com.example.docs.gamerule.ExampleModGameRules"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
       "com.example.docs.ExampleModBlockEntityRenderer",
       "com.example.docs.ExampleModDynamicSound",
       "com.example.docs.ExampleModClient",
+      "com.example.docs.ExampleModScreens",
       "com.example.docs.rendering.CustomRenderPipeline",
       "com.example.docs.rendering.HudRenderingEntrypoint",
       "com.example.docs.rendering.RenderingConceptsEntrypoint",
       "com.example.docs.network.basic.ExampleModNetworkingBasicClient",
-      "com.example.docs.appearance.ExampleModAppearanceClient"
+      "com.example.docs.appearance.ExampleModAppearanceClient",
+      "com.example.docs.keymapping.ExampleModKeyMappingsClient",
+      "com.example.docs.ExampleModRecipesClient",
+      "com.example.docs.entity.ExampleModCustomEntityClient"
     ],
-    "fabric-datagen": [
-      "com.example.docs.datagen.ExampleModDataGenerator"
-    ]
+    "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },
   "mixins": [
     "example-mod.mixins.json",
@@ -49,5 +55,11 @@
       "environment": "client"
     }
   ],
-  "depends": {}
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "accessWidener": "example-mod.classtweaker"
 }

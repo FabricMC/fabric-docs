@@ -8,37 +8,37 @@ authors:
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
 
-Щоразу, коли Minecraft промальовує текст у грі, він, ймовірно, визначається за допомогою об’єкта `Text`.
+Щоразу, коли Minecraft промальовує текст у грі, він, ймовірно, визначається за допомогою об’єкта `Component`.
 Цей настроюваний тип використовується замість `String`, щоб уможливити розширене форматування, включаючи кольори, жирність, обфускацію та події натискання. Вони також забезпечують легкий доступ
 до системи перекладу, що полегшує переклад будь-якого елемента інтерфейсу
 різними мовами.
 
-Якщо ви раніше працювали з пакетами даних або функціями, ви можете побачити паралелі з текстовим форматом json, який використовується серед іншого для показуваних імен, книг і табличок. Як ви, мабуть, здогадалися, це лише json-представлення об’єкта `Text`, і його можна перетворити в і з нього за допомогою `Text.Serializer`.
+Якщо ви раніше працювали з пакетами даних або функціями, ви можете побачити паралелі з текстовим форматом json, який використовується серед іншого для показуваних імен, книг і табличок. Як ви, мабуть, здогадалися, це лише json-представлення об’єкта `Component`, і його можна перетворити в і з нього за допомогою `Component.Serializer`.
 
 Коли створюєте мод, зазвичай краще створювати об’єкти `Текст` безпосередньо у коді, використовуючи переклади, коли це можливо.
 
 ## Текстові літерали {#text-literals}
 
-Найпростіший спосіб створити об’єкт `Text` — створити літерал. Це просто рядок, який промальовуватиметься як є, за замовчуванням без жодного форматування.
+Найпростіший спосіб створити об’єкт `Component` — створити літерал. Це просто рядок, який промальовуватиметься як є, за замовчуванням без жодного форматування.
 
-Вони створюються за допомогою методів `Text.of` або `Text.literal`, які обидва діють трохи по різному. `Text.of` приймає нульові значення як вхідні дані та повертає екземпляр `Text`. На відміну від цього, `Text.literal` не повинен мати нульовий вхід, але повертає `MutableText`, це підклас `Text`, який можна легко стилізувати та об’єднувати. Про це пізніше.
+Вони створюються за допомогою методів `Component.nullToEmpty` або `Component.literal`, які обидва діють трохи по різному. `Component.nullToEmpty` приймає нульові значення як вхідні дані та повертає екземпляр `Component`. На відміну від цього, `Component.literal` не повинен мати нульовий вхід, але повертає `MutableComponent`, це підклас `Component`, який можна легко стилізувати та об’єднувати. Про це пізніше.
 
 ```java
-Text literal = Text.of("Hello, world!");
-MutableText mutable = Text.literal("Hello, world!");
-// Keep in mind that a MutableText can be used as a Text, making this valid:
+Text literal = Component.nullToEmpty("Hello, world!");
+MutableComponent mutable = Component.literal("Hello, world!");
+// Keep in mind that a MutableComponent can be used as a Text, making this valid:
 Text mutableAsText = mutable;
 ```
 
 ## Текст, який можна перекласти {#translatable-text}
 
-Якщо ви хочете надати кілька перекладів для одного рядка тексту, ви можете використовувати метод `Text.translatable` для посилання на ключ перекладу в будь-якому мовному файлі. Якщо ключ не існує, ключ перекладу перетворюється на літерал.
+Якщо ви хочете надати кілька перекладів для одного рядка тексту, ви можете використовувати метод `Component.translatable` для посилання на ключ перекладу в будь-якому мовному файлі. Якщо ключ не існує, ключ перекладу перетворюється на літерал.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello");
+Text translatable = Component.translatable("my_mod.text.hello");
 
 // Similarly to literals, translatable text can be easily made mutable.
-MutableText mutable = Text.translatable("my_mod.text.bye");
+MutableComponent mutable = Component.translatable("my_mod.text.bye");
 ```
 
 Мовний файл `en_us.json`, виглядає так:
@@ -53,7 +53,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 Якщо ви хочете мати можливість використовувати змінні в перекладі, подібно до того, як повідомлення про смерть дозволяють використовувати залучених гравців і предмети в перекладі, ви можете додати зазначені змінні як параметри. Ви можете додати скільки завгодно параметрів.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+Text translatable = Component.translatable("my_mod.text.hello", player.getDisplayName());
 ```
 
 Ви можете посилатися на ці змінні в перекладі так:
@@ -69,7 +69,7 @@ Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName
 Щодо того, що взагалі означає %1\$s, все, що вам справді потрібно знати, це те, що число відповідає змінній, яку ви намагаєтеся використати. Припустімо, у вас є три змінні, які ви використовуєте.
 
 ```java
-Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+Text translatable = Component.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
 Якщо ви хочете вказати, хто в нашому випадку є зловмисником, ви б використовували %2\$s, оскільки це друга змінна, яку ми передали. Так само %3\$s посилається на itemStack. Переклад із такою кількістю додаткових параметрів може виглядати так:
@@ -92,7 +92,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 ## Десеріалізація тексту {#deserializing-text}
 
-Крім того, щоб десеріалізувати текстовий об’єкт JSON у справжній клас `Text`, знову скористайтеся кодеком.
+Крім того, щоб десеріалізувати текстовий об’єкт JSON у справжній клас `Component`, знову скористайтеся кодеком.
 
 @[code transcludeWith=:::2](@/reference/1.21.10/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -100,11 +100,11 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 Ви можете бути знайомі зі стандартами форматування Minecraft:
 
-Ви можете застосувати ці стилі форматування за допомогою переліку `Formatting` класу `MutableText`:
+Ви можете застосувати ці стилі форматування за допомогою переліку `ChatFormatting` класу `MutableComponent`:
 
 ```java
-MutableText result = Text.literal("Hello World!")
-  .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
+MutableComponent result = Component.literal("Hello World!")
+  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
 ```
 
 |              Колір              | Назва                                               | Код чату |  MOTD-код  |  Hex-код  |

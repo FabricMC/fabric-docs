@@ -28,10 +28,10 @@ authors-nogithub:
 
 Досягнення складається з кількох різних компонентів. Разом із вимогами, які називаються «критерієм», він може мати:
 
-- `AdvancementDisplay`, який повідомляє грі, як показувати до досягнення гравцям,
+- `DisplayInfo`, який повідомляє грі, як показувати до досягнення гравцям,
 - `AdvancementRequirements`, які є списками списків критеріїв, які вимагають заповнення принаймні одного критерію з кожного підсписку,
 - `AdvancementRewards`, які гравець отримує за виконання досягнення.
-- `CriterionMerger`, який повідомляє досягненню, як обробляти кілька критеріїв, і
+- `Strategy`, який повідомляє досягненню, як обробляти кілька критеріїв, і
 - Батьківський `Advancement`, який організовує ієрархію, яку ви бачите на екрані «Досягнення».
 
 ## Прості досягнення {#simple-advancements}
@@ -41,7 +41,7 @@ authors-nogithub:
 @[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/1.21.4/src/client/java/com/example/docs/datagen/FabricDocsReferenceAdvancementProvider.java)
 
 :::warning
-Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!
+Під час створення записів про досягнення пам’ятайте, що функція приймає `ResourceLocation` досягнення у форматі `String`!
 :::
 
 :::details Вивід JSON
@@ -82,7 +82,7 @@ authors-nogithub:
 
 Вау, це багато! Розберімо це.
 
-- `UseToolCriterion` – це `AbstractCriterion`, до якого можуть застосовуватися `Умови`.
+- `UseToolCriterion` – це `SimpleCriterionTrigger`, до якого можуть застосовуватися `Умови`.
 - `Conditions` мають поле `playerPredicate`. Усі `Conditions` повинні мати предикат гравця (технічно `LootContextPredicate`).
 - `Conditions` також мають `CODEC`. Цей `Кодек` є просто кодеком для його одного поля, `playerPredicate`, з додатковими інструкціями для перетворення між ними (`xmap`).
 

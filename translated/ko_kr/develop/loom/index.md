@@ -18,7 +18,20 @@ Loom은 개발 환경에서 Minecraft와 모드를 설치하는 유틸리티를 
 
 Loom은 _모든_ 버전의 Minecraft: Java Edition을 지원하며, 버전 독립적이기 때문에 심지어 Fabric API에서 "공식" 지원하지 않는 버전에서도 사용할 수 있습니다.
 
-이 페이지는 Loom의 모든 옵션과 기능에 대한 리퍼런스입니다. 모드 개발을 시작하고자 한다면, [시작하기](getting-started/setting-up-a-development-environment) 페이지를 참조하십시오.
+:::warning 중요
+
+이 페이지는 Loom의 모든 옵션과 기능에 대한 참조 자료입니다. 어떻게 하는지 잘 모르겠다면, [Fabric 소개](../)를 읽기 바랍니다.
+
+:::
+
+## 플러그인 ID {#plugin-ids}
+
+Loom은 아래와 같이 여러 개의 플러그인 ID를 사용합니다:
+
+- `net.fabricmc.fabric-loom`: 난독화되지 않은 버전 전용 (Minecraft 26.1 이상)
+- `net.fabricmc.fabric-loom-remap`: 난독화가 적영된 버전 전용 (Minecraft 1.21.11 이하)
+- `fabric-loom` (오래됨): 오래된 버전의 호환성을 제공하기 위한 목적으로만 사용합니다. 대신, `net.fabricmc.fabric-loom-remap` 를 사용하세요
+- `net.fabricmc.fabric-loom-companion`: 고급 멀티 프로젝트 세팅 시 사용합니다. 자세한 정보는 [서브 프로젝트](./classpath-groups#multi-project)를 확인하세요
 
 ## 하위 프로젝트를 종속성으로 설정 {#subprojects}
 

@@ -33,9 +33,9 @@ Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type#JSON_format)
 
 ### Accedere ai Tipi di Danno Tramite Codice
 
-Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `RegistryKey` per costruire un'istanza di `DamageSource`.
+Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramite codice, useremo la sua `ResourceKey` per costruire un'istanza di `DamageSource`.
 
-La `RegistryKey` può essere ottenuta nel modo seguente:
+La `ResourceKey` può essere ottenuta nel modo seguente:
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
 
@@ -49,7 +49,7 @@ Cominciamo creando una `DamageSource` del nostro tipo di danno personalizzato.
 
 @[code lang=java transclude={21-24}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Poi, chiamiamo `entity.damage()` con la nostra `DamageSource` e con una quantità.
+Poi, chiamiamo `entity.hurt()` con la nostra `DamageSource` e con una quantità.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
 

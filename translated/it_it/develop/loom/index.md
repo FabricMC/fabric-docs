@@ -18,7 +18,20 @@ Loom fornisce utilità per l'installazione di Minecraft e mod in un ambiente di 
 
 Loom supporta _tutte_ le versioni di Minecraft, anche quelle non supportate ufficialmente dall'API di Fabric, poiché non dipende dalle versioni.
 
-Questa pagina è uno schema di tutte le opzioni e funzioni di Loom. Se stai solo ora iniziando, controlla la pagina [Per Iniziare](getting-started/setting-up-a-development-environment).
+:::warning IMPORTANTE
+
+Questa pagina è uno schema di tutte le opzioni e funzioni di Loom. Se stai appena iniziando, per favore leggi l'[Introduzione a Fabric](../).
+
+:::
+
+## ID dei Plugin {#plugin-ids}
+
+Loom usa vari ID di plugin diversi:
+
+- `net.fabricmc.fabric-loom`, per le versioni non offuscate (Minecraft 26.1 o superiore)
+- `net.fabricmc.fabric-loom-remap`, per le versioni offuscate (Minecraft 1.21.11 o inferiore)
+- `fabric-loom` (obsoleto), solo per retrocompatibilità con vecchi progetti su versioni offuscate. Piuttosto usa `net.fabricmc.fabric-loom-remap`
+- `net.fabricmc.fabric-loom-companion`, in configurazioni avanzate multi-progetto. Leggi di più riguardo ai [Sottoprogetti](./classpath-groups#multi-project)
 
 ## Dipendere da Sotto-progetti {#subprojects}
 
@@ -88,7 +101,13 @@ Loom è progettato per funzionare appena configurato nell'ambiente di lavoro del
 - `minecraft`: Definisce la versione di Minecraft da usare nell'ambiente di sviluppo
 - `mappings`: Definisce i mapping da usare nell'ambiente di sviluppo
 - `modImplementation`, `modApi` e `modRuntime`: Varianti aumentate di `implementation`, `api` e `runtime` per le dipendenze di mod. Verranno rimappate perché corrispondano ai mapping nell'ambiente di sviluppo, e ne verranno rimossi tutti i jar annidati
-- `include`: Dichiara una dipendenza che dovrebbe essere inclusa come jar-in-jar nell'output `remapJar`. Questa configurazione di dipendenze non è transitiva. Per dipendenze che non siano mod, Loom genererà un jar della mod con un `fabric.mod.json` che usi l'ID della mod ID come nome, e la stessa versione
+- `include`: Dichiara una dipendenza che dovrebbe essere inclusa come jar-in-jar nell'output finale della mod. Questa configurazione di dipendenze non è transitiva. Per dipendenze che non siano mod, Loom genererà un jar della mod con un `fabric.mod.json` che usi l'ID della mod ID come nome, e la stessa versione
+
+::: info
+
+Le dipendenze dichiarate con `include` sono aggiunte a `remapJar` nel Loom rimappato, o a `jar` nel Loom non rimappato. Per questo, le attività di altre plugin legate ai jar (tra cui `shadowJar`) non includeranno queste dipendenze automaticamente.
+
+:::
 
 ## Configurazioni Predefinite {#configuration}
 

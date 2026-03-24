@@ -1,12 +1,11 @@
 def minecraftVersion = "1.21.8"
-def yarnVersion = "1.21.8+build.1"
 def fabricApiVersion = "0.134.0+1.21.8"
 
 // :::automatic-testing:game-test:2
 dependencies {
 // :::automatic-testing:game-test:2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
-  mappings "net.fabricmc:yarn:${yarnVersion}:v2"
+  mappings loom.officialMojangMappings()
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 
 // :::automatic-testing:game-test:2

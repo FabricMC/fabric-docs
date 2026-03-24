@@ -1,6 +1,6 @@
 ---
 title: Alimenti
-description: Impara come aggiungere una FoodComponent ad un oggetto per renderlo edibile, e come configurarlo.
+description: Impara come aggiungere una FoodProperties ad un oggetto per renderlo edibile, e come configurarlo.
 authors:
   - IMB11
 ---
@@ -18,12 +18,12 @@ A meno che tu non voglia creare una mod con oggetti troppo potenti, dovresti ten
 Per aggiungere la componente alimentare ad un oggetto, possiamo passarla all'istanza `Item.Setttings`:
 
 ```java
-new Item.Settings().food(new FoodComponent.Builder().build())
+new Item.Properties().food(new FoodProperties.Builder().build())
 ```
 
 Per ora questo rende l'oggetto edibile, e nulla di più.
 
-La classe `FoodComponent.Builder` ha qualche metodo che ti permette di modificare cosa succede quando un giocatore mangia il tuo oggetto:
+La classe `FoodProperties.Builder` ha qualche metodo che ti permette di modificare cosa succede quando un giocatore mangia il tuo oggetto:
 
 | Metodo               | Descrizione                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
@@ -31,9 +31,9 @@ La classe `FoodComponent.Builder` ha qualche metodo che ti permette di modificar
 | `saturationModifier` | Imposta la quantita di punti di saturazione che l'oggetto aggiungerà.              |
 | `alwaysEdible`       | Permette al tuo oggetto di essere consumato indipendentemente dal livello di fame. |
 
-Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo `build()` per ottenere la `FoodComponent`.
+Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo `build()` per ottenere la `FoodProperties`.
 
-Se vuoi aggiungere effetti di stato al giocatore quando mangiano il tuo cibo, devi usare la classe `ConsumableComponent` assieme a `FoodComponent`, come noti nell'esempio seguente:
+Se vuoi aggiungere effetti di stato al giocatore quando mangiano il tuo cibo, devi usare la classe `ConsumableComponent` assieme a `FoodProperties`, come noti nell'esempio seguente:
 
 @[code transcludeWith=:::5](@/reference/1.21.8/src/main/java/com/example/docs/item/ModItems.java)
 

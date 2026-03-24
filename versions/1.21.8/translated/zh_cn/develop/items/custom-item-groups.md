@@ -21,7 +21,7 @@ authors:
 
 ## 添加翻译键{#adding-a-translation-key}
 
-如果在物品组的 builder 内，为 `displayName` 方法使用了 `Text.translatable`，就需要往语言文件添加翻译。
+如果在物品组的 builder 内，为 `displayName` 方法使用了 `Component.translatable`，就需要往语言文件添加翻译。
 
 ```json
 {

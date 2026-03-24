@@ -9,8 +9,12 @@ authors:
   - modmuss50
 ---
 
+<!---->
+
 ::: info
+
 This guide only applies for the official Minecraft Launcher. For third party launchers, you should consult their documentation.
+
 :::
 
 ## Choose Your OS {#choose-your-os}

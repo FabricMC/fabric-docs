@@ -29,7 +29,7 @@ public class CustomScreen extends Screen {
 
 	@Override
 	protected void init() {
-		Button buttonWidget = Button.builder(Component.nullToEmpty("Hello World"), (btn) -> {
+		Button buttonWidget = Button.builder(Component.literal("Hello World"), (btn) -> {
 			// When the button is clicked, we can display a toast to the screen.
 			this.minecraft.getToastManager().addToast(
 					SystemToast.multiline(this.minecraft, SystemToast.SystemToastId.NARRATOR_TOGGLE, Component.nullToEmpty("Hello World!"), Component.nullToEmpty("This is a toast."))
@@ -53,14 +53,14 @@ public class CustomScreen extends Screen {
 	}
 
 	@Override
-	public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
-		super.render(context, mouseX, mouseY, delta);
+	public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		super.render(graphics, mouseX, mouseY, delta);
 
 		// Minecraft doesn't have a "label" widget, so we'll have to draw our own text.
 		// We'll subtract the font height from the Y position to make the text appear above the button.
 		// Subtracting an extra 10 pixels will give the text some padding.
 		// textRenderer, text, x, y, color, hasShadow
-		context.drawString(this.font, "Special Button", 40, 40 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
+		graphics.drawString(this.font, "Special Button", 40, 40 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
 	}
 }
 // :::1

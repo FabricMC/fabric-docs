@@ -8,35 +8,35 @@ authors:
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->
 
-Minecraft 不论何时在游戏内显示文本，都是使用 `Text` 对象定义的。
+Minecraft 不论何时在游戏内显示文本，都是使用 `Component` 对象定义的。
 使用这种自定义的类型而非 `String`，是为了允许更多高级的格式化，包括颜色、加粗、混淆和点击事件。 这样还能够容易地访问翻译系统，使得将任何 UI 元素翻译成不同语言都变得容易。
 
-如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Text` 对象的 json 呈现，可以使用 `Text.Serializer` 互相转换。
+如果以前有做过数据包和函数，应该看到用于displayName、书、告示牌等内容的就是用的 json 文本格式。 不难猜到，这就是 `Component` 对象的 json 呈现，可以使用 `Component.Serializer` 互相转换。
 
-制作模组时，最好直接在代码中构造你的 `Text` 对象，并随时利用翻译。
+制作模组时，最好直接在代码中构造你的 `Component` 对象，并随时利用翻译。
 
 ## 字面文本{#text-literals}
 
-这是创建 `Text` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
+这是创建 `Component` 对象最简单的方式，创建字面值。 这就是会照样显示的字符串，默认没有任何格式化。
 
-这些是使用 `Text.of` 或 `Text.literal` 方法创建的，这两个行为有点不同。 `Text.of` 接受 null 输入，返回 `Text` 实例。 `Text.literal` 不同，不能有空输入，返回的是 `MutableText`，是 `Text` 的子类，可以轻易地格式化和连接。 这个后面会有更多。
+这些是使用 `Component.nullToEmpty` 或 `Component.literal` 方法创建的，这两个行为有点不同。 `Component.nullToEmpty` 接受 null 输入，返回 `Component` 实例。 `Component.literal` 不同，不能有空输入，返回的是 `MutableComponent`，是 `Component` 的子类，可以轻易地格式化和连接。 这个后面会有更多。
 
 ```java
-Text literal = Text.of("Hello, world!");
-MutableText mutable = Text.literal("Hello, world!");
-// Keep in mind that a MutableText can be used as a Text, making this valid:
+Text literal = Component.nullToEmpty("Hello, world!");
+MutableComponent mutable = Component.literal("Hello, world!");
+// Keep in mind that a MutableComponent can be used as a Text, making this valid:
 Text mutableAsText = mutable;
 ```
 
 ## 可翻译文本{#translatable-text}
 
-给相同的文本字符串提供多个翻译时，可以使用 `Text.translatable` 方法，引用语言文件中的任意翻译键。 如果翻译键不存在，则字面转换翻译键。
+给相同的文本字符串提供多个翻译时，可以使用 `Component.translatable` 方法，引用语言文件中的任意翻译键。 如果翻译键不存在，则字面转换翻译键。
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello");
+Text translatable = Component.translatable("my_mod.text.hello");
 
 // Similarly to literals, translatable text can be easily made mutable.
-MutableText mutable = Text.translatable("my_mod.text.bye");
+MutableComponent mutable = Component.translatable("my_mod.text.bye");
 ```
 
 语言文件 `en_us.json`（简体中文为 `zh_cn.json`），看上去应该像这样：
@@ -51,7 +51,7 @@ MutableText mutable = Text.translatable("my_mod.text.bye");
 如果想在翻译中使用变量（类似于在死亡消息中可以在翻译中使用涉及的玩家和物品），可以将这些变量作为参数添加进去。 想添加多少参数都可以。
 
 ```java
-Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName());
+Text translatable = Component.translatable("my_mod.text.hello", player.getDisplayName());
 ```
 
 在翻译中，可以像这样引用这些变量：
@@ -67,7 +67,7 @@ Text translatable = Text.translatable("my_mod.text.hello", player.getDisplayName
 至于 %1\$s 都是指什么，你要知道的就是数字对应的你尝试使用的哪个变量。 比如说你有使用三个变量。
 
 ```java
-Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
+Text translatable = Component.translatable("my_mod.text.whack.item", victim.getDisplayName(), attacker.getDisplayName(), itemStack.toHoverableText());
 ```
 
 如果要引用，比如在这里是引用谁是攻击者，应该使用 %2\$s，因为这是我们传入的第二个变量。 类似地，%3\$s 引用的是物品堆。 有这些额外参数的翻译可能会像这样：
@@ -90,7 +90,7 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 ## 反序列化文本{#deserializing-text}
 
-要将 JSON 文本对象反序列化为 `Text` 类，还是使用 codec。
+要将 JSON 文本对象反序列化为 `Component` 类，还是使用 codec。
 
 @[code transcludeWith=:::2](@/reference/1.21.10/src/client/java/com/example/docs/rendering/TextTests.java)
 
@@ -98,11 +98,11 @@ Text translatable = Text.translatable("my_mod.text.whack.item", victim.getDispla
 
 你应该熟悉 Minecraft 的格式化标准：
 
-可以对 `MutableText` 类使用 `Formatting` 枚举以应用这些格式样式：
+可以对 `MutableComponent` 类使用 `ChatFormatting` 枚举以应用这些格式样式：
 
 ```java
-MutableText result = Text.literal("Hello World!")
-  .formatted(Formatting.AQUA, Formatting.BOLD, Formatting.UNDERLINE);
+MutableComponent result = Component.literal("Hello World!")
+  .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE);
 ```
 
 |                颜色               | 名称                                     | 聊天代码 |   MOTD 代码  |   十六进制代码  |

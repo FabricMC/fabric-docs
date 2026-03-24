@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { useBrowserLocation } from "@vueuse/core";
 import { useData } from "vitepress";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed } from "vue";
-
-import { Fabric } from "../../types";
+import { Fabric } from "../../types.d";
 
 type Author = { name: string; noGitHub?: true };
 
@@ -28,19 +29,17 @@ const getImageSrc = (author: Author) =>
         af: "",
         maxage: "7d",
         url: `https://github.com/${author.name}.png?size=32`,
-        default: "https://docs.fabricmc.net/assets/avatater.png",
+        default: `${useBrowserLocation().value.origin}/assets/avatater.png`,
       });
 </script>
 
 <template>
   <h2 v-if="authors.length">{{ options.heading }}</h2>
   <div>
-    <component
+    <VPLink
       v-for="author in authors"
       :key="author.noGitHub ? `${author.name}!` : author.name"
-      :is="author.noGitHub ? 'span' : 'a'"
-      :href="`https://github.com/${author.name}`"
-      target="_blank"
+      :href="author.noGitHub ? undefined : `https://github.com/${author.name}`"
     >
       <img
         :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
@@ -48,19 +47,20 @@ const getImageSrc = (author: Author) =>
         :alt="author.name"
         loading="lazy"
       />
-    </component>
+    </VPLink>
   </div>
 </template>
 
 <style scoped>
 h2 {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--vp-c-divider);
+  font-size: 12px;
   font-weight: bold;
-  font-size: large;
-  margin-top: 16px;
-}
-
-.content-container > h2 {
-  display: none;
+  color: var(--vp-c-text-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 div {
@@ -83,6 +83,16 @@ div {
     border-radius: 50%;
     width: 32px;
     height: 32px;
+  }
+}
+
+.content-container {
+  h2 {
+    display: none;
+  }
+
+  div {
+    margin-bottom: 16px;
   }
 }
 

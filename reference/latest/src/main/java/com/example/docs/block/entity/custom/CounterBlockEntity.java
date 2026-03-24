@@ -25,7 +25,6 @@ public class CounterBlockEntity extends BlockEntity {
 	public CounterBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.COUNTER_BLOCK_ENTITY, pos, state);
 	}
-
 	// :::1
 
 	// :::2
@@ -45,34 +44,30 @@ public class CounterBlockEntity extends BlockEntity {
 		clicks++;
 		setChanged();
 	}
-
 	// :::2
 
 	// :::3
 	@Override
-	protected void saveAdditional(ValueOutput writeView) {
-		writeView.putInt("clicks", clicks);
+	protected void saveAdditional(ValueOutput output) {
+		output.putInt("clicks", clicks);
 
-		super.saveAdditional(writeView);
+		super.saveAdditional(output);
 	}
-
 	// :::3
 
 	// :::4
 	@Override
-	protected void loadAdditional(ValueInput readView) {
-		super.loadAdditional(readView);
+	protected void loadAdditional(ValueInput input) {
+		super.loadAdditional(input);
 
-		clicks = readView.getIntOr("clicks", 0);
+		clicks = input.getIntOr("clicks", 0);
 	}
-
 	// :::4
 
 	// :::5
-	public static void tick(Level world, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
+	public static void tick(Level level, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
-
 	// :::5
 
 	// :::7
@@ -80,7 +75,6 @@ public class CounterBlockEntity extends BlockEntity {
 	public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
 		return saveWithoutMetadata(registryLookup);
 	}
-
 	// :::7
 
 	// :::1

@@ -46,7 +46,7 @@ public class ModBlocks {
 这里为作举例，我们会创建一个拥有和泥土的相同属性但材料不同的方块。
 
 :::tip
-可以使用 `AbstractBlock.Settings.copy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
+可以使用 `BlockBehaviour.Properties.ofFullCopy(AbstractBlock block)` 从已存在的方块中复制 settings，这种情况下，可以使用 `Blocks.DIRT` 以从泥土中复制 settings，但是为作举例，我们使用 builder。
 :::
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/ModBlocks.java)

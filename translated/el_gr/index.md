@@ -1,10 +1,12 @@
 ---
 title: Τεκμηρίωση Fabric
 description: Η επίσημη τεκμηρίωση για το Fabric, μια σειρά εργαλείων τροποποίησης (modding) για το Minecraft.
-layout: αρχική
+layout: home
+
 hero:
   name: Τεκμηρίωση Fabric
-  tagline: Η επίσημη τεκμηρίωση για το Fabric, μια σειρά εργαλείων τροποποίησης (modding) για το Minecraft.
+  tagline: Η επίσημη τεκμηρίωση για το Fabric,<br />μια σειρά εργαλείων τροποποίησης (modding) για το Minecraft.
+
 features:
   - title: Οδηγοί Παικτών
     icon: 📚

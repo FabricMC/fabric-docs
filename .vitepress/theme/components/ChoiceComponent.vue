@@ -47,7 +47,11 @@ div {
   overflow: hidden;
   padding: 1rem;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 
   .iconify {
     min-width: 48px;

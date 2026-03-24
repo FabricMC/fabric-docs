@@ -10,8 +10,8 @@ public class ExampleModSavedData implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// :::event_registration
-		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
-			MinecraftServer server = world.getServer();
+		PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -> {
+			MinecraftServer server = level.getServer();
 
 			if (server == null) {
 				return;

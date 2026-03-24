@@ -6,21 +6,19 @@ authors:
   - Syst3ms
 ---
 
-Codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，它们可以用作替代方案
-到 GSON 和 Jankson 中，尽管它们开始变得
-越来越相似，这是因为 Mojang 正在重写许多旧代码以使用 Codecs。
+codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，可用作读写 JSON 时 GSON 和 Jankson 的替代方案，尽管因为 Mojang 正在重写许多旧代码以使用 codec，codec 开始变量越来越重要。
 
-Codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 Codec 定义一个对象的结构，而动态管理器用于定义一个序列化格式，例如 json 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
+codec 与 DFU 的另一个 API `DynamicOps` 一起使用。 一个 codec 定义一个对象的结构，而 dynamic ops 用于定义一个序列化格式，例如 JSON 或 NBT。 这意味着任何 codec 都可以与任何 dynamic ops 一起使用，反之亦然，这样使其极其灵活。
 
-## 使用 Codecs{#using-codecs}
+## 使用 codec{#using-codecs}
 
 ### 序列化和反序列化 {#serializing-and-deserializing}
 
-Codec 的基本用法是将对象序列化为特定格式或反序列化为特定格式。
+codec 的基本用法是将对象与特定格式之间进行序列化和反序列化。
 
-一些原版的类已经定义了 Codecs，这些我们可以用作示例。 Mojang 默认提供了两个 dynamic ops 类，`JsonOps` 和 `NbtOps`，涵盖大部分的使用场景。
+由于一些原版的类已经定义了 codec，我们可以将其作为示例进行参考。 Mojang 默认提供了两个 dynamic ops 类，即 `JsonOps` 和 `NbtOps`，它们通常能够涵盖绝大多数使用场景。
 
-现在，假设我们要把一个 `BlockPos` 对象序列化成 json 再反序列化回对象。 我们可以分别使用 `BlockPos.CODEC` 中的静态方法 `Codec#encodeStart` 和 `Codec#parse`。
+现在，假设我们要把一个 `BlockPos` 对象序列化成 JSON 再反序列化回对象。 我们可以分别使用 `BlockPos.CODEC` 中的静态方法 `Codec#encodeStart` 和 `Codec#parse`。
 
 ```java
 BlockPos pos = new BlockPos(1, 2, 3);
@@ -29,37 +27,37 @@ BlockPos pos = new BlockPos(1, 2, 3);
 DataResult<JsonElement> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
 ```
 
-使用 codec 时，返回的结果为 `DataResult` 的形式。 这是个包装，可以代表成功或者失败。 有几种方式使用：如果只想要我们序列化的值， `DataResult#result` 会简单返回一个包含我们的值的 `Optional` ，而 `DataResult#resultOrPartial` 还允许我们提供一个函数来处理可能发生的任何错误。 后者对于自定义数据包资源尤其有用，因为我们想要记录错误，而不会在其他地方引起问题。
+使用 codec 时，返回的结果为 `DataResult` 的形式。 这是个包装，可以代表成功或者失败。 有几种方式使用：如果只想要我们序列化的值， `DataResult#result` 会简单返回一个包含我们的值的 `Optional` ，而 `DataResult#resultOrPartial` 还允许我们提供一个函数来处理可能发生的任何错误。 后者对于自定义数据包资源尤其有用，因为我们希望在记录错误的同时避免对其他部分产生干扰。
 
-那么，让我们获取我们的序列化值，并将其转换回 `BlockPos` ：
+现在，让我们提取序列化数据，并将其反序列化为 `BlockPos` 对象：
 
 ```java
-// 实际编写模组时，你当然会想要适当地处理空的 Optional。
+// 实际编写 Mod 时，你当然应当妥善处理空的 Optional
 JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// 这里我们有我们的 json 值，应该对应于 `[1, 2, 3]`,
-// 因为这是 BlockPos codec 使用的格式。
+// 此处获取到的 JSON 值，它应对应 `[1, 2, 3]`，
+// 这是 BlockPos Codec 所使用的格式。
 LOGGER.info("Serialized BlockPos: {}", json);
 
-// 现在将 JsonElement 反序列化为 BlockPos
+// 现在将 JsonElement 反序列化回 BlockPos
 DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 
-// 我们将再次只是从 result 中获取我们的值
+// 同样，直接从 result 中获取值
 BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
 
-// 接下来我们可以看到我们成功序列化和反序列化我们的 BlockPos！
-LOGGER.info("Deserialized BlockPos: {}", pos);
+// 可以看到，我们已成功完成 BlockPos 的序列化与反序列化！
+LOGGER.info("Deserialized BlockPos: {}", pos)；
 ```
 
-### 内置的 Codec{#built-in-codecs}
+### 内置的 codec {#built-in-codecs}
 
-正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`Identifier`、`Text` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含 `getCodec()` 方法，例如，你可以使用 `Registries.BLOCK.getCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来。
+正如之前所说，Mojang 已经为几个原版和标准 Java 类定义了 codec，包括但不限于 `BlockPos`、`BlockState`、`ItemStack`、`Identifier`、`Component` 和正则表达式 `Pattern`。 Mojang 自己的 codec 通常可以在类内找到名为 `CODEC` 的静态字段，其他的保持在 `Codecs` 类。 还要注意，所有原版注册表都包含方法来得到 `Codec`，例如，你可以使用 `BuiltInRegistries.BLOCK.byNameCodec()` 获取一个 `Codec<Block>`，可用于序列化为方块 id 或是反过来，以及一个 `holderByNameCodec()` 获取一个 `Codec<Holder<Block>>`。
 
 Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `Codec.STRING`。 这些都在 `Codec` 类中作为静态字段存在，通常用作更多复杂 codec 的基础，会在下方做出解释。
 
-## 构建 Codec{#building-codecs}
+## 构建 codec {#building-codecs}
 
-现在我们已经知道如何使用 codec，让我们看看我们如何构建自己的 codec。 假设我们有以下类，希望从 json 文件中反序列化其实例：
+现在我们已经知道如何使用 codec，让我们看看我们如何构建自己的 codec。 假设我们有以下类，希望从 JSON 文件中反序列化其实例：
 
 ```java
 public class CoolBeansClass {
@@ -76,7 +74,7 @@ public class CoolBeansClass {
 }
 ```
 
-相应的 json 文件可能如下所示：
+相应的 JSON 文件可能如下所示：
 
 ```json
 {
@@ -89,15 +87,15 @@ public class CoolBeansClass {
 }
 ```
 
-我们可以将多个较小的 codec 组合成较大的 codec，从而为这个类制作 codec。 在这种情况下，我们的每个字段都需要：
+我们可以通过将多个较小的 codec 组合在一起，为该类构建一个大型 codec。 在这种情况下，我们的每个字段都需要：
 
 - 一个 `Codec<Integer>`
 - 一个 `Codec<Item>`
 - 一个 `Codec<List<BlockPos>>`
 
-第一个可以从前面提到的 `Codec` 类中的基本类型 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `Registries.ITEM` 注册表中获取，它有 `getCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
+第一个可以从前面提到的 `Codec` 类中的原生 codec 中得到，也就是 `Codec.INT`。 而第二个可以从 `BuiltInRegistries.ITEM` 注册表中获取，该注册表提供 `byNameCodec()` 方法，返回 `Codec<Item>`。 我们没有用于 `List<BlockPos>` 的默认 codec，但我们可以从 `BlockPos.CODEC` 制作一个。
 
-### 列表{#lists}
+### 列表 {#lists}
 
 `Codec#listOf` 可用于创建任意 codec 的列表版本。
 
@@ -107,16 +105,16 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 应该注意的是，以这种方式创建的 codec 总是会反序列化为一个 `ImmutableList`。 如果需要的是可变的列表，可以利用 [xmap](#mutually-convertible-types) 在反序列化期间转换为可变列表。
 
-### 合并用于类似 Record 类的 Codec{#merging-codecs-for-record-like-classes}
+### 合并用于类似 Record 类的 codec{#merging-codecs-for-record-like-classes}
 
-现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 为我们的类将其合并为一个 codec。 假定我们的类有一个包含想序列化的所有字段的构造方法，并且每个字段都有相应的 getter 方法。 这使得它非常适合与 record 一起使用，但也可以用于常规类。
+现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 为我们的类将其合并为一个 codec。 假定我们的类有一个包含想序列化的所有字段的构造方法，并且每个字段都有相应的 getter 方法。 这使其非常适合与 record 一起使用，但也可以用于常规类。
 
 来看看如何为我们的 `CoolBeansClass` 创建一个 codec：
 
 ```java
 public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
     Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    Registries.ITEM.getCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
     BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
     // 最多可以在这里声明 16 个字段
 ).apply(instance, CoolBeansClass::new));
@@ -131,7 +129,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 调用 `Codec#fieldOf` 会将 `Codec<T>` 转换成 `MapCodec<T>`，这是 `Codec<T>` 的一个变体，但不是直接实现。 正如其名称所示，`MapCodec` 保证序列化为
 键到值的映射，或所使用的 `DynamicOps` 类似类型。 一些函数可能需要使用 `MapCodec` 而不是常规的 codec。
 
-这种创建 `MapCodec` 的特殊方式本质上是在一个映射中封装源 codec 的值，并使用给定的字段名作为键。 例如，一个 `Codec<BlockPos>` 序列化为 json 时看起来像是这样：
+这种创建 `MapCodec` 的特殊方式本质上是在一个映射中封装源 codec 的值，并使用给定的字段名作为键。 例如，一个 `Codec<BlockPos>` 序列化为 JSON 时看起来像是这样：
 
 ```json
 [1, 2, 3]
@@ -145,7 +143,7 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 }
 ```
 
-虽然 map codec 最常见的用途是与其他 map codec 合并以构造一个完整类字段的 codec，如前文的 [合并用于类似 Record 类的 Codec](#merging-codecs-for-record-like-classes) 章节所述，但也可以通过使用 `MapCodec#codec` 再次转换成常规的 codec，这将保持封装输入值的相同行为。
+虽然 map codec 最常见的用途是与其他 map codec 合并以构造一个完整类字段的 codec，如前文的[合并用于类似 Record 类的 codec](#merging-codecs-for-record-like-classes) 章节所述，但也可以通过使用 `MapCodec#codec` 再次转换成常规的 codec，这将保持封装输入值的相同行为。
 
 #### 可选字段{#optional-fields}
 
@@ -156,22 +154,19 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
 
 // 有默认值
-MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ORIGIN);
+MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
 ```
 
-需要注意，可选字段会忽略反序列化过程中可能发生的任何错误而不报错。 这意味着如果字段存在，但值无效，该字段总是会被反序列化为默认值。
-
-**从 1.20.2 开始**，Minecraft 自己 (不是 DFU！) 却确实提供`Codecs#createStrictOptionalFieldCodec`，
-如果字段值无效，则反序列化失败。
+要注意，如果字段存在，但其值无效，若字段的值无效则字段会完全无法反序列化。
 
 ### 常量、约束和组合{#constants-constraints-composition}
 
-#### Unit{#unit}
+#### Unit {#unit}
 
-`Codec.unit` 可用于创建一个无论输入什么都总是反序列化为常量值的 codec。 序列化时什么也不做。
+`MapCodec.unitCodec` 可用于创建一个无论输入什么都总是反序列化为常量值的 codec。 序列化时什么也不做。
 
 ```java
-Codec<Integer> theMeaningOfCodec = Codec.unit(42);
+Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
 ```
 
 #### 数值范围{#numeric-ranges}
@@ -203,7 +198,7 @@ Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
 DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
 ```
 
-将输出该 json：
+将输出该 JSON：
 
 ```json
 {
@@ -221,20 +216,20 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 
 要处理有任意键的 map，如 `HashMap`，可以使用 `Codec.unboundedMap`。 这将返回给定 `Codec<K>` 和 `Codec<V>` 的 `Codec<Map<K, V>>`。 生成的 codec 将序列化为 JSON 对象，或当前 dynamic ops 可用的任何等效对象。
 
-由于 json 和 nbt 的限制，使用的键的 codec _必须_序列化为字符串。 这包括类型自身不是字符串但会序列化为字符串的 codec，例如 `Identifier.CODEC`。 看看下面的例子：
+由于 JSON 和 NBT 的限制，使用的键的 codec _必须_序列化为字符串。 这包括类型自身不是字符串但会序列化为字符串的 codec，例如 `Identifier.CODEC`。 看看下面的例子：
 
 ```java
-// 创建一个 Identifier 到 Integer 的 map 的 codec
+// 创建一个用于 ID 到整数映射的 codec
 Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
 
-// 使用它序列化数据
+// 使用它来序列化数据
 DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.of("example", "number"), 23,
-    Identifier.of("example", "the_cooler_number"), 42
+    Identifier.fromNamespaceAndPath("example", "number"), 23,
+    Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
 ));
 ```
 
-将输出该 json：
+将输出该 JSON：
 
 ```json
 {
@@ -243,7 +238,7 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 }
 ```
 
-正如你所见，因为 `Identifier.CODEC` 直接序列化到字符串，所以这样做有效。 对于无法序列化为字符串的简单对象，可以使用[xmap 及其友元](#mutually-convertible-types)进行转换，从而实现类似的效果。
+正如你所见，因为 `Identifier.CODEC` 直接序列化到字符串，所以这样做有效。 对于不序列化为字符串的简单对象，可以通过使用 [xmap及其相关函数](#mutually-convertible-types-and-you) 来转换它们以达到类似的效果。
 
 ### 相互可转换的类型{#mutually-convertible-types}
 
@@ -270,8 +265,8 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 
 `flatComapMap`、`comapFlatMap` 与 `flatXMap` 类似于 xmap，但允许一个或多个转换函数返回 DataResult。 这在实践中很有用，因为特定的对象实例可能并不总是适合转换。
 
-以原版的 `Identifier` 为例。 虽然所有的 identifier 都可以转换为字符串，但并不是所有的字符串都是有效的 identifier，所以使用 xmap 意味着转换失败就会抛出难看的异常。
-正因此，其内置 codec 实际上是 `Codec.STRING` 上的 `comapFlatMap`，很好地说明了如何使用：
+以原版的 `Identifier` 为例。 虽然所有 Identifier 都能转换为字符串，但并非所有字符串都是有效的 Identifier，因此使用 xmap 意味着在转换失败时会抛出难以处理的异常。
+正因如此，其内置 codec 实际上是对 `Codec.STRING` 应用了 `comapFlatMap`，很好地展示了如何使用它：
 
 ```java
 public class Identifier {
@@ -283,9 +278,9 @@ public class Identifier {
 
     public static DataResult<Identifier> validate(String id) {
         try {
-            return DataResult.success(Identifier.of(id));
+            return DataResult.success(Identifier.parse(id));
         } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid resource location: " + id + " " + e.getMessage());
+            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
         }
     }
 
@@ -302,24 +297,28 @@ public class Identifier {
 | `Codec<A>#flatComapMap` | 是            | 否            |
 | `Codec<A>#flatXMap`     | 否            | 否            |
 
-### 注册表分派{#registry-dispatch}
+### 注册表分派 {#registry-dispatch}
 
 `Codec#dispatch` 让我们可以定义一个 codec 的注册表，并根据序列化数据中字段的值分派到一个特定的 codec。 当反序列化有不同字段的对象，而这些字段依赖于类型，但不同类型仍代表相同的事物时，这非常有用。
 
-例如我们有一个抽象的 `Bean` 接口与两个实现类：`StringyBean` 和 `CountingBean`。 为了用注册表分派序列化他们，我们需要一些事：
+例如我们有一个抽象的 `Bean` 接口与两个实现类：`StringyBean` 和 `CountingBean`。 为了用注册表分派序列化这些，我们需要一些东西：
 
 - 每个 bean 类型的独立 codec。
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.registry.Registry`，那么可以简单地调用  `Registry#getCodec`
+- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.core.Registry`，那么可以简单地调用  `Registry#getCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
 ```java
@@ -333,7 +332,7 @@ Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
 Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 ```
 
-我们的新 codec 将会这样将 bean 类序列化为 json，仅抓取与特定类型相关的字段：
+我们的新 codec 将会像这样将 bean 类序列化为 JSON，仅抓取与特定类型相关的字段：
 
 ```json
 {
@@ -349,9 +348,9 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 }
 ```
 
-### 递归 Codec{#recursive-codecs}
+### 递归 codec{#recursive-codecs}
 
-有时，使用_自身_来解码特定字段的 codec 很有用，例如在处理某些递归数据结构时。 在原版代码中，这用于 `Text` 对象，可能会存储其他的 `Text` 作为子对象。 可以使用 `Codec#recursive` 构建这样的 codec。
+有时，使用_自身_来解码特定字段的 codec 很有用，例如在处理某些递归数据结构时。 在原版代码中，这用于 `Component` 对象，可能会存储其他的 `Component` 作为子对象。 可以使用 `Codec#recursive` 构建这样的 codec。
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 

@@ -31,9 +31,7 @@ Fabric API 为 Minecraft 代码库中的重要区域提供事件，许多模组�
 
 ### 回调接口{#callback-interfaces}
 
-每个事件都有一个对应的回调接口，通常命名为 `<EventName>Callback`。 回调是通过在事件实例上调用 `register()` 方法注册的，其参数为一个回调接口的实例。
-
-Fabric API 提供的所有事件回调接口，可见 `net.fabricmc.fabric.api.event` 包。
+每个事件都有一个对应的回调接口。 回调是通过在事件实例上调用 `register()` 方法注册的，其参数为一个回调接口的实例。
 
 ## 监听事件{#listening-to-events}
 

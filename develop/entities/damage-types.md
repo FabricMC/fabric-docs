@@ -16,7 +16,7 @@ Let's create a custom damage type called _Tater_. We start by creating a JSON fi
 will
 be placed in your mod's `data` directory, in a subdirectory named `damage_type`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -72,9 +72,7 @@ mod's `en_us.json` file.
 
 ```json
 {
-  // ...
-  "death.attack.tater": "%1$s died from Tater damage!",
-  // ...
+  "death.attack.tater": "%1$s died from Tater damage!"
 }
 ```
 
@@ -84,7 +82,7 @@ Upon death from our damage type, you'll see the following death message:
 
 ### Damage Type Tags {#damage-type-tags}
 
-Some damage types can bypass armor, bypass status effects, and such. Tags are used to control these kinds of properties
+Some damage types can bypass armor, bypass mob effects, and such. Tags are used to control these kinds of properties
 of damage types.
 
 You can find existing damage type tags in `data/minecraft/tags/damage_type`.
@@ -100,7 +98,7 @@ Let's add our Tater damage type to the `bypasses_armor` damage type tag.
 
 To add our damage type to one of these tags, we create a JSON file under the `minecraft` namespace.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

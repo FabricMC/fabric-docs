@@ -147,7 +147,7 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 
 - 제네릭 타입이 올바른지 확인해 보세요. 가끔 제네릭 타입에 문제가 있을 수도 있습니다. (대부분의 경우처럼) 명령어를 서버에 등록하려 한다면, `LiteralArgumentBuilder.literal` 대신에 `CommandManager.literal`, 또는 `RequiredArgumentBuilder.argument` 대신에 `CommandManager.argument`를 사용 중인지 확인하세요.
 
-- `sendFeedback()` 메서드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Text`가 아니라 `Supplier<Text>` 임을 기억하세요.
+- `sendFeedback()` 메서드를 확인해 보세요. 두 번째 인수에 불리언을 추가하는 것을 잊었을지도 모릅니다. 그리고 Minecraft 1.20부터 첫 번째 인수가 `Component`가 아니라 `Supplier<Text>` 임을 기억하세요.
 
 - 명령어는 무조건 정수를 반환해야 합니다. 명령어를 등록할 때, `execute()` 메서드는 `Command` 객체를 (대부분의 경우 람다식으로) 받게 됩니다. 람다식은 무조건 정수를 반환해야 합니다.
 
@@ -157,7 +157,7 @@ Brigadier는 [인수를 사용해 명령 노드만 리다이렉트 시킬 것입
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-그 다음에는, `CommandManager.sendCommandTree(ServerPlayerEntity)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
+그 다음에는, `CommandManager.sendCommandTree(ServerPlayer)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
 
 클라이언트는 로컬로 완료 오류를 보여주기 위해 로그인 단계 중에 (또는 관리자 패킷이 전송되었을 때) 서버로부터 명령어 트리를 받아 캐시하기 때문에 필수적인 작업입니다.
 :::
@@ -168,7 +168,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-간단하게 하려면, Brigadier를 리플렉션해서 노드를 제거해야 합니다. 그 다음에는, `CommandManager.sendCommandTree(ServerPlayerEntity)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
+간단하게 하려면, Brigadier를 리플렉션해서 노드를 제거해야 합니다. 그 다음에는, `CommandManager.sendCommandTree(ServerPlayer)`를 통해 모든 플레이어에게 다시 명령어 트리를 전송해야 합니다.
 
 업데이트된 명령어 트리를 전송하지 않으면, 서버가 명령어 처리에 실패해도 클라이언트는 아직 명령어가 존재한다고 표시할 것입니다.
 :::

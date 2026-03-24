@@ -20,10 +20,10 @@ authors:
 
 @[code lang=java transclude={18-27}](@/reference/1.21.10/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-Ми передаємо екземпляр `StatusEffectInstance`, який приймає 3 параметри:
+Ми передаємо екземпляр `MobEffectInstance`, який приймає 3 параметри:
 
-- `RegistryEntry<StatusEffect> type` - ефект. Тут ми використовуємо наш спеціальний ефект. Крім того, ви можете отримати доступ до ванілльних ефектів
-  через клас ванілли `StatusEffects`.
+- `Holder<MobEffect> type` - ефект. Тут ми використовуємо наш спеціальний ефект. Крім того, ви можете отримати доступ до ванілльних ефектів
+  через клас ванілли `MobEffects`.
 - `int duration` - тривалість ефекту в ігрових тактах.
 - `int amplifier` - підсилювач для ефекту. Наприклад, квапливість II мав би підсилювач 1.
 
@@ -33,15 +33,15 @@ authors:
 
 ### Реєстрація зілля {#registering-the-potion}
 
-У нашому ініціалізаторі ми будемо використовувати подію `FabricBrewingRecipeRegistryBuilder.BUILD`, щоб зареєструвати наше зілля за допомогою методу `BrewingRecipeRegistry.registerPotionRecipe`.
+У нашому ініціалізаторі ми будемо використовувати подію `FabricPotionBrewingBuilder.BUILD`, щоб зареєструвати наше зілля за допомогою методу `PotionBrewing.addMix`.
 
 @[code lang=java transclude={29-40}](@/reference/1.21.10/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`registerPotionRecipe` приймає 3 параметри:
+`addMix` приймає 3 параметри:
 
-- `RegistryEntry<Potion> input` – початковий запис реєстру зілля. Зазвичай це може бути пляшка з водою або незграбне зілля.
+- `Holder<Potion> input` – початковий запис реєстру зілля. Зазвичай це може бути пляшка з водою або незграбне зілля.
 - `Item item` - предмет, який є основним інгредієнтом зілля.
-- `RegistryEntry<Potion> output` – результуючий запис реєстру зілля.
+- `Holder<Potion> output` – результуючий запис реєстру зілля.
 
 Після реєстрації ви можете варити зілля Tater з картоплі.
 

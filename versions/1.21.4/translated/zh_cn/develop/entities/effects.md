@@ -21,15 +21,15 @@ authors-nogithub:
 
 在这篇教程中我们将加入一个叫 _土豆_ 的新状态效果，每游戏刻给你 1 点经验。
 
-### 继承 `StatusEffect`{#extend-statuseffect}
+### 继承 `MobEffect`{#extend-statuseffect}
 
-让我们通过继承所有状态效果的基类 `StatusEffect` 来创建一个自定义状态效果类。
+让我们通过继承所有状态效果的基类 `MobEffect` 来创建一个自定义状态效果类。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### 注册你的自定义状态效果{#registering-your-custom-effect}
 
-与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `STATUS_EFFECT` 注册表。 这可以在我们的初始化器内完成。
+与注册方块和物品类似，我们使用 `Registry.register` 将我们的自定义状态效果注册到 `MOB_EFFECT` 注册表。 这可以在我们的初始化器内完成。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/effect/FabricDocsReferenceEffects.java)
 
@@ -66,13 +66,13 @@ effect give @p fabric-docs-reference:tater
 
 :::
 
-要在代码内部应用状态效果，需要使用 `LivingEntity#addStatusEffect` 方法，接收一个 `StatusEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
+要在代码内部应用状态效果，需要使用 `LivingEntity#addEffect` 方法，接收一个 `MobEffectInstance` 实例，返回布尔值，以表示效果是否成功应用了。
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.4/src/main/java/com/example/docs/ReferenceMethods.java)
 
 | 参数          | 类型                            | 描述                                                                          |
 | ----------- | ----------------------------- | --------------------------------------------------------------------------- |
-| `effect`    | `RegistryEntry<StatusEffect>` | 代表效果的注册表项。                                                                  |
+| `effect`    | `Holder<MobEffect>` | 代表效果的注册表项。                                                                  |
 | `duration`  | `int`                         | 效果的时长，单位为**刻**，而非**秒**                                                      |
 | `amplifier` | `int`                         | 效果等级的倍率。 不是与效果的**等级**直接对应，而是有增加的。 比如，`amplifier` 为 `4` => 等级为 `5`           |
 | `ambient`   | `boolean`                     | 这个有些棘手， 基本上是指定效果是由环境（比如**信标**）施加的，没有直接原因。 如果是 `true`，HUD内的效果图标会以青色覆盖层的形式出现。 |

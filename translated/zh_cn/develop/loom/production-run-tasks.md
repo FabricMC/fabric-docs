@@ -12,7 +12,7 @@ authors:
   - SolidBlock-cn
 ---
 
-当构建你的模组来分发给用户时，它会被重新映射到中间映射，这会导致开发环境和生产环境（如原版启动器）之间出现轻微的不一致。 尽管这种问题很少见，但在发布之前在生产环境中测试你的模组还是有意义的。
+当构建你的模组来分发给用户时，模组会被重新映射到中间映射，导致开发环境和生产环境（如原版启动器）之间出现轻微的不一致。 尽管这种问题很少见，但在发布之前在生产环境中测试你的模组还是有意义的。
 
 ## 通用选项 {#common}
 
@@ -45,7 +45,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## 服务器 {#server}
 
-服务器生产运行任务使用您从 Fabric 网站下载的相同服务器启动器，保证环境尽可能接近生产环境。
+服务器生产运行任务使用你从 Fabric 网站下载的相同服务器启动器，保证环境尽可能接近生产环境。
 
 ```groovy
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {

@@ -55,7 +55,7 @@ We start by creating a `DamageSource` of our custom damage type.
 
 @[code lang=java transclude={22-26}](@/reference/1.21.10/src/main/java/com/example/docs/damage/TaterBlock.java)
 
-Then, we call `entity.damage()` with our `DamageSource` and an amount.
+Then, we call `entity.hurt()` with our `DamageSource` and an amount.
 
 @[code lang=java transclude={27-27}](@/reference/1.21.10/src/main/java/com/example/docs/damage/TaterBlock.java)
 
@@ -84,7 +84,7 @@ Upon death from our damage type, you'll see the following death message:
 
 ### Damage Type Tags {#damage-type-tags}
 
-Some damage types can bypass armor, bypass status effects, and such. Tags are used to control these kinds of properties
+Some damage types can bypass armor, bypass mob effects, and such. Tags are used to control these kinds of properties
 of damage types.
 
 You can find existing damage type tags in `data/minecraft/tags/damage_type`.

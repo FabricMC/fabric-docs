@@ -7,4 +7,4 @@ This section of the Fabric Documentation is dedicated to players and server admi
 
 You should refer to the sidebar for a list of all the guides available.
 
-If you encounter any issues, please report them [on GitHub](https://github.com/FabricMC/fabric-docs) or ask for help on the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channels.
+If you encounter any issues, please report them [on GitHub](https://github.com/FabricMC/fabric-docs) or ask for help on the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` or `#server-admin-support` channels.

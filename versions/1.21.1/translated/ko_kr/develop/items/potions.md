@@ -20,9 +20,9 @@ authors:
 
 @[code lang=java transclude={18-27}](@/reference/1.21.1/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`StatusEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
+`MobEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
 
-- `RegistryEntry<StatusEffect> type` - 효과. 여기에선 사용자 정의 효과를 사용해볼 것입니다. 대신, 바닐라의 `StatusEffects` 클래스를 통해 바닐라 효과에 접근할 수도 있습니다.
+- `Holder<MobEffect> type` - 효과. 여기에선 사용자 정의 효과를 사용해볼 것입니다. 대신, 바닐라의 `MobEffects` 클래스를 통해 바닐라 효과에 접근할 수도 있습니다.
 - `int duration` - 효과의 지속 시간(틱).
 - `int amplifier` - 효과의 세기. 예를 들어, 성급함 II는 1을 세기로 가지게 됩니다.
 
@@ -32,15 +32,15 @@ authors:
 
 ### 물약 등록하기 {#registering-the-potion}
 
-이니셜라이저에서 `BrewingRecipeRegistry.registerPotionRecipe` 메서드를 사용해 물약 효과를 등록하기 위해 `FabricBrewingRecipeRegistryBuilder.BUILD` 이벤트를 사용할 것입니다.
+이니셜라이저에서 `PotionBrewing.addMix` 메서드를 사용해 물약 효과를 등록하기 위해 `FabricPotionBrewingBuilder.BUILD` 이벤트를 사용할 것입니다.
 
 @[code lang=java transclude={29-42}](@/reference/1.21.1/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`registerPotionRecipe`는 세 가지 매개변수를 가집니다.
+`addMix`는 세 가지 매개변수를 가집니다.
 
-- `RegistryEntry<Potion> input` - 시작 물약의 레지스트리 항목. 일반적으로 물병 또는 어색한 물약이 사용됩니다.
+- `Holder<Potion> input` - 시작 물약의 레지스트리 항목. 일반적으로 물병 또는 어색한 물약이 사용됩니다.
 - `Item item` - 물약의 기본 재료가 될 아이템.
-- `RegistryEntry<Potion> output` - 결과 물약의 레지스트리 항목.
+- `Holder<Potion> output` - 결과 물약의 레지스트리 항목.
 
 등록을 완료했다면, 이제 감자를 통해 Tater 물약을 만들 수 있습니다.
 

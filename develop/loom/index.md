@@ -19,8 +19,19 @@ Loom provides utilities to install Minecraft and mods in a development environme
 Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent.
 
 ::: warning IMPORTANT
+
 This page is a reference of all options and features of Loom. If you are just getting started, please read the [Introduction to Fabric](../).
+
 :::
+
+## Plugin IDs {#plugin-ids}
+
+Loom uses multiple different plugin IDs:
+
+- `net.fabricmc.fabric-loom`, for non-obfuscated versions (Minecraft 26.1 or newer)
+- `net.fabricmc.fabric-loom-remap`, for obfuscated versions (Minecraft 1.21.11 or older)
+- `fabric-loom` (legacy), only supported for backwards compatibility with obfuscated versions. Use `net.fabricmc.fabric-loom-remap` instead
+- `net.fabricmc.fabric-loom-companion`, in advanced multi-project setups. Read more about [Sub Projects](./classpath-groups#multi-project)
 
 ## Depending on Subprojects {#subprojects}
 
@@ -90,7 +101,13 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 - `minecraft`: Defines the version of Minecraft to be used in the development environment
 - `mappings`: Defines the mappings to be used in the development environment
 - `modImplementation`, `modApi` and `modRuntime`: Augmented variants of `implementation`, `api` and `runtime` for mod dependencies. Will be remapped to match the mappings in the development environment and has any nested jars removed
-- `include`: Declares a dependency that should be included as a jar-in-jar in the `remapJar` output. This dependency configuration is not transitive. For non-mod dependencies, Loom will generate a mod jar with a `fabric.mod.json` using the mod ID for the name, and the same version
+- `include`: Declares a dependency that should be included as a jar-in-jar in the final mod output. This dependency configuration is not transitive. For non-mod dependencies, Loom will generate a mod jar with a `fabric.mod.json` using the mod ID for the name, and the same version
+
+::: info
+
+Dependencies declared with `include` are added to `remapJar` in remapping Loom, or to `jar` in non-remapping Loom respectively. Because of this, jar tasks from other plugins (such as `shadowJar`) will not include these dependencies by default.
+
+:::
 
 ## Default Configuration {#configuration}
 

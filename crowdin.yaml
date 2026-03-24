@@ -1,0 +1,13 @@
+files:
+  - source: /**/*.md
+    ignore:
+      - /versions/**/*
+      - /translated/**/*
+      - README.md
+    translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
+    excluded_target_languages: [es-AR, es-CL, es-EC, es-MX, es-UY, es-VE, fr-CA]
+  - source: /*_translations.json
+    translation: /translated/%locale_with_underscore%/%original_path%/%original_file_name%
+    excluded_target_languages: [es-AR, es-CL, es-EC, es-MX, es-UY, es-VE, fr-CA]
+preserve_hierarchy: true
+project_id: "647524"

@@ -1,17 +1,15 @@
 package com.example.docs.datagen.internal;
 
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.BlockStateVariant;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.ModelIds;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.MultipartBlockStateSupplier;
-import net.minecraft.client.data.VariantSettings;
-import net.minecraft.client.data.When;
-
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.blockstates.Condition;
+import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
+import net.minecraft.client.data.models.blockstates.Variant;
+import net.minecraft.client.data.models.blockstates.VariantProperties;
+import net.minecraft.client.data.models.model.ModelLocationUtils;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
@@ -26,33 +24,33 @@ public class FabricDocsReferenceInternalModelProvider extends FabricModelProvide
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CONDENSED_DIRT);
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COUNTER_BLOCK);
+	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+		blockStateModelGenerator.createTrivialCube(ModBlocks.CONDENSED_DIRT);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.COUNTER_BLOCK);
 
 		// TODO: This would be a good example for the model generation page. Move when needed.
 		// TODO: Actually make the model for the prismarine lamp - not sure how to do it via datagen.
-		blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(ModBlocks.PRISMARINE_LAMP)
-				.with(When.create().set(PrismarineLampBlock.ACTIVATED, true),
-						BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.PRISMARINE_LAMP, "_on")))
-				.with(When.create().set(PrismarineLampBlock.ACTIVATED, false),
-						BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(ModBlocks.PRISMARINE_LAMP)))
+		blockStateModelGenerator.blockStateOutput.accept(MultiPartGenerator.multiPart(ModBlocks.PRISMARINE_LAMP)
+				.with(Condition.condition().term(PrismarineLampBlock.ACTIVATED, true),
+						Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(ModBlocks.PRISMARINE_LAMP, "_on")))
+				.with(Condition.condition().term(PrismarineLampBlock.ACTIVATED, false),
+						Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(ModBlocks.PRISMARINE_LAMP)))
 		);
 
-		blockStateModelGenerator.registerLog(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
+		blockStateModelGenerator.woodProvider(ModBlocks.CONDENSED_OAK_LOG).log(ModBlocks.CONDENSED_OAK_LOG);
 	}
 
 	@Override
-	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		itemModelGenerator.register(ModItems.COUNTER, Models.GENERATED);
-		itemModelGenerator.register(ModItems.LIGHTNING_STICK, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_BOOTS, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_CHESTPLATE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_HELMET, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_LEGGINGS, Models.GENERATED);
-		itemModelGenerator.register(ModItems.POISONOUS_APPLE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.SUSPICIOUS_SUBSTANCE, Models.GENERATED);
-		itemModelGenerator.register(ModItems.GUIDITE_SWORD, Models.HANDHELD);
+	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+		itemModelGenerator.generateFlatItem(ModItems.COUNTER, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_STICK, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_BOOTS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HELMET, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.POISONOUS_APPLE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SUSPICIOUS_SUBSTANCE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 
 	@Override

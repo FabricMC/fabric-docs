@@ -94,9 +94,9 @@ Obviously, an armor set doesn't need every type to be satisfied, you can have a 
 ### Durability {#durability}
 
 Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items.
-For this reason the durability needs to be manually added to the armor items' `Item.Settings` when registering them.
+For this reason the durability needs to be manually added to the armor items' `Item.Properties` when registering them.
 
-This is achieved using the `maxDamage` method in the `Item.Settings` class.
+This is achieved using the `maxDamage` method in the `Item.Properties` class.
 The different armor slots have different base durabilities which are commonly multiplied by a shared armor material multiplier but hard-coded values can also be used.
 
 For the Guidite armor we'll be using a shared armor multiplier stored alongside the armor material:
@@ -107,7 +107,7 @@ We can then create the armor items using the durability constant:
 
 @[code transcludeWith=:::6](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 
-You will also need to **add the items to an item group** if you want them to be accessible from the creative inventory.
+You will also need to **add the items to a creative tab** if you want them to be accessible from the creative inventory.
 
 As with all items, you should create translation keys for them as well.
 

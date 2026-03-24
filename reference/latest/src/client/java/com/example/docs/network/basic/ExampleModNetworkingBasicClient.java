@@ -23,25 +23,25 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// :::client_global_receiver
 		ClientPlayNetworking.registerGlobalReceiver(SummonLightningS2CPayload.ID, (payload, context) -> {
-			ClientLevel world = context.client().level;
+			ClientLevel level = context.client().level;
 
-			if (world == null) {
+			if (level == null) {
 				return;
 			}
 
 			BlockPos lightningPos = payload.pos();
-			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(world, EntitySpawnReason.TRIGGERED);
+			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
 				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
-				world.addEntity(entity);
+				level.addEntity(entity);
 			}
 		});
 		// :::client_global_receiver
 
 		// :::use_entity_callback
-		UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-			if (!world.isClientSide()) {
+		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
+			if (!level.isClientSide()) {
 				return InteractionResult.PASS;
 			}
 

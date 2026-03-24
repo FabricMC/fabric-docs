@@ -2,6 +2,7 @@
 title: Recipe Generation
 description: A guide to setting up recipe generation with datagen.
 authors:
+  - CelDaemon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
@@ -9,8 +10,12 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've completed the [datagen setup](./setup) process first.
+
 :::
 
 ## Setup {#setup}
@@ -21,7 +26,7 @@ First, we'll need our provider. Make a class that extends `FabricRecipeProvider`
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-recipes:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Shapeless Recipes {#shapeless-recipes}
 
@@ -36,7 +41,9 @@ For a shaped recipe, you define the shape using a `String`, then define what eac
 @[code lang=java transcludeWith=:::datagen-recipes:shaped](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
 ::: tip
-There's a lot of helper methods for creating common recipes. Check out what `RecipeProvider` has to offer! Use `Alt + 7` in IntelliJ to open the structure of a class, including a method list.
+
+There's a lot of helper methods for creating common recipes. Check out what `RecipeProvider` has to offer! Use <kbd>Alt</kbd>+<kbd>7</kbd> in IntelliJ to open the structure of a class, including a method list.
+
 :::
 
 ## Other Recipes {#other-recipes}

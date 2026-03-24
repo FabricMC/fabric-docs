@@ -24,36 +24,36 @@ public class PrismarineLampBlock extends Block {
 		// Set the default state of the block to be deactivated.
 		registerDefaultState(defaultBlockState().setValue(ACTIVATED, false));
 	}
-
 	// :::3
+
 	// :::2
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(ACTIVATED);
 	}
-
 	// :::2
+
 	// :::4
 	@Override
-	protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 		if (!player.getAbilities().mayBuild) {
-			// Skip if the player isn't allowed to modify the world.
+			// Skip if the player isn't allowed to modify the level.
 			return InteractionResult.PASS;
 		} else {
 			// Get the current value of the "activated" property
 			boolean activated = state.getValue(ACTIVATED);
 
 			// Flip the value of activated and save the new blockstate.
-			world.setBlockAndUpdate(pos, state.setValue(ACTIVATED, !activated));
+			level.setBlockAndUpdate(pos, state.setValue(ACTIVATED, !activated));
 
 			// Play a click sound to emphasise the interaction.
-			world.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1.0F, 1.0F);
+			level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1.0F, 1.0F);
 
 			return InteractionResult.SUCCESS;
 		}
 	}
-
 	// :::4
+
 	// :::5
 	public static int getLuminance(BlockState currentBlockState) {
 		// Get the value of the "activated" property.
@@ -62,8 +62,8 @@ public class PrismarineLampBlock extends Block {
 		// Return a light level if activated = true
 		return activated ? 15 : 0;
 	}
-
 	// :::5
+
 	// :::1
 }
 // :::1

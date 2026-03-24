@@ -66,8 +66,8 @@
           "link": "/develop/items/custom-armor"
         },
         {
-          "text": "Custom Item Groups",
-          "link": "/develop/items/custom-item-groups"
+          "text": "Custom Creative Tabs",
+          "link": "/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -98,7 +98,7 @@
       "collapsed": true,
       "items": [
         {
-          "text": "Status Effects",
+          "text": "Mob Effects",
           "link": "/develop/entities/effects"
         },
         {
@@ -149,7 +149,7 @@
         },
         {
           "text": "Using the Drawing Context",
-          "link": "/develop/rendering/draw-context"
+          "link": "/develop/rendering/gui-graphics"
         },
         {
           "text": "Rendering in the HUD",

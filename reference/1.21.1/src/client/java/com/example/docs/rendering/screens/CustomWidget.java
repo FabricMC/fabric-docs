@@ -1,18 +1,18 @@
 package com.example.docs.rendering.screens;
 
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
-import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
+import net.minecraft.network.chat.Component;
 
 // :::1
-public class CustomWidget extends ClickableWidget {
+public class CustomWidget extends AbstractWidget {
 	public CustomWidget(int x, int y, int width, int height) {
-		super(x, y, width, height, Text.empty());
+		super(x, y, width, height, Component.empty());
 	}
 
 	@Override
-	protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
+	protected void renderWidget(GuiGraphics context, int mouseX, int mouseY, float delta) {
 		// We'll just draw a simple rectangle for now.
 		// x1, y1, x2, y2, startColor, endColor
 		int startColor = 0xFF00FF00; // Green
@@ -32,7 +32,7 @@ public class CustomWidget extends ClickableWidget {
 	}
 
 	@Override
-	protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+	protected void updateWidgetNarration(NarrationElementOutput builder) {
 		// For brevity, we'll just skip this for now - if you want to add narration to your widget, you can do so here.
 		return;
 	}

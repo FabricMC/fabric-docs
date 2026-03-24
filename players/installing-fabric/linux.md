@@ -9,8 +9,12 @@ authors:
 next: false
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 You may need to [install Java](../installing-java/linux) before running the `.jar`.
+
 :::
 
 <!-- #region common -->
@@ -45,4 +49,4 @@ Once installation completes, open the Minecraft Launcher. Then select the Fabric
 
 You can now add mods to your game. See the [Finding Trustworthy Mods](../finding-mods) guide for info.
 
-If you encounter issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter issues, feel free to ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

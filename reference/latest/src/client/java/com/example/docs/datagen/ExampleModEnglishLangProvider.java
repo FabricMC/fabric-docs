@@ -12,6 +12,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import com.example.docs.ExampleMod;
 import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
+import com.example.docs.enchantment.ModEnchantments;
+import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
@@ -22,7 +24,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 	}
 
 	@Override
-	public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
+	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
 		// :::datagen-translations:provider
 		// :::datagen-translations:build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
@@ -33,6 +35,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 
 		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
@@ -47,13 +50,17 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
 		translationBuilder.add("itemGroup.example-mod", "Example Mod");
-		translationBuilder.add("enchantment.example-mod.thundering", "Thundering");
+		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
+		translationBuilder.addEnchantment(ModEnchantments.REPULSION_CURSE, "Curse of Repulsion");
+
+		translationBuilder.add(ModEntityTypes.MINI_GOLEM, "Mini Golem");
 
 		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
 		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
 		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
 		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
 		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
+		translationBuilder.add(ModBlocks.DIRT_CHEST_BLOCK, "Dirt Chest");
 
 		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
 		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");
@@ -66,6 +73,18 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
 		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
+		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
+		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
+
+		// :::gamerule-description
+		translationBuilder.add(
+						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
+						"Gives every player the blindness effect" // A short description of the game rule
+		);
+		// :::gamerule-description
+		// :::gamerule-name
+		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
+		// :::gamerule-name
 		// :::datagen-translations:provider
 	}
 }

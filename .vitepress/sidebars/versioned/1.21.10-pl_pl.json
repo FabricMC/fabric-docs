@@ -75,7 +75,7 @@
         },
         {
           "text": "Custom Creative Tabs",
-          "link": "/pl_pl/develop/items/custom-item-groups"
+          "link": "/pl_pl/develop/items/custom-creative-tabs"
         },
         {
           "text": "Custom Item Interactions",
@@ -187,7 +187,7 @@
         },
         {
           "text": "Drawing to the GUI",
-          "link": "/pl_pl/develop/rendering/draw-context"
+          "link": "/pl_pl/develop/rendering/gui-graphics"
         },
         {
           "text": "Renderowanie w HUD",
@@ -345,15 +345,15 @@
         },
         {
           "text": "Migrating Mappings",
-          "link": "/pl_pl/develop/migrating-mappings",
+          "link": "/pl_pl/develop/porting/mappings",
           "items": [
             {
               "text": "Loom (Gradle)",
-              "link": "/pl_pl/develop/migrating-mappings/loom"
+              "link": "/pl_pl/develop/porting/mappings/loom"
             },
             {
               "text": "Ravel (IntelliJ IDEA)",
-              "link": "/pl_pl/develop/migrating-mappings/ravel"
+              "link": "/pl_pl/develop/porting/mappings/ravel"
             }
           ]
         },

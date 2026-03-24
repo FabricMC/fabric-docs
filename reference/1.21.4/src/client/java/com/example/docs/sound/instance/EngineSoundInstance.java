@@ -1,18 +1,17 @@
 package com.example.docs.sound.instance;
 
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 import com.example.docs.sound.AbstractDynamicSoundInstance;
 import com.example.docs.sound.DynamicSoundSource;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 
 // :::1
 public class EngineSoundInstance extends AbstractDynamicSoundInstance {
 	// Here we just use the default constructor parameters.
 	// If you want to specifically set values here already,
 	// you can clean up the constructor parameters a bit
-	public EngineSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundCategory soundCategory,
+	public EngineSoundInstance(DynamicSoundSource soundSource, SoundEvent soundEvent, SoundSource soundCategory,
 							int startTransitionTicks, int endTransitionTicks, float maxVolume, float minPitch, float maxPitch,
 							SoundInstanceCallback callback) {
 		super(soundSource, soundEvent, soundCategory, startTransitionTicks, endTransitionTicks, maxVolume, minPitch, maxPitch, callback);

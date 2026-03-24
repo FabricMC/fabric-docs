@@ -22,7 +22,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
 }
 ```
 
-The above example is the most basic usage of the task, and will generate a `fabric.mod.json` file with the mod id and version specified. The `json` block supports all fields defined in the [Fabric Mod JSON schema](https://fabricmc.net/wiki/documentation:fabric_mod_json). See [FabricModJsonV1Spec](https://github.com/FabricMC/fabric-loom/blob/dev/1.12/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java) for a full list of supported properties.
+The above example is the most basic usage of the task, and will generate a `fabric.mod.json` file with the mod id and version specified. The `json` block supports all fields defined in the [Fabric Mod JSON schema](https://wiki.fabricmc.net/documentation:fabric_mod_json). See [FabricModJsonV1Spec](https://github.com/FabricMC/fabric-loom/blob/dev/1.12/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java) for a full list of supported properties.
 
 ## Download Task {#download-task}
 
@@ -63,9 +63,9 @@ tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
 The `net.fabricmc.loom.task.ValidateMixinNameTask` is a task that can be used to validate that the Mixin class name matches the name of the target class.
 
 ```groovy
-    tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
-        source(sourceSets.main.output)
-    }
+tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
+    source(sourceSets.main.output)
+}
 
-    check.dependsOn "validateMixinNames"
+check.dependsOn "validateMixinNames"
 ```

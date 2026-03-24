@@ -27,22 +27,22 @@ public class ExampleModCommands implements ModInitializer {
 		context.getSource().sendSuccess(() -> Component.literal("Called /dedicated_command."), false);
 		return 1;
 	}
-
 	// :::execute_dedicated_command
+
 	// :::execute_required_command
 	private static int executeRequiredCommand(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /required_command."), false);
 		return 1;
 	}
-
 	// :::execute_required_command
+
 	// :::execute_sub_command_one
 	private static int executeSubCommandOne(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command sub_command_one."), false);
 		return 1;
 	}
-
 	// :::execute_sub_command_one
+
 	// :::execute_command_sub_command_two
 	private static int executeCommandTwo(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_two."), false);
@@ -53,23 +53,23 @@ public class ExampleModCommands implements ModInitializer {
 		context.getSource().sendSuccess(() -> Component.literal("Called /sub_command_two."), false);
 		return 1;
 	}
-
 	// :::execute_command_sub_command_two
+
 	// :::execute_redirected_by
 	private static int executeRedirectedBy(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /redirected_by."), false);
 		return 1;
 	}
-
 	// :::execute_redirected_by
+
 	// :::execute_command_with_arg
 	private static int executeCommandWithArg(CommandContext<CommandSourceStack> context) {
 		int value = IntegerArgumentType.getInteger(context, "value");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_arg with value = %s".formatted(value)), false);
 		return 1;
 	}
-
 	// :::execute_command_with_arg
+
 	// :::execute_command_with_two_args
 	private static int executeWithOneArg(CommandContext<CommandSourceStack> context) {
 		int value1 = IntegerArgumentType.getInteger(context, "value_one");
@@ -84,38 +84,37 @@ public class ExampleModCommands implements ModInitializer {
 				false);
 		return 1;
 	}
-
 	// :::execute_command_with_two_args
+
 	// :::execute_common
 	private static int executeCommon(int value1, int value2, CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_common_exec with value 1 = %s and value 2 = %s".formatted(value1, value2)), false);
 		return 1;
 	}
-
 	// :::execute_common
+
 	// :::execute_custom_arg_command
 	private static int executeCustomArgCommand(CommandContext<CommandSourceStack> context) {
 		BlockPos arg = context.getArgument("block_pos", BlockPos.class);
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_arg with block pos = %s".formatted(arg)), false);
 		return 1;
 	}
-
 	// :::execute_custom_arg_command
+
 	// :::execute_command_with_suggestions
 	private static int executeCommandWithSuggestions(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
 		var entityType = ResourceArgument.getSummonableEntityType(context, "entity");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_suggestions with entity = %s".formatted(entityType.value().toShortString())), false);
 		return 1;
 	}
-
 	// :::execute_command_with_suggestions
+
 	// :::execute_command_with_custom_suggestions
 	private static int executeCommandWithCustomSuggestions(CommandContext<CommandSourceStack> context) {
 		String name = StringArgumentType.getString(context, "player_name");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_suggestions with value = %s".formatted(name)), false);
 		return 1;
 	}
-
 	// :::execute_command_with_custom_suggestions
 
 	@Override

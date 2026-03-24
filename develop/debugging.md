@@ -2,6 +2,7 @@
 title: Debugging Mods
 description: Learn all about logging, breakpoints and other useful debugging features.
 authors:
+  - CelDaemon
   - its-miroma
   - JR1811
 ---
@@ -29,13 +30,16 @@ Whenever you need to know a value for something at any point in the code, use th
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
 ```java
+ExampleModDebug.LOGGER.debug("Debug message for development...");
 ExampleModDebug.LOGGER.info("Neutral, informative text...");
 ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
 ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 ```
 
 ::: info
+
 All logger modes support multiple overloads; this way you can provide more information like a stack trace!
+
 :::
 
 For example, let's make sure that, when the `TestItem` is used on an entity, it will output its current state in console.
@@ -56,11 +60,39 @@ In the logged line, you can find:
 
 Keep in mind that all of these will also be printed if the mod is used in any other environment.
 
-If the data you are logging is only relevant in development, it might be useful to create a custom `LOGGER` method and use it to avoid printing data in production.
+To prevent your mod from polluting the log files, choose a fitting log level for your logs. If the data you are logging is only relevant during development, it is highly recommended to use the `debug` level.
 
-@[code lang=java transcludeWith=:::problems:dev-logger](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+::: warning
 
-If you are unsure whether to log outside a debugging session, a good rule of thumb is to only log if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
+The `debug` level is hidden by default, to show it during development see [Debug Logging](#debug-logging) .
+
+:::
+
+If you are still unsure which log level to choose, a good rule of thumb is to only use non-debug levels if something went wrong. Modpack devs and users don't care too much about, for example, items initializing; they would rather know if, for example, a datapack failed to load correctly.
+
+### Debug Logging {#debug-logging}
+
+The debug log level is hidden by default, but can be specifically enabled in the development environment using some configuration.
+
+To do this, create the `log4j-dev.xml` configuration file in your project's root directory, and add the following contents. Make sure to replace the value inside the `name` attribute with your mod's modid. This configuration allows debug logs from your mod to be shown in the console.
+
+@[code lang=xml](@/reference/latest/log4j-dev.xml)
+
+Then in the `build.gradle`, tell Loom to use our new configuration.
+
+@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+
+Now, when we send debug log messages, we'll be able to see them in the console.
+
+@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+
+![Console showing a debug log entry](/assets/develop/debugging/debug_log.png)
+
+::: tip
+
+If debug messages are still not visible, your run configurations may be outdated. To fix this, regenerate them using the Gradle task for your IDE.
+
+:::
 
 ### Locating Issues {#locating-issues}
 
@@ -77,9 +109,11 @@ Missing assets and textures (the Purple & Black placeholder) also log a warning 
 A more sophisticated way of debugging is using breakpoints in an IDE. As their name suggests, they are used to halt the executed code at specific points to allow for inspecting and modifying the state of the software.
 
 ::: tip
+
 To use breakpoints, you must execute the instance using the `Debug` option instead of the `Run` option:
 
 ![Debug button](/assets/develop/debugging/debug_03.png)
+
 :::
 
 Let's use our custom item as an example again. The item's `CUSTOM_NAME` `DataComponentType` is supposed to change if it is used on any Stone block.
@@ -98,11 +132,11 @@ public class TestItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        Level world = context.getLevel();
+        Level level = context.getLevel();
         Player user = context.getPlayer();
         BlockPos targetPos = context.getBlockPos();
         ItemStack itemStack = context.getItemInHand();
-        BlockState state = world.getBlockState(targetPos);
+        BlockState state = level.getBlockState(targetPos);
 
         if (state.is(ConventionalBlockTags.STONES)) {
             Component newName = Component.literal("[").append(state.getBlock().getName()).append(Component.literal("]"));
@@ -129,15 +163,17 @@ At the bottom, a `Debug` window should open, and the `Threads & Variables` view 
 
 ![Debug controls](/assets/develop/debugging/debug_05.png)
 
-| Action | Description |
-| -- | -- |
-| Step Over | Steps to the next executed line, basically moving the instance along in the logic |
-| Step Into | Steps into a method to show what is happening inside. If there are multiple methods on one line, you can choose which to step into by clicking it. This is also necessary for lambdas. |
-| Run To Cursor | Steps through the logic until it reaches your cursor in the code. This is useful for skipping large chunks of code. |
-| Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs. |
+| Action               | Description                                                                                                                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Step Over            | Steps to the next executed line, basically moving the instance along in the logic                                                                                                      |
+| Step Into            | Steps into a method to show what is happening inside. If there are multiple methods on one line, you can choose which to step into by clicking it. This is also necessary for lambdas. |
+| Run To Cursor        | Steps through the logic until it reaches your cursor in the code. This is useful for skipping large chunks of code.                                                                    |
+| Show Execution Point | Moves the view of your coding window to the point where the debugger is currently at. This also works if you are currently working in other files and tabs.                            |
 
 ::: info
+
 The "Step Over" <kbd>F8</kbd> and "Step Into" <kbd>F7</kbd> actions are the most common ones, so try to get used to the shortcuts!
+
 :::
 
 If you are done with the current inspection, you can press the green `Resume Program` button (<kbd>F9</kbd>). This will unfreeze the Minecraft instance, and further testing can be done until another breakpoint is hit. But let's keep looking at the `Debug` window for now.
@@ -219,6 +255,6 @@ In the development environment, you can find previous logs in the `Project` wind
 
 ## Ask The Community! {#ask-the-community}
 
-Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.com/invite/v6v4pMv) and have a chat with the community!
+Still couldn't figure out what's going on? You can join the [Fabric Discord Server](https://discord.fabricmc.net/) and have a chat with the community!
 
-You may also want to check out the [Official Fabric Wiki](https://fabricmc.net/wiki/start) for more advanced queries.
+You may also want to check out the [Official Fabric Wiki](https://wiki.fabricmc.net/start) for more advanced queries.

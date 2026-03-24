@@ -20,21 +20,21 @@ O comando `/effect` pode ser usado para aplicar efeitos numa entidade.
 
 Neste tutorial adicionaremos um novo efeito personalizado chamado _Tater_, que lhe dará um ponto de experiência a cada tick do jogo.
 
-### Estenda `StatusEffect` {#extend-statuseffect}
+### Estenda `MobEffect` {#extend-statuseffect}
 
-Vamos criar uma classe de efeito personalizado estendendo `StatusEffect`, sendo uma classe base para todos os efeitos.
+Vamos criar uma classe de efeito personalizado estendendo `MobEffect`, sendo uma classe base para todos os efeitos.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### Registrando seu Efeito Personalizado
 
-Similar a registração de blocos e itens, usamos `Registry.register` para registrar nosso efeito ao registro de `STATUS_EFFECT`. Isso pode ser feito no nosso inicializador.
+Similar a registração de blocos e itens, usamos `Registry.register` para registrar nosso efeito ao registro de `MOB_EFFECT`. Isso pode ser feito no nosso inicializador.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.21.1/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 
 ### Textura
 
-Estenda `StatusEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
+Estenda `MobEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
 ```:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png

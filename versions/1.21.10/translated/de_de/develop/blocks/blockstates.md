@@ -66,11 +66,11 @@ Dieses Beispiel wird eine einzigartiges boolesche Eigenschaft mit dem Namen `act
 
 ### Die Eigenschaft erstellen {#creating-the-property}
 
-Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.of` verwendet.
+Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.create` verwendet.
 
 @[code transcludeWith=:::1](@/reference/1.21.10/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 
-Als Nächstes müssen wir die Eigenschaft mit der Methode `appendProperties` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
+Als Nächstes müssen wir die Eigenschaft mit der Methode `createBlockStateDefinition` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
 
 @[code transcludeWith=:::2](@/reference/1.21.10/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
 

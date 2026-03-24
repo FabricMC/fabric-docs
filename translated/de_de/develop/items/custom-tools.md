@@ -24,6 +24,10 @@ Der `ToolMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spe
 | `enchantmentValue`        | Die "Verzauberbarkeit" von Werkzeugen, die aus diesem `ToolMaterial` bestehen.                                                                                                                     |
 | `repairItems`             | Alle Gegenstände, die in diesem Tag enthalten sind, können verwendet werden, um Werkzeuge aus diesem `ToolMaterial` in einem Amboss zu reparieren.                                                 |
 
+Für dieses Beispiel verwenden wir denselben Gegenstand zur Reparatur, den wir auch für Rüstungen verwenden werden. Wir definieren die Tag-Referenz wie folgt:
+
+@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+
 Wenn du Schwierigkeiten hast, ausgewogene Werte für einen der numerischen Parameter zu bestimmen, solltest du dir die Vanilla-Werkzeugmaterialkonstanten ansehen, wie zum Beispiel `ToolMaterial.STONE` oder `ToolMaterial.DIAMOND`.
 
 ## Werkzeugitems erstellen {#creating-tool-items}
@@ -34,7 +38,7 @@ Mit der gleichen Hilfsfunktion wie in der Anleitung [Erstelle dein ersten Item](
 
 Die beiden Float-Werte (1f, 1f) beziehen sich auf den Angriffsschaden des Werkzeugs bzw. die Angriffsgeschwindigkeit des Werkzeugs.
 
-Vergiss nicht, sie zu einer Itemgruppe hinzuzufügen, wenn du vom Kreativ-Inventar aus auf sie zugreifen willst!
+Vergiss nicht, sie zu einem Kreativtab hinzuzufügen, wenn du vom Kreativinventar aus auf sie zugreifen willst!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 

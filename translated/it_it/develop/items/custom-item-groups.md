@@ -1,27 +1,28 @@
 ---
-title: Gruppi di Oggetti Personalizzati
-description: Impara come creare il tuo gruppo di oggetti e come aggiungerci oggetti.
+title: Schede d'inventario Personalizzate
+description: Impara come creare la tua scheda d'inventario in Creativa e come aggiungerci oggetti.
 authors:
+  - CelDaemon
   - IMB11
 ---
 
-I gruppi di oggetti sono le schede nell'inventario in creativa che memorizzano oggetti. Puoi creare il tuo gruppo di oggetti personalizzato per memorizzare i tuoi oggetti in una scheda separata. Questo è piuttosto utile se la tua mod aggiunge molti oggetti e vuoi tenerli organizzati in una sola posizione per facilitarne l'accesso per i giocatori.
+Le schede d'inventario, anche dette gruppi di oggetti, sono quelle dell'inventario in Creativa, in cui vengono memorizzati gli oggetti. Puoi creare la tua scheda personalizzata per memorizzare i tuoi oggetti a parte. Questo è piuttosto utile se la tua mod aggiunge molti oggetti e vuoi tenerli organizzati in una sola posizione per facilitarne l'accesso per i giocatori.
 
-## Creare il Gruppo di Oggetti {#creating-the-item-group}
+## Creare la scheda d'inventario {#creating-the-creative-tab}
 
-È sorprendentemente facile creare un gruppo di oggetti. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare il gruppo di oggetti e una chiave di registry per esso, puoi quindi usare l'evento del gruppo di oggetti come quando hai aggiunti i tuoi oggetti ai gruppi vanilla:
+Aggiungere una scheda all'inventario è abbastanza semplice. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare la scheda e una chiave di registry per essa. Poi, potrai usare `FabricItemGroup.builder` per crearla e aggiungerci gli oggetti:
 
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-@[code transcludeWith=:::_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Dovresti notare che il gruppo di oggetti è ora nel menu dell'inventario in creativa. Tuttavia, è rimasto senza traduzione - devi aggiungere una chiave al tuo file di traduzioni - come quando hai tradotto il tuo primo oggetto.
+Dovresti notare che la nuova scheda è ora nel menu dell'inventario in Creativa. Tuttavia, è rimasto senza traduzione - devi aggiungere una chiave al tuo file di traduzioni - come quando hai tradotto il tuo primo oggetto.
 
-![Gruppo di oggetti senza traduzione nel menu creativo](/assets/develop/items/itemgroups_0.png)
+![Scheda senza traduzione nell'inventario in Creativa](/assets/develop/items/itemgroups_0.png)
 
 ## Aggiungere una Chiave di Traduzione {#adding-a-translation-key}
 
-Se avessi per caso usato `Text.translatable` per il metodo `displayName` del costruttore del gruppo di oggetti, dovrai aggiungere la traduzione al tuo file di lingua.
+Se avessi per caso usato `Component.translatable` per il metodo `title` del costruttore della scheda, dovrai aggiungere la traduzione al tuo file di lingua.
 
 ```json
 {
@@ -29,6 +30,6 @@ Se avessi per caso usato `Text.translatable` per il metodo `displayName` del cos
 }
 ```
 
-Ora, come puoi notare, il gruppo di oggetti dovrebbe avere il nome corretto:
+Ora, come puoi notare, la scheda dovrebbe avere il nome corretto:
 
-![Gruppo di oggetti completo con traduzione e oggetti](/assets/develop/items/itemgroups_1.png)
+![Scheda d'inventario completata, con traduzione e oggetti](/assets/develop/items/itemgroups_1.png)

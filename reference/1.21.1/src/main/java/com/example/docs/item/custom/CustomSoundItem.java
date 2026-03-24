@@ -1,46 +1,46 @@
 package com.example.docs.item.custom;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 
 public class CustomSoundItem extends Item {
-	public CustomSoundItem(Settings settings) {
+	public CustomSoundItem(Properties settings) {
 		super(settings);
 	}
 
 	// :::1
 	@Override
-	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
 		// As stated above, don't use the playSound() method on the client side
 		// ... it won't work!
-		if (!entity.getWorld().isClient()) {
+		if (!entity.level().isClientSide()) {
 			// Play the sound as if it was coming from the entity.
-			entity.playSound(SoundEvents.ENTITY_PILLAGER_AMBIENT, 2f, 0.7f);
+			entity.playSound(SoundEvents.PILLAGER_AMBIENT, 2f, 0.7f);
 		}
 
-		return super.useOnEntity(stack, user, entity, hand);
+		return super.interactLivingEntity(stack, user, entity, hand);
 	}
 
 	// :::1
 	// :::2
 	@Override
-	public ActionResult useOnBlock(ItemUsageContext context) {
-		if (!context.getWorld().isClient()) {
+	public InteractionResult useOn(UseOnContext context) {
+		if (!context.getLevel().isClientSide()) {
 			// Play the sound and specify location, category and who made the sound.
 			// No entity made the sound, so we specify null.
-			context.getWorld().playSound(null, context.getBlockPos(),
-					SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.PLAYERS,
+			context.getLevel().playSound(null, context.getClickedPos(),
+					SoundEvents.COPPER_PLACE, SoundSource.PLAYERS,
 					1f, 1f);
 		}
 
-		return super.useOnBlock(context);
+		return super.useOn(context);
 	}
 
 	// :::2

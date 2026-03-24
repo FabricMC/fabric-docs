@@ -57,11 +57,11 @@ You can also use `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` to c
 
 To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
-### Adding Your Block's Item to an Item Group {#adding-your-block-s-item-to-an-item-group}
+### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 
-Since the `BlockItem` is automatically created and registered, to add it to an item group, you must use the `Block.asItem()` method to get the `BlockItem` instance.
+Since the `BlockItem` is automatically created and registered, to add it to a creative tab, you must use the `Block.asItem()` method to get the `BlockItem` instance.
 
-For this example, we'll use a custom item group created in the [Custom Item Groups](../items/custom-item-groups) page.
+For this example, we'll use the tab we created in the [Custom Creative Tabs](../items/custom-creative-tabs) page.
 
 @[code transcludeWith=:::6](@/reference/1.21.10/src/main/java/com/example/docs/block/ModBlocks.java)
 
@@ -154,7 +154,7 @@ This example adds the "Condensed Dirt" block to the `shovel` tag.
 
 @[code](@/reference/1.21.10/src/main/resources/data/minecraft/tags/mineable/shovel.json)
 
-If you wish for a tool to be required to mine the block, you'll want to append `.requiresTool()` to your block settings, as well as add the appropriate mining level tag.
+If you wish for a tool to be required to mine the block, you'll want to append `.requiresCorrectToolForDrops()` to your block settings, as well as add the appropriate mining level tag.
 
 ## Mining Levels {#mining-levels}
 

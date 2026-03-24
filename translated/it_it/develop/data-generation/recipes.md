@@ -2,6 +2,7 @@
 title: Generazione di Ricette
 description: Una guida per configurare la generazione di ricette con datagen.
 authors:
+  - CelDaemon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
@@ -9,23 +10,27 @@ authors-nogithub:
   - mcrafterzz
 ---
 
+<!---->
+
 :::info PREREQUISITI
+
 Assicurati di aver prima completato il processo di [configurazione della datagen](./setup).
+
 :::
 
 ## Configurazione {#setup}
 
-Anzitutto, ci serve il nostro fornitore. Crea una classe che `extends FabricRecipeProvider`. Tutta la nostra generazione di ricette avverrà nel metodo `generate` del nostro fornitore.
+Anzitutto, ci serve il nostro fornitore. Crea una classe che estenda `FabricRecipeProvider`. Tutta la nostra generazione di ricette avverrà nel metodo `buildRecipes` del nostro fornitore.
 
 @[code lang=java transcludeWith=:::datagen-recipes:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transcludeWith=:::datagen-recipes:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 ## Ricette Senza Forma {#shapeless-recipes}
 
-Le ricette senza forma non sono complesse. Basta aggiungerle al metodo `generate` nel tuo fornitore:
+Le ricette senza forma non sono complesse. Basta aggiungerle al metodo `buildRecipes` nel tuo fornitore:
 
 @[code lang=java transcludeWith=:::datagen-recipes:shapeless](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
@@ -35,8 +40,10 @@ Per una ricetta con forma, dovrai definire la forma con una `String`, poi defini
 
 @[code lang=java transcludeWith=:::datagen-recipes:shaped](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
-:::tip
-Ci sono tanti metodi ausiliari per la creazione di ricette tipiche. Controlla ciò che `RecipeProvider` ha da offrire! Usa `Alt + 7` in IntelliJ per aprire la struttura di una classe, inclusa una lista dei metodi.
+::: tip
+
+Ci sono tanti metodi ausiliari per la creazione di ricette tipiche. Controlla ciò che `RecipeProvider` ha da offrire! Usa <kbd>Alt</kbd>+<kbd>7</kbd> in IntelliJ per aprire la struttura di una classe, inclusa una lista dei metodi.
+
 :::
 
 ## Altre Ricette {#other-recipes}
@@ -44,5 +51,3 @@ Ci sono tanti metodi ausiliari per la creazione di ricette tipiche. Controlla ci
 Altre ricette funzionano in maniera simile, ma richiedono alcuni parametri aggiuntivi. Per esempio, le ricette di fusioni devono includere la quantità di esperienza da assegnare.
 
 @[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
-
-## Tipi di Ricette Personalizzati {#custom-recipe-types}

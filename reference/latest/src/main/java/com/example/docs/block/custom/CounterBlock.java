@@ -34,14 +34,13 @@ public class CounterBlock extends BaseEntityBlock {
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new CounterBlockEntity(pos, state);
 	}
-
 	// :::1
 
 	// :::2
 	@Override
-	protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
-		if (!(world.getBlockEntity(pos) instanceof CounterBlockEntity counterBlockEntity)) {
-			return super.useWithoutItem(state, world, pos, player, hit);
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+		if (!(level.getBlockEntity(pos) instanceof CounterBlockEntity counterBlockEntity)) {
+			return super.useWithoutItem(state, level, pos, player, hit);
 		}
 
 		counterBlockEntity.incrementClicks();
@@ -49,16 +48,14 @@ public class CounterBlock extends BaseEntityBlock {
 
 		return InteractionResult.SUCCESS;
 	}
-
 	// :::2
 
 	// :::3
 	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return createTickerHelper(type, ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntity::tick);
 	}
-
 	// :::3
 
 	// :::1

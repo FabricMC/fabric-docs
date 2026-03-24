@@ -1,25 +1,25 @@
 package com.example.docs.networking.payload;
 
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
 import com.example.docs.sound.FabricDocsReferenceSounds;
 
-public record EngineSoundInstancePacket(boolean shouldStart, BlockPos blockEntityPos) implements CustomPayload {
-	public static final CustomPayload.Id<EngineSoundInstancePacket> IDENTIFIER =
-			new CustomPayload.Id<>(FabricDocsReferenceSounds.identifierOf("sound_instance"));
+public record EngineSoundInstancePacket(boolean shouldStart, BlockPos blockEntityPos) implements CustomPacketPayload {
+	public static final CustomPacketPayload.Type<EngineSoundInstancePacket> IDENTIFIER =
+			new CustomPacketPayload.Type<>(FabricDocsReferenceSounds.identifierOf("sound_instance"));
 
 	@Override
-	public Id<? extends CustomPayload> getId() {
+	public Type<? extends CustomPacketPayload> type() {
 		return IDENTIFIER;
 	}
 
-	public static final PacketCodec<RegistryByteBuf, EngineSoundInstancePacket> CODEC = PacketCodec.tuple(
-			PacketCodecs.BOOLEAN, EngineSoundInstancePacket::shouldStart,
-			BlockPos.PACKET_CODEC, EngineSoundInstancePacket::blockEntityPos,
+	public static final StreamCodec<RegistryFriendlyByteBuf, EngineSoundInstancePacket> CODEC = StreamCodec.composite(
+			ByteBufCodecs.BOOL, EngineSoundInstancePacket::shouldStart,
+			BlockPos.STREAM_CODEC, EngineSoundInstancePacket::blockEntityPos,
 			EngineSoundInstancePacket::new
 	);
 }

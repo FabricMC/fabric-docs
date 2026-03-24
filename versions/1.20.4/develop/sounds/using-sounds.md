@@ -11,7 +11,7 @@ Minecraft has a big selection of sounds which you can choose from. Check out the
 
 Make sure to execute the `playSound()` method on the logical server side when using sounds!
 
-In this example, the `useOnEntity()` and `useOnBlock()` methods for a custom interactive item are used to play a "placing copper block" and a pillager sound.
+In this example, the `interactLivingEntity()` and `useOn()` methods for a custom interactive item are used to play a "placing copper block" and a pillager sound.
 
 @[code lang=java transcludeWith=:::1](@/reference/1.20.4/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
@@ -23,7 +23,7 @@ The `playSound()` method is used with the `LivingEntity` object. Only the SoundE
 
 The SoundEvent defines which sound will be played. You can also [register your own SoundEvents](./custom) to include your own sound.
 
-Minecraft has several audio sliders in the in-game settings. The `SoundCategory` enum is used to determine which slider will adjust your sound's volume.
+Minecraft has several audio sliders in the in-game settings. The `SoundSource` enum is used to determine which slider will adjust your sound's volume.
 
 ### Volume and Pitch {#volume-and-pitch}
 

@@ -1,22 +1,20 @@
 package com.example.docs.item.custom;
 
 import java.util.List;
-
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import com.example.docs.component.ModComponents;
 
 //::1
 public class CounterItem extends Item {
-	public CounterItem(Settings settings) {
+	public CounterItem(Properties settings) {
 		super(settings);
 	}
 
@@ -24,12 +22,12 @@ public class CounterItem extends Item {
 
 	@Override
 	//::2
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		ItemStack stack = user.getStackInHand(hand);
+	public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+		ItemStack stack = user.getItemInHand(hand);
 
 		// Don't do anything on the client
-		if (world.isClient()) {
-			return TypedActionResult.success(stack);
+		if (world.isClientSide()) {
+			return InteractionResultHolder.success(stack);
 		}
 
 		// Read the current count and increase it by one
@@ -37,17 +35,17 @@ public class CounterItem extends Item {
 		stack.set(ModComponents.CLICK_COUNT_COMPONENT, ++count);
 
 		// Return the original stack
-		return TypedActionResult.success(stack);
+		return InteractionResultHolder.success(stack);
 	}
 
 	//::2
 
 	@Override
 	//::3
-	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-		if (stack.contains(ModComponents.CLICK_COUNT_COMPONENT)) {
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
+		if (stack.has(ModComponents.CLICK_COUNT_COMPONENT)) {
 			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
-			tooltip.add(Text.translatable("item.example-mod.counter.info", count).formatted(Formatting.GOLD));
+			tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 		}
 	}
 

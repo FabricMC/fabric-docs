@@ -1,26 +1,23 @@
 package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
-
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
-
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-
+import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceLocation;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
 public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvider {
-	protected FabricDocsReferenceEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	protected FabricDocsReferenceEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}
 
 	@Override
-	public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
+	public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
 		// :::datagen-translations:provider
 		// :::datagen-translations:build
 		translationBuilder.add("text.fabric_docs_reference.greeting", "Hello there!");
@@ -32,7 +29,7 @@ public class FabricDocsReferenceEnglishLangProvider extends FabricLanguageProvid
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
 
-		translationBuilder.add(Util.createTranslationKey("effect", Identifier.of("fabric-docs-reference", "tater")), "Tater");
+		translationBuilder.add(Util.makeDescriptionId("effect", ResourceLocation.fromNamespaceAndPath("fabric-docs-reference", "tater")), "Tater");
 
 		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
 		// to add translations from an existing language file instead of manually defining them all.

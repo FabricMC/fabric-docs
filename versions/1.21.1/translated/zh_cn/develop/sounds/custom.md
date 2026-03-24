@@ -40,8 +40,8 @@ authors:
 要将自定义声音添加到模组，在你的[模组的初始化器](./getting-started/project-structure#entrypoints)中注册 SoundEvent。
 
 ```java
-Registry.register(Registries.SOUND_EVENT, Identifier.of(MOD_ID, "metal_whistle"),
-        SoundEvent.of(Identifier.of(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistriesSOUND_EVENT, ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
+        SoundEvent.of(ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
 ```
 
 ## 整理整理 {#cleaning-up-the-mess}

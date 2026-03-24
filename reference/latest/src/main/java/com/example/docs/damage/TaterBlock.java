@@ -17,14 +17,14 @@ public class TaterBlock extends Block {
 	}
 
 	@Override
-	public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
-		if (entity instanceof LivingEntity && world instanceof ServerLevel serverWorld) {
+	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+		if (entity instanceof LivingEntity && level instanceof ServerLevel serverLevel) {
 			DamageSource damageSource = new DamageSource(
-					world.registryAccess()
+					level.registryAccess()
 							.lookupOrThrow(Registries.DAMAGE_TYPE)
 							.get(ExampleModDamageTypes.TATER_DAMAGE.identifier()).get()
 			);
-			entity.hurtServer(serverWorld, damageSource, 5.0f);
+			entity.hurtServer(serverLevel, damageSource, 5.0f);
 		}
 	}
 }

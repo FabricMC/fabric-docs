@@ -7,6 +7,7 @@ Parameter werden in den meisten Befehlen verwendet. Manchmal sind sie optional, 
 Mehrdeutigkeit besteht, die vermieden werden sollte.
 
 @[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 In diesem Fall musst du nach dem Befehlstext `/command_with_arg` eine ganze Zahl eingeben. Wenn du zum Beispiel `/command_with_arg 3` ausführst, erhältst du eine Rückmeldungsnachricht:
@@ -18,6 +19,7 @@ Wenn du `/command_with_arg` ohne Argumente eingibst, kann der Befehl nicht korre
 Dann fügen wir ein optionales zweites Argument hinzu:
 
 @[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Jetzt kannst du eine oder zwei ganze Zahlen eingeben. Wenn du eine ganze Zahl eingibst, wird ein Feedback-Text mit einem einzigen Wert ausgegeben. Wenn du zwei Ganzzahlen angibst, wird ein Feedback-Text mit zwei Werten ausgegeben.
@@ -25,6 +27,7 @@ Jetzt kannst du eine oder zwei ganze Zahlen eingeben. Wenn du eine ganze Zahl ei
 Du kannst es unnötig finden, ähnliche Ausführungen zweimal anzugeben. Daher können wir eine Methode erstellen, die in beiden Ausführungen verwendet wird.
 
 @[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code lang=java transcludeWith=:::execute_common](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 ## Benutzerdefinierte Argumenttypen {#custom-argument-types}
@@ -35,15 +38,17 @@ Du musst die Methode "parse" implementieren, die die Eingabezeichenfolge zu dem 
 
 Du kannst zum Beispiel einen Argumenttyp erstellen, der eine `BlockPos` aus einer Zeichenkette mit dem folgenden Format parst: `{x, y, z}`
 
-@[code lang=java highlight={3,5,6,7} transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
 
 ### Benutzerdefinierte Argumenttypen registrieren {#registering-custom-argument-types}
 
-:::warning
+::: warning
+
 Du musst den benutzerdefinierten Argumenttyp sowohl im Server als auch im Client registrieren, sonst wird der Befehl nicht funktionieren!
+
 :::
 
-Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` deines [Mod-Initialisierers](./getting-started/project-structure#entrypoints) mit der Klasse `ArgumentTypeRegistry` registrieren:
+Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` deines [Mod-Initialisierers](../getting-started/project-structure#entrypoints) mit der Klasse `ArgumentTypeRegistry` registrieren:
 
 @[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
@@ -52,12 +57,13 @@ Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` d
 Wir können unseren benutzerdefinierten Argumenttyp in einem Befehl verwenden, indem wir eine Instanz davon an die Methode `.argument` im Builder des Befehls übergeben.
 
 @[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+
 @[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
 
 Durch das Ausführen des Befehls, können wir testen, ob der Argumenttyp funktioniert oder nicht:
 
-![Ergebnis des Befehls](/assets/develop/commands/custom-arguments_result.png)
-
 ![Ungültiges Argument](/assets/develop/commands/custom-arguments_fail.png)
 
 ![Gültiges Argument](/assets/develop/commands/custom-arguments_valid.png)
+
+![Ergebnis des Befehls](/assets/develop/commands/custom-arguments_result.png)

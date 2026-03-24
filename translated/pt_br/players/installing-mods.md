@@ -11,55 +11,57 @@ Para launchers de terceiros, você deve consultar suas devidas documentações.
 
 ## 1. Baixar o Mod
 
-:::warning
-Você deve baixar mods apenas de fontes que confia. Para mais informações sobre achar mods, veja o guia [Encontrando Mods Confiáveis](./finding-mods).
+::: warning
+
+Você deve baixar mods apenas de fontes que confia. Para mais informações sobre como encontrar mods, veja o guia [Encontrando Mods Confiáveis](./finding-mods).
+
 :::
 
-A maioria dos mods necessitam do Fabric API, que pode ser baixado através do [Modrinth](https://modrinth.com/mod/fabric-api) ou [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
+A maioria dos mods requer Fabric API, o qual pode ser instalado por meio do [Modrinth](https://modrinth.com/mod/fabric-api) ou [CurseForge](https://curseforge.com/minecraft/mc-mods/fabric-api).
 
-Ao baixar mods, certifique-se de que:
+Ao instalar mods, certifique-se de que:
 
-- Eles funcionam na versão do Minecraft que você quer jogar. Um mod feito para a versão 1.20, por exemplo, pode não funcionar na versão 1.20.2.
-- Eles são para o Fabric, não outro mod loader (carregador de mods).
-- Eles são feitos para a edição certa do Minecraft (Edição Java).
+- Eles funcionam na versão do Minecraft você quer jogar. Por exemplo, um mod feito para a versão 1.21.8, pode não funcionar na versão 1.21.11.
+- São para Fabric, não outro loader.
+- São para a edição correta do Minecraft (Java Edition).
 
-## 2. Mover o Mod para a Pasta `mods`
+## 2. Mova o Mod para a pasta `mods` {#2-move-the-mod-to-the-mods-folder}
 
-A pasta de mods pode ser encontrada nos seguintes locais para cada sistema operacional.
+A pasta mods pode ser encontrada nos seguintes locais para cada sistema operacional.
 
-Você pode colar esses endereços na barra de endereços do seu navegador de arquivos para rapidamente achar a pasta.
+Você pode colar esses caminhos na barra de endereços do seu explorador de arquivos para rapidamente achar a pasta.
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\mods
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/mods
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/mods
 ```
 
 :::
 
-Encontrada a pasta `mods`, você pode mover os arquivos `.jar` dos mods para dentro dela.
+Uma vez encontrada a pasta `mods`, você pode mover os arquivos `.jar` dos mods para dentro dela.
 
-![Mods instalados na pasta de mods](/assets/players/installing-mods.png)
+![Installed mods in the mods folder](/assets/players/installing-mods.png)
 
-## 3. Tudo Pronto!
+## 3. Pronto! {#3-you-re-done}
 
-Assim que movidos os mods para a pasta `mods`, você pode abrir o Minecraft Launcher, selecionar o perfil Fabric através do botão no canto inferior esquerdo e clicar em jogar!
+Uma vez que os mods foram movidos para a pasta `mods`, você pode abrir o Minecraft Launcher e selecionar o perfil do Fabric no menu suspenso no canto inferior esquerdo e clicar em jogar!
 
-![Minecraft Launcher com o perfil Fabric selecionado](/assets/players/installing-fabric/launcher-screen.png)
+![Minecraft Launcher with Fabric profile selected](/assets/players/installing-fabric/launcher-screen.png)
 
-## Solução de Problemas
+## Solução de problemas {#troubleshooting}
 
-Se você encontrar algum problema, sinta-se à vontade para pedir ajuda no [Discord do Fabric](https://discord.gg/v6v4pMv) no canal `#player-support`.
+Se encontrar algum problema enquanto segue o guia, você pode pedir ajuda no [Discord do Fabric](https://discord.fabricmc.net/) no canal `#player-support`.
 
-Você também pode tentar diagnosticar o problema por si mesmo através das páginas de solução de problemas:
+Você também pode tentar resolver o problema por conta própria lendo as páginas de solução de problemas:
 
-- [Relatórios de Crash](./troubleshooting/crash-reports)
-- [Upload de Logs](./troubleshooting/uploading-logs)
+- [Crash Reports](./troubleshooting/crash-reports)
+- [Uploading Logs](./troubleshooting/uploading-logs)

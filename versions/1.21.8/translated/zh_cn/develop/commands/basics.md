@@ -146,7 +146,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 
 - 泛型问题 -你可能遇到了泛型问题。 如果你在注册服务器命令（大多数情况都是如此），确保你在静态导入中使用 `CommandManager.literal` 或 `CommandManager.argument` 而不是`LiteralArgumentBuilder.literal` 或 `RequiredArgumentBuilder.argument`。
 
-- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Text`。
+- 检查 `sendFeedback()` 方法 - 你可能忘记了提供第二个参数（一个布尔值）。 还需要注意，从 Minecraft 1.20 开始，第一个参数是 `Supplier<Text>` 而不是 `Component`。
 
 - 命令应该返回整数：注册命令时，`executes()` 方法接受一个 `Command` 对象，通常是 lambda。 这个 lambda 应该返回整数，而不是其他的类型。
 
@@ -156,7 +156,7 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 You can do this, but it is not recommended. You would get the `CommandManager` from the server and add anything commands
 you wish to its `CommandDispatcher`.
 
-然后需要通过 `CommandManager.sendCommandTree(ServerPlayerEntity)` 向每个玩家再次发送命令树。
+然后需要通过 `CommandManager.sendCommandTree(ServerPlayer)` 向每个玩家再次发送命令树。
 
 这是必需的，因为客户端已经缓存了命令树并在登录过程中（或发出管理员数据包时）使用，以用于本地的补全和错误消息。
 :::
@@ -167,7 +167,7 @@ you wish to its `CommandDispatcher`.
 You can also do this, however, it is much less stable than registering commands at runtime and could cause unwanted side
 effects.
 
-为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayerEntity)` 向每个玩家发送命令树。
+为简化事情，你需要在 brigadier 中使用反射并移除这个节点， 然后还需要再次使用 `sendCommandTree(ServerPlayer)` 向每个玩家发送命令树。
 
 如果不发送更新的命令树，客户端可能还是会认为命令依然存在，即使服务器无法执行。
 :::

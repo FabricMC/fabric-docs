@@ -20,9 +20,9 @@ Iniziamo dichiarando un attributo per conservare la tua istanza `Potion`. Userem
 
 @[code lang=java transclude={18-27}](@/reference/1.21.8/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-Passiamo una istanza di `StatusEffectInstance`, che accetta 3 parametri:
+Passiamo una istanza di `MobEffectInstance`, che accetta 3 parametri:
 
-- `RegistryEntry<StatusEffect> type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso la classe vanilla `StatusEffects`.
+- `Holder<MobEffect> type` - Un effetto. Qui usiamo il nostro effetto personalizzato. In alternativa puoi accedere agli effetti vanilla attraverso la classe vanilla `MobEffects`.
 - `int duration` - Durata dell'effetto espressa in tick di gioco.
 - `int amplifier` - Un amplificatore per l'effetto. Per esempio, Sollecitudine II avrebbe un amplificatore di 1.
 
@@ -32,15 +32,15 @@ Per creare il tuo effetto personalizzato per la pozione, per favore guarda la gu
 
 ### Registrare la Pozione {#registering-the-potion}
 
-Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUILD` per registrare la nostra pozione usando il metodo `BrewingRecipeRegistry.registerPotionRecipe`.
+Nel nostro initializer, useremo l'evento `FabricPotionBrewingBuilder.BUILD` per registrare la nostra pozione usando il metodo `PotionBrewing.addMix`.
 
 @[code lang=java transclude={29-40}](@/reference/1.21.8/src/main/java/com/example/docs/potion/FabricDocsReferencePotions.java)
 
-`registerPotionRecipe` accetta 3 parametri:
+`addMix` accetta 3 parametri:
 
-- `RegistryEntry<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
+- `Holder<Potion> input` - La voce di registry della pozione iniziale. Solitamente questa può essere una Ampolla d'Acqua o una Pozione Strana.
 - `Item item` - L'oggetto che rappresenta l'ingrediente principale della pozione.
-- `RegistryEntry<Potion> output` - La voce di registry della pozione risultante.
+- `Holder<Potion> output` - La voce di registry della pozione risultante.
 
 Una volta registrato, puoi distillare una pozione Tater usando una patata.
 

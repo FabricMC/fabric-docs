@@ -1,8 +1,10 @@
 ---
 title: Instalando Java no Windows
-description: Um guia passo a passo de como instalar Java no Windows.
+description: Um guia passo a passo de como instalar o Java no Windows.
 authors:
   - IMB11
+  - skycatminepokie
+next: false
 ---
 
 Este guia o orientará na instalação do Java 17 no Windows.
@@ -13,7 +15,7 @@ O Launcher do Minecraft vem com sua própria instalação do Java, portanto esta
 
 Para verificar se o Java já está instalado, você deve primeiro abrir o prompt de comando.
 
-Você pode fazer isso apertando <kbd>Win</kbd>+<kbd>R</kbd> e digitando `cmd.exe` na janela aberta.
+Você pode fazer isso pressionando <kbd>Windows</kbd>+<kbd>R</kbd> e digitando `cmd.exe` na caixa que aparecerá.
 
 ![Caixa de diálogo Executar do Windows com "cmd.exe" na barra de execução](/assets/players/installing-java/windows-run-dialog.png)
 
@@ -23,41 +25,51 @@ Se o comando for executado com êxito, você verá algo parecido com isto. Se o 
 
 ![Prompt de comando com "java -version" digitado](/assets/players/installing-java/windows-java-version.png)
 
-:::warning
-Para usar a maioria das versões modernas do Minecraft, você precisará ter pelo menos o Java 17 instalado. Se este comando exibir uma versão inferior a 17, será necessário atualizar sua instalação do Java atual.
+::: warning
+
+Para usar o Minecraft 1.21.11, você precisará ter, pelo menos, o Java 21 instalado.
+
+Se esse comando exibir qualquer versão inferior a 21, você precisará atualizar o seu Java; continue lendo essa página.
+
 :::
 
-## 2. Baixar o Instalador do Java 17
+## 2. Baixar o instalador do Java 21 {#2-download-the-java-installer}
 
-Para instalar o Java 17, você precisará baixar o instalador pelo [Adoptium](https://adoptium.net/en-GB/temurin/releases/?os=windows&package=jdk&version=17).
+Para instalar o Java 21, você precisará baixar o instalador direto do [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
 
-Você deverá baixar a versão `Windows Installer (.msi)`:
+Você precisará baixar a versão do `Windows Installer (.msi)`:
 
-![Página de download do Adoptium com Windows Installer (.msi) destacado](/assets/players/installing-java/windows-download-java.png)
+![Página para baixar o Adoptium com Windows Installer (.msi) highlighted](/assets/players/installing-java/windows-download-java.png)
 
-Você deverá escolher 'x86' se tiver um sistema operacional 32-bit, ou 'x64' se tiver um sistema operacional 64-bit.
+Você deverá escolher `x86` se você tiver um sistema 32-bit ou `x64` se você tiver um sistema 64-bit.
 
-A maioria dos computadores modernos terão um sistema operacional 64-bit. Em caso de dúvida, tente usar o download 64-bit.
+A vasta maioria dos computadores modernos terão um sistema 64-bit. Se você não tiver certeza, tente baixar o instalador para 64-bit.
 
-## 3. Executar o Instalador!
+## 3. Execute o instalador! {#3-run-the-installer}
 
-Siga os passos do instalador para instalar o Java 17. Ao chegar nesta página, você deve definir os seguintes recursos como "Todo o recurso será instalado no disco rígido local":
+Siga as instruções para instalar o Java 21. Quando você chegar até essa página, você deve configurar os seguintes recursos para "Todos os recursos serão instalados no Disco Local":
 
-- `Set JAVA_HOME environment variable` - Isso será adicionado ou seu PATH.
+- `Set JAVA_HOME environment variable` - Isso será adicionado ao diretório PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Instalador do Java 17 com "Set JAVA_HOME variable" e "JavaSoft (Oracle) registry keys" destacados](/assets/players/installing-java/windows-wizard-screenshot.png)
+![O Instalador de Java 21 "Set JAVA_HOME variable" e as Chaves de Registro "JavaSoft (Oracle)" destacadas](/assets/players/installing-java/windows-wizard-screenshot.png)
 
-Assim que fizer isto, clique em 'Next' e continue com a instalação.
+Uma vez que tenha feito isso, você pode clicar em `Next` e continuar com a Instalação.
 
-## 4. Verificar se o Java 17 está instalado
+::: warning
 
-Assim que a instalação terminar, você pode verificar se o Java 17 está instalado abrindo o prompt de comando novamente e digitando `java -version`.
+Nem sempre o Windows dirá para outros programas que o Java está instalado, pelo menos até que o computador seja reiniciado.
 
-Se o comando for executado com êxito, você verá algo como mostrado anteriormente onde a versão do Java é exibida:
+**Certifique-se de reiniciar o seu computador antes de continuar!**
+
+:::
+
+## 4. Verificar se o Java 21 está instalado {#4-verify-that-java-is-installed}
+
+Uma que vez que a instalação esteja completa, você pode se certificar disso abrindo um terminal de comando e digitando `java -version`.
+
+Se o comando for executado corretamente, você verá o que foi mostrado anteriormente, no local onde a versão do Java é mostrada:
 
 ![Prompt de comando com "java -version" digitado](/assets/players/installing-java/windows-java-version.png)
 
----
-
-Se você encontrar algum problema, sinta-se à vontade para pedir ajuda no [Discord do Fabric](https://discord.gg/v6v4pMv) no canal `#player-support`.
+Se você encontrar problemas, sinta-se a vontade para pedir ajuda em [Discord do Fabric](https://discord.fabricmc.net/) no canal `#player-support`.

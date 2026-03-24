@@ -16,7 +16,9 @@ next: false
 Download the `.exe` version of the Fabric Installer from the [Fabric Website](https://fabricmc.net/use/), by clicking on `Download for Windows`.
 
 ::: tip
+
 The `.exe` version for Windows does not require Java to be installed, because it uses the Java bundled with the official Minecraft Launcher.
+
 :::
 
 ## 2. Run the Fabric Installer {#2-run-the-fabric-installer}
@@ -39,4 +41,4 @@ Once installation completes, open the Minecraft Launcher. Then select the Fabric
 
 You can now add mods to your game. See the [Finding Trustworthy Mods](../finding-mods) guide for info.
 
-If you encounter issues, feel free to ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` channel.
+If you encounter issues, feel free to ask for help in the [Fabric Discord](https://discord.fabricmc.net/) in the `#player-support` channel.

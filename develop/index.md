@@ -16,7 +16,9 @@ This documentation will walk you through modding with Fabric, from [creating you
 Check out the sidebar for a list of the available pages.
 
 ::: tip
+
 In case you need it at any time, a fully-working mod with all the source code of this documentation is available in the [`/reference` folder on GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest).
+
 :::
 
 ## Prerequisites {#prerequisites}

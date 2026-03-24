@@ -22,15 +22,15 @@ search: false
 
 이 튜토리얼에서는, 매 틱마다 플레이어에게 경험 포인트를 주는 새로운 사용자 정의 효과 _Tater_ 를 만들어 보겠습니다.
 
-### `StatusEffect` 확장
+### `MobEffect` 확장
 
-모든 효과의 기본이 되는 `StatusEffect` 클래스의 사용자 정의 확장 클래스를 만들어 봅시다.
+모든 효과의 기본이 되는 `MobEffect` 클래스의 사용자 정의 확장 클래스를 만들어 봅시다.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
 
 ### 사용자 정의 효과 등록하기
 
-블록, 아이템 등록처럼, `Registry.register`를 통해 `STATUS_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
+블록, 아이템 등록처럼, `Registry.register`를 통해 `MOB_EFFECT` 레지스트리에 사용자 정의 효과를 등록할 수 있습니다. 이는 모드 초기화 단계에서 완료되어야 합니다.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
 

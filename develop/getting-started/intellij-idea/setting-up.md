@@ -25,8 +25,12 @@ next:
   link: ./opening-a-project
 ---
 
+<!---->
+
 ::: info PREREQUISITES
+
 Make sure you've [installed a JDK](../setting-up#install-jdk-21) first.
+
 :::
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}
@@ -40,7 +44,9 @@ If you do not have IntelliJ IDEA installed, you can download it from the [offici
 The Minecraft Development plugin provides support for modding with Fabric, and it is the most important plugin to install.
 
 ::: tip
+
 Although this plugin isn't strictly necessary, it can make modding with Fabric much easier - you should consider installing it.
+
 :::
 
 You can install it by opening IntelliJ IDEA, and then navigating to **File** > **Settings** > **Plugins** > **Marketplace** tab, then search for `Minecraft Development` in the search bar, and click the **Install** button.

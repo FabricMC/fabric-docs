@@ -11,11 +11,11 @@ Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mo
 
 使用声音时请确保在逻辑服务端执行 `playSound()` 方法。
 
-在此示例中，自定义交互项的 `useOnEntity()` 和 `useOnBlock()` 方法用于播放“放置铜块”和掠夺者声音。
+在本例中，自定义交互式物品的 `interactLivingEntity()` 和 `useOn()` 方法用于播放“放置铜块”的声音和掠夺者的声音。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 
-`playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 播放声音事件（SoundEvent） 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 `playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 您还可以使用世界实例中的 `playSound()` 方法以获得更高级别的控制。
+`playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 你还可以使用 level 实例中的 `playSound()` 方法以获得更高级别的控制。
 
 @[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
 

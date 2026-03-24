@@ -13,10 +13,10 @@ search: false
 
 ## 사용자 정의 물약
 
-물약을 추가하는 방법은 아이템을 추가하는 방법과 비슷합니다. 물약의 인스턴스를 만들고 `BrewingRecipeRegistry.registerPotionRecipe` 를 호출해 등록해 보겠습니다.
+물약을 추가하는 방법은 아이템을 추가하는 방법과 비슷합니다. 물약의 인스턴스를 만들고 `PotionBrewing.addMix` 를 호출해 등록해 보겠습니다.
 
 :::info
-Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRegistry.registerPotionRecipe`에 접근할 수 있습니다.
+Fabric API를 사용중이라면, 액세스 위더너를 통해 `PotionBrewing.addMix`에 접근할 수 있습니다.
 :::
 
 ### 포션 만들기
@@ -25,9 +25,9 @@ Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRe
 
 @[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`StatusEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
+`MobEffectInstance` 인스턴스에는 세 가지 매개 변수를 입력해야 합니다.
 
-- `StatusEffect type` - 물약이 부여할 효과. 여기에선 사용자 정의 효과를 사용해볼 것입니다. `net.minecraft.entity.effect.StatusEffects`를 통해 바닐라 효과에 접근할 수도 있습니다.
+- `MobEffect type` - 물약이 부여할 효과. 여기에선 사용자 정의 효과를 사용해볼 것입니다. `net.minecraft.entity.effect.MobEffects`를 통해 바닐라 효과에 접근할 수도 있습니다.
 - `int duration` - 효과의 지속 시간(틱).
 - `int amplifier` - 효과의 세기. 예를 들어, 성급함 II는 1을 세기로 가지게 됩니다.
 
@@ -37,17 +37,17 @@ Fabric API를 사용중이라면, 액세스 위더너를 통해 `BrewingRecipeRe
 
 ### 포션 등록
 
-초기화 단계에서, `BrewingRecipeRegistry.registerPotionRecipe`를 호출해 봅시다.
+초기화 단계에서, `PotionBrewing.addMix`를 호출해 봅시다.
 
 @[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
 
-`registerPotionRecipe`는 세 가지 매개변수를 가집니다.
+`addMix`는 세 가지 매개변수를 가집니다.
 
 - `Potion input` - 재료가 될 물약. 일반적으로 물병 또는 어색한 물약이 사용됩니다.
 - `Item item` - 물약의 기본 재료가 될 아이템.
 - `Potion output` - 결과가 될 물약.
 
-Fabric API를 사용 중이라면, `BrewingRecipeRegistry.registerPotionRecipe`를 호출해 바로 등록할 수 있기에 Mixin Invoker를 쓸 필요는 없습니다.
+Fabric API를 사용 중이라면, `PotionBrewing.addMix`를 호출해 바로 등록할 수 있기에 Mixin Invoker를 쓸 필요는 없습니다.
 
 전체 예시는 다음과 같습니다.
 
@@ -60,11 +60,11 @@ Fabric API를 사용 중이라면, `BrewingRecipeRegistry.registerPotionRecipe`�
 ::: info
 **Registering Potions Using an `Ingredient`**
 
-Fabric API를 통해 `net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry`의 `Item`을 사용하는 대신 `Ingredient`를 사용해 물약을 등록할 수 있습니다.
+Fabric API를 통해 `net.fabricmc.fabric.api.registry.FabricPotionBrewing`의 `Item`을 사용하는 대신 `Ingredient`를 사용해 물약을 등록할 수 있습니다.
 :::
 
 ### Fabric API 없이 물약 등록
 
-Fabric API가 없으면, `BrewingRecipeRegistry.registerPotionRecipe`는 Private 접근 제한자를 가집니다. 이렇게 되면, Mixin Invoker 또는 Access Widener를 통해 이 메소드에 접근해야 합니다.
+Fabric API가 없으면, `PotionBrewing.addMix`는 Private 접근 제한자를 가집니다. 이렇게 되면, Mixin Invoker 또는 Access Widener를 통해 이 메소드에 접근해야 합니다.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/BrewingRecipeRegistryInvoker.java)
+@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/mixin/potion/PotionBrewingInvoker.java)

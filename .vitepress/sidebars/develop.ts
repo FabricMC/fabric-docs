@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import { Fabric } from "../types.d";
 
 export default [
   {
@@ -29,6 +29,10 @@ export default [
       {
         text: "develop.getting_started.generating_sources",
         link: "/develop/getting-started/generating-sources",
+      },
+      {
+        text: "develop.getting_started.building_mod",
+        link: "/develop/getting-started/building-a-mod",
       },
       {
         text: "develop.getting_started.tips_and_tricks",
@@ -76,7 +80,7 @@ export default [
       },
       {
         text: "develop.items.custom_creative_tabs",
-        link: "/develop/items/custom-item-groups",
+        link: "/develop/items/custom-creative-tabs",
       },
       {
         text: "develop.items.custom_item_interactions",
@@ -116,6 +120,14 @@ export default [
             text: "develop.blocks.block_entity_renderer",
             link: "/develop/blocks/block-entity-renderer",
           },
+          {
+            text: "develop.blocks.block_containers",
+            link: "/develop/blocks/block-containers",
+          },
+          {
+            text: "develop.blocks.container_menus",
+            link: "/develop/blocks/container-menus",
+          },
         ],
       },
       {
@@ -128,6 +140,10 @@ export default [
     text: "develop.entities",
     collapsed: true,
     items: [
+      {
+        text: "develop.entities.first_entity",
+        link: "/develop/entities/first-entity",
+      },
       {
         text: "develop.entities.attributes",
         link: "/develop/entities/attributes",
@@ -188,7 +204,7 @@ export default [
       },
       {
         text: "develop.rendering.gui_graphics",
-        link: "/develop/rendering/draw-context",
+        link: "/develop/rendering/gui-graphics",
       },
       {
         text: "develop.rendering.hud",
@@ -238,12 +254,17 @@ export default [
             link: "/develop/data-generation/translations",
           },
           {
-            text: "develop.data_generation.block_models",
-            link: "/develop/data-generation/block-models",
-          },
-          {
-            text: "develop.data_generation.item_models",
-            link: "/develop/data-generation/item-models",
+            text: "develop.data_generation.models",
+            items: [
+              {
+                text: "develop.data_generation.block_models",
+                link: "/develop/data-generation/block-models",
+              },
+              {
+                text: "develop.data_generation.item_models",
+                link: "/develop/data-generation/item-models",
+              },
+            ],
           },
         ],
       },
@@ -251,21 +272,33 @@ export default [
         text: "develop.data_generation.server",
         items: [
           {
-            text: "develop.data_generation.tags",
-            link: "/develop/data-generation/tags",
-          },
-
-          {
             text: "develop.data_generation.advancements",
             link: "/develop/data-generation/advancements",
+          },
+          {
+            text: "develop.data_generation.enchantments",
+            link: "/develop/data-generation/enchantments",
+          },
+          {
+            text: "develop.data_generation.loot_tables",
+            link: "/develop/data-generation/loot-tables",
           },
           {
             text: "develop.data_generation.recipes",
             link: "/develop/data-generation/recipes",
           },
           {
-            text: "develop.data_generation.loot_tables",
-            link: "/develop/data-generation/loot-tables",
+            text: "develop.data_generation.tags",
+            link: "/develop/data-generation/tags",
+          },
+          {
+            text: "develop.data_generation.world_generation",
+            items: [
+              {
+                text: "develop.data_generation.features",
+                link: "/develop/data-generation/features",
+              },
+            ],
           },
         ],
       },
@@ -324,26 +357,32 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.porting.current",
-        link: "/develop/porting/current",
+        text: "develop.porting.release",
+        link: "/develop/porting/",
       },
       {
-        text: "develop.porting.next",
-        link: "/develop/porting/next",
-      },
-      {
-        text: "develop.porting.migrating_mappings",
-        link: "/develop/migrating-mappings/",
+        text: "develop.porting.snapshot",
+        link: "/26.1/develop/porting/",
         items: [
           {
-            text: "develop.porting.migrating_mappings.loom",
-            link: "/develop/migrating-mappings/loom",
+            text: "develop.porting.snapshot.fabric_api",
+            link: "/26.1/develop/porting/fabric-api",
+          },
+        ],
+      },
+      {
+        text: "develop.porting.mappings",
+        link: "/develop/porting/mappings/",
+        items: [
+          {
+            text: "develop.porting.mappings.loom",
+            link: "/develop/porting/mappings/loom",
           },
           {
-            text: "develop.porting.migrating_mappings.ravel",
-            link: "/develop/migrating-mappings/ravel",
+            text: "develop.porting.mappings.ravel",
+            link: "/develop/porting/mappings/ravel",
           },
-        ],  
+        ],
       },
     ],
   },
@@ -362,12 +401,30 @@ export default [
     ],
   },
   {
+    text: "develop.class_tweakers",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.class_tweakers.introduction",
+        link: "/develop/class-tweakers/",
+      },
+      {
+        text: "develop.class_tweakers.access_widening",
+        link: "/develop/class-tweakers/access-widening",
+      },
+    ],
+  },
+  {
     text: "develop.misc",
     collapsed: true,
     items: [
       {
         text: "develop.misc.events",
         link: "/develop/events",
+      },
+      {
+        text: "develop.misc.game_rules",
+        link: "/develop/game-rules",
       },
       {
         text: "develop.misc.text_and_translations",
@@ -378,6 +435,10 @@ export default [
         link: "/develop/networking",
       },
       {
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
+      },
+      {
         text: "develop.misc.debugging",
         link: "/develop/debugging",
       },
@@ -385,6 +446,10 @@ export default [
         text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
       },
+      {
+        text: "develop.misc.custom_recipe_types",
+        link: "/develop/custom-recipe-types",
+      },
     ],
   },
-] as Fabric.SidebarItem[];
+] satisfies Fabric.SidebarItem[];
