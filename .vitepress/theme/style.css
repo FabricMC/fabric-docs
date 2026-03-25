@@ -63,7 +63,7 @@ pre {
 
 @media (min-width: 1525px) {
   .aside-container {
-    width: 300px;
+    width: 300px !important;
   }
 }
 
