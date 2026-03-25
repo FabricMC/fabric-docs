@@ -61,6 +61,12 @@ pre {
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
+@media (min-width: 1525px) {
+  .aside-container {
+    width: 300px;
+  }
+}
+
 .aside-container::-webkit-scrollbar {
   display: block;
 }
