@@ -49,8 +49,8 @@ const getFileTitle = (path: string) =>
   </VPLink>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
-  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)">
-    <code>{{ shortestUniquePaths[i] }}</code>
+  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
+    <span><code v-html="shortestUniquePaths[i].replaceAll('/', '/<wbr>')"></code> ↗</span>
   </VPLink>
 
   <div />
@@ -80,12 +80,13 @@ h2 {
   color: var(--vp-c-text-2);
 }
 
-.VPLink:has(code) {
-  align-items: center;
-}
-
 .VPLink:hover {
   color: var(--vp-c-text-1);
+}
+
+code {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 img {
