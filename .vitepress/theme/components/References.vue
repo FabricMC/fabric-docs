@@ -40,6 +40,9 @@ const getFileHref = (path: string) =>
 
 const getFileTitle = (path: string) =>
   path.replace(/^@[/]reference[/][^/]+[/]/, "").replace("com/example/docs", "...");
+
+const getFileExtension = (path: string) =>
+  path.replace(/^.*[.]([^.]+)$/, "$1").replace(/^classtweaker$/, "document");
 </script>
 
 <template>
@@ -51,7 +54,7 @@ const getFileTitle = (path: string) =>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
   <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
-    <Icon icon="material-symbols:arrow-outward" />
+    <Icon :icon="`material-icon-theme:${getFileExtension(f)}`" />
     <code>
       <template v-for="(seg, j) in shortestUniquePaths[i].split('/')" :key="j">
         <template v-if="j !== 0">/<wbr /></template>{{ seg }}
