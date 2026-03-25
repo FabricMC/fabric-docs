@@ -52,7 +52,11 @@ const getFileTitle = (path: string) =>
   <h2 v-if="files.length">{{ options.files }}</h2>
   <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
     <Icon icon="material-symbols:arrow-outward" />
-    <code v-html="shortestUniquePaths[i].replaceAll('/', '/<wbr>')" />
+    <code>
+      <template v-for="(seg, j) in shortestUniquePaths[i].split('/')" :key="j">
+        <template v-if="j !== 0">/<wbr /></template>{{ seg }}
+      </template>
+    </code>
   </VPLink>
 
   <div />
