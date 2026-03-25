@@ -88,6 +88,7 @@
   "develop.class_tweakers": "Class Tweakers",
   "develop.class_tweakers.introduction": "Introduction",
   "develop.class_tweakers.access_widening": "Access Widening",
+  "develop.class_tweakers.interface_injection": "Interface Injection",
   "develop.serialization": "Serialization",
   "develop.porting": "Porting",
   "develop.porting.release": "Porting to 1.21.11",

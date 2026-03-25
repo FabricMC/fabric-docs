@@ -408,6 +408,10 @@ export default [
         text: "develop.class_tweakers.access_widening",
         link: "/develop/class-tweakers/access-widening",
       },
+      {
+        text: "develop.class_tweakers.interface_injection",
+        link: "/develop/class-tweakers/interface-injection",
+      },
     ],
   },
   {
