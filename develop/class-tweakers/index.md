@@ -30,7 +30,22 @@ classTweaker v1 named
 
 Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
 
-Whilst the specific syntax depends on the feature, modifications are each declared on separate lines. An entry's elements can be separated using any whitespace, including tabs.
+Syntax can vary based on the feature used, but modifications are each declared as "entries" on separate lines and start with a "directive" specifying the type of modification to apply.
+An entry's elements can be separated using any whitespace, including tabs.
+
+#### Transitive Entries {#transitive-entries}
+
+In order to make your changes to the decompiled source visible to mods that depend on yours, prefix the directive, the first element of the entry with `transitive-`:
+
+```txt:no-line-numbers
+# Transitive Access Widening directive
+transitive-accessible
+transitive-extendable
+transitive-mutable
+
+# Transitive Interface Injection directive
+transitive-inject-interface
+```
 
 ### Specifying The File Location {#specifying-the-file-location}
 
