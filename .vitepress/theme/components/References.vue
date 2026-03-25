@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed } from "vue";
@@ -50,7 +51,8 @@ const getFileTitle = (path: string) =>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
   <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
-    <span><code v-html="shortestUniquePaths[i].replaceAll('/', '/<wbr>')"></code> ↗</span>
+    <Icon icon="material-symbols:arrow-outward" />
+    <code v-html="shortestUniquePaths[i].replaceAll('/', '/<wbr>')" />
   </VPLink>
 
   <div />
@@ -84,9 +86,9 @@ h2 {
   color: var(--vp-c-text-1);
 }
 
-code {
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
+svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 img {
