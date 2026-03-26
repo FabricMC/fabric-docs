@@ -66,7 +66,7 @@ Dies wird erreicht, indem die Konstante `BASE_DURABILITY`, die wir zuvor erstell
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Außerdem musst du die Items **einem Kreativtab hinzufügen**, wenn du möchtest, dass sie über das Kreativinventar zugänglich sind.
+Außerdem musst du [die Items einem Kreativtab hinzufügen](./custom-creative-tabs), wenn du möchtest, dass sie über das Inventar zugänglich sind.
 
 Wie bei allen Items solltest du auch für diese Übersetzungsschlüssel erstellen.
 

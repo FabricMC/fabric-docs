@@ -9,6 +9,9 @@ prev:
 next:
   text: Aprire un progetto in VS Code
   link: ./opening-a-project
+resources:
+  https://code.visualstudio.com/: Scarica Visual Studio Code
+  https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack: Extension Pack for Java - VS Marketplace
 ---
 
 <!---->

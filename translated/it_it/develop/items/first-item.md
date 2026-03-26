@@ -58,7 +58,7 @@ Chiamare un metodo su una classe la inizializza staticamente se non è mai stata
 
 ::: info
 
-Se volessi aggiungere l'oggetto a una `CreativeModeTab` personalizzata, consulta la pagina [Schede d'inventario personalizzate](./custom-item-groups) per maggiori informazioni.
+Se volessi aggiungere l'oggetto a una scheda in Creativa personalizzata, consulta la pagina [Schede d'inventario personalizzate](./custom-creative-tabs) per maggiori informazioni.
 
 :::
 

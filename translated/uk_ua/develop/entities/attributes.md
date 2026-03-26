@@ -4,6 +4,9 @@ description: Дізнайтеся, як додавати власні атриб
 authors:
   - cassiancc
   - cprodhomme
+resources:
+  https://minecraft.wiki/w/Attribute: Атрибути — Вікі Minecraft
+  https://docs.neoforged.net/docs/entities/attributes: Атрибути — Документація NeoForge (крім ексклюзивів Neo)
 ---
 
 Атрибути визначають властивості, якими може володіти ваша модифікована сутність. Використовуючи Fabric, ви можете створювати власні атрибути, які покращують ігрову механіку, а також застосовувати ванільні атрибути.
@@ -54,7 +57,7 @@ authors:
 
 Атрибути мають бути прикріплені до сутності, щоб набули чинності. Зазвичай це робиться в методі, де будуються або змінюються атрибути сутності.
 
-Стандартна гра також надає атрибути, зокрема [максимальне здоров’я](https://minecraft.wiki/w/Attribute#Max_health), [швидкість руху](https://minecraft.wiki/w/Attribute#Movement_speed) і [шкода від атаки](https://minecraft.wiki/w/Attribute#Attack_damage), як показано нижче. Щоб отримати повний список, дивіться стандартний клас `Attributes` і [вікі Minecraft](https://minecraft.wiki/w/Attribute).
+Стандартна гра також надає атрибути, зокрема [максимальне здоров’я](https://minecraft.wiki/w/Attribute#Max_health), [швидкість руху](https://minecraft.wiki/w/Attribute#Movement_speed) і [шкода від атаки](https://minecraft.wiki/w/Attribute#Attack_damage), як показано нижче. Щоб отримати повний список, дивіться стандартний клас `Attributes` і [Вікі Minecraft](https://minecraft.wiki/w/Attribute).
 
 У якості демонстрації ми включимо максимальне здоров’я, швидкість руху, шкоду від атаки та атрибут агродальності, створений раніше.
 

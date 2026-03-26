@@ -1,6 +1,6 @@
 ---
 title: Відкриття проєкту у VS Code
-description: Узнайте, як відкрити проєкт мода Minecraft у Visual Studio Code.
+description: Дізнайтеся, як відкрити проєкт мода Minecraft у Visual Studio Code.
 authors:
   - dicedpixels
 prev:
@@ -11,7 +11,7 @@ next:
   link: ./launching-the-game
 ---
 
-Якщо у вас уже є проєкт, ви можете відкрити його через **Файл** > **Відкрити теку**.
+Якщо у вас уже є проєкт, ви можете відкрити його через **File** > **Open Folde**.
 
 ![Відкрити файл](/assets/develop/getting-started/vscode/file-open.png)
 

@@ -5,6 +5,9 @@ authors:
   - dicedpixels
   - hiisuuii
   - MattiDragon
+resources:
+  https://minecraft.wiki/w/Damage_type: Типи шкоди — Вікі Minecraft
+  https://docs.neoforged.net/docs/resources/server/damagetypes/: Типи та джерела шкоди — Документація NeoForge (крім генерації даних)
 ---
 
 Типи шкоди визначають яку шкоду, яку можуть отримати сутності. Починаючи з Minecraft 1.19.4, з'явилося створення нових типів шкоди стають керованими даними, тобто вони створюються за допомогою файлів JSON.
@@ -25,7 +28,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ::: info
 
-Зверніться до [вікі Minecraft](https://minecraft.wiki/w/Damage_type#JSON_format), щоб дізнатися про всі можливі ключі та значення.
+Зверніться до [Вікі Minecraft](https://minecraft.wiki/w/Damage_type#JSON_format), щоб дізнатися про всі можливі ключі та значення.
 
 :::
 
@@ -79,7 +82,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ::: info
 
-Зверніться до [вікі Minecraft](https://uk.minecraft.wiki/w/%D0%A2%D0%B5%D2%91_%D1%82%D0%B8%D0%BF%D1%96%D0%B2_%D1%88%D0%BA%D0%BE%D0%B4%D0%B8_\(Java_Edition\)), щоб отримати повний список теґів типу шкоди.
+Зверніться до [Вікі Minecraft](https://uk.minecraft.wiki/w/%D0%A2%D0%B5%D2%91_%D1%82%D0%B8%D0%BF%D1%96%D0%B2_%D1%88%D0%BA%D0%BE%D0%B4%D0%B8_\(Java_Edition\)), щоб отримати повний список теґів типу шкоди.
 
 :::
 

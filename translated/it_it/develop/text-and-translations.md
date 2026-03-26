@@ -4,6 +4,8 @@ description: Documentazione esaustiva riguardo alla gestione di testo e traduzio
 authors:
   - IMB11
   - LordEnder-Kitty
+resources:
+  https://docs.neoforged.net/docs/resources/client/i18n/: I18n e L10n - NeoForge Docs (EN, tranne la generazione)
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->

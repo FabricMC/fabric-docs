@@ -40,7 +40,7 @@ authors-nogithub:
 
 @[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
-Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
+Далі нам потрібен клас точки входу. Ось де починається наша генерація даних. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
 @[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
@@ -69,7 +69,7 @@ authors-nogithub:
 
 :::
 
-Закрийте та знову відкрийте IntelliJ, щоб створити налаштування запуску для datagen.
+Закрийте та знову відкрийте IntelliJ, щоб створити налаштування запуску для генерації даних.
 
 ## Створення пакета {#creating-a-pack}
 
@@ -83,7 +83,7 @@ authors-nogithub:
 
 ## Наступні кроки {#next-steps}
 
-Тепер, коли datagen налаштовано, нам потрібно додати **постачальників**. Це те, що генерує дані для додавання до вашого `Pack`. На наступних сторінках описано, як це зробити.
+Тепер, коли генерацію даних налаштовано, нам потрібно додати **постачальників**. Це те, що генерує дані для додавання до вашого `Pack`. На наступних сторінках описано, як це зробити.
 
 - [Досягнення](./advancements)
 - [Таблиці здобичі](./loot-tables)

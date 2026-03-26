@@ -4,6 +4,8 @@ description: Повна документація щодо роботи Minecraft
 authors:
   - IMB11
   - LordEnder-Kitty
+resources:
+  https://docs.neoforged.net/docs/resources/client/i18n/: I18n і L10n — Документація NeoForge (крім генерації даних)
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->

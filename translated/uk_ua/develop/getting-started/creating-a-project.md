@@ -6,6 +6,9 @@ authors:
   - IMB11
   - radstevee
   - Thomas1034
+resources:
+  https://fabricmc.net/develop/template/: Генератор шаблона мода Fabric
+  https://fabricmc.net/develop/: Розробка з сайтом Fabric
 ---
 
 Fabric надає простий спосіб створити новий проєкт мода за допомогою генератора шаблона мода Fabric — якщо ви хочете, ви можете вручну створити новий проєкт, використовуючи приклад сховища модів, вам слід звернутися до [створення проєкту вручну](#manual-project-creation) розділ.
@@ -30,7 +33,7 @@ Fabric надає простий спосіб створити новий про
 
 ::: info
 
-У прикладах коду, наведених на цьому сайті, використовуються [офіційні назви Mojang](../migrating-mappings/#mappings). Якщо у вашому моді не використовуються ті самі мапінги, у яких написані ці документи, вам потрібно буде конвертувати приклади за допомогою таких сайтів, як [mappings.dev](https://mappings.dev/) або [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
+У прикладах коду, наведених на цьому сайті, використовуються [офіційні назви Mojang](../porting/mappings/#mappings). Якщо у вашому моді не використовуються ті самі мапінги, у яких написані ці документи, вам потрібно буде конвертувати приклади за допомогою таких сайтів, як [mappings.dev](https://mappings.dev/) або [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
 
 :::
 
@@ -82,6 +85,6 @@ git clone https://github.com/FabricMC/fabric-example-mod/ example-mod
 
 - Змініть файл `gradle.properties` проєкту, щоб змінити властивості `maven_group` і `archive_base_name` відповідно до деталей вашого мода.
 - Змініть файл `fabric.mod.json`, щоб змінити властивості `id`, `name` і `description` відповідно до деталей вашого мода.
-- Переконайтеся, що ви оновили версії Minecraft, мапінги завантажувач і Loom, які можна отримати через <https://fabricmc.net/develop/>, щоби відповідати версіям, на які ви хочете націлити.
+- Переконайтеся, що ви оновили версії Minecraft, мапінги, Завантажувач і Loom, які можна отримати через <https://fabricmc.net/develop/>, щоб відповідати версіям, на які ви хочете націлити.
 
 Очевидно, ви можете змінити назву пакета та основний клас мода, щоб відповідати деталям вашого мода.

@@ -1,12 +1,17 @@
 ---
 title: Генерація моделі блока
-description: Тут ви можете навчитися генерувати стани та моделі блоків за допомогою datagen.
+description: Тут ви можете навчитися генерувати стани та моделі блоків за допомогою генерації даних.
 authors:
   - CelDaemon
   - Fellteros
   - IMB11
   - its-miroma
   - natri0
+resources:
+  https://www.blockbench.net/: Завантажити Blockbench
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Приклад тестів з Fabric API
+  https://github.com/Fellteros/vanillablocksplus: Vanilla+ Blocks від Fellteros
+  https://github.com/Fellteros/vanillavsplus: Vanilla+ Verticals від Fellteros
 ---
 
 <!---->
@@ -53,7 +58,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/steel_block_big.png" downloadURL="/assets/develop/data-generation/block-model/steel_block.png">Текстура блока сталі</DownloadEntry>
 
-### Сінглтони {#singletons}
+### Сінглетони {#singletons}
 
 Метод `registerSingleton` надає файли моделі JSON на основі `TexturedModel`, який ви передаєте, і єдиного варіанту стану блока.
 
@@ -124,7 +129,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ### Власний клас блока {#custom-block-class}
 
-Створіть блок `VerticalSlab` з властивостями `FACING` і булевою властивістю `SINGLE`, як у підручнику [станів блоків(../blocks/blockstates). `SINGLE` вкаже, чи є обидві плити.
+Створіть блок `VerticalSlab` з властивостями `FACING` і логічною властивістю `SINGLE`, як у посібнику [станів блоків](../blocks/blockstates). `SINGLE` вкаже, чи є обидві плити.
 Тоді вам слід перевизначити `getOutlineShape` і `getCollisionShape`, щоб контур рендерився правильно, а блок мав правильну форму колізії.
 
 @[code lang=java transcludeWith=:::custom-voxels](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
@@ -167,7 +172,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 @[code lang=java transcludeWith=:::custom-model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Метод `block()` створює нову `Model`, вказуючи на файл `vertical_slab.json` у теці `resources/assets/example-mod/models/block/`.
-`TextureSlot` представляють «заповнювачі» (`#bottom`, `#top`, …) як об'єкт.
+`TextureSlot` представляє «заповнювачі» (`#bottom`, `#top`, …) як об'єкт.
 
 ### Використання мапи текстури {#using-texture-map}
 
@@ -229,9 +234,3 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 І це все! Тепер все, що залишилося зробити, це викликати наш метод у нашому `ModelProvider`:
 
 @[code lang=java transcludeWith=:::custom-method-call](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-## Джерела та посилання {#sources-and-links}
-
-Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) та [прикладі мода](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації, щоб дізнатися більше.
-
-Ви також можете знайти більше прикладів використання власних методів даних, переглянувши відкритий вихідний код модів, наприклад [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) і [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) від Fellteros.
