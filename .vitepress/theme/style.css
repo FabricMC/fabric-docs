@@ -61,6 +61,12 @@ pre {
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
+@media (min-width: 1525px) {
+  .aside-container {
+    width: 300px !important;
+  }
+}
+
 .aside-container::-webkit-scrollbar {
   display: block;
 }
@@ -128,9 +134,11 @@ kbd:not(.DocSearch-Button-Key) {
   white-space: nowrap;
 }
 
-/* Center images within paragraphs. */
+/* Center and style images within paragraphs. */
 .vp-doc > p > img,
 .vp-doc > div > p > img {
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0 4px 10px #8883;
+  border-radius: 8px;
 }

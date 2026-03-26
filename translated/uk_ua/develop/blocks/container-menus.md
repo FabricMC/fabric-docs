@@ -2,7 +2,10 @@
 title: Меню контейнерів
 description: Посібник, що пояснює, як створити просте меню для блока-контейнера.
 authors:
+  - CelDaemon
   - Tenneb22
+resources:
+  https://docs.neoforged.net/docs/inventories/menus: Меню — Документація NeoForge
 ---
 
 <!---->
@@ -28,12 +31,6 @@ authors:
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
-::: info
-
-Оскільки нам потрібен контейнер 3x3, нам потрібно встановити розмір предметів на 9.
-
-:::
-
 ### Відкриття меню {#opening-the-screen}
 
 Ми хочемо мати можливість якимось чином відкрити меню, тому ми впораємося з цим за допомогою методу `useWithoutItem`:
@@ -42,7 +39,7 @@ authors:
 
 ### Реалізація MenuProvider {#implementing-menuprovider}
 
-Щоби додати функціональність меню, тепер нам потрібно реалізувати `MenuProvider` в блоці-сутності:
+Щоб додати функціональність меню, тепер нам потрібно реалізувати `MenuProvider` в блоці-сутності:
 
 @[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
@@ -50,11 +47,11 @@ authors:
 
 ## Створення меню {#creating-the-menu}
 
-`createMenu` хоче, щоби ми повернули меню, але ми ще не створили його для нашого блока. Для цього ми створимо клас `DirtChestMenu`, який розширює `AbstractContainerMenu`:
+`createMenu` хоче, щоб ми повернули меню, але ми ще не створили його для нашого блока. Для цього ми створимо клас `DirtChestMenu`, який розширює `AbstractContainerMenu`:
 
 @[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java)
 
-Клієнтський конструктор викликається на клієнті, коли сервер хоче, щоби він відкрив меню. Він створює порожній контейнер, який потім автоматично синхронізується з фактичним контейнером на сервері.
+Клієнтський конструктор викликається на клієнті, коли сервер хоче, щоб він відкрив меню. Він створює порожній контейнер, який потім автоматично синхронізується з фактичним контейнером на сервері.
 
 Серверний конструктор викликається на сервері, і оскільки він знає вміст контейнера, він може безпосередньо передати його як аргумент.
 
@@ -64,7 +61,7 @@ authors:
 
 @[code transcludeWith=:::registerMenu](@/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java)
 
-Тепер ми можемо встановити значення, що повертається `createMenu` в блоці-сутності, щоби використовувати наше меню:
+Тепер ми можемо встановити значення, що повертається `createMenu` в блоці-сутності, щоб використовувати наше меню:
 
 @[code transcludeWith=:::providerImplemented](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
@@ -76,7 +73,7 @@ authors:
 
 ## Створення екрана {#creating-the-screen}
 
-Щоби фактично показувати вміст контейнера на клієнті, нам також потрібно створити екран для нашого меню.
+Щоб фактично показувати вміст контейнера на клієнті, нам також потрібно створити екран для нашого меню.
 Ми створимо новий клас, який розширює `AbstractContainerScreen`:
 
 @[code transcludeWith=:::screen](@/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java)

@@ -1,6 +1,6 @@
 ---
 title: Відкриття проєкту в IntelliJ IDEA
-description: Узнайте, як відкрити проєкт мода Minecraft у вашому IDE.
+description: Дізнайтеся, як відкрити проєкт мода Minecraft в IntelliJ IDEA.
 authors:
   - Cactooz
   - dicedpixels
@@ -19,7 +19,7 @@ next:
 
 ![Відкрити вікно проєкту](/assets/develop/getting-started/intellij/welcome.png)
 
-Якщо ви вже в IDE, виберіть **Файл** > **Відкрити**.
+Якщо ви вже в IDE, виберіть **File** > **Open**.
 
 ![Відкрити файл](/assets/develop/getting-started/intellij/file-open.png)
 

@@ -4,6 +4,11 @@ description: Una guida esaustiva per la comprensione e l'uso del sistema di code
 authors:
   - enjarai
   - Syst3ms
+resources:
+  https://docs.neoforged.net/docs/datastorage/codecs/: Codec - NeoForge Docs (EN)
+  https://docs.neoforged.net/docs/networking/streamcodecs/: Stream Codec - NeoForge Docs (EN)
+  https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec: JavaDocs ufficiosi di DFU
+  https://forge.gemwire.uk/wiki/Codecs: Codec - Wiki della community di Forge (EN)
 ---
 
 Un codec è un sistema per serializzare facilmente oggetti Java, ed è incluso nella libreria DataFixerUpper (DFU) di Mojang, che è inclusa in Minecraft. Nel contesto del modding essi possono essere usati come un'alternativa a GSON e Jankson quando si leggono e si scrivono file JSON personalizzati, anche se hanno cominciato a diventare sempre più rilevanti, visto che Mojang sta riscrivendo molto suo codice in modo che usi i Codec.
@@ -391,8 +396,3 @@ Un `ListNode` serializzato potrebbe avere questo aspetto:
   }
 }
 ```
-
-## Riferimenti {#references}
-
-- Una documentazione molto più dettagliata sui Codec e sulle relative API può essere trovata presso la [JavaDoc non Ufficiale di DFU](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec).
-- La struttura generale di questa guida è fortemente ispirata dalla [pagina sui codec della Wiki della Community di Forge](https://forge.gemwire.uk/wiki/Codecs), una pagina più orientata verso Forge sullo stesso argomento.

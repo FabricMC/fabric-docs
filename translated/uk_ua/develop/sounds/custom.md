@@ -3,6 +3,8 @@ title: Створення власних звуків
 description: Навчіться додавати й використовувати власні звуки за допомогою реєстру.
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: Завантажити Audacity
 ---
 
 ## Підготовка аудіофайлу {#preparing-the-audio-file}

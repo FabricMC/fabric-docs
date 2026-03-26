@@ -3,6 +3,8 @@ title: Creare Suoni Personalizzati
 description: Impara a usare e aggiungere un nuovo suono con la registry.
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: Scarica Audacity
 ---
 
 ## Preparare il File Audio {#preparing-the-audio-file}

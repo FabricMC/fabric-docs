@@ -1,6 +1,6 @@
 ---
 title: Відкриття проєкту
-description: Узнайте, як відкрити проєкт мода Minecraft у вашому IDE.
+description: Дізнайтеся, як відкрити проєкт мода Minecraft у вашому IDE.
 authors:
   - Cactooz
   - dicedpixels

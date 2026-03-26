@@ -9,6 +9,9 @@ prev:
 next:
   text: Відкриття проєкту у VS Code
   link: ./opening-a-project
+resources:
+  https://code.visualstudio.com/: Завантажити Visual Studio Code
+  https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack: Пакет розширень для Java — VS Marketplace
 ---
 
 <!---->
@@ -36,7 +39,7 @@ next:
 
 Visual Studio Code не підтримує мову Java із коробки. Однак Microsoft надає зручний пакет розширень, який містить усі необхідні розширення для її підтримки.
 
-Ви можете встановити цей пакет розширення з [ринку Visual Studio](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+Ви можете встановити цей пакет розширення з [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
 ![Пакет розширення Java](/assets/develop/getting-started/vscode/extension.png)
 

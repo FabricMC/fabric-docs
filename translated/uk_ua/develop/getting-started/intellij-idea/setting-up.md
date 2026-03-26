@@ -23,6 +23,10 @@ prev:
 next:
   text: Відкриття проєкту в IntelliJ IDEA
   link: ./opening-a-project
+resources:
+  https://www.jetbrains.com/idea/download/: Завантажити IntelliJ IDEA з JetBrains
+  https://www.jetbrains.com/help/idea/getting-started.html: Початок роботи з IntelliJ IDEA
+  https://plugins.jetbrains.com/plugin/8327-minecraft-development: Плаґін Development Plugin — JB Marketplace
 ---
 
 <!---->

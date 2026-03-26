@@ -3,6 +3,8 @@ title: Blocchi-Entità
 description: Impara come creare blocchi-entità per i tuoi blocchi personalizzati.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/: Blocchi Complessi - NeoForge Docs (EN)
 ---
 
 I blocchi-entità sono un modo per memorizzare dati aggiuntivi per un blocco, che non siano parte dello stato del blocco: contenuti dell'inventario, nome personalizzato e così via.

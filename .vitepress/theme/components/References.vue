@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { computed } from "vue";
@@ -39,6 +40,9 @@ const getFileHref = (path: string) =>
 
 const getFileTitle = (path: string) =>
   path.replace(/^@[/]reference[/][^/]+[/]/, "").replace("com/example/docs", "...");
+
+const getFileExtension = (path: string) =>
+  path.replace(/^.*[.]([^.]+)$/, "$1").replace(/^classtweaker$/, "document");
 </script>
 
 <template>
@@ -49,8 +53,13 @@ const getFileTitle = (path: string) =>
   </VPLink>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
-  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)">
-    <code>{{ shortestUniquePaths[i] }}</code>
+  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
+    <Icon :icon="`material-icon-theme:${getFileExtension(f)}`" />
+    <code>
+      <template v-for="(seg, j) in shortestUniquePaths[i].split('/')" :key="j">
+        <template v-if="j !== 0">/<wbr /></template>{{ seg }}
+      </template>
+    </code>
   </VPLink>
 
   <div />
@@ -60,6 +69,7 @@ const getFileTitle = (path: string) =>
 div,
 h2 {
   margin-top: 20px;
+  margin-bottom: 8px;
   padding-top: 16px;
   border-top: 1px solid var(--vp-c-divider);
   font-size: 12px;
@@ -80,12 +90,13 @@ h2 {
   color: var(--vp-c-text-2);
 }
 
-.VPLink:has(code) {
-  align-items: center;
-}
-
 .VPLink:hover {
   color: var(--vp-c-text-1);
+}
+
+svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 img {

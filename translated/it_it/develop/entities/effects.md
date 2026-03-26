@@ -11,6 +11,8 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+resources:
+  https://docs.neoforged.net/docs/items/mobeffects: Effetti dei mob - NeoForge Docs (EN, tranne le pozioni)
 ---
 
 Gli effetti dei mob, anche noti come effetti di stato, o semplicemente effetti, sono una condizione che interessa un'entità. Possono essere positivi, negativi o neutrali in natura. Il gioco base applica questi effetti in vari modi, come cibi, pozioni ecc.

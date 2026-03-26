@@ -7,6 +7,8 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+resources:
+  https://docs.neoforged.net/docs/blocks/: Blocchi - NeoForge Docs (EN)
 ---
 
 I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in dei registri.
@@ -66,7 +68,7 @@ Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parame
 
 Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo a una scheda d'inventario devi usare il metodo `Block.asItem()` per ottenere l'istanza `BlockItem`.
 
-Per questo esempio, aggiungeremo il blocco alla scheda `BUILDING_BLOCKS`. Per aggiungerlo invece a una scheda personalizzata, consulta [Schede d'inventario personalizzate](../items/custom-item-groups).
+Per questo esempio, aggiungeremo il blocco alla scheda `BUILDING_BLOCKS`. Per aggiungerlo invece a una scheda personalizzata, consulta [Schede d'inventario personalizzate](../items/custom-creative-tabs).
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
