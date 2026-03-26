@@ -3,6 +3,9 @@ title: Структура проєкту
 description: Огляд структури проєкту мода Fabric.
 authors:
   - IMB11
+resources:
+  https://wiki.fabricmc.net/documentation:fabric_mod_json: Особливості fabric.mod.json v1 — Вікі Fabric
+  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Вихідний код особливостей fabric.mod.json v1м
 ---
 
 На цій сторінці буде описано структуру проєкту мода Fabric і призначення кожного файлу та теки в проєкті.

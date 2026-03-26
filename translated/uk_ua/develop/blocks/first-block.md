@@ -7,6 +7,8 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+resources:
+  https://docs.neoforged.net/docs/blocks/: Блоки — Документація NeoForge
 ---
 
 Блоки є будівельними блоками Minecraft (без каламбуру) — як і все інше в Minecraft, вони зберігаються в реєстрах.
@@ -66,7 +68,7 @@ public class ModBlocks {
 
 Оскільки `BlockItem` створюється та реєструється автоматично, щоб додати його до вкладки творчості, ви повинні використати метод `Block.asItem()`, щоб отримати екземпляр `BlockItem`.
 
-Для цього прикладу ми додамо блок на вкладку `BUILDING_BLOCKS`. Щоб замість цього додати блок на вкладку спеціального оголошення, перегляньте [власні вкладки творчості](../items/custom-item-groups).
+Для цього прикладу ми додамо блок на вкладку `BUILDING_BLOCKS`. Щоб замість цього додати блок на вкладку спеціального оголошення, перегляньте [власні вкладки творчості](../items/custom-creative-tabs).
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 

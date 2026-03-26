@@ -21,25 +21,25 @@ next: false
 
 ![Швидке відриття](/assets/develop/getting-started/vscode/quick-open.png)
 
-**Перейти до визначення** (<kbd>F12</kbd>): у вихідному коді перейдіть до визначення класу, натиснувши <kbd>Ctrl</kbd> і натиснувши його назву, або натиснувши по ньому ПКМ та вибравши «Перейти до визначення».
+**Go to Definition** (<kbd>F12</kbd>): у вихідному коді перейдіть до визначення класу, натиснувши <kbd>Ctrl</kbd> і натиснувши його назву, або натиснувши по ньому ПКМ та вибравши «Go to Definition».
 
-![Перейти до визначення](/assets/develop/getting-started/vscode/go-to-definition.png)
+![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### Пошук посилань {#finding-references}
 
-Ви можете знайти всі використання класу, Н\натиснувши ПКМ назву класу та вибравши **Знайти всі посилання**.
+Ви можете знайти всі використання класу, Натиснувши ПКМ по назві класу та вибравши **Find All References**.
 
-![Знайти всі посилання](/assets/develop/getting-started/vscode/find-all-references.png)
+![Find All References](/assets/develop/getting-started/vscode/find-all-references.png)
 
 ::: info
 
 Якщо наведені вище функції не працюють належним чином, ймовірно, джерела не приєднані належним чином. Зазвичай це можна виправити, очистивши кеш робочої області.
 
-- Натисніть кнопку **Показати меню стану Java** у рядку стану.
+- Натисніть кнопку **Show Java Status Menu** у рядку стану.
 
 ![Показати стан Java](/assets/develop/getting-started/vscode/java-ready.png)
 
-- У щойно відкритому меню натисніть **Очистити кеш робочої області…** і підтвердьте операцію.
+- У щойно відкритому меню натисніть **Clean Workspace Cache…** і підтвердьте операцію.
 
 ![Очистити робочій простір](/assets/develop/getting-started/vscode/clear-workspace.png)
 
@@ -55,7 +55,7 @@ next: false
 
 - **Знайдіть шлях до Minecraft JAR:**
 
-  Відкрийте вікно провідника, розгорніть розділ **Проєкти Java**. Розгорніть вузол **Довідкові бібліотеки** в дереві проєкту та знайдіть файл JAR із «minecraft-» у його імені. Натисніть ПКМ по JAR і скопіюйте повний шлях.
+  Відкрийте вікно провідника, розгорніть розділ **Java Projects**. Розгорніть нод **Reference Libraries** в дереві проєкту та знайдіть файл JAR із `minecraft-` у його імені. Натисніть ПКМ по JAR і скопіюйте повний шлях.
 
   Це може виглядати приблизно так:
 

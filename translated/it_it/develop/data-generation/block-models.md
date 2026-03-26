@@ -7,6 +7,11 @@ authors:
   - IMB11
   - its-miroma
   - natri0
+resources:
+  https://www.blockbench.net/: Scarica Blockbench
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Test di esempio da Fabric API
+  https://github.com/Fellteros/vanillablocksplus: Vanilla+ Blocks di Fellteros
+  https://github.com/Fellteros/vanillavsplus: Vanilla+ Verticals di Fellteros
 ---
 
 <!---->
@@ -229,9 +234,3 @@ Infine, creiamo un modello per l'oggetto di lastra verticale con `BlockModelGene
 È tutto! Tutto ciò che rimane da fare è chiamare il metodo nel nostro `ModelProvider`:
 
 @[code lang=java transcludeWith=:::custom-method-call](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-## Fonti e Link {#sources-and-links}
-
-Per maggiori informazioni, puoi trovare esempi di test nell'[API di Fabric](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) e nella [mod d'esempio di questa documentazione](https://github.com/FabricMC/fabric-docs/tree/main/reference).
-
-Puoi anche trovare altri esempi dell'uso di metodi di datagen personalizzati navigando il codice sorgente aperto delle mod, per esempio di [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) e [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) di Fellteros.

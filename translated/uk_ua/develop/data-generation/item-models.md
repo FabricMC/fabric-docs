@@ -1,11 +1,13 @@
 ---
 title: Генерація моделі предмета
-description: Дізнайтеся як генерувати моделі предмета через datagen.
+description: Дізнайтеся, як генерувати моделі предмета через генерацію даних.
 authors:
   - CelDaemon
   - Fellteros
   - skycatminepokie
   - VatinMc
+resources:
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Приклад тестів з Fabric API
 ---
 
 <!---->
@@ -102,7 +104,7 @@ authors:
 
 == Текстура
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Текстура ґуїдітової сокири </DownloadEntry>
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Текстура Guidite Axe</DownloadEntry>
 
 :::
 
@@ -284,7 +286,7 @@ authors:
 
 | Властивість   | Опис                                                                                                                                   |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Cooldown`    | Рендерить модель предмета на основі залишкового часу перезарядки предмета.                                             |
+| `Cooldown`    | Рендерить модель предмета на основі залишкового часу перезаряджання предмета.                                          |
 | `Count`       | Рендерить модель предмета на основі розміру стосу.                                                                     |
 | `UseDuration` | Рендерить модель предмета на основі того, як довго він використовується.                                               |
 | `Damage`      | Рендерить модель предмета на основі шкоди від атаки (компонент «minecraft:damage»). |
@@ -383,7 +385,3 @@ TextureSlot `LAYER0` представляє змінну текстури `#laye
 Не забудьте додати файл текстури!
 
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/balloon_big.png" downloadURL="/assets/develop/data-generation/item-model/balloon.png">Текстура повітряної кульки</DownloadEntry>
-
-## Джерела та посилання {#sources-and-links}
-
-Ви можете переглянути приклади тестів у [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/), [прикладі мода](https://github.com/FabricMC/fabric-docs/tree/main/reference) цієї документації для отримання додаткової інформації.

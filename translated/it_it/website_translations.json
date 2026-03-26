@@ -52,6 +52,8 @@
   "nav.home": "Home",
   "nav.repo": "Codice",
   "outline": "In questa pagina",
+  "references.files": "Riferimenti ai file",
+  "references.resources": "Fonti e Risorse",
   "return_to_top": "Torna all'inizio",
   "search.back": "Chiudi ricerca",
   "search.button": "Cerca",
@@ -71,7 +73,8 @@
   "social.github": "GitHub",
   "title": "Documentazione di Fabric",
   "version.reminder.latest_version": "Questa pagina si applica alla versione %s.",
-  "version.reminder.old_version_mojang": "Questa pagina si applica alla versione %s.\nLa documentazione delle versioni meno recenti potrebbe essere incompleta.",
+  "version.reminder.old_version": "Questa pagina si applica alla versione %s.\nLa documentazione delle versioni meno recenti potrebbe essere incompleta.",
+  "version.reminder.new_version": "Questa pagina si applica alla versione %s.\nLa documentazione delle versioni future potrebbe essere incompleta.",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "Nessun'altra versione",
   "version.warning": "Questa documentazione si applica alla versione %s.\n\nLa documentazione delle versioni meno recenti potrebbe essere incompleta. Se cerchi un'altra versione, per favore selezionala dal menu a tendina nella barra di navigazione."

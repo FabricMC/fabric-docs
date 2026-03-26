@@ -3,6 +3,9 @@ title: Stati dei Blocchi
 description: Impara perché gli stati dei blocchi sono ottimi per aggiungere funzionalità visive ai tuoi blocchi.
 authors:
   - IMB11
+resources:
+  https://minecraft.wiki/w/Tutorial:Models#Block_states: Stati dei blocchi - Minecraft Wiki (EN)
+  https://docs.neoforged.net/docs/blocks/states/: Stati dei blocchi - NeoForge Docs (EN)
 ---
 
 Uno stato di un blocco è un dato relativo a un singolo blocco nel mondo di Minecraft che contiene informazioni riguardanti il blocco sotto forma di proprietà - ecco alcuni esempi di proprietà che in vanilla sono memorizzate come stati:
@@ -44,7 +47,7 @@ Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
 Questo file si dovrebbe trovare nella cartella `assets/example-mod/blockstates`, e il suo nome dovrebbe combaciare con l'ID del blocco usato quando hai registrato il blocco nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_oak_log`, il file dovrebbe chiamarsi `condensed_oak_log.json`.
 
-Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
+Se vuoi vedere tutti i modificatori disponibili nel file degli stati, leggi la pagina [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorial:Models#Block_states).
 
 :::
 

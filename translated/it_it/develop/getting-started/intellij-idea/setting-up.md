@@ -23,6 +23,10 @@ prev:
 next:
   text: Aprire un progetto in IntelliJ IDEA
   link: ./opening-a-project
+resources:
+  https://www.jetbrains.com/idea/download/: Scarica IntelliJ IDEA da JetBrains
+  https://www.jetbrains.com/help/idea/getting-started.html: Come iniziare con IntelliJ IDEA (EN)
+  https://plugins.jetbrains.com/plugin/8327-minecraft-development: Plugin Minecraft Development - JB Marketplace
 ---
 
 <!---->

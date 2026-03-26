@@ -9,6 +9,9 @@ prev:
   text: Costruire una mod in IntelliJ IDEA
   link: ./building-a-mod
 next: false
+resources:
+  https://www.youtube.com/watch?v=V8lss58zBPI: Conferenza di Anton Arhipov su IntelliJ IDEA (EN)
+  https://blog.jetbrains.com/idea/category/tips-tricks/: Trucchi e consigli ufficiali
 ---
 
 Questa pagina fornisce un po' di informazioni utili, per velocizzare e facilitare il workflow degli sviluppatori. Integrale nel tuo lavoro, se desideri.

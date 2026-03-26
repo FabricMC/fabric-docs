@@ -5,6 +5,9 @@ authors:
   - dicedpixels
   - hiisuuii
   - MattiDragon
+resources:
+  https://minecraft.wiki/w/Damage_type: Tipi di danno - Minecraft Wiki (EN)
+  https://docs.neoforged.net/docs/resources/server/damagetypes/: Tipi e fonti di danno - NeoForge Docs (EN, tranne la generazione)
 ---
 
 I tipi di danno definiscono tipi di danno che le entità possono subire. A partire da Minecraft 1.19.4, la creazione di nuovi tipi di danno è basata sui dati, per cui essi sono creati tramite file JSON.

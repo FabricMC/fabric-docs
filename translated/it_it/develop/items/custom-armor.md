@@ -66,7 +66,7 @@ Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopr
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Dovrai anche **aggiungere gli oggetti a una scheda** se vorrai che essi siano accessibili dall'inventario in Creativa.
+Dovrai anche [aggiungere gli oggetti a una scheda](./custom-creative-tabs) se vorrai che essi siano accessibili dall'inventario.
 
 Come per tutti gli oggetti, dovresti creare chiavi di traduzione anche per questi.
 

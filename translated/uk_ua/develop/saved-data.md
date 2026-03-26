@@ -1,8 +1,11 @@
 ---
-title: Збереженні даних
+title: Збережені даних
 description: Збереження даних між ігровими сесіями.
 authors:
   - dicedpixels
+resources:
+  https://minecraft.wiki/w/NBT_format: Формат NBT — Вікі Minecraft
+  https://docs.neoforged.net/docs/datastorage/saveddata/: Збережені дані — Документація NeoForge
 ---
 
 Збережені дані — це вбудоване рішення Minecraft для збереження даних під час сеансів.

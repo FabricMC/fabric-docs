@@ -7,6 +7,9 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
+resources:
+  https://github.com/FabricMC: Organizzazione FabricMC su GitHub
+  https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: ExampleMod a cui fa riferimento la documentazione
 ---
 
 Fabric è una toolchain di modding leggera per Minecraft: Java Edition, pensata per essere semplice e facile da usare. Permette agli sviluppatori di applicare modificazioni ("mod") al gioco vanilla, aggiungendo nuove funzionalità o modificando meccaniche esistenti.
