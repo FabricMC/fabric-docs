@@ -1,6 +1,6 @@
 ---
 title: Interface Injection
-description: Learn how to implement interfaces on Minecraft classes' in the decompiled source.
+description: Learn how to implement interfaces on Minecraft classes in the decompiled source.
 authors-nogithub:
   - salvopelux
 authors:
@@ -30,7 +30,7 @@ In a package that is not your mixin package, create the interface you'd like to 
 
 ::: warning
 
-The methods of injected interfaces must all be `default` to be injected with class tweaker,
+The methods of injected interfaces must all be `default` to be injected with a class tweaker,
 even if you plan to implement the methods in the target class using a mixin.
 
 Methods should also be prefixed by your mod ID with a separator such as `$` or `_` so that they
@@ -47,8 +47,8 @@ you do not need to use a mixin to inject the interface, the [class tweaker entry
 
 :::
 
-To create overrides of the interface's methods in the target class, you should use a mixin implementing the interface and targeting the class
-to inject the interface into.
+To create overrides of the interface's methods in the target class, you should use a mixin that implements the interface and targets the class
+you want to inject the interface into.
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
 
@@ -78,7 +78,7 @@ The signature format is:
 
 | Description            | Java example             | Syntax                                                                        | Signature Format Example  |
 | ---------------------- | ------------------------ | ----------------------------------------------------------------------------- | ------------------------- |
-| Class type             | `java.lang.String`       | [descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
+| Class type             | `java.lang.String`       | [Descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
 | Array type             | `java.lang.String[]`     | [descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
 | Primitive              | `boolean`                | The corresponding [descriptor](../mixins/bytecode#type-descriptors) character | `Z`                       |
 | Type variable          | `T`                      | `T` + name + `;`                                                              | `TT;`                     |
