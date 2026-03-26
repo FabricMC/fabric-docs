@@ -79,16 +79,16 @@ at the end of the interface name with the generics in Java bytecode signature fo
 
 The signature format is:
 
-| Description            | Java example             | Syntax                                                                        | Signature Format Example  |
-| ---------------------- | ------------------------ | ----------------------------------------------------------------------------- | ------------------------- |
-| Class type             | `java.lang.String`       | [Descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
-| Array type             | `java.lang.String[]`     | [Descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
-| Primitive              | `boolean`                | [Descriptor](../mixins/bytecode#type-descriptors) character                   | `Z`                       |
-| Type variable          | `T`                      | `T` + name + `;`                                                              | `TT;`                     |
-| Generic class type     | `java.util.List<T>`      | L + [internal name](../mixins/bytecode#class-names) + `<` + generics + `>;`   | `Ljava/util/List<TT;>;`   |
-| Wildcard               | `?`, `java.util.List<?>` | `*` character                                                                 | `*`, `java/util/List<*>;` |
-| Extends wildcard bound | `? extends String`       | `+` + the bound                                                               | `+Ljava/lang/String;`     |
-| Super wildcard bound   | `? super String`         | `-` + the bound                                                               | `-Ljava/lang/String;`     |
+| Description            | Java example             | Syntax                                                                      | Signature Format Example  |
+| ---------------------- | ------------------------ | --------------------------------------------------------------------------- | ------------------------- |
+| Class type             | `java.lang.String`       | [Descriptor](../mixins/bytecode#type-descriptors) format                    | `Ljava/lang/String;`      |
+| Array type             | `java.lang.String[]`     | [Descriptor](../mixins/bytecode#type-descriptors) format                    | `[Ljava/lang/String;`     |
+| Primitive              | `boolean`                | [Descriptor](../mixins/bytecode#type-descriptors) character                 | `Z`                       |
+| Type variable          | `T`                      | `T` + name + `;`                                                            | `TT;`                     |
+| Generic class type     | `java.util.List<T>`      | L + [internal name](../mixins/bytecode#class-names) + `<` + generics + `>;` | `Ljava/util/List<TT;>;`   |
+| Wildcard               | `?`, `java.util.List<?>` | `*` character                                                               | `*`, `java/util/List<*>;` |
+| Extends wildcard bound | `? extends String`       | `+` + the bound                                                             | `+Ljava/lang/String;`     |
+| Super wildcard bound   | `? super String`         | `-` + the bound                                                             | `-Ljava/lang/String;`     |
 
 So to inject the interface:
 
