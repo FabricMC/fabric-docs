@@ -16,7 +16,7 @@ import com.example.docs.interface_injection.BucketEmptySoundGetter;
 @Mixin(FlowingFluid.class)
 abstract class FlowingFluidMixin extends Fluid implements BucketEmptySoundGetter {
 	@Override
-	public Optional<SoundEvent> modid$getBucketEmptySound() {
+	public Optional<SoundEvent> example_mod$getBucketEmptySound() {
 		return Optional.of(this.is(FluidTags.LAVA) ? SoundEvents.BUCKET_EMPTY_LAVA : SoundEvents.BUCKET_EMPTY);
 	}
 }
