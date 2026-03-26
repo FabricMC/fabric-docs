@@ -35,7 +35,7 @@ An entry's elements can be separated using any whitespace, including tabs.
 
 #### Transitive Entries {#transitive-entries}
 
-In order to make your changes to the decompiled source visible to mods that depend on yours, prefix the directive, the first element of the entry with `transitive-`:
+In order to make your changes to the decompiled source visible to mods that depend on yours, prefix the directive with `transitive-`:
 
 ```txt:no-line-numbers
 # Transitive Access Widening directive

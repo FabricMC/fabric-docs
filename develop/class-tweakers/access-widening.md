@@ -33,7 +33,7 @@ authors:
 Access widening is a type of [class tweaking](../class-tweakers) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
 This includes making them public, extendable and/or mutable.
 
-Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes also visible to mods depending on yours.
+Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
 
 To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
