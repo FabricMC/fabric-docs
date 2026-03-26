@@ -21,3 +21,8 @@ accessible    method    net/minecraft/network/chat/TextColor    formatValue    (
 # Makes the field damageTypes of type Registry in DamageSources public.
 accessible    field    net/minecraft/world/damagesource/DamageSources    damageTypes    Lnet/minecraft/core/Registry;
 # :::accesswidening-examples:fields:::
+
+# Interface injection example
+# #region interface-injection-example-entry
+inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/BucketEmptySoundGetter
+# #endregion interface-injection-example-entry
