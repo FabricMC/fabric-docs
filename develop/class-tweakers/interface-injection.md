@@ -6,6 +6,7 @@ authors-nogithub:
 authors:
   - Daomephsta
   - Earthcomputer
+  - its-miroma
   - Juuxel
   - MildestToucan
   - Sapryx
@@ -81,7 +82,7 @@ The signature format is:
 | Description            | Java example             | Syntax                                                                        | Signature Format Example  |
 | ---------------------- | ------------------------ | ----------------------------------------------------------------------------- | ------------------------- |
 | Class type             | `java.lang.String`       | [Descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
-| Array type             | `java.lang.String[]`     | [descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
+| Array type             | `java.lang.String[]`     | [Descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
 | Primitive              | `boolean`                | The corresponding [descriptor](../mixins/bytecode#type-descriptors) character | `Z`                       |
 | Type variable          | `T`                      | `T` + name + `;`                                                              | `TT;`                     |
 | Generic class type     | `java.util.List<T>`      | L + [internal name](../mixins/bytecode#class-names) + `<` + generics + `>;`   | `Ljava/util/List<TT;>;`   |
