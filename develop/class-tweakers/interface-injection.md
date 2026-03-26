@@ -12,8 +12,69 @@ authors:
   - SolidBlock-cn
 ---
 
-Interface injection is a type of [class tweaking](../class-tweakers/) used to add interface implementations on Minecraft classes directly
+Interface injection is a type of [class tweaking](../class-tweakers/) used to add interface implementations on Minecraft classes
 in the decompiled source.
 
-It is already possible to use mixins to make a target class implement a new interface at runtime, but class tweakers can make it visible in the
-decompiled source. This means that the added methods do not require casting to the interface to be used in mod code as would be needed with just mixins.
+The implementation being visible in the class's decompiled source removes the need to cast to the interface to use its methods.
+
+Additionally, interface injections can be [transitive](../class-tweakers/index#transitive-entries), allowing libraries to more easily
+expose their added methods to mods that depend on them.
+
+To showcase interface injection, this page's snippets will use an example where we add a new helper method to `FlowingFluid`.
+
+## Creating the Interface {#creating-the-interface}
+
+In a package that is not your mixin package, create the interface you'd like to inject:
+
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+
+::: warning
+
+The methods of injected interfaces must all be `default` to be injected with class tweaker,
+even if you plan to implement the methods in the target class using a mixin.
+
+Methods should also be prefixed by your mod ID with a separator such as `$` or `_` so that they
+cannot clash with other mods' added methods.
+
+:::
+
+## Implementing the Interface {#implementing-the-interface}
+
+::: tip
+
+If the interface's methods are fully implemented with the interface's `default`s,
+you do not need to use a mixin to inject the interface, the [class tweaker entry](#making-the-class-tweaker-entry) will be enough.
+
+:::
+
+To create overrides of the interface's methods in the target class, you should use a mixin implementing the interface and targeting the class
+to inject the interface into.
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+
+The overrides will be added to the target class at runtime, but will not appear in the decompiled source even if you use class tweaker to make the
+interface implementation visible.
+
+## Making the Class Tweaker Entry {#making-the-class-tweaker-entry}
+
+Interface injection uses the following syntax:
+
+```txt:no-line-numbers
+inject-interface    <targetClassName>    <injectedInterfaceName>
+```
+
+For class tweaking, classes and interfaces use their [internal names](../mixins/bytecode#class-names).
+
+For our example interface, the entry would be:
+
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+
+## Applying Changes {#applying-changes}
+
+To see your interface implementation applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources).
+
+The added methods can now be used on instances of the class the interface was injected into:
+
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+
+You can also override the methods in subclasses of the interface injection target if needed.
