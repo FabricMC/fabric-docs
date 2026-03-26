@@ -69,6 +69,34 @@ For our example interface, the entry would be:
 
 <<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
 
+### Generic Interfaces {#generic-interfaces}
+
+If your interface has generics, you can specify them in the entry. For this, add `<>` angled brackets
+at the end of the interface name with the generics in Java bytecode signature format between the brackets.
+
+The signature format is:
+
+| Description            | Java example             | Syntax                                                                        | Signature Format Example  |
+|------------------------|--------------------------|-------------------------------------------------------------------------------|---------------------------|
+| Class type             | `java.lang.String`       | [descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
+| Array type             | `java.lang.String[]`     | [descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
+| Primitive              | `boolean`                | The corresponding [descriptor](../mixins/bytecode#type-descriptors) character | `Z`                       |
+| Type variable          | `T`                      | `T` + name + `;`                                                              | `TT;`                     |
+| Generic class type     | `java.util.List<T>`      | L + [internal name](../mixins/bytecode#class-names) + `<` + generics + `>;`   | `Ljava/util/List<TT;>;`   |
+| Wildcard               | `?`, `java.util.List<?>` | `*` character                                                                 | `*`, `java/util/List<*>;` |
+| Extends wildcard bound | `? extends String`       | `+` + the bound                                                               | `+Ljava/lang/String;`     |
+| Super wildcard bound   | `? super String`         | `-` + the bound                                                               | `-Ljava/lang/String;`     |
+
+So to inject the interface:
+
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+
+with the generics `<? extends String, Boolean[]>`
+
+The class tweaker entry would be:
+
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+
 ## Applying Changes {#applying-changes}
 
 To see your interface implementation applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources).

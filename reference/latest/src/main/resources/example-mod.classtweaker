@@ -26,3 +26,7 @@ accessible    field    net/minecraft/world/damagesource/DamageSources    damageT
 # #region interface-injection-example-entry
 inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/BucketEmptySoundGetter
 # #endregion interface-injection-example-entry
+
+# #region interface-injection-generic-interface-entry
+inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/GenericInterface<+Ljava/lang/String;[Ljava/lang/Boolean;>
+# #endregion interface-injection-generic-interface-entry
