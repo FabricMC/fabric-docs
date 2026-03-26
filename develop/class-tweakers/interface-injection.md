@@ -28,6 +28,8 @@ In a package that is not your mixin package, create the interface you'd like to 
 
 <<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
 
+In our case, we'll throw by default since we plan to implement the method through a mixin.
+
 ::: warning
 
 The methods of injected interfaces must all be `default` to be injected with a class tweaker,
