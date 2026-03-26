@@ -77,7 +77,7 @@ at the end of the interface name with the generics in Java bytecode signature fo
 The signature format is:
 
 | Description            | Java example             | Syntax                                                                        | Signature Format Example  |
-|------------------------|--------------------------|-------------------------------------------------------------------------------|---------------------------|
+| ---------------------- | ------------------------ | ----------------------------------------------------------------------------- | ------------------------- |
 | Class type             | `java.lang.String`       | [descriptor](../mixins/bytecode#type-descriptors) format                      | `Ljava/lang/String;`      |
 | Array type             | `java.lang.String[]`     | [descriptor](../mixins/bytecode#type-descriptors) format                      | `[Ljava/lang/String;`     |
 | Primitive              | `boolean`                | The corresponding [descriptor](../mixins/bytecode#type-descriptors) character | `Z`                       |
