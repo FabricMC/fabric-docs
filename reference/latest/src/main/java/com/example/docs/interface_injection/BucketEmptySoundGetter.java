@@ -6,10 +6,8 @@ import net.minecraft.sounds.SoundEvent;
 
 // #region interface-injection-example-interface
 public interface BucketEmptySoundGetter {
-    
-    default Optional<SoundEvent> modid$getBucketEmptySound() {
-        return Optional.empty();
-    }
-
+	default Optional<SoundEvent> modid$getBucketEmptySound() {
+		return Optional.empty();
+	}
 }
 // #endregion interface-injection-example-interface

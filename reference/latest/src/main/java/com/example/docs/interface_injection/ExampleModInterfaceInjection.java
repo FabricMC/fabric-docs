@@ -7,12 +7,10 @@ import net.minecraft.world.level.material.FlowingFluid;
 
 // Class to hold example usages for methods added with interface injection.
 class ExampleModInterfaceInjection {
-
-    // #region interface-injection-using-added-method
-    void example(FlowingFluid flowingFluid) {
-        Optional<SoundEvent> sound = flowingFluid.modid$getBucketEmptySound();
-        /* ... */
-    }
-    // #endregion interface-injection-using-added-method
-
+	// #region interface-injection-using-added-method
+	void example(FlowingFluid flowingFluid) {
+		Optional<SoundEvent> sound = flowingFluid.modid$getBucketEmptySound();
+		/* ... */
+	}
+	// #endregion interface-injection-using-added-method
 }
