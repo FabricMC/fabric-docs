@@ -87,37 +87,37 @@ The names of targets need to correspond to your current mappings.
 
 Format:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
 Example:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 == Methods
 
 Format:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 == Fields
 
 Format:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
 Example:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 :::
 

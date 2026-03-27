@@ -24,7 +24,7 @@ Class tweaker files are conventionally named after your modid, `example-mod.clas
 
 The file must have the following header as its first line:
 
-```txt
+```classtweaker
 classTweaker v1 named
 ```
 
@@ -37,7 +37,7 @@ An entry's elements can be separated using any whitespace, including tabs.
 
 In order to make your changes to the decompiled source visible to mods that depend on yours, prefix the directive with `transitive-`:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 # Transitive Access Widening directives
 transitive-accessible
 transitive-extendable
