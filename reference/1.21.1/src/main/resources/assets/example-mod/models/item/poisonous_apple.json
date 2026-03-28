@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "example-mod:item/poisonous_apple"
-  }
-}

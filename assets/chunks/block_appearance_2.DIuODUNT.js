@@ -1,0 +1,1 @@
+var e=`/assets/develop/transparency-and-tinting/block_appearance_0.png`,t=`/assets/develop/transparency-and-tinting/block_appearance_1.png`,n=`/assets/develop/transparency-and-tinting/block_appearance_2.png`;export{t as n,e as r,n as t};

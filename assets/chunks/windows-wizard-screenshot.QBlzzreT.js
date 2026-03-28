@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-java/windows-run-dialog.png`,t=`/assets/players/installing-java/windows-java-version.png`,n=`/assets/players/installing-java/windows-download-java.png`,r=`/assets/players/installing-java/windows-wizard-screenshot.png`;export{e as i,n,t as r,r as t};

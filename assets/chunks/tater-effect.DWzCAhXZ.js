@@ -1,0 +1,1 @@
+var e=`/assets/develop/tater-effect.png`;export{e as t};

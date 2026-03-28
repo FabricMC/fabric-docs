@@ -1,0 +1,1 @@
+var e=`/assets/develop/entity/graphs/dark_graph.png`,t=`/assets/develop/entity/graphs/light_graph.png`,n=`/assets/develop/entity/mini_golem_summoned.png`;export{t as n,e as r,n as t};

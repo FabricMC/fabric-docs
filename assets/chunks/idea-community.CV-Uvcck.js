@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/idea-community.png`;export{e as t};

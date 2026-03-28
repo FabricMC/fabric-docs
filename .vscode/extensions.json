@@ -1,8 +1,0 @@
-{
-  "recommendations": [
-    "davidanson.vscode-markdownlint",
-    "esbenp.prettier-vscode",
-    "vue.volar",
-    "vscjava.vscode-java-pack"
-  ]
-}

@@ -1,0 +1,1 @@
+var e=`/assets/develop/commands/custom-arguments_valid.png`,t=`/assets/develop/commands/custom-arguments_result.png`;export{e as n,t};

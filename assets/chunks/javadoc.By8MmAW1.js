@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/intellij/gradle-gensources.png`,t=`/assets/develop/getting-started/intellij/terminal-gensources.png`,n=`/assets/develop/getting-started/intellij/choose-sources.png`,r=`/assets/develop/getting-started/intellij/choose-sources-dialog.png`,i=`/assets/develop/getting-started/intellij/javadoc.png`;export{e as a,t as i,r as n,n as r,i as t};

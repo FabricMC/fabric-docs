@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/template-generator.png`,t=`/assets/develop/getting-started/template-generator-advanced.png`;export{e as n,t};

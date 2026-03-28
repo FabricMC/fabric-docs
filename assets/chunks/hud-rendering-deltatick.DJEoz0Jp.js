@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/hud-rendering-deltatick.webp`;export{e as t};

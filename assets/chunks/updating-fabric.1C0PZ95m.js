@@ -1,0 +1,1 @@
+var e=`/assets/players/updating-fabric.png`;export{e as t};

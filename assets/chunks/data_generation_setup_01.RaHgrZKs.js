@@ -1,0 +1,1 @@
+var e=`/assets/develop/data-generation/data_generation_setup_01.png`;export{e as t};

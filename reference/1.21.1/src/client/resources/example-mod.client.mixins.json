@@ -1,9 +1,0 @@
-{
-  "required": true,
-  "package": "com.example.docs.mixin.client",
-  "compatibilityLevel": "JAVA_17",
-  "client": ["ExampleClientMixin", "TitleScreenMixin"],
-  "injectors": {
-    "defaultRequire": 1
-  }
-}

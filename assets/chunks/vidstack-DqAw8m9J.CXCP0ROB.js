@@ -1,0 +1,1 @@
+import{gt as e,pt as t}from"../app.Ca4SrmuS.js";var n=class{#id;#callback;constructor(e){this.#callback=e}start(){e(this.#id)&&this.#loop()}stop(){t(this.#id)&&window.cancelAnimationFrame(this.#id),this.#id=void 0}#loop(){this.#id=window.requestAnimationFrame(()=>{e(this.#id)||(this.#callback(),this.#loop())})}};export{n as t};

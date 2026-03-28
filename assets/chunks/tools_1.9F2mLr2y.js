@@ -1,0 +1,1 @@
+var e=`/assets/develop/items/tools_1.png`;export{e as t};

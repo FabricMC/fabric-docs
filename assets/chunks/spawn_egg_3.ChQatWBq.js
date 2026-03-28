@@ -1,0 +1,1 @@
+var e=`/assets/develop/items/spawn_egg_1.png`,t=`/assets/develop/items/spawn_egg_2.png`,n=`/assets/develop/items/spawn_egg_3.png`;export{t as n,e as r,n as t};

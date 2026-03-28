@@ -1,17 +1,11 @@
-<!-- markdownlint-disable search-replace -->
+# Fabric Docs .Html
 
-# Fabric Documentation
+> The official curated documentation for Fabric, a modding toolchain for Minecraft.
 
-This repository contains the source code for the Fabric Documentation website, which is built using [VitePress](https://vitepress.dev/).
+This repository contains the built pages from the [Fabric Docs website](https://docs.fabricmc.net/).
 
-## Contributing
+Please refer to the [contribution guidelines](https://docs.fabricmc.net/contributing) for more information about how to get involved.
 
-Please refer to the [contribution guidelines](https://docs.fabricmc.net/contributing) for more information.
+Thank you to all the [contributors to the repo](https://github.com/FabricMC/fabric-docs/graphs/contributors), who are helping create guides for the documentation! A huge thank you also to the volunteers who are translating guides to other languages on the [Crowdin project](https://crowdin.com/project/fabricmc)!
 
-If you wish to contribute translations, you can do so via the [Crowdin project](https://crowdin.com/project/fabricmc).
-
-## Attribution & Credits
-
-Thank you to all the [contributors to the repo](https://github.com/FabricMC/fabric-docs/graphs/contributors), who are helping create guides for the documentation!
-
-A huge thank you also to the volunteers who are translating guides to other languages on the [Crowdin project](https://crowdin.com/project/fabricmc).
+Unthank you to all the attackers of `npm` packages, which forced us to drop all dependencies on NPM.

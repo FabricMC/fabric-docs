@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-fabric/macos-downloads.png`;export{e as t};

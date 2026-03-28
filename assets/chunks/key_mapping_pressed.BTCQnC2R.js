@@ -1,0 +1,1 @@
+var e=`/assets/develop/key-mappings/untranslated.png`,t=`/assets/develop/key-mappings/translated.png`,n=`/assets/develop/key-mappings/key_mapping_pressed.png`;export{t as n,e as r,n as t};

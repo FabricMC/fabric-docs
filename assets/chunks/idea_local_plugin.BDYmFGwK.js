@@ -1,0 +1,1 @@
+var e=`/assets/develop/misc/migrating-mappings/idea_local_plugin.png`;export{e as t};

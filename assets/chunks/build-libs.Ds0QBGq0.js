@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/build-idea.png`,t=`/assets/develop/getting-started/build-libs.png`;export{e as n,t};

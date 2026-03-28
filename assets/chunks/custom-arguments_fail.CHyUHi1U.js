@@ -1,0 +1,1 @@
+var e=`/assets/develop/commands/custom-arguments_fail.png`;export{e as t};

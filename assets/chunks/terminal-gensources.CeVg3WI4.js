@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/vscode/gradle-gensources.png`,t=`/assets/develop/getting-started/vscode/terminal-gensources.png`;export{e as n,t};

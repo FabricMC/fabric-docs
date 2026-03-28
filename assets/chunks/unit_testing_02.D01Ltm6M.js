@@ -1,0 +1,1 @@
+var e=`/assets/develop/misc/automatic-testing/unit_testing_01.png`,t=`/assets/develop/misc/automatic-testing/unit_testing_02.png`;export{e as n,t};

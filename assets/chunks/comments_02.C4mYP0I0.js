@@ -1,0 +1,1 @@
+var e=`/assets/develop/misc/using-the-ide/comments_02.png`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/assets/develop/blocks/blockstates_1.png`;export{e as t};

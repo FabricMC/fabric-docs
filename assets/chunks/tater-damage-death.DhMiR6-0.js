@@ -1,0 +1,1 @@
+var e=`/assets/develop/tater-damage-death.png`;export{e as t};

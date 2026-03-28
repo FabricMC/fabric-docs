@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/vscode/file-open.png`,t=`/assets/develop/getting-started/vscode/open-folder.png`,n=`/assets/develop/getting-started/vscode/notification.png`;export{t as n,e as r,n as t};

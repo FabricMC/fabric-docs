@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/world-rendering-custom-render-pipeline-waypoint.png`;export{e as t};

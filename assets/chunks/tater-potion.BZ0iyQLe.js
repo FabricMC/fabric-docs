@@ -1,0 +1,1 @@
+var e=`/assets/develop/tater-potion.png`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/assets/develop/blocks/block_entity_renderer_1.png`,t=`/assets/develop/blocks/block_entity_renderer_2.png`,n=`/assets/develop/blocks/block_entity_renderer_4.png`;export{t as n,e as r,n as t};

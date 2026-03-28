@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/gui/custom-1-example.png`;export{e as t};

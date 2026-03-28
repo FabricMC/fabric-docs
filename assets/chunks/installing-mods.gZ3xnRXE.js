@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-mods.png`;export{e as t};

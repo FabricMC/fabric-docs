@@ -1,9 +1,0 @@
-*                  @FabricMC/documentation
-
-.git*              @FabricMC/developers
-.nvmrc             @FabricMC/developers
-crowdin.yaml       @FabricMC/developers
-netlify.toml       @FabricMC/developers
-package.json       @FabricMC/developers
-patches            @FabricMC/developers
-pnpm-*.yaml        @FabricMC/developers

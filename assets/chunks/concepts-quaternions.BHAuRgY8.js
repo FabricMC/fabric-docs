@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/concepts-practical-example-draw-process.png`,t=`/assets/develop/rendering/concepts-practical-example-final-result.png`,n=`/assets/develop/rendering/concepts-matrix-stack.webp`,r=`/assets/develop/rendering/concepts-quaternions.webp`;export{e as i,n,t as r,r as t};

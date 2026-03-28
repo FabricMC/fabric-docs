@@ -1,0 +1,1 @@
+var e=`/assets/develop/item-appearance/item_tint_0.png`,t=`/assets/develop/item-appearance/item_tint_1.png`;export{e as n,t};

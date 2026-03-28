@@ -1,0 +1,1 @@
+var e=`/assets/develop/blocks/container_menus_0.png`;export{e as t};

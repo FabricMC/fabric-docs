@@ -1,0 +1,1 @@
+var e=`/assets/develop/misc/using-the-ide/context_actions_01.png`,t=`/assets/develop/misc/using-the-ide/context_actions_02.png`;export{e as n,t};

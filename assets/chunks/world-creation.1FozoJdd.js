@@ -1,0 +1,1 @@
+var e=`/assets/develop/game-rules/world-creation.png`;export{e as t};

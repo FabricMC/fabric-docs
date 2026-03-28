@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/gui/custom-widget-example.png`,t=`/assets/develop/rendering/gui/custom-widget-events.webp`;export{e as n,t};

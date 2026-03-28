@@ -1,8 +1,0 @@
-{
-  "parent": "fabric-docs-reference:block/vertical_slab",
-  "textures": {
-    "bottom": "minecraft:block/oak_log_top",
-    "side": "minecraft:block/oak_log",
-    "top": "minecraft:block/oak_log_top"
-  }
-}

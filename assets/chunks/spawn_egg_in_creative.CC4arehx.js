@@ -1,0 +1,1 @@
+var e=`/assets/develop/entity/mini_golem_spawned.png`,t=`/assets/develop/entity/spawn_egg_in_creative.png`;export{e as n,t};

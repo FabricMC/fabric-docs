@@ -1,0 +1,1 @@
+var e=`/assets/develop/networking/sides.png`;export{e as t};

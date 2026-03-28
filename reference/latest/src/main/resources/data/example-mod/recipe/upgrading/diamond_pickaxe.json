@@ -1,8 +1,0 @@
-{
-  "type": "example-mod:upgrading",
-  "baseItem": "minecraft:iron_pickaxe",
-  "upgradeItem": "minecraft:diamond",
-  "result": {
-    "id": "minecraft:diamond_pickaxe"
-  }
-}

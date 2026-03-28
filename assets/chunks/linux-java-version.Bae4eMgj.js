@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-java/linux-java-version.png`;export{e as t};

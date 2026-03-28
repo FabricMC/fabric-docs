@@ -1,0 +1,1 @@
+var e=`/assets/develop/getting-started/intellij/welcome.png`,t=`/assets/develop/getting-started/intellij/file-open.png`,n=`/assets/develop/getting-started/intellij/gradle-build-script.png`;export{t as n,e as r,n as t};

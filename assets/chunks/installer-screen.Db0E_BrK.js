@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-fabric/installer-screen.png`;export{e as t};

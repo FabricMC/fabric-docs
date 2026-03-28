@@ -1,0 +1,1 @@
+var e=`/assets/develop/rendering/particles/sparkle-particle-showcase.png`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/assets/players/installing-java/macos-download-java.png`,t=`/assets/players/installing-java/macos-installer.png`,n=`/assets/players/installing-java/macos-password-prompt.png`;export{t as n,e as r,n as t};

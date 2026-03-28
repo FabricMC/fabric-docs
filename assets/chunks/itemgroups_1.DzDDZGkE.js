@@ -1,0 +1,1 @@
+var e=`/assets/develop/items/itemgroups_0.png`,t=`/assets/develop/items/itemgroups_1.png`;export{e as n,t};

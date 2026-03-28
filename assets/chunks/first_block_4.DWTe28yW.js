@@ -1,0 +1,1 @@
+var e=`/assets/develop/blocks/first_block_0.png`,t=`/assets/develop/blocks/first_block_4.png`;export{e as n,t};

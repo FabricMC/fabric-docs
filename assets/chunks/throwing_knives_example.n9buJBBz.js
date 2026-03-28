@@ -1,0 +1,1 @@
+var e=`/assets/develop/data-generation/item-model/leather_gloves_dyeing.png`,t=`/assets/develop/data-generation/item-model/crystal.png`,n=`/assets/develop/data-generation/item-model/throwing_knives_example.png`;export{t as n,e as r,n as t};

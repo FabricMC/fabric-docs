@@ -1,0 +1,1 @@
+var e=`/assets/develop/sounds/custom_sounds_0.png`,t=`/assets/develop/sounds/custom_sounds_1.png`,n=`/assets/develop/sounds/custom_sounds_2.png`,r=`/assets/develop/sounds/custom_sounds_3.png`;export{e as i,n,t as r,r as t};

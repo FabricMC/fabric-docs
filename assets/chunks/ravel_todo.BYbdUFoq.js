@@ -1,0 +1,1 @@
+var e=`/assets/develop/misc/migrating-mappings/ravel_right_click.png`,t=`/assets/develop/misc/migrating-mappings/ravel_dialog.png`,n=`/assets/develop/misc/migrating-mappings/ravel_todo.png`;export{t as n,e as r,n as t};
