@@ -7,6 +7,8 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+resources:
+  https://docs.neoforged.net/docs/blocks/: Blöcke - NeoForge Docs
 ---
 
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
@@ -66,7 +68,7 @@ Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegi
 
 Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um es zu einem Kreativtab hinzuzufügen, die Methode `Block.asItem()` verwenden, um die `BlockItem`-Instanz zu erhalten.
 
-Für dieses Beispiel werden wir den Block zu dem Tab `BUILDING_BLOCKS` hinzufügen. Um den Block stattdessen zu einem benutzerdefinierten Kreativtab hinzuzufügen, siehe [benuterdefinierte Kreativtabs](../items/custom-item-groups).
+Für dieses Beispiel werden wir den Block zu dem Tab `BUILDING_BLOCKS` hinzufügen. Um den Block stattdessen zu einem benutzerdefinierten Kreativtab hinzuzufügen, siehe [benuterdefinierte Kreativtabs](../items/custom-creative-tabs).
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 

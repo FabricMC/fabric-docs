@@ -3,6 +3,9 @@ title: Blockzustände
 description: Lerne, warum Blockzustände eine großartige Möglichkeit sind, Funktionalität zu deinem Block hinzuzufügen.
 authors:
   - IMB11
+resources:
+  https://minecraft.wiki/w/Tutorial:Models#Block_states: Blockzustände - Minecraft Wiki
+  https://docs.neoforged.net/docs/blocks/states/: Blockzustände - NeoForge Docs
 ---
 
 Ein Blockzustand entspricht ein wenig Daten, die einem einzelnen Block in der Minecraft-Welt zugeordnet sind und Informationen über den Block in Form von Eigenschaften enthält - einige Beispiele für Eigenschaften, die Vanilla in Blockzuständen speichert:
@@ -44,7 +47,7 @@ Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
 Beachte, dass Blockzustandsdateien im Ordner `assets/example-mod/blockstates` zu finden sind. Der Name der Blockzustandsdatei sollte mit der Block-ID übereinstimmen, die bei der Registrierung deines Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_oak_log` lautet, sollte die Datei `condensed_oak_log.json` heißen.
 
-Einen tieferen Einblick in alle Modifikatoren, die in den Blockzustand-Dateien verfügbar sind, findest du auf der Seite [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorials/Models#Block_states).
+Einen tieferen Einblick in alle Modifikatoren, die in den Blockzustand-Dateien verfügbar sind, findest du auf der Seite [Minecraft Wiki - Models (Block States)](https://minecraft.wiki/w/Tutorial:Models#Block_states).
 
 :::
 

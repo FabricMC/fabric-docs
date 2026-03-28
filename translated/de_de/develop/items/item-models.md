@@ -5,6 +5,8 @@ authors:
   - Fellteros
   - its-miroma
   - VatinMc
+resources:
+  https://minecraft.wiki/w/Model#Item_models: Item Models - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -274,7 +276,3 @@ Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet da
 4. `rotation`: _Ganzzahl_. Rotiert die Textur um den angegebenen Winkel in 90-Grad-Schritten. Die Drehung hat keinen Einfluss darauf, welcher Teil der Textur verwendet wird.
    Stattdessen handelt es sich um eine Permutation der ausgewählten Textur-Eckpunkte (implizit oder explizit über `uv` ausgewählt).
 5. `tintidex`: _Ganzzahl_. Färbt die Textur auf dieser Fläche unter Verwendung eines Farbwerts, der aus der Definition des Client Items referenziert wird. Wenn keine Farbe für die Färbung (oder Weiß) angegeben ist, wird die Textur nicht gefärbt.
-
-## Quellen und Links {#sources-and-links}
-
-Du kannst die [Item Modell Seite](https://minecraft.wiki/w/Model#Item_models) des Minecraft Wiki für eine detailliertere Anleitung besuchen. Viele Informationen hier stammen von dieser Seite.

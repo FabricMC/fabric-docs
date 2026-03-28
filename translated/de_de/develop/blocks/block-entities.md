@@ -3,6 +3,8 @@ title: Block Entitäten
 description: Lerne, wie du Block Entitäten für deine benutzerdefinierten Blöcke erstellst.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/: Blockentitäten - NeoForge Docs
 ---
 
 Block Entitäten sind ein Weg für Blöcke zusätzliche Daten, die nicht Teil des Blockzustands sind, zu speichern: Inventarinhalte, benutzerdefinierter Name und so weiter.

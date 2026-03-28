@@ -4,6 +4,9 @@ description: Erfahre, wie du Entitäten benutzerdefinierte Attribute hinzufügen
 authors:
   - cassiancc
   - cprodhomme
+resources:
+  https://minecraft.wiki/w/Attribute: Attribute - Minecraft Wiki
+  https://docs.neoforged.net/docs/entities/attributes: Attribute - NeoForge Docs (ausgenommen Neo exklusive)
 ---
 
 Attribute bestimmen die Eigenschaften, die deine modifizierte Entität besitzen kann. Mit Fabric kannst du eigene benutzerdefinierte Attribute erstellen, die die Spielmechanik verbessern, und auch die Vanillaattribute anwenden.

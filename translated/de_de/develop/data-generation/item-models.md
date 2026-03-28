@@ -6,6 +6,8 @@ authors:
   - Fellteros
   - skycatminepokie
   - VatinMc
+resources:
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Beispieltests der Fabric API
 ---
 
 <!---->
@@ -383,7 +385,3 @@ Jetzt müssen wir nur noch unsere Methode in der Methode `generateItemModels()` 
 Vergiss nicht, eine Texturdatei hinzuzufügen!
 
 <DownloadEntry visualURL="/assets/develop/data-generation/item-model/balloon_big.png" downloadURL="/assets/develop/data-generation/item-model/balloon.png">Ballon Textur</DownloadEntry>
-
-## Quellen und Links {#sources-and-links}
-
-Weitere Informationen findest du in den Beispiel-Tests in der [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) und im [Beispiel Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) dieser Dokumentation.

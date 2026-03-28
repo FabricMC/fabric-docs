@@ -33,6 +33,8 @@ authors:
 Розширення доступу — це тип [твікінгу класу](../class-tweakers), який використовується для послаблення обмежень доступу до класів, методів і полів і відбиття цієї зміни в декомпільованому джерелі.
 Це охоплює надання їм загальнодоступних, розширюваних і/або змінних.
 
+Записи розширення доступу можуть бути [перехідними](../class-tweakers/index#transitive-entries), щоб зробити зміни видимими для модів залежно від ваших.
+
 Щоб отримати доступ до полів або методів, безпечніше та простіше використовувати [міксини доступу](https://wiki.fabricmc.net/tutorial:mixin_accessors), але є дві ситуації, коли засобів доступу недостатньо і необхідне розширення доступу:
 
 - Якщо вам потрібен доступ до `private`, `protected` або пакетно-приватного класу
@@ -68,16 +70,6 @@ authors:
 
 Щоб зробити приватне і кінцеве поле одночасно доступним і змінним, ви повинні зробити два окремих записи у файлі.
 
-### Перехідні директиви {#transitive-directives}
-
-Щоб показати певні зміни розширення доступу до модів залежно від вашого, ви додаєте до відповідних директив префікс `transitive-*`:
-
-```txt:no-line-numbers
-transitive-accessible
-transitive-extendable
-transitive-mutable
-```
-
 ## Визначення цілей {#specifying-targets}
 
 Для твікінгу класів, класи використовують свої [внутрішні імена](../mixins/bytecode#class-names). Для полів і методів ви повинні вказати назву класу, ім’я та [дескриптор байт-коду](../mixins/bytecode#field-and-method-descriptors).
@@ -94,37 +86,37 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
 Приклад:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 == Методи
 
 Формат:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
 Приклад:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 == Поля
 
 Формат:
 
-```txt:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
 Приклад:
 
-@[code lang=txt:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
 
 :::
 

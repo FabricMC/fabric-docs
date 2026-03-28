@@ -4,6 +4,8 @@ description: Ein Leitfaden zum Verfassen und Verstehen von Blockmodellen.
 authors:
   - Fellteros
   - its-miroma
+resources:
+  https://minecraft.wiki/w/Model#Block_models: Blockmodelle - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -120,7 +122,3 @@ Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet da
    Stattdessen handelt es sich um eine Permutation der ausgewählten Textur-Eckpunkte (implizit oder explizit über `uv` ausgewählt).
 5. `tintidex`: _Ganzzahl_. Färbt die Textur auf dieser Fläche mit einem Farbtonwert ein. Der Standardwert `-1` gibt an, dass die Tönung nicht verwendet werden soll.
    Jede andere Zahl wird an `BlockColors` übergeben, um den diesem Index entsprechenden Farbtonwert zu erhalten (gibt Weiß zurück, wenn für den Block kein Farbtonindex definiert ist).
-
-## Quellen und Links {#sources-and-links}
-
-Du kannst die [Blockmodell Seite](https://minecraft.wiki/w/Model#Block_models) des Minecraft Wiki für eine detailliertere Anleitung besuchen. Viele Informationen hier stammen von dieser Seite.

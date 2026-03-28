@@ -3,6 +3,8 @@ title: Benutzerdefinierte Sounds erstellen
 description: Lerne, wie man neue Sounds mit einer Registry hinzufügt und nutzt.
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: Audacity herunterladen
 ---
 
 ## Benutzerdefinierte Sounds erstellen {#creating-custom-sounds}

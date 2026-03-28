@@ -5,6 +5,9 @@ authors:
   - dicedpixels
   - hiisuuii
   - MattiDragon
+resources:
+  https://minecraft.wiki/w/Damage_type: Schadensarten - Minecraft Wiki
+  https://docs.neoforged.net/docs/resources/server/damagetypes/: Schadensarten & Schadenquellen - NeoForge Docs (ausgenommen Datengenerator)
 ---
 
 Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können. Seit Minecraft 1.19.4 ist die Erstellung neuer Schadensarten datengesteuert, das heißt sie werden mithilfe von JSON-Dateien erstellt.

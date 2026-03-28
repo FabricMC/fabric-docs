@@ -4,6 +4,9 @@ description: Lerne, wie du deine eigenen Verzauberungseffekte erstellst.
 authors:
   - CelDaemon
   - krizh-p
+resources:
+  https://minecraft.wiki/w/Enchantment_definition: Definition für Verzauberungen - Minecraft Wiki
+  https://misode.github.io/enchantment/: Generator für Verzauberungen von Misode
 ---
 
 Ab der Version 1.21 verwenden benutzerdefinierte Verzauberungen in Minecraft einen "datengesteuerten" Ansatz. Das macht es einfacher, einfache Verzauberungen hinzuzufügen, wie z. B. die Erhöhung des Angriffsschadens, aber schwieriger, komplexe Verzauberungen zu erstellen. Dabei werden die Verzauberungen in _Effektkomponenten_ zerlegt.

@@ -2,7 +2,10 @@
 title: Containermenüs
 description: Ein Leitfaden, in der erklärt wird, wie man ein einfaches Menü für einen Containerblock erstellt.
 authors:
+  - CelDaemon
   - Tenneb22
+resources:
+  https://docs.neoforged.net/docs/inventories/menus: Menüs - NeoForge Docs
 ---
 
 <!---->
@@ -27,12 +30,6 @@ Zunächst möchten wir einen Block und eine Block-Entität erstellen; weitere In
 @[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
-
-::: info
-
-Da wir einen 3x3-Container wollen, müssen wir die Größe der Elemente auf 9 festlegen.
-
-:::
 
 ### Das Menü öffnen {#opening-the-screen}
 
