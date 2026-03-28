@@ -69,7 +69,7 @@ config:
         searchScope: text
       - name: missing-space-after-container
         message: "Add a space between ::: or == and the title"
-        searchPattern: "/^((?::{3,}|={2,}))(?![ :])(.+)$/gm"
+        searchPattern: "/^((?::{3,}|={2,}))(?![ :=])(.+)$/gm"
         replace: "$1 $2"
         searchScope: text
       - name: missing-space-before-anchor
