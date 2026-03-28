@@ -20,17 +20,19 @@ export default (): Plugin => {
           content = `# ${data.title} {#h1}\n\n${content}`;
         }
 
-        // Find files referenced in the page
-        const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
-        const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
+        if (data.filesExclude === true) {
+          data.files = [];
+        } else {
+          // Find files referenced in the page
+          const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
+          const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
 
-        matches.push(...(data.files ?? []));
+          matches.push(...(data.files ?? []));
 
-        data.files = [...new Set(matches)];
+          data.files = [...new Set(matches)].filter((f) => !(data.filesExclude ?? []).includes(f));
+        }
 
-        return {
-          code: matter.stringify(content, data),
-        };
+        return { code: matter.stringify(content, data) };
       },
     },
   };
