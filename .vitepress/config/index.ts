@@ -69,7 +69,7 @@ export default defineVersionedConfig(
       },
       gfmAlerts: false,
       image: { lazyLoading: true },
-      languageAlias: { gradle: "groovy" },
+      languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
         ["mcfunction", "syntax-mcfunction/mcfunction.tmLanguage.json"],
         ["bytecode", "syntax-java-bytecode/java-bytecode.tmLanguage.json"],
