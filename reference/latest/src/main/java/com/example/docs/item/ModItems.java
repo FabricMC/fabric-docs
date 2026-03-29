@@ -25,6 +25,7 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumable;
@@ -42,6 +43,7 @@ import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.component.ModComponents;
+import com.example.docs.debug.TestItem;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.fluid.ModFluids;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
@@ -121,6 +123,7 @@ public class ModItems {
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
 				output.accept(ModItems.LIGHTNING_TATER);
+				output.accept(ModItems.TEST_ITEM);
 				// :::9
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
@@ -211,6 +214,8 @@ public class ModItems {
 	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
 
 	public static final Item LIGHTNING_TATER = register("lightning_tater", LightningTaterItem::new, new Item.Properties());
+
+	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
 	// :::1
 	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
