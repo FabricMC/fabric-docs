@@ -33,15 +33,15 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 				BlockState stateBelow = level.getBlockState(pos.below());
 
 				if (stateBelow.is(Blocks.GRASS_BLOCK)) {
-					return 0x98FB98; // Color code in hex format
+					return 0xFF98FB98; // Color code in hex format
 				}
 
-				return 0xFFDAB9; // Color code in hex format
+				return 0xFFFFDAB9; // Color code in hex format
 			}
 
 			@Override
 			public int color(BlockState state) {
-				return 0xFFDAB9; // Color code in hex format
+				return 0xFFFFDAB9; // Color code in hex format
 			}
 		}), ExampleModAppearance.WAXCAP_BLOCK);
 		// :::color_provider
