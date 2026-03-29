@@ -29,12 +29,7 @@ Whenever you need to know a value for something at any point in the code, use th
 
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
-```java
-ExampleModDebug.LOGGER.debug("Debug message for development...");
-ExampleModDebug.LOGGER.info("Neutral, informative text...");
-ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-```
+@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 ::: info
 

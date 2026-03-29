@@ -29,6 +29,13 @@ public class ExampleModDebug implements ModInitializer {
 		LOGGER.debug("Debug logging is enabled");
 		// :::problems:debug-logging
 
+		// :::problems:log-levels
+		ExampleModDebug.LOGGER.debug("Debug message for development...");
+		ExampleModDebug.LOGGER.info("Neutral, informative text...");
+		ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
+		ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
+		// :::problems:log-levels
+
 		Identifier identifier = Identifier.fromNamespaceAndPath(MOD_ID, "test_item");
 		ResourceKey<Item> testItemKey = ResourceKey.create(Registries.ITEM, identifier);
 		Registry.register(BuiltInRegistries.ITEM, identifier,
