@@ -272,7 +272,7 @@ pnpm dev
 
 To work on the [`ExampleMod`](#develop), you'll need to [have a JDK installed](./players/installing-java/).
 
-The most common tasks are building the mod and regenerating data files:
+The most common tasks are building the mod, regenerating data files, and testing the mod in-game:
 
 ::: code-group
 
@@ -280,12 +280,14 @@ The most common tasks are building the mod and regenerating data files:
 cd reference
 .\gradlew build
 .\gradlew runDatagen
+.\gradlew runClient
 ```
 
 ```sh [macOS / Linux]
 cd reference
 ./gradlew build
 ./gradlew runDatagen
+./gradlew runClient
 ```
 
 :::
