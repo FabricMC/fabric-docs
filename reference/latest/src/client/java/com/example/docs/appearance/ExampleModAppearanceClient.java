@@ -50,7 +50,12 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 		FluidRenderingRegistry.register(
 				ModFluids.ACID_STILL,
 				ModFluids.ACID_FLOWING,
-				new FluidModel.Unbaked(new Material(Identifier.withDefaultNamespace("block/water_still")), new Material(Identifier.withDefaultNamespace("block/water_flow")), new Material(Identifier.withDefaultNamespace("block/water_overlay")), BlockTintSources.constant(0x075800))
+				new FluidModel.Unbaked(
+						new Material(Identifier.withDefaultNamespace("block/water_still")),
+						new Material(Identifier.withDefaultNamespace("block/water_flow")),
+						new Material(Identifier.withDefaultNamespace("block/water_overlay")),
+						BlockTintSources.constant(0xFF075800)
+				)
 		);
 		// :::fluid_texture
 	}
