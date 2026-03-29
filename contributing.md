@@ -68,7 +68,7 @@ The Fabric Documentation ("Docs") is an open source of knowledge for modding Min
 
 The website uses [VitePress](https://vitepress.dev/), a static site generator that produces beautiful web pages from Markdown files. There are also some [custom extensions and plugins installed](#framework), which we'll talk about later.
 
-The stand-out feature of the Docs is that the code is placed in a [reference mod called `ExampleMod`](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest), which is built on every commit to ensure the code is correct.
+The standout feature of the Docs is that the code is placed in a [reference mod called `ExampleMod`](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest), which is built on every commit to ensure the code is correct.
 
 We also support translating the Docs to other languages, and that happens on [Crowdin](https://crowdin.com/project/fabricmc). New translations may take up to a week or more to appear on the website.
 
@@ -161,6 +161,7 @@ When creating a new page, you should do the following:
 - Consider opening a draft PR early in the writing instead of waiting for full completion, so you can get initial feedback and automatic CI checks
 - Follow the [style guidelines](#style), including adding proper credits in `authors` in the form of GitHub usernames
 - Respect the licenses, especially if referencing other people's code
+- You might want to [work on the project locally](#local) to preview and test the pages and the code
 
 ### Modifying the Framework {#label-framework}
 
@@ -174,7 +175,7 @@ We're especially wary about introducing new NPM dependencies, because that widen
 
 ::: info
 
-This section is primarily for members of the Docs Team.
+This section is primarily for members of the Docs Team, but could be useful for anyone.
 
 :::
 
@@ -245,6 +246,50 @@ Finally, an intricate combination of CI and linting tools does a general check o
 
 The main website is hosted on [GitHub Pages](https://pages.github.com/), but PR previews are managed via [Netlify](https://www.netlify.com/).
 
+### Local Setup {#local}
+
+If you want to preview your work locally before opening a PR, you can set up a copy of the project locally. You'll need [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), and [pnpm](https://pnpm.io/).
+
+If you already have [forked the repository](#label-new-content), you can clone your fork on your system:
+
+```sh
+# Replace [YOUR-USERNAME] with your GitHub username
+git clone https://github.com/[YOUR-USERNAME]/fabric-docs.git
+```
+
+The first time you need to install the NPM dependencies:
+
+```sh
+pnpm install
+```
+
+Now, when working on the pages, you can spin up a development environment, which supports hot-reload:
+
+```sh
+pnpm dev
+# Open the preview in your browser: http://fabric-docs.localhost:5173/
+```
+
+To work on the [`ExampleMod`](#develop), you'll need to [have a JDK installed](./players/installing-java/).
+
+The most common tasks are building the mod and regenerating data files:
+
+::: code-group
+
+```powershell [Windows]
+cd reference
+.\gradlew build
+.\gradlew runDatagen
+```
+
+```sh [macOS / Linux]
+cd reference
+./gradlew build
+./gradlew runDatagen
+```
+
+:::
+
 ## Regarding the Style {#style}
 
 Here are some general tips and guidelines for writing Docs pages:
@@ -259,7 +304,7 @@ Here are some general tips and guidelines for writing Docs pages:
 - Use inline `code` for file names, classes, and the like
 - Use title case for headings, which also need an anchor
 - Use descriptive labels for links, not "here"
-- Limit the amount of verbs per sentence
+- Limit the number of verbs per sentence
 - Avoid complex grammar: long sentences, passive voices...
 - Avoid specifying that the modded game is Minecraft
 
@@ -340,7 +385,7 @@ Readers might focus on the containers more than the surrounding text. Use them o
 
 :::
 
-While you could specify a custom title for the containers, you should avoid doing that, except for `details`. The only custom container titles we're using are:
+You should avoid adding custom titles for all containers except `details`. The only custom titles allowed are:
 
 - `::: info PREREQUISITES`
 - `::: warning IMPORTANT`
@@ -470,7 +515,7 @@ Follow these instructions to install Fabric:
 
 ### Code Groups {#code-groups}
 
-[Code groups](https://vitepress.dev/guide/markdown#code-groups) are very similar to tabs, but they can be used if the tab only contains a code block:
+[Code groups](https://vitepress.dev/guide/markdown#code-groups) are very similar to tabs, but they should be used when the tabs only contain a code block:
 
 :::: tabs
 
