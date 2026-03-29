@@ -3,6 +3,8 @@ package com.example.docs.item;
 import java.util.List;
 import java.util.function.Function;
 
+import com.example.docs.networking.basic.ExampleModNetworkingBasic;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -117,6 +119,9 @@ public class ModItems {
 			.displayItems((params, output) -> {
 				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
 				output.accept(ModItems.POISONOUS_APPLE);
+				output.accept(ModItems.ACID_BUCKET);
+				output.accept(ModItems.COUNTER);
+				output.accept(ExampleModNetworkingBasic.LIGHTNING_TATER);
 				// :::9
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
@@ -127,8 +132,13 @@ public class ModItems {
 				// :::9
 
 				// The tab builder also accepts Blocks
+				output.accept(ModBlocks.CONDENSED_DIRT);
 				output.accept(ModBlocks.CONDENSED_OAK_LOG);
 				output.accept(ModBlocks.PRISMARINE_LAMP);
+				output.accept(ModBlocks.STEEL_BLOCK);
+				output.accept(ModBlocks.PIPE_BLOCK);
+				output.accept(ModBlocks.DUPLICATOR_BLOCK);
+				output.accept(ModBlocks.DIRT_CHEST_BLOCK);
 				// :::9
 				output.accept(ModBlocks.COUNTER_BLOCK);
 				output.accept(ModBlocks.ENGINE_BLOCK);
