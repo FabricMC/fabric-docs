@@ -11,7 +11,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
-import com.example.docs.network.basic.ExampleModNetworkingBasicModelProvider;
 import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
@@ -59,8 +58,6 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-models:register
 		pack.addProvider(ExampleModModelProvider::new);
 		// :::datagen-models:register
-
-		pack.addProvider(ExampleModNetworkingBasicModelProvider::new);
 
 		pack.addProvider(ExampleModAppearanceModelProvider::new);
 

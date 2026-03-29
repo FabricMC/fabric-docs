@@ -3,8 +3,6 @@ package com.example.docs.item;
 import java.util.List;
 import java.util.function.Function;
 
-import com.example.docs.networking.basic.ExampleModNetworkingBasic;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -49,6 +47,7 @@ import com.example.docs.fluid.ModFluids;
 import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
+import com.example.docs.networking.basic.LightningTaterItem;
 
 // :::1
 public class ModItems {
@@ -121,7 +120,7 @@ public class ModItems {
 				output.accept(ModItems.POISONOUS_APPLE);
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
-				output.accept(ExampleModNetworkingBasic.LIGHTNING_TATER);
+				output.accept(ModItems.LIGHTNING_TATER);
 				// :::9
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
@@ -210,6 +209,8 @@ public class ModItems {
 	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
 
 	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
+
+	public static final Item LIGHTNING_TATER = register("lightning_tater", LightningTaterItem::new, new Item.Properties());
 
 	// :::1
 	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
