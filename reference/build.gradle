@@ -45,7 +45,7 @@ subprojects {
 	// :::datagen-setup:configure
 
 	tasks.withType(JavaCompile).configureEach {
-		it.options.release = 21
+		it.options.release = 25
 	}
 
 	java {
