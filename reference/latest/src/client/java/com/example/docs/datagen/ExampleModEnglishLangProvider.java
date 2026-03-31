@@ -48,6 +48,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.example-mod.lightning_stick", "Lightning Stick");
 		translationBuilder.add("item.example-mod.counter", "Counter");
 		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
+		translationBuilder.add("item.example-mod.temperature.info", "Temperature: %1$s");
+		translationBuilder.add("item.example-mod.burnt.info", "Burnt: %1$s");
 		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
 		translationBuilder.add("creativeTab.example-mod", "Example Mod");
 		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");

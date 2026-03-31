@@ -176,7 +176,7 @@ For more information on the recipe format, check out these resources:
 
 ## Custom Tooltips {#custom-tooltips}
 
-If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method.
+If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method. Note that this method is deprecated as Mojang works to ensure item behaviour is handled entirely via components rather than via items - for more information, see [Custom Data Components](./custom-data-components).
 
 ::: info
 

@@ -28,10 +28,10 @@ public class ModComponents {
 	);
 
 	//::3
-	public static final DataComponentType<MyCustomComponent> MY_CUSTOM_COMPONENT = Registry.register(
+	public static final DataComponentType<AdvancedCustomComponent> ADVANCED_CUSTOM_COMPONENT = Registry.register(
 			BuiltInRegistries.DATA_COMPONENT_TYPE,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom"),
-			DataComponentType.<MyCustomComponent>builder().persistent(MyCustomComponent.CODEC).build()
+			DataComponentType.<AdvancedCustomComponent>builder().persistent(AdvancedCustomComponent.CODEC).build()
 	);
 	//::3
 

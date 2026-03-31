@@ -70,5 +70,8 @@ public class ExampleMod implements ModInitializer {
 		// #tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
 		// #tooltip_provider
+		// #advanced_tooltip_provider
+		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.ADVANCED_CUSTOM_COMPONENT);
+		// #advanced_tooltip_provider
 	}
 }

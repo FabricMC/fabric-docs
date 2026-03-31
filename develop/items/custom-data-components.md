@@ -72,7 +72,11 @@ We're going to add some tooltip code to display the current value of the click c
 int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry. Add this line to the `appendHoverText` method in the `CounterItem` class:
+This will return the current component value as the type we defined when we registered our component. We can then use this value to add a tooltip entry.
+
+### Appending Tooltips {#append-tooltips}
+
+For simplicity, we'll add this line to the `appendHoverText` method in the `CounterItem` class. Note that this method is deprecated as Mojang works to ensure item behaviour is handled entirely via components rather than via items.
 
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
@@ -87,7 +91,7 @@ As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to im
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
 
-Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
 @[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -196,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Let's set up a new `use()` method to read the old click count, increase it by one, and then set the updated click count.
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you've clicked it.
 
@@ -223,17 +227,20 @@ You may need to store multiple attributes in a single component. As a vanilla ex
 For composite components, you must create a `record` class to store the data. This is the type we'll register in our component type and what we'll read and write when interacting with an `ItemStack`. Start by making a new record class in the `component` package we made earlier.
 
 ```java
-public record MyCustomComponent() {
+public record AdvancedCustomComponent() {
 }
 ```
 
 Notice that there's a set of brackets after the class name. This is where we define the list of properties we want our component to have. Let's add a float and a boolean called `temperature` and `burnt` respectively.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+```java
+public record AdvancedCustomComponent(float temperature, boolean burnt) {
+}
+```
 
 Since we are defining a custom data structure, there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
 
 You can see that we are defining a list of custom fields based on the primitive `Codec` types. However, we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
 
@@ -259,20 +266,20 @@ Using the component in code is the same as before. Using `stack.get()` will retu
 
 ```java
 // read values of component
-MyCustomComponent comp = stack.get(ModComponents.MY_CUSTOM_COMPONENT);
+AdvancedCustomComponent comp = stack.get(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 float temp = comp.temperature();
 boolean burnt = comp.burnt();
 
 // set new component values
-stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
+stack.set(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.contains(ModComponents.ADVANCED_CUSTOM_COMPONENT)) {
     // do something
 }
 
 // remove component
-stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
+stack.remove(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 ```
 
 You can also set a default value for a composite component by passing a component object to your `Item.Properties`. For example:
@@ -281,10 +288,20 @@ You can also set a default value for a composite component by passing a componen
 public static final Item COUNTER = register(
     "counter",
     CounterItem::new,
-    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(0.0f, false))
 );
 ```
 
 Now you can store custom data on an `ItemStack`. Use responsibly!
 
 ![Item showing tooltips for click count, temperature and burnt](/assets/develop/items/custom_component_6.png)
+
+### Appending Advanced Tooltips {#advanced-tooltips}
+
+Since we have a custom component class, we're able to implement `TooltipProvider` as such and avoid the deprecated `appendHoverText method.`
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+
+Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
+
+@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
