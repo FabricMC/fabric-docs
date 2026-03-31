@@ -5,6 +5,8 @@ authors:
   - Earthcomputer
   - its-miroma
   - Kilip1000
+resources:
+  https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions: Liste an JVM Bytecode Anweisungen - Wikipedia
 ---
 
 Mixins arbeiten mit Java-Bytecode, daher muss man deren Grundlagen verstehen, um sie zu begreifen.
@@ -138,7 +140,7 @@ static add (DDD)D
 
 Wir haben gesehen, dass Bytecode die Namen lokaler Variablen nicht benötigt, da er sie anhand ihres LVT-Index identifiziert. Trotzdem behalten viele Bibliotheken Debugging-Informationen bei, darunter auch die Namen lokaler Variablen, um das Debugging zu vereinfachen und dir zu ermöglichen, bei der Entwicklung von Mixins lokale Variablen anhand deren Namen anzusprechen.
 
-Minecraft 1.21.11 bietet dies jedoch standardmäßig nicht und gilt daher als verschleiert. Beachte, dass [zukünftige Versionen von Minecraft nicht verschleiert werden](../migrating-mappings/#whats-going-on-with-mappings).
+Minecraft 1.21.11 bietet dies jedoch standardmäßig nicht und gilt daher als verschleiert. Beachte, dass [zukünftige Versionen von Minecraft nicht verschleiert werden](../porting/mappings/#whats-going-on-with-mappings).
 
 :::
 
@@ -345,7 +347,7 @@ Da der Bytecode für beide `if`-Bedingungen genau zum gleichen Label springt, gi
 
 ## Häufige Bytecode-Muster {#common-bytecode-patterns}
 
-Hier findest du eine Übersicht über die gängigsten Bytecode-Anweisungen und -Muster, denen du bei der Entwicklung von Mixins begegnen wirst. Eine vollständige Liste der Anweisungen findest du unter der [Liste der Java-Bytecode-Anweisungen auf Wikipedia](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions).
+Hier findest du eine Übersicht über die gängigsten Bytecode-Anweisungen und -Muster, denen du bei der Entwicklung von Mixins begegnen wirst. Eine vollständige Liste der Anweisungen findest du unter der [Liste der Java-Bytecode-Anweisungen auf Wikipedia](https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions).
 
 ### Konstanten {#constant-instructions}
 

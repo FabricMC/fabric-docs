@@ -3,6 +3,9 @@ title: Gespeicherte Daten
 description: Speichern von Daten zwischen Spielsitzungen.
 authors:
   - dicedpixels
+resources:
+  https://minecraft.wiki/w/NBT_format: NBT Format - Minecraft Wiki
+  https://docs.neoforged.net/docs/datastorage/saveddata/: Gespeicherte Daten - NeoForge Docs
 ---
 
 Gespeicherte Daten sind die integrierte Lösung von Minecraft, um Daten über mehrere Sitzungen hinweg zu speichern.

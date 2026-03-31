@@ -11,6 +11,8 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+resources:
+  https://docs.neoforged.net/docs/items/mobeffects: Mobeffekte - NeoForge Docs (ausgenommen Tränke)
 ---
 
 Mobeffekte, auch bekannt als Statuseffekte oder einfach Effekte, sind eine Bedingung, die eine Entität beeinflussen kann. Sie können positiver, negativer oder neutraler Natur sein. Das Basisspiel wendet diese Effekte auf verschiedene Weise an, zum Beispiel durch Nahrung, Tränke usw.

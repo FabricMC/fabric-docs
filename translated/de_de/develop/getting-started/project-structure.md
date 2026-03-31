@@ -3,6 +3,9 @@ title: Projektstruktur
 description: Ein Überblick über die Struktur eines Fabric-Mod-Projekts.
 authors:
   - IMB11
+resources:
+  https://wiki.fabricmc.net/documentation:fabric_mod_json: fabric.mod.json v1 Spezifikation - Fabric Wiki
+  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Quellcode für die fabric.mod.json v1 Spezifikation
 ---
 
 Auf dieser Seite wird die Struktur eines Fabric-Mod-Projekts und der Zweck der einzelnen Dateien und Ordner im Projekt erläutert.

@@ -5,6 +5,9 @@ authors:
   - cassiancc
   - Earthcomputer
   - JaaiDead
+  - skycatminepokie
+  - SzczurekYT
+  - voidedaries
 resources:
   https://docs.neoforged.net/docs/entities/: Сутності — Документація NeoForge
   https://www.desmos.com/calculator/9r6lh5knfu: Анімація ходьби сутності — Desmos

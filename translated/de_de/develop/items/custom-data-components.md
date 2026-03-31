@@ -4,6 +4,8 @@ description: Lerne, wie du benutzerdefinierte Datenkomponenten zu deinen Items m
 authors:
   - Romejanic
   - ekulxam
+resources:
+  https://minecraft.wiki/w/Data_component_format#List_of_components: Liste an Vanilla Komponenten - Minecraft Wiki
 ---
 
 Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vielleicht für jedes Item speichern. Das Spiel erlaubt es, persistente Daten in einem `ItemStack` zu speichern, und seit der Version 1.20.5 tun wir das mit Hilfe von **Datenkomponenten**.

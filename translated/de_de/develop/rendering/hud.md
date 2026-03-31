@@ -6,7 +6,7 @@ authors:
   - kevinthegreat1
 ---
 
-Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [den Zeichenkontext verwenden](./draw-context) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf die Hud-API und den Parameter `DeltaTracker`.
+Wir haben bereits auf der Seite [Grundlegende Rendering-Konzepte](./basic-concepts) und [Auf dem GUI zeichnen](./basic-concepts) kurz über das Rendern von Dingen auf dem Hud gesprochen, daher beschränken wir uns auf dieser Seite auf die Hud-API und den Parameter `DeltaTracker`.
 
 ## `HudRenderCallback` {#hudrendercallback}
 
@@ -22,7 +22,7 @@ Fabric bietet die Hud-API zum Rendern und Überlagern von Elementen auf dem HUD 
 
 Zu Beginn müssen wir einen Listener für die `HudElementRegistry` registrieren, der deine Elemente registriert. Jedes Element ist ein `HudElement`. Eine `HudElement`-Instanz ist normalerweise ein Lambda, das eine Instanz von `GuiGraphics` und `DeltaTracker` als Parameter entgegennimmt. Siehe `HudElementRegistry` und die zugehörigen Javadocs für weitere Einzelheiten zur Verwendung der API.
 
-Der Zeichenkontext kann verwendet werden, um auf die verschiedenen Rendering-Hilfsmittel zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen. Du solltest dir die Seite [Den Zeichenkontext verwenden](./draw-context) ansehen, um mehr über den Zeichenkontext zu erfahren.
+Die GUI Grafik kann verwendet werden, um auf die verschiedenen Rendering-Hilfsmittel zuzugreifen, die vom Spiel zur Verfügung gestellt werden, und um auf den Rohmatrix-Stapel zuzugreifen. Weitere Informationen dazu findest du auf der Seite [Zeichnen auf dem GUI](./gui-graphics).
 
 ### Delta Tracker {#delta-tracker}
 

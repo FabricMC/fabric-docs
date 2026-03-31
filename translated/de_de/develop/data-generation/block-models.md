@@ -7,6 +7,11 @@ authors:
   - IMB11
   - its-miroma
   - natri0
+resources:
+  https://www.blockbench.net/: Blockbench herunterladen
+  https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/: Beispieltests der Fabric API
+  https://github.com/Fellteros/vanillablocksplus: Vanilla+ Blocks von Fellteros
+  https://github.com/Fellteros/vanillavsplus: Vanilla+ Verticals von Fellteros
 ---
 
 <!---->
@@ -229,9 +234,3 @@ Schließlich erstellen wir ein Modell für das Item der vertikalen Stufe mit `Bl
 Und das ist alles! Jetzt müssen wir nur noch unsere Methode in unserem `ModelProvider` aufrufen:
 
 @[code lang=java transcludeWith=:::custom-method-call](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
-
-## Quellen und Links {#sources-and-links}
-
-Du kannst für weitere Informationen die Beispieltests der [Fabric API](https://github.com/FabricMC/fabric/blob/1.21.11/fabric-data-generation-api-v1/src/) und die im [Beispiel-Mod](https://github.com/FabricMC/fabric-docs/tree/main/reference) dieser Dokumentation ansehen.
-
-Du kannst auch weitere Beispiele für die Verwendung von benutzerdefinierten Methoden für den Datengenerator finden, indem du den Opens Source-Code von Mods durchsuchst, zum Beispiel [Vanilla+ Blocks](https://github.com/Fellteros/vanillablocksplus) und [Vanilla+ Verticals](https://github.com/Fellteros/vanillavsplus) von Fellteros.

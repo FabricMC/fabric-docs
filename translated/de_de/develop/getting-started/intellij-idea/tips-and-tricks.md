@@ -9,6 +9,9 @@ prev:
   text: Einen Mod in IntelliJ bauen
   link: ./building-a-mod
 next: false
+resources:
+  https://www.youtube.com/watch?v=V8lss58zBPI: Vortrag von Anton Arhipov über IntelliJ IDEA
+  https://blog.jetbrains.com/idea/category/tips-tricks/: Offizielle Tipps und Tricks
 ---
 
 Diese Seite stellt nützliche Informationen, um das Arbeiten von Entwicklern so schnell und angenehm wie möglich zu gestalten, bereit. Benutze diese je nach Bedarf.

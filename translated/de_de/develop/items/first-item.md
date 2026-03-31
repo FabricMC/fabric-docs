@@ -58,7 +58,7 @@ Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nic
 
 ::: info
 
-Wenn du ein Item zu einem benutzerdefinierten `CreativeModeTab` hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Kreativtabs](./custom-item-groups).
+Wenn du ein Item zu einem benutzerdefinierten Kreativtab hinzufügen möchtest, findest du weitere Informationen auf der Seite [Benutzerdefinierte Kreativtabs](./custom-creative-tabs).
 
 :::
 

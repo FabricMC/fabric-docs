@@ -6,7 +6,7 @@ authors:
   - DennisOchulor
 ---
 
-Die Data Attachment API ist eine neue und experimentelle Ergänzung der Fabric API. Sie ermöglicht Entwicklern, beliebige Daten einfach an Entitäten, Blockentitäten, Levels und Chunks anzuhängen. Die angehängten Daten können über [Codecs](./codecs) und Stream-Codecs gespeichert und synchronisiert werden. Du solltest sich daher vor der Verwendung mit diesen vertraut machen.
+Die Data Attachment API ist eine neue und experimentelle Ergänzung der Fabric API. Sie ermöglicht Entwicklern, beliebige Daten einfach an Entitäten, Blockentitäten, Levels und Chunks anzuhängen. Die angehängten Daten können über [Codecs](./codecs) und [Stream-Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/) gespeichert und synchronisiert werden. Du solltest sich daher vor der Verwendung mit diesen vertraut machen.
 
 ## Einen Datenanhang erstellen {#creating-attachments}
 

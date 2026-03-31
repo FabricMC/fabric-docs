@@ -6,6 +6,9 @@ authors:
   - IMB11
   - radstevee
   - Thomas1034
+resources:
+  https://fabricmc.net/develop/template/: Fabric Vorlagenmod Generator
+  https://fabricmc.net/develop/: Entwickeln mit Fabric Website
 ---
 
 Fabric bietet eine einfache Möglichkeit, ein neues Mod-Projekt mit dem Fabric Template Mod Generator zu erstellen - wenn du möchtest, kannst du ein neues Projekt auch manuell erstellen, indem du das Beispiel-Mod-Repository verwendest, dann solltest du den Abschnitt [Manuelle Projekterstellung](#manuelle-projekterstellung) lesen.
@@ -30,7 +33,7 @@ Wenn du entweder Kotlin oder die Yarn-Mappings von Fabric anstelle der standardm
 
 ::: info
 
-Die auf dieser Website angegebenen Codebeispiele verwenden [die offiziellen Namen von Mojang](../migrating-mappings/#mappings). Wenn dein Mod nicht dieselben Mappings verwendet, in denen diese Dokumente geschrieben sind, musst du die Beispiele mithilfe von Websites wie [mappings.dev](https://mappings.dev/) oder [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) konvertieren.
+Die auf dieser Website angegebenen Codebeispiele verwenden [die offiziellen Namen von Mojang](../porting/mappings/#mappings). Wenn dein Mod nicht dieselben Mappings verwendet, in denen diese Dokumente geschrieben sind, musst du die Beispiele mithilfe von Websites wie [mappings.dev](https://mappings.dev/) oder [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) konvertieren.
 
 :::
 

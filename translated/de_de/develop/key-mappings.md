@@ -4,6 +4,8 @@ description: Erstellen von Tastenbelegungen und darauf reagieren.
 authors:
   - cassiancc
   - dicedpixels
+resources:
+  https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg: Standard US Tastaturbelegung
 ---
 
 Minecraft verarbeitet Benutzereingaben von Peripheriegeräten wie Tastatur und Maus mithilfe von Tastenbelegungen.
