@@ -33,8 +33,8 @@ import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
+import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
-import com.example.docs.item.ModItems;
 
 // :::1
 public class ModBlocks {
@@ -144,6 +144,10 @@ public class ModBlocks {
 
 	public static final Block DIRT_CHEST_BLOCK = register(
 			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block TATER_BLOCK = register(
+					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// :::waxcap-tinting
