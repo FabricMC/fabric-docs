@@ -85,7 +85,7 @@ sudo dnf install java-25-openjdk-devel
 
 ### Other Linux Distributions {#other-linux-distributions}
 
-If your distribution isn't listed above, you can download the latest JRE from [Adoptium](https://adoptium.net/temurin/)
+If your distribution isn't listed above, you can download the latest JRE from [Adoptium](https://adoptium.net/installation/linux)
 
 You should refer to an alternative guide for your distribution if you plan to develop mods.
 
