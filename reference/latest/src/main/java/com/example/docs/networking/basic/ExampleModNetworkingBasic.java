@@ -18,8 +18,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import com.example.docs.ExampleMod;
 
 public class ExampleModNetworkingBasic implements ModInitializer {
-	public static final ResourceKey<Item> LIGHTNING_TATER_REGISTRY_KEY = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "lightning_tater"));
-	public static final Item LIGHTNING_TATER = Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "lightning_tater"), new LightningTaterItem(new Item.Properties().setId(LIGHTNING_TATER_REGISTRY_KEY)));
 
 	public void onInitialize() {
 		PayloadTypeRegistry.clientboundPlay().register(SummonLightningClientboundPayload.TYPE, SummonLightningClientboundPayload.CODEC);

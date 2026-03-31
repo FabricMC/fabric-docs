@@ -33,6 +33,7 @@ import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
+import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
 
 // :::1
@@ -144,6 +145,22 @@ public class ModBlocks {
 	public static final Block DIRT_CHEST_BLOCK = register(
 			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
+
+	public static final Block TATER_BLOCK = register(
+					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	// :::waxcap-tinting
+	public static final Block WAXCAP = register(
+			"waxcap",
+			Block::new,
+			BlockBehaviour.Properties.of()
+					.noCollision()
+					.instabreak()
+					.offsetType(BlockBehaviour.OffsetType.XYZ),
+			true
+	);
+	// :::waxcap-tinting
 
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {

@@ -12,7 +12,7 @@ Let's take a look at how we can manipulate the appearance of a block.
 
 For this example, let's register a block. If you are unfamiliar with this process, please read about [block registration](./first-block) first.
 
-@[code lang=java transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
+@[code lang=java transcludeWith=:::waxcap-tinting](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 
 Make sure to add:
 

@@ -11,6 +11,7 @@ dependencies {
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
+// :::automatic-testing:game-test:2
 // :::classtweaker-setup:gradle:::
 loom {
 
@@ -19,7 +20,6 @@ loom {
 }
 // :::classtweaker-setup:gradle:::
 
-// :::automatic-testing:game-test:2
 // :::automatic-testing:2
 test {
 	useJUnitPlatform()

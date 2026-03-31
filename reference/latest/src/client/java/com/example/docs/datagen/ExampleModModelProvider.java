@@ -93,6 +93,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 		// :::provider
 
+		itemModelGenerator.generateFlatItem(ModItems.ACID_BUCKET, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_TATER, ModelTemplates.FLAT_HANDHELD_ITEM);
+
 		//:::generated
 		itemModelGenerator.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
 		//:::generated
@@ -116,8 +119,8 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//:::condition
 
 		//:::composite
-		ItemModel.Unbaked hoe = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, ModelTemplates.FLAT_ITEM));
-		ItemModel.Unbaked hoePlus = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, "_plus", ModelTemplates.FLAT_ITEM));
+		ItemModel.Unbaked hoe = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, ModelTemplates.FLAT_HANDHELD_ITEM));
+		ItemModel.Unbaked hoePlus = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, "_plus", ModelTemplates.FLAT_HANDHELD_ITEM));
 
 		itemModelGenerator.itemModelOutput.accept(
 						ModItems.ENHANCED_HOE,

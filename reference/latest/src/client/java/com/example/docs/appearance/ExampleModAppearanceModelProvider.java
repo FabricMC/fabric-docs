@@ -1,5 +1,9 @@
 package com.example.docs.appearance;
 
+import com.example.docs.block.ModBlocks;
+
+import net.minecraft.world.item.Item;
+
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -19,13 +23,14 @@ public class ExampleModAppearanceModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-		blockStateModelGenerator.createCrossBlock(ExampleModAppearance.WAXCAP_BLOCK, PlantType.TINTED);
+		blockStateModelGenerator.createCrossBlock(ModBlocks.WAXCAP, PlantType.TINTED);
 	}
 
 	@Override
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-		Identifier modelLocation = itemModelGenerator.createFlatItemModel(ExampleModAppearance.WAXCAP_BLOCK_ITEM, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.itemModelOutput.accept(ExampleModAppearance.WAXCAP_BLOCK_ITEM, ItemModelUtils.tintedModel(
+		Item waxcap = ModBlocks.WAXCAP.asItem();
+		Identifier modelLocation = itemModelGenerator.createFlatItemModel(waxcap, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.itemModelOutput.accept(waxcap, ItemModelUtils.tintedModel(
 						modelLocation,
 						new RainTintSource()
 		));

@@ -25,7 +25,6 @@
       "com.example.docs.networking.basic.ExampleModNetworkingBasic",
       "com.example.docs.debug.ExampleModDebug",
       "com.example.docs.saveddata.ExampleModSavedData",
-      "com.example.docs.appearance.ExampleModAppearance",
       "com.example.docs.entity.attribute.ExampleModAttributes",
       "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",

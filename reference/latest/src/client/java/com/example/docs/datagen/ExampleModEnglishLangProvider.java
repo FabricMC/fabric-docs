@@ -10,7 +10,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
-import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
@@ -36,6 +35,15 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
 		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
+		translationBuilder.add(ModItems.ACID_BUCKET, "Acid Bucket");
+		translationBuilder.add(ModItems.RUBY, "Ruby");
+		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
+		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
+		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
+		translationBuilder.add(ModItems.BALLOON, "Balloon");
+		translationBuilder.add(ModItems.ENHANCED_HOE, "Enhanced Hoe");
+		translationBuilder.add(ModItems.DIMENSIONAL_CRYSTAL, "Dimensional Crystal");
+		translationBuilder.add(ModItems.THROWING_KNIVES, "Throwing Knives");
 
 		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 
@@ -73,8 +81,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
 		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
-		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
-		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
+		translationBuilder.add(ModBlocks.WAXCAP, "Waxcap");
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
 
