@@ -120,11 +120,11 @@ public class ModItems {
 			.displayItems((params, output) -> {
 				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
 				output.accept(ModItems.POISONOUS_APPLE);
+				// :::9
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
 				output.accept(ModItems.LIGHTNING_TATER);
 				output.accept(ModItems.TEST_ITEM);
-				// :::9
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
 				output.accept(ModItems.GUIDITE_BOOTS);
@@ -136,12 +136,12 @@ public class ModItems {
 				// The tab builder also accepts Blocks
 				output.accept(ModBlocks.CONDENSED_DIRT);
 				output.accept(ModBlocks.CONDENSED_OAK_LOG);
+				// :::9
 				output.accept(ModBlocks.PRISMARINE_LAMP);
 				output.accept(ModBlocks.STEEL_BLOCK);
 				output.accept(ModBlocks.PIPE_BLOCK);
 				output.accept(ModBlocks.DUPLICATOR_BLOCK);
 				output.accept(ModBlocks.DIRT_CHEST_BLOCK);
-				// :::9
 				output.accept(ModBlocks.COUNTER_BLOCK);
 				output.accept(ModBlocks.ENGINE_BLOCK);
 				output.accept(ModBlocks.RUBY_BLOCK);
