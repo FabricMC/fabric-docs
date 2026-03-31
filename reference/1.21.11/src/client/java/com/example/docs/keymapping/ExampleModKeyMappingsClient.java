@@ -15,7 +15,7 @@ import com.example.docs.ExampleMod;
 
 public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	// :::category
-	KeyMapping.Category CATEGORY = new KeyMapping.Category(
+	KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom_category")
 	);
 	// :::category
