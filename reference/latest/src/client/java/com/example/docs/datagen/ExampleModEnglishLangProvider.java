@@ -10,7 +10,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import com.example.docs.ExampleMod;
-import com.example.docs.appearance.ExampleModAppearance;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
@@ -82,8 +81,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
 		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
 		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
-		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK, "Waxcap");
-		translationBuilder.add(ExampleModAppearance.WAXCAP_BLOCK_ITEM, "Waxcap");
+		translationBuilder.add(ModBlocks.WAXCAP, "Waxcap");
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
 

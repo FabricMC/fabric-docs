@@ -11,17 +11,15 @@ Out of those, a commonly used type is _Tint Sources_, which allow you to change 
 
 There are only a handful of [predefined tint sources](https://minecraft.wiki/w/Items_model_definition#Tint_sources_types), so let's see how to create our own.
 
-For this example, let's register an item. If you are unfamiliar with this process, please read about [item registration](./first-item) first.
+For this example, we will use the `ModBocks.WAXCAP` block item registered in [Block Tinting](../blocks/block-tinting).
 
-@[code lang=java transcludeWith=:::item](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
-
-Make sure to add:
+Complete the item by adding:
 
 - A [client item](./first-item#creating-the-client-item) in `/items/waxcap.json`
 - An [item model](./item-models) in `/models/item/waxcap.json`
 - A [texture](./first-item#adding-a-texture) in `/textures/item/waxcap.png`
 
-The item should appear in-game.
+The item should now be textured.
 
 ![Registered Item](/assets/develop/item-appearance/item_tint_0.png)
 

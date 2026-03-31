@@ -18,6 +18,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.block.ModBlocks;
 import com.example.docs.fluid.ModFluids;
 
 public class ExampleModAppearanceClient implements ClientModInitializer {
@@ -43,7 +44,7 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 			public int color(BlockState state) {
 				return 0xFFFFDAB9; // Color code in hex format
 			}
-		}), ExampleModAppearance.WAXCAP_BLOCK);
+		}), ModBlocks.WAXCAP);
 		// :::color_provider
 
 		// :::fluid_texture
