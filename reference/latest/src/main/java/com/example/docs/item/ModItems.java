@@ -152,6 +152,7 @@ public class ModItems {
 				output.accept(ModBlocks.RUBY_TRAPDOOR);
 				output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
 				output.accept(ModBlocks.WAXCAP);
+				output.accept(ModBlocks.TATER_BLOCK);
 				// :::9
 
 				// And custom ItemStacks
