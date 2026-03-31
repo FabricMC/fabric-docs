@@ -9,14 +9,14 @@ import net.minecraft.resources.Identifier;
 import com.example.docs.ExampleMod;
 
 // :::summon_Lightning_payload
-public record SummonLightningS2CPayload(BlockPos pos) implements CustomPacketPayload {
+public record SummonLightningClientboundPayload(BlockPos pos) implements CustomPacketPayload {
 	public static final Identifier SUMMON_LIGHTNING_PAYLOAD_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "summon_lightning");
-	public static final CustomPacketPayload.Type<SummonLightningS2CPayload> ID = new CustomPacketPayload.Type<>(SUMMON_LIGHTNING_PAYLOAD_ID);
-	public static final StreamCodec<RegistryFriendlyByteBuf, SummonLightningS2CPayload> CODEC = StreamCodec.composite(BlockPos.STREAM_CODEC, SummonLightningS2CPayload::pos, SummonLightningS2CPayload::new);
+	public static final CustomPacketPayload.Type<SummonLightningClientboundPayload> TYPE = new CustomPacketPayload.Type<>(SUMMON_LIGHTNING_PAYLOAD_ID);
+	public static final StreamCodec<RegistryFriendlyByteBuf, SummonLightningClientboundPayload> CODEC = StreamCodec.composite(BlockPos.STREAM_CODEC, SummonLightningClientboundPayload::pos, SummonLightningClientboundPayload::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {
-		return ID;
+		return TYPE;
 	}
 }
 // :::summon_Lightning_payload

@@ -9,14 +9,14 @@ import net.minecraft.resources.Identifier;
 import com.example.docs.ExampleMod;
 
 // :::give_glowing_effect_payload
-public record GiveGlowingEffectC2SPayload(int entityId) implements CustomPacketPayload {
+public record GiveGlowingEffectServerboundPayload(int entityId) implements CustomPacketPayload {
 	public static final Identifier GIVE_GLOWING_EFFECT_PAYLOAD_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "give_glowing_effect");
-	public static final CustomPacketPayload.Type<GiveGlowingEffectC2SPayload> ID = new CustomPacketPayload.Type<>(GIVE_GLOWING_EFFECT_PAYLOAD_ID);
-	public static final StreamCodec<RegistryFriendlyByteBuf, GiveGlowingEffectC2SPayload> CODEC = StreamCodec.composite(ByteBufCodecs.INT, GiveGlowingEffectC2SPayload::entityId, GiveGlowingEffectC2SPayload::new);
+	public static final CustomPacketPayload.Type<GiveGlowingEffectServerboundPayload> TYPE = new CustomPacketPayload.Type<>(GIVE_GLOWING_EFFECT_PAYLOAD_ID);
+	public static final StreamCodec<RegistryFriendlyByteBuf, GiveGlowingEffectServerboundPayload> CODEC = StreamCodec.composite(ByteBufCodecs.INT, GiveGlowingEffectServerboundPayload::entityId, GiveGlowingEffectServerboundPayload::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {
-		return ID;
+		return TYPE;
 	}
 }
 // :::give_glowing_effect_payload

@@ -22,11 +22,11 @@ public class ExampleModNetworkingBasic implements ModInitializer {
 	public static final Item LIGHTNING_TATER = Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "lightning_tater"), new LightningTaterItem(new Item.Properties().setId(LIGHTNING_TATER_REGISTRY_KEY)));
 
 	public void onInitialize() {
-		PayloadTypeRegistry.clientboundPlay().register(SummonLightningS2CPayload.ID, SummonLightningS2CPayload.CODEC);
-		PayloadTypeRegistry.serverboundPlay().register(GiveGlowingEffectC2SPayload.ID, GiveGlowingEffectC2SPayload.CODEC);
+		PayloadTypeRegistry.clientboundPlay().register(SummonLightningClientboundPayload.TYPE, SummonLightningClientboundPayload.CODEC);
+		PayloadTypeRegistry.serverboundPlay().register(GiveGlowingEffectServerboundPayload.TYPE, GiveGlowingEffectServerboundPayload.CODEC);
 
 		// :::server_global_receiver
-		ServerPlayNetworking.registerGlobalReceiver(GiveGlowingEffectC2SPayload.ID, (payload, context) -> {
+		ServerPlayNetworking.registerGlobalReceiver(GiveGlowingEffectServerboundPayload.TYPE, (payload, context) -> {
 			Entity entity = context.player().level().getEntity(payload.entityId());
 
 			if (entity instanceof LivingEntity livingEntity && livingEntity.closerThan(context.player(), 5)) {

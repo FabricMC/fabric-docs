@@ -55,45 +55,39 @@ A payload is the data that is sent within a packet.
 
 This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
 
-@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
 
 At the same time, we've defined:
 
 - An `Identifier` used to identify our packet's payload. For this example our identifier will be
   `example-mod:summon_lightning`.
 
-@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
 
-- A public static instance of `CustomPayload.Id` to uniquely identify this custom payload. We will be referencing this
+- A public static instance of `CustomPayload.Type` to uniquely identify this custom payload. We will be referencing this
   ID in both our common and client code.
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
 
 - A public static instance of a `StreamCodec` so that the game knows how to serialize/deserialize the contents of the
   packet.
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
 
 We have also overridden `type` to return our payload ID.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
 
 ### Registering a Payload {#registering-a-payload}
 
 Before we send a packet with our custom payload, we need to register it on both physical sides.
 
-::: info
-
-`S2C` and `C2S` are two common suffixes that mean _Server-to-Client_ and _Client-to-Server_ respectively.
-
-:::
-
-This can be done in our **common initializer** by using `PayloadTypeRegistry.playS2C().register` which takes in a
-`CustomPayload.Id` and a `StreamCodec`.
+This can be done in our **common initializer** by using `PayloadTypeRegistry.clientboundPlay().register` which takes in a
+`CustomPayload.Type` and a `StreamCodec`.
 
 @[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
-A similar method exists to register client-to-server payloads: `PayloadTypeRegistry.playC2S().register`.
+A similar method exists to register client-to-server payloads: `PayloadTypeRegistry.serverboundPlay().register`.
 
 ### Sending a Packet to the Client {#sending-a-packet-to-the-client}
 
@@ -107,7 +101,7 @@ In this case, let's send packets to the players in the server level.
 
 Let's examine the code above.
 
-We only send packets when the action is initiated on the server, by returning early with a `isClient` check:
+We only send packets when the action is initiated on the server, by returning early with a `isClientSide()` check:
 
 @[code lang=java transclude={22-24}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -138,7 +132,7 @@ sending packets.
 To receive a packet sent from a server on the client, you need to specify how you will handle the incoming packet.
 
 This can be done in the **client initializer**, by calling `ClientPlayNetworking.registerGlobalReceiver` and passing a
-`CustomPayload.Id` and a `PlayPayloadHandler`, which is a Functional Interface.
+`CustomPayload.Type` and a `PlayPayloadHandler`, which is a Functional Interface.
 
 In this case, we'll define the action to trigger within the implementation of `PlayPayloadHandler` implementation (as a
 lambda expression).
@@ -166,12 +160,12 @@ striking at the user's position.
 Just like sending a packet to the client, we start by creating a custom payload. This time, when a player uses a
 Poisonous Potato on a living entity, we request the server to apply the Glowing effect to it.
 
-@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectC2SPayload.java)
+@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java)
 
 We pass in the appropriate codec along with a method reference to get the value from the Record to build this codec.
 
 Then we register our payload in our **common initializer**. However, this time as _Client-to-Server_ payload by using
-`PayloadTypeRegistry.playC2S().register`.
+`PayloadTypeRegistry.serverboundPlay().register`.
 
 @[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
@@ -184,21 +178,21 @@ on the logical client.
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-We create an instance of our `GiveGlowingEffectC2SPayload` with the necessary arguments. In this case, the network ID
+We create an instance of our `GiveGlowingEffectServerboundPayload` with the necessary arguments. In this case, the network ID
 of
 the targeted entity.
 
 @[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 Finally, we send a packet to the server by calling `ClientPlayNetworking.send` with the instance of our
-`GiveGlowingEffectC2SPayload`.
+`GiveGlowingEffectServerboundPayload`.
 
 @[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### Receiving a Packet on the Server {#receiving-a-packet-on-the-server}
 
 This can be done in the **common initializer**, by calling `ServerPlayNetworking.registerGlobalReceiver` and passing a
-`CustomPayload.Id` and a `PlayPayloadHandler`.
+`CustomPayload.Type` and a `PlayPayloadHandler`.
 
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 

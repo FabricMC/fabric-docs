@@ -15,14 +15,14 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 
-import com.example.docs.networking.basic.GiveGlowingEffectC2SPayload;
-import com.example.docs.networking.basic.SummonLightningS2CPayload;
+import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
+import com.example.docs.networking.basic.SummonLightningClientboundPayload;
 
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// :::client_global_receiver
-		ClientPlayNetworking.registerGlobalReceiver(SummonLightningS2CPayload.ID, (payload, context) -> {
+		ClientPlayNetworking.registerGlobalReceiver(SummonLightningClientboundPayload.TYPE, (payload, context) -> {
 			ClientLevel level = context.client().level;
 
 			if (level == null) {
@@ -48,7 +48,7 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 			ItemStack usedItemStack = player.getItemInHand(hand);
 
 			if (entity instanceof LivingEntity && usedItemStack.is(Items.POISONOUS_POTATO) && hand == InteractionHand.MAIN_HAND) {
-				GiveGlowingEffectC2SPayload payload = new GiveGlowingEffectC2SPayload(hitResult.getEntity().getId());
+				GiveGlowingEffectServerboundPayload payload = new GiveGlowingEffectServerboundPayload(hitResult.getEntity().getId());
 				ClientPlayNetworking.send(payload);
 
 				return InteractionResult.SUCCESS;
