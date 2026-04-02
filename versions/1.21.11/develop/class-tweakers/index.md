@@ -12,7 +12,7 @@ Class tweakers, formerly known as access wideners before gaining further functio
 
 ::: warning
 
-Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0, and may only target Vanilla Minecraft classes.
+Class tweakers are not specific to a given Minecraft version, but are only available starting from Fabric Loader 0.18.0 and Loom 1.12, and may only target Vanilla Minecraft classes.
 
 :::
 
