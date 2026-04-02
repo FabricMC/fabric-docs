@@ -43,7 +43,6 @@ const versions = computed(() =>
       ? []
       : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
   ].filter((v) => v !== currentV.value && v !== "1.21.10")
-
 );
 
 const open = ref(false);
