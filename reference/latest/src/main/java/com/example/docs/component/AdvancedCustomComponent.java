@@ -1,5 +1,7 @@
 package com.example.docs.component;
 
+import java.util.function.Consumer;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -9,8 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
-
-import java.util.function.Consumer;
 
 //::1
 public record AdvancedCustomComponent(float temperature, boolean burnt) implements TooltipProvider {

@@ -1,9 +1,5 @@
 package com.example.docs.appearance;
 
-import com.example.docs.block.ModBlocks;
-
-import net.minecraft.world.item.Item;
-
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -12,9 +8,11 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Item;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import com.example.docs.block.ModBlocks;
 
 public class ExampleModAppearanceModelProvider extends FabricModelProvider {
 	public ExampleModAppearanceModelProvider(FabricPackOutput output) {
