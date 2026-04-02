@@ -35,18 +35,14 @@ export default [
   },
   {
     from: /develop[/]blocks[/]transparency-and-tinting$/,
-    dest: "develop/blocks/block-tinting/",
+    dest: "develop/blocks/block-tinting",
   },
   {
     from: /develop[/]blocks[/]block-tinting$/,
     dest: "develop/blocks/transparency-and-tinting/",
   },
   {
-    from: /develop[/]porting[/]mappings[/]loom$/,
-    dest: "1.21.11/develop/porting/mappings/loom/",
-  },
-  {
-    from: /develop[/]porting[/]mappings[/]ravel$/,
-    dest: "1.21.11/develop/porting/mappings/ravel/",
+    from: /develop[/]porting[/]mappings([/].*)?$/,
+    dest: "1.21.11/develop/porting/mappings$1",
   },
 ] satisfies { from: RegExp; dest: string }[];
