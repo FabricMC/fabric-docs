@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+
 import com.example.docs.block.ModBlocks;
 
 public class ExampleModAppearanceModelProvider extends FabricModelProvider {
