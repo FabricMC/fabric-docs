@@ -94,7 +94,7 @@ export default defineVersionedConfig(
       transformItems,
     },
 
-    srcExclude: ["README.md", ...(typeof env === "number" ? ["versions"] : [])],
+    srcExclude: ["README.md", "versions/1.21.10", ...(typeof env === "number" ? ["versions"] : [])],
 
     themeConfig: {
       env,

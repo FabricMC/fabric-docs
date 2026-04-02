@@ -9,6 +9,10 @@ export default [
     from: new RegExp(`^${latestVersion}([/]|$)`),
     dest: "",
   },
+    {
+    from: new RegExp(`^1.21.10([/]|$)`),
+    dest: "1.21.11/",
+  },
   {
     from: /develop[/]items[/]custom-item-groups$/,
     dest: "develop/items/custom-creative-tabs",
