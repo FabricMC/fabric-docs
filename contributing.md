@@ -18,6 +18,7 @@ description: "An introduction to the Fabric Docs: its structure, style, and how 
 # Can include: writers, asset creators, impactful reviewers, code authors...
 # These will be shown in the "Page Authors" section of the right aside.
 authors:
+  - cassiancc
   - dicedpixels
   - fungoza
   - IMB11
@@ -163,6 +164,13 @@ When creating a new page, you should do the following:
 - Respect the licenses, especially if referencing other people's code
 - You might want to [work on the project locally](#local) to preview and test the pages and the code
 
+If you are adding code that is dependent on Minecraft and is thus likely to change between versions, we ask that it be placed in the Reference Mod rather than included directly in the documentation.
+
+- Open the `reference` folder in your preferred IDE (usually IntelliJ IDEA)
+- Write your code in the `latest` submodule.
+- Embed the content into the docs via a [snippet](#snippets)
+- Run [checkstyle](#ci) on your contributions so that they pass CI.
+
 ### Modifying the Framework {#label-framework}
 
 Sometimes the change you want to apply isn't to the content, but rather to the website structure or visual appearance. We call these framework changes, and you can find greater detail [regarding the file structure](#structure) below.
@@ -236,7 +244,8 @@ Finally, an intricate combination of CI and linting tools does a general check o
 
 - [`markdownlint`](https://github.com/DavidAnson/markdownlint) is configured to finely control the Markdown pages, even with some custom rules
 - [`prettier`](https://prettier.io/) is an opinionated code formatter that will take care of TypeScript, Vue, JSON, and other file types
-- [`checkstyle`](https://checkstyle.sourceforge.io/) is a tool that makes Java code adhere to one same coding standard, defined in `reference/checkstyle.xml`
+- [`checkstyle`](https://checkstyle.sourceforge.io/) is a tool that makes Java code adhere to one same coding standard, defined in `reference/checkstyle.xml`. You can use checkstyle on the reference mod via the `checkstyleMain` and `checkstyleClient` Gradle tasks to check for formatting errors.
+- [`spotless`](https://github.com/diffplug/spotless) is a tool to automatically apply fixes for common formatting errors. You can run spotless on the reference mod with the `spotlessApply` task.
 - `.github/workflows/build.yaml` will run for every PR, and it will ensure that:
   - The mod and the pages build correctly
   - The mod passes tests
