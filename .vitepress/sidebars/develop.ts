@@ -363,6 +363,16 @@ export default [
     ],
   },
   {
+    text: "develop.loader",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.loader.fabric.mod.json",
+        link: "/develop/loader/fabric-mod-json",
+      },
+    ],
+  },
+  {
     text: "develop.porting",
     collapsed: true,
     items: [
