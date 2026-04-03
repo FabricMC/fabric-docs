@@ -86,7 +86,7 @@ Before we send a packet with our custom payload, we need to register it on both 
 This can be done in our **common initializer** by using `PayloadTypeRegistry.clientboundPlay().register` which takes in a
 `CustomPayload.Type` and a `StreamCodec`.
 
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 A similar method exists to register client-to-server payloads: `PayloadTypeRegistry.serverboundPlay().register`.
 
@@ -168,7 +168,7 @@ We pass in the appropriate codec along with a method reference to get the value 
 Then we register our payload in our **common initializer**. However, this time as _Client-to-Server_ payload by using
 `PayloadTypeRegistry.serverboundPlay().register`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 To send a packet, let's add an action when the player uses a Poisonous Potato. We'll be using the `UseEntityCallback`
 event to
