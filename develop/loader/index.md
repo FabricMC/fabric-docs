@@ -49,7 +49,7 @@ Mixin was not originally made for Fabric, so Fabric Loader uses a modified versi
 
 ## Mappings {#mappings}
 
-:::info
+::: info
 
 Mappings are only relevant when using Fabric Loader on obfuscated games, including pre-26.1 versions of Minecraft.
 
@@ -61,4 +61,4 @@ Fabric Loader provides the `MappingResolver` API to determine names of classes, 
 FabricLoader.getInstance().getMappingResolver().mapClassName("intermediary", "net.minecraft.class_5421") // Resolves to `RecipeBookType` on named versions of 1.21.11
 ```
 
-When launched in a non-development environment on an obfuscated game, Fabric Loader will [remap](/porting/mappings/#mappings) the game jar(s) to intermediary names. Mods designed for obfuscated games are expected to be mapped to intermediary, which will be compatible with this environment. The remapped jars are cached and saved in `${gameDir}/.fabric/remappedJars/${minecraftVersion}` for re-use across launches.
+When launched in a non-development environment on an obfuscated game, Fabric Loader will [remap](../porting/mappings/index#mappings) the game jar(s) to intermediary names. Mods designed for obfuscated games are expected to be mapped to intermediary, which will be compatible with this environment. The remapped jars are cached and saved in `${gameDir}/.fabric/remappedJars/${minecraftVersion}` for re-use across launches.

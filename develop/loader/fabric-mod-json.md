@@ -29,7 +29,7 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
 
 ### Mod Loading {#mod-loading}
 
-#### Environment
+#### Environment {#environment}
 
 - **`environment`**: A string value that defines which environments the mod should be run on:
   - **`*`**: Runs in all environments. Default.
@@ -70,7 +70,7 @@ If you're using any other language, consult the language adapter's documentation
 
 #### Language Adapaters {#language-adapters}
 
-- **`languageAdapters`**: A dictionary of adapters for used languages to their adapter classes full names. For example:
+- **`languageAdapters`**: A dictionary of classes that implement `LanguageAdapter`.
 
 ```json
 "languageAdapters": {
@@ -94,7 +94,7 @@ If you're using any other language, consult the language adapter's documentation
 ]
 ```
 
-#### Mixins {#mixins}
+#### Access Wideners {#accesswideners}
 
 - **`accessWidener`**: A string identifying an [access widener or class tweaker](../class-tweakers/index) file.
 
@@ -120,6 +120,14 @@ The value of each key is a string or array of strings declaring supported versio
 
 In the case of all versions, `*` is a special string declaring that any version is matched by the range. In addition, exact string matches must be possible regardless of the version type.
 
+There are many ways to write a dependency requirement. For example, if we wanted a dependency on Minecraft 26.1 and its hotfix, 26.1.1:
+
+- `[26.1, 26.1.1]` - Will only load on 26.1 and 26.1.1, none of their snapshots, pre-releases, release candidates, or the April Fools version 26w14a (parsed by Fabric as `26.1.1-alpha.26.14.a`).
+- `>26 <26.2` - [Will load on all versions higher than 26 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including all snapshots, pre-releases, release candidates, but also the nonexistent 26.0 versions.
+- `26.1.x` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/26.1.x/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
+- `~26.1` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/~26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
+- `^26.1` - [Will load on any 26.x.x version](https://jubianchi.github.io/semver-check/#/^26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1, 26.2, and above, but not including 27.x.
+
 - **`depends`**: For dependencies required to run. **If any are missing, Fabric Loader will trigger a crash**.
 - **`recommends`**: For dependencies not required to run. For each missing dependency, Fabric Loader will log a warning.
 - **`suggests`**: For dependencies not required to run. Use this as a kind of metadata.
@@ -128,7 +136,11 @@ In the case of all versions, `*` is a special string declaring that any version 
 
 ```json
 "depends": {
-    "example-mod": "*"
+    "example-mod": "*",
+    "minecraft": [
+        "26.1",
+        "26.1.1"
+    ]
 }
 "suggests": {
     "another-mod": ">1.0.0"
