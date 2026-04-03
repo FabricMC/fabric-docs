@@ -16,9 +16,7 @@ Fabric Loader is Fabric's lightweight mod loader. It provides the necessary tool
 
 Fabric Loader has services to allow mods to have some code executed during initialization, to transform classes, declare and provide mod dependencies, all in a number of different environments.
 
-For each Fabric Loader version, there is Javadoc available at
-`https://maven.fabricmc.net/docs/fabric-loader-[loader version]`
-For example, Fabric Loader 0.18.6's documentation is at https://maven.fabricmc.net/docs/fabric-loader-0.18.6/
+The Javadoc for the latest vesrsion of Fabric Loader's can be found on the [Develop](https://fabricmc.net/develop/) site.
 
 The current instance of Fabric Loader can be retrieved by using `FabricLoader.getInstance()`. As an example, `FabricLoader.getInstance().isModLoaded` can be used to check for the presence of another running mod.
 
@@ -28,13 +26,13 @@ A mod is a jar with a [`fabric.mod.json`](./fabric-mod-json) mod metadata file i
 
 Fabric Loader makes all mods equally capable of modifying the game. As an example, anything Fabric API does can be done by any other mod.
 
-Mods are loaded both from the classpath and from the mods directory. They are expected to match the mappings in the current environment, meaning Fabric Loader will not remap any mods.
+Mods are loaded both from the classpath and from the `mods` directory. This directory can be changed with the `fabric.modsFolder` system property.
 
 ## Nested JARs {#nested-jars}
 
 Nested JARs allow a mod to provide its own dependencies, so Fabric Loader can pick the best version matching the dependencies instead of requiring separate installation of dependencies. They also allow clean packaging of submodules, so each module can be used separately. Non-mod libraries can be repackaged as mods for nested JAR usage. A mod may bundle a number of other mods within its JAR. A nested JAR must itself also be a mod, which again can have nested JARs. Fabric Loader will load nested JARs while attempting to satisfy dependency constraints.
 
-Nested JARs are not extracted, they are instead loaded in in-memory file system using jimfs. Nested JARs must be declared by their paths relative to the containing JAR's root.
+Nested JARs are extracted to the disk when the game is run. Nested JARs must be declared by their paths relative to the containing JAR's root.
 
 Using Fabric Loom's `include` option will automatically handle nesting the jar.
 
@@ -61,7 +59,7 @@ Mappings are only relevant when using Fabric Loader on obfuscated games, includi
 Fabric Loader provides the `MappingResolver` API to determine names of classes, fields and methods with respect to the different environments that mods may be loaded in. This can be used to support reflection in any environment provided Fabric Loader has access to mappings to resolve the name.
 
 ```java
-FabricLoader.getInstance().getMappingResolver().mapClassName("intermediary", "net.minecraft.class_5421") // Resolves to `RecipeBookType` on named versions
+FabricLoader.getInstance().getMappingResolver().mapClassName("intermediary", "net.minecraft.class_5421") // Resolves to `RecipeBookType` on named versions of 1.21.11
 ```
 
-When launched in a non-development environment on an obfuscated game, Fabric Loader will [remap](/porting/mappings/#mappings) the Minecraft jar and Realms client jar to intermediary names. Mods designed for obfuscated games are expected to be mapped to intermediary, which will be compatible with this environment. The remapped jars are cached and saved in `${gameDir}/.fabric/remappedJars/${minecraftVersion}` for re-use across launches.
+When launched in a non-development environment on an obfuscated game, Fabric Loader will [remap](/porting/mappings/#mappings) the game jar(s) to intermediary names. Mods designed for obfuscated games are expected to be mapped to intermediary, which will be compatible with this environment. The remapped jars are cached and saved in `${gameDir}/.fabric/remappedJars/${minecraftVersion}` for re-use across launches.

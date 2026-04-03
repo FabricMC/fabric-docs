@@ -16,14 +16,14 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
 
 ## Mandatory Fields {#mandatory-fields}
 
-- **`schemaVersion`** Must always be `1`. Required for Fabric Loader to parse the file correctly.
+- **`schemaVersion`** Must be the first entry and must always be `1`. Required for Fabric Loader to parse the file correctly.
 - **`id`** A string value that defines the mod's identifier - allowed characters include Latin letters, digits, underscores, and hyphens, with length from 2 to 64.
-- **`version`** A string value that defines the mod's version, expected to match the [Semantic Versioning 2.0.0](https://semver.org/) specification. The template mod populates this automatically from the version set in `gradle.properties`.
+- **`version`** A string value that defines the mod's version, expected to match the [Semantic Versioning 2.0.0](https://semver.org/) specification.
 
 ```json
 "schemaVersion": 1,
 "id": "example-mod",
-"version": "${mod_version}",
+"version": "1.0.0",
 ```
 
 ## Optional Fields {#optional-fields}
@@ -36,18 +36,14 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
     - **`client`**: Runs on the physical client side. If set, your mod will not be loaded on dedicated servers.
     - **`server`**: Runs on the physical server side. If set, your mod will not be loaded on clients or in singleplayer.
 
-```json
-"name": "Example mod",
-"description": "This is an example description! Tell everyone what your mod is about!",
-```
+#### Entrypoints {#entrypoints}
 
-#### Entrypoints
 - **`entrypoints`** An object that defines the main classes of your mod. that will be loaded.
     - **`main`** An array of string class names that implement `ModInitializer`.
     - **`client`** An array of string class names that implement `ClientModInitializer`. This entrypoint is run after `main` and only on the physical client side.
     - **`server`** An array of string class names that implement `DedicatedServerModInitializer`. This entrypoint is run after `main` and only on the physical server side.
 
-Fabric provides three main entrypoints, but other mods may provide their own (i.e. `modmenu` for Mod Menu entrypoints). Each entry point can contain any number of classes to load. 
+Fabric provides three main entrypoints, but other mods may provide their own (i.e. `fabric-datagen` provided by Fabric API). Each entry point can contain any number of classes to load. 
 
 Classes (or methods or static fields) could be defined in two ways. If you're using Java, then just list the classes (or else) full names. For example: 
 
@@ -60,7 +56,7 @@ Classes (or methods or static fields) could be defined in two ways. If you're us
 
 If you're using any other language, consult the language adapter's documentation. The Kotlin one can be found on [Fabric Language Kotlin's README](https://github.com/FabricMC/fabric-language-kotlin/blob/master/README.md).
 
-#### Jars
+#### Jars {#jars}
 
 - **`jars`**: An array of nested JARs inside your mod's JAR to load. When using Loom, using `include` on your dependencies will automatically populate this. Each entry is an object containing `file` key. That should be a path inside your mod's JAR to the nested JAR. For example: 
 
@@ -98,9 +94,17 @@ If you're using any other language, consult the language adapter's documentation
 ]
 ```
 
+#### Mixins {#mixins}
+
+- **`accessWidener`**: A string identifying an [access widener or class tweaker](../class-tweakers/index) file.
+      
+``` json
+"accessWidener": "example-mod.classtweaker"
+```
+
 #### Provides {#provides}
 
-- **`provides`**： An array of mod ids Defines the list of ids of mod. It can be seen as the aliases of the mod. Fabric Loader will treat these ids as mods that exist. If there are other mods using that id, they will not be loaded.
+- **`provides`**： An array of mod ids that can be used as the aliases for the mod. Fabric Loader will treat these ids as mods that exist. If there are other mods using that id, they will not be loaded.
 
 ``` json
 "provides": [
@@ -136,6 +140,11 @@ In the case of all versions, * is a special string declaring that any version is
 - **`name`**: A string that defines the user-friendly mod's name. If not present, assume it matches **id**.
 - **`description`**: A string that defines the mod's description. If not present, assume empty string.
 
+```json
+"name": "Example mod",
+"description": "This is an example description! Tell everyone what your mod is about!",
+```
+
 #### Contact {#contact}
 
 - **`contact`**: A dictionary that defines the contact information for the project.
@@ -157,6 +166,7 @@ The list is not exhaustive - mods may provide additional, non-standard keys (suc
 #### Authors and Contributors {#authors-contributors}
 
 `authors` and `contributors` are both arrays of strings or objects containing following fields:
+
 - **`name`** The real name, or username, of the person. Mandatory.
 - **`contact`** Person's contact information. The same as upper level **contact**. See above. Optional.
 
@@ -187,6 +197,7 @@ To aid automated tools, it is recommended to use [SPDX License Identifiers](http
 ```
 
 #### Icon {#icon}
+
 - **`icon`** Defines the mod's icon. Icons are square PNG files. (Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended.) Can be provided in one of two forms:
     - A path to a single PNG file.
     - A dictionary of images widths to their files' paths.
