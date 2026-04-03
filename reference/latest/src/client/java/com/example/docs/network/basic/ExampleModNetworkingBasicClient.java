@@ -15,8 +15,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 
-import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
 import com.example.docs.networking.basic.ClientboundSummonLightningPayload;
+import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
 
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
