@@ -8,6 +8,12 @@ authors:
 
 The Data Attachment API provided by Fabric API allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synced through [Codecs](./codecs) and [Stream Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/), so you should familiarize yourself with those before using it.
 
+::: info
+
+For server-wide data not tied to any specific Level, Fabric provides `GlobalAttachments` obtained via `Level.globalAttachments()` or `MinecraftServer.globalAttachments()`.
+
+:::
+
 ## Creating a Data Attachment {#creating-attachments}
 
 You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic Data Attachment that does not sync or persist across restarts.
