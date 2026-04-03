@@ -2,6 +2,7 @@
 title: Networking
 description: A general guide on networking using Fabric API.
 authors:
+  - bluebear94
   - Daomephsta
   - dicedpixels
   - Earthcomputer
@@ -55,28 +56,28 @@ A payload is the data that is sent within a packet.
 
 This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
 
-@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
+@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 At the same time, we've defined:
 
 - An `Identifier` used to identify our packet's payload. For this example our identifier will be
   `example-mod:summon_lightning`.
 
-@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
+@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 - A public static instance of `CustomPayload.Type` to uniquely identify this custom payload. We will be referencing this
   ID in both our common and client code.
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 - A public static instance of a `StreamCodec` so that the game knows how to serialize/deserialize the contents of the
   packet.
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 We have also overridden `type` to return our payload ID.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningClientboundPayload.java)
+@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 ### Registering a Payload {#registering-a-payload}
 

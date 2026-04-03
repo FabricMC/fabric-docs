@@ -16,13 +16,13 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 
 import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
-import com.example.docs.networking.basic.SummonLightningClientboundPayload;
+import com.example.docs.networking.basic.ClientboundSummonLightningPayload;
 
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// :::client_global_receiver
-		ClientPlayNetworking.registerGlobalReceiver(SummonLightningClientboundPayload.TYPE, (payload, context) -> {
+		ClientPlayNetworking.registerGlobalReceiver(ClientboundSummonLightningPayload.TYPE, (payload, context) -> {
 			ClientLevel level = context.client().level;
 
 			if (level == null) {

@@ -11,7 +11,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 
 public class ExampleModNetworkingBasic implements ModInitializer {
 	public void onInitialize() {
-		PayloadTypeRegistry.clientboundPlay().register(SummonLightningClientboundPayload.TYPE, SummonLightningClientboundPayload.CODEC);
+		PayloadTypeRegistry.clientboundPlay().register(ClientboundSummonLightningPayload.TYPE, ClientboundSummonLightningPayload.CODEC);
 		PayloadTypeRegistry.serverboundPlay().register(GiveGlowingEffectServerboundPayload.TYPE, GiveGlowingEffectServerboundPayload.CODEC);
 
 		// :::server_global_receiver
