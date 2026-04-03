@@ -9,7 +9,6 @@ authors:
 authors-nogithub:
   - skyland1a
   - solidblock
-
 ---
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. In order to be loaded, a mod must have this file with the exact name placed in the root directory of the mod JAR.
@@ -31,21 +30,22 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
 ### Mod Loading {#mod-loading}
 
 #### Environment
+
 - **`environment`**: A string value that defines which environments the mod should be run on:
-    - **`*`**: Runs in all environments. Default.
-    - **`client`**: Runs on the physical client side. If set, your mod will not be loaded on dedicated servers.
-    - **`server`**: Runs on the physical server side. If set, your mod will not be loaded on clients or in singleplayer.
+  - **`*`**: Runs in all environments. Default.
+  - **`client`**: Runs on the physical client side. If set, your mod will not be loaded on dedicated servers.
+  - **`server`**: Runs on the physical server side. If set, your mod will not be loaded on clients or in singleplayer.
 
 #### Entrypoints {#entrypoints}
 
 - **`entrypoints`** An object that defines the main classes of your mod. that will be loaded.
-    - **`main`** An array of string class names that implement `ModInitializer`.
-    - **`client`** An array of string class names that implement `ClientModInitializer`. This entrypoint is run after `main` and only on the physical client side.
-    - **`server`** An array of string class names that implement `DedicatedServerModInitializer`. This entrypoint is run after `main` and only on the physical server side.
+  - **`main`** An array of string class names that implement `ModInitializer`.
+  - **`client`** An array of string class names that implement `ClientModInitializer`. This entrypoint is run after `main` and only on the physical client side.
+  - **`server`** An array of string class names that implement `DedicatedServerModInitializer`. This entrypoint is run after `main` and only on the physical server side.
 
-Fabric provides three main entrypoints, but other mods may provide their own (i.e. `fabric-datagen` provided by Fabric API). Each entry point can contain any number of classes to load. 
+Fabric provides three main entrypoints, but other mods may provide their own (i.e. `fabric-datagen` provided by Fabric API). Each entry point can contain any number of classes to load.
 
-Classes (or methods or static fields) could be defined in two ways. If you're using Java, then just list the classes (or else) full names. For example: 
+Classes (or methods or static fields) could be defined in two ways. If you're using Java, then just list the classes (or else) full names. For example:
 
 ```json
 "main": [
@@ -58,7 +58,7 @@ If you're using any other language, consult the language adapter's documentation
 
 #### Jars {#jars}
 
-- **`jars`**: An array of nested JARs inside your mod's JAR to load. When using Loom, using `include` on your dependencies will automatically populate this. Each entry is an object containing `file` key. That should be a path inside your mod's JAR to the nested JAR. For example: 
+- **`jars`**: An array of nested JARs inside your mod's JAR to load. When using Loom, using `include` on your dependencies will automatically populate this. Each entry is an object containing `file` key. That should be a path inside your mod's JAR to the nested JAR. For example:
 
 ```json
 "jars": [
@@ -70,8 +70,8 @@ If you're using any other language, consult the language adapter's documentation
 
 #### Language Adapaters {#language-adapters}
 
-- **`languageAdapters`**: A dictionary of adapters for used languages to their adapter classes full names. For example: 
-   
+- **`languageAdapters`**: A dictionary of adapters for used languages to their adapter classes full names. For example:
+
 ```json
 "languageAdapters": {
    "kotlin": "net.fabricmc.language.kotlin.KotlinAdapter"
@@ -81,10 +81,10 @@ If you're using any other language, consult the language adapter's documentation
 #### Mixins {#mixins}
 
 - **`mixins`**: A list of mixin configuration files. Each entry is the path to the mixin configuration file inside your mod's JAR or an object containing following fields:
-    - **`config`**: The path to the mixin configuration file inside your mod's JAR.
-    - **`environment`**: The same as upper level **environment** field. See above. For example: 
-      
-``` json
+  - **`config`**: The path to the mixin configuration file inside your mod's JAR.
+  - **`environment`**: The same as upper level **environment** field. See above. For example:
+
+```json
 "mixins": [
    "modid.mixins.json",
    {
@@ -97,8 +97,8 @@ If you're using any other language, consult the language adapter's documentation
 #### Mixins {#mixins}
 
 - **`accessWidener`**: A string identifying an [access widener or class tweaker](../class-tweakers/index) file.
-      
-``` json
+
+```json
 "accessWidener": "example-mod.classtweaker"
 ```
 
@@ -106,7 +106,7 @@ If you're using any other language, consult the language adapter's documentation
 
 - **`provides`**： An array of mod ids that can be used as the aliases for the mod. Fabric Loader will treat these ids as mods that exist. If there are other mods using that id, they will not be loaded.
 
-``` json
+```json
 "provides": [
    "example_mod"
 ]
@@ -118,7 +118,7 @@ The key of each entry of the objects below is a Mod ID of the dependency.
 
 The value of each key is a string or array of strings declaring supported version ranges. In the case of an array, an "OR" relationship is assumed - that is, only one range has to match for the collective range to be satisfied.
 
-In the case of all versions, * is a special string declaring that any version is matched by the range. In addition, exact string matches must be possible regardless of the version type.
+In the case of all versions, `*` is a special string declaring that any version is matched by the range. In addition, exact string matches must be possible regardless of the version type.
 
 - **`depends`**: For dependencies required to run. **If any are missing, Fabric Loader will trigger a crash**.
 - **`recommends`**: For dependencies not required to run. For each missing dependency, Fabric Loader will log a warning.
@@ -148,11 +148,11 @@ In the case of all versions, * is a special string declaring that any version is
 #### Contact {#contact}
 
 - **`contact`**: A dictionary that defines the contact information for the project.
-    - **`email`**: A string that defines the contact e-mail pertaining to the mod. Must be a valid e-mail address.
-    - **`homepage`**: A string that defines the project or user's homepage. Must be a valid HTTP/HTTPS address.
-    - **`irc`**: A string that defines the IRC channel pertaining to the mod. Must be of a valid URL format - for example: `irc://irc.esper.net:6667/charset` for `#charset` at EsperNet - the port is optional, and assumed to be 6667 if not present.
-    - **`issues`**: A string that defines the project's issue tracker. Must be a valid HTTP/HTTPS address.
-    - **`sources`**: A string that defines the project's source code repository. Must be a valid URL - it can, however, be a specialized URL for a given VCS (such as Git or Mercurial).
+  - **`email`**: A string that defines the contact e-mail pertaining to the mod. Must be a valid e-mail address.
+  - **`homepage`**: A string that defines the project or user's homepage. Must be a valid HTTP/HTTPS address.
+  - **`irc`**: A string that defines the IRC channel pertaining to the mod. Must be of a valid URL format - for example: `irc://irc.esper.net:6667/charset` for `#charset` at EsperNet - the port is optional, and assumed to be 6667 if not present.
+  - **`issues`**: A string that defines the project's issue tracker. Must be a valid HTTP/HTTPS address.
+  - **`sources`**: A string that defines the project's source code repository. Must be a valid URL - it can, however, be a specialized URL for a given VCS (such as Git or Mercurial).
 
 The list is not exhaustive - mods may provide additional, non-standard keys (such as **`discord`**, **`slack`**, **`twitter`**, etc) - if possible, they should be valid URLs.
 
@@ -199,8 +199,8 @@ To aid automated tools, it is recommended to use [SPDX License Identifiers](http
 #### Icon {#icon}
 
 - **`icon`** Defines the mod's icon. Icons are square PNG files. (Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended.) Can be provided in one of two forms:
-    - A path to a single PNG file.
-    - A dictionary of images widths to their files' paths.
+  - A path to a single PNG file.
+  - A dictionary of images widths to their files' paths.
 
 ```json
 "icon": "assets/modid/icon.png",

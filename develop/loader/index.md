@@ -9,7 +9,6 @@ authors:
 authors-nogithub:
   - liach
   - solidblock
-
 ---
 
 Fabric Loader is Fabric's lightweight mod loader. It provides the necessary tools to make Minecraft modifiable without depending on a specific version of the game. Game specific (and game version specific) hooks belong in Fabric API. It is possible to adapt Fabric Loader for many Java applications (for instance games like Slay the Spire and Starmade).
