@@ -367,6 +367,10 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.loader.index",
+        link: "/develop/loader/",
+      },
+      {
         text: "develop.loader.fabric.mod.json",
         link: "/develop/loader/fabric-mod-json",
       },
