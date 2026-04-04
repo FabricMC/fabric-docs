@@ -1,4 +1,4 @@
-/* 
+/*
   This file overrides and extends default VitePress theme CSS variables and styles:
   https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
 */
@@ -61,8 +61,13 @@ pre {
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
+body:has(.VPFooter:not(.has-sidebar)) .aside-container {
+  padding-bottom: 64px;
+}
+
 @media (min-width: 1525px) {
-  .aside-container {
+  .aside-container,
+  .aside-curtain {
     width: 300px !important;
   }
 }
