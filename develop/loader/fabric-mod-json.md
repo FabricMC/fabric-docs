@@ -197,19 +197,23 @@ The list is not exhaustive - mods may provide additional, non-standard keys (suc
 
 #### Authors and Contributors {#authors-contributors}
 
-`authors` and `contributors` are both arrays of strings or objects containing following fields:
+- **`authors`** An array of authors of the mod. Entries can be either a string or an object with the fields listed below.
+- **`contributors`** An array of contributors to the mod. Entries can be either a string or an object with the fields listed below.
 
-- **`name`** The real name, or username, of the person. Mandatory.
-- **`contact`** Person's contact information. The same as upper level **contact**. See above. Optional.
+Fields:
 
-- **`authors`** An array of authors of the mod.
-- **`contributors`** An array of contributors to the mod.
+- **`name`** A mandatory string for the person's real name, or username.
+- **`contact`** An optional object for the person's contact information. The same as upper level [**`contact`**](#contact).
 
 ```json
 "authors": [
     "Me!",
     {
-        "name": "Tiny Potato"
+        "name": "Tiny Potato",
+        "contact": {
+          "homepage": "https://fabricmc.net",
+          "sources": "https://github.com/FabricMC/fabric-example-mod"
+        }
     }
 ]
 ```
