@@ -3,16 +3,13 @@ title: Project Structure
 description: An overview of the structure of a Fabric mod project.
 authors:
   - IMB11
-resources:
-  https://wiki.fabricmc.net/documentation:fabric_mod_json: fabric.mod.json v1 Specification - Fabric Wiki
-  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Source Code for fabric.mod.json v1 Spec
 ---
 
 This page will go over the structure of a Fabric mod project, and the purpose of each file and folder in the project.
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-The `fabric.mod.json` file is the main file that describes your mod to Fabric Loader. It contains information such as the mod's ID, version, and dependencies.
+The [`fabric.mod.json`](../loader/fabric-mod-json) file is the main file that describes your mod to Fabric Loader. It contains information such as the mod's ID, version, and dependencies.
 
 The most important fields in the `fabric.mod.json` file are:
 
@@ -33,7 +30,7 @@ You can see an example `fabric.mod.json` file below - this is the `fabric.mod.js
 
 ## Entrypoints {#entrypoints}
 
-As mentioned before, the `fabric.mod.json` file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
+As mentioned before, the [`fabric.mod.json`](../loader/fabric-mod-json) file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
 
 The template mod generator creates both a `main` and `client` entrypoint by default:
 

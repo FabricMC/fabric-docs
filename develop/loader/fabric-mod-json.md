@@ -6,9 +6,15 @@ authors:
   - falseresync
   - jamieswhiteshirt
   - IMB11
+  - SolidBlock-cn
 authors-nogithub:
   - skyland1a
-  - solidblock
+resources:
+  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Source Code for fabric.mod.json v1 Spec
+  https://github.com/FabricMC/fabric-language-kotlin/blob/master/README.md: Fabric Language Kotlin's Language Provider
+  https://spdx.org/licenses/: SPDX License Identifiers
+  https://semver.org/: Semantic Versioning
+  https://jubianchi.github.io/semver-check/: Semantic Version Comparison Tool
 ---
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. In order to be loaded, a mod must have this file with the exact name placed in the root directory of the mod JAR.
@@ -22,7 +28,7 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
 ```json
 "schemaVersion": 1,
 "id": "example-mod",
-"version": "1.0.0",
+"version": "1.0.0"
 ```
 
 ## Optional Fields {#optional-fields}
@@ -35,6 +41,10 @@ The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods
   - **`*`**: Runs in all environments. Default.
   - **`client`**: Runs on the physical client side. If set, your mod will not be loaded on dedicated servers.
   - **`server`**: Runs on the physical server side. If set, your mod will not be loaded on clients or in singleplayer.
+
+```json
+"environment": "*"
+```
 
 #### Entrypoints {#entrypoints}
 
@@ -114,25 +124,35 @@ If you're using any other language, consult the language adapter's documentation
 
 ### Dependency Resolution {#dependency-resolution}
 
-The key of each entry of the objects below is a Mod ID of the dependency.
-
-The value of each key is a string or array of strings declaring supported version ranges. In the case of an array, an "OR" relationship is assumed - that is, only one range has to match for the collective range to be satisfied.
-
-In the case of all versions, `*` is a special string declaring that any version is matched by the range. In addition, exact string matches must be possible regardless of the version type.
-
-There are many ways to write a dependency requirement. For example, if we wanted a dependency on Minecraft 26.1 and its hotfix, 26.1.1:
-
-- `[26.1, 26.1.1]` - Will only load on 26.1 and 26.1.1, none of their snapshots, pre-releases, release candidates, or the April Fools version 26w14a (parsed by Fabric as `26.1.1-alpha.26.14.a`).
-- `>26 <26.2` - [Will load on all versions higher than 26 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including all snapshots, pre-releases, release candidates, but also the nonexistent 26.0 versions.
-- `26.1.x` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/26.1.x/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
-- `~26.1` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/~26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
-- `^26.1` - [Will load on any 26.x.x version](https://jubianchi.github.io/semver-check/#/^26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1, 26.2, and above, but not including 27.x.
+The following keys will accept a dictionary of dependencies. For more details on how to structure the dictionary, see below:
 
 - **`depends`**: For dependencies required to run. **If any are missing, Fabric Loader will trigger a crash**.
 - **`recommends`**: For dependencies not required to run. For each missing dependency, Fabric Loader will log a warning.
 - **`suggests`**: For dependencies not required to run. Use this as a kind of metadata.
 - **`breaks`**: For mods whose together with yours might cause a game crash. **If any are present, Fabric Loader will trigger a crash**.
 - **`conflicts`**: For mods whose together with yours cause some kind of bugs, etc. For each conflicting mod present, Fabric Loader will log a warning.
+
+#### Semantic Versioning {#semantic-versioning}
+
+The key of each entry is the Mod ID of the dependency.
+
+The value of each key is a string or array of strings declaring supported version ranges of the dependency. In the case of an array, an "OR" relationship is assumed - that is, only one range has to match for the collective range to be satisfied.
+
+1. To depend on any version of the dependency, just write `*`.
+2. To depend on only a specific version of the dependency, just write its version number, e.g. `26.1`.
+3. To depend on all versions of the dependency above a version, write `>26`.
+4. For a more complicated dependency, like a dependency on Minecraft 26.1 and its hotfix, 26.1.1, we could use any of the following examples:
+
+::: details Examples for a dependency on 26.1 and 26.1.1
+
+- `[26.1, 26.1.1]` - Will only load on 26.1 and 26.1.1, none of their snapshots, pre-releases, release candidates, or the April Fools version 26w14a (parsed by Fabric as `26.1.1-alpha.26.14.a`).
+- `>26 <26.2` - [Will load on all versions higher than 26 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including all snapshots, pre-releases, release candidates, but also the nonexistent 26.0 versions.
+- `>=26.1 <26.2` - [Will load on all versions greater than or equal to than 26.1 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including 26.1 and any hotfixes for it, as well as snapshots, pre-releases, release candidates for these hotfixes..
+- `26.1.x` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/26.1.x/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
+- `~26.1` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/~26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
+- `^26.1` - [Will load on any 26.x.x version](https://jubianchi.github.io/semver-check/#/^26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1, 26.2, and above, but not including 27.x.
+
+:::
 
 ```json
 "depends": {
@@ -205,17 +225,17 @@ For cases where a part of code is dual-licensed, choose the preferred license. T
 To aid automated tools, it is recommended to use [SPDX License Identifiers](https://spdx.org/licenses/) for open-source licenses.
 
 ```json
-"license": "CC0-1.0",
+"license": "CC0-1.0"
 ```
 
 #### Icon {#icon}
 
-- **`icon`** Defines the mod's icon. Icons are square PNG files. (Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended.) Can be provided in one of two forms:
+- **`icon`** A string or dictionary that defines the mod's icon. Icons are square PNG files. (Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended.) Can be provided in one of two forms:
   - A path to a single PNG file.
   - A dictionary of images widths to their files' paths.
 
 ```json
-"icon": "assets/modid/icon.png",
+"icon": "assets/modid/icon.png"
 ```
 
 ### Custom Fields {#custom-fields}

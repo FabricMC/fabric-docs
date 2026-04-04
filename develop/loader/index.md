@@ -5,17 +5,20 @@ authors:
   - cassiancc
   - falseresync
   - jamieswhiteshirt
-  - Llamalad7
-authors-nogithub:
   - liach
-  - solidblock
+  - Llamalad7
+  - SolidBlock-cn
+resources:
+  https://maven.fabricmc.net/docs/fabric-loader-0.18.6/: Fabric Loader 0.18.6 Javadocs
+  https://wiki.fabricmc.net/documentation:entrypoint: Entrypoints - Fabric Wiki
+  https://github.com/FabricMC/fabric-loader: Fabric Loader on GitHub
 ---
 
 Fabric Loader is Fabric's lightweight mod loader. It provides the necessary tools to make any version of Minecraft. On the other hand, game-specific and version-specific hooks belong in Fabric API.
 
 ::: info
 
-It is possible to adapt Fabric Loader for many Java applications (for instance games like Slay the Spire and Starmade).
+While Fabric Loader is primarily used for Minecraft, it is possible to create a game provider for other Java applications (for instance games like [Slay the Spire](https://www.youtube.com/watch?v=ZaNI4OJFGTg) or [Hytale](https://github.com/cootshk/Hybric)).
 
 :::
 
@@ -41,7 +44,7 @@ Mods are loaded both from the classpath and from the `mods` directory. This dire
 
 Nested JARs allow a mod to provide its own dependencies, so Fabric Loader can find the best version while attempting to satisfy dependencies, instead of requiring them to be installed separately.
 
-They essentially are like any regular mod, with their own metadata file, but are contained within the parent JAR. Note that nested mods may themselves embed other children in the same way.
+Nested jars act like any other mod, with their own metadata file, but are contained within the parent JAR. Note that nested mods may themselves embed other children in the same way.
 
 They also allow clean packaging of submodules, so each module can be used separately. For example, non-mod libraries could be repackaged as mods and shipped as nested JARs.
 
@@ -51,7 +54,7 @@ Using Fabric Loom's `include` option will automatically handle nesting the JAR.
 
 ## Entrypoints {#entrypoints}
 
-Fabric Loader has an [entrypoint](https://wiki.fabricmc.net/documentation:entrypoint) system, which is used by mods to expose parts of the code for usage by Fabric Loader or other mods. Fabric Loader uses it for mod initialization. Initializers are loaded and called early during the game's initialization which allows a mod to run some code to make its modifications. These entrypoints are typically used to bootstrap mods by registering registry objects, event listeners and other callbacks for doing things later.
+Fabric Loader has an [entrypoint](../getting-started/project-structure#entrypoints) system, which is used by mods to expose parts of the code for usage by Fabric Loader or other mods. Fabric Loader uses it for mod initialization. Initializers are loaded and called early during the game's initialization which allows a mod to run some code to make its modifications. These entrypoints are typically used to bootstrap mods by registering registry objects, event listeners and other callbacks for doing things later.
 
 ## Mixin {#mixin}
 
