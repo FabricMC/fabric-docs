@@ -54,12 +54,22 @@ files:
 # When set to `true`, disables the "Files Referenced" section entirely.
 filesExclude: true
 
-# VitePress supports other frontmatter options.
-# See: https://vitepress.dev/reference/frontmatter-config
-# endregion frontmatter-optional
-
+# VitePress supports other frontmatter options. See:
+# https://vitepress.dev/reference/frontmatter-config
+# For example:
 editLink: false
+# endregion frontmatter-optional
 ---
+
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [ChoiceComponent, DownloadEntry, Icon, script, style, VideoPlayer, VPLink] } } -->
+
+<script setup lang="ts">
+import { Icon } from "@iconify/vue";
+import { useData } from "vitepress";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+
+const data = useData();
+</script>
 
 Thank you for your interest in contributing to the Fabric Docs!
 
@@ -93,7 +103,10 @@ The best way to start helping and familiarizing yourself with the project is to 
 
 Spotted a misspelling or a broken link? At the bottom of every page on the website, there is a link to edit it on GitHub:
 
-!["Edit this page on GitHub" button](/assets/contributing/edit-on-github.png)
+<VPLink href="https://github.com/FabricMC/fabric-docs/edit/main/contributing.md" no-icon>
+  <Icon icon="lucide:edit" />
+  {{ data.theme.value.editLink!.text! }}
+</VPLink>
 
 That will open the GitHub Web UI, where you can make changes without downloading anything. You'll need to create an account with GitHub, though; that way we will also be able to give you proper credit.
 
@@ -133,7 +146,7 @@ Now, you have to wait. Translations are pulled once a week, on Saturday at 7:37 
 
 ![Translation PR on GitHub](/assets/contributing/github-l10n-pr.png)
 
-When someone from the Docs Team finally approves the PR and merges it, you'll see your correction live on the website.
+Finally, when someone from the Docs Team approves the PR and merges it, you'll see your correction live on the website.
 
 This is the same process you should follow if you want to translate an entire page anew: you should find the file on Crowdin, suggest translations for all its sentences, and wait for them to be merged to the main site.
 
@@ -160,16 +173,12 @@ When creating a new page, you should do the following:
 
 - Add an entry to the sidebar in `.vitepress/sidebars/<sidebar>.ts`, and a translation key to `sidebar_translations.json`
 - Consider opening a draft PR early in the writing instead of waiting for full completion, so you can get initial feedback and automatic CI checks
-- Follow the [style guidelines](#style), including adding proper credits in `authors` in the form of GitHub usernames
+- Follow the [style guidelines](#style), including but not limited to:
+  - Adding proper credits to [`authors` in the frontmatter](#frontmatter), as GitHub usernames
+  - Embedding code in the [`ExampleMod`](#develop), and referencing it with [snippets](#snippets)
+  - Format your code so it can [pass CI](#ci)
 - Respect the licenses, especially if referencing other people's code
 - You might want to [work on the project locally](#local) to preview and test the pages and the code
-
-If you are adding code that is dependent on Minecraft and is thus likely to change between versions, we ask that it be placed in the Reference Mod rather than included directly in the documentation.
-
-- Open the `reference` folder in your preferred IDE (usually IntelliJ IDEA)
-- Write your code in the `latest` submodule.
-- Embed the content into the docs via a [snippet](#snippets)
-- Run [checkstyle](#ci) on your contributions so that they pass CI.
 
 ### Modifying the Framework {#label-framework}
 
@@ -244,8 +253,8 @@ Finally, an intricate combination of CI and linting tools does a general check o
 
 - [`markdownlint`](https://github.com/DavidAnson/markdownlint) is configured to finely control the Markdown pages, even with some custom rules
 - [`prettier`](https://prettier.io/) is an opinionated code formatter that will take care of TypeScript, Vue, JSON, and other file types
-- [`checkstyle`](https://checkstyle.sourceforge.io/) is a tool that makes Java code adhere to one same coding standard, defined in `reference/checkstyle.xml`. You can use checkstyle on the reference mod via the `checkstyleMain` and `checkstyleClient` Gradle tasks to check for formatting errors.
-- [`spotless`](https://github.com/diffplug/spotless) is a tool to automatically apply fixes for common formatting errors. You can run spotless on the reference mod with the `spotlessApply` task.
+- [`checkstyle`](https://checkstyle.sourceforge.io/) is a tool that requires Java code to adhere to one same coding standard, defined in `reference/checkstyle.xml`. Checkstyle cannot fix issues automatically
+- [`spotless`](https://github.com/diffplug/spotless) is a tool that automatically applies fixes for some common formatting errors
 - `.github/workflows/build.yaml` will run for every PR, and it will ensure that:
   - The mod and the pages build correctly
   - The mod passes tests
@@ -257,9 +266,9 @@ The main website is hosted on [GitHub Pages](https://pages.github.com/), but PR 
 
 ### Local Setup {#local}
 
-If you want to preview your work locally before opening a PR, you can set up a copy of the project locally. You'll need [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), and [pnpm](https://pnpm.io/).
+If you want to preview your work locally before opening a PR, you can set up a copy of the project locally. You'll need [Git](https://git-scm.com/), [Node.js 22+](https://nodejs.org/), and [pnpm](https://pnpm.io/).
 
-If you already have [forked the repository](#label-new-content), you can clone your fork on your system:
+Assuming you've already [forked the repository](#label-new-content), you can clone your fork on your system:
 
 ```sh
 # Replace [YOUR-USERNAME] with your GitHub username
@@ -279,27 +288,18 @@ pnpm dev
 # Open the preview in your browser: http://fabric-docs.localhost:5173/
 ```
 
-To work on the [`ExampleMod`](#develop), you'll need to [have a JDK installed](./players/installing-java/).
+To work on the [`ExampleMod`](#develop), you'll need to [have a JDK installed](./players/installing-java/) and an [IDE set up](./develop/getting-started/setting-up). We recommend using [IntelliJ IDEA](./develop/getting-started/intellij-idea/setting-up).
 
-The most common tasks are building the mod, regenerating data files, and testing the mod in-game:
+Open the `reference` folder in your IDE, and place your code in the `latest` submodule.
 
-::: code-group
+Regarding tasks, the [instructions for running the build task](./develop/getting-started/building-a-mod) will apply for any other task. The most commonly used ones include:
 
-```powershell [Windows]
-cd reference
-.\gradlew build
-.\gradlew runDatagen
-.\gradlew runClient
-```
-
-```sh [macOS / Linux]
-cd reference
-./gradlew build
-./gradlew runDatagen
-./gradlew runClient
-```
-
-:::
+- `build`: Build the mod
+- `runDatagen`: Regenerate data files
+- `runClient`: Test the mod in-game
+- `checkstyleMain`: Run [Checkstyle](#ci) on the `main` source
+- `checkstyleClient`: Run [Checkstyle](#ci) on the `client` source
+- `spotlessApply`: Run [Spotless](#ci) to automatically apply fixes
 
 ## Regarding the Style {#style}
 
@@ -314,7 +314,7 @@ Here are some general tips and guidelines for writing Docs pages:
 - Avoid the singular first person "I"
 - Use inline `code` for file names, classes, and the like
 - Use title case for headings, which also need an anchor
-- Use descriptive labels for links, not "here"
+- Use [descriptive labels for links](#links); avoid using "here"
 - Limit the number of verbs per sentence
 - Avoid complex grammar: long sentences, passive voices...
 - Avoid specifying that the modded game is Minecraft
@@ -325,11 +325,11 @@ _Emphasis highlights differences._
 
 ### Adding a Button {#adding-a-button}
 
-Let's add a **gray** checkbox **centered** on top of the screen, which will be **colored** green when **left-clicked**.
+**Let's** add a **gray** checkbox **centered** on top of the screen, which will be **colored** green when **left-clicked**.
 
-To make it **recognizable**, it will be **labeled** "Enable **aging** **in-game**". Because this needs to be **localizable**, we'll reference **`LocalizationHelper`** and add a key to the **`en_us.json`** file. [Read more here](#adding-a-button).
+To make it **recognizable**, it will be **labeled** "Enable **aging** **in-game**". Because this needs to be **localizable**, we'll reference **`LocalizationHelper`** and add a key to the **`en_us.json`** file. Read more in the [l10n guide](#adding-a-button).
 
-_The GUI engine will render the checkbox like any regular button, without special logic. This means it's up to us to implement the toggling **behavior**. We should also add a delay to prevent spamming the button._
+_The GUI engine will treat the checkbox like any regular button, without special logic. This means it is up to us to implement the toggling **behavior**. We should also add a delay to prevent **spamming** the button._
 
 == ❌ Don't
 
@@ -340,11 +340,11 @@ _Emphasis highlights differences._
 
 ### Adding a button
 
-I recommend adding a **grey** checkbox **centred** on top of the screen, which will be **coloured** green when **left clicked**.
+**I recommend** adding a **grey** checkbox **centred** on top of the screen, which will be **coloured** green when **left clicked**.
 
-To make it **recognisable**, it will be **labelled** "Enable **ageing** **ingame**". Because this needs to be **localisable**, we'll reference **LocalisationHelper** and add a key to the **en_gb.json** file. Read more on the [l10n guide](#adding-a-button).
+To make it **recognisable**, it will be **labelled** "Enable **ageing** **ingame**". Because this needs to be **localisable**, we'll reference **LocalisationHelper** and add a key to the **en_gb.json** file. [Read more here](#adding-a-button).
 
-_**Said** checkbox **is rendered** by the **Minecraft** GUI engine as a regular button, which **means** it **is** up to us to **implement** different **behaviour** **depending** on the current state that the checkbox **is** in, and it also **requires** a delay to **prevent** the button from **being spammed** by the player._
+_Said checkbox is treated by the **Minecraft** GUI engine as a regular button, which means it is up to us to implement different **behaviour** depending on the current state that the checkbox is in, and also add a delay to prevent the button from **being spammed** by the player._
 
 <!-- markdownlint-restore -->
 
@@ -368,9 +368,9 @@ Each page must start with a YAML frontmatter, which contains metadata related to
 
 A documentation website works best when its pages are interconnected, which is why you should consider linking pages together.
 
-However, the versioning system in place requires you to use **relative links** when referencing other pages in the documentation. You should also not add the file extension to internal links either.
+However, the versioning and localization systems require you to use **relative links** when referencing other pages. You should also not add the file extension to internal links either.
 
-When linking to external websites, consider whether that resource is relevant enough to be added to the `resources` section of the [frontmatter](#frontmatter).
+When linking to external websites, consider whether that resource is relevant enough to be added to the [`resources` section of the frontmatter](#frontmatter).
 
 In either case, you should follow the [best practices for accessible link text](https://www.wcag.com/blog/writing-meaningful-link-text/#Best_Practices_for_Accessible_Link_Writing). Importantly, avoid undescriptive text such as "Click here" or "Read more", and avoid bare URLs.
 
@@ -396,14 +396,15 @@ Readers might focus on the containers more than the surrounding text. Use them o
 
 :::
 
-You should avoid adding custom titles for all containers except `details`. The only custom titles allowed are:
+We usually avoid custom titles for containers; the only ones allowed are:
 
 - `::: info PREREQUISITES`
 - `::: warning IMPORTANT`
+- `::: details`, which must have a title
 
 ### Code Snippets {#snippets}
 
-When adding code blocks to the documentation, you're supposed to place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). For example:
+When adding code blocks to pages, you're supposed to place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). For example:
 
 ::: tabs
 
@@ -636,4 +637,18 @@ Check out this video for the leaked spec of `fabric.mod.json` v2:
 
 :::
 
-<!---->
+<style>
+.vp-doc > div > .VPLink {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+</style>
