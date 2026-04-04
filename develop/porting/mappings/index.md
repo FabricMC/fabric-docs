@@ -62,7 +62,7 @@ Neither option is perfect, and you still have to review the results and make man
 
 Historically, Minecraft: Java Edition has made use of obfuscation, which led to the development of obfuscation maps that Fabric Loom uses for modding. There were two choices: either Fabric's own Yarn mappings, or the official Mojang mappings.
 
-Mojang recently released [the first release of Minecraft: Java Edition with unobfuscated code](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition), and the Fabric Project made the decision to [not keep maintaning third-party mappings](https://fabricmc.net/2025/10/31/obfuscation.html) from this version onward. If you plan to update your mod to this version, you will need to switch to Mojang's mappings first before updating.
+Mojang recently released [the first release of Minecraft: Java Edition with unobfuscated code](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition), and the Fabric Project made the decision to [not keep maintaining third-party mappings](https://fabricmc.net/2025/10/31/obfuscation.html) from this version onward. If you plan to update your mod to this version, you will need to switch to Mojang's mappings first before updating.
 
 ## What Are Mappings? {#mappings}
 
