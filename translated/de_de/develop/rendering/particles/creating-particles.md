@@ -27,7 +27,7 @@ In diesem Beispiel registrieren wir unseren Partikel Client-seitig. Dann geben w
 
 ::: tip
 
-Du kannst alle Partikel Factories sehen, indem du dir alle Implementierungen der Schnittstelle `ParticleProvider` ansiehst. Dies ist hilfreich, wenn du das Verhalten eines anderen Partikels für deinen eigenen Partikel verwenden möchtest.
+Du kannst alle Partikel Factories sehen, indem du dir alle Implementierungen des Interface `ParticleProvider` ansiehst. Dies ist hilfreich, wenn du das Verhalten eines anderen Partikels für deinen eigenen Partikel verwenden möchtest.
 
 - Tastenkombination von IntelliJ: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>
 - Tesentkombination von Visual Studio Code: <kbd>Ctrl</kbd>+<kbd>F12</kbd>

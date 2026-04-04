@@ -11,9 +11,9 @@ authors:
 
 ::: warning
 
-Obwohl Minecraft mit OpenGL erstellt wurde, kannst du ab Version 1.17 keine älteren OpenGL-Methoden mehr verwenden, um eigene Inhalte zu rendern. Stattdessen musst du das neue `BufferBuilder`-System verwenden, das die Rendering-Daten formatiert und zum Zeichnen an OpenGL hochlädt.
+Obwohl Minecraft aktuell mit OpenGL gebaut ist, kannst du in der Version 1.17+ keine älteren OpenGL-Methoden mehr verwenden, um eigene Inhalte zu rendern. Stattdessen musst du das neue `BufferBuilder`-System verwenden, das die Rendering-Daten formatiert und zum Zeichnen an OpenGL hochlädt.
 
-Zusammenfassend kann man sagen, dass man das Rendering-System von Minecraft benutzen muss, oder ein eigenes, das `GL.glDrawElements()` benutzt.
+Zusammenfassend lässt sich sagen, dass du das Rendering-System von Minecraft verwenden musst. Die Verwendung von rohem OpenGL wird noch stärker beeinträchtigt sein, wenn [Minecraft 26.2 mit einem Vulkan-Backend veröffentlicht wird](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition).
 
 :::
 
@@ -21,7 +21,7 @@ Zusammenfassend kann man sagen, dass man das Rendering-System von Minecraft benu
 
 Ab Version 1.21.6 werden umfangreiche Änderungen an der Rendering-Pipeline vorgenommen, darunter die Umstellung auf `RenderType`s und `RenderPipeline`s und vor allem auf `RenderState`s. Das ultimative Ziel besteht darin, das nächste Bild vorbereiten zu können, während das aktuelle Bild gezeichnet wird. In der "Vorbereitungsphase" werden alle für die Darstellung verwendeten Spieldaten in `RenderState`s extrahiert, sodass ein anderer Thread an der Zeichnung dieses Bilds arbeiten kann, während das nächste Bild extrahiert wird.
 
-Beispielsweise wurde dieses Modell in 1.21.8 für das GUI-Rendering übernommen, und die Methoden von `GuiGraphics` fügen einfach zum Renderstatus hinzu. Das eigentliche Hochladen in den `BufferBuilder` erfolgt am Ende der Vorbereitungsphase, nachdem alle Elemente zum `RenderState` hinzugefügt wurden. Siehe `GuiRenderer#prepare`.
+Beispielsweise wurde dieses Modell in 1.21.8 für das GUI-Rendering übernommen, und die Methoden von `GuiGraphicsExtractor` fügen einfach zum Renderstatus hinzu. Das eigentliche Hochladen in den `BufferBuilder` erfolgt am Ende der Vorbereitungsphase, nachdem alle Elemente zum `RenderState` hinzugefügt wurden. Siehe `GuiRenderer#prepare`.
 
 Dieser Artikel behandelt die Grundlagen des Renderns und ist zwar nach wie vor relevant, doch in den meisten Fällen gibt es höhere Abstraktionsebenen für eine bessere Leistung und Kompatibilität. Für weitere Informationen siehe [Rendering in der Welt](./world).
 
@@ -29,7 +29,7 @@ Dieser Artikel behandelt die Grundlagen des Renderns und ist zwar nach wie vor r
 
 Auf dieser Seite werden die Grundlagen des Renderings mit dem neuen System behandelt, wobei die wichtigsten Begriffe und Konzepte erläutert werden.
 
-Obwohl ein Großteil des Renderings in Minecraft durch die verschiedenen Methoden von `GuiGraphics` abstrahiert wird und du wahrscheinlich nichts von dem, was hier erwähnt wird, anfassen musst, ist es trotzdem wichtig, die Grundlagen zu verstehen, wie Rendering funktioniert.
+Obwohl ein Großteil des Renderings in Minecraft durch die verschiedenen Methoden von `GuiGraphicsExtractor` abstrahiert wird und du wahrscheinlich nichts von dem, was hier erwähnt wird, anfassen musst, ist es trotzdem wichtig, die Grundlagen zu verstehen, wie Rendering funktioniert.
 
 ## Der `Tesselator` {#the-tesselator}
 
@@ -98,7 +98,7 @@ Eine Transformationsmatrix ist eine 4x4-Matrix, die zur Transformation eines Vek
 
 Sie wird manchmal auch als Positionsmatrix oder als Modellmatrix bezeichnet.
 
-Es wird normalerweise über die Klasse `Matrix3x2fStack` bezogen, die über das Objekt von `GuiGraphics` über einen Aufruf von `GuiGraphics#pose()` bezogen werden kann.
+Es wird normalerweise über die Klasse `Matrix3x2fStack` bezogen, die über das Objekt von `GuiGraphicsExtractor` über einen Aufruf von `GuiGraphicsExtractor#pose()` bezogen werden kann.
 
 #### Ein praktisches Beispiel: Rendering eines Dreiecksstreifens {#rendering-a-triangle-strip}
 
@@ -123,7 +123,7 @@ Da wir in diesem Beispiel auf dem HUD zeichnen, werden wir die `HudElementRegist
 
 Ab Version 1.21.8 wurde der für die HUD-Rendering übergebene Matrixstapel von `PoseStack` zu `Matrix3x2fStack` geändert. Die meisten Methoden unterscheiden sich geringfügig und verwenden keinen Parameter `z` mehr, aber die Konzepte sind dieselben.
 
-Außerdem stimmt der folgende Code nicht vollständig mit der obigen Erklärung überein: Du musst nicht manuell in den `BufferBuilder` schreiben, da die Methoden von `GuiGraphics` während der Vorbereitung automatisch in den `BufferBuilder` des HUD schreiben.
+Außerdem stimmt der folgende Code nicht vollständig mit der obigen Erklärung überein: Du musst nicht manuell in den `BufferBuilder` schreiben, da die Methoden von `GuiGraphicsExtractor` während der Vorbereitung automatisch in den `BufferBuilder` des HUD schreiben.
 
 Lies für weitere Informationen die wichtige Aktualisierung oben.
 

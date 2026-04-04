@@ -29,11 +29,11 @@ Wenn deine Mod-ID beispielsweise **`my-cool-mod`** lautet, verwende anstelle von
 
 ![Vorschau des Generators](/assets/develop/getting-started/template-generator.png)
 
-Wenn du entweder Kotlin oder die Yarn-Mappings von Fabric anstelle der standardmäßigen Mojang-Mapping verwenden oder Datengeneratoren hinzufügen willst, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
+Wenn du entweder Kotlin oder Kotlin-Buildscripts verwendest oder Datengeneratoren hinzufügen möchtest, kannst du die entsprechenden Optionen im Abschnitt `Advanced Options` auswählen.
 
 ::: info
 
-Die auf dieser Website angegebenen Codebeispiele verwenden [die offiziellen Namen von Mojang](../porting/mappings/#mappings). Wenn dein Mod nicht dieselben Mappings verwendet, in denen diese Dokumente geschrieben sind, musst du die Beispiele mithilfe von Websites wie [mappings.dev](https://mappings.dev/) oder [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) konvertieren.
+Die auf dieser Seite aufgeführten Code-Beispiele verwenden [die Namen aus dem nicht verschleiterten Spiel](../porting/mappings/#whats-going-on-with-mappings). Falls du bereits einen Mod hast, der andere Mappings als die von Mojang bereitgestellten verwendet, findest du weitere Informationen in unserer Dokumentation zum Thema [Portierung auf 26.1](../porting/index).
 
 :::
 

@@ -38,15 +38,11 @@ authors:
 
 Ми використаємо `RecordCodecBuilder#mapCodec`, щоб створити мапу кодека для нашого рецепта. Це дозволяє нам об’єднати наявні кодеки Minecraft у наші власні:
 
-@[code transcludeWith=:::mapCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeSerializer.java)
+@[code transcludeWith=:::mapCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
 
 Кодек потоку можна створити подібним чином за допомогою `StreamCodec#composite`:
 
-@[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeSerializer.java)
-
-Використаймо ці кодеки для реалізації методів із `RecipeSerializer`:
-
-@[code transcludeWith=:::implementing](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeSerializer.java)
+@[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
 
 Тепер ми зареєструємо серіалізатор рецепта, а також тип рецепта. Ви можете зробити це в ініціалізаторі вашого мода або в окремому класі за допомогою методу, викликаного ініціалізатором вашого мода:
 
@@ -56,7 +52,7 @@ authors:
 
 @[code transcludeWith=:::implementRegistryObjects](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
 
-Щоб завершити наш власний тип рецепта, нам просто потрібно реалізувати інші методи `placementInfo` і `recipeBookCategory`, які використовуються книгою рецептів для розміщення нашого рецепта на екрані. Наразі ми просто повернемо `PlacementInfo.NOT_PLACEABLE` і `null`, оскільки книгу рецептів не можна легко розширити до модових робочих станків. Ми також перевизначимо `isSpecial`, щоб повернути true, щоб запобігти запуску й реєстрації помилок деякої іншої логіки, пов’язаної з книгою рецептів.
+Щоб завершити наш власний тип рецепта, нам просто потрібно реалізувати інші методи `placementInfo`, `showNotification`, `group` і `recipeBookCategory`, які використовуються книгою рецептів для розміщення нашого рецепта на екрані. Наразі ми просто повернемо `PlacementInfo.NOT_PLACEABLE` і `null`, оскільки книгу рецептів не можна легко розширити до модових робочих станків. Ми також перевизначимо `isSpecial`, щоб повернути true, щоб запобігти запуску й реєстрації помилок деякої іншої логіки, пов’язаної з книгою рецептів.
 
 @[code transcludeWith=:::recipeBook](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
 

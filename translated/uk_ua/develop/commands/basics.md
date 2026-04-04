@@ -133,7 +133,7 @@ Command<CommandSourceStack> command = context -> {
 
 ## Клієнтські команди {#client-commands}
 
-Fabric API містить ClientCommandManager у пакеті net.fabricmc.fabric.api.client.command.v2, який можна використовувати для реєстрації команд на стороні клієнта. Код має існувати лише в коді на стороні клієнта.
+Подібним чином Fabric API надає подію `ClientCommandRegistrationCallback` у пакеті `net.fabricmc.fabric.api.client.command.v2`, який можна використовувати для реєстрації команд на стороні клієнта, замінюючи стандартний клас `Commands` еквівалентним `ClientCommands`. Код має існувати лише в коді на стороні клієнта.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 

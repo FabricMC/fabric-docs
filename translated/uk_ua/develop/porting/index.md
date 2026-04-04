@@ -1,40 +1,52 @@
 ---
-title: Портування до 1.21.11
-description: Посібник з портування до 1.21.11, останньої версії Minecraft.
+title: Портування до 26.1
+description: Посібник з портування до 26.1, останньої версії Minecraft.
 authors:
   - cassiancc
+  - ChampionAsh5357
 resources:
-  https://fabricmc.net/2025/12/05/12111.html: Анонс Fabric API 1.21.11
-  https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11: Java Edition 1.21.11 — Minecraft.net
-  https://minecraft.wiki/w/Java_Edition_1.21.11: Java Edition 1.21.11 — Вікі Minecraft
-  https://www.youtube.com/watch?v=5yY25GoWQhs&pp=0gcJCSkKAYcqIYzv: Новини slicedlime про пакети ресурсів та даних для 1.21.11
-  https://docs.neoforged.net/primer/docs/1.21.11/: Праймер міграції 1.21.10 -> 1.21.11 — NeoForge
+  https://fabricmc.net/2026/03/14/261.html: Fabric для Minecraft 26.1
+  ./26.1/fabric-api: Посібник з портування Fabric API 26.1
+  https://minecraft.wiki/w/Java_Edition_26.1: Java Edition 26.1 — Вікі Minecraft
+  https://github.com/neoforged/.github/blob/main/primers/26.1/index.md: Праймери міграції 1.21.11 -> 26.1 від ChampionAsh5357
 ---
 
-Minecraft — це гра, яка постійно розвивається, нові версії змінюють гру таким чином, що впливає на розробників модів. Ця стаття охоплює загальні кроки, які можна виконати, щоб оновити свій мод до найновішої стабільної версії Minecraft.
+Версія Minecraft 26.1 не обфускована, як і її знімки. Зважаючи на це, вам потрібно буде внести більше змін у свої сценарії збірки, ніж зазвичай, щоб перейти на нього.
 
 ::: info
 
-Тут обговорюється міграція з **1.21.10** до **1.21.11**. Якщо ви шукаєте іншу міграцію, перейдіть до цільової версії за допомогою спадного меню у верхньому правому куті.
+Тут обговорюється міграція з **1.21.11** до **26.1**. Якщо ви шукаєте іншу міграцію, перейдіть до цільової версії за допомогою спадного меню у верхньому правому куті.
 
 :::
 
+## Передумови {#prerequisites}
+
+Якщо ваш мод досі використовує мапінги Yarn Fabric, вам спочатку потрібно буде [перенести свій мод до офіційних мапінгів Mojang](../../../develop/porting/mappings/) перед портуванням на 26.1.
+
+Якщо ви використовуєте IntelliJ IDEA, вам також потрібно оновити його до `2025.3` або новішої версії для повної підтримки Java 25.
+
 ## Оновлення скриптів збірки {#build-script}
 
-Почніть з оновлення `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` і `build.gradle` вашого мода до останніх версій:
+Почніть з оновлення `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` і `build.gradle` вашого мода до останніх версій, потім виконайте наведені нижче дії. Якщо у вас виникли проблеми, подумайте про [приклад мода Fabric](https://github.com/FabricMC/fabric-example-mod/tree/26.1).
 
 1. Оновіть Gradle до останньої версії, виконавши таку команду: `./gradlew wrapper --gradle-version latest`
 2. Оновіть Minecraft, Завантажувач Fabric, Fabric Loom і Fabric API у `gradle.properties` (рекомендовано) або `build.gradle`. Знайдіть рекомендовані версії компонентів Fabric на [сайті розробки Fabric](https://fabricmc.net/develop/).
-3. Оновіть Gradle за допомогою кнопки оновлення у верхньому правому куті IntelliJ IDEA. Якщо цю кнопку не видно, ви можете примусово очистити кеші, запустивши `./gradlew --refresh-dependencies`.
+3. У верхній частині `build.gradle` змініть версію Loom, яку ви використовуєте, з `id "fabric-loom"` на `id "net.fabricmc.fabric-loom"`. Якщо ви вказали Loom у `settings.gradle`, змініть його також там.
+4. Видаліть рядок `mappings` із розділу залежностей `build.gradle`.
+5. Замініть будь-які випадки `modImplementation` або `modCompileOnly` на `implementation` і `compileOnly`.
+6. Видаліть або замініть будь-які моди, створені для версій до 26.1, на версії, сумісні з цим оновленням.
+   - Жодні наявні моди для 1.21.11 або старіших версій Minecraft не працюватимуть 26.1, навіть як залежність лише від компіляції.
+7. Установіть сумісність з Java на 25 замість 21.
+8. Замініть усі згадки `remapJar` на `jar`.
+9. Оновіть Gradle за допомогою кнопки оновлення у верхньому правому куті IntelliJ IDEA. Якщо цю кнопку не видно, ви можете примусово очистити кеші, запустивши `./gradlew --refresh-dependencies`.
 
 ## Оновлення коду {#porting-guides}
 
-Після оновлення сценарію збірки до версії 1.21.11 ви можете переглянути свій мод і оновити будь-який змінений код, щоб зробити його сумісним з новою версією.
+Після оновлення сценарію збірки до версії 26.1 ви можете переглянути свій мод і оновити будь-який змінений код, щоб зробити його сумісним зі знімком.
 
-Щоб допомогти вам з оновленням, розробники модів задокументують зміни, на які вони натрапили, у статтях, як-от у блозі Fabric та в праймерах портування NeoForge.
+- [Fabric для Minecraft 26.1 у блозі Fabric](https://fabricmc.net/2026/03/14/261.html) містить пояснення високого рівня змін, внесених у Fabric API у 26.1.
+- [Посібник з портування Fabric API 26.1](./fabric-api) містить список перейменувань, зроблених у Fabric API у знімках 26.1, щоб відповідати іменам Mojang.
+- [_Java Edition 26.1_ на Вікі Minecraft](https://minecraft.wiki/w/Java_Edition_26.1) — це неофіційний короткий виклад вмісту оновлення.
+- [Праймер NeoForge міграції мода Minecraft 1.21.11 -> 26.1](https://github.com/neoforged/.github/blob/main/primers/26.1/index.md) охоплює перехід з 1.21.11 на 26.1, зосереджуючись лише на змінах коду.
 
-- [_Fabric для Minecraft 1.21.11_ у блозі Fabric](https://fabricmc.net/2025/12/05/12111.html) містить пояснення високого рівня змін, внесених у Fabric API у 1.21.11.
-- [_Minecraft: Java Edition 1.21.11_ у блозі Minecraft](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11) є офіційним оглядом функцій, представлених у 1.21.11.
-- [_Java Edition 1.21.11_ на Вікі Minecraft](https://minecraft.wiki/w/Java_Edition_1.21.11) — це неофіційний короткий виклад вмісту оновлення.
-- [Новини пакетів даних і ресурсів від slicedlime у Minecraft 1.21.11](https://www.youtube.com/watch?v=5yY25GoWQhs&pp=0gcJCSkKAYcqIYzv) охоплює інформацію, пов’язану з оновленням даних вашого мода та вмісту пакета ресурсів.
-- [Праймер NeoForge міграції мода _Minecraft 1.21.10 -> 1.21.11_](https://docs.neoforged.net/primer/docs/1.21.11/) охоплює перехід з 1.21.10 до 1.21.11, зосереджуючись лише на змінах коду.
+<!---->

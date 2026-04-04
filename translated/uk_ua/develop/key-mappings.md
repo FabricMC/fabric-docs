@@ -23,7 +23,7 @@ Minecraft обробляє введення користувачами з пер
 
 @[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
 
-Далі, ми маємо створити призначення клавіші. Ми будемо використовувати API Fabric `KeyBindingHelper`, щоб одночасно зареєструвати наше призначення клавіш.
+Далі, ми маємо створити призначення клавіші. Ми будемо використовувати API Fabric `KeyMappingHelper`, щоб одночасно зареєструвати наше призначення клавіш.
 
 @[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
 
@@ -36,7 +36,7 @@ Minecraft обробляє введення користувачами з пер
 
 :::
 
-Закріплені клавіші також можна створити за допомогою `KeyBindingHelper`, передавши екземпляр `ToggleKeyMapping` замість `KeyMapping`.
+Закріплені клавіші також можна створити за допомогою `KeyMappingHelper`, передавши екземпляр `ToggleKeyMapping` замість `KeyMapping`.
 
 Після реєстрації ви зможете знайти призначення клавіші у _Налаштування_ > _Керування_ > _Призначення клавіш_.
 

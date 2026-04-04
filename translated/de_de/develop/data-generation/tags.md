@@ -22,9 +22,9 @@ Stelle sicher, dass du den Prozess der [Einrichtung des Datengenerators](./setup
 
 Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auch auf alle anderen Dinge anwenden.
 
-Fabric bietet mehrere Hilfs-Tag-Provider, darunter einen für Items: `FabricTagProvider.ItemTagProvider`. Wir werden für dieses Beispiel diese Hilfsklasse verwenden.
+Fabric bietet mehrere Hilfs-Tag-Provider, darunter einen für Items: `FabricTagsProvider.FabricTagsProvider`. Wir werden für dieses Beispiel diese Hilfsklasse verwenden.
 
-Du kannst deine eigene Klasse erstellen, die von `FabricTagProvider<T>` erbt, wobei `T` der Typ ist, für den du ein Tag bereitstellen möchtest. Dies ist dein **Provider**.
+Du kannst deine eigene Klasse erstellen, die von `FabricTagsProvider<T>` erbt, wobei `T` der Typ ist, für den du ein Tag bereitstellen möchtest. Dies ist dein **Provider**.
 
 Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `resourceKey` durch den `ResourceKey` für deinen Typ:
 
@@ -32,7 +32,7 @@ Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruk
 
 ::: tip
 
-Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `FabricTagProvider<EntityType<?>>` und einen `FabricTagProvider<Item>`).
+Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `FabricTagsProvider<EntityType<?>>` und einen `FabricTagsProvider<Item>`).
 
 :::
 

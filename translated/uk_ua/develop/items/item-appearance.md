@@ -11,17 +11,15 @@ authors:
 
 Існує лише кілька [попередньо визначених джерел відтінків](https://minecraft.wiki/w/Items_model_definition#Tint_sources_types), тому подивімося, як створити власні.
 
-Для цього прикладу зареєструймо предмет. Якщо ви не знайомі з цим процесом, спершу прочитайте про [реєстрацію предмета](./first-item).
+У цьому прикладі ми використаємо предмета блока `ModBocks.WAXCAP`, зареєстрований у [відтінках блока](../blocks/block-tinting).
 
-@[code lang=java transcludeWith=:::item](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
-
-Обов’язково додайте:
+Доповніть предмет, додавши:
 
 - [Клієнтський предмет](./first-item#creating-the-client-item) у `/items/waxcap.json`
 - [Модель предмета](./item-models) у `/models/item/waxcap.json`
 - [Текстура](./first-item#adding-a-texture) у `/textures/item/waxcap.png`
 
-Предмет має з’явитися в грі.
+Тепер предмет має бути текстурованим.
 
 ![Реєстрація предмета](/assets/develop/item-appearance/item_tint_0.png)
 

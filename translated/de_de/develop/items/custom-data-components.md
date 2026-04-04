@@ -72,7 +72,11 @@ Wir werden einen Tooltip-Code hinzufügen, um den aktuellen Wert der Klickzahl a
 int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen. Füge diese Zeile der Methode `appendHoverText` in der Klasse `CounterItem` hinzu:
+Dadurch wird der aktuelle Wert der Komponente als der Typ zurückgegeben, den wir bei der Registrierung unserer Komponente definiert haben. Diesen Wert können wir dann verwenden, um einen Tooltip-Eintrag hinzuzufügen.
+
+### Tooltips anhängen {#append-tooltips}
+
+Der Einfachheit halber fügen wir diese Zeile zur Methode `appendHoverText` in der Klasse `CounterItem` hinzu. Beachte, dass diese Methode veraltet ist, da Mojang daran arbeitet, das Verhalten von Items vollständig über Komponenten statt über die Items selbst zu steuern.
 
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
@@ -87,7 +91,7 @@ Ab Version 1.21.5 ist `appendHoverText` veraltet. Es wird nun empfohlen, `Toolti
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
 
-Dann kannst du den `TooltipProvider` über `ComponentTooltipAppenderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
+Dann kannst du den `TooltipProvider` über die `ItemComponentTooltipProviderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
 
 @[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -196,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Richten wir eine neue Methode `use()` ein, um die alte Klickzahl zu lesen, sie um eins zu erhöhen und dann die aktualisierte Klickzahl zu setzen.
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Versuche nun, das Spiel zu starten und klicke mit der rechten Maustaste auf das Counter-Item in deiner Hand. Wenn du dein Inventar öffnest und dir das Item noch einmal ansiehst, solltest du sehen, dass die Nutzungszahl um die Anzahl der Klicks gestiegen ist, die du darauf gemacht hast.
 
@@ -223,17 +227,20 @@ Möglicherweise musst du mehrere Attribute in einer einzigen Komponente speicher
 Für zusammengesetzte Komponenten musst du eine `record`-Klasse erstellen, um die Daten zu speichern. Dies ist der Typ, den wir in unserem Komponententyp registrieren und den wir lesen und schreiben werden, wenn wir mit einem `ItemStack` interagieren. Beginne mit der Erstellung einer neuen Record-Klasse im Paket `component`, das wir zuvor erstellt haben.
 
 ```java
-public record MyCustomComponent() {
+public record AdvancedCustomComponent() {
 }
 ```
 
 Beachte, dass sich nach dem Klassennamen Klammern befinden. Hier definieren wir die Liste der Eigenschaften, die unsere Komponente haben soll. Fügen wir eine Fließkommazahl und einen booleschen Wert mit den Bezeichnungen `temperature` und `burnt` hinzu.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+```java
+public record AdvancedCustomComponent(float temperature, boolean burnt) {
+}
+```
 
 Da wir eine benutzerdefinierte Datenstruktur definieren, gibt es für unseren Anwendungsfall keinen bereits vorhandenen `Codec` wie bei den [einfachen Komponenten](#basic-data-components). Das bedeutet, dass wir unseren eigenen Codec konstruieren müssen. Definieren wir einen in unsere Record-Klasse mit einem `RecordCodecBuilder`, auf den wir verweisen können, sobald wir die Komponente registrieren. Weitere Einzelheiten zur Verwendung eines `RecordCodecBuilder` findest du in [diesem Abschnitt der Codecs-Seite](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
 
 Du kannst sehen, dass wir eine Liste von benutzerdefinierten Feldern auf der Grundlage der primitiven `Codec`-Typen definieren. Wir teilen dem Spiel jedoch auch mit, wie unsere Felder heißen, indem wir `fieldOf()` verwenden und dann `forGetter()` benutzen, um dem Spiel mitzuteilen, welches Attribut unseres Datensatzes es füllen soll.
 
@@ -259,20 +266,20 @@ Die Verwendung der Komponente im Code ist die gleiche wie zuvor. Die Verwendung 
 
 ```java
 // read values of component
-MyCustomComponent comp = stack.get(ModComponents.MY_CUSTOM_COMPONENT);
+AdvancedCustomComponent comp = stack.get(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 float temp = comp.temperature();
 boolean burnt = comp.burnt();
 
 // set new component values
-stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
+stack.set(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.contains(ModComponents.ADVANCED_CUSTOM_COMPONENT)) {
     // do something
 }
 
 // remove component
-stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
+stack.remove(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 ```
 
 Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlegen, indem du ein Komponenten-Objekt an deine `Item.Properties` übergibst. Zum Beispiel:
@@ -281,10 +288,20 @@ Du kannst auch einen Standardwert für eine zusammengesetzte Komponente festlege
 public static final Item COUNTER = register(
     "counter",
     CounterItem::new,
-    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(0.0f, false))
 );
 ```
 
 Jetzt kannst du benutzerdefinierte Daten an einem `ItemStack` speichern. Nutze dies mit Bedacht!
 
 ![Item zeigt einen Tooltip für die Klickzahl, Temperatur und Brennzustand](/assets/develop/items/custom_component_6.png)
+
+### Fortgeschrittene Tooltips anhängen {#advanced-tooltips}
+
+Da wir über eine benutzerdefinierte Komponentenklasse haben, können wir `TooltipProvider` direkt implementieren und so die veraltete Methode `appendHoverText` vermeiden.
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+
+Dann kannst du den `TooltipProvider` über die `ItemComponentTooltipProviderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
+
+@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)

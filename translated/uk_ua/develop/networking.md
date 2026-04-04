@@ -2,6 +2,7 @@
 title: Мережа
 description: Загальний посібник із роботи в мережі за допомогою Fabric API.
 authors:
+  - bluebear94
   - Daomephsta
   - dicedpixels
   - Earthcomputer
@@ -51,41 +52,35 @@ authors:
 
 Це можна зробити, створивши Java `Record` з параметром `BlockPos`, який реалізує `CustomPacketPayload`.
 
-@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 Водночас ми визначили:
 
 - `Identifier`, який використовується для ідентифікації корисного навантаження нашого пакета. Для цього прикладу нашим ідентифікатором буде `example-mod:summon_lightning`.
 
-@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
-- Загальнодоступний статичний екземпляр `CustomPayload.Id` для унікальної ідентифікації цього спеціального корисного навантаження. Ми будемо посилатися на цей ID як у нашому загальному, так і в клієнтському коді.
+- Загальнодоступний статичний екземпляр `CustomPayload.Type` для унікальної ідентифікації цього спеціального корисного навантаження. Ми будемо посилатися на цей ID як у нашому загальному, так і в клієнтському коді.
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 - Загальнодоступний статичний екземпляр `PacketCodec`, щоб гра знала, як серіалізувати/десеріалізувати вміст пакета.
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 Ми також замінили `type`, щоб повернути наш ідентифікатор корисного навантаження.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 ### Реєстрація корисного навантаження {#registering-a-payload}
 
 Перш ніж ми надішлемо пакет із нашим власним корисним навантаженням, нам потрібно зареєструвати його на обох фізичних сторонах.
 
-::: info
+Це можна зробити в нашому **загальному ініціалізаторі** за допомогою `PayloadTypeRegistry.clientboundPlay().register`, який приймає `CustomPayload.Type` і `StreamCodec`.
 
-`S2C` і `C2S` — два загальні суфікси, які означають _із сервера до клієнта_ (_Server-to-Client_) та _з клієнта до сервера_ (_Client-to-Server_) відповідно.
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
-:::
-
-Це можна зробити в нашому **загальному ініціалізаторі** за допомогою `PayloadTypeRegistry.playS2C().register`, який приймає `CustomPayload.Id` і `StreamCodec`.
-
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
-
-Подібний метод існує для реєстрації корисних даних з клієнта до сервера: `PayloadTypeRegistry.playC2S().register`.
+Подібний метод існує для реєстрації корисних даних з клієнта до сервера: `PayloadTypeRegistry.clientboundPlay().register`.
 
 ### Надсилання пакета до клієнта {#sending-a-packet-to-the-client}
 
@@ -98,7 +93,7 @@ authors:
 
 Розгляньмо код вище.
 
-Ми надсилаємо пакети лише тоді, коли дію розпочато на сервері, повертаючись раніше з перевіркою `isClient`:
+Ми надсилаємо пакети лише тоді, коли дію розпочато на сервері, повертаючись раніше з перевіркою `isClientSide()`:
 
 @[code lang=java transclude={22-24}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -124,7 +119,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 Щоб отримати пакет, надісланий із сервера до клієнта, вам потрібно вказати, як ви будете обробляти вхідний пакет.
 
-Це можна зробити в **ініціалізаторі клієнта**, викликавши `ClientPlayNetworking.registerGlobalReceiver` і передавши `CustomPayload.Id` і `PlayPayloadHandler`, який є функціональним інтерфейсом.
+Це можна зробити в **ініціалізаторі клієнта**, викликавши `ClientPlayNetworking.registerGlobalReceiver` і передавши `CustomPayload.Type` і `PlayPayloadHandler`, який є функціональним інтерфейсом.
 
 У цьому випадку ми визначимо дію, яка буде запускатися в реалізації `PlayPayloadHandler` (як лямбда-вираз).
 
@@ -148,14 +143,14 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 Подібно до надсилання пакета клієнту, ми починаємо зі створення спеціального корисного навантаження. Цього разу, коли гравець використовує отруйну картоплю на живій істоті, ми просимо сервер застосувати до неї ефект світіння.
 
-@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectC2SPayload.java)
+@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java)
 
 Ми передаємо відповідний кодек разом із посиланням на метод, щоб отримати значення із запису для створення цього кодека.
 
-Потім ми реєструємо наше корисне навантаження в нашому **загальному ініціалізаторі**. Однак цього разу як корисне навантаження _із клієнта до сервера_ за допомогою
-`PayloadTypeRegistry.playC2S().register`.
+Потім ми реєструємо наше корисне навантаження в нашому **загальному ініціалізаторі**. Однак цього разу як корисне навантаження _з клієнта до сервера_ за допомогою
+`PayloadTypeRegistry.serverboundPlay().register`.
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Щоб надіслати пакет, додаймо дію, коли гравець використовує отруйну картоплю. Ми будемо використовувати подію `UseEntityCallback`, щоб зберігати речі стисло.
 
@@ -163,17 +158,17 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Ми створимо екземпляр нашого `GiveGlowingEffectC2SPayload` з необхідними аргументами. У цьому випадку ID мережі цільової сутності.
+Ми створимо екземпляр нашого `GiveGlowingEffectServerboundPayload` з необхідними аргументами. У цьому випадку ID мережі цільової сутності.
 
 @[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого `GiveGlowingEffectC2SPayload`.
+Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого \`\`GiveGlowingEffectServerboundPayload\`.
 
 @[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### Отримання пакета на сервері {#receiving-a-packet-on-the-server}
 
-Це можна зробити в **загальному ініціалізаторі**, викликавши `ServerPlayNetworking.registerGlobalReceiver` і передавши `CustomPayload.Id` і `PlayPayloadHandler`.
+Це можна зробити в **загальному ініціалізаторі**, викликавши `ServerPlayNetworking.registerGlobalReceiver` і передавши `CustomPayload.Type` і `PlayPayloadHandler`.
 
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 

@@ -9,7 +9,7 @@ authors:
 
 ::: info
 
-Diese Seite bezieht sich auf normale Oberflächen, nicht auf solche, die vom Spieler auf dem Client geöffnet werden, und nicht auf solche, die vom Server bearbeitet werden.
+Diese Seite bezieht sich auf normale Oberflächen, nicht auf Menüs - solche, die vom Spieler auf dem Client geöffnet werden, und nicht auf solche, die vom Server verarbeitet werden.
 
 :::
 
@@ -19,14 +19,14 @@ Du kannst deine eigenen Oberflächen erstellen, um benutzerdefinierte Inhalte, e
 
 ## Eine Oberfläche erstellen {#creating-a-screen}
 
-Um eine Oberfläche zu erstellen, musst du die `Screen`-Klasse erweitern und die `init`-Methode überschreiben.
+Um eine Oberfläche zu erstellen, musst du von der Klasse `Screen` erben und die Methode `init` überschreiben - optional kannst du auch die Methode `extractRenderState` überschreiben -, aber achte darauf, die entsprechende Supermethode aufzurufen, da sonst der Hintergrund, die Widgets usw. nicht gerendert werden.
 
 Folgendes solltest du beachten:
 
 - Widgets werden nicht im Konstruktor erstellt, weil die Oberfläche zu diesem Zeitpunkt noch nicht initialisiert ist - und bestimmte Variablen, wie `width` (Breite) und `height` (Höhe), sind noch nicht verfügbar oder noch nicht genau.
 - Die `init`-Methode wird aufgerufen, wenn die Oberfläche initialisiert wird, und sie ist der beste Ort, um Widgets zu erstellen.
   - Du kannst Widgets mit der Methode `addRenderableWidget` hinzufügen, die jedes zeichenbare Widget akzeptiert.
-- Die Methode `render` wird bei jedem Frame aufgerufen - du kannst von dieser Methode auf die GUI-Grafiken und die Mausposition zugreifen.
+- Die Methode `extractRenderState` wird jeden Frame aufgerufen - über diese Methode kannst du auf den GUI-Grafik-Extraktor und die Mausposition zugreifen.
 
 Als Beispiel können wir eine einfache Oberfläche erstellen, der eine Schaltfläche und eine Beschriftung darüber enthält.
 

@@ -39,7 +39,13 @@ resources:
 
 ## Установлення IntelliJ IDEA {#installing-intellij-idea}
 
-Якщо у вас не встановлено IntelliJ IDEA, ви можете завантажити його з [офіційного сайту](https://www.jetbrains.com/idea/download/) — дотримуйтеся вказівок зі встановлення для вашої операційної системи.
+::: warning
+
+IntelliJ IDEA 2025.3 або новіша версія потрібна для мода 26.1.
+
+:::
+
+Якщо у вас не встановлено IntelliJ IDEA **або у вас версія до 2025.3**, ви можете завантажити з [офіційного сайту](https://www.jetbrains.com/idea/download/) – дотримуйтеся вказівок із встановлення для вашої операційної системи.
 
 ![Запит на завантаження IntelliJ IDEA](/assets/develop/getting-started/idea-download.png)
 

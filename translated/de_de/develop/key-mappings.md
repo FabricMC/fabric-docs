@@ -23,7 +23,7 @@ Lasst uns mit der Erstellung einer Kategorie beginnen. Eine Kategorie definiert 
 
 @[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
 
-Als Nächstes können wir eine Tastenbelegung erstellen. Wir werden Fabric APIs `KeyBindingHelper` verwenden, um
+Als Nächstes können wir eine Tastenbelegung erstellen. Wir werden Fabric APIs `KeyMappingHelper` verwenden, um
 gleichzeitig unsere Tastenbelegung zu registrieren.
 
 @[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
@@ -37,7 +37,7 @@ Das bedeutet, dass bei Verwendung eines AZERTY-Layouts das Drücken von <kbd>A</
 
 :::
 
-Klebrige Tasten können auch mit dem `KeyBindingHelper` erstellt werden, indem anstelle einer `KeyMapping`-Instanz eine `ToggleKeyMapping`-Instanz übergeben wird.
+Klebrige Tasten können auch mit dem `KeyMappingHelper` erstellt werden, indem anstelle einer `KeyMapping`-Instanz eine `ToggleKeyMapping`-Instanz übergeben wird.
 
 Sobald registriert, findest du Tastenbelegungen unter _Optionen_ > _Steuerung_ > _Tastenbelegung_.
 

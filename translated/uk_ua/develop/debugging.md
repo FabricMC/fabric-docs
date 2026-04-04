@@ -29,12 +29,7 @@ authors:
 
 Журналювальник (Logger) підтримує кілька режимів друку тексту на консолі. Залежно від режиму, який ви використовуєте, зареєстрований рядок показується різними кольорами.
 
-```java
-ExampleModDebug.LOGGER.debug("Debug message for development...");
-ExampleModDebug.LOGGER.info("Neutral, informative text...");
-ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-```
+@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 ::: info
 

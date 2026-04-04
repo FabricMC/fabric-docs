@@ -22,7 +22,7 @@ resources:
 
 <!-- Note: This example could be used for a custom recipe types guide, a condensor machine block with a custom "Condensing" recipe? -->
 
-Minecraft має деякі власні класи, які дозволять вам швидко створити певні типи блоків — в цьому прикладі розглядається створення блока з властивістю `axios` шляхом створення блока «Condensed Oak Log».
+Minecraft має деякі власні класи, які дозволять вам швидко створити певні типи блоків — в цьому прикладі розглядається створення блока з властивістю `axis` шляхом створення блока «Condensed Oak Log».
 
 Усталений клас `RotatedPillarBlock` дозволяє розміщувати блок на осях X, Y або Z.
 

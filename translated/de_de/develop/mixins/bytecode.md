@@ -140,7 +140,7 @@ static add (DDD)D
 
 Wir haben gesehen, dass Bytecode die Namen lokaler Variablen nicht benötigt, da er sie anhand ihres LVT-Index identifiziert. Trotzdem behalten viele Bibliotheken Debugging-Informationen bei, darunter auch die Namen lokaler Variablen, um das Debugging zu vereinfachen und dir zu ermöglichen, bei der Entwicklung von Mixins lokale Variablen anhand deren Namen anzusprechen.
 
-Minecraft 1.21.11 bietet dies jedoch standardmäßig nicht und gilt daher als verschleiert. Beachte, dass [zukünftige Versionen von Minecraft nicht verschleiert werden](../porting/mappings/#whats-going-on-with-mappings).
+Dies gilt für Minecraft 26.1 und höher, da diese Versionen nicht verschleiert sind. Beachte, dass [vorherige Versionen von Minecraft verschleiert sind](../porting/mappings/#whats-going-on-with-mappings).
 
 :::
 

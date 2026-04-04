@@ -72,7 +72,11 @@ public static final Item COUNTER = register("counter", CounterItem::new, new Ite
 int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 ```
 
-Це поверне поточне значення компонента як тип, який ми визначили під час реєстрації нашого компонента. Потім ми можемо використовувати це значення, щоб додати запис підказки. Додайте цей рядок до методу `appendHoverText` у класі `CounterItem`:
+Це поверне поточне значення компонента як тип, який ми визначили під час реєстрації нашого компонента. Потім ми можемо використовувати це значення, щоб додати запис підказки.
+
+### Додавання підказок {#append-tooltips}
+
+Для простоти ми додамо цей рядок до методу `appendHoverText` у класі `CounterItem`. Зауважте, що цей метод застарів, оскільки Mojang працює над тим, щоб поведінка предметів оброблялася виключно через компоненти, а не через предмети.
 
 ```java
 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
@@ -87,7 +91,7 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 @[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
 
-Потім ви можете зареєструвати `TooltipProvider` через `ComponentTooltipAppenderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
+Потім ви можете зареєструвати `TooltipProvider` через `ItemComponentTooltipProviderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
 
 @[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
@@ -196,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Налаштуймо новий метод `use()`, щоб зчитувати стару кількість натискань, збільшити її на один, а потім встановити оновлену кількість натискань.
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Тепер спробуйте запустити гру та натиснути ПКМ з предметом лічильника в руці. Якщо ви відкриєте свій інвентар і подивіться на предмет знову, ви побачите, що число використання зросло на кількість разів, які ви натискали на нього.
 
@@ -223,17 +227,20 @@ int oldCount = stack.remove(ModComponents.CLICK_COUNT_COMPONENT);
 Для складених компонентів ви повинні створити клас `record` для зберігання даних. Це тип, який ми зареєструємо в нашому типі компонента, і що ми будемо читати та записувати під час взаємодії з `ItemStack`. Почніть зі створення нового класу записів у пакеті `component`, який ми створили раніше.
 
 ```java
-public record MyCustomComponent() {
+public record AdvancedCustomComponent() {
 }
 ```
 
 Зверніть увагу, що після назви класу є набір дужок. Тут ми визначаємо список властивостей, які ми хочемо мати у нашого компонента. Додаймо float і логічне значення, які називаються `temperature` і `burnt` відповідно.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+```java
+public record AdvancedCustomComponent(float temperature, boolean burnt) {
+}
+```
 
 Оскільки ми визначаємо спеціальну структуру даних, для нашого випадку використання не буде попередньо наявного `Codec`, як у випадку з [базовим компонентом](#basic-data-components). Це означає, що нам доведеться створити власний кодек. Визначмо один у нашому класі записів за допомогою `RecordCodecBuilder`, на який ми зможемо посилатися після реєстрації компонента. Щоб отримати докладніші відомості про використання `RecordCodecBuilder`, ви можете звернутися до [цього розділу сторінки кодеків](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/MyCustomComponent.java)
+@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
 
 Ви бачите, що ми визначаємо список настроюваних полів на основі примітивних типів `Codec`. Однак ми також повідомляємо їй, як називаються наші поля, використовуючи `fieldOf()`, а потім використовуючи `forGetter()`, щоб повідомити грі, який атрибут нашого запису заповнити.
 
@@ -259,20 +266,20 @@ public record MyCustomComponent() {
 
 ```java
 // read values of component
-MyCustomComponent comp = stack.get(ModComponents.MY_CUSTOM_COMPONENT);
+AdvancedCustomComponent comp = stack.get(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 float temp = comp.temperature();
 boolean burnt = comp.burnt();
 
 // set new component values
-stack.set(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(8.4f, true));
+stack.set(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(8.4f, true));
 
 // check for component
-if (stack.contains(ModComponents.MY_CUSTOM_COMPONENT)) {
+if (stack.contains(ModComponents.ADVANCED_CUSTOM_COMPONENT)) {
     // do something
 }
 
 // remove component
-stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
+stack.remove(ModComponents.ADVANCED_CUSTOM_COMPONENT);
 ```
 
 Ви також можете встановити усталене значення для складеного компонента, передавши об’єкт компонента у ваш `Item.Properties`. Наприклад:
@@ -281,10 +288,20 @@ stack.remove(ModComponents.MY_CUSTOM_COMPONENT);
 public static final Item COUNTER = register(
     "counter",
     CounterItem::new,
-    new Item.Properties().component(ModComponents.MY_CUSTOM_COMPONENT, new MyCustomComponent(0.0f, false))
+    new Item.Properties().component(ModComponents.ADVANCED_CUSTOM_COMPONENT, new AdvancedCustomComponent(0.0f, false))
 );
 ```
 
 Тепер ви можете зберігати власні дані в `ItemStack`. Використовуйте відповідально!
 
 ![Предмет із підказками щодо кількості натискань, температури та згорань](/assets/develop/items/custom_component_6.png)
+
+### Додавання розширених підказок {#advanced-tooltips}
+
+Оскільки у нас є спеціальний клас компонентів, ми можемо реалізувати `TooltipProvider` як такий і уникнути використання застарілого методу `appendHoverText`.
+
+@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+
+Потім ви можете зареєструвати `TooltipProvider` через `ItemComponentTooltipProviderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
+
+@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)

@@ -62,7 +62,7 @@ Wenn du ein Item zu einem benutzerdefinierten Kreativtab hinzufügen möchtest, 
 
 :::
 
-Für ein Beispiel, in dem wir dieses Item zu dem Zutaten `CreativeModeTab` hinzufügen, musst du die Kreativtab-Events der Fabric API verwenden - insbesondere `ItemGroupEvents.modifyEntriesEvent`
+Für ein Beispiel, in dem wir dieses Item zu dem Zutaten `CreativeModeTab` hinzufügen, musst du die Kreativtab-Events der Fabric API verwenden - insbesondere `CreativeModeTabEvents.modifyOutputEvent`
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 
@@ -155,11 +155,11 @@ Dein Item sollte nun im Spiel wie folgt aussehen:
 
 Die Fabric API bietet verschiedene Register, die verwendet werden können, um zusätzliche Eigenschaften zu deinen Items hinzuzufügen.
 
-Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostingChanceRegistry` verwenden:
+Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableRegistry` verwenden:
 
 @[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelRegistryEvents.BUILD` verwenden:
+Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelValueEvents.BUILD` verwenden:
 
 @[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -176,7 +176,7 @@ Weitere Informationen über das Rezeptformat findest du in diesen Ressourcen:
 
 ## Benutzerdefinierte Tooltips {#custom-tooltips}
 
-Wenn du möchtest, dass dein Item einen benutzerdefinierten Tooltip hat, musst du eine Klasse erstellen, die `Item` erbt und die Methode `appendHoverText` überschreibt.
+Wenn du möchtest, dass dein Item einen benutzerdefinierten Tooltip hat, musst du eine Klasse erstellen, die `Item` erbt und die Methode `appendHoverText` überschreibt. Bitte beachte, dass diese Methode veraltet ist, da Mojang daran arbeitet, das Verhalten von Items vollständig über Komponenten statt über die Items selbst zu steuern - weitere Informationen findest du unter [Benutzerdefinierte Datenkomponenten](./custom-data-components).
 
 ::: info
 
