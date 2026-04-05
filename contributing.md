@@ -29,7 +29,7 @@ authors:
 
 # #region frontmatter-optional
 # Authors of the page who don't have a GitHub account.
-# List of usernames of people who contributed despite not having a GitHub account.
+# Alphabetical list of contributors not associated to a GitHub account.
 # Oftentimes, this is a result of migrating an article from the Fabric Wiki.
 # These will also be shown in the "Page Authors" section of the right aside.
 authors-nogithub:
@@ -404,7 +404,7 @@ We usually avoid custom titles for containers; the only ones allowed are:
 
 ### Code Snippets {#snippets}
 
-When adding code blocks to pages, you're supposed to place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). For example:
+When adding code blocks to pages, you're supposed to place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). Snippet labels should be descriptive, because that helps with maintaining them in the future. For example:
 
 ::: tabs
 
