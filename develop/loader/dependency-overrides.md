@@ -6,7 +6,7 @@ authors:
   - skycatminepokie
   - ytg1234
 authors-nogithub:
-    - kb1000
+  - kb1000
 resources:
   https://semver.org/: Semantic Versioning
 ---
@@ -63,7 +63,7 @@ Next, we fill in the file with the following boilerplate content:
 {
   "version": 1,
   "overrides": {
-    "example-mod": {}  // [!code highlight]
+    "example-mod": {} // [!code highlight]
   }
 }
 ```
@@ -104,12 +104,12 @@ The key may be optionally prefixed with `+` or `-` (e.g. `"+depends"`, `"-breaks
 
 If the key is prefixed with `+`, the entries inside that JSON object will be added (or overridden if already exist) to the mod.
 
-```json
+```json{5}
 {
   "version": 1,
   "overrides": {
     "example-mod": {
-      "+depends": { // [!code highlight]
+      "+depends": {
         "minecraft": ""
       }
     }
@@ -121,12 +121,12 @@ If the key is prefixed with `+`, the entries inside that JSON object will be add
 
 If the key is prefixed with `-`, the value of each entry is ignored completely and Fabric Loader will remove those entries from the resulting dependency map.
 
-```json
+```json{5}
 {
   "version": 1,
   "overrides": {
     "example-mod": {
-      "-depends": { // [!code highlight]
+      "-depends": {
         "minecraft": ""
       }
     }
@@ -138,12 +138,12 @@ If the key is prefixed with `-`, the value of each entry is ignored completely a
 
 If the key isn't prefixed, the dependency object will be replaced completely. **Be careful to prefix your keys!**
 
-```json
+```json{5}
 {
   "version": 1,
   "overrides": {
     "example-mod": {
-      "depends": { // [!code error]
+      "depends": {
         "minecraft": ""
       }
     }
@@ -159,26 +159,26 @@ Let's assume that a mod with ID `example-mod` depends on Minecraft version `26.1
 
 ::: code-group
 
-```json [fabric_loader_dependencies.json]
+```json{5-6} [fabric_loader_dependencies.json]
 {
   "version": 1,
   "overrides": {
     "example-mod": {
-      "depends": {  // [!code highlight]
-        "minecraft": "26.1.x"  // [!code highlight]
-      }  // [!code highlight]
+      "depends": {
+        "minecraft": "26.1.x"
+      }
     }
   }
 }
 ```
 
-```json [fabric.mod.json]
+```json{2,5-6} [fabric.mod.json]
 {
-  "depends": {  // [!code highlight]
+  "depends": {
     "fabricloader": ">=0.11.1",
     "fabric-api": ">=0.28.0",
-    "minecraft": "26.1.x"  // [!code highlight]
-  },  // [!code highlight]
+    "minecraft": "26.1.x"
+  },
   "breaks": {
     "optifabric": "*"
   },
@@ -196,26 +196,26 @@ A `"minecraft"` dependency will now be overridden if specified (and we know it i
 
 ::: code-group
 
-```json [fabric_loader_dependencies.json]
+```json{5-6} [fabric_loader_dependencies.json]
 {
   "version": 1,
   "overrides": {
     "example-mod": {
-      "-depends": {  // [!code highlight]
-        "minecraft": "IGNORED"  // [!code highlight]
-      }  // [!code highlight]
+      "-depends": {
+        "minecraft": "IGNORED"
+      }
     }
   }
 }
 ```
 
-```json [fabric.mod.json]
+```json{2,5-6} [fabric.mod.json]
 {
-  "depends": {  // [!code highlight]
+  "depends": {
     "fabricloader": ">=0.11.1",
     "fabric-api": ">=0.28.0",
-    "minecraft": "26.1.x"  // [!code highlight]
-  },  // [!code highlight]
+    "minecraft": "26.1.x"
+  },
   "breaks": {
     "optifabric": "*"
   },
@@ -245,7 +245,7 @@ Aside from changing the `minecraft` dependency, we also want to remove all `sugg
       "-depends": {
         "minecraft": ""
       },
-      "suggests": {}  // [!code highlight]
+      "suggests": {} // [!code highlight]
     }
   }
 }
