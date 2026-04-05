@@ -70,6 +70,7 @@
   "develop.loader": "Fabric Loader",
   "develop.loader.index": "Introduction",
   "develop.loader.fabric.mod.json": "fabric.mod.json",
+  "develop.loader.dependency_overrides": "Dependency Overrides",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Introduction",
   "develop.loom.fabric_api": "Fabric API DSL",

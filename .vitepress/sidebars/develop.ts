@@ -374,6 +374,10 @@ export default [
         text: "develop.loader.fabric.mod.json",
         link: "/develop/loader/fabric-mod-json",
       },
+      {
+        text: "develop.loader.dependency_overrides",
+        link: "/develop/loader/dependency-overrides",
+      },
     ],
   },
   {
