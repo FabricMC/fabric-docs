@@ -19,6 +19,8 @@ resources:
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. In order to be loaded, a mod must have this file with the exact name placed in the root directory of the mod JAR.
 
+A `fabric.mod.json` comes included in the `src/main/resources` folder of the template mod, and can be [generated via Fabric Loom](../loom/tasks#fabric-mod-json).
+
 ## Mandatory Fields {#mandatory-fields}
 
 - **`schemaVersion`** Must be the first entry and must always be `1`. Required for Fabric Loader to parse the file correctly.
