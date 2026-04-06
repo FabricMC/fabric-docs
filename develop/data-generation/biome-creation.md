@@ -19,7 +19,7 @@ First we need to create a provider class for the custom biome and fill out the m
 
 @[code lang=java transcludeWith=:::datagen-biome:provider-init](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBiomeProvider.java)
 
-Next let's create a bootstrap method for initalization of the biome. Something like;
+Next let's create a bootstrap method for initialization of the biome. Something like;
 
 @[code lang=java transcludeWith=:::datagen-biome:bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBiomeProvider.java)
 
@@ -31,11 +31,11 @@ We can add specific [features](./features) that spawn in our biome:
 
 @[code lang=java transcludeWith=:::datagen-biome:features](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBiomeProvider.java)
 
-Now we need to delcare what mobs are to spawn in the biome:
+Now we need to declare what mobs are to spawn in the biome:
 
 @[code lang=java transcludeWith=:::datagen-biome:mob-spawning](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBiomeProvider.java)
 
-Next we need to declare the "Special Effects" of the biome, things like the water color, foliage color ect.
+Next we need to declare the "Special Effects" of the biome, things like the water color, foliage color etc.
 
 @[code lang=java transcludeWith=:::datagen-biome:special-effects](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBiomeProvider.java)
 
