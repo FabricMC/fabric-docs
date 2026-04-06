@@ -308,6 +308,10 @@ export default [
                 text: "develop.data_generation.features",
                 link: "/develop/data-generation/features",
               },
+              {
+                text: "develop.data_generation.biome_creation",
+                link: "/develop/data-generation/biome-creation",
+              },
             ],
           },
         ],
