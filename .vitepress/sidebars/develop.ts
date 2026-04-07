@@ -418,6 +418,10 @@ export default [
         text: "develop.class_tweakers.interface_injection",
         link: "/develop/class-tweakers/interface-injection",
       },
+      {
+        text: "develop.class_tweakers.enum_extension",
+        link: "/develop/class-tweakers/enum-extension",
+      },
     ],
   },
   {

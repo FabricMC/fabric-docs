@@ -45,6 +45,9 @@ transitive-mutable
 
 # Transitive Interface Injection directive
 transitive-inject-interface
+
+# Transitive Enum Extension directive
+transitive-extend-enum
 ```
 
 ### Specifying The File Location {#specifying-the-file-location}
