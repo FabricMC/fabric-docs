@@ -76,3 +76,15 @@ For example, the class tweaker entries for the constants we added in the [mixin 
 and
 
 <<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-ctor-impls-example-entry
+
+## Applying Changes {#applying-changes}
+
+To see your added enum entries in the decompiled source, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources).
+If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
+
+The added entries should now appear in the decompiled source. If the enum has fields or other elements for its entries to implement, those will not appear for your
+added entry, and are instead left to your mixin to implement at runtime.
+
+You can now use the enum constant from your code:
+
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
