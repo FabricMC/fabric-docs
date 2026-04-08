@@ -2,7 +2,13 @@
   "required": true,
   "package": "com.example.docs.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": ["ExampleMixin", "event.SheepEntityMixin", "class_tweakers.FlowingFluidMixin", "class_tweakers.RecipeBookTypeMixin", "class_tweakers.RecipeCategoryMixin"],
+  "mixins": [
+    "ExampleMixin",
+    "event.SheepEntityMixin",
+    "class_tweakers.FlowingFluidMixin",
+    "class_tweakers.RecipeBookTypeMixin",
+    "class_tweakers.RecipeCategoryMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
