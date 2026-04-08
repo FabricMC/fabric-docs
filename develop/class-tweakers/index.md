@@ -25,7 +25,7 @@ Class tweaker files are conventionally named after your modid, `example-mod.clas
 The file must have the following header as its first line:
 
 ```classtweaker
-classTweaker v1 official
+classTweaker  v1  official
 ```
 
 Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
