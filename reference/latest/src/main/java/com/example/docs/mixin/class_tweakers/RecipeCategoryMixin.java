@@ -8,10 +8,10 @@ import net.minecraft.data.recipes.RecipeCategory;
 // #region enum-extension-ctor-impls-example-mixin
 @Mixin(RecipeCategory.class)
 enum RecipeCategoryMixin {
-    EXAMPLE_MOD_RECIPE_CATEGORY("exampleModRecipeFolderName");
+	EXAMPLE_MOD_RECIPE_CATEGORY("exampleModRecipeFolderName");
 
-    @Shadow
-    RecipeCategoryMixin(String recipeFolderName) {}
-
+	@Shadow
+	RecipeCategoryMixin(String recipeFolderName) {
+	}
 }
 // #endregion enum-extension-ctor-impls-example-mixin
