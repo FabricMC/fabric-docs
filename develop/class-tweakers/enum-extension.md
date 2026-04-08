@@ -2,6 +2,7 @@
 title: Enum Extension
 description: Learn how to add entries to enums with Mixin and Class Tweakers.
 authors:
+  - cassiancc
   - MildestToucan
 ---
 
@@ -59,7 +60,7 @@ If the enum entries need fields or to implement methods, you should shadow the r
 
 If you are targeting a Minecraft enum, you can use a class tweaker entry to make the added entry appear in the target enum.
 
-To opt into this feature, remember to use Loom 1.16 or above, and to have the file [header](../class-tweakers/index#file-format) have its
+To opt into this feature, remember to use Loom 1.16 or above, and to have the file [header](../class-tweakers/index#file-format) version as `v2`.
 
 The syntax for an enum extension entry is:
 
