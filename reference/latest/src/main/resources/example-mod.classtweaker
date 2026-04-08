@@ -1,4 +1,4 @@
-classTweaker v1 official
+classTweaker v2 official
 
 # Access widening examples
 # The targets for these examples are non-transitive versions of Fabric API access wideners for 26.1
@@ -22,6 +22,7 @@ accessible    method    net/minecraft/network/chat/TextColor    formatValue    (
 accessible    field    net/minecraft/world/damagesource/DamageSources    damageTypes    Lnet/minecraft/core/Registry;
 # :::accesswidening-examples:fields:::
 
+
 # Interface injection example
 # #region interface-injection-example-entry
 inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/BucketEmptySoundGetter
@@ -30,3 +31,14 @@ inject-interface    net/minecraft/world/level/material/FlowingFluid    com/examp
 # #region interface-injection-generic-interface-entry
 inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/GenericInterface<+Ljava/lang/String;[Ljava/lang/Boolean;>
 # #endregion interface-injection-generic-interface-entry
+
+
+# Enum extension examples
+
+# #region enum-extension-no-impls-example-entry
+extend-enum    net/minecraft/world/inventory/RecipeBookType    EXAMPLE_MOD_RECIPE_BOOK_TYPE
+# #endregion enum-extension-no-impls-example-entry
+
+# #region enum-extension-ctor-impls-example-mixin
+extend-enum    net/minecraft/data/recipes/RecipeCategory    EXAMPLE_MOD_RECIPE_CATEGORY
+# #endregion enum-extension-ctor-impls-example-mixin
