@@ -1,5 +1,5 @@
-def minecraftVersion = "26.1"
-def fabricApiVersion = "0.144.3+26.1"
+def minecraftVersion = "26.1.1"
+def fabricApiVersion = "0.145.4+26.1.1"
 
 // :::automatic-testing:game-test:2
 dependencies {
