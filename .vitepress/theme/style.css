@@ -52,6 +52,7 @@
 code,
 pre {
   tab-size: 2 !important;
+  font-variant-ligatures: none;
 }
 
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
