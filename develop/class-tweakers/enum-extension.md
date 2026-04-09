@@ -58,7 +58,7 @@ For example, let's add a new `RecipeCategory` entry. Create a constructor matchi
 
 ## Making the Class Tweaker Entry {#making-the-class-tweaker-entry}
 
-If you are targeting a Minecraft enum, you can use a class tweaker entry to make the added entry appear in the target enum.
+If you are targeting a Minecraft enum, you can use a class tweaker entry to visibly modify the target enum in the decompiled source.
 
 To opt into this feature, remember to use Loom 1.16 or above, and to set the [file header version](../class-tweakers/index#file-format) to `v2`.
 
