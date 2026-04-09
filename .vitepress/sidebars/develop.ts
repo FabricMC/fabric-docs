@@ -373,7 +373,7 @@ export default [
       {
         text: "develop.loader.fabric.mod.json",
         link: "/develop/loader/fabric-mod-json",
-      }
+      },
     ],
   },
   {

@@ -45,7 +45,7 @@ export default [
       {
         text: "players.faq",
         link: "/players/faq",
-      }
+      },
     ],
   },
 ] satisfies Fabric.SidebarItem[];
