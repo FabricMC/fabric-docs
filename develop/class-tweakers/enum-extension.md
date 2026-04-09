@@ -94,34 +94,39 @@ You can now use the enum constant in your code:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
 
-If you are only adding it with a mixin and it is not in the decompiled source, get it by calling `valueOf`:
+If you are only adding it with a mixin and it is not in the decompiled source, obtain it by calling `valueOf`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example
 
 ## Pitfalls {#pitfalls}
 
-Enum extension by itself makes no guarantees that your added entry will not break anything. You should find the modified enum's usages to try and
-prevent issues where possible. If an issue that would cause a crash arises and it cannot be fixed, it may be best to not use enum extension at all.
+Enum extension cannot guarantee that entries you add will not break anything.
 
-This section goes over patterns to look out for and to avoid in your own code, but it is in no way exhaustive.
+It's your responsibility to go through the target enum's usages, and try to
+prevent issues where possible. If you are unable to solve some, and crashes arise, it might be best to not use enum extension at all.
+
+This section goes over some patterns to watch out for and avoid when extending enums, but it is not exhaustive.
 
 ### Switch Expressions {#switch-expressions}
 
-Switches are often used to handle enum constants, this can lead to a crash if a switch expression has no `default` case to handle
-entries added by mods. For example, if we had the following switch expression:
+Switch statements are often used to handle enum constants. Because of this, a crash can happen if a switch expression does not handle
+entries added by other mods. For example, say we have the following switch expression:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
 
-Even though we handle all the values that are in the Vanilla enum and our own, this would throw for any other mod's added entry.
+Notice how there is no `default` clause. Even though we handled all the values in the Vanilla enum, and our own, this would throw if another mod adds a different entry.
 
-If the expression is from a mod, you should consider raising an issue to the developers to find a more compatible option.
-If the expression is in a Vanilla method or you are unable to get the issue fixed by the mod developers, a mixin is likely needed.
+How can you prevent this? There is no single universal way to avoid crashes - your approach should be adapted on a case-by-case basis. In general, though:
 
-There is no one way for mixins to modify switch expressions to avoid throws, and the approach should be made on a case-by-case basis.
+- If the `switch` expression is in a vanilla method, you can use a mixin to edit it
+- If the `switch` expression comes from a mod, you should try getting in contact with the developers, to work together a compatible approach. Otherwise, you might have to create a mixin on the other mod.
 
 ### Serialized Enums {#serialized-enums}
 
-Certain enums may have their entries serialized automatically, such as the static `Variants` enum in the `Axolotl` class. Adding an entry to these enums
-would make your entry serialized under Minecraft's namespace by the codec, on some versions having it be serialized based on a numerical ID.
+Certain enums' entries get serialized automatically. An example is the `Variants` enum in the `Axolotl` class.
 
-It is best to avoid extending enums whose entries are serialized like this entirely, and if possible looking for an API.
+Extending these enums
+would serialize your custom entry under Minecraft's namespace, and on some versions that might happen based on a numerical ID.
+This is not great because it can affect the indices of all other entries.
+
+It is best to avoid extending enums entirely if their entries are serialized like this. Instead, you might want to look for an API, if available.

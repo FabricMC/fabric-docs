@@ -27,7 +27,7 @@ class ExampleModEnumExtension {
 			case CRAFTING -> "crafting";
 			case FURNACE -> "furnace";
 			case BLAST_FURNACE -> "blast_furnace";
-			case EXAMPLE_MOD_RECIPE_BOOK_TYPE -> "examplemod_recipe_book_type";
+			case EXAMPLE_MOD_RECIPE_BOOK_TYPE -> "example_mod_recipe_book_type";
 		};
 		/* ... */
 	}
