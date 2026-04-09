@@ -50,21 +50,23 @@ Using Fabric Loom's `include` option will automatically handle nesting the JAR, 
 
 Nested JARs allow a mod to provide its own dependencies, so Fabric Loader can find the best version while attempting to satisfy dependencies, instead of requiring them to be installed separately.
 
-Nested jars act like any other mod, with their own metadata file, but are contained within the parent JAR. Note that nested mods may themselves embed other children in the same way.
+Nested JARs act like any other mod, with their own metadata file, but are contained within the parent JAR. Note that nested mods may themselves embed other children in the same way.
 
 Nested JARs are extracted to the disk when the game is run. Paths to nested JARs must be declared relative to their containing JAR's root.
 
 ## Entrypoints {#entrypoints}
 
-Fabric Loader has an [entrypoint](../getting-started/project-structure#entrypoints) system, which is used by mods to expose parts of the code for usage by Fabric Loader or other mods. Fabric Loader uses it for mod initialization. Initializers are loaded and called early during the game's initialization which allows a mod to run some code to make its modifications. These entrypoints are typically used to bootstrap mods by registering registry objects, event listeners and other callbacks for doing things later.
+Fabric Loader adopts an [entrypoint](../getting-started/project-structure#entrypoints)-based system, which is used to expose certain code to Fabric Loader for initialization, or to other mods.
+
+Initializers are loaded and called early during the game's boot, and this allows a mod to make its modifications with code. These entrypoints are typically used to bootstrap mods by registering registry objects, event listeners, and other callbacks for later actions.
 
 ## Mixin {#mixin}
 
-Mixin allows mods to transform Minecraft classes and even mod classes, and is the only method of class transformation that Fabric Loader officially supports. A mod can declare its own mixin configuration which enables the use of Mixin.
+Mixins allow mods to transform Minecraft classes, and even other mods' classes, and they are the only type of class transformation that Fabric Loader officially supports. A mod can declare its own mixin configuration, which enables the use of Mixin.
 
-Mixin was not originally made for Fabric, so Fabric Loader uses a modified version of Mixin. However, the [documentation](https://maven.fabricmc.net/docs/sponge-mixin-0.17.1+mixin.0.8.7/) of the upstream version is still mostly valid. Fabric's modifications include allowing all default injection points inside constructors, optimizing out unused callback infos, providing fixes for backwards compatibility, fixing static shadows, allowing injectors in interfaces, and more.
+Fabric Loader uses a modified fork of the original Sponge Mixin. However, the [upstream Mixin wiki](https://github.com/SpongePowered/Mixin/wiki) is still mostly valid.
 
-<!-- Referenced comments from LlamaLad7 on Fabric Mixin. https://discord.com/channels/507304429255393322/566418023372816394/1002211121903706162 -->
+Among Fabric's modifications there are: allowing all default injection points inside constructors, optimizing out unused callback infos, providing fixes for backwards compatibility, fixing static shadows, allowing injectors in interfaces, and more.
 
 ## Mappings {#mappings}
 
