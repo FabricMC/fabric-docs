@@ -66,7 +66,7 @@ To opt into this feature, remember to use Loom 1.16 or above, and to set the [fi
 The syntax for an enum extension entry is:
 
 ```classtweaker:no-line-numbers
-extend-enum    <targetClassName>    <ENUM_CONSTANT_NAME>
+extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 
 For class tweaking, classes use their [internal names](../mixins/bytecode#class-names).
@@ -93,3 +93,7 @@ You will not see [fields, methods or other elements](#additional-fields-and-meth
 You can now use the enum constant in your code:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
+
+If you are only adding it with a mixin and it is not in the decompiled source, get it by calling `Enum#valueOf`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example
