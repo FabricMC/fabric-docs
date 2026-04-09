@@ -94,7 +94,7 @@ You can now use the enum constant in your code:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
 
-If you are only adding it with a mixin and it is not in the decompiled source, get it by calling `Enum#valueOf`:
+If you are only adding it with a mixin and it is not in the decompiled source, get it by calling `valueOf`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example
 
