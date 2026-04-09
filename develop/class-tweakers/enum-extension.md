@@ -8,20 +8,20 @@ authors:
 
 Enum extension is a Mixin feature that can reliably add new entries to an enum.
 
-When targeting Minecraft enums, the mixin can be combined with [class tweaking](../class-tweakers) to display the new enum entries
-to the decompiled source. This can be [transitive](../class-tweakers/index#transitive-entries) to allow mods depending on yours to see your added entries.
+When targeting Minecraft enums, you can use mixins together with [class tweaking](../class-tweakers) to display new enum entries
+in the decompiled source. If that is set to be [transitive](../class-tweakers/index#transitive-entries), mods that depend on yours will also see your added entries.
 
 ::: warning
 
-Enum extension requires Loader 0.19.0 for Mixin support and Loom 1.16 for class tweaker support.
+Enum extension requires at least Loader 0.19.0 for Mixin support and at least Loom 1.16 for class tweaker support.
 
-Additionally, class tweaker file headers must specify a version of `v2` to use enum extensions.
+Additionally, class tweaker file headers must specify `v2` as the version to use enum extensions.
 
 :::
 
 ## Creating the Mixin {#creating-the-mixin}
 
-Before creating the mixin class, make sure that you are depending explicitly on Loader 0.19.0 or above
+Before creating the mixin class, make sure that Loader 0.19.0 or above is an explicit dependency
 in your `fabric.mod.json` file:
 
 ```json:no-line-numbers
@@ -34,25 +34,25 @@ in your `fabric.mod.json` file:
 ...
 ```
 
-Even if you are using the correct Loader version as a Gradle dependency, you must explicitly depend on it in
-order to opt into new Mixin features.
+Even if you are using the correct Loader version as a Gradle dependency, you must explicitly depend on at least version 0.19.0 in
+order to opt into this Mixin feature.
 
-To make an enum extension, create a `@Mixin`-annotated enum class, and add your constants to it as if they were
-part of the targeted enum class. For example, adding a new `RecipeBookType` entry would look like this:
+To make an enum extension, create an `enum`, annotate it with `@Mixin`, and add your constants to it as if they were
+part of the targeted enum class. For example, let's add a new entry to `RecipeBookType`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
 
-Since there are no fields or methods to implement in the target enum, there's no need to do anything else.
+::: warning IMPORTANT
 
-::: warning
-
-Added enum constants should always be prefixed by your mod id to ensure uniqueness. To preserve capitalization, the prefix would typically be
-`MODID_`.
+You should always prefix the enum constants you add with your mod ID to ensure uniqueness. For these Docs, we'll use `EXAMPLE_MOD_`.
 
 :::
 
-If the enum entries need fields or to implement methods, you should shadow the relevant constructor by creating a matching one and annotating it with
-`@Shadow`. For example, adding a new `RecipeCategory` entry would look like this:
+### Additional Fields and Methods {#additional-fields-and-methods}
+
+If the targeted enum declares additional fields or method implementations, you'll have to shadow the relevant constructor.
+
+For example, let's add a new `RecipeCategory` entry. Create a constructor matching the target, and annotate it with `@Shadow`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
 
@@ -60,7 +60,7 @@ If the enum entries need fields or to implement methods, you should shadow the r
 
 If you are targeting a Minecraft enum, you can use a class tweaker entry to make the added entry appear in the target enum.
 
-To opt into this feature, remember to use Loom 1.16 or above, and to have the file [header](../class-tweakers/index#file-format) version as `v2`.
+To opt into this feature, remember to use Loom 1.16 or above, and to set the [file header version](../class-tweakers/index#file-format) to `v2`.
 
 The syntax for an enum extension entry is:
 
@@ -80,12 +80,15 @@ and
 
 ## Applying Changes {#applying-changes}
 
-To see your added enum entries in the decompiled source, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources).
+You'll have to refresh your Gradle project by [regenerating sources](../getting-started/generating-sources) before you can see your added enum entries in the decompiled source.
 If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
 
-The added entries should now appear in the decompiled source. If the enum has fields or other elements for its entries to implement, those will not appear for your
-added entry, and are instead left to your mixin to implement at runtime.
+::: info
 
-You can now use the enum constant from your code:
+You will not see [fields, methods or other elements](#additional-fields-and-methods) in the decompiled source code. That's because those are handled by the mixin, and are only applied at runtime.
+
+:::
+
+You can now use the enum constant in your code:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example

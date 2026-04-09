@@ -28,7 +28,7 @@ The file must have the following header as its first line:
 classTweaker  v1  official
 ```
 
-Some features may require you to use a version number higher than `v1`, which will be specified in their dedicated pages.
+Some features may require a version higher than `v1` - that will be mentioned in their respective pages.
 
 Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
 
