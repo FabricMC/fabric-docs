@@ -3,6 +3,7 @@ title: Enum Extension
 description: Learn how to add entries to enums with Mixin and Class Tweakers.
 authors:
   - cassiancc
+  - its-miroma
   - MildestToucan
 ---
 
