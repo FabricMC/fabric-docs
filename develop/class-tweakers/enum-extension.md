@@ -38,7 +38,7 @@ in your `fabric.mod.json` file:
 Even if you are using the correct Loader version as a Gradle dependency, you must explicitly depend on at least version 0.19.0 in
 order to opt into this Mixin feature.
 
-To make an enum extension, create an `enum`, annotate it with `@Mixin`, and add your constants to it as if they were
+To make an enum extension, create an `enum` in your mixin package, annotate it with `@Mixin`, and add your constants to it as if they were
 part of the targeted enum class. For example, let's add a new entry to `RecipeBookType`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
