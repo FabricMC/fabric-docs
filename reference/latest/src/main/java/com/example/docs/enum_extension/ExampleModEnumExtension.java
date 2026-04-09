@@ -24,4 +24,17 @@ class ExampleModEnumExtension {
 		}
 	}
 	// #endregion enum-extension-added-constant-no-ct-usage-example
+
+	// #region enum-extension-problematic-switch-expr-example
+	void exampleProblematicSwitch(RecipeBookType recipeBookType) {
+		String s = switch (recipeBookType) {
+			case SMOKER -> "smoker";
+			case CRAFTING -> "crafting";
+			case FURNACE -> "furnace";
+			case BLAST_FURNACE -> "blast_furnace";
+			case EXAMPLE_MOD_RECIPE_BOOK_TYPE -> "examplemod_recipe_book_type";
+		};
+		/* ... */
+	}
+	// #endregion enum-extension-problematic-switch-expr-example
 }

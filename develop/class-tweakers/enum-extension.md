@@ -97,3 +97,31 @@ You can now use the enum constant in your code:
 If you are only adding it with a mixin and it is not in the decompiled source, get it by calling `Enum#valueOf`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example
+
+## Pitfalls {#pitfalls}
+
+Enum extension by itself makes no guarantees that your added entry will not break anything. You should find the modified enum's usages to try and
+prevent issues where possible. If an issue that would cause a crash arises and it cannot be fixed, it may be best to not use enum extension at all.
+
+This section goes over patterns to look out for and to avoid in your own code, but it is in no way exhaustive.
+
+### Switch Expressions {#switch-expressions}
+
+Switches are often used to handle enum constants, this can lead to a crash if a switch expression has no `default` case to handle
+entries added by mods. For example, if we had the following switch expression:
+
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
+
+Even though we handle all the values that are in the Vanilla enum and our own, this would throw for any other mod's added entry.
+
+If the expression is from a mod, you should consider raising an issue to the developers to find a more compatible option.
+If the expression is in a Vanilla method or you are unable to get the issue fixed by the mod developers, a mixin is likely needed.
+
+There is no one way for mixins to modify switch expressions to avoid throws, and the approach should be made on a case-by-case basis.
+
+### Serialized Enums {#serialized-enums}
+
+Certain enums may have their entries serialized automatically, such as the static `Variants` enum in the `Axolotl` class. Adding an entry to these enums
+would make your entry serialized under Minecraft's namespace by the codec, on some versions having it be serialized based on a numerical ID.
+
+It is best to avoid extending enums whose entries are serialized like this entirely, and if possible looking for an API.
