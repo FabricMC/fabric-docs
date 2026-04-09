@@ -70,7 +70,6 @@
   "develop.loader": "Fabric Loader",
   "develop.loader.index": "Introduction",
   "develop.loader.fabric.mod.json": "fabric.mod.json",
-  "develop.loader.dependency_overrides": "Dependency Overrides",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Introduction",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -116,5 +115,6 @@
   "players.troubleshooting": "Troubleshooting",
   "players.troubleshooting.uploading_logs": "Uploading Logs",
   "players.troubleshooting.crash_reports": "Crash Reports",
-  "players.updating_fabric": "Updating Fabric"
+  "players.updating_fabric": "Updating Fabric",
+  "players.troubleshooting.dependency_overrides": "Dependency Overrides"
 }

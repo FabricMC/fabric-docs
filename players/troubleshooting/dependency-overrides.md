@@ -17,7 +17,7 @@ resources:
 
 Dependency overrides are used to give modpack developers control over their mods. This should not be used by regular players.
 
-It is recommended to understand how [mod dependency fields are structured](./fabric-mod-json#semantic-versioning) before continuing.
+It is recommended to understand how [mod dependency fields are structured](../../develop/loader/fabric-mod-json#semantic-versioning) before continuing.
 
 :::
 

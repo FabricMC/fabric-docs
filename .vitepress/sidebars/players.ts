@@ -36,12 +36,16 @@ export default [
             text: "players.troubleshooting.crash_reports",
             link: "/players/troubleshooting/crash-reports",
           },
+          {
+            text: "players.troubleshooting.dependency_overrides",
+            link: "/players/troubleshooting/dependency-overrides",
+          },
         ],
       },
       {
         text: "players.faq",
         link: "/players/faq",
-      },
+      }
     ],
   },
 ] satisfies Fabric.SidebarItem[];
