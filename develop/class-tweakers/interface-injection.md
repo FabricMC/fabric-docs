@@ -70,7 +70,7 @@ For class tweaking, classes and interfaces use their [internal names](../mixins/
 
 For our example interface, the entry would be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
 
 ### Generic Interfaces {#generic-interfaces}
 
@@ -98,7 +98,7 @@ with the generics `<? extends String, Boolean[]>`
 
 The class tweaker entry would be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
 
 ## Applying Changes {#applying-changes}
 

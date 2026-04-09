@@ -73,11 +73,11 @@ For class tweaking, classes use their [internal names](../mixins/bytecode#class-
 
 For example, the class tweaker entries for the constants we added in the [mixin section](#creating-the-mixin) would respectively be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
 
 and
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-ctor-impls-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-ctor-impls-example-entry{classtweaker:no-line-numbers}
 
 ## Applying Changes {#applying-changes}
 
