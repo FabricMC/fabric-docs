@@ -3,7 +3,9 @@ title: Enum Extension
 description: Learn how to add entries to enums with Mixin and Class Tweakers.
 authors:
   - cassiancc
+  - CelDaemon
   - its-miroma
+  - LlamaLad7
   - MildestToucan
 ---
 
@@ -94,9 +96,13 @@ You can now use the enum constant in your code:
 
 <<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
 
-If you are only adding it with a mixin and it is not in the decompiled source, obtain it by calling `valueOf`:
+If you are only adding it with a mixin and it is not in the decompiled source, you can check against it by comparing the name:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-check
+
+If you need to use the constant in multiple areas, obtain it by calling `valueOf` and store the result in a field:
+
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-store
 
 ## Pitfalls {#pitfalls}
 
