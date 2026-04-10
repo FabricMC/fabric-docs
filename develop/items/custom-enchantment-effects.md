@@ -41,7 +41,7 @@ Like every other component of your mod, we'll have to add this `EnchantmentEffec
 
 Now we have an enchantment effect! The final step is to create an enchantment that applies our custom effect. We can do this with the data-driven enchantment system by simply adding a JSON file to our mod's resources.
 
-Create the JSON file in `data/example-mod/enchantments` folder. The name of this file will be the id of the enchantment: `thundering.json` will become `example-mod:thundering`.
+Create the JSON file in `data/example-mod/enchantment` folder. The name of this file will be the id of the enchantment: `thundering.json` will become `example-mod:thundering`.
 
 ::: info
 
