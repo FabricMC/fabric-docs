@@ -4,7 +4,6 @@ import net.minecraft.world.inventory.RecipeBookType;
 
 // Class to hold example code for enum extensions.
 class ExampleModEnumExtension {
-
 	// #region enum-extension-added-constant-no-ct-usage-example-store
 	public static final RecipeBookType ADDED_RECIPE_BOOK_TYPE = RecipeBookType.valueOf("EXAMPLE_MOD_RECIPE_BOOK_TYPE");
 	// #endregion enum-extension-added-constant-no-ct-usage-example-store
