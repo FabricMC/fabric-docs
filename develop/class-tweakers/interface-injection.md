@@ -62,7 +62,7 @@ interface implementation visible.
 
 Interface injection uses the following syntax:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 inject-interface    <targetClassName>    <injectedInterfaceName>
 ```
 

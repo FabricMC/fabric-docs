@@ -65,7 +65,7 @@ To opt into this feature, remember to use Loom 1.16 or above, and to set the [fi
 
 The syntax for an enum extension entry is:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 

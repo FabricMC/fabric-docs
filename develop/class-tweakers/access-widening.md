@@ -81,7 +81,7 @@ For class tweaking, classes use their [internal names](../mixins/bytecode#class-
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -93,7 +93,7 @@ Example:
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -105,7 +105,7 @@ Example:
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
