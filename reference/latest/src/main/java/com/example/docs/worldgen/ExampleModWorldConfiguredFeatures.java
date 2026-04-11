@@ -23,13 +23,13 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import com.example.docs.ExampleMod;
 
 public class ExampleModWorldConfiguredFeatures {
-	// :::datagen-world:configured-key
+	// #region datagen-world--configured-key
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
 			ResourceKey.create(
 				Registries.CONFIGURED_FEATURE,
 				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_vein")
 			);
-	// :::datagen-world:configured-key
+	// #endregion datagen-world--configured-key
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_TREE_CONFIGURED_KEY =
 			ResourceKey.create(
@@ -40,36 +40,36 @@ public class ExampleModWorldConfiguredFeatures {
 	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 
-		// :::datagen-world:ruletest
+		// #region datagen-world--ruletest
 		RuleTest deepslateReplaceableRule = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
-		// :::datagen-world:ruletest
+		// #endregion datagen-world--ruletest
 
-		// :::datagen-world:ore-feature-config
+		// #region datagen-world--ore-feature-config
 		List<OreConfiguration.TargetBlockState> diamondBlockOreConfig =
 				List.of(
 						OreConfiguration.target(deepslateReplaceableRule, Blocks.DIAMOND_BLOCK.defaultBlockState())
 				);
-		// :::datagen-world:ore-feature-config
+		// #endregion datagen-world--ore-feature-config
 
-		// :::datagen-world:multi-ore-feature-config
+		// #region datagen-world--multi-ore-feature-config
 		List<OreConfiguration.TargetBlockState> ironAndDiamondBlockOreConfig =
 				List.of(
 						OreConfiguration.target(deepslateReplaceableRule, Blocks.DIAMOND_BLOCK.defaultBlockState()),
 						OreConfiguration.target(stoneReplaceableRule, Blocks.IRON_BLOCK.defaultBlockState())
 				);
-		// :::datagen-world:multi-ore-feature-config
+		// #endregion datagen-world--multi-ore-feature-config
 
-		// :::datagen-world:conf-feature-register
+		// #region datagen-world--conf-feature-register
 		context.register(
 				DIAMOND_BLOCK_VEIN_CONFIGURED_KEY,
 				new ConfiguredFeature<>(
 					Feature.ORE,
 					new OreConfiguration(diamondBlockOreConfig, 10)) // 10 is the blocks per vein
 		);
-		// :::datagen-world:conf-feature-register
+		// #endregion datagen-world--conf-feature-register
 
 		// Trees below
-		// :::datagen-world:tree-feature-config
+		// #region datagen-world--tree-feature-config
 		TreeConfiguration diamondTree = new TreeConfiguration.TreeConfigurationBuilder(
 				// Trunk / Logs
 				BlockStateProvider.simple(Blocks.DIAMOND_BLOCK),
@@ -80,10 +80,10 @@ public class ExampleModWorldConfiguredFeatures {
 
 				new TwoLayersFeatureSize(0, 0, 0)
 		).build();
-		// :::datagen-world:tree-feature-config
+		// #endregion datagen-world--tree-feature-config
 
-		// :::datagen-world:tree-register
+		// #region datagen-world--tree-register
 		context.register(DIAMOND_TREE_CONFIGURED_KEY, new ConfiguredFeature<>(Feature.TREE, diamondTree));
-		// :::datagen-world:tree-register
+		// #endregion datagen-world--tree-register
 	}
 }

@@ -15,45 +15,55 @@ import net.minecraft.world.phys.Vec3;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
-// :::1
+// #region renderer-structure
 public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity, CounterBlockEntityRenderState> {
-	// :::1
+	// #endregion renderer-structure
 
 	private final Font font;
 
-	// :::1
+	// #region renderer-structure
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-		// :::1
+		// #endregion renderer-structure
 		font = context.font();
-		// :::1
+		// #region renderer-structure
 	}
 
+	// #region create-render-state
 	@Override
 	public CounterBlockEntityRenderState createRenderState() {
 		return new CounterBlockEntityRenderState();
 	}
+	// #endregion create-render-state
 
+	// #region extract-render-state
 	@Override
 	public void extractRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
-		// :::1
+		// #endregion renderer-structure
 		BlockEntityRenderer.super.extractRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
 		state.setClicks(blockEntity.getClicks());
-		// :::1
+		// #region renderer-structure
 	}
+	// #endregion extract-render-state
 
 	@Override
 	public void submit(CounterBlockEntityRenderState state, PoseStack matrices, SubmitNodeCollector queue, CameraRenderState cameraState) {
-		// :::1
+		// #endregion renderer-structure
 
-		// :::2
+		// #region transformations
 		matrices.pushPose();
+		// #region translate
 		matrices.translate(0.5, 1, 0.5);
+		// #endregion translate
+		// #region rotate
 		matrices.mulPose(Axis.XP.rotationDegrees(90));
+		// #endregion rotate
+		// #region scale
 		matrices.scale(1/18f, 1/18f, 1/18f);
-		// :::2
+		// #endregion scale
+		// #endregion transformations
 
-		// :::3
-		String text = state.getClicks() + "";
+		// #region drawing-text
+		String text = String.valueOf(state.getClicks());
 		float width = font.width(text);
 
 		// draw the text. params:
@@ -69,11 +79,11 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 				0,
 				0
 		);
-		// :::3
+		// #endregion drawing-text
 
 		matrices.popPose();
 
-		// :::1
+		// #region renderer-structure
 	}
 }
-// :::1
+// #endregion renderer-structure

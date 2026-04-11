@@ -19,7 +19,7 @@ import com.example.docs.recipe.ExampleModRecipes;
 import com.example.docs.recipe.UpgradingRecipe;
 import com.example.docs.recipe.UpgradingRecipeInput;
 
-//:::menu
+// #region menu
 public class UpgradingMenu extends AbstractContainerMenu {
 	private final Container input = new SimpleContainer(2) {
 		@Override
@@ -95,4 +95,4 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		clearContainer(player, input);
 	}
 }
-//:::menu
+// #endregion menu

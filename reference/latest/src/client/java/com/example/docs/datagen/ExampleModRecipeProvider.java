@@ -1,6 +1,6 @@
 package com.example.docs.datagen;
 
-// :::datagen-recipes:provider
+// #region datagen-recipes--provider
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -29,16 +29,16 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 			@Override
 			public void buildRecipes() {
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
-				// :::datagen-recipes:provider
-				// :::datagen-recipes:shapeless
+				// #endregion datagen-recipes--provider
+				// #region datagen-recipes--shapeless
 
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT) // You can also specify an int to produce more than one
 						.requires(Items.COARSE_DIRT) // You can also specify an int to require more than one, or a tag to accept multiple things
 						// Create an advancement that gives you the recipe
 						.unlockedBy(getHasName(Items.COARSE_DIRT), has(Items.COARSE_DIRT))
 						.save(output);
-				// :::datagen-recipes:shapeless
-				// :::datagen-recipes:shaped
+				// #endregion datagen-recipes--shapeless
+				// #region datagen-recipes--shaped
 				shaped(RecipeCategory.MISC, Items.CRAFTING_TABLE, 4)
 						.pattern("ll")
 						.pattern("ll")
@@ -57,8 +57,8 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				doorBuilder(Items.OAK_DOOR, Ingredient.of(Items.OAK_BUTTON)) // Using a helper method!
 						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
 						.save(output);
-				// :::datagen-recipes:shaped
-				// :::datagen-recipes:other
+				// #endregion datagen-recipes--shaped
+				// #region datagen-recipes--other
 				oreSmelting(
 						List.of(Items.BREAD, Items.COOKIE, Items.HAY_BLOCK), // Inputs
 						RecipeCategory.FOOD, // Category
@@ -68,8 +68,8 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						300, // Cooking time
 						"food_to_wheat" // group
 				);
-				// :::datagen-recipes:other
-				// :::datagen-recipes:provider
+				// #endregion datagen-recipes--other
+				// #region datagen-recipes--provider
 			}
 		};
 	}
@@ -79,4 +79,4 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 		return "ExampleModRecipeProvider";
 	}
 }
-// :::datagen-recipes:provider
+// #endregion datagen-recipes--provider

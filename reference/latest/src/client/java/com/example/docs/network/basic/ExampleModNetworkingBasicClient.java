@@ -21,7 +21,7 @@ import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// :::client_global_receiver
+		// #region client-global-receiver
 		ClientPlayNetworking.registerGlobalReceiver(ClientboundSummonLightningPayload.TYPE, (payload, context) -> {
 			ClientLevel level = context.client().level;
 
@@ -29,17 +29,22 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 				return;
 			}
 
+			// #region payload-pos
 			BlockPos lightningPos = payload.pos();
+			// #endregion payload-pos
+
+			// #region lightning-bolt
 			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
 				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
 				level.addEntity(entity);
 			}
+			// #endregion lightning-bolt
 		});
-		// :::client_global_receiver
+		// #endregion client-global-receiver
 
-		// :::use_entity_callback
+		// #region use-entity-callback
 		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
 			if (!level.isClientSide()) {
 				return InteractionResult.PASS;
@@ -48,14 +53,19 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 			ItemStack usedItemStack = player.getItemInHand(hand);
 
 			if (entity instanceof LivingEntity && usedItemStack.is(Items.POISONOUS_POTATO) && hand == InteractionHand.MAIN_HAND) {
+				// #region payload
 				GiveGlowingEffectServerboundPayload payload = new GiveGlowingEffectServerboundPayload(hitResult.getEntity().getId());
+				// #endregion payload
+
+				// #region send
 				ClientPlayNetworking.send(payload);
+				// #endregion send
 
 				return InteractionResult.SUCCESS;
 			}
 
 			return InteractionResult.PASS;
 		});
-		// :::use_entity_callback
+		// #endregion use-entity-callback
 	}
 }

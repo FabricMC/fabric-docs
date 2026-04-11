@@ -24,7 +24,7 @@ import com.example.docs.advancement.ModCriteria;
 import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
 
-// :::datagen-advancements:provider-start
+// #region datagen-advancements--provider-start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 	protected ExampleModAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
@@ -32,8 +32,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
-		// :::datagen-advancements:provider-start
-		// :::datagen-advancements:simple-advancement
+		// #endregion datagen-advancements--provider-start
+		// #region datagen-advancements--simple-advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
 				.display(
 						Items.DIRT, // The display icon
@@ -49,8 +49,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
 				.save(consumer, ExampleMod.MOD_ID + ":get_dirt");
-		// :::datagen-advancements:simple-advancement
-		// :::datagen-advancements:second-advancement
+		// #endregion datagen-advancements--simple-advancement
+		// #region datagen-advancements--second-advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
 		AdvancementHolder appleAndBeef = Advancement.Builder.advancement()
 				.parent(getDirt)
@@ -67,8 +67,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
 				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
 				.save(consumer, ExampleMod.MOD_ID + ":apple_and_beef");
-		// :::datagen-advancements:second-advancement
-		// :::datagen-advancements:custom-criteria-advancement
+		// #endregion datagen-advancements--second-advancement
+		// #region datagen-advancements--custom-criteria-advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
@@ -83,8 +83,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
 				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
-		// :::datagen-advancements:custom-criteria-advancement
-		// :::datagen-advancements:new-custom-criteria-advancement
+		// #endregion datagen-advancements--custom-criteria-advancement
+		// #region datagen-advancements--new-custom-criteria-advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
 				.parent(breakBlockWithTool)
 				.display(
@@ -99,8 +99,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
 				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
-		// :::datagen-advancements:new-custom-criteria-advancement
-		// :::datagen-advancements:provider-start
+		// #endregion datagen-advancements--new-custom-criteria-advancement
+		// #region datagen-advancements--provider-start
 	}
 }
-// :::datagen-advancements:provider-start
+// #endregion datagen-advancements--provider-start

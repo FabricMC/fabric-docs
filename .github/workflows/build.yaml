@@ -57,7 +57,7 @@ jobs:
           done
           exit 1
 
-  # :::automatic-testing:game-test:3
+  # #region automatic-testing--game-test--3
   client_game_test:
     runs-on: ubuntu-24.04
     steps:
@@ -67,14 +67,14 @@ jobs:
           distribution: temurin
           java-version: 25
       - run: ./gradlew runProductionClientGameTest
-        # :::automatic-testing:game-test:3
+        # #endregion automatic-testing--game-test--3
         working-directory: ./reference
-        # :::automatic-testing:game-test:3
+        # #region automatic-testing--game-test--3
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           path: build/run/clientGameTest/screenshots
-        # :::automatic-testing:game-test:3
+        # #endregion automatic-testing--game-test--3
       - if: always()
         uses: actions/upload-artifact@v4
         with:

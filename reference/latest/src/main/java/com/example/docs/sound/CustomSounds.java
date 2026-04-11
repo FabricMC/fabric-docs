@@ -5,7 +5,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
-// :::1
+// #region custom-sounds
 public class CustomSounds {
 	private CustomSounds() {
 		// private empty constructor to avoid accidental instantiation
@@ -30,4 +30,4 @@ public class CustomSounds {
 		// the console, that certain parts of the mod have been successfully initialized
 	}
 }
-// :::1
+// #endregion custom-sounds

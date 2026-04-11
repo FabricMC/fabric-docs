@@ -15,7 +15,7 @@ import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
-// :::datagen-translations:provider
+// #region datagen-translations--provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 	protected ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
@@ -24,10 +24,10 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
-		// :::datagen-translations:provider
-		// :::datagen-translations:build
+		// #endregion datagen-translations--provider
+		// #region datagen-translations--build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
-		// :::datagen-translations:build
+		// #endregion datagen-translations--build
 		translationBuilder.add(ModItems.GUIDITE_HELMET, "Guidite Helmet");
 		translationBuilder.add(ModItems.GUIDITE_CHESTPLATE, "Guidite Chestplate");
 		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
@@ -85,16 +85,16 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
 
-		// :::gamerule-description
+		// #region gamerule-description
 		translationBuilder.add(
 						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
 						"Gives every player the blindness effect" // A short description of the game rule
 		);
-		// :::gamerule-description
-		// :::gamerule-name
+		// #endregion gamerule-description
+		// #region gamerule-name
 		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
-		// :::gamerule-name
-		// :::datagen-translations:provider
+		// #endregion gamerule-name
+		// #region datagen-translations--provider
 	}
 }
-// :::datagen-translations:provider
+// #endregion datagen-translations--provider

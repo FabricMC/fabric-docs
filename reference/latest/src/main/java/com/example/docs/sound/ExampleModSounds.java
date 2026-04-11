@@ -11,7 +11,7 @@ import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.ExampleMod;
 
-// :::2
+// #region example-mod-sounds
 public class ExampleModSounds implements ModInitializer {
 	public static final String MOD_ID = ExampleMod.MOD_ID;
 	public static final Logger LOGGER = ExampleMod.LOGGER;
@@ -31,4 +31,4 @@ public class ExampleModSounds implements ModInitializer {
 		return Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
 	}
 }
-// :::2
+// #endregion example-mod-sounds

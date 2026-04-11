@@ -12,7 +12,7 @@ Let's take a look at how we can manipulate the appearance of a block.
 
 For this example, let's register a block. If you are unfamiliar with this process, please read about [block registration](./first-block) first.
 
-@[code lang=java transcludeWith=:::waxcap-tinting](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#waxcap-tinting
 
 Make sure to add:
 
@@ -34,7 +34,7 @@ Let's use this API to register a tint such that, when our Waxcap block is placed
 
 In your **client initializer**, register your block to the `ColorProviderRegistry`, along with the appropriate logic.
 
-@[code lang=java transcludeWith=:::color_provider](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#color-provider
 
 Now, the block will be tinted based on where its placed.
 

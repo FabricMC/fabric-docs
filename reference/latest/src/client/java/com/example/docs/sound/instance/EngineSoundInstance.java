@@ -7,7 +7,7 @@ import com.example.docs.block.entity.custom.EngineBlockEntity;
 import com.example.docs.sound.AbstractDynamicSoundInstance;
 import com.example.docs.sound.DynamicSoundSource;
 
-// :::1
+// #region engine-sound-instance
 public class EngineSoundInstance extends AbstractDynamicSoundInstance {
 	// Here we just use the default constructor parameters.
 	// If you want to specifically set values here already,
@@ -37,4 +37,4 @@ public class EngineSoundInstance extends AbstractDynamicSoundInstance {
 	// which should be only accessible to this
 	// specific SoundInstance
 }
-// :::1
+// #endregion engine-sound-instance

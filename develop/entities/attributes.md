@@ -27,11 +27,11 @@ First, start with a basic helper method to register your mod's attributes. This 
 - A `double` that will be the highest value your attribute will reach
 - A `boolean` that dictates whether the attribute will be synced to clients
 
-@[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#register
 
 We'll then register an attribute named `AGGRO_RANGE` with the name `aggro_range`, a default value of `8.0`, a minimum value of `0`, and a maximum value set as high as it can be. This attribute will not be synced to players.
 
-@[code lang=java transcludeWith=:::attributes](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#attributes
 
 ### Translating Custom Attributes {#attribute-translation}
 
@@ -47,9 +47,9 @@ To display the attribute name in a human-readable format, you must modify `asset
 
 To make sure the attribute is registered properly, you'll need to ensure it is initialized during mod startup. This can be done by adding a public static initialize method to your class and call it from your [mod's initializer](../getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
 
-@[code lang=java transcludeWith=:::initialize](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#initialize
 
-@[code lang=java transcludeWith=:::init](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java#init
 
 Calling a method on a class statically initializes it if it hasn't been previously loaded - this means that all `static` fields are evaluated. This is what this dummy `initialize` method is for.
 

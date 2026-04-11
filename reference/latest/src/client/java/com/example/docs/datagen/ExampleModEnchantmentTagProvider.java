@@ -12,7 +12,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 
 import com.example.docs.enchantment.ModEnchantments;
 
-// :::provider
+// #region provider
 public class ExampleModEnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
 	public ExampleModEnchantmentTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, Registries.ENCHANTMENT, registriesFuture);
@@ -21,14 +21,14 @@ public class ExampleModEnchantmentTagProvider extends FabricTagsProvider<Enchant
 	@Override
 	protected void addTags(HolderLookup.Provider wrapperLookup) {
 		// ...
-		// :::provider
-		// :::non-treasure-tag
+		// #endregion provider
+		// #region non-treasure-tag
 		builder(EnchantmentTags.NON_TREASURE).add(ModEnchantments.THUNDERING);
-		// :::non-treasure-tag
-		// :::curse-tag
+		// #endregion non-treasure-tag
+		// #region curse-tag
 		builder(EnchantmentTags.CURSE).add(ModEnchantments.REPULSION_CURSE);
-		// :::curse-tag
-		// :::provider
+		// #endregion curse-tag
+		// #region provider
 	}
 }
-// :::provider
+// #endregion provider

@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 
 import com.example.docs.event.SheepShearCallback;
 
-// :::
+// #region mixin
 @Mixin(Sheep.class)
 public class SheepEntityMixin {
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/sheep/Sheep;shear(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/sounds/SoundSource;Lnet/minecraft/world/item/ItemStack;)V"), method = "mobInteract", cancellable = true)
@@ -24,4 +24,4 @@ public class SheepEntityMixin {
 		}
 	}
 }
-// :::
+// #endregion mixin

@@ -6,7 +6,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 
-// :::1
+// #region custom-sound-instance
 public class CustomSoundInstance extends AbstractTickableSoundInstance {
 	private final LivingEntity entity;
 
@@ -49,4 +49,4 @@ public class CustomSoundInstance extends AbstractTickableSoundInstance {
 		this.z = this.entity.getZ();
 	}
 }
-// :::1
+// #endregion custom-sound-instance

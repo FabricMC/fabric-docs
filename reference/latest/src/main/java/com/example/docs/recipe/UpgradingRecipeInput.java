@@ -3,7 +3,7 @@ package com.example.docs.recipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 
-// :::recipeInput
+// #region recipe-input
 public record UpgradingRecipeInput(ItemStack baseItem, ItemStack upgradeItem) implements RecipeInput {
 	@Override
 	public ItemStack getItem(int index) {
@@ -19,4 +19,4 @@ public record UpgradingRecipeInput(ItemStack baseItem, ItemStack upgradeItem) im
 		return 2;
 	}
 }
-// :::recipeInput
+// #endregion recipe-input

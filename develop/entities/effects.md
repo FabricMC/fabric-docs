@@ -28,14 +28,14 @@ In this tutorial we'll add a new custom effect called _Tater_ which gives you on
 
 Let's create a custom effect class by extending `MobEffect`, which is the base class for all effects.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java#effect
 
 ### Registering Your Custom Effect {#registering-your-custom-effect}
 
 Similar to block and item registration, we use `Registry.register` to register our custom effect into the
 `MOB_EFFECT` registry. This can be done in our initializer.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java#register-effect
 
 ### Texture {#texture}
 
@@ -75,7 +75,7 @@ effect give @p example-mod:tater
 To apply an effect internally, you'd want to use the `LivingEntity#addEffect` method, which takes in
 a `MobEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#apply-effect
 
 | Argument    | Type                | Description                                                                                                                                                                                                                   |
 | ----------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

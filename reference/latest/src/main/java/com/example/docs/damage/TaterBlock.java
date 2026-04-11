@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-// :::1
+// #region complete-block
 public class TaterBlock extends Block {
 	public TaterBlock(Properties settings) {
 		super(settings);
@@ -19,13 +19,16 @@ public class TaterBlock extends Block {
 	@Override
 	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
 		if (entity instanceof LivingEntity && level instanceof ServerLevel serverLevel) {
+			// #region create-damage-source
 			DamageSource damageSource = new DamageSource(
 					level.registryAccess()
 							.lookupOrThrow(Registries.DAMAGE_TYPE)
-							.get(ExampleModDamageTypes.TATER_DAMAGE.identifier()).orElseThrow()
-			);
+							.get(ExampleModDamageTypes.TATER_DAMAGE.identifier()).orElseThrow());
+			// #endregion create-damage-source
+			// #region hurt-entity
 			entity.hurtServer(serverLevel, damageSource, 5.0f);
+			// #endregion hurt-entity
 		}
 	}
 }
-// :::1
+// #endregion complete-block

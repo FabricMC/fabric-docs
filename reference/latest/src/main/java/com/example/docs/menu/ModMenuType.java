@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.MenuType;
 
 import com.example.docs.menu.custom.DirtChestMenu;
 
-// :::registerMenu
+// #region register-menu
 public class ModMenuType {
 	public static final MenuType<DirtChestMenu> DIRT_CHEST = register("dirt_chest", DirtChestMenu::new);
 
@@ -18,11 +18,11 @@ public class ModMenuType {
 	) {
 		return Registry.register(BuiltInRegistries.MENU, name, new MenuType<>(constructor, FeatureFlagSet.of()));
 	}
-	// :::registerMenu
+	// #endregion register-menu
 
 	public static void initialize() {
 	}
 
-	// :::registerMenu
+	// #region register-menu
 }
-// :::registerMenu
+// #endregion register-menu

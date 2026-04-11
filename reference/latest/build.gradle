@@ -1,36 +1,36 @@
 def minecraftVersion = "26.1"
 def fabricApiVersion = "0.144.3+26.1"
 
-// :::automatic-testing:game-test:2
+// #region automatic-testing--game-test--2
 dependencies {
-// :::automatic-testing:game-test:2
+// #endregion automatic-testing--game-test--2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
   implementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 
-// :::automatic-testing:game-test:2
+// #region automatic-testing--game-test--2
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
-// :::automatic-testing:game-test:2
-// :::classtweaker-setup:gradle:::
+// #endregion automatic-testing--game-test--2
+// #region classtweaker-setup--gradle
 loom {
 
 	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
 
 }
-// :::classtweaker-setup:gradle:::
+// #endregion classtweaker-setup--gradle
 
-// :::automatic-testing:2
+// #region automatic-testing--2
 test {
 	useJUnitPlatform()
 }
-// :::automatic-testing:2
+// #endregion automatic-testing--2
 
-// :::debug-logging
+// #region debug-logging
 loom.log4jConfigs.from "log4j-dev.xml"
-// :::debug-logging
+// #endregion debug-logging
 
-// :::automatic-testing:game-test:1
+// #region automatic-testing--game-test--1
 fabricApi {
 	configureTests {
 		createSourceSet = true
@@ -40,9 +40,9 @@ fabricApi {
 		eula = true // By setting this to true, you agree to the Minecraft EULA.
 	}
 }
-// :::automatic-testing:game-test:1
+// #endregion automatic-testing--game-test--1
 
-// :::automatic-testing:game-test:2
+// #region automatic-testing--game-test--2
 tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
 	jvmArgs.add("-Dfabric.client.gametest")
 	// Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
@@ -50,4 +50,4 @@ tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.Client
 	// XVFB must be installed, on Debian-based systems you can install it with: `apt install xvfb`
 	useXVFB = true
 }
-// :::automatic-testing:game-test:2
+// #endregion automatic-testing--game-test--2

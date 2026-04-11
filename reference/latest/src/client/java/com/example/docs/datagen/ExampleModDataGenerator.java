@@ -15,78 +15,80 @@ import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
 
-// :::datagen-setup:generator
+// #region datagen-setup--generator
 public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-		// :::datagen-setup:generator
-		// :::datagen-setup:pack
+		// #endregion datagen-setup--generator
+		// #region datagen-setup--pack
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-		// :::datagen-setup:pack
+		// #endregion datagen-setup--pack
 
-		// :::datagen-enchantments:register
+		// #region datagen-enchantments--register
 		pack.addProvider(ExampleModEnchantmentGenerator::new);
-		// :::datagen-enchantments:register
+		// #endregion datagen-enchantments--register
 
-		// :::datagen-advancements:register
+		// #region datagen-advancements--register
 		pack.addProvider(ExampleModAdvancementProvider::new);
-		// :::datagen-advancements:register
+		// #endregion datagen-advancements--register
 
-		// :::datagen-translations:register
+		// #region datagen-translations--register
 		pack.addProvider(ExampleModEnglishLangProvider::new);
-		// :::datagen-translations:register
+		// #endregion datagen-translations--register
 
-		// :::datagen-tags:register
+		// #region datagen-tags--register
 		pack.addProvider(ExampleModItemTagProvider::new);
-		// :::datagen-tags:register
+		// #endregion datagen-tags--register
 		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
-		// :::datagen-recipes:register
+		// #region datagen-recipes--register
 		pack.addProvider(ExampleModRecipeProvider::new);
-		// :::datagen-recipes:register
+		// #endregion datagen-recipes--register
 
-		// :::datagen-loot-tables:register
+		// #region datagen-loot-tables--register
 		pack.addProvider(ExampleModBlockLootTableProvider::new);
 		pack.addProvider(ExampleModChestLootTableProvider::new);
-		// :::datagen-loot-tables:register
+		// #endregion datagen-loot-tables--register
 
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypesGenerator::new);
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		pack.addProvider(ExampleModInternalModelProvider::new);
 
-		// :::datagen-models:register
+		// #region datagen-models--register
 		pack.addProvider(ExampleModModelProvider::new);
-		// :::datagen-models:register
+		// #endregion datagen-models--register
 
 		pack.addProvider(ExampleModAppearanceModelProvider::new);
 
+		// #region register-worldgen-provider
 		pack.addProvider(ExampleModWorldgenProvider::new);
+		// #endregion register-worldgen-provider
 
 		pack.addProvider(ExampleModFluidTagProvider::new);
 
-		// :::datagen-setup:generator
+		// #region datagen-setup--generator
 	}
-	// :::datagen-setup:generator
+	// #endregion datagen-setup--generator
 
-	// :::datagen-enchantments:bootstrap
+	// #region datagen-enchantments--bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
-		// :::datagen-enchantments:bootstrap
+		// #endregion datagen-enchantments--bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
 
-		// :::datagen-world:registries
+		// #region datagen-world--registries
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
-		// :::datagen-world:registries
+		// #endregion datagen-world--registries
 
-		// :::datagen-enchantments:bootstrap
+		// #region datagen-enchantments--bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
-	// :::datagen-enchantments:bootstrap
+	// #endregion datagen-enchantments--bootstrap
 
-	// :::datagen-setup:generator
+	// #region datagen-setup--generator
 }
-// :::datagen-setup:generator
+// #endregion datagen-setup--generator

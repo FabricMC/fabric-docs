@@ -41,25 +41,25 @@ Let's name our data class `SavedBlockData` and have it extend `SavedData`.
 
 This class will contain a field to keep track of the number of blocks broken as well as a method to get and a method to increment this number.
 
-@[code lang=java transcludeWith=:::basic_structure](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#basic-structure
 
 For serializing and deserializing this data, we need to define a Codec. We can compose a Codec using various primitive Codecs provided by Minecraft.
 
 You'll need a constructor with an `int` argument to initialize the class.
 
-@[code lang=java transcludeWith=:::ctor](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#ctor
 
 Then we can build a Codec.
 
-@[code lang=java transcludeWith=:::codec](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#codec
 
 We should call `setDirty()` when data is actually modified, so Minecraft knows it should be saved to the disk.
 
-@[code lang=java transcludeWith=:::set_dirty](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#set-dirty
 
 Finally, we're required to have a `SavedDataType` that describes our saved data. The first argument corresponds to the name of the file that will be created in the `data` directory of the world.
 
-@[code lang=java transcludeWith=:::type](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#type
 
 ### Accessing Saved Data {#accessing-saved-data}
 
@@ -67,7 +67,7 @@ As mentioned earlier, saved data can be associated with a scope like the current
 
 We'll put this logic into a utility method.
 
-@[code lang=java transcludeWith=:::method](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#method
 
 ### Using Saved Data {#using-saved-data}
 
@@ -75,7 +75,7 @@ Now that we have everything set up, let's save some data.
 
 We can reuse the first scenario and instead of incrementing the field, we can call our `incrementBlocksBroken` from our `SavedBlockData`.
 
-@[code lang=java transcludeWith=:::event_registration](@/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java#event-registration
 
 This should increment the value and save it to the disk.
 

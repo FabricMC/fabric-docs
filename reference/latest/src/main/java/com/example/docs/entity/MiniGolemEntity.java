@@ -19,24 +19,24 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-//:::registerclass
+// #region registerclass
 public class MiniGolemEntity extends PathfinderMob {
-	//:::registerclass
+	// #endregion registerclass
 
-	//:::datatracker
+	// #region datatracker
 	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::dancing_animation
+	// #region dancing-animation
 	public final AnimationState dancingAnimationState = new AnimationState();
 
-	//:::dancing_animation
+	// #endregion dancing-animation
 
-	//:::datatracker
+	// #region datatracker
 	private int dancingTimeLeft;
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::registerclass
+	// #region registerclass
 	public MiniGolemEntity(Level world) {
 		this(ModEntityTypes.MINI_GOLEM, world);
 	}
@@ -51,9 +51,9 @@ public class MiniGolemEntity extends PathfinderMob {
 				.add(Attributes.TEMPT_RANGE, 10)
 				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
-	//:::registerclass
+	// #endregion registerclass
 
-	//:::goals
+	// #region goals
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
@@ -61,9 +61,9 @@ public class MiniGolemEntity extends PathfinderMob {
 		this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Cow.class, 4));
 		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 	}
-	//:::goals
+	// #endregion goals
 
-	//:::datatracker
+	// #region datatracker
 
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
@@ -78,9 +78,9 @@ public class MiniGolemEntity extends PathfinderMob {
 	private void setDancing(boolean dancing) {
 		entityData.set(DANCING, dancing);
 	}
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::dancing_animation
+	// #region dancing-animation
 	@Override
 	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
 		super.onSyncedDataUpdated(data);
@@ -89,8 +89,8 @@ public class MiniGolemEntity extends PathfinderMob {
 			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
 		}
 	}
-	//:::dancing_animation
-	//:::datatracker
+	// #endregion dancing-animation
+	// #region datatracker
 
 	@Override
 	public void tick() {
@@ -109,9 +109,9 @@ public class MiniGolemEntity extends PathfinderMob {
 			}
 		}
 	}
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::savedata
+	// #region savedata
 
 	@Override
 	protected void addAdditionalSaveData(ValueOutput valueOutput) {
@@ -125,5 +125,5 @@ public class MiniGolemEntity extends PathfinderMob {
 		dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
 		setDancing(dancingTimeLeft > 0);
 	}
-	//:::savedata
+	// #endregion savedata
 }

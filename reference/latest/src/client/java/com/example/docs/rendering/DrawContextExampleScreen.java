@@ -17,27 +17,27 @@ public class DrawContextExampleScreen extends Screen {
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
 		super.extractRenderState(graphics, mouseX, mouseY, delta);
 
-		// :::1
+		// #region draw-rectangle
 		int rectangleX = 10;
 		int rectangleY = 10;
 		int rectangleWidth = 100;
 		int rectangleHeight = 50;
 		// x1, y1, x2, y2, color
 		graphics.fill(rectangleX, rectangleY, rectangleX + rectangleWidth, rectangleY + rectangleHeight, 0xFF0000FF);
-		// :::1
+		// #endregion draw-rectangle
 
-		// :::2
+		// #region draw-outline
 		// x, y, width, height, color
 		graphics.outline(rectangleX, rectangleY, rectangleWidth, rectangleHeight, 0xFFFF0000);
-		// :::2
+		// #endregion draw-outline
 
-		// :::3
+		// #region draw-line
 		// Let's split the rectangle in half using a green line.
 		// x, y1, y2, color
 		graphics.verticalLine(rectangleX + rectangleWidth / 2, rectangleY, rectangleY + rectangleHeight, 0xFF00FF00);
-		// :::3
+		// #endregion draw-line
 
-		// :::4
+		// #region scissor
 		// Let's create a scissor region that covers a middle bar section of the screen.
 		int scissorRegionX = 200;
 		int scissorRegionY = 20;
@@ -55,24 +55,24 @@ public class DrawContextExampleScreen extends Screen {
 
 		// Disable the scissor region.
 		graphics.disableScissor();
-		// :::4
+		// #endregion scissor
 
-		// :::5
+		// #region draw-entire-texture
 		Identifier texture = Identifier.fromNamespaceAndPath("minecraft", "textures/block/deepslate.png");
 		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
 		graphics.blit(RenderPipelines.GUI_TEXTURED, texture, 90, 90, 0, 0, 16, 16, 16, 16);
-		// :::5
+		// #endregion draw-entire-texture
 
-		// :::6
+		// #region draw-portion-of-texture
 		Identifier texture2 = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// renderLayer, texture, x, y, u, v, width, height, regionWidth, regionHeight, textureWidth, textureHeight
 		graphics.blit(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, u, v, 14, 14, regionWidth, regionHeight, 256, 256);
-		// :::6
+		// #endregion draw-portion-of-texture
 
-		// :::7
+		// #region draw-text
 		// Font, text (string, or Component object), x, y, color, shadow
 		graphics.text(minecraft.font, "Hello, world!", 10, 200, 0xFFFFFFFF, false);
-		// :::7
+		// #endregion draw-text
 	}
 }

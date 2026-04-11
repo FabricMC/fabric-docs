@@ -3,10 +3,10 @@ package com.example.docs.entity.state;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.AnimationState;
 
-//:::entitystate
+// #region entitystate
 public class MiniGolemEntityRenderState extends LivingEntityRenderState {
-	//:::entitystate
+	// #endregion entitystate
 	public final AnimationState dancingAnimationState = new AnimationState();
-	//:::entitystate
+	// #region entitystate
 }
-//:::entitystate
+// #endregion entitystate

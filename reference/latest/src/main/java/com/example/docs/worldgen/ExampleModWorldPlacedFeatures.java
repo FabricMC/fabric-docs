@@ -22,13 +22,13 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import com.example.docs.ExampleMod;
 
 public class ExampleModWorldPlacedFeatures {
-	// :::datagen-world:placed-key
+	// #region datagen-world--placed-key
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
 				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_ore_placed")
 			);
-	// :::datagen-world:placed-key
+	// #endregion datagen-world--placed-key
 
 	public static final ResourceKey<PlacedFeature> DIAMOND_TREE_PLACED_KEY =
 			ResourceKey.create(
@@ -37,18 +37,18 @@ public class ExampleModWorldPlacedFeatures {
 			);
 
 	public static void configure(BootstrapContext<PlacedFeature> context) {
-		// :::datagen-world:conf-feature-register
+		// #region datagen-world--conf-feature-register
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-		// :::datagen-world:conf-feature-register
+		// #endregion datagen-world--conf-feature-register
 
-		// :::datagen-world:placement-modifiers
+		// #region datagen-world--placement-modifiers
 		List<PlacementModifier> diamondBlockVeinModifiers = List.of(
 				CountPlacement.of(6),
 					BiomeFilter.biome(),
 					InSquarePlacement.spread(),
 				HeightRangePlacement.of(BiasedToBottomHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(0), 3))
 		);
-		// :::datagen-world:placement-modifiers
+		// #endregion datagen-world--placement-modifiers
 
 		List<PlacementModifier> diamondTreeModifiers = List.of(
 				RarityFilter.onAverageOnceEvery(10), // spawns once every 10 chunks on average
@@ -58,7 +58,7 @@ public class ExampleModWorldPlacedFeatures {
 
 		);
 
-		// :::datagen-world:register-placed-feature
+		// #region datagen-world--register-placed-feature
 		context.register(
 				DIAMOND_BLOCK_ORE_PLACED_KEY,
 				new PlacedFeature(
@@ -66,7 +66,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondBlockVeinModifiers
 				)
 		);
-		// :::datagen-world:register-placed-feature
+		// #endregion datagen-world--register-placed-feature
 
 		context.register(
 				DIAMOND_TREE_PLACED_KEY,

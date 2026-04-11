@@ -26,7 +26,7 @@ Minecraft has some custom classes already that allow you quickly create certain 
 
 The vanilla `RotatedPillarBlock` class allows the block to be placed in the X, Y or Z axis.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed-oak-log
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
@@ -41,7 +41,7 @@ Since the pillar block has two positions, horizontal and vertical, we'll need to
 
 An example of the `condensed_oak_log_horizontal.json` file:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json
 
 ::: info
 
@@ -57,7 +57,7 @@ Next, we need to create a blockstate file, which is where the magic happens. Pil
 - `axis=y` - When the block is placed along the Y axis, we will use the normal vertical model.
 - `axis=z` - When the block is placed along the Z axis, we will rotate the model to face the positive Z direction.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json
 
 As always, you'll need to create a translation for your block, and an item model which parents either of the two models.
 
@@ -73,21 +73,21 @@ This example will create a unique boolean property called `activated` - when a p
 
 Firstly, you'll need to create the property itself - since this is a boolean, we'll use the `BooleanProperty.create` method.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block
 
 Next, we have to append the property to the blockstate manager in the `createBlockStateDefinition` method. You'll need to override the method to access the builder:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block-state-definition
 
 You'll also have to set a default state for the `activated` property in the constructor of your custom block.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#constructor
 
 ### Using The Property {#using-the-property}
 
 This example flips the boolean `activated` property when the player interacts with the block. We can override the `useWithoutItem` method for this:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on-use
 
 ### Visualizing The Property {#visualizing-the-property}
 
@@ -103,7 +103,7 @@ If you have multiple properties on a block, you'll need to account for all possi
 
 Since this block only has two possible variants, as it only has one property (`activated`), the blockstate JSON will look something like this:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json
 
 ::: tip
 
@@ -115,9 +115,9 @@ Since the example block is a lamp, we also need to make it emit light when the `
 
 You can use the `lightLevel` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `lightLevel` method:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get-luminance
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine-lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

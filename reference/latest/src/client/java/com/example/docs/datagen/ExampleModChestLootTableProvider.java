@@ -18,7 +18,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvi
 
 import com.example.docs.ModLootTables;
 
-// :::datagen-loot-tables:chest-provider
+// #region datagen-loot-tables--chest-provider
 public class ExampleModChestLootTableProvider extends SimpleFabricLootTableSubProvider {
 	public ExampleModChestLootTableProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup, LootContextParamSets.CHEST);
@@ -26,8 +26,8 @@ public class ExampleModChestLootTableProvider extends SimpleFabricLootTableSubPr
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> lootTableBiConsumer) {
-		// :::datagen-loot-tables:chest-provider
-		// :::datagen-loot-tables:chest-loot
+		// #endregion datagen-loot-tables--chest-provider
+		// #region datagen-loot-tables--chest-loot
 		lootTableBiConsumer.accept(ModLootTables.TEST_CHEST_LOOT, LootTable.lootTable()
 				.withPool(LootPool.lootPool() // One pool
 						.setRolls(ConstantValue.exactly(2.0f)) // That has two rolls
@@ -36,8 +36,8 @@ public class ExampleModChestLootTableProvider extends SimpleFabricLootTableSubPr
 						.add(LootItem.lootTableItem(Items.DIAMOND_SWORD) // With an entry that has a plain diamond sword
 						)
 				));
-		// :::datagen-loot-tables:chest-loot
-		// :::datagen-loot-tables:chest-provider
+		// #endregion datagen-loot-tables--chest-loot
+		// #region datagen-loot-tables--chest-provider
 	}
 }
-// :::datagen-loot-tables:chest-provider
+// #endregion datagen-loot-tables--chest-provider

@@ -8,15 +8,15 @@ import net.minecraft.advancements.criterion.ContextAwarePredicate;
 import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
 
-// :::datagen-advancements:criterion-base
+// #region datagen-advancements--criterion-base
 public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Conditions> {
-	// :::datagen-advancements:criterion-base
-	// :::datagen-advancements:criterion-trigger
+	// #endregion datagen-advancements--criterion-base
+	// #region datagen-advancements--criterion-trigger
 	public void trigger(ServerPlayer player) {
 		trigger(player, Conditions::requirementsMet);
 	}
-	// :::datagen-advancements:criterion-trigger
-	// :::datagen-advancements:criterion-base
+	// #endregion datagen-advancements--criterion-trigger
+	// #region datagen-advancements--criterion-base
 
 	@Override
 	public Codec<Conditions> codec() {
@@ -31,14 +31,14 @@ public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Co
 		public Optional<ContextAwarePredicate> player() {
 			return playerPredicate;
 		}
-		// :::datagen-advancements:criterion-base
+		// #endregion datagen-advancements--criterion-base
 
-		// :::datagen-advancements:conditions-test
+		// #region datagen-advancements--conditions-test
 		public boolean requirementsMet() {
 			return true; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
-		// :::datagen-advancements:conditions-test
-		// :::datagen-advancements:criterion-base
+		// #endregion datagen-advancements--conditions-test
+		// #region datagen-advancements--criterion-base
 	}
 }
-// :::datagen-advancements:criterion-base
+// #endregion datagen-advancements--criterion-base

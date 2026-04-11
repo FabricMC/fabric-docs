@@ -10,18 +10,18 @@ import net.minecraft.network.chat.MutableComponent;
 
 public class TextTests {
 	public void test() {
-		// :::1
+		// #region component-to-string
 		Gson gson = new Gson();
 		MutableComponent mutable = Component.translatable("example-mod.text.bye");
 		String json = gson.toJson(ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, mutable).getOrThrow());
-		// :::1
+		// #endregion component-to-string
 
-		// :::2
+		// #region string-to-component
 		String jsonString = "...";
 		Component deserialized = ComponentSerialization.CODEC
 				.decode(JsonOps.INSTANCE, gson.fromJson(jsonString, JsonElement.class))
 				.getOrThrow()
 				.getFirst();
-		// :::2
+		// #endregion string-to-component
 	}
 }

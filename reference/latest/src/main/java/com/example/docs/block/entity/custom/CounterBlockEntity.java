@@ -11,72 +11,72 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 
-// :::1
+// #region block-entity
 public class CounterBlockEntity extends BlockEntity {
-	// :::1
+	// #endregion block-entity
 
-	// :::2
+	// #region clicks
 	private int clicks = 0;
-	// :::2
+	// #endregion clicks
 
 	private int ticksSinceLast = 0;
 
-	// :::1
+	// #region block-entity
 	public CounterBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.COUNTER_BLOCK_ENTITY, pos, state);
 	}
-	// :::1
+	// #endregion block-entity
 
-	// :::2
+	// #region clicks
 	public int getClicks() {
 		return clicks;
 	}
 
 	public void incrementClicks() {
-		// :::2
+		// #endregion clicks
 
-		// :::6
+		// #region ticks-since-last
 		if (ticksSinceLast < 10) return;
 		ticksSinceLast = 0;
-		// :::6
+		// #endregion ticks-since-last
 
-		// :::2
+		// #region clicks
 		clicks++;
 		setChanged();
 	}
-	// :::2
+	// #endregion clicks
 
-	// :::3
+	// #region saving
 	@Override
 	protected void saveAdditional(ValueOutput output) {
 		output.putInt("clicks", clicks);
 
 		super.saveAdditional(output);
 	}
-	// :::3
+	// #endregion saving
 
-	// :::4
+	// #region loading
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 
 		clicks = input.getIntOr("clicks", 0);
 	}
-	// :::4
+	// #endregion loading
 
-	// :::5
+	// #region tickers
 	public static void tick(Level level, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
-	// :::5
+	// #endregion tickers
 
-	// :::7
+	// #region get-update-tag
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
 		return saveWithoutMetadata(registryLookup);
 	}
-	// :::7
+	// #endregion get-update-tag
 
-	// :::1
+	// #region block-entity
 }
-// :::1
+// #endregion block-entity

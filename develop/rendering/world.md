@@ -38,13 +38,13 @@ Let's say we want to render waypoints, which should appear through walls. The cl
 
 We define a custom render pipeline in a class:
 
-@[code lang=java transcludeWith=:::custom-pipelines:define-pipeline](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--define-pipeline
 
 ### Extraction Phase {#extraction-phase}
 
 We first implement the "extraction" phase. We can call this method during the "extraction" phase to add a waypoint to be rendered.
 
-@[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--extraction-phase
 
 Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
@@ -58,20 +58,20 @@ Note that in the above code we are saving the `BufferBuilder` in a field. This i
 
 Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
 
-@[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--drawing-phase
 
 ### Cleaning up {#cleaning-up}
 
 Finally, we need to clean up resources when the game renderer is closed. `GameRenderer#close` should call this method, and for that you currently need to inject into `GameRenderer#close` with a mixin.
 
-@[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--clean-up
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
 ### Final Code {#final-code}
 
 Combining all the steps from above, we get a simple class that renders a waypoint at `(0, 100, 0)` through walls.
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
 Don't forget the `GameRendererMixin` as well! Here is the result:
 

@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import com.example.docs.block.entity.custom.DirtChestBlockEntity;
 import com.example.docs.menu.ModMenuType;
 
-// :::menu
+// #region menu
 public class DirtChestMenu extends AbstractContainerMenu {
 	private final Container container;
 
@@ -77,4 +77,4 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		return container.stillValid(player);
 	}
 }
-// :::menu
+// #endregion menu

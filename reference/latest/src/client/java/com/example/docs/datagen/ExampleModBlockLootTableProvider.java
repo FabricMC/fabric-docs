@@ -15,7 +15,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 
 import com.example.docs.block.ModBlocks;
 
-// :::datagen-loot-tables:block-provider
+// #region datagen-loot-tables--block-provider
 public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider {
 	protected ExampleModBlockLootTableProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
@@ -23,8 +23,8 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 
 	@Override
 	public void generate() {
-		// :::datagen-loot-tables:block-provider
-		// :::datagen-loot-tables:block-drops
+		// #endregion datagen-loot-tables--block-provider
+		// #region datagen-loot-tables--block-drops
 		// Make condensed dirt drop its block item.
 		// Also adds the condition that it survives the explosion that broke it, if applicable,
 		dropSelf(ModBlocks.CONDENSED_DIRT);
@@ -35,8 +35,8 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 				.setRolls(new UniformGenerator(new ConstantValue(7), new ConstantValue(9)))
 				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
-		// :::datagen-loot-tables:block-drops
-		// :::datagen-loot-tables:block-provider
+		// #endregion datagen-loot-tables--block-drops
+		// #region datagen-loot-tables--block-provider
 	}
 }
-// :::datagen-loot-tables:block-provider
+// #endregion datagen-loot-tables--block-provider

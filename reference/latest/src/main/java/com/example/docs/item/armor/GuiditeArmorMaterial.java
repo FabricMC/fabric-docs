@@ -16,19 +16,19 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 import com.example.docs.ExampleMod;
 
 public class GuiditeArmorMaterial {
-	// :::base_durability
+	// #region base-durability
 	public static final int BASE_DURABILITY = 15;
-	// :::base_durability
+	// #endregion base-durability
 
-	// :::material_key
+	// #region material-key
 	public static final ResourceKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite"));
-	// :::material_key
+	// #endregion material-key
 
-	// :::repair_tag
+	// #region repair-tag
 	public static final TagKey<Item> REPAIRS_GUIDITE_ARMOR = TagKey.create(BuiltInRegistries.ITEM.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "repairs_guidite_armor"));
-	// :::repair_tag
+	// #endregion repair-tag
 
-	// :::guidite_armor_material
+	// #region guidite-armor-material
 	public static final ArmorMaterial INSTANCE = new ArmorMaterial(
 			BASE_DURABILITY,
 			Map.of(
@@ -44,5 +44,5 @@ public class GuiditeArmorMaterial {
 			REPAIRS_GUIDITE_ARMOR,
 			GUIDITE_ARMOR_MATERIAL_KEY
 	);
-	// :::guidite_armor_material
+	// #endregion guidite-armor-material
 }

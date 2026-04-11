@@ -8,15 +8,15 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import com.example.docs.ExampleMod;
 
 public class ModEnchantments {
-	// :::register-enchantment
+	// #region register-enchantment
 	public static final ResourceKey<Enchantment> THUNDERING = key("thundering");
-	// :::register-enchantment
+	// #endregion register-enchantment
 	public static final ResourceKey<Enchantment> REPULSION_CURSE = key("repulsion_curse");
 
-	// :::key-helper
+	// #region key-helper
 	private static ResourceKey<Enchantment> key(String path) {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
 		return ResourceKey.create(Registries.ENCHANTMENT, id);
 	}
-	// :::key-helper
+	// #endregion key-helper
 }

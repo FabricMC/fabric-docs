@@ -14,35 +14,35 @@ import net.minecraft.util.Mth;
 import com.example.docs.entity.animation.MiniGolemAnimations;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
-//:::model1
+// #region model1
 public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState> {
 	private final ModelPart head;
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
-	//:::model1
-	//:::dancing_animation
+	// #endregion model1
+	// #region dancing-animation
 	private final KeyframeAnimation dancing;
 
-	//:::dancing_animation
-	//:::model1
+	// #endregion dancing-animation
+	// #region model1
 
-	//:::dancing_animation
+	// #region dancing-animation
 	public MiniGolemEntityModel(ModelPart root) {
-		//:::dancing_animation
+		// #endregion dancing-animation
 		super(root);
 		head = root.getChild(PartNames.HEAD);
 		leftLeg = root.getChild(PartNames.LEFT_LEG);
 		rightLeg = root.getChild(PartNames.RIGHT_LEG);
-		//:::model1
-		//:::dancing_animation
+		// #endregion model1
+		// #region dancing-animation
 		// ...
 		this.dancing = MiniGolemAnimations.DANCING.bake(root);
-		//:::model1
+		// #region model1
 	}
-	//:::dancing_animation
-	//:::model1
+	// #endregion dancing-animation
+	// #endregion model1
 
-	//:::model_texture_data
+	// #region model-texture-data
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition modelData = new MeshDefinition();
 		PartDefinition root = modelData.getRoot();
@@ -75,32 +75,32 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		);
 		return LayerDefinition.create(modelData, 64, 32);
 	}
-	//:::model_texture_data
+	// #endregion model-texture-data
 
-	//:::model_animation
-	//:::dancing_animation
+	// #region model-animation
+	// #region dancing-animation
 	@Override
 	public void setupAnim(MiniGolemEntityRenderState state) {
 		super.setupAnim(state);
 
-		//:::model_animation
+		// #endregion model-animation
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
 		} else {
 			// ... the leg swing animation code from before
-			//:::dancing_animation
-			//:::model_animation
+			// #endregion dancing-animation
+			// #region model-animation
 			head.xRot = state.xRot * Mth.RAD_TO_DEG;
 			head.yRot = state.yRot * Mth.RAD_TO_DEG;
 			float limbSwingAmplitude = state.walkAnimationSpeed;
 			float limbSwingAnimationProgress = state.walkAnimationPos;
 			leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
 			rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
-			//:::model_animation
-			//:::dancing_animation
+			// #endregion model-animation
+			// #region dancing-animation
 		}
-		//:::model_animation
+		// #region model-animation
 	}
-	//:::dancing_animation
+	// #endregion dancing-animation
 }
-//:::model_animation
+// #endregion model-animation

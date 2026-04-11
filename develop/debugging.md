@@ -21,15 +21,15 @@ Values can be printed there at runtime, informing the developer about the curren
 
 In the `ModInitializer`-implementing entrypoint class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
 
-@[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems--basic-logger-definition
 
 Whenever you need to know a value for something at any point in the code, use this `LOGGER` by passing a `String` to its methods.
 
-@[code lang=java transcludeWith=:::problems:using-logger](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems--using-logger
 
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
-@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems--log-levels
 
 ::: info
 
@@ -39,7 +39,7 @@ All logger modes support multiple overloads; this way you can provide more infor
 
 For example, let's make sure that, when the `TestItem` is used on an entity, it will output its current state in console.
 
-@[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems--logger-usage-example
 
 ![Console showing logged output](/assets/develop/debugging/debug_01.png)
 
@@ -71,15 +71,15 @@ The debug log level is hidden by default, but can be specifically enabled in the
 
 To do this, create the `log4j-dev.xml` configuration file in your project's root directory, and add the following contents. Make sure to replace the value inside the `name` attribute with your mod's modid. This configuration allows debug logs from your mod to be shown in the console.
 
-@[code lang=xml](@/reference/latest/log4j-dev.xml)
+<<< @/reference/latest/log4j-dev.xml
 
 Then in the `build.gradle`, tell Loom to use our new configuration.
 
-@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#debug-logging
 
 Now, when we send debug log messages, we'll be able to see them in the console.
 
-@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems--debug-logging
 
 ![Console showing a debug log entry](/assets/develop/debugging/debug_log.png)
 
@@ -238,7 +238,7 @@ To finish up with the example from earlier, let's add a condition to the stateme
 
 Apply the fixes and use hotswapping to see the changes in the game instantly.
 
-@[code lang=java transcludeWith=:::problems:breakpoints](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems--breakpoints
 
 ## Logs And Crashes {#logs-and-crashes}
 

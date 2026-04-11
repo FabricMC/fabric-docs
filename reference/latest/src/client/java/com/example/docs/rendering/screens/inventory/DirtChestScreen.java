@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import com.example.docs.menu.custom.DirtChestMenu;
 
-// :::screen
+// #region screen
 public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 	private static final Identifier CONTAINER_TEXTURE = Identifier.withDefaultNamespace("textures/gui/container/dispenser.png");
 
@@ -40,4 +40,4 @@ public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 		this.extractTooltip(graphics, mouseX, mouseY);
 	}
 }
-// :::screen
+// #endregion screen

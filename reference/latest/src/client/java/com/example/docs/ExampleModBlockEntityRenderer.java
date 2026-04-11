@@ -7,11 +7,11 @@ import net.fabricmc.api.ClientModInitializer;
 import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.rendering.blockentity.CounterBlockEntityRenderer;
 
-// :::1
+// #region register-block-entity-renderer
 public class ExampleModBlockEntityRenderer implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockEntityRenderers.register(ModBlockEntities.COUNTER_BLOCK_ENTITY, CounterBlockEntityRenderer::new);
 	}
 }
-// :::1
+// #endregion register-block-entity-renderer

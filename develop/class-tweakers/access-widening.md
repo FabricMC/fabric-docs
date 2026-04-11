@@ -87,7 +87,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--classes
 
 == Methods
 
@@ -99,7 +99,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--methods
 
 == Fields
 
@@ -111,7 +111,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--fields
 
 :::
 

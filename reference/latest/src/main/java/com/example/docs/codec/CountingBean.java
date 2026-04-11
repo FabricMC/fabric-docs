@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-// :::
+// #region counting-bean
 // Another implementation
 public class CountingBean implements Bean {
 	public static final MapCodec<CountingBean> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
@@ -12,7 +12,7 @@ public class CountingBean implements Bean {
 	).apply(instance, CountingBean::new));
 
 	private int countingNumber;
-	// :::
+	// #endregion counting-bean
 
 	public CountingBean(int countingNumber) {
 		this.countingNumber = countingNumber;
@@ -22,11 +22,11 @@ public class CountingBean implements Bean {
 		return countingNumber;
 	}
 
-	// :::
+	// #region counting-bean
 
 	@Override
 	public BeanType<?> getType() {
 		return BeanTypes.COUNTING_BEAN;
 	}
 }
-// :::
+// #endregion counting-bean

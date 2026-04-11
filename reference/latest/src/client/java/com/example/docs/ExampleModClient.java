@@ -15,12 +15,12 @@ public class ExampleModClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 
-		// #particle_register_client
+		// #region particle-register-client
 		// For this example, we will use the end rod particle behaviour.
 		ParticleProviderRegistry.getInstance().register(ExampleMod.SPARKLE_PARTICLE, EndRodParticle.Provider::new);
-		// #particle_register_client
+		// #endregion particle-register-client
 
-		// #tooltip_provider_client
+		// #region tooltip-provider-client
 		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
 			Integer count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 
@@ -28,6 +28,6 @@ public class ExampleModClient implements ClientModInitializer {
 				tooltip.add(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 			}
 		});
-		// #tooltip_provider_client
+		// #endregion tooltip-provider-client
 	}
 }

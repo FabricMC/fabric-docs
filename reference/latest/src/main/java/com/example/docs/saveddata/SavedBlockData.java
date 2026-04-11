@@ -10,52 +10,51 @@ import net.minecraft.world.level.saveddata.SavedDataType;
 
 import com.example.docs.ExampleMod;
 
-// :::class
-// :::basic_structure
+// #region basic-structure
 public class SavedBlockData extends SavedData {
 	private int blocksBroken = 0;
 
-	// :::basic_structure
-	// :::codec
+	// #endregion basic-structure
+	// #region codec
 	private static final Codec<SavedBlockData> CODEC = Codec.INT.xmap(
 					SavedBlockData::new, // Create a new 'SavedBlockData' from the stored number.
 					SavedBlockData::getBlocksBroken // Return the number from the 'SavedBlockData' to be saved/
 	);
-	// :::codec
-	// :::type
+	// #endregion codec
+	// #region type
 	private static final SavedDataType<SavedBlockData> TYPE = new SavedDataType<>(
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "saved_block_data"), // The unique name for this saved data.
 					SavedBlockData::new, // If there's no 'SavedBlockData', yet create one and refresh fields.
 					CODEC, // The codec used for serialization/deserialization.
 					null // A data fixer, which is not needed here.
 	);
-	// :::type
-	// :::basic_structure
+	// #endregion type
+	// #region basic-structure
 	public SavedBlockData() {
 	}
-	// :::basic_structure
+	// #endregion basic-structure
 
-	// :::ctor
+	// #region ctor
 	public SavedBlockData(int count) {
 		blocksBroken = count;
 	}
-	// :::ctor
-	// :::basic_structure
+	// #endregion ctor
+	// #region basic-structure
 
 	public int getBlocksBroken() {
 		return blocksBroken;
 	}
 
-	// :::set_dirty
+	// #region set-dirty
 	public void incrementBlocksBroken() {
 		blocksBroken++;
 
 		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
 		setDirty();
 	}
-	// :::set_dirty
-	// :::basic_structure
-	// :::method
+	// #endregion set-dirty
+	// #endregion basic-structure
+	// #region method
 	public static SavedBlockData getSavedBlockData(MinecraftServer server) {
 		// This could be either the overworld or another dimension.
 		ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
@@ -70,8 +69,7 @@ public class SavedBlockData extends SavedData {
 		// using the Codec to decode the NBT into our saved data.
 		return level.getDataStorage().computeIfAbsent(TYPE);
 	}
-	// :::method
-	// :::basic_structure
+	// #endregion method
+	// #region basic-structure
 }
-// :::basic_structure
-// :::class
+// #endregion basic-structure

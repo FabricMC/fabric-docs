@@ -30,7 +30,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
 
-// :::provider
+// #region provider
 public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvider {
 	public ExampleModEnchantmentGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
@@ -45,12 +45,12 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	public String getName() {
 		return "Enchantments";
 	}
-	// :::provider
-	// :::bootstrap
+	// #endregion provider
+	// #region bootstrap
 	public static void bootstrap(BootstrapContext<Enchantment> context) {
 		// ...
-		// :::bootstrap
-		// :::register-enchantment
+		// #endregion bootstrap
+		// #region register-enchantment
 		register(context, ModEnchantments.THUNDERING,
 				Enchantment.enchantment(
 						Enchantment.definition(
@@ -70,7 +70,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 						new LightningEnchantmentEffect(LevelBasedValue.perLevel(0.4f, 0.2f))
 				)
 		);
-		// :::register-enchantment
+		// #endregion register-enchantment
 		register(context, ModEnchantments.REPULSION_CURSE,
 				Enchantment.enchantment(
 						Enchantment.definition(
@@ -83,20 +83,20 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 								EquipmentSlotGroup.HAND
 						)
 				)
-				// :::effect-conditions
+				// #region effect-conditions
 				.withEffect(
 						// ...
-						// :::effect-conditions
+						// #endregion effect-conditions
 						EnchantmentEffectComponents.POST_ATTACK,
 						EnchantmentTarget.ATTACKER,
 						EnchantmentTarget.ATTACKER,
-						// :::multiple-effects
+						// #region multiple-effects
 						AllOf.entityEffects(
 								new ApplyEntityImpulse(new Vec3(0, 0.2, -1), new Vec3(1, 1, 1), LevelBasedValue.perLevel(0.7f, 0.2f)),
 								new PlaySoundEffect(List.of(SoundEvents.LUNGE_1), ConstantFloat.of(5), ConstantFloat.of(1))
 						),
-						// :::multiple-effects
-						// :::effect-conditions
+						// #endregion multiple-effects
+						// #region effect-conditions
 						LootItemEntityPropertyCondition.hasProperties(
 								LootContext.EntityTarget.ATTACKER,
 								EntityPredicate.Builder.entity().flags(
@@ -104,19 +104,19 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 								)
 						)
 				)
-		// :::effect-conditions
+		// #endregion effect-conditions
 		);
-		// :::bootstrap
+		// #region bootstrap
 	}
-	// :::bootstrap
-	// :::provider
+	// #endregion bootstrap
+	// #region provider
 
-	// :::provider
-	// :::register-helper
+	// #endregion provider
+	// #region register-helper
 	private static void register(BootstrapContext<Enchantment> context, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
 		context.register(key, builder.build(key.identifier()));
 	}
-	// :::register-helper
-	// :::provider
+	// #endregion register-helper
+	// #region provider
 }
-// :::provider
+// #endregion provider

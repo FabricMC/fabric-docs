@@ -51,11 +51,11 @@ import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.networking.basic.LightningTaterItem;
 
-// :::1
+// #region mod-items-class
 public class ModItems {
-	// :::1
+	// #endregion mod-items-class
 
-	// :::guidite_tool_material
+	// #region guidite-tool-material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
 			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
 			455,
@@ -64,9 +64,9 @@ public class ModItems {
 			22,
 			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
 	);
-	// :::guidite_tool_material
+	// #endregion guidite-tool-material
 
-	// :::6
+	// #region create-armor-items
 	public static final Item GUIDITE_HELMET = register(
 			"guidite_helmet",
 			Item::new,
@@ -92,16 +92,16 @@ public class ModItems {
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
 					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
-	// :::6
+	// #endregion create-armor-items
 	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
-	// :::7
+	// #region guidite-sword
 	public static final Item GUIDITE_SWORD = register(
 			"guidite_sword",
 			Item::new,
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
-	// :::7
-	// :::_13
+	// #endregion guidite-sword
+	// #region counter
 	public static final Item COUNTER = register(
 			"counter",
 			CounterItem::new,
@@ -109,8 +109,8 @@ public class ModItems {
 					// Initialize the click count component with a default value of 0
 					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
 	);
-	// :::_13
-	// :::9
+	// #endregion counter
+	// #region custom-creative-tab
 	public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(
 			BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "creative_tab")
 	);
@@ -120,7 +120,7 @@ public class ModItems {
 			.displayItems((params, output) -> {
 				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
 				output.accept(ModItems.POISONOUS_APPLE);
-				// :::9
+				// #endregion custom-creative-tab
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
 				output.accept(ModItems.LIGHTNING_TATER);
@@ -131,12 +131,12 @@ public class ModItems {
 				output.accept(ModItems.GUIDITE_LEGGINGS);
 				output.accept(ModItems.GUIDITE_CHESTPLATE);
 				output.accept(ModItems.LIGHTNING_STICK);
-				// :::9
+				// #region custom-creative-tab
 
 				// The tab builder also accepts Blocks
 				output.accept(ModBlocks.CONDENSED_DIRT);
 				output.accept(ModBlocks.CONDENSED_OAK_LOG);
-				// :::9
+				// #endregion custom-creative-tab
 				output.accept(ModBlocks.PRISMARINE_LAMP);
 				output.accept(ModBlocks.STEEL_BLOCK);
 				output.accept(ModBlocks.PIPE_BLOCK);
@@ -153,7 +153,7 @@ public class ModItems {
 				output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
 				output.accept(ModBlocks.WAXCAP);
 				output.accept(ModBlocks.TATER_BLOCK);
-				// :::9
+				// #region custom-creative-tab
 
 				// And custom ItemStacks
 				ItemStack stack = new ItemStack(Items.SEA_PICKLE);
@@ -162,8 +162,8 @@ public class ModItems {
 				output.accept(stack);
 			})
 			.build();
-	// :::9
-	// :::5
+	// #endregion custom-creative-tab
+	// #region custom-food
 	public static final Consumable POISON_FOOD_CONSUMABLE_COMPONENT = Consumables.defaultFood()
 			// The duration is in ticks, 20 ticks = 1 second
 			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 6 * 20, 1), 1.0f))
@@ -171,27 +171,27 @@ public class ModItems {
 	public static final FoodProperties POISON_FOOD_COMPONENT = new FoodProperties.Builder()
 			.alwaysEdible()
 			.build();
-	// :::5
+	// #endregion custom-food
 
-	// :::poisonous_apple
+	// #region poisonous-apple
 	public static final Item POISONOUS_APPLE = register(
 			"poisonous_apple",
 			Item::new,
 			new Item.Properties().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
-	// :::poisonous_apple
+	// #endregion poisonous-apple
 
-	// :::2
+	// #region suspicious_substance
 	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
-	// :::2
+	// #endregion suspicious_substance
 
-	// :::custom_entity_spawn_egg
+	// #region custom-entity-spawn-egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			"mini_golem_spawn_egg",
 			SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
-	// :::custom_entity_spawn_egg
+	// #endregion custom-entity-spawn-egg
 
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
@@ -219,7 +219,7 @@ public class ModItems {
 
 	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
-	// :::1
+	// #region mod-items-class
 	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
 		// Create the item key.
 		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
@@ -233,17 +233,17 @@ public class ModItems {
 		return item;
 	}
 
-	// :::1
+	// #endregion mod-items-class
 
-	// :::3
+	// #region initialize
 	public static void initialize() {
-		// :::3
-		// :::4
+		// #endregion initialize
+		// #region add-to-creative-tab
 		// Get the event for modifying entries in the ingredients group.
 		// And register an event handler that adds our suspicious item to the ingredients group.
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
 				.register((creativeTab) -> creativeTab.accept(ModItems.SUSPICIOUS_SUBSTANCE));
-		// :::4
+		// #endregion add-to-creative-tab
 
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> {
@@ -253,21 +253,21 @@ public class ModItems {
 					creativeTab.accept(ModItems.GUIDITE_CHESTPLATE);
 				});
 
-		// :::8
+		// #region add-guidite-sword-to-create-tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SWORD));
-		// :::8
+		// #endregion add-guidite-sword-to-create-tab
 
-		// :::_12
+		// #region register-creative-tab
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
-		// :::_12
+		// #endregion register-creative-tab
 
-		// :::spawn_egg_creative_tab
+		// #region spawn-egg-creative-tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(creativeTab -> {
 			creativeTab.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
 		});
-		// :::spawn_egg_creative_tab
+		// #endregion spawn-egg-creative-tab
 		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
 			creativeTab.accept(ModItems.RUBY);
 			creativeTab.accept(ModItems.GUIDITE_AXE);
@@ -279,24 +279,24 @@ public class ModItems {
 			creativeTab.accept(ModItems.THROWING_KNIVES);
 		});
 
-		// :::_10
+		// #region compostable-item
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
 		CompostableRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
-		// :::_10
+		// #endregion compostable-item
 
-		// :::_11
+		// #region fuel-item
 		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
 		FuelValueEvents.BUILD.register((builder, context) -> {
 			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
 		});
-		// :::_11
-		// :::3
+		// #endregion fuel-item
+		// #region initialize
 	}
-	// :::3
+	// #endregion initialize
 
-	// :::acid_bucket
+	// #region acid-bucket
 	public static final Item ACID_BUCKET = register(
 			"acid_bucket",
 			props -> new BucketItem(ModFluids.ACID_STILL, props),
@@ -304,8 +304,8 @@ public class ModItems {
 					.craftRemainder(Items.BUCKET)
 					.stacksTo(1)
 	);
-	// :::acid_bucket
+	// #endregion acid-bucket
 
-	// :::1
+	// #region mod-items-class
 }
-// :::1
+// #endregion mod-items-class

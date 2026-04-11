@@ -23,12 +23,12 @@ A key mapping consists of two parts: the mapping to a key, and the category it b
 Let's start with creating a category. A category defines a group of key mappings that will be shown
 together in the settings menu.
 
-@[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#category
 
 Next, we can create a key mapping. We will be using Fabric API's `KeyMappingHelper` to register
 our key mapping at the same time.
 
-@[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key-mapping
 
 ::: info
 
@@ -69,7 +69,7 @@ Translations can be added manually or using [data generation](./data-generation/
 
 Now that we have a key mapping, we can react to it using a client tick event.
 
-@[code lang=java transcludeWith=:::client_tick_event](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client-tick-event
 
 This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed. Keep in mind that holding the key will repeatedly print the message to the chat, so you might want to implement guards if this logic only needs to trigger once.
 

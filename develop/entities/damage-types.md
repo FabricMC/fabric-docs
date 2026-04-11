@@ -25,7 +25,7 @@ resources/data/example-mod/damage_type/tater.json
 
 It has the following structure:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json
 
 This custom damage type causes 0.1 increase
 in [hunger exhaustion](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase) each time a player takes damage, when
@@ -45,7 +45,7 @@ of `DamageSource`.
 
 The `ResourceKey` can be obtained as follows:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java#damage-type
 
 ### Using Damage Types {#using-damage-types}
 
@@ -56,15 +56,15 @@ You can override `stepOn` to inflict this damage.
 
 We start by creating a `DamageSource` of our custom damage type.
 
-@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#create-damage-source
 
-Then, we call `entity.damage()` with our `DamageSource` and an amount.
+Then, we call `entity.hurtServer()` with the current level, our `DamageSource`, and an amount.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#hurt-entity
 
 The complete block implementation:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#complete-block
 
 Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5 hearts) using our custom damage type.
 
@@ -107,6 +107,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 With the following content:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+<<< @/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json
 
 Ensure your tag does not replace the existing tag by setting the `replace` key to `false`.

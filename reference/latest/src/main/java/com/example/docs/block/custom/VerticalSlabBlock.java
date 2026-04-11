@@ -26,12 +26,12 @@ public class VerticalSlabBlock extends Block {
 	public static final BooleanProperty SINGLE = BooleanProperty.create("single");
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 	// :::custom-properties
-	// :::custom-voxels
+	// #region custom-voxels
 	public static final VoxelShape NORTH_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
 	public static final VoxelShape SOUTH_SHAPE = Block.box(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
 	public static final VoxelShape WEST_SHAPE = Block.box(0.0, 0.0, 0.0, 8.0, 16.0, 16.0);
 	public static final VoxelShape EAST_SHAPE = Block.box(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-	// :::custom-voxels
+	// #endregion custom-voxels
 
 	// :::custom-constructor
 	public VerticalSlabBlock(Properties settings) {
@@ -40,7 +40,7 @@ public class VerticalSlabBlock extends Block {
 
 	// :::custom-constructor
 
-	// :::custom-collision
+	// #region custom-collision
 	@Override
 	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
 		boolean type = state.getValue(SINGLE);
@@ -71,9 +71,9 @@ public class VerticalSlabBlock extends Block {
 	protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return this.getBlockSupportShape(state, level, pos);
 	}
-	// :::custom-collision
+	// #endregion custom-collision
 
-	// :::custom-replace
+	// #region custom-replace
 	@Override
 	protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
 		Direction direction = state.getValue(FACING);
@@ -86,7 +86,7 @@ public class VerticalSlabBlock extends Block {
 
 		return false;
 	}
-	// :::custom-replace
+	// #endregion custom-replace
 
 	// :::custom-placement
 	@Override

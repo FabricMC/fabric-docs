@@ -46,23 +46,23 @@ Pay special attention to the following methods:
 
 Putting this all together, we end up with the following class:
 
-@[code transcludeWith=:::abstractFluid](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#abstract-fluid
 
 Inside `AcidFluid`, we'll create two subclasses for the `Source` and `Flowing` fluids.
 
-@[code transcludeWith=:::fluidSubclasses](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#fluid-subclasses
 
 ### Registering Fluids {#registering-fluids}
 
 Next, we'll create a class to register all the fluid instances. We'll call it `ModFluids`.
 
-@[code transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
 Just like with blocks, you need to ensure that the class is loaded so that all static fields containing your fluid instances are initialized. You can do this by creating a dummy `initialize` method, which can be called in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the static initialization.
 
 Now, go back to the `AcidFluid` class, and add these methods to associate the registered fluid instances with this fluid:
 
-@[code transcludeWith=:::sources](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#sources
 
 So far, we've registered the fluid's source state and its flowing state. Next, we'll need to register a bucket and a `LiquidBlock` for it.
 
@@ -72,11 +72,11 @@ Let's now add a liquid block for our fluid. This is needed by some commands like
 
 Open your `ModBlocks` class and register this following `LiquidBlock`:
 
-@[code transcludeWith=:::acid](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 
 Then, override this method in `AcidFluid` to associate your block with the fluid:
 
-@[code transcludeWith=:::legacyBlock](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#legacy-block
 
 ### Registering Buckets {#buckets}
 
@@ -84,11 +84,11 @@ Fluids in Minecraft usually go in buckets, so let's see how we can add an item f
 
 Open your `ModItems` class and register this following `BucketItem`:
 
-@[code transcludeWith=:::acid_bucket](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#acid-bucket
 
 Then, override this method in `AcidFluid` to associate your bucket with the fluid:
 
-@[code transcludeWith=:::bucket](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#bucket
 
 Don't forget that items require a translation, [texture](../items/first-item#adding-a-texture), [model](../items/first-item#adding-a-model), and [client item](../items/first-item#creating-the-client-item) with the name `acid_bucket` in order to render correctly. An example texture is provided below.
 
@@ -134,7 +134,7 @@ For simplicity, this demo uses `BlockTintSources.constant` to apply a constant g
 
 Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in two `Material`s for the textures—one for the still source and one for the flowing fluid—and a block tint source for the color to tint it with.
 
-@[code transcludeWith=:::fluid_texture](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid-texture
 
 At this point, we have all we need to see the Acid in-game! You can use `setblock` or the Acid Bucket item to place acid in the world.
 
