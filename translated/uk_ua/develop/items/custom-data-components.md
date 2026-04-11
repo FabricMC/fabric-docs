@@ -36,7 +36,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 По-друге, ви повинні надати `Identifier`, що містить призначений ідентифікатор вашого компонента. Це простір назв з ID вашого мода.
 
-Нарешті, у нас є `DataComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Кодек` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
+Нарешті, у нас є `DataComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Codec` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
 
 ## Звичайні компоненти даних {#basic-data-components}
 
@@ -101,7 +101,7 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 :::
 
-Не забудьте оновити файл мови (`/assets/example-mod/lang/en_us.json`, для української `uk_ua.json`) і додати ці два рядки:
+Не забудьте оновити файл мови (`/assets/example-mod/lang/en_us.json` (`uk_ua.json` для української) і додати ці два рядки:
 
 ```json
 {

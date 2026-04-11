@@ -3,6 +3,8 @@ title: 方块实体
 description: 学习如何为你的自定义方块创建方块实体。
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/: Block Entities - NeoForge 文档
 ---
 
 方块实体是一种为方块存储额外数据的方式，这些数据不属于方块状态的一部分：例如物品栏内容、自定义名称等。

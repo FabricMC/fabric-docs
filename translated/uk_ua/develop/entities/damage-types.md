@@ -62,7 +62,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ### Власне повідомлення про смерть {#custom-death-message}
 
-Ви можете визначити повідомлення про смерть для типу шкоди у форматі `death.attack.message_id` у нашому файл `en_us.json` (це англійська, для української створіть `uk_ua.json`) мода.
+Ви можете визначити повідомлення про смерть для типу шкоди у форматі `death.attack.message_id` у нашому файлі `en_us.json` (`uk_ua.json` для української) мода.
 
 ```json
 {

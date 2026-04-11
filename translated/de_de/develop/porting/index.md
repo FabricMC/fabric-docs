@@ -36,9 +36,10 @@ Beginne damit, die Dateien `gradle/wrapper/gradle-wrapper.properties`, `gradle.p
 5. Ersetze jegliche Instanzen von `modImplementation` oder `modCompileOnly` mit `implementation` und `compileOnly`.
 6. Entferne oder ersetze alle Mods, die für Versionen vor 26.1 erstellt wurden, durch Versionen, die mit diesem Update kompatibel sind.
    - Keine der vorhandenen Mods für die Version 1.21.11 oder älter von Minecraft funktioniert mit 26.1, auch nicht als reine Kompilierungsabhängigkeit.
-7. Setze die Java Kompatibilität auf 25, anstelle von 21.
-8. Ersetze alle Erwähnungen von `remapJar` mit `jar`.
-9. Aktualisiere Gradle, indem du auf die Schaltfläche zur Aktualisierung in der oberen rechten Ecke von IntelliJ IDEA klickst. Wenn diese Schaltfläche nicht sichtbar ist, kannst du das Leeren der Caches erzwingen, indem du `./gradlew --refresh-dependencies` ausführst.
+7. Aktualisiere, wennn nötig den Header deines [Zugriffserweiterers oder Klassenoptimierer](../class-tweakers/), um `named` durch `official` zu ersetzen.
+8. Setze die Java Kompatibilität auf 25, anstelle von 21.
+9. Ersetze alle Erwähnungen von `remapJar` mit `jar`.
+10. Aktualisiere Gradle, indem du auf die Schaltfläche zur Aktualisierung in der oberen rechten Ecke von IntelliJ IDEA klickst. Wenn diese Schaltfläche nicht sichtbar ist, kannst du das Leeren der Caches erzwingen, indem du `./gradlew --refresh-dependencies` ausführst.
 
 ## Den Code aktualisieren {#porting-guides}
 
