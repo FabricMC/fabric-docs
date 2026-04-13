@@ -82,13 +82,9 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 For class tweaking, classes use their [internal names](../mixins/bytecode#class-names).
 
-For example, the class tweaker entries for the constants we added in the [mixin section](#creating-the-mixin) would respectively be:
+For example, the class tweaker entry for the `RecipeBookType` constant we added in the [mixin section](#creating-the-mixin) would be:
 
 <<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
-
-and
-
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-ctor-impls-example-entry{classtweaker:no-line-numbers}
 
 ## Applying Changes {#applying-changes}
 
