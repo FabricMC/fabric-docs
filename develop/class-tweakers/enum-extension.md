@@ -52,13 +52,21 @@ You should always prefix the enum constants you add with your mod ID to ensure u
 
 :::
 
-### Additional Fields and Methods {#additional-fields-and-methods}
+### Specifying Fields {#specifying-fields}
 
-If the targeted enum declares additional fields or method implementations, you'll have to shadow the relevant constructor.
+If the target enum has fields to initialize and no default, no-arg, constructor, you must shadow a target class constructor to
+specify fields in your custom entry.
 
 For example, let's add a new `RecipeCategory` entry. Create a constructor matching the target, and annotate it with `@Shadow`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
+
+### Implementing Abstract Methods {#implementing-abstract-methods}
+
+To implement a target enum's abstract methods, shadow the abstract method, then override and implement it in your added entry. For instance,
+let's add a new `ConversionType` entry:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum-extension-abstract-method-impls-example-mixin
 
 ## Making the Class Tweaker Entry {#making-the-class-tweaker-entry}
 
@@ -89,7 +97,8 @@ If modifications do not appear, you can try [validating](../class-tweakers/index
 
 ::: info
 
-You will not see [fields, methods or other elements](#additional-fields-and-methods) in the decompiled source code. That's because those are handled by the mixin, and are only applied at runtime.
+You will not see [fields](#specifying-fields), [method implementations](#implementing-abstract-methods) or other elements in the decompiled source code.
+That's because those are handled by the mixin, and are only applied at runtime.
 
 :::
 

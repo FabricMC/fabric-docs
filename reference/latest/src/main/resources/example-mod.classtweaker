@@ -42,3 +42,7 @@ extend-enum  net/minecraft/world/inventory/RecipeBookType  EXAMPLE_MOD_RECIPE_BO
 # #region enum-extension-ctor-impls-example-entry
 extend-enum  net/minecraft/data/recipes/RecipeCategory  EXAMPLE_MOD_RECIPE_CATEGORY
 # #endregion enum-extension-ctor-impls-example-entry
+
+# #region enum-extension-abstract-method-impls-example-entry
+extend-enum  net/minecraft/world/entity/ConversionType  EXAMPLE_MOD_CONVERSION_TYPE
+# #endregion enum-extension-abstract-method-impls-example-entry
