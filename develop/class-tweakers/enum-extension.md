@@ -52,12 +52,12 @@ You should always prefix the enum constants you add with your mod ID to ensure u
 
 :::
 
-### Specifying Fields {#specifying-fields}
+### Passing Constructor Arguments {#passing-constructor-arguments}
 
-If the target enum has fields to initialize and no default, no-arg, constructor, you must shadow a target class constructor to
-specify fields in your custom entry.
+If the target enum has no default constructor, you must shadow a target class constructor and pass the needed arguments to your added
+entry's declaration.
 
-For example, let's add a new `RecipeCategory` entry. Create a constructor matching the target, and annotate it with `@Shadow`.
+For example, let's add a new `RecipeCategory` entry. Create a constructor matching the desired one in the target class, and annotate it with `@Shadow`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
 
@@ -93,7 +93,7 @@ If modifications do not appear, you can try [validating](../class-tweakers/index
 
 ::: info
 
-You will not see [fields](#specifying-fields), [method implementations](#implementing-abstract-methods) or other elements in the decompiled source code.
+You will not see [passed constructor arguments](#passing-constructor-arguments), [method implementations](#implementing-abstract-methods) or other elements in the decompiled source code.
 That's because those are handled by the mixin, and are only applied at runtime.
 
 :::
