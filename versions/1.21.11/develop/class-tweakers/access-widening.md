@@ -7,6 +7,7 @@ authors-nogithub:
 authors:
   - Ayutac
   - cassiancc
+  - CelDaemon
   - cootshk
   - Earthcomputer
   - florensie
@@ -176,6 +177,6 @@ You can copy it and then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources). The elements you targeted should
+To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
 have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
 and checking if any errors appear.

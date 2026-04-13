@@ -84,7 +84,7 @@ and
 
 ## Applying Changes {#applying-changes}
 
-You'll have to refresh your Gradle project by [regenerating sources](../getting-started/generating-sources) before you can see your added enum entries in the decompiled source.
+You'll have to refresh your Gradle project and [regenerate sources](../getting-started/generating-sources) before you can see your added enum entries in the decompiled source.
 If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
 
 ::: info
