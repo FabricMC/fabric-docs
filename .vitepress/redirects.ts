@@ -2,6 +2,10 @@ import latestVersion from "virtual:fabric-docs:latest-version";
 
 export default [
   {
+    from: /[/]{2,}/,
+    dest: "/",
+  },
+  {
     from: /((?<=^|[/])index)?[.]html$/,
     dest: "",
   },
@@ -42,7 +46,7 @@ export default [
     dest: "develop/blocks/transparency-and-tinting/",
   },
   {
-    from: /develop[/]porting[/]mappings([/].*)?$/,
+    from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings([/].*)?$/,
     dest: "1.21.11/develop/porting/mappings$1",
   },
 ] satisfies { from: RegExp; dest: string }[];
