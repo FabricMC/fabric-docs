@@ -13,6 +13,7 @@ subprojects {
 		archivesName = "example-mod-${project.name}"
 	}
 
+	// #region split-sources
 	loom {
 		splitEnvironmentSourceSets()
 
@@ -22,7 +23,10 @@ subprojects {
 				sourceSet sourceSets.client
 			}
 		}
+	}
+	// #endregion split-sources
 
+	loom {
 		runs.configureEach {
 			ideConfigGenerated = true
 		}

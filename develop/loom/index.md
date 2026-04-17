@@ -61,18 +61,7 @@ The following snippet from a `build.gradle` file shows how you can enable this f
 
 Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
 
-```groovy
-loom {
- splitEnvironmentSourceSets()
-
- mods {
-   example-mod {
-     sourceSet sourceSets.main
-     sourceSet sourceSets.client
-   }
- }
- }
-```
+<<< @/reference/build.gradle#split-sources
 
 ## Resolving Issues {#issues}
 
