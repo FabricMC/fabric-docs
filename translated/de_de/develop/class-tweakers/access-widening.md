@@ -7,6 +7,7 @@ authors-nogithub:
 authors:
   - Ayutac
   - cassiancc
+  - CelDaemon
   - cootshk
   - Earthcomputer
   - florensie
@@ -81,7 +82,7 @@ Bei der Optimierung von Klassen verwenden Klassen und Interfaces ihre [internen 
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -93,7 +94,7 @@ Beispiel:
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -105,7 +106,7 @@ Beispiel:
 
 Format:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
@@ -155,5 +156,5 @@ Du kannst dann den Eintrag in deine Klassenoptimierer Datei einfügen.
 
 ## Änderungen anwenden {#applying-changes}
 
-Damit deine Änderungen übernommen werden, musst du dein Gradle-Projekt aktualisieren, indem du die [Quellen neu generierst](../getting-started/generating-sources). Die von dir ausgewählten Elemente sollten
+Damit deine Änderungen übernommen werden, musst du dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources). Die von dir ausgewählten Elemente sollten
 entsprechend deren Zugriffsbeschränkungen angepasst werden. Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob irgendwelche Fehler auftreten.

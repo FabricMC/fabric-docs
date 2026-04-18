@@ -25,8 +25,10 @@ Klassenoptimierer-Dateien werden üblicherweise nach deiner Mod-ID benannt, z. B
 Die Datei muss in der ersten Zeile die folgende Kopfzeile enthalten:
 
 ```classtweaker
-classTweaker v1 official
+classTweaker  v1  official
 ```
+
+Für einige Funktionen ist möglicherweise eine Version höher als `v1` erforderlich - dies wird auf den jeweiligen Seiten angegeben.
 
 Klassenoptimierer Dateien können Leerzeilen und Kommentare enthalten, die mit `#` beginnen. Kommentare können am Ende einer Zeile beginnen.
 
@@ -45,6 +47,9 @@ transitive-mutable
 
 # Transitive Interface Injection directive
 transitive-inject-interface
+
+# Transitive Enum Extension directive
+transitive-extend-enum
 ```
 
 ### Den Dateiort angeben {#specifying-the-file-location}
@@ -73,4 +78,4 @@ Nachdem du den Speicherort der Datei in deiner Datei `build.gradle` angegeben ha
 
 Standardmäßig ignorieren Klassenoptimierer Einträge, die auf nicht auffindbare Änderungsziele verweisen. Um zu überprüfen, ob alle in der Datei angegebenen Klassen, Felder und Methoden gültig sind, führe die Gradle-Aufgabe `validateAccessWidener` aus.
 
-Fehlermeldungen weisen zwar auf jeden ungültigen Eintrag hin, geben jedoch nicht unbedingt an, welcher Teil des Eintrag ungültig ist.
+Fehlermeldungen weisen zwar auf jeden ungültigen Eintrag hin, können jedoch unspezifisch darüber sein, welcher Teil des Eintrag ungültig ist.

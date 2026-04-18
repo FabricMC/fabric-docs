@@ -5,6 +5,7 @@ authors-nogithub:
   - salvopelux
 authors:
   - Daomephsta
+  - CelDaemon
   - Earthcomputer
   - its-miroma
   - Juuxel
@@ -57,7 +58,7 @@ Die Überschreibungen werden der Zielklasse zur Laufzeit hinzugefügt, erscheine
 
 Die Interface-Injektion verwendet den folgenden Syntax:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 inject-interface    <targetClassName>    <injectedInterfaceName>
 ```
 
@@ -65,7 +66,7 @@ Bei der Optimierung von Klassen verwenden Klassen und Interfaces ihre [internen 
 
 Für unser Beispielinterface würde der Eintrag wie folgt lauten:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
 
 ### Generische Interfaces {#generic-interfaces}
 
@@ -92,11 +93,11 @@ mite den generischen Typen `<? extends String, Boolean[]>`
 
 Der Eintrag des Klassenoptimierer wäre:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
 
 ## Änderungen anwenden {#applying-changes}
 
-Damit deine Implementierung des Interface übernommen wird, musst du dein Gradle-Projekt aktualisieren, indem du die [Quellen neu generierst](../getting-started/generating-sources).
+Damit deine Implementierung des Interface übernommen wird, musst du dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources).
 Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, die Datei zu [validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftreten.
 
 Die hinzugefügten Methoden können nun auf Instanzen der Klasse angewendet werden, in die das Interface injiziert wurde:

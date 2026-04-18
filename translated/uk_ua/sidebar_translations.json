@@ -92,6 +92,7 @@
   "develop.class_tweakers.introduction": "Вступ",
   "develop.class_tweakers.access_widening": "Розширення доступу",
   "develop.class_tweakers.interface_injection": "Упровадження інтерфейсу",
+  "develop.class_tweakers.enum_extension": "Розширення переліку",
   "develop.serialization": "Серіалізація",
   "develop.porting": "Портування",
   "develop.porting.release": "Портування до 26.1",

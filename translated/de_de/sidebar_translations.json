@@ -92,6 +92,7 @@
   "develop.class_tweakers.introduction": "Einführung",
   "develop.class_tweakers.access_widening": "Zugriffserweiterung",
   "develop.class_tweakers.interface_injection": "Interface-Injektion",
+  "develop.class_tweakers.enum_extension": "Enum Erweiterung",
   "develop.serialization": "Serialisierung",
   "develop.porting": "Portierung",
   "develop.porting.release": "Zu 26.1 portieren",

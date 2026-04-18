@@ -7,6 +7,7 @@ authors-nogithub:
 authors:
   - Ayutac
   - cassiancc
+  - CelDaemon
   - cootshk
   - Earthcomputer
   - florensie
@@ -33,7 +34,7 @@ authors:
 Розширення доступу — це тип [твікінгу класу](../class-tweakers), який використовується для послаблення обмежень доступу до класів, методів і полів і відбиття цієї зміни в декомпільованому джерелі.
 Це охоплює надання їм загальнодоступних, розширюваних і/або змінних.
 
-Записи розширення доступу можуть бути [перехідними](../class-tweakers/index#transitive-entries), щоб зробити зміни видимими для модів залежно від ваших.
+Записи розширення доступу можуть бути [транзитивними](../class-tweakers/index#transitive-entries), щоб зробити зміни видимими для модів залежно від ваших.
 
 Щоб отримати доступ до полів або методів, безпечніше та простіше використовувати [міксини доступу](https://wiki.fabricmc.net/tutorial:mixin_accessors), але є дві ситуації, коли засобів доступу недостатньо і необхідне розширення доступу:
 
@@ -80,7 +81,7 @@ authors:
 
 Формат:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -92,7 +93,7 @@ authors:
 
 Формат:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -104,7 +105,7 @@ authors:
 
 Формат:
 
-```classtweaker:no-line-numbers
+```:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
@@ -153,4 +154,4 @@ authors:
 
 ## Застосування змін {#applying-changes}
 
-Щоб побачити внесені зміни, оновіть проєкт Gradle за допомогою [перегенерації джерел](../getting-started/generating-sources). Необхідно відповідним чином змінити обмеження доступу для елементів, які ви націлили. Якщо зміни не показано, ви можете спробувати [перевірити файл](../class-tweakers/index#validating-the-file) та перевірити на наявність помилок.
+Щоб побачити внесені зміни, оновіть проєкт Gradle з [перегенеруванням джерел](../getting-started/generating-sources). Необхідно відповідним чином змінити обмеження доступу для елементів, які ви націлили. Якщо зміни не показано, ви можете спробувати [перевірити файл](../class-tweakers/index#validating-the-file) та перевірити на наявність помилок.
