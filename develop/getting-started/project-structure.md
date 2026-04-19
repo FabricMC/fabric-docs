@@ -20,14 +20,6 @@ The most important fields in the `fabric.mod.json` file are:
 - `depends`: The mods that your mod depends on.
 - `mixins`: The mixins that your mod provides.
 
-You can see an example `fabric.mod.json` file below - this is the `fabric.mod.json` file for the mod that powers this documentation site.
-
-::: details `fabric.mod.json` of the Example Mod
-
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
-
-:::
-
 ## Entrypoints {#entrypoints}
 
 As mentioned before, the [`fabric.mod.json`](../loader/fabric-mod-json) file contains a field called `entrypoints` - this field is used to specify the entrypoints that your mod provides.
