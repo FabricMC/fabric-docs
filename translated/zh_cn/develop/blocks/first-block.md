@@ -43,7 +43,7 @@ public class ModBlocks {
 
 ## 创建并注册你的方块{#creating-and-registering-your-block}
 
-和物品类似，方块会在构造函数中接收一个 `BlockBehavior.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
+和物品类似，方块会在构造函数中接收一个 `BlockBehaviour.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
 这里不会把所有选项都提到：可以查看类本身来看看各种选项，应该都是不言自明的。
 
@@ -54,7 +54,7 @@ public class ModBlocks {
 
 ::: tip
 
-可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
+可以使用 `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
 
 :::
 
