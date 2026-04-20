@@ -17,8 +17,7 @@ resources:
   https://jubianchi.github.io/semver-check/: Semantic Version Comparison Tool
 ---
 
-<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, Range] } } -->
-<!-- markdownlint-configure-file { MD011: { enabled: false } } -->
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, Range] }, MD011: false } -->
 
 <script setup lang="ts">
 import { h } from "vue";
