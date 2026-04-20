@@ -25,7 +25,7 @@ import { h } from "vue";
 const Range = ({ r }) => h(
   "a",
   {
-    href: `https://jubianchi.github.io/semver-check/#/${encodeURIComponent(r.replace(/[0-9]+[.][0-9]+(?![.])/, "$0.0"))}/26.1.2`,
+    href: `https://jubianchi.github.io/semver-check/#/${encodeURIComponent(r.replaceAll(/(?<![0-9.])[0-9]+[.][0-9]+(?![.])/, "$&.0"))}/26.1.2`,
     target: "_blank",
     rel: "noreferrer",
   },
