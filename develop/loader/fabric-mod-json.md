@@ -18,6 +18,7 @@ resources:
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [script, Range] } } -->
+<!-- markdownlint-configure-file { MD011: { enabled: false } } -->
 
 <script setup lang="ts">
 import { h } from "vue";
