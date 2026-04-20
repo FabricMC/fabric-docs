@@ -152,19 +152,22 @@ The key of each entry is the mod ID of the dependency.
 
 The value of each key is a string or array of strings declaring supported version ranges of the dependency. If it's an array, only one of the ranges has to match for the constraint to be satisfied.
 
-1. To depend on any version of the dependency, just write `*`.
-2. To depend on only a specific version of the dependency, just write its version number, e.g. `26.1`.
-3. To depend on all versions of the dependency above a version, write `>26`.
-4. For a more complicated dependency, like a dependency on Minecraft 26.1 and its hotfix, 26.1.1, we could use any of the following examples:
+Here are some examples of ranges and what they indicate. Try using [jubianchi's Semver check](https://jubianchi.github.io/semver-check/#/) to test which values will satisfy the constraint.
 
-::: details Examples for a dependency on 26.1 and 26.1.1
-
-- `[26.1, 26.1.1]` - Will only load on 26.1 and 26.1.1, none of their snapshots, pre-releases, release candidates, or the April Fools version 26w14a (parsed by Fabric as `26.1.1-alpha.26.14.a`).
-- `>26 <26.2` - [Will load on all versions higher than 26 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including all snapshots, pre-releases, release candidates, but also the nonexistent 26.0 versions.
-- `>=26.1 <26.2` - [Will load on all versions greater than or equal to than 26.1 and lower than 26.2](https://jubianchi.github.io/semver-check/#/%3E26%20%3C26.2/26.1.0), including 26.1 and any hotfixes for it, as well as snapshots, pre-releases, release candidates for these hotfixes..
-- `26.1.x` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/26.1.x/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
-- `~26.1` - [Will load on any 26.1.x version](https://jubianchi.github.io/semver-check/#/~26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1 and 26.1.1.
-- `^26.1` - [Will load on any 26.x.x version](https://jubianchi.github.io/semver-check/#/^26.1/26.1), including snapshots, pre-releases, and release candidates for 26.1, 26.2, and above, but not including 27.x.
+| Range | Description | Matches | Clashes |
+| ----- | ----------- | ------- | ------- |
+| <Range r="*" /> | Any version (not recommended) | `26.1.2`, `24w14potato`... | _none_ |
+| <Range r="26.1.2" /> | Exact version only | `26.1.2` | `26.1`, `26.1.1`, `26.2`... |
+| <Range r="26.1.0 \|\| 26.1.1" /> | Either range | `26.1.0`, `26.1.1` | `26.1.2`, `26.2`... |
+| <Range r="[26.1.0, 26.1.1]" /> | Equivalent to `26.1.0 \|\| 26.1.1` | `26.1`, `26.1.1` | `26.1.2`, `26.2`... |
+| <Range r=">26" /> | Above a version (exclusive) | `26.1.2`, `26.2`... | `26`, `25.x`... |
+| <Range r=">=26.1" /> | At or above a version (inclusive) | `26.1`, `26.1.2`, `26.2`... | `26.0`, `25.x`... |
+| <Range r="<=26.1" /> | At or below a version (inclusive) | `26.1`, `26.0`, `25.x`... | `26.1.2`, `26.2`... |
+| <Range r=">26 <26.2" /> | Between two versions (both exclusive) | `26.1`, `26.1.2`, snapshots... | `26`, `26.2`... |
+| <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound) | `26.1`, `26.1.2`, snapshots... | `26.0`, `26.2`... |
+| <Range r="26.1.x" /> | Any patch of a minor version | `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`... |
+| <Range r="~26.1" /> | Same as `26.1.x` | `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`... |
+| <Range r="^26.1" /> | Any version in the same major | `26.1.2`, `26.2`, `26.3`... | `25.x`, `27.x`... |
 
 :::
 
