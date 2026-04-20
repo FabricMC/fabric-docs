@@ -9,7 +9,7 @@ authors:
   - Llamalad7
   - SolidBlock-cn
 resources:
-  https://maven.fabricmc.net/docs/fabric-loader-0.18.6/: Fabric Loader 0.18.6 Javadocs
+  https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Fabric Loader 0.19.2 Javadocs
   https://wiki.fabricmc.net/documentation:entrypoint: Entrypoints - Fabric Wiki
   https://github.com/FabricMC/fabric-loader: Fabric Loader on GitHub
 ---
