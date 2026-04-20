@@ -21,13 +21,19 @@ It is recommended to understand how [mod dependency fields are structured](../..
 
 :::
 
-When developing a modpack, it is possible to find mods with dependency requirements that do not match what the mod actually requires. A common case of this is mods with too strict of a Minecraft dependency, causing them to unnecessarily break when the game recieves a minor hotfix like 26.1.1.
+Sometimes, when assembling a modpack, you might encounter mods with unhelpful dependency requirements - for example, a mod might be too stringent and require Minecraft `26.1`, despite it also working on `26.1.2`.
 
-To solve this, Fabric Loader allows overriding a mod's dependency requirement so that the mod can attempt to load on a version of Minecraft that it is not designed for. This is meant to be a temporary solution if possible. If the mod is actively maintained, it's recommended to report this incompatibility on its issue tracker so that users do not need to use this workaround.
+To counter this, Fabric Loader lets you override dependency requirements, so you can attempt to load a mod on a version of Minecraft it is not designed for.
+
+::: tip
+
+Overriding dependencies should only be a temporary solution if possible. If the mod is actively maintained, consider reporting this incompatibility on the issue tracker, and letting the developers upstream take care of the issue.
+
+:::
 
 ## Setup {#setup}
 
-::: info
+:::: info
 
 For the purposes of this example, we'll be using the following `fabric.mod.json` for a mod with the id `example-mod`. At any point, you can switch tabs in a code block to see how the dependency override affects this `fabric.mod.json`.
 
@@ -52,6 +58,8 @@ For the purposes of this example, we'll be using the following `fabric.mod.json`
 ```
 
 :::
+
+::::
 
 First, create a file named `fabric_loader_dependencies.json` inside the `.minecraft/config` folder.
 
