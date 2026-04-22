@@ -68,7 +68,7 @@
         <module name="UnusedImports"/>
 
         <module name="ImportOrder">
-            <property name="groups" value="java,javax,*,net.minecraft,net.fabricmc,com.example"/>
+            <property name="groups" value="java,javax,*,net.minecraft,net.fabricmc,com.example.docs"/>
             <property name="ordered" value="true"/>
             <property name="separated" value="true"/>
             <property name="option" value="top"/>
