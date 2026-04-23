@@ -26,7 +26,7 @@ const urls = computed(() =>
     : {
         home: `/${data.localeIndex.value}/`,
         // TODO: hide if English=404
-        english: data.page.value.relativePath.replace(getEnglish.value, ""),
+        english: data.page.value.relativePath.replaceAll(getEnglish.value, ""),
         // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
         crowdin: `https://crowdin.com/project/fabricmc/${options.value.crowdinLocale}`,
       }

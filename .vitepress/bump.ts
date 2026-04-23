@@ -97,7 +97,7 @@ console.log("Updating links in content...");
 for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
   const content = fs
     .readFileSync(file, "utf-8")
-    .replace(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
+    .replaceAll(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
   fs.writeFileSync(file, content);
 }
 
@@ -121,7 +121,7 @@ for (const locale of locales) {
         "",
       ].join("\n")
     )
-    .replace(linksRegex, (m) => `${m}${oldVersion}/`);
+    .replaceAll(linksRegex, (m) => `${m}${oldVersion}/`);
   fs.writeFileSync(file, content);
 }
 
