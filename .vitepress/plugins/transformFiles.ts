@@ -1,39 +1,38 @@
 import matter from "gray-matter";
 import { Plugin } from "vitepress";
 
-export default (): Plugin => {
-  const name = "fabric-docs:transform-files";
+export const transformFile = (src: string) => {
+  let { data, content } = matter(src);
 
-  return {
-    name,
-    enforce: "pre",
+  // Add heading from frontmatter title
+  if (data.title && data.layout !== "home") {
+    content = `# ${data.title} {#h1}\n\n${content}`;
+  }
 
-    transform: {
-      filter: { id: /\.md$/ },
-      handler(src, id) {
-        this.addWatchFile(id);
+  if (data.filesExclude === true) {
+    data.files = [];
+  } else {
+    // Find files referenced in the page
+    const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
+    const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
 
-        let { data, content } = matter(src);
+    matches.push(...(data.files ?? []));
 
-        // Add heading from frontmatter title
-        if (data.title && data.layout !== "home") {
-          content = `# ${data.title} {#h1}\n\n${content}`;
-        }
+    data.files = [...new Set(matches)].filter((f) => !(data.filesExclude ?? []).includes(f));
+  }
 
-        if (data.filesExclude === true) {
-          data.files = [];
-        } else {
-          // Find files referenced in the page
-          const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
-          const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
+  return matter.stringify(content, data);
+};
 
-          matches.push(...(data.files ?? []));
+export const transformFilesPlugin: Plugin = {
+  name: "fabric-docs:transform-files",
+  enforce: "pre",
 
-          data.files = [...new Set(matches)].filter((f) => !(data.filesExclude ?? []).includes(f));
-        }
-
-        return { code: matter.stringify(content, data) };
-      },
+  transform: {
+    filter: { id: /\.md$/ },
+    handler(src, id) {
+      this.addWatchFile(id);
+      return { code: transformFile(src) };
     },
-  };
+  },
 };
