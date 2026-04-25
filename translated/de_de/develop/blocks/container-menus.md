@@ -2,6 +2,9 @@
 title: Containermenüs
 description: Ein Leitfaden, in der erklärt wird, wie man ein einfaches Menü für einen Containerblock erstellt.
 authors:
+  - bluebear94
+  - cassiancc
+  - ChampionAsh5357
   - CelDaemon
   - Tenneb22
 resources:

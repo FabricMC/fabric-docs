@@ -4,6 +4,9 @@ description: 学习 Java 字节码以便高效编写 mixin。
 authors:
   - Earthcomputer
   - its-miroma
+  - Kilip1000
+resources:
+  https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions: JVM 字节码指令列表 - 维基百科（英文）
 ---
 
 mixin 是在 Java 字节码上操作的，所以要理解 mixin 需要对字节码有所了解。
@@ -137,7 +140,7 @@ static add (DDD)D
 
 可以看到，字节码不需要局部变量的名称，因为是根据 LVT 索引识别的。 尽管如此，许多库仍保留调试信息，包括局部变量的名称，这样调试更方便，并且你可以在开发 mixin 时根据名称找到局部变量。
 
-然而，Minecraft 1.21.1 默认不提供这个，因此可以说是混淆的。 注意[未来版本的 Minecraft 会是未混淆的](../migrating-mappings/#whats-going-on-with-mappings)。
+Minecraft 26.1 及更高版本都是这种情况，因为这些版本没有进行混淆。 请注意，[先前版本的 Minecraft 是被混淆的](../porting/mappings/#whats-going-on-with-mappings)。
 
 :::
 
@@ -145,7 +148,7 @@ static add (DDD)D
 
 就像原生的汇编语言使用处理器寄存器一样，Java 的字节码使用 _操作数栈_ 来存储临时值。
 
-和其他的[栈](https://en.wikipedia.org/wiki/Stack_\(abstract_data_type\))一样，值是添加（进栈）到栈顶，从栈顶移除（出栈）的。 可以想想一叠盘子：把盘子加到这叠盘子，会加到这叠顶部，而如果需要一个盘子，也会从顶部取。 这样的数据结构称为 _后入先出_，因为最后放上去（进栈）的“盘子”会被最先取走（出栈）。
+和其他的[栈](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))一样，值是添加（进栈）到栈顶，从栈顶移除（出栈）的。 可以想想一叠盘子：把盘子加到这叠盘子，会加到这叠顶部，而如果需要一个盘子，也会从顶部取。 这样的数据结构称为 _后入先出_，因为最后放上去（进栈）的“盘子”会被最先取走（出栈）。
 
 我们再来看看刚刚的 `getX` 的例子：
 
@@ -344,7 +347,7 @@ L1
 
 ## 常见字节码模式{#common-bytecode-patterns}
 
-这是你在开发 mixin 时可能遇到的最常见的字节码指令和模式和参考。 完整的指令列表，请参考[英文维基百科上的字节码指令列表](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions)。
+这是你在开发 mixin 时可能遇到的最常见的字节码指令和模式和参考。 有关完整的高级指令列表，请查看英文维基百科上的 [JVM 字节码指令列表](https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions)。
 
 ### 常量{#constant-instructions}
 

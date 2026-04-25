@@ -23,6 +23,10 @@ prev:
 next:
   text: 在 IntelliJ IDEA 中打开项目
   link: ./opening-a-project
+resources:
+  https://www.jetbrains.com/idea/download/: 从 JetBrains 下载 IntelliJ IDEA
+  https://www.jetbrains.com/help/idea/getting-started.html: IntelliJ IDEA 入门指南
+  https://plugins.jetbrains.com/plugin/8327-minecraft-development: Minecraft 开发插件 - JB Marketplace
 ---
 
 <!---->
@@ -35,7 +39,13 @@ next:
 
 ## 安装 IntelliJ IDEA {#installing-intellij-idea}
 
-如果没有安装 IntelliJ IDEA，可以从[官方网站](https://www.jetbrains.com/idea/download/)下载——按照你的操作系统的安装步骤操作。
+::: warning
+
+需要 IntelliJ IDEA 2025.3 或更高版本才能修改 26.1。
+
+:::
+
+如果尚未安装 IntelliJ IDEA，或者**版本低于 2025.3**，可以从[官方网站](https://www.jetbrains.com/idea/download/)下载，并按照适用于你操作系统的安装步骤操作。
 
 ![IntelliJ IDEA 下载提示](/assets/develop/getting-started/idea-download.png)
 

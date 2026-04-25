@@ -11,6 +11,8 @@ authors:
 authors-nogithub:
   - siglong
   - tao0lu
+resources:
+  https://docs.neoforged.net/docs/items/mobeffects: Mob Effects - NeoForge 文档（Potions 除外）
 ---
 
 生物效果，也称为状态效果或简称效果，是一种可以影响实体的状态。 可以是正面、负面或中性的。 游戏本体通过许多不同的方式应用这些效果，如食物和药水等等。

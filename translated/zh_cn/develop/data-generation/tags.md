@@ -22,9 +22,9 @@ authors-nogithub:
 
 在这里我们将展示如何创建 `Item` 标签，但同样的原则对其他场景也适用。
 
-Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`FabricTagProvider.ItemTagProvider`。 我们将使用这个辅助类作为这个例子。
+Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`FabricTagsProvider.ItemTagsProvider`。 我们将使用这个辅助类作为这个例子。
 
-您可以创建自己的类来继承 `FabricTagProvider<T>`，其中 `T` 是您想要为其提供标签的类型。 这是你的**提供程序**。
+你可以创建自己的类来继承 `FabricTagsProvider<T>`，其中 `T` 是你想要为其提供标签的类型。 这是你的**提供程序**。
 
 让你的 IDE 填充所需的代码，然后用你的类型的 `ResourceKey` 替换 `resourceKey` 构造函数参数：
 
@@ -32,7 +32,7 @@ Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`Fab
 
 ::: tip
 
-你需要为每种类型的标签提供不同的提供程序（例如，一个 `FabricTagProvider<EntityType<?>>` 和一个 `FabricTagProvider<Item>`）。
+你需要为每种类型的标签提供不同的提供程序（例如，一个 `FabricTagsProvider<EntityType<?>>` 和一个 `FabricTagsProvider<Item>`）。
 
 :::
 

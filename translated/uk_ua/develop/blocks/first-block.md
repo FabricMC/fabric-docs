@@ -2,6 +2,7 @@
 title: Створення вашого першого блока
 description: Навчіться як створювати власні блоки в Minecraft.
 authors:
+  - bluebear94
   - CelDaemon
   - Earthcomputer
   - IMB11

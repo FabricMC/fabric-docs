@@ -66,7 +66,7 @@ authors:
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-如果需要让物品能从创造模式物品栏获取的话，还需要**给将物品添加到创造模式标签页**。
+如果你希望这些物品可以从物品栏中访问，你还需要将它们添加到[创造模式标签页](./custom-creative-tabs)。
 
 就像所有物品一样，要为这些物品创建翻译键。
 

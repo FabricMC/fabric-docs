@@ -3,6 +3,9 @@ title: 项目结构
 description: Fabric 模组项目结构概述
 authors:
   - IMB11
+resources:
+  https://wiki.fabricmc.net/documentation:fabric_mod_json: fabric.mod.json v1 规范 - Fabric Wiki
+  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: fabric.mod.json v1 规范的源代码
 ---
 
 本页将介绍 Fabric 模组项目的结构，以及项目中每个文件和文件夹的作用。

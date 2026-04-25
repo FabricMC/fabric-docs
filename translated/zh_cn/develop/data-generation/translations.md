@@ -39,7 +39,7 @@ authors-nogithub:
 
 ## 创建翻译 {#creating-translations}
 
-除了创建原始翻译、来自 `Identifier` 的翻译以及从现有的文件复制（通过传递 `Path`）之外，还有用于翻译物品、方块、标签、统计数据、实体、状态效果、创造模式物品栏、实体属性和魔咒的辅助方法。 只需在 `translationBuilder` 上调用 `add`，添加你想要翻译的内容以及应该翻译成的内容：
+除了创建原始翻译、来自 `Identifier` 的翻译以及从现有的文件复制（通过传递 `Path`）之外，还有用于翻译物品、方块、标签、统计信息、实体、生物效果、创造模式标签页、实体属性和魔咒的辅助方法。 只需在 `translationBuilder` 上调用 `add`，添加你想要翻译的内容以及应该翻译成的内容：
 
 @[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
 

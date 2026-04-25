@@ -61,12 +61,12 @@ git clone https://github.com/your-username/fabric-docs.git
 
 #### 安装依赖项 {#install-dependencies}
 
-如果希望在本地预览你的更改，你需要安装 [Node.js 18 或更高版本](https://nodejs.org/en/)。
+如果希望在本地预览更改，你需要安装 [Node.js 18 或更高版本](https://nodejs.org/zh-cn/) 和 [pnpm](https://pnpm.io/)。
 
 之后，确保使用以下命令安装所有依赖项：
 
 ```sh
-npm install
+pnpm install
 ```
 
 #### 运行开发服务器 {#run-the-development-server}
@@ -74,7 +74,7 @@ npm install
 这将允许你在本地预览 `localhost:5173` 的更改，并在你进行更改时自动重新加载页面。
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 现在你可以通过访问 `http://localhost:5173` 在浏览器中打开和浏览网站。
@@ -84,7 +84,7 @@ npm run dev
 这将编译所有 Markdown 文件为静态 HTML 文件，并将它们放置在 `.vitepress/dist` ：
 
 ```sh
-npm run build
+pnpm build
 ```
 
 #### 预览已构建的网站 {#previewing-the-built-website}
@@ -92,7 +92,7 @@ npm run build
 这将启动一个本地服务器，监听端口 `4173` ，并提供 `.vitepress/dist` 中的内容：
 
 ```sh
-npm run preview
+pnpm preview
 ```
 
 #### 打开 Pull Request {#opening-a-pull-request}
@@ -144,7 +144,7 @@ git push
 
 :::
 
-## 风格指南 {#style-guidelines}
+## 样式指南 {#style-guidelines}
 
 如果你有任何疑问，可以在 [Fabric Discord](https://discord.fabricmc.net/) 或通过 GitHub Discussions 提问。
 

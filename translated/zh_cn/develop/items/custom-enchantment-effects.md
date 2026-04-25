@@ -4,6 +4,9 @@ description: 学习如何创建自己的魔咒效果。
 authors:
   - CelDaemon
   - krizh-p
+resources:
+  https://minecraft.wiki/w/Enchantment_definition: 魔咒定义 - Minecraft Wiki
+  https://misode.github.io/enchantment/: Misode 的魔咒生成器
 ---
 
 从 1.21 开始，Minecraft 中的自定义魔咒通过“数据驱动”的方式添加。 这让添加一些简单的魔咒（如增加攻击伤害）变得更容易，但创建复杂的魔咒则更具挑战性。 这个过程包括将魔咒分解成 _效果组件_。
@@ -38,7 +41,7 @@ authors:
 
 现在我们有了一个魔咒效果！ 最后一步是创建应用我们自定义的效果的魔咒。 我们可以使用数据驱动的魔咒系统来创建魔咒，只需要在我们的模组的资源中添加一个 JSON 文件即可。
 
-在 `data/example-mod/enchantments` 创建 JSON 文件。 文件的名称就会是魔咒的 ID：`thundering.json` 就会是 `example-mod:thundering`。
+在 `data/example-mod/enchantment` 创建 JSON 文件。 文件的名称就会是魔咒的 ID：`thundering.json` 就会是 `example-mod:thundering`。
 
 ::: info
 

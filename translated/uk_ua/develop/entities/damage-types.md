@@ -82,7 +82,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ::: info
 
-Зверніться до [Вікі Minecraft](https://uk.minecraft.wiki/w/%D0%A2%D0%B5%D2%91_%D1%82%D0%B8%D0%BF%D1%96%D0%B2_%D1%88%D0%BA%D0%BE%D0%B4%D0%B8_\(Java_Edition\)), щоб отримати повний список теґів типу шкоди.
+Зверніться до [Вікі Minecraft](https://uk.minecraft.wiki/w/%D0%A2%D0%B5%D2%91_%D1%82%D0%B8%D0%BF%D1%96%D0%B2_%D1%88%D0%BA%D0%BE%D0%B4%D0%B8_(Java_Edition)), щоб отримати повний список теґів типу шкоди.
 
 :::
 

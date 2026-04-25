@@ -92,6 +92,7 @@
   "develop.class_tweakers.introduction": "介绍",
   "develop.class_tweakers.access_widening": "访问权加宽",
   "develop.class_tweakers.interface_injection": "接口注入",
+  "develop.class_tweakers.enum_extension": "枚举扩展",
   "develop.serialization": "序列化",
   "develop.porting": "移植",
   "develop.porting.release": "移植到 26.1",

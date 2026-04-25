@@ -9,6 +9,9 @@ prev:
 next:
   text: 在 VS Code 中打开项目
   link: ./opening-a-project
+resources:
+  https://code.visualstudio.com/: 下载 Visual Studio Code
+  https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack: Extension Pack for Java（Java 扩展包） - VS Marketplace
 ---
 
 <!---->

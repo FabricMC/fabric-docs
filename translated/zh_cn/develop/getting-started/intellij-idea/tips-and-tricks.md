@@ -9,6 +9,9 @@ prev:
   text: 在 IntelliJ IDEA 中构建 Mod
   link: ./building-a-mod
 next: false
+resources:
+  https://www.youtube.com/watch?v=V8lss58zBPI: Anton Arhipov 关于 IntelliJ IDEA 的谈话
+  https://blog.jetbrains.com/idea/category/tips-tricks/: 官方提示和技巧
 ---
 
 本页面提供一些有用的信息，加速并简化开发者的工作流程。 根据你的喜好自由发挥到你的项目中。
