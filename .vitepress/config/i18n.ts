@@ -77,7 +77,9 @@ export const getLocales = () => {
   };
 
   for (const locale of locales) {
-    const intlLocale = intlLocaleOverrides[locale] ?? locale.replace("_", "-");
+    const intlLocale =
+      intlLocaleOverrides[locale]
+      ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
     const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
 
     const resolver = getResolver("website_translations.json", locale);
