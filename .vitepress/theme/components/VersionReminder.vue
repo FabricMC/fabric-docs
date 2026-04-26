@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import latestVersion from "virtual:fabric-docs:latest-version";
 import { useData } from "vitepress";
 import { computed } from "vue";
 import { Fabric } from "../../types.d";
@@ -13,7 +12,7 @@ const version = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
   if (/^[0-9.]+$/.test(split[0])) return split[0];
-  return latestVersion;
+  return data.theme.value.nav.at(-1).props.versioningPlugin.latestVersion as string;
 });
 
 const replaceVersion = (s: string) => {

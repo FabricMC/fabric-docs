@@ -1,13 +1,20 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import latestVersionPlugin from "../plugins/latestVersion";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
 import { getLocales } from "./i18n";
 import { transformHead, transformItems } from "./transform";
+
+const latestVersion = fs
+  .readFileSync(
+    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
+    "utf-8"
+  )
+  .match(/def minecraftVersion = "([^"]+)"/)![1];
 
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
@@ -119,6 +126,7 @@ export default defineVersionedConfig(
 
     // Versioning plugin configuration.
     versioning: {
+      latestVersion,
       rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: (s) =>
@@ -138,7 +146,7 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [latestVersionPlugin(), transformFilesPlugin],
+      plugins: [transformFilesPlugin],
     },
   },
   path.resolve(import.meta.dirname, "..")

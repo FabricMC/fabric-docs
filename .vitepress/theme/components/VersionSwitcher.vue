@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { getIcon, Icon, loadIcon } from "@iconify/vue";
-import latestVersion from "virtual:fabric-docs:latest-version";
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
@@ -8,7 +7,7 @@ import { computed, onMounted, ref } from "vue";
 import { Fabric } from "../../types.d";
 
 const props = defineProps<{
-  versioningPlugin: { versions: string[] };
+  versioningPlugin: { versions: string[]; latestVersion: string };
   screenMenu?: boolean;
 }>();
 
@@ -22,7 +21,7 @@ const currentV = computed(() => {
   const split = data.page.value.filePath.split("/");
   if (split[0] === "versions") return split[1];
   if (/^[0-9.]+$/.test(split[0])) return split[0];
-  return latestVersion;
+  return props.versioningPlugin.latestVersion;
 });
 
 const button = computed(() => {
@@ -38,7 +37,7 @@ const button = computed(() => {
 // TODO: add future versions to the supported pages
 const versions = computed(() =>
   [
-    latestVersion,
+    props.versioningPlugin.latestVersion,
     ...(typeof env.value === "number"
       ? []
       : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
@@ -63,7 +62,7 @@ const getRoute = (v: string) => {
   const segments = [
     "",
     data.localeIndex.value !== "root" ? data.localeIndex.value : undefined,
-    v !== latestVersion ? v : undefined,
+    v !== props.versioningPlugin.latestVersion ? v : undefined,
     ...neither,
   ]
     .filter((s) => s !== undefined)
