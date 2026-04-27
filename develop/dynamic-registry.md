@@ -7,7 +7,8 @@ authors:
 
 This page explains what a dynamic registry is, why it is useful, and how to create and use one with the Fabric API.
 
-# General Information
+## General Information
+
 ### What Is a Dynamic Registry? {#what-is-a-dynamic-registry}
 
 A registry is a centralized _phonebook_ that maps unique IDs such as `minecraft:items` to specific objects. Static registries such as the block and item registries are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
@@ -73,6 +74,7 @@ Use this when the client needs the data for rendering, UI, tooltips, or other cl
 Both overloads of `DynamicRegistries.registerSynced()` also accept `SyncOption...` at the end to configure synchronization behavior.
 
 #### `SyncOption` {#syncoption}
+
 Available `SyncOption` values include:
 
 1. `SKIP_WHEN_EMPTY`: Synchronizes the registry only when it contains entries. This can help with compatibility for clients that may not need the registry.
@@ -146,7 +148,8 @@ The `entryId` is built from the entry namespace and the JSON filename. For examp
 ### Tags For Custom Registry Entries {#tags-for-custom-registry-entries}
 
 Tags are a way to group multiple entries together. For example,
- * If your custom registry is for skills, then you can create tags like _physical_, _magical_, etc. to group similar skills.
+
+* If your custom registry is for skills, then you can create tags like _physical_, _magical_, etc. to group similar skills.
 
 Tags are defined in `data/<entry namespace>/tags/<registry namespace>/<registry path>/`.
 
