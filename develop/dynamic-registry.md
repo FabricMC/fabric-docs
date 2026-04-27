@@ -7,7 +7,7 @@ authors:
 
 This page explains what a dynamic registry is, why it is useful, and how to create and use one with the Fabric API.
 
-# General Information
+## General Information
 ### What Is a Dynamic Registry? {#what-is-a-dynamic-registry}
 
 A registry is a centralized _phonebook_ that maps unique IDs such as `minecraft:items` to specific objects. Static registries such as the block and item registries are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
