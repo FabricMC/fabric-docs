@@ -86,6 +86,7 @@
   "develop.misc.saved_data": "Saved Data",
   "develop.misc.text_and_translations": "Text and Translations",
   "develop.misc.debugging": "Debugging Mods",
+  "develop.misc.dynamic_registries": "Dynamic Registries",
   "develop.mixins": "Mixins",
   "develop.mixins.bytecode": "Java Bytecode",
   "develop.class_tweakers": "Class Tweakers",

@@ -460,6 +460,10 @@ export default [
         text: "develop.misc.custom_recipe_types",
         link: "/develop/custom-recipe-types",
       },
+      {
+        text: "develop.misc.dynamic_registries",
+        link: "/develop/dynamic-registry",
+      },
     ],
   },
 ] satisfies Fabric.SidebarItem[];
