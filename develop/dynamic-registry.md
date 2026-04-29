@@ -7,7 +7,7 @@ authors:
 
 This page explains what a dynamic registry is, why it is useful, and how to create and use one with the Fabric API.
 
-## General Information
+## General Information {#general-information}
 
 ### What Is a Dynamic Registry? {#what-is-a-dynamic-registry}
 
