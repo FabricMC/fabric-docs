@@ -33,7 +33,7 @@ Start by updating your mod's `gradle/wrapper/gradle-wrapper.properties`, `gradle
 2. Bump Minecraft, Fabric Loader, Fabric Loom and Fabric API, either in `gradle.properties` (recommended) or in `build.gradle`. Find the recommended versions of the Fabric components on the [Fabric Develop site](https://fabricmc.net/develop/).
 3. At the top of `build.gradle`, change the version of Loom you are using from `id "fabric-loom"` to `id "net.fabricmc.fabric-loom"`. If you specify Loom in `settings.gradle`, change it there as well.
 4. Remove the `mappings` line from the dependencies section of `build.gradle`.
-5. Replace any instances of `modImplementation` or `modCompileOnly` with `implementation` and `compileOnly`.
+5. Replace any instances of `modImplementation`, `modCompileOnly` or `modApi` with `implementation`, `compileOnly` and `api`.
 6. Remove or replace any mods made for versions before 26.1 with versions compatible with this update.
    - No existing mods for 1.21.11 or older versions of Minecraft will work on 26.1, even as a compile-only dependency.
 7. If needed, update the header of your [access widener or class tweaker](../class-tweakers/) to replace `named` with `official`.
