@@ -55,10 +55,10 @@ public class CounterBlockEntity extends BlockEntity {
 	public void setChanged() {
 		super.setChanged();
 
-		if (level != null) {
-			BlockState state = getBlockState();
-			level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
-		}
+		if (level == null) return;
+
+		BlockState state = getBlockState();
+		level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
 	}
 	// #endregion broadcast-update
 
