@@ -49,7 +49,7 @@ public class CounterBlock extends BaseEntityBlock {
 			player.sendOverlayMessage(Component.literal("You've clicked the block for the " + counterBlockEntity.getClicks() + "th time."));
 		}
 
-		return InteractionResult.SUCCESS.withoutItem();
+		return InteractionResult.SUCCESS;
 	}
 	// :::2
 
