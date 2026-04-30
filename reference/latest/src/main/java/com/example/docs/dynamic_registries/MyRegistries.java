@@ -1,7 +1,6 @@
 package com.example.docs.dynamic_registries;
 
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
-
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;

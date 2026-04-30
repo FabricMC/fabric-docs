@@ -127,7 +127,14 @@ Example JSON:
 
 ### Accessing the Registry Data {#accessing-the-registry-data}
 
-Dynamic registries are loaded with the world and can be accessed through `MinecraftServer#registryAccess()` by using your registry key.
+Dynamic registries are loaded with the world and can be accessed through `RegistryAccess` class by using your registry key.
+Instances of `RegistryAccess` can be acquired from many classes but the most common ones are `MinecraftServer`, `ServerLevel`, `ClientLevel`, `Entity`, etc.
+
+::: warning
+
+If accessing the `RegistryAccess` instance from a Client only class such as `ClientLevel` then, you can only access the **synced registries**.
+
+:::
 
 #### Get the Entire Registry {#get-the-entire-registry}
 
