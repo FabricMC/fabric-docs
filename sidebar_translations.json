@@ -56,6 +56,7 @@
   "develop.data_generation.world_generation": "World Generation",
   "develop.data_generation.biome_creation": "Biome Creation",
   "develop.data_generation.biome_generation": "Biome Generation",
+    "develop.data_generation.dimension_creation": "Dimension Creation",
   "develop.data_generation.features": "Feature Generation",
   "develop.data_generation.item_models": "Item Model Generation",
   "develop.data_generation.enchantments": "Enchantment Generation",
