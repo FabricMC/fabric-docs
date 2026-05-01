@@ -46,19 +46,19 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 @[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
-Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
-
-If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
+If you want to render multiple waypoints, change `waypointState` into a list and add multiple waypoint render states. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
 
 ### Render States {#render-states}
 
-Note that in the above code we are saving the `BufferBuilder` in a field. This is because we need it in the "drawing" phase. In this case, the `BufferBuilder` is our "render state" or "extracted data". If you need additional data during the "drawing" phase, you should create a custom render state class to hold the `BufferedBuilder` and any additional rendering data you need.
+Note that in the above code we are saving the `WaypointRenderState` in a field. This is because we need it in the "drawing" phase. In this case, the `WaypointRenderState` is our "render state" or "extracted data". If you need additional data (i.e. from the world) during the "drawing" phase, you should add it to your custom render state class.
 
 ### Drawing Phase {#drawing-phase}
 
-Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
+Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `waypointState` during the "extraction" phase.
 
 @[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+
+Note that the size used in the `ByteBufferBuilder` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Cleaning up {#cleaning-up}
 
