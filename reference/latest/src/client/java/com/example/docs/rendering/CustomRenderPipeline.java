@@ -231,6 +231,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// :::custom-pipelines:extraction-phase
 	// Render states should be immutable, thread safe, and fast to create.
-	private record WaypointRenderState(int x, int y, int z, float r, float g, float b, float a) {}
+	private record WaypointRenderState(int x, int y, int z, float r, float g, float b, float a) { }
 	// :::custom-pipelines:extraction-phase
 }
