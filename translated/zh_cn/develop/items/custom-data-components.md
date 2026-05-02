@@ -200,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 我们调用 `use()` 方法，先读旧的点击次数，增加一，然后设置新的点击次数。
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::use](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 尝试启动游戏并右键点击手中的计数器物品。 如果打开物品栏并再次看看物品，应该就会发现，使用次数随点击的次数增加了。
 
