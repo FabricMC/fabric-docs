@@ -349,6 +349,10 @@ export default [
         link: "/develop/loom/options",
       },
       {
+        text: "develop.loom.remapping",
+        link: "/develop/loom/remapping",
+      },
+      {
         text: "develop.loom.prod",
         link: "/develop/loom/production-run-tasks",
       },

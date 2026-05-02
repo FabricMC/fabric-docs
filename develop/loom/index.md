@@ -18,7 +18,7 @@ Fabric Loom, or just Loom for short, is a [Gradle](https://gradle.org/) plugin f
 
 Loom provides utilities to install Minecraft and mods in a development environment so that you can link against them with respect to Minecraft obfuscation and its differences between distributions and versions. It also provides run configurations for use with Fabric Loader, Mixin compile processing and utilities for Fabric Loader's jar-in-jar system.
 
-Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent.
+Loom supports _all_ versions of Minecraft, even those not officially supported by Fabric API, because it is version-independent. When using obfuscated versions of the game, including all releases before 26.1, the [Fabric Loom Remap](./remapping) plugin is used.
 
 ::: warning IMPORTANT
 
@@ -37,21 +37,7 @@ Loom uses multiple different plugin IDs:
 
 ## Depending on Subprojects {#subprojects}
 
-While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default, a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
-
-```groovy
-dependencies {
- implementation project(path: ":name", configuration: "namedElements")
-}
-```
-
-If you are using split source sets in a multi-project build, you will also need to add a dependency for the other project's client source set.
-
-```groovy
-dependencies {
- clientImplementation project(":name").sourceSets.client.output
-}
-```
+TODO
 
 ## Split Client & Common Code {#split-sources}
 
@@ -73,13 +59,9 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 
 - Downloads the client and server jar from official channels for the configured version of Minecraft
 - Merges the client and server jar to produce a merged jar with `@Environment` and `@EnvironmentInterface` annotations
-- Downloads the configured mappings
-- Remaps the merged jar with intermediary mappings to produce an intermediary jar
-- Remaps the merged jar with Yarn mappings to produce a mapped jar
-- Optional: Decompiles the mapped jar to produce a mapped sources jar and linemap, and applies the linemap to the mapped jar
+- Optional: Decompiles the merged jar to produce a sources jar and linemap, and applies the linemap to the merged jar
 - Adds Minecraft dependencies
 - Downloads Minecraft assets
-- Processes and includes mod-augmented dependencies
 
 ## Caches {#caches}
 
@@ -90,13 +72,12 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 ## Dependency Configurations {#configurations}
 
 - `minecraft`: Defines the version of Minecraft to be used in the development environment
-- `mappings`: Defines the mappings to be used in the development environment
-- `modImplementation`, `modApi` and `modRuntime`: Augmented variants of `implementation`, `api` and `runtime` for mod dependencies. Will be remapped to match the mappings in the development environment and has any nested jars removed
+- `implementation`, `api` and `runtime`: Used to download dependencies.
 - `include`: Declares a dependency that should be included as a jar-in-jar in the final mod output. This dependency configuration is not transitive. For non-mod dependencies, Loom will generate a mod jar with a `fabric.mod.json` using the mod ID for the name, and the same version
 
 ::: info
 
-Dependencies declared with `include` are added to `remapJar` in remapping Loom, or to `jar` in non-remapping Loom respectively. Because of this, jar tasks from other plugins (such as `shadowJar`) will not include these dependencies by default.
+Dependencies declared with `include` are added to `jar`. Because of this, jar tasks from other plugins (such as `shadowJar`) will not include these dependencies by default.
 
 :::
 

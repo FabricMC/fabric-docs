@@ -70,6 +70,7 @@
   "develop.loom": "Loom",
   "develop.loom.introduction": "Introduction",
   "develop.loom.fabric_api": "Fabric API DSL",
+  "develop.loom.remapping": "Remapping",
   "develop.loom.options": "Extension Options",
   "develop.loom.prod": "Production Run Tasks",
   "develop.loom.classpath_groups": "Classpath Groups",

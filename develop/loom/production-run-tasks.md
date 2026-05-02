@@ -12,7 +12,7 @@ authors:
   - SolidBlock-cn
 ---
 
-When building your mod to distribute to users, it gets remapped to intermediary mappings, which cause slight inconsistencies between the development environment and production (like the vanilla launcher). Although such issues are rare, it makes sense to test your mod in a production environment before releasing it.
+When building your mod to distribute to users, it uses the official names used in the JAR. If you are using the [Fabric Loom Remap](remapping) plugin, this requires remapping, which cause slight inconsistencies between the development environment and production (like the vanilla launcher). Although such issues are rare, it makes sense to test your mod in a production environment before releasing it.
 
 ## Common Options {#common}
 
