@@ -106,11 +106,9 @@ Now, when a player logs in or moves into a chunk where the block exists, they wi
 
 ## Syncing Data {#syncing-data}
 
-While new players loading in the block will see the correct count, other players watching the interaction will not see the count update; causing a desync.
+While new players loading in the block will see the correct count, the count will not update for other players watching the interaction. This phenomenon is called a desync, and it occurs when the server has updated its state, but the clients haven't.
 
-To solve this, we can use block entity update packets.
-
-Override the `getUpdatePacket` method, and return a packet containing the block's data from our `getUpdateTag`.
+To solve this, we can use block entity update packets. Override the `getUpdatePacket` method, and return a packet containing the block's data from our `getUpdateTag`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
 
