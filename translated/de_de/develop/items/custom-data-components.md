@@ -200,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Richten wir eine neue Methode `use()` ein, um die alte Klickzahl zu lesen, sie um eins zu erhöhen und dann die aktualisierte Klickzahl zu setzen.
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::use](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Versuche nun, das Spiel zu starten und klicke mit der rechten Maustaste auf das Counter-Item in deiner Hand. Wenn du dein Inventar öffnest und dir das Item noch einmal ansiehst, solltest du sehen, dass die Nutzungszahl um die Anzahl der Klicks gestiegen ist, die du darauf gemacht hast.
 

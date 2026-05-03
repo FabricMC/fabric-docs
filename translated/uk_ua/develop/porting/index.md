@@ -33,7 +33,7 @@ resources:
 2. Оновіть Minecraft, Завантажувач Fabric, Fabric Loom і Fabric API у `gradle.properties` (рекомендовано) або `build.gradle`. Знайдіть рекомендовані версії компонентів Fabric на [сайті розробки Fabric](https://fabricmc.net/develop/).
 3. У верхній частині `build.gradle` змініть версію Loom, яку ви використовуєте, з `id "fabric-loom"` на `id "net.fabricmc.fabric-loom"`. Якщо ви вказали Loom у `settings.gradle`, змініть його також там.
 4. Видаліть рядок `mappings` із розділу залежностей `build.gradle`.
-5. Замініть будь-які випадки `modImplementation` або `modCompileOnly` на `implementation` і `compileOnly`.
+5. Замініть будь-які екземпляри `modImplementation`, `modCompileOnly` та `modApi` на `implementation`, `compileOnly` та `api`.
 6. Видаліть або замініть будь-які моди, створені для версій до 26.1, на версії, сумісні з цим оновленням.
    - Жодні наявні моди для 1.21.11 або старіших версій Minecraft не працюватимуть 26.1, навіть як залежність лише від компіляції.
 7. За потреби оновіть заголовок вашого [розширювача доступу або твікера класу](../class-tweakers/), щоб замінити `named` на `official`.
