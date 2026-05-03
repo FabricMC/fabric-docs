@@ -35,6 +35,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// :::datagen-advancements:provider-start
 		// :::datagen-advancements:simple-advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
+				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root"))) // Add to the adventure category
 				.display(
 						Items.DIRT, // The display icon
 						Component.literal("Your First Dirt Block"), // The title
@@ -48,7 +49,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				// "got_dirt" is the name referenced by other advancements when they want to have "requirements."
 				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
-				.save(consumer, ExampleMod.MOD_ID + ":get_dirt");
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_dirt"));
 		// :::datagen-advancements:simple-advancement
 		// :::datagen-advancements:second-advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
@@ -66,7 +67,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
 				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
-				.save(consumer, ExampleMod.MOD_ID + ":apple_and_beef");
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "apple_and_beef"));
 		// :::datagen-advancements:second-advancement
 		// :::datagen-advancements:custom-criteria-advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
@@ -82,7 +83,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
-				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool");
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool"));
 		// :::datagen-advancements:custom-criteria-advancement
 		// :::datagen-advancements:new-custom-criteria-advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
@@ -98,7 +99,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.save(consumer, ExampleMod.MOD_ID + ":break_block_with_tool_five_times");
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool_five_times"));
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// :::datagen-advancements:provider-start
 	}
