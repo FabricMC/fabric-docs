@@ -5,13 +5,19 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@types/lodash': '-'
+  lodash: '-'
   vite: npm:rolldown-vite@7.1.17
   vitepress: ^2.0.0-alpha.12
+  vitepress-versioning-plugin>vitepress-versioning-plugin: '-'
 
 patchedDependencies:
   vitepress:
     hash: 0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059
     path: patches/vitepress.patch
+  vitepress-versioning-plugin:
+    hash: 83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914
+    path: patches/vitepress-versioning-plugin.patch
 
 importers:
 
@@ -55,7 +61,7 @@ importers:
         version: 0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22)
       vitepress-versioning-plugin:
         specifier: ^1.3.0
-        version: 1.3.0(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
+        version: 1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
       vue:
         specifier: ^3.5.6
         version: 3.5.22
@@ -559,9 +565,6 @@ packages:
   '@types/linkify-it@5.0.0':
     resolution: {integrity: sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q==}
 
-  '@types/lodash@4.17.20':
-    resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
-
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
 
@@ -829,9 +832,6 @@ packages:
     resolution: {integrity: sha512-zCnTtlxNoAiDc3gqY2aYAWFx7XWWiasuF2K8Me5WbN8otHKTUKBwjPtNpRs/rbUZm7KxWAaNj7P1a/p52GbVug==}
     engines: {node: '>=0.10.0'}
 
-  'fabric-docs@file:':
-    resolution: {directory: '', type: directory}
-
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
     engines: {node: '>=12.0.0'}
@@ -991,9 +991,6 @@ packages:
 
   lit-html@2.8.0:
     resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
-
-  lodash@4.17.23:
-    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
   lru-queue@0.1.0:
     resolution: {integrity: sha512-BpdYkt9EvGl8OfWHDQPISVpcl5xZthb+XPsbELj5AQXxIC8IriDZIQYjBJPEm5rS420sjZ0TLEzRcq5KdBhYrQ==}
@@ -1169,10 +1166,6 @@ packages:
 
   postcss@8.5.14:
     resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
-    engines: {node: ^10 || ^12 || >=14}
-
-  postcss@8.5.6:
-    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@3.7.4:
@@ -1741,8 +1734,6 @@ snapshots:
 
   '@types/linkify-it@5.0.0': {}
 
-  '@types/lodash@4.17.20': {}
-
   '@types/markdown-it@14.1.2':
     dependencies:
       '@types/linkify-it': 5.0.0
@@ -1798,7 +1789,7 @@ snapshots:
       '@vue/shared': 3.5.22
       estree-walker: 2.0.2
       magic-string: 0.30.19
-      postcss: 8.5.6
+      postcss: 8.5.14
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.22':
@@ -2033,52 +2024,6 @@ snapshots:
     dependencies:
       is-extendable: 0.1.1
 
-  fabric-docs@file:(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2):
-    dependencies:
-      '@fontsource-variable/jetbrains-mono': 5.2.8
-      '@iconify/vue': 5.0.0(vue@3.5.22)
-      '@vueuse/core': 12.8.2
-      gray-matter: 4.0.3
-      markdown-it-vuepress-code-snippet-enhanced: https://codeload.github.com/IMB11/md-it-enhanced-snippets/tar.gz/dfb9fa25527b2f772d50ca37ae526484c890b8ae
-      medium-zoom: 1.1.0
-      syntax-java-bytecode: https://codeload.github.com/mcgambing/Java-Bytecode/tar.gz/578f3e2c6861ac6396492540a987fe05d23b061a
-      syntax-mcfunction: https://codeload.github.com/MinecraftCommands/syntax-mcfunction/tar.gz/51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b
-      tinyglobby: 0.2.15
-      vidstack: 1.12.13
-      vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
-      vitepress-plugin-tabs: 0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22)
-      vitepress-versioning-plugin: 1.3.0(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
-      vue: 3.5.22
-    transitivePeerDependencies:
-      - '@emnapi/core'
-      - '@emnapi/runtime'
-      - '@types/node'
-      - async-validator
-      - axios
-      - change-case
-      - drauu
-      - esbuild
-      - fuse.js
-      - idb-keyval
-      - jiti
-      - jwt-decode
-      - less
-      - markdown-it-mathjax3
-      - nprogress
-      - oxc-minify
-      - postcss
-      - qrcode
-      - sass
-      - sass-embedded
-      - sortablejs
-      - stylus
-      - sugarss
-      - terser
-      - tsx
-      - typescript
-      - universal-cookie
-      - yaml
-
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
       picomatch: 4.0.3
@@ -2213,8 +2158,6 @@ snapshots:
   lit-html@2.8.0:
     dependencies:
       '@types/trusted-types': 2.0.7
-
-  lodash@4.17.23: {}
 
   lru-queue@0.1.0:
     dependencies:
@@ -2520,12 +2463,6 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.6:
-    dependencies:
-      nanoid: 3.3.12
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
   prettier@3.7.4: {}
 
   property-information@7.1.0: {}
@@ -2722,15 +2659,12 @@ snapshots:
       vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
       vue: 3.5.22
 
-  vitepress-versioning-plugin@1.3.0(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2):
+  vitepress-versioning-plugin@1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2):
     dependencies:
-      '@types/lodash': 4.17.20
       cli-color: 2.0.4
       json5: 2.2.3
-      lodash: 4.17.23
       vite: rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2)
       vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
-      vitepress-versioning-plugin: fabric-docs@file:(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'

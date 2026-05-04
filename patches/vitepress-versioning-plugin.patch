@@ -1,0 +1,34 @@
+diff --git a/dist/index.js b/dist/index.js
+index eb2697948443b24700444a2d51da774261379804..a64da36b6563b019691eaad05f57daabf75bc9fc 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -17,11 +17,28 @@ var __spreadValues = (a, b) => {
+
+ // src/index.ts
+ import clc from "cli-color";
+-import _ from "lodash";
+ import fs3 from "node:fs";
+ import path3 from "node:path";
+ import { createLogger } from "vite";
+
++const _ = {
++  defaultsDeep: (t, d) => {
++    if (!t || typeof t !== typeof d) return t;
++    for (const k in d) {
++      if (typeof t[k] === "object" && typeof d[k] === "object") {
++        _.defaultsDeep(t[k], d[k]);
++      } else if (t[k] === void 0) {
++        if (typeof d[k] === "object") {
++          t[k] = _.defaultsDeep({}, d[k]);
++        } else {
++          t[k] = d[k];
++        }
++      }
++    }
++    return t;
++  }
++};
++
+ // src/rewrites.ts
+ import fs from "node:fs";
+ import path from "node:path";
