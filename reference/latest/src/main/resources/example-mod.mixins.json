@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "ExampleMixin",
-    "event.SheepEntityMixin",
+    "event.SheepMixin",
     "class_tweakers.FlowingFluidMixin",
     "class_tweakers.RecipeBookTypeMixin",
     "class_tweakers.RecipeCategoryMixin",

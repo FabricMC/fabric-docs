@@ -22,7 +22,7 @@ public class ExampleModEvents implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// :::1
+		// #region attack_block_callback_event
 		AttackBlockCallback.EVENT.register((player, level, hand, pos, direction) -> {
 			BlockState state = level.getBlockState(pos);
 
@@ -33,11 +33,13 @@ public class ExampleModEvents implements ModInitializer {
 
 			return InteractionResult.PASS;
 		});
-		// :::1
+		// #endregion attack_block_callback_event
 
-		// :::2
+		// #region lootTableEvents_full
+		// #region lootTableEvents
 		LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
 			// Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
+		  // #endregion lootTableEvents
 			// We also check that the loot table ID is equal to the ID we want.
 			if (source.isBuiltin() && COAL_ORE_LOOT_TABLE_ID.equals(key)) {
 				// We make the pool and add an item
@@ -45,9 +47,9 @@ public class ExampleModEvents implements ModInitializer {
 				tableBuilder.withPool(poolBuilder);
 			}
 		});
-		// :::2
+		// #endregion lootTableEvents_full
 
-		// :::3
+		// #region sheep_shear_callback_event
 		SheepShearCallback.EVENT.register((player, sheep) -> {
 			sheep.setSheared(true);
 
@@ -58,6 +60,6 @@ public class ExampleModEvents implements ModInitializer {
 
 			return InteractionResult.FAIL;
 		});
-		// :::3
+		// #endregion sheep_shear_callback_event
 	}
 }
