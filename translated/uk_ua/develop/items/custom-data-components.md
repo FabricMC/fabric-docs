@@ -200,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Налаштуймо новий метод `use()`, щоб зчитувати стару кількість натискань, збільшити її на один, а потім встановити оновлену кількість натискань.
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::use](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Тепер спробуйте запустити гру та натиснути ПКМ з предметом лічильника в руці. Якщо ви відкриєте свій інвентар і подивіться на предмет знову, ви побачите, що число використання зросло на кількість разів, які ви натискали на нього.
 

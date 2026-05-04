@@ -65,7 +65,6 @@ public class ExampleMod implements ModInitializer {
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
 		// :::datagen-world:selective-biome-modifications
-		//#entrypoint
 
 		// #tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
@@ -73,5 +72,6 @@ public class ExampleMod implements ModInitializer {
 		// #advanced_tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.ADVANCED_CUSTOM_COMPONENT);
 		// #advanced_tooltip_provider
+		//#entrypoint
 	}
 }
