@@ -88,9 +88,13 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
   background: var(--vp-c-gray-1);
 }
 
-/* Override default margin on the VitePress Home component */
+/* Style the home page */
 .VPHome {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
+
+  p.tagline {
+    text-wrap: balance;
+  }
 }
 
 /* Local Search Box Animations - Fade in backdrop and animate search box on appearance. */
