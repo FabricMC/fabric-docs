@@ -153,3 +153,9 @@ kbd:not(.DocSearch-Button-Key) {
   box-shadow: 0 4px 10px #8883;
   border-radius: 8px;
 }
+
+/* Remove border from headings if that's the first thing in the page */
+:is(h1) + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+  border-top: none;
+}
