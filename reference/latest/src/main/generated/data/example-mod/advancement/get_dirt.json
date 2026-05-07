@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:adventure/root",
   "criteria": {
     "got_dirt": {
       "conditions": {

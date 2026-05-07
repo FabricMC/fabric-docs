@@ -57,6 +57,16 @@ Just to get the hang of it, let's add one more advancement. We'll practice addin
 
 @[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
+## Parents {#parents}
+
+To create a tree of advancements or add an advancement to an existing tree, an advancement can have its parent set. Doing this involves calling `Advancement.Builder#parent(...)` and passing in a reference to the parent advancement.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+
+If no direct reference to the parent enchantment is available, a placeholder can be created using an identifier.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+
 ## Custom Criteria {#custom-criteria}
 
 ::: warning

@@ -1,5 +1,6 @@
 package com.example.docs.datagen;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -7,14 +8,25 @@ import java.util.function.Consumer;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.criterion.ConsumeItemTrigger;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EnchantedItemTrigger;
+import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.ItemUsedOnLocationTrigger;
+import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.predicates.DataComponentPredicates;
+import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.block.Blocks;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -23,6 +35,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.advancement.ModCriteria;
 import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
+import com.example.docs.enchantment.ModEnchantments;
 
 // :::datagen-advancements:provider-start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
@@ -35,7 +48,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// :::datagen-advancements:provider-start
 		// :::datagen-advancements:simple-advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
-				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root"))) // Add to the adventure category
 				.display(
 						Items.DIRT, // The display icon
 						Component.literal("Your First Dirt Block"), // The title
@@ -101,6 +113,57 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool_five_times"));
 		// :::datagen-advancements:new-custom-criteria-advancement
+		// #region reference-parent
+		Advancement.Builder.advancement()
+						.parent(getDirt)
+						// ...
+						// #endregion reference-parent
+						.display(
+										Items.DIRT,
+										Component.literal("Create a dirt shack"),
+										Component.literal("It's all coming together!"),
+										null,
+										AdvancementType.TASK,
+										false,
+										false,
+										false
+						)
+						.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
+						.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "create_dirt_shack"));
+		final HolderLookup<Enchantment> enchantmentsLookup = wrapperLookup.lookupOrThrow(Registries.ENCHANTMENT);
+		// #region placeholder-parent
+		Advancement.Builder.advancement()
+						.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
+						// ...
+						// #endregion placeholder-parent
+						.display(
+										Items.LIGHTNING_ROD,
+										Component.literal("Control the weather"),
+										Component.literal("Get the thundering enchantment"),
+										null,
+										AdvancementType.TASK,
+										true,
+										true,
+										false
+						)
+						.addCriterion("enchant_thundering",
+										CriteriaTriggers.ENCHANTED_ITEM.createCriterion(new EnchantedItemTrigger.TriggerInstance(
+														Optional.empty(),
+														Optional.of(
+																		ItemPredicate.Builder.item().withComponents(DataComponentMatchers.Builder.components()
+																						.partial(
+																										DataComponentPredicates.ENCHANTMENTS,
+																										EnchantmentsPredicate.Enchantments.enchantments(List.of(
+																														new EnchantmentPredicate(enchantmentsLookup.getOrThrow(ModEnchantments.THUNDERING), MinMaxBounds.Ints.ANY)
+																										))
+																						)
+																						.build()
+																		).build()
+														),
+														MinMaxBounds.Ints.ANY
+										))
+						)
+						.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
 		// :::datagen-advancements:provider-start
 	}
 }
