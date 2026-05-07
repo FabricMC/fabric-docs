@@ -1,20 +1,19 @@
 package com.example.docs.datagen;
 
-import com.example.docs.ExampleMod;
-
-import com.example.docs.item.ModItems;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 import com.google.gson.JsonElement;
-
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
-
 import com.mojang.serialization.JsonOps;
-
 import com.mojang.serialization.MapCodec;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -24,13 +23,10 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
 public class CodecExampleProvider implements DataProvider {
 	private final FabricPackOutput output;
