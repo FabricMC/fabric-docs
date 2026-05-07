@@ -20,10 +20,4 @@ features:
     linkText: Започнете
 ---
 
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
-
 Ако желаете да допринесете за документацията на Fabric, можете да намерите кодът в [GitHub](https://github.com/FabricMC/fabric-docs), както и съответните [указания за принос](./contributing).

@@ -18,8 +18,4 @@ features:
     linkText: Zjistit více
 ---
 
-::: warning
-Právě prohlížíte dokumentaci pro Minecraft 1.21.10. Pokud hledáte jinou verzi, vyberte ji z seznamu na navigačním panelu.
-:::
-
 Pokud chcete přispět do dokumentace Fabricu, zdrojový kód najdete na [GitHubu](https://github.com/FabricMC/fabric-docs), a související pokyny pro [přispívání](./contributing).

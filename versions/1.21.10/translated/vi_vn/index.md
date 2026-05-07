@@ -18,12 +18,6 @@ features:
     linkText: Đọc Thêm
 ---
 
-::: warning
-This documentation applies to Minecraft 1.21.10.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
-
 <div class="vp-doc homepage-container">
 
 ## Muốn đóng góp?

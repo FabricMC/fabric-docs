@@ -20,10 +20,4 @@ features:
     linkText: 시작하기
 ---
 
-::: warning
-이 문서는 마인크래프트 1.21.11에 적용됩니다.
-
-구버전은 해당되지 않을 수 있습니다. 다른 버전을 윈한다면, 상단의 버전을 변경해 주세요.
-:::
-
 Fabric 문서에 기여하고 싶다면, [GitHub](https://github.com/FabricMC/fabric-docs)에서 소스 코드를 볼 수 있으며, 기여시에는 [기여 가이드라인](./contributing)을 준수하시기 바랍니다.

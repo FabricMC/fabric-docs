@@ -20,10 +20,4 @@ features:
     linkText: Aloita
 ---
 
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
-
 Jos sinä haluat että osallistaa Fabricin dokumentaation, sinä löydät lähdekoodia [GitHubissa](https://github.com/FabricMC/fabric-docs), ja asiaankuuluvat [osallistaohjeet](./contributing).

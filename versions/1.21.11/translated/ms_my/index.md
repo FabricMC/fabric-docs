@@ -20,10 +20,4 @@ features:
     linkText: Mulakan
 ---
 
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
-
 Jika anda ingin menyumbang kepada Dokumentasi Fabric, anda boleh mendapatkan kod sumber di [GitHub](https://github.com/FabricMC/fabric-docs), dan juga [garis panduan sumbangan](./contributing) yang berkaitan.
