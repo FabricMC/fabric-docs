@@ -34,8 +34,8 @@ if (!newVersion) {
 } else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
   console.error(`'Minecraft ${newVersion}' already exists!`);
   process.exit(1);
-} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
-  console.error(`'${newVersion}' does not look like a Minecraft version!`);
+} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(newVersion)) {
+  console.error(`'${newVersion}' does not look like a stable Minecraft version!`);
   process.exit(1);
 }
 console.log(`New version: 'Minecraft ${newVersion}'`);
@@ -70,7 +70,13 @@ fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
 console.log(`Migrating content to 'versions/${oldVersion}/'...`);
 for (const file of tinyglobby.globSync("**/*.md", {
-  ignore: ["README.md", "contributing.md", "versions/**/*.md", "node_modules/**/*"],
+  ignore: [
+    "README.md",
+    "contributing.md",
+    "versions/**/*.md",
+    "+([0-9.])/**/*.md",
+    "node_modules/**/*",
+  ],
   onlyFiles: true,
 })) {
   fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);
