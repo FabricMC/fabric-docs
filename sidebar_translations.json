@@ -87,6 +87,7 @@
   "develop.misc.text_and_translations": "Text and Translations",
   "develop.misc.debugging": "Debugging Mods",
   "develop.mixins": "Mixins",
+  "develop.mixins.introduction": "Introduction to Mixins",
   "develop.mixins.bytecode": "Java Bytecode",
   "develop.class_tweakers": "Class Tweakers",
   "develop.class_tweakers.introduction": "Introduction",
