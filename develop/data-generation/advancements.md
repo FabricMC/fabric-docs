@@ -67,6 +67,10 @@ If no direct reference to the parent enchantment is available, a placeholder can
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
 
+Your advancements should now be shown as a tree in the advancement menu.
+
+![Advancement Tree](/assets/develop/data-generation/advancement_tree.png)
+
 ## Custom Criteria {#custom-criteria}
 
 ::: warning
