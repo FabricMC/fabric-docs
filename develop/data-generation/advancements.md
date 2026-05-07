@@ -45,12 +45,6 @@ Here's a simple advancement for getting a dirt block:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-::: warning
-
-When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
-
-:::
-
 ::: details JSON Output
 
 @[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
