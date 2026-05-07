@@ -15,6 +15,6 @@ public class ExampleModNetworking implements ModInitializer {
 	}
 
 	public static Identifier getId(String input) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, input);
+		return Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, input);
 	}
 }
