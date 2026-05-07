@@ -52,7 +52,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.DIRT, // The display icon
 						Component.literal("Your First Dirt Block"), // The title
 						Component.literal("Now make a house from it"), // The description
-						Identifier.withDefaultNamespace("textures/gui/advancements/backgrounds/adventure.png"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
+						Identifier.withDefaultNamespace("gui/advancements/backgrounds/adventure"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
 						AdvancementType.TASK, // TASK, CHALLENGE, or GOAL
 						true, // Show the toast when completing it
 						true, // Announce it to chat
