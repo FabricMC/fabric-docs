@@ -1,5 +1,16 @@
 package com.example.docs;
 
+import com.mojang.serialization.Codec;
+
+import com.mojang.serialization.DataResult;
+
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+
+import net.minecraft.server.level.ServerPlayer;
+
+import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.phys.AABB;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -28,34 +28,13 @@ Since a few vanilla classes already have codecs defined, we can use those as an 
 
 Now, let's say we want to serialize a `BlockPos` to JSON and back. We can do this using the codec statically stored at `BlockPos.CODEC` with the `Codec#encodeStart` and `Codec#parse` methods, respectively.
 
-```java
-BlockPos pos = new BlockPos(1, 2, 3);
-
-// Serialize the BlockPos to a JsonElement
-DataResult<JsonElement> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#encode-blockpos
 
 When using a codec, values are returned in the form of a `DataResult`. This is a wrapper that can represent either a success or a failure. We can use this in several ways: If we just want our serialized value, `DataResult#result` will simply return an `Optional` containing our value, while `DataResult#resultOrPartial` also lets us supply a function to handle any errors that may have occurred. The latter is particularly useful for custom datapack resources, where we'd want to log errors without causing issues elsewhere.
 
 So let's grab our serialized value and turn it back into a `BlockPos`:
 
-```java
-// When actually writing a mod, you'll want to properly handle empty Optionals of course
-JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// Here we have our JSON value, which should correspond to `[1, 2, 3]`,
-// as that's the format used by the BlockPos codec.
-LOGGER.info("Serialized BlockPos: {}", json);
-
-// Now we'll deserialize the JsonElement back into a BlockPos
-DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
-
-// Again, we'll just grab our value from the result
-BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// And we can see that we've successfully serialized and deserialized our BlockPos!
-LOGGER.info("Deserialized BlockPos: {}", pos);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#serialize-deserialize-blockpos
 
 ### Built-in Codecs {#built-in-codecs}
 
@@ -67,33 +46,11 @@ The Codec API itself also contains some codecs for primitive types, such as `Cod
 
 Now that we've seen how to use codecs, let's take a look at how we can build our own. Suppose we have the following class, and we want to deserialize instances of it from JSON files:
 
-```java
-public class CoolBeansClass {
-
-    private final int beansAmount;
-    private final Item beanType;
-    private final List<BlockPos> beanPositions;
-
-    public CoolBeansClass(int beansAmount, Item beanType, List<BlockPos> beanPositions) {...}
-
-    public int getBeansAmount() { return this.beansAmount; }
-    public Item getBeanType() { return this.beanType; }
-    public List<BlockPos> getBeanPositions() { return this.beanPositions; }
-}
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CoolBeansClass.java#bean-class
 
 The corresponding JSON file might look something like this:
 
-```json
-{
-  "beans_amount": 5,
-  "bean_type": "beanmod:mythical_beans",
-  "bean_positions": [
-    [1, 2, 3],
-    [4, 5, 6]
-  ]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json
 
 We can make a codec for this class by putting together multiple smaller codecs into a larger one. In this case, we'll need one for each field:
 
@@ -107,9 +64,7 @@ We can get the first one from the aforementioned primitive codecs in the `Codec`
 
 `Codec#listOf` can be used to create a list version of any codec:
 
-```java
-Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec
 
 It should be noted that codecs created in this way will always deserialize to an `ImmutableList`. If you need a mutable list instead, you can make use of [xmap](#mutually-convertible-types) to convert to one during
 deserialization.
@@ -121,14 +76,7 @@ a `RecordCodecBuilder`. This assumes that our class has a constructor containing
 
 Let's take a look at how to create a codec for our `CoolBeansClass`:
 
-```java
-public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-    Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
-    BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
-    // Up to 16 fields can be declared here
-).apply(instance, CoolBeansClass::new));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CoolBeansClass.java#bean-codec
 
 Each line in the group specifies a codec, a field name, and a getter method. The `Codec#fieldOf` call is used to convert the codec into a [map codec](#mapcodec), and the `forGetter` call specifies the getter method used to retrieve the value of the field from an instance of the class. Meanwhile, the `apply` call specifies the constructor used to create new instances. Note that the order of the fields in the group should be the same as the order of the arguments in the constructor.
 
@@ -143,17 +91,11 @@ key to value map, or its equivalent in the `DynamicOps` used. Some functions may
 
 This particular way of creating a `MapCodec` essentially boxes the value of the source codec inside a map, with the given field name as the key. For example, a `Codec<BlockPos>` when serialized into JSON would look like this:
 
-```json
-[1, 2, 3]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/plain_codec.json
 
 But when converted into a `MapCodec<BlockPos>` using `BlockPos.CODEC.fieldOf("pos")`, it would look like this:
 
-```json
-{
-  "pos": [1, 2, 3]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map_codec.json
 
 While the most common use for map codecs is to be merged with other map codecs to construct a codec for a full class worth of fields, as explained in the [Merging Codecs for Record-like Classes](#merging-codecs-for-record-like-classes) section above, they can also be turned back into regular codecs using `MapCodec#codec`, which will retain the same behavior of
 boxing their input value.
@@ -162,13 +104,7 @@ boxing their input value.
 
 `Codec#optionalFieldOf` can be used to create an optional map codec. This will, when the specified field is not present in the container during deserialization, either be deserialized as an empty `Optional` or a specified default value.
 
-```java
-// Without a default value
-MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
-
-// With a default value
-MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-fields
 
 Do note that if the field is present, but the value is invalid, the field fails to deserialize at all if the field value is invalid.
 
@@ -178,18 +114,13 @@ Do note that if the field is present, but the value is invalid, the field fails 
 
 `MapCodec.unitCodec` can be used to create a codec that always deserializes to a constant value, regardless of the input. When serializing, it will do nothing.
 
-```java
-Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#unit-codec
 
 #### Numeric Ranges {#numeric-ranges}
 
 `Codec.intRange` and its pals, `Codec.floatRange` and `Codec.doubleRange` can be used to create a codec that only accepts number values within a specified **inclusive** range. This applies to both serialization and deserialization.
 
-```java
-// Can't be more than 2
-Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-ranges
 
 #### Pair {#pair}
 
@@ -199,26 +130,11 @@ The resulting codec will serialize to a map combining the fields of both codecs 
 
 For example, running this code:
 
-```java
-// Create two separate boxed codecs
-Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
-Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
-
-// Merge them into a pair codec
-Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
-
-// Use it to serialize data
-DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec
 
 Will output this JSON:
 
-```json
-{
-  "i_am_number": 23,
-  "this_statement_is_false": true
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json
 
 #### Either {#either}
 
@@ -232,25 +148,11 @@ For processing maps with arbitrary keys, such as `HashMap`s, `Codec.unboundedMap
 
 Due to limitations of JSON and NBT, the key codec used _must_ serialize to a string. This includes codecs for types that aren't strings themselves, but do serialize to them, such as `Identifier.CODEC`. See the example below:
 
-```java
-// Create a codec for a map of Identifiers to integers
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
-
-// Use it to serialize data
-DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.fromNamespaceAndPath("example", "number"), 23,
-    Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
-));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec
 
 This will output this JSON:
 
-```json
-{
-  "example:number": 23,
-  "example:the_cooler_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json
 
 As you can see, this works because `Identifier.CODEC` serializes directly to a string value. A similar effect can be achieved for simple objects that don't serialize to strings by using [xmap & friends](#mutually-convertible-types) to convert them.
 
