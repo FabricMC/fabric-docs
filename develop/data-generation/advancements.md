@@ -59,7 +59,7 @@ Just to get the hang of it, let's add one more advancement. We'll practice addin
 
 ## Parents {#parents}
 
-To create a tree of advancements or add an advancement to an existing tree, an advancement can have its parent set. Doing this involves calling `Advancement.Builder#parent(...)` and passing in a reference to the parent advancement.
+In order to create or extend a tree of advancements, we can set a parent for our advancement. To do this, call `Advancement.Builder#parent(...)` and pass in a reference to the parent advancement.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
 
