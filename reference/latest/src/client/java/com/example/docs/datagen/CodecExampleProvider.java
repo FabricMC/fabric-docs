@@ -23,7 +23,6 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.animal.fish.Cod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class CodecExampleProvider implements DataProvider {
 	private final FabricPackOutput output;
@@ -41,6 +41,18 @@ public class CodecExampleProvider implements DataProvider {
 		this.registryLookup = registryLookup;
 	}
 	record Entry(String name, JsonElement element) {}
+
+	private static final List<Consumer<BiConsumer<String, JsonElement>>> SUBMITTERS = List.of(
+					CodecExampleProvider::usingCodecs,
+					CodecExampleProvider::beanCodec,
+					CodecExampleProvider::mapCodec,
+					CodecExampleProvider::listCodec,
+					CodecExampleProvider::optionalFields,
+					CodecExampleProvider::unit,
+					CodecExampleProvider::numericRanges,
+					CodecExampleProvider::pair,
+					CodecExampleProvider::map
+	);
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
 		// #region encode-blockpos
@@ -170,15 +182,9 @@ public class CodecExampleProvider implements DataProvider {
 	}
 
 	private static void collect(BiConsumer<String, JsonElement> consumer) {
-		usingCodecs(consumer);
-		beanCodec(consumer);
-		listCodec(consumer);
-		mapCodec(consumer);
-		optionalFields(consumer);
-		unit(consumer);
-		numericRanges(consumer);
-		pair(consumer);
-		map(consumer);
+		for (Consumer<BiConsumer<String, JsonElement>> submitter : SUBMITTERS) {
+			submitter.accept(consumer);
+		}
 	}
 
 	@Override
