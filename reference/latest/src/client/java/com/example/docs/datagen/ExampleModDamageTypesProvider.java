@@ -30,7 +30,7 @@ public class ExampleModDamageTypesProvider {
 
 		@Override
 		protected void addTags(HolderLookup.Provider arg) {
-			builder(TagKey.create(Registries.DAMAGE_TYPE, Identifier.parse("minecraft:bypasses_armor"))).add(ExampleModDamageTypes.TATER_DAMAGE);
+			builder(TagKey.create(Registries.DAMAGE_TYPE, Identifier.withDefaultNamespace("bypasses_armor"))).add(ExampleModDamageTypes.TATER_DAMAGE);
 		}
 	}
 
