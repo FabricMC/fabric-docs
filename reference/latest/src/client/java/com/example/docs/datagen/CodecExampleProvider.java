@@ -3,12 +3,12 @@ package com.example.docs.datagen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
+
+import com.example.docs.codec.CoolBeansClass;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
@@ -31,17 +31,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
 
-import net.minecraft.world.phys.Vec3;
-
-import org.apache.logging.log4j.core.util.Assert;
-
 public class CodecExampleProvider implements DataProvider {
 	private final FabricPackOutput output;
-	private final CompletableFuture<HolderLookup.Provider> registryLookup;
 
-	protected CodecExampleProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	protected CodecExampleProvider(FabricPackOutput output) {
 		this.output = output;
-		this.registryLookup = registryLookup;
 	}
 	record Entry(String name, JsonElement element) {}
 

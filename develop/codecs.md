@@ -46,7 +46,7 @@ The Codec API itself also contains some codecs for primitive types, such as `Cod
 
 Now that we've seen how to use codecs, let's take a look at how we can build our own. Suppose we have the following class, and we want to deserialize instances of it from JSON files:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CoolBeansClass.java#bean-class
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-class
 
 The corresponding JSON file might look something like this:
 
@@ -76,7 +76,7 @@ a `RecordCodecBuilder`. This assumes that our class has a constructor containing
 
 Let's take a look at how to create a codec for our `CoolBeansClass`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CoolBeansClass.java#bean-codec
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec
 
 Each line in the group specifies a codec, a field name, and a getter method. The `Codec#fieldOf` call is used to convert the codec into a [map codec](#mapcodec), and the `forGetter` call specifies the getter method used to retrieve the value of the field from an instance of the class. Meanwhile, the `apply` call specifies the constructor used to create new instances. Note that the order of the fields in the group should be the same as the order of the arguments in the constructor.
 
@@ -175,25 +175,7 @@ Take for example vanilla `Identifier`s. While all Identifiers can be turned into
 Because of this, its built-in codec is actually a `comapFlatMap` on `Codec.STRING`, nicely
 illustrating how to use it:
 
-```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
-    );
-
-    // ...
-
-    public static DataResult<Identifier> validate(String id) {
-        try {
-            return DataResult.success(Identifier.parse(id));
-        } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
-        }
-    }
-
-    // ...
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier-flatmap
 
 While these methods are really helpful, their names are a bit confusing, so here's a table to help you remember which one to use:
 
