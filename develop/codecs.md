@@ -165,19 +165,7 @@ Say we have two classes that can be converted to each other, but don't have a pa
 `BlockPos` already has a codec, but let's pretend it doesn't. We can create one for it by basing it on the
 codec for `Vec3d` like this:
 
-```java
-Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
-    // Convert Vec3d to BlockPos
-    vec -> new BlockPos(vec.x, vec.y, vec.z),
-    // Convert BlockPos to Vec3d
-    pos -> new Vec3d(pos.getX(), pos.getY(), pos.getZ())
-);
-
-// When converting an existing class (`X` for example)
-// to your own class (`Y`) this way, it may be nice to
-// add `toX` and static `fromX` methods to `Y` and use
-// method references in your `xmap` call.
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap
 
 #### flatComapMap, comapFlatMap, and flatXMap {#flatcomapmap-comapflatmap-flatxmap}
 

@@ -3,10 +3,12 @@ package com.example.docs.datagen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
@@ -17,6 +19,7 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
@@ -27,6 +30,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
+
+import net.minecraft.world.phys.Vec3;
+
+import org.apache.logging.log4j.core.util.Assert;
 
 public class CodecExampleProvider implements DataProvider {
 	private final FabricPackOutput output;
@@ -47,7 +54,8 @@ public class CodecExampleProvider implements DataProvider {
 					CodecExampleProvider::unit,
 					CodecExampleProvider::numericRanges,
 					CodecExampleProvider::pair,
-					CodecExampleProvider::map
+					CodecExampleProvider::map,
+					CodecExampleProvider::xmap
 	);
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
@@ -177,6 +185,29 @@ public class CodecExampleProvider implements DataProvider {
 		consumer.accept("map", result.getOrThrow());
 	}
 
+	private static void xmap(BiConsumer<String , JsonElement> consumer) {
+		// #region convert-xmap
+		Codec<BlockPos> blockPosCodec = Vec3i.CODEC.xmap(
+						// Convert Vec3i to BlockPos
+						vec -> new BlockPos(vec.getX(), vec.getY(), vec.getZ()),
+						// Convert BlockPos to Vec3i
+						pos -> new Vec3i(pos.getX(), pos.getY(), pos.getZ())
+		);
+
+		// When converting an existing class (`X` for example)
+		// to your own class (`Y`) this way, it may be nice to
+		// add `toX` and static `fromX` methods to `Y` and use
+		// method references in your `xmap` call.
+		// #endregion convert-xmap
+
+		final BlockPos pos = new BlockPos(1, 2, 3);
+
+		final var json = blockPosCodec.encodeStart(JsonOps.INSTANCE, pos)
+						.getOrThrow();
+
+		consumer.accept("xmap", json);
+	}
+
 	private static void collect(BiConsumer<String, JsonElement> consumer) {
 		for (Consumer<BiConsumer<String, JsonElement>> submitter : SUBMITTERS) {
 			submitter.accept(consumer);
@@ -205,6 +236,6 @@ public class CodecExampleProvider implements DataProvider {
 
 	@Override
 	public String getName() {
-		return "Funny codecs";
+		return "Codec examples";
 	}
 }
