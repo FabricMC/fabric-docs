@@ -1,6 +1,6 @@
 package com.example.docs.datagen;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -8,21 +8,12 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import com.example.docs.codec.Bean;
-import com.example.docs.codec.BeanType;
-import com.example.docs.codec.CoolBeansClass;
-
-import com.example.docs.codec.CountingBean;
-import com.example.docs.codec.ListNode;
-import com.example.docs.codec.StringyBean;
-
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.MapCodec;
-
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.BlockPos;
@@ -36,6 +27,12 @@ import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.codec.Bean;
+import com.example.docs.codec.BeanType;
+import com.example.docs.codec.CoolBeansClass;
+import com.example.docs.codec.CountingBean;
+import com.example.docs.codec.ListNode;
+import com.example.docs.codec.StringyBean;
 import com.example.docs.item.ModItems;
 
 public class CodecExampleProvider implements DataProvider {
@@ -44,7 +41,6 @@ public class CodecExampleProvider implements DataProvider {
 	protected CodecExampleProvider(FabricPackOutput output) {
 		this.output = output;
 	}
-	record Entry(String name, JsonElement element) {}
 
 	private static final List<Consumer<BiConsumer<String, JsonElement>>> SUBMITTERS = List.of(
 					CodecExampleProvider::usingCodecs,
@@ -92,7 +88,7 @@ public class CodecExampleProvider implements DataProvider {
 
 	private static void beanCodec(BiConsumer<String, JsonElement> consumer) {
 
-		final CoolBeansClass bean = new CoolBeansClass(
+		final var bean = new CoolBeansClass(
 						5,
 						BuiltInRegistries.ITEM.wrapAsHolder(ModItems.LIGHTNING_TATER),
 						List.of(
@@ -101,14 +97,14 @@ public class CodecExampleProvider implements DataProvider {
 						)
 		);
 
-		final JsonElement json = CoolBeansClass.CODEC.encodeStart(JsonOps.INSTANCE, bean).getOrThrow();
+		final var json = CoolBeansClass.CODEC.encodeStart(JsonOps.INSTANCE, bean).getOrThrow();
 		consumer.accept("cool_beans", json);
 	}
 
 	private static void mapCodec(BiConsumer<String, JsonElement> consumer) {
-		final BlockPos pos = new BlockPos(1, 2, 3);
+		final var pos = new BlockPos(1, 2, 3);
 		consumer.accept("plain_codec", BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos).getOrThrow());
-		final Codec<BlockPos> mapCodec = BlockPos.CODEC.fieldOf("pos").codec();
+		final var mapCodec = BlockPos.CODEC.fieldOf("pos").codec();
 		consumer.accept("map_codec", mapCodec.encodeStart(JsonOps.INSTANCE, pos).getOrThrow());
 	}
 
@@ -116,7 +112,7 @@ public class CodecExampleProvider implements DataProvider {
 		// #region list-codec
 		Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 		// #endregion list-codec
-		final JsonElement json = listCodec.encodeStart(JsonOps.INSTANCE, List.of(new BlockPos(10, 5, 7))).getOrThrow();
+		final var json = listCodec.encodeStart(JsonOps.INSTANCE, List.of(new BlockPos(10, 5, 7))).getOrThrow();
 
 		consumer.accept("list_codec", json);
 	}
@@ -130,9 +126,9 @@ public class CodecExampleProvider implements DataProvider {
 		MapCodec<BlockPos> defaultCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
 		// #endregion optional-fields
 
-		final Codec<Pair<Optional<BlockPos>, BlockPos>> codec = Codec.pair(optionalCodec.codec(), defaultCodec.codec());
+		final var codec = Codec.pair(optionalCodec.codec(), defaultCodec.codec());
 
-		final Pair<Optional<BlockPos>, BlockPos> value = new Pair<>(
+		final var value = new Pair<Optional<BlockPos>, BlockPos>(
 						Optional.empty(),
 						BlockPos.ZERO
 		);
@@ -188,7 +184,7 @@ public class CodecExampleProvider implements DataProvider {
 		consumer.accept("map", result.getOrThrow());
 	}
 
-	private static void xmap(BiConsumer<String , JsonElement> consumer) {
+	private static void xmap(BiConsumer<String, JsonElement> consumer) {
 		// #region convert-xmap
 		Codec<BlockPos> blockPosCodec = Vec3i.CODEC.xmap(
 						// Convert Vec3i to BlockPos
@@ -203,7 +199,7 @@ public class CodecExampleProvider implements DataProvider {
 		// method references in your `xmap` call.
 		// #endregion convert-xmap
 
-		final BlockPos pos = new BlockPos(1, 2, 3);
+		final var pos = new BlockPos(1, 2, 3);
 
 		final var json = blockPosCodec.encodeStart(JsonOps.INSTANCE, pos)
 						.getOrThrow();
@@ -223,9 +219,9 @@ public class CodecExampleProvider implements DataProvider {
 		Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 		// #endregion registry-dispatch
 
-		final StringyBean stringyBean = new StringyBean("This bean is stringy!");
+		final var stringyBean = new StringyBean("This bean is stringy!");
 
-		final CountingBean countingBean = new CountingBean(42);
+		final var countingBean = new CountingBean(42);
 
 		consumer.accept(
 						"stringy_bean", beanCodec.encodeStart(JsonOps.INSTANCE, stringyBean).getOrThrow()
@@ -253,7 +249,7 @@ public class CodecExampleProvider implements DataProvider {
 						}
 		);
 		// #endregion recursive-codec
-		final ListNode linkedList = new ListNode(
+		final var linkedList = new ListNode(
 						2,
 						Optional.of(
 										new ListNode(
@@ -272,28 +268,31 @@ public class CodecExampleProvider implements DataProvider {
 	}
 
 	private static void collect(BiConsumer<String, JsonElement> consumer) {
-		for (Consumer<BiConsumer<String, JsonElement>> submitter : SUBMITTERS) {
+		for (final var submitter : SUBMITTERS) {
 			submitter.accept(consumer);
 		}
 	}
 
 	@Override
 	public CompletableFuture<?> run(CachedOutput cache) {
-		final List<Entry> entries = new ArrayList<>();
+		final var elements = new HashMap<String, JsonElement>();
 
-		collect((name, elem) -> entries.addLast(new Entry(name, elem)));
+		collect((name, elem) -> {
+			if(elements.put(name, elem) != null)
+				throw new IllegalArgumentException("An element with name " + name + " has already been added.");
+		});
 
 		final var paths = output.createPathProvider(PackOutput.Target.REPORTS, "codec_examples");
 
 		return CompletableFuture.allOf(
-						entries.stream().map(x ->
-										DataProvider.saveStable(
-														cache,
-														x.element,
-														paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.name))
+						elements.entrySet().stream().map(x ->
+														DataProvider.saveStable(
+																		cache,
+																		x.getValue(),
+																		paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.getKey()))
+														)
 										)
-						)
-						.toArray(CompletableFuture[]::new)
+										.toArray(CompletableFuture[]::new)
 		);
 	}
 
