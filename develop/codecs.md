@@ -2,6 +2,7 @@
 title: Codecs
 description: A comprehensive guide for understanding and using Mojang's codec system for serializing and deserializing objects.
 authors:
+  - CelDaemon
   - enjarai
   - Syst3ms
 resources:
