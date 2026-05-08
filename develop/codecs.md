@@ -198,7 +198,7 @@ For example, say we have an abstract `Bean` interface with two implementing clas
 - A function on `Bean` to retrieve its `BeanType<?>`.
 - A map or registry to map `Identifier`s to `BeanType<?>`s.
 - A `Codec<BeanType<?>>` based on this registry. If you use a `net.minecraft.core.Registry`, one can be easily made
-  using `Registry#getCodec`.
+  using `Registry#byNameCodec`.
 
 With all of this, we can create a registry dispatch codec for beans:
 
@@ -208,32 +208,13 @@ With all of this, we can create a registry dispatch codec for beans:
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
 @[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
 
-```java
-// Now we can create a codec for bean types
-// based on the previously created registry
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
-
-// And based on that, here's our registry dispatch codec for beans!
-// The first argument is the field name for the bean type.
-// When left out, it will default to "type".
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#registry-dispatch
 
 Our new codec will serialize beans to JSON like this, grabbing only fields that are relevant to their specific type:
 
-```json
-{
-  "type": "example:stringy_bean",
-  "stringy_string": "This bean is stringy!"
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/stringy_bean.json
 
-```json
-{
-  "type": "example:counting_bean",
-  "counting_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/counting_bean.json
 
 ### Recursive Codecs {#recursive-codecs}
 
@@ -241,40 +222,12 @@ Sometimes it is useful to have a codec that uses _itself_ to decode specific fie
 
 For example, let's try to serialize a singly-linked list. This way of representing lists consists of a bunch of nodes that hold both a value and a reference to the next node in the list. The list is then represented by its first node, and traversing the list is done by following the next node until none remain. Here is a simple implementation of nodes that store integers.
 
-```java
-public record ListNode(int value, ListNode next) {}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node-record
 
 We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codec#recursive` lets us achieve that using a magic-looking lambda:
 
-```java
-Codec<ListNode> codec = Codec.recursive(
-  "ListNode", // a name for the codec
-  selfCodec -> {
-    // Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
-    // This lambda should return the codec we wanted to use from the start,
-    // that refers to itself through `selfCodec`
-    return RecordCodecBuilder.create(instance ->
-      instance.group(
-        Codec.INT.fieldOf("value").forGetter(ListNode::value),
-         // the `next` field will be handled recursively with the self-codec
-        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
-      ).apply(instance, ListNode::new)
-    );
-  }
-);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec
 
 A serialized `ListNode` may then look like this:
 
-```json
-{
-  "value": 2,
-  "next": {
-    "value": 3,
-    "next": {
-      "value": 5
-    }
-  }
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json

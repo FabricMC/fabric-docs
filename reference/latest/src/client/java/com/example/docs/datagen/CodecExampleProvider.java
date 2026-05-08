@@ -8,7 +8,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import com.example.docs.codec.Bean;
+import com.example.docs.codec.BeanType;
 import com.example.docs.codec.CoolBeansClass;
+
+import com.example.docs.codec.CountingBean;
+import com.example.docs.codec.ListNode;
+import com.example.docs.codec.StringyBean;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
@@ -17,8 +23,9 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.MapCodec;
 
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -49,7 +56,9 @@ public class CodecExampleProvider implements DataProvider {
 					CodecExampleProvider::numericRanges,
 					CodecExampleProvider::pair,
 					CodecExampleProvider::map,
-					CodecExampleProvider::xmap
+					CodecExampleProvider::xmap,
+					CodecExampleProvider::registryDispatch,
+					CodecExampleProvider::recursive
 	);
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
@@ -200,6 +209,66 @@ public class CodecExampleProvider implements DataProvider {
 						.getOrThrow();
 
 		consumer.accept("xmap", json);
+	}
+
+	private static void registryDispatch(BiConsumer<String, JsonElement> consumer) {
+		// #region registry-dispatch
+		// Now we can create a codec for bean types
+		// based on the previously created registry
+		Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
+
+		// And based on that, here's our registry dispatch codec for beans!
+		// The first argument is the field name for the bean type.
+		// When left out, it will default to "type".
+		Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
+		// #endregion registry-dispatch
+
+		final StringyBean stringyBean = new StringyBean("This bean is stringy!");
+
+		final CountingBean countingBean = new CountingBean(42);
+
+		consumer.accept(
+						"stringy_bean", beanCodec.encodeStart(JsonOps.INSTANCE, stringyBean).getOrThrow()
+		);
+		consumer.accept(
+						"counting_bean", beanCodec.encodeStart(JsonOps.INSTANCE, countingBean).getOrThrow()
+		);
+	}
+
+	private static void recursive(BiConsumer<String, JsonElement> consumer) {
+		// #region recursive-codec
+		Codec<ListNode> codec = Codec.recursive(
+						"ListNode", // a name for the codec
+						selfCodec -> {
+							// Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
+							// This lambda should return the codec we wanted to use from the start,
+							// that refers to itself through `selfCodec`
+							return RecordCodecBuilder.create(instance ->
+											instance.group(
+															Codec.INT.fieldOf("value").forGetter(ListNode::value),
+															// the `next` field will be handled recursively with the self-codec
+															selfCodec.optionalFieldOf("next").forGetter(ListNode::next)
+											).apply(instance, ListNode::new)
+							);
+						}
+		);
+		// #endregion recursive-codec
+		final ListNode linkedList = new ListNode(
+						2,
+						Optional.of(
+										new ListNode(
+														3,
+														Optional.of(
+																		new ListNode(
+																						5,
+																						Optional.empty()
+																		)
+														)
+										)
+						)
+
+		);
+		consumer.accept("recursive", codec.encodeStart(JsonOps.INSTANCE, linkedList).getOrThrow());
 	}
 
 	private static void collect(BiConsumer<String, JsonElement> consumer) {
