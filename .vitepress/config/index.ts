@@ -114,7 +114,7 @@ export default defineVersionedConfig(
         },
         provider: "local",
       },
-    } as Fabric.ThemeConfig,
+    },
 
     // Dynamic head tags
     transformHead,
@@ -143,6 +143,6 @@ export default defineVersionedConfig(
     vite: {
       plugins: [transformFilesPlugin],
     },
-  },
+  } as Fabric.Config,
   path.resolve(import.meta.dirname, "..")
 );
