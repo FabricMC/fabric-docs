@@ -36,7 +36,7 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       markdown-it-vuepress-code-snippet-enhanced:
-        specifier: github:IMB11/md-it-enhanced-snippets#dfb9fa2
+        specifier: github:IMB11/md-it-enhanced-snippets#dfb9fa25527b2f772d50ca37ae526484c890b8ae
         version: https://codeload.github.com/IMB11/md-it-enhanced-snippets/tar.gz/dfb9fa25527b2f772d50ca37ae526484c890b8ae
       medium-zoom:
         specifier: ^1.1.0
