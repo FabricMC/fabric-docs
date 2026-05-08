@@ -1,5 +1,18 @@
 package com.example.docs;
 
+import net.fabricmc.fabric.api.event.player.ItemEvents;
+
+import net.minecraft.core.BlockPos;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+
+import net.minecraft.world.level.block.entity.SignBlockEntity;
+import net.minecraft.world.level.block.entity.SignText;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

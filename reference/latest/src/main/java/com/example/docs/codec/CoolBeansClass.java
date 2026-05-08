@@ -15,10 +15,10 @@ public class CoolBeansClass {
 	// #endregion bean-class
 	// #region bean-codec
 	public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-					Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-					Item.CODEC.fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
-					BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
-					// Up to 16 fields can be declared here
+			Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
+			Item.CODEC.fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
+			BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
+			// Up to 16 fields can be declared here
 	).apply(instance, CoolBeansClass::new));
 	// #endregion bean-codec
 	// #region bean-class

@@ -8,7 +8,7 @@ import net.minecraft.IdentifierException;
 // #region identifier-flatmap
 public class Identifier {
 	public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-					Identifier::read, Identifier::toString
+			Identifier::read, Identifier::toString
 	);
 
 	// ...

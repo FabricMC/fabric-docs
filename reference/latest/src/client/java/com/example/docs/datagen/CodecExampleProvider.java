@@ -43,18 +43,18 @@ public class CodecExampleProvider implements DataProvider {
 	}
 
 	private static final List<Consumer<BiConsumer<String, JsonElement>>> SUBMITTERS = List.of(
-					CodecExampleProvider::usingCodecs,
-					CodecExampleProvider::beanCodec,
-					CodecExampleProvider::mapCodec,
-					CodecExampleProvider::listCodec,
-					CodecExampleProvider::optionalFields,
-					CodecExampleProvider::unit,
-					CodecExampleProvider::numericRanges,
-					CodecExampleProvider::pair,
-					CodecExampleProvider::map,
-					CodecExampleProvider::xmap,
-					CodecExampleProvider::registryDispatch,
-					CodecExampleProvider::recursive
+			CodecExampleProvider::usingCodecs,
+			CodecExampleProvider::beanCodec,
+			CodecExampleProvider::mapCodec,
+			CodecExampleProvider::listCodec,
+			CodecExampleProvider::optionalFields,
+			CodecExampleProvider::unit,
+			CodecExampleProvider::numericRanges,
+			CodecExampleProvider::pair,
+			CodecExampleProvider::map,
+			CodecExampleProvider::xmap,
+			CodecExampleProvider::registryDispatch,
+			CodecExampleProvider::recursive
 	);
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
@@ -87,14 +87,13 @@ public class CodecExampleProvider implements DataProvider {
 	}
 
 	private static void beanCodec(BiConsumer<String, JsonElement> consumer) {
-
 		final var bean = new CoolBeansClass(
-						5,
-						BuiltInRegistries.ITEM.wrapAsHolder(ModItems.LIGHTNING_TATER),
-						List.of(
-										new BlockPos(1, 2, 3),
-										new BlockPos(4, 5, 6)
-						)
+				5,
+				BuiltInRegistries.ITEM.wrapAsHolder(ModItems.LIGHTNING_TATER),
+				List.of(
+						new BlockPos(1, 2, 3),
+						new BlockPos(4, 5, 6)
+				)
 		);
 
 		final var json = CoolBeansClass.CODEC.encodeStart(JsonOps.INSTANCE, bean).getOrThrow();
@@ -129,8 +128,8 @@ public class CodecExampleProvider implements DataProvider {
 		final var codec = Codec.pair(optionalCodec.codec(), defaultCodec.codec());
 
 		final var value = new Pair<Optional<BlockPos>, BlockPos>(
-						Optional.empty(),
-						BlockPos.ZERO
+				Optional.empty(),
+				BlockPos.ZERO
 		);
 
 		consumer.accept("optional_fields", codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow());
@@ -176,8 +175,8 @@ public class CodecExampleProvider implements DataProvider {
 
 		// Use it to serialize data
 		DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-						Identifier.fromNamespaceAndPath("example", "number"), 23,
-						Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
+				Identifier.fromNamespaceAndPath("example", "number"), 23,
+				Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
 		));
 		// #endregion map-codec
 
@@ -187,10 +186,10 @@ public class CodecExampleProvider implements DataProvider {
 	private static void xmap(BiConsumer<String, JsonElement> consumer) {
 		// #region convert-xmap
 		Codec<BlockPos> blockPosCodec = Vec3i.CODEC.xmap(
-						// Convert Vec3i to BlockPos
-						vec -> new BlockPos(vec.getX(), vec.getY(), vec.getZ()),
-						// Convert BlockPos to Vec3i
-						pos -> new Vec3i(pos.getX(), pos.getY(), pos.getZ())
+				// Convert Vec3i to BlockPos
+				vec -> new BlockPos(vec.getX(), vec.getY(), vec.getZ()),
+				// Convert BlockPos to Vec3i
+				pos -> new Vec3i(pos.getX(), pos.getY(), pos.getZ())
 		);
 
 		// When converting an existing class (`X` for example)
@@ -202,7 +201,7 @@ public class CodecExampleProvider implements DataProvider {
 		final var pos = new BlockPos(1, 2, 3);
 
 		final var json = blockPosCodec.encodeStart(JsonOps.INSTANCE, pos)
-						.getOrThrow();
+				.getOrThrow();
 
 		consumer.accept("xmap", json);
 	}
@@ -224,44 +223,44 @@ public class CodecExampleProvider implements DataProvider {
 		final var countingBean = new CountingBean(42);
 
 		consumer.accept(
-						"stringy_bean", beanCodec.encodeStart(JsonOps.INSTANCE, stringyBean).getOrThrow()
+				"stringy_bean", beanCodec.encodeStart(JsonOps.INSTANCE, stringyBean).getOrThrow()
 		);
 		consumer.accept(
-						"counting_bean", beanCodec.encodeStart(JsonOps.INSTANCE, countingBean).getOrThrow()
+				"counting_bean", beanCodec.encodeStart(JsonOps.INSTANCE, countingBean).getOrThrow()
 		);
 	}
 
 	private static void recursive(BiConsumer<String, JsonElement> consumer) {
 		// #region recursive-codec
 		Codec<ListNode> codec = Codec.recursive(
-						"ListNode", // a name for the codec
-						selfCodec -> {
-							// Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
-							// This lambda should return the codec we wanted to use from the start,
-							// that refers to itself through `selfCodec`
-							return RecordCodecBuilder.create(instance ->
-											instance.group(
-															Codec.INT.fieldOf("value").forGetter(ListNode::value),
-															// the `next` field will be handled recursively with the self-codec
-															selfCodec.optionalFieldOf("next").forGetter(ListNode::next)
-											).apply(instance, ListNode::new)
-							);
-						}
+				"ListNode", // a name for the codec
+				selfCodec -> {
+					// Here, `selfCodec` represents the `Codec<ListNode>`, as if it was already constructed
+					// This lambda should return the codec we wanted to use from the start,
+					// that refers to itself through `selfCodec`
+					return RecordCodecBuilder.create(instance ->
+							instance.group(
+											Codec.INT.fieldOf("value").forGetter(ListNode::value),
+											// the `next` field will be handled recursively with the self-codec
+											selfCodec.optionalFieldOf("next").forGetter(ListNode::next)
+							).apply(instance, ListNode::new)
+					);
+				}
 		);
 		// #endregion recursive-codec
 		final var linkedList = new ListNode(
-						2,
-						Optional.of(
+				2,
+				Optional.of(
+						new ListNode(
+								3,
+								Optional.of(
 										new ListNode(
-														3,
-														Optional.of(
-																		new ListNode(
-																						5,
-																						Optional.empty()
-																		)
-														)
+														5,
+														Optional.empty()
 										)
+								)
 						)
+				)
 
 		);
 		consumer.accept("recursive", codec.encodeStart(JsonOps.INSTANCE, linkedList).getOrThrow());
@@ -278,21 +277,22 @@ public class CodecExampleProvider implements DataProvider {
 		final var elements = new HashMap<String, JsonElement>();
 
 		collect((name, elem) -> {
-			if(elements.put(name, elem) != null)
+			if (elements.put(name, elem) != null) {
 				throw new IllegalArgumentException("An element with name " + name + " has already been added.");
+			}
 		});
 
 		final var paths = output.createPathProvider(PackOutput.Target.REPORTS, "codec_examples");
 
 		return CompletableFuture.allOf(
-						elements.entrySet().stream().map(x ->
-														DataProvider.saveStable(
-																		cache,
-																		x.getValue(),
-																		paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.getKey()))
-														)
-										)
-										.toArray(CompletableFuture[]::new)
+				elements.entrySet().stream().map(x ->
+								DataProvider.saveStable(
+										cache,
+										x.getValue(),
+										paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.getKey()))
+								)
+						)
+						.toArray(CompletableFuture[]::new)
 		);
 	}
 
