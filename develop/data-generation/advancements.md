@@ -71,6 +71,16 @@ Your advancements should now be shown as a tree in the advancement menu.
 
 ![Advancement Tree](/assets/develop/data-generation/advancement_tree.png)
 
+## Rewards {#rewards}
+
+We can attach rewards to our advancements, these rewards will be given when a player completes the advancement. We can do this by calling `Advancement.Builder#rewards(...)` with the rewards we want to add.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+
+There are multiple other reward types available:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
+
 ## Custom Criteria {#custom-criteria}
 
 ::: warning

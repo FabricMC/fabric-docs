@@ -8,5 +8,8 @@ import net.minecraft.world.level.storage.loot.LootTable;
 // :::datagen-loot-tables:mod-loot-tables
 public class ModLootTables {
 	public static ResourceKey<LootTable> TEST_CHEST_LOOT = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "chests/test_loot"));
+	// :::datagen-loot-tables:mod-loot-tables
+	public static ResourceKey<LootTable> ADVANCEMENT_COLLECT_NETHER_STAR = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "advancements/collect_nether_star"));
+	// :::datagen-loot-tables:mod-loot-tables
 }
 // :::datagen-loot-tables:mod-loot-tables

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.criterion.ConsumeItemTrigger;
@@ -21,9 +22,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Blocks;
@@ -32,6 +35,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.ModLootTables;
 import com.example.docs.advancement.ModCriteria;
 import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
@@ -81,6 +85,47 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "apple_and_beef"));
 		// :::datagen-advancements:second-advancement
+		// #region experience-reward
+		Advancement.Builder.advancement()
+				.rewards(AdvancementRewards.Builder.experience(10))
+				// #endregion experience-reward
+				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
+				.display(
+						Items.GOLD_BLOCK,
+						Component.literal("Too Much Gold!"),
+						Component.literal("Collect a gold block"),
+						null,
+						AdvancementType.GOAL,
+						true,
+						false,
+						false
+				)
+				.addCriterion("get_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_gold"));
+
+		// #region reward-types
+		Advancement.Builder.advancement()
+				.rewards(
+						AdvancementRewards.Builder.loot(ModLootTables.ADVANCEMENT_COLLECT_NETHER_STAR) // Give entries from a loot table
+								.addRecipe(RecipeBuilder.getDefaultRecipeId(new ItemStackTemplate(Items.BEACON))) // Make recipes available in the recipe book
+								.runs(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "got_nether_star")) // Run a .mcfunction
+								.addExperience(200) // Give experience points
+				)
+				// #endregion reward-types
+				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
+				.display(
+						Items.NETHER_STAR,
+						Component.literal("Celestial body"),
+						Component.literal("Get a nether star"),
+						null,
+						AdvancementType.GOAL,
+						true,
+						false,
+						false
+				)
+				.addCriterion("get_star", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_STAR))
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_nether_star"));
+
 		// :::datagen-advancements:custom-criteria-advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
 				.parent(getDirt)
