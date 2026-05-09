@@ -65,12 +65,17 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModWorldgenProvider::new);
     // :::datagen-world:provider-features
 
-
 		pack.addProvider(ExampleModFluidTagProvider::new);
 
     // :::datagen-world:biome-provider
 		pack.addProvider(ExampleModBiomeProvider::new);
     // :::datagen-world:biome-provider
+
+		// :::datagen-world:dimensionType-provider
+		pack.addProvider(ExampleModDimensionTypeProvider::new);
+		// :::datagen-world:dimensionType-provider
+
+		//  pack.addProvider(ExampleModLevelStemProvider::new);
 
 		// :::datagen-setup:generator
 	}
@@ -92,6 +97,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-world:biome-registries
 		registryBuilder.add(Registries.BIOME, ExampleModBiomeProvider::bootstrap);
     // :::datagen-world:biome-registries
+
+		// :::datagen-world:dimensionType-registries
+		registryBuilder.add(Registries.DIMENSION_TYPE, ExampleModDimensionTypeProvider::bootstrapDimension);
+		// :::datagen-world:dimensionType-registries
 
 		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
