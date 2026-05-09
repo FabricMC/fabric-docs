@@ -28,7 +28,6 @@ import net.minecraft.world.level.dimension.DimensionType;
 
 // :::datagen-dimension:dimensionType
 public class ExampleModDimensionTypeProvider extends FabricDynamicRegistryProvider {
-
 	// :::datagen-dimension:dimensionType
 
 	// :::datagen-dimension:dimensionKey
@@ -51,7 +50,6 @@ public class ExampleModDimensionTypeProvider extends FabricDynamicRegistryProvid
 
 	// :::datagen-dimension:bootstrap
 	public static void bootstrapDimension(BootstrapContext<DimensionType> context) {
-
 		// :::datagen-dimension:bootstrap
 
 		// :::datagen-dimension:attributes
@@ -108,7 +106,5 @@ public class ExampleModDimensionTypeProvider extends FabricDynamicRegistryProvid
 	public String getName() {
 		return "ExampleMod Dimension Type Provider";
 	}
-
-	// :::datagen-dimension:dimensionType
-
 }
+// :::datagen-dimension:dimensionType
