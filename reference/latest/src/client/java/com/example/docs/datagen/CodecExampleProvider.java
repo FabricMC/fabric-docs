@@ -87,7 +87,8 @@ public class CodecExampleProvider implements DataProvider {
 	}
 
 	private static void beanCodec(BiConsumer<String, JsonElement> consumer) {
-		final var bean = new CoolBeansClass(
+		// #region bean-codec-data
+		CoolBeansClass bean = new CoolBeansClass(
 				5,
 				BuiltInRegistries.ITEM.wrapAsHolder(ModItems.LIGHTNING_TATER),
 				List.of(
@@ -95,44 +96,52 @@ public class CodecExampleProvider implements DataProvider {
 						new BlockPos(4, 5, 6)
 				)
 		);
+		// #endregion bean-codec-data
 
-		final var json = CoolBeansClass.CODEC.encodeStart(JsonOps.INSTANCE, bean).getOrThrow();
+		final var json = encode(CoolBeansClass.CODEC, bean);
 		consumer.accept("cool_beans", json);
 	}
 
 	private static void mapCodec(BiConsumer<String, JsonElement> consumer) {
 		final var pos = new BlockPos(1, 2, 3);
-		consumer.accept("plain_codec", BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos).getOrThrow());
+		consumer.accept("plain_codec", encode(BlockPos.CODEC, pos));
 		final var mapCodec = BlockPos.CODEC.fieldOf("pos").codec();
-		consumer.accept("map_codec", mapCodec.encodeStart(JsonOps.INSTANCE, pos).getOrThrow());
+		consumer.accept("map_codec", encode(mapCodec, pos));
 	}
 
 	private static void listCodec(BiConsumer<String, JsonElement> consumer) {
 		// #region list-codec
 		Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 		// #endregion list-codec
-		final var json = listCodec.encodeStart(JsonOps.INSTANCE, List.of(new BlockPos(10, 5, 7))).getOrThrow();
+
+		// #region list-codec-data
+		List<BlockPos> data = List.of(new BlockPos(10, 5, 7));
+		// #endregion list-codec-data
+
+		final var json = encode(listCodec, data);
 
 		consumer.accept("list_codec", json);
 	}
 
 	private static void optionalFields(BiConsumer<String, JsonElement> consumer) {
-		// #region optional-fields
-		// Without a default value
+		// #region optional-field
 		MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
+		// #endregion optional-field
 
-		// With a default value
+		// #region default-field
 		MapCodec<BlockPos> defaultCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
-		// #endregion optional-fields
+		// #endregion default-field
 
-		final var codec = Codec.pair(optionalCodec.codec(), defaultCodec.codec());
+		// #region optional-field-data
+		Optional<BlockPos> optionalBlockPos = Optional.empty();
+		// #endregion optional-field-data
 
-		final var value = new Pair<Optional<BlockPos>, BlockPos>(
-				Optional.empty(),
-				BlockPos.ZERO
-		);
+		// #region default-field-data
+		BlockPos defaultBlockPos = BlockPos.ZERO;
+		// #endregion default-field-data
 
-		consumer.accept("optional_fields", codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow());
+		consumer.accept("optional_field", encode(optionalCodec.codec(), optionalBlockPos));
+		consumer.accept("default_field", encode(defaultCodec.codec(), defaultBlockPos));
 	}
 
 	private static void unit(BiConsumer<String, JsonElement> consumer) {
@@ -140,16 +149,20 @@ public class CodecExampleProvider implements DataProvider {
 		Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
 		// #endregion unit-codec
 
-		consumer.accept("unit", theMeaningOfCodec.encodeStart(JsonOps.INSTANCE, 42).getOrThrow());
+		consumer.accept("unit", encode(theMeaningOfCodec, 42));
 	}
 
 	private static void numericRanges(BiConsumer<String, JsonElement> consumer) {
-		// #region numeric-ranges
+		// #region numeric-range
 		// Can't be more than 2
 		Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
-		// #endregion numeric-ranges
+		// #endregion numeric-range
 
-		consumer.accept("numeric_ranges", amountOfFriendsYouHave.encodeStart(JsonOps.INSTANCE, 2).getOrThrow());
+		// #region numeric-range-data
+		int amount = 2;
+		// #endregion numeric-range-data
+
+		consumer.accept("numeric_range", encode(amountOfFriendsYouHave, amount));
 	}
 
 	private static void pair(BiConsumer<String, JsonElement> consumer) {
@@ -158,12 +171,15 @@ public class CodecExampleProvider implements DataProvider {
 		Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
 		Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
 
-		// Merge them into a pair codec
+		// And merge them into a pair codec
 		Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
-
-		// Use it to serialize data
-		DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
 		// #endregion pair-codec
+
+		// #region pair-codec-data
+		Pair<Integer, Boolean> pair = Pair.of(23, true);
+		// #endregion pair-codec-data
+
+		DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, pair);
 
 		consumer.accept("pair", result.getOrThrow());
 	}
@@ -172,15 +188,16 @@ public class CodecExampleProvider implements DataProvider {
 		// #region map-codec
 		// Create a codec for a map of Identifiers to integers
 		Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
-
-		// Use it to serialize data
-		DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-				Identifier.fromNamespaceAndPath("example", "number"), 23,
-				Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
-		));
 		// #endregion map-codec
 
-		consumer.accept("map", result.getOrThrow());
+		// #region map-codec-data
+		Map<Identifier, Integer> map = Map.of(
+				Identifier.fromNamespaceAndPath("example", "number"), 23,
+				Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
+		);
+		// #endregion map-codec-data
+
+		consumer.accept("map", encode(mapCodec, map));
 	}
 
 	private static void xmap(BiConsumer<String, JsonElement> consumer) {
@@ -198,12 +215,11 @@ public class CodecExampleProvider implements DataProvider {
 		// method references in your `xmap` call.
 		// #endregion convert-xmap
 
-		final var pos = new BlockPos(1, 2, 3);
+		// #region convert-xmap-data
+		BlockPos pos = new BlockPos(1, 2, 3);
+		// #endregion convert-xmap-data
 
-		final var json = blockPosCodec.encodeStart(JsonOps.INSTANCE, pos)
-				.getOrThrow();
-
-		consumer.accept("xmap", json);
+		consumer.accept("xmap", encode(blockPosCodec, pos));
 	}
 
 	private static void registryDispatch(BiConsumer<String, JsonElement> consumer) {
@@ -222,12 +238,8 @@ public class CodecExampleProvider implements DataProvider {
 
 		final var countingBean = new CountingBean(42);
 
-		consumer.accept(
-				"stringy_bean", beanCodec.encodeStart(JsonOps.INSTANCE, stringyBean).getOrThrow()
-		);
-		consumer.accept(
-				"counting_bean", beanCodec.encodeStart(JsonOps.INSTANCE, countingBean).getOrThrow()
-		);
+		consumer.accept("stringy_bean", encode(beanCodec, stringyBean));
+		consumer.accept("counting_bean", encode(beanCodec, countingBean));
 	}
 
 	private static void recursive(BiConsumer<String, JsonElement> consumer) {
@@ -240,15 +252,17 @@ public class CodecExampleProvider implements DataProvider {
 					// that refers to itself through `selfCodec`
 					return RecordCodecBuilder.create(instance ->
 							instance.group(
-											Codec.INT.fieldOf("value").forGetter(ListNode::value),
-											// the `next` field will be handled recursively with the self-codec
-											selfCodec.optionalFieldOf("next").forGetter(ListNode::next)
+									Codec.INT.fieldOf("value").forGetter(ListNode::value),
+									// the `next` field will be handled recursively with the self-codec
+									selfCodec.optionalFieldOf("next").forGetter(ListNode::next)
 							).apply(instance, ListNode::new)
 					);
 				}
 		);
 		// #endregion recursive-codec
-		final var linkedList = new ListNode(
+
+		// #region recursive-codec-data
+		ListNode linkedList = new ListNode(
 				2,
 				Optional.of(
 						new ListNode(
@@ -261,15 +275,20 @@ public class CodecExampleProvider implements DataProvider {
 								)
 						)
 				)
-
 		);
-		consumer.accept("recursive", codec.encodeStart(JsonOps.INSTANCE, linkedList).getOrThrow());
+		// #endregion recursive-codec-data
+
+		consumer.accept("recursive", encode(codec, linkedList));
 	}
 
 	private static void collect(BiConsumer<String, JsonElement> consumer) {
 		for (final var submitter : SUBMITTERS) {
 			submitter.accept(consumer);
 		}
+	}
+
+	private static <T> JsonElement encode(Codec<T> codec, T value) {
+		return codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow();
 	}
 
 	@Override

@@ -29,7 +29,13 @@ Since a few vanilla classes already have codecs defined, we can use those as an 
 
 Now, let's say we want to serialize a `BlockPos` to JSON and back. We can do this using the codec statically stored at `BlockPos.CODEC` with the `Codec#encodeStart` and `Codec#parse` methods, respectively.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#encode-blockpos
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#encode-blockpos [Java]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json [Output]
+
+:::
 
 When using a codec, values are returned in the form of a `DataResult`. This is a wrapper that can represent either a success or a failure. We can use this in several ways: If we just want our serialized value, `DataResult#result` will simply return an `Optional` containing our value, while `DataResult#resultOrPartial` also lets us supply a function to handle any errors that may have occurred. The latter is particularly useful for custom datapack resources, where we'd want to log errors without causing issues elsewhere.
 
@@ -65,7 +71,15 @@ We can get the first one from the aforementioned primitive codecs in the `Codec`
 
 `Codec#listOf` can be used to create a list version of any codec:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json [Output]
+
+:::
 
 It should be noted that codecs created in this way will always deserialize to an `ImmutableList`. If you need a mutable list instead, you can make use of [xmap](#mutually-convertible-types) to convert to one during
 deserialization.
@@ -77,7 +91,15 @@ a `RecordCodecBuilder`. This assumes that our class has a constructor containing
 
 Let's take a look at how to create a codec for our `CoolBeansClass`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec
+::: code-group
+
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#bean-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json [Output]
+
+:::
 
 Each line in the group specifies a codec, a field name, and a getter method. The `Codec#fieldOf` call is used to convert the codec into a [map codec](#mapcodec), and the `forGetter` call specifies the getter method used to retrieve the value of the field from an instance of the class. Meanwhile, the `apply` call specifies the constructor used to create new instances. Note that the order of the fields in the group should be the same as the order of the arguments in the constructor.
 
@@ -105,7 +127,27 @@ boxing their input value.
 
 `Codec#optionalFieldOf` can be used to create an optional map codec. This will, when the specified field is not present in the container during deserialization, either be deserialized as an empty `Optional` or a specified default value.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-fields
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-field [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-field-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json [Output]
+
+:::
+
+To add the default value, we can pass it as the second parameter in the `optionalFieldOf` method.
+
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#default-field [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#default-field-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json [Output]
+
+:::
 
 Do note that if the field is present, but the value is invalid, the field fails to deserialize at all if the field value is invalid.
 
@@ -115,13 +157,27 @@ Do note that if the field is present, but the value is invalid, the field fails 
 
 `MapCodec.unitCodec` can be used to create a codec that always deserializes to a constant value, regardless of the input. When serializing, it will do nothing.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#unit-codec
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#unit-codec [Codec]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json [Output]
+
+:::
 
 #### Numeric Ranges {#numeric-ranges}
 
 `Codec.intRange` and its pals, `Codec.floatRange` and `Codec.doubleRange` can be used to create a codec that only accepts number values within a specified **inclusive** range. This applies to both serialization and deserialization.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-ranges
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-range [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-range-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json [Output]
+
+:::
 
 #### Pair {#pair}
 
@@ -129,13 +185,15 @@ Do note that if the field is present, but the value is invalid, the field fails 
 [record codecs](#merging-codecs-for-record-like-classes).
 The resulting codec will serialize to a map combining the fields of both codecs used.
 
-For example, running this code:
+::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec [Codec]
 
-Will output this JSON:
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec-data [Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json [Output]
+
+:::
 
 #### Either {#either}
 
@@ -149,11 +207,15 @@ For processing maps with arbitrary keys, such as `HashMap`s, `Codec.unboundedMap
 
 Due to limitations of JSON and NBT, the key codec used _must_ serialize to a string. This includes codecs for types that aren't strings themselves, but do serialize to them, such as `Identifier.CODEC`. See the example below:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec
+::: code-group
 
-This will output this JSON:
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec [Codec]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json [Output]
+
+:::
 
 As you can see, this works because `Identifier.CODEC` serializes directly to a string value. A similar effect can be achieved for simple objects that don't serialize to strings by using [xmap & friends](#mutually-convertible-types) to convert them.
 
@@ -166,7 +228,15 @@ Say we have two classes that can be converted to each other, but don't have a pa
 `BlockPos` already has a codec, but let's pretend it doesn't. We can create one for it by basing it on the
 codec for `Vec3d` like this:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json [Output]
+
+:::
 
 #### flatComapMap, comapFlatMap, and flatXMap {#flatcomapmap-comapflatmap-flatxmap}
 
@@ -227,8 +297,12 @@ For example, let's try to serialize a singly-linked list. This way of representi
 
 We can't construct a codec for this by ordinary means, because what codec would we use for the `next` field? We would need a `Codec<ListNode>`, which is what we are in the middle of constructing! `Codec#recursive` lets us achieve that using a magic-looking lambda:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec
+::: code-group
 
-A serialized `ListNode` may then look like this:
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec [Codec]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
+
+:::
