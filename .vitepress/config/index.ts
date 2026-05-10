@@ -112,7 +112,10 @@ export default defineVersionedConfig(
             || env.relativePath.startsWith("translated/")
             || env.relativePath.startsWith("versions/")
               ? ""
-              : md.render(transformFile(src, env.path, latestVersion), env),
+              : md.render(
+                  transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
+                  env
+                ),
         },
         provider: "local",
       },
