@@ -1,8 +1,8 @@
 import mediumZoom from "medium-zoom";
-import { type Theme, useData, useRouter } from "vitepress";
+import { inBrowser, type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
-import { h, nextTick, onMounted, watch } from "vue";
+import { h, nextTick, watch } from "vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
@@ -53,11 +53,14 @@ export default {
   setup: () => {
     const router = useRouter();
 
-    const initZoom = () => mediumZoom(".main img", { background: "var(--vp-c-bg)" });
-    onMounted(() => initZoom());
     watch(
       () => router.route.path,
-      () => nextTick(() => initZoom())
+      () =>
+        nextTick(() => {
+          if (!inBrowser) return;
+          mediumZoom(".main img", { background: "var(--vp-c-bg)" });
+        }),
+      { immediate: true }
     );
   },
 } satisfies Theme;
