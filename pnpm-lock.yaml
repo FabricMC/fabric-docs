@@ -7,22 +7,24 @@ settings:
 overrides:
   '@types/lodash': '-'
   lodash: '-'
-  vite: npm:rolldown-vite@7.1.17
+  vite: npm:rolldown-vite@7.3.1
   vitepress: ^2.0.0-alpha.12
   vitepress-versioning-plugin>vitepress-versioning-plugin: '-'
 
 patchedDependencies:
-  vitepress:
-    hash: 0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059
-    path: patches/vitepress.patch
-  vitepress-versioning-plugin:
-    hash: 83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914
-    path: patches/vitepress-versioning-plugin.patch
+  vitepress: 0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059
+  vitepress-versioning-plugin: 83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914
 
 importers:
 
   .:
     dependencies:
+      '@emnapi/core':
+        specifier: ^1.10.0
+        version: 1.10.0
+      '@emnapi/runtime':
+        specifier: ^1.10.0
+        version: 1.10.0
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.2.8
         version: 5.2.8
@@ -55,13 +57,13 @@ importers:
         version: 1.12.13
       vitepress:
         specifier: ^2.0.0-alpha.12
-        version: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
+        version: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
       vitepress-plugin-tabs:
         specifier: ^0.7.3
-        version: 0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22)
+        version: 0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22)
       vitepress-versioning-plugin:
         specifier: ^1.3.0
-        version: 1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
+        version: 1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
       vue:
         specifier: ^3.5.6
         version: 3.5.22
@@ -119,14 +121,23 @@ packages:
   '@docsearch/js@4.2.0':
     resolution: {integrity: sha512-KBHVPO29QiGUFJYeAqxW0oXtGf/aghNmRrIRPT4/28JAefqoCkNn/ZM/jeQ7fHjl0KNM6C+KlLVYjwyz6lNZnA==}
 
+  '@emnapi/core@1.10.0':
+    resolution: {integrity: sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==}
+
   '@emnapi/core@1.5.0':
     resolution: {integrity: sha512-sbP8GzB1WDzacS8fgNPpHlp6C9VZe+SJP3F90W9rLemaQj2PzIuTEl1qDOYQf58YIpyjViI24y9aPWCjEzY2cg==}
+
+  '@emnapi/runtime@1.10.0':
+    resolution: {integrity: sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==}
 
   '@emnapi/runtime@1.5.0':
     resolution: {integrity: sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ==}
 
   '@emnapi/wasi-threads@1.1.0':
     resolution: {integrity: sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ==}
+
+  '@emnapi/wasi-threads@1.2.1':
+    resolution: {integrity: sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==}
 
   '@esbuild/aix-ppc64@0.25.10':
     resolution: {integrity: sha512-0NFWnA+7l41irNuaSVlLfgNT12caWJVLzp5eAVhZ0z1qpxbockccEt3s+149rE64VUI3Ml2zt8Nv5JVc4QXTsw==}
@@ -414,96 +425,90 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@oxc-project/runtime@0.92.0':
-    resolution: {integrity: sha512-Z7x2dZOmznihvdvCvLKMl+nswtOSVxS2H2ocar+U9xx6iMfTp0VGIrX6a4xB1v80IwOPC7dT1LXIJrY70Xu3Jw==}
+  '@oxc-project/runtime@0.101.0':
+    resolution: {integrity: sha512-t3qpfVZIqSiLQ5Kqt/MC4Ge/WCOGrrcagAdzTcDaggupjiGxUx4nJF2v6wUCXWSzWHn5Ns7XLv13fCJEwCOERQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
-  '@oxc-project/types@0.94.0':
-    resolution: {integrity: sha512-+UgQT/4o59cZfH6Cp7G0hwmqEQ0wE+AdIwhikdwnhWI9Dp8CgSY081+Q3O67/wq3VJu8mgUEB93J9EHHn70fOw==}
+  '@oxc-project/types@0.101.0':
+    resolution: {integrity: sha512-nuFhqlUzJX+gVIPPfuE6xurd4lST3mdcWOhyK/rZO0B9XWMKm79SuszIQEnSMmmDhq1DC8WWVYGVd+6F93o1gQ==}
 
-  '@rolldown/binding-android-arm64@1.0.0-beta.43':
-    resolution: {integrity: sha512-TP8bcPOb1s6UmY5syhXrDn9k0XkYcw+XaoylTN4cJxf0JOVS2j682I3aTcpfT51hOFGr2bRwNKN9RZ19XxeQbA==}
+  '@rolldown/binding-android-arm64@1.0.0-beta.53':
+    resolution: {integrity: sha512-Ok9V8o7o6YfSdTTYA/uHH30r3YtOxLD6G3wih/U9DO0ucBBFq8WPt/DslU53OgfteLRHITZny9N/qCUxMf9kjQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [android]
 
-  '@rolldown/binding-darwin-arm64@1.0.0-beta.43':
-    resolution: {integrity: sha512-kuVWnZsE4vEjMF/10SbSUyzucIW2zmdsqFghYMqy+fsjXnRHg0luTU6qWF8IqJf4Cbpm9NEZRnjIEPpAbdiSNQ==}
+  '@rolldown/binding-darwin-arm64@1.0.0-beta.53':
+    resolution: {integrity: sha512-yIsKqMz0CtRnVa6x3Pa+mzTihr4Ty+Z6HfPbZ7RVbk1Uxnco4+CUn7Qbm/5SBol1JD/7nvY8rphAgyAi7Lj6Vg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  '@rolldown/binding-darwin-x64@1.0.0-beta.43':
-    resolution: {integrity: sha512-u9Ps4sh6lcmJ3vgLtyEg/x4jlhI64U0mM93Ew+tlfFdLDe7yKyA+Fe80cpr2n1mNCeZXrvTSbZluKpXQ0GxLjw==}
+  '@rolldown/binding-darwin-x64@1.0.0-beta.53':
+    resolution: {integrity: sha512-GTXe+mxsCGUnJOFMhfGWmefP7Q9TpYUseHvhAhr21nCTgdS8jPsvirb0tJwM3lN0/u/cg7bpFNa16fQrjKrCjQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [darwin]
 
-  '@rolldown/binding-freebsd-x64@1.0.0-beta.43':
-    resolution: {integrity: sha512-h9lUtVtXgfbk/tnicMpbFfZ3DJvk5Zn2IvmlC1/e0+nUfwoc/TFqpfrRRqcNBXk/e+xiWMSKv6b0MF8N+Rtvlg==}
+  '@rolldown/binding-freebsd-x64@1.0.0-beta.53':
+    resolution: {integrity: sha512-9Tmp7bBvKqyDkMcL4e089pH3RsjD3SUungjmqWtyhNOxoQMh0fSmINTyYV8KXtE+JkxYMPWvnEt+/mfpVCkk8w==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [freebsd]
 
-  '@rolldown/binding-linux-arm-gnueabihf@1.0.0-beta.43':
-    resolution: {integrity: sha512-IX2C6bA6wM2rX/RvD75ko+ix9yxPKjKGGq7pOhB8wGI4Z4fqX5B1nDHga/qMDmAdCAR1m9ymzxkmqhm/AFYf7A==}
+  '@rolldown/binding-linux-arm-gnueabihf@1.0.0-beta.53':
+    resolution: {integrity: sha512-a1y5fiB0iovuzdbjUxa7+Zcvgv+mTmlGGC4XydVIsyl48eoxgaYkA3l9079hyTyhECsPq+mbr0gVQsFU11OJAQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm]
     os: [linux]
 
-  '@rolldown/binding-linux-arm64-gnu@1.0.0-beta.43':
-    resolution: {integrity: sha512-mcjd57vEj+CEQbZAzUiaxNzNgwwgOpFtZBWcINm8DNscvkXl5b/s622Z1dqGNWSdrZmdjdC6LWMvu8iHM6v9sQ==}
+  '@rolldown/binding-linux-arm64-gnu@1.0.0-beta.53':
+    resolution: {integrity: sha512-bpIGX+ov9PhJYV+wHNXl9rzq4F0QvILiURn0y0oepbQx+7stmQsKA0DhPGwmhfvF856wq+gbM8L92SAa/CBcLg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@rolldown/binding-linux-arm64-musl@1.0.0-beta.43':
-    resolution: {integrity: sha512-Pa8QMwlkrztTo/1mVjZmPIQ44tCSci10TBqxzVBvXVA5CFh5EpiEi99fPSll2dHG2uT4dCOMeC6fIhyDdb0zXA==}
+  '@rolldown/binding-linux-arm64-musl@1.0.0-beta.53':
+    resolution: {integrity: sha512-bGe5EBB8FVjHBR1mOLOPEFg1Lp3//7geqWkU5NIhxe+yH0W8FVrQ6WRYOap4SUTKdklD/dC4qPLREkMMQ855FA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@rolldown/binding-linux-x64-gnu@1.0.0-beta.43':
-    resolution: {integrity: sha512-BgynXKMjeaX4AfWLARhOKDetBOOghnSiVRjAHVvhiAaDXgdQN8e65mSmXRiVoVtD3cHXx/cfU8Gw0p0K+qYKVQ==}
+  '@rolldown/binding-linux-x64-gnu@1.0.0-beta.53':
+    resolution: {integrity: sha512-qL+63WKVQs1CMvFedlPt0U9PiEKJOAL/bsHMKUDS6Vp2Q+YAv/QLPu8rcvkfIMvQ0FPU2WL0aX4eWwF6e/GAnA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@rolldown/binding-linux-x64-musl@1.0.0-beta.43':
-    resolution: {integrity: sha512-VIsoPlOB/tDSAw9CySckBYysoIBqLeps1/umNSYUD8pMtalJyzMTneAVI1HrUdf4ceFmQ5vARoLIXSsPwVFxNg==}
+  '@rolldown/binding-linux-x64-musl@1.0.0-beta.53':
+    resolution: {integrity: sha512-VGl9JIGjoJh3H8Mb+7xnVqODajBmrdOOb9lxWXdcmxyI+zjB2sux69br0hZJDTyLJfvBoYm439zPACYbCjGRmw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@rolldown/binding-openharmony-arm64@1.0.0-beta.43':
-    resolution: {integrity: sha512-YDXTxVJG67PqTQMKyjVJSddoPbSWJ4yRz/E3xzTLHqNrTDGY0UuhG8EMr8zsYnfH/0cPFJ3wjQd/hJWHuR6nkA==}
+  '@rolldown/binding-openharmony-arm64@1.0.0-beta.53':
+    resolution: {integrity: sha512-B4iIserJXuSnNzA5xBLFUIjTfhNy7d9sq4FUMQY3GhQWGVhS2RWWzzDnkSU6MUt7/aHUrep0CdQfXUJI9D3W7A==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [openharmony]
 
-  '@rolldown/binding-wasm32-wasi@1.0.0-beta.43':
-    resolution: {integrity: sha512-3M+2DmorXvDuAIGYQ9Z93Oy1G9ETkejLwdXXb1uRTgKN9pMcu7N+KG2zDrJwqyxeeLIFE22AZGtSJm3PJbNu9Q==}
+  '@rolldown/binding-wasm32-wasi@1.0.0-beta.53':
+    resolution: {integrity: sha512-BUjAEgpABEJXilGq/BPh7jeU3WAJ5o15c1ZEgHaDWSz3LB881LQZnbNJHmUiM4d1JQWMYYyR1Y490IBHi2FPJg==}
     engines: {node: '>=14.0.0'}
     cpu: [wasm32]
 
-  '@rolldown/binding-win32-arm64-msvc@1.0.0-beta.43':
-    resolution: {integrity: sha512-/B1j1pJs33y9ywtslOMxryUPHq8zIGu/OGEc2gyed0slimJ8fX2uR/SaJVhB4+NEgCFIeYDR4CX6jynAkeRuCA==}
+  '@rolldown/binding-win32-arm64-msvc@1.0.0-beta.53':
+    resolution: {integrity: sha512-s27uU7tpCWSjHBnxyVXHt3rMrQdJq5MHNv3BzsewCIroIw3DJFjMH1dzCPPMUFxnh1r52Nf9IJ/eWp6LDoyGcw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [win32]
 
-  '@rolldown/binding-win32-ia32-msvc@1.0.0-beta.43':
-    resolution: {integrity: sha512-29oG1swCz7hNP+CQYrsM4EtylsKwuYzM8ljqbqC5TsQwmKat7P8ouDpImsqg/GZxFSXcPP9ezQm0Q0wQwGM3JA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [ia32]
-    os: [win32]
-
-  '@rolldown/binding-win32-x64-msvc@1.0.0-beta.43':
-    resolution: {integrity: sha512-eWBV1Ef3gfGNehxVGCyXs7wLayRIgCmyItuCZwYYXW5bsk4EvR4n2GP5m3ohjnx7wdiY3nLmwQfH2Knb5gbNZw==}
+  '@rolldown/binding-win32-x64-msvc@1.0.0-beta.53':
+    resolution: {integrity: sha512-cjWL/USPJ1g0en2htb4ssMjIycc36RvdQAx1WlXnS6DpULswiUTVXPDesTifSKYSyvx24E0YqQkEm0K/M2Z/AA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
@@ -511,8 +516,8 @@ packages:
   '@rolldown/pluginutils@1.0.0-beta.29':
     resolution: {integrity: sha512-NIJgOsMjbxAXvoGq/X0gD7VPMQ8j9g0BiDaNjVNVjvl+iKXxL3Jre0v31RmBYeLEmkbj2s02v8vFTbUXi5XS2Q==}
 
-  '@rolldown/pluginutils@1.0.0-beta.43':
-    resolution: {integrity: sha512-5Uxg7fQUCmfhax7FJke2+8B6cqgeUJUD9o2uXIKXhD+mG0mL6NObmVoi9wXEU1tY89mZKgAYA6fTbftx3q2ZPQ==}
+  '@rolldown/pluginutils@1.0.0-beta.53':
+    resolution: {integrity: sha512-vENRlFU4YbrwVqNDZ7fLvy+JR1CRkyr01jhSiDpE1u6py3OMzQfztQU2jxykW3ALNxO4kSlqIDeYyD0Y9RcQeQ==}
 
   '@shikijs/core@3.13.0':
     resolution: {integrity: sha512-3P8rGsg2Eh2qIHekwuQjzWhKI4jV97PhvYjYUzGqjvJfqdQPz+nMlfWahU24GZAyW1FxFI1sYjyhfh5CoLmIUA==}
@@ -712,10 +717,6 @@ packages:
   ansi-regex@6.2.2:
     resolution: {integrity: sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==}
     engines: {node: '>=12'}
-
-  ansis@4.2.0:
-    resolution: {integrity: sha512-HqZ5rWlFjGiV0tDm3UxxgNRqsOTniqoKZu0pIAfh7TZQMGuZK+hH0drySty0si0QXj1ieop4+SkSfPZBPPkHig==}
-    engines: {node: '>=14'}
 
   argparse@1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
@@ -1002,7 +1003,7 @@ packages:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
 
   markdown-it-vuepress-code-snippet-enhanced@https://codeload.github.com/IMB11/md-it-enhanced-snippets/tar.gz/dfb9fa25527b2f772d50ca37ae526484c890b8ae:
-    resolution: {tarball: https://codeload.github.com/IMB11/md-it-enhanced-snippets/tar.gz/dfb9fa25527b2f772d50ca37ae526484c890b8ae}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/IMB11/md-it-enhanced-snippets/tar.gz/dfb9fa25527b2f772d50ca37ae526484c890b8ae}
     version: 1.0.1
 
   markdownlint-micromark@0.1.2:
@@ -1191,14 +1192,14 @@ packages:
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
-  rolldown-vite@7.1.17:
-    resolution: {integrity: sha512-bNUI0r4RuZxLeip7sOcZK3y4eYUcMAMM6ys68tbU/KWDH8lqaPFYE03Doc04Dz94jHmVg1OWyeBqlDOYntsLsA==}
+  rolldown-vite@7.3.1:
+    resolution: {integrity: sha512-LYzdNAjRHhF2yA4JUQm/QyARyi216N2rpJ0lJZb8E9FU2y5v6Vk+xq/U4XBOxMefpWixT5H3TslmAHm1rqIq2w==}
     engines: {node: ^20.19.0 || >=22.12.0}
-    deprecated: Use 7.3.1 for migration purposes. For the most recent updates, migrate to Vite 8 once you're ready.
+    deprecated: Use this package to migrate from Vite 7 to Vite 8. For the most recent updates, migrate to Vite 8 once you're ready.
     hasBin: true
     peerDependencies:
       '@types/node': ^20.19.0 || >=22.12.0
-      esbuild: ^0.25.0
+      esbuild: ^0.27.0
       jiti: '>=1.21.0'
       less: ^4.0.0
       sass: ^1.70.0
@@ -1232,8 +1233,8 @@ packages:
       yaml:
         optional: true
 
-  rolldown@1.0.0-beta.43:
-    resolution: {integrity: sha512-6RcqyRx0tY1MlRLnjXPp/849Rl/CPFhzpGGwNPEPjKwqBMqPq/Rbbkxasa8s0x+IkUk46ty4jazb5skZ/Vgdhw==}
+  rolldown@1.0.0-beta.53:
+    resolution: {integrity: sha512-Qd9c2p0XKZdgT5AYd+KgAMggJ8ZmCs3JnS9PTMWkyUfteKlfmKtxJbWTHkVakxwXs1Ub7jrRYVeFeF7N0sQxyw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -1286,12 +1287,12 @@ packages:
     engines: {node: '>=16'}
 
   syntax-java-bytecode@https://codeload.github.com/mcgambing/Java-Bytecode/tar.gz/578f3e2c6861ac6396492540a987fe05d23b061a:
-    resolution: {tarball: https://codeload.github.com/mcgambing/Java-Bytecode/tar.gz/578f3e2c6861ac6396492540a987fe05d23b061a}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mcgambing/Java-Bytecode/tar.gz/578f3e2c6861ac6396492540a987fe05d23b061a}
     version: 1.1.1
     engines: {vscode: ^1.81.0}
 
   syntax-mcfunction@https://codeload.github.com/MinecraftCommands/syntax-mcfunction/tar.gz/51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b:
-    resolution: {tarball: https://codeload.github.com/MinecraftCommands/syntax-mcfunction/tar.gz/51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/MinecraftCommands/syntax-mcfunction/tar.gz/51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b}
     version: 1.0.1
     engines: {vscode: ^1.81.0}
 
@@ -1395,11 +1396,6 @@ packages:
     engines: {node: '>= 8'}
     hasBin: true
 
-  yaml@2.8.2:
-    resolution: {integrity: sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
-
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -1422,11 +1418,20 @@ snapshots:
 
   '@docsearch/js@4.2.0': {}
 
+  '@emnapi/core@1.10.0':
+    dependencies:
+      '@emnapi/wasi-threads': 1.2.1
+      tslib: 2.8.1
+
   '@emnapi/core@1.5.0':
     dependencies:
       '@emnapi/wasi-threads': 1.1.0
       tslib: 2.8.1
     optional: true
+
+  '@emnapi/runtime@1.10.0':
+    dependencies:
+      tslib: 2.8.1
 
   '@emnapi/runtime@1.5.0':
     dependencies:
@@ -1437,6 +1442,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@emnapi/wasi-threads@1.2.1':
+    dependencies:
+      tslib: 2.8.1
 
   '@esbuild/aix-ppc64@0.25.10':
     optional: true
@@ -1549,10 +1558,10 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)':
+  '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
-      '@emnapi/core': 1.5.0
-      '@emnapi/runtime': 1.5.0
+      '@emnapi/core': 1.10.0
+      '@emnapi/runtime': 1.10.0
       '@tybys/wasm-util': 0.10.2
     optional: true
 
@@ -1603,60 +1612,57 @@ snapshots:
   '@oxc-minify/binding-win32-x64-msvc@0.82.3':
     optional: true
 
-  '@oxc-project/runtime@0.92.0': {}
+  '@oxc-project/runtime@0.101.0': {}
 
-  '@oxc-project/types@0.94.0': {}
+  '@oxc-project/types@0.101.0': {}
 
-  '@rolldown/binding-android-arm64@1.0.0-beta.43':
+  '@rolldown/binding-android-arm64@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-darwin-arm64@1.0.0-beta.43':
+  '@rolldown/binding-darwin-arm64@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-darwin-x64@1.0.0-beta.43':
+  '@rolldown/binding-darwin-x64@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-freebsd-x64@1.0.0-beta.43':
+  '@rolldown/binding-freebsd-x64@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-linux-arm-gnueabihf@1.0.0-beta.43':
+  '@rolldown/binding-linux-arm-gnueabihf@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-linux-arm64-gnu@1.0.0-beta.43':
+  '@rolldown/binding-linux-arm64-gnu@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-linux-arm64-musl@1.0.0-beta.43':
+  '@rolldown/binding-linux-arm64-musl@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-linux-x64-gnu@1.0.0-beta.43':
+  '@rolldown/binding-linux-x64-gnu@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-linux-x64-musl@1.0.0-beta.43':
+  '@rolldown/binding-linux-x64-musl@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-openharmony-arm64@1.0.0-beta.43':
+  '@rolldown/binding-openharmony-arm64@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-wasm32-wasi@1.0.0-beta.43(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)':
+  '@rolldown/binding-wasm32-wasi@1.0.0-beta.53(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)
+      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
     optional: true
 
-  '@rolldown/binding-win32-arm64-msvc@1.0.0-beta.43':
+  '@rolldown/binding-win32-arm64-msvc@1.0.0-beta.53':
     optional: true
 
-  '@rolldown/binding-win32-ia32-msvc@1.0.0-beta.43':
-    optional: true
-
-  '@rolldown/binding-win32-x64-msvc@1.0.0-beta.43':
+  '@rolldown/binding-win32-x64-msvc@1.0.0-beta.53':
     optional: true
 
   '@rolldown/pluginutils@1.0.0-beta.29': {}
 
-  '@rolldown/pluginutils@1.0.0-beta.43': {}
+  '@rolldown/pluginutils@1.0.0-beta.53': {}
 
   '@shikijs/core@3.13.0':
     dependencies:
@@ -1761,10 +1767,10 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-vue@6.0.1(rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22)':
+  '@vitejs/plugin-vue@6.0.1(rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6))(vue@3.5.22)':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.29
-      vite: rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2)
+      vite: rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6)
       vue: 3.5.22
 
   '@vue/compiler-core@3.5.22':
@@ -1880,8 +1886,6 @@ snapshots:
   acorn@8.15.0: {}
 
   ansi-regex@6.2.2: {}
-
-  ansis@4.2.0: {}
 
   argparse@1.0.10:
     dependencies:
@@ -2481,45 +2485,41 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2):
+  rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6):
     dependencies:
-      '@oxc-project/runtime': 0.92.0
+      '@oxc-project/runtime': 0.101.0
       fdir: 6.5.0(picomatch@4.0.4)
       lightningcss: 1.32.0
       picomatch: 4.0.4
       postcss: 8.5.14
-      rolldown: 1.0.0-beta.43(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)
+      rolldown: 1.0.0-beta.53(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       tinyglobby: 0.2.15
     optionalDependencies:
       '@types/node': 22.18.10
-      esbuild: 0.25.10
       fsevents: 2.3.3
       tsx: 4.20.6
-      yaml: 2.8.2
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  rolldown@1.0.0-beta.43(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0):
+  rolldown@1.0.0-beta.53(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0):
     dependencies:
-      '@oxc-project/types': 0.94.0
-      '@rolldown/pluginutils': 1.0.0-beta.43
-      ansis: 4.2.0
+      '@oxc-project/types': 0.101.0
+      '@rolldown/pluginutils': 1.0.0-beta.53
     optionalDependencies:
-      '@rolldown/binding-android-arm64': 1.0.0-beta.43
-      '@rolldown/binding-darwin-arm64': 1.0.0-beta.43
-      '@rolldown/binding-darwin-x64': 1.0.0-beta.43
-      '@rolldown/binding-freebsd-x64': 1.0.0-beta.43
-      '@rolldown/binding-linux-arm-gnueabihf': 1.0.0-beta.43
-      '@rolldown/binding-linux-arm64-gnu': 1.0.0-beta.43
-      '@rolldown/binding-linux-arm64-musl': 1.0.0-beta.43
-      '@rolldown/binding-linux-x64-gnu': 1.0.0-beta.43
-      '@rolldown/binding-linux-x64-musl': 1.0.0-beta.43
-      '@rolldown/binding-openharmony-arm64': 1.0.0-beta.43
-      '@rolldown/binding-wasm32-wasi': 1.0.0-beta.43(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)
-      '@rolldown/binding-win32-arm64-msvc': 1.0.0-beta.43
-      '@rolldown/binding-win32-ia32-msvc': 1.0.0-beta.43
-      '@rolldown/binding-win32-x64-msvc': 1.0.0-beta.43
+      '@rolldown/binding-android-arm64': 1.0.0-beta.53
+      '@rolldown/binding-darwin-arm64': 1.0.0-beta.53
+      '@rolldown/binding-darwin-x64': 1.0.0-beta.53
+      '@rolldown/binding-freebsd-x64': 1.0.0-beta.53
+      '@rolldown/binding-linux-arm-gnueabihf': 1.0.0-beta.53
+      '@rolldown/binding-linux-arm64-gnu': 1.0.0-beta.53
+      '@rolldown/binding-linux-arm64-musl': 1.0.0-beta.53
+      '@rolldown/binding-linux-x64-gnu': 1.0.0-beta.53
+      '@rolldown/binding-linux-x64-musl': 1.0.0-beta.53
+      '@rolldown/binding-openharmony-arm64': 1.0.0-beta.53
+      '@rolldown/binding-wasm32-wasi': 1.0.0-beta.53(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      '@rolldown/binding-win32-arm64-msvc': 1.0.0-beta.53
+      '@rolldown/binding-win32-x64-msvc': 1.0.0-beta.53
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -2654,17 +2654,17 @@ snapshots:
       media-captions: 1.0.4
       unplugin: 1.16.1
 
-  vitepress-plugin-tabs@0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22):
+  vitepress-plugin-tabs@0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22):
     dependencies:
-      vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
+      vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
       vue: 3.5.22
 
-  vitepress-versioning-plugin@1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2):
+  vitepress-versioning-plugin@1.3.0(patch_hash=83d5ea516e26d7a402a55b351c708fd9d0c8424db1d1d5a6a36612262c2da914)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6):
     dependencies:
       cli-color: 2.0.4
       json5: 2.2.3
-      vite: rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2)
-      vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2)
+      vite: rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6)
+      vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -2695,7 +2695,7 @@ snapshots:
       - universal-cookie
       - yaml
 
-  vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)(yaml@2.8.2):
+  vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6):
     dependencies:
       '@docsearch/css': 4.2.0
       '@docsearch/js': 4.2.0
@@ -2704,7 +2704,7 @@ snapshots:
       '@shikijs/transformers': 3.13.0
       '@shikijs/types': 3.13.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 6.0.1(rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2))(vue@3.5.22)
+      '@vitejs/plugin-vue': 6.0.1(rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6))(vue@3.5.22)
       '@vue/devtools-api': 8.0.2
       '@vue/shared': 3.5.22
       '@vueuse/core': 13.9.0(vue@3.5.22)
@@ -2713,7 +2713,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 3.23.0
-      vite: rolldown-vite@7.1.17(@emnapi/core@1.5.0)(@emnapi/runtime@1.5.0)(@types/node@22.18.10)(esbuild@0.25.10)(tsx@4.20.6)(yaml@2.8.2)
+      vite: rolldown-vite@7.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(tsx@4.20.6)
       vue: 3.5.22
     optionalDependencies:
       oxc-minify: 0.82.3
@@ -2758,8 +2758,5 @@ snapshots:
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
-
-  yaml@2.8.2:
-    optional: true
 
   zwitch@2.0.4: {}

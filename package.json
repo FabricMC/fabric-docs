@@ -9,6 +9,8 @@
     "bump": "tsx ./.vitepress/bump.ts"
   },
   "dependencies": {
+    "@emnapi/core": "^1.10.0",
+    "@emnapi/runtime": "^1.10.0",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^12.8.2",
