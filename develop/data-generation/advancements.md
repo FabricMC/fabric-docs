@@ -31,7 +31,7 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 ## Advancement Structure {#advancement-structure}
 
-An advancement is made up a few different components. Along with the requirements, called "criterion," it may have:
+An advancement is made up a few different components. Along with the requirements, called "criterion", it may have:
 
 - Some `DisplayInfo` that tell the game how to show the advancement to players,
 - `AdvancementRequirements`, which are lists of lists of criteria, requiring at least one criterion from each sub-list to be completed,
