@@ -51,12 +51,6 @@ Here's a simple advancement for getting a dirt block:
 
 :::
 
-## One More Example {#one-more-example}
-
-Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
-
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
-
 ## Parents {#parents}
 
 In order to create or extend a tree of advancements, we can set a parent for our advancement. To do this, call `Advancement.Builder#parent(...)` and pass in a reference to the parent advancement.
@@ -70,6 +64,18 @@ If no direct reference to the parent enchantment is available, a placeholder can
 Your advancements should now be shown as a tree in the advancement menu.
 
 ![Advancement Tree](/assets/develop/data-generation/advancement_tree.png)
+
+## Multiple criteria
+
+To have more advanced conditions in our advancements, we can call `Advancement.Builder#addCriteria(...)` more than once with additional criteria.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+
+By default, all criteria must be met for the advancement to be completed. We can change this behavior by supplying a different strategy.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+
+
 
 ## Rewards {#rewards}
 

@@ -7,9 +7,11 @@ import java.util.function.Consumer;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.criterion.BrewedPotionTrigger;
 import net.minecraft.advancements.criterion.ConsumeItemTrigger;
 import net.minecraft.advancements.criterion.DataComponentMatchers;
 import net.minecraft.advancements.criterion.EnchantedItemTrigger;
@@ -28,6 +30,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Blocks;
 
@@ -67,9 +70,13 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				// Give the advancement an id
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_dirt"));
 		// :::datagen-advancements:simple-advancement
-		// :::datagen-advancements:second-advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
-		AdvancementHolder appleAndBeef = Advancement.Builder.advancement()
+		// #region multiple-criteria
+		Advancement.Builder.advancement()
+				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
+				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
+				// ...
+				// #endregion multiple-criteria
 				.parent(getDirt)
 				.display(
 						Items.APPLE,
@@ -81,13 +88,34 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
-				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "apple_and_beef"));
-		// :::datagen-advancements:second-advancement
+		// #region requirements-strategy
+		Advancement.Builder.advancement()
+				.addCriterion("brew_mundane", CriteriaTriggers.BREWED_POTION.createCriterion(
+								new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.MUNDANE))
+				))
+				.addCriterion("brew_thick", CriteriaTriggers.BREWED_POTION.createCriterion(
+								new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.THICK))
+				))
+				.requirements(AdvancementRequirements.Strategy.OR)
+				// ...
+				// #endregion requirements-strategy
+				.parent(createPlaceholder(Identifier.withDefaultNamespace("nether/brew_potion")))
+				.display(
+						Items.POTION,
+						Component.literal("Brewing Fail"),
+						Component.literal("Brew a useless potion"),
+						null,
+						AdvancementType.TASK,
+						true,
+						false,
+						false
+				)
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "brewing_fail"));
 		// #region experience-reward
 		Advancement.Builder.advancement()
 				.rewards(AdvancementRewards.Builder.experience(10))
+				// ...
 				// #endregion experience-reward
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
 				.display(
@@ -111,6 +139,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 								.runs(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "got_nether_star")) // Run a .mcfunction
 								.addExperience(200) // Give experience points
 				)
+				// ...
 				// #endregion reward-types
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
 				.display(
