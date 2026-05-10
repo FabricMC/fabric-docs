@@ -92,10 +92,10 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// #region requirements-strategy
 		Advancement.Builder.advancement()
 				.addCriterion("brew_mundane", CriteriaTriggers.BREWED_POTION.createCriterion(
-								new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.MUNDANE))
+						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.MUNDANE))
 				))
 				.addCriterion("brew_thick", CriteriaTriggers.BREWED_POTION.createCriterion(
-								new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.THICK))
+						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.THICK))
 				))
 				.requirements(AdvancementRequirements.Strategy.OR)
 				// ...
@@ -189,55 +189,55 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// :::datagen-advancements:new-custom-criteria-advancement
 		// #region reference-parent
 		Advancement.Builder.advancement()
-						.parent(getDirt)
-						// ...
-						// #endregion reference-parent
-						.display(
-										Items.DIRT,
-										Component.literal("Create a dirt shack"),
-										Component.literal("It's all coming together!"),
-										null,
-										AdvancementType.TASK,
-										false,
-										false,
-										false
-						)
-						.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
-						.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "create_dirt_shack"));
+				.parent(getDirt)
+				// ...
+				// #endregion reference-parent
+				.display(
+						Items.DIRT,
+						Component.literal("Create a dirt shack"),
+						Component.literal("It's all coming together!"),
+						null,
+						AdvancementType.TASK,
+						false,
+						false,
+						false
+				)
+				.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "create_dirt_shack"));
 		final HolderLookup<Enchantment> enchantmentsLookup = wrapperLookup.lookupOrThrow(Registries.ENCHANTMENT);
 		// #region placeholder-parent
 		Advancement.Builder.advancement()
-						.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
-						// ...
-						// #endregion placeholder-parent
-						.display(
-										Items.LIGHTNING_ROD,
-										Component.literal("Control the weather"),
-										Component.literal("Get the thundering enchantment"),
-										null,
-										AdvancementType.TASK,
-										true,
-										true,
-										false
-						)
-						.addCriterion("enchant_thundering",
-										CriteriaTriggers.ENCHANTED_ITEM.createCriterion(new EnchantedItemTrigger.TriggerInstance(
-														Optional.empty(),
-														Optional.of(
-																		ItemPredicate.Builder.item().withComponents(DataComponentMatchers.Builder.components()
-																						.partial(
-																										DataComponentPredicates.ENCHANTMENTS,
-																										EnchantmentsPredicate.Enchantments.enchantments(List.of(
-																														new EnchantmentPredicate(enchantmentsLookup.getOrThrow(ModEnchantments.THUNDERING), MinMaxBounds.Ints.ANY)
-																										))
-																						)
-																						.build()
-																		).build()
-														),
-														MinMaxBounds.Ints.ANY
-										))
-						)
-						.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
+				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
+				// ...
+				// #endregion placeholder-parent
+				.display(
+						Items.LIGHTNING_ROD,
+						Component.literal("Control the weather"),
+						Component.literal("Get the thundering enchantment"),
+						null,
+						AdvancementType.TASK,
+						true,
+						true,
+						false
+				)
+				.addCriterion("enchant_thundering",
+						CriteriaTriggers.ENCHANTED_ITEM.createCriterion(new EnchantedItemTrigger.TriggerInstance(
+								Optional.empty(),
+								Optional.of(
+										ItemPredicate.Builder.item().withComponents(DataComponentMatchers.Builder.components()
+												.partial(
+														DataComponentPredicates.ENCHANTMENTS,
+														EnchantmentsPredicate.Enchantments.enchantments(List.of(
+																		new EnchantmentPredicate(enchantmentsLookup.getOrThrow(ModEnchantments.THUNDERING), MinMaxBounds.Ints.ANY)
+														))
+												)
+												.build()
+										).build()
+								),
+								MinMaxBounds.Ints.ANY
+						))
+				)
+				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
 		// :::datagen-advancements:provider-start
 	}
 }
