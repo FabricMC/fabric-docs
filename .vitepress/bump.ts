@@ -3,7 +3,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-import { getLocaleNames, getResolver, getSidebar } from "./config/i18n";
+import { getLocaleNames, getSidebar } from "./config/i18n";
 
 const git = (...args: string[]) => {
   const res = crossSpawn.sync("git", args, { encoding: "utf8" });
@@ -104,30 +104,6 @@ for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onl
   const content = fs
     .readFileSync(file, "utf-8")
     .replaceAll(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
-  fs.writeFileSync(file, content);
-}
-
-console.log("Adding warning box to home pages...");
-for (const locale of locales) {
-  const resolver = getResolver("./website_translations.json", locale);
-  const linksRegex = new RegExp(String.raw`link: ${locale === "en_us" ? "" : `/${locale}`}/`, "g");
-
-  const file = `./versions/${oldVersion}/translated/${locale === "en_us" ? ".." : locale}/index.md`;
-  const content = fs
-    .readFileSync(file, "utf-8")
-    .replace(
-      /^---\n\n/m,
-      [
-        "---",
-        "",
-        "::: warning",
-        resolver("version.warning").replace("%s", oldVersion),
-        ":::",
-        "",
-        "",
-      ].join("\n")
-    )
-    .replaceAll(linksRegex, (m) => `${m}${oldVersion}/`);
   fs.writeFileSync(file, content);
 }
 

@@ -36,7 +36,15 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     config.userConfig.locales![data.localeIndex] ?? config.userConfig.locales!.root
   ).themeConfig as Fabric.ThemeConfig;
 
-  if (data.layout !== "home") {
+  if (data.layout === "home") {
+    if (data.versionType === "old") {
+      newContent.push(
+        "::: warning",
+        themeConfig.version.reminder.oldVersionHome.replace("%s", data.version),
+        ":::"
+      );
+    }
+  } else {
     if (data.title) {
       newContent.push(`# ${data.title} {#h1}`);
     }
