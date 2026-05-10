@@ -47,7 +47,7 @@ Here's a simple advancement for getting a dirt block:
 
 ::: details JSON Output
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json
 
 :::
 
@@ -77,7 +77,7 @@ By default, all criteria must be met for the advancement to be completed. We can
 
 ## Rewards {#rewards}
 
-We can attach rewards to our advancements, which will be given when a player completes the advancement. We can do this by calling `Advancement.Builder#rewards(...)` with the rewards we want to add.
+We can attach rewards to our advancements, which will be granted when a player completes the advancement. We can do this by calling `Advancement.Builder#rewards(...)` with the rewards we want to add.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
 
