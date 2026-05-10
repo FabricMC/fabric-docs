@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import * as path from "node:path";
-import { Plugin } from "vitepress";
+import { Plugin, SiteConfig } from "vitepress";
+import { Fabric } from "../types";
 
 export const transformFile = (src: string, id: string, latestVersion: string) => {
   let { data, content } = matter(src);
@@ -30,9 +31,30 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     data.localeIndex = "root";
   }
 
+  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
+  const themeConfig = (
+    config.userConfig.locales![data.localeIndex] ?? config.userConfig.locales!.root
+  ).themeConfig as Fabric.ThemeConfig;
+
   if (data.layout !== "home") {
     if (data.title) {
       newContent.push(`# ${data.title} {#h1}`);
+    }
+
+    if (data.versionType === "old") {
+      newContent.push(
+        "::: warning",
+        themeConfig.version.reminder.oldVersion.replace("%s", data.version),
+        ":::"
+      );
+    }
+
+    if (data.versionType === "future") {
+      newContent.push(
+        "::: warning",
+        themeConfig.version.reminder.futureVersion.replace("%s", data.version),
+        ":::"
+      );
     }
   }
 
