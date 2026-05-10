@@ -273,13 +273,16 @@ For example, say we have an abstract `Bean` interface with two implementing clas
 
 With all of this, we can create a registry dispatch codec for beans:
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record
-<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class
+::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#registry-dispatch
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#registry-dispatch [Codec]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
+
+:::
 
 Our new codec will serialize beans to JSON like this, grabbing only fields that are relevant to their specific type:
 
