@@ -55,6 +55,17 @@ pre {
   display: none;
 }
 
+/* Description at the top of pages */
+p[role="doc-subtitle"] {
+  margin-block: 1rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+  text-wrap: balance;
+  color: var(--vp-c-text-3);
+}
+
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
 .VPSidebar,
 .aside-container {
@@ -161,7 +172,7 @@ h1 > .VPBadge {
 }
 
 /* Remove border from headings if that's the first thing in the page */
-:is(h1) + :is(h1, h2, h3, h4, h5, h6) {
+:is(hgroup) + :is(h1, h2, h3, h4, h5, h6) {
   margin-top: 0;
   border-top: none;
 }

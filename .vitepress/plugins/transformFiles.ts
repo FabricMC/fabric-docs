@@ -46,8 +46,16 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     }
   } else {
     if (data.title) {
+      newContent.push("<hgroup>");
+
       const type = data.versionType === "latest" ? "tip" : "warning";
       newContent.push(`# ${data.title} <Badge type="${type}">${data.version}</Badge> {#h1}`);
+
+      if (data.description) {
+        newContent.push(`${data.description} {role="doc-subtitle"} `);
+      }
+
+      newContent.push("</hgroup>");
     }
 
     if (data.versionType === "old") {
