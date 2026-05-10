@@ -154,6 +154,12 @@ kbd:not(.DocSearch-Button-Key) {
   border-radius: 8px;
 }
 
+h1 > .VPBadge {
+  font-family: var(--vp-font-family-mono);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
 /* Remove border from headings if that's the first thing in the page */
 :is(h1) + :is(h1, h2, h3, h4, h5, h6) {
   margin-top: 0;
