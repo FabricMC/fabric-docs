@@ -39,7 +39,7 @@ Loom uses multiple different plugin IDs:
 
 While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default, a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
 
-```groovy
+```gradle
 dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
@@ -47,7 +47,7 @@ dependencies {
 
 If you are using split source sets in a multi-project build, you will also need to add a dependency for the other project's client source set.
 
-```groovy
+```gradle
 dependencies {
  clientImplementation project(":name").sourceSets.client.output
 }
