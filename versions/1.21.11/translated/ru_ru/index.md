@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Документация Fabric
-  tagline: Официальная документация по Fabric,<br />набору инструментов для модификации Minecraft.
+  tagline: Официальная документация по Fabric, набору инструментов для модификации Minecraft.
 
 features:
   - title: Руководства для игроков

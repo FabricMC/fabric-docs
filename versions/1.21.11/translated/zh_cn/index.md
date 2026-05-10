@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric 文档
-  tagline: Fabric 的官方精选文档，<br />Fabric 是一个针对 Minecraft 的模组开发工具链。
+  tagline: Fabric 的官方精选文档，Fabric 是一个针对 Minecraft 的模组开发工具链。
 
 features:
   - title: 玩家指南

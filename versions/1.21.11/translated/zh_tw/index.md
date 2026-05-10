@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric 文件
-  tagline: Fabric 的官方精選文件，<br />這是 Minecraft 的一個模組製作工具鏈。
+  tagline: Fabric 的官方精選文件，這是 Minecraft 的一個模組製作工具鏈。
 
 features:
   - title: 玩家指南

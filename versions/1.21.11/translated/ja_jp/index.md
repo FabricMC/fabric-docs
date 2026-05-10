@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric ドキュメント
-  tagline: マインクラフトの前提Mod Fabric<br />の公式ドキュメント。
+  tagline: マインクラフトの前提Mod Fabricの公式ドキュメント。
 
 features:
   - title: プレイヤーガイド

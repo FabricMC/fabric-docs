@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Dokumentacja Fabric
-  tagline: Oficjalna sprawdzona dokumentacja dla Fabric,<br />zestawu narzędzi dla Minecraft.
+  tagline: Oficjalna sprawdzona dokumentacja dla Fabric, zestawu narzędzi dla Minecraft.
 
 features:
   - title: Przewodniki dla graczy

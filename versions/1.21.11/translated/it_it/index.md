@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Documentazione di Fabric
-  tagline: La documentazione ufficiale e curata di Fabric,<br />una toolchain per il modding di Minecraft.
+  tagline: La documentazione ufficiale e curata di Fabric, una toolchain per il modding di Minecraft.
 
 features:
   - title: Guide per i Giocatori
