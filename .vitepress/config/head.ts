@@ -21,14 +21,6 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "/",
     },
     {
-      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
-      dest: "",
-    },
-    {
-      from: /^1[.]21[.]10(?=[/]|$)/,
-      dest: "1.21.11",
-    },
-    {
       from: /develop[/]items[/]custom-item-groups(?=[/]|$)/,
       dest: "develop/items/custom-creative-tabs",
     },
@@ -59,6 +51,14 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     {
       from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
       dest: "1.21.11/develop/porting/mappings",
+    },
+    {
+      from: /^1[.]21[.]10(?=[/]|$)/,
+      dest: "1.21.11",
+    },
+    {
+      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
+      dest: "",
     },
   ];
 
