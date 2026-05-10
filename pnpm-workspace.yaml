@@ -1,16 +1,12 @@
 allowBuilds:
   es5-ext: true
   esbuild: true
+  vitepress-versioning-plugin: true
 
 minimumReleaseAge: 4320 # three days
 
 overrides:
-  "@types/lodash": "-"
-  lodash: "-"
   vite: npm:rolldown-vite@7.3.1
-  vitepress: ^2.0.0-alpha.12
-  vitepress-versioning-plugin>vitepress-versioning-plugin: "-"
 
 patchedDependencies:
   vitepress: patches/vitepress.patch
-  vitepress-versioning-plugin: patches/vitepress-versioning-plugin.patch
