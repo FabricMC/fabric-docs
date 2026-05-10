@@ -1,4 +1,4 @@
 {
-  "type": "example:counting_bean",
+  "type": "example-mod:counting_bean",
   "counting_number": 42
 }
