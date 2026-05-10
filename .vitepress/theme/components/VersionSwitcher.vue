@@ -16,13 +16,7 @@ const collator = new Intl.Collator(undefined, { numeric: true });
 
 const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
 const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).switcher);
-
-const currentV = computed(() => {
-  const split = data.page.value.filePath.split("/");
-  if (split[0] === "versions") return split[1];
-  if (/^[0-9.]+$/.test(split[0])) return split[0];
-  return props.versioningPlugin.latestVersion;
-});
+const currentV = computed(() => data.frontmatter.value.version as string);
 
 const button = computed(() => {
   const iconData = getIcon("mdi:source-branch");
@@ -47,30 +41,30 @@ const versions = computed(() =>
 const open = ref(false);
 
 /*
-file format:   [versions/version/] [translated/locale/] path/to/index.md
+file format:   [[versions/]version/] [translated/locale/] path/to/index.md
 route format:  [locale/] [version/] path/to/
 
 - notice that version and locale are flipped between file and route
-- locale/ is not added for pages in English
-- version/ is not added for the latest version
+- in the file path, [versions/] isn't added if the version is unreleased
+- [locale/] is not added for pages in English
+- [version/] is not added for the latest version
 */
-const getRoute = (v: string) => {
+const getRoute = (newVersion: string) => {
   const split = data.page.value.filePath.split("/");
-  const noVersions = split.slice(split[0] === "versions" ? 2 : /^[0-9.]+$/.test(split[0]) ? 1 : 0);
-  const neither = noVersions.slice(noVersions[0] === "translated" ? 2 : 0);
+  // path segments for each type of version
+  const versionSlices = { latest: 0, future: 1, old: 2 };
+
+  const noVersion = split.slice(versionSlices[data.frontmatter.value.versionType as never]);
+  const neitherVersionNorLocale = noVersion.slice(noVersion[0] === "translated" ? 2 : 0);
 
   const segments = [
     "",
     data.localeIndex.value !== "root" ? data.localeIndex.value : undefined,
-    v !== props.versioningPlugin.latestVersion ? v : undefined,
-    ...neither,
-  ]
-    .filter((s) => s !== undefined)
-    .reverse();
+    newVersion !== props.versioningPlugin.latestVersion ? newVersion : undefined,
+    ...neitherVersionNorLocale,
+  ].filter((s) => s !== undefined);
 
-  segments[0] = segments[0] === "index.md" ? "" : segments[0].replace(/[.]md$/, "");
-
-  return segments.reverse().join("/");
+  return segments.join("/").replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 };
 
 onMounted(async () => {
