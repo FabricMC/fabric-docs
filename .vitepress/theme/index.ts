@@ -12,7 +12,6 @@ import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
 import References from "./components/References.vue";
-import VersionReminder from "./components/VersionReminder.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
 
@@ -39,9 +38,9 @@ export default {
     const { page, theme } = useData();
 
     const children = {
-      "doc-before": () => [h(VersionReminder), h(AuthorsComponent)],
+      "doc-before": () => h(AuthorsComponent),
       "doc-footer-before": () => h(References),
-      "aside-outline-after": () => [h(VersionReminder), h(AuthorsComponent), h(References)],
+      "aside-outline-after": () => [h(AuthorsComponent), h(References)],
     };
 
     if (theme.value.env !== "github") {
