@@ -27,7 +27,7 @@ public class CustomSounds {
 	// This static method starts class initialization, which then initializes
 	// the static class variables (e.g. ITEM_METAL_WHISTLE).
 	public static void initialize() {
-		ExampleModSounds.LOGGER.info("Registering " + ExampleMod.MOD_ID + " Sounds");
+		ExampleMod.LOGGER.info("Registering " + ExampleMod.MOD_ID + " Sounds");
 		// Technically this method can stay empty, but some developers like to notify
 		// the console, that certain parts of the mod have been successfully initialized
 	}
