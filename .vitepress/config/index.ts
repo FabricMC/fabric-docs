@@ -110,7 +110,7 @@ export default defineVersionedConfig(
             || env.relativePath.startsWith("translated/")
             || env.relativePath.startsWith("versions/")
               ? ""
-              : md.render(transformFile(src), env),
+              : md.render(transformFile(src, env.path, latestVersion), env),
         },
         provider: "local",
       },
@@ -141,7 +141,7 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [transformFilesPlugin],
+      plugins: [transformFilesPlugin(latestVersion)],
     },
   } as Fabric.Config,
   path.resolve(import.meta.dirname, "..")
