@@ -273,11 +273,11 @@ For example, say we have an abstract `Bean` interface with two implementing clas
 
 With all of this, we can create a registry dispatch codec for beans:
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#registry-dispatch
 
