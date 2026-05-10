@@ -309,4 +309,3 @@ We can't construct a codec for this by ordinary means, because what codec would 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
 
 :::
-
