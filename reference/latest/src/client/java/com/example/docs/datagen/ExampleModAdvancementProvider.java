@@ -134,10 +134,15 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// #region reward-types
 		Advancement.Builder.advancement()
 				.rewards(
-						AdvancementRewards.Builder.loot(ModLootTables.ADVANCEMENT_COLLECT_NETHER_STAR) // Give entries from a loot table
-								.addRecipe(RecipeBuilder.getDefaultRecipeId(new ItemStackTemplate(Items.BEACON))) // Make recipes available in the recipe book
-								.runs(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "got_nether_star")) // Run a .mcfunction
-								.addExperience(200) // Give experience points
+						new AdvancementRewards.Builder()
+								// Give entries from a loot table
+								.addLootTable(ModLootTables.ADVANCEMENT_COLLECT_NETHER_STAR)
+								// Make recipes available in the recipe book
+								.addRecipe(RecipeBuilder.getDefaultRecipeId(new ItemStackTemplate(Items.BEACON)))
+								// Run a .mcfunction - https://minecraft.wiki/w/Function_(Java_Edition)
+								.runs(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "got_nether_star"))
+								// Give experience points
+								.addExperience(200)
 				)
 				// ...
 				// #endregion reward-types
