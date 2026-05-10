@@ -65,7 +65,7 @@ Your advancements should now be shown as a tree in the advancement menu.
 
 ![Advancement Tree](/assets/develop/data-generation/advancement_tree.png)
 
-## Multiple criteria
+## Multiple Criteria {#multiple-criteria}
 
 To have more advanced conditions in our advancements, we can call `Advancement.Builder#addCriteria(...)` more than once with additional criteria.
 
@@ -74,8 +74,6 @@ To have more advanced conditions in our advancements, we can call `Advancement.B
 By default, all criteria must be met for the advancement to be completed. We can change this behavior by supplying a different strategy.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
-
-
 
 ## Rewards {#rewards}
 
