@@ -53,6 +53,17 @@ export default {
   setup: () => {
     const router = useRouter();
 
+    // Replace data-gen head script, which updates head tags
+    router.onAfterRouteChange = () => {
+      const oldScript = document.querySelector("script[data-gen]");
+      if (!oldScript) return;
+
+      const newScript = document.createElement("script");
+      newScript.innerHTML = oldScript.innerHTML;
+      newScript.setAttribute("data-gen", "");
+      oldScript.parentNode!.replaceChild(newScript, oldScript);
+    };
+
     watch(
       () => router.route.path,
       () =>

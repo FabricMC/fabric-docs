@@ -1,93 +1,181 @@
-import { HeadConfig, SiteConfig } from "vitepress";
+import { Fabric } from "../types";
 
-export const getRedirects = (latestVersion: string) =>
-  [
+type NewHeadContext = {
+  latestVersion: string;
+  pathname: string;
+  search: string;
+  hash: string;
+  origin: string;
+  isNotFound: boolean | undefined;
+  isVersioned: boolean;
+  title: string;
+  description: string;
+  lastUpdated: number | undefined;
+  siteName: string;
+};
+
+const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
+  const redirects: { from: RegExp; dest: string }[] = [
     {
-      from: /[/]{2,}/,
+      from: /[/]+/g,
       dest: "/",
     },
     {
-      from: /((?<=^|[/])index)?[.]html$/,
+      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
       dest: "",
     },
     {
-      from: new RegExp(`^${latestVersion}([/]|$)`),
-      dest: "",
+      from: /^1[.]21[.]10(?=[/]|$)/,
+      dest: "1.21.11",
     },
     {
-      from: new RegExp(`^1.21.10([/]|$)`),
-      dest: "1.21.11/",
-    },
-    {
-      from: /develop[/]items[/]custom-item-groups$/,
+      from: /develop[/]items[/]custom-item-groups(?=[/]|$)/,
       dest: "develop/items/custom-creative-tabs",
     },
     {
-      from: /develop[/]rendering[/]draw-context$/,
+      from: /develop[/]rendering[/]draw-context(?=[/]|$)/,
       dest: "develop/rendering/gui-graphics",
     },
     {
-      from: /develop[/]migrating-mappings([/]|$)/,
-      dest: "develop/porting/mappings/",
+      from: /develop[/]migrating-mappings(?=[/]|$)/,
+      dest: "develop/porting/mappings",
     },
     {
-      from: /develop[/]porting[/]current$/,
+      from: /develop[/]porting[/]current(?=[/]|$)/,
       dest: "develop/porting/",
     },
     {
-      from: /develop[/]porting[/](next|26[.]1)([/]|$)/,
-      dest: "26.1/develop/porting/",
+      from: /^(?:[0-9.]+[/])?develop[/]porting[/](next|26[.]1)(?=[/]|$)/,
+      dest: "26.1/develop/porting",
     },
     {
-      from: /develop[/]blocks[/]transparency-and-tinting$/,
+      from: /develop[/]blocks[/]transparency-and-tinting(?=[/]|$)/,
       dest: "develop/blocks/block-tinting",
     },
     {
-      from: /develop[/]blocks[/]block-tinting$/,
-      dest: "develop/blocks/transparency-and-tinting/",
+      from: /develop[/]blocks[/]block-tinting(?=[/]|$)/,
+      dest: "develop/blocks/transparency-and-tinting",
     },
     {
-      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings([/].*)?$/,
-      dest: "1.21.11/develop/porting/mappings$1",
+      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
+      dest: "1.21.11/develop/porting/mappings",
     },
-  ] satisfies { from: RegExp; dest: string }[];
+  ];
 
-export const transformHead: SiteConfig["transformHead"] = (context) => {
-  const returned: HeadConfig[] = [];
+  // these replacements don't need to trigger a redirect
+  const oldPath = decodeURIComponent(context.pathname)
+    .replace(/^[/]/, "")
+    .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
-  // Don't index the page if it's a versioned page.
-  if (context.pageData.filePath.startsWith("versions/")) {
+  const split = oldPath.toLowerCase().split("/");
+  const localeIndex = /^..[_-]..$/.test(split[0]) ? `/${split.shift()}/` : "/";
+
+  const seenPaths = new Set([split.join("/")]);
+  const newPath = redirects.reduce((currentPath, rule) => {
+    const nextPath = currentPath.replace(rule.from, rule.dest);
+
+    // skip the redirection rule if it causes a loop
+    if (seenPaths.has(nextPath)) return currentPath;
+
+    seenPaths.add(nextPath);
+    return nextPath;
+  }, split.join("/"));
+
+  if (localeIndex.includes("-") || `/${oldPath}` !== `${localeIndex}${newPath}`) {
+    if (context.isNotFound) {
+      return `${localeIndex.replace("-", "_")}${newPath}${context.search}${context.hash}`;
+    } else {
+      console.warn(`${oldPath}: unexpected redirection to '${localeIndex.slice(1)}${newPath}'`);
+    }
+  }
+
+  const href = `${context.origin}${localeIndex}${newPath}`;
+  const ogLocale =
+    localeIndex.replaceAll("/", "").replace(/..$/, (m) => m.toUpperCase()) || "en_US";
+
+  const returned: [string, Record<string, string>][] = [
+    ["meta", { name: "theme-color", content: "#2275da" }],
+    ["meta", { name: "twitter:card", content: "summary" }], // haha still twitter
+    ["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }],
+    ["link", { rel: "license", href: "https://github.com/FabricMC/fabric-docs/blob/-/LICENSE" }],
+    ["link", { rel: "canonical", href }],
+    // https://ogp.me/
+    ["meta", { property: "og:url", content: href }],
+    ["meta", { property: "og:site_name", content: context.siteName }],
+    ["meta", { property: "og:title", content: context.title }],
+    ["meta", { property: "og:description", content: context.description }],
+    ["meta", { property: "og:image", content: `${context.origin}/logo.png` }],
+    ["meta", { property: "og:type", content: "article" }],
+    ["meta", { property: "og:locale", content: ogLocale }],
+  ];
+
+  if ((context.lastUpdated ?? 0) > 0) {
+    returned.push([
+      "meta",
+      { property: "article:modified_time", content: new Date(context.lastUpdated!).toISOString() },
+    ]);
+  }
+
+  if (context.isNotFound || context.isVersioned) {
     returned.push(["meta", { name: "robots", content: "none" }]);
   }
 
-  if (context.pageData.isNotFound) return returned;
-
-  const split = context.pageData.filePath.split("/");
-  if (split[0] === "versions") split.splice(0, 2);
-  const locale = split[0] === "translated" ? split[1] : "en_us";
-
-  const hostName = context.siteConfig.sitemap!.hostname;
-  const siteName =
-    context.siteConfig.userConfig.locales![locale]?.title
-    || context.siteConfig.userConfig.locales!.root!.title!;
-  const href = `${hostName}${context.pageData.relativePath.replace(/((?<=^|[/])index)?[.]md$/, "")}`;
-
-  // https://ogp.me/
-  const og: [string, string][] = [
-    ["og:site_name", siteName],
-    ["og:title", context.pageData.title],
-    ["og:description", context.pageData.description],
-    ["og:url", href],
-    ["og:image", `${hostName}logo.png`],
-    ["og:type", "article"],
-    ["og:locale", locale.replace(/_..$/, (m) => m.toUpperCase().replace("_", "-"))],
-  ];
-  if ((context.pageData.lastUpdated ?? 0) > 0) {
-    og.push(["article:modified_time", String(context.pageData.lastUpdated)]);
-  }
-
-  returned.push(...og.map(([property, content]) => ["meta", { property, content }] as HeadConfig));
-  returned.push(["link", { rel: "canonical", href }]);
-
   return returned;
 };
+
+export const getClientTransformHead = (latestVersion: string) => {
+  const script = (getNewHead: typeof _getNewHead, latestVersion: string) => {
+    const headData = getNewHead({
+      ...window.location,
+      latestVersion,
+      title: document.title,
+      description: document.querySelector("head meta[name=description]")!.getAttribute("content")!,
+      siteName: document.title.split("|").at(-1)!.trim(),
+      isNotFound: document.title.startsWith("404 | "),
+
+      // only used for the OpenGraph tag, does not matter on the client side
+      lastUpdated: undefined,
+
+      // only used for the robots tag, does not matter on the client side
+      isVersioned: false,
+    });
+
+    if (typeof headData === "string") {
+      window.location.replace(headData);
+      return;
+    }
+
+    // tags with the 'data-gen' attribute are managed by this script
+    document.querySelectorAll("head [data-gen]:not(script)").forEach((el) => el.remove());
+    for (const [tag, attributes] of headData) {
+      const el = document.createElement(tag);
+
+      attributes["data-gen"] = "";
+      for (const [k, v] of Object.entries(attributes)) el.setAttribute(k, v);
+
+      document.head.appendChild(el);
+    }
+  };
+
+  return `(${script.toString()})(${_getNewHead.toString()}, ${JSON.stringify(latestVersion)})`;
+};
+
+export const getBuildTransformHead =
+  (latestVersion: string): Fabric.Config["transformHead"] =>
+  (context) => {
+    const returned = _getNewHead({
+      latestVersion,
+      pathname: context.pageData.relativePath,
+      origin: context.siteConfig.sitemap!.hostname,
+      hash: "",
+      search: "",
+      description: context.pageData.description,
+      title: context.pageData.title,
+      isNotFound: context.pageData.isNotFound,
+      isVersioned: context.pageData.filePath.startsWith("versions/"),
+      siteName: context.siteData.locales[context.siteData.localeIndex!].title!,
+      lastUpdated: context.pageData.lastUpdated,
+    });
+
+    if (typeof returned !== "string") return returned;
+  };
