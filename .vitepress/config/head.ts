@@ -1,4 +1,56 @@
-import { HeadConfig, SiteConfig, UserConfig } from "vitepress";
+import { HeadConfig, SiteConfig } from "vitepress";
+
+export const getRedirects = (latestVersion: string) =>
+  [
+    {
+      from: /[/]{2,}/,
+      dest: "/",
+    },
+    {
+      from: /((?<=^|[/])index)?[.]html$/,
+      dest: "",
+    },
+    {
+      from: new RegExp(`^${latestVersion}([/]|$)`),
+      dest: "",
+    },
+    {
+      from: new RegExp(`^1.21.10([/]|$)`),
+      dest: "1.21.11/",
+    },
+    {
+      from: /develop[/]items[/]custom-item-groups$/,
+      dest: "develop/items/custom-creative-tabs",
+    },
+    {
+      from: /develop[/]rendering[/]draw-context$/,
+      dest: "develop/rendering/gui-graphics",
+    },
+    {
+      from: /develop[/]migrating-mappings([/]|$)/,
+      dest: "develop/porting/mappings/",
+    },
+    {
+      from: /develop[/]porting[/]current$/,
+      dest: "develop/porting/",
+    },
+    {
+      from: /develop[/]porting[/](next|26[.]1)([/]|$)/,
+      dest: "26.1/develop/porting/",
+    },
+    {
+      from: /develop[/]blocks[/]transparency-and-tinting$/,
+      dest: "develop/blocks/block-tinting",
+    },
+    {
+      from: /develop[/]blocks[/]block-tinting$/,
+      dest: "develop/blocks/transparency-and-tinting/",
+    },
+    {
+      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings([/].*)?$/,
+      dest: "1.21.11/develop/porting/mappings$1",
+    },
+  ] satisfies { from: RegExp; dest: string }[];
 
 export const transformHead: SiteConfig["transformHead"] = (context) => {
   const returned: HeadConfig[] = [];
@@ -16,7 +68,7 @@ export const transformHead: SiteConfig["transformHead"] = (context) => {
 
   const hostName = context.siteConfig.sitemap!.hostname;
   const siteName =
-    context.siteConfig.userConfig.locales![locale]?.title!
+    context.siteConfig.userConfig.locales![locale]?.title
     || context.siteConfig.userConfig.locales!.root!.title!;
   const href = `${hostName}${context.pageData.relativePath.replace(/((?<=^|[/])index)?[.]md$/, "")}`;
 
@@ -38,12 +90,4 @@ export const transformHead: SiteConfig["transformHead"] = (context) => {
   returned.push(["link", { rel: "canonical", href }]);
 
   return returned;
-};
-
-export const transformItems: NonNullable<UserConfig["sitemap"]>["transformItems"] = (items) => {
-  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
-  return items.filter((i) => {
-    const relativePath = i.url.replace(config.sitemap!.hostname, "");
-    return !config.rewrites.inv[relativePath]?.startsWith("versions/");
-  });
 };
