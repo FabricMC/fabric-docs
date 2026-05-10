@@ -1,4 +1,5 @@
 {
+  "//": "MAINTAINERS! Keep the 'knot' pun at the end of 404.quotes!",
   "404.code": "404",
   "404.crowdin_link": "Localize on Crowdin",
   "404.crowdin_link.label": "Open the Crowdin editor",
@@ -6,7 +7,6 @@
   "404.english_link.label": "Open the English version",
   "404.link": "Take Me Home",
   "404.link.label": "Go to the home page",
-  "//": "Keep the 'knot' pun as last!",
   "404.quotes": [
     "This page got tangled in the yarn",
     "Sorry, we've lost the thread :/",
