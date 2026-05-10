@@ -371,11 +371,11 @@
         },
         {
           "text": "Porting to 26.1 Snapshots",
-          "link": "/ms_my/26.1/develop/porting/",
+          "link": "/ms_my/develop/porting/26.1",
           "items": [
             {
               "text": "Fabric API",
-              "link": "/ms_my/26.1/develop/porting/fabric-api"
+              "link": "/ms_my/develop/porting/26.1/fabric-api"
             }
           ]
         },
