@@ -43,6 +43,82 @@ The following fields are mandatory for Fabric to load your mod.
 "version": "1.0.0"
 ```
 
+## Metadata {#metadata}
+
+- **`name`**: A string that defines the user-friendly mod name. If not present, defaults to the **id**.
+- **`description`**: A string that defines the mod's description. If not present, defaults to an empty string.
+
+```json
+"name": "Example Mod",
+"description": "This is an example description! Tell everyone what your mod is about!",
+```
+
+### Contact {#contact}
+
+**`contact`**: A dictionary that defines the contact information for the project. Some common fields include:
+
+- **`email`**: A string that defines the contact e-mail pertaining to the mod. Must be a valid e-mail address.
+- **`homepage`**: A string that defines the project or user's homepage. Must be a valid HTTP/HTTPS address.
+- **`irc`**: A string that defines the IRC channel pertaining to the mod. Must be of a valid URL format - for example: `irc://irc.esper.net:6667/charset` for `#charset` at EsperNet - the port is optional, and assumed to be 6667 if not present.
+- **`issues`**: A string that defines the project's issue tracker. Must be a valid HTTP/HTTPS address.
+- **`sources`**: A string that defines the project's source code repository. Must be a valid URL - it can, however, be a specialized URL for a given VCS (such as Git or Mercurial).
+
+The list is not exhaustive - mods may provide additional non-standard keys, such as **`discord`**, **`slack`**, **`twitter`**... If possible, those should be valid URLs.
+
+```json
+"contact": {
+    "homepage": "https://fabricmc.net",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+}
+```
+
+### Authors and Contributors {#authors-contributors}
+
+- **`authors`** An array of authors of the mod. Entries can be either a string or an object with the fields listed below.
+- **`contributors`** An array of contributors to the mod. Entries can be either a string or an object with the fields listed below.
+
+Fields:
+
+- **`name`** A mandatory string for the person's real name, or username.
+- **`contact`** An optional object for the person's contact information. The same as upper level [**`contact`**](#contact).
+
+```json
+"authors": [
+    "Me!",
+    {
+        "name": "Tiny Potato",
+        "contact": {
+          "homepage": "https://fabricmc.net",
+          "sources": "https://github.com/FabricMC/fabric-example-mod"
+        }
+    }
+]
+```
+
+### License {#license}
+
+- **`license`** A string or array that defines the licensing information.
+
+This should provide the complete set of preferred licenses conveying the entire mod package. In other words, compliance with all listed licenses should be sufficient for usage, redistribution, etc. of the mod package as a whole.
+
+For cases where a part of code is dual-licensed, choose the preferred license. The list is not exhaustive, serves primarily as a kind of hint, and does not prevent you from granting additional rights/licenses on a case-by-case basis.
+
+To aid automated tools, it is recommended to use [SPDX License Identifiers](https://spdx.org/licenses/) for open-source licenses.
+
+```json
+"license": "CC0-1.0"
+```
+
+### Icon {#icon}
+
+- **`icon`** A string or dictionary that defines the mod's icon. Icons are square PNG files. Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended. Can be provided in one of two forms:
+  - A path to a single PNG file.
+  - A dictionary of images widths to their files' paths.
+
+```json
+"icon": "assets/example-mod/icon.png"
+```
+
 ## Mod Loading {#mod-loading}
 
 ### Environment {#environment}
@@ -186,82 +262,6 @@ Here are some examples of ranges and what they indicate. Try using [jubianchi's 
 "suggests": {
     "another-mod": ">1.0.0"
 }
-```
-
-## Metadata {#metadata}
-
-- **`name`**: A string that defines the user-friendly mod name. If not present, defaults to the **id**.
-- **`description`**: A string that defines the mod's description. If not present, defaults to an empty string.
-
-```json
-"name": "Example Mod",
-"description": "This is an example description! Tell everyone what your mod is about!",
-```
-
-### Contact {#contact}
-
-**`contact`**: A dictionary that defines the contact information for the project. Some common fields include:
-
-- **`email`**: A string that defines the contact e-mail pertaining to the mod. Must be a valid e-mail address.
-- **`homepage`**: A string that defines the project or user's homepage. Must be a valid HTTP/HTTPS address.
-- **`irc`**: A string that defines the IRC channel pertaining to the mod. Must be of a valid URL format - for example: `irc://irc.esper.net:6667/charset` for `#charset` at EsperNet - the port is optional, and assumed to be 6667 if not present.
-- **`issues`**: A string that defines the project's issue tracker. Must be a valid HTTP/HTTPS address.
-- **`sources`**: A string that defines the project's source code repository. Must be a valid URL - it can, however, be a specialized URL for a given VCS (such as Git or Mercurial).
-
-The list is not exhaustive - mods may provide additional non-standard keys, such as **`discord`**, **`slack`**, **`twitter`**... If possible, those should be valid URLs.
-
-```json
-"contact": {
-    "homepage": "https://fabricmc.net",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-}
-```
-
-### Authors and Contributors {#authors-contributors}
-
-- **`authors`** An array of authors of the mod. Entries can be either a string or an object with the fields listed below.
-- **`contributors`** An array of contributors to the mod. Entries can be either a string or an object with the fields listed below.
-
-Fields:
-
-- **`name`** A mandatory string for the person's real name, or username.
-- **`contact`** An optional object for the person's contact information. The same as upper level [**`contact`**](#contact).
-
-```json
-"authors": [
-    "Me!",
-    {
-        "name": "Tiny Potato",
-        "contact": {
-          "homepage": "https://fabricmc.net",
-          "sources": "https://github.com/FabricMC/fabric-example-mod"
-        }
-    }
-]
-```
-
-### License {#license}
-
-- **`license`** A string or array that defines the licensing information.
-
-This should provide the complete set of preferred licenses conveying the entire mod package. In other words, compliance with all listed licenses should be sufficient for usage, redistribution, etc. of the mod package as a whole.
-
-For cases where a part of code is dual-licensed, choose the preferred license. The list is not exhaustive, serves primarily as a kind of hint, and does not prevent you from granting additional rights/licenses on a case-by-case basis.
-
-To aid automated tools, it is recommended to use [SPDX License Identifiers](https://spdx.org/licenses/) for open-source licenses.
-
-```json
-"license": "CC0-1.0"
-```
-
-### Icon {#icon}
-
-- **`icon`** A string or dictionary that defines the mod's icon. Icons are square PNG files. Minecraft resource packs use 128×128, but that is not a hard requirement - a power of two is, however, recommended. Can be provided in one of two forms:
-  - A path to a single PNG file.
-  - A dictionary of images widths to their files' paths.
-
-```json
-"icon": "assets/example-mod/icon.png"
 ```
 
 ## Custom Fields {#custom-fields}
