@@ -2,6 +2,7 @@
 title: Блоки-сутності
 description: Навчіться створювати блоки-сутності для ваших власних блоків.
 authors:
+  - CelDaemon
   - natri0
 resources:
   https://docs.neoforged.net/docs/blockentities/: Блоки-сутності — Документація NeoForge
@@ -102,6 +103,20 @@ Minecraft використовує блоки-сутності для блокі
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Тепер, коли гравець увійде або переміститься в чанк, де існує блок, він одразу побачить правильне значення лічильника.
+
+## Синхронізація даних {#syncing-data}
+
+Хоча нові гравці, які завантажують в блоці, бачитимуть правильну кількість, для інших гравців, які спостерігають за взаємодією, кількість не оновлюватиметься. Це явище називається десинхронізацією, і воно виникає, коли сервер оновив свій стан, а клієнти — ні.
+
+Щоб розв'язати цю проблему, ми можемо використовувати пакети оновлення блока-сутності. Замініть метод `getUpdatePacket` і поверніть пакет із даними блока з нашого `getUpdateTag`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+
+Потім перевизначте `setChanged`, щоб надсилати дані щоразу, коли змінюється блок-сутність.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+
+Тепер інші гравці мають бачити зміну кількості.
 
 ## Тикери {#tickers}
 

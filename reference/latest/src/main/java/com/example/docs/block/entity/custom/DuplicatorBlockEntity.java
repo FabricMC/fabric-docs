@@ -42,7 +42,7 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 
 	@Override
 	public NonNullList<ItemStack> getItems() {
-		return items;
+		return this.items;
 	}
 	// #endregion be
 
@@ -50,12 +50,12 @@ public class DuplicatorBlockEntity extends BlockEntity implements ImplementedCon
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
-		ContainerHelper.loadAllItems(input, items);
+		ContainerHelper.loadAllItems(input, this.items);
 	}
 
 	@Override
 	protected void saveAdditional(ValueOutput output) {
-		ContainerHelper.saveAllItems(output, items);
+		ContainerHelper.saveAllItems(output, this.items);
 		super.saveAdditional(output);
 	}
 	// #endregion save

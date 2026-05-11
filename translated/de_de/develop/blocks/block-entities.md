@@ -2,6 +2,7 @@
 title: Block Entitäten
 description: Lerne, wie du Block Entitäten für deine benutzerdefinierten Blöcke erstellst.
 authors:
+  - CelDaemon
   - natri0
 resources:
   https://docs.neoforged.net/docs/blockentities/: Blockentitäten - NeoForge Docs
@@ -102,6 +103,20 @@ Um dies zu beheben, überschreiben wir `getUpdateTag`:
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Wenn sich nun ein Spieler anmeldet oder in einen Chunk geht, in dem der Block vorhanden ist, sieht er sofort den korrekten Zählerwert.
+
+## Daten synchronisieren {#syncing-data}
+
+Während neue Spieler, die den Block laden, die korrekte Anzahl sehen, wird diese für andere Spieler, die die Interaktion beobachten, nicht aktualisiert. Dieses Phänomen wird als Desynchronisation bezeichnet und tritt auf, wenn der Server seinen Status aktualisiert hat, die Clients jedoch nicht.
+
+Um dies zu beheben, können wir Pakete zur Aktualisierung von Block-Entitäten verwenden. Überschreibe die Methode `getUpdatePacket` und gib ein Paket zurück, das die Daten des Blocks aus unserer Methode `getUpdateTag` enthält.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+
+Überschreibe anschließend `setChanged` so, dass die Daten bei jeder Änderung der Block-Entität gesendet werden.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+
+Andere Spieler sollten nun sehen können, wie sich die Zahl ändert.
 
 ## Ticker {#tickers}
 

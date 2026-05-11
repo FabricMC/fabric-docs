@@ -18,8 +18,4 @@ features:
     linkText: Loslegen
 ---
 
-::: warning
-Du siehst gerade die Dokumentation für Minecraft 1.21.10. Wenn du nach einer anderen Version suchst, wähle diese bitte aus dem Dropdown-Menü in der Navigationsleiste aus.
-:::
-
 Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](./contributing)

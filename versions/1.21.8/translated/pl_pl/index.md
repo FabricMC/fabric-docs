@@ -18,8 +18,4 @@ features:
     linkText: Rozpocznij
 ---
 
-::: warning
-Aktualnie oglądasz dokumentację dla Minecrafta w wersji 1.21.8. Jeśli szukasz innej wersji, wybierz ją z rozwijalnej listy na górnym pasku nawigacji.
-:::
-
 Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące współtworzenia](./contributing).

@@ -19,7 +19,7 @@ public class StringyBean implements Bean {
 	}
 
 	public String getStringyString() {
-		return stringyString;
+		return this.stringyString;
 	}
 
 	// :::

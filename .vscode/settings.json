@@ -7,6 +7,9 @@
     "translated/**": true,
     "versions/**": true
   },
+  "markdown.copyFiles.destination": {
+    "*": "public/assets/${documentRelativeDirName}/${documentBaseName}/${fileName}"
+  },
   "markdownlint.lintWorkspaceGlobs": [
     "**/*.md",
     "!node_modules/**",

@@ -2,6 +2,7 @@
 title: Сущности блока
 description: Узнайте, как создавать блочные сущности для своих пользовательских блоков.
 authors:
+  - CelDaemon
   - natri0
 resources:
   https://docs.neoforged.net/docs/blockentities/: Блок-сущности — документация NeoForge
@@ -102,6 +103,20 @@ resources:
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Теперь, когда игрок входит в игру или перемещается в чанк, где есть блок, он сразу же увидит правильное значение счетчика.
+
+## Синхронизация данных {#syncing-data}
+
+Хотя новые игроки, загружающиеся в блок, увидят правильное количество, для других игроков, наблюдающих за взаимодействием, это число обновляться не будет. Это явление называется десинхронизацией, она происходит когда сервер обновил своё состояние, но клиенты этого не сделали.
+
+Чтобы решить эту проблему, мы можем использовать пакеты обновления блока сущности. Переопределите метод `getUpdatePacket` и верните пакет, содержащий данные блока из нашего метода `getUpdateTag`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+
+Затем переопределите метод `setChanged`, чтобы передавать данные при каждом изменении сущности блока.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+
+Теперь другие игроки смогут видеть изменение счетчика.
 
 ## Тики {#tickers}
 
