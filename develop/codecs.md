@@ -41,7 +41,7 @@ When using a codec, values are returned in the form of a `DataResult`. This is a
 
 So let's grab our serialized value and turn it back into a `BlockPos`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#serialize-deserialize-blockpos
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#parse-blockpos
 
 ### Built-in Codecs {#built-in-codecs}
 

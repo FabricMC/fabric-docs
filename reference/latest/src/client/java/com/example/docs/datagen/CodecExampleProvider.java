@@ -63,16 +63,16 @@ public class CodecExampleProvider implements DataProvider {
 
 		// Serialize the BlockPos to a JsonElement
 		DataResult<JsonElement> serializeResult = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
-		// #endregion encode-blockpos
 
-		// #region serialize-deserialize-blockpos
 		// When actually writing a mod, you'll want to properly handle empty Optionals of course
 		JsonElement json = serializeResult.resultOrPartial(LOGGER::error).orElseThrow();
 
 		// Here we have our JSON value, which should correspond to `[1, 2, 3]`,
 		// as that's the format used by the BlockPos codec.
 		LOGGER.info("Serialized BlockPos: {}", json);
+		// #endregion encode-blockpos
 
+		// #region parse-blockpos
 		// Now we'll deserialize the JsonElement back into a BlockPos
 		DataResult<BlockPos> deserializeResult = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 
@@ -81,7 +81,7 @@ public class CodecExampleProvider implements DataProvider {
 
 		// And we can see that we've successfully serialized and deserialized our BlockPos!
 		LOGGER.info("Deserialized BlockPos: {}", deserializedPos);
-		// #endregion serialize-deserialize-blockpos
+		// #endregion parse-blockpos
 
 		consumer.accept("serialize_blockpos", json);
 	}
