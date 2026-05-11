@@ -17,7 +17,7 @@ resources:
   https://jubianchi.github.io/semver-check/: Semantic Version Comparison Tool
 ---
 
-<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, Range] }, MD011: false } -->
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [Range] }, MD011: false } -->
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. It must be placed in the JAR's root directory for the mod to get loaded.
 
@@ -157,6 +157,9 @@ The value of each key is a string or array of strings declaring supported versio
 Here are some examples of ranges and what they indicate. Try using [jubianchi's Semver check](https://jubianchi.github.io/semver-check/#/) to test which values will satisfy the constraint.
 
 ::: details Semantic Versioning Examples
+
+**Note:** Minecraft does not abide by semantic versioning. If needed, Fabric will translate a Minecraft version into its equivalent in semantic versioning. Examples include `26.1`->`26.1.0`, `26.1-snapshot-1`->`26.1-alpha.1`, `26w14a`->`26.1.1-alpha.26.14.a`.
+
 
 | Range                            | Description                                  | Matches                        | Clashes                     |
 | -------------------------------- | -------------------------------------------- | ------------------------------ | --------------------------- |
