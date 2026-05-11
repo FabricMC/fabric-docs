@@ -204,8 +204,8 @@ Here are some examples of ranges and what they indicate. Try using [jubianchi's 
 
 ## Metadata {#metadata}
 
-- **`name`**: A string that defines the user-friendly mod's name. If not present, assume it matches **id**.
-- **`description`**: A string that defines the mod's description. If not present, assume empty string.
+- **`name`**: A string that defines the user-friendly mod name. If not present, defaults to the **id**.
+- **`description`**: A string that defines the mod's description. If not present, defaults to an empty string.
 
 ```json
 "name": "Example Mod",
