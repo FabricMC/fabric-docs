@@ -97,13 +97,11 @@ Fields:
 
 ### License {#license}
 
-- **`license`** A string or array that defines the licensing information.
+- **`license`** A string or array that defines the licensing information. To aid automated tools, it is recommended to use [SPDX License Identifiers](https://spdx.org/licenses/) for open-source licenses.
 
-This should provide the complete set of preferred licenses conveying the entire mod package. In other words, compliance with all listed licenses should be sufficient for usage, redistribution, etc. of the mod package as a whole.
-
-For cases where a part of code is dual-licensed, choose the preferred license. The list is not exhaustive, serves primarily as a kind of hint, and does not prevent you from granting additional rights/licenses on a case-by-case basis.
-
-To aid automated tools, it is recommended to use [SPDX License Identifiers](https://spdx.org/licenses/) for open-source licenses.
+This should provide the minimal set of licenses that satisfy the entire mod package. In other words, someone seeking to use or redistribute your mod should only need to comply with the licenses listed here.
+If parts of your code are dual-licensed, choose the preferred license.
+This list does not necessarily forbid you from granting additional rights or applying different licenses for certain people on a case-by-case basis.
 
 ```json
 "license": "CC0-1.0"
