@@ -9,7 +9,7 @@ const data = useData();
 
 const href = computed(() => {
   // unlike Node.js, Fabric interprets "26.1" as "26.1.0"
-  const normalizedRange = props.r.replaceAll(/(?<![0-9.])[0-9]+[.][0-9]+(?![.])/, "$&.0");
+  const normalizedRange = props.r.replaceAll(/(?<![0-9.])[0-9]+[.][0-9]+(?![.])/g, "$&.0");
   return `https://jubianchi.github.io/semver-check/#/${encodeURIComponent(normalizedRange)}/${data.frontmatter.value.version}`;
 });
 </script>
