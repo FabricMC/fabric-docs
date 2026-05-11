@@ -55,13 +55,6 @@ pre {
   display: none;
 }
 
-/* Do not show ligatures in code blocks */
-code,
-pre {
-  tab-size: 2 !important;
-  font-variant-ligatures: none;
-}
-
 /* Description at the top of pages */
 p[role="doc-subtitle"] {
   margin-block: 1rem;
