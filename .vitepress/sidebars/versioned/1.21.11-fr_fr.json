@@ -371,11 +371,11 @@
         },
         {
           "text": "Porting to 26.1 Snapshots",
-          "link": "/fr_fr/26.1/develop/porting/",
+          "link": "/fr_fr/develop/porting/26.1",
           "items": [
             {
               "text": "Fabric API",
-              "link": "/fr_fr/26.1/develop/porting/fabric-api"
+              "link": "/fr_fr/develop/porting/26.1/fabric-api"
             }
           ]
         },

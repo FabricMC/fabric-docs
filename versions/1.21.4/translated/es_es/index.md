@@ -18,10 +18,4 @@ features:
     linkText: Empezar
 ---
 
-::: warning
-This documentation applies to Minecraft 1.21.4.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
-
 Si quieres contribuir a la Documentación de Fabric, puedes encontrar el código fuente en [GitHub](https://github.com/FabricMC/fabric-docs), y las [pautas de contribución](./contributing) relevantes.

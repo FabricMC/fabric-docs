@@ -30,9 +30,9 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 	public MiniGolemEntityModel(ModelPart root) {
 		//:::dancing_animation
 		super(root);
-		head = root.getChild(PartNames.HEAD);
-		leftLeg = root.getChild(PartNames.LEFT_LEG);
-		rightLeg = root.getChild(PartNames.RIGHT_LEG);
+		this.head = root.getChild(PartNames.HEAD);
+		this.leftLeg = root.getChild(PartNames.LEFT_LEG);
+		this.rightLeg = root.getChild(PartNames.RIGHT_LEG);
 		//:::model1
 		//:::dancing_animation
 		// ...
@@ -90,12 +90,12 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 			// ... the leg swing animation code from before
 			//:::dancing_animation
 			//:::model_animation
-			head.xRot = state.xRot * Mth.RAD_TO_DEG;
-			head.yRot = state.yRot * Mth.RAD_TO_DEG;
+			this.head.xRot = state.xRot * Mth.RAD_TO_DEG;
+			this.head.yRot = state.yRot * Mth.RAD_TO_DEG;
 			float limbSwingAmplitude = state.walkAnimationSpeed;
 			float limbSwingAnimationProgress = state.walkAnimationPos;
-			leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
-			rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
+			this.leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
+			this.rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
 			//:::model_animation
 			//:::dancing_animation
 		}
