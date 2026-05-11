@@ -145,7 +145,7 @@ And call it in your mod initializer:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
-Finally, we need to trigger our criteria. Add this to where we sent a message to the player in the main mod class.
+Finally, we need to trigger our criterion. Add this to where we sent a message to the player in the main mod class.
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
