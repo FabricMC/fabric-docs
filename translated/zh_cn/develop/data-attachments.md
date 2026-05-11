@@ -6,7 +6,13 @@ authors:
   - DennisOchulor
 ---
 
-数据附加 API 是 Fabric API 中一项近期推出的实验性功能， 允许开发者轻松地将任意数据附加到实体、方块实体、Level 和区块。 附加的数据可以通过 [Codec](./codecs) 和流 [Codec](./codecs) 进行存储和同步，因此在使用前你应该熟悉这些 Codec。
+Fabric API 提供的数据附件 API 允许开发者轻松地将任意数据附加到实体、方块实体、Level 和区块。 附加的数据可以通过[编解码器](./codecs)和[流编解码器](https://docs.neoforged.net/docs/networking/streamcodecs/)进行存储和同步，因此在使用前你 应该熟悉这些编解码器。
+
+::: info
+
+对于不与任何特定 Level 关联的服务器级数据，Fabric 提供了通过 `Level.globalAttachments()` 或 `MinecraftServer.globalAttachments()` 获取的  `GlobalAttachments`。
+
+:::
 
 ## 创建数据附加 {#creating-attachments}
 

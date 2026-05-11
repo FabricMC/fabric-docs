@@ -1,4 +1,4 @@
-/* 
+/*
   This file overrides and extends default VitePress theme CSS variables and styles:
   https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
 */
@@ -40,6 +40,12 @@
   --vp-font-family-base: "Punctuation SC", var(--font-family-base);
 }
 
+code,
+pre {
+  tab-size: 2 !important;
+  font-variant-ligatures: none;
+}
+
 /* Dark Mode Support - Show or hide elements based on the presence of the 'dark' class on the root element. */
 :root:not(.dark) .dark-only {
   display: none;
@@ -49,10 +55,22 @@
   display: none;
 }
 
+/* Do not show ligatures in code blocks */
 code,
 pre {
   tab-size: 2 !important;
-  font-variant-ligatures: none;
+  font-variant-ligatures: none; 
+}
+
+/* Description at the top of pages */
+p[role="doc-subtitle"] {
+  margin-block: 1rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+  text-wrap: balance;
+  color: var(--vp-c-text-3);
 }
 
 /* Sidebar Scrollbar - Styles scrollbars within the side navigation pane for improved visibility. */
@@ -62,8 +80,13 @@ pre {
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 
+body:has(.VPFooter:not(.has-sidebar)) .aside-container {
+  padding-bottom: 64px;
+}
+
 @media (min-width: 1525px) {
-  .aside-container {
+  .aside-container,
+  .aside-curtain {
     width: 300px !important;
   }
 }
@@ -84,9 +107,13 @@ pre {
   background: var(--vp-c-gray-1);
 }
 
-/* Override default margin on the VitePress Home component */
+/* Style the home page */
 .VPHome {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
+
+  p.tagline {
+    text-wrap: balance;
+  }
 }
 
 /* Local Search Box Animations - Fade in backdrop and animate search box on appearance. */
@@ -137,9 +164,22 @@ kbd:not(.DocSearch-Button-Key) {
 
 /* Center and style images within paragraphs. */
 .vp-doc > p > img,
-.vp-doc > div > p > img {
+.vp-doc > div > p > img,
+.medium-zoom-image--opened {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 10px #8883;
   border-radius: 8px;
+}
+
+h1 > .VPBadge {
+  font-family: var(--vp-font-family-mono);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+/* Remove border from headings if that's the first thing in the page */
+:is(hgroup) + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+  border-top: none;
 }

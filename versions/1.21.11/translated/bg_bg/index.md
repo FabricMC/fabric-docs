@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Документация на Fabric
-  tagline: Официалната документация за Fabric,<br />инструмент за модифициране на Minecraft.
+  tagline: Официалната документация за Fabric, инструмент за модифициране на Minecraft.
 
 features:
   - title: Ръководства за играча
@@ -19,11 +19,5 @@ features:
     link: /bg_bg/1.21.11/develop/
     linkText: Започнете
 ---
-
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
 
 Ако желаете да допринесете за документацията на Fabric, можете да намерите кодът в [GitHub](https://github.com/FabricMC/fabric-docs), както и съответните [указания за принос](./contributing).

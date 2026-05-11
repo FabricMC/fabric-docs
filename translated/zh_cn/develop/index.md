@@ -7,6 +7,9 @@ authors:
   - itsmiir
 authors-nogithub:
   - basil4088
+resources:
+  https://github.com/FabricMC: GitHub 上的 FabricMC 组织
+  https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: 这些文档中引用的 ExampleMod
 ---
 
 Fabric 是一款适用于 Minecraft：Java 版的轻量级模组工具链，设计简洁易用， 让开发者能够对原版游戏进行修改（“模组”），添加新功能或更改现有机制。

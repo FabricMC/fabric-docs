@@ -24,7 +24,7 @@ public class CounterItem extends Item {
 	//::1
 
 	@Override
-	//::2
+	//::use
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		ItemStack stack = user.getItemInHand(hand);
 
@@ -39,7 +39,7 @@ public class CounterItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-	//::2
+	//::use
 
 	@Override
 	//::3

@@ -1,21 +1,21 @@
 ---
-title: Porting to Fabric API 26.1
-description: A guide for updating your mod to Fabric API for Minecraft 26.1.
+title: Портування до Fabric API 26.1
+description: Дізнайтеся, як оновити ваш мод до Fabric API для Minecraft 26.1.
 authors:
   - modmuss50
 resources:
-  https://www.jetbrains.com/help/idea/migrate.html: Migrate Refactoring - IntelliJ IDEA Docs
+  https://www.jetbrains.com/help/idea/migrate.html: Рефакторування міграції — Документація IntelliJ IDEA
 ---
 
-As Minecraft 26.1 is now unobfuscated, most developers will now be using Mojang's official mappings. Previously, Fabric API was built with Yarn mappings in mind, but with the move to official mappings, API names have been updated to match the official names where applicable. These changes are not backwards compatible, so you will need to update your mod to use the new names. These API renames will not be handled by the migrate mappings tools, it is highly recommended to follow the [Migrating Mappings](../../../develop/porting/mappings/) first if your mod is built with Yarn mappings.
+Оскільки Minecraft 26.1 тепер не обфускований, більшість розробників тепер використовуватимуть офіційні мапінги Mojang. Раніше API Fabric створювався з урахуванням мапінгів Yarn, але з переходом на офіційні мапінги назви API було оновлено відповідно до офіційних імен, де це можливо. Ці зміни не є зворотно сумісними, тому вам потрібно буде оновити свій мод, щоб використовувати нові назви. Ці перейменування API не оброблятимуться інструментами міграції мапінгів. Настійно рекомендуємо спершу дотримуватися вказівок [міграції мапінгів](../../../develop/porting/mappings/), якщо ваш мод зібрано з мапінгами Yarn.
 
-Below is a list of all the renamed classes, methods, and fields in Fabric API 26.1, the best way to use this list is to search (<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>) this page for the old name and replace it with the new name.
+Нижче наведено список усіх перейменованих класів, методів і полів у Fabric API 26.1. Найкращий спосіб використати цей список — знайти (<kbd>⌘/CTRL</kbd>+<kbd>F</kbd>) на цій сторінці стару назву та замінити її новою назвою.
 
-An IntelliJ IDEA migration map is also available to help automate renaming the classes. After downloading follow the instructions in the [JetBrains documentation](https://www.jetbrains.com/help/idea/migrate.html) to apply it to your project.
+Також доступна мапа міграції IntelliJ IDEA, яка допомагає автоматизувати перейменування класів. Після завантаження дотримуйтесь інструкцій у [документації JetBrains](https://www.jetbrains.com/help/idea/migrate.html), щоб застосувати його до свого проєкту.
 
-<DownloadEntry downloadURL="/assets/develop/porting/fabric-api-26-1-migration-map.xml">class migration map</DownloadEntry>
+<DownloadEntry downloadURL="/assets/develop/porting/fabric-api-26-1-migration-map.xml">Мапа міграції класів</DownloadEntry>
 
-## List Of Renames {#renames}
+## Список перейменованих {#renames}
 
 - `net/fabricmc/fabric/api/biome/v1/BiomeModificationContext$EffectsContext`
   - `setFoliageColor` → `setFoliageColorOverride`
@@ -386,9 +386,11 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/object/builder/v1/block/type/WoodTypeBuilder`
   - `soundGroup` → `soundType`
+
   - `hangingSignSoundGroup` → `hangingSignSoundType`
 
   - `soundGroup` → `soundType`
+
   - `hangingSignSoundGroup` → `hangingSignSoundType`
 
 - `net/fabricmc/fabric/api/object/builder/v1/entity/FabricEntityType$Builder$Mob`
@@ -399,9 +401,11 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/object/builder/v1/entity/FabricEntityTypeBuilder$Mob`
   - `spawnGroup` → `mobCategory`
+
   - `spawnRestriction` → `spawnPlacement`
 
   - `spawnLocation` → `spawnPlacementType`
+
   - `restrictionHeightmap` → `placementHeightmap`
 
 - `net/fabricmc/fabric/api/object/builder/v1/entity/FabricEntityTypeBuilder`
@@ -434,9 +438,11 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/registry/FlammableBlockRegistry$Entry`
   - `getBurnChance` → `getIgniteOdds`
+
   - `getSpreadChance` → `getBurnOdds`
 
   - `burn` → `igniteOdds`
+
   - `spread` → `burnOdds`
 
 - `net/fabricmc/fabric/api/registry/FuelRegistryEvents$BuildCallback` → `FuelValueEvents$BuildCallback`
@@ -457,6 +463,7 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/registry/LandPathNodeTypesRegistry` → `LandPathTypeRegistry`
   - `getPathNodeType` → `getPathType`
+
   - `getPathNodeTypeProvider` → `getPathTypeProvider`
 
   - `NODE_TYPES` → `PATH_TYPES`
@@ -514,9 +521,11 @@ An IntelliJ IDEA migration map is also available to help automate renaming the c
 
 - `net/fabricmc/fabric/api/resource/v1/ResourceLoader`
   - `registerReloader` → `registerReloadListener`
+
   - `addReloaderOrdering` → `addListenerOrdering`
 
   - `RELOADER_REGISTRY_LOOKUP_KEY` → `REGISTRY_LOOKUP_KEY`
+
   - `RELOADER_FEATURE_SET_KEY` → `FEATURE_FLAG_SET_KEY`
 
 - `net/fabricmc/fabric/api/resource/v1/reloader/ResourceReloaderKeys$Client`

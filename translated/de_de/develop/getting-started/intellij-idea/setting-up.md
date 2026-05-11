@@ -39,7 +39,13 @@ Stelle sicher, dass du zuerst [ein JDK installiert hast](../setting-up#install-j
 
 ## IntelliJ IDEA installieren {#installing-intellij-idea}
 
-Wenn du IntelliJ IDEA nicht installiert hast, kannst du es von der [offiziellen Website](https://www.jetbrains.com/idea/download/) herunterladen - befolge die Installationsschritte für dein Betriebssystem.
+::: warning
+
+Um die 26.1 zu modden, wird IntelliJ IDEA 2025.3 oder höher benötigt.
+
+:::
+
+Wenn du IntelliJ IDEA nicht installiert hast, **oder eine Version vor der 2025.3 hast**, kannst du es von der [offiziellen Website](https://www.jetbrains.com/idea/download/) herunterladen - befolge die Installationsschritte für dein Betriebssystem.
 
 ![IntelliJ IDEA Download Aufforderung](/assets/develop/getting-started/idea-download.png)
 

@@ -3,7 +3,11 @@ package com.example.docs.block.entity.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -29,27 +33,39 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::2
 	public int getClicks() {
-		return clicks;
+		return this.clicks;
 	}
 
 	public void incrementClicks() {
 		// :::2
 
 		// :::6
-		if (ticksSinceLast < 10) return;
-		ticksSinceLast = 0;
+		if (this.ticksSinceLast < 10) return;
+		this.ticksSinceLast = 0;
 		// :::6
 
 		// :::2
-		clicks++;
-		setChanged();
+		this.clicks++;
+		this.setChanged();
 	}
 	// :::2
+
+	// #region broadcast-update
+	@Override
+	public void setChanged() {
+		super.setChanged();
+
+		if (level == null) return;
+
+		BlockState state = getBlockState();
+		level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
+	}
+	// #endregion broadcast-update
 
 	// :::3
 	@Override
 	protected void saveAdditional(ValueOutput output) {
-		output.putInt("clicks", clicks);
+		output.putInt("clicks", this.clicks);
 
 		super.saveAdditional(output);
 	}
@@ -60,7 +76,7 @@ public class CounterBlockEntity extends BlockEntity {
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 
-		clicks = input.getIntOr("clicks", 0);
+		this.clicks = input.getIntOr("clicks", 0);
 	}
 	// :::4
 
@@ -76,6 +92,13 @@ public class CounterBlockEntity extends BlockEntity {
 		return saveWithoutMetadata(registryLookup);
 	}
 	// :::7
+
+	// #region update-packet
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+	// #endregion update-packet
 
 	// :::1
 }

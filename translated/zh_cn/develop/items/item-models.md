@@ -5,6 +5,8 @@ authors:
   - Fellteros
   - its-miroma
   - VatinMc
+resources:
+  https://minecraft.wiki/w/Model#Item_models: 物品模型 - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -274,7 +276,3 @@ authors:
 4. `rotation`：_整数_。 将纹理以 90 度为增量旋转指定的度数。 旋转不会影响纹理的使用部分。
    而是相当于对所选纹理顶点（隐式选择或通过 `uv` 显式选择）进行置换。
 5. `tintidex`：_整数_。 使用从客户端物品中引用的色调值为该面的纹理着色。 如果未提供色调颜色（或白色），则纹理不着色。
-
-## 来源和链接 {#sources-and-links}
-
-你可以访问 Minecraft Wiki 的[物品模型页面](https://zh.minecraft.wiki/w/%E6%A8%A1%E5%9E%8B#%E7%89%A9%E5%93%81%E6%A8%A1%E5%9E%8B)来获取更详细的说明。 这里的很多信息都来自该页面。

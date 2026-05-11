@@ -62,17 +62,11 @@ dependencies {
 
 You can now refresh the Gradle project in your IDE to apply your changes.
 
-### Final Changes {#final-changes-mojmap}
+### Final Changes {#final-changes}
 
 That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
 
 Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=) will be helpful to familiarize yourself with your new mappings.
-
-### Final Changes {#final-changes-yarn}
-
-That's the bulk of the work done! You'll now want to go through your source code to check for any potentially outdated Mixin targets or code that was not remapped.
-
-Tools like [mappings.dev](https://mappings.dev/) or [Linkie](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&translateMode=ns&translateAs=yarn&search=) will be helpful to familiarize yourself with your new mappings.
 
 ## Additional Configurations {#additional-configurations}
 

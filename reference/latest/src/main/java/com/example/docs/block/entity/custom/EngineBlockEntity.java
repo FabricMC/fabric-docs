@@ -68,7 +68,7 @@ public class EngineBlockEntity extends BlockEntity implements DynamicSoundSource
 
 	@Override
 	public float getNormalizedStress() {
-		return Mth.clamp(normalizedStress, 0, 1);
+		return Mth.clamp(this.normalizedStress, 0, 1);
 	}
 
 	public void setNormalizedStress(float normalizedStress) {

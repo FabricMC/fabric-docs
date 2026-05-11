@@ -1,5 +1,5 @@
 plugins {
-	id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT' apply false
+	id 'net.fabricmc.fabric-loom' version '1.16-SNAPSHOT' apply false
 	id "com.diffplug.spotless" version "6.23.3" apply false
 	id 'checkstyle'
 }
@@ -13,6 +13,7 @@ subprojects {
 		archivesName = "example-mod-${project.name}"
 	}
 
+	// #region split-sources
 	loom {
 		splitEnvironmentSourceSets()
 
@@ -22,7 +23,10 @@ subprojects {
 				sourceSet sourceSets.client
 			}
 		}
+	}
+	// #endregion split-sources
 
+	loom {
 		runs.configureEach {
 			ideConfigGenerated = true
 		}
@@ -60,7 +64,7 @@ subprojects {
 
 		java {
 			removeUnusedImports()
-			importOrder('java', 'javax', '', 'net.minecraft', 'net.fabricmc', 'com.example')
+			importOrder('java', 'javax', '', 'net.minecraft', 'net.fabricmc', 'com.example.docs')
 			indentWithTabs()
 			trimTrailingWhitespace()
 		}

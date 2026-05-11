@@ -41,7 +41,7 @@ resources:
 
 Тепер у нас є ефект зачарування! Останнім кроком є ​​створення зачарування, яке застосовує наш спеціальний ефект. Ми можемо зробити це за допомогою керованої даними системи зачарування, просто додавши файл JSON до ресурсів нашого мода.
 
-Створіть файл JSON у теці `data/example-mod/enchantments`. Ім’я цього файлу буде ID зачарування: `thundering.json` стане `example-mod:thundering`.
+Створіть файл JSON у теці `data/example-mod/enchantment`. Ім’я цього файлу буде ID зачарування: `thundering.json` стане `example-mod:thundering`.
 
 ::: info
 
@@ -55,7 +55,7 @@ resources:
 
 @[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
 
-Ви також повинні додати переклади до свого файлу `en_us.json` (для української створіть `uk_ua.json`), щоб надати своєму зачаруванню читабельну назву:
+Ви також повинні додати переклади до свого файлу `en_us.json` (`uk_ua.json` для української), щоб надати своєму зачаруванню читабельну назву:
 
 ```json
 "enchantment.example-mod.thundering": "Thundering",

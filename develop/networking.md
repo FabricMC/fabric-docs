@@ -203,12 +203,12 @@ It is important that you validate the content of the packet on the server side.
 
 In this case, we validate if the entity exists based on its network ID.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={19-19}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Additionally, the targeted entity has to be a living entity, and we restrict the range of the target entity from the
 player to 5.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::
 

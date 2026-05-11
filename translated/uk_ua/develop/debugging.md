@@ -29,12 +29,7 @@ authors:
 
 Журналювальник (Logger) підтримує кілька режимів друку тексту на консолі. Залежно від режиму, який ви використовуєте, зареєстрований рядок показується різними кольорами.
 
-```java
-ExampleModDebug.LOGGER.debug("Debug message for development...");
-ExampleModDebug.LOGGER.info("Neutral, informative text...");
-ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-```
+@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 ::: info
 
@@ -176,7 +171,7 @@ public class TestItem extends Item {
 
 :::
 
-Якщо ви завершили поточну перевірку, ви можете натиснути зелену кнопку `Відновити програму` (<kbd>F9</kbd>). Це розморозить екземпляр Minecraft, і можна буде проводити подальше тестування, доки не буде досягнуто іншої точки зупину. Але поки що продовжмо дивитися на вікно `Debug`.
+Якщо ви завершили поточну перевірку, ви можете натиснути зелену кнопку `Resume Program` (<kbd>F9</kbd>). Це розморозить екземпляр Minecraft, і можна буде проводити подальше тестування, доки не буде досягнуто іншої точки зупину. Але поки що продовжмо дивитися на вікно `Debug`.
 
 Угорі ви можете побачити всі запущені екземпляри. Якщо обидва запущені, ви можете перемкнутися між екземпляром клієнта та сервером. Нижче ви маєте дії з налагодження та керування. Ви також можете перейти до перегляду `консолі`, якщо вам потрібно переглянути журнали.
 

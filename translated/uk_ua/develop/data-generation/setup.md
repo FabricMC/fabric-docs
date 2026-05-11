@@ -24,19 +24,19 @@ authors-nogithub:
 
 ### Під час створення проєкту {#enabling-data-generation-at-project-creation}
 
-Найпростіший спосіб увімкнути datagen — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
+Найпростіший спосіб увімкнути генерацію даних — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
 
 ![Позначене поле «Data Generation» у генераторі шаблонf](/assets/develop/data-generation/data_generation_setup_01.png)
 
 ::: tip
 
-Якщо datagen увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
+Якщо генерацію даних увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
 
 :::
 
 ### Власноруч {#manually-enabling-data-generation}
 
-По-перше, нам потрібно ввімкнути datagen у файлі `build.gradle`.
+По-перше, нам потрібно ввімкнути генерацію даних у файлі `build.gradle`.
 
 @[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
 
@@ -79,7 +79,7 @@ authors-nogithub:
 
 ## Запуск генерації даних {#running-data-generation}
 
-Щоб запустити datagen, використовуйте налаштування запуску у вашій IDE або запустіть `./gradlew runDatagen` у консолі. Згенеровані файли буде створено в `src/main/generated`.
+Щоб запустити генерацію даних, використовуйте налаштування запуску у вашій IDE або запустіть `./gradlew runDatagen` у консолі. Згенеровані файли буде створено в `src/main/generated`.
 
 ## Наступні кроки {#next-steps}
 

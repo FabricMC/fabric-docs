@@ -68,7 +68,7 @@
         <module name="UnusedImports"/>
 
         <module name="ImportOrder">
-            <property name="groups" value="java,javax,*,net.minecraft,net.fabricmc,com.example"/>
+            <property name="groups" value="java,javax,*,net.minecraft,net.fabricmc,com.example.docs"/>
             <property name="ordered" value="true"/>
             <property name="separated" value="true"/>
             <property name="option" value="top"/>
@@ -145,6 +145,11 @@
 
         <!-- By default this allows catch blocks with only comments -->
         <module name="EmptyCatchBlock"/>
+
+        <!-- Require this. for field/method access -->
+        <module name="RequireThis">
+            <property name="validateOnlyOverlapping" value="false"/>
+        </module>
 
         <!-- Enforce tabs -->
         <module name="RegexpSinglelineJava">

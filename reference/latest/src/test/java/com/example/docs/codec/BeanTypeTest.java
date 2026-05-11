@@ -31,7 +31,7 @@ public class BeanTypeTest {
 	@Test
 	void testBeanCodec() {
 		StringyBean expectedBean = new StringyBean("This bean is stringy!");
-		Bean actualBean = Bean.BEAN_CODEC.parse(JsonOps.INSTANCE, GSON.fromJson("{\"type\":\"example:stringy_bean\",\"stringy_string\":\"This bean is stringy!\"}", JsonObject.class)).getOrThrow();
+		Bean actualBean = Bean.BEAN_CODEC.parse(JsonOps.INSTANCE, GSON.fromJson("{\"type\":\"example-mod:stringy_bean\",\"stringy_string\":\"This bean is stringy!\"}", JsonObject.class)).getOrThrow();
 
 		Assertions.assertInstanceOf(StringyBean.class, actualBean);
 		Assertions.assertEquals(expectedBean.getType(), actualBean.getType());

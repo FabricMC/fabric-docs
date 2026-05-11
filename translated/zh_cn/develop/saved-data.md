@@ -3,6 +3,9 @@ title: 保存数据
 description: 在游戏会话之间保存数据。
 authors:
   - dicedpixels
+resources:
+  https://minecraft.wiki/w/NBT_format: NBT 格式 - Minecraft Wiki
+  https://docs.neoforged.net/docs/datastorage/saveddata/: Saved Data - NeoForge 文档
 ---
 
 保存数据是 Minecraft 自带的数据持久化方案，用于在不同游戏会话之间保存数据。

@@ -61,18 +61,7 @@ Der folgende Ausschnitt aus einer `build.gradle`-Datei zeigt, wie du dies für d
 
 Minecraft 1.18 (1.19 empfohlen), Loader 0.14 und Loom 1.0 oder später sind nötig, um den Client und den Allgemeinen Code aufzuteilen.
 
-```groovy
-loom {
- splitEnvironmentSourceSets()
-
- mods {
-   example-mod {
-     sourceSet sourceSets.main
-     sourceSet sourceSets.client
-   }
- }
- }
-```
+<<< @/reference/build.gradle#split-sources
 
 ## Fehler beheben {#issues}
 

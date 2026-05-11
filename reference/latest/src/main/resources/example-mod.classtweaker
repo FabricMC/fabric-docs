@@ -1,32 +1,48 @@
-classTweaker v1 official
+classTweaker v2 official
 
 # Access widening examples
 # The targets for these examples are non-transitive versions of Fabric API access wideners for 26.1
 
 # :::accesswidening-examples:classes:::
 # Makes the inner class MenuSupplier in MenuType public
-accessible	class	net/minecraft/world/inventory/MenuType$MenuSupplier
+accessible  class  net/minecraft/world/inventory/MenuType$MenuSupplier
 # :::accesswidening-examples:classes:::
 
 # :::accesswidening-examples:methods:::
 # Makes the SensorType(Supplier) constructor public
-accessible    method    net/minecraft/world/entity/ai/sensing/SensorType    <init>    (Ljava/util/function/Supplier;)V
+accessible  method  net/minecraft/world/entity/ai/sensing/SensorType  <init>  (Ljava/util/function/Supplier;)V
 
 # Makes the formatValue() method of return type String in TextColor public
-accessible    method    net/minecraft/network/chat/TextColor    formatValue    ()Ljava/lang/String;
+accessible  method  net/minecraft/network/chat/TextColor  formatValue  ()Ljava/lang/String;
 # :::accesswidening-examples:methods:::
 
 
 # :::accesswidening-examples:fields:::
 # Makes the field damageTypes of type Registry in DamageSources public.
-accessible    field    net/minecraft/world/damagesource/DamageSources    damageTypes    Lnet/minecraft/core/Registry;
+accessible  field  net/minecraft/world/damagesource/DamageSources  damageTypes  Lnet/minecraft/core/Registry;
 # :::accesswidening-examples:fields:::
+
 
 # Interface injection example
 # #region interface-injection-example-entry
-inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/BucketEmptySoundGetter
+inject-interface  net/minecraft/world/level/material/FlowingFluid  com/example/docs/interface_injection/BucketEmptySoundGetter
 # #endregion interface-injection-example-entry
 
 # #region interface-injection-generic-interface-entry
-inject-interface    net/minecraft/world/level/material/FlowingFluid    com/example/docs/interface_injection/GenericInterface<+Ljava/lang/String;[Ljava/lang/Boolean;>
+inject-interface  net/minecraft/world/level/material/FlowingFluid  com/example/docs/interface_injection/GenericInterface<+Ljava/lang/String;[Ljava/lang/Boolean;>
 # #endregion interface-injection-generic-interface-entry
+
+
+# Enum extension examples
+
+# #region enum-extension-no-impls-example-entry
+extend-enum  net/minecraft/world/inventory/RecipeBookType  EXAMPLE_MOD_RECIPE_BOOK_TYPE
+# #endregion enum-extension-no-impls-example-entry
+
+# #region enum-extension-ctor-impls-example-entry
+extend-enum  net/minecraft/data/recipes/RecipeCategory  EXAMPLE_MOD_RECIPE_CATEGORY
+# #endregion enum-extension-ctor-impls-example-entry
+
+# #region enum-extension-abstract-method-impls-example-entry
+extend-enum  net/minecraft/world/entity/ConversionType  EXAMPLE_MOD_CONVERSION_TYPE
+# #endregion enum-extension-abstract-method-impls-example-entry

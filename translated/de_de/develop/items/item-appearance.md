@@ -11,17 +11,15 @@ Ein häufig verwendeter Typ davon sind _Farbquellen_, die dir erlauben die Farbe
 
 Es gibt nur eine Handvoll [vordefinierter Farbquellen](https://minecraft.wiki/w/Items_model_definition#Tint_sources_types), also schauen wir uns an, wie wir unsere eigenen erstellen können.
 
-Für dieses Beispiel registrieren wir ein Item. Wenn du mit diesem Vorgang nicht vertraut bist, lies bitte zuerst die Informationen zur [Registrierung eines Items](./first-item).
+Für dieses Beispiel werden wir das Blockitem `ModBocks.WAXCAP` verwenden, dass wir in [Blockfärbung](../blocks/block-tinting) registriert haben.
 
-@[code lang=java transcludeWith=:::item](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
-
-Stelle sicher, folgendes hinzuzufügen:
+Vervollständige das Item, indem zu folgendes hinzufügst:
 
 - Ein [Client Item](./first-item#creating-the-client-item) in `/items/waxcap.json`
 - Ein [Item Modell](./item-models) in `/models/item/waxcap.json`
 - Eine [Textur](./first-item#adding-a-texture) in `/textures/item/waxcap.png`
 
-Dass Item sollte im Spiel erscheinen.
+Das Item sollte jetzt texturiert sein.
 
 ![Registriertes Item](/assets/develop/item-appearance/item_tint_0.png)
 

@@ -16,15 +16,15 @@ authors:
   - Technici4n
   - Treeways
   - xpple
+resources:
+  https://github.com/Mojang/brigadier: Brigadier 的源代码
 ---
 
 创建命令可以允许模组开发者添加一些可以通过命令使用的功能。 这个指南将会教会你如何注册命令和 Brigadier 的一般命令结构。
 
 ::: info
 
-Brigadier 是 Mojang 为 Minecraft 编写的命令解析器和调度器。 它是一个树状命令库，让您可以构建命令和参数的树。
-
-Brigadier 是开源的：<https://github.com/Mojang/brigadier>
+[Brigadier](https://github.com/Mojang/brigadier) 是 Mojang 为 Minecraft 编写的开源命令解析器和分发器。 它是一个树状命令库，让您可以构建命令和参数的树。
 
 :::
 
@@ -64,7 +64,7 @@ Command<CommandSourceStack> command = context -> {
 
 ::: info
 
-关于如何注册回调，请查看[事件](../events) 指南。
+关于如何注册回调，请查看[事件](../events)指南。
 
 :::
 
@@ -116,7 +116,7 @@ Command<CommandSourceStack> command = context -> {
 
 这样做的副作用就是，非 2 级管理员会看到命令不会被 <kbd>Tab</kbd> 补全， 这也就是为什么没有启用作弊时不能够 <kbd>Tab</kbd> 补全大多数命令。
 
-### 子命令{#sub-commands}
+### 子命令 {#sub-commands}
 
 要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
@@ -132,11 +132,11 @@ Command<CommandSourceStack> command = context -> {
 
 ## 客户端命令{#client-commands}
 
-Fabric API 有个 `ClientCommandManager`，位于 `net.fabricmc.fabric.api.client.command.v2` 包中，可用于注册客户端命令。 代码应该仅存在于客户端的代码中。
+类似地，Fabric API 在 `net.fabricmc.fabric.api.client.command.v2` 包中提供了 `ClientCommandRegistrationCallback` 事件，可用于注册客户端命令，并将原始的 `Commands` 类替换为等效的 `ClientCommands` 类。 代码应该仅存在于客户端的代码中。
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 
-## 命令重定向{#command-redirects}
+## 命令重定向 {#command-redirects}
 
 命令重定向（也称为别名）是将一个命令的功能重定向到另一个命令的方法。 这在您想更改命令名称但仍希望支持旧名称时非常有用。
 

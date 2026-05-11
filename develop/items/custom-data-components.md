@@ -200,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Let's set up a new `use()` method to read the old click count, increase it by one, and then set the updated click count.
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+@[code transcludeWith=::use](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
 
 Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you've clicked it.
 

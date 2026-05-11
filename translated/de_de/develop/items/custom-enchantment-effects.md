@@ -41,7 +41,7 @@ Wie jede andere Komponente deines Mods müssen wir auch diesen `EnchantmentEffec
 
 Jetzt haben wir einen Verzauberungseffekt! Der letzte Schritt besteht darin, eine Verzauberung zu erstellen, die unseren benutzerdefinierten Effekt anwendet. Dies können wir mit dem datengetriebenen Verzauberungssystem erreichen, indem wir einfach eine JSON-Datei zu den Ressourcen unseres Mods hinzufügen.
 
-Erstelle die JSON-Datei in dem Ordner `data/example-mod/enchantments`. Der Name dieser Datei entspricht der ID der Verzauberung: `thundering.json` wird zu `example-mod:thundering`.
+Erstelle die JSON-Datei in dem Ordner `data/example-mod/enchantment`. Der Name dieser Datei entspricht der ID der Verzauberung: `thundering.json` wird zu `example-mod:thundering`.
 
 ::: info
 

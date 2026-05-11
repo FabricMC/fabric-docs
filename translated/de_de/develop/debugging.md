@@ -29,12 +29,7 @@ Wenn du an irgendeiner Stelle im Code einen Wert für etwas wissen musst, benutz
 
 Der Logger unterstützt mehrere Modi zur Ausgabe von Text auf die Konsole. Je nachdem, welchen Modus du verwendest, wird die protokollierte Zeile in verschiedenen Farben angezeigt.
 
-```java
-ExampleModDebug.LOGGER.debug("Debug message for development...");
-ExampleModDebug.LOGGER.info("Neutral, informative text...");
-ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-```
+@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 ::: info
 

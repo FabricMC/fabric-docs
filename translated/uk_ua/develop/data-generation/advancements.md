@@ -1,6 +1,6 @@
 ---
 title: Генерація досягнень
-description: Посібник із налаштування генерації досягнень за допомогою datagen.
+description: Посібник із налаштування генерації досягнень за допомогою генерації даних.
 authors:
   - CelDaemon
   - MattiDragon
@@ -15,7 +15,7 @@ authors-nogithub:
 
 :::info ПЕРЕДУМОВИ
 
-Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
+Спершу переконайтеся, що ви виконали процес [налаштування генерації даних](./setup).
 
 :::
 
@@ -67,7 +67,7 @@ authors-nogithub:
 
 ::: warning
 
-У той час як datagen може бути на стороні клієнта, `Criterion` і `Predicate` знаходяться в основному вихідному наборі (обидві сторони), оскільки сервер повинен ініціювати та оцінювати їх.
+У той час як генерація даних може бути на стороні клієнта, `Criterion` і `Predicate` знаходяться в основному вихідному наборі (обидві сторони), оскільки сервер повинен ініціювати та оцінювати їх.
 
 :::
 
@@ -131,7 +131,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-Запустіть завдання datagen ще раз, і ви отримаєте нове досягнення, з яким можна грати!
+Запустіть завдання генерації даних ще раз, і ви отримаєте нове досягнення, з яким можна грати!
 
 ## Умови з параметрами {#conditions-with-parameters}
 
@@ -165,4 +165,4 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-Запустіть datagen ще раз, і ви нарешті закінчили!
+Запустіть генерацію даних знову, і ви нарешті закінчили!

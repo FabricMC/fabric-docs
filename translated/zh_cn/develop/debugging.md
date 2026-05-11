@@ -29,12 +29,7 @@ authors:
 
 记录器支持多种模式将文本打印到控制台。 根据使用的模式，记录的行将以不同的颜色显示。
 
-```java
-ExampleModDebug.LOGGER.debug("Debug message for development...");
-ExampleModDebug.LOGGER.info("Neutral, informative text...");
-ExampleModDebug.LOGGER.warn("Non-critical issues..."); // [!code warning]
-ExampleModDebug.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-```
+@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
 
 ::: info
 

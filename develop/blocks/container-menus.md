@@ -2,6 +2,9 @@
 title: Container Menus
 description: A guide explaining how to create a simple menu for a container block.
 authors:
+  - bluebear94
+  - cassiancc
+  - ChampionAsh5357
   - CelDaemon
   - Tenneb22
 resources:

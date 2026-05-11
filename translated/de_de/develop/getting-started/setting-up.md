@@ -21,9 +21,9 @@ authors-nogithub:
 outline: false
 ---
 
-## JDK 21 installieren {#install-jdk-21}
+## JDK 25 installieren {#install-jdk-21}
 
-Um Mods für Minecraft 1.21.11 zu entwickeln, benötigst du ein JDK 21.
+Um Mods für Minecraft 26.1 zu entwickeln, benötigst du ein JDK 25.
 
 Wenn du Hilfe bei der Installation von Java benötigst, kannst du den [Leitfaden zur Java Installation](../../players/installing-java/) zu Rate ziehen.
 

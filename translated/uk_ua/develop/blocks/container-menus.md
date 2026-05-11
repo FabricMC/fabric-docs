@@ -2,6 +2,9 @@
 title: Меню контейнерів
 description: Посібник, що пояснює, як створити просте меню для блока-контейнера.
 authors:
+  - bluebear94
+  - cassiancc
+  - ChampionAsh5357
   - CelDaemon
   - Tenneb22
 resources:

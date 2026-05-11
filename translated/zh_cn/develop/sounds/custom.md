@@ -3,6 +3,8 @@ title: 创建自定义声音
 description: 了解如何通过注册表添加和使用新声音。
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: 下载 Audacity
 ---
 
 ## 准备音频文件{#preparing-the-audio-file}

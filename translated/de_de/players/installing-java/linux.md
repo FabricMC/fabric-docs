@@ -6,7 +6,7 @@ authors:
 next: false
 ---
 
-Diese Anleitung führt Sie durch die Installation von Java 21 auf Linux.
+Dieser Leitfaden führt Sie durch die Installation von Java 25 auf Linux.
 
 Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese Sektion ist also nur relevant, wenn du den auf der Fabric `.jar` basierenden Installer oder die Minecraft Server `.jar` verwenden möchtest.
 
@@ -18,15 +18,15 @@ Der Minecraft Launcher kommt bereits mit seiner eigenen Java Installation, diese
 
 ::: warning
 
-Um Minecraft 1.21.11 zu verwenden, musst du mindestens Java 21 installiert haben.
+Um Minecraft 26.1 zu verwenden, muss mindestens Java 25 installiert sein.
 
-Wenn dieser Befehl, eine Version kleiner als 21 anzeigt, musst du deine existierende Java Installation aktualisieren; lies diese Seite weiter.
+Wenn dieser Befehl, eine Version kleiner als 25 anzeigt, musst du deine existierende Java Installation aktualisieren; lies diese Seite weiter.
 
 :::
 
-## 2. Herunterladen und Installieren von Java 21 {#2-downloading-and-installing-java}
+## 2. Herunterladen und Installieren von Java 25 {#2-downloading-and-installing-java}
 
-Wir empfehlen die Verwendung von OpenJDK 21, das für die meisten Linux-Distributionen verfügbar ist.
+Wir empfehlen die Verwendung von OpenJDK 25, das für die meisten Linux-Distributionen verfügbar ist.
 
 ### Arch Linux {#arch-linux}
 
@@ -56,42 +56,42 @@ sudo pacman -S jdk-openjdk
 
 ### Debian/Ubuntu {#debian-ubuntu}
 
-Du kannst Java 21 mit `apt` mit den folgenden Befehlen installieren:
+Du kannst Java 25 mit `apt` mit den folgenden Befehlen installieren:
 
 ```sh
 sudo apt update
-sudo apt install openjdk-21-jdk
+sudo apt install openjdk-25-jdk
 ```
 
 ### Fedora {#fedora}
 
-Du kannst Java 21 über `dnf` mit dem folgenden Befehlen installieren:
+Du kannst Java 25 über `dnf` mit dem folgenden Befehlen installieren:
 
 ```sh
-sudo dnf install java-21-openjdk
+sudo dnf install java-25-openjdk
 ```
 
 Wenn du keine grafische Benutzeroberfläche benötigst, kannst du die Headless-Version installieren:
 
 ```sh
-sudo dnf install java-21-openjdk-headless
+sudo dnf install java-25-openjdk-headless
 ```
 
 Wenn du planst Mods zu entwickeln, brauchst du stattdessen die JDK:
 
 ```sh
-sudo dnf install java-21-openjdk-devel
+sudo dnf install java-25-openjdk-devel
 ```
 
 ### Andere Linux Distributionen {#other-linux-distributions}
 
-Wenn deine Distribution oben nicht gelistet ist, kannst du die aktuellste JRE von [AdoptOpenJDK](https://adoptium.net/en-GB/temurin.html) herunterladen
+Wenn deine Distribution oben nicht gelistet ist, kannst du die aktuellste JRE von [Adoptium](https://adoptium.net/installation/linux) herunterladen
 
 Du solltest einen alternativen Leitfaden für deine Distribution verwenden, wenn du Mods entwickeln willst.
 
-## 3. Verifiziere, dass Java 21 installiert ist {#3-verify-that-java-is-installed}
+## 3. Verifiziere, dass Java 25 installiert ist {#3-verify-that-java-is-installed}
 
-Sobald die Installation abgeschlossen ist, kannst du überprüfen, ob Java 21 installiert ist, indem du ein Terminal öffnest und `java -version` eingibst.
+Sobald die Installation abgeschlossen ist, kannst du überprüfen, ob Java 25 installiert ist, indem du ein Terminal öffnest und `java -version` eingibst.
 
 Wenn der Befehl erfolgreich ausgeführt wird, wird die Java-Version wie zuvor gezeigt angezeigt:
 

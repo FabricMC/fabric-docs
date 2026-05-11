@@ -16,7 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 public class ParameterizedUseToolCriterion extends SimpleCriterionTrigger<ParameterizedUseToolCriterion.Conditions> {
 	// :::datagen-advancements:new-trigger
 	public void trigger(ServerPlayer player, int totalTimes) {
-		trigger(player, conditions -> conditions.requirementsMet(totalTimes));
+		this.trigger(player, conditions -> conditions.requirementsMet(totalTimes));
 	}
 
 	// :::datagen-advancements:new-trigger
@@ -37,12 +37,12 @@ public class ParameterizedUseToolCriterion extends SimpleCriterionTrigger<Parame
 		// :::datagen-advancements:new-parameter
 		@Override
 		public Optional<ContextAwarePredicate> player() {
-			return playerPredicate;
+			return this.playerPredicate;
 		}
 
 		// :::datagen-advancements:new-requirements-met
 		public boolean requirementsMet(int totalTimes) {
-			return totalTimes > requiredTimes; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
+			return totalTimes > this.requiredTimes; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
 
 		// :::datagen-advancements:new-requirements-met

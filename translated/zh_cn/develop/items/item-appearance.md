@@ -11,17 +11,15 @@ authors:
 
 [预定义的着色源](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E6%A8%A1%E5%9E%8B%E6%98%A0%E5%B0%84#model)数量有限，所以我们来看看如何创建自己的着色源。
 
-在本例中，我们先来注册一个物品。 如果你不熟悉这个过程，请先阅读关于[物品注册](./first-item)的说明。
+在这个示例中，我们将使用在[方块着色](../blocks/block-tinting)中注册的 `ModBocks.WAXCAP` 方块物品。
 
-@[code lang=java transcludeWith=:::item](@/reference/latest/src/main/java/com/example/docs/appearance/ExampleModAppearance.java)
-
-请务必添加：
+添加以下内容来完成物品：
 
 - `/items/waxcap.json` 中的[客户端物品](./first-item#creating-the-client-item)
 - `/models/item/waxcap.json` 中的[物品模型](./item-models)
 - `/textures/item/waxcap.png` 中的[纹理](./first-item#adding-a-texture)
 
-物品应该会出现在游戏中。
+物品现在应该已经有了纹理。
 
 ![注册的物品](/assets/develop/item-appearance/item_tint_0.png)
 
