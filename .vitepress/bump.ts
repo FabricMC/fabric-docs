@@ -3,7 +3,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-import { getLocaleNames, getResolver, getSidebar } from "./config/i18n";
+import { getLocaleNames, getSidebar } from "./config/i18n";
 
 const git = (...args: string[]) => {
   const res = crossSpawn.sync("git", args, { encoding: "utf8" });
@@ -34,8 +34,8 @@ if (!newVersion) {
 } else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
   console.error(`'Minecraft ${newVersion}' already exists!`);
   process.exit(1);
-} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?(-(snapshot|pre|rc)-[0-9]+)?$/.test(newVersion)) {
-  console.error(`'${newVersion}' does not look like a Minecraft version!`);
+} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(newVersion)) {
+  console.error(`'${newVersion}' does not look like a stable Minecraft version!`);
   process.exit(1);
 }
 console.log(`New version: 'Minecraft ${newVersion}'`);
@@ -70,7 +70,13 @@ fs.writeFileSync("./reference/latest/build.gradle", newBuildGradle);
 
 console.log(`Migrating content to 'versions/${oldVersion}/'...`);
 for (const file of tinyglobby.globSync("**/*.md", {
-  ignore: ["README.md", "contributing.md", "versions/**/*.md", "node_modules/**/*"],
+  ignore: [
+    "README.md",
+    "contributing.md",
+    "versions/**/*.md",
+    "+([0-9.])/**/*.md",
+    "node_modules/**/*",
+  ],
   onlyFiles: true,
 })) {
   fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);
@@ -97,31 +103,7 @@ console.log("Updating links in content...");
 for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
   const content = fs
     .readFileSync(file, "utf-8")
-    .replace(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
-  fs.writeFileSync(file, content);
-}
-
-console.log("Adding warning box to home pages...");
-for (const locale of locales) {
-  const resolver = getResolver("./website_translations.json", locale);
-  const linksRegex = new RegExp(String.raw`link: ${locale === "en_us" ? "" : `/${locale}`}/`, "g");
-
-  const file = `./versions/${oldVersion}/translated/${locale === "en_us" ? ".." : locale}/index.md`;
-  const content = fs
-    .readFileSync(file, "utf-8")
-    .replace(
-      /^---\n\n/m,
-      [
-        "---",
-        "",
-        "::: warning",
-        resolver("version.warning").replace("%s", oldVersion),
-        ":::",
-        "",
-        "",
-      ].join("\n")
-    )
-    .replace(linksRegex, (m) => `${m}${oldVersion}/`);
+    .replaceAll(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
   fs.writeFileSync(file, content);
 }
 

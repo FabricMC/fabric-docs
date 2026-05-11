@@ -17,7 +17,7 @@ public enum TransitionState {
 	}
 
 	public Identifier getIdentifier() {
-		return identifier;
+		return this.identifier;
 	}
 }
 // :::1

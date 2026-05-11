@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Τεκμηρίωση Fabric
-  tagline: Η επίσημη τεκμηρίωση για το Fabric,<br />μια σειρά εργαλείων τροποποίησης (modding) για το Minecraft.
+  tagline: Η επίσημη τεκμηρίωση για το Fabric, μια σειρά εργαλείων τροποποίησης (modding) για το Minecraft.
 
 features:
   - title: Οδηγοί Παικτών
@@ -19,11 +19,5 @@ features:
     link: /el_gr/1.21.11/develop/
     linkText: Ξεκινήστε
 ---
-
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
 
 Αν θέλετε να συνεισφέρετε στην Τεκμηρίωση Fabric, μπορείτε να βρείτε τον πηγαίο κώδικα στο [GitHub](https://github.com/FabricMC/fabric-docs), καθώς και τις σχετικές [οδηγίες συνεισφοράς](./contributing).

@@ -33,20 +33,20 @@ public class CounterBlockEntity extends BlockEntity {
 
 	// :::2
 	public int getClicks() {
-		return clicks;
+		return this.clicks;
 	}
 
 	public void incrementClicks() {
 		// :::2
 
 		// :::6
-		if (ticksSinceLast < 10) return;
-		ticksSinceLast = 0;
+		if (this.ticksSinceLast < 10) return;
+		this.ticksSinceLast = 0;
 		// :::6
 
 		// :::2
-		clicks++;
-		setChanged();
+		this.clicks++;
+		this.setChanged();
 	}
 	// :::2
 
@@ -65,7 +65,7 @@ public class CounterBlockEntity extends BlockEntity {
 	// :::3
 	@Override
 	protected void saveAdditional(ValueOutput output) {
-		output.putInt("clicks", clicks);
+		output.putInt("clicks", this.clicks);
 
 		super.saveAdditional(output);
 	}
@@ -76,7 +76,7 @@ public class CounterBlockEntity extends BlockEntity {
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 
-		clicks = input.getIntOr("clicks", 0);
+		this.clicks = input.getIntOr("clicks", 0);
 	}
 	// :::4
 

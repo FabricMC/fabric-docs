@@ -1,13 +1,23 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
+import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
+import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
+import { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import latestVersionPlugin from "../plugins/latestVersion";
-import transformFilesPlugin from "../plugins/transformFiles";
+import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
+import { getBuildTransformHead, getClientTransformHead } from "./head";
 import { getLocales } from "./i18n";
-import { transformHead, transformItems } from "./transform";
+
+const latestVersion = fs
+  .readFileSync(
+    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
+    "utf-8"
+  )
+  .match(/def minecraftVersion = "([^"]+)"/)![1];
 
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
@@ -35,13 +45,8 @@ export default defineVersionedConfig(
     // Removes .html from the end of URLs.
     cleanUrls: true,
 
-    // Static head tags
-    head: [
-      ["link", { rel: "icon", sizes: "32x32", href: "/favicon.png" }],
-      ["link", { rel: "license", href: "https://github.com/FabricMC/fabric-docs/blob/-/LICENSE" }],
-      ["meta", { name: "theme-color", content: "#2275da" }],
-      ["meta", { name: "twitter:card", content: "summary" }], // haha still twitter
-    ],
+    // Set head tags on the client side
+    head: [["script", { "data-gen": "" }, getClientTransformHead(latestVersion)]],
 
     // Ignore dead links under translated/. Allows builds with incomplete translations
     ignoreDeadLinks: [
@@ -69,18 +74,11 @@ export default defineVersionedConfig(
       },
       gfmAlerts: false,
       image: { lazyLoading: true },
-      languageAlias: { gradle: "groovy" },
+      languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
-        ["mcfunction", "syntax-mcfunction/mcfunction.tmLanguage.json"],
-        ["bytecode", "syntax-java-bytecode/java-bytecode.tmLanguage.json"],
-      ].map(
-        ([name, path]) =>
-          async () =>
-            await import(path, { with: { type: "json" } }).then((lang) => ({
-              ...lang.default,
-              name,
-            }))
-      ),
+        { ...(mcfunction as any), name: "mcfunction" },
+        { ...(bytecode as any), name: "bytecode" },
+      ],
       lineNumbers: true,
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
@@ -91,7 +89,13 @@ export default defineVersionedConfig(
 
     sitemap: {
       hostname,
-      transformItems,
+      transformItems: (items) => {
+        const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
+        return items.filter((i) => {
+          const relativePath = i.url.replace(hostname, "");
+          return !config.rewrites.inv[relativePath]?.startsWith("versions/");
+        });
+      },
     },
 
     srcExclude: ["README.md", "versions/1.21.10", ...(typeof env === "number" ? ["versions"] : [])],
@@ -108,17 +112,21 @@ export default defineVersionedConfig(
             || env.relativePath.startsWith("translated/")
             || env.relativePath.startsWith("versions/")
               ? ""
-              : md.render(src, env),
+              : md.render(
+                  transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
+                  env
+                ),
         },
         provider: "local",
       },
-    } as Fabric.ThemeConfig,
+    },
 
-    // Dynamic head tags
-    transformHead,
+    // Set head tags at build time
+    transformHead: getBuildTransformHead(latestVersion),
 
     // Versioning plugin configuration.
     versioning: {
+      latestVersion,
       rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: (s) =>
@@ -138,8 +146,8 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [latestVersionPlugin(), transformFilesPlugin()],
+      plugins: [transformFilesPlugin(latestVersion)],
     },
-  },
+  } as Fabric.Config,
   path.resolve(import.meta.dirname, "..")
 );

@@ -54,7 +54,7 @@ div {
   align-items: center;
   background: rgb(207, 114, 21);
   color: #ffffff;
-  font-family: monospace;
+  font-family: var(--vp-font-family-mono);
   font-weight: 600;
   left: 0;
   padding: 8px;
