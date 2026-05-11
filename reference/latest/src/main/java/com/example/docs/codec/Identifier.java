@@ -33,7 +33,7 @@ public class Identifier {
 
 	@Override
 	public String toString() {
-		return real.toString();
+		return this.real.toString();
 	}
 
 	private static Identifier parse(String input) {

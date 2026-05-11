@@ -301,7 +301,7 @@ public class CodecExampleProvider implements DataProvider {
 			}
 		});
 
-		final var paths = output.createPathProvider(PackOutput.Target.REPORTS, "codec_examples");
+		final var paths = this.output.createPathProvider(PackOutput.Target.REPORTS, "codec_examples");
 
 		return CompletableFuture.allOf(
 				elements.entrySet().stream().map(x ->
