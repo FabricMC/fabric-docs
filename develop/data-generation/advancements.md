@@ -57,7 +57,7 @@ In order to create or extend a tree of advancements, we can set a parent for our
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
 
-If no direct reference to the parent enchantment is available, a placeholder can be created using an identifier.
+If no direct reference to the parent advancement is available (e.g. using a vanilla advancement as a parent), a placeholder can be created using an identifier.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
 
