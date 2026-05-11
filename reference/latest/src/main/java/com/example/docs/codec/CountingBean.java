@@ -19,7 +19,7 @@ public class CountingBean implements Bean {
 	}
 
 	public int getCountingNumber() {
-		return countingNumber;
+		return this.countingNumber;
 	}
 
 	// :::

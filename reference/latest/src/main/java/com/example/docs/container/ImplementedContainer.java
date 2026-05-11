@@ -37,7 +37,7 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default int getContainerSize() {
-		return getItems().size();
+		return this.getItems().size();
 	}
 
 	/**
@@ -46,8 +46,8 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default boolean isEmpty() {
-		for (int i = 0; i < getContainerSize(); i++) {
-			ItemStack stack = getItem(i);
+		for (int i = 0; i < this.getContainerSize(); i++) {
+			ItemStack stack = this.getItem(i);
 
 			if (!stack.isEmpty()) {
 				return false;
@@ -62,7 +62,7 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default ItemStack getItem(int slot) {
-		return getItems().get(slot);
+		return this.getItems().get(slot);
 	}
 
 	/**
@@ -73,10 +73,10 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default ItemStack removeItem(int slot, int count) {
-		ItemStack result = ContainerHelper.removeItem(getItems(), slot, count);
+		ItemStack result = ContainerHelper.removeItem(this.getItems(), slot, count);
 
 		if (!result.isEmpty()) {
-			setChanged();
+			this.setChanged();
 		}
 
 		return result;
@@ -88,7 +88,7 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default ItemStack removeItemNoUpdate(int slot) {
-		return ContainerHelper.takeItem(getItems(), slot);
+		return ContainerHelper.takeItem(this.getItems(), slot);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default void setItem(int slot, ItemStack stack) {
-		getItems().set(slot, stack);
+		this.getItems().set(slot, stack);
 
 		if (stack.getCount() > stack.getMaxStackSize()) {
 			stack.setCount(stack.getMaxStackSize());
@@ -112,7 +112,7 @@ public interface ImplementedContainer extends Container {
 	 */
 	@Override
 	default void clearContent() {
-		getItems().clear();
+		this.getItems().clear();
 	}
 
 	/**

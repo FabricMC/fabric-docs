@@ -37,18 +37,18 @@ public class SavedBlockData extends SavedData {
 
 	// :::ctor
 	public SavedBlockData(int count) {
-		blocksBroken = count;
+		this.blocksBroken = count;
 	}
 	// :::ctor
 	// :::basic_structure
 
 	public int getBlocksBroken() {
-		return blocksBroken;
+		return this.blocksBroken;
 	}
 
 	// :::set_dirty
 	public void incrementBlocksBroken() {
-		blocksBroken++;
+		this.blocksBroken++;
 
 		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
 		setDirty();

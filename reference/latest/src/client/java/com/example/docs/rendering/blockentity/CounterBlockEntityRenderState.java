@@ -7,7 +7,7 @@ public class CounterBlockEntityRenderState extends BlockEntityRenderState {
 	private int clicks = 0;
 
 	public int getClicks() {
-		return clicks;
+		return this.clicks;
 	}
 
 	public void setClicks(int clicks) {

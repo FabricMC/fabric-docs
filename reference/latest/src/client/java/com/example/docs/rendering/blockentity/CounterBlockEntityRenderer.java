@@ -24,7 +24,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 	// :::1
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 		// :::1
-		font = context.font();
+		this.font = context.font();
 		// :::1
 	}
 
@@ -54,7 +54,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 
 		// :::3
 		String text = state.getClicks() + "";
-		float width = font.width(text);
+		float width = this.font.width(text);
 
 		// draw the text. params:
 		// text, x, y, color, ordered text, shadow, text layer type, light, color, background color, outline color

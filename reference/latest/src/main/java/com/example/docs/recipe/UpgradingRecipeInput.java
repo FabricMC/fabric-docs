@@ -8,8 +8,8 @@ public record UpgradingRecipeInput(ItemStack baseItem, ItemStack upgradeItem) im
 	@Override
 	public ItemStack getItem(int index) {
 		return switch (index) {
-			case 0 -> baseItem;
-			case 1 -> upgradeItem;
+			case 0 -> this.baseItem;
+			case 1 -> this.upgradeItem;
 			default -> ItemStack.EMPTY;
 		};
 	}

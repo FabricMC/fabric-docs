@@ -29,27 +29,27 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	}
 
 	public ItemStackTemplate getResult() {
-		return result;
+		return this.result;
 	}
 
 	public Ingredient getBaseItem() {
-		return baseItem;
+		return this.baseItem;
 	}
 
 	public Ingredient getUpgradeItem() {
-		return upgradeItem;
+		return this.upgradeItem;
 	}
 	// :::baseClass
 
 	// :::implementing
 	@Override
 	public boolean matches(UpgradingRecipeInput recipeInput, Level level) {
-		return baseItem.test(recipeInput.baseItem()) && upgradeItem.test(recipeInput.upgradeItem());
+		return this.baseItem.test(recipeInput.baseItem()) && this.upgradeItem.test(recipeInput.upgradeItem());
 	}
 
 	@Override
 	public ItemStack assemble(UpgradingRecipeInput recipeInput) {
-		return result.create().copy();
+		return this.result.create().copy();
 	}
 	// :::implementing
 

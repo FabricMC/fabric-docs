@@ -18,7 +18,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		// "A Practical Example: Rendering a Triangle Strip"
 		// :::registration
-		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), hudLayer());
+		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "last_element"), this.hudLayer());
 		// :::registration
 	}
 
@@ -36,7 +36,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			Matrix3x2fStack matrices = graphics.pose();
 
 			// Store the total tick delta in a field, so we can use it later.
-			totalTickProgress += deltaTracker.getGameTimeDeltaPartialTick(true);
+			this.totalTickProgress += deltaTracker.getGameTimeDeltaPartialTick(true);
 
 			// Push a new matrix onto the stack.
 			matrices.pushMatrix();
@@ -44,7 +44,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 
 			// :::2
 			// Scale the matrix by 0.5 to make the triangle smaller and larger over time.
-			float scaleAmount = Mth.sin(totalTickProgress / 10F) / 2F + 1.5F;
+			float scaleAmount = Mth.sin(this.totalTickProgress / 10F) / 2F + 1.5F;
 
 			// Apply the scaling amount to the matrix.
 			// We don't need to scale the Z axis since it's on the HUD and 2D.
@@ -54,7 +54,7 @@ public class RenderingConceptsEntrypoint implements ClientModInitializer {
 			matrices.translate(60f, 60f);
 			// :::3
 			// Lerp between 0 and 360 degrees over time.
-			float rotationAmount = totalTickProgress / 50F % 360;
+			float rotationAmount = this.totalTickProgress / 50F % 360;
 			matrices.rotate(rotationAmount);
 			// Shift entire square so that it rotates in its center.
 			matrices.translate(-20f, -40f);
