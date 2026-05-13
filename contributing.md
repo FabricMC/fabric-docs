@@ -85,6 +85,21 @@ We also support translating the Docs to other languages, and that happens on [Cr
 
 When a new version of Minecraft is released, the old documentation is frozen in place and archived to be accessible through the version dropdown in the nav bar above. Old versions are usually set in stone, and new changes to the latest version are rarely backported.
 
+## What Makes a Good Page? {#good}
+
+A good page should help the reader accomplish one concrete goal. When writing a page, consider the following:
+
+- Introduce concepts before using jargon or abbreviations
+- Take into consideration what might confuse a first-time reader
+- Explain _why_ something is done, not only _how_
+- Avoid assuming prior knowledge unless the page explicitly lists prerequisites
+- Prefer minimal examples that demonstrate one idea clearly
+- Link to related pages instead of duplicating large explanations
+- Keep the scope focused; large topics are often better split into multiple pages
+- Ensure examples can be copied and adapted with minimal changes
+
+Remember that many readers will discover pages through search engines rather than through the sidebar, so pages should remain understandable in isolation.
+
 ## How Can I Contribute? {#how-to}
 
 There are many ways you can contribute to the Fabric Docs: adding new pages, correcting information, fixing typos, translating to other languages, and much more...
