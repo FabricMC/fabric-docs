@@ -31,7 +31,7 @@ Now, let's say we want to serialize a `BlockPos` to JSON and back. We can do thi
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#encode-blockpos [Java]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode-blockpos [Java]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json [Output]
 
@@ -41,7 +41,7 @@ When using a codec, values are returned in the form of a `DataResult`. This is a
 
 So let's grab our serialized value and turn it back into a `BlockPos`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#parse-blockpos
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse-blockpos
 
 ### Built-in Codecs {#built-in-codecs}
 
@@ -73,9 +73,9 @@ We can get the first one from the aforementioned primitive codecs in the `Codec`
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#list-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json [Output]
 
@@ -95,7 +95,7 @@ Let's take a look at how to create a codec for our `CoolBeansClass`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#bean-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean-codec-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json [Output]
 
@@ -129,9 +129,9 @@ boxing their input value.
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#optional-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json [Output]
 
@@ -141,9 +141,9 @@ To add the default value, we can pass it as the second parameter in the `optiona
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#default-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#default-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json [Output]
 
@@ -159,7 +159,7 @@ Do note that if the field is present, but the value is invalid, the field fails 
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#unit-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit-codec [Codec]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json [Output]
 
@@ -171,9 +171,9 @@ Do note that if the field is present, but the value is invalid, the field fails 
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-range [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#numeric-range-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json [Output]
 
@@ -187,9 +187,9 @@ The resulting codec will serialize to a map combining the fields of both codecs 
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#pair-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json [Output]
 
@@ -209,9 +209,9 @@ Due to limitations of JSON and NBT, the key codec used _must_ serialize to a str
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#map-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json [Output]
 
@@ -230,9 +230,9 @@ codec for `Vec3d` like this:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#convert-xmap-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json [Output]
 
@@ -275,7 +275,7 @@ With all of this, we can create a registry dispatch codec for beans:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#registry-dispatch [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec]
 <<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
 <<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
 <<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
@@ -302,9 +302,9 @@ We can't construct a codec for this by ordinary means, because what codec would 
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec [Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/CodecExampleProvider.java#recursive-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec-data [Input]
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
 
