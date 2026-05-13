@@ -310,6 +310,7 @@ Here are some general tips and guidelines for writing Docs pages:
 == Rules
 
 - Follow American rules of grammar
+- Don't place punctuation inside quotes
 - Add hyphens where appropriate
 - Avoid the singular first person "I"
 - Use inline `code` for file names, classes, and the like
@@ -327,7 +328,7 @@ _Emphasis highlights differences._
 
 **Let's** add a **gray** checkbox **centered** on top of the screen, which will be **colored** green when **left-clicked**.
 
-To make it **recognizable**, it will be **labeled** "Enable **aging** **in-game**". Because this needs to be **localizable**, we'll reference **`LocalizationHelper`** and add a key to the **`en_us.json`** file. Read more in the [l10n guide](#adding-a-button).
+To make it **recognizable**, it will be **labeled** _"Enable **aging** **in-game**"._ Because this needs to be **localizable**, we'll reference **`LocalizationHelper`** and add a key to the **`en_us.json`** file. Read more in the [l10n guide](#adding-a-button).
 
 _The GUI engine will treat the checkbox like any regular button, without special logic. This means it is up to us to implement the toggling **behavior**. We should also add a delay to prevent **spamming** the button._
 
@@ -342,7 +343,7 @@ _Emphasis highlights differences._
 
 **I recommend** adding a **grey** checkbox **centred** on top of the screen, which will be **coloured** green when **left clicked**.
 
-To make it **recognisable**, it will be **labelled** "Enable **ageing** **ingame**". Because this needs to be **localisable**, we'll reference **LocalisationHelper** and add a key to the **en_gb.json** file. [Read more here](#adding-a-button).
+To make it **recognisable**, it will be **labelled** _"Enable **ageing** **ingame**."_ Because this needs to be **localisable**, we'll reference **LocalisationHelper** and add a key to the **en_gb.json** file. [Read more here](#adding-a-button).
 
 _Said checkbox is treated by the **Minecraft** GUI engine as a regular button, which means it is up to us to implement different **behaviour** depending on the current state that the checkbox is in, and also add a delay to prevent the button from **being spammed** by the player._
 
@@ -404,7 +405,11 @@ We usually avoid custom titles for containers; the only ones allowed are:
 
 ### Code Snippets {#snippets}
 
-When adding code blocks to pages, you should place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). Snippet labels should be descriptive, because that helps with maintaining them in the future. For example:
+When adding code blocks to pages, you should place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets).
+
+Snippet labels should be descriptive, because that helps with maintaining them in the future. Snippets should also be copyable as-is, so for instance all open brackets should be closed.
+
+For example:
 
 ::: tabs
 
