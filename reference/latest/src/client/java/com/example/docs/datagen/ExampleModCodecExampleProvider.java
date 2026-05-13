@@ -35,26 +35,26 @@ import com.example.docs.codec.ListNode;
 import com.example.docs.codec.StringyBean;
 import com.example.docs.item.ModItems;
 
-public class CodecExampleProvider implements DataProvider {
+public class ExampleModCodecExampleProvider implements DataProvider {
 	private final FabricPackOutput output;
 
-	protected CodecExampleProvider(FabricPackOutput output) {
+	protected ExampleModCodecExampleProvider(FabricPackOutput output) {
 		this.output = output;
 	}
 
 	private static final List<Consumer<BiConsumer<String, JsonElement>>> SUBMITTERS = List.of(
-			CodecExampleProvider::usingCodecs,
-			CodecExampleProvider::beanCodec,
-			CodecExampleProvider::mapCodec,
-			CodecExampleProvider::listCodec,
-			CodecExampleProvider::optionalFields,
-			CodecExampleProvider::unit,
-			CodecExampleProvider::numericRanges,
-			CodecExampleProvider::pair,
-			CodecExampleProvider::map,
-			CodecExampleProvider::xmap,
-			CodecExampleProvider::registryDispatch,
-			CodecExampleProvider::recursive
+			ExampleModCodecExampleProvider::usingCodecs,
+			ExampleModCodecExampleProvider::beanCodec,
+			ExampleModCodecExampleProvider::mapCodec,
+			ExampleModCodecExampleProvider::listCodec,
+			ExampleModCodecExampleProvider::optionalFields,
+			ExampleModCodecExampleProvider::unit,
+			ExampleModCodecExampleProvider::numericRanges,
+			ExampleModCodecExampleProvider::pair,
+			ExampleModCodecExampleProvider::map,
+			ExampleModCodecExampleProvider::xmap,
+			ExampleModCodecExampleProvider::registryDispatch,
+			ExampleModCodecExampleProvider::recursive
 	);
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
