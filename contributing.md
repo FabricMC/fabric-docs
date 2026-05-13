@@ -211,7 +211,7 @@ When reviewing someone else's PR, make sure that:
 
 The Docs contain two kinds of pages: player-oriented how-tos, and development-aiding guides and references.
 
-### Player Pages {#player}
+### Player Pages {#players}
 
 The pages for players are under `/players`. They must be simple to follow, and must take into account all three operating systems where relevant: Windows, macOS, and Linux. These pages will be reviewed with greater scrutiny because of how many people will come across them. Relevant paths:
 
@@ -232,11 +232,10 @@ On the other hand, the pages for developers are under `/develop`. These have a g
 
 You will also find the VitePress framework configuration under `.vitepress`. In there you'll find:
 
-- `config/`: contains general VitePress configuration (`index.ts`), localization setup (`i18n.ts`), and SEO transformations (`transform.ts`)
+- `config/`: contains general VitePress configuration (`index.ts`), localization setup (`i18n.ts`), and head transformations for SEO and redirects (`head.ts`)
 - `plugins/`: contains Vite plugins that should be used when retrieving data from files or transforming them _before_ the build
 - `sidebars/`: contains sidebar configuration, as mentioned earlier
 - `theme/`: contains the theme configuration, and in particular it holds [custom components](#components) under `components/`
-- `redirects.ts`: is used to configure client-side redirects, using regular expressions
 - `bump.ts`: is used when a new version of Minecraft is released; archives the current version and initiates a migration to the new one
 - `../website_translations.json`: contains translations of the UI elements on the website
 
@@ -245,7 +244,7 @@ You will also find the VitePress framework configuration under `.vitepress`. In 
 Then, there are two other subsystems that shouldn't normally be touched manually:
 
 - `translated/`: contains the pages translated by contributors on [Crowdin](https://crowdin.com/project/fabricmc)
-- `versions/`, `.vitepress/sidebars/versioned`, `reference/*.*/`: contains an archive of the documentation for older versions
+- `versions/`, `.vitepress/sidebars/versioned`, `reference/*.*/`: contain an archive of the documentation for older versions
 
 ### Linting {#ci}
 
@@ -262,11 +261,11 @@ Finally, an intricate combination of CI and linting tools does a general check o
 
 ### Deployment {#deploy}
 
-The main website is hosted on [GitHub Pages](https://pages.github.com/), but PR previews are managed via [Netlify](https://www.netlify.com/).
+The main website is hosted on [GitHub Pages](https://pages.github.com/), but PR previews are managed via [Netlify](https://www.netlify.com/). PR previews only render pages for the latest version.
 
 ### Local Setup {#local}
 
-If you want to preview your work locally before opening a PR, you can set up a copy of the project locally. You'll need [Git](https://git-scm.com/), [Node.js 22+](https://nodejs.org/), and [pnpm](https://pnpm.io/).
+If you want to preview your work locally before opening a PR, you can set up a copy of the project locally. You'll need [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), and [pnpm](https://pnpm.io/).
 
 Assuming you've already [forked the repository](#label-new-content), you can clone your fork on your system:
 
