@@ -75,7 +75,7 @@ Thank you for your interest in contributing to the Fabric Docs!
 
 ## Introduction to the Project {#introduction}
 
-The Fabric Documentation ("Docs") is an open source of knowledge for modding Minecraft: Java Edition using [Fabric](https://fabricmc.net/). The Docs are developed in an [open-source repository](https://github.com/FabricMC/fabric-docs), but discussion may also happen in the **#docs** channel of the [Discord server](https://discord.fabricmc.net/).
+The Fabric Documentation ("Docs") is an open source of knowledge for modding _Minecraft: Java Edition_ using [Fabric](https://fabricmc.net/). The Docs are developed in an [open-source repository](https://github.com/FabricMC/fabric-docs), but discussion may also happen in the **#docs** channel of the [Discord server](https://discord.fabricmc.net/).
 
 The website uses [VitePress](https://vitepress.dev/), a static site generator that produces beautiful web pages from Markdown files. There are also some [custom extensions and plugins installed](#framework), which we'll talk about later.
 
@@ -116,13 +116,13 @@ If you want to make a change to some code, you might not find it in that Markdow
 
 :::
 
-After that, you should follow the instructions on the screen to commit your changes and open a Pull Request to merge them to the website.
+After that, you should follow the instructions on the screen to commit your changes and open a Pull Request to merge them into the website.
 
 Someone from the Docs Team should then notice your PR; if they approve of it, they will merge it!
 
 ### Translating to Another Language {#label-i18n-l10n}
 
-The Docs are translated into multiple languages to help non-English speakers with modding Minecraft: Java Edition. If you want to help with that, you can use Crowdin.
+The Docs are translated into multiple languages to help non-English speakers with modding. If you want to tweak translations, you can use Crowdin.
 
 Let's say you speak Italian, and while reading a page, you came across a spelling mistake:
 
@@ -198,9 +198,9 @@ This section is primarily for members of the Docs Team, but could be useful for 
 
 When reviewing someone else's PR, make sure that:
 
-- The style guidelines are respected
-- The licenses have been respected (ours and other people's)
-- The page has been added to the sidebar
+- Style guidelines are respected
+- Licenses have been respected (ours and other people's)
+- Entries have been added to the sidebar
 - All authors and co-authors are given proper credit
   - Pay extra attention to **#wiki** contributors, asset creators, mods from which code has been borrowed, and writers and reviewers who made substantial structural and substantive changes to the page
 - External resources and sources are mentioned in the frontmatter
@@ -323,7 +323,7 @@ Here are some general tips and guidelines for writing Docs pages:
 
 _Emphasis highlights differences._
 
-### Adding a Button {#adding-a-button}
+### Adding a _Button_ {#adding-a-button}
 
 **Let's** add a **gray** checkbox **centered** on top of the screen, which will be **colored** green when **left-clicked**.
 
@@ -338,7 +338,7 @@ _Emphasis highlights differences._
 <!-- markdownlint-capture -->
 <!-- markdownlint-disable -->
 
-### Adding a button
+### Adding a _button_
 
 **I recommend** adding a **grey** checkbox **centred** on top of the screen, which will be **coloured** green when **left clicked**.
 
@@ -404,7 +404,7 @@ We usually avoid custom titles for containers; the only ones allowed are:
 
 ### Code Snippets {#snippets}
 
-When adding code blocks to pages, you're supposed to place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). Snippet labels should be descriptive, because that helps with maintaining them in the future. For example:
+When adding code blocks to pages, you should place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets). Snippet labels should be descriptive, because that helps with maintaining them in the future. For example:
 
 ::: tabs
 
@@ -453,7 +453,7 @@ Notice how, in the example above, the constructor of the Java class was intertwi
 
 ### Highlights {#highlight}
 
-Sometimes you might want to highlight specific lines in the code. You can do that by using special `![code]` comments, or by specifying that when including a snippet:
+Sometimes you might want to highlight specific lines in the code. To do this, you can use some special `![code]` comments:
 
 :::: tabs
 
