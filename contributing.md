@@ -574,10 +574,10 @@ Choose your mappings:
 <ChoiceComponent :choices="[
   {
     name: 'Mojang Mappings',
-    href: 'https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition',
     color: '#EF323D',
     // Icons from Iconify: https://icon-sets.iconify.design/
     icon: 'cib:mojang',
+    href: 'https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition',
   },
   {
     name: 'Fabric Yarn',
@@ -625,9 +625,9 @@ The video player supports both [assets](#assets) and external videos:
 
 <!-- #region video -->
 
-Check out this video for the leaked spec of `fabric.mod.json` v2:
+> Minecraft Celebrates the Community! (Yes, that means you!)
 
-<VideoPlayer src="https://www.youtube.com/watch?v=dQw4w9WgXcQ">fabric.mod.json v2 Released!!!</VideoPlayer>
+<VideoPlayer src="https://www.youtube.com/watch?v=LMCt-gSvEqU">fabric.mod.json v2 Released!!!</VideoPlayer>
 
 <!-- #endregion video -->
 
