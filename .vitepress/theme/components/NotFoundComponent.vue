@@ -15,16 +15,6 @@ const options = computed(() => {
   return options;
 });
 
-const urls = computed(() => {
-  if (data.localeIndex.value === "root") return;
-
-  // TODO: hide links if the page does not exist in English
-  const english = data.page.value.relativePath.replace(data.localeIndex.value, "en_us");
-  const crowdin = (data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string;
-
-  return { english, crowdin };
-});
-
 const root = ref<HTMLElement>();
 const ball = ref<HTMLCanvasElement>();
 const thread = ref<HTMLElement>();
@@ -263,11 +253,19 @@ const TEXTURE = [
         {{ options.linkText }}
       </VPLink>
       <br />
-      <VPLink v-if="urls" :href="urls.english" :aria-label="options.englishLinkLabel">
+      <VPLink
+        v-if="data.localeIndex.value !== 'root'"
+        :href="data.page.value.relativePath.replace(data.localeIndex.value, 'en_us')"
+        :aria-label="options.englishLinkLabel"
+      >
         {{ options.englishLinkText }}
       </VPLink>
       <br />
-      <VPLink v-if="urls" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
+      <VPLink
+        v-if="data.localeIndex.value !== 'root'"
+        :href="(data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string"
+        :aria-label="options.crowdinLinkLabel"
+      >
         {{ options.crowdinLinkText }}
       </VPLink>
     </div>
