@@ -58,11 +58,6 @@ export namespace Fabric {
     code: string;
 
     /**
-     * The locale's code on Crowdin
-     */
-    crowdinLocale: string;
-
-    /**
      * Set aria label for Crowdin link.
      *
      * @default "Open the Crowdin editor"
