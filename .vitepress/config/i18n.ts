@@ -250,6 +250,8 @@ export const getLocales = () => {
 
         siteTitle: resolver("title"),
 
+        skipToContentLabel: resolver("skip_to_content"),
+
         socialLinks: [
           {
             icon: "github",
