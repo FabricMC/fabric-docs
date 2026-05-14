@@ -38,7 +38,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     },
     {
       from: /^(?:[0-9.]+[/])?develop[/]porting[/](next|26[.]1)(?=[/]|$)/,
-      dest: "26.1/develop/porting",
+      dest: "26.1.2/develop/porting",
     },
     {
       from: /develop[/]blocks[/]transparency-and-tinting(?=[/]|$)/,
@@ -49,6 +49,10 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "develop/blocks/transparency-and-tinting",
     },
     {
+      from: /develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
+      dest: "develop/serialization/$1",
+    },
+    {
       from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
       dest: "1.21.11/develop/porting/mappings",
     },
@@ -57,11 +61,15 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "1.21.11",
     },
     {
-      from: /develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
-      dest: "develop/serialization/$1",
+      from: /^26[.]1(?:[.]1)?(?=[/]|$)/,
+      dest: "26.1.2",
     },
     {
-      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
+      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?:[/]|$)`),
+      dest: "",
+    },
+    {
+      from: /^en_us(?:[/]|$)/,
       dest: "",
     },
   ];
