@@ -199,7 +199,6 @@ export const getLocales = () => {
           pooh: resolver("404.title.pooh"),
           quotes: resolver("404.quotes") as never,
 
-          crowdinLocale,
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
           crowdinLinkText: resolver("404.crowdin_link"),
 
