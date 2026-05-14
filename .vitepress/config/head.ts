@@ -55,10 +55,6 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
       dest: "1.21.11/develop/porting/mappings",
     },
-    {
-      from: /^en_us(?:[/]|$)/,
-      dest: "",
-    },
   ];
 
   // these replacements don't need to trigger a redirect
@@ -67,7 +63,9 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
   const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
-  const localeIndex = /^..[_-]..$/.test(split[0]) ? `/${split.shift()}/` : "/";
+  const localeIndex = /^..[_-]..$/.test(split[0])
+    ? `/${split.shift()}/`.replace("/en_us/", "/")
+    : "/";
 
   split[0] = versionMap[split[0]] ?? versionMap[split[0]?.replace(/[.]0$/, "")] ?? split[0];
   if (!split[0]) split.shift();
