@@ -92,7 +92,7 @@ You can find existing damage type tags in `data/minecraft/tags/damage_type`.
 
 ::: info
 
-Refer to the [Minecraft Wiki](https://minecraft.wiki/w/Tag#Damage_types) for a comprehensive list of damage type
+Refer to the [Minecraft Wiki](<https://minecraft.wiki/w/Damage_type_tag_(Java_Edition)>) for a comprehensive list of damage type
 tags.
 
 :::
