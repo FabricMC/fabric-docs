@@ -20,8 +20,7 @@ const urls = computed(() => {
 
   // TODO: hide links if the page does not exist in English
   const english = data.page.value.relativePath.replace(data.localeIndex.value, "en_us");
-  const pattern = (data.theme.value as Fabric.ThemeConfig).editLink!.pattern;
-  const crowdin = typeof pattern === "string" ? pattern : pattern(data.page.value);
+  const crowdin = (data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string;
 
   return { english, crowdin };
 });
