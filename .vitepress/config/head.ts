@@ -15,11 +15,14 @@ type NewHeadContext = {
 };
 
 const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
+  const versionMap = {
+    "1.21.10": "1.21.11",
+    "26.1.0": "26.1.2",
+    "26.1.1": "26.1.2",
+    [context.latestVersion]: "",
+  };
+
   const redirects: { from: RegExp; dest: string }[] = [
-    {
-      from: /[/]+/g,
-      dest: "/",
-    },
     {
       from: /develop[/]items[/]custom-item-groups(?=[/]|$)/,
       dest: "develop/items/custom-creative-tabs",
@@ -57,18 +60,6 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "1.21.11/develop/porting/mappings",
     },
     {
-      from: /^1[.]21[.]10(?=[/]|$)/,
-      dest: "1.21.11",
-    },
-    {
-      from: /^26[.]1(?:[.]1)?(?=[/]|$)/,
-      dest: "26.1.2",
-    },
-    {
-      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?:[/]|$)`),
-      dest: "",
-    },
-    {
       from: /^en_us(?:[/]|$)/,
       dest: "",
     },
@@ -79,8 +70,11 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     .replace(/^[/]/, "")
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
-  const split = oldPath.toLowerCase().split("/");
+  const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
   const localeIndex = /^..[_-]..$/.test(split[0]) ? `/${split.shift()}/` : "/";
+
+  split[0] = versionMap[split[0]] ?? versionMap[split[0]?.replace(/[.]0$/, "")] ?? split[0];
+  if (!split[0]) split.shift();
 
   const seenPaths = new Set([split.join("/")]);
   const newPath = redirects.reduce((currentPath, rule) => {
