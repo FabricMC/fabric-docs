@@ -16,7 +16,14 @@ const collator = new Intl.Collator(undefined, { numeric: true });
 
 const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
 const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).switcher);
-const currentV = computed(() => data.frontmatter.value.version as string);
+const currentV = computed(() => {
+  if (data.frontmatter.value.version) return data.frontmatter.value.version as string;
+
+  const split = data.page.value.relativePath.split("/");
+  if (/^[0-9.]+$/.test(split[0])) return split[0];
+  if (/^.._..$/.test(split[0]) && /^[0-9.]+$/.test(split[1])) return split[1];
+  return props.versioningPlugin.latestVersion;
+});
 
 const button = computed(() => {
   const iconData = getIcon("mdi:source-branch");
