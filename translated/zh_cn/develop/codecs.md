@@ -261,7 +261,12 @@ To add the default value, we can pass it as the second parameter in the optional
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec] <<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean] <<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType] <<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean] <<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean] <<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
 
 :::
 
