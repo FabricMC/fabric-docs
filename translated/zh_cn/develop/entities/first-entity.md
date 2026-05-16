@@ -7,7 +7,6 @@ authors:
   - JaaiDead
   - skycatminepokie
   - SzczurekYT
-  - voidedaries
 resources:
   https://docs.neoforged.net/docs/entities/: Entities - NeoForge 文档
   https://www.desmos.com/calculator/9r6lh5knfu: 实体行走动画 - Desmos

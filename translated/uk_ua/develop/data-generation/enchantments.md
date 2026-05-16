@@ -15,7 +15,7 @@ authors:
 
 ## Налаштування {#setup}
 
-Перед реалізацією генератора створіть пакет `enchantment` в основному вихідному наборі та додайте до нього клас `ModEnchantments`. Потім додайте метод `key` до цього нового класу.
+Перед реалізацією генератора створіть пакет `enchantment` в основному початковому наборі та додайте до нього клас `ModEnchantments`. Потім додайте метод `key` до цього нового класу.
 
 @[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
 

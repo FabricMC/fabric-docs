@@ -58,7 +58,7 @@ Die Überschreibungen werden der Zielklasse zur Laufzeit hinzugefügt, erscheine
 
 Die Interface-Injektion verwendet den folgenden Syntax:
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 inject-interface    <targetClassName>    <injectedInterfaceName>
 ```
 

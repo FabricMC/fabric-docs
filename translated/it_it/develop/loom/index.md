@@ -39,7 +39,7 @@ Loom usa vari ID di plugin diversi:
 
 Nell'impostare una build con progetti multipli, che dipenda da un altro progetto Loom, dovresti usare la configurazione `namedElements` per dipendere dall'altro progetto. Gli output di un progetto vengono automaticamente rimappati a nomi intermediari. La configurazione `namedElements` contiene gli output del progetto non ancora rimappati.
 
-```groovy
+```gradle
 dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
@@ -47,7 +47,7 @@ dependencies {
 
 Se stai usando set di sorgenti divise in una build con progetti multipli, dovrai anche aggiungere una dipendenza al set di sorgenti clienti dell'altro progetto.
 
-```groovy
+```gradle
 dependencies {
  clientImplementation project(":name").sourceSets.client.output
 }

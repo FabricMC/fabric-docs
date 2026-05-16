@@ -54,7 +54,7 @@ resources:
 
 ::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::generated](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -84,7 +84,7 @@ resources:
 
 ::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -114,7 +114,7 @@ resources:
 
 :::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -161,7 +161,7 @@ resources:
 
 :::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -203,7 +203,7 @@ resources:
 
 ::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::composite](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -244,7 +244,7 @@ resources:
 
 ::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::select](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
@@ -295,7 +295,7 @@ resources:
 
 ::: tabs
 
-== Вихідний код
+== Початковий код
 
 @[code transcludeWith=:::range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 

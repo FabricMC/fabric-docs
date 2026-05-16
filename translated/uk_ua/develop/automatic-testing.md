@@ -108,7 +108,7 @@ Minecraft надає ігрову тестувальну структуру дл
 
 :::
 
-Якщо ви ввімкнули `createSourceSet`, як у прикладі вище, ваше ігрове тестування буде в окремому вихідному наборі з окремим `fabric.mod.json`. Назва модуля усталено `gametest`. Створіть новий `fabric.mod.json` у `src/gametest/resources/`, як показано:
+Якщо ви ввімкнули `createSourceSet`, як у прикладі вище, ваше ігрове тестування буде в окремому початковому наборі з окремим `fabric.mod.json`. Назва модуля усталено `gametest`. Створіть новий `fabric.mod.json` у `src/gametest/resources/`, як показано:
 
 <<< @/reference/latest/src/gametest/resources/fabric.mod.json
 

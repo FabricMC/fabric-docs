@@ -20,7 +20,7 @@ Fabric — це легкий інструментарій модифікації
 
 ::: tip
 
-Якщо вам це знадобиться в будь-який час, повністю робочий мод з усім вихідним кодом цієї документації доступний у теці [`/reference` на GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest).
+Якщо вам це знадобиться в будь-який час, повністю робочий мод з усім початковим кодом цієї документації доступний у теці [`/reference` на GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest).
 
 :::
 

@@ -18,7 +18,7 @@ authors:
 
 Завдання сервера та клієнта успадковуються від того самого класу `AbstractProductionRunTask`. Це означає, що вони мають такі можливості:
 
-```groovy
+```gradle
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {
     // A collection of mod jars that will be used when running the game. The mods must be remapped to run with intermediary names.
     // This uses a Gradle ConfigurableFileCollection allowing the files to come from a variety of sources.
@@ -47,7 +47,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 Завдання виконання робочого сервера використовує той самий запускач сервера, який ви завантажуєте із сайту Fabric, гарантуючи, що середовище максимально наближене до робочого.
 
-```groovy
+```gradle
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {
     // The version of the Fabric Installer to use. This must be specified.
     installerVersion = "1.0.1"
@@ -66,7 +66,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## Клієнт {#client}
 
-```groovy
+```gradle
 tasks.register("prodClient", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
     // Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
     // Defaults to true only on Linux and when the "CI" environment variable is set.
