@@ -69,11 +69,11 @@ The second argument to the `Identifier` (`diamond_block_vein` in this example) i
 
 ### Ores {#ores}
 
-Next, we'll make a `RuleTest` that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
+Next, we'll make a `RuleTest` inside the `configure` method that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
 
 @[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Next, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
+Next, also inside the `configure` method, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
 
 @[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -81,13 +81,13 @@ You can have multiple cases in the list for different variants. For example, let
 
 @[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Lastly, we need to register our configured feature to our game!
+Lastly, we need to register our configured feature to our game inside the `configure` method!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 ### Trees {#trees}
 
-To make a custom tree, you need to first create a `TreeConfiguration`:
+To make a custom tree, you need to first create a `TreeConfiguration` inside the `configure` method:
 
 @[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -113,19 +113,23 @@ Next, we need to register our tree by adding the following line to the `configur
 
 ## Placement Features {#placement-features}
 
+First, before we can continue, we need to make the `ExampleModWorldPlacedFeatures` class, which has been provided below.
+
+@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+
 The next step in adding a feature to the game is creating its Placement Feature.
 
 In your placed features class's `configure` method, create a variable like the one below:
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-In your placed features class, define the key for your placed feature.
+In your placed features class, outside of the `configure` method, define the key for your placed feature.
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ### Placement Modifiers {#placement-modifiers}
 
-Next, we need to define our Placement Modifiers, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
+Next, we need to define our Placement Modifiers inside the `configure` method, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
 
 @[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
@@ -150,13 +154,13 @@ Trees and other surface structures should include the modifier `PlacedFeatures.W
 
 :::
 
-Now that we have the modifiers, we can register our placed feature:
+Now that we have the modifiers, we can register our placed feature in the `configure` method:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ## Biome Modifications {#biome-modifications}
 
-Lastly, we need to add our placed feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our mod initiializer:
+Lastly, we need to add our placed feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our `ExampleMod` `onInitialize` method:
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
