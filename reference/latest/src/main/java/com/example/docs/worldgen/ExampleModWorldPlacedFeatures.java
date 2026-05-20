@@ -79,7 +79,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondTreeModifiers
 				)
 		);
-	// :::datagen-world:PlacedFeatures-Class
+		// :::datagen-world:PlacedFeatures-Class
 	}
 }
 // :::datagen-world:PlacedFeatures-Class
