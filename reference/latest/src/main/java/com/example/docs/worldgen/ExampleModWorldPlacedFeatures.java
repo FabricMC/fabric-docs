@@ -21,7 +21,9 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import com.example.docs.ExampleMod;
 
+// :::datagen-world:PlacedFeatures-Class
 public class ExampleModWorldPlacedFeatures {
+	// :::datagen-world:PlacedFeatures-Class
 	// :::datagen-world:placed-key
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
@@ -36,7 +38,9 @@ public class ExampleModWorldPlacedFeatures {
 							Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree_placed")
 			);
 
+	// :::datagen-world:PlacedFeatures-Class
 	public static void configure(BootstrapContext<PlacedFeature> context) {
+		// :::datagen-world:PlacedFeatures-Class
 		// :::datagen-world:conf-feature-register
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 		// :::datagen-world:conf-feature-register
@@ -75,5 +79,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondTreeModifiers
 				)
 		);
+	// :::datagen-world:PlacedFeatures-Class
 	}
 }
+// :::datagen-world:PlacedFeatures-Class
