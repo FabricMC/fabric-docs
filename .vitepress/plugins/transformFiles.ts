@@ -31,6 +31,10 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     data.localeIndex = "root";
   }
 
+  if (data.versionType === "old") {
+    data.editLink = false;
+  }
+
   const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
   const themeConfig = (
     config.userConfig.locales![data.localeIndex] ?? config.userConfig.locales!.root

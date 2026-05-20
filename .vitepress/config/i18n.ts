@@ -130,8 +130,11 @@ export const getLocales = () => {
         },
 
         editLink: {
-          pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
-          text: resolver("github_edit"),
+          pattern:
+            locale === "en_us"
+              ? "https://github.com/FabricMC/fabric-docs/edit/main/:path"
+              : `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
+          text: locale === "en_us" ? resolver("edit_github") : resolver("edit_crowdin"),
         },
 
         footer: {
@@ -196,7 +199,6 @@ export const getLocales = () => {
           pooh: resolver("404.title.pooh"),
           quotes: resolver("404.quotes") as never,
 
-          crowdinLocale,
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
           crowdinLinkText: resolver("404.crowdin_link"),
 
@@ -249,6 +251,8 @@ export const getLocales = () => {
         sidebarMenuLabel: resolver("sidebar_menu"),
 
         siteTitle: resolver("title"),
+
+        skipToContentLabel: resolver("skip_to_content"),
 
         socialLinks: [
           {

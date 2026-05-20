@@ -148,6 +148,14 @@ export default defineVersionedConfig(
     vite: {
       plugins: [transformFilesPlugin(latestVersion)],
     },
+
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith("media-"),
+        },
+      },
+    },
   } as Fabric.Config,
   path.resolve(import.meta.dirname, "..")
 );
