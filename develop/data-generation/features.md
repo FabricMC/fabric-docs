@@ -49,6 +49,12 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 ## Configured Features {#configured-features}
 
+First before we can do anything we need to create the `ExampleModWorldConfiguredFeatures` class
+
+Below is the following example that we will use for this tutorial
+
+@[code lang=java transcludeWith=:::ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+
 To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class. Let's add a custom configured feature for a Diamond Ore vein.
 
 First, register the key for the `ConfiguredFeature` in your configured feature class:
