@@ -6,6 +6,7 @@ authors:
   - dicedpixels
   - Draylar
   - JamiesWhiteShirt
+  - Jimmy474
   - Juuxel
   - liach
   - mkpoli
@@ -37,7 +38,7 @@ Each event has a corresponding callback interface. Callbacks are registered by c
 
 This example registers an `AttackBlockCallback` to damage the player when they hit blocks that don't drop an item when hand-mined.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack-block-callback-event
 
 ### Adding Items to Existing Loot Tables {#adding-items-to-existing-loot-tables}
 
@@ -51,17 +52,17 @@ We'll be adding eggs to the coal ore loot table.
 
 Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your [mod's initializer](./getting-started/project-structure#entrypoints). Let's also check that the current loot table is the coal ore loot table.
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-table-events
 
 #### Adding Items to the Loot Table {#adding-items-to-the-loot-table}
 
 In loot tables, items are stored in _loot pool entries_, and entries are stored in _loot pools_. To add an item, we'll need to add a pool with an item entry to the loot table.
 
-We can make a pool with `LootPool#builder`, and add it to the loot table.
+We can make a pool with `LootPool#lootpool`, and add it to the loot table.
 
-Our pool doesn't have any items either, so we'll make an item entry using `ItemEntry#builder` and add it to the pool.
+Our pool doesn't have any items either, so we'll make an item entry using `LootItem#lootTableItem` and add it to the pool.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-pool-builder{6-7}
 
 ## Custom Events {#custom-events}
 
@@ -79,40 +80,40 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event.
 
-Our implementation will call the event listeners in order until one of them does not return `ActionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
+Our implementation will call the event listeners in order until one of them does not return `InteractionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
 
-Using `ActionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
+Using `InteractionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 
 You'll need to create an interface that has an `Event` instance and method for response implementation. A basic setup for our sheep shear callback is:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#sheep-shear-callback
 
 Let's look at this more in-depth. When the invoker is called, we iterate over all listeners:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#listener-iterator
 
 We then call our method (in this case, `interact`) on the listener to get its response:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#interact-method
 
-If the listener says we have to cancel (`ActionResult.FAIL`) or fully finish (`ActionResult.SUCCESS`), the callback returns the result and finishes the loop. `ActionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
+If the listener says we have to cancel (`InteractionResult.FAIL`) or fully finish (`InteractionResult.SUCCESS`), the callback returns the result and finishes the loop. `InteractionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#return-value
 
-We can add Javadoc comments to the top of callback classes to document what each `ActionResult` does. In our case, it might be:
+We can add Javadoc comments to the top of callback classes to document what each `InteractionResult` does. In our case, it might be:
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#javadoc-comment
 
 ### Triggering the Event From a Mixin {#triggering-the-event-from-a-mixin}
 
-We now have the basic event skeleton, but we need to trigger it. Because we want to have the event called when a player attempts to shear a sheep, we call the event `invoker` in `SheepEntity#interactMob` when `sheared()` is called (i.e. sheep can be sheared, and the player is holding shears):
+We now have the basic event skeleton, but we need to trigger it. Because we want to have the event called when a player attempts to shear a sheep, we call the event `invoker` in `Sheep#mobInteract` when `shear()` is called (i.e. sheep can be sheared, and the player is holding shears):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/event/SheepMixin.java#sheep-mixin
 
 ### Creating a Test Implementation {#creating-a-test-implementation}
 
 Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. Here's an example that drops a diamond instead of wool at the sheep's feet:
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#sheep-shear-callback-event
 
 If you enter into your game and shear a sheep, a diamond should drop instead of wool.
