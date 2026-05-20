@@ -35,7 +35,7 @@ First, we need to make our provider. Create a class that extends `FabricDynamicR
 
 Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
 
-@[code lang=java transclude={67-67}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={64-64}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Next, make a class for your configured features and a class for your placed features. These don't need to extend anything.
 
