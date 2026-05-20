@@ -31,7 +31,7 @@ authors-nogithub:
 
 ## 进度结构 {#advancement-structure}
 
-进度由几个不同的部分组成。 除了称为准则（criterion）的要求外，可能还有：
+进度由几个不同的部分组成。 除了称为“准则”（criterion）的要求外，可能还有：
 
 - `DisplayInfo`，告诉游戏如何向玩家显示进度。
 - `AdvancementRequirements` 是一系列准则的列表，要求每个子列表中至少完成一项准则。
@@ -45,23 +45,45 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-::: warning
-
-当构建你的进度条目时，请记住函数接受 `String` 类型的进度的 `Identifier`！
-
-:::
-
 :::details JSON 输出
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json
 
 :::
 
-## 另一个示例 {#one-more-example}
+## 父级 {#parent}
 
-为了掌握要领，我们再添加一项进度。 我们将练习添加奖励、使用多项准则以及指定父级：
+为了创建或扩展进度树，我们可以为进度设置父级。 为此，调用 `Advancement.Builder#parent(...)` 并传入父进度的引用。
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+
+如果没有直接指向父进度的引用（例如使用原版进度作为父级），则可以使用标识符创建一个占位符。
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+
+现在，你的进度应该会以树状结构显示在进度菜单中。
+
+![进度树](/assets/develop/data-generation/advancement_tree.png)
+
+## 多个准则 {#multiple-criteria}
+
+为了给进度设置更高级的条件，我们可以多次调用 `Advancement.Builder#addCriteria(...)` 并添加额外的准则。
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+
+默认情况下，所有准则都满足，进度才能完成。 我们可以通过提供不同的策略来改变此行为。
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+
+## 奖励 {#rewards}
+
+我们可以为进度附加奖励，玩家完成进度后即可获得奖励。 我们可以通过调用 `Advancement.Builder#rewards(...)` 并传入要添加的奖励来实现。
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+
+还有其他多种奖励类型可供选择：
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
 
 ## 自定义准则 {#custom-criteria}
 

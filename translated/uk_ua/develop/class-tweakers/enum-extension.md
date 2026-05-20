@@ -70,7 +70,7 @@ authors:
 
 Синтаксис для запису розширення переліку такий:
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 
@@ -87,7 +87,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 ::: info
 
-Ви не побачите [переданих аргументів конструктора](#passing-constructor-arguments), [реалізацій методів](#implementing-abstract-methods) чи інших елементів у декомпільованому вихідному коді.
+Ви не побачите [переданих аргументів конструктора](#passing-constructor-arguments), [реалізацій методів](#implementing-abstract-methods) чи інших елементів у декомпільованому початковому коді.
 Це тому, що вони обробляються міксином і застосовуються лише під час виконання.
 
 :::

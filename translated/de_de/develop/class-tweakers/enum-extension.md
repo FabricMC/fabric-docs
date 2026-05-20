@@ -71,7 +71,7 @@ Um diese Funktion zu aktivieren, stelle bitte sicher, dass du Loom 1.16 oder hö
 
 Die Syntax für einen Eintrag zur Erweiterung eines Enum ist:
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 
