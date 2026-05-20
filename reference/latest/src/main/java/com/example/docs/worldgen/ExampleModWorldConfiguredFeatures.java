@@ -21,8 +21,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import com.example.docs.ExampleMod;
-
+// :::datagen-world:ConfigureFeatures-Class
 public class ExampleModWorldConfiguredFeatures {
+// :::datagen-world:ConfigureFeatures-Class
 	// :::datagen-world:configured-key
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
 			ResourceKey.create(
@@ -37,7 +38,9 @@ public class ExampleModWorldConfiguredFeatures {
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
 			);
 
+	// :::datagen-world:ConfigureFeatures-Class
 	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+	// :::datagen-world:ConfigureFeatures-Class
 		RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 
 		// :::datagen-world:ruletest
@@ -85,5 +88,7 @@ public class ExampleModWorldConfiguredFeatures {
 		// :::datagen-world:tree-register
 		context.register(DIAMOND_TREE_CONFIGURED_KEY, new ConfiguredFeature<>(Feature.TREE, diamondTree));
 		// :::datagen-world:tree-register
+	// :::datagen-world:ConfigureFeatures-Class
 	}
 }
+// :::datagen-world:ConfigureFeatures-Class
