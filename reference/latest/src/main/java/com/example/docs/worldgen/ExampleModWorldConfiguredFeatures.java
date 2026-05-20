@@ -21,6 +21,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import com.example.docs.ExampleMod;
+
 // :::datagen-world:ConfigureFeatures-Class
 public class ExampleModWorldConfiguredFeatures {
 	// :::datagen-world:ConfigureFeatures-Class
