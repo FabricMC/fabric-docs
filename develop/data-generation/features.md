@@ -29,6 +29,12 @@ Features in Minecraft are natural or generated patterns in the world, like trees
 
 ## Setup {#setup}
 
+::: info Important Reminder
+
+The majority of the classes created and referenced in this documentation are inside the `main` package and are not located inside the `client` package. The only exception to this rule is the `ExampleModDataGenerator`, which is located inside the `client` package.
+
+:::
+
 First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
@@ -49,7 +55,7 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 ## Configured Features {#configured-features}
 
-First before we can do anything we need to create the `ExampleModWorldConfiguredFeatures` class
+First, before we can do anything, we need to create the `ExampleModWorldConfiguredFeatures` class
 
 Below is the following example that we will use for this tutorial
 
