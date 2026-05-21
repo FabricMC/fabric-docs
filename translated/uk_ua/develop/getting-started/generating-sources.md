@@ -4,7 +4,6 @@ description: Посібник з генерації джерел Minecraft.
 authors:
   - dicedpixels
   - its-miroma
-outline: false
 ---
 
 ## Виберіть ваш IDE {#choose-your-ide}

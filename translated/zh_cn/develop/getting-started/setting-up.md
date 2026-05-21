@@ -18,7 +18,6 @@ authors:
   - TelepathicGrunt
 authors-nogithub:
   - siglong
-outline: false
 ---
 
 ## 安装 JDK 25 {#install-jdk-21}

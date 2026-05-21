@@ -70,7 +70,7 @@ authors:
 
 列舉擴充條目的語法如下：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 

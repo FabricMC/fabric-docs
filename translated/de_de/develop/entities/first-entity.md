@@ -7,7 +7,6 @@ authors:
   - JaaiDead
   - skycatminepokie
   - SzczurekYT
-  - voidedaries
 resources:
   https://docs.neoforged.net/docs/entities/: Entitäten - NeoForge Docs
   https://www.desmos.com/calculator/9r6lh5knfu: Laufanimation einer Entität - Desmos
