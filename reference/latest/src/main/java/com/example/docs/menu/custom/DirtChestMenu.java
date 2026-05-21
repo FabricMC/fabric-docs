@@ -13,6 +13,13 @@ import com.example.docs.menu.ModMenuType;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
+	private static final int SLOTS_ROWS = 3;
+	private static final int SLOTS_COLUMNS = 3;
+	private static final int SLOTS_START_X = 62;
+	private static final int SLOTS_START_Y = 17;
+	private static final int INVENTORY_START_X = 8;
+	private static final int INVENTORY_START_Y = 84;
+
 	private final Container container;
 
 	// Client-side constructor
@@ -27,22 +34,27 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		this.container = container;
 
 		// Some containers do custom logic when opened by a player.
-		// TODO: is this intended to use this. ?
 		container.startOpen(inventory.player);
 
-		int rows = 3;
-		int columns = 3;
-
 		// Add the slots for our container in a 3x3 grid.
-		for (int y = 0; y < rows; y++) {
-			for (int x = 0; x < columns; x++) {
-				int slot = x + y * 3;
-				this.addSlot(new Slot(container, slot, 62 + x * 18, 17 + y * 18));
-			}
-		}
+		this.add3x3Slots(container, SLOTS_START_X, SLOTS_START_Y);
 
 		// Add the player inventory slots.
-		this.addStandardInventorySlots(inventory, 8, 84);
+		this.addStandardInventorySlots(inventory, INVENTORY_START_X, INVENTORY_START_Y);
+	}
+
+	private void add3x3Slots(Container container, int left, int top) {
+		for (int x = 0; x < SLOTS_ROWS; x++) {
+			for (int y = 0; y < SLOTS_COLUMNS; y++) {
+				final int slot = x + y * SLOTS_COLUMNS;
+				this.addSlot(new Slot(
+								container,
+								slot,
+								left + x * SLOT_SIZE,
+								top + x * SLOT_SIZE
+				));
+			}
+		}
 	}
 
 	@Override
