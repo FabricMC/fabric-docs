@@ -37,21 +37,21 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		container.startOpen(inventory.player);
 
 		// Add the slots for our container in a 3x3 grid.
-		this.add3x3Slots(container, SLOTS_START_X, SLOTS_START_Y);
+		this.add3x3GridSlots();
 
 		// Add the player inventory slots.
 		this.addStandardInventorySlots(inventory, INVENTORY_START_X, INVENTORY_START_Y);
 	}
 
-	private void add3x3Slots(Container container, int left, int top) {
+	private void add3x3GridSlots() {
 		for (int y = 0; y < SLOTS_ROWS; y++) {
 			for (int x = 0; x < SLOTS_COLUMNS; x++) {
 				final int slot = x + y * SLOTS_COLUMNS;
 				this.addSlot(new Slot(
-								container,
+								this.container,
 								slot,
-								left + x * SLOT_SIZE,
-								top + y * SLOT_SIZE
+								SLOTS_START_X + x * SLOT_SIZE,
+								SLOTS_START_Y + y * SLOT_SIZE
 				));
 			}
 		}
