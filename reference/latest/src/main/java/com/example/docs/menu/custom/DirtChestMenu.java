@@ -44,14 +44,14 @@ public class DirtChestMenu extends AbstractContainerMenu {
 	}
 
 	private void add3x3Slots(Container container, int left, int top) {
-		for (int x = 0; x < SLOTS_ROWS; x++) {
-			for (int y = 0; y < SLOTS_COLUMNS; y++) {
+		for (int y = 0; y < SLOTS_ROWS; y++) {
+			for (int x = 0; x < SLOTS_COLUMNS; x++) {
 				final int slot = x + y * SLOTS_COLUMNS;
 				this.addSlot(new Slot(
 								container,
 								slot,
 								left + x * SLOT_SIZE,
-								top + x * SLOT_SIZE
+								top + y * SLOT_SIZE
 				));
 			}
 		}
