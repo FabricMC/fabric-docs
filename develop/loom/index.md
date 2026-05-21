@@ -49,7 +49,7 @@ If you are using split source sets in a multi-project build, you will also need 
 
 ```gradle
 dependencies {
- clientImplementation project(":name").sourceSets.client.output
+ clientImplementation this.project(":name").sourceSets.client.output
 }
 ```
 
