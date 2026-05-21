@@ -45,23 +45,45 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-::: warning
-
-Denke bei der Erstellung deiner Einträge für Fortschritte daran, dass die Funktion den `Identifier` des Fortschritts im Format `String` annimmt!
-
-:::
-
 :::details JSON Ausgabe
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json
 
 :::
 
-## Ein weiteres Beispiel {#one-more-example}
+## Übergeordnet {#parents}
 
-Um den Dreh raus zu bekommen, fügen wir noch einen weiteren Fortschritt hinzu. Wir üben das Hinzufügen von Belohnungen, die Verwendung mehrerer Kriterien und die Zuweisung von Eltern:
+Um einen Fortschrittsbaum anzulegen oder zu erweitern, können wir für unseren Fortschritt einen übergeordneten Eintrag festlegen. Rufe dazu `Advancement.Builder#parent(...)` auf und übergebe eine Referenz auf den übergeordneten Fortschritt.
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+
+Wenn keine direkte Referenz auf den übergeordneten Fortschritt vorhanden ist (z. B. bei Verwendung eines Vanilla Fortschritt als übergeordneter Eintrag), kann mithilfe einer Bezeichnung ein Platzhalter angelegt werden.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+
+Deine Fortschritte sollten nun im Fortschrittsmenü als Baumstruktur angezeigt werden.
+
+![Fortschrittsbaum](/assets/develop/data-generation/advancement_tree.png)
+
+## Mehrere Kriterien {#multiple-criteria}
+
+Um unsere Fortschritte mit komplexeren Bedingungen zu versehen, können wir `Advancement.Builder#addCriteria(...)` mehrmals mit zusätzlichen Kriterien aufrufen.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+
+Im Standard müssen alle Kriterien erfüllt sein, damit der Fortschritt abgeschlossen werden kann. Wir können dieses Verhalten ändern, indem wir eine andere Strategie anwenden.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+
+## Belohnungen {#rewards}
+
+Wir können unseren Fortschritten Belohnungen zuweisen, die einem Spieler gewährt werden, sobald er den Fortschritt abgeschlossen hat. Dies erreichen wir, indem wir `Advancement.Builder#rewards(...)` mit den Belohnungen aufrufen, die wir hinzufügen möchten.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+
+Es gibt mehrere andere Belohnungsarten:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
 
 ## Benutzdefinierte Kriterien {#custom-criteria}
 
@@ -123,7 +145,7 @@ Und rufe es in deinem Mod-Initialisierer auf:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
-Schließlich müssen wir unsere Kriterien auslösen. Füge dies zu der Stelle hinzu, an der wir in der Hauptmodklasse eine Nachricht an den Spieler geschickt haben.
+Schließlich müssen wir unser Kriterium auslösen. Füge dies zu der Stelle hinzu, an der wir in der Hauptmodklasse eine Nachricht an den Spieler geschickt haben.
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
