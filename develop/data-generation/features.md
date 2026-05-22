@@ -59,7 +59,7 @@ First, before we can do anything, we need to create the `ExampleModWorldConfigur
 
 Below is the following example that we will use for this tutorial
 
-@[code lang=java transcludeWith=:::ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class. Let's add a custom configured feature for a Diamond Ore vein.
 
@@ -121,7 +121,7 @@ Next, we need to register our tree by adding the following line to the `configur
 
 First, before we can continue, we need to make the `ExampleModWorldPlacedFeatures` class, which has been provided below.
 
-@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 The next step in adding a feature to the game is creating its Placement Feature.
 
