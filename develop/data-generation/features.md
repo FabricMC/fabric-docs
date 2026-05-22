@@ -137,10 +137,11 @@ The function of each modifier listed is as follows:
   1. **Uniform**:
      All `y` values within the range are equally likely to contain the feature. If you're unsure, just use this one.
 
-  1. **Trapezoid**:
+  2. **Trapezoid**:
      `y` values closer to the median `y` value have a higher probability of containing the feature.
 
-  1. **Biased-Bottom**:
+  3. **Biased-Bottom**:
+
      Uses a logarithmic scale where lower `y` values are more likely to get the feature. It receives a starting `y` coordinate, below which the feature never spawns. The second argument is the maximum height where the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip
