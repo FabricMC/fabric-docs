@@ -48,7 +48,7 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class.
 
-Before we can do anything, let's create the configured features class inside of the `main` package, which contains a `configure` method:
+Before we can do anything, let's create the configured features class inside of the `main` package, and declare a `configure` method:
 
 @[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
