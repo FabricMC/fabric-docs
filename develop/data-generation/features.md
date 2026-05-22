@@ -133,13 +133,14 @@ The function of each modifier listed is as follows:
 - **`CountPlacement`**: Roughly the amount of instances of this feature (in this case veins) per chunk
 - **`BiomeFilter`**: Allows us to control what biomes/dimensions it spawns (we'll do more with this later)
 - **`InSquarePlacement`**: Spreads the features more pseudo-randomly
-- **`HeightRangePlacement`**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:  1. **Uniform**:
+- **`HeightRangePlacement`**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
+  1. **Uniform**:
      All `y` values within the range are equally likely to contain the feature. If you're unsure, just use this one.
 
-  2. **Trapezoid**:
+  1. **Trapezoid**:
      `y` values closer to the median `y` value have a higher probability of containing the feature.
 
-  3. **Biased-Bottom**:
+  1. **Biased-Bottom**:
      Uses a logarithmic scale where lower `y` values are more likely to get the feature. It receives a starting `y` coordinate, below which the feature never spawns. The second argument is the maximum height where the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip
