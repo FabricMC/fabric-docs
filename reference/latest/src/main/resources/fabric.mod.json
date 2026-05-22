@@ -28,7 +28,8 @@
       "com.example.docs.entity.attribute.ExampleModAttributes",
       "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",
-      "com.example.docs.gamerule.ExampleModGameRules"
+      "com.example.docs.gamerule.ExampleModGameRules",
+      "com.example.docs.dynamic_registries.ExampleModDynamicRegistries"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",

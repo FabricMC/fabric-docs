@@ -28,17 +28,29 @@ Dynamic registries solve the "hardcoded content" problem. Instead of baking ever
 
 ## Creating a Dynamic Registry {#creating-a-dynamic-registry}
 
+Let's create a dynamic registry for a magic skill system.
+
 ### Class Setup {#class-setup}
 
-First, create the class that represents one registry entry.
+First, create the class that represents a registry entry. It is a simple data holder for values tied to each magic skill like name, mana cost, etc. A [`Codec`](./codecs.md) is required to encode and decode the entry.
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyModRegistryEntry.java#main
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
+
+- `name` is the name of the skill.
+- `manaCost` is the mana cost of the skill.
+- `onUseMcFunction` is an identifer of a mcfunction that the server can execute when the skill is used. having this in the registry will let other datapacks customize the logic of any skill or add new skills with their own mcfunction.
 
 ### Registering the Registry {#registering-the-registry}
 
-First, Create a key for the registry
+Each registry requires a key that uniquely identifies that registry and is required for the registration, So create a key for the registry.
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#main
+::: tip
+
+While technically the keys can be defined anywhere, Using a common class for keys is recommended if you plan to have more registries in the future. That way it is easier to manage them.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
 Then register it with Fabric API's `DynamicRegistries` class.
 There are two ways to register a dynamic registry:
@@ -48,32 +60,24 @@ There are two ways to register a dynamic registry:
 
 #### Using `register()` {#using-register}
 
-`DynamicRegistries.register()` creates a non-synced registry. It is loaded only on the server and is not available on the client.
+`DynamicRegistries.register()` creates a non-synced registry. It is loaded only on the server and is not available on the client. Use this when the client never needs to read the registry. In our case we do need the client to have access to the magic registry, but here is how it can be used otherwise.
 
-Use this when the client never needs to read the registry. For example:
-
-- A custom loot registry only used by server-side gameplay logic.
-
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#simple
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#simple
 
 #### Using `registerSynced()` {#using-register-synced}
 
-`DynamicRegistries.registerSynced()` creates a synced registry. When a client joins a world, the server automatically synchronizes that registry's data to the client.
+`DynamicRegistries.registerSynced()` creates a synced registry. When a client joins a world, the server automatically synchronizes that registry's data with the client. Use this when the client needs the data for rendering, UI, tooltips, or other client-side logic.
 
-Use this when the client needs the data for rendering, UI, tooltips, or other client-side logic. For example:
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#synced
 
-- A skill registry that the client reads to render a skill menu.
+`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry. In our case we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field for client UI, So we will create a [`Codec`](./codecs.md) that doesn't include the [`onUseMcFunction`](#class-setup) field.
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#synced
-
-`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry.
-
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyModRegistryEntry.java#clientCodec
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#doubleCodec
-
-Both overloads of `DynamicRegistries.registerSynced()` also accept `SyncOption...` at the end to configure synchronization behavior.
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
 
 #### `SyncOption` {#syncoption}
+
+Both overloads of `DynamicRegistries.registerSynced()` accepts `SyncOption...` at the end to configure synchronization behavior.
 
 Available `SyncOption` values include:
 
@@ -81,49 +85,40 @@ Available `SyncOption` values include:
 
 Example:
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#withOption
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#with_option
 
 #### Initialize the Class {#initialize-the-class}
 
-Call `MyRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).
+Call `ExampleModRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
 
 ### Populating the Registry {#populating-the-registry}
 
-To add entries to the registry, create JSON files under:
+JSON files are used for creating registry entries. The JSON structure must match [`MagicSkillsRegistryEntry`](#class-setup), In this example our entry class has three fields so the JSON file for _healing_spell_ entry should look like this
+
+<<< @/reference/latest/src/main/resources/data/example-mod/example-mod/magic_skills_registry/healing_spell.json
+
+Entry JSON files are stored at
 
 `src/main/resources/data/<entry namespace>/<registry namespace>/<registry path>/`
 
-In this example, the registry key is:
+For our [`MAGIC_SKILLS_REGISTRY_KEY`](#registering-the-registry) the JSON files belong at
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistries.java#key
-
-That means the JSON files belong in:
-
-`src/main/resources/data/example-mod/example-mod/my_registry_key/`
+`src/main/resources/data/example-mod/example-mod/magic_skills_registry/`
 
 ::: info
 
 The repeated `example-mod/example-mod` is not a mistake.
 
-The first `example-mod` is the namespace of the entry being added. The second `example-mod` comes from the registry ID itself. Using your mod ID for both is normal, and it still allows other mods or data packs to add entries to your registry under their own namespace.
+The first `example-mod` is the namespace of the entry being added. The second `example-mod` comes from the registry ID itself. Using your mod ID for both is normal, and it allows other mods or data packs to add entries to your registry under their own namespace.
 
 :::
 
-The JSON structure must match `MyModRegistryEntry`. The filename becomes the entry ID path, and it should usually be lowercase with underscores.
+#### Entry ID {#entry-id}
+The entry ID is the unique identifier for each entry, and it can be useful for accessing a specific entry from a registry. The filename becomes the entry ID, and it should usually be lowercase with underscores. Our entry JSON file is named `healing_spell.json`, therefore, the entry ID is:
 
-For example, if you create:
-
-`src/main/resources/data/example-mod/example-mod/my_registry_key/my_registry_entry_1.json`
-
-then the entry ID is:
-
-`Identifier.fromNamespaceAndPath("example-mod", "my_registry_entry_1")`
-
-Example JSON:
-
-<<< @/reference/latest/src/main/resources/data/example-mod/example-mod/my_registry_key/my_registry_entry_1.json
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#entry_id
 
 ### Accessing the Registry Data {#accessing-the-registry-data}
 
@@ -132,41 +127,60 @@ Instances of `RegistryAccess` can be acquired from many classes but the most com
 
 ::: warning
 
-If accessing the `RegistryAccess` instance from a Client only class such as `ClientLevel` then, you can only access the **synced registries**.
+Only **synced registries** are available if accessing the `RegistryAccess` instance from a Client only class such as `ClientLevel`.
 
 :::
 
 #### Get the Entire Registry {#get-the-entire-registry}
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/AccessMyModRegistryEntry.java#getMyRegistry
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_registry
+
+Usage:
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_registry_usage
 
 #### Get a Specific Entry {#get-a-specific-entry}
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/AccessMyModRegistryEntry.java#getSpecificEntry
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_specific_registry_entry
 
-The `entryId` is built from the entry namespace and the JSON filename. For example:
+Usage:
 
-- `data/example-mod/example-mod/my_registry_key/my_registry_entry_1.json` becomes `Identifier.fromNamespaceAndPath("example-mod", "my_registry_entry_1")`.
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_specific_registry_entry_usage
+
+Read [Entry ID](#entry-id) to know how to get the `entryId`.
+
+In our case we can use this method to get the entry for magic skill used by user on server, then extract the [`onUseMcFunction`](#class-setup) field to execute the mcfunction.
 
 #### Iterate Over All Entries {#iterate-over-all-entries}
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/AccessMyModRegistryEntry.java#iterateOverMyRegistry
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#iterate_over_registry_entries
+
+Usage:
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#iterate_over_registry_entries_usage
+
+In our case we can use this method to get all the entries in the registry and show them in a client UI.
 
 ### Tags For Custom Registry Entries {#tags-for-custom-registry-entries}
 
-Tags are a way to group multiple entries together. For example,
+Tags are a way to group multiple entries together. For example, we can create tags like _defensive_, _attacking_, etc. to group similar magic skills together.
 
-* If your custom registry is for skills, then you can create tags like _physical_, _magical_, etc. to group similar skills.
+Tags are defined in
 
-Tags are defined in `data/<entry namespace>/tags/<registry namespace>/<registry path>/`.
+`data/<entry namespace>/tags/<registry namespace>/<registry path>/`.
 
-In this example, if we want to create a tag for our `MyModRegistryEntry`, we would create a tag file like:
-`data/example-mod/tags/example-mod/my_registry_key/mytag.json`
+In this example, if we want to create a tag for our [`MagicSkillsRegistryEntry`](#class-setup), we would create a tag file like:
 
-<<< @/reference/latest/src/main/resources/data/example-mod/tags/example-mod/my_registry_key/mytag.json
+`data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json`
+
+<<< @/reference/latest/src/main/resources/data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json
 
 #### Using Tags In Code {#using-tags-in-code}
 
 Create a tag key for the tag to check if entries are present in the tag or not.
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MyRegistryTags.java#tag
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModTags.java#tag
+
+We can use this method to check if a spell is an attacking spell or not.
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModTags.java#tag_usage

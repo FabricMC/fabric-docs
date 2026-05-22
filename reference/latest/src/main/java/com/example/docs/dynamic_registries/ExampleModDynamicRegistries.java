@@ -6,7 +6,7 @@ import net.fabricmc.api.ModInitializer;
 public class ExampleModDynamicRegistries implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		MyRegistries.initialize();
+		ExampleModRegistries.initialize();
 	}
 }
 // #endregion main
