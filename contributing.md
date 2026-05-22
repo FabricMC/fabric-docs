@@ -139,6 +139,12 @@ Someone from the Docs Team should then notice your PR; if they approve of it, th
 
 The Docs are translated into multiple languages to help non-English speakers with modding. If you want to tweak translations, you can use Crowdin.
 
+::: info
+
+If your language is not listed, you should tell us with a message on the **#docs** channel on the [Discord server](https://discord.fabricmc.net/).
+
+:::
+
 Let's say you speak Italian, and while reading a page, you came across a spelling mistake:
 
 ![A paragraph in Italian with a spelling mistake: "legera" should be "leggera"](/assets/contributing/lang-spelling-mistake.png)
@@ -163,11 +169,11 @@ Now, you have to wait. Translations are pulled once a week, on Saturday at 7:37 
 
 Finally, when someone from the Docs Team approves the PR and merges it, you'll see your correction live on the website.
 
-This is the same process you should follow if you want to translate an entire page anew: you should find the file on Crowdin, suggest translations for all its sentences, and wait for them to be merged to the main site.
+This is the same process you should follow if you want to translate an entire page anew: you should find the file on Crowdin, suggest translations for **all its sentences**, and wait for them to be merged to the main site.
 
-::: info
+::: warning IMPORTANT
 
-If your language is not listed, you should tell us with a message on the **#docs** channel on the [Discord server](https://discord.fabricmc.net/).
+You'll notice that Crowdin does not show code blocks, snippets, or similar in the translatable strings. Those will be added automatically, and are not expected to be translated. Therefore, when referencing code classes, make sure you use the English names!
 
 :::
 
@@ -423,6 +429,8 @@ When adding code blocks to pages, you should place it within the [`ExampleMod`](
 
 Snippet labels should be descriptive, because that helps with maintaining them in the future. Snippets should also be copyable as-is, so for instance all open brackets should be closed.
 
+If possible, code in snippets should not be explained with comments, because they aren't very accessible and they cannot be translated. Instead, consider explaining in the Markdown page.
+
 For example:
 
 ::: tabs
@@ -443,7 +451,7 @@ Here's an example of a getter-setter pattern in Java:
 
 == Java
 
-```java
+```java{2-5,11-19}
 public class NumberHolder {
   // #region number
   private int number;
