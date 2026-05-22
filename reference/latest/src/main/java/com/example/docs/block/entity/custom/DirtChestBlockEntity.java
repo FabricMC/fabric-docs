@@ -48,19 +48,19 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	 */
 	@Override
 	public NonNullList<ItemStack> getItems() {
-		return items;
+		return this.items;
 	}
 
 	@Override
 	protected void saveAdditional(ValueOutput valueOutput) {
 		super.saveAdditional(valueOutput);
-		ContainerHelper.saveAllItems(valueOutput, items);
+		ContainerHelper.saveAllItems(valueOutput, this.items);
 	}
 
 	@Override
 	protected void loadAdditional(ValueInput valueInput) {
 		super.loadAdditional(valueInput);
-		ContainerHelper.loadAllItems(valueInput, items);
+		ContainerHelper.loadAllItems(valueInput, this.items);
 	}
 
 	// :::menu

@@ -138,17 +138,17 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
 		// Build the buffer
-		MeshData builtBuffer = buffer.buildOrThrow();
+		MeshData builtBuffer = this.buffer.buildOrThrow();
 		MeshData.DrawState drawParameters = builtBuffer.drawState();
 		VertexFormat format = drawParameters.format();
 
-		GpuBuffer vertices = upload(drawParameters, format, builtBuffer);
+		GpuBuffer vertices = this.upload(drawParameters, format, builtBuffer);
 
 		draw(client, pipeline, builtBuffer, drawParameters, vertices, format);
 
 		// Rotate the vertex buffer so we are less likely to use buffers that the GPU is using
-		vertexBuffer.rotate();
-		buffer = null;
+		this.vertexBuffer.rotate();
+		this.buffer = null;
 	}
 
 	private GpuBuffer upload(MeshData.DrawState drawParameters, VertexFormat format, MeshData builtBuffer) {
@@ -156,22 +156,22 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
 
 		// Initialize or resize the vertex buffer as needed
-		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
-			if (vertexBuffer != null) {
-				vertexBuffer.close();
+		if (this.vertexBuffer == null || this.vertexBuffer.size() < vertexBufferSize) {
+			if (this.vertexBuffer != null) {
+				this.vertexBuffer.close();
 			}
 
-			vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
+			this.vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
 		}
 
 		// Copy vertex data into the vertex buffer
 		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
 
-		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
+		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(this.vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
 			MemoryUtil.memCopy(builtBuffer.vertexBuffer(), mappedView.data());
 		}
 
-		return vertexBuffer.currentBuffer();
+		return this.vertexBuffer.currentBuffer();
 	}
 
 	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBuffer vertices, VertexFormat format) {
@@ -222,9 +222,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	public void close() {
 		ALLOCATOR.close();
 
-		if (vertexBuffer != null) {
-			vertexBuffer.close();
-			vertexBuffer = null;
+		if (this.vertexBuffer != null) {
+			this.vertexBuffer.close();
+			this.vertexBuffer = null;
 		}
 	}
 	// :::custom-pipelines:clean-up

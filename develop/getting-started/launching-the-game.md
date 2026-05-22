@@ -6,7 +6,6 @@ authors:
   - IMB11
   - its-miroma
   - Tenneb22
-outline: false
 ---
 
 ## Choose Your IDE {#choose-your-ide}

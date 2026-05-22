@@ -77,7 +77,9 @@ export const getLocales = () => {
   };
 
   for (const locale of locales) {
-    const intlLocale = intlLocaleOverrides[locale] ?? locale.replace("_", "-");
+    const intlLocale =
+      intlLocaleOverrides[locale]
+      ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
     const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
 
     const resolver = getResolver("website_translations.json", locale);
@@ -268,9 +270,9 @@ export const getLocales = () => {
 
         version: {
           reminder: {
-            latestVersion: resolver("version.reminder.latest_version"),
             oldVersion: resolver("version.reminder.old_version"),
-            newVersion: resolver("version.reminder.new_version"),
+            oldVersionHome: resolver("version.reminder.old_version_home"),
+            futureVersion: resolver("version.reminder.future_version"),
           },
 
           switcher: {

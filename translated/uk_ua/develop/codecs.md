@@ -2,6 +2,7 @@
 title: Кодеки
 description: Повний посібник для розуміння і використання системи кодеків Mojang для серіалізації та десеріалізації об'єктів.
 authors:
+  - CelDaemon
   - enjarai
   - Syst3ms
 resources:
@@ -25,34 +26,19 @@ resources:
 
 Тепер, припустімо, ми хочемо серіалізувати `BlockPos` у JSON і назад. Ми можемо зробити це за допомогою статично збереженого кодека у `BlockPos.CODEC` за допомогою методів `Codec#encodeStart` і `Codec#parse` відповідно.
 
-```java
-BlockPos pos = new BlockPos(1, 2, 3);
+::: code-group
 
-// Серіалізація BlockPos до JsonElement
-DataResult<JsonElement> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode-blockpos [Java]
 
-Під час використання кодека значення повертаються у формі `DataResult`. Це обгортка, яка може представляти або успіх чи невдача. Ми можемо використовувати це кількома способами: якщо нам просто потрібно наше серіалізоване значення, `DataResult#result` буде просто поверніть `Optional`, що містить наше значення, тоді як `DataResult#resultOrPartial` також дозволяє нам надати функцію для усунення будь-яких помилок, які могли виникнути. Останнє особливо корисно для власних ресурсів пакетів даних, де ми б хотіли реєструвати помилки, не створюючи проблем деінде.
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json [Output]
+
+:::
+
+Під час використання кодека значення повертаються у формі `DataResult`. Це обгортка, яка може представляти або успіх чи невдача. Ми можемо використовувати це кількома способами: якщо нам просто потрібно наше серіалізоване значення, `DataResult#result` буде просто поверніть `Optional`, що містить наше значення, тоді як `DataResult#resultOrPartial` також дозволяє нам надати функцію для усунення будь-яких помилок, які могли виникнути. Останнє особливо корисно для власних ресурсів пакетів даних, де ми б хотіли журналювати помилки, не створюючи проблем деінде.
 
 Тож візьмімо наше серіалізоване значення та перетворимо його назад на `BlockPos`:
 
-```java
-// Під час написання мода ви, звичайно, захочете правильно обробляти порожні необов'язкові
-JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// Тут ми маємо наше значення JSON, яке має відповідати `[1, 2, 3]`,
-// оскільки це формат, який використовує кодек BlockPos.
-LOGGER.info("Serialized BlockPos: {}", json);
-
-// Тепер ми десеріалізуємо JsonElement назад у BlockPos
-DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
-
-// Знову ж таки, ми просто візьмемо наше значення з результату
-BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// І ми бачимо, що ми успішно серіалізували і десеріалізували наш BlockPos!
-LOGGER.info("Deserialized BlockPos: {}", pos);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse-blockpos
 
 ### Вбудовані кодеки {#built-in-codecs}
 
@@ -64,33 +50,11 @@ LOGGER.info("Deserialized BlockPos: {}", pos);
 
 Тепер, коли ми побачили, як використовувати кодеки, подивімося, як ми можемо створювати власні. Припустимо, ми маємо наступний клас, і ми хочемо десеріалізувати його екземпляри з файлів JSON:
 
-```java
-public class CoolBeansClass {
-
-    private final int beansAmount;
-    private final Item beanType;
-    private final List<BlockPos> beanPositions;
-
-    public CoolBeansClass(int beansAmount, Item beanType, List<BlockPos> beanPositions) {...}
-
-    public int getBeansAmount() { return this.beansAmount; }
-    public Item getBeanType() { return this.beanType; }
-    public List<BlockPos> getBeanPositions() { return this.beanPositions; }
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-class
 
 Відповідний файл JSON може виглядати приблизно так:
 
-```json
-{
-  "beans_amount": 5,
-  "bean_type": "beanmod:mythical_beans",
-  "bean_positions": [
-    [1, 2, 3],
-    [4, 5, 6]
-  ]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json
 
 Ми можемо створити кодек для цього класу, об’єднавши декілька менших кодеків у більший. У цьому випадку нам знадобиться один для кожного поля:
 
@@ -104,9 +68,15 @@ public class CoolBeansClass {
 
 `Codec#listOf` можна використовувати для створення версії списку будь-якого кодека:
 
-```java
-Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json [Output]
+
+:::
 
 Слід зазначити, що створені таким чином кодеки завжди десеріалізуються до `ImmutableList`. Якщо замість цього вам потрібен змінний список, ви можете використати [xmap](#mutually-convertible-types), щоб перетворити його під час десеріалізації.
 
@@ -116,14 +86,15 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 Розгляньмо, як створити кодек для нашого `CoolBeansClass`:
 
-```java
-public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-    Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
-    BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
-    // Тут можна оголосити до 16 полів
-).apply(instance, CoolBeansClass::new));
-```
+::: code-group
+
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json [Output]
+
+:::
 
 Кожен рядок у групі визначає кодек, назву поля та метод отримання. Для перетворення використовується виклик `Codec#fieldOf` кодек у [кодеку мапи](#mapcodec), а виклик `forGetter` визначає метод отримання, який використовується для отримання значення поля з екземпляра класу. Водночас виклик `apply` визначає конструктор, який використовується для створення нових екземплярів. Зауважте, що порядок полів у групі має бути таким самим, як порядок аргументів у конструкторі.
 
@@ -133,19 +104,13 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 Виклик `Codec#fieldOf` перетворить `Codec<T>` на `MapCodec<T>`, який є варіантом, але не прямої реалізація `Codec<T>`. `MapCodec`, як випливає з їх назви, гарантовано серіалізуються в ключ до мапи значень або його еквівалент у `DynamicOps`. Для деяких функцій може знадобитися використання звичайного кодека.
 
-Цей особливий спосіб створення `MapCodec` по суті розміщує значення вихідного кодека всередині мапи, із вказаною назвою поля як ключем. Наприклад `Codec<BlockPos>` після серіалізації в JSON виглядатиме так:
+Цей особливий спосіб створення `MapCodec` по суті розміщує значення початкового кодека всередині мапи, з указаною назвою поля як ключем. Наприклад `Codec<BlockPos>` після серіалізації в JSON виглядатиме так:
 
-```json
-[1, 2, 3]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/plain_codec.json
 
 Але після перетворення на `MapCodec<BlockPos>` за допомогою `BlockPos.CODEC.fieldOf("pos")` це виглядатиме так:
 
-```json
-{
-  "pos": [1, 2, 3]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map_codec.json
 
 Хоча найпоширенішим використанням кодеків мап є об’єднання з іншими кодеками мап для створення кодека для повного класу полів, як пояснюється в розділі [злиття кодеків для класів, подібних до записів](#merging-codecs-for-record-like-classes) вище, їх також можна повернути назад у звичайні кодеки за допомогою `MapCodec#codec`, який збереже таку саму поведінку коробки свого вхідного значення.
 
@@ -153,13 +118,27 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 `Codec#optionalFieldOf` можна використовувати для створення додаткової мапи кодека. Це буде, коли вказане поле відсутнє у контейнері під час десеріалізації або бути десеріалізованим як порожній `необов’язковий` або вказане усталене значення.
 
-```java
-// Без усталеного значення
-MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
+::: code-group
 
-// З усталеним значенням
-MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json [Output]
+
+:::
+
+Щоб додати усталене значення, ми можемо передати його як другий параметр у методі `optionalFieldOf`.
+
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json [Output]
+
+:::
 
 Зауважте, що якщо поле присутнє, але значення недійсне, поле не вдається десеріалізувати взагалі, якщо значення поля недійсне.
 
@@ -169,46 +148,42 @@ MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPo
 
 `MapCodec.unitCodec` можна використовувати для створення кодека, який завжди десеріалізується до постійного значення, незалежно від вхідних даних. Під час серіалізації це нічого не робитиме.
 
-```java
-Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit-codec [Codec]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json [Output]
+
+:::
 
 #### Числові діапазони {#numeric-ranges}
 
 `Codec.intRange` та його друзі, `Codec.floatRange` і `Codec.doubleRange` можна використовувати для створення кодека, який приймає тільки числові значення в межах зазначеного **включеного** діапазону. Це стосується як серіалізації, так і десеріалізації.
 
-```java
-// Не може бути понад 2
-Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json [Output]
+
+:::
 
 #### Пара {#pair}
 
 `Codec.pair` об’єднує два кодеки, `Codec<A>` і `Codec<B>`, у `Codec<Pair<A, B>>`. Майте на увазі, що він працює належним чином лише з кодеками, які серіалізуються в певне поле, наприклад [перетворені `MapCodec`](#mapcodec) або [кодеки запису](#merging-codecs-for-record-like-classes).
 Отриманий кодек буде серіалізовано в мапу, що поєднує поля обох використаних кодеків.
 
-Наприклад, запустіть цей код:
+::: code-group
 
-```java
-// Створіть два окремих коробкових кодека
-Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
-Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec [Codec]
 
-// Об’єднайте їх у парний кодек
-Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec-data [Input]
 
-// Використовуйте його для серіалізації даних
-DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json [Output]
 
-Виведе цей JSON:
-
-```json
-{
-  "i_am_number": 23,
-  "this_statement_is_false": true
-}
-```
+:::
 
 #### Кожен {#either}
 
@@ -222,25 +197,15 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 Через обмеження JSON і NBT використовуваний ключовий кодек _має_ серіалізуватися в рядок. Це включає кодеки для типів, які
 самі по собі не є рядками, але їх серіалізують, наприклад `Identifier.CODEC`. Дивіться приклад нижче:
 
-```java
-// Створіть кодек для перетворення ідентифікаторів на цілі числа
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+::: code-group
 
-// Викоритстовуйте для серіалізації даних
-DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.fromNamespaceAndPath("example", "number"), 23,
-    Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
-));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec [Codec]
 
-Це виведе цей JSON:
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec-data [Input]
 
-```json
-{
-  "example:number": 23,
-  "example:the_cooler_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json [Output]
+
+:::
 
 Як бачите, це працює, оскільки `Identifier.CODEC` серіалізується безпосередньо до рядкового значення. Подібного ефекту можна досягти для простих об’єктів, які не серіалізуються в рядки, використовуючи [xmap & friends](#mutually-convertible-types) для їх перетворення.
 
@@ -252,19 +217,15 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 
 `BlockPos` вже має кодек, але припустимо, що його немає. Ми можемо створити один для нього, базуючи його на кодек для `Vec3d` ось так:
 
-```java
-Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
-    // Перетворення Vec3d у BlockPos
-    vec -> new BlockPos(vec.x, vec.y, vec.z),
-    // Перетворення BlockPos у Vec3d
-    pos -> new Vec3d(pos.getX(), pos.getY(), pos.getZ())
-);
+::: code-group
 
-// Під час перетворення наявного класу (наприклад, `X`)
-// до вашого власного класу (`Y`) таким чином, це може бути добре
-// додати `toX` і статичні методи `fromX` до `Y` і використовувати
-// посилання на методи у вашому виклику `xmap`.
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap [Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json [Output]
+
+:::
 
 #### flatComapMap, comapFlatMap, і flatXMap {#flatcomapmap-comapflatmap-flatxmap}
 
@@ -273,25 +234,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 Візьмемо, наприклад, стандартний `Identifier`. Хоча всі ідентифікатори можна перетворити на рядки, не всі рядки є дійсними ідентифікаторами, тому використання xmap означало б створювати неприємні винятки, коли перетворення не вдається.
 Через це його вбудований кодек насправді є `comapFlatMap` на `Codec.STRING`, гарно ілюструючи, як ним користуватися:
 
-```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
-    );
-
-    // …
-
-    public static DataResult<Identifier> validate(String id) {
-        try {
-            return DataResult.success(Identifier.parse(id));
-        } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
-        }
-    }
-
-    // …
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier-flatmap
 
 Хоча ці методи дійсно корисні, їхні назви дещо заплутані, тому ось таблиця, яка допоможе вам запам’ятати, який з них використовувати:
 
@@ -312,46 +255,31 @@ public class Identifier {
 - Клас або запис `BeanType<T extends Bean>`, який представляє тип bean і може повертати кодек для нього.
 - Функція на `Bean` для отримання його `BeanType<?>`.
 - Мапа або реєстр для зіставлення `Identifier` з `BeanType<?>`.
-- `Codec<BeanType<?>>` на основі цього реєстру. Якщо ви використовуєте `net.minecraft.core.Registry`, його можна легко створити за допомогою `Registry#getCodec`.
+- `Codec<BeanType<?>>` на основі цього реєстру. Якщо ви використовуєте `net.minecraft.core.Registry`, його можна легко створити за допомогою `Registry#byNameCodec`.
 
 З усім цим ми можемо створити кодек відправлення реєстру для компонентів:
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+::: code-group
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
 
-```java
-// Тепер ми можемо створити кодек для типів bean
-// на основі раніше створеного реєстру
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean]
 
-// І виходячи з цього, ось наш кодек відправлення реєстру для beans!
-// Перший аргумент — це ім’я поля для типу компонента.
-// Якщо пропущено, усталено буде «тип».
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
+
+:::
 
 Наш новий кодек серіалізує bean-файли в JSON таким чином, захоплюючи лише ті поля, які відповідають їх конкретному типу:
 
-```json
-{
-  "type": "example:stringy_bean",
-  "stringy_string": "This bean is stringy!"
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/stringy_bean.json
 
-```json
-{
-  "type": "example:counting_bean",
-  "counting_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/counting_bean.json
 
 ### Рекурсивні кодеки {#recursive-codecs}
 
@@ -359,40 +287,18 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 Наприклад, спробуймо серіалізувати однозв'язний список. Цей спосіб представлення списків складається з групи нодів, які містять як значення, так і посилання на наступний нод у списку. Потім список представлено його першим нодом, і перехід по списку здійснюється шляхом переходу за наступним нодом доки не залишиться жодного. Ось проста реалізація нодів, які зберігають цілі числа.
 
-```java
-public record ListNode(int value, ListNode next) {}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node-record
 
 Ми не можемо створити кодек для цього звичайними засобами, оскільки який кодек ми використаємо для поля `next`? Нам потрібен `Codec<ListNode>`, який ми зараз розробляємо! `Codec#recursive` дозволяє нам досягти цього за допомогою магічної на вигляд лямбди:
 
-```java
-Codec<ListNode> codec = Codec.recursive(
-  "ListNode", // назва для кодеку
-  selfCodec -> {
-    // Тут `selfCodec` представляє `Codec<ListNode>`, ніби він уже створений
-    // Цей лямбда повинен повернути кодек, який ми хотіли використовувати з самого початку,
-    // який посилається на себе через `selfCodec`
-    return RecordCodecBuilder.create(instance ->
-      instance.group(
-        Codec.INT.fieldOf("value").forGetter(ListNode::value),
-         // поле `next` оброблятиметься рекурсивно за допомогою власного кодека
-        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
-      ).apply(instance, ListNode::new)
-    );
-  }
-);
-```
+::: code-group
 
-Серіалізований `ListNode` може виглядати так:
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec [Codec]
 
-```json
-{
-  "value": 2,
-  "next": {
-    "value": 3,
-    "next": {
-      "value": 5
-    }
-  }
-}
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec-data [Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
+
+:::
+
+<!---->

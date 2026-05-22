@@ -67,6 +67,9 @@
   "develop.rendering.gui.custom_widgets": "Benutzerdefinierte Widgets",
   "develop.rendering.particles": "Partikel",
   "develop.rendering.particles.creating_particles": "Benutzerdefinierte Partikel erstellen",
+  "develop.loader": "Loader",
+  "develop.loader.index": "Einführung",
+  "develop.loader.fabric.mod.json": "fabric.mod.json",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Einführung",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -113,5 +116,6 @@
   "players.troubleshooting": "Problembehandlung",
   "players.troubleshooting.uploading_logs": "Logs hochladen",
   "players.troubleshooting.crash_reports": "Absturzberichte",
-  "players.updating_fabric": "Aktualisieren von Fabric"
+  "players.updating_fabric": "Aktualisieren von Fabric",
+  "players.troubleshooting.dependency_overrides": "Überschreiben von Abhängigkeiten"
 }

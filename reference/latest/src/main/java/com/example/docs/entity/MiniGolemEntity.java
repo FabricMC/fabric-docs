@@ -86,7 +86,7 @@ public class MiniGolemEntity extends PathfinderMob {
 		super.onSyncedDataUpdated(data);
 
 		if (data == DANCING) {
-			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
+			this.dancingAnimationState.animateWhen(this.isDancing(), this.tickCount);
 		}
 	}
 	//:::dancing_animation
@@ -97,14 +97,14 @@ public class MiniGolemEntity extends PathfinderMob {
 		super.tick();
 
 		if (!level().isClientSide()) {
-			if (isDancing()) {
-				if (dancingTimeLeft-- <= 0) {
-					setDancing(false);
+			if (this.isDancing()) {
+				if (this.dancingTimeLeft-- <= 0) {
+					this.setDancing(false);
 				}
 			} else {
 				if (this.random.nextInt(1000) == 0) {
-					setDancing(true);
-					dancingTimeLeft = 100 + this.random.nextInt(100);
+					this.setDancing(true);
+					this.dancingTimeLeft = 100 + this.random.nextInt(100);
 				}
 			}
 		}
@@ -116,14 +116,14 @@ public class MiniGolemEntity extends PathfinderMob {
 	@Override
 	protected void addAdditionalSaveData(ValueOutput valueOutput) {
 		super.addAdditionalSaveData(valueOutput);
-		valueOutput.putInt("dancing_time_left", dancingTimeLeft);
+		valueOutput.putInt("dancing_time_left", this.dancingTimeLeft);
 	}
 
 	@Override
 	protected void readAdditionalSaveData(ValueInput valueInput) {
 		super.readAdditionalSaveData(valueInput);
-		dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
-		setDancing(dancingTimeLeft > 0);
+		this.dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
+		this.setDancing(this.dancingTimeLeft > 0);
 	}
 	//:::savedata
 }

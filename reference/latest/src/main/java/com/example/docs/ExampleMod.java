@@ -46,7 +46,7 @@ public class ExampleMod implements ModInitializer {
 
 		//#particle_register_main
 		// Register our custom particle type in the mod initializer.
-		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
+		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
 		// :::datagen-world:biome-modifications
 		// Spawns everywhere in the overworld
