@@ -70,7 +70,7 @@ authors:
 
 枚举扩展条目的语法如下：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ```
 

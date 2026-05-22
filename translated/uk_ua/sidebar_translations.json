@@ -67,6 +67,9 @@
   "develop.rendering.gui.custom_widgets": "Власні віджети",
   "develop.rendering.particles": "Частинки",
   "develop.rendering.particles.creating_particles": "Створення власних частинок",
+  "develop.loader": "Завантажувач",
+  "develop.loader.index": "Вступ",
+  "develop.loader.fabric.mod.json": "fabric.mod.json",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Вступ",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -113,5 +116,6 @@
   "players.troubleshooting": "Усунення проблем",
   "players.troubleshooting.uploading_logs": "Вивантаження журналів",
   "players.troubleshooting.crash_reports": "Звіти про збої",
-  "players.updating_fabric": "Оновлення Fabric"
+  "players.updating_fabric": "Оновлення Fabric",
+  "players.troubleshooting.dependency_overrides": "Перевизначення залежностей"
 }

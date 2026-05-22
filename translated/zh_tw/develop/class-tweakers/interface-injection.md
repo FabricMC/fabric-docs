@@ -56,7 +56,7 @@ authors:
 
 介面注入使用以下語法：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 inject-interface    <targetClassName>    <injectedInterfaceName>
 ```
 

@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceKey;
 
 import com.example.docs.ExampleMod;
 
-// :::
+// #region bean-type-record
 // A record to keep information relating to a specific
 // subclass of Bean, in this case only holding a Codec.
 public record BeanType<T extends Bean>(MapCodec<T> codec) {
@@ -18,4 +18,4 @@ public record BeanType<T extends Bean>(MapCodec<T> codec) {
 	public static final Registry<BeanType<?>> REGISTRY = new MappedRegistry<>(
 			ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bean_types")), Lifecycle.stable());
 }
-// :::
+// #endregion bean-type-record

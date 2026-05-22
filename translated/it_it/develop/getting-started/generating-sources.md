@@ -4,7 +4,6 @@ description: Una guida alla generazione delle risorse di Minecraft.
 authors:
   - dicedpixels
   - its-miroma
-outline: false
 ---
 
 ## Scegli il tuo IDE {#choose-your-ide}

@@ -67,6 +67,9 @@
   "develop.rendering.gui.custom_widgets": "自定义控件",
   "develop.rendering.particles": "粒子",
   "develop.rendering.particles.creating_particles": "创建自定义粒子",
+  "develop.loader": "加载器",
+  "develop.loader.index": "介绍",
+  "develop.loader.fabric.mod.json": "fabric.mod.json",
   "develop.loom": "Loom",
   "develop.loom.introduction": "介绍",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -113,5 +116,6 @@
   "players.troubleshooting": "疑难解答",
   "players.troubleshooting.uploading_logs": "上传日志",
   "players.troubleshooting.crash_reports": "崩溃报告",
-  "players.updating_fabric": "更新 Fabric"
+  "players.updating_fabric": "更新 Fabric",
+  "players.troubleshooting.dependency_overrides": "依赖关系覆盖"
 }

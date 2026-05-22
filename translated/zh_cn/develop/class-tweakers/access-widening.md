@@ -82,7 +82,7 @@ authors:
 
 格式：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -94,7 +94,7 @@ authors:
 
 格式：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -106,7 +106,7 @@ authors:
 
 格式：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 

@@ -12,10 +12,10 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
   if (split[0] === "versions") {
     data.versionType = "old";
     data.version = split[1];
-  } else if (/^[0-9.]+([/]|$)/.test(split[0])) {
+  } else if (/^[0-9.]+$/.test(split[0])) {
     data.versionType = "future";
     data.version = split[0];
-  } else if (split[0] === "translated" && /^[0-9.]+([/]|$)/.test(split[2])) {
+  } else if (split[0] === "translated" && /^[0-9.]+$/.test(split[2])) {
     data.versionType = "future";
     data.version = split[2];
   } else {
