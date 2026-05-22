@@ -130,11 +130,10 @@ Next, we need to define our Placement Modifiers inside the `configure` method, w
 
 The function of each modifier listed is as follows:
 
-- **CountPlacement**: Roughly the amount of instances of this feature (in this case veins) per chunk
-- **BiomeFilter**: Allows us to control what biomes/dimensions it spawns (we'll do more with this later)
-- **InSquarePlacement**: Spreads the features more pseudo-randomly
-- **HeightRangePlacement**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
-  1. **Uniform**:
+- **`CountPlacement`**: Roughly the amount of instances of this feature (in this case veins) per chunk
+- **`BiomeFilter`**: Allows us to control what biomes/dimensions it spawns (we'll do more with this later)
+- **`InSquarePlacement`**: Spreads the features more pseudo-randomly
+- **`HeightRangePlacement`**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:  1. **Uniform**:
      All `y` values within the range are equally likely to contain the feature. If you're unsure, just use this one.
 
   2. **Trapezoid**:
