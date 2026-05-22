@@ -18,7 +18,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	private static final int CONTAINER_START = 0;
 	private static final int CONTAINER_END = SLOTS_COUNT;
-	private static final int INVENTORY_START = CONTAINER_START;
+	private static final int INVENTORY_START = CONTAINER_END;
 	private static final int INVENTORY_END = INVENTORY_START + Inventory.INVENTORY_SIZE;
 
 	private static final int CONTAINER_START_X = 62;
