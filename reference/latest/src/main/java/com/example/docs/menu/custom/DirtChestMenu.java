@@ -100,5 +100,11 @@ public class DirtChestMenu extends AbstractContainerMenu {
 	public boolean stillValid(Player player) {
 		return this.container.stillValid(player);
 	}
+
+	@Override
+	public void removed(Player player) {
+		super.removed(player);
+		container.stopOpen(player);
+	}
 }
 // :::menu
