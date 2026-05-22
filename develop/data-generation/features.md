@@ -24,12 +24,6 @@ The generation for features of Minecraft worlds is broken down into 3 parts:
 - **Placement Features**: this defines how the features should be laid out, in which direction, relative location, and so on; for example, the placement of trees in a forest
 - **Biome Modifications**: this defines where the features are placed in the world; for example, the coordinates of the whole forest
 
-::: info
-
-Features in Minecraft are natural or generated patterns in the world, like trees, flowers, ores, or lakes. Features are different from structures (for example villages, temples...), which can be found with the `/locate` command.
-
-:::
-
 ## Setup {#setup}
 
 First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` inside of the `main` package and fill out the base methods:
