@@ -17,7 +17,7 @@ authors:
   - Treeways
   - xpple
 resources:
-  https://github.com/Mojang/brigadier: Вихідний код Brigadier
+  https://github.com/Mojang/brigadier: Початковий код Brigadier
 ---
 
 Створення команд може дозволити розробнику мода додати функціональні можливості, які можна використовувати за допомогою команди. Ця стаття навчить вас реєструвати команди та загальну командну структуру Brigadier.

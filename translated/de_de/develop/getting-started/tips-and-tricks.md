@@ -6,7 +6,6 @@ authors:
   - dicedpixels
   - its-miroma
   - JR1811
-outline: false
 ---
 
 ## Deine Entwicklungsumgebung wählen {#choose-your-ide}

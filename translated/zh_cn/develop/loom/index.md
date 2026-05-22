@@ -39,7 +39,7 @@ Loom 使用多种不同插件 ID：
 
 在设置依赖于另一个 Loom 项目的多项目构建时，当依赖于其他项目时，应该使用 `namedElements` 配置。 默认情况下，项目的“输出”会重新映射到中间名称。 `namedElements` 配置包含未重新映射的项目输出。
 
-```groovy
+```gradle
 dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
@@ -47,7 +47,7 @@ dependencies {
 
 如果你在多项目构建中使用拆分源集，则还需要为其他项目的客户端源集添加依赖项。
 
-```groovy
+```gradle
 dependencies {
  clientImplementation project(":name").sourceSets.client.output
 }

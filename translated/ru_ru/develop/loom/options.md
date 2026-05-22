@@ -14,7 +14,7 @@ authors:
 
 Эта страница содержит референсы на все настройки, которые находятся в 'loom', который находится в расширении Gradle. Параметры, связанные с особенностями Fabric API, см. на странице [Fabric API DSL](./fabric-api).
 
-```groovy
+```gradle
 loom {
  // Set the class tweaker file path, see https://docs.fabricmc.net/develop/class-tweakers/
  accessWidenerPath = file("src/main/resources/example-mod.classtweaker")

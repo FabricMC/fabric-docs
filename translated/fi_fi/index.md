@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric Dokumentaatio
-  tagline: Fabricin virallinen dokumentaatio,<br />Minecraftille mod-työkaluketju.
+  tagline: Pelaajaoppaamme voi auttaa.
 
 features:
   - title: Pelaajaoppaat

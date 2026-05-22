@@ -39,7 +39,7 @@ Loom verwendet unterschiedliche Plugin IDs:
 
 Beim Einrichten eines Multiprojekt-Builds, das von einem anderen Loom-Projekt abhängt, solltest du die Konfiguration `namedElements` verwenden, wenn du von dem anderen Projekt abhängig bist. Standardmäßig werden die "Ausgaben" eines Projekts auf Zwischennamen umgeschrieben. Die Konfiguration `namedElements` enthält die Projektausgaben, die nicht neu geordnet wurden.
 
-```groovy
+```gradle
 dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
@@ -47,7 +47,7 @@ dependencies {
 
 Wenn du geteilte Quellensätze in einem Multiprojekt-Build verwendest, musst du auch eine Abhängigkeit für den Client-Quellensatz des anderen Projekts hinzufügen.
 
-```groovy
+```gradle
 dependencies {
  clientImplementation project(":name").sourceSets.client.output
 }
