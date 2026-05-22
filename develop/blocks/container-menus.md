@@ -34,6 +34,11 @@ First, we want to create a block and block entity; read more in the [Block Conta
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
+In addition to the normal block entity methods, we need to override the `stillValid` method. This method will be called every tick to check if the player should be forced out of the menu.
+We will use the default implementation of this method from `ContainerHelper`, which checks if our block entity still exists and if the player is within the interaction range.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+
 ### Opening the Menu {#opening-the-screen}
 
 We want to be able to open the menu somehow, so we will handle that within the `useWithoutItem` method:
