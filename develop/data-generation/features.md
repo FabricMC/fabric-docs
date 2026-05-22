@@ -120,7 +120,6 @@ Let's create the placed features class inside of the `main` package, and give it
 
 @[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-
 In your placed features class's `configure` method, create a variable like the one below:
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
