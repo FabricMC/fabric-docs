@@ -8,15 +8,21 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import com.example.docs.block.entity.custom.DirtChestBlockEntity;
 import com.example.docs.menu.ModMenuType;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
 	private static final int SLOTS_ROWS = 3;
 	private static final int SLOTS_COLUMNS = 3;
-	private static final int SLOTS_START_X = 62;
-	private static final int SLOTS_START_Y = 17;
+	private static final int SLOTS_COUNT = SLOTS_ROWS * SLOTS_COLUMNS;
+
+	private static final int CONTAINER_START = 0;
+	private static final int CONTAINER_END = SLOTS_COUNT;
+	private static final int INVENTORY_START = CONTAINER_START;
+	private static final int INVENTORY_END = INVENTORY_START + Inventory.INVENTORY_SIZE;
+
+	private static final int CONTAINER_START_X = 62;
+	private static final int CONTAINER_START_Y = 17;
 	private static final int INVENTORY_START_X = 8;
 	private static final int INVENTORY_START_Y = 84;
 
@@ -24,13 +30,13 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	// Client-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory) {
-		this(containerId, inventory, new SimpleContainer(DirtChestBlockEntity.CONTAINER_SIZE));
+		this(containerId, inventory, new SimpleContainer(SLOTS_COUNT));
 	}
 
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
 		super(ModMenuType.DIRT_CHEST, containerId);
-		checkContainerSize(container, DirtChestBlockEntity.CONTAINER_SIZE);
+		checkContainerSize(container, SLOTS_COUNT);
 		this.container = container;
 
 		// Some containers do custom logic when opened by a player.
@@ -50,8 +56,8 @@ public class DirtChestMenu extends AbstractContainerMenu {
 				this.addSlot(new Slot(
 								this.container,
 								slot,
-								SLOTS_START_X + x * SLOT_SIZE,
-								SLOTS_START_Y + y * SLOT_SIZE
+								CONTAINER_START_X + x * SLOT_SIZE,
+								CONTAINER_START_Y + y * SLOT_SIZE
 				));
 			}
 		}
@@ -68,12 +74,17 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		ItemStack stack = slot.getItem();
 		ItemStack clicked = stack.copy();
 
-		if (slotIndex < this.container.getContainerSize()) {
-			if (!this.moveItemStackTo(stack, this.container.getContainerSize(), this.slots.size(), true)) {
+		if (slotIndex < CONTAINER_END) {
+			// If the clicked slot is in the container, try moving the item to the player inventory.
+			// When moving to the player inventory, starting backwards from the last slots to the first.
+			if (!this.moveItemStackTo(stack, INVENTORY_START, INVENTORY_END, /* backwards: */ true)) {
 				return ItemStack.EMPTY;
 			}
-		} else if (!this.moveItemStackTo(stack, 0, this.container.getContainerSize(), false)) {
-			return ItemStack.EMPTY;
+		} else {
+			// Else, move the item from the player inventory to the container.
+			if (!this.moveItemStackTo(stack, CONTAINER_START, CONTAINER_END, /* backwards: */ false)) {
+				return ItemStack.EMPTY;
+			}
 		}
 
 		if (stack.isEmpty()) {

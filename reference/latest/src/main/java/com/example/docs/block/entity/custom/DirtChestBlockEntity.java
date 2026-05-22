@@ -89,6 +89,7 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	}
 	// :::providerImplemented
 
+
 	// :::be :::menu
 }
 // :::be :::menu
