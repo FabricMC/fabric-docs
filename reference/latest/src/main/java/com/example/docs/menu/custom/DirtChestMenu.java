@@ -104,7 +104,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 	@Override
 	public void removed(Player player) {
 		super.removed(player);
-		container.stopOpen(player);
+		this.container.stopOpen(player);
 	}
 }
 // :::menu
