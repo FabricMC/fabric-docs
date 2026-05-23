@@ -49,7 +49,7 @@ Se stai usando set di sorgenti divise in una build con progetti multipli, dovrai
 
 ```gradle
 dependencies {
- clientImplementation project(":name").sourceSets.client.output
+ clientImplementation this.project(":name").sourceSets.client.output
 }
 ```
 

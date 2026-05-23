@@ -49,7 +49,7 @@ dependencies {
 
 ```gradle
 dependencies {
- clientImplementation project(":name").sourceSets.client.output
+ clientImplementation this.project(":name").sourceSets.client.output
 }
 ```
 
