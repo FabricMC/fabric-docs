@@ -2,6 +2,7 @@
 title: Creare il Tuo Primo Blocco
 description: Impara come creare il tuo primo blocco personalizzato in Minecraft.
 authors:
+  - bluebear94
   - CelDaemon
   - Earthcomputer
   - IMB11

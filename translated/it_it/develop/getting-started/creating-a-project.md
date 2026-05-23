@@ -29,11 +29,11 @@ Se, per esempio, l'ID della tua mod fosse **`la-mia-mod`**, invece di _`resource
 
 ![Anteprima del generatore](/assets/develop/getting-started/template-generator.png)
 
-Se avessi intenzione di usare Kotlin, o di usare i mapping di Fabric Yarn invece di quelli predefiniti di Mojang, o volessi aggiungere generatori di dati, puoi selezionare le opzioni appropriate nella sezione `Advanced Options`.
+Se vuoi usare Kotlin, buildscript in Kotlin, o vuoi aggiungere generatori di dati, puoi selezionare le opzioni apposite nella sezione `Opzioni Avanzate`.
 
 ::: info
 
-Gli esempi in codice presenti su questo sito usano i [nomi ufficiali di Mojang](../porting/mappings/#mappings). Se la tua mod non usasse gli stessi mapping di questa documentazione, dovrai convertirne il codice usando strumenti online come [mappings.dev](https://mappings.dev/) o [Linkie](https://linkie.shedaniel.dev/mappings?namespace=yarn&translateMode=ns&translateAs=mojang_raw&search=).
+Gli esempi in codice presenti su questo sito usano i [nomi del gioco non offuscato](../porting/mappings/#whats-going-on-with-mappings). Se hai una mod esistente che usa mapping diversi da quelli forniti da Mojang, leggi la pagina [Aggiornamento a 26.1](../porting/index) per maggiori informazioni.
 
 :::
 
@@ -68,16 +68,20 @@ Se non puoi usare il Generatore di Mod Modello di Fabric, dovresti creare un nuo
 Anzitutto, clona la repository della mod esempio tramite Git:
 
 ```sh
-git clone https://github.com/FabricMC/fabric-example-mod/ example-mod
+git clone https://github.com/FabricMC/fabric-example-mod.git example-mod
 ```
 
 Questo clonerà la repository in una nuova cartella chiamata `example-mod`.
 
 Dovresti poi eliminare la cartella `.git` dalla repository clonata, e poi aprire il progetto. Se la cartella `.git` dovesse non apparire, dovresti attivare la visualizzazione dei file nascosti nel tuo gestore file.
 
+### Impostare il Tuo IDE {#setting-up}
+
 Quando avrai aperto il progetto nel tuo IDE, esso dovrebbe automaticamente caricare la configurazione Gradle del progetto ed effettuare le operazioni di setup necessarie.
 
-Di nuovo, come già detto in precedenza, se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
+Se ricevi una notifica riguardo a uno script di build Gradle, dovresti cliccare il pulsante `Importa Progetto Gradle`.
+
+Per maggiori informazioni, dai un'occhiata alla pagina [Impostare il tuo IDE](./setting-up).
 
 ### Modificare il Template {#modifying-the-template}
 
@@ -85,6 +89,6 @@ Una volta che il progetto sarà importato, dovresti modificare i dettagli del pr
 
 - Modifica il file `gradle.properties` del tuo progetto per cambiare le proprietà `maven_group` e `archive_base_name` e farle corrispondere con i dettagli della tua mod.
 - Modifica il file `fabric.mod.json` per cambiare le proprietà `id`, `name`, e `descrizione` per farle corrispondere ai dettagli della tua mod.
-- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso <https://fabricmc.net/develop/> - per farle corrispondere alle versioni che vorresti prendere di mira.
+- Assicurati di aggiornare le versioni di Minecraft, i mapping, il Loader e il Loom - tutte queste possono essere trovate attraverso [Fabric per sviluppatori](https://fabricmc.net/develop/) - per farle corrispondere alle versioni che vorresti prendere di mira.
 
-Ovviamente puoi cambiare il nome del package e la classe principale della mod per farli corrispondere ai dettagli della tua mod.
+Poi puoi cambiare il nome del package e la classe principale della mod per farli corrispondere ai dettagli della tua mod.

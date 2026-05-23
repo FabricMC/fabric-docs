@@ -8,19 +8,11 @@ authors:
 
 Abbiamo già parlato brevemente di come renderizzare cose sulla HUD nelle pagine [Concetti di Rendering di Base](./basic-concepts) e [Disegnare nella GUI](./gui-graphics), per cui in questa pagina ci concentreremo sull'API Hud e sul parametro `DeltaTracker`.
 
-## `HudRenderCallback` {#hudrendercallback}
-
-::: warning
-
-Nel passato Fabric ha fornito `HudRenderCallback` per renderizzare al HUD. A causa di alcuni cambiamenti al rendering nel HUD, questo evento è diventato estremamente limitato, ed è deprecato dalla versione 0.116 dell'API di Fabric. Usarlo è fortemente sconsigliato.
-
-:::
-
 ## `HudElementRegistry` {#hudelementregistry}
 
 Fabric fornisce l'API Hud per renderizzare e sovrapporre elementi nella HUD.
 
-Per iniziare, dobbiamo registrare un listener a `HudElementRegistry` che registri i tuoi elementi. Ogni elemento è un `HudElement`. Un'istanza di `HudElement` è solitamente una lambda che accetta una `GuiGraphics` e un'istanza di `DeltaTracker` come parametro. Leggi `HudElementRegistry` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
+Per iniziare, dobbiamo registrare un listener a `HudElementRegistry` che registri i tuoi elementi. Ogni elemento è un `HudElement`. Un'istanza di `HudElement` è solitamente una lambda che accetta una `GuiGraphicsExtractor` e un'istanza di `DeltaTracker` come parametro. Leggi `HudElementRegistry` e le Javadoc correlate per maggiori dettagli sull'uso dell'API.
 
 Le grafiche GUI possono essere usate per accedere a varie utilità di rendering fornite dal gioco, e per accedere allo stack di matrici puro. Dovresti dare un'occhiata alla pagina [Disegnare sulla GUI](./gui-graphics) per saperne di più a riguardo.
 

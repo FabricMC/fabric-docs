@@ -35,7 +35,7 @@ authors:
 
 Потім додайте цього постачальника до свого класу `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`:
 
-@[code lang=java transclude={67-67}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={64-64}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Далі створіть клас для налаштованих функцій і клас для розміщених функцій. Їм не потрібно нічого розширювати.
 
