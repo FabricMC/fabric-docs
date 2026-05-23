@@ -39,6 +39,10 @@ We will use the default implementation of this method from `ContainerHelper`, wh
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
 
+After implementing our menu, it will close automatically when the player is pushed away.
+
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm"/>
+
 ### Opening the Menu {#opening-the-screen}
 
 We want to be able to open the menu somehow, so we will handle that within the `useWithoutItem` method:
