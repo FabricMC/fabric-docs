@@ -281,7 +281,7 @@ export default [
                 link: "/develop/data-generation/item-models",
                 items: [
                   {
-                    text: "develop.data_generation.repetitive_item-generation",
+                    text: "develop.data_generation.repetitive_item_generation",
                     link: "/develop/data-generation/repetitive-item-generation",
                   },
                 ],
