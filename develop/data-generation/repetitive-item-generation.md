@@ -40,7 +40,7 @@ any other items like an ingot or in this case a mallet and a coin:
 
 @[code transcludeWith=:::item-lists](@reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
-Now we create the loop, this loop will be what actualy runs through all of the repetitive items and creates the model
+Now we create the loop inside of your `ItemModels` method, this loop will be what actualy runs through all of the repetitive items and creates the model
 json's for all of the items and their varients.
 
 We'll be using the loop show below and make sure it is lower in the code that the lists or the methods created above:
