@@ -33,19 +33,19 @@ identifier with the inputed strings.
 
 The method we'll be using is provided below:
 
-@[code transcludeWith=:::by-block-name](@reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code transcludeWith=:::by-block-name](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 We also need to add the list that contain the colors the blocks that will be generated and the tool names of any other
 blocks:
 
-@[code transcludeWith=:::block-lists](@reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code transcludeWith=:::block-lists](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Now we create the loop inside of your `BlockModels` method, this loop will be what actualy runs through all of the
 repetitive blocks and creates the model json's for all of your blocks and their variants.
 
 We'll be using the loop show below.:
 
-@[code transcludeWith=:::block-loop](@reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+@[code transcludeWith=:::block-loop](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
 
 Now everything is complete, when you run data generation it should create all of the block model json's and the
 textures will all be visible in game assuming you followed all instructions correctly.
