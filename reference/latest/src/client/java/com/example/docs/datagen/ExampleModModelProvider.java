@@ -48,15 +48,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	// :::block-lists
 	String[] blockcolors = { "yellow", "blue" };
 	// :::block-lists
-	
+
 	// :::by-block-name
 	private Block getModBlockByName(String name) {
-  		return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
-      		.map(Holder.Reference::value)
-      		.orElse(null);
+		return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+				.map(Holder.Reference::value)
+				.orElse(null);
 	}
 	// :::by-block-name
-	
+
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
 		// :::provider
@@ -93,30 +93,30 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		// :::block-loop
 		for (String blockcolor : this.blockcolors) {
-      String blockName = blockcolor + "_arrow_block";
+			String blockName = blockcolor + "_arrow_block";
 			Block blockBlock = this.getModBlockByName(blockName);
 
 			blockStateModelGenerator.createTrivialCube(blockBlock);
 		}
 		// :::block-loop
-		
+
 		// :::provider
 	}
 	// :::provider
 
 	// :::by-item-name
 	private Item getModItemByName(String name) {
-  		return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
-  				.map(Holder.Reference::value)
-					.orElse(null);
-  }
+		return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+				.map(Holder.Reference::value)
+				.orElse(null);
+	}
 	// :::by-item-name
 
 	// :::item-lists
 	String[] materials = { "gold", "emerald" };
-  String[] types = { "coin", "mallet" };
+	String[] types = { "coin", "mallet" };
 	// :::item-lists
-	
+
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
@@ -149,10 +149,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		//:::condition
 		itemModelGenerator.generateBooleanDispatch(
-						ModItems.FLASHLIGHT,
-						ItemModelUtils.isUsingItem(),
-						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, "_lit", ModelTemplates.FLAT_ITEM)),
-						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, ModelTemplates.FLAT_ITEM))
+				ModItems.FLASHLIGHT,
+				ItemModelUtils.isUsingItem(),
+				ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, "_lit", ModelTemplates.FLAT_ITEM)),
+				ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, ModelTemplates.FLAT_ITEM))
 		);
 		//:::condition
 
@@ -161,8 +161,8 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		ItemModel.Unbaked hoePlus = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, "_plus", ModelTemplates.FLAT_HANDHELD_ITEM));
 
 		itemModelGenerator.itemModelOutput.accept(
-						ModItems.ENHANCED_HOE,
-						ItemModelUtils.composite(hoe, hoePlus)
+				ModItems.ENHANCED_HOE,
+				ItemModelUtils.composite(hoe, hoePlus)
 		);
 		//:::composite
 
@@ -172,12 +172,12 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		ItemModel.Unbaked crystalEnd = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_end", ModelTemplates.FLAT_ITEM));
 
 		itemModelGenerator.itemModelOutput.accept(
-						ModItems.DIMENSIONAL_CRYSTAL,
-						ItemModelUtils.select(new ContextDimension(),
-										ItemModelUtils.when(Level.OVERWORLD, crystalOverworld),
-										ItemModelUtils.when(Level.NETHER, crystalNether),
-										ItemModelUtils.when(Level.END, crystalEnd)
-						)
+				ModItems.DIMENSIONAL_CRYSTAL,
+				ItemModelUtils.select(new ContextDimension(),
+						ItemModelUtils.when(Level.OVERWORLD, crystalOverworld),
+						ItemModelUtils.when(Level.NETHER, crystalNether),
+						ItemModelUtils.when(Level.END, crystalEnd)
+				)
 		);
 		//:::select
 
@@ -187,15 +187,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		ItemModel.Unbaked knifeThree = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_three", ModelTemplates.FLAT_ITEM));
 
 		itemModelGenerator.itemModelOutput.accept(
-						ModItems.THROWING_KNIVES,
-						ItemModelUtils.rangeSelect(
-										new Count(false),
-										List.of(
-														ItemModelUtils.override(knifeOne, 1.0F),
-														ItemModelUtils.override(knifeTwo, 2.0F),
-														ItemModelUtils.override(knifeThree, 3.0F)
-										)
+				ModItems.THROWING_KNIVES,
+				ItemModelUtils.rangeSelect(
+						new Count(false),
+						List.of(
+								ItemModelUtils.override(knifeOne, 1.0F),
+								ItemModelUtils.override(knifeTwo, 2.0F),
+								ItemModelUtils.override(knifeThree, 3.0F)
 						)
+				)
 		);
 		//:::range-dispatch
 
@@ -205,20 +205,18 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		// :::item-loop
 		for (String material : this.materials) {
-    	for (String type : this.types) {
+			for (String type : this.types) {
 				String registryName = material + "_" + type;
 
 				Item item = this.getModItemByName(registryName);
 
 				if (item != null) { // Prevents invalid items from causing a crash
 					itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_HANDHELD_ITEM);
-        }
+				}
 			}
 		}
 		// :::item-loop
-					
-						
-		
+
 		// :::provider
 	}
 	// :::provider
