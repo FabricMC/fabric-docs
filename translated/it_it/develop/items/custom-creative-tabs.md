@@ -10,7 +10,7 @@ Le schede d'inventario, anche dette gruppi di oggetti, sono quelle dell'inventar
 
 ## Creare la scheda d'inventario {#creating-the-creative-tab}
 
-Aggiungere una scheda all'inventario è abbastanza semplice. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare la scheda e una chiave di registry per essa. Poi, potrai usare `FabricItemGroup.builder` per crearla e aggiungerci gli oggetti:
+Aggiungere una scheda all'inventario è abbastanza semplice. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare la scheda e una chiave di registry per essa. Poi, potrai usare `FabricCreativeModeTab.builder` per crearla e aggiungerci gli oggetti:
 
 @[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
@@ -26,7 +26,7 @@ Se avessi per caso usato `Component.translatable` per il metodo `title` del cost
 
 ```json
 {
-  "itemGroup.example-mod": "Example Mod"
+  "creativeTab.example-mod": "Example Mod"
 }
 ```
 

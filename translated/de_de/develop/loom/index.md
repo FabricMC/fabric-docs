@@ -49,7 +49,7 @@ Wenn du geteilte Quellensätze in einem Multiprojekt-Build verwendest, musst du 
 
 ```gradle
 dependencies {
- clientImplementation project(":name").sourceSets.client.output
+ clientImplementation this.project(":name").sourceSets.client.output
 }
 ```
 
