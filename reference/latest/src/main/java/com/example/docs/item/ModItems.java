@@ -54,7 +54,7 @@ import com.example.docs.networking.basic.LightningTaterItem;
 // :::1
 public class ModItems {
 	// :::1
-
+	
 	// :::guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
 			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
@@ -219,6 +219,13 @@ public class ModItems {
 
 	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
+	// :::repetitive-items
+	public static final Item GOLD_COIN = register("gold_coin", Item::new, new Item.Properties());
+	public static final Item GOLD_MALLET = register("gold_mallet", Item::new, new Item.Properties());
+	public static final Item EMERALD_COIN = register("emerald_coin", Item::new, new Item.Properties());
+	public static final Item EMERALD_MALLET = register("emerald_mallet", Item::new, new Item.Properties());
+	// :::repetitive-items
+	
 	// :::1
 	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
 		// Create the item key.
