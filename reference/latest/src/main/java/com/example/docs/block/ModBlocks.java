@@ -169,7 +169,7 @@ public class ModBlocks {
 	public static final Block BLUE_ARROW_BLOCK = register(
 			"blue_arrow_block", Block::new, BlockBehaviour.Properties.of(), true
 	);
-	// ::repetitive-blocks
+	// :::repetitive-blocks
 	
 	// :::1
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
