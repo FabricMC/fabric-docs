@@ -273,6 +273,12 @@ export default [
               {
                 text: "develop.data_generation.item_models",
                 link: "/develop/data-generation/item-models",
+                items: [
+                  {
+                    text: "develop.data_generation.repetitive-generation",
+                    link: "/develop/data-generation/repetitive-generation",
+                  },
+                ],
               },
             ],
           },
