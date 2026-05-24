@@ -67,7 +67,7 @@ There are two ways to register a dynamic registry:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#synced
 
-`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry. In our case we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field for client UI, So we will create a [`Codec`](./codecs.md) that doesn't include the [`onUseMcFunction`](#class-setup) field.
+`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry. In our case we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field for client UI, so we create a [`Codec`](./codecs.md) that doesn't include the [`onUseMcFunction`](#class-setup) field.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
