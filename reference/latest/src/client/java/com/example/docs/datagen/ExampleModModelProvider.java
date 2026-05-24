@@ -49,7 +49,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	
 	// :::by-block-name
 	private Block getModBlockByName(String name) {
-        return BuiltInRegistries.BLOCK.get(Identifier.of(ExampleMod.MOD_ID, name))
+        return BuiltInRegistries.BLOCK.get(new Identifier(ExampleMod.MOD_ID, name))
                 .map(Holder.Reference::value) // Get the Item out of the Holder
                 .orElse(null);                  // Return null if the item doesn't exist
   }
@@ -104,7 +104,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 	// :::by-item-name
 	private Item getModItemByName(String name) {
-        return BuiltInRegistries.ITEM.get(Identifier.of(ExampleMod.MOD_ID, name))
+        return BuiltInRegistries.ITEM.get(new Identifier(ExampleMod.MOD_ID, name))
                 .map(Holder.Reference::value) // Get the Item out of the Holder
                 .orElse(null);                  // Return null if the item doesn't exist
   }
