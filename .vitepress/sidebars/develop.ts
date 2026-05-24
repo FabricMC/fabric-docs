@@ -271,7 +271,7 @@ export default [
                 link: "/develop/data-generation/block-models",
                 items: [
                   {
-                    text: "develop.data_generation.repetitive-block-generation",
+                    text: "develop.data_generation.repetitive_block_generation",
                     link: "/develop/data-generation/repetitive-block-generation",
                   },
                 ],
@@ -281,7 +281,7 @@ export default [
                 link: "/develop/data-generation/item-models",
                 items: [
                   {
-                    text: "develop.data_generation.repetitive-item-generation",
+                    text: "develop.data_generation.repetitive_item-generation",
                     link: "/develop/data-generation/repetitive-item-generation",
                   },
                 ],
