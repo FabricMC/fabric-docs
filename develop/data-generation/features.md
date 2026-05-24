@@ -3,6 +3,7 @@ title: Feature Generation
 description: A guide to generating features in the world with datagen.
 authors:
   - cassiancc
+  - CelDaemon
   - its-miroma
   - Wind292
 ---
