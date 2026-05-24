@@ -41,7 +41,7 @@ We will use the default implementation of this method from `ContainerHelper`, wh
 
 After implementing our menu, it will close automatically when the player is pushed away.
 
-<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm"/>
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">The container menu closes when the player goes out of range</VideoPlayer>
 
 ### Opening the Menu {#opening-the-screen}
 
