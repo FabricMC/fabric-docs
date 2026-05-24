@@ -33,6 +33,10 @@ First, we need to make our provider. Create a class that extends `FabricDynamicR
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
 
+In the `configure` method, we will call `addAll` to ensure all the files for our features is generated.
+
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen-add-entries
+
 Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add-worldgen-provider
