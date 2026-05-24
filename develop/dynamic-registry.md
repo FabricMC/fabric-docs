@@ -35,7 +35,7 @@ First, create the class that represents a registry entry. It is a simple data ho
 
 - `name` is the name of the skill.
 - `manaCost` is the mana cost of the skill.
-- `onUseMcFunction` is a mcfunction that the server can execute when the skill is used. having this in the registry will let other datapacks customize the logic of any skill or add new skills with their own mcfunction.
+- `onUseMcFunction` is an mcfunction that the server can execute when the skill is used. having this in the registry will let other datapacks customize the logic of any skill or add new skills with their own mcfunction.
 
 ### Registering the Registry {#registering-the-registry}
 
