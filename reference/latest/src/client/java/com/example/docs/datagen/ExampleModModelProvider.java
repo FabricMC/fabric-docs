@@ -21,6 +21,8 @@ import net.minecraft.client.renderer.item.properties.numeric.Count;
 import net.minecraft.client.renderer.item.properties.select.ContextDimension;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -47,7 +49,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	
 	// :::by-block-name
 	private Block getModBlockByName(String name) {
-        return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+        return BuiltInRegistries.BLOCK.get(Identifier.of(ExampleMod.MOD_ID, name))
                 .map(Holder.Reference::value) // Get the Item out of the Holder
                 .orElse(null);                  // Return null if the item doesn't exist
   }
@@ -90,7 +92,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// :::block-loop
 		for (String blockcolor : blockcolors) {
       String blockName = blockcolor + "_arrow_block";
-			Block blockBlock = getModBlockByName(blockBlock);
+			Block blockBlock = getModBlockByName(blockName);
 
 			blockStateModelGenerator.createTrivialCube(blockBlock);
 		}
@@ -102,7 +104,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 	// :::by-item-name
 	private Item getModItemByName(String name) {
-        return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+        return BuiltInRegistries.ITEM.get(Identifier.of(ExampleMod.MOD_ID, name))
                 .map(Holder.Reference::value) // Get the Item out of the Holder
                 .orElse(null);                  // Return null if the item doesn't exist
   }
