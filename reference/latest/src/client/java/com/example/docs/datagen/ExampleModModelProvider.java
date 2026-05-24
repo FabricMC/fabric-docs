@@ -1,5 +1,7 @@
 package com.example.docs.datagen;
 
+import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -36,8 +38,6 @@ import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
-
-import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
 // :::provider
 public class ExampleModModelProvider extends FabricModelProvider {
