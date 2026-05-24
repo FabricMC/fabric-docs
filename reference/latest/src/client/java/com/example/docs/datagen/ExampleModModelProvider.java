@@ -41,6 +41,18 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		super(output);
 	}
 
+	// :::block-lists
+	String[] blockcolors = { "yellow", "blue" };
+	// :::block-lists
+	
+	// :::by-block-name
+	private Block getModBlockByName(String name) {
+        return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(Moreores.MOD_ID, name))
+                .map(Holder.Reference::value) // Get the Item out of the Holder
+                .orElse(null);                  // Return null if the item doesn't exist
+  }
+	// :::by-block-name
+	
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
 		// :::provider
@@ -75,6 +87,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		);
 		// :::custom-method-call
 
+		// :::block-loop
+		for (String blockcolor : blockcolors) {
+      String blockName = blockcolor + "_arrow_block";
+			Block blockBlock = getModBlockByName(blockBlock);
+
+			blockStateModelGenerator.createTrivialCube(blockBlock);
+		}
+		// :::block-loop
+		
 		// :::provider
 	}
 	// :::provider
