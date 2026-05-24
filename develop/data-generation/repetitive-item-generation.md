@@ -1,11 +1,11 @@
 ---
-title: Repetitive Generation
+title: Repetitive Item Generation
 description: Learn how to make repetitive item model generation easier
 authors:
   - JonyBoy19
 ---
 
-When adding several different tools and material varients of those tools to your item model datageneration it can get
+When adding several different tools and material varients of those tools to your item model data generation it can get
 quite repetetive and create significant clutter.
 Due to this fact it would be significantly easier to do this if you only had to change a few lines.
 
