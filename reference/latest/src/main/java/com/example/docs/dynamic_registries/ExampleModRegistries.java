@@ -21,7 +21,7 @@ public class ExampleModRegistries {
 	// #endregion key
 	// #endregion main
 	// #region entry_id
-	Identifier HEALING_SPELL_ENTRY_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell");
+	ResourceKey<MagicSkillsRegistryEntry> HEALING_SPELL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY,Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell"));
 	// #endregion entry_id
 	// #region main
 
@@ -74,8 +74,8 @@ public class ExampleModRegistries {
 	// #endregion get_registry
 
 	// #region get_specific_registry_entry
-	public static <T> Optional<T> getSpecificRegistryEntry(RegistryAccess registryAccess, ResourceKey<Registry<T>> registryKey, Identifier entryId) {
-		return registryAccess.get(ResourceKey.create(registryKey, entryId)).map(Holder::value);
+	public static <T> Optional<Holder.Reference<T>> getSpecificRegistryEntry(RegistryAccess registryAccess, ResourceKey<T>  entryId) {
+		return registryAccess.get(entryId);
 	}
 	// #endregion get_specific_registry_entry
 
@@ -91,12 +91,15 @@ public class ExampleModRegistries {
 		// #endregion get_registry_usage
 
 		// #region get_specific_registry_entry_usage
-		Optional<MagicSkillsRegistryEntry> entry = getSpecificRegistryEntry(registryAccess, ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, HEALING_SPELL_ENTRY_ID);
+		Optional<Holder.Reference<MagicSkillsRegistryEntry>> entry = getSpecificRegistryEntry(registryAccess, HEALING_SPELL_ENTRY_ID);
+		entry.ifPresent(magicSkillRef -> {
+			System.out.println(magicSkillRef.value().name());
+		});
 		// #endregion get_specific_registry_entry_usage
 
 		// #region iterate_over_registry_entries_usage
 		iterateOverRegistryEntries(registryAccess, ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, (MagicSkillsRegistryEntry magicSkill) -> {
-			// Do something with the magic skill
+			System.out.println(magicSkill.name());
 		});
 		// #endregion iterate_over_registry_entries_usage
 	}

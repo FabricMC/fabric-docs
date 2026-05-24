@@ -21,10 +21,7 @@ Dynamic registries act as a bridge between your hardcoded logic and external dat
 2. Other modders can add new content through data packs instead of patching your code.
 3. Players can override default values, such as a mana cost or upgrade price in a skills registry, by replacing data entries in a data pack.
 4. Dynamic registry data is world-specific. It loads when a world opens and is cleared when that world closes.
-
-### What Problems Do They Solve? {#what-problems-do-they-solve}
-
-Dynamic registries solve the "hardcoded content" problem. Instead of baking every skill, quest, or upgrade directly into Java code with enums or static lists, you define a blueprint in code and let the actual content come from data.
+5. Dynamic registries solve the "hardcoded content" problem. Instead of baking every skill, quest, or upgrade directly into Java code with enums or static lists, you define a blueprint in code and let the actual content come from data.
 
 ## Creating a Dynamic Registry {#creating-a-dynamic-registry}
 
@@ -38,7 +35,7 @@ First, create the class that represents a registry entry. It is a simple data ho
 
 - `name` is the name of the skill.
 - `manaCost` is the mana cost of the skill.
-- `onUseMcFunction` is an identifer of a mcfunction that the server can execute when the skill is used. having this in the registry will let other datapacks customize the logic of any skill or add new skills with their own mcfunction.
+- `onUseMcFunction` is a mcfunction that the server can execute when the skill is used. having this in the registry will let other datapacks customize the logic of any skill or add new skills with their own mcfunction.
 
 ### Registering the Registry {#registering-the-registry}
 
@@ -116,7 +113,7 @@ The first `example-mod` is the namespace of the entry being added. The second `e
 :::
 
 #### Entry ID {#entry-id}
-The entry ID is the unique identifier for each entry, and it can be useful for accessing a specific entry from a registry. The filename becomes the entry ID, and it should usually be lowercase with underscores. Our entry JSON file is named `healing_spell.json`, therefore, the entry ID is:
+The entry ID is a unique key for each entry, and it can be useful for accessing a specific entry from a registry. The filename and the [registry key](#registering-the-registry) are used to make the entry ID. Our entry JSON file is named `healing_spell.json`, therefore, the entry ID is:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#entry_id
 
