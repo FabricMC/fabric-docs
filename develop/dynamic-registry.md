@@ -39,7 +39,7 @@ First, create the class that represents a registry entry. It is a simple data ho
 
 ### Registering the Registry {#registering-the-registry}
 
-Each registry requires a key that uniquely identifies that registry and is required for the registration, So create a key for the registry.
+Each registry requires a key that uniquely identifies that registry and is required for the registration, so create a key for your registry:
 
 ::: tip
 
