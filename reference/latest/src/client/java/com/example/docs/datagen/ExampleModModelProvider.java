@@ -79,6 +79,19 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	}
 	// :::provider
 
+	// :::by-item-name
+	private Item getModItemByName(String name) {
+        return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(Moreores.MOD_ID, name))
+                .map(Holder.Reference::value) // Get the Item out of the Holder
+                .orElse(null);                  // Return null if the item doesn't exist
+  }
+	// :::by-item-name
+
+	// :::item-lists
+	String[] materials = { "gold", "emerald" };
+  String[] types = { "coin", "mallet" };
+	// :::item-lists
+	
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
@@ -165,6 +178,22 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		//:::custom-balloon
 
+		// :::item-loop
+		for (String material : materials) {
+    	for (String type : types) {
+				String registryName = material + "_" + type;
+
+				Item item = getModItemByName(registryName);
+
+				if (item != null) { // Prevents invalid items from causing a crash
+					itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_HANDHELD_ITEM);
+        }
+			}
+		}
+		// :::item-loop
+					
+						
+		
 		// :::provider
 	}
 	// :::provider
