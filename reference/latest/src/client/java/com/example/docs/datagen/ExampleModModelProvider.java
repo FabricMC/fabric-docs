@@ -51,10 +51,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	
 	// :::by-block-name
 	private Block getModBlockByName(String name) {
-        return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
-                .map(Holder.Reference::value) // Get the Item out of the Holder
-                .orElse(null);                  // Return null if the item doesn't exist
-  }
+  		return BuiltInRegistries.BLOCK.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+      		.map(Holder.Reference::value)
+      		.orElse(null);
+	}
 	// :::by-block-name
 	
 	@Override
@@ -92,9 +92,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// :::custom-method-call
 
 		// :::block-loop
-		for (String blockcolor : blockcolors) {
+		for (String blockcolor : this.blockcolors) {
       String blockName = blockcolor + "_arrow_block";
-			Block blockBlock = getModBlockByName(blockName);
+			Block blockBlock = this.getModBlockByName(blockName);
 
 			blockStateModelGenerator.createTrivialCube(blockBlock);
 		}
@@ -106,9 +106,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 	// :::by-item-name
 	private Item getModItemByName(String name) {
-        return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
-                .map(Holder.Reference::value) // Get the Item out of the Holder
-                .orElse(null);                  // Return null if the item doesn't exist
+  		return BuiltInRegistries.ITEM.get(fromNamespaceAndPath(ExampleMod.MOD_ID, name))
+  				.map(Holder.Reference::value)
+					.orElse(null);
   }
 	// :::by-item-name
 
@@ -204,11 +204,11 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//:::custom-balloon
 
 		// :::item-loop
-		for (String material : materials) {
-    	for (String type : types) {
+		for (String material : this.materials) {
+    	for (String type : this.types) {
 				String registryName = material + "_" + type;
 
-				Item item = getModItemByName(registryName);
+				Item item = this.getModItemByName(registryName);
 
 				if (item != null) { // Prevents invalid items from causing a crash
 					itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_HANDHELD_ITEM);
