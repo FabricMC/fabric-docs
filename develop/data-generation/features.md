@@ -5,6 +5,7 @@ authors:
   - cassiancc
   - CelDaemon
   - its-miroma
+  - JonyBoy19
   - Wind292
 ---
 
@@ -16,21 +17,17 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 :::
 
+Features in Minecraft are natural or generated patterns in the world, like trees, flowers, ores, or lakes. Features are different from structures (for example villages, temples...), which can be found with the `/locate` command.
+
 The generation for features of Minecraft worlds is broken down into 3 parts:
 
 - **Configured Features**: this defines what a feature is; for example, a single tree
 - **Placement Features**: this defines how the features should be laid out, in which direction, relative location, and so on; for example, the placement of trees in a forest
 - **Biome Modifications**: this defines where the features are placed in the world; for example, the coordinates of the whole forest
 
-::: info
-
-Features in Minecraft are natural or generated patterns in the world, like trees, flowers, ores, or lakes. Features are different from structures (for example villages, temples...), which can be found with the `/locate` command.
-
-:::
-
 ## Setup {#setup}
 
-First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` and fill out the base methods:
+First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` inside of the `main` package and fill out the base methods:
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
 
@@ -54,9 +51,13 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 ## Configured Features {#configured-features}
 
-To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class. Let's add a custom configured feature for a Diamond Ore vein.
+To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class.
 
-First, register the key for the `ConfiguredFeature` in your configured feature class:
+Before we can do anything, let's create the configured features class inside of the `main` package, and declare a `configure` method:
+
+@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+
+Now, let's add a custom configured feature for a Diamond Ore vein. First, register the key for the `ConfiguredFeature` in your configured feature class:
 
 @[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -68,11 +69,11 @@ The second argument to the `Identifier` (`diamond_block_vein` in this example) i
 
 ### Ores {#ores}
 
-Next, we'll make a `RuleTest` that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
+Next, we'll make a `RuleTest` inside the `configure` method that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
 
 @[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Next, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
+Next, also inside the `configure` method, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
 
 @[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -80,13 +81,13 @@ You can have multiple cases in the list for different variants. For example, let
 
 @[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Lastly, we need to register our configured feature to our game!
+Lastly, we need to register our configured feature to our game inside the `configure` method!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 ### Trees {#trees}
 
-To make a custom tree, you need to first create a `TreeConfiguration`:
+To make a custom tree, you need to first create a `TreeConfiguration` inside the `configure` method:
 
 @[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -114,26 +115,30 @@ Next, we need to register our tree by adding the following line to the `configur
 
 The next step in adding a feature to the game is creating its Placement Feature.
 
+Let's create the placed features class inside of the `main` package, and give it a `configure` method like before:
+
+@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+
 In your placed features class's `configure` method, create a variable like the one below:
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-In your placed features class, define the key for your placed feature.
+In your placed features class, define the key for your placed feature:
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ### Placement Modifiers {#placement-modifiers}
 
-Next, we need to define our Placement Modifiers, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
+Next, we need to define our Placement Modifiers inside the `configure` method, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
 
 @[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 The function of each modifier listed is as follows:
 
-- **CountPlacement**: Roughly the amount of instances of this feature (in this case veins) per chunk
-- **BiomeFilter**: Allows us to control what biomes/dimensions it spawns (we'll do more with this later)
-- **InSquarePlacement**: Spreads the features more pseudo-randomly
-- **HeightRangePlacement**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
+- **`CountPlacement`**: Roughly the amount of instances of this feature (in this case veins) per chunk
+- **`BiomeFilter`**: Allows us to control what biomes/dimensions it spawns (we'll do more with this later)
+- **`InSquarePlacement`**: Spreads the features more pseudo-randomly
+- **`HeightRangePlacement`**: Specifies the range of `y` coordinates where a feature can spawn; it supports three main types of distributions:
   1. **Uniform**:
      All `y` values within the range are equally likely to contain the feature. If you're unsure, just use this one.
 
@@ -141,6 +146,7 @@ The function of each modifier listed is as follows:
      `y` values closer to the median `y` value have a higher probability of containing the feature.
 
   3. **Biased-Bottom**:
+
      Uses a logarithmic scale where lower `y` values are more likely to get the feature. It receives a starting `y` coordinate, below which the feature never spawns. The second argument is the maximum height where the feature can spawn. The third argument defines a range in blocks over which the maximum probability is extended.
 
 ::: tip
@@ -149,13 +155,13 @@ Trees and other surface structures should include the modifier `PlacedFeatures.W
 
 :::
 
-Now that we have the modifiers, we can register our placed feature:
+Now that we have the modifiers, we can register our placed feature in the `configure` method:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ## Biome Modifications {#biome-modifications}
 
-Lastly, we need to add our placed feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our mod initiializer:
+Lastly, we need to add our placed feature to `BiomeModifications` during mod initialization. We can do this by adding the following to our [mod initializer](../getting-started/project-structure#entrypoints):
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 
