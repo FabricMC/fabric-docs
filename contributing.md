@@ -654,7 +654,7 @@ The video player supports both [assets](#assets) and external videos:
 
 > Minecraft Celebrates the Community! (Yes, that means you!)
 
-<VideoPlayer src="https://www.youtube.com/watch?v=LMCt-gSvEqU">fabric.mod.json v2 Released!!!</VideoPlayer>
+<VideoPlayer src="https://www.youtube.com/watch?v=LMCt-gSvEqU">Minecraft Celebrates the Community! (Yes, that means you!)</VideoPlayer>
 
 <!-- #endregion video -->
 
