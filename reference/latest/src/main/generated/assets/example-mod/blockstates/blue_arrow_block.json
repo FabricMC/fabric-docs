@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "example-mod:block/blue_arrow_block"
+    }
+  }
+}
