@@ -211,7 +211,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 				Item item = this.getModItemByName(registryName);
 
 				if (item != null) { // Prevents invalid items from causing a crash
-					itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_HANDHELD_ITEM);
+					itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
 				}
 			}
 		}
