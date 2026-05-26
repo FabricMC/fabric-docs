@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "example-mod:item/emerald_mallet"
+    "model": "example-mod:item/emerald_coin"
   }
 }
