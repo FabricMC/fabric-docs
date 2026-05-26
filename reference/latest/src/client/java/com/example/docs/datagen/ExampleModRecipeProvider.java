@@ -4,11 +4,14 @@ package com.example.docs.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.ExampleMod;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -58,17 +61,29 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
 						.save(output);
 				// :::datagen-recipes:shaped
-				// :::datagen-recipes:other
+				// :::datagen-recipes:smelting
 				oreSmelting(
-						List.of(Items.BREAD, Items.COOKIE, Items.HAY_BLOCK), // Inputs
-						RecipeCategory.FOOD, // Category
-						CookingBookCategory.FOOD, // Category
-						Items.WHEAT, // Output
+						List.of(Items.IRON_PICKAXE), // Inputs
+						RecipeCategory.TOOLS, // Category
+						CookingBookCategory.MISC, // Category
+						Items.IRON_INGOT, // Output
 						0.1f, // Experience
 						300, // Cooking time
-						"food_to_wheat" // group
+						"tool_to_ingot" // group
 				);
-				// :::datagen-recipes:other
+				// :::datagen-recipes:smelting
+
+				// #region smoking-recipe
+				SimpleCookingRecipeBuilder.smoking(
+						Ingredient.of(Items.WATER_BUCKET), // Input
+						RecipeCategory.MISC, // Category (MISC for smoking recipes)
+						Items.BUCKET, // Output
+						0.35f, // Experience
+						100 // Cooking Time
+				)
+				.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
+				.save(output, ExampleMod.MOD_ID + ":water_bucket_to_bucket"); // Then save the recipe with your modid and the recipe name.
+				// #endregion smoking-recipe
 				// :::datagen-recipes:provider
 			}
 		};
