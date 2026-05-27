@@ -78,8 +78,8 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	// :::custom-pipelines:extraction-phase
 	// :::custom-pipelines:drawing-phase
 	private void renderAndDrawWaypoint(LevelRenderContext context) {
-		renderWaypoint(context);
-		drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
+		this.renderWaypoint(context);
+		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
 	}
 
 	private void renderWaypoint(LevelRenderContext context) {
@@ -93,7 +93,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
-		renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
+		this.renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
 
 		matrices.popPose();
 	}
