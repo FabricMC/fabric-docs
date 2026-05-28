@@ -258,3 +258,4 @@ Now, we have a condition that returns `false` if the specified registry contains
       ]
     }
   ]
+```
