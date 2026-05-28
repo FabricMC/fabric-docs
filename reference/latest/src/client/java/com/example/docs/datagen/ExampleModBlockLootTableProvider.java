@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -36,6 +38,11 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
 		// :::datagen-loot-tables:block-drops
+		// #region datagen-loot-tables--conditions
+		// Make the duplicator never drop via resource conditions
+		withConditions(ResourceConditions.not(ResourceConditions.alwaysTrue()))
+						.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
+		// #endregion datagen-loot-tables--conditions
 		// :::datagen-loot-tables:block-provider
 	}
 }

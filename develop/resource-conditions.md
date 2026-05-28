@@ -3,6 +3,8 @@ title: Resource Conditions
 description: A guide to allowing your mod's data to load conditionally.
 authors:
   - cassiancc
+resources:
+  https://github.com/FabricMC/fabric-api/blob/26.1.2/fabric-data-generation-api-v1/src/testmod/java/net/fabricmc/fabric/test/datagen/DataGeneratorTestEntrypoint.java: Fabric API's Data Generation Test Mod
 ---
 
 When designing integrations with other mods, a common need is a way to define when your mod's resources should be loaded. For this reason, Fabric API offers Resource Conditions.
