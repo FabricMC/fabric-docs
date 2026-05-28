@@ -5,6 +5,7 @@ authors-nogithub:
   - salvopelux
 authors:
   - Daomephsta
+  - CelDaemon
   - Earthcomputer
   - its-miroma
   - Juuxel
@@ -15,9 +16,9 @@ authors:
 
 Упровадження інтерфейсу — це тип [твікінгу класу](../class-tweakers/), який використовується для додавання реалізацій інтерфейсу до класів Minecraft у декомпільованому джерелі.
 
-Реалізація, яка є видимою в декомпільованому вихідному коді класу, усуває необхідність приведення до інтерфейсу для використання його методів.
+Реалізація, яка є видимою в декомпільованому початковому коді класу, усуває необхідність приведення до інтерфейсу для використання його методів.
 
-Крім того, упровадження інтерфейсу можуть бути [прохідними](../class-tweakers/index#transitive-entries), що дозволяє бібліотекам легше надавати додані методи модам, які залежать від них.
+Крім того, упровадження інтерфейсу можуть бути [транзитивними](../class-tweakers/index#transitive-entries), що дозволяє бібліотекам легше надавати додані методи модам, які залежать від них.
 
 Щоб продемонструвати впровадження інтерфейсу, фрагменти цієї сторінки використовуватимуть приклад, де ми додаємо новий допоміжний метод до `FlowingFluid`.
 
@@ -63,7 +64,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Для нашого прикладу інтерфейсу запис буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
 
 ### Загальні інтерфейси {#generic-interfaces}
 
@@ -90,11 +91,11 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Запис твікера класу буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
 
 ## Застосування змін {#applying-changes}
 
-Щоб побачити внесені реалізації інтерфейсу, оновіть проєкт Gradle за допомогою [перегенерування джерел](../getting-started/generating-sources).
+Щоб побачити внесені реалізації інтерфейсу, оновіть проєкт Gradle з [перегенеруванням джерел](../getting-started/generating-sources).
 Якщо зміни не показано, ви можете спробувати [перевірити](../class-tweakers/index#validating-the-file) файл та перевірити на наявність помилок.
 
 Додані методи тепер можна використовувати в екземплярах класу, в який було впроваджено інтерфейс:

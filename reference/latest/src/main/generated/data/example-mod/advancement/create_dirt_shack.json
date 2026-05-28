@@ -1,0 +1,31 @@
+{
+  "parent": "example-mod:get_dirt",
+  "criteria": {
+    "place_dirt": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:dirt",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "It's all coming together!",
+    "icon": {
+      "id": "minecraft:dirt"
+    },
+    "show_toast": false,
+    "title": "Create a dirt shack"
+  },
+  "requirements": [
+    [
+      "place_dirt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

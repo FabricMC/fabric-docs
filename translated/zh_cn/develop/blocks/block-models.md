@@ -4,6 +4,8 @@ description: 一篇编写和理解方块模型的指南。
 authors:
   - Fellteros
   - its-miroma
+resources:
+  https://minecraft.wiki/w/Model#Block_models: 方块模型 - Minecraft Wiki
 ---
 
 <!-- markdownlint-disable search-replace -->
@@ -120,7 +122,3 @@ authors:
    而是相当于对所选纹理顶点（隐式选择或通过 `uv` 显式选择）进行置换。
 5. `tintidex`：_整数_。 使用色调值对该面的纹理进行着色。 默认值 `-1` 表示不使用色调。
    向 `BlockColors` 传入任何其他数字即可获取与该索引对应的色调值（当方块未定义色调索引时返回白色）。
-
-## 来源和链接 {#sources-and-links}
-
-你可以访问 Minecraft Wiki 的[方块模型页面](https://zh.minecraft.wiki/w/%E6%A8%A1%E5%9E%8B#%E6%96%B9%E5%9D%97%E6%A8%A1%E5%9E%8B)来获取更详细的说明。 这里的很多信息都来自该页面。

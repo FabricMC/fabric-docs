@@ -7,16 +7,18 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 
+import com.example.docs.ExampleMod;
+
 public class ExampleModAttachments {
 	// #region string
 	public static final AttachmentType<String> EXAMPLE_STRING_ATTACHMENT = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath("example-mod", "example_string_attachment") // The ID of your Attachment
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "example_string_attachment") // The ID of your Attachment
 	);
 	// #endregion string
 
 	// #region pos
 	public static final AttachmentType<BlockPos> EXAMPLE_BLOCK_POS_ATTACHMENT = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "example_block_pos_attachment"),
 			builder -> builder
 				.initializer(() -> new BlockPos(0, 0, 0)) // The default value of the Attachment, if one has not been set.
 				.syncWith(
@@ -28,7 +30,7 @@ public class ExampleModAttachments {
 
 	// #region persistent
 	public static final AttachmentType<BlockPos> EXAMPLE_PERSISTENT_ATTACHMENT = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath("example-mod", "example_block_pos_attachment"),
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "example_block_pos_attachment"),
 			builder -> builder
 				.initializer(() -> new BlockPos(0, 0, 0)) // The default value of the Attachment, if one has not been set.
 				.persistent(BlockPos.CODEC) // Dictates how this Attachment's data should be saved and loaded.

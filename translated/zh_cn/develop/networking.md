@@ -2,6 +2,7 @@
 title: 网络通信
 description: 使用 Fabric API 进行网络通信的一般指南。
 authors:
+  - bluebear94
   - Daomephsta
   - dicedpixels
   - Earthcomputer
@@ -24,7 +25,7 @@ authors:
 Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络通信是个广泛的话题，
 因此本页面分为几个类别。
 
-## 为什么网络很重要？ {#why-is-networking-important}
+## 为什么网络通信很重要？ {#why-is-networking-important}
 
 数据包是 Minecraft 网络的核心概念。
 数据包由任意数据组成，可以从服务器发送到客户端，也可以从客户端发送到服务器。
@@ -52,45 +53,39 @@ Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络
 
 这可以通过创建一个带有实现 `CustomPacketPayload` 的 `BlockPos` 参数的 Java `Record` 来实现。
 
-@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 同时，我们定义：
 
 - `Identifier`（标识符）用于识别数据包的有效载荷。 在本例中，我们的标识符将是 `example-mod:summon_lightning`。
 
-@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
-- `CustomPayload.Id` 的公共静态实例，用于唯一标识此自定义负载。 我们将在通用代码和客户端代码中引用此 ID。
+- `CustomPayload.Type` 的公共静态实例，用于唯一标识此自定义载荷。 我们将在通用代码和客户端代码中引用此 ID。
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 - `StreamCodec` 的公共静态实例，以便游戏知道如何序列化/反序列化数据包的内容。
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 我们还重写了 `type` 来返回我们的有效载荷 ID。
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/SummonLightningS2CPayload.java)
+@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
 
 ### 注册有效载荷 {#registering-a-payload}
 
 在我们发送带有自定义有效载荷的数据包之前，我们需要在两个物理端都注册它。
 
-::: info
+这可以在我们的**通用初始化程序**中通过使用 `PayloadTypeRegistry.clientboundPlay().register` 来完成，它接受 `CustomPayload.Type` 和 `StreamCodec`。
 
-`S2C` 和 `C2S` 是两个常见的后缀，分别表示 _服务器到客户端_ 和 _客户端到服务器_。
+@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
-:::
-
-这可以在我们的**通用初始化程序**中通过使用 `PayloadTypeRegistry.playS2C().register` 来完成，它接受 `CustomPayload.Id` 和 `StreamCodec`。
-
-@[code lang=java transclude={25-25}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
-
-存在类似的方法来注册客户端到服务器的有效载荷：`PayloadTypeRegistry.playC2S().register`。
+存在类似的方法来注册客户端到服务器的有效载荷：`PayloadTypeRegistry.clientboundPlay().register`。
 
 ### 发送数据包到客户端 {#sending-a-packet-to-the-client}
 
-要发送带有自定义有效载荷的数据包，我们可以使用 `ServerPlayNetworking.send`，它接收 `ServerPlayerEntity` 和 `CustomPayload`。
+要发送带有自定义有效载荷的数据包，我们可以使用 `ServerPlayNetworking.send`，它接收 `ServerPlayer` 和 `CustomPayload`。
 
 让我们从创建 Lightning Tater 物品开始。 你可以重写 `use` 以在使用该物品时触发操作。
 本例中我们向服务器世界的玩家发送数据包。
@@ -99,7 +94,7 @@ Minecraft 中的网络用于使客户端和服务端可以相互通信。 网络
 
 让我们检查一下上面的代码。
 
-我们仅在服务器上启动操作时发送数据包，通过提前返回 `isClient` 检查：
+我们仅在服务器上启动操作时发送数据包，通过提前返回 `isClientSide()` 检查：
 
 @[code lang=java transclude={22-24}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
 
@@ -125,7 +120,7 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 为了在客户端接收从服务器发送的数据包，你需要指定如何处理传入的数据包。
 
-这可以在**客户端初始化程序**中完成，通过调用 `ClientPlayNetworking.registerGlobalReceiver` 并传递 `CustomPayload.Id` 和 `PlayPayloadHandler`（一个功能接口）。
+这可以在**客户端初始化程序**中完成，通过调用 `ClientPlayNetworking.registerGlobalReceiver` 并传递 `CustomPayload.Type` 和 `PlayPayloadHandler`（一个功能接口）。
 
 本例中，我们将在 `PlayPayloadHandler` 实现中定义要触发的操作（作为 lambda 表达式）。
 
@@ -149,13 +144,13 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 就像向客户端发送数据包一样，我们首先创建自定义有效载荷。 这次，当玩家对生物实体使用毒马铃薯时，我们会请求服务器对其应用发光效果。
 
-@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectC2SPayload.java)
+@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java)
 
 我们传入适当的编解码器以及方法引用，从 Record 中获取值来构建此编解码器。
 
-然后我们在**通用初始化程序**中注册我们的有效载荷。 然而，这次通过使用 `PayloadTypeRegistry.playC2S().register` 作为 _客户端到服务器_ 有效载荷。
+然后我们在**通用初始化程序**中注册我们的有效载荷。 然而，这次通过使用 `PayloadTypeRegistry.clientboundPlay().register` 作为 _客户端到服务器_ 有效载荷。
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 为了发送数据包，让我们在玩家使用毒马铃薯时添加一个动作。 我们将使用 `UseEntityCallback` 事件来保持简洁。
 
@@ -163,17 +158,17 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 @[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-我们使用必要的参数创建 `GiveGlowingEffectC2SPayload` 的实例。 本例为目标实体的网络 ID。
+我们使用必要的参数创建 `GiveGlowingEffectServerboundPayload` 的实例。 本例为目标实体的网络 ID。
 
 @[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
-最后，我们通过使用 `GiveGlowingEffectC2SPayload` 实例调用 `ClientPlayNetworking.send` 向服务器发送一个数据包。
+最后，我们通过使用 `GiveGlowingEffectServerboundPayload` 实例调用 `ClientPlayNetworking.send` 向服务器发送一个数据包。
 
 @[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
 
 ### 在服务器接收数据包 {#receiving-a-packet-on-the-server}
 
-这可以在**通用初始化程序**中完成，通过调用 `ServerPlayNetworking.registerGlobalReceiver` 并传递 `CustomPayload.Id` 和 `PlayPayloadHandler`。
+这可以在**通用初始化程序**中完成，通过调用 `ServerPlayNetworking.registerGlobalReceiver` 并传递 `CustomPayload.Type` 和 `PlayPayloadHandler`。
 
 @[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
@@ -183,11 +178,11 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 在这种情况下，我们根据实体的网络 ID 来验证该实体是否存在。
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={19-19}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 此外，目标实体必须是生物实体，并且我们将目标实体的范围限制在距离玩家 5 的​​范围内。
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::
 

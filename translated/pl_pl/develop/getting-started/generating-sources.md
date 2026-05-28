@@ -4,7 +4,6 @@ description: Przewodnik po generowaniu źródeł Minecraft.
 authors:
   - dicedpixels
   - its-miroma
-outline: false
 ---
 
 ## Wybierz swoje IDE {#choose-your-ide}

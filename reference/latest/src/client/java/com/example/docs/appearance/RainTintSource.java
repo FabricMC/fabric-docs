@@ -31,7 +31,7 @@ public record RainTintSource(int color) implements ItemTintSource {
 	@Override
 	public int calculate(ItemStack itemStack, @Nullable ClientLevel clientLevel, @Nullable LivingEntity livingEntity) {
 		if (clientLevel != null && clientLevel.isRaining()) {
-			return ARGB.opaque(color);
+			return ARGB.opaque(this.color);
 		}
 
 		return ARGB.opaque(0xFFEFD5); // Color code in hex format

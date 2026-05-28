@@ -11,9 +11,9 @@ authors:
 
 ::: warning
 
-尽管 Minecraft 是使用 OpenGL 构建的，但是从 1.17 版本开始，就不再能使用旧版 OpenGL 方法渲染自己的东西， 而是必须使用新的 `BufferBuilder`（缓冲构建器）系统，将渲染数据格式化并上传到 OpenGL 以绘制。
+尽管 Minecraft 目前是使用 OpenGL 构建的，但是从 1.17 版本开始，就不再能使用旧版 OpenGL 方法渲染自己的东西， 而是必须使用新的 `BufferBuilder`（缓冲构建器）系统，将渲染数据格式化并上传到 OpenGL 以绘制。
 
-总的来说，您应该使用 Minecraft 的渲染系统，否则就得利用 `GL.glDrawElements()` 来构建自己的。
+总而言之，你需要使用 Minecraft 的渲染系统。 当 [Minecraft 26.2 发布，采用 Vulkan 后端](https://www.minecraft.net/zh-hans/article/another-step-towards-vibrant-visuals-for-java-edition)时，使用原始 OpenGL 将导致更多问题。
 
 :::
 
@@ -21,7 +21,7 @@ authors:
 
 从 1.21.6 开始，渲染管线实现了大变化，比如移动到 `RenderType` 和 `RenderPipeline` 以及更重要的还有 `RenderState`，其最终目标是在绘制当前帧时可以准备下一帧。 在“准备”阶段，所有用于渲染的游戏数据都会提取至 `RenderState`，所以另一个线程可专心渲染当前帧，同时也能提取下一帧。
 
-例如，在 1.21.8 版本中，GUI 渲染采用了这种模型，`GuiGraphics` 方法只是简单地添加到渲染状态。 实际上传到 `BufferBuilder` 的操作发生在准备阶段结束时，即所有元素都添加到 `RenderState` 之后。 请见 `GuiRenderer#prepare`。
+例如，在 1.21.8 版本中，GUI 渲染采用了这种模型，`GuiGraphicsExtractor` 方法只是简单地添加到渲染状态。 实际上传到 `BufferBuilder` 的操作发生在准备阶段结束时，即所有元素都添加到 `RenderState` 之后。 请见 `GuiRenderer#prepare`。
 
 本文介绍了渲染的基础知识，虽然仍然具有一定的相关性，但大多数情况下，为了获得更好的性能和兼容性，我们会采用更高级别的抽象。 欲知更多信息，请参阅[在世界中渲染](./world)。
 
@@ -29,7 +29,7 @@ authors:
 
 本文会介绍使用新系统渲染的一些基础，并解释一些关键术语和概念。
 
-尽管 Minecraft 的许多渲染都通过 `GuiGraphics` 中的各种方法抽象出来，且你很可能并不需要接触这里提到的任何内容，但是了解渲染的基础实现依然很重要。
+尽管 Minecraft 的许多渲染都通过 `GuiGraphicsExtractor` 中的各种方法抽象出来，且你很可能并不需要接触这里提到的任何内容，但是了解渲染的基础实现依然很重要。
 
 ## 镶嵌器 `Tesselator` {#the-tesselator}
 
@@ -98,7 +98,7 @@ authors:
 
 有时称为位置矩阵，或模型矩阵。
 
-通常是通过 `Matrix3x2fStack` 类获得的，而该类可以通过调用 `GuiGraphics#pose()` 方法从 `GuiGraphics` 对象获得。
+通常是通过 `Matrix3x2fStack` 类获得的，而该类可以通过调用 `GuiGraphicsExtractor#pose()` 方法从 `GuiGraphicsExtractor` 对象获得。
 
 #### 渲染三角条纹{#rendering-a-triangle-strip}
 
@@ -123,7 +123,7 @@ authors:
 
 从 1.21.8 开始，传入 HUD 渲染的矩阵栈由 `PoseStack` 改变为 `Matrix3x2fStack`。 大多数方法都略有些不同，不再接收 `z` 参数，但概念还是相同的。
 
-此外，下面的代码与上面的解释并不完全一致：无需手动写入 `BufferBuilder`，因为 `GuiGraphics` 方法会在准备过程中自动写入 HUD 的 `BufferBuilder`。
+此外，下面的代码与上面的解释并不完全一致：无需手动写入 `BufferBuilder`，因为 `GuiGraphicsExtractor` 方法会在准备过程中自动写入 HUD 的 `BufferBuilder`。
 
 请阅读上面的重要更新以了解更多信息。
 

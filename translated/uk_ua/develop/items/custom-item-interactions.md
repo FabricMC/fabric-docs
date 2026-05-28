@@ -46,7 +46,7 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 @[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 
-Подія `використання` є, мабуть, найкориснішою з усіх — ви можете використовувати цю подію, щоб створити нашу блискавку, вам слід створити її за 10 блоків перед гравцями, спрямованими обличчям.
+Подія `use` є, мабуть, найкориснішою з усіх — ви можете використовувати цю подію, щоб створити нашу блискавку, вам слід створити її за 10 блоків перед гравцями, спрямованими обличчям.
 
 @[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
 

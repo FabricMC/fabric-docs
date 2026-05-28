@@ -23,7 +23,7 @@ public class CounterItem extends Item {
 	// #endregion item
 
 	@Override
-	// #region codec
+	// #region use
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		ItemStack stack = user.getItemInHand(hand);
 
@@ -38,7 +38,7 @@ public class CounterItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-	// #endregion codec
+	// #endregion use
 
 	@Override
 	// #region fixed-append-hover-text

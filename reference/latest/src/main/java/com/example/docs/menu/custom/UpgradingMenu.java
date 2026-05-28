@@ -25,7 +25,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		@Override
 		public void setChanged() {
 			super.setChanged();
-			slotsChanged(this);
+			UpgradingMenu.this.slotsChanged(this);
 		}
 	};
 
@@ -38,10 +38,10 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 		this.level = inventory.player.level();
 
-		addSlot(new Slot(input, 0, 27, 47));
-		addSlot(new Slot(input, 1, 76, 47));
+		addSlot(new Slot(this.input, 0, 27, 47));
+		addSlot(new Slot(this.input, 1, 76, 47));
 
-		addSlot(new Slot(output, 0, 134, 47) {
+		addSlot(new Slot(this.output, 0, 134, 47) {
 			@Override
 			public void onTake(Player player, ItemStack itemStack) {
 				UpgradingMenu.this.onTake(player, itemStack);
@@ -55,17 +55,17 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		if (container == input) {
-			if (level instanceof ServerLevel serverLevel) {
-				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(input.getItem(0), input.getItem(1));
+		if (container == this.input) {
+			if (this.level instanceof ServerLevel serverLevel) {
+				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
 				Optional<RecipeHolder<UpgradingRecipe>> recipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
 
 				if (recipe.isPresent()) {
-					output.setItem(0, recipe.get().value().assemble(recipeInput));
-					output.setRecipeUsed(recipe.get());
+					this.output.setItem(0, recipe.get().value().assemble(recipeInput));
+					this.output.setRecipeUsed(recipe.get());
 				} else {
-					output.clearContent();
-					output.setRecipeUsed(null);
+					this.output.clearContent();
+					this.output.setRecipeUsed(null);
 				}
 			}
 		}
@@ -73,10 +73,10 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 	public void onTake(Player player, ItemStack stack) {
 		stack.onCraftedBy(player, stack.getCount());
-		output.awardUsedRecipes(player, List.of(input.getItem(0), input.getItem(1)));
+		this.output.awardUsedRecipes(player, List.of(this.input.getItem(0), this.input.getItem(1)));
 
-		input.removeItem(0, stack.getCount());
-		input.removeItem(1, stack.getCount());
+		this.input.removeItem(0, stack.getCount());
+		this.input.removeItem(1, stack.getCount());
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	@Override
 	public void removed(Player player) {
 		super.removed(player);
-		clearContainer(player, input);
+		clearContainer(player, this.input);
 	}
 }
 // #endregion menu

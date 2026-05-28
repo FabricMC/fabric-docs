@@ -6,23 +6,15 @@ authors:
   - kevinthegreat1
 ---
 
-在[基本渲染概念](./basic-concepts)页面和[使用绘制上下文](./draw-context)中，我们已经简要介绍了如何将内容渲染到 HUD，因此本页我们将重点介绍 Hud API 以及 `DeltaTracker` 参数。
-
-## `HudRenderCallback` {#hudrendercallback}
-
-::: warning
-
-以前，Fabric 提供了 `HudRenderCallback` 来渲染到 HUD。 由于 HUD 渲染的变更，这一事件受到诸多限制，并且自从 Fabric API 0.116 开始被弃用。 因此强烈不推荐使用。
-
-:::
+在[基本渲染概念](./basic-concepts)页面和[绘制到 GUI](./gui-graphics) 中，我们已经简要介绍了如何将内容渲染到 HUD，因此本页我们将重点介绍 Hud API 以及 `DeltaTracker` 参数。
 
 ## `HudElementRegistry` {#hudelementregistry}
 
 Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 
-首先，我们需要向 `HudElementRegistry` 注册一个监听器，用于注册你的元素。 每个元素都是一个 `HudElement`。 `HudElement` 实例通常是一个 lambda 表达式，它接受一个 `GuiGraphics` 和一个 `DeltaTracker` 实例作为参数。 有关如何使用该 API 的更多详细信息，请参阅 `HudElementRegistry` 及其相关的 Javadoc。
+首先，我们需要向 `HudElementRegistry` 注册一个监听器，用于注册你的元素。 每个元素都是一个 `HudElement`。 `HudElement` 实例通常是一个 lambda 表达式，它接受一个 `GuiGraphicsExtractor` 和一个 `DeltaTracker` 实例作为参数。 有关如何使用该 API 的更多详细信息，请参阅 `HudElementRegistry` 及其相关的 Javadoc。
 
-绘制上下文可用于访问游戏提供的各种渲染工具，以及原始矩阵堆栈。 你应该查看[绘制上下文](./draw-context)页面，了解更多关于绘制上下文的信息。
+GUI 图形可用于访问游戏提供的各种渲染工具，以及原始矩阵堆栈。 你应该查看[绘制到 GUI](./gui-graphics) 页面以了解更多信息。
 
 ### Delta Tracker {#delta-tracker}
 

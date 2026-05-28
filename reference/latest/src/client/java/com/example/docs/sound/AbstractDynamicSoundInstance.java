@@ -108,7 +108,7 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	// #region modulation
 	// increase or decrease volume and pitch based on the current phase of the sound
 	protected void modulateSoundForTransition() {
-		float normalizedTick = switch (transitionState) {
+		float normalizedTick = switch (this.transitionState) {
 			case STARTING -> (float) this.transitionTick / this.startTransitionTicks;
 			case ENDING -> 1.0f - ((float) this.transitionTick / this.endTransitionTicks);
 			default -> 1.0f;
@@ -126,9 +126,9 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	// #region other
 	// moves the sound instance position to the sound source's position
 	protected void setPositionToEntity() {
-		this.x = soundSource.getPosition().x();
-		this.y = soundSource.getPosition().y();
-		this.z = soundSource.getPosition().z();
+		this.x = this.soundSource.getPosition().x();
+		this.y = this.soundSource.getPosition().y();
+		this.z = this.soundSource.getPosition().z();
 	}
 
 	// Sets the SoundInstance into its ending phase.

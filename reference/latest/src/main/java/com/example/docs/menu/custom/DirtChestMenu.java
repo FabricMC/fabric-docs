@@ -27,6 +27,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		this.container = container;
 
 		// Some containers do custom logic when opened by a player.
+		// TODO: is this intended to use this. ?
 		container.startOpen(inventory.player);
 
 		int rows = 3;
@@ -55,11 +56,11 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		ItemStack stack = slot.getItem();
 		ItemStack clicked = stack.copy();
 
-		if (slotIndex < container.getContainerSize()) {
-			if (!this.moveItemStackTo(stack, container.getContainerSize(), this.slots.size(), true)) {
+		if (slotIndex < this.container.getContainerSize()) {
+			if (!this.moveItemStackTo(stack, this.container.getContainerSize(), this.slots.size(), true)) {
 				return ItemStack.EMPTY;
 			}
-		} else if (!this.moveItemStackTo(stack, 0, container.getContainerSize(), false)) {
+		} else if (!this.moveItemStackTo(stack, 0, this.container.getContainerSize(), false)) {
 			return ItemStack.EMPTY;
 		}
 
@@ -74,7 +75,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return container.stillValid(player);
+		return this.container.stillValid(player);
 	}
 }
 // #endregion menu

@@ -8,7 +8,7 @@
   "develop.getting_started.building_mod": "Einen Mod bauen",
   "develop.getting_started.generating_sources": "Quellcode generieren",
   "develop.getting_started.tips_and_tricks": "Tipps und Tricks für die Entwicklungsumgebung",
-  "develop.items": "Gegenstände",
+  "develop.items": "Items",
   "develop.items.first_item": "Dein erstes Item erstellen",
   "develop.items.item_models": "Itemmodelle",
   "develop.items.food": "Benutzerdefinierte Nahrung",
@@ -67,6 +67,9 @@
   "develop.rendering.gui.custom_widgets": "Benutzerdefinierte Widgets",
   "develop.rendering.particles": "Partikel",
   "develop.rendering.particles.creating_particles": "Benutzerdefinierte Partikel erstellen",
+  "develop.loader": "Loader",
+  "develop.loader.index": "Einführung",
+  "develop.loader.fabric.mod.json": "fabric.mod.json",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Einführung",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -92,6 +95,7 @@
   "develop.class_tweakers.introduction": "Einführung",
   "develop.class_tweakers.access_widening": "Zugriffserweiterung",
   "develop.class_tweakers.interface_injection": "Interface-Injektion",
+  "develop.class_tweakers.enum_extension": "Enum Erweiterung",
   "develop.serialization": "Serialisierung",
   "develop.porting": "Portierung",
   "develop.porting.release": "Zu 26.1 portieren",
@@ -112,5 +116,6 @@
   "players.troubleshooting": "Problembehandlung",
   "players.troubleshooting.uploading_logs": "Logs hochladen",
   "players.troubleshooting.crash_reports": "Absturzberichte",
-  "players.updating_fabric": "Aktualisieren von Fabric"
+  "players.updating_fabric": "Aktualisieren von Fabric",
+  "players.troubleshooting.dependency_overrides": "Überschreiben von Abhängigkeiten"
 }

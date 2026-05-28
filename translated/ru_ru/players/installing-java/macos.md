@@ -7,7 +7,7 @@ authors:
 next: false
 ---
 
-Это руководство поможет вам установить Java 21 на macOS.
+Это руководство проведёт вас через процесс установки Java 25 на macOS.
 
 Minecraft Launcher поставляется с собственной установкой Java, поэтому этот раздел актуален только в том случае, если вы хотите использовать установщик Fabric на основе `.jar` или Minecraft Server `.jar`.
 
@@ -16,34 +16,34 @@ Minecraft Launcher поставляется с собственной устан
 В Терминале (расположенном в `/Applications/Utilities/Terminal.app`) введите следующее и нажмите <kbd>Enter</kbd>:
 
 ```sh
-$(/usr/libexec/java_home -v 21)/bin/java --version
+$(/usr/libexec/java_home -v 25)/bin/java --version
 ```
 
 Вы должны увидеть что-то вроде следующего:
 
 ```text:no-line-numbers
-openjdk 21.0.9 2025-10-21 LTS
-OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
-OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
+openjdk 25.0.2 2026-01-20 LTS
+OpenJDK Runtime Environment Temurin-25.0.2+10 (build 25.0.2+10-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.2+10 (build 25.0.2+10-LTS, mixed mode, sharing)
 ```
 
-Обратите внимание на номер версии: в приведенном выше примере это `21.0.9`.
+Обратите внимание на номер версии: в приведённом выше примере это `25.0.9`.
 
 ::: warning
 
-Чтобы использовать Minecraft 1.21.11, вам понадобится как минимум Java 21.
+Чтобы использовать Minecraft 26.1, вам потребуется как минимум установленная Java 25.
 
-Если эта команда отображает версию ниже 21, вам необходимо обновить существующую Java; продолжайте читать эту страницу.
+Если эта команда показывает версию ниже 25, вам потребуется обновить текущую установку Java; продолжайте читать эту страницу.
 
 :::
 
-## 2. Загрузка и установка Java 21 {#2-downloading-and-installing-java}
+## 2. Скачивание и установка Java 25 {#2-downloading-and-installing-java}
 
-Мы рекомендуем использовать [сборку OpenJDK 21 от Adoptium](https://adoptium.net/temurin/releases?version=21&os=mac&arch=any&mode=filter):
+Мы рекомендуем использовать сборку OpenJDK 25 от [Adoptium](https://adoptium.net/temurin/releases?version=25&os=mac&arch=any&mode=filter):
 
 ![Страница загрузки Java для Temurin](/assets/players/installing-java/macos-download-java.png)
 
-Обязательно выберите версию «21 — LTS» и формат установщика `.PKG`.
+Убедитесь, что выбрана версия "25 - LTS", и выберите формат установщика `.PKG`.
 Вы также должны выбрать правильную архитектуру в зависимости от чипа вашей системы:
 
 - Если у вас чип Apple серии M, выберите `aarch64` (по умолчанию)
@@ -60,22 +60,22 @@ OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sha
 
 ### Использование Homebrew {#using-homebrew}
 
-Если у вас уже установлен [Homebrew](https://brew.sh), вы можете установить Java 21 с помощью `brew`:
+Если у вас уже установлен [Homebrew](https://brew.sh), вы можете установить Java 25 с помощью `brew`:
 
 ```sh
-brew install --cask temurin@21
+brew install --cask temurin@25
 ```
 
-## 3. Убедитесь, что Java 21 установлена {#3-verify-that-java-is-installed}
+## 3. Проверьте, что Java 25 установлена {#3-verify-that-java-is-installed}
 
-После завершения установки вы можете убедиться, что Java 21 активна, открыв терминал снова и введя `$(/usr/libexec/java_home -v 21)/bin/java --version`.
+После завершения установки вы можете проверить, что Java 25 активна, снова открыв Терминал и введя `$(/usr/libexec/java_home -v 25)/bin/java --version`.
 
 Если команда выполнена успешно, вы должны увидеть примерно следующее:
 
 ```text:no-line-numbers
-openjdk 21.0.9 2025-10-21 LTS
-OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
-OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
+openjdk 25.0.2 2026-01-20 LTS
+OpenJDK Runtime Environment Temurin-25.0.2+10 (build 25.0.2+10-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.2+10 (build 25.0.2+10-LTS, mixed mode, sharing)
 ```
 
 Если у вас возникнут проблемы, не стесняйтесь обращаться за помощью в [Fabric Discord](https://discord.fabricmc.net/) в канале `#player-support`.

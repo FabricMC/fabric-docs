@@ -25,8 +25,10 @@ Class tweaker files are conventionally named after your modid, `example-mod.clas
 The file must have the following header as its first line:
 
 ```classtweaker
-classTweaker v1 official
+classTweaker  v1  official
 ```
+
+Some features may require a version higher than `v1` - that will be mentioned in their respective pages.
 
 Class tweaker files can have blank lines and comments starting with `#`. Comments can start at the end of a line.
 
@@ -45,6 +47,9 @@ transitive-mutable
 
 # Transitive Interface Injection directive
 transitive-inject-interface
+
+# Transitive Enum Extension directive
+transitive-extend-enum
 ```
 
 ### Specifying The File Location {#specifying-the-file-location}
@@ -73,4 +78,4 @@ After specifying the file location in your `build.gradle` file, make sure to rel
 
 By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the file are valid, run the `validateAccessWidener` Gradle task.
 
-Errors will point out any invalid entry, but they can be about which part of an entry is invalid.
+Errors will point out any invalid entry, but they can be unspecific about which part of an entry is invalid.

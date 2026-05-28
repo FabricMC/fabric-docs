@@ -27,8 +27,8 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) implemen
 	// #region advanced-custom-component
 	@Override
 	public void addToTooltip(Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag, DataComponentGetter components) {
-		tooltip.accept(Component.translatable("item.example-mod.temperature.info", temperature).withStyle(ChatFormatting.GOLD));
-		tooltip.accept(Component.translatable("item.example-mod.burnt.info", temperature).withStyle(ChatFormatting.GOLD));
+		tooltip.accept(Component.translatable("item.example-mod.temperature.info", this.temperature).withStyle(ChatFormatting.GOLD));
+		tooltip.accept(Component.translatable("item.example-mod.burnt.info", this.temperature).withStyle(ChatFormatting.GOLD));
 	}
 }
 // #endregion advanced-custom-component

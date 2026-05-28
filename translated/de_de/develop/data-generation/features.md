@@ -35,7 +35,7 @@ Zuerst müssen wir unseren Provider erstellen. Erstelle eine Klasse, die von `Fa
 
 Füge dann den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu:
 
-@[code lang=java transclude={67-67}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+@[code lang=java transclude={64-64}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
 
 Erstelle als Nächstes eine Klasse für deine konfigurierten Merkmale und eine Klasse für deine platzierten Merkmale. Diese müssen nichts erweitern.
 

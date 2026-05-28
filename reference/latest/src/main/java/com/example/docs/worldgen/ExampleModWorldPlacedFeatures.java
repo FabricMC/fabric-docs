@@ -21,7 +21,9 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import com.example.docs.ExampleMod;
 
+// #region datagen-world:PlacedFeatures-Class
 public class ExampleModWorldPlacedFeatures {
+	// #endregion datagen-world--PlacedFeatures-Class
 	// #region datagen-world--placed-key
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
@@ -36,7 +38,9 @@ public class ExampleModWorldPlacedFeatures {
 							Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree_placed")
 			);
 
+	// #region datagen-world--PlacedFeatures-Class
 	public static void configure(BootstrapContext<PlacedFeature> context) {
+		// #endregion datagen-world--PlacedFeatures-Class
 		// #region datagen-world--conf-feature-register
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 		// #endregion datagen-world--conf-feature-register
@@ -44,8 +48,8 @@ public class ExampleModWorldPlacedFeatures {
 		// #region datagen-world--placement-modifiers
 		List<PlacementModifier> diamondBlockVeinModifiers = List.of(
 				CountPlacement.of(6),
-					BiomeFilter.biome(),
-					InSquarePlacement.spread(),
+				BiomeFilter.biome(),
+				InSquarePlacement.spread(),
 				HeightRangePlacement.of(BiasedToBottomHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(0), 3))
 		);
 		// #endregion datagen-world--placement-modifiers
@@ -75,5 +79,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondTreeModifiers
 				)
 		);
+		// #region datagen-world--PlacedFeatures-Class
 	}
 }
+// #endregion datagen-world--PlacedFeatures-Class

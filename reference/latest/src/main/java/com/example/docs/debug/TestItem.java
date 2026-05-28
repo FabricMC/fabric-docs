@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
+import com.example.docs.ExampleMod;
+
 public class TestItem extends Item {
 	public TestItem(Properties settings) {
 		super(settings);
@@ -38,16 +40,16 @@ public class TestItem extends Item {
 		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
 				.formatted(user.level().isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand.name());
 
-		ExampleModDebug.LOGGER.info(output);
+		ExampleMod.LOGGER.info(output);
 
 		if (!user.level().isClientSide()) {
 			// you can log non-critical issues differently as a warning
-			ExampleModDebug.LOGGER.warn("Don't touch that!");
+			ExampleMod.LOGGER.warn("Don't touch that!");
 
 			// The LOGGER can print the Stacktrace too in addition to the logging message
 			if (stack.getCount() > 1) {
 				IllegalArgumentException exception = new IllegalArgumentException("Only one item is allowed");
-				ExampleModDebug.LOGGER.error("Error while interacting with an entity", exception);
+				ExampleMod.LOGGER.error("Error while interacting with an entity", exception);
 				throw exception;
 			}
 		}

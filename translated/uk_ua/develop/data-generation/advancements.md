@@ -1,6 +1,6 @@
 ---
 title: Генерація досягнень
-description: Посібник із налаштування генерації досягнень за допомогою datagen.
+description: Посібник із налаштування генерації досягнень за допомогою генерації даних.
 authors:
   - CelDaemon
   - MattiDragon
@@ -15,7 +15,7 @@ authors-nogithub:
 
 :::info ПЕРЕДУМОВИ
 
-Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
+Спершу переконайтеся, що ви виконали процес [налаштування генерації даних](./setup).
 
 :::
 
@@ -45,29 +45,51 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-::: warning
-
-Під час створення записів про досягнення пам’ятайте, що функція приймає `Identifier` досягнення у форматі `String`!
-
-:::
-
 :::details Вивід JSON
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json
 
 :::
 
-## Ще один приклад {#one-more-example}
+## Батьківські {#parents}
 
-Щоб зрозуміти, додамо ще одне досягнення. Ми попрактикуємося додавати нагороди, використовувати кілька критеріїв і призначати батьківські досягнення:
+Щоб створити або розширити дерево досягнень, ми можемо встановити батьківське досягнення для нашого досягнення. Для цього викличте `Advancement.Builder#parent(...)` і передайте посилання на батьківське досягнення.
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+
+Якщо немає прямого посилання на батьківське досягнення (наприклад, використання стандартного досягнення як батьківського), заповнювач можна створити за допомогою ідентифікатора.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+
+Тепер ваші досягнення мають показуватися у вигляді дерева в меню досягнень.
+
+![Дерево досягнень](/assets/develop/data-generation/advancement_tree.png)
+
+## Кілька критеріїв {#multiple-criteria}
+
+Щоб мати більш розширені умови в наших досягненнях, ми можемо викликати `Advancement.Builder#addCriteria(...)` кілька разів із додатковими критеріями.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+
+Усталено всі критерії мають бути виконані для завершення досягнення. Ми можемо змінити цю поведінку, запропонувавши іншу стратегію.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+
+## Винагороди {#rewards}
+
+Ми можемо додавати винагороди до наших досягнень, які будуть надані, коли гравець завершить досягнення. Ми можемо зробити це, викликавши `Advancement.Builder#rewards(...)` з винагородами, які ми хочемо додати.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+
+Існує кілька інших типів винагород:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
 
 ## Власні критерії {#custom-criteria}
 
 ::: warning
 
-У той час як datagen може бути на стороні клієнта, `Criterion` і `Predicate` знаходяться в основному вихідному наборі (обидві сторони), оскільки сервер повинен ініціювати та оцінювати їх.
+У той час як генерація даних може бути на стороні клієнта, `Criterion` і `Predicate` знаходяться в основному початковому наборі (обидві сторони), оскільки сервер повинен ініціювати та оцінювати їх.
 
 :::
 
@@ -131,7 +153,7 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-Запустіть завдання datagen ще раз, і ви отримаєте нове досягнення, з яким можна грати!
+Запустіть завдання генерації даних ще раз, і ви отримаєте нове досягнення, з яким можна грати!
 
 ## Умови з параметрами {#conditions-with-parameters}
 
@@ -165,4 +187,4 @@ authors-nogithub:
 
 @[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-Запустіть datagen ще раз, і ви нарешті закінчили!
+Запустіть генерацію даних знову, і ви нарешті закінчили!

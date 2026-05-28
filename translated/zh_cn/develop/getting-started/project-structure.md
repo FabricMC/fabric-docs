@@ -9,7 +9,7 @@ authors:
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-`fabric.mod.json` 文件是描述你的模组给 Fabric Loader 的主文件。 它包含模组的 ID、版本和依赖关系等信息。
+[`fabric.mod.json`](../loader/fabric-mod-json) 文件是描述你的模组给 Fabric Loader 的主文件。 它包含模组的 ID、版本和依赖关系等信息。
 
 `fabric.mod.json` 文件中最重要的字段是：
 
@@ -20,17 +20,9 @@ authors:
 - `depends`：模组的依赖模组/库。
 - `mixins`：模组提供的 Mixin。
 
-你可以看到下面的一个 `fabric.mod.json` 文件示例——这是为此文档站点提供支持的模组的 `fabric.mod.json` 文件。
-
-:::details 示例模组的 `fabric.mod.json`
-
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
-
-:::
-
 ## 入口点 {#entrypoints}
 
-如前所述，`fabric.mod.json` 文件包含一个名为 `entrypoints` 的字段——该字段用于指定你的模组提供的入口点。
+如前所述，[`fabric.mod.json`](../loader/fabric-mod-json) 文件包含一个名为 `entrypoints` 的字段——该字段用于指定你的模组提供的入口点。
 
 模板模组生成器默认创建 `main` 和 `client` 入口点：
 

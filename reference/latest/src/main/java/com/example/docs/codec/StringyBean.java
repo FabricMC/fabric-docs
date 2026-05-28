@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-// #region stringy-bean
+// #region stringy-bean-class
 // An implementing class of Bean, with its own codec.
 public class StringyBean implements Bean {
 	public static final MapCodec<StringyBean> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
@@ -12,17 +12,17 @@ public class StringyBean implements Bean {
 	).apply(instance, StringyBean::new));
 
 	private String stringyString;
-	// #endregion stringy-bean
+	// #endregion stringy-bean-class
 
 	public StringyBean(String stringyString) {
 		this.stringyString = stringyString;
 	}
 
 	public String getStringyString() {
-		return stringyString;
+		return this.stringyString;
 	}
 
-	// #region stringy-bean
+	// #region stringy-bean-class
 
 	// It is important to be able to retrieve the
 	// BeanType of a Bean from it's instance.
@@ -31,4 +31,4 @@ public class StringyBean implements Bean {
 		return BeanTypes.STRINGY_BEAN;
 	}
 }
-// #endregion stringy-bean
+// #endregion stringy-bean-class

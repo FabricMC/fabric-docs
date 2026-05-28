@@ -4,6 +4,9 @@ description: 了解如何向实体添加自定义属性。
 authors:
   - cassiancc
   - cprodhomme
+resources:
+  https://minecraft.wiki/w/Attribute: 属性 - Minecraft Wiki
+  https://docs.neoforged.net/docs/entities/attributes: Attributes - NeoForge 文档（Neo exclusives 除外）
 ---
 
 属性决定了你模组中的实体会呈现哪些特点。 使用 Fabric 可以创建自己的自定义属性，增强玩法机制，同时也可以应用原版的属性。

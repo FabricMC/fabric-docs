@@ -5,6 +5,9 @@ authors:
   - dicedpixels
   - hiisuuii
   - MattiDragon
+resources:
+  https://minecraft.wiki/w/Damage_type: 伤害类型 - Minecraft Wiki
+  https://docs.neoforged.net/docs/resources/server/damagetypes/: Damage Types & Damage Sources - NeoForge 文档（datagen 除外）
 ---
 
 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。

@@ -369,16 +369,7 @@
           "text": "Porting to 1.21.11",
           "link": "/ja_jp/develop/porting/"
         },
-        {
-          "text": "Porting to 26.1 Snapshots",
-          "link": "/ja_jp/26.1/develop/porting/",
-          "items": [
-            {
-              "text": "Fabric API",
-              "link": "/ja_jp/26.1/develop/porting/fabric-api"
-            }
-          ]
-        },
+        
         {
           "text": "Migrating Mappings",
           "link": "/ja_jp/develop/porting/mappings/",

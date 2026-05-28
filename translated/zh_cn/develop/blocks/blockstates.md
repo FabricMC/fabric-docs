@@ -3,6 +3,9 @@ title: 方块状态
 description: 学习为什么方块状态是一个向你的方块添加可视化功能的好方法。
 authors:
   - IMB11
+resources:
+  https://minecraft.wiki/w/Tutorial:Models#Block_states: 方块状态 - Minecraft Wiki
+  https://docs.neoforged.net/docs/blocks/states/: Blockstates - NeoForge 文档
 ---
 
 方块状态是附加到 Minecraft 世界中的单个方块上的一段数据，包含属性形式的方块块信息——原版存储在方块状态中的属性的一些示例：

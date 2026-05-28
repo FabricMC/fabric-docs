@@ -23,10 +23,10 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	// #region key-mapping
 	KeyMapping sendToChatKey = KeyMappingHelper.registerKeyMapping(
 		new KeyMapping(
-			"key.example-mod.send_to_chat", // The translation key for the key mapping.
-			InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
-			GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
-			CATEGORY // The category of the mapping.
+				"key.example-mod.send_to_chat", // The translation key for the key mapping.
+				InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
+				GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
+				this.CATEGORY // The category of the mapping.
 		));
 	// #endregion key-mapping
 
@@ -34,7 +34,7 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// #region client-tick-event
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			while (sendToChatKey.consumeClick()) {
+			while (this.sendToChatKey.consumeClick()) {
 				if (client.player != null) {
 					client.player.sendSystemMessage(Component.literal("Key Pressed!"));
 				}

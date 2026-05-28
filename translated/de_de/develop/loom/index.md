@@ -39,7 +39,7 @@ Loom verwendet unterschiedliche Plugin IDs:
 
 Beim Einrichten eines Multiprojekt-Builds, das von einem anderen Loom-Projekt abhängt, solltest du die Konfiguration `namedElements` verwenden, wenn du von dem anderen Projekt abhängig bist. Standardmäßig werden die "Ausgaben" eines Projekts auf Zwischennamen umgeschrieben. Die Konfiguration `namedElements` enthält die Projektausgaben, die nicht neu geordnet wurden.
 
-```groovy
+```gradle
 dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
@@ -47,9 +47,9 @@ dependencies {
 
 Wenn du geteilte Quellensätze in einem Multiprojekt-Build verwendest, musst du auch eine Abhängigkeit für den Client-Quellensatz des anderen Projekts hinzufügen.
 
-```groovy
+```gradle
 dependencies {
- clientImplementation project(":name").sourceSets.client.output
+ clientImplementation this.project(":name").sourceSets.client.output
 }
 ```
 
@@ -61,18 +61,7 @@ Der folgende Ausschnitt aus einer `build.gradle`-Datei zeigt, wie du dies für d
 
 Minecraft 1.18 (1.19 empfohlen), Loader 0.14 und Loom 1.0 oder später sind nötig, um den Client und den Allgemeinen Code aufzuteilen.
 
-```groovy
-loom {
- splitEnvironmentSourceSets()
-
- mods {
-   example-mod {
-     sourceSet sourceSets.main
-     sourceSet sourceSets.client
-   }
- }
- }
-```
+<<< @/reference/build.gradle#split-sources
 
 ## Fehler beheben {#issues}
 

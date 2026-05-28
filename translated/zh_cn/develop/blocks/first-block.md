@@ -2,11 +2,14 @@
 title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
+  - bluebear94
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
   - xEobardThawne
+resources:
+  https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge 文档
 ---
 
 方块是构成 Minecraft 的基本组成“块”（并非有意双关）——与 Minecraft 中的所有事物一样，它们存储在注册表中。
@@ -43,7 +46,7 @@ public class ModBlocks {
 
 ## 创建并注册你的方块{#creating-and-registering-your-block}
 
-和物品类似，方块会在构造函数中接收一个 `BlockBehavior.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
+和物品类似，方块会在构造函数中接收一个 `BlockBehaviour.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
 这里不会把所有选项都提到：可以查看类本身来看看各种选项，应该都是不言自明的。
 
@@ -54,7 +57,7 @@ public class ModBlocks {
 
 ::: tip
 
-可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
+可以使用 `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
 
 :::
 
@@ -66,7 +69,7 @@ public class ModBlocks {
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到创造模式标签页中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
-对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-item-groups)。
+对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-creative-tabs)。
 
 @[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
 

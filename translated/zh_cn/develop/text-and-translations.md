@@ -4,6 +4,8 @@ description: Minecraft 处理格式化文本和翻译的全面文档。
 authors:
   - IMB11
   - LordEnder-Kitty
+resources:
+  https://docs.neoforged.net/docs/resources/client/i18n/: I18n and L10n - NeoForge 文档（datagen 除外）
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [br, ColorSwatch, u] } } -->

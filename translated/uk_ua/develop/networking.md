@@ -178,11 +178,11 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 У цьому випадку ми перевіряємо, чи існує сутність, на основі її ID мережі.
 
-@[code lang=java transclude={30-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={19-19}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 Крім того, цільова сутність має бути живою сутністю, і ми обмежуємо діапазон цільової сутності від гравця до 5.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
 
 :::
 

@@ -58,7 +58,7 @@ public class DrawContextExampleScreen extends Screen {
 		// #endregion scissor
 
 		// #region draw-entire-texture
-		Identifier texture = Identifier.fromNamespaceAndPath("minecraft", "textures/block/deepslate.png");
+		Identifier texture = Identifier.withDefaultNamespace("textures/block/deepslate.png");
 		// renderLayer, texture, x, y, u, v, width, height, textureWidth, textureHeight
 		graphics.blit(RenderPipelines.GUI_TEXTURED, texture, 90, 90, 0, 0, 16, 16, 16, 16);
 		// #endregion draw-entire-texture

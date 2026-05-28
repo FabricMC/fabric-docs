@@ -363,6 +363,20 @@ export default [
     ],
   },
   {
+    text: "develop.loader",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.loader.index",
+        link: "/develop/loader/",
+      },
+      {
+        text: "develop.loader.fabric.mod.json",
+        link: "/develop/loader/fabric-mod-json",
+      },
+    ],
+  },
+  {
     text: "develop.porting",
     collapsed: true,
     items: [
@@ -417,6 +431,10 @@ export default [
       {
         text: "develop.class_tweakers.interface_injection",
         link: "/develop/class-tweakers/interface-injection",
+      },
+      {
+        text: "develop.class_tweakers.enum_extension",
+        link: "/develop/class-tweakers/enum-extension",
       },
     ],
   },

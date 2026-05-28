@@ -20,6 +20,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
+import com.example.docs.ExampleMod;
+
 // Class to contain all mod command registrations.
 public class ExampleModCommands implements ModInitializer {
 	// #region execute-dedicated-command
@@ -121,7 +123,7 @@ public class ExampleModCommands implements ModInitializer {
 	public void onInitialize() {
 		// #region register-custom-arg
 		ArgumentTypeRegistry.registerArgumentType(
-				Identifier.fromNamespaceAndPath("fabric-docs", "block_pos"),
+				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block_pos"),
 				BlockPosArgumentType.class,
 				SingletonArgumentInfo.contextFree(BlockPosArgumentType::new)
 		);
