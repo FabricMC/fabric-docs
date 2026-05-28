@@ -427,7 +427,7 @@ We usually avoid custom titles for containers; the only ones allowed are:
 
 When adding code blocks to pages, you should place it within the [`ExampleMod`](#develop) and reference parts of it with [snippets](https://vitepress.dev/guide/markdown#import-code-snippets).
 
-Snippet labels should be descriptive, because that helps with maintaining them in the future. Snippets should also be copyable as-is, so for instance all open brackets should be closed.
+Snippet labels are in `snake_case`, and they should be descriptive, because that helps with maintaining them in the future. Snippets should also be copyable as-is, so for instance all open brackets should be closed.
 
 If possible, code in snippets should not be explained with comments, because they aren't very accessible and they cannot be translated. Instead, consider explaining in the Markdown page.
 
