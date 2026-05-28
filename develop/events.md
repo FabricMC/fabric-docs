@@ -50,19 +50,19 @@ We'll be adding eggs to the coal ore loot table.
 
 #### Listening to Loot Table Loading {#listening-to-loot-table-loading}
 
-Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your [mod's initializer](./getting-started/project-structure#entrypoints). Let's also check that the current loot table is the coal ore loot table.
+Fabric API has an event that is fired when loot tables are loaded, `LootTableEvents.MODIFY`. You can register a callback for it in your [mod's initializer](./getting-started/project-structure#entrypoints). Let's also check that the current loot table is the coal ore loot table:
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-table-events
 
 #### Adding Items to the Loot Table {#adding-items-to-the-loot-table}
 
-In loot tables, items are stored in _loot pool entries_, and entries are stored in _loot pools_. To add an item, we'll need to add a pool with an item entry to the loot table.
+To add an item, we'll need to add a pool with an item entry to the loot table.
 
-We can make a pool with `LootPool#lootpool`, and add it to the loot table.
+We can make a pool with `LootPool#lootPool`, and add it to the loot table.
 
-Our pool doesn't have any items either, so we'll make an item entry using `LootItem#lootTableItem` and add it to the pool.
+Our pool doesn't have any items yet, so we'll make an item entry using `LootItem#lootTableItem` and add it to the pool.
 
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-pool-builder{6-7}
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-pool-builder{5-7}
 
 ## Custom Events {#custom-events}
 
@@ -80,7 +80,7 @@ The callback interface describes what must be implemented by event listeners tha
 
 For our `Event` implementation, we will choose to use an array-backed event. The array will contain all event listeners that are listening to the event.
 
-Our implementation will call the event listeners in order until one of them does not return `InteractionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_" or "_don't care, leave it to the next event listener_" using its return value.
+Our implementation will call the event listeners in order until one of them does not return `InteractionResult.PASS`. This means that a listener can say "_cancel this_", "_approve this_", or "_don't care, pass it on to the next event listener_" using its return value.
 
 Using `InteractionResult` as a return value is a conventional way to make event handlers cooperate in this fashion.
 
@@ -92,11 +92,13 @@ Let's look at this more in-depth. When the invoker is called, we iterate over al
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#listener-iterator
 
-We then call our method (in this case, `interact`) on the listener to get its response:
+On each listener, we then call `interact` to get the listener's response. Here's the signature of `interact` that we declared in this interface:
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#interact-method
 
-If the listener says we have to cancel (`InteractionResult.FAIL`) or fully finish (`InteractionResult.SUCCESS`), the callback returns the result and finishes the loop. `InteractionResult.PASS` moves on to the next listener, and in most cases should result in success if there are no more listeners registered:
+If the listener says we have to cancel (by returning `FAIL`) or fully finish (`SUCCESS`), the callback returns the result and finishes the loop.
+
+`InteractionResult.PASS` moves on to the next listener, until all listeners are called and `PASS` is finally returned:
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#return-value
 
@@ -112,8 +114,12 @@ We now have the basic event skeleton, but we need to trigger it. Because we want
 
 ### Creating a Test Implementation {#creating-a-test-implementation}
 
-Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. Here's an example that drops a diamond instead of wool at the sheep's feet:
+Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. 
+
+Here's an example that drops a diamond instead of wool at the sheep's feet:
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#sheep-shear-callback-event
 
 If you enter into your game and shear a sheep, a diamond should drop instead of wool.
+
+<!-- TODO: maybe adding a video of a sheep dropping diamonds? -->
