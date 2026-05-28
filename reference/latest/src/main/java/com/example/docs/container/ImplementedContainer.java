@@ -102,9 +102,9 @@ public interface ImplementedContainer extends Container {
 	default void setItem(int slot, ItemStack stack) {
 		this.getItems().set(slot, stack);
 
-		if (stack.getCount() > stack.getMaxStackSize()) {
-			stack.setCount(stack.getMaxStackSize());
-		}
+		stack.limitSize(this.getMaxStackSize(stack));
+
+		this.setChanged();
 	}
 
 	/**
