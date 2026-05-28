@@ -2,8 +2,6 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -14,6 +12,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.block.ModBlocks;
 

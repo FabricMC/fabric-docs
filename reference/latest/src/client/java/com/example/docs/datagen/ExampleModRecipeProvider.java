@@ -4,16 +4,11 @@ package com.example.docs.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.ExampleMod;
-
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -22,6 +17,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
 	public ExampleModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
