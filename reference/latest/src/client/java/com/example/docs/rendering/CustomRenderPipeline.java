@@ -135,6 +135,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
+	
 	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
 		// Build the buffer
 		MeshData builtBuffer = this.buffer.buildOrThrow();
