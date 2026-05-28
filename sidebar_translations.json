@@ -78,6 +78,7 @@
   "develop.loom.classpath_groups": "Classpath Groups",
   "develop.loom.tasks": "Other Tasks",
   "develop.misc.custom_recipe_types": "Custom Recipe Types",
+  "develop.misc.resource_conditions": "Resource Conditions",
   "develop.misc": "Miscellaneous Pages",
   "develop.misc.automatic_testing": "Automated Testing",
   "develop.misc.codecs": "Codecs",
