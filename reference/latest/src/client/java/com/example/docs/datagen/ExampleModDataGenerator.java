@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import static com.example.docs.datagen.ExampleModDamageTypesProvider.TATER_DAMAGE_TYPE;
 
+import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
+
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 
@@ -54,6 +56,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		pack.addProvider(ExampleModInternalModelProvider::new);
+		pack.addProvider(ExampleModResourceConditionProvider::new);
 
 		// :::datagen-models:register
 		pack.addProvider(ExampleModModelProvider::new);

@@ -40,157 +40,55 @@ The first four operators are basic boolean operators. They're best used in tande
 
 Always returns true.
 
-```json
-"fabric:load_conditions": [
-    {
-      "condition": "fabric:true"
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
 
 #### Not {#not}
 
 Always returns the inverse of the load condition specified below. As an example, the condition below will return `false`.
 
-```json
- "fabric:load_conditions": [
-    {
-      "condition": "fabric:not",
-      "value": {
-        "condition": "fabric:true"
-      }
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
 
 #### Or {#or}
 
 This condition takes in an array of load conditions, and will return `true` if any conditions match. As an example, the condition below will return `true`.
 
-```json
-"fabric:load_conditions": [
-  {
-    "condition": "fabric:or",
-    "values": [
-      {
-        "condition": "fabric:true"
-      },
-      {
-        "condition": "fabric:not",
-        "value": {
-          "condition": "fabric:true"
-        }
-      }
-    ]
-  }
-]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/or.json
 
 #### And {#and}
 
 This condition takes in an array of load conditions, and will only return `true` if all conditions match. As an example, the condition below will return `false`.
 
-```json
-"fabric:load_conditions": [
-  {
-    "condition": "fabric:and",
-    "values": [
-      {
-        "condition": "fabric:true"
-      },
-      {
-        "condition": "fabric:not",
-        "value": {
-          "condition": "fabric:true"
-        }
-      }
-    ]
-  }
-]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/or.json
 
-### Mod Loaded Checks {#mods-loaded}
-
-The next two checks focus on conditionally loading resources based on the presence of other mods.
-
-#### All Mods Loaded {#all-mods-loaded}
+### All Mods Loaded {#all-mods-loaded}
 
 Returns `true` when all mods in the array are present. As an example, the condition below will return `true` only if both `example-mod` and `another-mod` are loaded.
 
-```json
- "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "example-mod",
-        "another-mod"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/all_mods_loaded.json
 
-#### Any Mods Loaded {#any-mods-loaded}
+### Any Mods Loaded {#any-mods-loaded}
 
 Returns `true` if any of the mods in the array are present. As an example, the condition below will return `true` if either `example-mod` and `another-mod` are loaded.
 
-```json
- "fabric:load_conditions": [
-    {
-      "condition": "fabric:any_mods_loaded",
-      "values": [
-        "example-mod",
-        "another mod"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/any_mods_loaded.json
 
 ### Tags Populated {#tags-populated}
 
 Returns `true` if the specified registry contains a tag. As an example, the condition below will return `true` only if the `example-mod:smelly_items` item tag has loaded contents. If the tag is empty or broken, it will return `false`.
 
-```json
-"fabric:load_conditions": [
-    {
-      "condition": "fabric:tags_populated",
-      "registry": "minecraft:item",
-      "values": [
-        "example-mod:smelly_items"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/tags_populated.json
 
 ### Features Enabled {#features-enabled}
 
 Returns `true` if the following [feature flags](https://minecraft.wiki/w/Experiments#Java_Edition) are enabled. As an example, the condition below will return `true` only if both `minecraft:vanilla` and `minecraft:redstone_experiments` are enabled.
 
-```json
-"fabric:load_conditions": [
-    {
-      "condition": "fabric:features_enabled",
-      "features": [
-        "minecraft:vanilla",
-        "minecraft:redstone_experiments"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
 ### Registry Contains {#registry-contains}
 
 Returns `true` if the registry contains the specified ID. As an example, the condition below will return `true` only if `minecraft:cobblestone` exists in the registry.
 
-```json
-"fabric:load_conditions": [
-    {
-      "condition": "fabric:registry_contains",
-      "values": [
-        "minecraft:cobblestone"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/registry_contains.json
 
 ## Custom Conditions {#custom-conditions}
 
@@ -246,14 +144,4 @@ Be sure to call `ModResourceConditions.register` in your mod's initializer, othe
 
 Now, we have a condition that returns `false` if the specified registry contains a tag. As an example, the condition below will return `true` only if the `example-mod:smelly_items` item tag has no loaded contents. If the tag is empty or broken, it will return `true`.
 
-```json
-"fabric:load_conditions": [
-    {
-      "condition": "example_mod:tags_empty",
-      "registry": "minecraft:item",
-      "values": [
-        "example-mod:smelly_items"
-      ]
-    }
-  ]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/tags_empty.json
