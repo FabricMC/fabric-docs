@@ -19,9 +19,7 @@ By default, this API can be used with recipes, advancements, loot tables, predic
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    "minecraft:stick"
-  ],
+  "ingredients": ["minecraft:stick"],
   "result": {
     "id": "minecraft:diamond"
   }
