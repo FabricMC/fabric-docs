@@ -30,7 +30,7 @@ public class TestItem extends Item {
 		// #endregion problems--logger-usage-example
 		if (level.isClientSide()) {
 			// #region problems--using-logger
-			ExampleModDebug.LOGGER.info("You interacted with an entity!");
+			ExampleMod.LOGGER.info("You interacted with an entity!");
 			// #endregion problems--using-logger
 		}
 
