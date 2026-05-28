@@ -12,9 +12,9 @@ import net.minecraft.world.entity.player.Player;
 
 import com.example.docs.event.SheepShearCallback;
 
-// #region mixin
+// #region sheep-mixin
 @Mixin(Sheep.class)
-public class SheepEntityMixin {
+public class SheepMixin {
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/sheep/Sheep;shear(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/sounds/SoundSource;Lnet/minecraft/world/item/ItemStack;)V"), method = "mobInteract", cancellable = true)
 	private void onShear(final Player player, final InteractionHand hand, final CallbackInfoReturnable<InteractionResult> info) {
 		InteractionResult result = SheepShearCallback.EVENT.invoker().interact(player, (Sheep) (Object) this);
@@ -24,4 +24,4 @@ public class SheepEntityMixin {
 		}
 	}
 }
-// #endregion mixin
+// #endregion sheep-mixin
