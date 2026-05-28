@@ -2,8 +2,6 @@ package com.example.docs.datagen;
 
 import static com.example.docs.datagen.ExampleModDamageTypesProvider.TATER_DAMAGE_TYPE;
 
-import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
-
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 
@@ -13,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
+import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
 import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;

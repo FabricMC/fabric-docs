@@ -6,10 +6,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import com.example.docs.conditions.ModResourceConditions;
-import com.example.docs.conditions.TagsEmptyResourceCondition;
-import com.example.docs.datagen.ExampleModItemTagProvider;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,6 +13,14 @@ import com.google.gson.JsonPrimitive;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.block.Blocks;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
@@ -31,18 +35,10 @@ import net.fabricmc.fabric.impl.resource.conditions.conditions.RegistryContainsR
 import net.fabricmc.fabric.impl.resource.conditions.conditions.TagsPopulatedResourceCondition;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.TrueResourceCondition;
 
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-
 import com.example.docs.ExampleMod;
-
-import net.minecraft.world.flag.FeatureFlag;
-import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.level.block.Blocks;
+import com.example.docs.conditions.ModResourceConditions;
+import com.example.docs.conditions.TagsEmptyResourceCondition;
+import com.example.docs.datagen.ExampleModItemTagProvider;
 
 @SuppressWarnings("all")
 public class ExampleModResourceConditionProvider implements DataProvider {
@@ -67,7 +63,6 @@ public class ExampleModResourceConditionProvider implements DataProvider {
 		acceptCondition(consumer, DefaultResourceConditionTypes.FEATURES_ENABLED, new FeaturesEnabledResourceCondition(FeatureFlags.VANILLA, FeatureFlags.MINECART_IMPROVEMENTS));
 		acceptCondition(consumer, DefaultResourceConditionTypes.REGISTRY_CONTAINS, new RegistryContainsResourceCondition(Blocks.COBBLESTONE.builtInRegistryHolder().key()));
 		acceptCondition(consumer, ModResourceConditions.TAGS_EMPTY, new TagsEmptyResourceCondition(ExampleModItemTagProvider.SMELLY_ITEMS));
-
 	}
 
 	private static <T extends ResourceCondition> void acceptCondition(BiConsumer<String, JsonElement> consumer, ResourceConditionType<T> type, T condition) {
@@ -77,9 +72,9 @@ public class ExampleModResourceConditionProvider implements DataProvider {
 	private static <T extends ResourceCondition> JsonElement encodeConditions(ResourceConditionType<T> type, T condition) {
 		JsonObject finalConditions = new JsonObject();
 		JsonArray conditions = new JsonArray();
-			JsonObject encodedCondition = encodeCondition(type, condition);
-			conditions.add(encodedCondition);
-			finalConditions.add(ResourceConditions.CONDITIONS_KEY, conditions);
+		JsonObject encodedCondition = encodeCondition(type, condition);
+		conditions.add(encodedCondition);
+		finalConditions.add(ResourceConditions.CONDITIONS_KEY, conditions);
 
 		return finalConditions;
 	}
