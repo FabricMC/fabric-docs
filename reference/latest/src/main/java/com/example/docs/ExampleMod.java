@@ -48,7 +48,7 @@ public class ExampleMod implements ModInitializer {
 		// Register our custom particle type in the mod initializer.
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		//#particle_register_main
-		// :::datagen-world:biome-modifications
+		// #region datagen-world--biome-modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(
 				BiomeSelectors.foundInOverworld(),
@@ -64,7 +64,7 @@ public class ExampleMod implements ModInitializer {
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
-		// :::datagen-world:selective-biome-modifications
+		// #endregion datagen-world--selective-biome-modifications
 
 		// #region tooltip-provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);

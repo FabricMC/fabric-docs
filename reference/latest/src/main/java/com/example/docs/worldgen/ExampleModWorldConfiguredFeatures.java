@@ -22,10 +22,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import com.example.docs.ExampleMod;
 
-// #region datagen-world:ConfigureFeatures-Class
+// #region datagen-world--configure-features-class
 public class ExampleModWorldConfiguredFeatures {
-	// #endregion datagen-world:ConfigureFeatures-Class
-	// #region datagen-world:configured-key
+	// #endregion datagen-world--configure-features-class
+	// #region datagen-world--configured-key
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
 			ResourceKey.create(
 				Registries.CONFIGURED_FEATURE,
@@ -39,9 +39,9 @@ public class ExampleModWorldConfiguredFeatures {
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree")
 			);
 
-	// :::datagen-world:ConfigureFeatures-Class
+	// #region datagen-world--configure-features-class
 	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-		// :::datagen-world:ConfigureFeatures-Class
+		// #endregion datagen-world--configure-features-class
 		RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 
 		// #region datagen-world--ruletest
@@ -89,7 +89,7 @@ public class ExampleModWorldConfiguredFeatures {
 		// #region datagen-world--tree-register
 		context.register(DIAMOND_TREE_CONFIGURED_KEY, new ConfiguredFeature<>(Feature.TREE, diamondTree));
 		// #endregion datagen-world--tree-register
-		// #region datagen-world:ConfigureFeatures-Class
+		// #region datagen-world--configure-features-class
 	}
 }
-// #endregion datagen-world:ConfigureFeatures-Class
+// #endregion datagen-world--configure-features-class

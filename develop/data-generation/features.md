@@ -55,7 +55,7 @@ To make a feature naturally spawn in our world, we should start by defining a co
 
 Before we can do anything, let's create the configured features class inside of the `main` package, and declare a `configure` method:
 
-@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen-world--configure-features-class
 
 Now, let's add a custom configured feature for a Diamond Ore vein. First, register the key for the `ConfiguredFeature` in your configured feature class:
 
@@ -117,7 +117,7 @@ The next step in adding a feature to the game is creating its Placement Feature.
 
 Let's create the placed features class inside of the `main` package, and give it a `configure` method like before:
 
-@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen-world--placed-features-class
 
 In your placed features class's `configure` method, create a variable like the one below:
 
