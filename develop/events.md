@@ -114,7 +114,7 @@ We now have the basic event skeleton, but we need to trigger it. Because we want
 
 ### Creating a Test Implementation {#creating-a-test-implementation}
 
-Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there. 
+Now we need to test our event. You can register a listener in your initialization method (or another area, if you prefer) and add custom logic there.
 
 Here's an example that drops a diamond instead of wool at the sheep's feet:
 
