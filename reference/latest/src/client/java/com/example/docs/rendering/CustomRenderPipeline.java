@@ -29,6 +29,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
@@ -44,14 +45,15 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	);
 	// #endregion custom-pipelines--define-pipeline
 	// #region custom-pipelines--extraction-phase
-	private static final ByteBufferBuilder allocator = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
-	private BufferBuilder buffer;
+	private static WaypointRenderState waypointState;
 
 	// #endregion custom-pipelines--extraction-phase
 	// #region custom-pipelines--drawing-phase
+	private static final ByteBufferBuilder ALLOCATOR = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
+	private BufferBuilder buffer;
 	private MappableRingBuffer vertexBuffer;
 
 	// #endregion custom-pipelines--drawing-phase
@@ -62,15 +64,24 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		instance = this;
-		LevelRenderEvents.BEFORE_TRANSLUCENT_TERRAIN.register(this::extractAndDrawWaypoint);
+		LevelRenderEvents.END_EXTRACTION.register(this::extractWaypoint);
+		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
 	}
 
-	private void extractAndDrawWaypoint(LevelRenderContext context) {
+	// :::custom-pipelines:extraction-phase
+	private void extractWaypoint(LevelExtractionContext context) {
+		// Access data from the world or anything here in the extraction phase.
+		// You can only access the (immutable and thread safe) render state in the drawing phase.
+		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
+	}
+
+	// :::custom-pipelines:extraction-phase
+	// :::custom-pipelines:drawing-phase
+	private void renderAndDrawWaypoint(LevelRenderContext context) {
 		this.renderWaypoint(context);
 		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
 	}
 
-	// #region custom-pipelines--extraction-phase
 	private void renderWaypoint(LevelRenderContext context) {
 		PoseStack matrices = context.poseStack();
 		Vec3 camera = context.levelState().cameraRenderState.pos;
@@ -79,10 +90,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
 		if (this.buffer == null) {
-			this.buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
+			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
-		this.renderFilledBox(matrices.last().pose(), this.buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
+		this.renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
 
 		matrices.popPose();
 	}
@@ -124,9 +135,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
-	// #endregion custom-pipelines--extraction-phase
-
-	// #region custom-pipelines--drawing-phase
 	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
 		// Build the buffer
 		MeshData builtBuffer = this.buffer.buildOrThrow();
@@ -171,7 +179,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
 			// Sort the quads if there is translucency
-			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().vertexSorting());
+			builtBuffer.sortQuads(ALLOCATOR, RenderSystem.getProjectionType().vertexSorting());
 			// Upload the index buffer
 			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
 			indexType = builtBuffer.drawState().indexType();
@@ -211,7 +219,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// #region custom-pipelines--clean-up
 	public void close() {
-		allocator.close();
+		ALLOCATOR.close();
 
 		if (this.vertexBuffer != null) {
 			this.vertexBuffer.close();
@@ -219,4 +227,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 	}
 	// #endregion custom-pipelines--clean-up
+
+	// #region custom-pipelines--extraction-phase
+	// Render states should be immutable, thread safe, and fast to create.
+	private record WaypointRenderState(int x, int y, int z, float r, float g, float b, float a) { }
+	// #endregion custom-pipelines--extraction-phase
 }

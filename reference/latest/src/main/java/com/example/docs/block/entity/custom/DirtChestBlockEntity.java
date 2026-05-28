@@ -6,6 +6,7 @@ import org.jspecify.annotations.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -81,6 +82,13 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// ...
 	// #endregion menu
 	 */
+
+	// #region container-still-valid
+	@Override
+	public boolean stillValid(Player player) {
+		return Container.stillValidBlockEntity(this, player);
+	}
+	// #endregion container-still-valid
 
 	// #region provider-implemented
 	@Override

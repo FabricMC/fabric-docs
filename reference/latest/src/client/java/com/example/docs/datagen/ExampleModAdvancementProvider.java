@@ -128,7 +128,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false,
 						false
 				)
-				.addCriterion("get_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+				.addCriterion("get_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_BLOCK))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_gold"));
 
 		// #region reward-types

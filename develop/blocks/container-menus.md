@@ -34,6 +34,15 @@ First, we want to create a block and block entity; read more in the [Block Conta
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#be
 
+In addition to the normal block entity methods, we need to override the `stillValid` method. This method will be called every tick to check if the player should be forced out of the menu.
+We will use the default implementation of this method from `ContainerHelper`, which checks if our block entity still exists and if the player is within the interaction range.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+
+After implementing our menu, it will close automatically when the player is pushed away.
+
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">The container menu closes when the player goes out of range</VideoPlayer>
+
 ### Opening the Menu {#opening-the-screen}
 
 We want to be able to open the menu somehow, so we will handle that within the `useWithoutItem` method:

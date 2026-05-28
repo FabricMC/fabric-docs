@@ -24,7 +24,7 @@ Before we get into custom render pipelines, let's look at vanilla rendering.
 
 As mentioned in [Rendering Concepts](./basic-concepts), recent Minecraft updates are working on splitting rendering into two phases: "extraction" and "drawing".
 
-All data needed for rendering is collected during the "extraction" phase. This includes, for example, writing to the buffered builder. Writing vertices to the buffered builder via `buffer.addVertex` is part of the "extraction" phase. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
+All data needed for rendering is collected during the "extraction" phase. This includes, for example, accessing world data. Note that even though many methods are prefixed with `draw` or `render`, they should be called during the "extraction" phase. You should add all elements you want to render during this phase.
 
 When the "extraction" phase is done, the "drawing" phase starts, and the buffered builder is built. During this phase, the buffered builder is drawn to the screen. The ultimate goal of this "extraction" and "drawing" split is to allow for drawing the previous frame in parallel to extracting the next frame, improving performance.
 
@@ -46,19 +46,19 @@ We first implement the "extraction" phase. We can call this method during the "e
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--extraction-phase
 
-Note that the size used in the `BufferAllocator` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
-
-If you want to render multiple waypoints, call this method multiple times. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
+If you want to render multiple waypoints, change `waypointState` into a list and add multiple waypoint render states. Make sure you do so during the "extraction" phase, BEFORE the "drawing" phase starts, at which point the buffer builder is built.
 
 ### Render States {#render-states}
 
-Note that in the above code we are saving the `BufferBuilder` in a field. This is because we need it in the "drawing" phase. In this case, the `BufferBuilder` is our "render state" or "extracted data". If you need additional data during the "drawing" phase, you should create a custom render state class to hold the `BufferedBuilder` and any additional rendering data you need.
+Note that in the above code we are saving the `WaypointRenderState` in a field. This is because we need it in the "drawing" phase. In this case, the `WaypointRenderState` is our "render state" or "extracted data". If you need additional data (i.e. from the world) during the "drawing" phase, you should add it to your custom render state class.
 
 ### Drawing Phase {#drawing-phase}
 
-Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `BufferBuilder` during the "extraction" phase.
+Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `waypointState` during the "extraction" phase.
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom-pipelines--drawing-phase
+
+Note that the size used in the `ByteBufferBuilder` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Cleaning up {#cleaning-up}
 
