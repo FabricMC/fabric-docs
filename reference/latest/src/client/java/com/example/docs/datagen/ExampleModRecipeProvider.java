@@ -4,11 +4,16 @@ package com.example.docs.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.ExampleMod;
+
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -69,6 +74,14 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						"food_to_wheat" // group
 				);
 				// :::datagen-recipes:other
+
+				// #region datagen-recipes--conditions
+				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
+								.requires(ItemTags.SAND)
+								.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+								.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
+				// #endregion datagen-recipes--conditions
+
 				// :::datagen-recipes:provider
 			}
 		};

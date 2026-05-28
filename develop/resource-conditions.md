@@ -9,26 +9,13 @@ When designing integrations with other mods, a common need is a way to define wh
 
 By default, this API can be used with recipes, advancements, loot tables, predicates, and item modifiers.
 
-While you could use [data generation](./data-generation/setup) to output resource conditions, this guide will primarily focus on how to write them by hand.
+Resource conditions can either be added via [data generation](./data-generation/setup) or when writing JSON by hand. For more information about how to add resource conditions via data generation, see the Data Generation docs.
 
-Load conditions can be added to the root of a JSON file.
+Load conditions are added to the root of a JSON file.
 
-::: details A recipe with a condition set to always load.
+::: details A recipe with a condition that makes it only load when a tag is populated.
 
-```json
-{
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:true"
-    }
-  ],
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": ["minecraft:stick"],
-  "result": {
-    "id": "minecraft:diamond"
-  }
-}
-```
+<<< @/reference/latest/src/main/generated/data/example-mod/recipe/sand.json
 
 :::
 
