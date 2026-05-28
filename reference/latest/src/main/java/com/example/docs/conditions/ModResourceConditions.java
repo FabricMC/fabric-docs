@@ -1,14 +1,14 @@
 package com.example.docs.conditions;
 
-import com.example.docs.ExampleMod;
-
 import com.mojang.serialization.MapCodec;
+
+import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
-import net.minecraft.resources.Identifier;
+import com.example.docs.ExampleMod;
 
 //#region create
 public class ModResourceConditions {
@@ -34,4 +34,3 @@ public class ModResourceConditions {
 	//#region create
 }
 //#endregion create
-

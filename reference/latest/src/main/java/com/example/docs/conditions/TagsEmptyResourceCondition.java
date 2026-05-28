@@ -15,10 +15,11 @@ import net.minecraft.tags.TagKey;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl;
+
 // Copy of TagsPopulatedResourceCondition that inverts the output of test for demonstration purposes.
 //#region record
 public record TagsEmptyResourceCondition(Identifier registry, List<Identifier> tags) implements ResourceCondition {
-//#endregion record
+	//#endregion record
 	//#region codec
 	public static final MapCodec<TagsEmptyResourceCondition> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
 					Identifier.CODEC.fieldOf("registry").orElse(Registries.ITEM.identifier()).forGetter(TagsEmptyResourceCondition::registry),
@@ -49,6 +50,6 @@ public record TagsEmptyResourceCondition(Identifier registry, List<Identifier> t
 		return !ResourceConditionsImpl.tagsPopulated(registryInfo, this.registry(), this.tags());
 	}
 	//#endregion test
-//#region record
+	//#region record
 }
 //#endregion record
