@@ -3,16 +3,13 @@ title: Struttura del Progetto
 description: Una panoramica sulla struttura di un progetto per una mod Fabric.
 authors:
   - IMB11
-resources:
-  https://wiki.fabricmc.net/documentation:fabric_mod_json: Specifica tecnica di fabric.mod.json v1 - Fabric Wiki (EN)
-  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Codice sorgente per la specifica di fabric.mod.json v1
 ---
 
 Questa pagina analizzerà la struttura di un progetto per una mod Fabric, e l'utilità di ogni file e cartella nel progetto.
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-Il file `fabric.mod.json` è il file principale che descrive la tua mod al Loader di Fabric. Contiene informazioni come l'ID della mod, la versione, e le dipendenze.
+Il file [`fabric.mod.json`](../loader/fabric-mod-json) è il file principale che descrive la tua mod al Loader di Fabric. Contiene informazioni come l'ID della mod, la versione, e le dipendenze.
 
 Gli attributi più importanti nel file `fabric.mod.json` sono:
 
@@ -23,17 +20,9 @@ Gli attributi più importanti nel file `fabric.mod.json` sono:
 - `depends`: Le mod da cui la tua mod dipende.
 - `mixins`: I mixin che la tua mod fornisce.
 
-Puoi trovare un esempio del file `fabric.mod.json` sotto - questo è il file `fabric.mod.json` per la mod su cui è basato questo sito di documentazione.
-
-:::details `fabric.mod.json` della mod di esempio
-
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
-
-:::
-
 ## Entrypoint {#entrypoints}
 
-Come detto in precedenza, il file `fabric.mod.json` contiene un attributo `entrypoints` - questo attributo è usato per specificare gli entrypoint che la tua mod fornisce.
+Come detto in precedenza, il file [`fabric.mod.json`](../loader/fabric-mod-json) contiene un attributo `entrypoints` - questo attributo è usato per specificare gli entrypoint che la tua mod fornisce.
 
 Il generatore di mod modello crea sia un entrypoint `main` che `client` predefiniti:
 
