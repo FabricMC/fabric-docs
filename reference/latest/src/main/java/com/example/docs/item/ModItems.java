@@ -64,12 +64,12 @@ public class ModItems {
 
 	// :::guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
-			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
-			455,
-			5.0F,
-			1.5F,
-			22,
-			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
+			BlockTags.INCORRECT_FOR_WOODEN_TOOL, // incorrect blocks for drops
+			455, // durability
+			5.0F, // speed
+			1.5F, // attack damage bonus
+			22, // enchantment value
+			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR // repair items
 	);
 	// :::guidite_tool_material
 
@@ -214,7 +214,12 @@ public class ModItems {
 
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+	// #region axe
+	public static final Item GUIDITE_AXE = register(
+					"guidite_axe",
+					settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
+					new Item.Properties());
+	// #endregion axe
 
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
@@ -274,7 +279,10 @@ public class ModItems {
 
 		// :::8
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
-				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SWORD));
+				.register((creativeTab) -> {
+					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_AXE);
+				});
 		// :::8
 
 		// :::_12

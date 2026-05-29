@@ -46,6 +46,13 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
 						.add(ModItems.GUIDITE_SHIELD);
 		// #endregion shield-tags
+
+		// #region sword-tags
+		valueLookupBuilder(ItemTags.SWORDS)
+						.add(ModItems.GUIDITE_SWORD);
+		valueLookupBuilder(ItemTags.AXES)
+						.add(ModItems.GUIDITE_AXE);
+		// #endregion sword-tags
 		// :::datagen-tags:provider
 	}
 }
