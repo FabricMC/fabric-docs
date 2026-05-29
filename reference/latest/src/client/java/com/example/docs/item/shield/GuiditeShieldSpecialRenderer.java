@@ -55,6 +55,7 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		boolean hasPatterns = !patterns.layers().isEmpty() || baseColor != null;
 		SpriteId base = hasPatterns ? GuiditeShieldLayers.GUIDITE_SHIELD_BASE : GuiditeShieldLayers.GUIDITE_SHIELD_BASE_NO_PATTERN;
 		submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, base, this.sprites, outlineColor, null);
+
 		if (hasPatterns) {
 			BannerRenderer.submitPatterns(this.sprites, poseStack, submitNodeCollector, lightCoords, overlayCoords, this.model, Unit.INSTANCE, false, Objects.requireNonNullElse(baseColor, DyeColor.WHITE), patterns, null);
 		}
@@ -62,7 +63,6 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		if (hasFoil) {
 			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.entityGlint(), lightCoords, overlayCoords, -1, this.sprites.get(base), 0, null);
 		}
-
 	}
 	// #endregion submit
 
@@ -84,11 +84,11 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		}
 
 		public GuiditeShieldSpecialRenderer bake(final SpecialModelRenderer.BakingContext context) {
-			return new GuiditeShieldSpecialRenderer(context.sprites(), new ShieldModel(context.entityModelSet().
-							bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)));
+			return new GuiditeShieldSpecialRenderer(context.sprites(), new ShieldModel(context.entityModelSet()
+							.bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)));
 		}
 	}
 	// #endregion unbaked
-// #region renderer
+	// #region renderer
 }
 // #endregion renderer

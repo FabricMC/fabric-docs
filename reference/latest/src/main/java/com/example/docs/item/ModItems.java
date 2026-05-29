@@ -101,13 +101,13 @@ public class ModItems {
 	);
 	// :::6
 	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
-	// :::7
+	// #region sword
 	public static final Item GUIDITE_SWORD = register(
 			"guidite_sword",
 			Item::new,
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
-	// :::7
+	// #endregion sword
 	// #region shield
 	public static final Item GUIDITE_SHIELD = register(
 					"guidite_shield",

@@ -9,14 +9,19 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShieldDecorationRecipe;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+
+import com.example.docs.item.ModItems;
 
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
 	public ExampleModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -69,6 +74,17 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						"food_to_wheat" // group
 				);
 				// :::datagen-recipes:other
+
+				// #region shield-decoration
+				SpecialRecipeBuilder.special(
+													() -> new ShieldDecorationRecipe(
+																	this.tag(ItemTags.BANNERS),
+																	Ingredient.of(ModItems.GUIDITE_SHIELD),
+																	new ItemStackTemplate(ModItems.GUIDITE_SHIELD))
+									)
+									.save(this.output, "shield_decoration");
+				// #endregion shield-decoration
+
 				// :::datagen-recipes:provider
 			}
 		};

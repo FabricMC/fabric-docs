@@ -12,8 +12,10 @@ import net.minecraft.world.item.Items;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
 // :::datagen-tags:provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -38,6 +40,12 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:build
+		// #region shield-tags
+		valueLookupBuilder(ConventionalItemTags.SHIELD_TOOLS)
+						.add(ModItems.GUIDITE_SHIELD);
+		valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
+						.add(ModItems.GUIDITE_SHIELD);
+		// #endregion shield-tags
 		// :::datagen-tags:provider
 	}
 }

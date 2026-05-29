@@ -39,6 +39,5 @@ public class ExampleModClient implements ClientModInitializer {
 		SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield"), GuiditeShieldSpecialRenderer.Unbaked.MAP_CODEC);
 		ModelLayerRegistry.registerModelLayer(GuiditeShieldLayers.GUIDITE_SHIELD, ShieldModel::createLayer);
 		// #endregion shield-layer
-
 	}
 }

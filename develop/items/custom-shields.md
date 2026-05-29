@@ -9,11 +9,11 @@ authors:
 
 ::: info PREREQUISITES
 
-You must first understand how to [create a tool](./custom-tools).
+You must first understand how to [create a tool](./custom-tools). This guide also references data generation for [recipes](../data-generation/recipes) and [item tags](../data-generation/tags).
 
 :::
 
-Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, two item models, a client item, and a special renderer.
+Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, two item models, a client item, recipes, item tags, and a special renderer.
 
 ## Creating the Item {#item}
 
@@ -69,7 +69,7 @@ The submission process handles the logic of _what_ to render. The shield render'
 
 1. Check for and store any banner patterns on the shield, defaulting to an empty banner pattern list if not.
 2. Check for and store where the shield has been dyed, defaulting to `null` if not.
-3. If the shield has banner patterns or has been dyed, use the dyed texture. If not, use the standard texture. 
+3. If the shield has banner patterns or has been dyed, use the dyed texture. If not, use the standard texture.
 4. Submit the shield model to be rendered, using the provided parameters and texture.
 5. If the shield has banner patterns, submit those as well.
 6. If the shield is enchanted, submit the enchantment glint.
@@ -96,6 +96,34 @@ We'll be creating two item models and a client item for the shield.
 
 ## Creating the Recipes {#recipes}
 
+::: info PREREQUISITES
+
+It's recommended to know how to [data generate recipes](../data-generation/recipes) before following this section.
+
+:::
+
 <!-- TODO -->
 
 Two recipes are usually needed to access the item in survival - a normal crafting recipe, and a shield decoration recipe to allow for banner patterns.
+
+You can make the crafting recipe for your shield whatever you want, so we'll only focus on the decoration recipe. We'll use this line in our recipe provider (`ExampleModRecipeProvider#buildRecipes`) to generate a shield decoration recipe.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#shield-decoration
+
+With this recipe defined, you can now put banner patterns on your shield.
+
+<!-- TODO IMAGE -->
+
+## Tagging Your Shield {#tags}
+
+::: info PREREQUISITES
+
+It's recommended to know how to [data generate tags](../data-generation/tags) before following this section.
+
+:::
+
+It's also recommended to place your shield in the appropriate item tags. For a shield, that would be usually be `ItemTags.DURABILITY_ENCHANTABLE` to allow it to be enchanted with Mending and Unbreaking, and `ConventheionalItemTags.SHIELD_TOOLS`, which modders will be using to look for shields.
+
+In your item tag provider, add the following lines to `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#shield-tags
