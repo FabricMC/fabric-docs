@@ -120,7 +120,7 @@ The method for dyeable items generates a simple item model and a client item whi
 
 ::: warning IMPORTANT
 
-You have to add your item to the `ItemTags.DYEABLE` tag to be able to dye it in your inventory!
+You have to make a `DyeRecipe` for your item to be able to dye it in your inventory!
 
 :::
 
