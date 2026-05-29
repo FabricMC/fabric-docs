@@ -39,7 +39,7 @@ Always succeeds:
 
 Inverts the load condition specified in `value`. For example, the following will fail:
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/not.json
 
 #### Or {#or}
 
@@ -51,7 +51,7 @@ Succeeds if at least one of the conditions in `values` succeeds. For example, th
 
 Succeeds if every condition in `values` succeeds. For example, the following will fail:
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/or.json
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/and.json
 
 ### All Mods Loaded {#all-mods-loaded}
 
