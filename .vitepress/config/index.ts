@@ -11,6 +11,7 @@ import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
 import { getBuildTransformHead, getClientTransformHead } from "./head";
 import { getLocales } from "./i18n";
+import { codeBlockFullScreen } from "./codeBlockFullscreenTransformer";
 
 const latestVersion = fs
   .readFileSync(
@@ -83,6 +84,10 @@ export default defineVersionedConfig(
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
+      codeTransformers: [{
+        name: "code-block-fullscreen-transformer",
+        root(root){codeBlockFullScreen(root)},
+      }]
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },

@@ -2,7 +2,7 @@ import mediumZoom from "medium-zoom";
 import { inBrowser, type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
-import { h, nextTick, watch } from "vue";
+import { h, nextTick, onMounted, watch } from "vue";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
@@ -14,6 +14,7 @@ import References from "./components/References.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
 import "./style.css";
+import { createCodeDialog, fullScreenButtonClick } from "./codeBlockDialog";
 
 export default {
   extends: DefaultTheme,
@@ -53,6 +54,11 @@ export default {
     return h(DefaultTheme.Layout, null, children);
   },
   setup: () => {
+    onMounted(() => {
+      createCodeDialog();
+      document.addEventListener("click", fullScreenButtonClick);
+    });
+
     const router = useRouter();
 
     // Replace data-gen head script, which updates head tags
