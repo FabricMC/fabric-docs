@@ -13,7 +13,7 @@ You must first understand how to [create a tool](./custom-tools).
 
 :::
 
-Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, a model, and a special renderer.
+Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, two item models, a client item, and a special renderer.
 
 ## Creating the Item {#item}
 
@@ -51,11 +51,13 @@ The constructor of the renderer is simple - it accepts a `SpriteGetter` that wil
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#renderer
 
-### Extraction and Extents {#extraction-and-extents}
+### Extraction {#extraction}
 
 Since we do not want the components of the item renderering to be able to change while in the rendering process, we store a copy of the stack's components via `extractArgument`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extract-argument
+
+### Extents {#extents}
 
 We'll also set the extents of the model, defining how it is rendered in the GUI. The model handles this for us.
 
@@ -74,7 +76,7 @@ The submission process handles the logic of _what_ to render. The shield render'
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#submit
 
-## Unbaked Models {#unbaked-models}
+### Unbaked Models {#unbaked-models}
 
 You'll also need an unbaked model, used to reference the model renderer and provide the sprites to the model.
 
