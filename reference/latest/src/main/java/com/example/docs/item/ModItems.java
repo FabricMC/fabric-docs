@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -41,6 +40,7 @@ import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -57,8 +57,6 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.networking.basic.LightningTaterItem;
-
-import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 // :::1
 public class ModItems {
@@ -110,18 +108,18 @@ public class ModItems {
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// :::7
-	// :::s
+	// #region shield
 	public static final Item GUIDITE_SHIELD = register(
 					"guidite_shield",
 					ShieldItem::new,
 					new Item.Properties().durability(336)
 									.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
-									.repairable(ItemTags.WOODEN_TOOL_MATERIALS)
+									.repairable(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
 									.equippableUnswappable(EquipmentSlot.OFFHAND)
 									.delayedComponent(DataComponents.BLOCKS_ATTACKS, (context) -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
 									.component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)
 	);
-	// :::7
+	// #endregion shield
 	// :::_13
 	public static final Item COUNTER = register(
 			"counter",

@@ -1,12 +1,8 @@
 package com.example.docs.datagen.internal;
 
-import com.example.docs.rendering.special.GuiditeShieldSpecialRenderer;
-
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TexturedModel;
@@ -17,10 +13,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.item.ModItems;
-
-import net.minecraft.client.renderer.item.ItemModel;
-import net.minecraft.client.renderer.special.ShieldSpecialRenderer;
-import net.minecraft.world.item.Item;
 
 /**
  * This generator is just for the reference item and block models.
@@ -58,13 +50,6 @@ public class ExampleModInternalModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.POISONOUS_APPLE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.SUSPICIOUS_SUBSTANCE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
-		generateGuiditeShield(ModItems.GUIDITE_SHIELD, itemModelGenerator);
-	}
-
-	public final void generateGuiditeShield(final Item item, ItemModelGenerators itemModelGenerator) {
-		ItemModel.Unbaked normal = ItemModelUtils.specialModel(ModelLocationUtils.getModelLocation(item), new GuiditeShieldSpecialRenderer.Unbaked());
-		ItemModel.Unbaked blocking = ItemModelUtils.specialModel(ModelLocationUtils.getModelLocation(item, "_blocking"), new GuiditeShieldSpecialRenderer.Unbaked());
-		itemModelGenerator.itemModelOutput.accept(item, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(), blocking, normal));
 	}
 
 	@Override

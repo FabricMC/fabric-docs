@@ -34,6 +34,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.shield.GuiditeShieldSpecialRenderer;
 
 // :::provider
 public class ExampleModModelProvider extends FabricModelProvider {
@@ -164,6 +165,14 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//:::custom-balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		//:::custom-balloon
+
+		// #region shield
+		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
+
+		ItemModel.Unbaked normal = ItemModelUtils.specialModel(modelLocation, new GuiditeShieldSpecialRenderer.Unbaked());
+		ItemModel.Unbaked blocking = ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), new GuiditeShieldSpecialRenderer.Unbaked());
+		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(), blocking, normal));
+		// #endregion shield
 
 		// :::provider
 	}

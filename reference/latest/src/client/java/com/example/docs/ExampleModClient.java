@@ -1,22 +1,20 @@
 package com.example.docs;
 
-import com.example.docs.rendering.special.GuiditeShieldSpecialRenderer;
-
-import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.object.equipment.ShieldModel;
 import net.minecraft.client.particle.EndRodParticle;
 import net.minecraft.client.renderer.special.SpecialModelRenderers;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 
 import com.example.docs.component.ModComponents;
-
-import net.minecraft.resources.Identifier;
+import com.example.docs.item.shield.GuiditeShieldLayers;
+import com.example.docs.item.shield.GuiditeShieldSpecialRenderer;
 
 public class ExampleModClient implements ClientModInitializer {
 	@Override
@@ -37,8 +35,10 @@ public class ExampleModClient implements ClientModInitializer {
 			}
 		});
 		// #tooltip_provider_client
+		// #region shield-layer
 		SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield"), GuiditeShieldSpecialRenderer.Unbaked.MAP_CODEC);
-		ModelLayerRegistry.registerModelLayer(GuiditeShieldSpecialRenderer.GUIDITE_SHIELD, ShieldModel::createLayer);
+		ModelLayerRegistry.registerModelLayer(GuiditeShieldLayers.GUIDITE_SHIELD, ShieldModel::createLayer);
+		// #endregion shield-layer
 
 	}
 }
