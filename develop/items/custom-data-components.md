@@ -304,4 +304,4 @@ Since we have a custom component class, we're able to implement `TooltipProvider
 
 Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#advanced-tooltip-provider
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#advanced_tooltip_provider
