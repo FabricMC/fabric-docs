@@ -27,9 +27,11 @@ function openCodeDialog(codeBlock: HTMLElement) {
   title.classList.add("dialog-title");
 
   const codeGroup = codeBlock.closest(".vp-code-group") as HTMLElement;
-  if(codeGroup){
+  if (codeGroup) {
     title.classList.add("dialog-title-bg");
-    title.innerHTML = (codeGroup.querySelector(".tabs>input[checked]") as HTMLInputElement).labels?.[0]?.textContent || "";
+    title.innerHTML =
+      (codeGroup.querySelector(".tabs>input[checked]") as HTMLInputElement).labels?.[0]?.textContent
+      || "";
   }
 
   const clone = codeBlock.cloneNode(true) as HTMLElement;

@@ -84,10 +84,14 @@ export default defineVersionedConfig(
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
-      codeTransformers: [{
-        name: "code-block-fullscreen-transformer",
-        root(root){codeBlockFullScreen(root)},
-      }]
+      codeTransformers: [
+        {
+          name: "code-block-fullscreen-transformer",
+          root(root) {
+            codeBlockFullScreen(root);
+          },
+        },
+      ],
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },

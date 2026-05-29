@@ -1,4 +1,4 @@
-export function codeBlockFullScreen(root: any){
+export function codeBlockFullScreen(root: any) {
   root.children.push({
     type: "element",
     tagName: "button",

@@ -200,25 +200,26 @@ h1 > .VPBadge {
   max-height: 90vh;
 }
 
-.vp-doc .dialog-content div[class*='language-']{
+.vp-doc .dialog-content div[class*="language-"] {
   margin: 0;
 }
 
-@media(min-width: 960px){
-  .vp-doc [class*='language-'] > button.full-screen-button{
+@media (min-width: 960px) {
+  .vp-doc [class*="language-"] > button.full-screen-button {
     display: block !important;
   }
 
-  .vp-doc [class*='language-'] > button.copy{
+  .vp-doc [class*="language-"] > button.copy {
     right: 64px;
   }
 
-  .vp-doc [class*='language-'] > button.copy.copied::before, .vp-doc [class*='language-'] > button.copy:hover.copied::before{
+  .vp-doc [class*="language-"] > button.copy.copied::before,
+  .vp-doc [class*="language-"] > button.copy:hover.copied::before {
     transform: translateX(calc(-100%));
   }
 }
 
-.vp-doc [class*='language-'] > button.full-screen-button{
+.vp-doc [class*="language-"] > button.full-screen-button {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -227,26 +228,27 @@ h1 > .VPBadge {
   display: none;
 }
 
-.vp-doc [class*='language-']:hover > button.full-screen-button,
-.vp-doc [class*='language-'] > button.full-screen-button:focus{
+.vp-doc [class*="language-"]:hover > button.full-screen-button,
+.vp-doc [class*="language-"] > button.full-screen-button:focus {
   opacity: 1;
 }
 
-.vp-doc [class*='language-'] > button.full-screen-button:hover,
-.vp-doc [class*='language-'] > button.full-screen-button:focus,
-.dialog-header > button:hover, .dialog-header > button:focus {
+.vp-doc [class*="language-"] > button.full-screen-button:hover,
+.vp-doc [class*="language-"] > button.full-screen-button:focus,
+.dialog-header > button:hover,
+.dialog-header > button:focus {
   border-color: var(--vp-code-copy-code-hover-border-color);
   background-color: var(--vp-code-copy-code-hover-bg);
 }
 
-.dialog-header{
+.dialog-header {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 8px 0;
 }
 
-.vp-doc [class*='language-'] > button.full-screen-button,
+.vp-doc [class*="language-"] > button.full-screen-button,
 .dialog-header > button {
   direction: ltr;
   z-index: 3;
@@ -259,32 +261,35 @@ h1 > .VPBadge {
   background-position: 50%;
   background-size: 20px;
   background-repeat: no-repeat;
-  transition: border-color 0.25s, background-color 0.25s, opacity 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    opacity 0.25s;
 }
 
-.dialog-header > button.full-screen-button{
+.dialog-header > button.full-screen-button {
   background-image: var(--vp-icon-fullscreen);
 }
 
-.dialog-header > button.full-screen-button-exit{
+.dialog-header > button.full-screen-button-exit {
   background-image: var(--vp-icon-fullscreen-exit);
 }
 
-.dialog-header > button.copy{
+.dialog-header > button.copy {
   background-image: var(--vp-icon-copy);
 }
 
-.dialog-header > button.download-button{
+.dialog-header > button.download-button {
   background-image: var(--vp-icon-download);
 }
 
-.dialog-header > button.copy.copied{
+.dialog-header > button.copy.copied {
   background-image: var(--vp-icon-copied);
   background-color: var(--vp-c-brand-2);
   background-blend-mode: color-dodge;
 }
 
-.dialog-title{
+.dialog-title {
   font-size: 16px;
   font-weight: 500;
   color: var(--vp-c-text-1);
@@ -298,7 +303,7 @@ h1 > .VPBadge {
   text-overflow: ellipsis;
 }
 
-.dialog-title-bg{
+.dialog-title-bg {
   background-color: var(--vp-code-copy-code-bg);
   border: 1px solid var(--vp-code-copy-code-border-color);
 }
