@@ -19,6 +19,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
+import com.example.docs.item.ModItems;
+
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
 	public ExampleModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
@@ -78,6 +80,9 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 								.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
 				// #endregion datagen-recipes--conditions
 
+				// #region datagen-recipes--dye
+				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
+				// #endregion datagen-recipes--dye
 				// :::datagen-recipes:provider
 			}
 		};
