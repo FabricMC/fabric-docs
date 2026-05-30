@@ -61,12 +61,6 @@ Then, we can generate a loot table inside the `generate` method of your provider
 
 ## Resource Conditions {#resource-conditions}
 
-::: info
-
-For more information on what resource conditions are, see the [dedicated article](./../resource-conditions).
-
-:::
-
-To apply a resource condition to a data generated loot table, call `withConditions` and provide any resource conditions you want to apply, then call a method from the loot table provider e.g. `dropSelf`. This will then generate a loot table that has resource conditions applied.
+To apply a [resource condition](../resource-conditions) to a data generated loot table, call `withConditions` and provide any resource conditions you want to apply, then call a method from the loot table provider, such as `dropSelf`. This will then generate a loot table that has resource conditions applied:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen-loot-tables--conditions

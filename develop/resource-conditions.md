@@ -93,7 +93,7 @@ You must first understand [how to create a codec](./codecs) before setting a cus
 
 Fabric API also provides the flexibility of creating your own resource conditions.
 
-To demonstrate this, we'll create a condition that checks the current date. This could be used for special behaviour on holidays like Halloween or April Fools.
+To demonstrate this, we'll create a condition that checks the current date. This could be used for special behavior on holidays like Halloween or April Fools.
 
 ### Preparing Your Condition {#preparing-your-condition}
 
@@ -123,7 +123,7 @@ Next, add a Codec that reflects what the constructor accepts:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#codec
 
-Next, we'll add a `test` method that checks the current date. This example is based on the logic the game itself does in `SpecialDates`.
+Next, we'll add a `test` method that checks the current date. This example is based on logic from vanilla itself, in `SpecialDates`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#test
 
@@ -143,6 +143,6 @@ Be sure to call `ModResourceConditions.register` in your [mod's initializer](./g
 
 ### Using Your Condition {#using-your-condition}
 
-Now, we have a condition that succeeds if the system date matches the date provided in the resource condition. For example, this condition will only succeed on April Fools.
+Now, we have a condition that succeeds if the system date matches the date provided in the resource condition. For example, this condition will only succeed on April Fools:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/date_matches.json

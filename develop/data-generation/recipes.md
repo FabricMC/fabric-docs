@@ -60,12 +60,6 @@ Other recipes work similarly, but require a few extra parameters. For example, s
 
 ## Resource Conditions {#resource-conditions}
 
-::: info
-
-For more information on what resource conditions are, see the [dedicated article](./../resource-conditions).
-
-:::
-
-To apply a resource condition to a data generated recipe, wrap the output with `withConditions` and provide any resource conditions you want to apply. This will then generate a recipe and an advancement that has resource conditions applied.
+To apply a [resource condition](../resource-conditions) to a data generated recipe, wrap the output with `withConditions` and provide any resource conditions you want to apply. This will then generate a recipe and an advancement that has resource conditions applied:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--conditions
