@@ -24,7 +24,7 @@ Bevor wir uns mit benutzerdefinierten Render-Pipelines befassen, wollen wir uns 
 
 Wie in [Grundlegende Rendering-Konzepte](./basic-concepts) erwähnt, arbeiten die aktuellen Minecraft-Updates daran, das Rendering in zwei Phasen aufzuteilen: "Extraktion" und "Zeichnen".
 
-Alle für das Rendering erforderlichen Daten werden während der "Extraktionsphase" gesammelt. Dazu gehört beispielsweise das Schreiben in den gepufferten Builder. Das Schreiben von Eckpunkten in den gepufferten Builder über `buffer.addVertex` ist Teil der "Extraktionsphase". Beachte, dass viele Methoden zwar mit "draw" oder "render" beginnen, jedoch während der "Extraktionsphase" aufgerufen werden sollten. Du solltest alle Elemente hinzufügen, die du während dieser Phase rendern möchtest.
+Alle für das Rendering erforderlichen Daten werden während der "Extraktionsphase" gesammelt. Dies schließt beispielsweise den Zugriff auf Weltdaten ein. Beachte, dass viele Methoden zwar mit "draw" oder "render" beginnen, jedoch während der "Extraktionsphase" aufgerufen werden sollten. Du solltest alle Elemente hinzufügen, die du während dieser Phase rendern möchtest.
 
 Wenn die "Extraktionsphase" abgeschlossen ist, beginnt die "Zeichenphase" und der gepufferte Builder wird erstellt. Während dieser Phase wird der gepufferte Builder auf den Bildschirm gezeichnet. Das ultimative Ziel dieser Aufteilung in "Extraktion" und "Zeichnen" besteht darin, das Zeichnen des vorherigen Bildern parallel zum Extrahieren des nächsten Bilds zu ermöglichen und so die Leistung zu verbessern.
 
@@ -46,19 +46,19 @@ Wir implementieren zuerst die "Extraktionsphase". Wir können diese Methode wäh
 
 @[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
 
-Beachte, dass die im Konstruktor von `BufferAllocator` verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
-
-Wenn du mehrere Wegpunkte rendern möchtest, rufe diese Methode mehrmals auf. Stelle sicher, dass du dies während der "Extraktionsphase" machst, BEVOR die "Zeichenphase" beginnt, in der der Puffer-Builder gebaut wird.
+Wenn du mehrere Wegpunkte rendern möchtest, ändere `waypointState` zu einer Liste und füge mehrere Renderzustände für Wegpunkte hinzu. Stelle sicher, dass du dies während der "Extraktionsphase" machst, BEVOR die "Zeichenphase" beginnt, in der der Puffer-Builder gebaut wird.
 
 ### Renderzustände {#render-states}
 
-Beachte, dass wir im obigen Code den `BufferBuilder` in einem Feld speichern. Das liegt daran, dass wir es in der "Zeichnungsphase" benötigen. In diesem Fall ist der `BufferBuilder` unser "Renderzustand" oder unsere "extrahierten Daten". Wenn du während der "Zeichenphase" zusätzliche Daten benötigst, solltest du eine benutzerdefinierte Render-Zustandklasse erstellen, um den `BufferedBuilder` und alle zusätzlichen Rendering-Daten, die du benötigst, zu speichern.
+Beachte, dass wir im obigen Code den `WaypointRenderState` in einem Feld speichern. Das liegt daran, dass wir es in der "Zeichnungsphase" benötigen. In diesem Fall ist der `WaypointRenderState` unser "Renderzustand" oder unsere "extrahierten Daten". Wenn du während der "Zeichenphase" zusätzliche Daten (z. B. aus der Welt) benötigst, solltest du diese in deine benutzerdefinierte Renderzustand-Klasse einfügen.
 
 ### Zeichenphase {#drawing-phase}
 
-Jetzt werden wir die "Zeichenphase" implementieren. Dies sollte aufgerufen werden, nachdem alle Wegpunkte, die du rendern möchtest, während der "Extraktionsphase" zum `BufferBuilder` hinzugefügt wurden.
+Jetzt werden wir die "Zeichenphase" implementieren. Dies sollte aufgerufen werden, nachdem alle Wegpunkte, die du rendern möchtest, während der "Extraktionsphase" zum `waypointState` hinzugefügt wurden.
 
 @[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+
+Beachte, dass die im Konstruktor des `ByteBufferBuilder` verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Aufräumen {#cleaning-up}
 

@@ -34,6 +34,15 @@ Zunächst möchten wir einen Block und eine Block-Entität erstellen; weitere In
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
+Zusätzlich zu den Methoden der normalen Block-Entität müssen wir die Methode `stillValid` überschreiben. Diese Methode wird bei jedem Tick aufgerufen, um zu prüfen, ob der Spieler aus dem Menü geworfen werden soll.
+Wir verwenden die Standardimplementierung dieser Methode aus `ContainerHelper`, die prüft, ob unsere Block-Entität noch existiert und ob sich der Spieler innerhalb des Interaktionsbereichs befindet.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+
+Sobald unser Menü implementiert ist, wird es automatisch geschlossen, sobald der Spieler weggeschoben wird.
+
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">Das Container-Menü wird geschlossen, sobald sich der Spieler außerhalb der Reichweite befindet</VideoPlayer>
+
 ### Das Menü öffnen {#opening-the-screen}
 
 Wir möchten das Menü irgendwie öffnen können, daher werden wir das innerhalb der Methode `useWithoutItem` umsetzen:
