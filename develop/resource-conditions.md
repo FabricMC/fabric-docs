@@ -93,7 +93,7 @@ You must first understand [how to create a codec](./codecs) before setting a cus
 
 Fabric API also provides the flexibility of creating your own resource conditions.
 
-To demonstrate this, we'll create a condition that mirrors [Tags Populated](#tags-populated), but it only succeeds if at least one tag is empty. Obviously, in real code you can just use [`not`](#not).
+To demonstrate this, we'll create a condition that checks the current date. This could be used for special behaviour on holidays like Halloween or April Fools.
 
 ### Preparing Your Condition {#preparing-your-condition}
 
@@ -111,17 +111,17 @@ Fabric does the same with its built-in conditions; you can refer to the `Default
 
 A resource condition consists of three parts: a constructor that accepts values, a codec to serialize those values, and a `test` method to handle what to do with them.
 
-We'll create a new class for the resource condition, named `TagsEmptyResourceCondition`. First, create a new `record` that accepts an `Identifier` for the registry and a list of `Identifier`s for the tags:
+We'll create a new class for the resource condition, named `DateMatchesResourceCondition`. First, create a new `record` that accepts an `int` for the month, and an `int` for the day:
 
-<<< @/reference/latest/src/main/java/com/example/docs/conditions/TagsEmptyResourceCondition.java#record
+<<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#record
 
 Next, add a Codec that reflects what the constructor accepts:
 
-<<< @/reference/latest/src/main/java/com/example/docs/conditions/TagsEmptyResourceCondition.java#codec
+<<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#codec
 
-Next, we'll add a `test` method. We'll invert the logic from `TagsPopulated`:
+Next, we'll add a `test` method that checks the current date. This example is based on the logic the game itself does in `SpecialDates`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/conditions/TagsEmptyResourceCondition.java#test
+<<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#test
 
 ### Registering Your Condition {#registering-your-condition}
 
@@ -129,9 +129,9 @@ Back in `ModResourceConditions`, we can now register our resource condition:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/ModResourceConditions.java#register
 
-This condition type can then be referenced from `TagsEmptyResourceCondition` as well:
+This condition type can then be referenced from `DateMatchesResourceCondition` as well:
 
-<<< @/reference/latest/src/main/java/com/example/docs/conditions/TagsEmptyResourceCondition.java#type
+<<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#type
 
 Be sure to call `ModResourceConditions.register` in your [mod's initializer](./getting-started/project-structure#entrypoints):
 
@@ -139,6 +139,6 @@ Be sure to call `ModResourceConditions.register` in your [mod's initializer](./g
 
 ### Using Your Condition {#using-your-condition}
 
-Now, we have a condition that fails if the specified registry contains a valid tag. For example, the following will succeed if the `example-mod:smelly_items` item tag has no contents loaded, either because it's empty or broken:
+Now, we have a condition that succeeds if the system date matches the date provided in the resource condition. For example, this condition will only succeed on April Fools.
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/tags_empty.json
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/date_matches.json

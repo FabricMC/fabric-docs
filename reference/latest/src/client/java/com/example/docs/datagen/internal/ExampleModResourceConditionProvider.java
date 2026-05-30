@@ -36,8 +36,8 @@ import net.fabricmc.fabric.impl.resource.conditions.conditions.TagsPopulatedReso
 import net.fabricmc.fabric.impl.resource.conditions.conditions.TrueResourceCondition;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.conditions.DateMatchesResourceCondition;
 import com.example.docs.conditions.ModResourceConditions;
-import com.example.docs.conditions.TagsEmptyResourceCondition;
 import com.example.docs.datagen.ExampleModItemTagProvider;
 
 @SuppressWarnings("all")
@@ -62,7 +62,7 @@ public class ExampleModResourceConditionProvider implements DataProvider {
 		acceptCondition(consumer, DefaultResourceConditionTypes.TAGS_POPULATED, new TagsPopulatedResourceCondition(ExampleModItemTagProvider.SMELLY_ITEMS));
 		acceptCondition(consumer, DefaultResourceConditionTypes.FEATURES_ENABLED, new FeaturesEnabledResourceCondition(FeatureFlags.VANILLA, FeatureFlags.MINECART_IMPROVEMENTS));
 		acceptCondition(consumer, DefaultResourceConditionTypes.REGISTRY_CONTAINS, new RegistryContainsResourceCondition(Blocks.COBBLESTONE.builtInRegistryHolder().key()));
-		acceptCondition(consumer, ModResourceConditions.TAGS_EMPTY, new TagsEmptyResourceCondition(ExampleModItemTagProvider.SMELLY_ITEMS));
+		acceptCondition(consumer, ModResourceConditions.DATE_MATCHES, new DateMatchesResourceCondition(4, 1));
 	}
 
 	private static <T extends ResourceCondition> void acceptCondition(BiConsumer<String, JsonElement> consumer, ResourceConditionType<T> type, T condition) {

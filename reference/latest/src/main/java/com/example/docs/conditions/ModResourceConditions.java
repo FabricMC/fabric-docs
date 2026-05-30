@@ -14,8 +14,8 @@ import com.example.docs.ExampleMod;
 public class ModResourceConditions {
 	//#endregion create
 	//#region register
-	public static final ResourceConditionType<TagsEmptyResourceCondition> TAGS_EMPTY =
-					createResourceConditionType("tags_empty", TagsEmptyResourceCondition.CODEC);
+	public static final ResourceConditionType<DateMatchesResourceCondition> DATE_MATCHES =
+					createResourceConditionType("date_matches", DateMatchesResourceCondition.CODEC);
 
 	//#endregion register
 
@@ -27,7 +27,7 @@ public class ModResourceConditions {
 
 	//#region register
 	public static void register() {
-		ResourceConditions.register(TAGS_EMPTY);
+		ResourceConditions.register(DATE_MATCHES);
 	}
 	//#endregion register
 
