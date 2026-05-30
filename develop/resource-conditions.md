@@ -61,7 +61,7 @@ Succeeds if all mods in `values` are present and loaded. For example, the follow
 
 ### Any Mods Loaded {#any-mods-loaded}
 
-Succeeds if at least one of the mods in `values` is present. For example, the following will succeed if either `example-mod`, or `another-mod`, or both, are loaded.
+Succeeds if at least one of the mods in `values` is present. For example, the following will succeed if either `example-mod`, or `another-mod`, or both, are loaded:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/any_mods_loaded.json
 
