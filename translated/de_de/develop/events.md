@@ -6,6 +6,7 @@ authors:
   - dicedpixels
   - Draylar
   - JamiesWhiteShirt
+  - Jimmy474
   - Juuxel
   - liach
   - mkpoli
@@ -37,7 +38,7 @@ Jedes Event hat ein dazugehöriges Callback Interface. Callbacks werden durch de
 
 Dieses Beispiel registriert einen `AttackBlockCallback`, um dem Spieler Schaden zuzufügen, wenn er Blöcke trifft, die keinen Gegenstand fallen lassen, wenn sie von Hand abgebaut werden.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack-block-callback-event
 
 ### Items zu existierenden Beutetabellen hinzufügen {#adding-items-to-existing-loot-tables}
 
@@ -49,19 +50,19 @@ Wir werden die Beutetabelle für Kohleerz um Eier erweitern.
 
 #### Auf das Laden der Beutetabelle hören {#listening-to-loot-table-loading}
 
-Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst hierfür einen Callback in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist.
+Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst hierfür einen Callback in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist:
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-table-events
 
 #### Hinzufügen von Items zur Beutetabelle {#adding-items-to-the-loot-table}
 
-In Beutetabellen werden Gegenstände in _Beutepool-Einträgen_ gespeichert, und Einträge werden in _Beutepools_ gespeichert. Um einen Gegenstand hinzuzufügen, müssen wir der Beutetabelle einen Pool mit einem Eintrag für ein Item hinzufügen.
+Um einen Gegenstand hinzuzufügen, müssen wir der Beutetabelle einen Pool mit einem Eintrag für ein Item hinzufügen.
 
-Wir können einen Pool mit `LootPool#builder` erstellen, und ihn zur Beutetabelle hinzufügen.
+Wir können einen Pool mit `LootPool#lootPool` erstellen, und ihn zur Beutetabelle hinzufügen.
 
-Unser Pool hat auch keine Items, also erstellen wir einen Item-Eintrag mit `ItemEntry#builder` und fügen ihn dem Pool hinzu.
+Unser Pool hat auch noch keine Items, also erstellen wir einen Item-Eintrag mit `LootItem#lootTableItem` und fügen ihn dem Pool hinzu.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot-pool-builder{5-7}
 
 ## Benutzerdefinierte Events {#custom-events}
 
@@ -79,40 +80,46 @@ Das Callback-Interface beschreibt, was von den Event-Listenern implementiert wer
 
 Für unsere `Event`-Implementierung werden wir uns für ein Array-gestütztes Event entscheiden. Das Array enthält alle Event-Listener, die auf das Event hören.
 
-Unsere Implementierung ruft die Event-Listener der Reihe nach auf, bis einer von ihnen kein `ActionResult.PASS` zurückgibt. Das bedeutet, dass ein Listener mit Hilfe seines Rückgabewerts sagen kann: "_Abbrechen_", "_Zustimmen_" oder "_Egal, überlasse es dem nächsten Event-Listener_".
+Unsere Implementierung ruft die Event-Listener der Reihe nach auf, bis einer von ihnen kein `InteractionResult.PASS` zurückgibt. Das bedeutet, dass ein Listener mit Hilfe seines Rückgabewerts "_dies abbrechen_", "_dies genehmigen_" oder "_mir egal, an den nächsten Event-Listener weiterleiten_" sagen kann.
 
-Die Verwendung von `ActionResult` als Rückgabewert ist ein konventioneller Weg, um Event-Handler auf diese Weise zusammenarbeiten zu lassen.
+Die Verwendung von `InteractionResult` als Rückgabewert ist eine gängige Methode, um Event-Handler auf diese Weise miteinander zu koordinieren.
 
 Du musst ein Interface erstellen, das eine `Event`-Instanz und eine Methode zur Implementierung der Antwort hat. Ein Grundaufbau für unseren Schafschur-Callback ist:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#sheep-shear-callback
 
 Schauen wir uns das genauer an. Wenn der Invoker aufgerufen wird, wird über alle Listener iteriert:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#listener-iterator
 
-Dann rufen wir unsere Methode (in diesem Fall `interact`) auf dem Listener auf, um seine Antwort zu erhalten:
+Bei jedem Listener rufen wir dann `interact` auf, um die Antwort des Listeners abzurufen. Hier ist die Signatur von `interact`, die wir in diesem Interface deklariert haben:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#interact-method
 
-Wenn der Listener sagt, dass wir abbrechen (`ActionResult.FAIL`) oder vollständig beenden (`ActionResult.SUCCESS`) müssen, gibt der Callback das Ergebnis zurück und beendet die Schleife. `ActionResult.PASS` geht zum nächsten Listener über und sollte in den meisten Fällen zum Erfolg führen, wenn keine weiteren Listener registriert sind:
+Wenn der Listener sagt, dass wir abbrechen (durch die Rückgabe von `FAIL`) oder vollständig beenden (`SUCCESS`) müssen, gibt der Callback das Ergebnis zurück und beendet die Schleife.
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+`InteractionResult.PASS` wird an den nächsten Listener weitergeleitet, bis alle Listener aufgerufen wurden und schließlich `PASS` zurückgegeben wird:
 
-Wir können Javadoc-Kommentare an die oberste Stelle der Callback-Klassen setzen, um zu dokumentieren, was jedes `ActionResult` macht. In unserem Fall könnte das wie folgt sein:
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#return-value
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+Wir können Javadoc-Kommentare an der obersten Stelle der Callback-Klassen hinzufügen, um zu dokumentieren, was jedes `InteractionResult` macht. In unserem Fall könnte das wie folgt sein:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#javadoc-comment
 
 ### Auslösen des Events von einem Mixin {#triggering-the-event-from-a-mixin}
 
-Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Ereignis auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir das Ereignis `invoker` in `SheepEntity#interactMob` auf, wenn `sheared()` aufgerufen wird (d.h.
+Jetzt haben wir das Grundgerüst für ein Event, aber wir müssen es auslösen. Da wir das Event auslösen wollen, wenn ein Spieler versucht, ein Schaf zu scheren, rufen wir den `invoker` des Event in `Sheep#mobInteract` auf, wenn `shear()` aufgerufen wird (d. h. Schafe können geschoren werden, und der Spieler hält eine Schere):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/event/SheepMixin.java#sheep-mixin
 
 ### Erstellen einer Testimplementierung {#creating-a-test-implementation}
 
-Jetzt müssen wir unser Event testen. Du kannst einen Listener in deiner Initialisierungsmethode (oder in einem anderen Bereich, wenn du das bevorzugst) registrieren und dort benutzerdefinierte Logik hinzufügen. Hier ist ein Beispiel, bei dem dem ein Diamant anstelle von Wolle auf die Füße des Schafs fällt:
+Jetzt müssen wir unser Event testen. Du kannst einen Listener in deiner Initialisierungsmethode (oder in einem anderen Bereich, wenn du das bevorzugst) registrieren und dort benutzerdefinierte Logik hinzufügen.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+Hier ist ein Beispiel, bei dem dem ein Diamant anstelle von Wolle auf die Füße des Schafs fällt:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#sheep-shear-callback-event
 
 Wenn du im Spiel ein Schaf scherst, sollte anstelle von Wolle ein Diamant fallen.
+
+<!-- TODO: maybe adding a video of a sheep dropping diamonds? -->

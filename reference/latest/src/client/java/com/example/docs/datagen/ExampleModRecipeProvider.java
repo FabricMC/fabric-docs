@@ -77,14 +77,17 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 
 				// #region shield-decoration
 				SpecialRecipeBuilder.special(
-													() -> new ShieldDecorationRecipe(
-																	this.tag(ItemTags.BANNERS),
-																	Ingredient.of(ModItems.GUIDITE_SHIELD),
-																	new ItemStackTemplate(ModItems.GUIDITE_SHIELD))
+											() -> new ShieldDecorationRecipe(
+															this.tag(ItemTags.BANNERS),
+															Ingredient.of(ModItems.GUIDITE_SHIELD),
+															new ItemStackTemplate(ModItems.GUIDITE_SHIELD))
 									)
 									.save(this.output, "shield_decoration");
 				// #endregion shield-decoration
 
+				// #region datagen-recipes--dye
+				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
+				// #endregion datagen-recipes--dye
 				// :::datagen-recipes:provider
 			}
 		};
