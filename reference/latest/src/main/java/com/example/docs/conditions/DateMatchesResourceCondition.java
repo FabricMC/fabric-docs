@@ -33,7 +33,7 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 	@Override
 	//#region test
 	public boolean test(RegistryOps.@Nullable RegistryInfoLookup registryInfo) {
-		var monthDay = MonthDay.of(month, day);
+		var monthDay = MonthDay.of(this.month, this.day);
 		return SpecialDates.dayNow().equals(monthDay);
 	}
 	//#endregion test
