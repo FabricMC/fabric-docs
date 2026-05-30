@@ -109,10 +109,11 @@ Fabric does the same with its built-in conditions; you can refer to the `Default
 
 ### Creating Your Condition {#creating-your-condition}
 
-A resource condition consists of three parts: 
-- a constructor that accepts values
-- a codec to serialize those values
-- a `test` method to handle what to do with them
+A resource condition consists of three parts:
+
+- A constructor that accepts values.
+- A codec to serialize those values.
+- A `test` method that uses the values to determine whether the condition should pass.
 
 We'll create a new class for the resource condition, named `DateMatchesResourceCondition`. First, create a new `record` that accepts an `int` for the month, and an `int` for the day:
 
