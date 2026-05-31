@@ -22,6 +22,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
+import com.example.docs.item.ModItems;
+
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
 	public ExampleModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
@@ -62,7 +64,7 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
 						.save(output);
 				// :::datagen-recipes:shaped
-				// :::datagen-recipes:smelting
+				// #region datagen-recipes--smelting
 				oreSmelting(
 						List.of(Items.GLASS_BOTTLE), // Inputs
 						RecipeCategory.MISC, // Category
@@ -72,9 +74,9 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						300, // Cooking time
 						"glass_bottle_to_glass" // group
 				);
-				// :::datagen-recipes:smelting
+				// #endregion datagen-recipes--smelting
 
-				// #region smoking-recipe
+				// #region datagen-recipes--smoking
 				SimpleCookingRecipeBuilder.smoking(
 						Ingredient.of(Items.WATER_BUCKET), // Input
 						RecipeCategory.MISC, // Category (MISC for smoking recipes)
@@ -84,7 +86,10 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				)
 				.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
 				.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
-				// #endregion smoking-recipe
+				// #endregion datagen-recipes--smoking
+				// #region datagen-recipes--dye
+				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
+				// #endregion datagen-recipes--dye
 				// :::datagen-recipes:provider
 			}
 		};
