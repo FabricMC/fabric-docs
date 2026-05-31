@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -63,13 +64,13 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				// :::datagen-recipes:shaped
 				// :::datagen-recipes:smelting
 				oreSmelting(
-						List.of(Items.IRON_PICKAXE), // Inputs
-						RecipeCategory.TOOLS, // Category
+						List.of(Items.GLASS_BOTTLE), // Inputs
+						RecipeCategory.MISC, // Category
 						CookingBookCategory.MISC, // Category
-						Items.IRON_INGOT, // Output
+						Items.GLASS, // Output
 						0.1f, // Experience
 						300, // Cooking time
-						"tool_to_ingot" // group
+						"glass_bottle_to_glass" // group
 				);
 				// :::datagen-recipes:smelting
 
@@ -82,7 +83,7 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						100 // Cooking Time
 				)
 				.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
-				.save(output, ExampleMod.MOD_ID + ":water_bucket_to_bucket"); // Then save the recipe with your modid and the recipe name.
+				.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
 				// #endregion smoking-recipe
 				// :::datagen-recipes:provider
 			}
