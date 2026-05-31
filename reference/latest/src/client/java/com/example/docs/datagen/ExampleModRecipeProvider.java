@@ -4,8 +4,6 @@ package com.example.docs.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -22,6 +20,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
+import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
 
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
