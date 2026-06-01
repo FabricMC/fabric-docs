@@ -27,6 +27,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
@@ -36,12 +37,14 @@ import net.minecraft.world.level.block.Blocks;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.ModLootTables;
 import com.example.docs.advancement.ModCriteria;
 import com.example.docs.advancement.ParameterizedUseToolCriterion;
 import com.example.docs.advancement.UseToolCriterion;
+import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 
 // #region datagen-advancements--provider-start
@@ -243,6 +246,20 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						))
 				)
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
+
+		// #region datagen-advancements--conditions
+		Advancement.Builder.advancement()
+				.display(
+						ModBlocks.DUPLICATOR_BLOCK,
+						Component.literal("Experimental Duplication"),
+						Component.literal("Place a duplicator block with the Redstone Experiments flag enabled."),
+						null,
+						AdvancementType.CHALLENGE,
+						false, false, false)
+				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
+				.save(withConditions(consumer,
+								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
+		// #endregion datagen-advancements--conditions
 		// #region datagen-advancements--provider-start
 	}
 }

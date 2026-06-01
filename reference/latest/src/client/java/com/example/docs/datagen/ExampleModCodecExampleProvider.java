@@ -1,12 +1,9 @@
 package com.example.docs.datagen;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
@@ -19,14 +16,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
-import com.example.docs.ExampleMod;
 import com.example.docs.codec.Bean;
 import com.example.docs.codec.BeanType;
 import com.example.docs.codec.CoolBeansClass;
@@ -35,14 +28,8 @@ import com.example.docs.codec.ListNode;
 import com.example.docs.codec.StringyBean;
 import com.example.docs.item.ModItems;
 
-public class ExampleModCodecExampleProvider implements DataProvider {
-	private final FabricPackOutput output;
-
-	protected ExampleModCodecExampleProvider(FabricPackOutput output) {
-		this.output = output;
-	}
-
-	private static final List<Consumer<BiConsumer<String, JsonElement>>> SUBMITTERS = List.of(
+public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
+	private static final Submitter[] SUBMITTERS = new Submitter[] {
 			ExampleModCodecExampleProvider::usingCodecs,
 			ExampleModCodecExampleProvider::beanCodec,
 			ExampleModCodecExampleProvider::mapCodec,
@@ -55,7 +42,11 @@ public class ExampleModCodecExampleProvider implements DataProvider {
 			ExampleModCodecExampleProvider::xmap,
 			ExampleModCodecExampleProvider::registryDispatch,
 			ExampleModCodecExampleProvider::recursive
-	);
+	};
+
+	protected ExampleModCodecExampleProvider(FabricPackOutput output) {
+		super(output, "codec_examples", SUBMITTERS);
+	}
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
 		// #region encode-blockpos
@@ -279,40 +270,6 @@ public class ExampleModCodecExampleProvider implements DataProvider {
 		// #endregion recursive-codec-data
 
 		consumer.accept("recursive", encode(codec, linkedList));
-	}
-
-	private static void collect(BiConsumer<String, JsonElement> consumer) {
-		for (final var submitter : SUBMITTERS) {
-			submitter.accept(consumer);
-		}
-	}
-
-	private static <T> JsonElement encode(Codec<T> codec, T value) {
-		return codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow();
-	}
-
-	@Override
-	public CompletableFuture<?> run(CachedOutput cache) {
-		final var elements = new HashMap<String, JsonElement>();
-
-		collect((name, elem) -> {
-			if (elements.put(name, elem) != null) {
-				throw new IllegalArgumentException("An element with name " + name + " has already been added.");
-			}
-		});
-
-		final var paths = this.output.createPathProvider(PackOutput.Target.REPORTS, "codec_examples");
-
-		return CompletableFuture.allOf(
-				elements.entrySet().stream().map(x ->
-								DataProvider.saveStable(
-										cache,
-										x.getValue(),
-										paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.getKey()))
-								)
-						)
-						.toArray(CompletableFuture[]::new)
-		);
 	}
 
 	@Override

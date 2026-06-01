@@ -19,6 +19,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
@@ -74,6 +75,13 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						"glass_bottle_to_glass" // group
 				);
 				// #endregion datagen-recipes--smelting
+
+				// #region datagen-recipes--conditions
+				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
+						.requires(ItemTags.SAND)
+						.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+						.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
+				// #endregion datagen-recipes--conditions
 
 				// #region datagen-recipes--smoking
 				SimpleCookingRecipeBuilder.smoking(

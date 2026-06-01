@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
+import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
 import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
@@ -54,6 +55,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
 
 		pack.addProvider(ExampleModInternalModelProvider::new);
+		pack.addProvider(ExampleModResourceConditionProvider::new);
 
 		// #region datagen-models--register
 		pack.addProvider(ExampleModModelProvider::new);

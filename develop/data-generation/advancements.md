@@ -188,3 +188,9 @@ Add the advancement to your provider:
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen-advancements--new-custom-criteria-advancement
 
 Run datagen again, and you're finally done!
+
+## Resource Conditions {#resource-conditions}
+
+To apply a [resource condition](../resource-conditions) to a data-generated advancement, wrap the consumer with `withConditions` and provide any resource conditions you want to apply. This will then generate an advancement that has resource conditions applied:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen-advancements--conditions

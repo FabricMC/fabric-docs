@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.block.ModBlocks;
 
@@ -36,6 +37,11 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
 		// #endregion datagen-loot-tables--block-drops
+		// #region datagen-loot-tables--conditions
+		// Make the duplicator never drop via resource conditions
+		withConditions(ResourceConditions.not(ResourceConditions.alwaysTrue()))
+				.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
+		// #endregion datagen-loot-tables--conditions
 		// #region datagen-loot-tables--block-provider
 	}
 }
