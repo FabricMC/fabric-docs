@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cookie": {
+    "has_glass_bottle": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:cookie"
+            "items": "minecraft:glass_bottle"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:wheat_from_smelting_cookie"
+        "recipe": "example-mod:glass_from_smelting_glass_bottle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cookie"
+      "has_glass_bottle"
     ]
   ],
   "rewards": {
     "recipes": [
-      "example-mod:wheat_from_smelting_cookie"
+      "example-mod:glass_from_smelting_glass_bottle"
     ]
   }
 }
