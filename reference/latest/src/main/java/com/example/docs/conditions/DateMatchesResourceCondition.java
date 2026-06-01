@@ -1,5 +1,6 @@
 package com.example.docs.conditions;
 
+import java.time.DateTimeException;
 import java.time.Month;
 import java.time.MonthDay;
 
@@ -27,20 +28,11 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 
 	//#region validate
 	private static DataResult<DateMatchesResourceCondition> validate(DateMatchesResourceCondition o) {
-		// Check if the month number is valid.
-		if (o.month() < 1 || o.month() > 12) {
-			return DataResult.error(() -> "Invalid value for MonthOfYear: " + o.month());
+		try {
+			MonthDay.of(o.month(), o.day());
+		} catch (DateTimeException e){
+			return DataResult.error(e::getMessage);
 		}
-
-		// Convert month integer into a Month.
-		var month = Month.of(o.month());
-
-		// Check that the day of the month is valid.
-		if (o.day > month.maxLength()) {
-			return DataResult.error(() -> "Illegal value for DayOfMonth field, value " + o.day
-							+ " is not valid for month " + month.name());
-		}
-
 		return DataResult.success(o);
 	}
 	//#endregion validate
