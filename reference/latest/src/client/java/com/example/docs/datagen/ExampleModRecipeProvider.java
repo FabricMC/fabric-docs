@@ -83,8 +83,8 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						0.35f, // Experience
 						100 // Cooking Time
 				)
-				.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
-				.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
+						.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
+						.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
 				// #endregion datagen-recipes--smoking
 				// #region datagen-recipes--dye
 				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
