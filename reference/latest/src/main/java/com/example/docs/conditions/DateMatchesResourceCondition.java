@@ -1,7 +1,6 @@
 package com.example.docs.conditions;
 
 import java.time.DateTimeException;
-import java.time.Month;
 import java.time.MonthDay;
 
 import com.mojang.serialization.DataResult;
@@ -30,9 +29,10 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 	private static DataResult<DateMatchesResourceCondition> validate(DateMatchesResourceCondition o) {
 		try {
 			MonthDay.of(o.month(), o.day());
-		} catch (DateTimeException e){
+		} catch (DateTimeException e) {
 			return DataResult.error(e::getMessage);
 		}
+
 		return DataResult.success(o);
 	}
 	//#endregion validate
