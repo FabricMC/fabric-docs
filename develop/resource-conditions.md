@@ -125,7 +125,7 @@ Next, add a `MapCodec` that reflects what the constructor accepts:
 
 ::: details What is `validate`?
 
-This codec is validated via `DateMatchesResourceCondition#validate`:
+This codec uses the `.validate` method to ensure the provided date can exist, using the logic in a helper method also called `validate`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#validate
 
