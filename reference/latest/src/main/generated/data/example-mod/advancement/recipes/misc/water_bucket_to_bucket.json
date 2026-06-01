@@ -1,32 +1,32 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bread": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "example-mod:water_bucket_to_bucket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_water_bucket": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:bread"
+            "items": "minecraft:water_bucket"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "example-mod:wheat_from_smelting_bread"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_bread"
+      "has_water_bucket"
     ]
   ],
   "rewards": {
     "recipes": [
-      "example-mod:wheat_from_smelting_bread"
+      "example-mod:water_bucket_to_bucket"
     ]
   }
 }
