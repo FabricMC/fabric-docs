@@ -369,16 +369,7 @@
           "text": "Aggiornamento a 1.21.11",
           "link": "/it_it/develop/porting/"
         },
-        {
-          "text": "Aggiornamento agli snapshot 26.1",
-          "link": "/it_it/26.1/develop/porting/",
-          "items": [
-            {
-              "text": "API di Fabric",
-              "link": "/it_it/26.1/develop/porting/fabric-api"
-            }
-          ]
-        },
+        
         {
           "text": "Migrare ad altri mapping",
           "link": "/it_it/develop/porting/mappings/",

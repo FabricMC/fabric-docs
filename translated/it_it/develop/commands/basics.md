@@ -133,7 +133,7 @@ Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere o
 
 ## Comandi Lato Client {#client-commands}
 
-L'API di Fabric ha un `ClientCommandManager` nel package `net.fabricmc.fabric.api.client.command.v2` che può essere usato per registrare comandi lato client. Il codice dovrebbe esistere solo nel codice lato client.
+Allo stesso modo, l'API di Fabric fornisce l'evento `ClientCommandRegistrationCallback` nel package `net.fabricmc.fabric.api.client.command.v2`, che può essere usato per registrare comandi lato client. Esso sostituisce la classe vanilla `Commands` con l'equivalente `ClientCommands`. Il codice dovrebbe esistere solo nel codice lato client.
 
 @[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
 

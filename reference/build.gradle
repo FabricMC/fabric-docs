@@ -64,7 +64,7 @@ subprojects {
 
 		java {
 			removeUnusedImports()
-			importOrder('java', 'javax', '', 'net.minecraft', 'net.fabricmc', 'com.example')
+			importOrder('java', 'javax', '', 'net.minecraft', 'net.fabricmc', 'com.example.docs')
 			indentWithTabs()
 			trimTrailingWhitespace()
 		}

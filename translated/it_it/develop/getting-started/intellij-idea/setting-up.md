@@ -39,7 +39,13 @@ Assicurati di aver già [installato un JDK](../setting-up#install-jdk-21).
 
 ## Installare IntelliJ IDEA {#installing-intellij-idea}
 
-Se non hai IntelliJ IDEA installato, puoi scaricarlo dal [sito ufficiale](https://www.jetbrains.com/idea/download/) - segui i passaggi per l'installazione sul tuo sistema operativo.
+::: warning
+
+Per moddare 26.1, è necessario IntelliJ IDEA 2025.3 o superiore.
+
+:::
+
+Se non hai IntelliJ IDEA installato, **o hai una versione inferiore a 2025.3**, puoi scaricarlo dal [sito ufficiale](https://www.jetbrains.com/idea/download/) - segui i passaggi per l'installazione sul tuo sistema operativo.
 
 ![Prompt per scaricare IntelliJ IDEA](/assets/develop/getting-started/idea-download.png)
 

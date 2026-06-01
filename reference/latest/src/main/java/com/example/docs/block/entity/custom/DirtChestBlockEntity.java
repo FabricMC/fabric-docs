@@ -6,6 +6,7 @@ import org.jspecify.annotations.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -48,19 +49,19 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	 */
 	@Override
 	public NonNullList<ItemStack> getItems() {
-		return items;
+		return this.items;
 	}
 
 	@Override
 	protected void saveAdditional(ValueOutput valueOutput) {
 		super.saveAdditional(valueOutput);
-		ContainerHelper.saveAllItems(valueOutput, items);
+		ContainerHelper.saveAllItems(valueOutput, this.items);
 	}
 
 	@Override
 	protected void loadAdditional(ValueInput valueInput) {
 		super.loadAdditional(valueInput);
-		ContainerHelper.loadAllItems(valueInput, items);
+		ContainerHelper.loadAllItems(valueInput, this.items);
 	}
 
 	// :::menu
@@ -81,6 +82,13 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// ...
 	// :::menu
 	 */
+
+	// #region container-still-valid
+	@Override
+	public boolean stillValid(Player player) {
+		return Container.stillValidBlockEntity(this, player);
+	}
+	// #endregion container-still-valid
 
 	// :::providerImplemented
 	@Override

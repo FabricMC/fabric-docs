@@ -67,6 +67,9 @@
   "develop.rendering.gui.custom_widgets": "Кастомные виджеты",
   "develop.rendering.particles": "Частицы",
   "develop.rendering.particles.creating_particles": "Создание кастомных частиц",
+  "develop.loader": "Загрузчик",
+  "develop.loader.index": "Введение",
+  "develop.loader.fabric.mod.json": "fabric.mod.json",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Введение",
   "develop.loom.fabric_api": "Fabric API DSL",
@@ -113,5 +116,6 @@
   "players.troubleshooting": "Устранение неполадок",
   "players.troubleshooting.uploading_logs": "Загрузка журналов",
   "players.troubleshooting.crash_reports": "Чтение краш-репортов",
-  "players.updating_fabric": "Обновление Fabric"
+  "players.updating_fabric": "Обновление Fabric",
+  "players.troubleshooting.dependency_overrides": "Переопределение зависимостей"
 }

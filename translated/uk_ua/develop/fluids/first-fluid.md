@@ -64,7 +64,7 @@ authors-nogithub:
 
 @[code transcludeWith=:::sources](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
 
-Наразі ми зареєстрували вихідний стан рідини та її текучий стан. Далі нам потрібно буде зареєструвати відро та `LiquidBlock` для нього.
+Наразі ми зареєстрували початковий стан рідини та її текучий стан. Далі нам потрібно буде зареєструвати відро та `LiquidBlock` для нього.
 
 ### Реєстрація блоків рідини {#fluid-blocks}
 

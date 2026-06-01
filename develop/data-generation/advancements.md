@@ -31,7 +31,7 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 
 ## Advancement Structure {#advancement-structure}
 
-An advancement is made up a few different components. Along with the requirements, called "criterion," it may have:
+An advancement is made up a few different components. Along with the requirements, called "criterion", it may have:
 
 - Some `DisplayInfo` that tell the game how to show the advancement to players,
 - `AdvancementRequirements`, which are lists of lists of criteria, requiring at least one criterion from each sub-list to be completed,
@@ -45,23 +45,45 @@ Here's a simple advancement for getting a dirt block:
 
 @[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
 
-::: warning
-
-When building your advancement entries, remember that the function accepts the `Identifier` of the advancement in `String` format!
-
-:::
-
 ::: details JSON Output
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/advancement/get_dirt.json
 
 :::
 
-## One More Example {#one-more-example}
+## Parents {#parents}
 
-Just to get the hang of it, let's add one more advancement. We'll practice adding rewards, using multiple criterion, and assigning parents:
+In order to create or extend a tree of advancements, we can set a parent for our advancement. To do this, call `Advancement.Builder#parent(...)` and pass in a reference to the parent advancement.
 
-@[code lang=java transcludeWith=:::datagen-advancements:second-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+
+If no direct reference to the parent advancement is available (e.g. using a vanilla advancement as a parent), a placeholder can be created using an identifier.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+
+Your advancements should now be shown as a tree in the advancement menu.
+
+![Advancement Tree](/assets/develop/data-generation/advancement_tree.png)
+
+## Multiple Criteria {#multiple-criteria}
+
+To have more advanced conditions in our advancements, we can call `Advancement.Builder#addCriteria(...)` more than once with additional criteria.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+
+By default, all criteria must be met for the advancement to be completed. We can change this behavior by supplying a different strategy.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+
+## Rewards {#rewards}
+
+We can attach rewards to our advancements, which will be granted when a player completes the advancement. We can do this by calling `Advancement.Builder#rewards(...)` with the rewards we want to add.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+
+There are multiple other reward types available:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
 
 ## Custom Criteria {#custom-criteria}
 
@@ -123,7 +145,7 @@ And call it in your mod initializer:
 
 @[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 
-Finally, we need to trigger our criteria. Add this to where we sent a message to the player in the main mod class.
+Finally, we need to trigger our criterion. Add this to where we sent a message to the player in the main mod class.
 
 @[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
 

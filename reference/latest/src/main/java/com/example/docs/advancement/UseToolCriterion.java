@@ -29,7 +29,7 @@ public class UseToolCriterion extends SimpleCriterionTrigger<UseToolCriterion.Co
 
 		@Override
 		public Optional<ContextAwarePredicate> player() {
-			return playerPredicate;
+			return this.playerPredicate;
 		}
 		// :::datagen-advancements:criterion-base
 

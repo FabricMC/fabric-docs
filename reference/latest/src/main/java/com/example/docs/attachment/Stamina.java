@@ -8,14 +8,16 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentTarget;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 
+import com.example.docs.ExampleMod;
+
 // :::stamina
 public class Stamina {
 	private static final AttachmentType<Integer> CURRENT_STAMINA = AttachmentRegistry.create(
-					Identifier.fromNamespaceAndPath("example-mod", "current_stamina"),
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "current_stamina"),
 					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 	private static final AttachmentType<Integer> MAX_STAMINA = AttachmentRegistry.create(
-					Identifier.fromNamespaceAndPath("example-mod", "max_stamina"),
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "max_stamina"),
 					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 
@@ -25,23 +27,23 @@ public class Stamina {
 
 	public record StaminaData(AttachmentTarget target) {
 		public int getCurrentStamina() {
-			return target.getAttachedOrElse(CURRENT_STAMINA, 0);
+			return this.target.getAttachedOrElse(CURRENT_STAMINA, 0);
 		}
 
 		public int decrementCurrentStamina() {
-			return target.modifyAttached(CURRENT_STAMINA, currentStamina -> currentStamina-1);
+			return this.target.modifyAttached(CURRENT_STAMINA, currentStamina -> currentStamina-1);
 		}
 
 		public void setCurrentStamina(int value) {
-			target.setAttached(CURRENT_STAMINA, value);
+			this.target.setAttached(CURRENT_STAMINA, value);
 		}
 
 		public int getMaxStamina() {
-			return target.getAttachedOrElse(MAX_STAMINA, 0);
+			return this.target.getAttachedOrElse(MAX_STAMINA, 0);
 		}
 
 		public void setMaxStamina(int value) {
-			target.setAttached(MAX_STAMINA, value);
+			this.target.setAttached(MAX_STAMINA, value);
 		}
 	}
 }

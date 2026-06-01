@@ -2,6 +2,7 @@
 title: Block Entities
 description: Learn how to create block entities for your custom blocks.
 authors:
+  - CelDaemon
   - natri0
 resources:
   https://docs.neoforged.net/docs/blockentities/: Block Entities - NeoForge Docs
@@ -102,6 +103,20 @@ To fix this, we override `getUpdateTag`:
 @[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
 Now, when a player logs in or moves into a chunk where the block exists, they will see the correct counter value right away.
+
+## Syncing Data {#syncing-data}
+
+While new players loading in the block will see the correct count, the count will not update for other players watching the interaction. This phenomenon is called a desync, and it occurs when the server has updated its state, but the clients haven't.
+
+To solve this, we can use block entity update packets. Override the `getUpdatePacket` method, and return a packet containing the block's data from our `getUpdateTag`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+
+Then, override `setChanged` to broadcast the data whenever the block entity changes.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+
+Other players should now be able to see the count changing.
 
 ## Tickers {#tickers}
 

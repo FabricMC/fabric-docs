@@ -22,9 +22,9 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Qui mostreremo come creare tag di `Item`, ma lo stesso principio si applica ad altre cose.
 
-Fabric fornisce più fornitori ausiliari di tag incluso uno per gli oggetti; `FabricTagProvider.ItemTagProvider`. Useremo questa classe ausiliaria per questo esempio.
+Fabric fornisce più fornitori ausiliari di tag incluso uno per gli oggetti; `FabricTagsProvider.ItemTagsProvider`. Useremo questa classe ausiliaria per questo esempio.
 
-Puoi anche creare la tua classe che estenda `FabricTagProvider<T>`, dove `T` è il tipo di ciò per cui vuoi fornire un tag. Questo è il tuo **fornitore**.
+Puoi anche creare la tua classe che estenda `FabricTagsProvider<T>`, dove `T` è il tipo di ciò per cui vuoi fornire un tag. Questo è il tuo **fornitore**.
 
 Lascia che il tuo IDE compili il codice richiesto, poi sostituisci il parametro `resourceKey` del costruttore con la `ResourceKey` per il tuo tipo:
 
@@ -32,7 +32,7 @@ Lascia che il tuo IDE compili il codice richiesto, poi sostituisci il parametro 
 
 ::: tip
 
-Ti servirà un fornitore diverso per ogni tipo di tag (per esempio un `FabricTagProvider<EntityType<?>>` e un `FabricTagProvider<Item>`).
+Ti servirà un fornitore diverso per ogni tipo di tag (per esempio un `FabricTagsProvider<EntityType<?>>` e un `FabricTagsProvider<Item>`).
 
 :::
 

@@ -56,7 +56,7 @@ authors:
 
 接口注入使用以下语法：
 
-```:no-line-numbers
+```classtweaker:no-line-numbers
 inject-interface    <targetClassName>    <injectedInterfaceName>
 ```
 

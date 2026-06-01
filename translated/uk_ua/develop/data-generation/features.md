@@ -3,7 +3,9 @@ title: Генерація функцій
 description: Дізнайтеся, як генерувати функції у світі за допомогою генерації даних.
 authors:
   - cassiancc
+  - CelDaemon
   - its-miroma
+  - JonyBoy19
   - Wind292
 ---
 
@@ -15,27 +17,27 @@ authors:
 
 :::
 
+Функції Minecraft — це природні або створені шаблони світу, наприклад дерева, квіти, руди чи озера. Функції відрізняються від структур (наприклад, сіл, храмів…), які можна знайти за допомогою команди `/locate`.
+
 Генерація функцій світів Minecraft розбита на 3 частини:
 
 - **Налаштовані функції**: визначають, що таке функція; наприклад, одне дерево
-- **Розміщення функції**: тут визначається, як мають розташовуватися функції, у якому напрямку, відносне розташування тощо; наприклад, розміщення дерев у лісі
+- **Функції розміщення**: тут визначається, як мають розміщуватися функції, у якому напрямку, відносне розміщення тощо; наприклад, розміщення дерев у лісі
 - **Модифікації біому**: це визначає, де у світі розміщені функції; наприклад, координати всього лісу
-
-::: info
-
-Функції Minecraft — це природні або створені шаблони світу, наприклад дерева, квіти, руди чи озера. Функції відрізняються від структур (наприклад, сіл, храмів…), які можна знайти за допомогою команди `/locate`.
-
-:::
 
 ## Налаштування {#setup}
 
-По-перше, нам потрібно створити свого постачальника. Створіть клас, який розширює `FabricDynamicRegistryProvider` та заповніть базові методи:
+По-перше, нам потрібно створити свого постачальника. Створіть клас, який розширює `FabricDynamicRegistryProvider` усередині пакета `main`, і заповніть базові методи:
 
 @[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
 
+У методі `configure` ми викличемо `addAll`, щоб забезпечити створення всіх файлів для наших функцій.
+
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen-add-entries
+
 Потім додайте цього постачальника до свого класу `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`:
 
-@[code lang=java transclude={67-67}](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add-worldgen-provider
 
 Далі створіть клас для налаштованих функцій і клас для розміщених функцій. Їм не потрібно нічого розширювати.
 
@@ -49,9 +51,13 @@ authors:
 
 ## Налаштовані функції {#configured-features}
 
-Щоб функція природно з’явилася в нашому світі, ми повинні почати з визначення налаштованої функції в нашому класі налаштованих функцій. Додаймо спеціальну налаштовану функцію для жили діамантової руди.
+Щоб функція природно з’явилася в нашому світі, ми повинні почати з визначення налаштованої функції в нашому класі налаштованих функцій.
 
-Спочатку зареєструйте ключ для `ConfiguredFeature` у вашому налаштованому класі функцій:
+Перш ніж ми зможемо щось зробити, створімо клас налаштованих функцій усередині пакета `main` і оголосимо метод `configure`:
+
+@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+
+Тепер, додаймо спеціальну налаштовану функцію для жили діамантової руди. Спочатку зареєструйте ключ для `ConfiguredFeature` у вашому налаштованому класі функцій:
 
 @[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -63,11 +69,11 @@ authors:
 
 ### Руди {#ores}
 
-Далі ми створимо `RuleTest`, який контролює, які блоки ваша функція може замінити. Наприклад, цей `RuleTest` дозволяє замінювати кожен блок на теґ `DEEPSLATE_ORE_REPLACEABLES`:
+Далі ми створимо `RuleTest` усередині методу `configure`, який керує тим, які блоки ваша функція може замінити. Наприклад, цей `RuleTest` дозволяє замінювати кожен блок на теґ `DEEPSLATE_ORE_REPLACEABLES`:
 
 @[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Далі нам потрібно створити `OreConfiguration`, який повідомляє грі, чим замінити блоки.
+Далі, також у методі `configure`, нам потрібно створити `OreConfiguration`, який повідомляє грі, чим замінити блоки.
 
 @[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -75,13 +81,13 @@ authors:
 
 @[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
-Нарешті, нам потрібно зареєструвати нашу налаштовану функцію в нашій грі!
+Нарешті, нам потрібно зареєструвати нашу налаштовану функцію в нашій грі в методі `configure`!
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
 ### Дерева {#trees}
 
-Щоб створити спеціальне дерево, спочатку потрібно створити `TreeConfiguration`:
+Щоб створити спеціальне дерево, вам потрібно спочатку створити `TreeConfiguration` усередині методу `configure`:
 
 @[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
 
@@ -109,32 +115,38 @@ authors:
 
 Наступним кроком у додаванні функції до гри є створення її розміщення.
 
+Створімо клас розміщених функцій всередині пакета `main` і надамо йому метод `configure`, як раніше:
+
+@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+
 У методі `configure` вашого розміщеного класу функцій створіть змінну, подібну до наведеної нижче:
 
 @[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
-У вашому класі розміщення функції визначте ключ для розміщеної функції.
+У вашому класі розміщення функції визначте ключ для розміщеної функції:
 
 @[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ### Модифікатори розміщення {#placement-modifiers}
 
-Далі нам потрібно визначити наші модифікатори розміщення, які є атрибутами, які ви встановлюєте під час створення функції. Це може бути що завгодно: від частоти появи до початкового рівня `y`. Ви можете мати стільки модифікаторів, скільки забажаєте.
+Далі нам потрібно визначити наші модифікатори розміщення в методі `configure`, які є атрибутами, які ви встановлюєте під час створення функції. Це може бути що завгодно: від частоти появи до початкового рівня `y`. Ви можете мати стільки модифікаторів, скільки забажаєте.
 
 @[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 Функції кожного модифікатора в списку такі:
 
-- **CountPlacement**: Приблизно кількість екземплярів цієї функції (у цьому випадку жил) на чанк
-- **BiomeFilter**: дозволяє нам контролювати, у яких біоми/виміри з'являється (ми зробимо це пізніше)
-- **InSquarePlacement**: розподіляє функції більш псевдовипадково
-- **HeightRangePlacement**: визначає діапазон координат `y`, де може з’явитися функція; вона підтримує три основні типи дистрибуції:
+- **`CountPlacement`**: Приблизно кількість екземплярів цієї функції (у цьому випадку жил) на чанк
+- **`BiomeFilter`**: дозволяє нам контролювати, у яких біоми/виміри з'являється (ми зробимо це пізніше)
+- **`InSquarePlacement`**: розподіляє функції більш псевдовипадково
+- **`HeightRangePlacement`**: визначає діапазон координат `y`, де може з’явитися функція; вона підтримує три основні типи дистрибуції:
   1. **Uniform**: Усі значення `y` в межах діапазону з однаковою ймовірністю містять функцію. Якщо ви не впевнені, просто скористайтеся цим.
 
   2. **Trapezoid**:
      Значення `y`, ближчі до середнього значення `y`, мають вищу ймовірність містити функцію.
 
-  3. **Biased-Bottom**: Використовує логарифмічну шкалу, де нижчі значення `y` мають більшу ймовірність отримати функцію. Він отримує початкову координату `y`, нижче якої функція ніколи не створюється. Другий аргумент — це максимальна висота, на якій може з’явитися функція. Третій аргумент визначає діапазон у блоках, на який поширюється максимальна ймовірність.
+  3. **Biased-Bottom**:
+
+     Використовує логарифмічну шкалу, де нижчі значення `y` мають більшу ймовірність отримати функцію. Він отримує початкову координату `y`, нижче якої функція ніколи не створюється. Другий аргумент — це максимальна висота, на якій може з’явитися функція. Третій аргумент визначає діапазон у блоках, на який поширюється максимальна ймовірність.
 
 ::: tip
 
@@ -142,13 +154,13 @@ authors:
 
 :::
 
-Тепер, коли у нас є модифікатори, ми можемо зареєструвати нашу розміщену функцію:
+Тепер, коли у нас є модифікатори, ми можемо зареєструвати нашу розміщену функцію в методі `configure`:
 
 @[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
 
 ## Модифікації біому {#biome-modifications}
 
-Нарешті, нам потрібно додати нашу розміщену функцію до `BiomeModifications` під час ініціалізації мода. Ми можемо зробити це, додавши наступне до нашого ініціалізатора мода:
+Нарешті, нам потрібно додати нашу розміщену функцію до `BiomeModifications` під час ініціалізації мода. Ми можемо зробити це, додавши наступне до нашого [ініціалізатора мода](../getting-started/project-structure#entrypoints):
 
 @[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
 

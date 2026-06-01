@@ -29,6 +29,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
@@ -44,14 +45,15 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	);
 	// :::custom-pipelines:define-pipeline
 	// :::custom-pipelines:extraction-phase
-	private static final ByteBufferBuilder allocator = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
-	private BufferBuilder buffer;
+	private static WaypointRenderState waypointState;
 
 	// :::custom-pipelines:extraction-phase
 	// :::custom-pipelines:drawing-phase
+	private static final ByteBufferBuilder ALLOCATOR = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
+	private BufferBuilder buffer;
 	private MappableRingBuffer vertexBuffer;
 
 	// :::custom-pipelines:drawing-phase
@@ -62,15 +64,24 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		instance = this;
-		LevelRenderEvents.BEFORE_TRANSLUCENT_TERRAIN.register(this::extractAndDrawWaypoint);
-	}
-
-	private void extractAndDrawWaypoint(LevelRenderContext context) {
-		renderWaypoint(context);
-		drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
+		LevelRenderEvents.END_EXTRACTION.register(this::extractWaypoint);
+		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
 	}
 
 	// :::custom-pipelines:extraction-phase
+	private void extractWaypoint(LevelExtractionContext context) {
+		// Access data from the world or anything here in the extraction phase.
+		// You can only access the (immutable and thread safe) render state in the drawing phase.
+		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
+	}
+
+	// :::custom-pipelines:extraction-phase
+	// :::custom-pipelines:drawing-phase
+	private void renderAndDrawWaypoint(LevelRenderContext context) {
+		this.renderWaypoint(context);
+		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
+	}
+
 	private void renderWaypoint(LevelRenderContext context) {
 		PoseStack matrices = context.poseStack();
 		Vec3 camera = context.levelState().cameraRenderState.pos;
@@ -78,11 +89,11 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		matrices.pushPose();
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
-		if (buffer == null) {
-			buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
+		if (this.buffer == null) {
+			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
 		}
 
-		renderFilledBox(matrices.last().pose(), buffer, 0f, 100f, 0f, 1f, 101f, 1f, 0f, 1f, 0f, 0.5f);
+		this.renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
 
 		matrices.popPose();
 	}
@@ -124,22 +135,20 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
-	// :::custom-pipelines:extraction-phase
 
-	// :::custom-pipelines:drawing-phase
 	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
 		// Build the buffer
-		MeshData builtBuffer = buffer.buildOrThrow();
+		MeshData builtBuffer = this.buffer.buildOrThrow();
 		MeshData.DrawState drawParameters = builtBuffer.drawState();
 		VertexFormat format = drawParameters.format();
 
-		GpuBuffer vertices = upload(drawParameters, format, builtBuffer);
+		GpuBuffer vertices = this.upload(drawParameters, format, builtBuffer);
 
 		draw(client, pipeline, builtBuffer, drawParameters, vertices, format);
 
 		// Rotate the vertex buffer so we are less likely to use buffers that the GPU is using
-		vertexBuffer.rotate();
-		buffer = null;
+		this.vertexBuffer.rotate();
+		this.buffer = null;
 	}
 
 	private GpuBuffer upload(MeshData.DrawState drawParameters, VertexFormat format, MeshData builtBuffer) {
@@ -147,22 +156,22 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
 
 		// Initialize or resize the vertex buffer as needed
-		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
-			if (vertexBuffer != null) {
-				vertexBuffer.close();
+		if (this.vertexBuffer == null || this.vertexBuffer.size() < vertexBufferSize) {
+			if (this.vertexBuffer != null) {
+				this.vertexBuffer.close();
 			}
 
-			vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
+			this.vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
 		}
 
 		// Copy vertex data into the vertex buffer
 		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
 
-		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
+		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(this.vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
 			MemoryUtil.memCopy(builtBuffer.vertexBuffer(), mappedView.data());
 		}
 
-		return vertexBuffer.currentBuffer();
+		return this.vertexBuffer.currentBuffer();
 	}
 
 	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBuffer vertices, VertexFormat format) {
@@ -171,7 +180,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
 			// Sort the quads if there is translucency
-			builtBuffer.sortQuads(allocator, RenderSystem.getProjectionType().vertexSorting());
+			builtBuffer.sortQuads(ALLOCATOR, RenderSystem.getProjectionType().vertexSorting());
 			// Upload the index buffer
 			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
 			indexType = builtBuffer.drawState().indexType();
@@ -211,12 +220,17 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// :::custom-pipelines:clean-up
 	public void close() {
-		allocator.close();
+		ALLOCATOR.close();
 
-		if (vertexBuffer != null) {
-			vertexBuffer.close();
-			vertexBuffer = null;
+		if (this.vertexBuffer != null) {
+			this.vertexBuffer.close();
+			this.vertexBuffer = null;
 		}
 	}
 	// :::custom-pipelines:clean-up
+
+	// :::custom-pipelines:extraction-phase
+	// Render states should be immutable, thread safe, and fast to create.
+	private record WaypointRenderState(int x, int y, int z, float r, float g, float b, float a) { }
+	// :::custom-pipelines:extraction-phase
 }
