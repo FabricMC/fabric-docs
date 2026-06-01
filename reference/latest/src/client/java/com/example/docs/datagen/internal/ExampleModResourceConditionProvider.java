@@ -50,11 +50,11 @@ public class ExampleModResourceConditionProvider implements DataProvider {
 		acceptCondition(consumer, new DateMatchesResourceCondition(4, 1));
 	}
 
-	private static <T extends ResourceCondition> void acceptCondition(BiConsumer<String, JsonElement> consumer, T condition) {
+	private static void acceptCondition(BiConsumer<String, JsonElement> consumer, ResourceCondition condition) {
 		consumer.accept(condition.getType().id().getPath(), encodeConditions(condition));
 	}
 
-	private static <T extends ResourceCondition> JsonElement encodeConditions(T condition) {
+	private static JsonElement encodeConditions(ResourceCondition condition) {
 		JsonObject finalConditions = new JsonObject();
 		JsonElement encodedCondition = encodeCondition(condition);
 		finalConditions.add(ResourceConditions.CONDITIONS_KEY, encodedCondition);
@@ -62,7 +62,7 @@ public class ExampleModResourceConditionProvider implements DataProvider {
 		return finalConditions;
 	}
 
-	private static <T extends ResourceCondition> JsonElement encodeCondition(T condition) {
+	private static JsonElement encodeCondition(ResourceCondition condition) {
 		return ResourceCondition.LIST_CODEC.encodeStart(JsonOps.INSTANCE, List.of(condition)).getOrThrow();
 	}
 
