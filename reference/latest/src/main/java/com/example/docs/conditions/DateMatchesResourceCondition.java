@@ -37,15 +37,15 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 	}
 	//#endregion validate
 
-	@Override
 	//#region type
+	@Override
 	public ResourceConditionType<?> getType() {
 		return ModResourceConditions.DATE_MATCHES;
 	}
 	//#endregion type
 
-	@Override
 	//#region test
+	@Override
 	public boolean test(RegistryOps.@Nullable RegistryInfoLookup registryInfo) {
 		var monthDay = MonthDay.of(this.month, this.day);
 		return SpecialDates.dayNow().equals(monthDay);
