@@ -34,6 +34,12 @@ Shapeless recipes are fairly straightforward. Just add them to the `buildRecipes
 
 @[code lang=java transcludeWith=:::datagen-recipes:shapeless](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
 
+### Dye Recipes {#dye-recipes}
+
+Dye recipes are used to dye items in your inventory.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--dye
+
 ## Shaped Recipes {#shaped-recipes}
 
 For a shaped recipe, you define the shape using a `String`, then define what each `char` in the `String` represents.
@@ -50,4 +56,8 @@ There's a lot of helper methods for creating common recipes. Check out what `Rec
 
 Other recipes work similarly, but require a few extra parameters. For example, smelting recipes need to know how much experience to award.
 
-@[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smelting
+
+Smoking is a little different, it does not use the same recipe generator as smelter-like blocks do.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smoking
