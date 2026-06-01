@@ -9,6 +9,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
+import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
 
 public class ExampleModRecipeProvider extends FabricRecipeProvider {
@@ -60,17 +63,29 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
 						.save(output);
 				// #endregion datagen-recipes--shaped
-				// #region datagen-recipes--other
+				// #region datagen-recipes--smelting
 				oreSmelting(
-						List.of(Items.BREAD, Items.COOKIE, Items.HAY_BLOCK), // Inputs
-						RecipeCategory.FOOD, // Category
-						CookingBookCategory.FOOD, // Category
-						Items.WHEAT, // Output
+						List.of(Items.GLASS_BOTTLE), // Inputs
+						RecipeCategory.MISC, // Category
+						CookingBookCategory.MISC, // Category
+						Items.GLASS, // Output
 						0.1f, // Experience
 						300, // Cooking time
-						"food_to_wheat" // group
+						"glass_bottle_to_glass" // group
 				);
-				// #endregion datagen-recipes--other
+				// #endregion datagen-recipes--smelting
+
+				// #region datagen-recipes--smoking
+				SimpleCookingRecipeBuilder.smoking(
+						Ingredient.of(Items.WATER_BUCKET), // Input
+						RecipeCategory.MISC, // Category (MISC for smoking recipes)
+						Items.BUCKET, // Output
+						0.35f, // Experience
+						100 // Cooking Time
+				)
+						.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
+						.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
+				// #endregion datagen-recipes--smoking
 				// #region datagen-recipes--dye
 				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
 				// #endregion datagen-recipes--dye

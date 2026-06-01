@@ -56,4 +56,8 @@ There's a lot of helper methods for creating common recipes. Check out what `Rec
 
 Other recipes work similarly, but require a few extra parameters. For example, smelting recipes need to know how much experience to award.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--other
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smelting
+
+Smoking is a little different, it does not use the same recipe generator as smelter-like blocks do.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smoking
