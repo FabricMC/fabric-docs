@@ -34,6 +34,12 @@ Shapeless recipes are fairly straightforward. Just add them to the `buildRecipes
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--shapeless
 
+### Dye Recipes {#dye-recipes}
+
+Dye recipes are used to dye items in your inventory.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--dye
+
 ## Shaped Recipes {#shaped-recipes}
 
 For a shaped recipe, you define the shape using a `String`, then define what each `char` in the `String` represents.

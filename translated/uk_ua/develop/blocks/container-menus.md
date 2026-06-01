@@ -34,6 +34,15 @@ resources:
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
+На додаток до звичайних методів блока-сутності, нам потрібно перевизначити метод `stillValid`. Цей метод буде викликатися щоразу, щоб перевірити, чи потрібно примусово вивести гравця з меню.
+Ми використаємо усталену реалізацію цього з `ContainerHelper`, яка перевіряє, чи наш блок-сутність усе ще існує та чи гравець знаходиться в межах діапазону взаємодії.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+
+Після впровадження нашого меню воно закриється автоматично, коли гравця відштовхнуть.
+
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">Меню контейнера закривається, коли гравець виходить за межі діапазону</VideoPlayer>
+
 ### Відкриття меню {#opening-the-screen}
 
 Ми хочемо мати можливість якимось чином відкрити меню, тому ми впораємося з цим за допомогою методу `useWithoutItem`:

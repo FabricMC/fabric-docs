@@ -34,6 +34,15 @@ resources:
 
 @[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
 
+Помимо стандартных методов сущности блока, нам необходимо переопределить метод `stillValid`. Этот метод вызывается каждый тик для проверки того, нужно ли принудительно закрыть меню для игрока.
+Мы будем использовать стандартную реализацию этого метода из класса `ContainerHelper`. Она проверяет, существует ли еще наша сущность блока и находится ли игрок в радиусе взаимодействия.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+
+После реализации нашего меню оно будет закрываться автоматически, когда игрока отталкивает от блока.
+
+<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">Меню контейнера закрывается, когда игрок выходит из радиуса взаимодействия.</VideoPlayer>
+
 ### Открытие меню {#opening-the-screen}
 
 Мы хотим иметь возможность открывать меню, поэтому обработаем это в методе `useWithoutItem`:
