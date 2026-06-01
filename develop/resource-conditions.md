@@ -97,7 +97,7 @@ To demonstrate this, we'll create a condition that checks the current date. This
 
 ### Preparing Your Condition {#preparing-your-condition}
 
-For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [MapCodec](./codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
+For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [`MapCodec`](./codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
 
 ::: tip
 
@@ -123,9 +123,13 @@ Next, add a `MapCodec` that reflects what the constructor accepts:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#codec
 
-::: details This codec is validated via `DateMatchesResourceCondition#validate`. This method is shown in a dropdown as it is not relevant unless you are using this exact example.
+::: details What is `validate`?
+
+This codec is validated via `DateMatchesResourceCondition#validate`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#validate
+
+This is only relevant in this exact example.
 
 :::
 
