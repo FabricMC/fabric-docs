@@ -20,8 +20,8 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 	//#endregion record
 	//#region codec
 	public static final MapCodec<DateMatchesResourceCondition> CODEC = RecordCodecBuilder.<DateMatchesResourceCondition>mapCodec(instance -> instance.group(
-					ExtraCodecs.POSITIVE_INT.fieldOf("month").forGetter(DateMatchesResourceCondition::month),
-					ExtraCodecs.POSITIVE_INT.fieldOf("day").forGetter(DateMatchesResourceCondition::day)
+			ExtraCodecs.POSITIVE_INT.fieldOf("month").forGetter(DateMatchesResourceCondition::month),
+			ExtraCodecs.POSITIVE_INT.fieldOf("day").forGetter(DateMatchesResourceCondition::day)
 	).apply(instance, DateMatchesResourceCondition::new)).validate(DateMatchesResourceCondition::validate);
 	//#endregion codec
 

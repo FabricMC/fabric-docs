@@ -15,7 +15,7 @@ public class ModResourceConditions {
 	//#endregion create
 	//#region register
 	public static final ResourceConditionType<DateMatchesResourceCondition> DATE_MATCHES =
-					createResourceConditionType("date_matches", DateMatchesResourceCondition.CODEC);
+			createResourceConditionType("date_matches", DateMatchesResourceCondition.CODEC);
 
 	//#endregion register
 

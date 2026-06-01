@@ -78,9 +78,9 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 
 				// #region datagen-recipes--conditions
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
-								.requires(ItemTags.SAND)
-								.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
-								.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
+						.requires(ItemTags.SAND)
+						.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+						.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
 				// #endregion datagen-recipes--conditions
 
 				// #region datagen-recipes--smoking

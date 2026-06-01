@@ -40,7 +40,7 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 		// #region datagen-loot-tables--conditions
 		// Make the duplicator never drop via resource conditions
 		withConditions(ResourceConditions.not(ResourceConditions.alwaysTrue()))
-						.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
+				.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
 		// #endregion datagen-loot-tables--conditions
 		// :::datagen-loot-tables:block-provider
 	}

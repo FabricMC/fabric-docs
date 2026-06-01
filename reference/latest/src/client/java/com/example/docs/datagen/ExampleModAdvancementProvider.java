@@ -249,16 +249,16 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 
 		// #region datagen-advancements--conditions
 		Advancement.Builder.advancement()
-						.display(
-										ModBlocks.DUPLICATOR_BLOCK,
-										Component.literal("Experimental Duplication"),
-										Component.literal("Place a duplicator block with the Redstone Experiments flag enabled."),
-										null,
-										AdvancementType.CHALLENGE,
-										false, false, false)
-						.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
-						.save(withConditions(consumer,
-										ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
+				.display(
+						ModBlocks.DUPLICATOR_BLOCK,
+						Component.literal("Experimental Duplication"),
+						Component.literal("Place a duplicator block with the Redstone Experiments flag enabled."),
+						null,
+						AdvancementType.CHALLENGE,
+						false, false, false)
+				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
+				.save(withConditions(consumer,
+								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
 		// #endregion datagen-advancements--conditions
 		// :::datagen-advancements:provider-start
 	}
