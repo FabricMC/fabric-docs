@@ -67,7 +67,7 @@ Succeeds if at least one of the mods in `values` is loaded. For example, the fol
 
 ### Tags Populated {#tags-populated}
 
-Succeeds if the specified `registry` contains all tags in `values`. For example, the following will succeed if the `example-mod:smelly_items` item tag is loaded, and will fail if the tag is empty or broken:
+Succeeds if the specified `registry` contains all tags in `values`. For example, the following will succeed if the `example-mod:smelly_items` item tag is loaded:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/tags_populated.json
 
@@ -97,7 +97,7 @@ To demonstrate this, we'll create a condition that checks the current date. This
 
 ### Preparing Your Condition {#preparing-your-condition}
 
-For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [Codec](./codecs). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
+For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [MapCodec](./codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
 
 ::: tip
 
@@ -112,16 +112,22 @@ Fabric does the same with its built-in conditions; you can refer to the `Default
 A resource condition consists of three parts:
 
 - A constructor that accepts values.
-- A codec to serialize those values.
+- A `MapCodec` to serialize those values.
 - A `test` method that uses the values to determine whether the condition should pass.
 
 We'll create a new class for the resource condition, named `DateMatchesResourceCondition`. First, create a new `record` that accepts an `int` for the month, and an `int` for the day:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#record
 
-Next, add a Codec that reflects what the constructor accepts:
+Next, add a `MapCodec` that reflects what the constructor accepts:
 
 <<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#codec
+
+::: details This codec is validated via `DateMatchesResourceCondition#validate`. This method is shown in a dropdown as it is not relevant unless you are using this exact example.
+
+<<< @/reference/latest/src/main/java/com/example/docs/conditions/DateMatchesResourceCondition.java#validate
+
+:::
 
 Next, we'll add a `test` method that checks the current date. This example is based on logic from vanilla itself, in `SpecialDates`.
 
