@@ -9,13 +9,19 @@ authors:
 
 ::: info PREREQUISITES
 
-You must first understand how to [create a tool](./custom-tools). This guide also references data generation for [recipes](../data-generation/recipes) and [item tags](../data-generation/tags).
+You must first understand how to [create a tool](./custom-tools). This guide also references data generation for [recipes](../data-generation/recipes), [item models](../data-generation/item-models), and [item tags](../data-generation/tags).
 
 :::
 
 Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, two item models, a client item, recipes, item tags, and a special renderer.
 
 ## Creating the Item {#item}
+
+::: info PREREQUISITES
+
+For more information, see the documentation on registering [items](first-item).
+
+:::
 
 For this example, we will use the same repair item tag we will be using for armor and tools. We define the tag reference as follows:
 
@@ -32,8 +38,6 @@ Then, we register an item with the following components.
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#shield
 
 ## Creating the Special Renderer {#special-renderer}
-
-<!-- TODO: BREAKDOWN THE RENDERER -->
 
 First, we'll create a model layer location that points to where the shield model is, then two sprite identifiers that point to where the sprites we'll use are located - one for the normal texture, one for the banner texture.
 
@@ -84,12 +88,16 @@ You'll also need an unbaked model, used to reference the model renderer and prov
 
 ## Creating the Model {#model}
 
-<!-- TODO: ADD MODEL GENERATION, CURRENTLY COPIED FROM VANILLA -->
+::: info PREREQUISITES
 
-We'll be creating two item models and a client item for the shield.
+For more information, see the documentation on generating [item models](../data-generation/item-models).
 
-- A normal item model, referencing the special renderer.
-- A blocking item model, referencing the special renderer.
+:::
+
+We'll be creating two item models and a client item for the shield. Add the following lines to your model generator.
+
+- A normal item model which uses the vanilla shield as a parent.
+- A blocking item model which uses the vanilla shield's blocking model as a parent.
 - A conditional client item that displays the normal item model normally and the blocking model when blocking.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#shield
@@ -98,7 +106,7 @@ We'll be creating two item models and a client item for the shield.
 
 ::: info PREREQUISITES
 
-It's recommended to know how to [data generate recipes](../data-generation/recipes) before following this section.
+For more information, see the documentation on generating [recipes](../data-generation/recipes).
 
 :::
 
@@ -118,7 +126,7 @@ With this recipe defined, you can now put banner patterns on your shield.
 
 ::: info PREREQUISITES
 
-It's recommended to know how to [data generate tags](../data-generation/tags) before following this section.
+For more information, see the documentation on generating [item tags](../data-generation/tags).
 
 :::
 

@@ -9,7 +9,9 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.model.DelegatedModel;
 import net.minecraft.client.data.models.model.ItemModelUtils;
+import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
@@ -23,6 +25,7 @@ import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -167,8 +170,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		//:::custom-balloon
 
 		// #region shield
+		// Paths to the vanilla shield and modded shield
+		Identifier vanillaShieldModelLocation = ModelLocationUtils.getModelLocation(Items.SHIELD);
 		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
 
+		// Item models
+		itemModelGenerator.modelOutput.accept(modelLocation, new DelegatedModel(vanillaShieldModelLocation));
+		itemModelGenerator.modelOutput.accept(modelLocation.withSuffix("_blocking"), new DelegatedModel(vanillaShieldModelLocation.withSuffix("_blocking")));
+
+		// Client Item
 		ItemModel.Unbaked normal = ItemModelUtils.specialModel(modelLocation, new GuiditeShieldSpecialRenderer.Unbaked());
 		ItemModel.Unbaked blocking = ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), new GuiditeShieldSpecialRenderer.Unbaked());
 		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(), blocking, normal));
