@@ -84,6 +84,10 @@ Example:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#with_option
 
+Or for two codecs use
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#with_option_double_codec
+
 #### Initialize the Class {#initialize-the-class}
 
 Call `ExampleModRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).

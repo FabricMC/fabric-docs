@@ -19,21 +19,13 @@ public class ExampleModRegistries {
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_REGISTRY_KEY =
 					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_registry"));
 	// #endregion key
-	// #endregion main
-	// #region main
 
-	// #region simple
-	// #region synced
-	// #region double_codec
-	// #region with_option
 	public static void initialize() {
-		// #endregion simple
-		// #endregion synced
-		// #endregion double_codec
-		// #endregion with_option
 		// Register Code Here
-		// #endregion main
+	}
+	// #endregion main
 
+	private void initializeFake(){
 		// #region simple
 		DynamicRegistries.register(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC);
 		// #endregion simple
@@ -48,21 +40,12 @@ public class ExampleModRegistries {
 
 		// #region with_option
 		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
-		// Or For 2 Codec Overload
-		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
 		// #endregion with_option
 
-		// #region main
-		// #region simple
-		// #region synced
-		// #region double_codec
-		// #region with_option
+		// #region with_option_double_codec
+		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
+		// #endregion with_option_double_codec
 	}
-	// #endregion main
-	// #endregion simple
-	// #endregion synced
-	// #endregion double_codec
-	// #endregion with_option
 
 	// #region get_registry
 	public static <T> Optional<Registry<T>> getRegistry(RegistryAccess registryAccess, ResourceKey<Registry<T>> registryKey) {
