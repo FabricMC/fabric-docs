@@ -184,7 +184,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		blockingShieldTemplate.create(modelLocation.withSuffix("_blocking"), TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
 
 		// Client Item
-		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base"));
+		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(
+						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base"),
+						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base_nopattern")
+		);
 		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(),
 						ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), specialRenderer),
 						ItemModelUtils.specialModel(modelLocation, specialRenderer)

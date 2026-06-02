@@ -6,6 +6,7 @@
       "base": "example-mod:item/guidite_shield",
       "model": {
         "type": "example-mod:guidite_shield",
+        "no_pattern_texture": "example-mod:guidite_shield_base_nopattern",
         "texture": "example-mod:guidite_shield_base"
       }
     },
@@ -14,6 +15,7 @@
       "base": "example-mod:item/guidite_shield_blocking",
       "model": {
         "type": "example-mod:guidite_shield",
+        "no_pattern_texture": "example-mod:guidite_shield_base_nopattern",
         "texture": "example-mod:guidite_shield_base"
       }
     },

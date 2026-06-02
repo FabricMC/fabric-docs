@@ -41,11 +41,11 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// The texture used when no dye or banner patterns are present (based on the path provided in the client item).
 	private final SpriteId baseSpriteNoPattern;
 
-	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model, Identifier baseTexture) {
+	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model, SpriteId baseSprite, SpriteId baseSpriteNoPattern) {
 		this.sprites = sprites;
 		this.model = model;
-		this.baseSprite = Sheets.SHIELD_MAPPER.apply(baseTexture);
-		this.baseSpriteNoPattern = Sheets.SHIELD_MAPPER.apply(baseTexture.withSuffix("_nopattern"));
+		this.baseSprite = baseSprite;
+		this.baseSpriteNoPattern = baseSpriteNoPattern;
 	}
 	// #endregion renderer
 
@@ -84,8 +84,11 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// #endregion extents
 
 	// #region unbaked
-	public record Unbaked(Identifier texture) implements SpecialModelRenderer.Unbaked<DataComponentMap> {
-		public static final MapCodec<Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec((i) -> i.group(Identifier.CODEC.fieldOf("texture").forGetter(Unbaked::texture)).apply(i, Unbaked::new));
+	public record Unbaked(Identifier base, Identifier noPattern) implements SpecialModelRenderer.Unbaked<DataComponentMap> {
+		public static final MapCodec<Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec((i) -> i.group(
+						Identifier.CODEC.fieldOf("texture").forGetter(Unbaked::base),
+						Identifier.CODEC.fieldOf("no_pattern_texture").forGetter(Unbaked::noPattern)
+		).apply(i, Unbaked::new));
 
 		public MapCodec<Unbaked> type() {
 			return MAP_CODEC;
@@ -93,7 +96,7 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 
 		public GuiditeShieldSpecialRenderer bake(final SpecialModelRenderer.BakingContext context) {
 			return new GuiditeShieldSpecialRenderer(context.sprites(), new ShieldModel(context.entityModelSet()
-							.bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)), texture);
+							.bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)), Sheets.SHIELD_MAPPER.apply(this.base), Sheets.SHIELD_MAPPER.apply(this.noPattern));
 		}
 	}
 	// #endregion unbaked

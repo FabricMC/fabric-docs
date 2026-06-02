@@ -50,17 +50,17 @@ Then, register the layer in your client initializer.
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#shield-layer
 
-Then, we'll create a special renderer for the item. This one is based off of the vanilla shield renderer, with the sprites changed to use our mod's sprites. The renderer is complicated, so we'll break it down.
+Then, we'll create a special renderer for the item. This one is based off of the vanilla shield renderer, with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section. The renderer is complicated, so we'll break it down.
 
 ### Constructor {#constructor}
 
-The constructor of the renderer is simple - it accepts a `SpriteGetter` that will retrieve we'll be using, and the model we'll be using, in this case a `ShieldModel`. A `SpriteGetter` is an interface that will provide sprites when the model requests them. The constructor stores the `SpriteGetter` and `ShieldModel`
+The constructor of the renderer is simple - it accepts a `SpriteGetter` that will retrieve we'll be using, and the model we'll be using, in this case a `ShieldModel`. A `SpriteGetter` is an interface that will provide sprites from `Identifier`s. The constructor stores the `SpriteGetter` and `ShieldModel` as fields.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#renderer
 
 ### Extraction {#extraction}
 
-Since we do not want the components of the item renderering to be able to change while in the rendering process, we store a copy of the stack's components via `extractArgument`.
+When extracting data to be rendered, we need a immutable copy of the data that contains only the information needed to render the item. We can retrieve that from the `ItemStack` by converting its `DataComponentMap` to an immutable one in `extractArgument`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extract-argument
 
@@ -101,7 +101,9 @@ We'll be creating two item models and a client item for the shield. Add the foll
 
 - A normal item model which uses the vanilla shield as a parent.
 - A blocking item model which uses the vanilla shield's blocking model as a parent.
-- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the texture we'll be using, `guidite_shield_base`.
+- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the textures we'll be using, `guidite_shield_base`, and `guidite_shield_base_nopattern`.
+
+<!-- TODO add download link for shield base textures -->
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#shield
 
