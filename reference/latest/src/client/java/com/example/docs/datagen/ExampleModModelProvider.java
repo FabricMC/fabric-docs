@@ -169,6 +169,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		//:::custom-balloon
 
+		// #region sword
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion sword
+
 		// #region shield
 		// Paths to the vanilla shield and modded shield
 		Identifier vanillaShieldModelLocation = ModelLocationUtils.getModelLocation(Items.SHIELD);

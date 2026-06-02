@@ -110,8 +110,6 @@ For more information, see the documentation on generating [recipes](../data-gene
 
 :::
 
-<!-- TODO -->
-
 Two recipes are usually needed to access the item in survival - a normal crafting recipe, and a shield decoration recipe to allow for banner patterns.
 
 You can make the crafting recipe for your shield whatever you want, so we'll only focus on the decoration recipe. We'll use this line in our recipe provider (`ExampleModRecipeProvider#buildRecipes`) to generate a shield decoration recipe.
@@ -122,7 +120,7 @@ With this recipe defined, you can now put banner patterns on your shield.
 
 <!-- TODO IMAGE -->
 
-## Tagging Your Shield {#tags}
+## Tagging Shield Items {#tags}
 
 ::: info PREREQUISITES
 

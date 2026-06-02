@@ -2,6 +2,7 @@
 title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
+  - cassiancc
   - IMB11
 ---
 
@@ -30,7 +31,7 @@ For this example, we will use the same repair item tag we will be using for armo
 
 If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
-## Creating Tool Items {#creating-tool-items}
+## Registering Tool Items {#creating-tool-items}
 
 Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
 
@@ -42,27 +43,79 @@ Note that items with right-click behaviour, like axes, should use classes like `
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 
-### Adding to Creative Tabs {#creative-tabs}
+## Adding to Creative Tabs {#creative-tabs}
 
 Remember to add them to a creative tab if you want to access them from the creative inventory!
 
 @[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
-### Assets {#models}
+## Assets {#models}
 
 You will also have to add a texture, item translation, client item, and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
 
-For this example, we will be using the following model and texture for the "Guidite Sword" item:
+For this example, we will be using the following client item, model and texture for the "Guidite Sword" item:
+
+:::: tabs
+
+== Source Code
+
+::: info
+
+This model can be data generated. For more information, see the documentation on generating [item models](../data-generation/item-models).
+
+:::
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
+
+== Client Item
+
+`generated/assets/example-mod/items/guidite_sword.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/guidite_sword.json)
+
+== Item Model
+
+`generated/assets/example-mod/models/item/guidite_sword.json`
 
 @[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
 
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
+== Texture
 
-### Tagging Your Tool {#tags}
+<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Guidite Sword Texture</DownloadEntry>
+
+::::
+
+A similar model is used for the "Guidite Axe" item.
+
+::: tabs
+
+== Source Code
+
+@[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+
+== Client Item
+
+`generated/assets/example-mod/items/guidite_axe.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json)
+
+== Item Model
+
+`generated/assets/example-mod/models/item/guidite_axe.json`
+
+@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json)
+
+== Texture
+
+<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe Texture</DownloadEntry>
+
+:::
+
+## Tagging Tool Items {#tags}
 
 ::: info PREREQUISITES
 
-It's recommended to know how to [data generate tags](../data-generation/tags) before following this section.
+For more information, see the documentation on generating [item tags](../data-generation/tags).
 
 :::
 
