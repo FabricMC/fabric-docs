@@ -1,14 +1,13 @@
 package com.example.docs.dynamic_registries;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 
-public class ExampleModTags {
+import com.example.docs.ExampleMod;
 
+public class ExampleModTags {
 	// #region tag
 	public static final TagKey<MagicSkillsRegistryEntry> ATTACKING_SPELLS_TAG_KEY = TagKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "attacking_spells"));
 

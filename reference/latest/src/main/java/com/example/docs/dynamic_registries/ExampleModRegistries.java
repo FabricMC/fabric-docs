@@ -1,8 +1,7 @@
 package com.example.docs.dynamic_registries;
 
-import com.example.docs.ExampleMod;
-
-import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -10,8 +9,9 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 
-import java.util.Optional;
-import java.util.function.Consumer;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
+
+import com.example.docs.ExampleMod;
 
 // #region main
 public class ExampleModRegistries {
@@ -20,9 +20,6 @@ public class ExampleModRegistries {
 					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_registry"));
 	// #endregion key
 	// #endregion main
-	// #region entry_id
-	ResourceKey<MagicSkillsRegistryEntry> HEALING_SPELL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY,Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell"));
-	// #endregion entry_id
 	// #region main
 
 	// #region simple
@@ -74,7 +71,7 @@ public class ExampleModRegistries {
 	// #endregion get_registry
 
 	// #region get_specific_registry_entry
-	public static <T> Optional<Holder.Reference<T>> getSpecificRegistryEntry(RegistryAccess registryAccess, ResourceKey<T>  entryId) {
+	public static <T> Optional<Holder.Reference<T>> getSpecificRegistryEntry(RegistryAccess registryAccess, ResourceKey<T> entryId) {
 		return registryAccess.get(entryId);
 	}
 	// #endregion get_specific_registry_entry
@@ -91,6 +88,9 @@ public class ExampleModRegistries {
 		// #endregion get_registry_usage
 
 		// #region get_specific_registry_entry_usage
+		// #region entry_id
+		ResourceKey<MagicSkillsRegistryEntry> HEALING_SPELL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell"));
+		// #endregion entry_id
 		Optional<Holder.Reference<MagicSkillsRegistryEntry>> entry = getSpecificRegistryEntry(registryAccess, HEALING_SPELL_ENTRY_ID);
 		entry.ifPresent(magicSkillRef -> {
 			System.out.println(magicSkillRef.value().name());
