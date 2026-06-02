@@ -23,9 +23,9 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 
 	// #region renderer-structure
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-		// #region renderer-structure
-		this.font = context.font();
 		// #endregion renderer-structure
+		this.font = context.font();
+		// #region renderer-structure
 	}
 
 	// #region create-render-state

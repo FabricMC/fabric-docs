@@ -21,7 +21,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import com.example.docs.ExampleMod;
 
-// #region datagen-world:placed-features-class
+// #region datagen-world--placed-features-class
 public class ExampleModWorldPlacedFeatures {
 	// #endregion datagen-world--placed-features-class
 	// #region datagen-world--placed-key
