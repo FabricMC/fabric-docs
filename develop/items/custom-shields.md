@@ -3,6 +3,7 @@ title: Custom Shields
 description: Learn how to create your own shields and configure their properties.
 authors:
   - cassiancc
+  - ChampionAsh537
 ---
 
 <!--  -->
@@ -31,8 +32,8 @@ Then, we register an item with the following components.
 
 - **Banner Patterns**: Creates an item with no banner patterns.
 - **Repairable**: Creates an item that can be repaired with the given item tag.
-- **Equippable/Unswappable**: Shift-clicking the item will equip it to the offhand, but right clicking with it will not.
-- **Blocks Attacks**: Creates an item that blocks attacks. This is a _delayed component_, meaning that it loads after the world is loaded, and it can reference tags. The parameters given match a vanilla shield.
+- **Equippable/Unswappable**: In the GUI, Shift-clicking the item will equip it to the offhand. In the world, right clicking with it will not equip the item.
+- **Blocks Attacks**: Creates an item that blocks attacks. This is a _delayed component_, meaning that it loads after the world is loaded, allowing it to reference datapack objects like tags. This example uses the same parameters as a vanilla shield, but individual numbers can be easily tweaked for your mod's needs.
 - **Break Sound**: When the item breaks, it will play the specified sound.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#shield
@@ -63,7 +64,7 @@ Since we do not want the components of the item renderering to be able to change
 
 ### Extents {#extents}
 
-We'll also set the extents of the model, defining how it is rendered in the GUI. The model handles this for us.
+We'll also set the extents of the model, defining the model's bounding box, which is used for rendering and animations. The model handles this for us.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extents
 
@@ -128,7 +129,7 @@ For more information, see the documentation on generating [item tags](../data-ge
 
 :::
 
-It's also recommended to place your shield in the appropriate item tags. For a shield, that would be usually be `ItemTags.DURABILITY_ENCHANTABLE` to allow it to be enchanted with Mending and Unbreaking, and `ConventheionalItemTags.SHIELD_TOOLS`, which modders will be using to look for shields.
+It's also recommended to place your shield in the appropriate item tags. For a shield, that would be usually be `ItemTags.DURABILITY_ENCHANTABLE` to allow it to be enchanted with Mending and Unbreaking, and `ConventionalItemTags.SHIELD_TOOLS`, which modders will be using to look for shields.
 
 In your item tag provider, add the following lines to `addTags`:
 
