@@ -8,13 +8,14 @@ authors:
   - liach
   - Llamalad7
   - SolidBlock-cn
+  - Maganoos
 resources:
   https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Fabric Loader 0.19.2 Javadocs
   https://wiki.fabricmc.net/documentation:entrypoint: Entrypoints - Fabric Wiki
   https://github.com/FabricMC/fabric-loader: Fabric Loader on GitHub
 ---
 
-Fabric Loader is Fabric's lightweight mod loader. It provides the necessary tools to make any version of Minecraft. On the other hand, game-specific and version-specific hooks belong in Fabric API.
+Fabric Loader is Fabric's lightweight mod loader. It provides the necessary tools to mod any Java application. On the other hand, game-specific and version-specific hooks belong in Fabric API.
 
 ::: info
 
