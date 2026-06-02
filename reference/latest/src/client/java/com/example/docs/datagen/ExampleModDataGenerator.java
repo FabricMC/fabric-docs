@@ -71,7 +71,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ExampleModAdvancementRewardLootTableProvider::new);
 		pack.addProvider(ExampleModCodecExampleProvider::new);
-		// :::datagen-setup:generator
+		// #region datagen-setup--generator
 	}
 	// #endregion datagen-setup--generator
 

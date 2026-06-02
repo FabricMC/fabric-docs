@@ -68,15 +68,15 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
 	}
 
-	// :::custom-pipelines:extraction-phase
+	// #region custom-pipelines--extraction-phase
 	private void extractWaypoint(LevelExtractionContext context) {
 		// Access data from the world or anything here in the extraction phase.
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
 		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
 
-	// :::custom-pipelines:extraction-phase
-	// :::custom-pipelines:drawing-phase
+	// #endregion custom-pipelines--extraction-phase
+	// #region custom-pipelines--drawing-phase
 	private void renderAndDrawWaypoint(LevelRenderContext context) {
 		this.renderWaypoint(context);
 		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
