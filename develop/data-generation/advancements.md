@@ -23,11 +23,11 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 First, we need to make our provider. Create a class that extends `FabricAdvancementProvider` and fill out the base methods:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements__provider_start
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_provider_start
 
 To finish setup, add this provider to your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_advancements__register
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_advancements_register
 
 ## Advancement Structure {#advancement-structure}
 
@@ -43,7 +43,7 @@ An advancement is made up a few different components. Along with the requirement
 
 Here's a simple advancement for getting a dirt block:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements__simple_advancement
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 ::: details JSON Output
 
@@ -105,13 +105,13 @@ A **predicate** is something that takes a value and returns a `boolean`. For exa
 
 First, we'll need a new mechanic to implement. Let's tell the player what tool they used every time they break a block.
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements__entrypoint
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_entrypoint
 
 Note that this code is really bad. The `HashMap` is not stored anywhere persistent, so it will be reset every time the game is restarted. It's just to show off `Criterion`s. Start the game and try it out!
 
 Next, let's create our custom criterion, `UseToolCriterion`. It's going to need its own `Conditions` class to go with it, so we'll make them both at once:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements__criterion_base
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_base
 
 Whew, that's a lot! Let's break it down.
 
@@ -127,31 +127,31 @@ To learn more about codecs, see the [Codecs](../codecs) page.
 
 We're going to need a way to check if the conditions are met. Let's add a helper method to `Conditions`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements__conditions_test
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_conditions_test
 
 Now that we've got a criterion and its conditions, we need a way to trigger it. Add a trigger method to `UseToolCriterion`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements__criterion_trigger
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
 Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements__mod_criteria
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 
 To make sure that our criteria are initialized at the right time, add a blank `init` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements__mod_criteria_init
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria_init
 
 And call it in your mod initializer:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements__call_init
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_call_init
 
 Finally, we need to trigger our criterion. Add this to where we sent a message to the player in the main mod class.
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements__trigger_criterion
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_criterion
 
 Your shiny new criterion is now ready to use! Let's add it to our provider:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements__custom_criteria_advancement
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_custom_criteria_advancement
 
 Run the datagen task again, and you've got your new advancement to play with!
 
@@ -161,31 +161,31 @@ This is all well and good, but what if we want to only grant an advancement once
 
 Let's work bottom-up. We'll need to check if the requirements are met, so let's edit our `Conditions#requirementsMet` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements__new_requirements_met
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_requirements_met
 
 `requiredTimes` doesn't exist, so make it a parameter of `Conditions`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements__new_parameter
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_parameter
 
 Now our codec is erroring. Let's write a new codec for the new changes:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements__new_codec
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_codec
 
 Moving on, we now need to fix our `trigger` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements__new_trigger
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_trigger
 
 If you've made a new criterion, we need to add it to `ModCriteria`
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements__new_mod_criteria
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_new_mod_criteria
 
 And call it in our main class, right where the old one is:
 
-<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements__trigger_new_criterion
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_new_criterion
 
 Add the advancement to your provider:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements__new_custom_criteria_advancement
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_new_custom_criteria_advancement
 
 Run datagen again, and you're finally done!
 
@@ -193,4 +193,4 @@ Run datagen again, and you're finally done!
 
 To apply a [resource condition](../resource-conditions) to a data-generated advancement, wrap the consumer with `withConditions` and provide any resource conditions you want to apply. This will then generate an advancement that has resource conditions applied:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements__conditions
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_conditions

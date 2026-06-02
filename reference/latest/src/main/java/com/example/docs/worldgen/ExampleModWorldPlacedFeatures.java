@@ -21,16 +21,16 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import com.example.docs.ExampleMod;
 
-// #region datagen_world__placed_features_class
+// #region datagen_world_placed_features_class
 public class ExampleModWorldPlacedFeatures {
-	// #endregion datagen_world__placed_features_class
-	// #region datagen_world__placed_key
+	// #endregion datagen_world_placed_features_class
+	// #region datagen_world_placed_key
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
 				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_ore_placed")
 			);
-	// #endregion datagen_world__placed_key
+	// #endregion datagen_world_placed_key
 
 	public static final ResourceKey<PlacedFeature> DIAMOND_TREE_PLACED_KEY =
 			ResourceKey.create(
@@ -38,21 +38,21 @@ public class ExampleModWorldPlacedFeatures {
 							Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree_placed")
 			);
 
-	// #region datagen_world__placed_features_class
+	// #region datagen_world_placed_features_class
 	public static void configure(BootstrapContext<PlacedFeature> context) {
-		// #endregion datagen_world__placed_features_class
-		// #region datagen_world__conf_feature_register
+		// #endregion datagen_world_placed_features_class
+		// #region datagen_world_conf_feature_register
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-		// #endregion datagen_world__conf_feature_register
+		// #endregion datagen_world_conf_feature_register
 
-		// #region datagen_world__placement_modifiers
+		// #region datagen_world_placement_modifiers
 		List<PlacementModifier> diamondBlockVeinModifiers = List.of(
 				CountPlacement.of(6),
 				BiomeFilter.biome(),
 				InSquarePlacement.spread(),
 				HeightRangePlacement.of(BiasedToBottomHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(0), 3))
 		);
-		// #endregion datagen_world__placement_modifiers
+		// #endregion datagen_world_placement_modifiers
 
 		List<PlacementModifier> diamondTreeModifiers = List.of(
 				RarityFilter.onAverageOnceEvery(10), // spawns once every 10 chunks on average
@@ -62,7 +62,7 @@ public class ExampleModWorldPlacedFeatures {
 
 		);
 
-		// #region datagen_world__register_placed_feature
+		// #region datagen_world_register_placed_feature
 		context.register(
 				DIAMOND_BLOCK_ORE_PLACED_KEY,
 				new PlacedFeature(
@@ -70,7 +70,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondBlockVeinModifiers
 				)
 		);
-		// #endregion datagen_world__register_placed_feature
+		// #endregion datagen_world_register_placed_feature
 
 		context.register(
 				DIAMOND_TREE_PLACED_KEY,
@@ -79,7 +79,7 @@ public class ExampleModWorldPlacedFeatures {
 					diamondTreeModifiers
 				)
 		);
-		// #region datagen_world__placed_features_class
+		// #region datagen_world_placed_features_class
 	}
 }
-// #endregion datagen_world__placed_features_class
+// #endregion datagen_world_placed_features_class

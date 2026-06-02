@@ -35,18 +35,18 @@ subprojects {
 	dependencies {
 		implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-		// #region automatic_testing__1
+		// #region automatic_testing_1
 		testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
-		// #endregion automatic_testing__1
+		// #endregion automatic_testing_1
 	}
 
-	// #region datagen_setup__configure
+	// #region datagen_setup_configure
 	fabricApi {
 		configureDataGeneration() {
 			client = true
 		}
 	}
-	// #endregion datagen_setup__configure
+	// #endregion datagen_setup_configure
 
 	tasks.withType(JavaCompile).configureEach {
 		it.options.release = 25

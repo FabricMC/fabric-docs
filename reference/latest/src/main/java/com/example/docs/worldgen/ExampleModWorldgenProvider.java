@@ -8,7 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 
-// #region datagen_world__provider
+// #region datagen_world_provider
 public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 	public ExampleModWorldgenProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
@@ -27,4 +27,4 @@ public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 		return "World Generation";
 	}
 }
-// #endregion datagen_world__provider
+// #endregion datagen_world_provider

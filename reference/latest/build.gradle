@@ -1,36 +1,36 @@
 def minecraftVersion = "26.1.2"
 def fabricApiVersion = "0.148.2+26.1.2"
 
-// #region automatic_testing__game_test__2
+// #region automatic_testing_game_test_2
 dependencies {
-// #endregion automatic_testing__game_test__2
+// #endregion automatic_testing_game_test_2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
   implementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 
-// #region automatic_testing__game_test__2
+// #region automatic_testing_game_test_2
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
-// #endregion automatic_testing__game_test__2
-// #region classtweaker_setup__gradle
+// #endregion automatic_testing_game_test_2
+// #region classtweaker_setup_gradle
 loom {
 
 	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
 
 }
-// #endregion classtweaker_setup__gradle
+// #endregion classtweaker_setup_gradle
 
-// #region automatic_testing__2
+// #region automatic_testing_2
 test {
 	useJUnitPlatform()
 }
-// #endregion automatic_testing__2
+// #endregion automatic_testing_2
 
 // #region debug_logging
 loom.log4jConfigs.from "log4j-dev.xml"
 // #endregion debug_logging
 
-// #region automatic_testing__game_test__1
+// #region automatic_testing_game_test_1
 fabricApi {
 	configureTests {
 		createSourceSet = true
@@ -40,9 +40,9 @@ fabricApi {
 		eula = true // By setting this to true, you agree to the Minecraft EULA.
 	}
 }
-// #endregion automatic_testing__game_test__1
+// #endregion automatic_testing_game_test_1
 
-// #region automatic_testing__game_test__2
+// #region automatic_testing_game_test_2
 tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
 	jvmArgs.add("-Dfabric.client.gametest")
 	// Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
@@ -50,4 +50,4 @@ tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.Client
 	// XVFB must be installed, on Debian-based systems you can install it with: `apt install xvfb`
 	useXVFB = true
 }
-// #endregion automatic_testing__game_test__2
+// #endregion automatic_testing_game_test_2

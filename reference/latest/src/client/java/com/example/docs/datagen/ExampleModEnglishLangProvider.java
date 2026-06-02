@@ -15,7 +15,7 @@ import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
 
-// #region datagen_translations__provider
+// #region datagen_translations_provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 	protected ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
@@ -24,10 +24,10 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
-		// #endregion datagen_translations__provider
-		// #region datagen_translations__build
+		// #endregion datagen_translations_provider
+		// #region datagen_translations_build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
-		// #endregion datagen_translations__build
+		// #endregion datagen_translations_build
 		translationBuilder.add(ModItems.GUIDITE_HELMET, "Guidite Helmet");
 		translationBuilder.add(ModItems.GUIDITE_CHESTPLATE, "Guidite Chestplate");
 		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
@@ -94,7 +94,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		// #region gamerule_name
 		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
 		// #endregion gamerule_name
-		// #region datagen_translations__provider
+		// #region datagen_translations_provider
 	}
 }
-// #endregion datagen_translations__provider
+// #endregion datagen_translations_provider

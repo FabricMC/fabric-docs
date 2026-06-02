@@ -23,7 +23,7 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 You will need different providers (classes) for blocks, chests, and entities. Remember to add them all to your pack in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables__register
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables_register
 
 ## Loot Tables Explained {#loot-tables-explained}
 
@@ -35,7 +35,7 @@ Loot pools have **entries**, **conditions**, functions, **rolls**, and **bonus r
 
 In order for blocks to drop items - including itself - we need to make a loot table. Create a class that extends `FabricBlockLootTableProvider`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables__block_provider
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
 Make sure to add this provider to your pack!
 
@@ -43,24 +43,24 @@ There's a lot of helper methods available to help you build your loot tables. We
 
 Let's add a few drops in the `generate` method:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables__block_drops
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_drops
 
 ## Chests {#chests}
 
 Chest loot is a little bit tricker than block loot. Create a class that extends `SimpleFabricLootTableProvider` similar to the example below **and add it to your pack**.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables__chest_provider
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
 We'll need a `ResourceKey<LootTable>` for our loot table. Let's put that in a new class called `ModLootTables`. Make sure this is in your `main` source set if you're using split sources.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables__mod_loot_tables
+<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables_mod_loot_tables
 
 Then, we can generate a loot table inside the `generate` method of your provider.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables__chest_loot
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_loot
 
 ## Resource Conditions {#resource-conditions}
 
 To apply a [resource condition](../resource-conditions) to a data generated loot table, call `withConditions` and provide any resource conditions you want to apply, then call a method from the loot table provider, such as `dropSelf`. This will then generate a loot table that has resource conditions applied:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables__conditions
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_conditions

@@ -37,11 +37,11 @@ Now add the `bootstrap` method. Here, we will be registering the enchantments we
 
 In your `DataGeneratorEntrypoint`, override the `buildRegistry` method and register our bootstrap method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments__bootstrap
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_bootstrap
 
 Finally, ensure your new generator is registered within the `onInitializeDataGenerator` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments__register
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_register
 
 ## Creating the Enchantment {#creating-the-enchantment}
 

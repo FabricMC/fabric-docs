@@ -21,15 +21,15 @@ Values can be printed there at runtime, informing the developer about the curren
 
 In the `ModInitializer`-implementing entrypoint class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems__basic_logger_definition
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_basic_logger_definition
 
 Whenever you need to know a value for something at any point in the code, use this `LOGGER` by passing a `String` to its methods.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems__using_logger
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_using_logger
 
 The logger supports multiple modes of printing text to the console. Depending on which mode you use, the logged line will be displayed in different colors.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems__log_levels
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_log_levels
 
 ::: info
 
@@ -39,7 +39,7 @@ All logger modes support multiple overloads; this way you can provide more infor
 
 For example, let's make sure that, when the `TestItem` is used on an entity, it will output its current state in console.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems__logger_usage_example
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_logger_usage_example
 
 ![Console showing logged output](/assets/develop/debugging/debug_01.png)
 
@@ -79,7 +79,7 @@ Then in the `build.gradle`, tell Loom to use our new configuration.
 
 Now, when we send debug log messages, we'll be able to see them in the console.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems__debug_logging
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_debug_logging
 
 ![Console showing a debug log entry](/assets/develop/debugging/debug_log.png)
 
@@ -238,7 +238,7 @@ To finish up with the example from earlier, let's add a condition to the stateme
 
 Apply the fixes and use hotswapping to see the changes in the game instantly.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems__breakpoints
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_breakpoints
 
 ## Logs And Crashes {#logs-and-crashes}
 

@@ -48,23 +48,23 @@ public class ExampleMod implements ModInitializer {
 		// Register our custom particle type in the mod initializer.
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
 		// #endregion particle_register_main
-		// #region datagen_world__biome_modifications
+		// #region datagen_world_biome_modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(
 				BiomeSelectors.foundInOverworld(),
 				GenerationStep.Decoration.UNDERGROUND_ORES,
 				ExampleModWorldPlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
 		);
-		// #endregion datagen_world__biome_modifications
+		// #endregion datagen_world_biome_modifications
 
-		// #region datagen_world__selective_biome_modifications
+		// #region datagen_world_selective_biome_modifications
 		// Spawns in forest biomes only
 		BiomeModifications.addFeature(
 				BiomeSelectors.tag(BiomeTags.IS_FOREST),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
-		// #endregion datagen_world__selective_biome_modifications
+		// #endregion datagen_world_selective_biome_modifications
 
 		// #region tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);

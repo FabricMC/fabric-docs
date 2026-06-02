@@ -60,7 +60,7 @@ The specifications are still named after access wideners to preserve backwards c
 
 #### build.gradle {#build-gradle}
 
-<<< @/reference/latest/build.gradle#classtweaker_setup__gradle
+<<< @/reference/latest/build.gradle#classtweaker_setup_gradle
 
 #### fabric.mod.json {#fabric-mod-json}
 

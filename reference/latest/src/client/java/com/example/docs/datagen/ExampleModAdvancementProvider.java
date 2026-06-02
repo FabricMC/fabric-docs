@@ -47,7 +47,7 @@ import com.example.docs.advancement.UseToolCriterion;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 
-// #region datagen_advancements__provider_start
+// #region datagen_advancements_provider_start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 	protected ExampleModAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
@@ -55,8 +55,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
-		// #endregion datagen_advancements__provider_start
-		// #region datagen_advancements__simple_advancement
+		// #endregion datagen_advancements_provider_start
+		// #region datagen_advancements_simple_advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
 				.display(
 						Items.DIRT, // The display icon
@@ -72,7 +72,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_dirt"));
-		// #endregion datagen_advancements__simple_advancement
+		// #endregion datagen_advancements_simple_advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
 		// #region multiple_criteria
 		Advancement.Builder.advancement()
@@ -163,7 +163,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("get_star", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_STAR))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_nether_star"));
 
-		// #region datagen_advancements__custom_criteria_advancement
+		// #region datagen_advancements_custom_criteria_advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
@@ -178,8 +178,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool"));
-		// #endregion datagen_advancements__custom_criteria_advancement
-		// #region datagen_advancements__new_custom_criteria_advancement
+		// #endregion datagen_advancements_custom_criteria_advancement
+		// #region datagen_advancements_new_custom_criteria_advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
 				.parent(breakBlockWithTool)
 				.display(
@@ -194,7 +194,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool_five_times"));
-		// #endregion datagen_advancements__new_custom_criteria_advancement
+		// #endregion datagen_advancements_new_custom_criteria_advancement
 		// #region reference_parent
 		Advancement.Builder.advancement()
 				.parent(getDirt)
@@ -247,7 +247,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
 
-		// #region datagen_advancements__conditions
+		// #region datagen_advancements_conditions
 		Advancement.Builder.advancement()
 				.display(
 						ModBlocks.DUPLICATOR_BLOCK,
@@ -259,8 +259,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
 				.save(withConditions(consumer,
 								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
-		// #endregion datagen_advancements__conditions
-		// #region datagen_advancements__provider_start
+		// #endregion datagen_advancements_conditions
+		// #region datagen_advancements_provider_start
 	}
 }
-// #endregion datagen_advancements__provider_start
+// #endregion datagen_advancements_provider_start
