@@ -1,5 +1,3 @@
-import { inBrowser } from "vitepress";
-
 export const fullScreenButtonClick = (e: PointerEvent) => {
   const button = (e.target as HTMLElement).closest(".full-screen-button");
   if (!button) return;
@@ -52,61 +50,13 @@ function openCodeDialog(codeBlock: HTMLElement) {
     setTimeout(() => copyButton.classList.remove("copied"), 2000);
   });
 
-  const downloadButton = document.createElement("button");
-  downloadButton.title = "Download Code as File";
-  downloadButton.classList.add("download-button");
-  downloadButton.addEventListener("click", async () => {
-    try {
-      const code = getCodeFromElement(clone);
-      if (!code) throw new Error("No code to download");
-
-      const blob = new Blob([code.content], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `snippet.${code.lang}`;
-
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-
-      URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error("Failed to download code:", err);
-    }
-    downloadButton.blur();
-  });
-
   header.innerHTML = "";
   header.appendChild(title);
   header.appendChild(copyButton);
-  header.appendChild(downloadButton);
   header.appendChild(closeButton);
 
   content.innerHTML = "";
   content.appendChild(clone);
   dialog.showModal();
   dialog.focus();
-}
-
-export function getCodeFromElement(content: HTMLElement) {
-  if (inBrowser) {
-    const ignoredNodes = [".vp-copy-ignore", ".diff.remove"].join(", ");
-    const pre = content.querySelector("pre") as HTMLElement;
-    const clone = pre.cloneNode(true) as HTMLElement;
-    clone.querySelectorAll(ignoredNodes).forEach((node) => node.remove());
-    clone.innerHTML = clone.innerHTML.replace(/\n+/g, "\n");
-
-    let text = clone.textContent || "";
-    const lang = /language-(\w+)/.exec(content.className)?.[1] || "";
-    const shelLangs = ["shellscript", "shell", "bash", "sh", "zsh"];
-    if (shelLangs.includes(lang)) {
-      text = text.replace(/^ *([$>]) /gm, "").trim();
-    }
-
-    return {
-      content: text,
-      lang: lang,
-    };
-  }
 }
