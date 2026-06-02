@@ -49,7 +49,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 	}
 
 	private static void usingCodecs(BiConsumer<String, JsonElement> consumer) {
-		// #region encode-blockpos
+		// #region encode_blockpos
 		BlockPos pos = new BlockPos(1, 2, 3);
 
 		// Serialize the BlockPos to a JsonElement
@@ -61,9 +61,9 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		// Here we have our JSON value, which should correspond to `[1, 2, 3]`,
 		// as that's the format used by the BlockPos codec.
 		LOGGER.info("Serialized BlockPos: {}", json);
-		// #endregion encode-blockpos
+		// #endregion encode_blockpos
 
-		// #region parse-blockpos
+		// #region parse_blockpos
 		// Now we'll deserialize the JsonElement back into a BlockPos
 		DataResult<BlockPos> deserializeResult = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
 
@@ -72,13 +72,13 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 
 		// And we can see that we've successfully serialized and deserialized our BlockPos!
 		LOGGER.info("Deserialized BlockPos: {}", deserializedPos);
-		// #endregion parse-blockpos
+		// #endregion parse_blockpos
 
 		consumer.accept("serialize_blockpos", json);
 	}
 
 	private static void beanCodec(BiConsumer<String, JsonElement> consumer) {
-		// #region bean-codec-data
+		// #region bean_codec_data
 		CoolBeansClass bean = new CoolBeansClass(
 				5,
 				BuiltInRegistries.ITEM.wrapAsHolder(ModItems.LIGHTNING_TATER),
@@ -87,7 +87,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 						new BlockPos(4, 5, 6)
 				)
 		);
-		// #endregion bean-codec-data
+		// #endregion bean_codec_data
 
 		final var json = encode(CoolBeansClass.CODEC, bean);
 		consumer.accept("cool_beans", json);
@@ -101,13 +101,13 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 	}
 
 	private static void listCodec(BiConsumer<String, JsonElement> consumer) {
-		// #region list-codec
+		// #region list_codec
 		Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
-		// #endregion list-codec
+		// #endregion list_codec
 
-		// #region list-codec-data
+		// #region list_codec_data
 		List<BlockPos> data = List.of(new BlockPos(10, 5, 7));
-		// #endregion list-codec-data
+		// #endregion list_codec_data
 
 		final var json = encode(listCodec, data);
 
@@ -115,60 +115,60 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 	}
 
 	private static void optionalFields(BiConsumer<String, JsonElement> consumer) {
-		// #region optional-field
+		// #region optional_field
 		MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
-		// #endregion optional-field
+		// #endregion optional_field
 
-		// #region default-field
+		// #region default_field
 		MapCodec<BlockPos> defaultCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
-		// #endregion default-field
+		// #endregion default_field
 
-		// #region optional-field-data
+		// #region optional_field_data
 		Optional<BlockPos> optionalBlockPos = Optional.empty();
-		// #endregion optional-field-data
+		// #endregion optional_field_data
 
-		// #region default-field-data
+		// #region default_field_data
 		BlockPos defaultBlockPos = BlockPos.ZERO;
-		// #endregion default-field-data
+		// #endregion default_field_data
 
 		consumer.accept("optional_field", encode(optionalCodec.codec(), optionalBlockPos));
 		consumer.accept("default_field", encode(defaultCodec.codec(), defaultBlockPos));
 	}
 
 	private static void unit(BiConsumer<String, JsonElement> consumer) {
-		// #region unit-codec
+		// #region unit_codec
 		Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
-		// #endregion unit-codec
+		// #endregion unit_codec
 
 		consumer.accept("unit", encode(theMeaningOfCodec, 42));
 	}
 
 	private static void numericRanges(BiConsumer<String, JsonElement> consumer) {
-		// #region numeric-range
+		// #region numeric_range
 		// Can't be more than 2
 		Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
-		// #endregion numeric-range
+		// #endregion numeric_range
 
-		// #region numeric-range-data
+		// #region numeric_range_data
 		int amount = 2;
-		// #endregion numeric-range-data
+		// #endregion numeric_range_data
 
 		consumer.accept("numeric_range", encode(amountOfFriendsYouHave, amount));
 	}
 
 	private static void pair(BiConsumer<String, JsonElement> consumer) {
-		// #region pair-codec
+		// #region pair_codec
 		// Create two separate boxed codecs
 		Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
 		Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
 
 		// And merge them into a pair codec
 		Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
-		// #endregion pair-codec
+		// #endregion pair_codec
 
-		// #region pair-codec-data
+		// #region pair_codec_data
 		Pair<Integer, Boolean> pair = Pair.of(23, true);
-		// #endregion pair-codec-data
+		// #endregion pair_codec_data
 
 		DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, pair);
 
@@ -176,23 +176,23 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 	}
 
 	private static void map(BiConsumer<String, JsonElement> consumer) {
-		// #region map-codec
+		// #region map_codec
 		// Create a codec for a map of Identifiers to integers
 		Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
-		// #endregion map-codec
+		// #endregion map_codec
 
-		// #region map-codec-data
+		// #region map_codec_data
 		Map<Identifier, Integer> map = Map.of(
 				Identifier.fromNamespaceAndPath("example", "number"), 23,
 				Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
 		);
-		// #endregion map-codec-data
+		// #endregion map_codec_data
 
 		consumer.accept("map", encode(mapCodec, map));
 	}
 
 	private static void xmap(BiConsumer<String, JsonElement> consumer) {
-		// #region convert-xmap
+		// #region convert_xmap
 		Codec<BlockPos> blockPosCodec = Vec3i.CODEC.xmap(
 				// Convert Vec3i to BlockPos
 				vec -> new BlockPos(vec.getX(), vec.getY(), vec.getZ()),
@@ -204,17 +204,17 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		// to your own class (`Y`) this way, it may be nice to
 		// add `toX` and static `fromX` methods to `Y` and use
 		// method references in your `xmap` call.
-		// #endregion convert-xmap
+		// #endregion convert_xmap
 
-		// #region convert-xmap-data
+		// #region convert_xmap_data
 		BlockPos pos = new BlockPos(1, 2, 3);
-		// #endregion convert-xmap-data
+		// #endregion convert_xmap_data
 
 		consumer.accept("xmap", encode(blockPosCodec, pos));
 	}
 
 	private static void registryDispatch(BiConsumer<String, JsonElement> consumer) {
-		// #region registry-dispatch
+		// #region registry_dispatch
 		// Now we can create a codec for bean types
 		// based on the previously created registry
 		Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.byNameCodec();
@@ -223,7 +223,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		// The first argument is the field name for the bean type.
 		// When left out, it will default to "type".
 		Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
-		// #endregion registry-dispatch
+		// #endregion registry_dispatch
 
 		final var stringyBean = new StringyBean("This bean is stringy!");
 
@@ -234,7 +234,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 	}
 
 	private static void recursive(BiConsumer<String, JsonElement> consumer) {
-		// #region recursive-codec
+		// #region recursive_codec
 		Codec<ListNode> codec = Codec.recursive(
 				"ListNode", // a name for the codec
 				selfCodec -> {
@@ -250,9 +250,9 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 					);
 				}
 		);
-		// #endregion recursive-codec
+		// #endregion recursive_codec
 
-		// #region recursive-codec-data
+		// #region recursive_codec_data
 		ListNode linkedList = new ListNode(
 				2,
 				Optional.of(
@@ -267,7 +267,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 						)
 				)
 		);
-		// #endregion recursive-codec-data
+		// #endregion recursive_codec_data
 
 		consumer.accept("recursive", encode(codec, linkedList));
 	}

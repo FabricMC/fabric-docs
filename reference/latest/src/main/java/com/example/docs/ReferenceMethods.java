@@ -11,9 +11,9 @@ import com.example.docs.effect.ExampleModEffects;
  */
 public class ReferenceMethods {
 	public static void addTaterEffect(LivingEntity entity) {
-		// :::1
+		// #region apply_effect
 		var instance = new MobEffectInstance(ExampleModEffects.TATER, 5 * 20, 0, false, true, true);
 		entity.addEffect(instance);
-		// :::1
+		// #endregion apply_effect
 	}
 }

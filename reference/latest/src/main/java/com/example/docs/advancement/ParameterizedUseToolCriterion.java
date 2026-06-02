@@ -14,37 +14,38 @@ import net.minecraft.server.level.ServerPlayer;
  * in just one class.
  */
 public class ParameterizedUseToolCriterion extends SimpleCriterionTrigger<ParameterizedUseToolCriterion.Conditions> {
-	// :::datagen-advancements:new-trigger
+	// #region datagen_advancements_new_trigger
 	public void trigger(ServerPlayer player, int totalTimes) {
 		this.trigger(player, conditions -> conditions.requirementsMet(totalTimes));
 	}
 
-	// :::datagen-advancements:new-trigger
+	// #endregion datagen_advancements_new_trigger
 
 	@Override
 	public Codec<Conditions> codec() {
 		return Conditions.CODEC;
 	}
 
-	// :::datagen-advancements:new-parameter
+	// #region datagen_advancements_new_parameter
 	public record Conditions(Optional<ContextAwarePredicate> playerPredicate, int requiredTimes) implements SimpleCriterionTrigger.SimpleInstance {
-		// :::datagen-advancements:new-parameter
-		// :::datagen-advancements:new-codec
+		// #endregion datagen_advancements_new_parameter
+		// #region datagen_advancements_new_codec
 		public static Codec<ParameterizedUseToolCriterion.Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 				ContextAwarePredicate.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
 				Codec.INT.fieldOf("requiredTimes").forGetter(Conditions::requiredTimes)
 		).apply(instance, Conditions::new));
-		// :::datagen-advancements:new-parameter
+		// #endregion datagen_advancements_new_codec
+		// #region datagen_advancements_new_parameter
 		@Override
 		public Optional<ContextAwarePredicate> player() {
 			return this.playerPredicate;
 		}
 
-		// :::datagen-advancements:new-requirements-met
+		// #region datagen_advancements_new_requirements_met
 		public boolean requirementsMet(int totalTimes) {
 			return totalTimes > this.requiredTimes; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
-
-		// :::datagen-advancements:new-requirements-met
+		// #endregion datagen_advancements_new_requirements_met
 	}
+	// #endregion datagen_advancements_new_parameter
 }

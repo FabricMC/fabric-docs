@@ -14,25 +14,25 @@ import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import com.example.docs.ExampleMod;
 
 public class ExampleModKeyMappingsClient implements ClientModInitializer {
-	// :::category
+	// #region category
 	KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom_category")
 	);
-	// :::category
+	// #endregion category
 
-	// :::key_mapping
+	// #region key_mapping
 	KeyMapping sendToChatKey = KeyMappingHelper.registerKeyMapping(
 		new KeyMapping(
 				"key.example-mod.send_to_chat", // The translation key for the key mapping.
-				InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
+				InputConstants.Type.KEYSYM, // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
 				GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
 				this.CATEGORY // The category of the mapping.
 		));
-	// :::key_mapping
+	// #endregion key_mapping
 
 	@Override
 	public void onInitializeClient() {
-		// :::client_tick_event
+		// #region client_tick_event
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (this.sendToChatKey.consumeClick()) {
 				if (client.player != null) {
@@ -40,6 +40,6 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 				}
 			}
 		});
-		// :::client_tick_event
+		// #endregion client_tick_event
 	}
 }

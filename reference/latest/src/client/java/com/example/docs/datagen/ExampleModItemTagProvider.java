@@ -15,21 +15,21 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 
 import com.example.docs.ExampleMod;
 
-// :::datagen-tags:provider
+// #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
-	// :::datagen-tags:provider
-	// :::datagen-tags:tag-key
+	// #endregion datagen_tags_provider
+	// #region datagen_tags_tag_key
 	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
-	// :::datagen-tags:tag-key
-	// :::datagen-tags:provider
+	// #endregion datagen_tags_tag_key
+	// #region datagen_tags_provider
 	public ExampleModItemTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
 	protected void addTags(HolderLookup.Provider wrapperLookup) {
-		// :::datagen-tags:provider
-		// :::datagen-tags:build
+		// #endregion datagen_tags_provider
+		// #region datagen_tags_build
 		valueLookupBuilder(SMELLY_ITEMS)
 				.add(Items.SLIME_BALL)
 				.add(Items.ROTTEN_FLESH)
@@ -37,8 +37,8 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.add(Items.OAK_PLANKS)
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
-		// :::datagen-tags:build
-		// :::datagen-tags:provider
+		// #endregion datagen_tags_build
+		// #region datagen_tags_provider
 	}
 }
-// :::datagen-tags:provider
+// #endregion datagen_tags_provider

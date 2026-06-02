@@ -35,7 +35,7 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
 
-// :::provider
+// #region provider
 public class ExampleModModelProvider extends FabricModelProvider {
 	public ExampleModModelProvider(FabricPackOutput output) {
 		super(output);
@@ -43,82 +43,82 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-		// :::provider
+		// #endregion provider
 
-		// :::cube-all
+		// #region cube_all
 		blockStateModelGenerator.createTrivialCube(ModBlocks.STEEL_BLOCK);
-		// :::cube-all
+		// #endregion cube_all
 
-		// :::cube-top-for-ends
+		// #region cube_top_for_ends
 		blockStateModelGenerator.createTrivialBlock(ModBlocks.PIPE_BLOCK, TexturedModel.COLUMN_ALT);
-		// :::cube-top-for-ends
+		// #endregion cube_top_for_ends
 
-		// :::block-texture-pool-normal
+		// #region block_texture_pool_normal
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK)
 				.stairs(ModBlocks.RUBY_STAIRS)
 				.slab(ModBlocks.RUBY_SLAB)
 				.fence(ModBlocks.RUBY_FENCE);
-		// :::block-texture-pool-normal
+		// #endregion block_texture_pool_normal
 
-		// :::door-and-trapdoor
+		// #region door_and_trapdoor
 		blockStateModelGenerator.createDoor(ModBlocks.RUBY_DOOR);
 		blockStateModelGenerator.createTrapdoor(ModBlocks.RUBY_TRAPDOOR);
 		// blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RUBY_TRAPDOOR);
-		// :::door-and-trapdoor
+		// #endregion door_and_trapdoor
 
-		// :::custom-method-call
+		// #region custom_method_call
 		CustomBlockStateModelGenerator.registerVerticalSlab(
 				blockStateModelGenerator,
 				ModBlocks.VERTICAL_OAK_LOG_SLAB,
 				Blocks.OAK_LOG,
 				CustomBlockStateModelGenerator.blockAndTopForEnds(Blocks.OAK_LOG)
 		);
-		// :::custom-method-call
+		// #endregion custom_method_call
 
-		// :::provider
+		// #region provider
 	}
-	// :::provider
+	// #endregion provider
 
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
-		// :::block-texture-pool-family
+		// #region block_texture_pool_family
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK).generateFor(ModBlocks.RUBY_FAMILY);
-		// :::block-texture-pool-family
+		// #endregion block_texture_pool_family
 	}
 
-	// :::provider
+	// #region provider
 
 	@Override
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-		// :::provider
+		// #endregion provider
 
 		itemModelGenerator.generateFlatItem(ModItems.ACID_BUCKET, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_TATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 
-		//:::generated
+		// #region generated
 		itemModelGenerator.generateFlatItem(ModItems.RUBY, ModelTemplates.FLAT_ITEM);
-		//:::generated
+		// #endregion generated
 
 		itemModelGenerator.generateFlatItem(ModItems.MINI_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-		//:::handheld
+		// #region handheld
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
-		//:::handheld
+		// #endregion handheld
 
-		//:::dyeable
+		// #region dyeable
 		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, 0xFFA06540);
-		//:::dyeable
+		// #endregion dyeable
 
-		//:::condition
+		// #region condition
 		itemModelGenerator.generateBooleanDispatch(
 						ModItems.FLASHLIGHT,
 						ItemModelUtils.isUsingItem(),
 						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, "_lit", ModelTemplates.FLAT_ITEM)),
 						ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.FLASHLIGHT, ModelTemplates.FLAT_ITEM))
 		);
-		//:::condition
+		// #endregion condition
 
-		//:::composite
+		// #region composite
 		ItemModel.Unbaked hoe = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, ModelTemplates.FLAT_HANDHELD_ITEM));
 		ItemModel.Unbaked hoePlus = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.ENHANCED_HOE, "_plus", ModelTemplates.FLAT_HANDHELD_ITEM));
 
@@ -126,9 +126,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 						ModItems.ENHANCED_HOE,
 						ItemModelUtils.composite(hoe, hoePlus)
 		);
-		//:::composite
+		// #endregion composite
 
-		//:::select
+		// #region select
 		ItemModel.Unbaked crystalOverworld = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_overworld", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked crystalNether = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_nether", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked crystalEnd = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.DIMENSIONAL_CRYSTAL, "_end", ModelTemplates.FLAT_ITEM));
@@ -141,9 +141,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 										ItemModelUtils.when(Level.END, crystalEnd)
 						)
 		);
-		//:::select
+		// #endregion select
 
-		//:::range-dispatch
+		// #region range_dispatch
 		ItemModel.Unbaked knifeOne = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_one", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeTwo = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_two", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeThree = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_three", ModelTemplates.FLAT_ITEM));
@@ -159,61 +159,61 @@ public class ExampleModModelProvider extends FabricModelProvider {
 										)
 						)
 		);
-		//:::range-dispatch
+		// #endregion range_dispatch
 
-		//:::custom-balloon
+		// #region custom_balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
-		//:::custom-balloon
+		// #endregion custom_balloon
 
-		// :::provider
+		// #region provider
 	}
-	// :::provider
+	// #endregion provider
 
 	// Inner class containing custom objects for item model generation.
-	// :::custom-item-model-generator:::
+	// #region custom_item_model_generator
 	public static class CustomItemModelGenerator {
-		//:::custom-item-model:::
+		// #region custom_item_model
 		public static final ModelTemplate SCALED2X = item("scaled2x", TextureSlot.LAYER0);
-		//:::custom-item-model:::
+		// #endregion custom_item_model
 
-		//:::custom-item-datagen-method
+		// #region custom_item_datagen_method
 		public static void registerScaled2x(Item item, ItemModelGenerators generator) {
 			Identifier itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, new Material(ModelLocationUtils.getModelLocation(item))), generator.modelOutput);
 			generator.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
 		}
 
-		//:::custom-item-datagen-method
+		// #endregion custom_item_datagen_method
 
 		@SuppressWarnings("SameParameterValue")
-		//:::custom-item-model:::
+		// #region custom_item_model
 
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
-		//:::custom-item-model:::
+		// #endregion custom_item_model
 	}
-	// :::custom-item-model-generator:::
+	// #endregion custom_item_model_generator
 
 	// Inner class containing all Objects needed for the custom datagen tutorial.
-	// :::custom-blockstate-model-generator
+	// #region custom_blockstate_model_generator
 	public static class CustomBlockStateModelGenerator {
-		// :::custom-model
+		// #region custom_model
 		public static final ModelTemplate VERTICAL_SLAB = block("vertical_slab", TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
 
-		//helper method for creating Models
+		// helper method for creating Models
 		private static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
-		//helper method for creating Models with variants
+		// helper method for creating Models with variants
 		private static ModelTemplate block(String parent, String variant, TextureSlot... requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
 
-		// :::custom-model
+		// #endregion custom_model
 
-		// :::custom-texture-map
+		// #region custom_texture_map
 		public static TextureMapping blockAndTopForEnds(Block block) {
 			return new TextureMapping()
 					.put(TextureSlot.TOP, new Material(ModelLocationUtils.getModelLocation(block, "_top")))
@@ -221,9 +221,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					.put(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(block)));
 		}
 
-		// :::custom-texture-map
+		// #endregion custom_texture_map
 
-		// :::custom-supplier
+		// #region custom_supplier
 		private static BlockModelDefinitionGenerator createVerticalSlabBlockStates(Block vertSlabBlock, Identifier vertSlabId, Identifier fullBlockId) {
 			MultiVariant vertSlabModel = BlockModelGenerators.plainVariant(vertSlabId);
 			MultiVariant fullBlockModel = BlockModelGenerators.plainVariant(fullBlockId);
@@ -240,9 +240,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					);
 		}
 
-		// :::custom-supplier
+		// #endregion custom_supplier
 
-		// :::custom-gen
+		// #region custom_gen
 		public static void registerVerticalSlab(BlockModelGenerators generator, Block vertSlabBlock, Block fullBlock, TextureMapping textures) {
 			Identifier slabModel = VERTICAL_SLAB.create(vertSlabBlock, textures, generator.modelOutput);
 			Identifier fullBlockModel = ModelLocationUtils.getModelLocation(fullBlock);
@@ -250,15 +250,15 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			generator.registerSimpleItemModel(vertSlabBlock, slabModel);
 		}
 
-		// :::custom-gen
+		// #endregion custom_gen
 	}
-	// :::custom-blockstate-model-generator
+	// #endregion custom_blockstate_model_generator
 
-	// :::provider
+	// #region provider
 
 	@Override
 	public String getName() {
 		return "ExampleModModelProvider";
 	}
 }
-// :::provider
+// #endregion provider

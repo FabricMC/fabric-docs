@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 
 import com.example.docs.ExampleMod;
 
-// :::stamina
+// #region stamina
 public class Stamina {
 	private static final AttachmentType<Integer> CURRENT_STAMINA = AttachmentRegistry.create(
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "current_stamina"),
@@ -47,4 +47,4 @@ public class Stamina {
 		}
 	}
 }
-// :::stamina
+// #endregion stamina

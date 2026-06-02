@@ -5,7 +5,7 @@ import com.mojang.serialization.DataResult;
 
 import net.minecraft.IdentifierException;
 
-// #region identifier-flatmap
+// #region identifier_flatmap
 public class Identifier {
 	public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
 			Identifier::read, Identifier::toString
@@ -23,7 +23,7 @@ public class Identifier {
 
 	// ...
 
-	// #endregion identifier-flatmap
+	// #endregion identifier_flatmap
 
 	private final net.minecraft.resources.Identifier real;
 
@@ -39,6 +39,6 @@ public class Identifier {
 	private static Identifier parse(String input) {
 		return new Identifier(net.minecraft.resources.Identifier.parse(input));
 	}
-	// #region identifier-flatmap
+	// #region identifier_flatmap
 }
-// #endregion identifier-flatmap
+// #endregion identifier_flatmap

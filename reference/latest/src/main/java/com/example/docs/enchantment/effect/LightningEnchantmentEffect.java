@@ -15,7 +15,7 @@ import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 import net.minecraft.world.phys.Vec3;
 
-//#entrypoint
+// #region entrypoint
 public record LightningEnchantmentEffect(LevelBasedValue amount) implements EnchantmentEntityEffect {
 	public static final MapCodec<LightningEnchantmentEffect> CODEC = RecordCodecBuilder.mapCodec(instance ->
 			instance.group(
@@ -42,4 +42,4 @@ public record LightningEnchantmentEffect(LevelBasedValue amount) implements Ench
 		return CODEC;
 	}
 }
-//#entrypoint
+// #endregion entrypoint
