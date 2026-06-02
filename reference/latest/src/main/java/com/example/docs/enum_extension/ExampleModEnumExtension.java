@@ -11,7 +11,7 @@ class ExampleModEnumExtension {
 	// #region enum-extension-added-constant-usage-example
 	void exampleRecipeBookTypeMethod(RecipeBookType recipeBookType) {
 		if (recipeBookType == RecipeBookType.EXAMPLE_MOD_RECIPE_BOOK_TYPE) {
-			/* ... */
+			// ...
 		}
 	}
 	// #endregion enum-extension-added-constant-usage-example
@@ -19,7 +19,7 @@ class ExampleModEnumExtension {
 	// #region enum-extension-added-constant-no-ct-usage-example-check
 	void exampleRecipeBookTypeMethodNoCT(RecipeBookType recipeBookType) {
 		if (recipeBookType.name().equals("EXAMPLE_MOD_RECIPE_BOOK_TYPE")) {
-			/* ... */
+			// ...
 		}
 	}
 	// #endregion enum-extension-added-constant-no-ct-usage-example-check
@@ -33,7 +33,7 @@ class ExampleModEnumExtension {
 			case BLAST_FURNACE -> "blast_furnace";
 			case EXAMPLE_MOD_RECIPE_BOOK_TYPE -> "example_mod_recipe_book_type";
 		};
-		/* ... */
+		// ...
 	}
 	// #endregion enum-extension-problematic-switch-expr-example
 }

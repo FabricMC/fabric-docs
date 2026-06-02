@@ -13,7 +13,7 @@ enum ConversionTypeMixin {
 	EXAMPLE_MOD_CONVERSION_TYPE(false) {
 		@Override
 		void convert(Mob from, Mob to, ConversionParams params) {
-			/* ... */
+			// ...
 		}
 	};
 

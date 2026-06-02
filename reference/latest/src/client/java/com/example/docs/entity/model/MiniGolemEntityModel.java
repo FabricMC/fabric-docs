@@ -49,12 +49,12 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		root.addOrReplaceChild(
 				PartNames.BODY,
 				CubeListBuilder.create().addBox(
-						/* x */ -6,
-						/* y */ -6,
-						/* z */ -6,
-						/* width */ 12,
-						/* height */ 12,
-						/* depth */ 12
+						/* x: */ -6,
+						/* y: */ -6,
+						/* z: */ -6,
+						/* width: */ 12,
+						/* height: */ 12,
+						/* depth: */ 12
 				),
 				PartPose.offset(0, 8, 0)
 		);

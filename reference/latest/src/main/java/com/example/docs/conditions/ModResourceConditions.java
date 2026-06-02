@@ -10,27 +10,27 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.ExampleMod;
 
-//#region create
+// #region create
 public class ModResourceConditions {
-	//#endregion create
-	//#region register
+	// #endregion create
+	// #region register
 	public static final ResourceConditionType<DateMatchesResourceCondition> DATE_MATCHES =
 			createResourceConditionType("date_matches", DateMatchesResourceCondition.CODEC);
 
-	//#endregion register
+	// #endregion register
 
-	//#region create
+	// #region create
 	private static <T extends ResourceCondition> ResourceConditionType<T> createResourceConditionType(String name, MapCodec<T> codec) {
 		return ResourceConditionType.create(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), codec);
 	}
-	//#endregion create
+	// #endregion create
 
-	//#region register
+	// #region register
 	public static void register() {
 		ResourceConditions.register(DATE_MATCHES);
 	}
-	//#endregion register
+	// #endregion register
 
-	//#region create
+	// #region create
 }
-//#endregion create
+// #endregion create

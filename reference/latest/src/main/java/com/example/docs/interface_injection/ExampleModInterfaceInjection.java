@@ -10,7 +10,7 @@ class ExampleModInterfaceInjection {
 	// #region interface-injection-using-added-method
 	void example(FlowingFluid flowingFluid) {
 		Optional<SoundEvent> sound = flowingFluid.example_mod$getBucketEmptySound();
-		/* ... */
+		// ...
 	}
 	// #endregion interface-injection-using-added-method
 }

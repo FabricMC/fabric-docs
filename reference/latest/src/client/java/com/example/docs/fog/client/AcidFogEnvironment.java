@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.FogType;
 
 import com.example.docs.fog.ExampleModFogTypes;
 
-//TODO Fabric Fog API
+// TODO: Fabric Fog API
 // :::environment
 public class AcidFogEnvironment extends FogEnvironment {
 	@Override

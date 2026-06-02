@@ -201,12 +201,12 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #region custom-model
 		public static final ModelTemplate VERTICAL_SLAB = block("vertical_slab", TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
 
-		//helper method for creating Models
+		// helper method for creating Models
 		private static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
-		//helper method for creating Models with variants
+		// helper method for creating Models with variants
 		private static ModelTemplate block(String parent, String variant, TextureSlot... requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}

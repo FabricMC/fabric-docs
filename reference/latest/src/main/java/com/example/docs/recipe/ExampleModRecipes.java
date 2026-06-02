@@ -35,7 +35,7 @@ public class ExampleModRecipes implements ModInitializer {
 
 	// #endregion registration
 
-	// TODO - recipe book support, requires enum extensions + screen changes
+	// TODO: recipe book support, requires enum extensions + screen changes
 	public static final RecipeBookCategory UPGRADING_RECIPE_BOOK_CATEGORY = Registry.register(
 					BuiltInRegistries.RECIPE_BOOK_CATEGORY,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
