@@ -13,7 +13,7 @@ subprojects {
 		archivesName = "example-mod-${project.name}"
 	}
 
-	// #region split-sources
+	// #region split_sources
 	loom {
 		splitEnvironmentSourceSets()
 
@@ -24,7 +24,7 @@ subprojects {
 			}
 		}
 	}
-	// #endregion split-sources
+	// #endregion split_sources
 
 	loom {
 		runs.configureEach {
@@ -35,18 +35,18 @@ subprojects {
 	dependencies {
 		implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-		// :::automatic-testing:1
+		// #region automatic_testing_1
 		testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
-		// :::automatic-testing:1
+		// #endregion automatic_testing_1
 	}
 
-	// :::datagen-setup:configure
+	// #region datagen_setup_configure
 	fabricApi {
 		configureDataGeneration() {
 			client = true
 		}
 	}
-	// :::datagen-setup:configure
+	// #endregion datagen_setup_configure
 
 	tasks.withType(JavaCompile).configureEach {
 		it.options.release = 25

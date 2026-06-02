@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import com.example.docs.menu.custom.DirtChestMenu;
 
-// :::screen
+// #region screen
 public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 	private static final Identifier CONTAINER_TEXTURE = Identifier.withDefaultNamespace("textures/gui/container/dispenser.png");
 
@@ -25,4 +25,4 @@ public class DirtChestScreen extends AbstractContainerScreen<DirtChestMenu> {
 		graphics.blit(RenderPipelines.GUI_TEXTURED, CONTAINER_TEXTURE, this.leftPos, this.topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, BACKGROUND_TEXTURE_WIDTH, BACKGROUND_TEXTURE_HEIGHT);
 	}
 }
-// :::screen
+// #endregion screen

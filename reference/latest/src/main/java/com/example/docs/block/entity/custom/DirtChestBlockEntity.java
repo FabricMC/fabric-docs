@@ -23,21 +23,21 @@ import com.example.docs.container.ImplementedContainer;
 import com.example.docs.menu.custom.DirtChestMenu;
 
 /*
-// :::be
+// #region be
 public class DirtChestBlockEntity extends BlockEntity implements ImplementedContainer {
-// :::be
+// #endregion be
 */
 
-// :::menu
+// #region menu
 public class DirtChestBlockEntity extends BlockEntity implements ImplementedContainer, MenuProvider {
-	// :::menu
+	// #endregion menu
 
-	// :::be
+	// #region be
 	public static final int CONTAINER_SIZE = 3 * 3;
 	private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
 
 	// ...
-	// :::be
+	// #endregion be
 
 	public DirtChestBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.DIRT_CHEST_BLOCK_ENTITY, pos, state);
@@ -64,39 +64,41 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 		ContainerHelper.loadAllItems(valueInput, this.items);
 	}
 
-	// :::menu
+	// #region menu
 	@Override
 	@NonNull
 	public Component getDisplayName() {
 		return Component.translatable("block.example-mod.dirt_chest");
 	}
 
-	// :::menu
+	// #endregion menu
 
 	/*
-	// :::menu
+	// #region menu
 	@Override
 	public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
 		return null;
 	}
 	// ...
-	// :::menu
+	// #endregion menu
 	 */
 
-	// #region container-still-valid
+	// #region container_still_valid
 	@Override
 	public boolean stillValid(Player player) {
 		return Container.stillValidBlockEntity(this, player);
 	}
-	// #endregion container-still-valid
+	// #endregion container_still_valid
 
-	// :::providerImplemented
+	// #region provider_implemented
 	@Override
 	public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
 		return new DirtChestMenu(containerId, inventory, this);
 	}
-	// :::providerImplemented
+	// #endregion provider_implemented
 
-	// :::be :::menu
+	// #region be
+	// #region menu
 }
-// :::be :::menu
+// #endregion be
+// #endregion menu

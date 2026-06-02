@@ -39,11 +39,11 @@ import com.example.docs.fluid.ModFluidTags;
 import com.example.docs.fluid.ModFluids;
 import com.example.docs.item.ModItems;
 
-// :::abstractFluid
+// #region abstract_fluid
 public abstract class AcidFluid extends FlowingFluid {
-	// :::abstractFluid
+	// #endregion abstract_fluid
 
-	// :::sources
+	// #region sources
 	@Override
 	public Fluid getFlowing() {
 		return ModFluids.ACID_FLOWING;
@@ -59,15 +59,15 @@ public abstract class AcidFluid extends FlowingFluid {
 		return fluid == ModFluids.ACID_STILL || fluid == ModFluids.ACID_FLOWING;
 	}
 
-	// :::sources
-	// :::bucket
+	// #endregion sources
+	// #region bucket
 	@Override
 	public Item getBucket() {
 		return ModItems.ACID_BUCKET;
 	}
 
-	// :::bucket
-	// :::abstractFluid
+	// #endregion bucket
+	// #region abstract_fluid
 	@Override
 	public void animateTick(Level world, BlockPos pos, FluidState state, RandomSource random) {
 		if (!state.isSource() && !(Boolean) state.getValue(FALLING)) {
@@ -125,14 +125,14 @@ public abstract class AcidFluid extends FlowingFluid {
 		return 4;
 	}
 
-	// :::abstractFluid
-	// :::legacyBlock
+	// #endregion abstract_fluid
+	// #region legacy_block
 	@Override
 	protected BlockState createLegacyBlock(FluidState state) {
 		return ModBlocks.ACID.defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state));
 	}
-	// :::legacyBlock
-	// :::abstractFluid
+	// #endregion legacy_block
+	// #region abstract_fluid
 	@Override
 	public int getDropOff(LevelReader world) {
 		return 1;
@@ -158,8 +158,8 @@ public abstract class AcidFluid extends FlowingFluid {
 	public Optional<SoundEvent> getPickupSound() {
 		return Optional.of(SoundEvents.BUCKET_FILL);
 	}
-	// :::abstractFluid
-	// :::fluidSubclasses
+	// #endregion abstract_fluid
+	// #region fluid_subclasses
 	public static class Flowing extends AcidFluid {
 		@Override
 		protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder) {
@@ -189,7 +189,7 @@ public abstract class AcidFluid extends FlowingFluid {
 			return true;
 		}
 	}
-	// :::fluidSubclasses
-	// :::abstractFluid
+	// #endregion fluid_subclasses
+	// #region abstract_fluid
 }
-// :::abstractFluid
+// #endregion abstract_fluid

@@ -12,7 +12,7 @@ Tools are essential for survival and progression, allowing players to gather res
 
 You can create a tool material by instantiating a new `ToolMaterial` object and storing it in a field that can be used later to create the tool items that use the material.
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 The `ToolMaterial` constructor accepts the following parameters, in this specific order:
 
@@ -27,7 +27,7 @@ The `ToolMaterial` constructor accepts the following parameters, in this specifi
 
 For this example, we will use the same repair item tag we will be using for armor. We define the tag reference as follows:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
@@ -35,7 +35,7 @@ If you're struggling to determine balanced values for any of the numerical param
 
 Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#sword
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
@@ -47,7 +47,7 @@ Note that items with right-click behaviour, like axes, should use classes like `
 
 Remember to add them to a creative tab if you want to access them from the creative inventory!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 ## Assets {#models}
 
@@ -77,7 +77,7 @@ This model can be data generated. For more information, see the documentation on
 
 `generated/assets/example-mod/models/item/guidite_sword.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
 
 == Texture
 
@@ -91,7 +91,7 @@ A similar model is used for the "Guidite Axe" item.
 
 == Source Code
 
-@[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
 
 == Client Item
 
@@ -123,7 +123,7 @@ It's also recommended to place your tool in the appropriate item tags. Tools hav
 
 In your item tag provider, add the following lines to `addTags`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword-tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
 
 That's pretty much it! If you go in-game you should see your tools in the 'Tools and Utilities' tab of the creative inventory menu.
 

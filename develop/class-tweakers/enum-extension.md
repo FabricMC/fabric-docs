@@ -44,7 +44,7 @@ order to opt into this Mixin feature.
 To make an enum extension, create an `enum` in your mixin package, annotate it with `@Mixin`, and add your constants to it as if they were
 part of the targeted enum class. For example, let's add a new entry to `RecipeBookType`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum_extension_no_impls_example_mixin
 
 ::: warning IMPORTANT
 
@@ -59,14 +59,14 @@ entry's declaration.
 
 For example, let's add a new `RecipeCategory` entry. Create a constructor matching the desired one in the target class, and annotate it with `@Shadow`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum_extension_ctor_impls_example_mixin
 
 ### Implementing Abstract Methods {#implementing-abstract-methods}
 
 To implement a target enum's abstract methods, shadow the abstract method, then override and implement it in your added entry. For instance,
 let's add a new `ConversionType` entry:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum-extension-abstract-method-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
 ## Making the Class Tweaker Entry {#making-the-class-tweaker-entry}
 
@@ -84,7 +84,7 @@ For class tweaking, classes use their [internal names](../mixins/bytecode#class-
 
 For example, the class tweaker entry for the `RecipeBookType` constant we added in the [mixin section](#creating-the-mixin) would be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum_extension_no_impls_example_entry{classtweaker:no-line-numbers}
 
 ## Applying Changes {#applying-changes}
 
@@ -100,15 +100,15 @@ That's because those are handled by the mixin, and are only applied at runtime.
 
 You can now use the enum constant in your code:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_usage_example
 
 If you are only adding it with a mixin and it is not in the decompiled source, you can check against it by comparing the name:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-check
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_check
 
 If you need to use the constant in multiple areas, obtain it by calling `valueOf` and store the result in a field:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-store
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_store
 
 ## Pitfalls {#pitfalls}
 
@@ -124,7 +124,7 @@ This section goes over some patterns to watch out for and avoid when extending e
 Switch statements are often used to handle enum constants. Because of this, a crash can happen if a switch expression does not handle
 entries added by other mods. For example, say we have the following switch expression:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_problematic_switch_expr_example
 
 Notice how there is no `default` clause. Even though we handled all the values in the Vanilla enum, and our own, this would throw if another mod adds a different entry.
 

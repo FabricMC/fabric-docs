@@ -37,18 +37,18 @@ import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
 	private static CustomRenderPipeline instance;
-	// :::custom-pipelines:define-pipeline
+	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
 			.withLocation(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
 			.withDepthStencilState(Optional.empty())
 			.build()
 	);
-	// :::custom-pipelines:define-pipeline
-	// :::custom-pipelines:extraction-phase
+	// #endregion custom_pipelines_define_pipeline
+	// #region custom_pipelines_extraction_phase
 	private static WaypointRenderState waypointState;
 
-	// :::custom-pipelines:extraction-phase
-	// :::custom-pipelines:drawing-phase
+	// #endregion custom_pipelines_extraction_phase
+	// #region custom_pipelines_drawing_phase
 	private static final ByteBufferBuilder ALLOCATOR = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
@@ -56,7 +56,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private BufferBuilder buffer;
 	private MappableRingBuffer vertexBuffer;
 
-	// :::custom-pipelines:drawing-phase
+	// #endregion custom_pipelines_drawing_phase
 	public static CustomRenderPipeline getInstance() {
 		return instance;
 	}
@@ -68,15 +68,15 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
 	}
 
-	// :::custom-pipelines:extraction-phase
+	// #region custom_pipelines_extraction_phase
 	private void extractWaypoint(LevelExtractionContext context) {
 		// Access data from the world or anything here in the extraction phase.
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
 		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
 
-	// :::custom-pipelines:extraction-phase
-	// :::custom-pipelines:drawing-phase
+	// #endregion custom_pipelines_extraction_phase
+	// #region custom_pipelines_drawing_phase
 	private void renderAndDrawWaypoint(LevelRenderContext context) {
 		this.renderWaypoint(context);
 		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
@@ -216,9 +216,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		builtBuffer.close();
 	}
-	// :::custom-pipelines:drawing-phase
+	// #endregion custom_pipelines_drawing_phase
 
-	// :::custom-pipelines:clean-up
+	// #region custom_pipelines_clean_up
 	public void close() {
 		ALLOCATOR.close();
 
@@ -227,10 +227,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			this.vertexBuffer = null;
 		}
 	}
-	// :::custom-pipelines:clean-up
+	// #endregion custom_pipelines_clean_up
 
-	// :::custom-pipelines:extraction-phase
+	// #region custom_pipelines_extraction_phase
 	// Render states should be immutable, thread safe, and fast to create.
 	private record WaypointRenderState(int x, int y, int z, float r, float g, float b, float a) { }
-	// :::custom-pipelines:extraction-phase
+	// #endregion custom_pipelines_extraction_phase
 }

@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 
 import com.example.docs.menu.ModMenuType;
 
-// :::menu
+// #region menu
 public class DirtChestMenu extends AbstractContainerMenu {
 	private static final int SLOTS_ROWS = 3;
 	private static final int SLOTS_COLUMNS = 3;
@@ -107,4 +107,4 @@ public class DirtChestMenu extends AbstractContainerMenu {
 		this.container.stopOpen(player);
 	}
 }
-// :::menu
+// #endregion menu

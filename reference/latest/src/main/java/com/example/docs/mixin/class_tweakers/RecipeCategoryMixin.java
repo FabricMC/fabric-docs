@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import net.minecraft.data.recipes.RecipeCategory;
 
-// #region enum-extension-ctor-impls-example-mixin
+// #region enum_extension_ctor_impls_example_mixin
 @Mixin(RecipeCategory.class)
 enum RecipeCategoryMixin {
 	EXAMPLE_MOD_RECIPE_CATEGORY("exampleModRecipeFolderName");
@@ -14,4 +14,4 @@ enum RecipeCategoryMixin {
 	RecipeCategoryMixin(String recipeFolderName) {
 	}
 }
-// #endregion enum-extension-ctor-impls-example-mixin
+// #endregion enum_extension_ctor_impls_example_mixin

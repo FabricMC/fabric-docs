@@ -15,17 +15,17 @@ import net.minecraft.util.SpecialDates;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 
-//#region record
+// #region record
 public record DateMatchesResourceCondition(int month, int day) implements ResourceCondition {
-	//#endregion record
-	//#region codec
+	// #endregion record
+	// #region codec
 	public static final MapCodec<DateMatchesResourceCondition> CODEC = RecordCodecBuilder.<DateMatchesResourceCondition>mapCodec(instance -> instance.group(
 			ExtraCodecs.POSITIVE_INT.fieldOf("month").forGetter(DateMatchesResourceCondition::month),
 			ExtraCodecs.POSITIVE_INT.fieldOf("day").forGetter(DateMatchesResourceCondition::day)
 	).apply(instance, DateMatchesResourceCondition::new)).validate(DateMatchesResourceCondition::validate);
-	//#endregion codec
+	// #endregion codec
 
-	//#region validate
+	// #region validate
 	private static DataResult<DateMatchesResourceCondition> validate(DateMatchesResourceCondition o) {
 		try {
 			MonthDay.of(o.month(), o.day());
@@ -35,22 +35,22 @@ public record DateMatchesResourceCondition(int month, int day) implements Resour
 
 		return DataResult.success(o);
 	}
-	//#endregion validate
+	// #endregion validate
 
-	//#region type
+	// #region type
 	@Override
 	public ResourceConditionType<?> getType() {
 		return ModResourceConditions.DATE_MATCHES;
 	}
-	//#endregion type
+	// #endregion type
 
-	//#region test
+	// #region test
 	@Override
 	public boolean test(RegistryOps.@Nullable RegistryInfoLookup registryInfo) {
 		var monthDay = MonthDay.of(this.month, this.day);
 		return SpecialDates.dayNow().equals(monthDay);
 	}
-	//#endregion test
-	//#region record
+	// #endregion test
+	// #region record
 }
-//#endregion record
+// #endregion record

@@ -2,7 +2,7 @@ package com.example.docs.codec;
 
 import com.mojang.serialization.Codec;
 
-// #region bean-interface
+// #region bean_interface
 // The abstract type we want to create a codec for
 public interface Bean {
 	// Now we can create a codec for bean types based on the previously created registry.
@@ -14,4 +14,4 @@ public interface Bean {
 
 	BeanType<?> getType();
 }
-// #endregion bean-interface
+// #endregion bean_interface

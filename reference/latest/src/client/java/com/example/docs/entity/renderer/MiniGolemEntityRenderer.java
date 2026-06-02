@@ -10,7 +10,7 @@ import com.example.docs.entity.model.MiniGolemEntityModel;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
-//:::renderer
+// #region renderer
 public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGolemEntityRenderState, MiniGolemEntityModel> {
 	private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/entity/mini_golem.png");
 
@@ -22,18 +22,18 @@ public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGo
 	public MiniGolemEntityRenderState createRenderState() {
 		return new MiniGolemEntityRenderState();
 	}
-	//:::renderer
+	// #endregion renderer
 
 	@Override
 	public void extractRenderState(MiniGolemEntity entity, MiniGolemEntityRenderState state, float tickProgress) {
 		super.extractRenderState(entity, state, tickProgress);
 		state.dancingAnimationState.copyFrom(entity.dancingAnimationState);
 	}
-	//:::renderer
+	// #region renderer
 
 	@Override
 	public Identifier getTextureLocation(MiniGolemEntityRenderState state) {
 		return TEXTURE;
 	}
 }
-//:::renderer
+// #endregion renderer

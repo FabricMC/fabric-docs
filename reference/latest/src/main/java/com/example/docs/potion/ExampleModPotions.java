@@ -15,8 +15,8 @@ import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import com.example.docs.ExampleMod;
 import com.example.docs.effect.ExampleModEffects;
 
-// :::1
 public class ExampleModPotions implements ModInitializer {
+	// #region register_potion
 	public static final Holder<Potion> TATER_POTION =
 			Registry.registerForHolder(
 					BuiltInRegistries.POTION,
@@ -25,10 +25,15 @@ public class ExampleModPotions implements ModInitializer {
 							new MobEffectInstance(
 									ExampleModEffects.TATER,
 									3600,
-									0)));
+									0
+							)
+					)
+			);
+	// #endregion register_potion
 
 	@Override
 	public void onInitialize() {
+		// #region register_recipes
 		FabricPotionBrewingBuilder.BUILD.register(builder -> {
 			builder.addMix(
 					// Input potion.
@@ -39,6 +44,6 @@ public class ExampleModPotions implements ModInitializer {
 					TATER_POTION
 			);
 		});
+		// #endregion register_recipes
 	}
 }
-// :::1

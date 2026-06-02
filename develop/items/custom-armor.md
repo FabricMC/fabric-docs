@@ -17,7 +17,7 @@ For this example, we'll create a `GuiditeArmorMaterial` class to store our stati
 
 This constant will be used in the `Item.Properties#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
@@ -25,7 +25,7 @@ If you're struggling to determine a balanced base durability, you can refer to t
 
 Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any registry keys as constants, as the game will use this to find the relevant textures for our armor.
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 We will pass this to the `ArmorMaterial` constructor later.
 
@@ -33,7 +33,7 @@ We will pass this to the `ArmorMaterial` constructor later.
 
 To create our material, we need to create a new instance of the `ArmorMaterial` record, the base durability and material registry key constants will be used here.
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 The `ArmorMaterial` constructor accepts the following parameters, in this specific order:
 
@@ -50,7 +50,7 @@ The `ArmorMaterial` constructor accepts the following parameters, in this specif
 
 We define the repair ingredient tag reference as follows:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
@@ -64,7 +64,7 @@ Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the 
 
 This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Properties` class.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 You will also need to [add the items to a creative tab](./custom-creative-tabs) if you want them to be accessible from the inventory.
 
@@ -88,7 +88,7 @@ You will need model JSON files for all the items, not just the helmet, it's the 
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 As you can see, in-game the armor items should have suitable models:
 
@@ -121,7 +121,7 @@ The `ResourceKey<EquipmentAsset>` constant we created earlier will determine the
 
 Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 

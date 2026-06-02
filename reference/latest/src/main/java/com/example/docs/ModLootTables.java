@@ -5,11 +5,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-// :::datagen-loot-tables:mod-loot-tables
+// #region datagen_loot_tables_mod_loot_tables
 public class ModLootTables {
 	public static ResourceKey<LootTable> TEST_CHEST_LOOT = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "chests/test_loot"));
-	// :::datagen-loot-tables:mod-loot-tables
+	// #endregion datagen_loot_tables_mod_loot_tables
 	public static ResourceKey<LootTable> ADVANCEMENT_COLLECT_NETHER_STAR = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "advancements/collect_nether_star"));
-	// :::datagen-loot-tables:mod-loot-tables
+	// #region datagen_loot_tables_mod_loot_tables
 }
-// :::datagen-loot-tables:mod-loot-tables
+// #endregion datagen_loot_tables_mod_loot_tables

@@ -24,28 +24,28 @@ import com.example.docs.ExampleMod;
 
 // Class to contain all mod command registrations.
 public class ExampleModCommands implements ModInitializer {
-	// :::execute_dedicated_command
+	// #region execute_dedicated_command
 	private static int executeDedicatedCommand(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /dedicated_command."), false);
 		return 1;
 	}
-	// :::execute_dedicated_command
+	// #endregion execute_dedicated_command
 
-	// :::execute_required_command
+	// #region execute_required_command
 	private static int executeRequiredCommand(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /required_command."), false);
 		return 1;
 	}
-	// :::execute_required_command
+	// #endregion execute_required_command
 
-	// :::execute_sub_command_one
+	// #region execute_sub_command_one
 	private static int executeSubCommandOne(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command sub_command_one."), false);
 		return 1;
 	}
-	// :::execute_sub_command_one
+	// #endregion execute_sub_command_one
 
-	// :::execute_command_sub_command_two
+	// #region execute_command_sub_command_two
 	private static int executeCommandTwo(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_two."), false);
 		return 1;
@@ -55,24 +55,24 @@ public class ExampleModCommands implements ModInitializer {
 		context.getSource().sendSuccess(() -> Component.literal("Called /sub_command_two."), false);
 		return 1;
 	}
-	// :::execute_command_sub_command_two
+	// #endregion execute_command_sub_command_two
 
-	// :::execute_redirected_by
+	// #region execute_redirected_by
 	private static int executeRedirectedBy(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /redirected_by."), false);
 		return 1;
 	}
-	// :::execute_redirected_by
+	// #endregion execute_redirected_by
 
-	// :::execute_command_with_arg
+	// #region execute_command_with_arg
 	private static int executeCommandWithArg(CommandContext<CommandSourceStack> context) {
 		int value = IntegerArgumentType.getInteger(context, "value");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_arg with value = %s".formatted(value)), false);
 		return 1;
 	}
-	// :::execute_command_with_arg
+	// #endregion execute_command_with_arg
 
-	// :::execute_command_with_two_args
+	// #region execute_command_with_two_args
 	private static int executeWithOneArg(CommandContext<CommandSourceStack> context) {
 		int value1 = IntegerArgumentType.getInteger(context, "value_one");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_two_args with value one = %s".formatted(value1)), false);
@@ -86,106 +86,106 @@ public class ExampleModCommands implements ModInitializer {
 				false);
 		return 1;
 	}
-	// :::execute_command_with_two_args
+	// #endregion execute_command_with_two_args
 
-	// :::execute_common
+	// #region execute_common
 	private static int executeCommon(int value1, int value2, CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_common_exec with value 1 = %s and value 2 = %s".formatted(value1, value2)), false);
 		return 1;
 	}
-	// :::execute_common
+	// #endregion execute_common
 
-	// :::execute_custom_arg_command
+	// #region execute_custom_arg_command
 	private static int executeCustomArgCommand(CommandContext<CommandSourceStack> context) {
 		BlockPos arg = context.getArgument("block_pos", BlockPos.class);
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_arg with block pos = %s".formatted(arg)), false);
 		return 1;
 	}
-	// :::execute_custom_arg_command
+	// #endregion execute_custom_arg_command
 
-	// :::execute_command_with_suggestions
+	// #region execute_command_with_suggestions
 	private static int executeCommandWithSuggestions(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
 		var entityType = ResourceArgument.getSummonableEntityType(context, "entity");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_suggestions with entity = %s".formatted(entityType.value().toShortString())), false);
 		return 1;
 	}
-	// :::execute_command_with_suggestions
+	// #endregion execute_command_with_suggestions
 
-	// :::execute_command_with_custom_suggestions
+	// #region execute_command_with_custom_suggestions
 	private static int executeCommandWithCustomSuggestions(CommandContext<CommandSourceStack> context) {
 		String name = StringArgumentType.getString(context, "player_name");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_suggestions with value = %s".formatted(name)), false);
 		return 1;
 	}
-	// :::execute_command_with_custom_suggestions
+	// #endregion execute_command_with_custom_suggestions
 
 	@Override
 	public void onInitialize() {
-		// :::register_custom_arg
+		// #region register_custom_arg
 		ArgumentTypeRegistry.registerArgumentType(
 				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block_pos"),
 				BlockPosArgumentType.class,
 				SingletonArgumentInfo.contextFree(BlockPosArgumentType::new)
 		);
-		// :::register_custom_arg
+		// #endregion register_custom_arg
 
-		// :::test_command
+		// #region test_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("test_command").executes(context -> {
 				context.getSource().sendSuccess(() -> Component.literal("Called /test_command."), false);
 				return 1;
 			}));
 		});
-		// :::test_command
+		// #endregion test_command
 
-		// :::dedicated_command
+		// #region dedicated_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			if (environment.includeDedicated) {
 				dispatcher.register(Commands.literal("dedicated_command")
 						.executes(ExampleModCommands::executeDedicatedCommand));
 			}
 		});
-		// :::dedicated_command
+		// #endregion dedicated_command
 
-		// :::required_command
+		// #region required_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("required_command")
 					.requires(source -> source.permissions().hasPermission(Permissions.COMMANDS_MODERATOR))
 					.executes(ExampleModCommands::executeRequiredCommand));
 		});
-		// :::required_command
+		// #endregion required_command
 
-		// :::sub_command_one
+		// #region sub_command_one
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_one")
 					.then(Commands.literal("sub_command_one").executes(ExampleModCommands::executeSubCommandOne)));
 		});
-		// :::sub_command_one
+		// #endregion sub_command_one
 
-		// :::sub_command_two
+		// #region sub_command_two
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_two")
 					.executes(ExampleModCommands::executeCommandTwo)
 					.then(Commands.literal("sub_command_two").executes(ExampleModCommands::executeSubCommandTwo)));
 		});
-		// :::sub_command_two
+		// #endregion sub_command_two
 
-		// :::redirect_command
+		// #region redirect_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			var redirectedBy = dispatcher.register(Commands.literal("redirected_by").executes(ExampleModCommands::executeRedirectedBy));
 			dispatcher.register(Commands.literal("to_redirect").executes(ExampleModCommands::executeRedirectedBy).redirect(redirectedBy));
 		});
-		// :::redirect_command
+		// #endregion redirect_command
 
-		// :::command_with_arg
+		// #region command_with_arg
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_arg")
 					.then(Commands.argument("value", IntegerArgumentType.integer())
 							.executes(ExampleModCommands::executeCommandWithArg)));
 		});
-		// :::command_with_arg
+		// #endregion command_with_arg
 
-		// :::command_with_two_args
+		// #region command_with_two_args
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_two_args")
 					.then(Commands.argument("value_one", IntegerArgumentType.integer())
@@ -193,9 +193,9 @@ public class ExampleModCommands implements ModInitializer {
 							.then(Commands.argument("value_two", IntegerArgumentType.integer())
 									.executes(ExampleModCommands::executeWithTwoArgs))));
 		});
-		// :::command_with_two_args
+		// #endregion command_with_two_args
 
-		// :::command_with_common_exec
+		// #region command_with_common_exec
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_common_exec")
 					.then(Commands.argument("value_one", IntegerArgumentType.integer())
@@ -206,18 +206,18 @@ public class ExampleModCommands implements ModInitializer {
 											IntegerArgumentType.getInteger(context, "value_two"),
 											context)))));
 		});
-		// :::command_with_common_exec
+		// #endregion command_with_common_exec
 
-		// :::custom_arg_command
+		// #region custom_arg_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_custom_arg").then(
 					Commands.argument("block_pos", new BlockPosArgumentType())
 							.executes(ExampleModCommands::executeCustomArgCommand)
 			));
 		});
-		// :::custom_arg_command
+		// #endregion custom_arg_command
 
-		// :::command_with_suggestions
+		// #region command_with_suggestions
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_suggestions").then(
 					Commands.argument("entity", ResourceArgument.resource(registryAccess, Registries.ENTITY_TYPE))
@@ -225,9 +225,9 @@ public class ExampleModCommands implements ModInitializer {
 							.executes(ExampleModCommands::executeCommandWithSuggestions)
 			));
 		});
-		// :::command_with_suggestions
+		// #endregion command_with_suggestions
 
-		// :::command_with_custom_suggestions
+		// #region command_with_custom_suggestions
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("command_with_custom_suggestions").then(
 					Commands.argument("player_name", StringArgumentType.string())
@@ -235,6 +235,6 @@ public class ExampleModCommands implements ModInitializer {
 							.executes(ExampleModCommands::executeCommandWithCustomSuggestions)
 			));
 		});
-		// :::command_with_custom_suggestions
+		// #endregion command_with_custom_suggestions
 	}
 }

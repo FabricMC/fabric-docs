@@ -7,7 +7,7 @@ import net.minecraft.sounds.SoundEvent;
 
 import com.example.docs.ExampleMod;
 
-// :::1
+// #region custom_sounds
 public class CustomSounds {
 	private CustomSounds() {
 		// private empty constructor to avoid accidental instantiation
@@ -32,4 +32,4 @@ public class CustomSounds {
 		// the console, that certain parts of the mod have been successfully initialized
 	}
 }
-// :::1
+// #endregion custom_sounds
