@@ -81,7 +81,7 @@ Mismatched mappings can cause errors when integrating Blockbench generated code.
 
 The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entity. It extends `EntityModel`, specifying how the entity's body parts (body, head, left leg, and right leg) are named.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model-texture-data
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_texture_data
 
 This method defines the Mini Golem's 3D model by creating its body, head, and legs as cuboids, setting their positions and texture mappings, and returning a `LayerDefinition` for rendering.
 
@@ -95,11 +95,11 @@ Higher Y values in the model correspond to the **bottom** of the entity. This is
 
 We'll now need to create a `ModEntityModelLayers` class in the client package. This entity only has a single texture layer, but other entities may use multiple - think of the secondary skin layer on entities like the `Player` or a `Spider`'s eyes.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java#model-layer
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java#model_layer
 
 This class must then be initialized in the mod's client initializer.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register-client
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_client
 
 ### Setting up the Texture {#setting-up-texture}
 
@@ -125,13 +125,13 @@ This is also where the shadow radius is set, for this entity that will be `0.375
 
 This renderer must then be registered in the mod's client initializer.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register-renderer
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_renderer
 
 ### Adding Walking Animations {#walking-animations}
 
 The following code can be added to the `MiniGolemEntityModel` class to give the entity a walking animation.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model-animation
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_animation
 
 To start, apply the yaw and pitch to the head model part.
 
@@ -179,13 +179,13 @@ Now, whenever the entity is loaded, it will restore the state that it was left i
 
 The first step to adding an animation to the entity is adding the animation state in the entity class. We'll create an animation state that will be used to make the entity dance.
 
-<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#dancing-animation
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#dancing_animation
 
 We have overridden the `onSyncedDataUpdated` method. This gets called whenever synched data is updated both the server and the client. The if-statement checks whether the synched data that was updated is the dancing synched data.
 
 Now, we'll move on to animation itself. We will create the `MiniGolemAnimations` class, and add an `AnimationDefinition` to define how the animation will be applied to the entity.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java#dancing-animation
+<<< @/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java#dancing_animation
 
 There's a lot going on here, notice the following key points:
 
@@ -200,7 +200,7 @@ There's a lot going on here, notice the following key points:
 
 Finally, let's hook up the animation to the model:
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing-animation
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing_animation
 
 When the animation is playing we apply the animation, otherwise we use the old leg animation code.
 

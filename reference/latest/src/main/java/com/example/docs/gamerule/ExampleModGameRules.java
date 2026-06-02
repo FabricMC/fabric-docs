@@ -14,14 +14,14 @@ import net.fabricmc.fabric.api.gamerule.v1.GameRuleBuilder;
 
 import com.example.docs.ExampleMod;
 
-// #region gamerule-class
+// #region gamerule_class
 public class ExampleModGameRules implements ModInitializer {
 	// Create and register a boolean gamerule, disabled by default
 	public static final GameRule<Boolean> BAD_VISION_BOOLEAN_GAMERULE = GameRuleBuilder
 					.forBoolean(false) // Default value declaration
 					.category(GameRuleCategory.MISC)
 					.buildAndRegister(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"));
-	// #endregion gamerule-class
+	// #endregion gamerule_class
 
 	// #region double
 	public static final GameRule<Double> DOUBLE_GAMERULE = GameRuleBuilder
@@ -31,19 +31,19 @@ public class ExampleModGameRules implements ModInitializer {
 	// #endregion double
 
 	private static void initializeBadVision() {
-		// #region badvision-implement
+		// #region badvision_implement
 		// In your mod's onInitialize():
 		ServerTickEvents.END_LEVEL_TICK.register(serverLevel -> {
 			// Runs every tick on the server
-			// #endregion badvision-implement
+			// #endregion badvision_implement
 			// #region vanilla
 			boolean doMobGriefing = serverLevel.getGameRules().get(GameRules.MOB_GRIEFING);
 			// #endregion vanilla
-			// #region badvision-get
-			// #region badvision-implement
+			// #region badvision_get
+			// #region badvision_implement
 			// Check for the state of the gamerule
 			boolean badVisionEnabled = serverLevel.getGameRules().get(ExampleModGameRules.BAD_VISION_BOOLEAN_GAMERULE);
-			// #endregion badvision-get
+			// #endregion badvision_get
 
 			if (badVisionEnabled) {
 				// If the gamerule is true
@@ -60,13 +60,13 @@ public class ExampleModGameRules implements ModInitializer {
 				}
 			}
 		});
-		// #endregion badvision-implement
+		// #endregion badvision_implement
 	}
 
 	@Override
 	public void onInitialize() {
 		initializeBadVision();
 	}
-	// #region gamerule-class
+	// #region gamerule_class
 }
-// #endregion gamerule-class
+// #endregion gamerule_class

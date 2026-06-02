@@ -45,35 +45,35 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
 		// #endregion provider
 
-		// #region cube-all
+		// #region cube_all
 		blockStateModelGenerator.createTrivialCube(ModBlocks.STEEL_BLOCK);
-		// #endregion cube-all
+		// #endregion cube_all
 
-		// #region cube-top-for-ends
+		// #region cube_top_for_ends
 		blockStateModelGenerator.createTrivialBlock(ModBlocks.PIPE_BLOCK, TexturedModel.COLUMN_ALT);
-		// #endregion cube-top-for-ends
+		// #endregion cube_top_for_ends
 
-		// #region block-texture-pool-normal
+		// #region block_texture_pool_normal
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK)
 				.stairs(ModBlocks.RUBY_STAIRS)
 				.slab(ModBlocks.RUBY_SLAB)
 				.fence(ModBlocks.RUBY_FENCE);
-		// #endregion block-texture-pool-normal
+		// #endregion block_texture_pool_normal
 
-		// #region door-and-trapdoor
+		// #region door_and_trapdoor
 		blockStateModelGenerator.createDoor(ModBlocks.RUBY_DOOR);
 		blockStateModelGenerator.createTrapdoor(ModBlocks.RUBY_TRAPDOOR);
 		// blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RUBY_TRAPDOOR);
-		// #endregion door-and-trapdoor
+		// #endregion door_and_trapdoor
 
-		// #region custom-method-call
+		// #region custom_method_call
 		CustomBlockStateModelGenerator.registerVerticalSlab(
 				blockStateModelGenerator,
 				ModBlocks.VERTICAL_OAK_LOG_SLAB,
 				Blocks.OAK_LOG,
 				CustomBlockStateModelGenerator.blockAndTopForEnds(Blocks.OAK_LOG)
 		);
-		// #endregion custom-method-call
+		// #endregion custom_method_call
 
 		// #region provider
 	}
@@ -82,9 +82,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	// used just for examples, not for actual data generation
 	@SuppressWarnings("unused")
 	public void exampleBlockStateGeneration(BlockModelGenerators blockStateModelGenerator) {
-		// #region block-texture-pool-family
+		// #region block_texture_pool_family
 		blockStateModelGenerator.family(ModBlocks.RUBY_BLOCK).generateFor(ModBlocks.RUBY_FAMILY);
-		// #endregion block-texture-pool-family
+		// #endregion block_texture_pool_family
 	}
 
 	// #region provider
@@ -143,7 +143,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		);
 		// #endregion select
 
-		// #region range-dispatch
+		// #region range_dispatch
 		ItemModel.Unbaked knifeOne = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_one", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeTwo = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_two", ModelTemplates.FLAT_ITEM));
 		ItemModel.Unbaked knifeThree = ItemModelUtils.plainModel(itemModelGenerator.createFlatItemModel(ModItems.THROWING_KNIVES, "_three", ModelTemplates.FLAT_ITEM));
@@ -159,46 +159,46 @@ public class ExampleModModelProvider extends FabricModelProvider {
 										)
 						)
 		);
-		// #endregion range-dispatch
+		// #endregion range_dispatch
 
-		// #region custom-balloon
+		// #region custom_balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
-		// #endregion custom-balloon
+		// #endregion custom_balloon
 
 		// #region provider
 	}
 	// #endregion provider
 
 	// Inner class containing custom objects for item model generation.
-	// #region custom-item-model-generator
+	// #region custom_item_model_generator
 	public static class CustomItemModelGenerator {
-		// #region custom-item-model
+		// #region custom_item_model
 		public static final ModelTemplate SCALED2X = item("scaled2x", TextureSlot.LAYER0);
-		// #endregion custom-item-model
+		// #endregion custom_item_model
 
-		// #region custom-item-datagen-method
+		// #region custom_item_datagen_method
 		public static void registerScaled2x(Item item, ItemModelGenerators generator) {
 			Identifier itemModel = SCALED2X.create(item, TextureMapping.singleSlot(TextureSlot.LAYER0, new Material(ModelLocationUtils.getModelLocation(item))), generator.modelOutput);
 			generator.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
 		}
 
-		// #endregion custom-item-datagen-method
+		// #endregion custom_item_datagen_method
 
 		@SuppressWarnings("SameParameterValue")
-		// #region custom-item-model
+		// #region custom_item_model
 
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
-		// #endregion custom-item-model
+		// #endregion custom_item_model
 	}
-	// #endregion custom-item-model-generator
+	// #endregion custom_item_model_generator
 
 	// Inner class containing all Objects needed for the custom datagen tutorial.
-	// #region custom-blockstate-model-generator
+	// #region custom_blockstate_model_generator
 	public static class CustomBlockStateModelGenerator {
-		// #region custom-model
+		// #region custom_model
 		public static final ModelTemplate VERTICAL_SLAB = block("vertical_slab", TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
 
 		// helper method for creating Models
@@ -211,9 +211,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
 
-		// #endregion custom-model
+		// #endregion custom_model
 
-		// #region custom-texture-map
+		// #region custom_texture_map
 		public static TextureMapping blockAndTopForEnds(Block block) {
 			return new TextureMapping()
 					.put(TextureSlot.TOP, new Material(ModelLocationUtils.getModelLocation(block, "_top")))
@@ -221,9 +221,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					.put(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(block)));
 		}
 
-		// #endregion custom-texture-map
+		// #endregion custom_texture_map
 
-		// #region custom-supplier
+		// #region custom_supplier
 		private static BlockModelDefinitionGenerator createVerticalSlabBlockStates(Block vertSlabBlock, Identifier vertSlabId, Identifier fullBlockId) {
 			MultiVariant vertSlabModel = BlockModelGenerators.plainVariant(vertSlabId);
 			MultiVariant fullBlockModel = BlockModelGenerators.plainVariant(fullBlockId);
@@ -240,9 +240,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 					);
 		}
 
-		// #endregion custom-supplier
+		// #endregion custom_supplier
 
-		// #region custom-gen
+		// #region custom_gen
 		public static void registerVerticalSlab(BlockModelGenerators generator, Block vertSlabBlock, Block fullBlock, TextureMapping textures) {
 			Identifier slabModel = VERTICAL_SLAB.create(vertSlabBlock, textures, generator.modelOutput);
 			Identifier fullBlockModel = ModelLocationUtils.getModelLocation(fullBlock);
@@ -250,9 +250,9 @@ public class ExampleModModelProvider extends FabricModelProvider {
 			generator.registerSimpleItemModel(vertSlabBlock, slabModel);
 		}
 
-		// #endregion custom-gen
+		// #endregion custom_gen
 	}
-	// #endregion custom-blockstate-model-generator
+	// #endregion custom_blockstate_model_generator
 
 	// #region provider
 

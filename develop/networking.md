@@ -56,7 +56,7 @@ A payload is the data that is sent within a packet.
 
 This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon-lightning-payload
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
 At the same time, we've defined:
 
@@ -68,12 +68,12 @@ At the same time, we've defined:
 - A public static instance of `CustomPayload.Type` to uniquely identify this custom payload. We will be referencing this
   ID in both our common and client code.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#payload-type
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#payload_type
 
 - A public static instance of a `StreamCodec` so that the game knows how to serialize/deserialize the contents of the
   packet.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#stream-codec
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#stream_codec
 
 We have also overridden `type` to return our payload ID.
 
@@ -98,17 +98,17 @@ and a `CustomPayload`.
 Let's start by creating our Lightning Tater item. You can override `use` to trigger an action when the item is used.
 In this case, let's send packets to the players in the server level.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#lightning-tater-item
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#lightning_tater_item
 
 Let's examine the code above.
 
 We only send packets when the action is initiated on the server, by returning early with a `isClientSide()` check:
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client-check
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
 We create an instance of the payload with the user's position:
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload-instance
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
 Finally, we get the players in the server level through `PlayerLookup` and send a packet to each player.
 
@@ -138,18 +138,18 @@ This can be done in the **client initializer**, by calling `ClientPlayNetworking
 In this case, we'll define the action to trigger within the implementation of `PlayPayloadHandler` implementation (as a
 lambda expression).
 
-<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#client-global-receiver
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#client_global_receiver
 
 Let's examine the code above.
 
 We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
 can be used to get the `x`, `y` and `z` positions.
 
-<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload-pos
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 
 Finally, we create a `LightningBolt` and add it to the level.
 
-<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#lightning-bolt
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#lightning_bolt
 
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
@@ -161,7 +161,7 @@ striking at the user's position.
 Just like sending a packet to the client, we start by creating a custom payload. This time, when a player uses a
 Poisonous Potato on a living entity, we request the server to apply the Glowing effect to it.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java#give-glowing-effect-payload
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java#give_glowing_effect_payload
 
 We pass in the appropriate codec along with a method reference to get the value from the Record to build this codec.
 
@@ -177,7 +177,7 @@ keep things concise.
 We register the event in our **client initializer**, and we use `isClientSide()` to ensure that the action is only triggered
 on the logical client.
 
-<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#use-entity-callback
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#use_entity_callback
 
 We create an instance of our `GiveGlowingEffectServerboundPayload` with the necessary arguments. In this case, the network ID
 of
@@ -195,7 +195,7 @@ Finally, we send a packet to the server by calling `ClientPlayNetworking.send` w
 This can be done in the **common initializer**, by calling `ServerPlayNetworking.registerGlobalReceiver` and passing a
 `CustomPayload.Type` and a `PlayPayloadHandler`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#server-global-receiver
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#server_global_receiver
 
 ::: info
 
@@ -203,12 +203,12 @@ It is important that you validate the content of the packet on the server side.
 
 In this case, we validate if the entity exists based on its network ID.
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#validate-entity
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#validate_entity
 
 Additionally, the targeted entity has to be a living entity, and we restrict the range of the target entity from the
 player to 5. If those conditions are met, we'll apply the effect:
 
-<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#entity-checks
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#entity_checks
 
 :::
 

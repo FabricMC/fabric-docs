@@ -23,7 +23,7 @@ This article also references the Mini Golem entity from [Creating your First Ent
 
 Spawn eggs are special items that, when used, spawn their corresponding mob. You can register one with the `register` method from your [items class](./first-item#preparing-your-items-class), by passing `SpawnEggItem::new` to it.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom-entity-spawn-egg
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 There are still a few things to do before it's ready: you must add a texture, an item model, a client item, a name, and add the spawn egg to the appropriate creative tab.
 
@@ -63,7 +63,7 @@ Create or edit JSON file at: `src/main/resources/assets/example-mod/lang/en_us.j
 
 The spawn egg is added to the spawn egg `CreativeModeTab` in the `initialize()` method of the [items class](./first-item#preparing-your-items-class).
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#spawn-egg-creative-tab
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#spawn_egg_creative_tab
 
 ![Spawn egg item with name and creative tab](/assets/develop/entity/spawn_egg_in_creative.png)
 

@@ -9,7 +9,7 @@ import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.ExampleMod;
 
-// #region example-mod-sounds
+// #region example_mod_sounds
 public class ExampleModSounds implements ModInitializer {
 	@Override
 	public void onInitialize() {
@@ -26,4 +26,4 @@ public class ExampleModSounds implements ModInitializer {
 		return Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
 	}
 }
-// #endregion example-mod-sounds
+// #endregion example_mod_sounds

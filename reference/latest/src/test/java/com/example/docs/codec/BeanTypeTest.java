@@ -13,18 +13,18 @@ import net.minecraft.server.Bootstrap;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 
-// #region automatic-testing--4
+// #region automatic_testing__4
 public class BeanTypeTest {
 	private static final Gson GSON = new GsonBuilder().create();
 
 	@BeforeAll
 	static void beforeAll() {
-		// #endregion automatic-testing--4
-		// #region automatic-testing--7
+		// #endregion automatic_testing__4
+		// #region automatic_testing__7
 		SharedConstants.tryDetectVersion();
 		Bootstrap.bootStrap();
-		// #endregion automatic-testing--7
-		// #region automatic-testing--4
+		// #endregion automatic_testing__7
+		// #region automatic_testing__4
 		BeanTypes.register();
 	}
 
@@ -47,4 +47,4 @@ public class BeanTypeTest {
 		Assertions.assertEquals(65, diamondStack.count());
 	}
 }
-// #endregion automatic-testing--4
+// #endregion automatic_testing__4

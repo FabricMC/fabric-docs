@@ -36,11 +36,11 @@ import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
 
-// #region first-block
-// #region static-initialization
+// #region first_block
+// #region static_initialization
 public class ModBlocks {
-	// #endregion static-initialization
-	// #endregion first-block
+	// #endregion static_initialization
+	// #endregion first_block
 
 	// #region acid
 	public static final Block ACID = register(
@@ -51,25 +51,25 @@ public class ModBlocks {
 	);
 	// #endregion acid
 
-	// #region condensed-dirt
+	// #region condensed_dirt
 	public static final Block CONDENSED_DIRT = register(
 			"condensed_dirt",
 			Block::new,
 			BlockBehaviour.Properties.of().sound(SoundType.GRASS),
 			true
 	);
-	// #endregion condensed-dirt
+	// #endregion condensed_dirt
 
-	// #region condensed-oak-log
+	// #region condensed_oak_log
 	public static final Block CONDENSED_OAK_LOG = register(
 			"condensed_oak_log",
 			RotatedPillarBlock::new,
 			BlockBehaviour.Properties.of().sound(SoundType.WOOD),
 			true
 	);
-	// #endregion condensed-oak-log
+	// #endregion condensed_oak_log
 
-	// #region prismarine-lamp
+	// #region prismarine_lamp
 	public static final Block PRISMARINE_LAMP = register(
 			"prismarine_lamp",
 			PrismarineLampBlock::new,
@@ -78,7 +78,7 @@ public class ModBlocks {
 					.lightLevel(PrismarineLampBlock::getLuminance),
 			true
 	);
-	// #endregion prismarine-lamp
+	// #endregion prismarine_lamp
 
 	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
 			Registries.BLOCK,
@@ -91,14 +91,14 @@ public class ModBlocks {
 			true
 	);
 
-	// #region counter-block
+	// #region counter_block
 	public static final Block COUNTER_BLOCK = register(
 			"counter_block",
 			CounterBlock::new,
 			BlockBehaviour.Properties.of(),
 			true
 	);
-	// #endregion counter-block
+	// #endregion counter_block
 
 	public static final Block STEEL_BLOCK = register(
 			"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
@@ -131,14 +131,14 @@ public class ModBlocks {
 			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
-	// #region family-declaration
+	// #region family_declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
 			.stairs(ModBlocks.RUBY_STAIRS)
 			.slab(ModBlocks.RUBY_SLAB)
 			.fence(ModBlocks.RUBY_FENCE)
 			.getFamily();
-	// #endregion family-declaration
+	// #endregion family_declaration
 
 	public static final Block DUPLICATOR_BLOCK = register(
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
@@ -152,7 +152,7 @@ public class ModBlocks {
 					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
-	// #region waxcap-tinting
+	// #region waxcap_tinting
 	public static final Block WAXCAP = register(
 			"waxcap",
 			Block::new,
@@ -162,9 +162,9 @@ public class ModBlocks {
 					.offsetType(BlockBehaviour.OffsetType.XYZ),
 			true
 	);
-	// #endregion waxcap-tinting
+	// #endregion waxcap_tinting
 
-	// #region first-block
+	// #region first_block
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
@@ -192,26 +192,26 @@ public class ModBlocks {
 	private static ResourceKey<Item> keyOfItem(String name) {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
-	// #endregion first-block
+	// #endregion first_block
 
-	// #region static-initialization
+	// #region static_initialization
 	public static void initialize() {
-		// #endregion static-initialization
+		// #endregion static_initialization
 		setupItemGroups();
-		// #region static-initialization
+		// #region static_initialization
 	}
-	// #endregion static-initialization
+	// #endregion static_initialization
 
 	public static void setupItemGroups() {
-		// #region add-to-creative-tab
+		// #region add_to_creative_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
 			creativeTab.accept(ModBlocks.CONDENSED_DIRT.asItem());
 		});
-		// #endregion add-to-creative-tab
+		// #endregion add_to_creative_tab
 	}
 
-	// #region first-block
-	// #region static-initialization
+	// #region first_block
+	// #region static_initialization
 }
-// #endregion static-initialization
-// #endregion first-block
+// #endregion static_initialization
+// #endregion first_block

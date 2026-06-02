@@ -46,11 +46,11 @@ Pay special attention to the following methods:
 
 Putting this all together, we end up with the following class:
 
-<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#abstract-fluid
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#abstract_fluid
 
 Inside `AcidFluid`, we'll create two subclasses for the `Source` and `Flowing` fluids.
 
-<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#fluid-subclasses
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#fluid_subclasses
 
 ### Registering Fluids {#registering-fluids}
 
@@ -76,7 +76,7 @@ Open your `ModBlocks` class and register this following `LiquidBlock`:
 
 Then, override this method in `AcidFluid` to associate your block with the fluid:
 
-<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#legacy-block
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#legacy_block
 
 ### Registering Buckets {#buckets}
 
@@ -84,7 +84,7 @@ Fluids in Minecraft usually go in buckets, so let's see how we can add an item f
 
 Open your `ModItems` class and register this following `BucketItem`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#acid-bucket
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#acid_bucket
 
 Then, override this method in `AcidFluid` to associate your bucket with the fluid:
 
@@ -134,7 +134,7 @@ For simplicity, this demo uses `BlockTintSources.constant` to apply a constant g
 
 Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in two `Material`s for the textures—one for the still source and one for the flowing fluid—and a block tint source for the color to tint it with.
 
-<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid-texture
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
 At this point, we have all we need to see the Acid in-game! You can use `setblock` or the Acid Bucket item to place acid in the world.
 

@@ -11,7 +11,7 @@ import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 
 import net.minecraft.commands.CommandSourceStack;
 
-// #region suggestion-provider
+// #region suggestion_provider
 public class PlayerSuggestionProvider implements SuggestionProvider<CommandSourceStack> {
 	@Override
 	public CompletableFuture<Suggestions> getSuggestions(CommandContext<CommandSourceStack> context, SuggestionsBuilder builder) throws CommandSyntaxException {
@@ -29,4 +29,4 @@ public class PlayerSuggestionProvider implements SuggestionProvider<CommandSourc
 		return builder.buildFuture();
 	}
 }
-// #endregion suggestion-provider
+// #endregion suggestion_provider

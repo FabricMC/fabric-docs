@@ -29,11 +29,11 @@ public class ExampleMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	// #endregion entrypoint
-	// #region particle-register-main
+	// #region particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
 	public static final SimpleParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
-	// #endregion particle-register-main
+	// #endregion particle_register_main
 	// #region entrypoint
 	@Override
 	public void onInitialize() {
@@ -44,31 +44,31 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		// #endregion entrypoint
 
-		// #region particle-register-main
+		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
-		// #endregion particle-register-main
-		// #region datagen-world--biome-modifications
+		// #endregion particle_register_main
+		// #region datagen_world__biome_modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(
 				BiomeSelectors.foundInOverworld(),
 				GenerationStep.Decoration.UNDERGROUND_ORES,
 				ExampleModWorldPlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
 		);
-		// #endregion datagen-world--biome-modifications
+		// #endregion datagen_world__biome_modifications
 
-		// #region datagen-world--selective-biome-modifications
+		// #region datagen_world__selective_biome_modifications
 		// Spawns in forest biomes only
 		BiomeModifications.addFeature(
 				BiomeSelectors.tag(BiomeTags.IS_FOREST),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
-		// #endregion datagen-world--selective-biome-modifications
+		// #endregion datagen_world__selective_biome_modifications
 
-		// #region tooltip-provider
+		// #region tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
-		// #endregion tooltip-provider
+		// #endregion tooltip_provider
 		// #region advanced_tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.ADVANCED_CUSTOM_COMPONENT);
 		// #endregion advanced_tooltip_provider

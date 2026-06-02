@@ -19,26 +19,26 @@ When creating a `BlockEntityRenderer` for the `CounterBlockEntity`, it's importa
 
 First, we need to create a `BlockEntityRenderState` for our `CounterBlockEntity` to hold the data that will be used for rendering. In this case, we will need the `clicks` to be available during rendering.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render-state
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 Then we create a `BlockEntityRenderer` for our `CounterBlockEntity`.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer-structure
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
 The new class has a constructor with `BlockEntityRendererProvider.Context` as a parameter. The `Context` has a few useful rendering utilities, like the `ItemRenderer` or `Font`.
 Also, by including a constructor like this, it becomes possible to use the constructor as the `BlockEntityRendererProvider` functional interface itself:
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register-block-entity-renderer
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
 We will override a few methods to set up the render state along with the `submit` method where the rendering logic will be set up.
 
 `createRenderState` can be used to initialize the render state.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create-render-state
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` can be used to update the render state with entity data.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract-render-state
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 You should register block entity renderers in your `ClientModInitializer` class.
 
@@ -97,7 +97,7 @@ As mentioned earlier, the `Context` passed into the constructor of our renderer 
 
 To draw the text, we will be submitting the necessary data to the render queue. Since we're drawing some text, we can use the `submitText` method provided through the `SubmitNodeCollector` instance passed into the `submit` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing-text
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 The `submitText` method takes a lot of parameters, but the most important ones are:
 

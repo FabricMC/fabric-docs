@@ -9,17 +9,17 @@ import net.minecraft.resources.Identifier;
 
 import com.example.docs.ExampleMod;
 
-// #region mod-components
+// #region mod_components
 public class ModComponents {
-	// #endregion mod-components
+	// #endregion mod_components
 
-	// #region integer-component
+	// #region integer_component
 	public static final DataComponentType<Integer> CLICK_COUNT_COMPONENT = Registry.register(
 			BuiltInRegistries.DATA_COMPONENT_TYPE,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "click_count"),
 			DataComponentType.<Integer>builder().persistent(Codec.INT).build()
 	);
-	// #endregion integer-component
+	// #endregion integer_component
 
 	public static final DataComponentType<ComponentWithTooltip> COMPONENT_WITH_TOOLTIP = Registry.register(
 			BuiltInRegistries.DATA_COMPONENT_TYPE,
@@ -27,19 +27,19 @@ public class ModComponents {
 			DataComponentType.<ComponentWithTooltip>builder().persistent(ComponentWithTooltip.CODEC).build()
 	);
 
-	// #region custom-component
+	// #region custom_component
 	public static final DataComponentType<AdvancedCustomComponent> ADVANCED_CUSTOM_COMPONENT = Registry.register(
 			BuiltInRegistries.DATA_COMPONENT_TYPE,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom"),
 			DataComponentType.<AdvancedCustomComponent>builder().persistent(AdvancedCustomComponent.CODEC).build()
 	);
-	// #endregion custom-component
+	// #endregion custom_component
 
-	// #region mod-components
+	// #region mod_components
 	protected static void initialize() {
 		ExampleMod.LOGGER.info("Registering {} components", ExampleMod.MOD_ID);
 		// Technically this method can stay empty, but some developers like to notify
 		// the console, that certain parts of the mod have been successfully initialized
 	}
 }
-// #endregion mod-components
+// #endregion mod_components

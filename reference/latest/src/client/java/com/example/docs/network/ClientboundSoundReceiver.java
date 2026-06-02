@@ -17,7 +17,7 @@ public class ClientboundSoundReceiver {
 		ClientPlayNetworking.registerGlobalReceiver(EngineSoundInstancePacket.IDENTIFIER, ClientboundSoundReceiver::handleClientboundEngineSoundPacket);
 	}
 
-	// #region handle-packet
+	// #region handle_packet
 	private static void handleClientboundEngineSoundPacket(EngineSoundInstancePacket packet, ClientPlayNetworking.Context context) {
 		ClientLevel level = context.client().level;
 		if (level == null) return;
@@ -40,7 +40,7 @@ public class ClientboundSoundReceiver {
 			soundManager.getPlayingSoundInstance(CustomSounds.ENGINE_LOOP).ifPresent(AbstractDynamicSoundInstance::end);
 		}
 	}
-	// #endregion handle-packet
+	// #endregion handle_packet
 
 	public static void initialize() {
 	}

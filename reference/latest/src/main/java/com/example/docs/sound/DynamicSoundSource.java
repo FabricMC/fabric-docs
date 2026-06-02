@@ -2,7 +2,7 @@ package com.example.docs.sound;
 
 import net.minecraft.world.phys.Vec3;
 
-// #region dynamic-sound-source
+// #region dynamic_sound_source
 public interface DynamicSoundSource {
 	// gets access to how many ticks have passed for e.g. a BlockEntity instance
 	int getTick();
@@ -14,4 +14,4 @@ public interface DynamicSoundSource {
 	// It is more or less just an arbitrary value, which will cause the sound to change its pitch while playing.
 	float getNormalizedStress();
 }
-// #endregion dynamic-sound-source
+// #endregion dynamic_sound_source

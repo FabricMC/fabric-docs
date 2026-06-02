@@ -22,7 +22,7 @@ You can put this method in a class called `ModItems` (or whatever you want to na
 
 Mojang does this with their items as well! Check out the `Items` class for inspiration.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod-items-class
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
 Notice how we're using `T`, a [generic type](https://docs.oracle.com/javase/tutorial/java/generics/types.html) that extends `Item`. This allows us to use the same method `register` for registering any type of item that extends `Item`. We're also using a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) for the factory, which allows us to specify how we want our item to be created given the item properties.
 
@@ -66,7 +66,7 @@ For example purposes, we will add this item to the ingredients `CreativeModeTab`
 
 This can be done in the `initialize` method of your items class.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add-to-creative-tab
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_to_creative_tab
 
 Loading into the game, you can see that our item has been registered, and is in the Ingredients creative tab:
 
@@ -157,11 +157,11 @@ Fabric API provides various registries that can be used to add additional proper
 
 For example, if you want to make your item compostable, you can use the `CompostableRegistry`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable-item
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 
 Alternatively, if you want to make your item a fuel, you can use the `FuelValueEvents.BUILD` event:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel-item
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Adding a Basic Crafting Recipe {#adding-a-basic-crafting-recipe}
 
@@ -184,7 +184,7 @@ This example uses the `LightningStick` class created in the [Custom Item Interac
 
 :::
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom-tooltip
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
 
 Each call to `accept()` will add one line to the tooltip.
 

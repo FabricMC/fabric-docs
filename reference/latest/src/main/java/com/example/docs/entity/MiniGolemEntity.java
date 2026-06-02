@@ -27,10 +27,10 @@ public class MiniGolemEntity extends PathfinderMob {
 	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
 	// #endregion datatracker
 
-	// #region dancing-animation
+	// #region dancing_animation
 	public final AnimationState dancingAnimationState = new AnimationState();
 
-	// #endregion dancing-animation
+	// #endregion dancing_animation
 
 	// #region datatracker
 	private int dancingTimeLeft;
@@ -80,7 +80,7 @@ public class MiniGolemEntity extends PathfinderMob {
 	}
 	// #endregion datatracker
 
-	// #region dancing-animation
+	// #region dancing_animation
 	@Override
 	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
 		super.onSyncedDataUpdated(data);
@@ -89,7 +89,7 @@ public class MiniGolemEntity extends PathfinderMob {
 			this.dancingAnimationState.animateWhen(this.isDancing(), this.tickCount);
 		}
 	}
-	// #endregion dancing-animation
+	// #endregion dancing_animation
 	// #region datatracker
 
 	@Override

@@ -15,8 +15,8 @@ A `SuggestionProvider` is used to make a list of suggestions that will be sent t
 
 To use a suggestion provider, you need to call the `suggests` method on the argument builder. This method takes a `SuggestionProvider` and returns the modified argument builder with the suggestion provider attached.
 
-<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command-with-suggestions{4}
-<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute-command-with-suggestions
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_suggestions{4}
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_suggestions
 
 ## Built-in Suggestion Providers {#built-in-suggestion-providers}
 
@@ -35,12 +35,12 @@ If a built-in provider doesn't satisfy your needs, you can create your own sugge
 
 For this example, we'll make a suggestion provider that suggests all the player usernames on the server.
 
-<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion-provider
+<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion_provider
 
 To use this suggestion provider, you would simply pass an instance of it into the `.suggests` method on the argument builder.
 
-<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command-with-custom-suggestions{4}
-<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute-command-with-custom-suggestions
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_custom_suggestions{4}
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_custom_suggestions
 
 Obviously, suggestion providers can be more complex, since they can also read the command context to provide suggestions based on the command's state - such as the arguments that have already been provided.
 

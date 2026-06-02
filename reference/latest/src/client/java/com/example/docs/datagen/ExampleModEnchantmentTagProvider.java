@@ -22,12 +22,12 @@ public class ExampleModEnchantmentTagProvider extends FabricTagsProvider<Enchant
 	protected void addTags(HolderLookup.Provider wrapperLookup) {
 		// ...
 		// #endregion provider
-		// #region non-treasure-tag
+		// #region non_treasure_tag
 		builder(EnchantmentTags.NON_TREASURE).add(ModEnchantments.THUNDERING);
-		// #endregion non-treasure-tag
-		// #region curse-tag
+		// #endregion non_treasure_tag
+		// #region curse_tag
 		builder(EnchantmentTags.CURSE).add(ModEnchantments.REPULSION_CURSE);
-		// #endregion curse-tag
+		// #endregion curse_tag
 		// #region provider
 	}
 }

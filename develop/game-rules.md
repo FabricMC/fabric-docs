@@ -25,7 +25,7 @@ Game rules act as world-specific configuration options that the player can chang
 
 To create a custom game rule, first create a `GameRules` class; this is where we are going to declare our game rules. Inside this class, declare two constants: a game rule identifier and the rule itself.
 
-<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#gamerule-class
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#gamerule_class
 
 The category argument (`.category(GameRuleCategory.MISC)`) determines which category the gamerule falls under in the world creation screen. This example uses the Miscellaneous category provided by vanilla, but additional categories can be added via `GameRuleCategory.register`. In this example, we have created a boolean game rule with a default value of `false` and an id of `bad_vision`. The stored values in game rules are not limited to booleans; other valid types include `Double`s, `Integer`s, and `Enum`s.
 
@@ -37,7 +37,7 @@ Example of a game rule storing a double:
 
 Now that we have a game rule and its `Identifier`, you can access it anywhere with the `serverLevel.getGameRules().get(GAMERULE)` method, where the argument to the `.get()` is your game rule constant and not the game rule id.
 
-<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision-get
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_get
 
 You can also use this to access the values of vanilla game rules:
 
@@ -45,17 +45,17 @@ You can also use this to access the values of vanilla game rules:
 
 For example, for a rule that applies blindness to every player when true, the implementation would be:
 
-<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision-implement
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_implement
 
 ## Translations {#translations}
 
 Now, we need to give our game rule a display name so it can be easily understood from the Game Rules screen. To do this via data generation, add the following lines to your language provider:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule-name
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_name
 
 Lastly we need to give our gamerule a description. To do this via data generation, add the following lines to your language provider:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule-description
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_description
 
 ::: info
 

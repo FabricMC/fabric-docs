@@ -43,12 +43,12 @@ public class LightningStick extends Item {
 	}
 	// #endregion use
 
-	// #region custom-tooltip
+	// #region custom_tooltip
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
 		textConsumer.accept(Component.translatable("itemTooltip.example-mod.lightning_stick").withStyle(ChatFormatting.GOLD));
 	}
-	// #endregion custom-tooltip
+	// #endregion custom_tooltip
 	// #region item
 }
 // #endregion item

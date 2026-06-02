@@ -20,7 +20,7 @@ As with anything else in your mod you will need to register your custom componen
 
 Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
-<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#mod-components
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#mod_components
 
 This is the basic template to register a component type:
 
@@ -44,7 +44,7 @@ Basic data components (like `minecraft:damage`) consist of a single data value, 
 
 As an example, let's create an `Integer` value that will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
 
-<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer-component
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
 You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `ExtraCodecs.POSITIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
 
@@ -89,15 +89,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
 
-<<< @/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java#component-with-tooltip
+<<< @/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java#component_with_tooltip
 
 Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#tooltip-provider
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#tooltip_provider
 
 Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#tooltip-provider-client
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#tooltip_provider_client
 
 :::
 
@@ -168,7 +168,7 @@ boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 
 We're going to go with the third option. So along with adding a default component value, we'll also check if the component is present on the stack and only show the tooltip if it is.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#fixed-append-hover-text
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#fixed_append_hover_text
 
 Start the game again and hover over the item without the component, you should see that it displays "Used 0 times" and no longer crashes the game.
 
@@ -250,7 +250,7 @@ Finally, we call `apply()` and pass our record's constructor. For more details o
 
 Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
 
-<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom-component
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 
 Now start the game. Using the `/give` command, try applying the component. Composite component values are passed as an object enclosed with `{}`. If you put blank curly brackets, you'll see an error telling you that the required key `temperature` is missing.
 
@@ -300,7 +300,7 @@ Now you can store custom data on an `ItemStack`. Use responsibly!
 
 Since we have a custom component class, we're able to implement `TooltipProvider` as such and avoid the deprecated `appendHoverText method.`
 
-<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#advanced-custom-component
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#advanced_custom_component
 
 Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 

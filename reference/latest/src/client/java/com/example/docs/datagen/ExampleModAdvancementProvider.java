@@ -47,7 +47,7 @@ import com.example.docs.advancement.UseToolCriterion;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 
-// #region datagen-advancements--provider-start
+// #region datagen_advancements__provider_start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 	protected ExampleModAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
@@ -55,8 +55,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
-		// #endregion datagen-advancements--provider-start
-		// #region datagen-advancements--simple-advancement
+		// #endregion datagen_advancements__provider_start
+		// #region datagen_advancements__simple_advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
 				.display(
 						Items.DIRT, // The display icon
@@ -72,14 +72,14 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_dirt"));
-		// #endregion datagen-advancements--simple-advancement
+		// #endregion datagen_advancements__simple_advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
-		// #region multiple-criteria
+		// #region multiple_criteria
 		Advancement.Builder.advancement()
 				.addCriterion("ate_apple", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.APPLE))
 				.addCriterion("ate_cooked_beef", ConsumeItemTrigger.TriggerInstance.usedItem(itemLookup, Items.COOKED_BEEF))
 				// ...
-				// #endregion multiple-criteria
+				// #endregion multiple_criteria
 				.parent(getDirt)
 				.display(
 						Items.APPLE,
@@ -92,7 +92,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "apple_and_beef"));
-		// #region requirements-strategy
+		// #region requirements_strategy
 		Advancement.Builder.advancement()
 				.addCriterion("brew_mundane", CriteriaTriggers.BREWED_POTION.createCriterion(
 						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.MUNDANE))
@@ -102,7 +102,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				))
 				.requirements(AdvancementRequirements.Strategy.OR)
 				// ...
-				// #endregion requirements-strategy
+				// #endregion requirements_strategy
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("nether/brew_potion")))
 				.display(
 						Items.POTION,
@@ -115,11 +115,11 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "brewing_fail"));
-		// #region experience-reward
+		// #region experience_reward
 		Advancement.Builder.advancement()
 				.rewards(AdvancementRewards.Builder.experience(10))
 				// ...
-				// #endregion experience-reward
+				// #endregion experience_reward
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
 				.display(
 						Items.GOLD_BLOCK,
@@ -134,7 +134,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("get_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_BLOCK))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_gold"));
 
-		// #region reward-types
+		// #region reward_types
 		Advancement.Builder.advancement()
 				.rewards(
 						new AdvancementRewards.Builder()
@@ -148,7 +148,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 								.addExperience(200)
 				)
 				// ...
-				// #endregion reward-types
+				// #endregion reward_types
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
 				.display(
 						Items.NETHER_STAR,
@@ -163,7 +163,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("get_star", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_STAR))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_nether_star"));
 
-		// #region datagen-advancements--custom-criteria-advancement
+		// #region datagen_advancements__custom_criteria_advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
 				.parent(getDirt)
 				.display(
@@ -178,8 +178,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool"));
-		// #endregion datagen-advancements--custom-criteria-advancement
-		// #region datagen-advancements--new-custom-criteria-advancement
+		// #endregion datagen_advancements__custom_criteria_advancement
+		// #region datagen_advancements__new_custom_criteria_advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
 				.parent(breakBlockWithTool)
 				.display(
@@ -194,12 +194,12 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool_five_times"));
-		// #endregion datagen-advancements--new-custom-criteria-advancement
-		// #region reference-parent
+		// #endregion datagen_advancements__new_custom_criteria_advancement
+		// #region reference_parent
 		Advancement.Builder.advancement()
 				.parent(getDirt)
 				// ...
-				// #endregion reference-parent
+				// #endregion reference_parent
 				.display(
 						Items.DIRT,
 						Component.literal("Create a dirt shack"),
@@ -213,11 +213,11 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "create_dirt_shack"));
 		final HolderLookup<Enchantment> enchantmentsLookup = wrapperLookup.lookupOrThrow(Registries.ENCHANTMENT);
-		// #region placeholder-parent
+		// #region placeholder_parent
 		Advancement.Builder.advancement()
 				.parent(createPlaceholder(Identifier.withDefaultNamespace("adventure/root")))
 				// ...
-				// #endregion placeholder-parent
+				// #endregion placeholder_parent
 				.display(
 						Items.LIGHTNING_ROD,
 						Component.literal("Control the weather"),
@@ -247,7 +247,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
 
-		// #region datagen-advancements--conditions
+		// #region datagen_advancements__conditions
 		Advancement.Builder.advancement()
 				.display(
 						ModBlocks.DUPLICATOR_BLOCK,
@@ -259,8 +259,8 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
 				.save(withConditions(consumer,
 								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
-		// #endregion datagen-advancements--conditions
-		// #region datagen-advancements--provider-start
+		// #endregion datagen_advancements__conditions
+		// #region datagen_advancements__provider_start
 	}
 }
-// #endregion datagen-advancements--provider-start
+// #endregion datagen_advancements__provider_start

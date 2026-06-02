@@ -5,20 +5,20 @@ import net.minecraft.resources.Identifier;
 
 import com.example.docs.ExampleMod;
 
-// #region datagen-advancements--mod-criteria
+// #region datagen_advancements__mod_criteria
 public class ModCriteria {
 	public static final UseToolCriterion USE_TOOL = CriteriaTriggers.register(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "use_tool").toString(), new UseToolCriterion());
-	// #endregion datagen-advancements--mod-criteria
+	// #endregion datagen_advancements__mod_criteria
 
-	// #region datagen-advancements--new-mod-criteria
+	// #region datagen_advancements__new_mod_criteria
 	public static final ParameterizedUseToolCriterion PARAMETERIZED_USE_TOOL = CriteriaTriggers.register(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "parameterized_use_tool").toString(), new ParameterizedUseToolCriterion());
-	// #endregion datagen-advancements--new-mod-criteria
+	// #endregion datagen_advancements__new_mod_criteria
 
-	// #region datagen-advancements--mod-criteria-init
+	// #region datagen_advancements__mod_criteria_init
 	public static void init() {
 	}
-	// #endregion datagen-advancements--mod-criteria-init
+	// #endregion datagen_advancements__mod_criteria_init
 
-	// #region datagen-advancements--mod-criteria
+	// #region datagen_advancements__mod_criteria
 }
-// #endregion datagen-advancements--mod-criteria
+// #endregion datagen_advancements__mod_criteria

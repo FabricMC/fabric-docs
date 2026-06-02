@@ -4,24 +4,24 @@ import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.ExampleMod;
 
-// #region problems--basic-logger-definition
+// #region problems__basic_logger_definition
 public class ExampleModDebug implements ModInitializer {
-	// #endregion problems--basic-logger-definition
+	// #endregion problems__basic_logger_definition
 
 	@Override
 	public void onInitialize() {
-		// #region problems--debug-logging
+		// #region problems__debug_logging
 		ExampleMod.LOGGER.debug("Debug logging is enabled");
-		// #endregion problems--debug-logging
+		// #endregion problems__debug_logging
 
-		// #region problems--log-levels
+		// #region problems__log_levels
 		ExampleMod.LOGGER.debug("Debug message for development...");
 		ExampleMod.LOGGER.info("Neutral, informative text...");
 		ExampleMod.LOGGER.warn("Non-critical issues..."); // [!code warning]
 		ExampleMod.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
-		// #endregion problems--log-levels
+		// #endregion problems__log_levels
 	}
 
-	// #region problems--basic-logger-definition
+	// #region problems__basic_logger_definition
 }
-// #endregion problems--basic-logger-definition
+// #endregion problems__basic_logger_definition

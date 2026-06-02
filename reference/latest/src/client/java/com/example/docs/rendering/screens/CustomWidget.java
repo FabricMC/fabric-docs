@@ -19,13 +19,13 @@ public class CustomWidget extends AbstractWidget {
 		int endColor = 0xFF0000FF; // Blue
 		// #endregion widget
 
-		// #region on-hover-event
+		// #region on_hover_event
 		// This is in the "renderWidget" method, so we can check if the mouse is hovering over the widget.
 		if (isHovered()) {
 			startColor = 0xFFFF0000; // Red
 			endColor = 0xFF00FFFF; // Cyan
 		}
-		// #endregion on-hover-event
+		// #endregion on_hover_event
 		// #region widget
 
 		graphics.fillGradient(getX(), getY(), getX() + this.width, getY() + this.height, startColor, endColor);

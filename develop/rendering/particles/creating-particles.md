@@ -13,7 +13,7 @@ We'll be adding a new sparkle particle which will mimic the movement of an end r
 
 We first need to register a `ParticleType` in your [mod's initializer](../../getting-started/project-structure#entrypoints) class using your mod id.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#particle-register-main
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#particle_register_main
 
 The "sparkle_particle" in lowercase letters is the JSON path for the particle's texture. You will be creating a new JSON file with that exact name later.
 
@@ -21,7 +21,7 @@ The "sparkle_particle" in lowercase letters is the JSON path for the particle's 
 
 After you have registered the particle in the mod's initializer, you will also need to register the particle in the client-side initializer.
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#particle-register-client
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#particle_register_client
 
 In this example, we are registering our particle on the client-side. We are then giving the particle some movement using the end rod particle's factory. This means our particle will move exactly like an end rod particle.
 

@@ -37,7 +37,7 @@ First, we want to create a block and block entity; read more in the [Block Conta
 In addition to the normal block entity methods, we need to override the `stillValid` method. This method will be called every tick to check if the player should be forced out of the menu.
 We will use the default implementation of this method from `ContainerHelper`, which checks if our block entity still exists and if the player is within the interaction range.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container_still_valid
 
 After implementing our menu, it will close automatically when the player is pushed away.
 
@@ -71,11 +71,11 @@ The server-side constructor is called on the server, and because it knows the co
 
 Then we need to register the menu in a new `ModMenuType` class:
 
-<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register-menu
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
 
 We can now set the return value of `createMenu` in the block entity to use our menu:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#provider-implemented
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#provider_implemented
 
 ::: info
 
@@ -94,7 +94,7 @@ For this screen's background, we're just using the default Dispenser screen text
 
 Because this is a screen for a menu, we also need to register it on the client with the `MenuScreens#register()` method:
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java#register-screens
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java#register_screens
 
 Upon loading your game, you should now have a dirt chest which you can right-click to open a menu and store items in.
 

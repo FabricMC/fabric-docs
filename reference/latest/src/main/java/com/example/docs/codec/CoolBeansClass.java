@@ -9,10 +9,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
 
-// #region bean-class
+// #region bean_class
 public class CoolBeansClass {
-	// #endregion bean-class
-	// #region bean-codec
+	// #endregion bean_class
+	// #region bean_codec
 	public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			// Up to 16 fields can be declared here
 			Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
@@ -20,19 +20,19 @@ public class CoolBeansClass {
 			BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
 	)
 			.apply(instance, CoolBeansClass::new));
-	// #endregion bean-codec
-	// #region bean-class
+	// #endregion bean_codec
+	// #region bean_class
 	private final int beansAmount;
 	private final Holder<Item> beanType;
 	private final List<BlockPos> beanPositions;
 
 	public CoolBeansClass(int beansAmount, Holder<Item> beanType, List<BlockPos> beanPositions) {
 		// ...
-		// #endregion bean-class
+		// #endregion bean_class
 		this.beansAmount = beansAmount;
 		this.beanType = beanType;
 		this.beanPositions = beanPositions;
-		// #region bean-class
+		// #region bean_class
 	}
 
 	public int getBeansAmount() {
@@ -47,4 +47,4 @@ public class CoolBeansClass {
 		return this.beanPositions;
 	}
 }
-// #endregion bean-class
+// #endregion bean_class

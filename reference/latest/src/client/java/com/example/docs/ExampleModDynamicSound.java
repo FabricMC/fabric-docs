@@ -18,12 +18,12 @@ public class ExampleModDynamicSound implements ClientModInitializer {
 	}
 
 	private void playSimpleSoundInstance() {
-		// #region simple-sound-instance
+		// #region simple_sound_instance
 		Minecraft client = Minecraft.getInstance();
 		client.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
-		// #endregion simple-sound-instance
+		// #endregion simple_sound_instance
 
-		// #region custom-sound-instance
+		// #region custom_sound_instance
 		CustomSoundInstance instance = new CustomSoundInstance(client.player, CustomSounds.ENGINE_LOOP, SoundSource.NEUTRAL);
 
 		// play the sound instance
@@ -31,6 +31,6 @@ public class ExampleModDynamicSound implements ClientModInitializer {
 
 		// stop the sound instance
 		client.getSoundManager().stop(instance);
-		// #endregion custom-sound-instance
+		// #endregion custom_sound_instance
 	}
 }

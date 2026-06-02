@@ -2,7 +2,7 @@ package com.example.docs.rendering.blockentity;
 
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 
-// #region render-state
+// #region render_state
 public class CounterBlockEntityRenderState extends BlockEntityRenderState {
 	private int clicks = 0;
 
@@ -14,4 +14,4 @@ public class CounterBlockEntityRenderState extends BlockEntityRenderState {
 		this.clicks = clicks;
 	}
 }
-// #endregion render-state
+// #endregion render_state

@@ -15,39 +15,39 @@ import net.minecraft.world.phys.Vec3;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
-// #region renderer-structure
+// #region renderer_structure
 public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity, CounterBlockEntityRenderState> {
-	// #endregion renderer-structure
+	// #endregion renderer_structure
 
 	private final Font font;
 
-	// #region renderer-structure
+	// #region renderer_structure
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-		// #endregion renderer-structure
+		// #endregion renderer_structure
 		this.font = context.font();
-		// #region renderer-structure
+		// #region renderer_structure
 	}
 
-	// #region create-render-state
+	// #region create_render_state
 	@Override
 	public CounterBlockEntityRenderState createRenderState() {
 		return new CounterBlockEntityRenderState();
 	}
-	// #endregion create-render-state
+	// #endregion create_render_state
 
-	// #region extract-render-state
+	// #region extract_render_state
 	@Override
 	public void extractRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
-		// #endregion renderer-structure
+		// #endregion renderer_structure
 		BlockEntityRenderer.super.extractRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
 		state.setClicks(blockEntity.getClicks());
-		// #region renderer-structure
+		// #region renderer_structure
 	}
-	// #endregion extract-render-state
+	// #endregion extract_render_state
 
 	@Override
 	public void submit(CounterBlockEntityRenderState state, PoseStack matrices, SubmitNodeCollector queue, CameraRenderState cameraState) {
-		// #endregion renderer-structure
+		// #endregion renderer_structure
 
 		// #region transformations
 		matrices.pushPose();
@@ -62,7 +62,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 		// #endregion scale
 		// #endregion transformations
 
-		// #region drawing-text
+		// #region drawing_text
 		String text = state.getClicks() + "";
 		float width = this.font.width(text);
 
@@ -79,11 +79,11 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 				0,
 				0
 		);
-		// #endregion drawing-text
+		// #endregion drawing_text
 
 		matrices.popPose();
 
-		// #region renderer-structure
+		// #region renderer_structure
 	}
 }
-// #endregion renderer-structure
+// #endregion renderer_structure

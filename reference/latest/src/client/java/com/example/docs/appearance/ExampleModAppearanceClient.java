@@ -25,10 +25,10 @@ import com.example.docs.fluid.ModFluids;
 public class ExampleModAppearanceClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// #region register-item-tint-source
+		// #region register_item_tint_source
 		ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "color"), RainTintSource.MAP_CODEC);
-		// #endregion register-item-tint-source
-		// #region color-provider
+		// #endregion register_item_tint_source
+		// #region color_provider
 		BlockColorRegistry.register(List.of(new BlockTintSource() {
 			@Override
 			public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
@@ -46,9 +46,9 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 				return ARGB.opaque(0xFFDAB9); // Color code in hex format
 			}
 		}), ModBlocks.WAXCAP);
-		// #endregion color-provider
+		// #endregion color_provider
 
-		// #region fluid-texture
+		// #region fluid_texture
 		FluidRenderingRegistry.register(
 				ModFluids.ACID_STILL,
 				ModFluids.ACID_FLOWING,
@@ -59,6 +59,6 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 						BlockTintSources.constant(ARGB.opaque(0x075800))
 				)
 		);
-		// #endregion fluid-texture
+		// #endregion fluid_texture
 	}
 }

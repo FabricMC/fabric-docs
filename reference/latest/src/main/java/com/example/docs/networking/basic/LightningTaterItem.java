@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 
-// #region lightning-tater-item
+// #region lightning_tater_item
 public class LightningTaterItem extends Item {
 	public LightningTaterItem(Properties properties) {
 		super(properties);
@@ -19,15 +19,15 @@ public class LightningTaterItem extends Item {
 
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
-		// #region client-check
+		// #region client_check
 		if (level.isClientSide()) {
 			return InteractionResult.PASS;
 		}
-		// #endregion client-check
+		// #endregion client_check
 
-		// #region payload-instance
+		// #region payload_instance
 		ClientboundSummonLightningPayload payload = new ClientboundSummonLightningPayload(user.blockPosition());
-		// #endregion payload-instance
+		// #endregion payload_instance
 
 		// #region lookup
 		for (ServerPlayer player : PlayerLookup.level((ServerLevel) level)) {
@@ -38,4 +38,4 @@ public class LightningTaterItem extends Item {
 		return InteractionResult.SUCCESS;
 	}
 }
-// #endregion lightning-tater-item
+// #endregion lightning_tater_item

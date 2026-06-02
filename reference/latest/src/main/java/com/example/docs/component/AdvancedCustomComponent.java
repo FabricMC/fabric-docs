@@ -12,9 +12,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
 
-// #region advanced-custom-component
+// #region advanced_custom_component
 public record AdvancedCustomComponent(float temperature, boolean burnt) implements TooltipProvider {
-	// #endregion advanced-custom-component
+	// #endregion advanced_custom_component
 	// #region codec
 	public static final Codec<AdvancedCustomComponent> CODEC = RecordCodecBuilder.create(builder -> {
 		return builder.group(
@@ -24,11 +24,11 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) implemen
 	});
 	// #endregion codec
 
-	// #region advanced-custom-component
+	// #region advanced_custom_component
 	@Override
 	public void addToTooltip(Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag, DataComponentGetter components) {
 		tooltip.accept(Component.translatable("item.example-mod.temperature.info", this.temperature).withStyle(ChatFormatting.GOLD));
 		tooltip.accept(Component.translatable("item.example-mod.burnt.info", this.temperature).withStyle(ChatFormatting.GOLD));
 	}
 }
-// #endregion advanced-custom-component
+// #endregion advanced_custom_component

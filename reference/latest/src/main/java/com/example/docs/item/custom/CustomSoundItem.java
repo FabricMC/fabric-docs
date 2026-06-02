@@ -29,7 +29,7 @@ public class CustomSoundItem extends Item {
 	}
 	// #endregion interact
 
-	// #region use-on
+	// #region use_on
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		if (!context.getLevel().isClientSide()) {
@@ -42,5 +42,5 @@ public class CustomSoundItem extends Item {
 
 		return super.useOn(context);
 	}
-	// #endregion use-on
+	// #endregion use_on
 }

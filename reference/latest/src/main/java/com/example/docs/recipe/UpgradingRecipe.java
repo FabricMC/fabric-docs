@@ -16,7 +16,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-// #region base-class
+// #region base_class
 public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	private final ItemStackTemplate result;
 	private final Ingredient baseItem;
@@ -39,7 +39,7 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public Ingredient getUpgradeItem() {
 		return this.upgradeItem;
 	}
-	// #endregion base-class
+	// #endregion base_class
 
 	// #region implementing
 	@Override
@@ -53,7 +53,7 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	}
 	// #endregion implementing
 
-	// #region implement-registry-objects
+	// #region implement_registry_objects
 	@Override
 	public RecipeSerializer<? extends Recipe<UpgradingRecipeInput>> getSerializer() {
 		return ExampleModRecipes.UPGRADING_RECIPE_SERIALIZER;
@@ -63,9 +63,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public RecipeType<? extends Recipe<UpgradingRecipeInput>> getType() {
 		return ExampleModRecipes.UPGRADING_RECIPE_TYPE;
 	}
-	// #endregion implement-registry-objects
+	// #endregion implement_registry_objects
 
-	// #region recipe-book
+	// #region recipe_book
 	@Override
 	public @Nullable RecipeBookCategory recipeBookCategory() {
 		return null;
@@ -90,9 +90,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	public String group() {
 		return "upgrading";
 	}
-	// #endregion recipe-book
+	// #endregion recipe_book
 
-	// #region map-codec
+	// #region map_codec
 	public static final MapCodec<UpgradingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
 					instance.group(
 									ItemStackTemplate.CODEC.fieldOf("result").forGetter(UpgradingRecipe::getResult),
@@ -100,9 +100,9 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 									Ingredient.CODEC.fieldOf("upgradeItem").forGetter(UpgradingRecipe::getUpgradeItem)
 					).apply(instance, UpgradingRecipe::new)
 	);
-	// #endregion map-codec
+	// #endregion map_codec
 
-	// #region stream-codec
+	// #region stream_codec
 	public static final StreamCodec<RegistryFriendlyByteBuf, UpgradingRecipe> STREAM_CODEC = StreamCodec.composite(
 					ItemStackTemplate.STREAM_CODEC,
 					UpgradingRecipe::getResult,
@@ -112,8 +112,8 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 					UpgradingRecipe::getUpgradeItem,
 					UpgradingRecipe::new
 	);
-	// #endregion stream-codec
+	// #endregion stream_codec
 
-	// #region base-class
+	// #region base_class
 }
-// #endregion base-class
+// #endregion base_class

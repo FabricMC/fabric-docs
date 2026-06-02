@@ -83,19 +83,19 @@ public class DirtChestBlockEntity extends BlockEntity implements ImplementedCont
 	// #endregion menu
 	 */
 
-	// #region container-still-valid
+	// #region container_still_valid
 	@Override
 	public boolean stillValid(Player player) {
 		return Container.stillValidBlockEntity(this, player);
 	}
-	// #endregion container-still-valid
+	// #endregion container_still_valid
 
-	// #region provider-implemented
+	// #region provider_implemented
 	@Override
 	public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
 		return new DirtChestMenu(containerId, inventory, this);
 	}
-	// #endregion provider-implemented
+	// #endregion provider_implemented
 
 	// #region be
 	// #region menu

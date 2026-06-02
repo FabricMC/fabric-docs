@@ -12,20 +12,20 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
-// #region tint-source-class
+// #region tint_source_class
 public record RainTintSource(int color) implements ItemTintSource {
-	// #endregion tint-source-class
-	// #region map-codec
+	// #endregion tint_source_class
+	// #region map_codec
 	public static final MapCodec<RainTintSource> MAP_CODEC = RecordCodecBuilder.mapCodec(
 					instance -> instance.group(
 									ExtraCodecs.RGB_COLOR_CODEC.fieldOf("color").forGetter(RainTintSource::color)).apply(instance, RainTintSource::new)
 	);
-	// #endregion map-codec
-	// #region tint-source-class
+	// #endregion map_codec
+	// #region tint_source_class
 	public RainTintSource() {
 		this(ARGB.opaque(0x00BFFF)); // Color code in hex format
 	}
-	// #endregion tint-source-class
+	// #endregion tint_source_class
 
 	// #region calculate
 	@Override
@@ -37,12 +37,12 @@ public record RainTintSource(int color) implements ItemTintSource {
 		return ARGB.opaque(0xFFEFD5); // Color code in hex format
 	}
 	// #endregion calculate
-	// #region return-codec
+	// #region return_codec
 	@Override
 	public @NotNull MapCodec<? extends ItemTintSource> type() {
 		return MAP_CODEC;
 	}
-	// #endregion return-codec
-	// #region tint-source-class
+	// #endregion return_codec
+	// #region tint_source_class
 }
-// #endregion tint-source-class
+// #endregion tint_source_class

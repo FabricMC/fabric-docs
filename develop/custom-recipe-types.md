@@ -12,7 +12,7 @@ Custom recipe types are a way to create data-driven recipes for your mod's custo
 
 Before you can start creating our recipe, you need an implementation of `RecipeInput` that can hold the input items in our block's inventory. We want an upgrading recipe to have two input items: a base item to be upgraded, and the upgrade itself.
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe-input
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe_input
 
 ## Creating the Recipe Class {#creating-the-recipe-class}
 
@@ -20,7 +20,7 @@ Now that we have a way to store the input items, we can create our `Recipe` impl
 
 Let's start by defining the result and the ingredients of the recipe.
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base-class
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base_class
 
 Notice how we're using `Ingredient` objects for our inputs. This allows our recipe to accept multiple items interchangeably.
 
@@ -38,11 +38,11 @@ The recipe serializer uses a [`MapCodec`](./codecs/#mapcodec) to read the recipe
 
 We'll use `RecordCodecBuilder#mapCodec` to build a map codec for our recipe. It allows us to combine Minecraft's existing codecs into our own:
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#map-codec
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#map_codec
 
 The stream codec can be created in a similar way using `StreamCodec#composite`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#stream-codec
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#stream_codec
 
 Now we'll register the recipe serializer as well as a recipe type. You can do this in your mod's initializer, or in a separate class, with a method invoked by your mod's initializer:
 
@@ -50,11 +50,11 @@ Now we'll register the recipe serializer as well as a recipe type. You can do th
 
 Back to our recipe class, we can now add the methods that return the objects we just registered:
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implement-registry-objects
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implement_registry_objects
 
 To complete our custom recipe type, we just need to implement the remaining `placementInfo`, `showNotification`, `group`, and `recipeBookCategory` methods, which are used by the recipe book to place our recipe in a screen. For now, we'll just return `PlacementInfo.NOT_PLACEABLE` and `null`, as the recipe book cannot be easily expanded to modded workstations. We'll also override `isSpecial` to return true, to prevent some other recipe-book-related logic from running and logging errors.
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#recipe-book
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#recipe_book
 
 ## Creating a Recipe {#creating-a-recipe}
 
@@ -92,7 +92,7 @@ To prevent deleting items, it is important to drop the inputs back when the scre
 
 You also need to add the menu to the registry:
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading-menu-registration
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
 
 ## Recipe Synchronization {#recipe-synchronization}
 
@@ -106,8 +106,8 @@ As mentioned earlier, recipes are handled entirely on the logical server. Howeve
 
 To synchronize your recipes, just call `RecipeSynchronization.synchronizeRecipeSerializer` in your mod initializer, and provide your mod's recipe serializer:
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe-sync
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe_sync
 
 Once synchronized, recipes can be retrieved at any point from the client level's recipe manager:
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe-sync-client
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client

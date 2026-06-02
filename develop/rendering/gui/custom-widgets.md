@@ -22,7 +22,7 @@ There are multiple ways to create a widget class, such as extending `AbstractWid
 
 Like all widgets, you need to add it to the screen using the `addRenderableWidget` method, which is provided by the `Screen` class. Make sure you do this in the `init` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#add-custom-widget
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#add_custom_widget
 
 ![Custom widget on screen](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -32,6 +32,6 @@ You can handle events such as mouse clicks, key presses, by overriding the `mous
 
 For example, you can make the widget change color when it's hovered over by using the `isHovered()` method provided by the `AbstractWidget` class:
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#on-hover-event
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#on_hover_event
 
 ![Hover Event Example](/assets/develop/rendering/gui/custom-widget-events.webp)

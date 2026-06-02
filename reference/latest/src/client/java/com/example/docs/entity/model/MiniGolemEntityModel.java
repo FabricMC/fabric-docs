@@ -20,29 +20,29 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
 	// #endregion model1
-	// #region dancing-animation
+	// #region dancing_animation
 	private final KeyframeAnimation dancing;
 
-	// #endregion dancing-animation
+	// #endregion dancing_animation
 	// #region model1
 
-	// #region dancing-animation
+	// #region dancing_animation
 	public MiniGolemEntityModel(ModelPart root) {
-		// #endregion dancing-animation
+		// #endregion dancing_animation
 		super(root);
 		this.head = root.getChild(PartNames.HEAD);
 		this.leftLeg = root.getChild(PartNames.LEFT_LEG);
 		this.rightLeg = root.getChild(PartNames.RIGHT_LEG);
 		// #endregion model1
-		// #region dancing-animation
+		// #region dancing_animation
 		// ...
 		this.dancing = MiniGolemAnimations.DANCING.bake(root);
 		// #region model1
 	}
-	// #endregion dancing-animation
+	// #endregion dancing_animation
 	// #endregion model1
 
-	// #region model-texture-data
+	// #region model_texture_data
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition modelData = new MeshDefinition();
 		PartDefinition root = modelData.getRoot();
@@ -75,15 +75,15 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		);
 		return LayerDefinition.create(modelData, 64, 32);
 	}
-	// #endregion model-texture-data
+	// #endregion model_texture_data
 
-	// #region model-animation
-	// #region dancing-animation
+	// #region model_animation
+	// #region dancing_animation
 	@Override
 	public void setupAnim(MiniGolemEntityRenderState state) {
 		super.setupAnim(state);
 
-		// #endregion model-animation
+		// #endregion model_animation
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
 		} else {
@@ -99,8 +99,8 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 			// #endregion model_animation
 			// #endregion dancing_animation
 		}
-		// #region model-animation
+		// #region model_animation
 	}
-	// #endregion dancing-animation
+	// #endregion dancing_animation
 }
-// #endregion model-animation
+// #endregion model_animation

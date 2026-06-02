@@ -20,7 +20,7 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	);
 	// #endregion category
 
-	// #region key-mapping
+	// #region key_mapping
 	KeyMapping sendToChatKey = KeyMappingHelper.registerKeyMapping(
 		new KeyMapping(
 				"key.example-mod.send_to_chat", // The translation key for the key mapping.
@@ -28,11 +28,11 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 				GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
 				this.CATEGORY // The category of the mapping.
 		));
-	// #endregion key-mapping
+	// #endregion key_mapping
 
 	@Override
 	public void onInitializeClient() {
-		// #region client-tick-event
+		// #region client_tick_event
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (this.sendToChatKey.consumeClick()) {
 				if (client.player != null) {
@@ -40,6 +40,6 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 				}
 			}
 		});
-		// #endregion client-tick-event
+		// #endregion client_tick_event
 	}
 }

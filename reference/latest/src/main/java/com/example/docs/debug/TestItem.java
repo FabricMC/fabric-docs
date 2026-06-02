@@ -22,19 +22,19 @@ public class TestItem extends Item {
 		super(settings);
 	}
 
-	// #region problems--logger-usage-example
+	// #region problems__logger_usage_example
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
 		Level level = user.level();
 
-		// #endregion problems--logger-usage-example
+		// #endregion problems__logger_usage_example
 		if (level.isClientSide()) {
-			// #region problems--using-logger
+			// #region problems__using_logger
 			ExampleMod.LOGGER.info("You interacted with an entity!");
-			// #endregion problems--using-logger
+			// #endregion problems__using_logger
 		}
 
-		// #region problems--logger-usage-example
+		// #region problems__logger_usage_example
 
 		// Values are used in a String to provide more information in the console
 		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
@@ -56,9 +56,9 @@ public class TestItem extends Item {
 
 		return InteractionResult.SUCCESS;
 	}
-	// #endregion problems--logger-usage-example
+	// #endregion problems__logger_usage_example
 
-	// #region problems--breakpoints
+	// #region problems__breakpoints
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		Level level = context.getLevel();
@@ -80,5 +80,5 @@ public class TestItem extends Item {
 
 		return InteractionResult.PASS;
 	}
-	// #endregion problems--breakpoints
+	// #endregion problems__breakpoints
 }

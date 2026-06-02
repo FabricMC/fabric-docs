@@ -88,7 +88,7 @@ Format:
 
 Example:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--classes
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples__classes
 
 == Methods
 
@@ -100,7 +100,7 @@ Format:
 
 Example:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--methods
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples__methods
 
 == Fields
 
@@ -112,7 +112,7 @@ Format:
 
 Example:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening-examples--fields
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples__fields
 
 :::
 

@@ -42,7 +42,7 @@ public class ExampleModRecipes implements ModInitializer {
 					new RecipeBookCategory()
 	);
 
-	// #region upgrading-menu-registration
+	// #region upgrading_menu_registration
 	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = Registry.register(
 					BuiltInRegistries.MENU,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
@@ -58,12 +58,12 @@ public class ExampleModRecipes implements ModInitializer {
 									.setId(ResourceKey.create(Registries.BLOCK, UPGRADING_BLOCK_ID))
 					)
 	);
-	// #endregion upgrading-menu-registration
+	// #endregion upgrading_menu_registration
 
 	@Override
 	public void onInitialize() {
-		// #region recipe-sync
+		// #region recipe_sync
 		RecipeSynchronization.synchronizeRecipeSerializer(UPGRADING_RECIPE_SERIALIZER);
-		// #endregion recipe-sync
+		// #endregion recipe_sync
 	}
 }

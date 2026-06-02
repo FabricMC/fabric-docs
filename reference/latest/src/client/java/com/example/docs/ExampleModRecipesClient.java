@@ -17,8 +17,8 @@ public class ExampleModRecipesClient implements ClientModInitializer {
 
 	private static void getRecipes() {
 		ClientLevel clientLevel = Minecraft.getInstance().level;
-		// #region recipe-sync-client
+		// #region recipe_sync_client
 		clientLevel.recipeAccess().getSynchronizedRecipes().getAllOfType(ExampleModRecipes.UPGRADING_RECIPE_TYPE);
-		// #endregion recipe-sync-client
+		// #endregion recipe_sync_client
 	}
 }

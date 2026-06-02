@@ -10,11 +10,11 @@ import net.minecraft.world.level.saveddata.SavedDataType;
 
 import com.example.docs.ExampleMod;
 
-// #region basic-structure
+// #region basic_structure
 public class SavedBlockData extends SavedData {
 	private int blocksBroken = 0;
 
-	// #endregion basic-structure
+	// #endregion basic_structure
 	// #region codec
 	private static final Codec<SavedBlockData> CODEC = Codec.INT.xmap(
 					SavedBlockData::new, // Create a new 'SavedBlockData' from the stored number.
@@ -29,31 +29,31 @@ public class SavedBlockData extends SavedData {
 					null // A data fixer, which is not needed here.
 	);
 	// #endregion type
-	// #region basic-structure
+	// #region basic_structure
 	public SavedBlockData() {
 	}
-	// #endregion basic-structure
+	// #endregion basic_structure
 
 	// #region ctor
 	public SavedBlockData(int count) {
 		this.blocksBroken = count;
 	}
 	// #endregion ctor
-	// #region basic-structure
+	// #region basic_structure
 
 	public int getBlocksBroken() {
 		return this.blocksBroken;
 	}
 
-	// #region set-dirty
+	// #region set_dirty
 	public void incrementBlocksBroken() {
 		this.blocksBroken++;
 
 		// If saved data is not marked dirty, nothing will be saved when Minecraft closes.
 		setDirty();
 	}
-	// #endregion set-dirty
-	// #endregion basic-structure
+	// #endregion set_dirty
+	// #endregion basic_structure
 	// #region method
 	public static SavedBlockData getSavedBlockData(MinecraftServer server) {
 		// This could be either the overworld or another dimension.
@@ -70,6 +70,6 @@ public class SavedBlockData extends SavedData {
 		return level.getDataStorage().computeIfAbsent(TYPE);
 	}
 	// #endregion method
-	// #region basic-structure
+	// #region basic_structure
 }
-// #endregion basic-structure
+// #endregion basic_structure

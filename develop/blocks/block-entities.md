@@ -17,11 +17,11 @@ As an example, we will create a block that counts how many times it has been rig
 
 To make Minecraft recognize and load the new block entities, we need to create a block entity type. This is done by extending the `BlockEntity` class and registering it in a new `ModBlockEntities` class.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#block-entity
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#block_entity
 
 Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_ENTITY` we've used above:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java#register-block-entity
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java#register_block_entity
 
 ::: tip
 
@@ -53,7 +53,7 @@ Unlike blocks, which are singletons, a new block entity is created for every ins
 
 Don't forget to register the block in the `ModBlocks` class, just like in the [Creating Your First Block](../blocks/first-block) guide:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter-block
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 
 ## Using the Block Entity {#using-the-block-entity}
 
@@ -100,7 +100,7 @@ While `saveAdditional` and `loadAdditional` handle saving and loading to and fro
 
 To fix this, we override `getUpdateTag`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#get-update-tag
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#get_update_tag
 
 Now, when a player logs in or moves into a chunk where the block exists, they will see the correct counter value right away.
 
@@ -110,11 +110,11 @@ While new players loading in the block will see the correct count, the count wil
 
 To solve this, we can use block entity update packets. Override the `getUpdatePacket` method, and return a packet containing the block's data from our `getUpdateTag`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update_packet
 
 Then, override `setChanged` to broadcast the data whenever the block entity changes.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast_update
 
 Other players should now be able to see the count changing.
 
@@ -136,7 +136,7 @@ Don't forget to serialize and deserialize this field!
 
 Now we can use `ticksSinceLast` to check if the counter can be increased in `incrementClicks`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#ticks-since-last
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#ticks_since_last
 
 ::: tip
 

@@ -41,7 +41,7 @@ Let's name our data class `SavedBlockData` and have it extend `SavedData`.
 
 This class will contain a field to keep track of the number of blocks broken as well as a method to get and a method to increment this number.
 
-<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#basic-structure
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#basic_structure
 
 For serializing and deserializing this data, we need to define a Codec. We can compose a Codec using various primitive Codecs provided by Minecraft.
 
@@ -55,7 +55,7 @@ Then we can build a Codec.
 
 We should call `setDirty()` when data is actually modified, so Minecraft knows it should be saved to the disk.
 
-<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#set-dirty
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#set_dirty
 
 Finally, we're required to have a `SavedDataType` that describes our saved data. The first argument corresponds to the name of the file that will be created in the `data` directory of the world.
 
@@ -75,7 +75,7 @@ Now that we have everything set up, let's save some data.
 
 We can reuse the first scenario and instead of incrementing the field, we can call our `incrementBlocksBroken` from our `SavedBlockData`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java#event-registration
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java#event_registration
 
 This should increment the value and save it to the disk.
 

@@ -25,14 +25,14 @@ public class PrismarineLampBlock extends Block {
 	}
 	// #endregion constructor
 
-	// #region block-state-definition
+	// #region block_state_definition
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(ACTIVATED);
 	}
-	// #endregion block-state-definition
+	// #endregion block_state_definition
 
-	// #region on-use
+	// #region on_use
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 		if (!player.getAbilities().mayBuild) {
@@ -51,9 +51,9 @@ public class PrismarineLampBlock extends Block {
 			return InteractionResult.SUCCESS;
 		}
 	}
-	// #endregion on-use
+	// #endregion on_use
 
-	// #region get-luminance
+	// #region get_luminance
 	public static int getLuminance(BlockState currentBlockState) {
 		// Get the value of the "activated" property.
 		boolean activated = currentBlockState.getValue(PrismarineLampBlock.ACTIVATED);
@@ -61,7 +61,7 @@ public class PrismarineLampBlock extends Block {
 		// Return a light level if activated = true
 		return activated ? 15 : 0;
 	}
-	// #endregion get-luminance
+	// #endregion get_luminance
 
 	// #region block
 }

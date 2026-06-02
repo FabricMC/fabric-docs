@@ -14,38 +14,38 @@ import net.minecraft.server.level.ServerPlayer;
  * in just one class.
  */
 public class ParameterizedUseToolCriterion extends SimpleCriterionTrigger<ParameterizedUseToolCriterion.Conditions> {
-	// #region datagen-advancements--new-trigger
+	// #region datagen_advancements__new_trigger
 	public void trigger(ServerPlayer player, int totalTimes) {
 		this.trigger(player, conditions -> conditions.requirementsMet(totalTimes));
 	}
 
-	// #endregion datagen-advancements--new-trigger
+	// #endregion datagen_advancements__new_trigger
 
 	@Override
 	public Codec<Conditions> codec() {
 		return Conditions.CODEC;
 	}
 
-	// #region datagen-advancements--new-parameter
+	// #region datagen_advancements__new_parameter
 	public record Conditions(Optional<ContextAwarePredicate> playerPredicate, int requiredTimes) implements SimpleCriterionTrigger.SimpleInstance {
-		// #endregion datagen-advancements--new-parameter
-		// #region datagen-advancements--new-codec
+		// #endregion datagen_advancements__new_parameter
+		// #region datagen_advancements__new_codec
 		public static Codec<ParameterizedUseToolCriterion.Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 				ContextAwarePredicate.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
 				Codec.INT.fieldOf("requiredTimes").forGetter(Conditions::requiredTimes)
 		).apply(instance, Conditions::new));
-		// #endregion datagen-advancements--new-codec
-		// #region datagen-advancements--new-parameter
+		// #endregion datagen_advancements__new_codec
+		// #region datagen_advancements__new_parameter
 		@Override
 		public Optional<ContextAwarePredicate> player() {
 			return this.playerPredicate;
 		}
 
-		// #region datagen-advancements--new-requirements-met
+		// #region datagen_advancements__new_requirements_met
 		public boolean requirementsMet(int totalTimes) {
 			return totalTimes > this.requiredTimes; // AbstractCriterion#trigger helpfully checks the playerPredicate for us.
 		}
-		// #endregion datagen-advancements--new-requirements-met
+		// #endregion datagen_advancements__new_requirements_met
 	}
-	// #endregion datagen-advancements--new-parameter
+	// #endregion datagen_advancements__new_parameter
 }

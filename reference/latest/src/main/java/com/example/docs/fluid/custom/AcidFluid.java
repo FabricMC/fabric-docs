@@ -39,9 +39,9 @@ import com.example.docs.fluid.ModFluidTags;
 import com.example.docs.fluid.ModFluids;
 import com.example.docs.item.ModItems;
 
-// #region abstract-fluid
+// #region abstract_fluid
 public abstract class AcidFluid extends FlowingFluid {
-	// #endregion abstract-fluid
+	// #endregion abstract_fluid
 
 	// #region sources
 	@Override
@@ -67,7 +67,7 @@ public abstract class AcidFluid extends FlowingFluid {
 	}
 
 	// #endregion bucket
-	// #region abstract-fluid
+	// #region abstract_fluid
 	@Override
 	public void animateTick(Level world, BlockPos pos, FluidState state, RandomSource random) {
 		if (!state.isSource() && !(Boolean) state.getValue(FALLING)) {
@@ -125,14 +125,14 @@ public abstract class AcidFluid extends FlowingFluid {
 		return 4;
 	}
 
-	// #endregion abstract-fluid
-	// #region legacy-block
+	// #endregion abstract_fluid
+	// #region legacy_block
 	@Override
 	protected BlockState createLegacyBlock(FluidState state) {
 		return ModBlocks.ACID.defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state));
 	}
-	// #endregion legacy-block
-	// #region abstract-fluid
+	// #endregion legacy_block
+	// #region abstract_fluid
 	@Override
 	public int getDropOff(LevelReader world) {
 		return 1;
@@ -158,8 +158,8 @@ public abstract class AcidFluid extends FlowingFluid {
 	public Optional<SoundEvent> getPickupSound() {
 		return Optional.of(SoundEvents.BUCKET_FILL);
 	}
-	// #endregion abstract-fluid
-	// #region fluid-subclasses
+	// #endregion abstract_fluid
+	// #region fluid_subclasses
 	public static class Flowing extends AcidFluid {
 		@Override
 		protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder) {
@@ -189,7 +189,7 @@ public abstract class AcidFluid extends FlowingFluid {
 			return true;
 		}
 	}
-	// #endregion fluid-subclasses
-	// #region abstract-fluid
+	// #endregion fluid_subclasses
+	// #region abstract_fluid
 }
-// #endregion abstract-fluid
+// #endregion abstract_fluid

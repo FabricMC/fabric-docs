@@ -111,7 +111,7 @@ The values of both must be between **-16** and **32**, which means that every bl
 3. `angle`: _Float_. Specifies the angle of rotation. Ranges from **-45** to **45**.
 4. `rescale`: _Boolean_. Specifies whether to scale the faces across the whole block. Defaults to `false`.
 
-<!-- @include: ../items/item-models.md#shade-to-faces -->
+<!-- @include: ../items/item-models.md#shade_to_faces -->
 
 1. `uv`: _Four integers_. Defines the area of the texture to use according to the scheme `[x1, y1, x2, y2]`. If unset, it defaults to values equal to xyz position of the element.
    Flipping the values of `x1` and `x2` (for example from `0, 0, 16, 16` to `16, 0, 0, 16`) flips the texture. UV is optional, and if not supplied, it's automatically generated based on the element's position.

@@ -17,7 +17,7 @@ In this example, the `interactLivingEntity()` and `useOn()` methods for a custom
 
 The `playSound()` method is used with the `LivingEntity` object. Only the SoundEvent, the volume and the pitch need to be specified. You can also use the `playSound()` method from the level instance to have a higher level of control.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#use-on
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#use_on
 
 ### SoundEvent and SoundCategory {#soundevent-and-soundcategory}
 

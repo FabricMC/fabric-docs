@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ConversionParams;
 import net.minecraft.world.entity.ConversionType;
 import net.minecraft.world.entity.Mob;
 
-// #region enum-extension-abstract-method-impls-example-mixin
+// #region enum_extension_abstract_method_impls_example_mixin
 @Mixin(ConversionType.class)
 enum ConversionTypeMixin {
 	EXAMPLE_MOD_CONVERSION_TYPE(false) {
@@ -24,4 +24,4 @@ enum ConversionTypeMixin {
 	ConversionTypeMixin(final boolean discardAfterConversion) {
 	}
 }
-// #endregion enum-extension-abstract-method-impls-example-mixin
+// #endregion enum_extension_abstract_method_impls_example_mixin

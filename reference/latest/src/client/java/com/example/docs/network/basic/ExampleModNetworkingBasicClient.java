@@ -21,7 +21,7 @@ import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// #region client-global-receiver
+		// #region client_global_receiver
 		ClientPlayNetworking.registerGlobalReceiver(ClientboundSummonLightningPayload.TYPE, (payload, context) -> {
 			ClientLevel level = context.client().level;
 
@@ -29,22 +29,22 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 				return;
 			}
 
-			// #region payload-pos
+			// #region payload_pos
 			BlockPos lightningPos = payload.pos();
-			// #endregion payload-pos
+			// #endregion payload_pos
 
-			// #region lightning-bolt
+			// #region lightning_bolt
 			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
 				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
 				level.addEntity(entity);
 			}
-			// #endregion lightning-bolt
+			// #endregion lightning_bolt
 		});
-		// #endregion client-global-receiver
+		// #endregion client_global_receiver
 
-		// #region use-entity-callback
+		// #region use_entity_callback
 		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
 			if (!level.isClientSide()) {
 				return InteractionResult.PASS;
@@ -66,6 +66,6 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 
 			return InteractionResult.PASS;
 		});
-		// #endregion use-entity-callback
+		// #endregion use_entity_callback
 	}
 }

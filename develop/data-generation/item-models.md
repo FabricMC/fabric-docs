@@ -40,7 +40,7 @@ Then, create a constructor matching `super`.
 
 Register this class in your `DataGeneratorEntrypoint` within the `onInitializeDataGenerator` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen-models--register
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_models__register
 
 ## Built-In Item Models {#built-in}
 
@@ -297,7 +297,7 @@ This example uses the `Count`, changing the texture from one knife up to three b
 
 == Source Code
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#range-dispatch
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#range_dispatch
 
 == Client Item
 
@@ -337,7 +337,7 @@ All fields and methods for this part of the tutorial are declared in a static in
 
 ::: details Show `CustomItemModelGenerator`
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom-item-model-generator
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model_generator
 
 :::
 
@@ -355,7 +355,7 @@ This will make the model visually twice as big as the simple ones.
 
 Next, we need to create an instance of the `ModelTemplate` class. It will represent the actual [parent item model](#custom-parent) inside our mod.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom-item-model
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model
 
 The `item()` method creates a new `ModelTemplate` instance, pointing to the `scaled2x.json` file we created earlier.
 
@@ -365,7 +365,7 @@ TextureSlot `LAYER0` represents the `#layer0` texture variable, which will then 
 
 The last step is creating a custom method, which will be called in the `generateItemModels()` method and will be responsible for generating our item models.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom-item-datagen-method
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_datagen_method
 
 Let's go over what the parameters are for:
 
@@ -380,7 +380,7 @@ Then, we'll use another of its fields, the `itemModelOutput` (which essentially 
 
 Now, we only need to call our method in the `generateItemModels()` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom-balloon
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_balloon
 
 Don't forget to add a texture file!
 

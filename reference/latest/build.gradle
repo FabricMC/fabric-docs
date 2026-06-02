@@ -1,36 +1,36 @@
 def minecraftVersion = "26.1.2"
 def fabricApiVersion = "0.148.2+26.1.2"
 
-// #region automatic-testing--game-test--2
+// #region automatic_testing__game_test__2
 dependencies {
-// #endregion automatic-testing--game-test--2
+// #endregion automatic_testing__game_test__2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
   implementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 
-// #region automatic-testing--game-test--2
+// #region automatic_testing__game_test__2
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
 
-// #endregion automatic-testing--game-test--2
-// #region classtweaker-setup--gradle
+// #endregion automatic_testing__game_test__2
+// #region classtweaker_setup__gradle
 loom {
 
 	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
 
 }
-// #endregion classtweaker-setup--gradle
+// #endregion classtweaker_setup__gradle
 
-// #region automatic-testing--2
+// #region automatic_testing__2
 test {
 	useJUnitPlatform()
 }
-// #endregion automatic-testing--2
+// #endregion automatic_testing__2
 
-// #region debug-logging
+// #region debug_logging
 loom.log4jConfigs.from "log4j-dev.xml"
-// #endregion debug-logging
+// #endregion debug_logging
 
-// #region automatic-testing--game-test--1
+// #region automatic_testing__game_test__1
 fabricApi {
 	configureTests {
 		createSourceSet = true
@@ -40,9 +40,9 @@ fabricApi {
 		eula = true // By setting this to true, you agree to the Minecraft EULA.
 	}
 }
-// #endregion automatic-testing--game-test--1
+// #endregion automatic_testing__game_test__1
 
-// #region automatic-testing--game-test--2
+// #region automatic_testing__game_test__2
 tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
 	jvmArgs.add("-Dfabric.client.gametest")
 	// Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
@@ -50,4 +50,4 @@ tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.Client
 	// XVFB must be installed, on Debian-based systems you can install it with: `apt install xvfb`
 	useXVFB = true
 }
-// #endregion automatic-testing--game-test--2
+// #endregion automatic_testing__game_test__2

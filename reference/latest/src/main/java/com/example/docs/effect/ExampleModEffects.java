@@ -10,7 +10,7 @@ import net.fabricmc.api.ModInitializer;
 
 import com.example.docs.ExampleMod;
 
-// #region register-effect
+// #region register_effect
 public class ExampleModEffects implements ModInitializer {
 	public static final Holder<MobEffect> TATER =
 			Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"), new TaterEffect());
@@ -20,4 +20,4 @@ public class ExampleModEffects implements ModInitializer {
 		// ...
 	}
 }
-// #endregion register-effect
+// #endregion register_effect

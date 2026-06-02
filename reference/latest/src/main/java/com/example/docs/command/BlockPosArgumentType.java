@@ -6,7 +6,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.minecraft.core.BlockPos;
 
-// #region custom-argument-types
+// #region custom_argument_types
 public class BlockPosArgumentType implements ArgumentType<BlockPos> {
 	/**
 	 * Parse the BlockPos from the reader in the {x, y, z} format.
@@ -37,4 +37,4 @@ public class BlockPosArgumentType implements ArgumentType<BlockPos> {
 		}
 	}
 }
-// #endregion custom-argument-types
+// #endregion custom_argument_types

@@ -135,7 +135,7 @@ Read the important update above for more information.
 
 **Implementation of `hudLayer()`:**
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud-layer
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud_layer
 
 This results in the following being drawn on the HUD:
 
@@ -182,7 +182,7 @@ Make sure to push the matrix stack before you get a transformation matrix!
 
 :::
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling-square
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling_square
 
 ![A video showing the diamond scaling up and down](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -204,7 +204,7 @@ It's highly unlikely you'll need to ever use a Quaternion class directly, since 
 
 Let's say we want to rotate our square around the z-axis. We can do this by using the `PoseStack` and the `rotateAround(quaternionfc, x, y, z)` method.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating-square
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating_square
 
 The result of this is the following:
 

@@ -50,7 +50,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	public static void bootstrap(BootstrapContext<Enchantment> context) {
 		// ...
 		// #endregion bootstrap
-		// #region register-enchantment
+		// #region register_enchantment
 		register(context, ModEnchantments.THUNDERING,
 				Enchantment.enchantment(
 						Enchantment.definition(
@@ -70,7 +70,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 						new LightningEnchantmentEffect(LevelBasedValue.perLevel(0.4f, 0.2f))
 				)
 		);
-		// #endregion register-enchantment
+		// #endregion register_enchantment
 		register(context, ModEnchantments.REPULSION_CURSE,
 				Enchantment.enchantment(
 						Enchantment.definition(
@@ -83,20 +83,20 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 								EquipmentSlotGroup.HAND
 						)
 				)
-				// #region effect-conditions
+				// #region effect_conditions
 				.withEffect(
 						// ...
-						// #endregion effect-conditions
+						// #endregion effect_conditions
 						EnchantmentEffectComponents.POST_ATTACK,
 						EnchantmentTarget.ATTACKER,
 						EnchantmentTarget.ATTACKER,
-						// #region multiple-effects
+						// #region multiple_effects
 						AllOf.entityEffects(
 								new ApplyEntityImpulse(new Vec3(0, 0.2, -1), new Vec3(1, 1, 1), LevelBasedValue.perLevel(0.7f, 0.2f)),
 								new PlaySoundEffect(List.of(SoundEvents.LUNGE_1), ConstantFloat.of(5), ConstantFloat.of(1))
 						),
-						// #endregion multiple-effects
-						// #region effect-conditions
+						// #endregion multiple_effects
+						// #region effect_conditions
 						LootItemEntityPropertyCondition.hasProperties(
 								LootContext.EntityTarget.ATTACKER,
 								EntityPredicate.Builder.entity().flags(
@@ -104,7 +104,7 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 								)
 						)
 				)
-		// #endregion effect-conditions
+		// #endregion effect_conditions
 		);
 		// #region bootstrap
 	}
@@ -112,11 +112,11 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 	// #region provider
 
 	// #endregion provider
-	// #region register-helper
+	// #region register_helper
 	private static void register(BootstrapContext<Enchantment> context, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
 		context.register(key, builder.build(key.identifier()));
 	}
-	// #endregion register-helper
+	// #endregion register_helper
 	// #region provider
 }
 // #endregion provider

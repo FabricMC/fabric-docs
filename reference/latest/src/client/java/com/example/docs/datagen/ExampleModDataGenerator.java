@@ -16,40 +16,40 @@ import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
 
-// #region datagen-setup--generator
+// #region datagen_setup__generator
 public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-		// #endregion datagen-setup--generator
-		// #region datagen-setup--pack
+		// #endregion datagen_setup__generator
+		// #region datagen_setup__pack
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-		// #endregion datagen-setup--pack
+		// #endregion datagen_setup__pack
 
-		// #region datagen-enchantments--register
+		// #region datagen_enchantments__register
 		pack.addProvider(ExampleModEnchantmentGenerator::new);
-		// #endregion datagen-enchantments--register
+		// #endregion datagen_enchantments__register
 
-		// #region datagen-advancements--register
+		// #region datagen_advancements__register
 		pack.addProvider(ExampleModAdvancementProvider::new);
-		// #endregion datagen-advancements--register
+		// #endregion datagen_advancements__register
 
-		// #region datagen-translations--register
+		// #region datagen_translations__register
 		pack.addProvider(ExampleModEnglishLangProvider::new);
-		// #endregion datagen-translations--register
+		// #endregion datagen_translations__register
 
-		// #region datagen-tags--register
+		// #region datagen_tags__register
 		pack.addProvider(ExampleModItemTagProvider::new);
-		// #endregion datagen-tags--register
+		// #endregion datagen_tags__register
 		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
-		// #region datagen-recipes--register
+		// #region datagen_recipes__register
 		pack.addProvider(ExampleModRecipeProvider::new);
-		// #endregion datagen-recipes--register
+		// #endregion datagen_recipes__register
 
-		// #region datagen-loot-tables--register
+		// #region datagen_loot_tables__register
 		pack.addProvider(ExampleModBlockLootTableProvider::new);
 		pack.addProvider(ExampleModChestLootTableProvider::new);
-		// #endregion datagen-loot-tables--register
+		// #endregion datagen_loot_tables__register
 
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypesGenerator::new);
 		pack.addProvider(ExampleModDamageTypesProvider.TaterDamageTypeTagGenerator::new);
@@ -57,42 +57,42 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModInternalModelProvider::new);
 		pack.addProvider(ExampleModResourceConditionProvider::new);
 
-		// #region datagen-models--register
+		// #region datagen_models__register
 		pack.addProvider(ExampleModModelProvider::new);
-		// #endregion datagen-models--register
+		// #endregion datagen_models__register
 
 		pack.addProvider(ExampleModAppearanceModelProvider::new);
 
-		// #region add-worldgen-provider
+		// #region add_worldgen_provider
 		pack.addProvider(ExampleModWorldgenProvider::new);
-		// #endregion add-worldgen-provider
+		// #endregion add_worldgen_provider
 
 		pack.addProvider(ExampleModFluidTagProvider::new);
 
 		pack.addProvider(ExampleModAdvancementRewardLootTableProvider::new);
 		pack.addProvider(ExampleModCodecExampleProvider::new);
-		// #region datagen-setup--generator
+		// #region datagen_setup__generator
 	}
-	// #endregion datagen-setup--generator
+	// #endregion datagen_setup__generator
 
-	// #region datagen-enchantments--bootstrap
+	// #region datagen_enchantments__bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
-		// #endregion datagen-enchantments--bootstrap
+		// #endregion datagen_enchantments__bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
 
-		// #region datagen-world--registries
+		// #region datagen_world__registries
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
-		// #endregion datagen-world--registries
+		// #endregion datagen_world__registries
 
-		// #region datagen-enchantments--bootstrap
+		// #region datagen_enchantments__bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
-	// #endregion datagen-enchantments--bootstrap
+	// #endregion datagen_enchantments__bootstrap
 
-	// #region datagen-setup--generator
+	// #region datagen_setup__generator
 }
-// #endregion datagen-setup--generator
+// #endregion datagen_setup__generator

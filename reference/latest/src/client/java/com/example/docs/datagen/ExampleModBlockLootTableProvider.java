@@ -16,7 +16,7 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import com.example.docs.block.ModBlocks;
 
-// #region datagen-loot-tables--block-provider
+// #region datagen_loot_tables__block_provider
 public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider {
 	protected ExampleModBlockLootTableProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
@@ -24,8 +24,8 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 
 	@Override
 	public void generate() {
-		// #endregion datagen-loot-tables--block-provider
-		// #region datagen-loot-tables--block-drops
+		// #endregion datagen_loot_tables__block_provider
+		// #region datagen_loot_tables__block_drops
 		// Make condensed dirt drop its block item.
 		// Also adds the condition that it survives the explosion that broke it, if applicable,
 		dropSelf(ModBlocks.CONDENSED_DIRT);
@@ -36,13 +36,13 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 				.setRolls(new UniformGenerator(new ConstantValue(7), new ConstantValue(9)))
 				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
-		// #endregion datagen-loot-tables--block-drops
-		// #region datagen-loot-tables--conditions
+		// #endregion datagen_loot_tables__block_drops
+		// #region datagen_loot_tables__conditions
 		// Make the duplicator never drop via resource conditions
 		withConditions(ResourceConditions.not(ResourceConditions.alwaysTrue()))
 				.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
-		// #endregion datagen-loot-tables--conditions
-		// #region datagen-loot-tables--block-provider
+		// #endregion datagen_loot_tables__conditions
+		// #region datagen_loot_tables__block_provider
 	}
 }
-// #endregion datagen-loot-tables--block-provider
+// #endregion datagen_loot_tables__block_provider

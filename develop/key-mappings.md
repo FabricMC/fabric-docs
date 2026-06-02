@@ -28,7 +28,7 @@ together in the settings menu.
 Next, we can create a key mapping. We will be using Fabric API's `KeyMappingHelper` to register
 our key mapping at the same time.
 
-<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key-mapping
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key_mapping
 
 ::: info
 
@@ -69,7 +69,7 @@ Translations can be added manually or using [data generation](./data-generation/
 
 Now that we have a key mapping, we can react to it using a client tick event.
 
-<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client-tick-event
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
 This will print "Key Pressed!" to the in-game chat every time the mapped key is pressed. Keep in mind that holding the key will repeatedly print the message to the chat, so you might want to implement guards if this logic only needs to trigger once.
 

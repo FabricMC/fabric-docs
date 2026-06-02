@@ -18,18 +18,18 @@ public class ExampleModNetworkingBasic implements ModInitializer {
 		PayloadTypeRegistry.serverboundPlay().register(GiveGlowingEffectServerboundPayload.TYPE, GiveGlowingEffectServerboundPayload.CODEC);
 		// #endregion serverbound
 
-		// #region server-global-receiver
+		// #region server_global_receiver
 		ServerPlayNetworking.registerGlobalReceiver(GiveGlowingEffectServerboundPayload.TYPE, (payload, context) -> {
-			// #region validate-entity
+			// #region validate_entity
 			Entity entity = context.player().level().getEntity(payload.entityId());
-			// #endregion validate-entity
+			// #endregion validate_entity
 
-			// #region entity-checks
+			// #region entity_checks
 			if (entity instanceof LivingEntity livingEntity && livingEntity.closerThan(context.player(), 5)) {
 				livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100));
 			}
-			// #endregion entity-checks
+			// #endregion entity_checks
 		});
-		// #endregion server-global-receiver
+		// #endregion server_global_receiver
 	}
 }

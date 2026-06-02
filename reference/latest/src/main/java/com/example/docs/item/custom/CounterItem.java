@@ -41,14 +41,14 @@ public class CounterItem extends Item {
 	// #endregion use
 
 	@Override
-	// #region fixed-append-hover-text
+	// #region fixed_append_hover_text
 	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
 		if (stack.has(ModComponents.CLICK_COUNT_COMPONENT)) {
 			int count = stack.get(ModComponents.CLICK_COUNT_COMPONENT);
 			textConsumer.accept(Component.translatable("item.example-mod.counter.info", count).withStyle(ChatFormatting.GOLD));
 		}
 	}
-	// #endregion fixed-append-hover-text
+	// #endregion fixed_append_hover_text
 
 	// #region item
 }

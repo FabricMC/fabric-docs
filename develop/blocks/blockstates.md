@@ -26,7 +26,7 @@ Minecraft has some custom classes already that allow you quickly create certain 
 
 The vanilla `RotatedPillarBlock` class allows the block to be placed in the X, Y or Z axis.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed-oak-log
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_oak_log
 
 Pillar blocks have two textures, top and side - they use the `block/cube_column` model.
 
@@ -77,7 +77,7 @@ Firstly, you'll need to create the property itself - since this is a boolean, we
 
 Next, we have to append the property to the blockstate manager in the `createBlockStateDefinition` method. You'll need to override the method to access the builder:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block-state-definition
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block_state_definition
 
 You'll also have to set a default state for the `activated` property in the constructor of your custom block.
 
@@ -87,7 +87,7 @@ You'll also have to set a default state for the `activated` property in the cons
 
 This example flips the boolean `activated` property when the player interacts with the block. We can override the `useWithoutItem` method for this:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on-use
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on_use
 
 ### Visualizing The Property {#visualizing-the-property}
 
@@ -115,9 +115,9 @@ Since the example block is a lamp, we also need to make it emit light when the `
 
 You can use the `lightLevel` method to set the light level emitted by the block, we can create a static method in the `PrismarineLampBlock` class to return the light level based on the `activated` property, and pass it as a method reference to the `lightLevel` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get-luminance
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine-lamp
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

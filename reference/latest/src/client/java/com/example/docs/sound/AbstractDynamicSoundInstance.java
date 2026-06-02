@@ -8,7 +8,7 @@ import net.minecraft.util.Mth;
 
 import com.example.docs.sound.instance.SoundInstanceCallback;
 
-// #region class-fields
+// #region class_fields
 public abstract class AbstractDynamicSoundInstance extends AbstractTickableSoundInstance {
 	protected final DynamicSoundSource soundSource;                 // Entities, BlockEntities, ...
 	protected TransitionState transitionState;                      // current TransitionState of the SoundInstance
@@ -25,7 +25,7 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	protected final SoundInstanceCallback callback;                 // callback for soundInstance states
 
 	// ...
-	// #endregion class-fields
+	// #endregion class_fields
 
 	// #region constructor
 	// ...
@@ -58,14 +58,14 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 	// ...
 	// #endregion constructor
 
-	// #region can-start
+	// #region can_start
 	@Override
 	public boolean canStartSilent() {
 		// override to true, so that the SoundInstance can start
 		// or add your own condition to the SoundInstance, if necessary
 		return true;
 	}
-	// #endregion can-start
+	// #endregion can_start
 
 	// #region tick
 	@Override
@@ -137,6 +137,6 @@ public abstract class AbstractDynamicSoundInstance extends AbstractTickableSound
 		this.transitionState = TransitionState.ENDING;
 	}
 	// #endregion other
-	// #region class-fields
+	// #region class_fields
 }
-// #endregion class-fields
+// #endregion class_fields

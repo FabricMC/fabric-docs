@@ -15,9 +15,9 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 
-// #region block-entity
+// #region block_entity
 public class CounterBlockEntity extends BlockEntity {
-	// #endregion block-entity
+	// #endregion block_entity
 
 	// #region clicks
 	private int clicks = 0;
@@ -25,11 +25,11 @@ public class CounterBlockEntity extends BlockEntity {
 
 	private int ticksSinceLast = 0;
 
-	// #region block-entity
+	// #region block_entity
 	public CounterBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.COUNTER_BLOCK_ENTITY, pos, state);
 	}
-	// #endregion block-entity
+	// #endregion block_entity
 
 	// #region clicks
 	public int getClicks() {
@@ -39,10 +39,10 @@ public class CounterBlockEntity extends BlockEntity {
 	public void incrementClicks() {
 		// #endregion clicks
 
-		// #region ticks-since-last
+		// #region ticks_since_last
 		if (this.ticksSinceLast < 10) return;
 		this.ticksSinceLast = 0;
-		// #endregion ticks-since-last
+		// #endregion ticks_since_last
 
 		// #region clicks
 		this.clicks++;
@@ -50,7 +50,7 @@ public class CounterBlockEntity extends BlockEntity {
 	}
 	// #endregion clicks
 
-	// #region broadcast-update
+	// #region broadcast_update
 	@Override
 	public void setChanged() {
 		super.setChanged();
@@ -60,7 +60,7 @@ public class CounterBlockEntity extends BlockEntity {
 		BlockState state = getBlockState();
 		level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
 	}
-	// #endregion broadcast-update
+	// #endregion broadcast_update
 
 	// #region saving
 	@Override
@@ -86,20 +86,20 @@ public class CounterBlockEntity extends BlockEntity {
 	}
 	// #endregion tickers
 
-	// #region get-update-tag
+	// #region get_update_tag
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
 		return saveWithoutMetadata(registryLookup);
 	}
-	// #endregion get-update-tag
+	// #endregion get_update_tag
 
-	// #region update-packet
+	// #region update_packet
 	@Override
 	public Packet<ClientGamePacketListener> getUpdatePacket() {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
-	// #endregion update-packet
+	// #endregion update_packet
 
-	// #region block-entity
+	// #region block_entity
 }
-// #endregion block-entity
+// #endregion block_entity

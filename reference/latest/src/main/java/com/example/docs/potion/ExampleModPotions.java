@@ -16,7 +16,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.effect.ExampleModEffects;
 
 public class ExampleModPotions implements ModInitializer {
-	// #region register-potion
+	// #region register_potion
 	public static final Holder<Potion> TATER_POTION =
 			Registry.registerForHolder(
 					BuiltInRegistries.POTION,
@@ -29,11 +29,11 @@ public class ExampleModPotions implements ModInitializer {
 							)
 					)
 			);
-	// #endregion register-potion
+	// #endregion register_potion
 
 	@Override
 	public void onInitialize() {
-		// #region register-recipes
+		// #region register_recipes
 		FabricPotionBrewingBuilder.BUILD.register(builder -> {
 			builder.addMix(
 					// Input potion.
@@ -44,6 +44,6 @@ public class ExampleModPotions implements ModInitializer {
 					TATER_POTION
 			);
 		});
-		// #endregion register-recipes
+		// #endregion register_recipes
 	}
 }

@@ -6,7 +6,7 @@ import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.geom.PartNames;
 
-// #region dancing-animation
+// #region dancing_animation
 public class MiniGolemAnimations {
 	public static final AnimationDefinition DANCING = AnimationDefinition.Builder.withLength(1)
 			.looping()
@@ -33,4 +33,4 @@ public class MiniGolemAnimations {
 			))
 			.build();
 }
-// #endregion dancing-animation
+// #endregion dancing_animation

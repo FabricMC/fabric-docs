@@ -54,7 +54,7 @@ Minecraft.getInstance().setScreen(null);
 
 If you want to be fancy, and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
 
-<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return-to-previous-screen
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close` - it will return to the previous screen.
 

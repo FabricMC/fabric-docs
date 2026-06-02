@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 // #region screen
 public class CustomScreen extends Screen {
 	// #endregion screen
-	// #region return-to-previous-screen
+	// #region return_to_previous_screen
 	public Screen parent;
 	public CustomScreen(Component title, Screen parent) {
 		super(title);
@@ -21,7 +21,7 @@ public class CustomScreen extends Screen {
 		this.minecraft.setScreen(this.parent);
 	}
 
-	// #endregion return-to-previous-screen
+	// #endregion return_to_previous_screen
 	// #region screen
 	public CustomScreen(Component title) {
 		super(title);
@@ -43,12 +43,12 @@ public class CustomScreen extends Screen {
 		this.addRenderableWidget(buttonWidget);
 
 		// #endregion screen
-		// #region add-custom-widget
+		// #region add_custom_widget
 		// Add a custom widget to the screen.
 		// x, y, width, height
 		CustomWidget customWidget = new CustomWidget(40, 80, 120, 20);
 		this.addRenderableWidget(customWidget);
-		// #endregion add-custom-widget
+		// #endregion add_custom_widget
 		// #region screen
 	}
 
