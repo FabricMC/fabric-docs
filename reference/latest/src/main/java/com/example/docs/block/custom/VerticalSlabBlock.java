@@ -18,14 +18,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-// :::custom-constructor
+// #region custom-constructor
 public class VerticalSlabBlock extends Block {
-	// :::custom-constructor
+	// #endregion custom-constructor
 
-	// :::custom-properties
+	// #region custom-properties
 	public static final BooleanProperty SINGLE = BooleanProperty.create("single");
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
-	// :::custom-properties
+	// #endregion custom-properties
 	// #region custom-voxels
 	public static final VoxelShape NORTH_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
 	public static final VoxelShape SOUTH_SHAPE = Block.box(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
@@ -33,12 +33,12 @@ public class VerticalSlabBlock extends Block {
 	public static final VoxelShape EAST_SHAPE = Block.box(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 	// #endregion custom-voxels
 
-	// :::custom-constructor
+	// #region custom-constructor
 	public VerticalSlabBlock(Properties settings) {
 		super(settings);
 	}
 
-	// :::custom-constructor
+	// #endregion custom-constructor
 
 	// #region custom-collision
 	@Override
@@ -88,7 +88,7 @@ public class VerticalSlabBlock extends Block {
 	}
 	// #endregion custom-replace
 
-	// :::custom-placement
+	// #region custom-placement
 	@Override
 	@Nullable
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
@@ -113,15 +113,15 @@ public class VerticalSlabBlock extends Block {
 			return state2.setValue(FACING, direction);
 		}
 	}
-	// :::custom-placement
+	// #endregion custom-placement
 
-	// :::custom-append
+	// #region custom-append
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(SINGLE, FACING);
 	}
-	// :::custom-append
+	// #endregion custom-append
 
-	// :::custom-constructor
+	// #region custom-constructor
 }
-// :::custom-constructor
+// #endregion custom-constructor
