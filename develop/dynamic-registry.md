@@ -29,7 +29,7 @@ Let's create a dynamic registry for a magic skill system.
 
 ### Class Setup {#class-setup}
 
-First, create the class that represents a registry entry. It is a simple data holder for values tied to each magic skill like name, mana cost, etc. A [`Codec`](./codecs.md) is required to encode and decode the entry.
+First, create the class that represents a registry entry. It is a simple data holder for values tied to each magic skill like name, mana cost, etc. A [`Codec`](./codecs) is required to encode and decode the entry.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
 
@@ -67,7 +67,7 @@ There are two ways to register a dynamic registry:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#synced
 
-`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry. In our case we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field for client UI, so we create a [`Codec`](./codecs.md) that doesn't include the [`onUseMcFunction`](#class-setup) field.
+`DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry. In our case we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field for client UI, so we create a [`Codec`](./codecs) that doesn't include the [`onUseMcFunction`](#class-setup) field.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
@@ -113,6 +113,7 @@ The first `example-mod` is the namespace of the entry being added. The second `e
 :::
 
 #### Entry ID {#entry-id}
+
 The entry ID is a unique key for each entry, and it can be useful for accessing a specific entry from a registry. The filename and the [registry key](#registering-the-registry) are used to make the entry ID. Our entry JSON file is named `healing_spell.json`, therefore, the entry ID is:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#entry_id
