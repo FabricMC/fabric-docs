@@ -1,0 +1,36 @@
+package com.example.docs.conditions;
+
+import com.mojang.serialization.MapCodec;
+
+import net.minecraft.resources.Identifier;
+
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
+import com.example.docs.ExampleMod;
+
+//#region create
+public class ModResourceConditions {
+	//#endregion create
+	//#region register
+	public static final ResourceConditionType<DateMatchesResourceCondition> DATE_MATCHES =
+			createResourceConditionType("date_matches", DateMatchesResourceCondition.CODEC);
+
+	//#endregion register
+
+	//#region create
+	private static <T extends ResourceCondition> ResourceConditionType<T> createResourceConditionType(String name, MapCodec<T> codec) {
+		return ResourceConditionType.create(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), codec);
+	}
+	//#endregion create
+
+	//#region register
+	public static void register() {
+		ResourceConditions.register(DATE_MATCHES);
+	}
+	//#endregion register
+
+	//#region create
+}
+//#endregion create

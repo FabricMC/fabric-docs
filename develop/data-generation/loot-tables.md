@@ -58,3 +58,9 @@ We'll need a `ResourceKey<LootTable>` for our loot table. Let's put that in a ne
 Then, we can generate a loot table inside the `generate` method of your provider.
 
 @[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+
+## Resource Conditions {#resource-conditions}
+
+To apply a [resource condition](../resource-conditions) to a data generated loot table, call `withConditions` and provide any resource conditions you want to apply, then call a method from the loot table provider, such as `dropSelf`. This will then generate a loot table that has resource conditions applied:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen-loot-tables--conditions
