@@ -40,7 +40,9 @@ Then, we register an item with the following components.
 
 ## Creating the Special Renderer {#special-renderer}
 
-First, we'll create a model layer location that points to where the shield model is, then two sprite identifiers that point to where the sprites we'll use are located - one for the normal texture, one for the banner texture.
+As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model.
+
+First, we'll create a model layer location that points to where the shield model is.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldLayers.java#layer
 
@@ -72,9 +74,9 @@ We'll also set the extents of the model, defining the model's bounding box, whic
 
 The submission process handles the logic of _what_ to render. The shield render's logic does the following:
 
-1. Check for and store any banner patterns on the shield, defaulting to an empty banner pattern list if not.
-2. Check for and store where the shield has been dyed, defaulting to `null` if not.
-3. If the shield has banner patterns or has been dyed, use the dyed texture. If not, use the standard texture.
+1. Retrieve the shield's banner patterns and store them in a variable. If the shield has no banner patterns, this variable is set to `BannerPatternLayers.EMPTY`.
+2. Retrieve the shield's dye colour and store it in a variable, `baseColor`. If the shield has no dye colour, this variable is set to `null`.
+3. If the shield has banner patterns or has been dyed, use the `base` texture. If not, use the `base_nopattern` texture.
 4. Submit the shield model to be rendered, using the provided parameters and texture.
 5. If the shield has banner patterns, submit those as well.
 6. If the shield is enchanted, submit the enchantment glint.
@@ -99,7 +101,7 @@ We'll be creating two item models and a client item for the shield. Add the foll
 
 - A normal item model which uses the vanilla shield as a parent.
 - A blocking item model which uses the vanilla shield's blocking model as a parent.
-- A conditional client item that displays the normal item model normally and the blocking model when blocking.
+- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the texture we'll be using, `guidite_shield_base`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#shield
 

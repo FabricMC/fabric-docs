@@ -177,16 +177,18 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
 
 		// Item models
-		var shieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation), Optional.empty(), TextureSlot.PARTICLE);
+		ModelTemplate shieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation), Optional.empty(), TextureSlot.PARTICLE);
 		shieldTemplate.create(modelLocation, TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
 
-		var blockingShieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation.withSuffix("_blocking")), Optional.empty(), TextureSlot.PARTICLE);
+		ModelTemplate blockingShieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation.withSuffix("_blocking")), Optional.empty(), TextureSlot.PARTICLE);
 		blockingShieldTemplate.create(modelLocation.withSuffix("_blocking"), TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
 
 		// Client Item
-		ItemModel.Unbaked normal = ItemModelUtils.specialModel(modelLocation, new GuiditeShieldSpecialRenderer.Unbaked());
-		ItemModel.Unbaked blocking = ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), new GuiditeShieldSpecialRenderer.Unbaked());
-		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(), blocking, normal));
+		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base"));
+		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(),
+						ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), specialRenderer),
+						ItemModelUtils.specialModel(modelLocation, specialRenderer)
+		));
 		// #endregion shield
 
 		// :::provider

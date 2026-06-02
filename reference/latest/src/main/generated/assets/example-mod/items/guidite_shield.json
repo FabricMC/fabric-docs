@@ -5,14 +5,16 @@
       "type": "minecraft:special",
       "base": "example-mod:item/guidite_shield",
       "model": {
-        "type": "example-mod:guidite_shield"
+        "type": "example-mod:guidite_shield",
+        "texture": "example-mod:guidite_shield_base"
       }
     },
     "on_true": {
       "type": "minecraft:special",
       "base": "example-mod:item/guidite_shield_blocking",
       "model": {
-        "type": "example-mod:guidite_shield"
+        "type": "example-mod:guidite_shield",
+        "texture": "example-mod:guidite_shield_base"
       }
     },
     "property": "minecraft:using_item",

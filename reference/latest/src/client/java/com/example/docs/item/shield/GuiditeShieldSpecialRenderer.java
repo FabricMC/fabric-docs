@@ -6,11 +6,13 @@ import java.util.function.Consumer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Transformation;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
 import org.jspecify.annotations.Nullable;
 
 import net.minecraft.client.model.object.equipment.ShieldModel;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
@@ -19,6 +21,7 @@ import net.minecraft.client.resources.model.sprite.SpriteGetter;
 import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Unit;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -29,14 +32,20 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// The offset applied to the model by default
 	public static final Transformation DEFAULT_TRANSFORMATION = new Transformation(null, null, new Vector3f(1.0F, -1.0F, -1.0F), null);
 
-	// What sprites should be used.
+	// Maps Identifiers to their Sprites
 	private final SpriteGetter sprites;
 	// What model should be used.
 	private final ShieldModel model;
+	// The base white texture (provided in the client item)
+	private final SpriteId baseSprite;
+	// The texture used when no dye or banner patterns are present (based on the path provided in the client item).
+	private final SpriteId baseSpriteNoPattern;
 
-	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model) {
+	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model, Identifier baseTexture) {
 		this.sprites = sprites;
 		this.model = model;
+		this.baseSprite = Sheets.SHIELD_MAPPER.apply(baseTexture);
+		this.baseSpriteNoPattern = Sheets.SHIELD_MAPPER.apply(baseTexture.withSuffix("_nopattern"));
 	}
 	// #endregion renderer
 
@@ -53,7 +62,7 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		BannerPatternLayers patterns = components != null ? components.getOrDefault(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY) : BannerPatternLayers.EMPTY;
 		DyeColor baseColor = components != null ? components.get(DataComponents.BASE_COLOR) : null;
 		boolean hasPatterns = !patterns.layers().isEmpty() || baseColor != null;
-		SpriteId base = hasPatterns ? GuiditeShieldLayers.GUIDITE_SHIELD_BASE : GuiditeShieldLayers.GUIDITE_SHIELD_BASE_NO_PATTERN;
+		SpriteId base = hasPatterns ? this.baseSprite : this.baseSpriteNoPattern;
 		submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, base, this.sprites, outlineColor, null);
 
 		if (hasPatterns) {
@@ -75,9 +84,8 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// #endregion extents
 
 	// #region unbaked
-	public record Unbaked() implements SpecialModelRenderer.Unbaked<DataComponentMap> {
-		public static final Unbaked INSTANCE = new Unbaked();
-		public static final MapCodec<Unbaked> MAP_CODEC = MapCodec.unit(INSTANCE);
+	public record Unbaked(Identifier texture) implements SpecialModelRenderer.Unbaked<DataComponentMap> {
+		public static final MapCodec<Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec((i) -> i.group(Identifier.CODEC.fieldOf("texture").forGetter(Unbaked::texture)).apply(i, Unbaked::new));
 
 		public MapCodec<Unbaked> type() {
 			return MAP_CODEC;
@@ -85,7 +93,7 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 
 		public GuiditeShieldSpecialRenderer bake(final SpecialModelRenderer.BakingContext context) {
 			return new GuiditeShieldSpecialRenderer(context.sprites(), new ShieldModel(context.entityModelSet()
-							.bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)));
+							.bakeLayer(GuiditeShieldLayers.GUIDITE_SHIELD)), texture);
 		}
 	}
 	// #endregion unbaked
