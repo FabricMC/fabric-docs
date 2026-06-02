@@ -9,7 +9,6 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.model.DelegatedModel;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplate;
@@ -178,8 +177,11 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
 
 		// Item models
-		itemModelGenerator.modelOutput.accept(modelLocation, new DelegatedModel(vanillaShieldModelLocation));
-		itemModelGenerator.modelOutput.accept(modelLocation.withSuffix("_blocking"), new DelegatedModel(vanillaShieldModelLocation.withSuffix("_blocking")));
+		var shieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation), Optional.empty(), TextureSlot.PARTICLE);
+		shieldTemplate.create(modelLocation, TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
+
+		var blockingShieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation.withSuffix("_blocking")), Optional.empty(), TextureSlot.PARTICLE);
+		blockingShieldTemplate.create(modelLocation.withSuffix("_blocking"), TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
 
 		// Client Item
 		ItemModel.Unbaked normal = ItemModelUtils.specialModel(modelLocation, new GuiditeShieldSpecialRenderer.Unbaked());

@@ -1,3 +1,6 @@
 {
-  "parent": "minecraft:item/shield"
+  "parent": "minecraft:item/shield",
+  "textures": {
+    "particle": "minecraft:block/acacia_planks"
+  }
 }
