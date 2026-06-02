@@ -474,6 +474,10 @@ export default [
         text: "develop.misc.custom_recipe_types",
         link: "/develop/custom-recipe-types",
       },
+      {
+        text: "develop.misc.resource_conditions",
+        link: "/develop/resource-conditions",
+      },
     ],
   },
 ] satisfies Fabric.SidebarItem[];
