@@ -56,4 +56,14 @@ There's a lot of helper methods for creating common recipes. Check out what `Rec
 
 Other recipes work similarly, but require a few extra parameters. For example, smelting recipes need to know how much experience to award.
 
-@[code lang=java transcludeWith=:::datagen-recipes:other](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smelting
+
+Smoking is a little different, it does not use the same recipe generator as smelter-like blocks do.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--smoking
+
+## Resource Conditions {#resource-conditions}
+
+To apply a [resource condition](../resource-conditions) to a data generated recipe, wrap the output with `withConditions` and provide any resource conditions you want to apply. This will then generate a recipe and an advancement that has resource conditions applied:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#datagen-recipes--conditions

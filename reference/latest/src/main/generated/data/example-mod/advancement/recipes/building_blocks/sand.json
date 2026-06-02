@@ -1,11 +1,20 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:tags_populated",
+      "registry": "minecraft:item",
+      "values": [
+        "minecraft:dirt"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hay_block": {
+    "has_sand": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:hay_block"
+            "items": "minecraft:sand"
           }
         ]
       },
@@ -13,7 +22,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:wheat_from_smelting_hay_block"
+        "recipe": "example-mod:sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +30,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hay_block"
+      "has_sand"
     ]
   ],
   "rewards": {
     "recipes": [
-      "example-mod:wheat_from_smelting_hay_block"
+      "example-mod:sand"
     ]
   }
 }

@@ -29,7 +29,8 @@
       "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",
       "com.example.docs.gamerule.ExampleModGameRules",
-      "com.example.docs.dynamic_registries.ExampleModDynamicRegistries"
+      "com.example.docs.dynamic_registries.ExampleModDynamicRegistries",
+      "com.example.docs.conditions.ExampleModResourceConditions"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",

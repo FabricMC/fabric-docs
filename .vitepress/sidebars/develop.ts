@@ -478,6 +478,10 @@ export default [
         text: "develop.misc.dynamic_registries",
         link: "/develop/dynamic-registry",
       },
+      {
+        text: "develop.misc.resource_conditions",
+        link: "/develop/resource-conditions",
+      },
     ],
   },
 ] satisfies Fabric.SidebarItem[];
