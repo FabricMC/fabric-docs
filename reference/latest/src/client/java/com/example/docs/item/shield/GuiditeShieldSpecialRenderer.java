@@ -50,11 +50,11 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// #endregion renderer
 
 	@Override
-	// #region extract-argument
+	// #region extract_argument
 	public @Nullable DataComponentMap extractArgument(final ItemStack stack) {
 		return stack.immutableComponents();
 	}
-	// #endregion extract-argument
+	// #endregion extract_argument
 
 	@Override
 	// #region submit

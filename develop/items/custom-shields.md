@@ -26,7 +26,7 @@ For more information, see the documentation on registering [items](first-item).
 
 For this example, we will use the same repair item tag we will be using for armor and tools. We define the tag reference as follows:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Then, we register an item with the following components.
 
@@ -48,7 +48,7 @@ First, we'll create a model layer location that points to where the shield model
 
 Then, register the layer in your client initializer.
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#shield-layer
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#shield_layer
 
 Then, we'll create a special renderer for the item. This one is based off of the vanilla shield renderer, with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section. The renderer is complicated, so we'll break it down.
 
@@ -62,7 +62,7 @@ The constructor of the renderer is simple - it accepts a `SpriteGetter` that wil
 
 When extracting data to be rendered, we need a immutable copy of the data that contains only the information needed to render the item. We can retrieve that from the `ItemStack` by converting its `DataComponentMap` to an immutable one in `extractArgument`.
 
-<<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extract-argument
+<<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extract_argument
 
 ### Extents {#extents}
 
@@ -119,7 +119,7 @@ Two recipes are usually needed to access the item in survival - a normal craftin
 
 You can make the crafting recipe for your shield whatever you want, so we'll only focus on the decoration recipe. We'll use this line in our recipe provider (`ExampleModRecipeProvider#buildRecipes`) to generate a shield decoration recipe.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#shield-decoration
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#shield_decoration
 
 With this recipe defined, you can now put banner patterns on your shield.
 
@@ -137,4 +137,4 @@ It's also recommended to place your shield in the appropriate item tags. For a s
 
 In your item tag provider, add the following lines to `addTags`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#shield-tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#shield_tags
