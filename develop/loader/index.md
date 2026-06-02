@@ -7,8 +7,8 @@ authors:
   - jamieswhiteshirt
   - liach
   - Llamalad7
-  - SolidBlock-cn
   - Maganoos
+  - SolidBlock-cn
 resources:
   https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Fabric Loader 0.19.2 Javadocs
   https://wiki.fabricmc.net/documentation:entrypoint: Entrypoints - Fabric Wiki
