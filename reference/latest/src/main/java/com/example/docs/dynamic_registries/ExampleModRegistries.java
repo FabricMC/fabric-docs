@@ -25,7 +25,7 @@ public class ExampleModRegistries {
 	}
 	// #endregion main
 
-	private void initializeFake(){
+	private void initializeExample() {
 		// #region simple
 		DynamicRegistries.register(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC);
 		// #endregion simple
