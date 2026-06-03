@@ -7,7 +7,7 @@ export const fullScreenButtonClick = (e: PointerEvent) => {
   openCodeDialog(codeBlock as HTMLElement);
 };
 
-export function createCodeDialog() {
+export function checkAndCreateCodeDialog() {
   if (document.getElementById("code-preview-dialog")) return;
   const dialog = document.createElement("dialog");
   dialog.id = "code-preview-dialog";

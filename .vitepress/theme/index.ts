@@ -14,7 +14,7 @@ import References from "./components/References.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
 import "./style.css";
-import { createCodeDialog, fullScreenButtonClick } from "./codeBlockDialog";
+import { checkAndCreateCodeDialog, fullScreenButtonClick } from "./codeBlockDialog";
 
 export default {
   extends: DefaultTheme,
@@ -55,7 +55,7 @@ export default {
   },
   setup: () => {
     onMounted(() => {
-      createCodeDialog();
+      checkAndCreateCodeDialog();
       document.addEventListener("click", fullScreenButtonClick);
     });
 
@@ -63,6 +63,7 @@ export default {
 
     // Replace data-gen head script, which updates head tags
     router.onAfterRouteChange = () => {
+      checkAndCreateCodeDialog();
       const oldScript = document.querySelector("script[data-gen]");
       if (!oldScript) return;
 
