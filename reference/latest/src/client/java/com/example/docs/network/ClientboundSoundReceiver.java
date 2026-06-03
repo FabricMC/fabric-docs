@@ -12,13 +12,13 @@ import com.example.docs.sound.CustomSounds;
 import com.example.docs.sound.DynamicSoundManager;
 import com.example.docs.sound.instance.EngineSoundInstance;
 
-public class ReceiveS2C {
+public class ClientboundSoundReceiver {
 	static {
-		ClientPlayNetworking.registerGlobalReceiver(EngineSoundInstancePacket.IDENTIFIER, ReceiveS2C::handleS2CEngineSoundPacket);
+		ClientPlayNetworking.registerGlobalReceiver(EngineSoundInstancePacket.IDENTIFIER, ClientboundSoundReceiver::handleClientboundEngineSoundPacket);
 	}
 
-	// :::1
-	private static void handleS2CEngineSoundPacket(EngineSoundInstancePacket packet, ClientPlayNetworking.Context context) {
+	// #region handle_packet
+	private static void handleClientboundEngineSoundPacket(EngineSoundInstancePacket packet, ClientPlayNetworking.Context context) {
 		ClientLevel level = context.client().level;
 		if (level == null) return;
 
@@ -40,7 +40,7 @@ public class ReceiveS2C {
 			soundManager.getPlayingSoundInstance(CustomSounds.ENGINE_LOOP).ifPresent(AbstractDynamicSoundInstance::end);
 		}
 	}
-	// :::1
+	// #endregion handle_packet
 
 	public static void initialize() {
 	}

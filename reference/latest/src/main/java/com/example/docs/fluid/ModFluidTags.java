@@ -7,8 +7,8 @@ import net.minecraft.world.level.material.Fluid;
 
 import com.example.docs.ExampleMod;
 
-//:::tags
+// #region tags
 public class ModFluidTags {
 	public static TagKey<Fluid> ACID = TagKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "acid"));
 }
-//:::tags
+// #endregion tags

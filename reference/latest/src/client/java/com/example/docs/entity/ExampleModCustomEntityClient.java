@@ -7,16 +7,16 @@ import net.fabricmc.api.ClientModInitializer;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.renderer.MiniGolemEntityRenderer;
 
-//:::register_client
+// #region register_client
 public class ExampleModCustomEntityClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		ModEntityModelLayers.registerModelLayers();
-		//:::register_client
-		//:::register_renderer
+		// #endregion register_client
+		// #region register_renderer
 		EntityRenderers.register(ModEntityTypes.MINI_GOLEM, MiniGolemEntityRenderer::new);
-		//:::register_renderer
-		//:::register_client
+		// #endregion register_renderer
+		// #region register_client
 	}
 }
-//:::register_client
+// #endregion register_client

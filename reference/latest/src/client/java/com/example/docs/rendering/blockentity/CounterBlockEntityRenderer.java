@@ -15,44 +15,54 @@ import net.minecraft.world.phys.Vec3;
 
 import com.example.docs.block.entity.custom.CounterBlockEntity;
 
-// :::1
+// #region renderer_structure
 public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBlockEntity, CounterBlockEntityRenderState> {
-	// :::1
+	// #endregion renderer_structure
 
 	private final Font font;
 
-	// :::1
+	// #region renderer_structure
 	public CounterBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-		// :::1
+		// #endregion renderer_structure
 		this.font = context.font();
-		// :::1
+		// #region renderer_structure
 	}
 
+	// #region create_render_state
 	@Override
 	public CounterBlockEntityRenderState createRenderState() {
 		return new CounterBlockEntityRenderState();
 	}
+	// #endregion create_render_state
 
+	// #region extract_render_state
 	@Override
 	public void extractRenderState(CounterBlockEntity blockEntity, CounterBlockEntityRenderState state, float tickProgress, Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
-		// :::1
+		// #endregion renderer_structure
 		BlockEntityRenderer.super.extractRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
 		state.setClicks(blockEntity.getClicks());
-		// :::1
+		// #region renderer_structure
 	}
+	// #endregion extract_render_state
 
 	@Override
 	public void submit(CounterBlockEntityRenderState state, PoseStack matrices, SubmitNodeCollector queue, CameraRenderState cameraState) {
-		// :::1
+		// #endregion renderer_structure
 
-		// :::2
+		// #region transformations
 		matrices.pushPose();
+		// #region translate
 		matrices.translate(0.5, 1, 0.5);
+		// #endregion translate
+		// #region rotate
 		matrices.mulPose(Axis.XP.rotationDegrees(90));
+		// #endregion rotate
+		// #region scale
 		matrices.scale(1/18f, 1/18f, 1/18f);
-		// :::2
+		// #endregion scale
+		// #endregion transformations
 
-		// :::3
+		// #region drawing_text
 		String text = state.getClicks() + "";
 		float width = this.font.width(text);
 
@@ -69,11 +79,11 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 				0,
 				0
 		);
-		// :::3
+		// #endregion drawing_text
 
 		matrices.popPose();
 
-		// :::1
+		// #region renderer_structure
 	}
 }
-// :::1
+// #endregion renderer_structure

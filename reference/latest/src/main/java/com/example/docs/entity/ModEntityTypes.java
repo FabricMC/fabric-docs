@@ -13,7 +13,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 
 import com.example.docs.ExampleMod;
 
-//:::types
+// #region types
 public class ModEntityTypes {
 	public static final EntityType<MiniGolemEntity> MINI_GOLEM = register(
 			"mini_golem",
@@ -34,4 +34,4 @@ public class ModEntityTypes {
 		FabricDefaultAttributeRegistry.register(MINI_GOLEM, MiniGolemEntity.createCubeAttributes());
 	}
 }
-//:::types
+// #endregion types

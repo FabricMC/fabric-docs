@@ -14,47 +14,47 @@ import net.minecraft.util.Mth;
 import com.example.docs.entity.animation.MiniGolemAnimations;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
-//:::model1
+// #region model1
 public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState> {
 	private final ModelPart head;
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
-	//:::model1
-	//:::dancing_animation
+	// #endregion model1
+	// #region dancing_animation
 	private final KeyframeAnimation dancing;
 
-	//:::dancing_animation
-	//:::model1
+	// #endregion dancing_animation
+	// #region model1
 
-	//:::dancing_animation
+	// #region dancing_animation
 	public MiniGolemEntityModel(ModelPart root) {
-		//:::dancing_animation
+		// #endregion dancing_animation
 		super(root);
 		this.head = root.getChild(PartNames.HEAD);
 		this.leftLeg = root.getChild(PartNames.LEFT_LEG);
 		this.rightLeg = root.getChild(PartNames.RIGHT_LEG);
-		//:::model1
-		//:::dancing_animation
+		// #endregion model1
+		// #region dancing_animation
 		// ...
 		this.dancing = MiniGolemAnimations.DANCING.bake(root);
-		//:::model1
+		// #region model1
 	}
-	//:::dancing_animation
-	//:::model1
+	// #endregion dancing_animation
+	// #endregion model1
 
-	//:::model_texture_data
+	// #region model_texture_data
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition modelData = new MeshDefinition();
 		PartDefinition root = modelData.getRoot();
 		root.addOrReplaceChild(
 				PartNames.BODY,
 				CubeListBuilder.create().addBox(
-						/* x */ -6,
-						/* y */ -6,
-						/* z */ -6,
-						/* width */ 12,
-						/* height */ 12,
-						/* depth */ 12
+						/* x: */ -6,
+						/* y: */ -6,
+						/* z: */ -6,
+						/* width: */ 12,
+						/* height: */ 12,
+						/* depth: */ 12
 				),
 				PartPose.offset(0, 8, 0)
 		);
@@ -75,32 +75,32 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		);
 		return LayerDefinition.create(modelData, 64, 32);
 	}
-	//:::model_texture_data
+	// #endregion model_texture_data
 
-	//:::model_animation
-	//:::dancing_animation
+	// #region model_animation
+	// #region dancing_animation
 	@Override
 	public void setupAnim(MiniGolemEntityRenderState state) {
 		super.setupAnim(state);
 
-		//:::model_animation
+		// #endregion model_animation
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
 		} else {
 			// ... the leg swing animation code from before
-			//:::dancing_animation
-			//:::model_animation
+			// #region dancing_animation
+			// #region model_animation
 			this.head.xRot = state.xRot * Mth.RAD_TO_DEG;
 			this.head.yRot = state.yRot * Mth.RAD_TO_DEG;
 			float limbSwingAmplitude = state.walkAnimationSpeed;
 			float limbSwingAnimationProgress = state.walkAnimationPos;
 			this.leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
 			this.rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
-			//:::model_animation
-			//:::dancing_animation
+			// #endregion model_animation
+			// #endregion dancing_animation
 		}
-		//:::model_animation
+		// #region model_animation
 	}
-	//:::dancing_animation
+	// #endregion dancing_animation
 }
-//:::model_animation
+// #endregion model_animation

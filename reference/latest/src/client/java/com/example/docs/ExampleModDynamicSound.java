@@ -7,22 +7,23 @@ import net.minecraft.sounds.SoundSource;
 
 import net.fabricmc.api.ClientModInitializer;
 
-import com.example.docs.network.ReceiveS2C;
+import com.example.docs.network.ClientboundSoundReceiver;
 import com.example.docs.sound.CustomSounds;
 import com.example.docs.sound.instance.CustomSoundInstance;
 
 public class ExampleModDynamicSound implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ReceiveS2C.initialize();
+		ClientboundSoundReceiver.initialize();
 	}
 
 	private void playSimpleSoundInstance() {
-		// :::1
+		// #region simple_sound_instance
 		Minecraft client = Minecraft.getInstance();
 		client.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
-		// :::1
-		// :::2
+		// #endregion simple_sound_instance
+
+		// #region custom_sound_instance
 		CustomSoundInstance instance = new CustomSoundInstance(client.player, CustomSounds.ENGINE_LOOP, SoundSource.NEUTRAL);
 
 		// play the sound instance
@@ -30,6 +31,6 @@ public class ExampleModDynamicSound implements ClientModInitializer {
 
 		// stop the sound instance
 		client.getSoundManager().stop(instance);
-		// :::2
+		// #endregion custom_sound_instance
 	}
 }

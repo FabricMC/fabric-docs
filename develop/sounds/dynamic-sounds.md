@@ -130,7 +130,7 @@ If you only want to play something like a click on a UI element, there is alread
 
 Keep in mind that this will only be played on the specific client, which executed this part of the code.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#simple_sound_instance
 
 ::: warning
 
@@ -155,7 +155,7 @@ Then taking a look at its subclass, `AbstractTickableSoundInstance` we get the `
 
 So to make use of those utilities, simply create a new class for your custom `SoundInstance` and extend from `MovingSoundInstance`.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java#custom_sound_instance
 
 Using your custom `Entity` or `BlockEntity` instead of that basic `LivingEntity` instance can give you even more control e.g. in the `tick()` method based
 on accessor methods, but you don't necessarily need a reference to a sound source like that. Instead, you could also access a `BlockPos` from somewhere else
@@ -164,12 +164,12 @@ or even set it by hand once in the constructor only.
 Just keep in mind that all the referenced objects in the `SoundInstance` are the versions from the client side.
 In specific situations, a logical server side entity's properties can differ from its client side counterpart.
 If you notice that your values don't line up, make sure that your values are synchronized
-either with entity's `EntityDataAccessor`, `BlockEntity` S2C packets or complete custom S2C network packets.
+either with entity's `EntityDataAccessor`, `BlockEntity` client-bound packets or complete custom client-bound network packets.
 
 After you have finished creating your custom `SoundInstance`, it's ready to be used anywhere as long as it's been executed on the client side using the sound manager.
 In the same way, you can also stop the custom `SoundInstance` manually, if necessary.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#custom_sound_instance
 
 The sound loop will be played now only for the client, which ran that SoundInstance. In this case, the sound will follow the `LocalPlayer` itself.
 
@@ -234,7 +234,7 @@ Instead of referencing e.g. a custom `BlockEntity` directly, only keeping track 
 Going forward we will make use of a custom interface called `DynamicSoundSource`. It is implemented in all classes which want to make use of that dynamic sound functionality,
 like your custom `BlockEntity`, Entities or even, using Mixins, on already existing classes, like `Zombie`. It basically represents only the necessary data of the sound source.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java#dynamic_sound_source
 
 After creating this interface, make sure to implement it in the necessary classes too.
 
@@ -269,7 +269,7 @@ public enum TransitionState {
 
 But when those values are sent over the network you might want to define an `Identifier` for them or even add other custom values.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java#transition_state
 
 ::: info
 
@@ -286,7 +286,7 @@ instead of the client only packages.
 This interface is used as a callback. For now, we only need a `onFinished` method, but you can add your own methods if you need to send
 other signals from the `SoundInstance` object too.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java#sound_instance_callback
 
 Implement this interface on any class, which should be able to handle the incoming signals, for example the `AbstractDynamicSoundInstance`, which we will create soon
 and create the functionality in the custom `SoundInstance` itself.
@@ -307,19 +307,19 @@ In addition, we will define more properties.
 - tick holders to keep track of the current sound's progress.
 - a callback which sends a signal back to the `DynamicSoundManager` for the final clean up, when the `SoundInstance` is actually finished
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#class_fields
 
 Then set up the default starting values for the custom `SoundInstance` in the constructor of the abstract class.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#constructor
 
 After the constructor is finished, you need to allow the `SoundInstance` to be able to play.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#can_start
 
 Now comes the important part for this dynamic `SoundInstance`. Based on the current tick of the instance, it can apply different values and behaviors.
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#tick
 
 As you can see, we haven't applied the volume and pitch modulation here yet. We only apply the shared behavior.
 So in this `AbstractDynamicSoundInstance` class we only provide the basic structure and the tools for the
@@ -327,21 +327,21 @@ subclasses, which can decide themselves, which kind of sound modulation they act
 
 So let's take a look at some examples of such sound modulation methods.
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#modulation
 
 As you can see, normalized values in combination with linear interpolation (lerp) help out to shape the values to the preferred audio limits.
 Keep in mind that if you add multiple methods, which change the same value, you will need to observe and adjust how they work together with each other.
 
 Now we just need to add the remaining utility methods, and we are done with the `AbstractDynamicSoundInstance` class.
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#other
 
 ### Example `SoundInstance` Implementation {#example-soundinstance-implementation}
 
 If we take a look at the actual custom `SoundInstance` class, which extends from the newly created `AbstractDynamicSoundInstance`, we only need to think about
 what conditions would bring the sound to a stop and what sound modulation we want to apply.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java#engine_sound_instance
 
 ### `DynamicSoundManager` Class {#dynamicsoundmanager-class}
 
@@ -351,7 +351,7 @@ We discussed [earlier](#using-a-soundinstance) how to play and stop a `SoundInst
 This new `DynamicSoundManager` class will manage the custom `SoundInstances` so it will also only be available to the client side. On top of that, a client should only ever allow one instance of this class to exist. Multiple sound managers for a single client wouldn't make much sense and complicate the interactions even more.
 So, let's use a ["Singleton Design Pattern"](https://refactoring.guru/design-patterns/singleton/java/example).
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_structure
 
 After getting the basic structure right, you can add the methods, which are needed to interact with the sound system.
 
@@ -359,7 +359,7 @@ After getting the basic structure right, you can add the methods, which are need
 - stopping sounds
 - checking if a sound is currently playing
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_methods
 
 Instead of only having a list of all currently playing `SoundInstances` you could also keep track of which sound sources are playing which sounds.
 For example, an engine having two engine sounds at the same time would make no sense, while multiple engines playing their respective engine sounds
@@ -368,9 +368,9 @@ is a valid edge case. For the sake of simplicity we just created a `List<Abstrac
 ### Using the Advanced Sound System {#using-the-advanced-sound-system}
 
 To use this sound system, simply make use of either the `DynamicSoundManager` methods or the `SoundInstance` methods. Using `onStartedTrackingBy` and `onStoppedTrackingBy`
-from entities or just custom S2C networking, you can now start and stop your custom dynamic `SoundInstance`s.
+from entities, or with [custom client-bound networking](../networking#receiving-a-packet-on-the-client), you can now start and stop your custom dynamic `SoundInstance`s.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/network/ReceiveS2C.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/ClientboundSoundReceiver.java#handle_packet
 
 The final product can adjust its volume based on the sound phase to smoothen out the transitions and change the pitch based on a stress value, which is
 coming from the sound source.

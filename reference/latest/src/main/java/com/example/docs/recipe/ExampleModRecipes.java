@@ -20,7 +20,7 @@ import com.example.docs.block.custom.UpgradingBlock;
 import com.example.docs.menu.custom.UpgradingMenu;
 
 public class ExampleModRecipes implements ModInitializer {
-	//:::registration
+	// #region registration
 	public static final RecipeSerializer<UpgradingRecipe> UPGRADING_RECIPE_SERIALIZER = Registry.register(
 					BuiltInRegistries.RECIPE_SERIALIZER,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
@@ -33,16 +33,16 @@ public class ExampleModRecipes implements ModInitializer {
 					new RecipeType<UpgradingRecipe>() { }
 	);
 
-	//:::registration
+	// #endregion registration
 
-	// TODO - recipe book support, requires enum extensions + screen changes
+	// TODO: recipe book support, requires enum extensions + screen changes
 	public static final RecipeBookCategory UPGRADING_RECIPE_BOOK_CATEGORY = Registry.register(
 					BuiltInRegistries.RECIPE_BOOK_CATEGORY,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
 					new RecipeBookCategory()
 	);
 
-	//:::menuRegistration
+	// #region upgrading_menu_registration
 	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = Registry.register(
 					BuiltInRegistries.MENU,
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
@@ -58,12 +58,12 @@ public class ExampleModRecipes implements ModInitializer {
 									.setId(ResourceKey.create(Registries.BLOCK, UPGRADING_BLOCK_ID))
 					)
 	);
-	//:::menuRegistration
+	// #endregion upgrading_menu_registration
 
 	@Override
 	public void onInitialize() {
-		//:::recipeSync
+		// #region recipe_sync
 		RecipeSynchronization.synchronizeRecipeSerializer(UPGRADING_RECIPE_SERIALIZER);
-		//:::recipeSync
+		// #endregion recipe_sync
 	}
 }

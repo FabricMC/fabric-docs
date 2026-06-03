@@ -20,7 +20,7 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import com.example.docs.component.ModComponents;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 
-//#entrypoint
+// #region entrypoint
 public class ExampleMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -28,13 +28,13 @@ public class ExampleMod implements ModInitializer {
 	public static final String MOD_ID = "example-mod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	//#entrypoint
-	//#particle_register_main
+	// #endregion entrypoint
+	// #region particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
 	public static final SimpleParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
-	//#particle_register_main
-	//#entrypoint
+	// #endregion particle_register_main
+	// #region entrypoint
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -42,36 +42,37 @@ public class ExampleMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-		//#entrypoint
+		// #endregion entrypoint
 
-		//#particle_register_main
+		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
-		//#particle_register_main
-		// :::datagen-world:biome-modifications
+		// #endregion particle_register_main
+		// #region datagen_world_biome_modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(
 				BiomeSelectors.foundInOverworld(),
 				GenerationStep.Decoration.UNDERGROUND_ORES,
 				ExampleModWorldPlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
 		);
-		// :::datagen-world:biome-modifications
+		// #endregion datagen_world_biome_modifications
 
-		// :::datagen-world:selective-biome-modifications
+		// #region datagen_world_selective_biome_modifications
 		// Spawns in forest biomes only
 		BiomeModifications.addFeature(
 				BiomeSelectors.tag(BiomeTags.IS_FOREST),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
-		// :::datagen-world:selective-biome-modifications
+		// #endregion datagen_world_selective_biome_modifications
 
-		// #tooltip_provider
+		// #region tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
-		// #tooltip_provider
-		// #advanced_tooltip_provider
+		// #endregion tooltip_provider
+		// #region advanced_tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.ADVANCED_CUSTOM_COMPONENT);
-		// #advanced_tooltip_provider
-		//#entrypoint
+		// #endregion advanced_tooltip_provider
+		// #region entrypoint
 	}
 }
+// #endregion entrypoint

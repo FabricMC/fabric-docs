@@ -13,7 +13,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 
 import com.example.docs.ExampleMod;
 
-// :::1
+// #region hud
 public class HudRenderingEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
@@ -38,4 +38,4 @@ public class HudRenderingEntrypoint implements ClientModInitializer {
 		graphics.fill(0, 0, 10, 10, lerpedColor);
 	}
 }
-// :::1
+// #endregion hud
