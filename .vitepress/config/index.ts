@@ -92,7 +92,7 @@ export default defineVersionedConfig(
               tagName: "button",
               properties: {
                 title: "Full Screen",
-                class: "copy",
+                class: "full-screen-button",
               },
               children: [],
             });
