@@ -1,6 +1,6 @@
 package com.example.docs.datagen;
 
-// :::datagen-recipes:provider
+// #region datagen_recipes_provider
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -35,16 +35,16 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 			@Override
 			public void buildRecipes() {
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
-				// :::datagen-recipes:provider
-				// :::datagen-recipes:shapeless
+				// #endregion datagen_recipes_provider
+				// #region datagen_recipes_shapeless
 
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT) // You can also specify an int to produce more than one
 						.requires(Items.COARSE_DIRT) // You can also specify an int to require more than one, or a tag to accept multiple things
 						// Create an advancement that gives you the recipe
 						.unlockedBy(getHasName(Items.COARSE_DIRT), has(Items.COARSE_DIRT))
 						.save(output);
-				// :::datagen-recipes:shapeless
-				// :::datagen-recipes:shaped
+				// #endregion datagen_recipes_shapeless
+				// #region datagen_recipes_shaped
 				shaped(RecipeCategory.MISC, Items.CRAFTING_TABLE, 4)
 						.pattern("ll")
 						.pattern("ll")
@@ -63,8 +63,8 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				doorBuilder(Items.OAK_DOOR, Ingredient.of(Items.OAK_BUTTON)) // Using a helper method!
 						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
 						.save(output);
-				// :::datagen-recipes:shaped
-				// #region datagen-recipes--smelting
+				// #endregion datagen_recipes_shaped
+				// #region datagen_recipes_smelting
 				oreSmelting(
 						List.of(Items.GLASS_BOTTLE), // Inputs
 						RecipeCategory.MISC, // Category
@@ -74,16 +74,16 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						300, // Cooking time
 						"glass_bottle_to_glass" // group
 				);
-				// #endregion datagen-recipes--smelting
+				// #endregion datagen_recipes_smelting
 
-				// #region datagen-recipes--conditions
+				// #region datagen_recipes_conditions
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
 						.requires(ItemTags.SAND)
 						.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
 						.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
-				// #endregion datagen-recipes--conditions
+				// #endregion datagen_recipes_conditions
 
-				// #region datagen-recipes--smoking
+				// #region datagen_recipes_smoking
 				SimpleCookingRecipeBuilder.smoking(
 						Ingredient.of(Items.WATER_BUCKET), // Input
 						RecipeCategory.MISC, // Category (MISC for smoking recipes)
@@ -93,11 +93,11 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				)
 						.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
 						.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
-				// #endregion datagen-recipes--smoking
-				// #region datagen-recipes--dye
+				// #endregion datagen_recipes_smoking
+				// #region datagen_recipes_dye
 				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
-				// #endregion datagen-recipes--dye
-				// :::datagen-recipes:provider
+				// #endregion datagen_recipes_dye
+				// #region datagen_recipes_provider
 			}
 		};
 	}
@@ -107,4 +107,4 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 		return "ExampleModRecipeProvider";
 	}
 }
-// :::datagen-recipes:provider
+// #endregion datagen_recipes_provider

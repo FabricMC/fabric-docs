@@ -15,42 +15,42 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import com.example.docs.block.entity.ModBlockEntities;
 
-// :::1
+// #region block_entity
 public class CounterBlockEntity extends BlockEntity {
-	// :::1
+	// #endregion block_entity
 
-	// :::2
+	// #region clicks
 	private int clicks = 0;
-	// :::2
+	// #endregion clicks
 
 	private int ticksSinceLast = 0;
 
-	// :::1
+	// #region block_entity
 	public CounterBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.COUNTER_BLOCK_ENTITY, pos, state);
 	}
-	// :::1
+	// #endregion block_entity
 
-	// :::2
+	// #region clicks
 	public int getClicks() {
 		return this.clicks;
 	}
 
 	public void incrementClicks() {
-		// :::2
+		// #endregion clicks
 
-		// :::6
+		// #region ticks_since_last
 		if (this.ticksSinceLast < 10) return;
 		this.ticksSinceLast = 0;
-		// :::6
+		// #endregion ticks_since_last
 
-		// :::2
+		// #region clicks
 		this.clicks++;
 		this.setChanged();
 	}
-	// :::2
+	// #endregion clicks
 
-	// #region broadcast-update
+	// #region broadcast_update
 	@Override
 	public void setChanged() {
 		super.setChanged();
@@ -60,46 +60,46 @@ public class CounterBlockEntity extends BlockEntity {
 		BlockState state = getBlockState();
 		level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
 	}
-	// #endregion broadcast-update
+	// #endregion broadcast_update
 
-	// :::3
+	// #region saving
 	@Override
 	protected void saveAdditional(ValueOutput output) {
 		output.putInt("clicks", this.clicks);
 
 		super.saveAdditional(output);
 	}
-	// :::3
+	// #endregion saving
 
-	// :::4
+	// #region loading
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 
 		this.clicks = input.getIntOr("clicks", 0);
 	}
-	// :::4
+	// #endregion loading
 
-	// :::5
+	// #region tickers
 	public static void tick(Level level, BlockPos blockPos, BlockState blockState, CounterBlockEntity entity) {
 		entity.ticksSinceLast++;
 	}
-	// :::5
+	// #endregion tickers
 
-	// :::7
+	// #region get_update_tag
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
 		return saveWithoutMetadata(registryLookup);
 	}
-	// :::7
+	// #endregion get_update_tag
 
-	// #region update-packet
+	// #region update_packet
 	@Override
 	public Packet<ClientGamePacketListener> getUpdatePacket() {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
-	// #endregion update-packet
+	// #endregion update_packet
 
-	// :::1
+	// #region block_entity
 }
-// :::1
+// #endregion block_entity

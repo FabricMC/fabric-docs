@@ -26,7 +26,7 @@ public class ModBlockEntities {
 	public static final BlockEntityType<DirtChestBlockEntity> DIRT_CHEST_BLOCK_ENTITY =
 					register("dirt_chest", DirtChestBlockEntity::new, ModBlocks.DIRT_CHEST_BLOCK);
 
-	// :::1
+	// #region register_block_entity
 	public static final BlockEntityType<CounterBlockEntity> COUNTER_BLOCK_ENTITY =
 			register("counter", CounterBlockEntity::new, ModBlocks.COUNTER_BLOCK);
 
@@ -38,7 +38,7 @@ public class ModBlockEntities {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
-	// :::1
+	// #endregion register_block_entity
 
 	public static void initialize() {
 	}

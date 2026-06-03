@@ -18,7 +18,7 @@ For server-wide data not tied to any specific Level, Fabric provides `GlobalAtta
 
 You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic Data Attachment that does not sync or persist across restarts.
 
-@[code lang=java transcludeWith=:::string](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
 `AttachmentRegistry` contains a few methods for creating basic Data Attachments, including:
 
@@ -32,7 +32,7 @@ The behavior of each method can also be replicated and further customized with t
 
 If you need a Data Attachment to both be persistent and synced between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
 
-@[code lang=java transcludeWith=:::pos](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#pos
 
 The example above synced to every player, but that might not fit your use case. Here are some other default predicates, but you can also build your own by referencing the `AttachmentSyncPredicate` class.
 
@@ -46,7 +46,7 @@ Data Attachments can also be set to persist across game restarts by calling the 
 
 They can be set to perdure even after the death or [conversion](https://minecraft.wiki/w/Mob_conversion) of the target with the `copyOnDeath` method.
 
-@[code lang=java transcludeWith=:::persistent](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#persistent
 
 ## Reading From a Data Attachment {#reading-attachments}
 
@@ -98,7 +98,7 @@ Although Data Attachments could store any form of data for which a Codec can be 
 
 Instead, you could achieve more intricate Attachments by splitting them into multiple fields, and organizing them with a helper class. For example, if you need two fields related to a player's stamina, you may build something like this:
 
-@[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java#stamina
 
 This helper class can then be used like so:
 

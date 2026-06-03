@@ -6,7 +6,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
-// :::1
+// #region effect
 public class TaterEffect extends MobEffect {
 	protected TaterEffect() {
 		// category: StatusEffectCategory - describes if the effect is helpful (BENEFICIAL), harmful (HARMFUL) or useless (NEUTRAL)
@@ -31,4 +31,4 @@ public class TaterEffect extends MobEffect {
 		return super.applyEffectTick(level, entity, amplifier);
 	}
 }
-// :::1
+// #endregion effect

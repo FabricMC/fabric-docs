@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import net.minecraft.sounds.SoundEvent;
 
-// #region interface-injection-example-interface
+// #region interface_injection_example_interface
 public interface BucketEmptySoundGetter {
 	default Optional<SoundEvent> example_mod$getBucketEmptySound() {
 		throw new AssertionError("Implemented in Mixin");
 	}
 }
-// #endregion interface-injection-example-interface
+// #endregion interface_injection_example_interface
