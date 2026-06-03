@@ -180,6 +180,7 @@ h1 > .VPBadge {
   border-top: none;
 }
 
+/* Full screen button for code fences */
 html:has(dialog[open]) {
   scrollbar-gutter: stable;
   overflow: hidden;

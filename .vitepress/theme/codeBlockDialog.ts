@@ -7,15 +7,15 @@ export const fullScreenButtonClick = (e: PointerEvent) => {
   openCodeDialog(codeBlock as HTMLElement);
 };
 
-export function checkAndCreateCodeDialog() {
+export const checkAndCreateCodeDialog = () => {
   if (document.getElementById("code-preview-dialog")) return;
   const dialog = document.createElement("dialog");
   dialog.id = "code-preview-dialog";
   dialog.innerHTML = `<div class="dialog-header"></div><div class="dialog-content"></div>`;
   document.querySelector(".vp-doc")?.appendChild(dialog);
-}
+};
 
-function openCodeDialog(codeBlock: HTMLElement) {
+const openCodeDialog = (codeBlock: HTMLElement) => {
   const dialog = document.getElementById("code-preview-dialog") as HTMLDialogElement;
   const content = dialog.querySelector(".dialog-content") as HTMLElement;
   const header = dialog.querySelector(".dialog-header") as HTMLElement;
@@ -59,4 +59,4 @@ function openCodeDialog(codeBlock: HTMLElement) {
   content.appendChild(clone);
   dialog.showModal();
   dialog.focus();
-}
+};

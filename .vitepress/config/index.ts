@@ -11,7 +11,6 @@ import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
 import { getBuildTransformHead, getClientTransformHead } from "./head";
 import { getLocales } from "./i18n";
-import { codeBlockFullScreen } from "./codeBlockFullscreenTransformer";
 
 const latestVersion = fs
   .readFileSync(
@@ -87,8 +86,16 @@ export default defineVersionedConfig(
       codeTransformers: [
         {
           name: "code-block-fullscreen-transformer",
-          root(root) {
-            codeBlockFullScreen(root);
+          root: (root) => {
+            root.children.splice(1, 0, {
+              type: "element",
+              tagName: "button",
+              properties: {
+                title: "Full Screen",
+                class: "copy",
+              },
+              children: [],
+            });
           },
         },
       ],
