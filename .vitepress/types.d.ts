@@ -55,6 +55,11 @@ export namespace Fabric {
      * @default "Exit Full Screen"
      */
     exitFullscreen: string;
+
+    /**
+     * @default "Toggle Wrap Code"
+     */
+    wrap: string;
   }
 
   export interface DownloadOptions {

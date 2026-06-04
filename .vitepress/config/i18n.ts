@@ -120,6 +120,7 @@ export const getLocales = () => {
           copy: resolver("code.copy"),
           enterFullscreen: resolver("code.enter_fullscreen"),
           exitFullscreen: resolver("code.exit_fullscreen"),
+          wrap: resolver("code.wrap"),
         },
 
         darkModeSwitchLabel: resolver("mode_switcher"),

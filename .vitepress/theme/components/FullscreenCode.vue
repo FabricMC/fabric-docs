@@ -10,12 +10,14 @@ const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
 
 const fullscreenSlot = ref<HTMLDivElement>();
 const isFullscreen = ref(false);
+const isLineWrapped = ref(false);
 let originalCodeBlock: HTMLElement | null = null;
 let originalPlaceholder: HTMLElement | null = null;
 
 const icons = [
   "material-symbols:close-fullscreen-rounded",
   "material-symbols:open-in-full-rounded",
+  "material-symbols:wrap-text-rounded",
 ] as const;
 
 const getSvgIcon = (name: (typeof icons)[number]) => {
@@ -68,6 +70,18 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
     fullscreenButton.innerHTML = getSvgIcon("material-symbols:close-fullscreen-rounded");
   }
 
+  const wrapLinesButton = document.createElement("button");
+  wrapLinesButton.title = options.value.wrap;
+  wrapLinesButton.setAttribute("aria-label", options.value.wrap);
+  wrapLinesButton.className = "copy wrap";
+  wrapLinesButton.innerHTML = getSvgIcon("material-symbols:wrap-text-rounded");
+  wrapLinesButton.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+    isLineWrapped.value = !isLineWrapped.value;
+    wrapLinesButton.parentElement?.classList.toggle("wrap", isLineWrapped.value);
+  });
+  codeBlock.prepend(wrapLinesButton);
+
   fullscreenSlot.value!.replaceChildren(codeBlock);
 };
 
@@ -82,7 +96,7 @@ const setupFullscreen = async () => {
   );
 
   for (const codeBlock of codeBlocks) {
-    const copyButton = codeBlock.querySelector<HTMLElement>("button.copy:not(.fullscreen)");
+    const copyButton = codeBlock.querySelector<HTMLElement>("button.copy:not(.fullscreen, .wrap)");
     if (copyButton) {
       copyButton.title = options.value.copy;
       copyButton.setAttribute("aria-label", options.value.copy);
@@ -173,13 +187,59 @@ div:has(.vp-doc).is-open {
     span.lang {
       right: 20px;
     }
+
+    .line-numbers-wrapper {
+      transition-property: border-color;
+    }
+  }
+
+  div[class*="language-"].line-numbers-mode.wrap {
+    padding-left: 0;
+
+    .line-numbers-wrapper {
+      color: transparent;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      counter-reset: line-counter;
+    }
+
+    pre code {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+    }
+
+    pre .line {
+      position: relative;
+      padding-left: 56px;
+    }
+
+    pre .line::before {
+      content: counter(line-counter);
+      counter-increment: line-counter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 32px;
+      text-align: center;
+      user-select: none;
+      color: var(--vp-code-line-number-color);
+    }
+
+    pre .line:empty::after {
+      content: "\a0";
+    }
   }
 }
 </style>
 
 <style>
 div[class*="language-"] {
-  button.copy.fullscreen {
+  button.copy.fullscreen,
+  button.copy.wrap {
     background-image: unset;
 
     svg {
@@ -188,8 +248,16 @@ div[class*="language-"] {
     }
   }
 
-  button.copy:not(.fullscreen) {
+  button.copy:not(.fullscreen, .wrap) {
     right: 56px;
+  }
+
+  button.copy.wrap {
+    right: 56px;
+
+    + button.fullscreen + button.copy {
+      right: 100px;
+    }
   }
 }
 
