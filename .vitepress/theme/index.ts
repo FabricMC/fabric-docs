@@ -3,12 +3,12 @@ import { inBrowser, type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, watch } from "vue";
-import { checkAndCreateCodeDialog, fullScreenButtonClick } from "./codeBlockDialog";
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import BannerComponent from "./components/BannerComponent.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
+import FullscreenCode from "./components/FullscreenCode.vue";
 import NotFoundComponent from "./components/NotFoundComponent.vue";
 import Range from "./components/Range.vue";
 import References from "./components/References.vue";
@@ -41,6 +41,7 @@ export default {
       "doc-before": () => h(AuthorsComponent),
       "doc-footer-before": () => h(References),
       "aside-outline-after": () => [h(AuthorsComponent), h(References)],
+      "layout-bottom": () => h(FullscreenCode),
     };
 
     if (theme.value.env !== "github") {
@@ -73,8 +74,6 @@ export default {
         nextTick(() => {
           if (!inBrowser) return;
           mediumZoom(".main img", { background: "var(--vp-c-bg)" });
-          checkAndCreateCodeDialog();
-          document.addEventListener("click", fullScreenButtonClick);
         }),
       { immediate: true }
     );

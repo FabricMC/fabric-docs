@@ -83,22 +83,6 @@ export default defineVersionedConfig(
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
-      codeTransformers: [
-        {
-          name: "code-block-fullscreen-transformer",
-          root: (root) => {
-            root.children.splice(1, 0, {
-              type: "element",
-              tagName: "button",
-              properties: {
-                title: "Full Screen",
-                class: "full-screen-button",
-              },
-              children: [],
-            });
-          },
-        },
-      ],
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
