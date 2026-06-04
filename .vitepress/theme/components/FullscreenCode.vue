@@ -5,12 +5,12 @@ import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
 import { Fabric } from "../../types";
 
 const data = useData();
-
 const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
 
 const fullscreenSlot = ref<HTMLDivElement>();
 const isFullscreen = ref(false);
-const isLineWrapped = ref(false);
+const isWrapped = ref(false);
+
 let originalCodeBlock: HTMLElement | null = null;
 let originalPlaceholder: HTMLElement | null = null;
 
@@ -18,6 +18,7 @@ const icons = [
   "material-symbols:close-fullscreen-rounded",
   "material-symbols:open-in-full-rounded",
   "material-symbols:wrap-text-rounded",
+  "material-symbols:format-text-overflow-rounded",
 ] as const;
 
 const getSvgIcon = (name: (typeof icons)[number]) => {
@@ -28,6 +29,8 @@ const getSvgIcon = (name: (typeof icons)[number]) => {
 };
 
 const closeFullscreen = () => {
+  if (!isFullscreen.value || !originalCodeBlock) return;
+
   isFullscreen.value = false;
   document.body.style.overflow = "";
 
@@ -35,23 +38,25 @@ const closeFullscreen = () => {
   const placeholder = originalPlaceholder;
   originalCodeBlock = originalPlaceholder = null;
 
-  if (!codeBlock) return;
-
-  const fullscreenButton = codeBlock.querySelector<HTMLElement>("button.fullscreen");
+  const fullscreenButton = codeBlock.querySelector<HTMLButtonElement>("button.fullscreen");
   if (fullscreenButton) {
     fullscreenButton.title = options.value.enterFullscreen;
     fullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
     fullscreenButton.innerHTML = getSvgIcon("material-symbols:open-in-full-rounded");
   }
 
-  codeBlock.querySelector<HTMLElement>("button.wrap")?.remove();
+  codeBlock.querySelector<HTMLButtonElement>("button.wrap")?.remove();
+  codeBlock.classList.remove("wrap");
 
   placeholder?.parentNode?.replaceChild(codeBlock, placeholder);
 };
 
 const openFullscreen = async (codeBlock: HTMLElement) => {
+  if (originalCodeBlock) closeFullscreen();
+
   originalCodeBlock = codeBlock;
   isFullscreen.value = true;
+  document.documentElement.style.scrollbarGutter = "stable";
   document.body.style.overflow = "hidden";
   await nextTick();
 
@@ -63,24 +68,33 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
 
   codeBlock.parentNode?.replaceChild(originalPlaceholder, codeBlock);
 
-  const fullscreenButton = codeBlock.querySelector<HTMLElement>("button.fullscreen");
+  const fullscreenButton = codeBlock.querySelector<HTMLButtonElement>("button.fullscreen");
   if (fullscreenButton) {
     fullscreenButton.title = options.value.exitFullscreen;
     fullscreenButton.setAttribute("aria-label", options.value.exitFullscreen);
     fullscreenButton.innerHTML = getSvgIcon("material-symbols:close-fullscreen-rounded");
   }
 
-  const wrapLinesButton = document.createElement("button");
-  wrapLinesButton.title = options.value.wrap;
-  wrapLinesButton.setAttribute("aria-label", options.value.wrap);
-  wrapLinesButton.className = "copy wrap";
-  wrapLinesButton.innerHTML = getSvgIcon("material-symbols:wrap-text-rounded");
-  wrapLinesButton.addEventListener("click", (e) => {
+  const wrapButton = document.createElement("button");
+  wrapButton.title = options.value.wrap;
+  wrapButton.setAttribute("aria-label", options.value.wrap);
+  wrapButton.className = "copy wrap";
+  wrapButton.innerHTML = getSvgIcon(
+    isWrapped.value
+      ? "material-symbols:format-text-overflow-rounded"
+      : "material-symbols:wrap-text-rounded"
+  );
+  wrapButton.addEventListener("click", (e) => {
     e.stopImmediatePropagation();
-    isLineWrapped.value = !isLineWrapped.value;
-    wrapLinesButton.parentElement?.classList.toggle("wrap", isLineWrapped.value);
+    isWrapped.value = !isWrapped.value;
+    wrapButton.innerHTML = getSvgIcon(
+      isWrapped.value
+        ? "material-symbols:format-text-overflow-rounded"
+        : "material-symbols:wrap-text-rounded"
+    );
+    codeBlock.classList.toggle("wrap", isWrapped.value);
   });
-  codeBlock.prepend(wrapLinesButton);
+  codeBlock.prepend(wrapButton);
 
   fullscreenSlot.value!.replaceChildren(codeBlock);
 };
@@ -91,18 +105,20 @@ const setupFullscreen = async () => {
   await Promise.all(icons.map((i) => loadIcon(i)));
   await nextTick();
 
-  const codeBlocks = document.querySelectorAll<HTMLElement>(
+  const codeBlocks = document.querySelectorAll<HTMLDivElement>(
     '.VPContent .vp-doc div[class*="language-"]'
   );
 
   for (const codeBlock of codeBlocks) {
-    const copyButton = codeBlock.querySelector<HTMLElement>("button.copy:not(.fullscreen, .wrap)");
+    const copyButton = codeBlock.querySelector<HTMLButtonElement>(
+      "button.copy:not(.fullscreen, .wrap)"
+    );
     if (copyButton) {
       copyButton.title = options.value.copy;
       copyButton.setAttribute("aria-label", options.value.copy);
     }
 
-    codeBlock.querySelector<HTMLElement>("button.fullscreen")?.remove();
+    codeBlock.querySelector<HTMLButtonElement>("button.fullscreen")?.remove();
 
     const fullscreenButton = document.createElement("button");
     fullscreenButton.title = options.value.enterFullscreen;
@@ -117,7 +133,6 @@ const setupFullscreen = async () => {
         openFullscreen(codeBlock);
       }
     });
-
     codeBlock.prepend(fullscreenButton);
   }
 };
@@ -165,10 +180,10 @@ div:has(.vp-doc).is-open {
 }
 
 :deep(.vp-doc:has(*)) {
-  min-height: min(90vh, 10rlh);
-  min-width: min(90vw, 80ch);
-  max-height: 90vh;
-  max-width: 90vw;
+  min-height: min(95vh, 10rlh);
+  min-width: min(95vw, 80ch);
+  max-height: 95vh;
+  max-width: 95vw;
   border-radius: 12px;
   border: 1px solid var(--vp-c-divider);
   display: flex;
@@ -187,21 +202,20 @@ div:has(.vp-doc).is-open {
     span.lang {
       right: 20px;
     }
-
-    .line-numbers-wrapper {
-      transition-property: border-color;
-    }
   }
 
-  div[class*="language-"].line-numbers-mode.wrap {
+  div[class*="language-"] pre::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  div[class*="language-"].line-numbers-mode {
     padding-left: 0;
 
     .line-numbers-wrapper {
-      color: transparent;
+      display: none;
     }
 
     pre {
-      white-space: pre-wrap;
       counter-reset: line-counter;
     }
 
@@ -227,17 +241,27 @@ div:has(.vp-doc).is-open {
       text-align: center;
       user-select: none;
       color: var(--vp-code-line-number-color);
+      border-right: 1px solid var(--vp-code-block-divider-color);
     }
 
     pre .line:empty::after {
       content: "\a0";
     }
   }
+
+  div[class*="language-"].wrap pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 }
 </style>
 
 <style>
 div[class*="language-"] {
+  button.copy:not(.fullscreen, .wrap) {
+    right: 60px;
+  }
+
   button.copy.fullscreen,
   button.copy.wrap {
     background-image: unset;
@@ -248,15 +272,15 @@ div[class*="language-"] {
     }
   }
 
-  button.copy:not(.fullscreen, .wrap) {
-    right: 56px;
-  }
-
   button.copy.wrap {
-    right: 56px;
+    right: 72px;
 
-    + button.fullscreen + button.copy {
-      right: 100px;
+    + button.fullscreen {
+      right: 24px;
+
+      + button.copy {
+        right: 120px;
+      }
     }
   }
 }
