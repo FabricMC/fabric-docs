@@ -1,12 +1,12 @@
 package com.example.docs.stats;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.stats.StatFormatter;
 import net.minecraft.stats.Stats;
+
+import com.example.docs.ExampleMod;
 
 // #region register
 public class ModStats {
