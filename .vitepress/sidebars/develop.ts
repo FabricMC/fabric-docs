@@ -478,6 +478,10 @@ export default [
         text: "develop.misc.resource_conditions",
         link: "/develop/resource-conditions",
       },
+      {
+        text: "develop.misc.statistics",
+        link: "/develop/statistics",
+      },
     ],
   },
 ] satisfies Fabric.SidebarItem[];

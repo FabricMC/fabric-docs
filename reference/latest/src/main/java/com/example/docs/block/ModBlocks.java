@@ -2,6 +2,8 @@ package com.example.docs.block;
 
 import java.util.function.Function;
 
+import com.example.docs.block.custom.StatisticsBlock;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -163,6 +165,10 @@ public class ModBlocks {
 			true
 	);
 	// #endregion waxcap_tinting
+
+	public static final Block STATISTICS_BLOCK = register(
+					"statistics_block", StatisticsBlock::new, BlockBehaviour.Properties.of(), true
+	);
 
 	// #region first_block
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
