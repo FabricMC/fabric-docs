@@ -32,6 +32,7 @@ const closeFullscreen = () => {
   if (!isFullscreen.value || !originalCodeBlock) return;
 
   isFullscreen.value = false;
+  document.documentElement.style.scrollbarGutter = "";
   document.body.style.overflow = "";
 
   const codeBlock = originalCodeBlock;
@@ -173,6 +174,8 @@ div:has(.vp-doc) {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 div:has(.vp-doc).is-open {
