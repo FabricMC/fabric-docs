@@ -131,10 +131,10 @@ public class ModBlocks {
 	// #region family_declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
-				.stairs(ModBlocks.RUBY_STAIRS)
-				.slab(ModBlocks.RUBY_SLAB)
-				.fence(ModBlocks.RUBY_FENCE)
-				.getFamily();
+					.stairs(ModBlocks.RUBY_STAIRS)
+					.slab(ModBlocks.RUBY_SLAB)
+					.fence(ModBlocks.RUBY_FENCE)
+					.getFamily();
 	// #endregion family_declaration
 
 	public static final Block STEEL_BLOCK = register(
