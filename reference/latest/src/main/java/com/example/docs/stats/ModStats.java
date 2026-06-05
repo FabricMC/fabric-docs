@@ -11,10 +11,10 @@ import com.example.docs.ExampleMod;
 // #region register
 public class ModStats {
 	// #region stat
-	public static final Identifier INTERACT_WITH_STATISTICS_BLOCK = registerCustomStat("interact_with_statistics_block", StatFormatter.DEFAULT);
+	public static final Identifier INTERACT_WITH_STATISTICS_BLOCK = register("interact_with_statistics_block", StatFormatter.DEFAULT);
 	// #endregion stat
 
-	private static Identifier registerCustomStat(String name, StatFormatter formatter) {
+	private static Identifier register(String name, StatFormatter formatter) {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		Registry.register(BuiltInRegistries.CUSTOM_STAT, name, id);
 		Stats.CUSTOM.get(id, formatter);
