@@ -71,40 +71,40 @@ public class ModBlocks {
 
 	// #region counter_block
 	public static final Block COUNTER_BLOCK = register(
-					"counter_block",
-					CounterBlock::new,
-					BlockBehaviour.Properties.of(),
-					true
+			"counter_block",
+			CounterBlock::new,
+			BlockBehaviour.Properties.of(),
+			true
 	);
 	// #endregion counter_block
 
 	public static final Block DIRT_CHEST_BLOCK = register(
-					"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block DUPLICATOR_BLOCK = register(
-					"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
+			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block ENGINE_BLOCK = register(
-					"engine",
-					EngineBlock::new,
-					BlockBehaviour.Properties.of(),
-					true
+			"engine",
+			EngineBlock::new,
+			BlockBehaviour.Properties.of(),
+			true
 	);
 
 	public static final Block PIPE_BLOCK = register(
-					"pipe_block", Block::new, BlockBehaviour.Properties.of(), true
+			"pipe_block", Block::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// #region prismarine_lamp
 	public static final Block PRISMARINE_LAMP = register(
-					"prismarine_lamp",
-					PrismarineLampBlock::new,
-					BlockBehaviour.Properties.of()
-									.sound(SoundType.LANTERN)
-									.lightLevel(PrismarineLampBlock::getLuminance),
-					true
+			"prismarine_lamp",
+			PrismarineLampBlock::new,
+			BlockBehaviour.Properties.of()
+					.sound(SoundType.LANTERN)
+					.lightLevel(PrismarineLampBlock::getLuminance),
+			true
 	);
 	// #endregion prismarine_lamp
 
@@ -131,22 +131,22 @@ public class ModBlocks {
 	// #region family_declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
-			.stairs(ModBlocks.RUBY_STAIRS)
-			.slab(ModBlocks.RUBY_SLAB)
-			.fence(ModBlocks.RUBY_FENCE)
-			.getFamily();
+					.stairs(ModBlocks.RUBY_STAIRS)
+					.slab(ModBlocks.RUBY_SLAB)
+					.fence(ModBlocks.RUBY_FENCE)
+					.getFamily();
 	// #endregion family_declaration
 
 	public static final Block STEEL_BLOCK = register(
-					"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
+			"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block TATER_BLOCK = register(
-					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
+			"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block VERTICAL_OAK_LOG_SLAB = register(
-					"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
+			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// #region waxcap_tinting
