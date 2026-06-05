@@ -1,14 +1,17 @@
 package com.example.docs;
 
+import static com.example.docs.attachment.ExampleModAttachments.EXAMPLE_BLOCK_POS_ATTACHMENT;
+import static com.example.docs.attachment.ExampleModAttachments.EXAMPLE_STRING_ATTACHMENT;
+
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
-import com.example.docs.effect.ExampleModEffects;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
-import static com.example.docs.attachment.ExampleModAttachments.EXAMPLE_BLOCK_POS_ATTACHMENT;
-import static com.example.docs.attachment.ExampleModAttachments.EXAMPLE_STRING_ATTACHMENT;
+import com.example.docs.effect.ExampleModEffects;
 
 /**
  * A static-first class, used solely to provide version-aware
@@ -52,5 +55,19 @@ public class ReferenceMethods {
 		// Removes the data associated with the given AttachmentType, returning the previous value.
 		entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 		// #endregion writing_entity_attachments
+	}
+
+	// #region saved_data_example_scenario
+	private static int blocksBroken = 0; // keeps track of the number of blocks broken
+	// #endregion saved_data_example_scenario
+
+	public static void savedDataExampleScenario() {
+		// #region saved_data_example_scenario
+
+		PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -> {
+			blocksBroken++; // increment the counter each time a block is broken
+			player.sendSystemMessage(Component.literal("Blocks broken: " + blocksBroken));
+		});
+		// #endregion saved_data_example_scenario
 	}
 }
