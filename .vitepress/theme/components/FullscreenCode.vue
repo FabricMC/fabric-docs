@@ -56,6 +56,7 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
 
   originalCodeBlock = codeBlock;
   isFullscreen.value = true;
+  isWrapped.value = false;
   document.documentElement.style.scrollbarGutter = "stable";
   document.body.style.overflow = "hidden";
   await nextTick();
