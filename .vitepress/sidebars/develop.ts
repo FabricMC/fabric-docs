@@ -319,15 +319,15 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.codecs",
+        text: "develop.serialization.codecs",
         link: "/develop/serialization/codecs",
       },
       {
-        text: "develop.misc.data_attachments",
+        text: "develop.serialization.data_attachments",
         link: "/develop/serialization/data-attachments",
       },
       {
-        text: "develop.misc.saved_data",
+        text: "develop.serialization.saved_data",
         link: "/develop/serialization/saved-data",
       },
     ],
