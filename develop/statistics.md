@@ -8,11 +8,11 @@ authors:
   - Tenneb22
 ---
 
-Statistics track time spend doing something, distance traveled or jumped, and how often the player interacted with blocks or performed certain actions.
+Statistics track time spent performing actions in the world. Vanilla includes statistics for common actions like jumping, traveling in boats, as well as counting interactions with blocks or usage of items. It's also possible to add your own statistic to count custom interactions.
 
 ## Creating a Statistic {#creating-a-statistic}
 
-To add a custom statistic, create an identifier which will be used to register and increase the stat:
+To add a custom statistic, create an `Identifier` which will be used to register and increase the stat:
 
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#stat
 
@@ -22,7 +22,11 @@ Then register the stat:
 
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#register
 
-When adding the stat to the statistic screen via `Stats.CUSTOM.get()`, you can also specify the stat formatter. It determines how the number is shown in the stat list. You can use `DEFAULT`, `DIVIDE_BY_TEN`, `DISTANCE` or `TIME`.
+When adding the stat to the Statistics screen via `Stats.CUSTOM.get()`, you can also specify the stat formatter, which determines how the number is displayed in the stat list. Vanilla provides the following formatters:
+- `DEFAULT`: Displays the number directly.
+- `DIVIDE_BY_TEN`: Displays the number as a decimal, divided by ten.
+-  `DISTANCE`: Displays the number as distance: Depending on the size of the number, this will be shown in centimeters, meters, or kilometers.
+- `TIME`: Displays the number as time. Depending on the size of the number, this will be shown in seconds, minutes, hours, or days.
 
 ## Using The Statistic {#using-the-statistic}
 
