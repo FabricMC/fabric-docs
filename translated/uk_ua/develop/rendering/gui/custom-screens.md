@@ -30,7 +30,7 @@ authors:
 
 Як приклад, ми можемо створити простий екран із кнопкою та міткою над нею.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#screen
 
 ![Власний екран 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -54,7 +54,7 @@ Minecraft.getInstance().setScreen(null);
 
 Якщо ви хочете, було гарно та повернутися до попереднього екрана, ви можете передати поточний екран у конструктор `CustomScreen` і зберегти його в полі, а потім використовувати його для повернення до попереднього екрана, коли викликається метод `close`.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 Тепер, відкриваючи власний екран, ви можете передати поточний екран як другий аргумент, тож коли ви викличете `CustomScreen#close`, він повернеться до попереднього екрана.
 

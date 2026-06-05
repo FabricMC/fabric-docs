@@ -26,11 +26,11 @@ resources:
 
 Ми створимо клас `MiniGolemEntity` для нашої сутності й почнемо з надання йому атрибутів. [Атрибути](attributes) вирішують різні речі, зокрема максимальне здоров'я, швидкість руху та дальність спокуси сутності.
 
-@[code transcludeWith=:::registerclass](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
 Щоби зареєструвати свою сутність, рекомендується створити окремий клас `ModEntityTypes`, у якому ви будете реєструвати будь-які типи сутностей, установлювати їхні розміри та реєструвати їхні атрибути.
 
-@[code transcludeWith=:::types](@/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
 ## Додавання цілей {#adding-goals}
 
@@ -38,7 +38,7 @@ resources:
 
 Щоб додати цілей до сутності, вам потрібно створити в класі своєї сутності метод `registerGoals`, який визначає цілі для неї.
 
-@[code transcludeWith=:::goals](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#goals
 
 ::: info
 
@@ -61,7 +61,7 @@ resources:
 
 Рендер має декілька кроків, що стосується їх власних класів, але ми почнемо з класу `EntityRenderState`.
 
-@[code transcludeWith=:::entitystate](@/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#entitystate
 
 Дані, що зберігаються в стані рендера, використовуються для визначення того, як сутність представляється візуально, включаючи стани анімації, як-от поведінка руху чи бездіяльності.
 
@@ -77,11 +77,11 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 :::
 
-@[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model1
 
 Клас `MiniGolemEntityModel` визначає візуальну модель для сутності мініґолема. Він розширює `EntityModel`, вказуючи, як називаються частини тіла сутності (тіло, голова, ліва та права нога).
 
-@[code transcludeWith=:::model_texture_data](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_texture_data
 
 Цей метод визначає 3D модель мініґолема, створюючи його тіло, голову та ноги як куби, встановлює їх позицію та мапінги текстури та повертає `LayerDefinition` для рендера.
 
@@ -95,11 +95,11 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 Тепер нам потрібно буде створити клас `ModEntityModelLayers` у клієнтському пакеті. Ця сутність має лише один шар текстури, але інші сутності можуть використовувати декілька – подумайте про вторинний шар скіну на сутностях, таких як `Player` або очі `Spider`.
 
-@[code transcludeWith=:::model_layer](@/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java#model_layer
 
 Потім цей клас потрібно ініціалізувати в ініціалізаторі клієнта мода.
 
-@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_client
 
 ### Налаштування текстури {#setting-up-texture}
 
@@ -119,19 +119,19 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 Рендер сутності дає змогу бачити її в грі. Ми створимо новий клас, `MiniGolemEntityRenderer`, який повідомить Minecraft, яку текстуру, модель і стан рендера сутності використовувати для цієї сутності.
 
-@[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#renderer
 
 Тут також установлюється радіус тіні, для цієї сутності буде `0,375f`.
 
 Потім цей рендер потрібно зареєструвати в ініціалізаторі клієнта мода.
 
-@[code transcludeWith=::register_renderer](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_renderer
 
 ### Додавання анімації ходьби {#walking-animations}
 
 Наведений нижче код можна додати до класу `MiniGolemEntityModel`, щоб надати сутності анімацію ходьби.
 
-@[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_animation
 
 Для початку застосуйте поворот і нахил до частини моделі голови.
 
@@ -163,7 +163,7 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 У нашому випадку ми хочемо, щоб наша сутність танцювала час від часу, тому нам потрібно створити стан танцю, який синхронізується між клієнтами, щоб його можна було анімувати пізніше. Однак час відновлення танцю не потрібно синхронізувати з клієнтом, оскільки анімацію запускає сервер.
 
-@[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#datatracker
 
 Як бачите, ми додали метод такту для контролю стану танцю.
 
@@ -171,7 +171,7 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 Для постійних даних, які можна зберегти після закриття гри, ми замінимо методи `addAdditionalSaveData` і `readAdditionalSaveData` в `MiniGolemEntity`. Ми можемо використовувати це, щоб зберегти кількість часу, що залишився в танцювальній анімації.
 
-@[code transcludeWith=:::savedata](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#savedata
 
 Тепер, коли сутність завантажується, вона відновлюватиме стан, у якому була залишена.
 
@@ -179,13 +179,13 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 Першим кроком до додавання анімації до сутності є додавання стану анімації в клас сутності. Ми створимо стан анімації, який використовуватиметься, щоб змусити сутність танцювати.
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#dancing_animation
 
 Ми перевизначили метод `onSyncedDataUpdated`. Це викликається щоразу, коли синхронізовані дані оновлюються як на сервері, так і на клієнті. Інструкція if перевіряє, чи синхронізовані дані, які було оновлено, є танцювальними синхронізованими даними.
 
 Тепер ми перейдемо до самої анімації. Ми створимо клас `MiniGolemAnimations` і додамо `AnimationDefinition`, щоб визначити, як анімація буде застосована до сутності.
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java#dancing_animation
 
 Тут багато чого відбувається, зверніть увагу на такі ключові моменти:
 
@@ -200,7 +200,7 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
 
 Нарешті, приєднаймо анімацію до моделі:
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing_animation
 
 Під час відтворення анімації ми застосовуємо анімацію, інакше використовуємо старий код анімації ніг.
 

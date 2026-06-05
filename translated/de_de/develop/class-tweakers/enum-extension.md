@@ -41,7 +41,7 @@ Selbst wenn du die richtige Loader-Version als Gradle-Abhängigkeit verwendest, 
 
 Um eine Enum Erweiterung zu erstellen, definiere ein `enum` in deinem Mixin-Paket, versehe es mit der Annotation `@Mixin` und füge deine Konstanten so hinzu, als wären sie Teil der Ziel-Enum-Klasse. Lasst uns zum Beispiel einen neuen Eintrag zu `RecipeBookType` hinzufügen:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum_extension_no_impls_example_mixin
 
 :::warning WICHTIG
 
@@ -55,13 +55,13 @@ Wenn das Ziel-Enum keinen Standardkonstruktor hat, musst du einen Konstruktor de
 
 Lasst uns zum Beispiel einen neuen Eintrag zu `RecipeCategory` hinzufügen. Erstelle einen Konstruktor, der dem gewünschten in der Zielklasse entspricht, und versehe ihn mit der Annotation `@Shadow`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum_extension_ctor_impls_example_mixin
 
 ### Abstrakte Methoden implementieren {#implementing-abstract-methods}
 
 Um die abstrakten Methoden eines Ziel-Enum zu implementieren, überschreibe die abstrakte Methode und implementiere sie anschließend in deinem hinzugefügten Eintrag. Lasst uns zum Beispiel einen neuen Eintrag zu `ConversionType` hinzufügen:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum-extension-abstract-method-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
 ## Den Eintrag für den Klassenoptimierer erstellen {#making-the-class-tweaker-entry}
 
@@ -79,7 +79,7 @@ Bei Klassenoptimierung verwenden Klassen ihre [internen Namen](../mixins/bytecod
 
 Beispielsweise würde der Eintrag im Klassenoptimierer für die Konstante `RecipeBookType`, die wir im [Mixin-Abschnitt](#creating-the-mixin) hinzugefügt haben, wie folgt lauten:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum_extension_no_impls_example_entry{classtweaker:no-line-numbers}
 
 ## Änderungen anwenden {#applying-changes}
 
@@ -95,15 +95,15 @@ Das liegt daran, dass diese vom Mixin verwaltet werden und erst zur Laufzeit ang
 
 Du kannst die Enum-Konstante jetzt in deinem Code verwenden:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_usage_example
 
 Wenn du es nur über ein Mixin hinzufügst und es nicht im dekompilierten Quellcode enthalten ist, kannst du gegen dieses prüfen, indem du den Namen vergleichst:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-check
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_check
 
 Wenn du die Konstante an mehreren Stellen verwenden musst, rufe sie mit `valueOf` ab und speichere das Ergebnis in einem Feld:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-store
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_store
 
 ## Fallstricke {#pitfalls}
 
@@ -117,7 +117,7 @@ In diesem Abschnitt werden einige Muster behandelt, auf die man bei der Erweiter
 
 Switch-Ausdrücke werden häufig zur Verarbeitung von Enum-Konstanten verwendet. Aus diesem Grund kann es zu einem Absturz kommen, wenn ein Switch-Ausdruck Einträge, die von anderen Mods hinzugefügt wurden, nicht verarbeitet. Nehmen wir zum Beispiel an, wir hätten den folgenden Switch-Ausdruck:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_problematic_switch_expr_example
 
 Beachte, dass es keine `default`-Klausel gibt. Auch wenn wir alle Werte in dem Vanilla-Enum und in unserem eigenen Enum behandelt haben, würde dies zu einem Fehler führen, wenn ein anderer Mod einen anderen Eintrag hinzufügt.
 

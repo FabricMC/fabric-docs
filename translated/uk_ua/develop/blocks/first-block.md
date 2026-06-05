@@ -22,7 +22,7 @@ resources:
 
 Mojang робить щось надзвичайно подібне з усталеними блоками; ви можете звернутися до класу `Blocks`, щоб побачити, як вони це роблять.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
 
 Як і з предметами, вам потрібно переконатися, що клас завантажено, щоб усі статичні поля, що містять екземпляри вашого блока, були ініціалізовані.
 
@@ -34,15 +34,9 @@ Mojang робить щось надзвичайно подібне з устал
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## Створення та реєстрація вашого блока {#creating-and-registering-your-block}
 
@@ -61,7 +55,7 @@ public class ModBlocks {
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 Щоб автоматично створити блок-предмет ми можемо передати `true` параметру `shouldRegisterItem` методу `register`, який ми створили на попередньому кроці.
 
@@ -71,7 +65,7 @@ public class ModBlocks {
 
 Для цього прикладу ми додамо блок на вкладку `BUILDING_BLOCKS`. Щоб замість цього додати блок на вкладку спеціального оголошення, перегляньте [власні вкладки творчості](../items/custom-creative-tabs).
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 Ви повинні розмістити це у функції `initialize()` вашого класу.
 
@@ -103,11 +97,11 @@ Minecraft використовуватиме цей переклад в інве
 
 Щоб текстура промальовувалася в грі, ви повинні створити модель блока, яку можна знайти у файлі `assets/example-mod/models/block/condensed_dirt.json` для блока «Condensed Dirt». Для цього блока ми будемо використовувати тип моделі `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
 Щоб блок позувався у вашому інвентарі, вам потрібно буде створити [клієнтський предмет](../items/first-item#creating-the-client-item), який вказує на вашу модель блока. Для цього прикладу клієнтського предмета для блока «Condensed Dirt» можна знайти за адресою `assets/example-mod/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -125,7 +119,7 @@ Minecraft використовуватиме цей переклад в інве
 
 Цей файл має міститися в папці `assets/example-mod/blockstates`, а його ім’я має збігатися з ID блока, використаним під час реєстрації вашого блока в класі `ModBlocks`. Наприклад, якщо ID блока `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -147,7 +141,7 @@ Minecraft використовуватиме цей переклад в інве
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блока, коли блок ламаний або підірваний вибухом.
 
@@ -166,7 +160,7 @@ Minecraft використовуватиме цей переклад в інве
 
 Цей приклад додає блок «Condensed Dirt» до теґу `shovel`.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 Якщо ви бажаєте, щоб для добування блока був потрібний інструмент, додайте `.requiresCorrectToolForDrops()` до налаштувань блока, а також додайте відповідний теґ рівня добування.
 

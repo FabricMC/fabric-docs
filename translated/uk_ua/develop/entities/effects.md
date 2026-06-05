@@ -27,13 +27,13 @@ resources:
 
 Створімо спеціальний клас ефекту, розширивши `MobEffect`, який є базовим класом для всіх ефектів.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java#effect
 
 ### Реєстрація вашого власного ефекту {#registering-your-custom-effect}
 
 Подібно до реєстрації блоків і предметів, ми використовуємо `Registry.register` для реєстрації нашого власного ефекту в реєстрі `MOB_EFFECT`. Це можна зробити в нашому ініціалізаторі.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java#register_effect
 
 ### Текстура {#texture}
 
@@ -71,7 +71,7 @@ effect give @p example-mod:tater
 
 Щоб застосувати внутрішній ефект, потрібно використати метод `LivingEntity#addEffect`, який приймає `MobEffectInstance` і повертає логічне значення, яке вказує, чи було успішно застосовано ефект.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#apply_effect
 
 | Аргумент    | Тип                 | Опис                                                                                                                                                                                                                                                                 |
 | ----------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

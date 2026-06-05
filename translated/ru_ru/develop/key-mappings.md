@@ -21,11 +21,11 @@ Minecraft обрабатывает ввод пользователя с пери
 
 Давайте начнем с создания категории. Категория определяет группу назначений клавиш, которые будут отображаться вместе в меню настроек.
 
-@[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#category
 
 Затем мы можем создать само назначение клавиши. Мы будем использовать класс `KeyMappingHelper` из Fabric API, чтобы одновременно зарегистрировать наше назначение.
 
-@[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key_mapping
 
 ::: info
 
@@ -62,7 +62,7 @@ Minecraft обрабатывает ввод пользователя с пери
 
 Теперь, когда у нас есть назначение клавиши, мы можем реагировать на его активацию с помощью события клиентского тика (client tick event).
 
-@[code lang=java transcludeWith=:::client_tick_event](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
 Этот код будет выводить сообщение «Key Pressed!» в игровой чат при каждом нажатии привязанной клавиши. Имейте в виду, что удержание клавиши будет циклически отправлять сообщение в чат. Вам может потребоваться реализовать проверки (guards), если эта логика должна срабатывать строго один раз за нажатие.
 

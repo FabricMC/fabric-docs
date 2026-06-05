@@ -15,9 +15,9 @@ authors:
 
 Чтобы использовать поставщика предложений, необходимо вызвать метод `suggests` в конструкторе аргументов. Этот метод берёт `SuggestionProvider` и возвращает модифицированный аргумент конструктора с прикрепленным поставщиком предложений.
 
-@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_suggestions
 
 ## Встроенные поставщики предложений {#built-in-suggestion-providers}
 
@@ -36,13 +36,13 @@ authors:
 
 Например, мы сделаем поставщик предложений предлагающий все имена игроков на сервере.
 
-@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion_provider
 
 Для использования этого поставщика предложений, просто передадите его экземпляр в метод `.suggests` в конструктор аргументов.
 
-@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_custom_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_custom_suggestions
 
 Очевидно, что поставщики предложений могут быть более сложными, поскольку они также могут считывать контекст команды, чтобы предоставлять предложения на основе состояния команды, например аргументов, которые уже были предоставлены.
 

@@ -28,9 +28,9 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode-blockpos [Java]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode_blockpos[Java]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json[Output]
 
 :::
 
@@ -38,7 +38,7 @@ resources:
 
 Тож візьмімо наше серіалізоване значення та перетворимо його назад на `BlockPos`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse-blockpos
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse_blockpos
 
 ### Вбудовані кодеки {#built-in-codecs}
 
@@ -50,7 +50,7 @@ resources:
 
 Тепер, коли ми побачили, як використовувати кодеки, подивімося, як ми можемо створювати власні. Припустимо, ми маємо наступний клас, і ми хочемо десеріалізувати його екземпляри з файлів JSON:
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-class
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_class
 
 Відповідний файл JSON може виглядати приблизно так:
 
@@ -70,11 +70,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json[Output]
 
 :::
 
@@ -88,11 +88,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec [Codec]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json[Output]
 
 :::
 
@@ -120,11 +120,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json[Output]
 
 :::
 
@@ -132,11 +132,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json[Output]
 
 :::
 
@@ -150,9 +150,9 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit_codec[Codec]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json[Output]
 
 :::
 
@@ -162,11 +162,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json[Output]
 
 :::
 
@@ -177,11 +177,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json[Output]
 
 :::
 
@@ -199,11 +199,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json[Output]
 
 :::
 
@@ -219,11 +219,11 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json[Output]
 
 :::
 
@@ -234,7 +234,7 @@ resources:
 Візьмемо, наприклад, стандартний `Identifier`. Хоча всі ідентифікатори можна перетворити на рядки, не всі рядки є дійсними ідентифікаторами, тому використання xmap означало б створювати неприємні винятки, коли перетворення не вдається.
 Через це його вбудований кодек насправді є `comapFlatMap` на `Codec.STRING`, гарно ілюструючи, як ним користуватися:
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier-flatmap
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier_flatmap
 
 Хоча ці методи дійсно корисні, їхні назви дещо заплутані, тому ось таблиця, яка допоможе вам запам’ятати, який з них використовувати:
 
@@ -261,17 +261,17 @@ resources:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry_dispatch[Codec]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean_interface[Bean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean_type_record[BeanType]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy_bean_class[StringyBean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting_bean_class[CountingBean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean_types_class[BeanTypes]
 
 :::
 
@@ -287,17 +287,17 @@ resources:
 
 Наприклад, спробуймо серіалізувати однозв'язний список. Цей спосіб представлення списків складається з групи нодів, які містять як значення, так і посилання на наступний нод у списку. Потім список представлено його першим нодом, і перехід по списку здійснюється шляхом переходу за наступним нодом доки не залишиться жодного. Ось проста реалізація нодів, які зберігають цілі числа.
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node-record
+<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node_record
 
 Ми не можемо створити кодек для цього звичайними засобами, оскільки який кодек ми використаємо для поля `next`? Нам потрібен `Codec<ListNode>`, який ми зараз розробляємо! `Codec#recursive` дозволяє нам досягти цього за допомогою магічної на вигляд лямбди:
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json[Output]
 
 :::
 

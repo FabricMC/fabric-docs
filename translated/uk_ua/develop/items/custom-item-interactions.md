@@ -44,11 +44,11 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 Скажімо, ви хочете створити предмет, який викликає блискавку перед гравцем — вам потрібно буде створити спеціальний клас.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#item
 
 Подія `use` є, мабуть, найкориснішою з усіх — ви можете використовувати цю подію, щоб створити нашу блискавку, вам слід створити її за 10 блоків перед гравцями, спрямованими обличчям.
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#use
 
 Як зазвичай, вам слід зареєструвати свою річ, додати модель і текстуру.
 

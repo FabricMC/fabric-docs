@@ -17,11 +17,11 @@ Poiché il modding in Minecraft si affida a strumenti di modifica del byte-code 
 
 Anzitutto, dobbiamo aggiungere Fabric Loader JUnit all'ambiente di sviluppo. Aggiungi il seguente blocco di dipendenze al tuo `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+<<< @/reference/build.gradle#automatic_testing_1
 
 Poi, dobbiamo informare Gradle su come usare Fabric Loader JUnit per il testing. Puoi fare ciò aggiungendo il codice seguente al tuo `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_2
 
 ### Scrivere Test {#writing-tests}
 
@@ -49,7 +49,7 @@ Nota gli indicatori a freccia verde nel margine: puoi facilmente eseguire un tes
 
 Ora è il tempo di scrivere il tuo codice di test effettivo. Puoi assicurare condizioni con `org.junit.jupiter.api.Assertions`. Dai un'occhiata ai test seguenti:
 
-@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
 Per una spiegazione di cosa fa questo codice, consulta la pagina [Codec](./codecs#registry-dispatch).
 
@@ -61,7 +61,7 @@ Ottimo, il primo test è funzionato! Ma aspetta, il secondo test è fallito? Nei
 
 Questo è perché stiamo provando ad accedere alla registry o a una classe che dipende su queste (o, in casi rari, dipende su altre classi Minecraft come `SharedConstants`), ma Minecraft non è stato inizializzato. Dobbiamo solo inizializzarlo un po' perché funzionino le registry. Ti basta aggiungere il codice seguente all'inizio del tuo metodo `beforeAll`.
 
-@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_7
 
 ### Configurare le GitHub Actions {#setting-up-github-actions}
 
@@ -96,7 +96,7 @@ Entrambi i test di gioco server e client possono essere impostati manualmente o 
 
 Per aggiungere test di gioco alla tua mod, aggiungi quanto segue al tuo `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_1
 
 Per vedere tutte le opzioni disponibili, vedere [la documentazione di Loom sui test](./loom/fabric-api#tests).
 
@@ -120,9 +120,9 @@ Ora puoi creare test di gioco per server e client nella directory `src/gametest/
 
 ::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java [Server]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java[Server]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java [Client]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java[Client]
 
 :::
 
@@ -142,6 +142,6 @@ Per ora, i test di gioco potrebbero fallire su GitHub Actions a causa di un erro
 
 :::
 
-@[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_2
 
-@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)
+<<< @/.github/workflows/build.yaml#automatic_testing_game_test_3

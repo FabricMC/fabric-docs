@@ -16,13 +16,13 @@ authors:
 - `NarrationSupplier` - 用于辅助功能，让组件能够通过屏幕阅读器或其他辅助工具访问。
 - `NarratableEntry` - 用于选择，实现此接口后组件可以由 <kbd>Tab</kbd> 键选中，这也有助于提高可访问性。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#widget
 
 ## 将组件添加到屏幕{#adding-the-widget-to-the-screen}
 
 与所有组件一样，你需要使用 `Screen` 类提供的 `addRenderableWidget` 方法将其添加到屏幕上。 请确保这一步在 `Screen#init` 方法中完成。
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#add_custom_widget
 
 ![屏幕中的自定义组件](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -32,6 +32,6 @@ authors:
 
 例如，你可以使用 `AbstractWidget` 类提供的 `isHovered()` 方法，使鼠标悬停在组件上时变色：
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#on_hover_event
 
 ![鼠标悬停事件](/assets/develop/rendering/gui/custom-widget-events.webp)

@@ -26,7 +26,7 @@ authors:
 
 在非 Mixin 套件的套件中，建立你想注入的介面：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 在我們的範例中，由於我們打算透過 mixin 實作該方法，因此預設會擲出例外。
 
@@ -48,7 +48,7 @@ authors:
 
 若要在目標類別中建立介面方法的覆寫，你應使用一個實作該介面、並以你想注入介面的類別為目標的 Mixin。
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 這些覆寫會在執行時期加入目標類別，但即使你使用類別調整器讓介面實作可見，它們也不會出現在反編譯原始碼中。
 
@@ -64,7 +64,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 以我們的範例介面而言，條目會是：
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### 泛型介面 {#generic-interfaces}
 
@@ -85,13 +85,13 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 因此，若要注入以下介面：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 並使用泛型 `<? extends String, Boolean[]>`
 
 類別調整器條目會是：
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## 套用變更 {#applying-changes}
 
@@ -100,6 +100,6 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 現在可以在已注入該介面的類別實例上使用新增的方法：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 如有需要，你也可以在介面注入目標的子類別中覆寫這些方法。

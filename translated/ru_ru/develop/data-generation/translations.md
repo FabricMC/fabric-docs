@@ -25,7 +25,7 @@ authors-nogithub:
 
 Сначала мы создадим нашего **провайдера**. Помните, что именно провайдеры генерируют данные для нас. Создайте класс, который расширяет `FabricLanguageProvider` и заполните базовые методы:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_provider
 
 ::: tip
 
@@ -35,13 +35,13 @@ authors-nogithub:
 
 Чтобы завершить настройку, добавьте этот провайдер к вашей `DataGeneratorEntrypoint` в методе `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-translations:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_translations_register
 
 ## Создание переводов {#creating-translations}
 
 Наряду с созданием необработанных (raw) переводов, переводов на основе идентификаторов (`Identifier`) и их копированием из уже существующего файла (путем передачи пути `Path`), существуют вспомогательные методы для перевода предметов (items), блоков (blocks), тегов (tags), статистик (stats), сущностей (entities), эффектов мобов (mob effects), вкладок творческого режима (creative tabs), атрибутов сущностей (entity attributes) и зачарований (enchantments). Просто вызовите `add` на `translationBuilder` с указанием того, что вы хотите перевести и на что он должен перевести:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
 ## Использование переводов {#using-translations}
 

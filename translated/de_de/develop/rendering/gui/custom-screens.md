@@ -30,7 +30,7 @@ Folgendes solltest du beachten:
 
 Als Beispiel können wir eine einfache Oberfläche erstellen, der eine Schaltfläche und eine Beschriftung darüber enthält.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#screen
 
 ![Benutzerdefinierte Oberfläche 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -54,7 +54,7 @@ Minecraft.getInstance().setScreen(null);
 
 Wenn du ausgefallen sein und zum vorherigen Bildschirm zurückkehren willst, kannst du die aktuelle Oberfläche an den `CustomScreen`-Konstruktor übergeben und ihn in einem Attribut speichern und ihn dann verwenden, um zum vorherigen Bildschirm zurückzukehren, wenn die Methode `close` aufgerufen wird.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 Jetzt kannst du beim Öffnen der benutzerdefinierten Oberfläche den aktuellen Bildschirm als zweites Argument übergeben - wenn du also `CustomScreen#close` aufrufst, wird er zur vorherigen Oberfläche zurückkehren.
 

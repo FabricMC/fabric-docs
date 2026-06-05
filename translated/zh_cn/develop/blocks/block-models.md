@@ -63,7 +63,7 @@ resources:
 }
 ```
 
-<!--@include: ../items/item-models.md#parent-->
+<!-- @include: ../items/item-models.md#parent -->
 
 将此标签设置为 `builtin/generated` 以使用从指定图标创建的模型。 旋转可以通过[方块状态](./blockstates)实现。
 
@@ -77,7 +77,7 @@ resources:
 
 此标签指定是否使用[环境光遮蔽](https://zh.wikipedia.org/zh-cn/%E7%8E%AF%E5%A2%83%E5%85%89%E9%81%AE%E8%94%BD)。 默认为 `true`。
 
-<!--@include: ../items/item-models.md#display-->
+<!-- @include: ../items/item-models.md#display -->
 
 ### 纹理 {#textures}
 
@@ -95,14 +95,14 @@ resources:
 1. `particle`：_字符串_。 定义从中加载粒子的纹理。 此纹理也会用作站在下界传送门中时的叠加层，也用于水和熔岩的静态纹理。 它也被视为一个纹理变量，可以引用为 `#particle`。
 2. `<texture_variable>`：_字符串_。 创建一个变量并分配一个纹理。 稍后可以使用 `#` 前缀引用（例如 `"top": "namespace:path"` ⇒ `#top`）。
 
-<!--@include: ../items/item-models.md#elements-->
+<!-- @include: ../items/item-models.md#elements -->
 
-<!--@include: ../items/item-models.md#from-->
+<!-- @include: ../items/item-models.md#from -->
 
 `from` 指定长方体的起点，按照 `[x, y, z]` 格式，相对于左下角。 `to` 指定终点。 一个与标准方块大小相同的长方体将从 `[0, 0, 0]` 开始，到 `[16, 16, 16]` 结束。
 两者的值都必须在 **-16** 到 **32** 之间，这意味着每个方块模型的最大尺寸为 3×3 方块。
 
-<!--@include: ../items/item-models.md#rotation-->
+<!-- @include: ../items/item-models.md#rotation -->
 
 `rotation` 定义元素的旋转。 其包含四个值：
 
@@ -111,7 +111,7 @@ resources:
 3. `angle`：_浮点数_。 指定旋转角度。 范围从 **-45** 到 **45**。
 4. `rescale`：_布尔值_。 指定是否在整个方块上缩放面。 默认为 `false`。
 
-<!--@include: ../items/item-models.md#shade-to-faces-->
+<!-- @include: ../items/item-models.md#shade_to_faces -->
 
 1. `uv`：_四个整数_。 根据 `[x1, y1, x2, y2]` 格式定义要使用的纹理区域。 如果未设置，则默认为元素 xyz 位置的值。
    翻转 `x1` 和 `x2` 的值（例如从 `0, 0, 16, 16` 到 `16, 0, 0, 16`）会翻转纹理。 UV 是可选的，如果未提供，则根据元素的位置自动生成。

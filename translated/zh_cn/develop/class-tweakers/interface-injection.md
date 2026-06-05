@@ -26,7 +26,7 @@ authors:
 
 在一个非 mixin 包中，创建你想要注入的接口：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 在本例中，我们会默认抛出异常，因为我们计划通过 mixin 来实现该方法。
 
@@ -48,7 +48,7 @@ authors:
 
 若要在目标类中重写接口方法，你应当使用一个实现该接口、并以目标类为目标的 mixin。
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 这些重写方法会在运行时被添加到目标类中，但即使你使用类调整器让接口实现显示出来，它们也不会出现在反编译源码中。
 
@@ -64,7 +64,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 对于我们的示例接口，条目如下：
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### 泛型接口 {#generic-interfaces}
 
@@ -85,13 +85,13 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 因此，如果要注入以下接口：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 并指定泛型 `<? extends String, Boolean[]>`，
 
 那么类调整器条目应为：
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## 应用更改 {#applying-changes}
 
@@ -100,6 +100,6 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 现在，新增的方法可以直接在被注入接口的类实例上使用：
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 如有需要，你也可以在接口注入目标类的子类中重写这些方法。

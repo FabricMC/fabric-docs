@@ -12,9 +12,9 @@ Le schede d'inventario, anche dette gruppi di oggetti, sono quelle dell'inventar
 
 Aggiungere una scheda all'inventario è abbastanza semplice. Basta creare un nuovo attributo `static final` nella classe dei tuoi oggetti per memorizzare la scheda e una chiave di registry per essa. Poi, potrai usare `FabricCreativeModeTab.builder` per crearla e aggiungerci gli oggetti:
 
-@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_creative_tab
 
-@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#register_creative_tab
 
 Dovresti notare che la nuova scheda è ora nel menu dell'inventario in Creativa. Tuttavia, è rimasto senza traduzione - devi aggiungere una chiave al tuo file di traduzioni - come quando hai tradotto il tuo primo oggetto.
 

@@ -33,7 +33,7 @@ resources:
 
 Продовжте створення файлу `resources/assets/example-mod/sounds.json`, якщо він ще не існує, і додайте свій звук до звукових записів.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/sounds.json
 
 Запис субтитрів надає гравцеві більше контексту. Ім’я субтитрів використовується в мовних файлах у каталозі `resources/assets/example-mod/lang` та їх буде видно, якщо ввімкнуто налаштування субтитрів у грі та відтворюється цей спеціальний звук.
 
@@ -52,11 +52,11 @@ Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath
 
 Додайте два нові методи до щойно створеного допоміжного класу. Один, який реєструє всі звуки, і інший, який використовується для ініціалізації цього класу в першу чергу. Після цього ви можете комфортно додавати нові спеціальні статичні змінні класу `SoundEvent` за потреби.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java#custom_sounds
 
 Таким чином, ініціалізатору мода потрібно реалізувати лише один рядок, щоб зареєструвати всі спеціальні звукові події.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java#example_mod_sounds
 
 ## Використання спеціальної звукової події {#using-the-custom-soundevent}
 

@@ -12,9 +12,9 @@ authors:
 
 添加创造标签页非常简单。 在你的物品类中就创建一个新的静态常量字段，存储其创造模式物品栏以及相应的资源键。 你可以使用 `FabricCreativeModeTab.builder` 来创建标签页，并为其添加物品：
 
-@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_creative_tab
 
-@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#register_creative_tab
 
 你现在应该可以在创造模式物品栏菜单内看到新的标签页了。 然而还没有翻译——必须给你的翻译文件添加翻译键——类似于翻译你的第一个物品的方式。
 

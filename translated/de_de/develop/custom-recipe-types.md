@@ -12,7 +12,7 @@ Benutzerdefinierte Rezepttypen bieten die Möglichkeit, datengesteuerte Rezepte 
 
 Bevor wir mit der Erstellung unseres Rezepts beginnen können, benötigen wir eine Implementierung von `RecipeInput`, die die Eingabeitems im Inventar unseres Blocks aufnehmen kann. Wir möchten, dass ein Aufwertungsrezept zwei Eingabeitems enthält: Ein Basisitem, das aufgewertet werden soll, und die Aufwertung selbst.
 
-@[code transcludeWith=:::recipeInput](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe_input
 
 ## Die Rezeptklasse erstellen {#creating-the-recipe-class}
 
@@ -20,7 +20,7 @@ Da wir nun eine Möglichkeit haben, die Eingabeitems zu speichern, können wir u
 
 Beginnen wir damit, das Ergebnis und die Zutaten des Rezepts zu definieren.
 
-@[code transcludeWith=:::baseClass](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base_class
 
 Beachte, dass wir für unsere Eingaben `Ingredient`-Objekte verwenden. Dadurch kann unser Rezept mehrere Items beliebig austauschbar verarbeiten.
 
@@ -30,7 +30,7 @@ Als Nächstes implementieren wir die Methoden aus dem Rezept-Interface. Die Inte
 
 Um zu prüfen, ob die Zutaten übereinstimmen, können wir die Methode `test` unserer Zutaten verwenden.
 
-@[code transcludeWith=:::implementing](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implementing
 
 ## Erstellen eines Rezept-Serialisierers {#creating-a-recipe-serializer}
 
@@ -38,23 +38,23 @@ Der Rezept-Serializer verwendet einen [`MapCodec`](./codecs/#mapcodec), um das R
 
 Wir werden `RecordCodecBuilder#mapCodec` verwenden, um einen Map-Codec für unser Rezept zu erstellen. Dadurch können wir die vorhandenen Codecs von Minecraft in unsere eigenen integrieren:
 
-@[code transcludeWith=:::mapCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#map_codec
 
 Der Stream-Codec kann auf ähnliche Weise mit `StreamCodec#composite` erstellt werden:
 
-@[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#stream_codec
 
 Nun registrieren wir den Rezept-Serializer sowie einen Rezepttyp. Das kannst du im Initialisierer deines Mods tun oder in einer separaten Klasse, deren Methode vom Initialisierer deines Mods aufgerufen wird:
 
-@[code transcludeWith=:::registration](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#registration
 
 Zurück zu unserer Rezeptklasse: Wir können nun die Methoden hinzufügen, die die soeben registrierten Objekte zurückgeben:
 
-@[code transcludeWith=:::implementRegistryObjects](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implement_registry_objects
 
 Um unseren benutzerdefinierten Rezepttyp zu vervollständigen, müssen wir nur noch die verbleibenden Methoden `placementInfo`, `showNotification`, `group` und `recipeBookCategory` implementieren, die vom Rezeptbuch verwendet werden, um unser Rezept auf einem Bildschirm zu platzieren. Vorerst geben wir einfach `PlacementInfo.NOT_PLACEABLE` und `null` zurück, da das Rezeptbuch nicht ohne Weiteres auf modifizierte Arbeitsplätze ausgeweitet werden kann. Außerdem werden wir die Methode `isSpecial` überschreiben, sodass sie `true` zurückgibt, um zu verhindern, dass bestimmte andere, mit dem Rezeptbuch zusammenhängende Logik ausgeführt wird und Fehler protokolliert.
 
-@[code transcludeWith=:::recipeBook](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#recipe_book
 
 ## Ein Rezept erstellen {#creating-a-recipe}
 
@@ -64,7 +64,7 @@ Lasst uns zuerst ein Rezept erstellen. Erstelle in deinem Ordner `resources` im 
 
 In unserem Fall sieht eine gültige Rezeptdatei wie folgt aus:
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json
 
 ## Ein Menü erstellen {#creating-a-menu}
 
@@ -76,7 +76,7 @@ Weitere Informationen zum Erstellen von Menüs findest du unter unter [Container
 
 Damit wir unser Rezept in dem GUI erstellen können, erstellen wir einen Block mit einem [Menü](./blocks/container-menus):
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
 Da gibt es eine Menge zu besprechen! Dieses Menü verfügt über zwei Eingabefelder und ein Ausgabefeld.
 
@@ -90,6 +90,10 @@ Um zu erkennen, wann der Benutzer das Ergebnis entnimmt, erstellen wir eine anon
 
 Um zu verhindern, dass Items gelöscht werden, ist es wichtig, die Eingaben beim Schließen des Bildschirms wieder zurückzusetzen, wie in der Methode `removed` gezeigt.
 
+Du musst auch das Menü zur Registry hinzufügen:
+
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
+
 ## Rezeptsynchronisierung {#recipe-synchronization}
 
 ::: info
@@ -102,8 +106,8 @@ Wie bereits erwähnt, werden Rezepte vollständig auf dem logischen Server verar
 
 Um deine Rezepte zu synchronisieren, rufe einfach `RecipeSynchronization.synchronizeRecipeSerializer` in deinem Mod-Initialisierer auf und gib den Rezept-Serialisierer deines Mods an:
 
-@[code transcludeWith=:::recipeSync](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe_sync
 
 Nach der Synchronisierung können die Rezepte jederzeit über den Rezeptmanager auf Client-Ebene abgerufen werden:
 
-@[code transcludeWith=:::recipeSyncClient](@/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client

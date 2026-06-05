@@ -27,11 +27,11 @@ resources:
 - 双精度浮点数，属性可达到的最大值
 - 布尔值，决定属性是否同步至客户端
 
-@[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#register
 
 我们注册一个叫做 `AGGRO_RANGE` 的属性，名称为 `aggro_range`，默认值 `8.0`，最小值 `0`，最大值设置为能多高就多高。 属性不会向玩家同步。
 
-@[code lang=java transcludeWith=:::attributes](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#attributes
 
 ### 翻译自定义属性{#attribute-translation}
 
@@ -47,9 +47,9 @@ resources:
 
 要确保能正确注册属性，需要确保在模组初始阶段被初始化。 可以在类中添加公共、静态的初始化方法，然后在你的[模组的初始化](../getting-started/project-structure#entrypoints)类中调用。 当前，方法不需要里面有任何东西。
 
-@[code lang=java transcludeWith=:::initialize](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#initialize
 
-@[code lang=java transcludeWith=:::init](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java#init
 
 对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。 这就是这个占位的 `initialize` 的方法的目的。
 

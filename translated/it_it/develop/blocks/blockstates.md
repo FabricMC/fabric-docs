@@ -26,7 +26,7 @@ Minecraft ha già delle classi che permettono di creare velocemente alcuni tipi 
 
 La classe vanilla `RotatedPillarBlock` permette di piazzare il blocco lungo gli assi X, Y o Z.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_oak_log
 
 I pilastri hanno due texture diverse, superiore e laterale - e usano il modello `block/cube_column`.
 
@@ -41,7 +41,7 @@ Dato che un pilastro ha due posizioni, orizzontale e verticale, dobbiamo creare 
 
 Un esempio di come deve essere il file `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json
 
 ::: info
 
@@ -57,7 +57,7 @@ Ora dobbiamo creare un file per lo stato. Il file dello stato è dove avviene la
 - `axis=y` - Quando il blocco è piazzato sull'asse Y, useremo il modello verticale normale.
 - `axis=z` - Quando il blocco è piazzato sull'asse Z, ne ruoteremo il modello in modo che guardi verso la parte positiva delle Z.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json
 
 Come sempre, dovrai creare una traduzione per il tuo blocco, oltre ad un modello dell'oggetto il quale deve essere figlio di uno dei due modelli.
 
@@ -73,21 +73,21 @@ Questo esempio creerà una proprietà booleana chiamata `activated` - quando un 
 
 Anzitutto, dovrai creare la proprietà in sé - poiché questo è un booleano, useremo il metodo `BooleanProperty.create`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block
 
 Dopo di che, dovremo aggiungere la proprietà al gestore degli stati del blocco nel metodo `createBlockStateDefinition`. Dovrai fare override del metodo per accedere al costruttore:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block_state_definition
 
 Dovrai anche impostare un valore predefinito per la proprietà `activated` nel costruttore del tuo blocco personalizzato.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#constructor
 
 ### Usare la Proprietà {#using-the-property}
 
 Questo esempio invertirà la proprietà booleana `activated` quando il giocatore interagisce con il blocco. Possiamo fare override del metodo `useWithoutItem` per questo:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on_use
 
 ### Visualizzare la Proprietà {#visualizing-the-property}
 
@@ -103,7 +103,7 @@ Se hai proprietà multiple su un blocco, dovrai tenere in conto tutte le possibi
 
 Poiché questo blocco ha solo due possibili varianti, dato che ha solo una proprietà (`activated`), il file JSON degli stati del blocco avrà il seguente aspetto:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json
 
 ::: tip
 
@@ -115,9 +115,9 @@ Poiché il blocco nell'esempio è una lampada, dovremo anche fargli emettere luc
 
 Puoi usare il metodo `lightLevel` per impostare il livello di luce emessa dal blocco, possiamo creare un metodo statico nella classe `PrismarineLampBlock` per restituire il livello di luce in base alla proprietà `activated`, e passarlo come riferimento a un metodo nel metodo `lightLevel`:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

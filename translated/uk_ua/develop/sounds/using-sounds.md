@@ -13,11 +13,11 @@ Minecraft має великий вибір звуків, з яких ви мож
 
 У цьому прикладі методи `interactLivingEntity()` і `useOn()` для спеціального інтерактивного елемента використовуються для відтворення «розміщення блока міді» та звуку розбійника.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#interact
 
 Метод playSound() використовується з об’єктом `LivingEntity`. Треба вказати лише SoundEvent, гучність і висоту звуку. Ви також можете використовувати метод `playSound()` з екземпляра рівня (світу), щоб отримати вищий рівень контролю.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#use_on
 
 ### SoundEvent і SoundCategory {#soundevent-and-soundcategory}
 

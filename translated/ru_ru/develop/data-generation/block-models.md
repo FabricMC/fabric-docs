@@ -27,11 +27,11 @@ resources:
 Во-первых, нам понадобится создать наш ModelProvider. Создайте класс, который расширяет (extends) `FabricModelProvider`. Реализуйте оба абстрактных метода: `generateBlockStateModels` и `generateItemModels`.
 Напоследок, создайте конструктор, соответствующий суперклассу (super).
 
-@[code lang=java transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#provider
 
 Зарегистрируйте этот класс в вашей точке `DataGeneratorEntrypoint` в методе `onInitializeDataGenerator`.
 
-@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_models_register
 
 ## Состояния блоков и модели блоков {#blockstates-and-block-models}
 
@@ -46,15 +46,15 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ### Простой куб со всех сторон (Simple Cube All) {#simple-cube-all}
 
-@[code lang=java transcludeWith=:::cube-all](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#cube_all
 
 Это самая часто используемая функция. Она генерирует файл JSON-модели для обычного блока типа `cube_all`. Одна и та же текстура используется для всех шести сторон, в этом случае мы используем `steel_block`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/steel_block.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/steel_block.json
 
 Она также генерирует JSON-файл состояния блока (blockstate). Поскольку у нас нет свойств состояния блока (напр. Axis, Facing, ...), достаточно одного варианта, который используется каждый раз, когда блок поставлен.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/steel_block.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/steel_block.json
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/steel_block_big.png" downloadURL="/assets/develop/data-generation/block-model/steel_block.png">Текстура стального блока</DownloadEntry>
 
@@ -62,11 +62,11 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Метод `registerSingleton` предоставляет файлы JSON-моделей на основе переданной вам `TexturedModel` и один вариант blockstate.
 
-@[code lang=java transcludeWith=:::cube-top-for-ends](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#cube_top_for_ends
 
 Этот метод генерирует модели для обычного куба, который использует текстурный файл `pipe_block` для сторон и текстурный файл `pipe_block_top` для верхней и нижней сторон.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/pipe_block.json
 
 ::: tip
 
@@ -78,7 +78,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 ### Набор блочных текстур (Block Texture Pool) {#block-texture-pool}
 
-@[code lang=java transcludeWith=:::block-texture-pool-normal](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
 Еще один полезный метод - `registerCubeAllModelTexturePool`: определите текстуры, передав "базовый блок", а затем добавьте "дочерние", которые будут иметь те же самые текстуры.
 В данном случае мы передали `RUBY_BLOCK`, поэтому лестница, плита и ограждение будут использовать текстуру `RUBY_BLOCK`.
@@ -93,15 +93,15 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Вы также можете добавить `BlockFamily`, который будет генерировать модели для всех своих "детей".
 
-@[code lang=java transcludeWith=:::family-declaration](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#family_declaration
 
-@[code lang=java transcludeWith=:::block-texture-pool-family](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_family
 
 <DownloadEntry visualURL="/assets/develop/data-generation/block-model/ruby_block_big.png" downloadURL="/assets/develop/data-generation/block-model/ruby_block.png">Текстура блока рубинов</DownloadEntry>
 
 ### Двери и Люки {#doors-and-trapdoors}
 
-@[code lang=java transcludeWith=:::door-and-trapdoor](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#door_and_trapdoor
 
 С дверями и люками всё немного иначе. Здесь вам понадобится создать три новые текстуры: две для двери и одну для люка.
 
@@ -123,7 +123,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 :::details Раскрыть класс `CustomBlockStateModelGenerator`
 
-@[code transcludeWith=:::custom-blockstate-model-generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_blockstate_model_generator
 
 :::
 
@@ -132,13 +132,13 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 Создайте блок `VerticalSlab` со свойством `FACING` и булевым свойством `SINGLE`, как в учебнике [Block States](../blocks/blockstates). `SINGLE` укажет, есть ли обе плиты.
 Затем следует переопределить `getOutlineShape` и `getCollisionShape`, чтобы контур отрисовывался правильно, а блок имел правильную форму столкновения.
 
-@[code lang=java transcludeWith=:::custom-voxels](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
-@[code lang=java transcludeWith=:::custom-collision](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
 Также переопределите метод `canReplace()`, иначе вы не сможете сделать плиту полным блоком.
 
-@[code lang=java transcludeWith=:::custom-replace](@/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 
 Готово! Теперь вы можете протестировать блок и поместить его в игру.
 
@@ -147,7 +147,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 Теперь давайте создадим модель родительского блока. Он определит размер, положение в руке или других слотах, а также координаты `x` и `y` текстуры.
 Рекомендуется использовать для этого редактор, например [Blockbench](https://www.blockbench.net/), т.к. делать это вручную - очень утомительный процесс. Это должно выглядеть примерно так:
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/models/block/vertical_slab.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/models/block/vertical_slab.json
 
 Доп. информацию см. в разделе [Как форматируются состояния блоков](https://minecraft.wiki/w/Blockstates_definition_format).
 Обратите внимание на ключевые слова `#bottom`, `#top`, `#side`. Они работают как переменные, значения которых могут быть заданы в моделях, использующих текущую модель в качестве родительской (parent).
@@ -169,7 +169,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Еще одна вещь, которая нам понадобится -- это экземпляр класса `Model`. Он будет представлять фактическую [модель родительского блока](#parent-block-model) внутри нашего мода.
 
-@[code lang=java transcludeWith=:::custom-model](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_model
 
 Метод `block()` создает новую `Model`, указывая на файл `vertical_slab.json` в папке `resources/assets/example-mod/models/block/`.
 Ключи `TextureSlot` представляют собой "заполнители" (placeholders) (`#bottom`, `#top`, ...) как объект.
@@ -188,7 +188,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Поскольку мы хотим использовать текстуры дубового бревна, но при этом у нас есть слоты текстур `BOTTOM` (низ), `TOP` (верх) и `SIDE` (бока), нам нужно создать новую карту текстур.
 
-@[code lang=java transcludeWith=:::custom-texture-map](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_texture_map
 
 Для нижней и верхней граней будет использоваться файл `oak_log_top.png`, для боковых граней — файл `oak_log.png`.
 
@@ -202,7 +202,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 `BlockModelDefinitionGenerator` содержит все варианты состояний блока (blockstate), их вращение и другие параметры, такие как блокировка UV-координат (UV lock).
 
-@[code lang=java transcludeWith=:::custom-supplier](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_supplier
 
 Сначала мы создаем новый `BlockModelDefinitionGenerator` с помощью метода `MultiVariantGenerator.dispatch()`.
 Затем мы создаем новый `PropertyDispatch`, который содержит параметры для всех вариантов блока — в данном случае `FACING` и `SINGLE` — и передаем его в `MultiVariantGenerator`.
@@ -223,7 +223,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 3. `Block fullBlock — блок, модель которого используется, когда свойство SINGLE имеет значение false (то есть когда блок плиты выглядит как полный блок).`
 4. `TextureMapping textures` — определяет конкретные текстуры, которые использует модель. См. главу [Использование карты текстур](#using-texture-map).
 
-@[code lang=java transcludeWith=:::custom-gen](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_gen
 
 Сначала мы получаем идентификатор (`Identifier`) модели одиночной плиты с помощью `VERTICAL_SLAB.create()`. Затем мы получаем идентификатор модели полного блока с помощью `ModelLocationUtils.getModelLocation()`.
 
@@ -233,4 +233,4 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 Вот и всё! Теперь осталось только вызвать наш метод в классе `ModelProvider`:
 
-@[code lang=java transcludeWith=:::custom-method-call](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_method_call

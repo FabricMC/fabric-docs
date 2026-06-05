@@ -60,7 +60,7 @@ Die Spezifikationen sind weiterhin nach Zugriffserweiterern benannt, um die AbwÃ
 
 #### build.gradle {#build-gradle}
 
-@[code lang=gradle:no-line-numbers transcludeWith=:::classtweaker-setup:gradle:::](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#classtweaker_setup_gradle
 
 #### fabric.mod.json {#fabric-mod-json}
 

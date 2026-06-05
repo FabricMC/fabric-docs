@@ -134,7 +134,7 @@ Reaper 附带一个 EQ 滤波器，叫做“ReaEQ”。 它可能位于其他地
 
 记住，这只会在执行此部分代码的特定客户端上播放。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#simple_sound_instance
 
 ::: warning
 
@@ -159,18 +159,18 @@ Reaper 附带一个 EQ 滤波器，叫做“ReaEQ”。 它可能位于其他地
 
 使用这些工具只需简单地为你的自定义`SoundInstance`类创建一个新类并继承`MovingSoundInstance`。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java#custom_sound_instance
 
 使用你自定义的`Entity`或`BlockEntity`而不是基础的`LivingEntity`实体会使得你拥有更多控制权，比如`tick()`方法基于访问器方法, 但你不一定需要一个针对音源的一个引用。 取而代之的是,你可以从其他位置获取`BlockPos`亦或只是在构造方法中手动设置。
 
 只需记住在`SoundInstance`中所有的引用对象都是客户端版本的。
 在特定情况下，逻辑服务器端实体的属性可能不同于其客户端对应实体。
-如果你注意到你的值不一致，请确保你的值与实体的 `EntityDataAccessor`、`BlockEntity` S2C 数据包或完整的自定义 S2C 网络数据包同步。
+如果你注意到你的值不一致，请确保你的值与实体的 `EntityDataAccessor`、`BlockEntity` 客户端数据包或完整的自定义客户端网络数据包同步。
 
 在你完成自定义 `SoundInstance`的创建后，只要在客户端使用声音管理器执行了它，就可以在任何地方使用它了。
 同样地，你也可以自主停止`SoundInstance`，如果有必要的话。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#custom_sound_instance
 
 现在，将仅对运行该`SoundInstance`的客户端播放声音循环。 在这种情况下，声音将遵循 `LocalPlayer` 本身。
 
@@ -229,7 +229,7 @@ Reaper 附带一个 EQ 滤波器，叫做“ReaEQ”。 它可能位于其他地
 
 从现在开始，我们将使用一个名为`DynamicSoundSource`的自定义接口。 它被实现在所有要使用动态声音功能的类中，例如自定义的 `BlockEntity`、实体，甚至使用 Mixin 在已有的类（如 `Zombie`）中也能实现。 它本质上仅包含声源的必要数据。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java#dynamic_sound_source
 
 创建此接口后，确保在必要的类中也实现它。
 
@@ -262,7 +262,7 @@ public enum TransitionState {
 
 但是当这些值通过网络发送时，你可能需要为它们定义一个 `标识符` 或甚至添加其他自定义值。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java#transition_state
 
 ::: info
 
@@ -277,7 +277,7 @@ public enum TransitionState {
 
 此接口用作回调。 目前，我们只需要一个 `onFinished` 方法，但如果你需要从 `SoundInstance` 对象发送其他信号，你可以添加自己的方法。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java#sound_instance_callback
 
 在任何能够处理传入信号的类上实现此接口，例如我们即将创建的`AbstractDynamicSoundInstance`，并在自定义`SoundInstance`本身中创建该功能。
 
@@ -297,39 +297,39 @@ public enum TransitionState {
 - 刻持有者，用于跟踪当前声音的进度。
 - 回调函数，当 `SoundInstance` 实际完成时，向 `DynamicSoundManager` 发送信号进行最终清理
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#class_fields
 
 然后在抽象类的构造函数中设置自定义 `SoundInstance` 的默认起始值​​。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#constructor
 
 构造函数完成后，你需要允许 `SoundInstance` 能够播放。
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#can_start
 
 现在到了这个动态 `SoundInstance` 的重要部分。 根据实例的当前刻，它可以应用不同的值和行为。
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#tick
 
 如你所见，我们尚未在此处应用音量和音调调制。 我们只应用共享行为。
 因此，在这个 `AbstractDynamicSoundInstance` 类中，我们仅为子类提供基本结构和工具，子类可以自行决定实际要应用哪种声音调制。
 
 让我们看一些此类声音调制方法的示例。
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#modulation
 
 如你所见，归一化值与线性插值 (lerp) 相结合有助于将值调整到理想的音频限值。
 请记住，如果你添加了多个更改同一值的方法，则需要观察并调整它们之间的协作方式。
 
 现在我们只需添加其余的实用方法，`AbstractDynamicSoundInstance` 类就完成了。
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#other
 
 ### `SoundInstance` 实现示例 {#example-soundinstance-implementation}
 
 如果我们看一下实际的自定义 `SoundInstance` 类（它扩展自新创建的 `AbstractDynamicSoundInstance`），我们只需要考虑什么条件会使声音停止以及我们想要应用什么声音调制。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java#engine_sound_instance
 
 ### `DynamicSoundManager` 类 {#dynamicsoundmanager-class}
 
@@ -338,7 +338,7 @@ public enum TransitionState {
 这个新的 `DynamicSoundManager` 类将管理自定义的 `SoundInstance`，因此它也仅供客户端使用。 此外，客户端应该只允许此类的一个实例存在。 单个客户端使用多个声音管理器意义不大，而且会使交互更加复杂。
 因此，我们使用[“单例设计模式”](https://refactoring.guru/design-patterns/singleton/java/example)。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_structure
 
 在正确完成基本结构后，你可以添加与声音系统交互所需的方法。
 
@@ -346,16 +346,16 @@ public enum TransitionState {
 - 停止声音
 - 检查声音是否正在播放
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_methods
 
 除了拥有所有当前正在播放的 `SoundInstance` 列表之外，你还可以跟踪哪些声源正在播放哪些声音。
 例如，一个引擎同时播放两种引擎声音是没有意义的，而多个引擎同时播放各自的引擎声音则是一种有效的极端情况。 为了简单起见，我们只创建了一个 `List<AbstractDynamicSoundInstance>`，但在许多情况下，`DynamicSoundSource` 和 `AbstractDynamicSoundInstance` 的 `HashMap` 可能是更好的选择。
 
 ### 使用高级声音系统 {#using-the-advanced-sound-system}
 
-要使用此声音系统，只需使用 `DynamicSoundManager` 方法或 `SoundInstance` 方法即可。 使用实体中的 `onStartedTrackingBy` 和 `onStoppedTrackingBy` 或自定义 S2C 网络，你现在可以启动和停止自定义动态 `SoundInstance`。
+要使用此声音系统，只需使用 `DynamicSoundManager` 方法或 `SoundInstance` 方法即可。 现在，你可以使用实体中的 `onStartedTrackingBy` 和 `onStoppedTrackingBy` 方法，或者使用[自定义客户端绑定网络](../networking#receiving-a-packet-on-the-client)，来启动和停止您的自定义动态 `SoundInstance`。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/network/ReceiveS2C.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/ClientboundSoundReceiver.java#handle_packet
 
 最终产品可以根据声音相位调整音量，使过渡更加平滑，并根据来自声源的压力值改变音调。
 

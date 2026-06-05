@@ -33,7 +33,7 @@ authors:
 
 这是一个简单的 `main` 入口点示例，当游戏启动时，它会向控制台记录一条消息：
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
 ## `src/main/resources` {#src-main-resources}
 

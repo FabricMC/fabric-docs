@@ -35,11 +35,11 @@ Wenn du den Builder nach deinen Wünschen verändert hast, kannst du die Methode
 
 Wenn du dem Spieler Mobeffekte hinzufügen möchtest, wenn er dein Essen isst, musst du die Komponente `Consumable` neben der Komponente `FoodProperties` hinzufügen, wie im folgenden Beispiel zu sehen ist:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
 Ähnlich wie in dem Beispiel auf der Seite [Dein erstes Item erstellen](./first-item) werde ich den obigen Component verwenden:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
 Dies macht das Item:
 
