@@ -23,9 +23,10 @@ Then register the stat:
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#register
 
 When adding the stat to the Statistics screen via `Stats.CUSTOM.get()`, you can also specify the stat formatter, which determines how the number is displayed in the stat list. Vanilla provides the following formatters:
+
 - `DEFAULT`: Displays the number directly.
 - `DIVIDE_BY_TEN`: Displays the number as a decimal, divided by ten.
--  `DISTANCE`: Displays the number as distance: Depending on the size of the number, this will be shown in centimeters, meters, or kilometers.
+- `DISTANCE`: Displays the number as distance: Depending on the size of the number, this will be shown in centimeters, meters, or kilometers.
 - `TIME`: Displays the number as time. Depending on the size of the number, this will be shown in seconds, minutes, hours, or days.
 
 ## Using The Statistic {#using-the-statistic}

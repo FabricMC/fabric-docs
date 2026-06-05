@@ -166,7 +166,7 @@ public class ModBlocks {
 	// #endregion waxcap_tinting
 
 	public static final Block STATISTICS_BLOCK = register(
-		"statistics_block", StatisticsBlock::new, BlockBehaviour.Properties.of(), true
+			"statistics_block", StatisticsBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// #region first_block
